@@ -3,24 +3,24 @@ title: Azure Stack 上の MySQL リソース プロバイダーを削除する |
 description: Azure Stack のデプロイから MySQL リソース プロバイダーを削除する方法について説明します。
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: jeffgilb
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/20/2018
-ms.date: 12/31/2018
-ms.author: v-jay
+ms.date: 05/06/2019
+ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 41b89e5239d72954de7202b87aaf02a2bdf90fd1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 11/20/2018
+ms.openlocfilehash: 69624d94be7742256b1adf6ed22100a6d3b826d8
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307075"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172321"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>MySQL リソースプロバイダーを削除する
 
@@ -60,5 +60,3 @@ DeployMySqlProvider.ps1 スクリプトを実行してリソース プロバイ�
 ## <a name="next-steps"></a>次の手順
 
 [App Services を PaaS として提供する](azure-stack-app-service-overview.md)
-
-<!-- Update_Description: wording update -->
