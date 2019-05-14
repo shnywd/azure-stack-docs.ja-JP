@@ -1,0 +1,31 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+    - name: Azure Stack
+      tocHref: /azure-stack/
+      topicHref: /azure-stack/operator/index
+      items:
+        - name: ASDK
+          tocHref: /azure-stack/asdk/
+          topicHref: /azure-stack/asdk/index
+        - name: Operator
+          tocHref: /azure-stack/operator/
+          topicHref: /azure-stack/operator/index
+          items:
+            - name: '攻略ガイド: Azure Stack のバックアップ'
+              tocHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              topicHref: /azure-stack/operator/azure-stack-backup-infrastructure-backup/
+              items:
+                - name: Azure Stack 上のファイルとアプリケーションのバックアップ
+                  tocHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                  topicHref: /azure/backup/backup-mabs-files-applications-azure-stack
+                - name: Azure Stack VM を Azure にレプリケートする
+                  tocHref: /azure/site-recovery/azure-stack-site-recovery
+                  topicHref: /azure/site-recovery/azure-stack-site-recovery
+        - name: パートナー
+          tocHref: /azure-stack/partner/
+          topicHref: /azure-stack/partner/index
+        - name: User
+          tocHref: /azure-stack/user/
+          topicHref: /azure-stack/user/index
