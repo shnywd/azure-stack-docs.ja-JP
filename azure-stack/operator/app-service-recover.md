@@ -3,8 +3,8 @@ title: Azure Stack 上の App Service を復旧する | Microsoft Docs
 description: Azure Stack 上の App Service の障害復旧に関する詳細なガイダンス
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/21/2019
-ms.date: 04/01/2019
-ms.author: v-jay
+ms.date: 03/21/2019
+ms.author: mabrigg
 ms.reviewer: apwestgarth
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b034259dde817c863d976384b08da17983ed9de7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7932530f88365597de24ed49e93820150bc88c3c
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306643"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618303"
 ---
 # <a name="recovery-of-app-service-on-azure-stack"></a>Azure Stack 上の App Service の復旧
 

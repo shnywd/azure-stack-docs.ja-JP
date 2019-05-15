@@ -3,8 +3,8 @@ title: Azure Stack 統合システムのファイアウォール計画 | Microso
 description: Azure に接続されたマルチノード Azure Stack デプロイのための Azure Stack のファイアウォールに関する注意点について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 02/12/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 023201d221ee5d7ec884c6a760407e8da8340d3f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: a98f89866fd7679a0d6ce7c6ecb40d7e8e8b51e7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309991"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618689"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack ファイアウォールの統合
 Azure Stack は、ファイアウォール デバイスを使って保護することをお勧めします。 ファイアウォールは、分散型サービス拒否 (DDOS) 攻撃に対する防御、侵入検出、コンテンツ検査などに役立ちます。 ただし、これが BLOB、テーブル、キューなどの Azure ストレージ サービスのスループットのボトルネックになる場合もあります。

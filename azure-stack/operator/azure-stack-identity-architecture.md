@@ -3,26 +3,25 @@ title: Azure Stack の ID アーキテクチャ | Microsoft Docs
 description: Azure Stack で使用できる ID アーキテクチャについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: PatAltimore
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 05/09/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 9ae8a55d04c34ec65d964927fd25c3bc01adeae4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: e09451c1bf49a2de075388f555cb7b80e70db63f
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310027"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532314"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack の ID アーキテクチャ
 
@@ -42,7 +41,7 @@ Azure Stack で使用する ID プロバイダーを選択する場合は、Azur
 |Azure CLI、Visual Studio、PowerShell などのツールのサポート  |はい |はい|
 |Azure Portal を通じてサービス プリンシパルを作成する     |はい |いいえ |
 |証明書でサービス プリンシパルを作成する      |はい |はい|
-|シークレット (キー) でサービス プリンシパルを作成する    |はい |いいえ |
+|シークレット (キー) でサービス プリンシパルを作成する    |はい |はい|
 |アプリケーションが Graph サービスを使用できる           |はい |いいえ |
 |アプリケーションがサインインに ID プロバイダーを使用できる |はい |はい。 アプリケーションがオンプレミスの AD FS インスタンスとフェデレーションする必要があります。 |
 
@@ -101,4 +100,3 @@ AD FS トポロジは、次のいずれかの条件に該当する場合に必�
 ## <a name="next-steps"></a>次の手順
 - [ID の概要](azure-stack-identity-overview.md)   
 - [データセンターの統合 - ID](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->

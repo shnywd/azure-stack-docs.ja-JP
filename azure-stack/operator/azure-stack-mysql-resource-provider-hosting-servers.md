@@ -3,25 +3,24 @@ title: Azure Stack での MySQL ホスティング サーバー | Microsoft Docs
 description: MySQL アダプター リソースプロバイダーを使用したプロビジョニングのために MySQL インスタンスを追加する方法
 services: azure-stack
 documentationCenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/26/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/26/2019
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: b563bc542c970fa71b9718ac070e2258abb80930
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 00469e3dedca4609b26e1d4e967837ff0925cb9c
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308203"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618583"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL リソース プロバイダー用のホスティング サーバーの追加
 
@@ -108,5 +107,3 @@ SKU を編集するには、**[すべてのサービス]** > **[MySQL アダプ�
 ## <a name="next-steps"></a>次の手順
 
 [MySQL データベースの作成](azure-stack-mysql-resource-provider-databases.md)
-
-<!-- Update_Description: wording update -->

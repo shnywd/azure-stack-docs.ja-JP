@@ -3,7 +3,7 @@ title: Azure Stack で高可用性 MySQL データベースを提供する | Mic
 description: Azure Stack で MySQL Server リソース プロバイダーのホスト コンピューターと高可用性 MySQL データベースを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f620b8f2d1abe4d656e8f7cf8c34a5798d517e2a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447929"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618230"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>チュートリアル: 高可用性 MySQL データベースの提供
 

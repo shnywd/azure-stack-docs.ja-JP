@@ -3,7 +3,7 @@ title: Azure Stack Development Kit の基礎 | Microsoft Docs
 description: Azure Stack Development Kit (ASDK) の基本的な管理作業を実行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: jeffgilb
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4dc4f1696266234d5aaaa14f27fbf4a0ba458108
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab88d8bb2821fc73e0e97e7a3473d7416c38e6f7
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306229"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617379"
 ---
 # <a name="asdk-administration-basics"></a>ASDK の管理の基本 
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要と、テスト ユーザーの生産性を迅速に向上させる方法を示します。

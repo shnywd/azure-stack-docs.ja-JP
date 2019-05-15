@@ -2,22 +2,21 @@
 title: ASDK を使用した Azure Stack のバックアップの検証 |Microsoft Docs
 description: ASDK を使用して、Azure Stack 統合システムのバックアップを検証する方法。
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 02/15/2019
+ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: b2f85366ed9d5f3b526549b220fe6b55f5e6c13f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308977"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617323"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
 Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行は、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
