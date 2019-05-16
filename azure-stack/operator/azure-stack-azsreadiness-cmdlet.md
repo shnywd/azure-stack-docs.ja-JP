@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2018
+ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 03efa5e8e0dbb3ec29748383914d3d0361bc124b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986161"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521247"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
@@ -209,7 +209,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates - RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 この例では、各 PaaS 証明書に対するパスとパスワードを使ってハッシュテーブルが作成されます。 証明書は省略できます。 `Start-AzsReadinessChecker` により各 PFX パスが存在することがチェックされ、リージョン **east**、外部 FQDN **azurestack.contoso.com** を使用して検証されます。
@@ -241,7 +241,7 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>例: デプロイ データで Azure ID を検証する (デプロイ サポート)
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
@@ -278,7 +278,7 @@ Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx
 
 この例では、セキュリティのために PFX パスワードが必要です。 ssl.pfx ファイルはローカル コンピューター証明書ストアにインポートされ、同じパスワードで再度エクスポートされた後、Ssl_new.pfx として保存されます。 この手順は、秘密キーで**ローカル コンピューター**属性が設定されていない、証明書チェーンが壊れている、関係のない証明書が PFX にある、証明書チェーンの順序が間違っている、といったフラグが、証明書の検証によって設定されたときに使用されます。
 
-### <a name="example-view-validation-report-deployment-support"></a>例: 検証レポートを表示する (デプロイ サポート)
+### <a name="example-view-validation-report-deployment-and-support"></a>例: 検証レポートを表示する (デプロイとサポート)
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 05/08/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: a0f01a70be83a556dfa0f8839711c2de1e7c688e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/08/2019
+ms.openlocfilehash: 69eb6e676fb8c134e0184d4df7df95ba0c75e854
+ms.sourcegitcommit: 879165a66ff80f1463b6bb46e2245684224a9b92
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311365"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473869"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack での Azure CLI による API バージョンのプロファイルの使用
 
@@ -81,69 +81,20 @@ ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 ### <a name="install-or-upgrade-cli"></a>CLI をインストールまたはアップグレードする
 
-開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。  CLI は、「[Azure CLI のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)」で説明されている手順を使用してインストールできます。 インストールが正常に完了したことを確認するには、ターミナルまたはコマンド プロンプト ウィンドウを開いて次のコマンドを実行します。
+開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。  CLI は、「[Azure CLI のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)」で説明されている手順を使用してインストールできます。 
 
-```shell
-az --version
-```
+1. インストールが正常に完了したことを確認するには、ターミナルまたはコマンド プロンプト ウィンドウを開いて次のコマンドを実行します。
 
-お使いのコンピューターにインストールされている Azure CLI と依存するその他のライブラリのバージョンが表示されます。
-
-### <a name="install-python-on-windows"></a>Python を Windows にインストールする
-
-1. [Python 3 をお使いのシステムに](https://www.python.org/downloads/)インストールします。
-
-2. PIP をアップグレードします。 PIP は Python 用のパッケージ マネージャーです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
-
-    ```powershell  
-    python -m pip install --upgrade pip
+    ```shell
+    az --version
     ```
 
-3. **certifi** モジュールをインストールします。 [certifi](https://pypi.org/project/certifi/) モジュールは、SSL 証明書の信頼性の検証と TLS ホストの ID の確認を行うためのルート証明書のコレクションです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
+    お使いのコンピューターにインストールされている Azure CLI と依存するその他のライブラリのバージョンが表示されます。
 
-    ```powershell
-    pip install certifi
-    ```
+    ![Azure Stack 上の Azure CLI の Python の場所](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-### <a name="install-python-on-linux"></a>Python を Linux にインストールする
+2. CLI の Python の場所を書き留めておきます。 ASDK を実行する場合には、この場所に証明書を追加する必要があります。
 
-1. Ubuntu 16.04 イメージには、既定で Python 2.7 と Python 3.5 がインストールされています。 次のコマンドを実行すると、Python 3 のバージョンを確認できます。
-
-    ```bash  
-    python3 --version
-    ```
-
-2. PIP をアップグレードします。 PIP は Python 用のパッケージ マネージャーです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. **certifi** モジュールをインストールします。 [certifi](https://pypi.org/project/certifi/) は、SSL 証明書の信頼性の検証と TLS ホストの ID の確認を行うためのルート証明書のコレクションです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
-
-    ```bash
-    pip3 install certifi
-    ```
-
-### <a name="install-python-on-macos"></a>Python を macOS にインストールする
-
-1. [Python 3 をお使いのシステムに](https://www.python.org/downloads/)インストールします。 Python 3.7 リリースについては、Python.org はダウンロード用に 2 つのバイナリ インストーラー オプションを提供しています。 既定のバリアントは 64 ビット専用で、macOS 10.9 (Mavericks) 以降のシステム上で動作します。 ターミナルを開き、次のコマンドを入力して、Python のバージョンを確認します。
-
-    ```bash  
-    python3 --version
-    ```
-
-2. PIP をアップグレードします。 PIP は Python 用のパッケージ マネージャーです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
-
-    ```bash  
-    sudo -H pip3 install --upgrade pip
-    ```
-
-3. **certifi** モジュールをインストールします。 [certifi](https://pypi.org/project/certifi/) モジュールは、SSL 証明書の信頼性の検証と TLS ホストの ID の確認を行うためのルート証明書のコレクションです。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
-
-    ```bash
-    pip3 install certifi
-    ```
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)
 
@@ -153,15 +104,20 @@ az --version
 
 ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
 
-Azure Stack の CA ルート証明書を信頼するには、Python の既存の証明書に追加します。
+Azure Stack の CA ルート証明書を信頼するには、そのルート証明書を、Azure CLI と一緒にインストールされたバージョンの Python 用の既存の Python 証明書に追加します。 人によっては、独自の Python インスタンスを実行している可能性があります。 Azure CLI には、独自のバージョンの Python が含まれています。
 
-1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
+1. マシンで証明書の場所を探します。  この場所は、コマンド `az --version` を実行することによって調べることができます。
+
+2. CLI の Python アプリケーションが格納されているフォルダーに移動します。 実行する必要があるのは、このバージョンの Python です。 Python をシステム パスに設定している場合には、お使いのバージョンの Python が実行されます。 代わりに、CLI で使用しているバージョンを実行すると共に、そのバージョンに証明書を追加する必要があります。 たとえば、CLI の Python が `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` にあるとします。
+
+    次のコマンドを使用します。
 
     ```powershell  
-      python -c "import certifi; print(certifi.where())"
+    cd "c:\pathtoyourcliversionofpython"
+    .\python -c "import certifi; print(certifi.where())"
     ```
 
-    証明書の場所を書き留めておきます。 たとえば、「 `~/lib/python3.5/site-packages/certifi/cacert.pem` 」のように入力します。 特定のパスは、お使いの OS やインストールした Python のバージョンによって異なります。
+    証明書の場所を書き留めておきます。 たとえば、「 `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem` 」のように入力します。 具体的なパスは、お使いの OS やインストールした CLI によって異なります。
 
 2. Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
@@ -212,7 +168,7 @@ Azure Stack の CA ルート証明書を信頼するには、Python の既存の
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvalut のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
 
     ```azurecli  
@@ -228,7 +184,7 @@ Azure Stack の CA ルート証明書を信頼するには、Python の既存の
 1. Azure Stack 固有の API バージョンのプロファイルを使用するようにお使いの環境の構成を更新します。 構成を更新するには、次のコマンドを実行します。
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
@@ -332,7 +288,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvalut のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
 
     ```azurecli  
@@ -408,7 +364,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
-1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi [モジュールをインストール](#install-python-on-linux)しておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
+1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -448,7 +404,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvalut のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
 
     ```azurecli  
@@ -519,7 +475,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
-1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi [モジュールをインストール](#install-python-on-linux)しておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
+1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
@@ -559,7 +515,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvalut のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
 
     ```azurecli  
