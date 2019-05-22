@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 0658943a36673df4658b6f1951ed7992996aba41
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cc5c756075b2dbeb789727a6c6647cf3e97cac28
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617479"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782112"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK の再デプロイ
 この記事では、非運用環境で Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。 ASDK のアップグレードはサポートされていないため、新しいバージョンに移行するには、ASDK を完全に再デプロイする必要があります。 また、ゼロからやり直したいときにも、いつでも ASDK を再デプロイすることができます。
@@ -39,7 +39,7 @@ ms.locfileid: "65617479"
 
 2. 次の PowerShell コマンドを実行して、ASDK のインストールを登録解除し、Azure サブスクリプションから **azurestack** リソース グループを削除します。
 
-   ```Powershell    
+   ```powershell    
    #Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 

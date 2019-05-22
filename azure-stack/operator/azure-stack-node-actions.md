@@ -3,25 +3,24 @@ title: Azure Stack でのスケール ユニットのノード操作 | Microsoft
 description: Azure Stack 統合システム上でノードの状態を表示し、電源オン、電源オフ、無効化、再開のノード アクションを使用する方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/22/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307867"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782331"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack でのスケール ユニット ノードの操作
 
@@ -86,7 +85,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 停止アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -100,7 +99,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
  
 開始アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -119,7 +118,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 ドレイン アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -131,7 +130,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 再開アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -150,7 +149,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 修復アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -164,7 +163,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 シャットダウン操作を実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

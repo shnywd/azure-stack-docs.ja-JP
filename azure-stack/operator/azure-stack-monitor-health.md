@@ -3,24 +3,23 @@ title: Azure Stack での正常性およびアラートの監視 | Microsoft Doc
 description: Azure Stack で正常性およびアラートを監視する方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/18/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.date: 05/16/2019
+ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 3e37b8f45d7068586d20b9c4b3ccdabb017d0416
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4763025917172e3b8acaeb1ad748410e65143864
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309571"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782516"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack での正常性およびアラートの監視
 
@@ -96,5 +95,3 @@ Azure Stack では、アラートは **Warning** (警告) または **Critical**
 [Azure Stack での更新の管理](azure-stack-updates.md)
 
 [Azure Stack でのリージョンの管理](azure-stack-region-management.md)
-
-<!-- Update_Description: wording update -->

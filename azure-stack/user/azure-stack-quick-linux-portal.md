@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 37ff24258b12c9b042c7b0dc5a113a62d1d1ec60
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 2c0997599b8da1f77f61e0953eb56f834f718efb
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477362"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782827"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>クイック スタート: Azure Stack ポータルで Linux サーバー仮想マシンを作成する
 
@@ -49,7 +49,7 @@ Azure Stack ポータルを使用して、Ubuntu Server 16.04 LTS 仮想マシ�
 
 この記事のすべての手順を完了するには、SSH キー ペアが必要です。 既存の SSH キー ペアがある場合は、この手順をスキップできます。
 
-1. PuTTY のインストール フォルダー (既定の場所は ```C:\Program Files\PuTTY```) に移動し、```puttygen.exe``` を実行します。
+1. PuTTY のインストール フォルダー (既定の場所は `C:\Program Files\PuTTY`) に移動し、`puttygen.exe` を実行します。
 2. [PuTTY Key Generator] ウィンドウで、**[Type of key to generate] \(生成するキーの種類)** が **[RSA]** に設定され、**[Number of bits in a generated key] \(生成されるキーのビット数)** が **[2048]** に設定されていることを確認します。 準備ができたら、**[Generate]\(生成\)** をクリックします。
 
    ![PuTTY Key Generator の構成](media/azure-stack-quick-linux-portal/Putty01.PNG)
@@ -106,7 +106,7 @@ Azure Stack ポータルにサインインします。 Azure Stack ポータル�
    ![仮想マシンを接続する](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. **[Category]\(カテゴリ\)** ウィンドウで上にスクロールし、**[Session]\(セッション\)** をクリックします。
-5. **[Host Name (or IP address)]\(ホスト名 (または IP アドレス)\)** ボックスで、Azure Stack ポータルに表示されている接続文字列を貼り付けます。 この例では、この文字列は ```asadmin@192.168.102.34``` です。
+5. **[Host Name (or IP address)]\(ホスト名 (または IP アドレス)\)** ボックスで、Azure Stack ポータルに表示されている接続文字列を貼り付けます。 この例では、この文字列は `asadmin@192.168.102.34` です。
 
    ![PuTTY 構成接続文字列](media/azure-stack-quick-linux-portal/Putty04.PNG)
 
@@ -145,7 +145,7 @@ NGINX のインストールが完了したら、SSH セッションを終了し�
 
 NGINX がインストールされ、仮想マシン上のポート 80 が開かれたので、その仮想マシンのパブリック IP アドレスを使用して Web サーバーにアクセスできます。 (パブリック IP アドレスは仮想マシンの [概要] ページに表示されます)。
 
-Web ブラウザーを開き、```http://<public IP address>``` を参照します。
+Web ブラウザーを開き、`http://<public IP address>` を参照します。
 
 ![NGINX Web サーバーのようこそページ](media/azure-stack-quick-linux-portal/linux-05.PNG)
 

@@ -3,24 +3,23 @@ title: Azure Stack ユーザーに対する Azure CLI の有効化 | Microsoft D
 description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack でリソースを管理およびデプロイする方法
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-origin.date: 01/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: efec1cc58b263c9580ab4a8ab3d7973a8f230d93
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.date: 05/16/2019
+ms.author: mabrigg
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306391"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782329"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack ユーザーに対する Azure CLI の有効化
 
@@ -61,7 +60,7 @@ certutil -encode root.cer root.pem
 
 Azure Stack オペレーターは、仮想マシンのエイリアス ファイルをホストする、公的にアクセス可能なエンドポイントを設定する必要があります。 仮想マシンのエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。  
 
-エイリアス ファイルにエントリを追加する前に、[Azure Marketplace からイメージをダウンロード](azure-stack-download-azure-marketplace-item.md)するか、[独自のカスタム イメージを発行](azure-stack-add-vm-image.md)してください。 カスタム イメージを発行する場合は、発行時に指定した発行者、プラン、SKU、およびバージョン情報をメモしておいてください。 Marketplace のイメージである場合は、```Get-AzureVMImage``` コマンドレットを使用して情報を表示できます。  
+エイリアス ファイルにエントリを追加する前に、[Azure Marketplace からイメージをダウンロード](azure-stack-download-azure-marketplace-item.md)するか、[独自のカスタム イメージを発行](azure-stack-add-vm-image.md)してください。 カスタム イメージを発行する場合は、発行時に指定した発行者、プラン、SKU、およびバージョン情報をメモしておいてください。 Marketplace のイメージである場合は、`Get-AzureVMImage` コマンドレットを使用して情報を表示できます。  
 
 多くの一般的なイメージの別名を含む[サンプル エイリアス ファイル](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)が使用できます。 それを出発点として使用できます。 このファイルを CLI クライアントがアクセスできる場所にホストします。 そのためには、BLOB ストレージ アカウント内でファイルをホストし、ユーザーと URL を共有する方法があります。
 
