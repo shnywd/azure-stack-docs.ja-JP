@@ -3,25 +3,24 @@ title: Azure Stack に使用量と課金のためのテナントを追加する 
 description: クラウド サービス プロバイダー (CSP) によって管理されている Azure Stack にエンド ユーザーを追加する手順を説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8e177944a5f57c9475287325b705fac34ec513c0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
+ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307825"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212299"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
 
@@ -33,34 +32,36 @@ ms.locfileid: "64307825"
 
 次の図は、新しい顧客が Azure Stack を使用できるように、また、その顧客の使用量の追跡を設定するために、CSP が従う必要がある手順を示しています。 エンド カスタマーを追加すると、Azure Stack 内のリソースも管理できるようになります。 リソースの管理には 2 つのオプションがあります。
 
-1. エンド カスタマーを管理し、ローカルの Azure Stack サブスクリプション用の資格情報をエンド カスタマーに提供できます。  
-2. エンド カスタマーが自身のサブスクリプションをローカルで管理し、所有者アクセス許可を持つゲストとして CSP を追加できます。  
+- エンド カスタマーを管理し、ローカルの Azure Stack サブスクリプション用の資格情報をエンド カスタマーに提供できます。  
+- エンド カスタマーが自身のサブスクリプションをローカルで管理し、所有者アクセス許可を持つゲストとして CSP を追加できます。  
 
-## <a name="steps-to-add-an-end-customer"></a>エンド カスタマーを追加する手順
+## <a name="add-an-end-customer"></a>エンド カスタマーを追加する
+
+次の図に示すように、以下の手順を実行してエンド カスタマーを追加します。
 
 ![使用量の追跡とエンド カスタマー アカウントの管理のためにクラウド サービス プロバイダーを設定する](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>パートナー センターに新しい顧客を作成する
 
-パートナー センターで、顧客の新しい Azure サブスクリプションを作成します。 手順については、「[新しい顧客の追加](https://msdn.microsoft.com/partner-center/add-a-new-customer)」を参照してください。
+パートナー センターで、顧客の新しい Azure サブスクリプションを作成します。 手順については、「[新しい顧客の追加](/partner-center/add-a-new-customer)」を参照してください。
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>エンド カスタマーの Azure サブスクリプションを作成する
 
-パートナー センターで顧客のレコードを作成したら、その顧客にカタログ内の製品のサブスクリプションを販売できます。 手順については、「[顧客サブスクリプションの作成、停止、キャンセル](https://msdn.microsoft.com/partner-center/create-a-new-subscription)」を参照してください。
+パートナー センターで顧客のレコードを作成したら、その顧客にカタログ内の製品のサブスクリプションを販売できます。 手順については、「[顧客サブスクリプションの作成、停止、キャンセル](/partner-center/create-a-new-subscription)」を参照してください。
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>エンド カスタマー ディレクトリにゲスト ユーザーを作成する
 
-エンド カスタマーが自分のアカウントを管理する場合は、エンド カスタマーのディレクトリ内にゲスト ユーザーを作成し、エンド カスタマーにその情報を送信します。 その後エンド ユーザーはゲストを追加し、ゲストのアクセス許可を Azure Stack の CSP アカウントの**所有者**に昇格させます。
+エンド カスタマーが自分のアカウントを管理する場合は、エンド カスタマーのディレクトリ内にゲスト ユーザーを作成し、エンド カスタマーにその情報を送信します。 エンド ユーザーはゲストを追加し、ゲストのアクセス許可を Azure Stack の CSP アカウントの**所有者**に昇格させます。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>エンド カスタマーのサブスクリプションで登録を更新する
 
 エンド カスタマーの新しいサブスクリプションで登録を更新します。 Azure は、パートナー センターの顧客 ID を使用して顧客の使用量をレポートします。 この手順により、各顧客の使用量が、その顧客それぞれの CSP サブスクリプションごとに報告されるようになります。 これで、ユーザーの使用量の追跡と課金がより簡単になります。
 
 > [!NOTE]  
-> この手順を実行するためには、[Azure Stack に登録済み](azure-stack-registration.md )である必要があります。
+> この手順を実行するためには、[Azure Stack に登録済み](azure-stack-registration.md)である必要があります。
 
 1. 管理者特権のプロンプトで Windows PowerShell を開き、次のコマンドを実行します。  
-    `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`
+    `Add-AzureRmAccount`
 2. Azure の資格情報を入力します。
 3. PowerShell セッションで、次のコマンドを実行します。
 

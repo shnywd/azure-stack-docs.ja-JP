@@ -3,8 +3,8 @@ title: Azure Stack でのカスタム Marketplace アイテムの発行 (クラ�
 description: Azure Stack オペレーターとして、Azure Stack でカスタム Marketplace アイテムを発行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 02/18/2019
-ms.author: v-jay
+ms.date: 05/07/2019
+ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 6c1750e6a523828400b3d06d4e1c22fb34f8273f
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 70a1e1223accda5dfb273372da486588fb030afc
+ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307603"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65172744"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Azure Stack Marketplace の概要
 
@@ -37,7 +36,7 @@ Azure Stack オペレーターとして、Marketplace に追加 (公開) する�
 
 Marketplace を開くには、管理者ポータルで **[+ リソースの作成]** を選択します。
 
-![マーケットプレース](media/azure-stack-publish-custom-marketplace-item/image1.png)
+![マーケットプレース](media/azure-stack-marketplace/marketplace1.png)
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
 
@@ -49,7 +48,7 @@ Azure Stack Marketplace の項目は、ユーザーがダウンロードおよ�
 * 文字列、アイコン、その他のマーケティング資料などのメタデータ。
 * ポータルでアイテムを表示するための書式設定情報。
 
-Marketplace に公開されるすべてのアイテムは、Azure ギャラリー パッケージ (azpkg) 形式を使用します。 デプロイまたはランタイム リソース (コード、ソフトウェアの zip ファイル、または仮想マシン イメージ) を Marketplace アイテムの一部としてではなく、Azure Stack に個別に追加します。
+Marketplace に公開されるすべてのアイテムは、Azure ギャラリー パッケージ (azpkg) 形式を使用します。 デプロイまたはランタイム リソース (コード、ソフトウェアの .zip ファイル、または仮想マシン イメージ) を Marketplace アイテムの一部としてではなく、Azure Stack に個別に追加します。
 
 Azure Stack バージョン 1803 以降では、Azure からダウンロードするときや、カスタム画像をアップロードするときに画像はスパース ファイルに変換されます。 このプロセスは画像を追加するときに時間がかかりますが、領域を節約し、画像の展開時間を短縮することができます。 変換は新しい画像にのみ適用されます。 既存の画像は変更されません。
 
@@ -57,5 +56,3 @@ Azure Stack バージョン 1803 以降では、Azure からダウンロード�
 
 * [Marketplace アイテムのダウンロード](azure-stack-download-azure-marketplace-item.md)  
 * [Marketplace アイテムの作成と発行](azure-stack-create-and-publish-marketplace-item.md)
-
-<!-- Update_Description: wording update -->

@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 68ba971ada087bed31a65db037963b601953f1c6
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 476ffeaf7712e5cee22befbc822545382f808de5
+ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309565"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65386616"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack でのオファーの委任
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack オペレーターとして、ユーザーのサインアップとサブスクリプション作成を他の人に担当してもらいたいことがよくあります。 たとえば、あなたがサービス プロバイダーで、再販業者に顧客のサインアップと管理を担当してもらいたい場合があります。 または、企業内の中央の IT グループの一員である場合は、ユーザーのサインアップを他の IT スタッフに委任することもできます。
+Azure Stack オペレーターとして、ユーザーのサインアップとサブスクリプション作成を他の人に担当してもらいたいことがあります。 たとえば、あなたがサービス プロバイダーで、再販業者に顧客のサインアップと管理を担当してもらいたい場合があります。 または、企業内の中央の IT グループの一員である場合は、ユーザーのサインアップを他の IT スタッフに委任することもできます。
 
 次の図に示すように、委任することにより、自分で行う場合より多くのユーザーにより簡単に連絡したり、ユーザーを管理したりできます。
 
@@ -34,9 +34,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 委任を使用すると、委任されたプロバイダーがオファーを管理するため (委任されたオファー)、エンド カスタマーはシステム管理者からの関与なしに、そのオファーのサブスクリプションを取得します。
 
-## <a name="understand-delegation-roles-and-steps"></a>委任のロールと手順の概要
-
-### <a name="delegation-roles"></a>委任ロール
+## <a name="delegation-roles"></a>委任ロール
 
 次のロールは委任の一部です。
 
@@ -46,7 +44,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 * *ユーザー*はオファーにサインアップして、それらを使用してワークロードの管理、VM の作成、データの格納などを行います。
 
-### <a name="delegation-steps"></a>委任手順
+## <a name="delegation-steps"></a>委任手順
 
 委任を設定する基本的な手順は 2 つあります。
 
@@ -58,7 +56,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 ![委任されたプロバイダーを作成し、ユーザーのサインアップを有効にします。](media/azure-stack-delegated-provider/image2.png)
 
-#### <a name="delegated-provider-requirements"></a>委任されたプロバイダーの要件
+### <a name="delegated-provider-requirements"></a>委任されたプロバイダーの要件
 
 委任されたプロバイダーとして機能するために、ユーザーは、サブスクリプションを作成することによってメイン プロバイダーとの関係を確立します。 このサブスクリプションは、メイン プロバイダーの代わりに委任されたオファーを提供する権限を持つものとして委任されたプロバイダーを識別します。
 
