@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a890e02ae1f2447db6fd25329881a4daa4e489b2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 70985ce475ecfe956646941c6b61d70176639eac
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986056"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617496"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack Development Kit (ASDK) のトラブルシューティング
 この記事では、ASDK の一般的なトラブルシューティング情報を提供します。 記載されていない問題が発生している場合は、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で追加のサポートと情報についてご確認ください。  

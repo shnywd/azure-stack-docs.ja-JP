@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 96708a3c88b593f0d423b227d43c356ef38c1515
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8c6881ebcb07f2ca922bcd7d8fbfb07f395c9007
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985187"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782353"
 ---
 # <a name="manage-role-based-access-control"></a>ロールベースのアクセス制御の管理
 
@@ -50,5 +50,5 @@ Azure Stack のユーザーは、サブスクリプション、リソース グ�
 4. **[役割]** ブレードで、**[追加]** をクリックして、ユニバーサル グループ Active Directory グループのアクセス許可を追加します。
 
 ## <a name="next-steps"></a>次の手順
-[Azure Stack テナントの追加](azure-stack-add-new-user-aad.md)
 
+[Azure Stack テナントの追加](azure-stack-add-new-user-aad.md)

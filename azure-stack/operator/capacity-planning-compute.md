@@ -17,12 +17,12 @@ ms.author: mabrigg
 ms.reviewer: prchint
 ms.lastreviewed: 04/03/2019
 ms.custom: ''
-ms.openlocfilehash: f20dd8499abf4d8c7fd2097d47e655790c19d33d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 907a10caa2a23b58d0c63ee1abb7f4e4a074d1a1
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984000"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618917"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack コンピューティング能力の計画
 [Azure Stack でサポートされる VM サイズ](../user/azure-stack-vm-sizes.md)は、Azure でサポートされているもののサブセットです。 Azure では、リソース (サーバーのローカルおよびサービス レベル) の過剰消費を防ぐため、多くのベクターに沿ってリソースの制限を適用します。 テナントの消費量にいくつかの制限を適用しないと、あるテナントでリソースが過剰消費された場合に、別のテナントのエクスペリエンスに影響します。 VM からのネットワーク送信の場合、Azure Stack では Azure の制限と一致する帯域幅の上限が設けられます。 ストレージ リソースの場合、テナントによるストレージ アクセスのためのリソースの基本的な過剰消費を防ぐため、Azure Stack にストレージ IOPS 制限が実装されています。  

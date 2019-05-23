@@ -16,12 +16,12 @@ ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 9aa8ec8bbbda1548088ad9dfeb389d292a0e1fbb
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985378"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617785"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムのデータ センター統合に関する考慮事項
 Azure Stack 統合システムに関心がある場合は、デプロイや、このシステムがデータセンターにどのように適合するかに関する計画の主な考慮事項を理解する必要があります。 この記事では、Azure Stack マルチノード システムに関するインフラストラクチャの重要な決定を行うときに役立つこれらの考慮事項の概要について説明します。 これらの考慮事項を理解していると、OEM ハードウェア ベンダーと協力して Azure Stack をデータセンターにデプロイする場合に役立ちます。  

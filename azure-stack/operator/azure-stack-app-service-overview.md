@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1e760122937a4ee3e7363eb091cee64418ce54d4
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 4db3aef81ea8f29475fcd565dbb791a0aeff6825
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306907"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618463"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上の App Service の概要
 
