@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 44a510b8110bacbb51b987a0393f1bc04c594fcd
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985764"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521232"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>チュートリアル: Azure と Azure Stack へのアプリのデプロイ
 
@@ -94,7 +94,7 @@ CI と CD については、次の記事をご覧ください。
 ### <a name="developer-tool-requirements"></a>開発者ツールの要件
 
 * [Azure DevOps サービス ワークスペース](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces)を作成します。 サインアップ プロセスによって **MyFirstProject** という名前のプロジェクトが作成されます。
-* [Visual Studio 2017 をインストール](https://docs.microsoft.com/visualstudio/install/install-visual-studio)して、[Azure DevOps Services にサインイン](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)します。
+* [Visual Studio 2019 をインストール](https://docs.microsoft.com/visualstudio/install/install-visual-studio)して、[Azure DevOps Services にサインイン](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)します。
 * プロジェクトに接続し、[ローカルに複製](https://www.visualstudio.com/docs/git/gitquickstart)します。
 
   > [!Note]

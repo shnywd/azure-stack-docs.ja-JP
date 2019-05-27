@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: b2e3944be7a7d5322683d21cca7e558020a82d7e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
+ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312697"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521306"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -55,7 +55,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 |  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | アプリケーションに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
-| ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter および Visual Studio 2017 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
+| ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
 | ![SharePoint Server 2016 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter の Microsoft SharePoint Server 2016 評価版。 | Microsoft |
 | ![Windows Server 2012 R2 の SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |

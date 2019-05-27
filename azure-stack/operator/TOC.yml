@@ -384,14 +384,18 @@
           href: azure-stack-backup-best-practices.md
         - name: バックアップの参照
           href: azure-stack-backup-reference.md
-    - name: トラブルシューティング
+    - name: 問い合わせ
       items:
-        - name: 既知の問題
-          href: azure-stack-troubleshooting.md
-        - name: Azure Stack の診断
-          href: azure-stack-diagnostics.md
-        - name: Azure Stack に対する検証
-          href: azure-stack-diagnostic-test.md
+        - name: '[ヘルプとサポート]'
+          href: azure-stack-help-and-support.md
+        - name: トラブルシューティング
+          items:
+            - name: 既知の問題
+              href: azure-stack-troubleshooting.md
+            - name: Azure Stack の診断
+              href: azure-stack-diagnostics.md
+            - name: Azure Stack に対する検証
+              href: azure-stack-diagnostic-test.md
 - name: リファレンス
   items:
     - name: Azure Stack PowerShell

@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) のデプロイ後の構成 | Microsof
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 services: azure-stack
 documentationcenter: ''
-author: jeffgilb
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
-ms.author: jeffgilb
+ms.date: 05/08/2019
+ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6ef30cc182160f1065f8e98a91208f067e5ae353
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 308edbc351b52d94842a1a96602371f6edb8ff5d
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983855"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65617525"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK インストール後の構成タスク
 
-[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてログイン中に、いくつかのインストール後の構成変更を行う必要があります。 
+[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインイン中に、いくつかのインストール後の構成変更を行う必要があります。 
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
 
@@ -46,7 +46,19 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
 - ASDK ホスト コンピューターからの**インターネット接続がある場合**。 次の PowerShell スクリプトを実行して、これらのモジュールを開発キット インストールにインストールします。
 
-- Azure Stack 1901 以降:
+- 1904 ビルドまたはそれ以降の場合:
+
+    ```powershell  
+      # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+      Install-Module -Name AzureRM.BootStrapper
+      
+      # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+      Get-AzureRMProfile -Update
+      Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+      Install-Module -Name AzureStack -RequiredVersion 1.7.2
+    ```
+
+- Azure Stack バージョン 1903 以前では、以下の 2 つのモジュールのみをインストールします。
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -68,19 +80,6 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
     # Install Azure Stack Module Version 1.6.0.
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
-    ```
-
-  - Azure Stack 1810 以前:
-
-    ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
-
-    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-
-    # Install Azure Stack Module Version 1.5.0.
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0
     ```
 
   インストールに成功した場合、出力に AzureRM および AzureStack モジュールが表示されます。
@@ -160,11 +159,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ### <a name="to-change-the-password-expiration-policy-manually"></a>パスワードの有効期限ポリシーを手動で変更するには、次のようにします。
 
-1. 開発キットのホストで、**[グループ ポリシーの管理]** (GPMC.MMC) を開き、**[グループ ポリシーの管理]** - **[フォレスト: azurestack.local]** - **[ドメイン]** - **[azurestack.local]** の順に移動します。
-2. **[既定のドメイン ポリシー]** を右クリックし、**[編集]** をクリックします。
-3. グループ ポリシー管理エディターで、**[コンピューターの構成]** - **[ポリシー]** - **[Windows の設定]** - **[セキュリティの設定]** - **[アカウント ポリシー]** - **[パスワード ポリシー]** の順に移動します。
+1. 開発キットのホストで、 **[グループ ポリシーの管理]** (GPMC.MMC) を開き、 **[グループ ポリシーの管理]**  -  **[フォレスト: azurestack.local]**  -  **[ドメイン]**  -  **[azurestack.local]** の順に移動します。
+2. **[既定のドメイン ポリシー]** を右クリックし、 **[編集]** をクリックします。
+3. グループ ポリシー管理エディターで、 **[コンピューターの構成]**  -  **[ポリシー]**  -  **[Windows の設定]**  -  **[セキュリティの設定]**  -  **[アカウント ポリシー]**  -  **[パスワード ポリシー]** の順に移動します。
 4. 右側のウィンドウの **[パスワードの有効期間]** をダブルクリックします。
-5. **[Maximum password age Properties]\(パスワードの有効期間プロパティ\)** ダイアログ ボックスで、**[パスワードの有効期限]** の値を **180** に変更し、**[OK]** をクリックします。
+5. **[Maximum password age Properties]\(パスワードの有効期間プロパティ\)** ダイアログ ボックスで、 **[パスワードの有効期限]** の値を **180** に変更し、 **[OK]** をクリックします。
 
 ![グループ ポリシー管理コンソール](media/asdk-post-deploy/gpmc.png)
 

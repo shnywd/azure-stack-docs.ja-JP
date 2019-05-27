@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/10/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: e89a2fc4adbe4a9d399cec67608c1c63748692e7
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 1fcdcdc4f592056ce3da5074b2371fde91b47c85
+ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65387130"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65532379"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新プログラム
 
@@ -222,6 +222,8 @@ VM のスケールの上限に達すると、次のエラー コードが返さ�
 
 ## <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
 
+- Azure Stack の更新プログラムをインストールしようとしたときに、更新プログラムの状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、ストレージ コンテナーから内部インフラストラクチャ共有にファイルを処理のために正しく転送できないことが原因です。 バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることにより回避できるようになりました。 そうすると、URP は前回の試行のファイルをクリーンアップして、もう一度ダウンロードを開始します。
+
 - [Test-AzureStack](azure-stack-diagnostic-test.md) を実行しているときに、**AzsInfraRoleSummary** または **AzsPortalApiSummary** テストに失敗すると、**Test-AzureStack** を `-Repair` フラグで実行するように求められます。  このコマンドを実行すると、次のエラー メッセージが表示されて失敗します: `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 
 - [Test-AzureStack](azure-stack-diagnostic-test.md) を実行すると、ベースボード管理コントローラー (BMC) からの警告メッセージが表示されます。 この警告は無視してかまいません。
@@ -272,13 +274,13 @@ VM のスケールの上限に達すると、次のエラー コードが返さ�
 - 更新プログラム 1901 の適用後、Managed Disks を使用した VM をデプロイすると、次の問題が発生する可能性があります。
 
    - 1808 更新の前にサブスクリプションが作成された場合、Managed Disks を使用した VM をデプロイすると、内部エラー メッセージが出て失敗することがあります。 このエラーを解決するには、サブスクリプションごとに次の手順に従ってください。
-      1. テナント ポータルで、**[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** を選択し、**[Microsoft.Compute]** を選択してから、**[再登録]** をクリックします。
-      2. 同じサブスクリプションで、**[アクセス制御 (IAM)]** に移動し、**AzureStack-DiskRP-Client** がリストに含まれていることを確認します。
+      1. テナント ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** を選択し、 **[Microsoft.Compute]** を選択してから、 **[再登録]** をクリックします。
+      2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、**AzureStack-DiskRP-Client** がリストに含まれていることを確認します。
    - マルチテナント環境を構成した場合、ゲスト ディレクトリに関連付けられているサブスクリプションで VM をデプロイすると、内部エラー メッセージが出て失敗することがあります。 このエラーを解決するには、[この記事](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)にある手順に従って、各ゲスト ディレクトリを構成します。
 
 - SSH の認可を有効にして作成した Ubuntu 18.04 VM では、SSH キーを使用してログインすることはできません。 回避策として、プロビジョニング後に Linux 拡張機能用の VM アクセスを使用して SSH キーを実装するか、パスワードベースの認証を使用してください。
 
-- スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、**[概要]** ウィンドウから **[削除]** ボタンをクリックします。
+- スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
 
 ### <a name="networking"></a>ネットワーク  
 
@@ -290,13 +292,13 @@ VM のスケールの上限に達すると、次のエラー コードが返さ�
     このメッセージは無視してかまいません。たとえ VM インスタンスが再起動しなくても IP アドレスは変更されます。
 
 <!-- 3632798 - IS, ASDK -->
-- ポータルで受信セキュリティ規則を追加し、**[Service Tag]\(サービス タグ\)** をソースとして選択すると、Azure Stack では利用できないオプションがいくつか **[Source Tag]\(ソース タグ\)** リストに表示されます。 Azure Stack で有効なのは次のオプションだけです。
+- ポータルで受信セキュリティ規則を追加し、 **[Service Tag]\(サービス タグ\)** をソースとして選択すると、Azure Stack では利用できないオプションがいくつか **[Source Tag]\(ソース タグ\)** リストに表示されます。 Azure Stack で有効なのは次のオプションだけです。
 
   - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
-    その他のオプションについては、Azure Stack ではソース タグとしてサポートされません。 同様に、送信セキュリティ規則を追加し、**[Service Tag]\(サービス タグ\)** を宛先として選択した場合も、**[Source Tag]\(ソース タグ\)** のリストに同じオプションが表示されます。 有効なオプションは、前述のリストで説明した **[Source Tag]\(ソース タグ\)** と同じものに限られます。
+    その他のオプションについては、Azure Stack ではソース タグとしてサポートされません。 同様に、送信セキュリティ規則を追加し、 **[Service Tag]\(サービス タグ\)** を宛先として選択した場合も、 **[Source Tag]\(ソース タグ\)** のリストに同じオプションが表示されます。 有効なオプションは、前述のリストで説明した **[Source Tag]\(ソース タグ\)** と同じものに限られます。
 
 - ネットワーク セキュリティ グループ (NSG) は、Azure Stack ではグローバル Azure と同様に機能しません。 Azure では、1 つの NSG ルールに複数のポートを設定できます (ポータル、PowerShell、Resource Manager テンプレートを使用)。 ただし、Azure Stack では、ポータルを介して、1 つの NSG ルールに複数のポートを設定できません。 この問題を回避するには、Resource Manager テンプレートまたは PowerShell を使用して、これらの追加ルールを設定します。
 

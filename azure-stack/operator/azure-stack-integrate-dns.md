@@ -2,26 +2,28 @@
 title: Azure Stack とデータセンターの統合 - DNS
 description: Azure Stack の DNS をデータセンターの DNS と統合する方法について説明します。
 services: azure-stack
-author: jeffgilb
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: jeffgilb
+ms.date: 05/09/2019
+ms.author: mabrigg
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: e14fa6c172fcf579acf28bc8f3ea20f34148b90c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bf1aed6c8140f0c0753f49195082dfd71737868a
+ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985280"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65618672"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack とデータセンターの統合 - DNS
+
 Azure Stack の外部から Azure Stack エンドポイント (**portal**、**adminportal**、**management**、**adminmanagement** など) にアクセスできるようにするには、Azure Stack DNS サービスを、Azure Stack で使用したい DNS ゾーンをホストする DNS サーバーと統合する必要があります。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack の DNS 名前空間
+
 Azure Stack をデプロイするときに、DNS に関するいくつかの重要な情報を入力する必要があります。
 
 
@@ -51,6 +53,19 @@ Azure Stack のデプロイの完全修飾ドメイン名 (FQDN) とエンドポ
 
 Azure Stack の外部から Azure Stack エンドポイントおよびインスタンスの DNS 名を解決できるようにするには、Azure Stack の外部 DNS ゾーンをホストする DNS サーバーと、使用したい親ゾーンをホストする DNS サーバーを統合する必要があります。
 
+### <a name="dns-name-labels"></a>DNS 名ラベル
+
+Azure Stack では、パブリック IP アドレスへの DNS 名ラベルの追加がサポートされており、パブリック IP アドレスの名前解決が可能です。 これは、Azure Stack にホストされたアプリケーションとサービスにユーザーがアクセスするために名前を使用できる便利な方法です。 DNS 名ラベルでは、インフラストラクチャ エンドポイントとはわずかに異なる名前空間が使用されます。 前のサンプル名前空間に続いて、DNS 名ラベルの名前空間が次のように表示されます。
+
+`*.east.cloudapp.cloud.fabrikam.com`
+
+そのため、テナントがパブリック IP アドレス リソースの DNS 名ラベル フィールドで値 **Myapp** を示す場合、Azure Stack の外部 DNS サーバー上にあるゾーン **east.cloudapp.cloud.fabrikam.com** で **myapp** の A レコードが作成されます。 結果として得られる完全修飾ドメイン名は次のようになります。
+
+`myapp.east.cloudapp.cloud.fabrikam.com`
+
+この機能を利用してこの名前空間を使用したい場合、Azure Stack 用の外部 DNS ゾーンをホストする DNS サーバーに、使用したい親ゾーンをホストする DNS サーバーも統合する必要があります。 これは、Azure Stack サービス エンドポイント用の名前空間とは別の名前空間です。そのため、追加の委任または条件付き転送ルールを作成する必要があります。
+
+DNS 名ラベルのしくみの詳細については、「[Azure Stack での DNS の使用](../user/azure-stack-dns.md)」を参照してください。
 
 ## <a name="resolution-and-delegation"></a>解決と委任
 
