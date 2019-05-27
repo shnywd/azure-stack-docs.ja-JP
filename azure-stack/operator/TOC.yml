@@ -293,6 +293,8 @@
       items:
         - name: App Service のキャパシティ プランニング
           href: azure-stack-app-service-capacity-planning.md
+        - name: App Service の課金に関する FAQ
+          href: app-service-billing-faq.md
         - name: 開始する前に
           href: azure-stack-app-service-before-you-get-started.md
         - name: App Service のデプロイ
