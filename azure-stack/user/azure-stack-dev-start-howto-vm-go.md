@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 内の仮想マシンに GO アプリをデプロイする方法 | Microsoft Docs
-description: Azure Stack 内の VM に GO Web アプリをデプロイする方法
+title: Azure Stack 内の仮想マシンに Go Web アプリをデプロイする | Microsoft Docs
+description: Azure Stack 内の VM に Go Web アプリをデプロイする方法
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,37 +9,36 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0cef076522e77a6d0fdafbd8848d5e9bb8a90a8
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 8b1f207929e018b27bb3f20db8d2b7d5abe46088
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64482285"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838360"
 ---
-# <a name="how-to-deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に GO Web アプリをデプロイする方法
+# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Go Web アプリをデプロイする
 
-Azure Stack 内にご自分の Go Web アプリをホストする VM を作成できます。 この記事では、サーバーを設定し、GO Web アプリをホストするようサーバーを構成して、ご自分のアプリをデプロイする手順を確認します。
-
-Go は、表現力豊かなうえに、簡潔で、わかりやすく、効率的です。 そのコンカレンシー メカニズムにより、マルチコアとネットワークに接続されたマシンを最大限に活用するプログラムを簡単に記述できるだけでなく、その型システムにより、柔軟なモジュール型のプログラム構築が可能になっています。 Go プログラミング言語の詳細および GO の他のリソースについては、[Golang.org](https://golang.org) を参照してください。
+Azure Stack で Go Web アプリをホストする仮想マシン (VM) を作成することができます。 この記事では、サーバーを設定し、Go Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack にデプロイします。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. Azure Stack 内でご自分の VM を設定します。 「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従ってください。
+1. 「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack で VM を設定します。
 
-2. VM ネットワーク ブレードで、次のポートにアクセスできることを確認します。
+2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
     | Port | Protocol | 説明 |
     | --- | --- | --- |
-    | 80 | HTTP | ハイパー テキスト転送プロトコル (HTTP) は、分散した協調的なハイパーメディア情報システム向けのアプリケーション プロトコルです。 クライアントは、ご使用の VM のパブリック IP と DNS 名のどちらかを使用してご自分の Web アプリに接続します。 |
-    | 443 | HTTPS | ハイパー テキスト転送プロトコル セキュア (HTTPS) は、ハイパー テキスト転送プロトコル (HTTP) を拡張したものです。 コンピューター ネットワーク経由のセキュリティで保護された通信に使用されます。 クライアントは、ご使用の VM のパブリック IP と DNS 名のどちらかを使用してご自分の Web アプリに接続します。 |
-    | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護されていないネットワーク経由でネットワーク サービスを安全に使用するための暗号化ネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
-    | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコルは、リモート デスクトップ接続を介して、マシンのグラフィック ユーザー インターフェイスを使用できるようにします。   |
-    | 3000 | カスタム | ポート 3000 は、開発時に GO Web フレームワークによって使用されます。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
+    | 80 | HTTP | ハイパーテキスト転送プロトコル (HTTP) は、サーバーからの Web ページの配信に使用されるプロトコルです。 クライアントは、DNS 名または IP アドレスを使用して HTTP 経由で接続されます。 |
+    | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |
+    | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護された通信のための暗号化されたネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
+    | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコル (RDP) では、リモート デスクトップ接続を介して、ご利用のマシンでグラフィック ユーザー インターフェイスを使用できるようにします。   |
+    | 3000 | カスタム | ポート 3000 は、開発時に Go Web フレームワークによって使用されます。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
 
-## <a name="install-go"></a>GO をインストールする
+## <a name="install-go"></a>Go をインストールする
 
-1. SSH クライアントを使用して VM に接続します。 手順については、「[PuTTy を使用して SSH 経由で接続する](azure-stack-dev-start-howto-ssh-public-key.md#connect-via-ssh-with-putty)」を参照してください。
-1. ご自分の VM 上の Bash プロンプトで、次のコマンドを入力します。
+1. SSH クライアントを使用して VM に接続します。 手順については、「[PuTTY を使用して SSH 経由で接続する](azure-stack-dev-start-howto-ssh-public-key.md#connect-with-ssh-by-using-putty)」を参照してください。
+
+1. ご自分の VM 上の bash プロンプトで、次のコマンドを入力します。
 
     ```bash  
     wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz
@@ -47,7 +46,7 @@ Go は、表現力豊かなうえに、簡潔で、わかりやすく、効率�
     sudo mv go /usr/local
     ```
 
-2. ご自分の VM 上に GO 環境を設定します。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
+2. ご自分の VM 上に Go 環境を設定します。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
 
     ```bash  
     export GOROOT=/usr/local/go
@@ -63,7 +62,7 @@ Go は、表現力豊かなうえに、簡潔で、わかりやすく、効率�
         go version
     ```
 
-3. GIT をインストールします。 [Git](https://git-scm.com) は、広域分散型のリビジョン コントロールおよびソース コード管理 (SCM) システムです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
+3. [Git をインストール](https://git-scm.com) します。これは、広域分散型のバージョン管理およびソース コード管理 (SCM) システムです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
 
     ```bash  
        sudo apt-get -y install git
@@ -86,7 +85,7 @@ Go は、表現力豊かなうえに、簡潔で、わかりやすく、効率�
        go run hello-world.go
     ```
 
-3.  次に、ご自分の新しいサーバーに移動すると、実行中のご自分の Web アプリケーションを確認できます。
+3. ご自分の新しいサーバーに移動します。 実行中のご自分の Web アプリケーションを確認できます。
 
     ```HTTP  
        http://yourhostname.cloudapp.net:3000
@@ -94,5 +93,6 @@ Go は、表現力豊かなうえに、簡潔で、わかりやすく、効率�
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法の詳細を確認する
+- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
 - [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- Go プログラミング言語の詳細および Go の他のリソースについては、[Golang.org](https://golang.org) を参照してください。

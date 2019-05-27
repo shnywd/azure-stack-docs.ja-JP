@@ -16,13 +16,13 @@ ms.date: 03/29/2019
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.custom: ''
-ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: f8206c658170a16e517e64a328d188c015b9e394
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: b98be2ae02e65fea9356f35f2d2554e57dfb5628
+ms.sourcegitcommit: 1655b2ef4d01d69ceeb52bc16f922bdc19cb968d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618070"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65706285"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack の概要
 
@@ -76,17 +76,17 @@ Azure Stack をインターネット (および Azure) に**接続した状態**
 > 詳しくは、[接続されている](azure-stack-connected-deployment.md)展開モデルと[接続されていない](azure-stack-disconnected-deployment.md)展開モデルの考慮事項をご覧ください。 
 
 ### <a name="identity-provider"></a>ID プロバイダー 
-Azure Stack は、ID プロバイダーとして Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) のいずれかを使用して、Azure Stack ID を設定します。 
+Azure Stack では、Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) を使用して ID を提供します。 Azure AD は、マイクロソフトが提供するクラウドベースのマルチテナント対応 ID プロバイダーです。 展開がインターネットに接続されているほとんどのハイブリッド シナリオでは、ID ストアとして Azure AD を使用します。 
+
+Azure Stack の切断されたデプロイの場合は、Active Directory Federation Services (AD FS) を使用する必要があります。 Azure Stack リソース プロバイダーおよびその他のアプリケーションは、AD FS または Azure AD で同様に動作します。 Azure Stack には、独自の Active Directory インスタンスと、Active Directory Graph API が含まれています。
 
 > [!IMPORTANT]
-> これは重要な意思決定のポイントです。 ID プロバイダーとして Azure AD または AD FS を選択するのは、展開時に 1 回だけ行う決定です。 システム全体を再デプロイせずに、後でこれを変更することはできません。
-
-Azure AD は、マイクロソフトが提供するクラウドベースのマルチテナント対応 ID プロバイダーです。 展開がインターネットに接続されているほとんどのハイブリッド シナリオでは、ID ストアとして Azure AD を使用します。 ただし、Azure Stack のオフラインでの展開には Active Directory フェデレーション サービス (AD FS) を使用することを選択できます。 Azure Stack、リソース プロバイダー、およびその他のアプリケーションは、Azure AD を使用するのとほぼ同じ方法で AD FS を使用します。 Azure Stack には、独自の Active Directory インスタンスと、Active Directory Graph API が含まれています。 
+> デプロイ後に ID プロバイダーを変更することはできません。 別の ID プロバイダーを使用するには、Azure Stack を再デプロイする必要があります。
 
 > Azure Stack の ID の考慮事項について詳しくは、「[Azure Stack の ID の概要](azure-stack-identity-overview.md)」をご覧ください。
 
 ## <a name="how-is-azure-stack-managed"></a>Azure Stack の管理方法
-Azure Stack を統合システム展開または ASDK インストールのいずれかに展開した後で、Azure Stack を操作する主な方法は管理ポータル、ユーザー・ポータル、および PowerShell です。 Azure Stack のポータルは、それぞれが Azure Resource Manager の個別のインスタンスでサポートされています。 **Azure Stack オペレーター**は、管理ポータルを使用して Azure Stack を管理し、テナント オファーリングの作成などの操作を行い、統合システムの正常性の維持や状態の監視を行います。 ユーザー ポータル (テナント ポータルとも呼ばれます) は、仮想マシンやストレージ アカウント、Web アプリなどのクラウド リソースを消費するためのセルフ サービス エクスペリエンスを提供します。 
+Azure Stack は、管理ポータル、ユーザー ポータル、または [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) で管理することができます。 Azure Stack のポータルは、それぞれが Azure Resource Manager の個別のインスタンスでサポートされています。 **Azure Stack オペレーター**は、管理ポータルを使用して Azure Stack を管理し、テナント オファーリングの作成などの操作を行い、統合システムの正常性の維持や状態の監視を行います。 ユーザー ポータル (テナント ポータルともいう) では、仮想マシン、ストレージ アカウント、および Web アプリなどのクラウド リソースを消費するためのセルフ サービス エクスペリエンスが提供されます。 
 
 > 管理ポータルを使用した Azure Stack の管理について詳しくは、[Azure Stack 管理ポータルのクイック スタート](azure-stack-manage-portals.md)のページをご覧ください。
 
@@ -102,14 +102,14 @@ Azure Stack が構成されると、Azure Stack **ユーザー** (テナント�
 リソース プロバイダーは、Azure Stack のあらゆる IaaS サービスと PaaS サービスの基盤となる Web サービスです。 Azure Resource Manager は、さまざまなリソース プロバイダーに依存して、サービスへのアクセスを提供しています。 各リソース プロバイダーを使用して、それぞれのリソースを構成および制御できます。 サービス管理者は、新しいカスタム リソース プロバイダーを追加することもできます。 
 
 ### <a name="foundational-resource-providers"></a>基本のリソース プロバイダー 
-基本の IaaS リソース プロバイダーは 3 つあります。コンピューティング、ネットワーク、およびストレージです。
+基本の IaaS リソース プロバイダーは 3 つあります。 
 
-- **コンピューティング**。 コンピューティング リソース プロバイダーでは、Azure Stack テナントが独自の仮想マシンを作成できます。 コンピューティング リソース プロバイダーには、仮想マシンと仮想マシン拡張機能を作成する機能があります。 仮想マシン拡張機能サービスは、Windows および Linux の仮想マシンで使用する IaaS 機能を提供します。  たとえば、コンピューティング リソース プロバイダーを使用して Linux 仮想マシンをプロビジョニングし、展開中に Bash スクリプトを実行して VM を構成できます。
+- **コンピューティング**。 コンピューティング リソース プロバイダーでは、Azure Stack テナントが独自の仮想マシンを作成できます。 コンピューティング リソース プロバイダーには、仮想マシンと仮想マシン拡張機能を作成する機能があります。 仮想マシン拡張機能サービスは、Windows および Linux の仮想マシンで使用する IaaS 機能を提供します。 たとえば、コンピューティング リソース プロバイダーを使用して Linux 仮想マシンをプロビジョニングし、展開中に Bash スクリプトを実行して VM を構成できます。
 - **ネットワーク リソース プロバイダー**。 ネットワーク リソース プロバイダーは、プライベート クラウドでソフトウェアによるネットワーク制御 (SDN) およびネットワーク機能の仮想化 (NFV) に使用する一連の機能を提供します。 ネットワーク リソース プロバイダーを使用して、ソフトウェア ロード バランサー、パブリック IP、ネットワーク セキュリティ グループ、仮想ネットワークなどのリソースを作成できます。
-- **ストレージ リソース プロバイダー**。 ストレージ リソース プロバイダーによって、一貫性のある 4 つの Azure ストレージ サービス ([blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage)、[queue](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage)、[table](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)、および KeyVault アカウント管理) が実現し、管理機能とシークレット (パスワードや証明書など) の監査機能が提供されます。 ストレージ リソース プロバイダーは、Azure との一貫性があるストレージ サービスのサービス プロバイダーによる管理を容易にするためのストレージ クラウド管理サービスも提供します。 Azure Storage には柔軟性があり、ドキュメントやメディア ファイルなどの大量の構造化されていないデータは Azure Blobs で、構造化された NoSQL ベースのデータは Azure Tables で格納と取得が行われます。 
+- **ストレージ リソース プロバイダー**。 ストレージ リソース プロバイダーによって、一貫性のある 4 つの Azure ストレージ サービス ([blob](https://docs.microsoft.com/azure/storage/common/storage-introduction#blob-storage)、[queue](https://docs.microsoft.com/azure/storage/common/storage-introduction#queue-storage)、[table](https://docs.microsoft.com/azure/storage/common/storage-introduction#table-storage)、[KeyVault](https://docs.microsoft.com/azure/key-vault/)) のアカウント管理が提供され、シークレット (パスワードや証明書) の管理と監査が提供されます。 ストレージ リソース プロバイダーは、Azure との一貫性があるストレージ サービスのサービス プロバイダーによる管理を容易にするためのストレージ クラウド管理サービスも提供します。 Azure Storage には柔軟性があり、ドキュメントやメディア ファイルなどの大量の構造化されていないデータは Azure Blobs で、構造化された NoSQL ベースのデータは Azure Tables で格納と取得が行われます。 
 
 ### <a name="optional-resource-providers"></a>オプションのリソース プロバイダー
-Azure Stack に展開して使用できるオプションの PaaS リソース プロバイダーは 3 つあります。App Service、SQL Server、および MySQL サーバー リソース プロバイダーです。
+Azure Stack に展開して使用できるオプションの PaaS リソース プロバイダーは 3 つあります。 
 
 - **App Service**。 [Azure App Service on Azure Stack](azure-stack-app-service-overview.md) は、Azure Stack で利用できる Microsoft Azure の、サービスとしてのプラットフォーム (PaaS) サービスです。 このサービスにより、内部または外部の顧客はあらゆるプラットフォームやデバイス用の Web、API、Azure Functions アプリケーションを作成できるようになります。 
 - **SQL Server**。 [SQL Server リソース プロバイダー](azure-stack-sql-resource-provider.md)を使用して、SQL データベースを Azure Stack のサービスとして提供します。 リソース プロバイダーをインストールし、それを 1 つ以上の SQL Server インスタンスに接続した後で、クラウドネイティブ アプリ、SQL を使用する Web サイト、SQL を使用する他のワークロードのためにデータベースを作成できます。
@@ -120,7 +120,7 @@ Azure でのマルチ VM による実稼働システムの高可用性を実現�
 
 Azure Stack のインフラストラクチャは既に障害に対する回復性を備えていますが、基盤となっているテクノロジ (フェールオーバー クラスタリング) では、ハードウェアが故障した場合にその影響を受ける物理サーバー上の VM に多少のダウンタイムが発生します。 Azure Stack では、Azure との一貫性がある最大 3 つの障害ドメインを持つ可用性セットを用意することをサポートしています。
 
-- **障害ドメイン**。 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェアが故障した場合、障害が発生した障害ドメインの VM は他の障害ドメインで再起動されますが、可能であれば、同じ可用性セット内の他の VM とは別の障害ドメインに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再分配が行われます。 
+- **障害ドメイン**。 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は他の障害ドメインで再起動されますが、可能な場合は、同じ可用性セット内の他の VM とは別の障害ドメインに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。 
  
 - **更新ドメイン**。 更新ドメインは、可用性セットに高可用性を提供する Azure の別の概念です。 更新ドメインは、メンテナンスを同時に実行できる、基盤となるハードウェアの論理グループです。 同じ更新ドメイン内の VM は、計画済みメンテナンス中に同時に再起動されます。 テナントが可用性セット内に VM を作成すると、Azure プラットフォームは、これらの更新ドメインに VM を自動的に分散します。 Azure Stack では、VM のホストが更新される前に、クラスター内の他のオンライン ホストに VM がライブで移行されます。 ホスト更新の際にテナントのダウンタイムは発生しないため、Azure Stack の更新ドメイン機能は、Azure とテンプレートの互換性を保つためにのみ存在します。 
 
@@ -132,7 +132,7 @@ Azure Stack RBAC には、すべてのリソースの種類に適用される 3 
 > 詳しくは、「[ロールベースのアクセス制御の管理](azure-stack-manage-permissions.md)」をご覧ください。 
 
 ## <a name="reporting-usage-data"></a>使用量データの報告
-Microsoft Azure Stack は、すべてのリソース プロバイダーの使用状況データを収集して集約し、Azure コマースによる処理のために Azure に送信します。 Azure Stack で収集された使用状況データは、REST API を使用して表示できます。 Azure と一貫性のある Tenant API だけでなく、Provider および Delegated Provider API を使用して、すべてのテナント サブスクリプション全体の使用状況データを取得できます。 このデータは、請求や配賦のために外部のツールやサービスと統合できます。 Azure コマースによって処理された使用状況は、Azure の課金ポータルに表示できます。
+Azure Stack では、すべてのリソース プロバイダーの使用状況データを収集して集計し、Azure コマースによる処理のために Azure に送信します。 Azure Stack で収集された使用状況データは、REST API を使用して表示できます。 Azure と一貫性のある Tenant API だけでなく、Provider および Delegated Provider API を使用して、すべてのテナント サブスクリプション全体の使用状況データを取得できます。 このデータは、請求や配賦のために外部のツールやサービスと統合できます。 Azure コマースによって処理された使用状況は、Azure の課金ポータルに表示できます。
 
 > 詳しくは、「[Azure Stack 使用状況データの Azure への報告](azure-stack-usage-reporting.md)」をご覧ください。
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack で PowerShell を使用して Linux 仮想マシンを作成する | Microsoft Docs
-description: Azure Stack で PowerShell を使用して Linux 仮想マシンを作成します。
+description: Azure Stack で PowerShell を使用して、Linux 仮想マシンを作成します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 95b81f6af8caa3e0f4dd7639614bed1b78915539
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 55f1395d66262b268b9107f196528270c1546bba
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477407"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712289"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack で PowerShell を使用して Linux サーバー仮想マシンを作成する
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack で PowerShell を使用して Linux サーバー仮想マシンを作成する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -46,7 +46,10 @@ Azure Stack の PowerShell を使用して、Ubuntu Server 16.04 LTS 仮想マ�
 
 ## <a name="create-a-resource-group"></a>リソース グループの作成
 
-リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 このドキュメントではすべての変数に値を割り当てていますが、これらの値をそのまま使用することも、新しい値を割り当てることもできます。
+リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 
+
+> [!NOTE]
+> 値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
 
 ```powershell  
 # Create variables to store the location and resource group names.
@@ -206,7 +209,7 @@ New-AzureRmVM `
 ## <a name="quick-create-virtual-machine---full-script"></a>仮想マシンの簡易作成 - 完全なスクリプト
 
 > [!NOTE]
-> ほぼ上記のコードがマージされていますが、認証には SSH キーではなくパスワードが使用されます。
+> これは基本的には上記のコードがマージされたものですが、認証には SSH キーではなくパスワードが使用されます。
 
 ```powershell
 ## Create a resource group
@@ -374,7 +377,7 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>仮想マシンへの接続
 
-仮想マシンがデプロイされたら、仮想マシンの SSH 接続を構成します。 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) コマンドを使用して、仮想マシンのパブリック IP アドレスを返します。
+仮想マシンがデプロイされたら、仮想マシンの SSH 接続を構成します。 [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) コマンドを使用して、仮想マシンのパブリック IP アドレスを取得します。
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -404,7 +407,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX のようこそページの表示
 
-NGINX がインストールされ、仮想マシン上のポート 80 が開かれたので、その仮想マシンのパブリック IP アドレスを使用して Web サーバーにアクセスできます。 Web ブラウザーを開き、```http://<public IP address>``` を参照します。
+NGINX がインストールされ、仮想マシン上のポート 80 が開かれたので、その仮想マシンのパブリック IP アドレスを使用して Web サーバーにアクセスできます。 Web ブラウザーを開き、```http://<public IP address>``` に移動します｡
 
 ![NGINX Web サーバーのようこそページ](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 

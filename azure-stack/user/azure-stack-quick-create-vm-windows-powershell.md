@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 04b2f2a5e4e9caa8e8eacc47b44c60a6884a6837
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986045"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712442"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Windows Server 仮想マシンを作成する
 
@@ -46,7 +46,10 @@ Azure Stack PowerShell を使用して、Windows Server 2016 仮想マシン (VM
 
 ## <a name="create-a-resource-group"></a>リソース グループの作成
 
-リソース グループとは、Azure Stack リソースのデプロイ先となって管理される論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 このドキュメントではすべての変数に値を割り当てていますが、これらの値をそのまま使用することも、新しい値を割り当てることもできます。
+リソース グループとは、Azure Stack リソースのデプロイ先となって管理される論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 
+
+> [!NOTE]
+> 値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -60,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>ストレージ リソースの作成
 
-ストレージ アカウントと、Windows Server 2016 のイメージを格納するストレージ コンテナーを作成します。
+ストレージ アカウントと、Windows Server 2016 のイメージを格納するためのストレージ コンテナーを作成します。
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -214,7 +217,7 @@ Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-次のコマンドを使用して、仮想マシンとのリモート デスクトップ セッションを作成します。 IP アドレスを仮想マシンの publicIPAddress に置き換えます。 求められたら、仮想マシンの作成時に使用したユーザー名とパスワードを入力します。
+次のコマンドを使用して、仮想マシンとのリモート デスクトップ セッションを作成します。 IP アドレスを仮想マシンの *publicIPAddress* に置き換えます。 求められたら、仮想マシンの作成時に使用されたユーザー名とパスワードを入力します。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -222,7 +225,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>PowerShell を使用した IIS のインストール
 
-Azure VM にログインしたら、1 行の PowerShell を使用して、IIS をインストールし、Web トラフィックを許可するローカル ファイアウォール規則を有効にできます。 PowerShell プロンプトを開き、次のコマンドを実行します。
+Azure VM にサインインしたら、1 行の PowerShell を使用して IIS をインストールし、Web トラフィックを許可するローカル ファイアウォール規則を有効にできます。 PowerShell プロンプトを開き、次のコマンドを実行します。
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -230,7 +233,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS のようこそページの表示
 
-IIS をインストールし、VM のポート 80 を開いたら、任意の Web ブラウザーを使用して IIS の既定のウェルカム ページを表示することができます。 前のセクションで指定した *publicIpAddress* を使用して、既定のページにアクセスします。
+IIS をインストールし、VM 上のポート 80 を開いたら、任意のブラウザーを使用して IIS の既定のようこそページを表示することができます。 前のセクションで指定した *publicIpAddress* を使用して、既定のページにアクセスします。
 
 ![IIS の既定のサイト](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 

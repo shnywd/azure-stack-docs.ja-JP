@@ -1,6 +1,6 @@
 ---
 title: Azure CLI を使用して Azure Stack に Windows 仮想マシンを作成する | Microsoft Docs
-description: Azure CLI を使用して Azure Stack に Windows VM を作成する方法を説明します
+description: Azure CLI を使用して Azure Stack に Windows 仮想マシンを作成する
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 67e0ccfa883e79d66eb9ca38a6cf15f00154c487
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 090ad90f15056d614e5f61b848e5c8c248889ef2
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312940"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782634"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>クイック スタート: Azure Stack で Azure CLI を使用して Windows Server 仮想マシンを作成する
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>クイック スタート:Azure Stack で Azure CLI を使用して Windows Server 仮想マシンを作成する
 
 "*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
-仮想マシン (VM) を作成するには、[az vm create](/cli/azure/vm#az-vm-create) コマンドを使用します。 次の例では、myVM という名前の VM を作成します。 この例では、管理ユーザーの名前に Demouser、ユーザー パスワードに Demouser@123 を使用します。 これらの値を、環境に適した内容に更新します。
+仮想マシン (VM) を作成するには、[az vm create](/cli/azure/vm#az-vm-create) コマンドを使用します。 次の例では、myVM という名前の VM を作成します。 この例では、管理者ユーザー名に Demouser、管理者パスワードとして Demouser@123 を使用します。 これらの値を、環境に適した内容に更新します。
 
 ```cli
 az vm create \
@@ -65,11 +65,11 @@ az vm create \
   --location local
 ```
 
-VM が作成されると、出力の **PublicIPAddress** パラメーターには仮想マシンのパブリック IP アドレスが含まれます。 このアドレスをメモしておきます。このアドレスは、後で仮想マシンにアクセスする際に必要になります。
+VM が作成されると、出力の **PublicIPAddress** パラメーターには仮想マシンのパブリック IP アドレスが含まれます。 仮想マシンを使用する際に必要になるため、このアドレスは書き留めておいてください。
 
 ## <a name="open-port-80-for-web-traffic"></a>Web トラフィック用にポート 80 を開く
 
-この VM は IIS Web サーバーを実行することになるので、インターネット トラフィックに対してポート 80 を開く必要があります。
+この VM で IIS Web サーバーを実行することになるため、インターネット トラフィックに対してポート 80 を開く必要があります。
 
 [az vm open-port](/cli/azure/vm) コマンドを使用して、ポート 80 を開きます。
 
@@ -87,7 +87,7 @@ mstsc /v <Public IP Address>
 
 ## <a name="install-iis-using-powershell"></a>PowerShell を使用した IIS のインストール
 
-仮想マシンにログインすると、PowerShell を使用して IIS をインストールできます。 仮想マシン上で PowerShell を起動し、次のコマンドを実行します。
+これで仮想マシンにサインインしました。PowerShell を使用して IIS をインストールできます。 仮想マシン上で PowerShell を起動し、次のコマンドを実行します。
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -95,7 +95,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>IIS のようこそページの表示
 
-任意の Web ブラウザーを使用して、IIS の既定のウェルカム ページを確認します。 前のセクションで指定したパブリック IP アドレスを使用して、既定のページにアクセスします。
+任意のブラウザーを使用して、IIS の既定のようこそページを表示できます。 前のセクションで一覧表示されていたパブリック IP アドレスを使用して、既定のページにアクセスします。
 
 ![IIS の既定のサイト](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

@@ -9,41 +9,46 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0f4133052022963e1ed0457dd479a00bcc5bb749
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: c0b55579c5103c7bb1073546243dbfcc0b700b4a
+ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490058"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65838389"
 ---
-# <a name="how-to-use-an-ssh-public-key"></a>SSH 公開キーの使用方法
+# <a name="use-an-ssh-public-key"></a>SSH 公開キーの使用
 
-ご使用の開発用マシンや、ご自分の Web アプリをホストしている Azure Stack 内のサーバー VM からオープン SSH 接続を使用するには、SSH 公開キーと秘密キーの組の作成が必要になる場合があります。 この記事では、ご自分のキーを入手し、そのキーを使用してご利用のサーバーに接続する手順を説明します。 SSH クライアントを使用して Linux サーバー上の Bash プロンプトを取得することや、SFTP クライアントを使用してサーバーとの間でファイルを移動することができます。
+開発用マシンから、ご自分の Web アプリをホストする Azure Stack インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要がある場合があります。 
+
+この記事では、キーを作成してから、それらを使用してサーバーに接続します。 SSH クライアントを使用して Linux サーバー上の bash プロンプトを取得したり、SFTP (Secure FTP) クライアントを使用してサーバーとの間でファイルを移動したりすることができます。
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Windows 上で SSH 公開キーを作成する
 
-このセクションでは、ご使用の Azure Stack 上の Linux マシンへのセキュリティで保護された接続を作成するときに使用する SSH 公開キーと秘密キーの組を PuTTY key generator を使用して作成します。 PuTTY は、Windows と Unix プラットフォーム向けの SSH と Telnet の無料の実装で、`xterm` ターミナル エミュレーターが付属しています。
+このセクションでは、ご使用の Azure Stack インスタンスで Linux マシンへのセキュリティで保護された接続を作成するときに使用する SSH 公開キーと秘密キーのペアを、PuTTY Key Generator を使って作成します。 PuTTY は、SSH や Telnet 経由でサーバーに接続できるようにする、無料のターミナル エミュレーターです。
 
 1. [ご使用のマシン用の PuTTY をダウンロードしてインストールします。](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
-1. PuTTY key generator を開きます。
+1. PuTTY Key Generator を開きます。
 
-1. **[Parameters]\(パラメーター\)** を **[RSA]** に設定します。
+    ![[キー] ボックスが空の状態の PuTTY Key Generator](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
 
-1. 生成するキーのビット数を `2048` に設定します。  
+1. **[パラメーター]** で、**[RSA]** を選択します。
 
-    ![PuTTY を使用して SSH 公開キーを生成する](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
+1. **[Number of bits in a generated key]\(生成されるキーのビット数\)** ボックスに、「**2048**」と入力します。  
 
-1. **[Generate] \(生成)** を選択します。 **[Key]\(キー\)** 領域の空白領域の上でカーソルを動かしてある程度のランダムさを生成します。
+1. **[Generate] \(生成)** を選択します。
 
-1. **キーのパスフレーズ**を追加し、**[Confirm]\(確認\)** ボックスでそれを確認します。 ご自分のパスフレーズをメモします。
-    ![PuTTY を使用して SSH 公開キーを生成する](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
+1. **[キー]** 領域で、空白領域の上にカーソルを動かし、いくつかのランダムな文字を生成します。
 
-1. **[Save the public key]\(公開鍵の保存\)** を選択し、ご自分がアクセスできる場所に保存します。
+    ![[キー] ボックスが設定された状態の PuTTY Key Generator](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
 
-1. **[Save private key]\(秘密鍵の保存\)** を選択し、ご自分がアクセスできる場所に保存します。公開キーと組になっていることを忘れないでください。
+1. **[キーのパスフレーズ]** を入力し、**[パスフレーズの確認入力]** ボックスでそれを確認します。 後で使用できるようにパスフレーズをメモしておきます。
 
-ご自分の公開キーは、保存したテキスト ファイル内に格納されます。 それを開くと、次のようなテキストが格納されています。
+1. **[Save public key]\(公開キーの保存\)** を選択し、アクセスできる場所に保存します。
+
+1. **[Save private key]\(秘密キーの保存\)** を選択し、アクセスできる場所に保存します。 これが公開キーとペアになっていることを忘れないでください。
+
+ご自分の公開キーは、保存したテキスト ファイル内に格納されます。 テキストは次のようになります。
 
 ```text  
 ---- BEGIN SSH2 PUBLIC KEY ----
@@ -57,49 +62,41 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 ---- END SSH2 PUBLIC KEY ----
 ```
 
-公開キーを使用する場合は、アプリケーションがキーを要求したときに、テキスト ボックスのコンテキスト全体をコピーし、値として貼り付けます。
+アプリケーションでキーが要求された場合は、テキスト ファイルのコンテンツ全体をコピーして貼り付けます。
 
-<!-- 
-## Create an SSH public key on Linux
+## <a name="connect-with-ssh-by-using-putty"></a>PuTTY を使用して SSH で接続する
 
-ToDo: I need to write this section.
-
--->
-## <a name="connect-with-ssh-using-putty"></a>PuTTY を使用して SSH で接続する
-
-PuTTY をインストールした場合は、key generator と SSH クライアントの両方があります。 SSH クライアントの PuTTY を開き、ご自分の接続値と SSH キーを構成します。ご使用の Azure Stack と同じネットワーク上で作業している場合は、ご自分の VM に接続します。
+PuTTY をインストールした場合は、PuTTY Key Generator と SSH クライアントの両方があります。 このセクションでは、SSH クライアントである PuTTY を開き、接続値と SSH キーを構成します。 Azure Stack インスタンスと同じネットワークで作業している場合は、ご利用の VM に接続します。
 
 接続する前に、次が必要となります。
 - PuTTY
-- 認証の種類として SSH 公開キーを利用するご使用の Azure Stack 内の Linux マシンの IP アドレスとユーザー名。
-- マシン用にポート 22 を開く必要があります。
-- マシンを作成するときに使用した公開 SSH キー。
-- ご使用の Azure Stack と同じネットワーク上にある、PuTTY を実行しているご自分のクライアント マシン。
-
-### <a name="connect-via-ssh-with-putty"></a>PuTTY を使用して SSH 経由で接続する
+- 認証の種類として SSH 公開キーを使用する、Azure Stack インスタンス内の Linux マシンの IP アドレスとユーザー名。
+- マシン用に開かれるポート 22。
+- マシンの作成時に使用した公開 SSH キー。
+- ご使用の Azure Stack インスタンスと同じネットワーク上にある、PuTTY を実行しているクライアント マシン。
 
 1. PuTTY を開きます。
 
-    ![PuTTY を使用して接続する](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
+    ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. マシンのユーザー名とパブリック IP アドレスを追加します。 たとえば、**[Host Name]\(ホスト名\)** に「`username@192.XXX.XXX.XX`」と入力します。 
-3. **[Port]\(ポート\)** が `22` に設定され、**[Connection type]\(接続タイプ\)** が `SSH` に設定されていることを確認します。
-4. **[Category]\(カテゴリ\)** ツリー内の **[SSH]** > **[Auth]\(認証\)** を展開します。
+2. **[Host Name (or IP address)]\(ホスト名 (または IP アドレス)\)** ボックスに、マシンのユーザー名とパブリック IP アドレス (**username@192.XXX.XXX.XX** など) を入力します。 
+3. **[ポート]** が **[22]** で、**[接続の種類]** が **[SSH]** であることを確認します。
+4. **[カテゴリ]** ツリーで、**[SSH]** と **[認証]** を展開します。
 
-    ![SSH 秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
+    ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウ - SSH 秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. **[Browse]\(参照\)** を選択し、ご自分の公開キーと秘密キーの組の秘密キー ファイル (filename.ppk) を見つけます。
-6. [Category]\(カテゴリ\) ツリー内の [Session]\(セッション\) を選択します。
+5. **[Private key file for authentication]\(認証のための秘密キー ファイル\)** ボックスの横にある **[参照]** を選択してから、公開キーと秘密キーのペアの秘密キー ファイル (*\<ファイル名>.ppk*) を検索します。
+6. **[カテゴリ]** ツリーで、**[セッション]** を選択します。
 
-    ![SSH 公開キーと秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
+    ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウの [Saved Sessions]\(保存されたセッション\) ボックス](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
 
-7. **[Saved Sessions]\(保存されたセッション\)** の下にセッションの名前を入力し、**[Save]\(保存\)** を選択します。
-8. セッションの名前、**[Load]\(読込\)** の順に選択します。
+7. **[Saved Sessions]\(保存されたセッション\)** で、セッションの名前を入力してから **[保存]** を選択します。
+8. **[Saved Sessions]\(保存されたセッション\)** リストで、セッションの名前を選択してから **[読み込み]** を選びます。
 9. **[Open (開く)]** を選択します。 SSH セッションが開きます。
 
 ## <a name="connect-with-sftp-with-filezilla"></a>FileZilla を使用して SFTP で接続する
 
-ご自分の Linux マシンとの間でファイルを移動するために、SFTP をサポートする FTP クライアントとして Filezilla を使用できます。 FileZilla は Windows 10、Linux、および macOS 上で実行されます。 FileZilla クライアントでは、FTP だけでなく、FTP over TLS (FTPS) および SFTP もサポートされます。 これは、GNU General Public License の条件の下で無料で配布されているオープンソース ソフトウェアです。
+ご自分の Linux マシンとの間でファイルを移動する場合は、SFTP (Secure FTP) をサポートする FTP クライアントである、FileZilla を使用できます。 FileZilla は Windows 10、Linux、および macOS 上で実行されます。 FileZilla クライアントでは、FTP、FTPS (FTP over TLS)、および SFTP がサポートされます。 これは、GNU General Public License の条件の下、無料で配布されているオープンソース ソフトウェアです。
 
 ### <a name="set-your-connection"></a>ご自分の接続を設定する
 
@@ -107,27 +104,27 @@ PuTTY をインストールした場合は、key generator と SSH クライア�
 1. FileZilla を開きます。
 1. **[File]\(ファイル\)** > **[Site Manager]\(サイト マネージャー\)** の順に選択します。
 
-    ![SSH 公開キーと秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
+    ![FileZilla の [Site Manager]\(サイト マネージャー\) ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
-1. **[Protocol]\(プロトコル\)** で **[SFTP - SSH File Transfer Protocol]\(SFTP - SSH ファイル転送プロトコル\)** を選択します。
-1. **[Host]\(ホスト\)** ボックスにご自分のマシンのパブリック IP アドレスを追加します。
-1. **[sign in Type]\(サインインの種類\)** で **[Normal]\(通常\)** を選択します。
-1. ご自分のユーザー名とパスワードを追加します。
+1. **[プロトコル]** ドロップダウン リストで、**[SFTP - SSH File Transfer Protocol]\(SFTP - SSH ファイル転送プロトコル\)** を選択します。
+1. **[ホスト]** ボックスに、ご自分のマシンのパブリック IP アドレスを入力します。
+1. **[ログオンの種類]** ボックスで、**[標準]** を選択します。
+1. ユーザー名とパスワードを入力します。
 1. **[OK]** を選択します。
 1. **[Edit]\(編集\)** > **[Settings]\(設定\)** の順に選択します。
 
-    ![SSH 公開キーと秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
+    ![FileZilla の [設定] ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
-1. **[Select page]\(ページを選択\)** ツリーの **[Connection]\(接続\)** を展開します。 **[SFTP]** を選択します。
-1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル (filename.ppk など) を追加します。
+1. **[ページの選択]** ツリーで、**[接続]** を展開してから **[SFTP]** を選択します。
+1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル (*\<ファイル名>.ppk* など) を入力します。
 1. **[OK]** を選択します。
 
 ### <a name="open-your-connection"></a>ご自分の接続を開く
 
 1. FileZilla を開きます。
 1. **[File]\(ファイル\)** > **[Site Manager]\(サイト マネージャー\)** の順に選択します。
-1. ご自分のサイトの名前を選択し、**[Connect]\(接続\)** を選択します。
+1. ご自分のサイトの名前を選択してから、**[接続]** を選びます。
 
 ## <a name="next-steps"></a>次の手順
 
-[Azure Stack 向けの開発](azure-stack-dev-start.md)方法の詳細を確認する
+[Azure Stack 内で開発環境を設定する](azure-stack-dev-start.md)方法について学習する。

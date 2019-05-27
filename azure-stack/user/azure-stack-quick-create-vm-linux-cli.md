@@ -1,6 +1,6 @@
 ---
 title: Azure Stack で Azure CLI を使用して Linux 仮想マシンを作成する | Microsoft Docs
-description: Azure Stack で CLI を使用して Linux 仮想マシンを作成します。
+description: Azure Stack で CLI を使用して、Linux 仮想マシンを作成します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 05/16/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: aa744414b554d5da72a63e8af6371bc94b2d6b39
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: 19c856bdf981775b0b3a8ee923046b51e6ef79ca
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477389"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782787"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>クイック スタート: Azure Stack で Azure CLI を使用して Linux サーバー仮想マシンを作成する
+# <a name="quickstart-create-a-linux-server-virtual-machine-using-azure-cli-in-azure-stack"></a>クイック スタート:Azure Stack で Azure CLI を使用して Linux サーバー仮想マシンを作成する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシンを作成できます。 この記事の手順に従って仮想マシンを作成し、使用します。 この記事では、以下のことを実行する手順も示します。
+Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシンを作成することができます。 この記事の手順に従って仮想マシンを作成し、使用します。 この記事では、以下のことを実行する手順も示します。
 
 * リモート クライアントを使用して仮想マシンに接続する。
 * NGINX Web サーバーをインストールし、既定のホーム ページを表示します。
@@ -38,7 +38,7 @@ Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシンを作成で�
 
    Azure Stack Marketplace には、既定では Linux イメージが含まれていません。 必要な **Ubuntu Server 16.04 LTS** イメージを提供する Azure Stack オペレーターを取得します。 オペレーターは、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](../operator/azure-stack-download-azure-marketplace-item.md)」という記事に記載されている手順を使用できます。
 
-* リソースを作成して管理するため、Azure Stack には Azure CLI の特定のバージョンが必要です。 Azure Stack 用に構成された Azure CLI がない場合は、[開発キット](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)または Windows ベースの外部クライアント ([VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合) にサインインし、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
+* リソースを作成して管理するため、Azure Stack には Azure CLI の特定のバージョンが必要です。 Azure Stack 用に構成された Azure CLI がない場合は、[開発キット](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (または [VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は、Windows ベースの外部クライアント) にサインインし、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
 
 * Windows ユーザー プロファイルの .ssh ディレクトリに保存された id_rsa.pub という名前の SSH 公開キー。 SSH キーの作成の詳細については、「[SSH 公開キーの使用方法](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 
@@ -47,9 +47,9 @@ Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシンを作成で�
 リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、[az group create](/cli/azure/group#az-group-create) コマンドを実行してリソース グループを作成します。
 
 > [!NOTE]
->  値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
+> 値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
 
-次の例では、myResourceGroup という名前のリソース グループをローカルの場所に作成します。
+次の例では、myResourceGroup という名前のリソース グループをローカルの場所に作成します。 
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
-[az vm create](/cli/azure/vm#az-vm-create) コマンドを使用して仮想マシンを作成します。 次の例では、myVM という名前の VM を作成します。 この例では、管理ユーザーの名前に Demouser、ユーザー パスワードに Demouser@123 を使用します。 これらの値を、環境に適した内容に更新します。
+[az vm create](/cli/azure/vm#az-vm-create) コマンドを使用して仮想マシンを作成します。 次の例では、myVM という名前の VM を作成します。 この例では、管理者ユーザー名に Demouser、管理者パスワードとして Demouser@123 を使用します。 これらの値を、環境に適した内容に更新します。
 
 ```cli
 az vm create \
@@ -69,11 +69,11 @@ az vm create \
   --location local
 ```
 
-**PublicIpAddress** パラメーターでパブリック IP アドレスが返されます。 このアドレスをメモしておきます。このアドレスは、後で仮想マシンにアクセスする際に必要になります。
+**PublicIpAddress** パラメーターでパブリック IP アドレスが返されます。 仮想マシンを使用する際に必要になるため、このアドレスは書き留めておいてください。
 
 ## <a name="open-port-80-for-web-traffic"></a>Web トラフィック用にポート 80 を開く
 
-この仮想マシンは IIS Web サーバーを実行することになるので、インターネット トラフィックに対してポート 80 を開く必要があります。 [az vm open-port](/cli/azure/vm) コマンドを使用して、目的のポートを開きます。
+この仮想マシンでは IIS Web サーバーを実行することになるため、インターネット トラフィックに対してポート 80 を開く必要があります。 [az vm open-port](/cli/azure/vm) コマンドを使用して、目的のポートを開きます。 
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -103,7 +103,7 @@ apt-get -y install nginx
 
 ## <a name="view-the-nginx-welcome-page"></a>NGINX のようこそページの表示
 
-NGINX がインストールされ、仮想マシン上のポート 80 が開かれたので、その仮想マシンのパブリック IP アドレスを使用して Web サーバーにアクセスできます。 Web ブラウザーを開き、```http://<public IP address>``` を参照します。
+NGINX がインストールされ、仮想マシン上のポート 80 が開かれたので、その仮想マシンのパブリック IP アドレスを使用して Web サーバーにアクセスできます。 ブラウザーを開き、```http://<public IP address>``` に移動します。
 
 ![NGINX Web サーバーのようこそページ](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
