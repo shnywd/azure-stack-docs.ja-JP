@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 87c93f77011082d3e43b1c7d238999441f1b90c1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 0167fd89e7bc9b17ff5b950a4ed5f12c368f1f8f
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310333"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991263"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack での Key Vault の概要
 
@@ -50,7 +50,7 @@ Azure Stack サブスクリプションを持つユーザーはだれでも、Ke
 
 オペレーターは、アプリケーションから呼び出す URI (Uniform Resource Identifier) を開発者に提供します。 また、キーの使用状況のログ情報をセキュリティ管理者に提供することもできます。
 
-開発者は、API を使用してキーを直接管理することもできます。 詳細については、Key Vault 開発者ガイドを参照してください。
+開発者は、API を使用してキーを直接管理することもできます。 詳細については、「[Key Vault 開発者ガイド](/azure/key-vault/key-vault-developers-guide)」を参照してください。
 
 ## <a name="scenarios"></a>シナリオ
 
@@ -78,4 +78,3 @@ Azure Stack サブスクリプションを持つユーザーはだれでも、Ke
 
 * [ポータルを使って Azure Stack の Key Vault を管理する](azure-stack-key-vault-manage-portal.md)  
 * [PowerShell を使用した Azure Stack での Key Vault の管理](azure-stack-key-vault-manage-powershell.md)
-

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/17/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/17/2019
+ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
+ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311599"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65855387"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack に Kubernetes をデプロイする
 
@@ -61,25 +61,21 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. Azure AD アプリケーションを作成します。
 
-    a. **[Azure Active Directory]** > **[+ アプリの登録]** > **[新しいアプリケーションの登録]** を選択します。
-
-    b. アプリケーションの**名前** を入力します。
-
-    c. **[Web アプリ / API]** を選択します。
-
-    d. **[サインオン URL]** に `http://localhost` と入力します。
-
-    c. **Create** をクリックしてください。
+    a. [Azure Portal](https://portal.azure.com) で Azure アカウントにサインインします。  
+    b. **[Azure Active Directory]**  >  **[アプリの登録]**  >  **[新規登録]** の順に選択します  
+    c. アプリケーションの名前と URL を指定します。  
+    d. **[サポートされているアカウントの種類]** を選択します。  
+    e.  アプリケーションの URI の `http://localhost` を追加します。 作成するアプリケーションの種類として、 **[Web]** を選択します。 値を設定したら、 **[登録]** を選択します。
 
 1. **アプリケーション ID** をメモします。 クラスターを作成するときに、ID が必要になります。 ID は、**サービス プリンシパル クライアント ID** として参照されます。
 
-1. **[設定]** > **[キー]** の順に選択します。
+1. サービス プリンシパルのブレードで、 **[新しいクライアント シークレット]** を選択します。 **[設定]**  >  **[キー]** 。 サービス プリンシパルの認証キーを生成する必要があります。
 
     a. **[説明]** を入力します。
 
     b. **[有効期限]** で **[Never expires]\(有効期限なし\)** を選択します。
 
-    c. **[保存]** を選択します。 キー文字列をメモします。 クラスターを作成するときに、キー文字列が必要になります。 キーは、**サービス プリンシパル クライアント シークレット**として参照されます。
+    c. **[追加]** を選択します。 キー文字列をメモします。 クラスターを作成するときに、キー文字列が必要になります。 キーは、**サービス プリンシパル クライアント シークレット**として参照されます。
 
 ## <a name="give-the-service-principal-access"></a>サービス プリンシパルへのアクセスの付与
 
@@ -87,11 +83,11 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1.  [Azure Stack ポータル](https://portal.local.azurestack.external/)にサインインします。
 
-1. **[すべてのサービス]** > **[サブスクリプション]** を選択します。
+1. **[すべてのサービス]**  >  **[サブスクリプション]** を選択します。
 
 1. オペレーターによって作成された、Kubernetes クラスターを使用するためのサブスクリプションを選択します。
 
-1. **[アクセス制御 (IAM)]** を選択し、**[ロール割り当ての追加]** を選択します。
+1. **[アクセス制御 (IAM)]** を選択し、 **[ロール割り当ての追加]** を選択します。
 
 1. **[共同作成者]** ロールを選択します。
 
@@ -103,7 +99,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. [Azure Stack ポータル](https://portal.local.azurestack.external)を開きます。
 
-1. **[+ リソースの作成]** > **[コンピューティング]** > **[Kubernetes クラスター]** を選択します。 **Create** をクリックしてください。
+1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **Create** をクリックしてください。
 
     ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
@@ -146,7 +142,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. **[Service Principal ClientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 サービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。
 
-1. サービス プリンシパルを作成するときに作成した、**[Service Principal Client Secret]\(サービス プリンシパル クライアント シークレット\)** を入力します。
+1. サービス プリンシパルを作成するときに作成した、 **[Service Principal Client Secret]\(サービス プリンシパル クライアント シークレット\)** を入力します。
 
 1. **Kubernetes Azure クラウド プロバイダーのバージョン**を入力します。 これは、Kubernetes Azure プロバイダーのバージョンです。 Azure Stack は、各 Azure Stack バージョンに対してカスタムの Kubernetes ビルドをリリースします。
 

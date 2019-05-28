@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 360ff9a016dd0c564a15bf00142022bb4f959021
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 10900095a79da2639212b5fa58becbafb7bee0eb
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311947"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941202"
 ---
 # <a name="create-virtual-machine-disk-storage-in-azure-stack"></a>Azure Stack で仮想マシンのディスク記憶域を作成する
 
@@ -30,15 +30,15 @@ ms.locfileid: "64311947"
 
 ## <a name="overview"></a>概要
 
-バージョン 1808 以降、Azure Stack では、マネージド ディスクとアンマネージド ディスクの両方を、仮想マシンで、オペレーティング システム (OS) ディスクおよびデータ ディスクとして使用できます。 バージョン 1808 未満では、アンマネージド ディスクのみがサポートされます。 
+バージョン 1808 以降、Azure Stack では、マネージド ディスクとアンマネージド ディスクを、オペレーティング システム (OS) およびデータ ディスクの両方として仮想マシンで使用できます。 バージョン 1808 未満では、アンマネージド ディスクのみがサポートされます。
 
-**[マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)** を使用すると、VM ディスクに関連付けられているストレージ アカウントを管理できるため、Azure IaaS VM のディスク管理が簡素化されます。 Azure Stack では、必要なディスクのサイズを指定するだけで、ディスクの作成と管理が自動的に行われます。
+[マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)を使用すると、VM ディスクに関連付けられているストレージ アカウントを管理できるため、Azure IaaS VM のディスク管理が簡素化されます。 Azure Stack では、必要なディスクのサイズを指定するだけで、ディスクの作成と管理が自動的に行われます。
 
 アンマネージド ディスクについては、そのディスクを格納するストレージ アカウントを作成する必要があります。 作成したディスクは VM ディスクと呼ばれ、ストレージ アカウントのコンテナーに格納されます。
 
 ### <a name="best-practice-guidelines"></a>ベスト プラクティス ガイドライン
 
-パフォーマンスを改善し、全体的なコストを削減するために、個別のコンテナーに各 VM ディスクを配置することをお勧めします。 1 つのコンテナーには、OS ディスクまたはデータ ディスクのどちらかを保持し、同時に両方を保持しないでください。 (ただし、両方の種類のディスクを同じコンテナーに配置できないわけではありません。)
+パフォーマンスを改善し、全体的なコストを削減するために、個別のコンテナーに各 VM ディスクを配置することをお勧めします。 1 つのコンテナーには、OS ディスクまたはデータ ディスクのどちらかを保持し、同時に両方を保持しないでください。 ただし、同じコンテナーに両方の種類のディスクを入れることもできます。
 
 VM に 1 つ以上のデータ ディスクを追加する場合は、追加コンテナーを、これらのディスクを格納する場所として使用してください。 追加 VM の OS ディスクも、独自のコンテナーに配置する必要があります。
 
@@ -58,64 +58,62 @@ VM を作成するときは、新しい仮想マシンごとに同じストレ�
 ポータルを使ってマーケットプレース項目のほとんどを対象とする VM を作成する場合、既定では、OS ディスクのみが作成されます。
 
 VM の作成後、ポータルを使って次の操作を行うことができます。
+
 * 新しいデータ ディスクを作成し、VM に接続する。
 * 既存のデータ ディスクを作成し、VM にアップロードする。
 
 追加するアンマネージド ディスクはそれぞれ、個別のコンテナーに配置する必要があります。
 
 >[!NOTE]  
->Azure によって作成および管理されているディスクは、[マネージド ディスク](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)と呼ばれます。
+>Azure によって作成および管理されているディスクは、[マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)と呼ばれます。
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>ポータルを使用して新しいデータ ディスクを作成して接続する
 
-1. ポータルで、**[すべてのサービス]** > **[仮想マシン]** の順に選択します。    
+1. ポータルで、 **[すべてのサービス]** を選択し、次に **[仮想マシン]** を選択します。
    ![例:VM ダッシュボード](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-2. 以前に作成した仮想マシンを選択します。   
+2. 以前に作成した仮想マシンを選択します。
    ![例:ダッシュボードで VM を選択する](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3. その仮想マシンについて、**[ディスク]** > **[データ ディスクの追加]** の順に選択します。       
-   ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/Attach-disks.png)    
+3. その仮想マシンについて、 **[ディスク]** を選択し、次に **[データ ディスクの追加]** を選択します。
+   ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/Attach-disks.png)
 
 4. データ ディスクに対して次の操作を実行します。
-   -  **LUN** を入力します。 LUN には有効な数値を指定してください。
-   -  **[ディスクの作成]** を選択します。
+   * **LUN** を入力します。 LUN には有効な数値を指定してください。
+   * **[ディスクの作成]** を選択します。
    ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
-5. [マネージド ディスクの作成] ブレードで次の操作を行います。
-   - **[名前]** にディスクの名前を入力します。
-   - 既存のリソース グループを選択するか、新しい**リソース グループ**を作成します。
-   - **[場所]** を選択します。 既定では、場所は、OS ディスクを保持するコンテナーに設定されます。
-   - **[アカウントの種類]** を選択します。 
+5. **[マネージド ディスクの作成]** ブレードで次の操作を行います。
+   * **[名前]** にディスクの名前を入力します。
+   * 既存のリソース グループを選択するか、新しい**リソース グループ**を作成します。
+   * **[場所]** を選択します。 既定では、場所は、OS ディスクを保持するコンテナーに設定されます。
+   * **[アカウントの種類]** を選択します。
       ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/create-manage-disk.png)
 
       **Premium SSD**  
       Premium ディスク (SSD) の実体はソリッドステート ドライブであり、待ち時間の短い一貫したパフォーマンスが得られます。 価格とパフォーマンスのバランスにきわめて優れており、I/O 集中型のアプリケーションや運用環境のワークロードに最適です。
-       
-      **Standard HDD**  
-      Standard ディスク (HDD) の実体は磁気ドライブであり、データへのアクセス頻度が低い用途に適しています。 ゾーン冗長ディスクの実体はゾーン冗長ストレージ (ZRS) です。ZRS では、データが複数のゾーンにレプリケートされ、1 つのゾーンがダウンしても可用性が保たれます。 
 
-   - **[ソースの種類]** を選択します。
+      **Standard HDD**  
+      Standard ディスク (HDD) の実体は磁気ドライブであり、データへのアクセス頻度が低い用途に適しています。 ゾーン冗長ディスクの実体はゾーン冗長ストレージ (ZRS) です。ZRS では、データが複数のゾーンにレプリケートされ、1 つのゾーンがダウンしても可用性が保たれます。
+
+   * **[ソースの種類]** を選択します。
 
      ディスクは、別のディスクのスナップショットや、ストレージ アカウント内の BLOB から作成できるほか、空のディスクを作成することができます。
 
-      **スナップショット**  
-      スナップショットが利用できる場合は、スナップショットを選択します。 スナップショットは、VM のサブスクリプションと場所から利用できることが必要です。
+      **スナップショット**:スナップショットが利用できる場合は、スナップショットを選択します。 スナップショットは、VM のサブスクリプションと場所から利用できることが必要です。
 
-      **BLOB ストレージ**  
-     - ディスク イメージが格納されている BLOB ストレージの URI を追加します。  
-     - **[参照]** を選択して、[ストレージ アカウント] ブレードを開きます。 手順については、「[ストレージ アカウントからデータ ディスクを追加する](#add-a-data-disk-from-a-storage-account)」を参照してください。
-     - イメージの OS の種類を **[Windows]**、**[Linux]**、**[なし (データ ディスク)]** のいずれかから選択します。
+      **Storage Blob**:
+     * ディスク イメージが格納されている BLOB ストレージの URI を追加します。  
+     * **[参照]** を選択して、[ストレージ アカウント] ブレードを開きます。 手順については、「[ストレージ アカウントからデータ ディスクを追加する](#add-a-data-disk-from-a-storage-account)」を参照してください。
+     * イメージの OS の種類を **[Windows]** 、 **[Linux]** 、 **[なし (データ ディスク)]** のいずれかから選択します。
 
-       **[なし (空のディスク)]**
-
-   - **[サイズ (GiB)]** を選択します。
+   * **[サイズ (GiB)]** を選択します。
 
      Standard ディスクのコストは、ディスクのサイズに応じて高くなります。 Premium ディスクのコストとパフォーマンスは、ディスクのサイズに応じて高くなります。 詳細については、「[Managed Disks の価格](https://go.microsoft.com/fwlink/?linkid=843142)」を参照してください。
 
-   - **作成** を選択します。 Azure Stack でマネージド ディスクが作成されて検証されます。
+   * **作成** を選択します。 Azure Stack でマネージド ディスクが作成されて検証されます。
 
-5. Azure Stack でディスクが作成され、仮想マシンに接続されると、仮想マシンのディスク設定の **[データ ディスク]** に新しいディスクが表示されます。   
+6. Azure Stack でディスクが作成され、仮想マシンに接続されると、仮想マシンのディスク設定の **[データ ディスク]** に新しいディスクが表示されます。
 
    ![例:ディスクを表示する](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
@@ -124,42 +122,42 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 Azure Stack でのストレージ アカウントの使用について詳しくは、「[Azure Stack Storage の概要](azure-stack-storage-overview.md)」を参照してください。
 
 1. 使用する**ストレージ アカウント**を選択します。
-2. データ ディスクを配置する**コンテナー**を選択します。 必要に応じて、**[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
+2. データ ディスクを配置する**コンテナー**を選択します。 必要に応じて、 **[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
 3. **[選択]** を選択して、選択内容を保存します。
 
     ![例:コンテナーを選択する](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>VM に既存のデータ ディスクを接続する
 
-1.  VM のデータ ディスクとして使用する [.Vhd ファイルを準備します](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd)。 VM で使用するストレージ アカウントで、.vhd ファイルを接続するアカウントに .vhd ファイルをアップロードします。
+1. VM のデータ ディスクとして使用する [.Vhd ファイルを準備します](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd)。 .vhd ファイルを接続する VM で使用するストレージ アカウントに .vhd ファイルをアップロードします。
 
-    .vhd ファイルを保持するために使用するコンテナーは、OS ディスクを保持するコンテナーとは別のコンテナーにすることを計画してください。   
+    .vhd ファイルを保持するために使用するコンテナーは、OS ディスクを保持するコンテナーとは別のコンテナーにすることを計画してください。
     ![例:VHD ファイルのアップロード](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  .vhd ファイルをアップロードしたら、VM に VHD をアタッチできます。 左側のメニューで **[仮想マシン]** を選択します。  
+2. .vhd ファイルをアップロードしたら、VM に VHD をアタッチできます。 左側のメニューで **[仮想マシン]** を選択します。  
  ![例:ダッシュボードで VM を選択する](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
-3.  一覧から仮想マシンを選択します。
+3. 一覧から仮想マシンを選択します。
 
     ![例:ダッシュボードで VM を選択する](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  仮想マシンのページで、**[ディスク]** > **[既存のディスクの接続]** を選択します。   
+4. 仮想マシンのページで、 **[ディスク]** を選択し、次に **[既存のディスクの接続]** を選択します。
 
     ![例:既存のディスクの接続](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  **[既存のディスクの接続]** ページで、**[VHD ファイル]** を選択します。 **[ストレージ アカウント]** ページが開きます。    
+5. **[既存のディスクの接続]** ページで、 **[VHD ファイル]** を選択します。 **[ストレージ アカウント]** ページが開きます。
 
     ![例:VHD ファイルを選択する](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  **[ストレージ アカウント]** で、使用するアカウントを選択し、前にアップロードした .vhd ファイルを保持するコンテナーを選択します。 .vhd ファイルを選択し、**[選択]** を選択して、選択内容を保存します。    
+6. **[ストレージ アカウント]** で、使用するアカウントを選択し、前にアップロードした .vhd ファイルを保持するコンテナーを選択します。 .vhd ファイルを選択し、 **[選択]** を選択して、選択内容を保存します。
 
     ![例:コンテナーを選択する](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  **[既存のディスクの接続]** の **[VHD ファイル]** に、選択したファイルが表示されます。 ディスクの **[ホスト キャッシュ]** 設定を更新し、**[OK]** を選択して VM の新しいディスク構成を保存します。    
+7. **[既存のディスクの接続]** の **[VHD ファイル]** に、選択したファイルが表示されます。 ディスクの **[ホスト キャッシュ]** 設定を更新し、 **[OK]** を選択して VM の新しいディスク構成を保存します。
 
     ![例:VHD ファイルをアタッチする](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
-8.  Azure Stack でディスクが作成され、仮想マシンに接続されると、仮想マシンのディスク設定の **[データ ディスク]** に新しいディスクが表示されます。   
+8. Azure Stack でディスクが作成され、仮想マシンに接続されると、仮想マシンのディスク設定の **[データ ディスク]** に新しいディスクが表示されます。
 
     ![例:ディスクのアタッチを完了する](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
@@ -170,16 +168,17 @@ PowerShell を使用して VM をプロビジョニングし、新しいデー�
 **Add-AzureRmVMDataDisk** コマンドレットは、仮想マシンにデータ ディスクを追加します。 データ ディスクは仮想マシンを作成するときに追加できます。または、既存のバーチャル マシンにデータ ディスクを追加できます。 別々のコンテナーにディスクを分散させるには、**VhdUri** パラメーターを指定します。
 
 ### <a name="add-data-disks-to-a-new-virtual-machine"></a>新しい仮想マシンにデータ ディスクを追加する
+
 次の例では、PowerShell コマンドを使用して、3 つのデータ ディスクがある VM を作成します。各ディスクは別々のコンテナーに配置されます。
 
-最初のコマンドは、仮想マシン オブジェクトを作成し、それを *$VirtualMachine* 変数に格納します。 このコマンドは、仮想マシンに名前とサイズを割り当てます。
+最初のコマンドは、仮想マシン オブジェクトを作成し、それを `$VirtualMachine` 変数に格納します。 このコマンドは、仮想マシンに名前とサイズを割り当てます。
 
 ```powershell
 $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
-                                    -VMSize "Standard_A2"
+                                      -VMSize "Standard_A2"
 ```
 
-次の 3 つのコマンドは、3 つのデータ ディスクのパスを、*$DataDiskVhdUri01* 変数、*$DataDiskVhdUri02* 変数、および *$DataDiskVhdUri03* 変数に割り当てます。 URL に異なるパス名を定義して、ディスクを別々のコンテナーに分散させます。
+次の 3 つのコマンドは、3 つのデータ ディスクのパスを `$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` の各変数に割り当てます。 URL に異なるパス名を定義して、ディスクを別々のコンテナーに分散させます。
 
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
@@ -193,7 +192,7 @@ $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.
 $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
 ```
 
-最後の 3 つのコマンドは、*$VirtualMachine* に格納されている仮想マシンにデータ ディスクを追加します。 各コマンドは、ディスクの名前、場所、および追加のプロパティを指定します。 各ディスクの URI は、*$DataDiskVhdUri01* *$DataDiskVhdUri02*、および *$DataDiskVhdUri03* に格納されます。
+最後の 3 つのコマンドは、`$VirtualMachine` に格納されている仮想マシンにデータ ディスクを追加します。 各コマンドは、ディスクの名前、場所、および追加のプロパティを指定します。 各ディスクの URI は、`$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` に格納されています。
 
 ```powershell
 $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
@@ -263,26 +262,28 @@ New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>データ ディスクを既存の仮想マシンに追加する
 
-次の例では、PowerShell コマンドを使用して、既存の VM に 3 つのデータ ディスクを追加します。
-最初のコマンドは、**Get AzureRmVM** コマンドレットを使用して、VirtualMachine という名前の仮想マシンを取得します。 コマンドは仮想マシンを変数 *$VirtualMachine* に保存します。
+次の例では、PowerShell コマンドを使用して、既存の VM に 3 つのデータ ディスクを追加します。 最初のコマンドは、**Get-AzureRmVM** コマンドレットを使用して、**VirtualMachine** という名前の仮想マシンを取得します。 このコマンドは仮想マシンを `$VirtualMachine` 変数に保存します。
 
 ```powershell
 $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                 -Name "VirtualMachine"
 ```
-次の 3 つのコマンドは、3 つのデータ ディスクのパスを、$DataDiskVhdUri01 変数、$DataDiskVhdUri02 変数、および $DataDiskVhdUri03 変数に割り当てます。  vhduri 内の異なるパス名は、ディスクを配置する別々のコンテナーを示します。
+
+次の 3 つのコマンドは、3 つのデータ ディスクのパスを `$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` の各変数に割り当てます。 VHD URI 内の異なるパス名は、ディスクを配置する別々のコンテナーを示します。
+
 ```powershell
 $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
 ```
+
 ```powershell
 $DataDiskVhdUri02 = "https://contoso.blob.local.azurestack.external/test2/data2.vhd"
 ```
+
 ```powershell
 $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
 ```
 
-
-次の 3 つのコマンドは、*$VirtualMachine* に格納されている仮想マシンにデータ ディスクを追加します。 各コマンドは、ディスクの名前、場所、および追加のプロパティを指定します。 各ディスクの URI は、*$DataDiskVhdUri01* *$DataDiskVhdUri02*、および *$DataDiskVhdUri03* に格納されます。
+次の 3 つのコマンドは、`$VirtualMachine` 変数に格納されている仮想マシンにデータ ディスクを追加します。 各コマンドは、ディスクの名前、場所、および追加のプロパティを指定します。 各ディスクの URI は、`$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` に格納されています。
 
 ```powershell
 Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
@@ -302,7 +303,7 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk3" `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
 
-最後のコマンドは、-*ResourceGroupName*内の *$VirtualMachine* に格納されている仮想マシンの状態を更新します。
+最後のコマンドは、`-ResourceGroupName` 内の `$VirtualMachine` に格納されている仮想マシンの状態を更新します。
 
 ```powershell
 Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine

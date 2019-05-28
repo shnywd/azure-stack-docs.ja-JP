@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 2f0d311851abe1c0fb01ec08dc82626805b35eb1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 4273326001dc79abb7ea522c3bd4c01e46bceb2b
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310351"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991286"
 ---
 # <a name="develop-for-azure-stack"></a>Azure Stack 向けの開発
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack 環境へのアクセス権がなくても、アプリケーションの開発をさっそく始めることができます。 Azure Stack は、お使いのデータセンターで実行される Microsoft Azure サービスを提供しているため、Azure で使用するのと同様のツールとプロセスを使用して、Azure Stack 向けの開発ができます。
+Azure Stack 環境へのアクセス権がなくても、アプリケーションの開発をさっそく始めることができます。 Azure Stack は、お使いのデータセンターで実行されている Microsoft Azure サービスを提供しているため、Azure と同様のツールとプロセスを使用して、Azure Stack で開発ができます。
 
 ## <a name="development-considerations"></a>開発の考慮事項
 

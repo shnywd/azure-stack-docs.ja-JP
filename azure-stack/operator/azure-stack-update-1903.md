@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 04cec74873869f19c7bd762753f7fe89f51c184d
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386739"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712323"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新プログラム
 
@@ -98,6 +98,8 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
 ## <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
 
+- Azure Stack の更新プログラムをインストールしようとしたときに、更新プログラムの状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることにより回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、もう一度ダウンロードを開始します。
+
 - [Test-AzureStack](azure-stack-diagnostic-test.md) を実行すると、ベースボード管理コントローラー (BMC) からの警告メッセージが表示されます。 この警告は無視してかまいません。
 
 <!-- 2468613 - IS -->
@@ -142,7 +144,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
   
 <!-- Daniel 3/28 -->
-- ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。 この問題を回避するには、**[SAS]** オプションを使用して BLOB をアップロードします。
+- ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。 この問題を回避するには、 **[SAS]** オプションを使用して BLOB をアップロードします。
 
 - Azure Stack ポータルにログインすると、パブリック Azure portal に関する通知が表示される場合があります。 このような通知は現在 Azure Stack には適用されないため、無視しても問題ありません (たとえば、"1 new update - The following updates are now available: Azure portal April 2019 update")。
 
@@ -165,13 +167,13 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 - 更新プログラム 1903 の適用後、Managed Disks を使用した VM をデプロイすると、次の問題が発生する可能性があります。
 
    - 1808 更新の前にサブスクリプションが作成された場合、Managed Disks を使用した VM をデプロイすると、内部エラー メッセージが出て失敗することがあります。 このエラーを解決するには、サブスクリプションごとに次の手順に従ってください。
-      1. テナント ポータルで、**[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** を選択し、**[Microsoft.Compute]** を選択してから、**[再登録]** をクリックします。
-      2. 同じサブスクリプションで、**[アクセス制御 (IAM)]** に移動し、**[Azure Stack - マネージド ディスク]** がリストに含まれていることを確認します。
+      1. テナント ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** を選択し、 **[Microsoft.Compute]** を選択してから、 **[再登録]** をクリックします。
+      2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、 **[Azure Stack - マネージド ディスク]** がリストに含まれていることを確認します。
    - マルチテナント環境を構成した場合、ゲスト ディレクトリに関連付けられているサブスクリプションで VM をデプロイすると、内部エラー メッセージが出て失敗することがあります。 このエラーを解決するには、[この記事](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)にある手順に従って、各ゲスト ディレクトリを構成します。
 
 - SSH の認可を有効にして作成した Ubuntu 18.04 VM では、SSH キーを使用してサインインすることはできません。 回避策として、プロビジョニング後に Linux 拡張機能用の VM アクセスを使用して SSH キーを実装するか、パスワードベースの認証を使用してください。
 
-- ハードウェア ライフサイクル ホスト (HLH) がない場合: 1902 より前のビルドでは、グループ ポリシー **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** を **[LM と NTLM を送信する (ネゴシエートした場合 NTLMv2 セッション セキュリティを使う)]** に設定する必要がありました。 ビルド 1902 からは、**[定義されていません]** のままにするか、**[NTLMv2 応答のみ送信する]** (既定値) に設定する必要があります。 そうしないと、PowerShell リモート セッションを確立できず、"**アクセスが拒否されました**" というエラーが表示されます。
+- ハードウェア ライフサイクル ホスト (HLH) がない場合: 1902 より前のビルドでは、グループ ポリシー **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** を **[LM と NTLM を送信する (ネゴシエートした場合 NTLMv2 セッション セキュリティを使う)]** に設定する必要がありました。 ビルド 1902 からは、 **[定義されていません]** のままにするか、 **[NTLMv2 応答のみ送信する]** (既定値) に設定する必要があります。 そうしないと、PowerShell リモート セッションを確立できず、"**アクセスが拒否されました**" というエラーが表示されます。
 
    ```powershell
    $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint -Credential $Cred
@@ -184,7 +186,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
    ```
 
-- スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、**[概要]** ウィンドウから **[削除]** ボタンをクリックします。
+- スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
 
 ### <a name="networking"></a>ネットワーク
 
@@ -196,13 +198,13 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
     このメッセージは無視してかまいません。たとえ VM インスタンスが再起動しなくても IP アドレスは変更されます。
 
 <!-- 3632798 - IS, ASDK -->
-- ポータルで受信セキュリティ規則を追加し、**[Service Tag]\(サービス タグ\)** をソースとして選択すると、Azure Stack では利用できないオプションがいくつか **[Source Tag]\(ソース タグ\)** リストに表示されます。 Azure Stack で有効なのは次のオプションだけです。
+- ポータルで受信セキュリティ規則を追加し、 **[Service Tag]\(サービス タグ\)** をソースとして選択すると、Azure Stack では利用できないオプションがいくつか **[Source Tag]\(ソース タグ\)** リストに表示されます。 Azure Stack で有効なのは次のオプションだけです。
 
   - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
 
-  その他のオプションについては、Azure Stack ではソース タグとしてサポートされません。 同様に、送信セキュリティ規則を追加し、**[Service Tag]\(サービス タグ\)** を宛先として選択した場合も、**[Source Tag]\(ソース タグ\)** のリストに同じオプションが表示されます。 有効なオプションは、前述のリストで説明した **[Source Tag]\(ソース タグ\)** と同じものに限られます。
+  その他のオプションについては、Azure Stack ではソース タグとしてサポートされません。 同様に、送信セキュリティ規則を追加し、 **[Service Tag]\(サービス タグ\)** を宛先として選択した場合も、 **[Source Tag]\(ソース タグ\)** のリストに同じオプションが表示されます。 有効なオプションは、前述のリストで説明した **[Source Tag]\(ソース タグ\)** と同じものに限られます。
 
 - ネットワーク セキュリティ グループ (NSG) は、Azure Stack ではグローバル Azure と同様に機能しません。 Azure では、1 つの NSG ルールに複数のポートを設定できます (ポータル、PowerShell、Resource Manager テンプレートを使用)。 ただし、Azure Stack では、ポータルを介して、1 つの NSG ルールに複数のポートを設定できません。 この問題を回避するには、Resource Manager テンプレートまたは PowerShell を使用して、これらの追加ルールを設定します。
 
@@ -214,7 +216,8 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 ### <a name="app-service"></a>App Service
 
 <!-- 2352906 - IS ASDK -->
-- お客様の最初の Azure 関数をサブスクリプションに作成する前に、ストレージ リソース プロバイダーを登録する必要があります。
+- テナントは、サブスクリプションで最初の Azure 関数を作成する前に、ストレージ リソースプロバイダーを登録する必要があります。
+- 1903 のポータル フレームワークと互換性がないため、テナント ポータルの一部のユーザー エクスペリエンス (主に、デプロイ スロット、運用環境でのテスト、およびサイト拡張機能のユーザー エクスペリエンス) は壊れています。 この問題を回避するには使用、[Azure App Service PowerShell モジュール](/azure/app-service/deploy-staging-slots#automate-with-powershell)または [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest) を使用します。 ポータル エクスペリエンスは、Azure Stack 1.6 (更新 6).上の Azure App Service の今後のリリースで復元されます。
 
 <!-- ### Usage -->
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 2f7f0c55f02fd99a419619d878be8300d7326303
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
+ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309649"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991107"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack への Linux イメージの追加
 
@@ -30,16 +30,17 @@ Azure Stack Marketplace に Linux ベースのイメージを追加すること�
 
 ## <a name="marketplace-management"></a>Marketplace Management
 
-Azure Marketplace から Linux イメージをダウンロードするには、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」に記載されている手順を使用します。 Azure Stack で、ユーザーに提供する Linux のイメージを選択します。 
+Azure Marketplace から Linux イメージをダウンロードするには、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」に記載されている手順を使用します。 Azure Stack で、ユーザーに提供する Linux のイメージを選択します。
 
 これらのイメージは頻繁に更新されるので、Marketplace Management をこまめに確認して最新の状態に保つようにしてください。
 
 ## <a name="prepare-your-own-image"></a>独自のイメージを準備する
 
-可能な限り、Azure Stack 用に準備されてテストされている Marketplace Management から使用可能なイメージをダウンロードします。
+可能な限り、使用可能なイメージは、Marketplace Management からダウンロードしてください。 これらのイメージは、Azure Stack 用にあらかじめ準備され、テストされています。
 
 ### <a name="azure-linux-agent"></a>Azure Linux エージェント
-Azure Linux エージェント (一般に `WALinuxAgent` または `walinuxagent` と呼ばれます) が必要であり、エージェントのバージョンによっては Azure Stack で動作しないものがあります。 2.2.20 から 2.2.35 までのバージョンは、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 現在、[cloud-init](https://cloud-init.io/) は Azure Stack でサポートされていないことに注意してください。
+
+Azure Linux エージェント (一般に `WALinuxAgent` または `walinuxagent` と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2.2.20 から 2.2.35 までのバージョンは、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 現在、[cloud-init](https://cloud-init.io/) は Azure Stack でサポートされていないことに注意してください。
 
 | Azure Stack のビルド | Azure Linux エージェントのビルド |
 | ------------- | ------------- |
@@ -66,7 +67,5 @@ Marketplace にイメージを追加すると、Marketplace アイテムが作�
 
 ## <a name="next-steps"></a>次の手順
 
-詳細については、次の記事を参照してください。
-
-- [Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)
-- [Azure Stack Marketplace の概要](azure-stack-marketplace.md)
+* [Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)
+* [Azure Stack Marketplace の概要](azure-stack-marketplace.md)

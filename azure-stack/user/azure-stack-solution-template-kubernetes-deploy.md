@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: e43ee8afd479d4bead1c513aee0229d8483fab33
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 55db30efd648c76938d71bc2067c7c68e6693f88
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310447"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712345"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Azure Stack でコンテナーを使用するための Kubernetes をデプロイする
 
@@ -33,7 +33,7 @@ ms.locfileid: "64310447"
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes とコンテナー
 
-Azure Stack 上の ACS エンジンによって生成された Azure Resource Manager テンプレートを使用して、Kubernetes をインストールできます。 [Kubernetes](https://kubernetes.io) はコンテナー内でのアプリケーションのデプロイ、スケーリング、管理を自動化するオープンソース システムです。 [コンテナー](https://www.docker.com/what-container)はイメージに含まれます。 コンテナー イメージは VM と似ていますが、VM とは違って、コンテナーには、コード、コードを実行するためのランタイム、特定のライブラリ、および設定など、アプリケーションを実行するために必要なリソースのみが含まれています。
+Azure Stack 上の AKS エンジンによって生成された Azure Resource Manager テンプレートを使用して、Kubernetes をインストールできます。 [Kubernetes](https://kubernetes.io) はコンテナー内でのアプリケーションのデプロイ、スケーリング、管理を自動化するオープンソース システムです。 [コンテナー](https://www.docker.com/what-container)はイメージに含まれます。 コンテナー イメージは VM と似ていますが、VM とは違って、コンテナーには、コード、コードを実行するためのランタイム、特定のライブラリ、および設定など、アプリケーションを実行するために必要なリソースのみが含まれています。
 
 Kubernetes は、次の目的で使用できます。
 

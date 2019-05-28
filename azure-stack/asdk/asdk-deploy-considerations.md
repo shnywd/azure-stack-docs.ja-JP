@@ -12,33 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2018
+ms.date: 05/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3a5b506cdb7441ef60d4731718cafa8aa267c078
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.lastreviewed: 05/13/2019
+ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172430"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712231"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack のデプロイ計画に関する考慮事項
+
 Azure Stack Development Kit (ASDK) をデプロイする前に、開発キットのホスト コンピューターがこの記事で説明されている要件を満たしていることをご確認ください。
 
-
 ## <a name="hardware"></a>ハードウェア
+
 | コンポーネント | 最小値 | 推奨 |
 | --- | --- | --- |
 | ディスク ドライブ: オペレーティング システム |システム パーティション用に最低 200 GB の空きがある、1 つのオペレーティング システム ディスク (SSD または HDD) |システム パーティション用に最低 200 GB の空きがある1 OS ディスク (SSD または HDD) |
 | ディスク ドライブ: 開発キット データ全般<sup>*</sup>  |4 つのディスク。 各ディスクに最低 240 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 |4 つのディスク。 各ディスクに最低 400 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 |
 | コンピューティング: CPU |デュアル ソケット: 16 個の物理コア (合計) |デュアル ソケット: 20 個の物理コア (合計) |
-| コンピューティング: メモリ |192 GB RAM |256 GB RAM |
+| コンピューティング: メモリ |192 GB の RAM |256 GB の RAM |
 | コンピューティング: BIOS |Hyper-V 有効 (SLAT サポートあり) |Hyper-V 有効 (SLAT サポートあり) |
 | ネットワーク: NIC |Windows Server 2012 R2 認定。 特別な機能は必要ありません |Windows Server 2012 R2 認定。 特別な機能は必要ありません |
 | ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Windows Server 2016 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
 <sup>*</sup> Azure から[マーケットプレース項目](../operator/azure-stack-create-and-publish-marketplace-item.md)の多くを追加する計画の場合は、この推奨容量より多くが必要です。
+
+### <a name="hardware-notes"></a>ハードウェアの注
 
 **データ ディスク ドライブの構成:** すべてのデータ ドライブは同じ種類 (すべて SAS、すべて SATA、またはすべて NVMe)、同じ容量である必要があります。 SAS ディスク ドライブを使う場合、ディスク ドライブは 1 つのパス経由で接続する必要があります (MPIO 、マルチパスはサポートされません)。
 
@@ -63,6 +66,22 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、開発キット
 **HBA の例**: パススルー モードの LSI 9207-8i、LSI-9300-8i、または LSI-9265-8i
 
 サンプル OEM 構成を使用できます。
+
+### <a name="storage-resiliency-for-the-asdk"></a>ASDK のストレージの回復性
+
+1 つのノード システムとして、ASDK は、Azure Stack 統合システムの運用環境の冗長性を検証するために設計されているのではありません。 ただし、HDD ドライブと SSD ドライブの最適な組み合わせによって、ASDK の基盤となるストレージ冗長性のレベルを上げることができます。 RAID0 と同様の単純な回復性の構成ではなく、RAID1 と同様の双方向ミラー構成をデプロイすることができます。 基盤となる記憶域スペース ダイレクト構成には、十分な容量、種類、およびドライブ数を使用します。
+
+ストレージの回復性に双方向ミラー構成を使用するには、次が必要になります。
+
+- 2 テラバイトを超えるシステムの HDD 容量。
+- ご使用の ASDK に SSD がない場合、双方向ミラー構成には少なくとも 8 個の HDD が必要になります。
+- ご使用の ASDK に SSD も HDD もある場合は、少なくとも 5 個の HDD が必要になります。 ただし、6 個の HHD が推奨されます。 6 個の HDD の場合は、さらに、対応する SSD をシステム内に少なくとも 3 個持つことをお勧めします。それにより、1 個のキャッシュ ディスク (SSD) で 2個つの容量ドライブ (HDD) に対応することができます。
+
+双方向ミラー構成の例:
+
+- 8 個の HDD
+- 3 個の SSD/6 個の HDD
+- 4 個の SSD/8 個の HDD
 
 ## <a name="operating-system"></a>オペレーティング システム
 |  | **要件** |
@@ -126,4 +145,7 @@ Azure Stack は、直接または透過プロキシ経由で、インターネ�
 
 
 ## <a name="next-steps"></a>次の手順
-[ASDK 展開パッケージをダウンロードする](asdk-download.md)
+
+- [ASDK 展開パッケージをダウンロードする](asdk-download.md)
+- 記憶域スペース ダイレクトの詳細については、「[記憶域スペース ダイレクトの概要](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)」を参照してください。
+

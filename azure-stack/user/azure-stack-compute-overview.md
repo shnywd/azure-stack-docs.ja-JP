@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 01/05/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 88aabfc6ba054bc78612e6fa6f59b50fd1b4df76
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310075"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941142"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 仮想マシンの概要
 
@@ -27,18 +27,15 @@ Azure Stack VM により柔軟な仮想化が可能になります。クラス�
 
 Azure Stack 仮想マシンは、いくつかの方法で利用できます。 例: 
 
-- **開発とテスト**  
-    Azure Stack VM を使用すると、アプリケーションのコーディングとテストに必要な特定の構成でコンピューターを作成できます。
+- **開発とテスト**:Azure Stack VM を使用すると、アプリケーションのコーディングとテストに必要な特定の構成でコンピューターを作成できます。
 
-- **クラウドのアプリケーション**  
-    アプリケーションの需要は変動する可能性があるため、Azure Stack 内の VM でアプリケーションを実行することは経済的に理に適っています。 VM が必要になったら追加分の料金を支払い、不要になったらシャットダウンすることができます。
+- **クラウドのアプリケーション**:アプリケーションの需要は変動する可能性があるため、Azure Stack 内の VM でアプリケーションを実行することは経済的に理に適っています。 VM が必要になったら追加分の料金を支払い、不要になったらシャットダウンすることができます。
 
-- **データセンターの拡張**  
-    Azure Stack 仮想ネットワーク内の仮想マシンは、組織のネットワークや Azure に接続できます。
+- **データセンターの拡張**:Azure Stack 仮想ネットワーク内の仮想マシンは、組織のネットワークや Azure に接続できます。
 
 アプリケーションで使用する VM は、ニーズに応じてスケールアップまたはスケールアウトできます。
 
-## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>VM の作成前に検討する必要のある事項
+## <a name="before-creating-a-vm"></a>VM を作成する前に
 
 Azure Stack でアプリケーション インフラストラクチャを構築する際には、設計上の考慮事項が必ず存在します。 インフラストラクチャの作成を開始する前に、VM の次の側面を考慮することが重要です。
 
@@ -82,14 +79,11 @@ Azure Stack を使用してオペレーティング システム ディスクを
 VM の拡張機能は、デプロイ後の構成と自動化タスクを通じて VM に追加の機能を提供します。
 拡張機能を使用して、次のような一般的なタスクを実行できます。
 
-- **カスタム スクリプトの実行**  
-    カスタム スクリプト拡張機能を利用すれば、VM のプロビジョニングの際にスクリプトを実行して、VM でワークロードを容易に構成できます。
+- **カスタム スクリプトの実行**:カスタム スクリプト拡張機能を利用すれば、VM のプロビジョニングの際にスクリプトを実行して、VM でワークロードを容易に構成できます。
 
-- **構成のデプロイと管理**  
-    PowerShell Desired State Configuration (DSC) 拡張機能を利用すれば、VM で DSC を容易に設定して構成と環境を管理できます。
+- **構成のデプロイと管理**:PowerShell Desired State Configuration (DSC) 拡張機能を利用すれば、VM で DSC を容易に設定して構成と環境を管理できます。
 
-- **診断データの収集**  
-    Azure Diagnostics 拡張機能を利用すれば、アプリケーションの正常性を監視するために使用できる診断データを収集するように VM を容易に構成できます。
+- **診断データの収集**:Azure Diagnostics 拡張機能を利用すれば、アプリケーションの正常性を監視するために使用できる診断データを収集するように VM を容易に構成できます。
 
 ### <a name="related-resources"></a>関連リソース
 
@@ -98,7 +92,7 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 |Resource|必須|説明|
 |---------|---------|---------|
 |リソース グループ|はい|VM は、リソース グループに含まれる必要があります。|
-|ストレージ アカウント|いいえ |マネージド ディスクを使用する場合、仮想ハード ディスクを格納するためにストレージ アカウントは VM に必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
+|ストレージ アカウント|いいえ |マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
 |仮想ネットワーク|はい|VM は、仮想ネットワークのメンバーである必要があります。|
 |パブリック IP アドレス|いいえ |VM には、リモートでアクセスするためのパブリック IP アドレスを割り当てることができます。|
 |Linux|はい|VM には、ネットワークで通信するためのネットワーク インターフェイスが必要です。|
@@ -130,7 +124,7 @@ VM は、ブラウザーベースのポータル、スクリプトがサポー�
 
 |Method|説明|
 |---------|---------|
-|Azure Stack ポータル|ハブ メニューの [Virtual Machines (仮想マシン)] をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
+|Azure Stack ポータル|ハブ メニューの **[仮想マシン]** をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
 |Azure PowerShell|VM の管理は、Azure と Azure Stack とで似ています。 PowerShell の使用について詳しくは、次の Azure トピックをご覧ください。<br>[Azure PowerShell モジュールを使用して Windows VM を作成および管理する](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
 |クライアント SDK|C# による VM の管理は、Azure と Azure Stack とで似ています。 詳細については、次の Azure トピックを参照してください。<br>[C# を使用して Azure で Windows VM を作成および管理する](/azure/virtual-machines/windows/csharp)|
 

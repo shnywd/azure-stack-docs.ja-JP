@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: b28a90ceca59e5cd072018b217d81d101c1b0853
-ms.sourcegitcommit: 0d8ccf2a32b08ab9bcbe13d54c7c3dce2379757f
+ms.openlocfilehash: 0cef39147fdbc62fe0652b1e387aa23f5ecb8487
+ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64490039"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782882"
 ---
 # <a name="get-started-with-powershell-on-azure-stack"></a>Azure Stack 上の PowerShell の概要
 
@@ -47,11 +47,11 @@ PowerShell は、コマンド ラインからリソースを管理できるよ�
 
 ### <a name="global-azure"></a>グローバル Azure
 
-Azure PowerShell には、Azure リソースの管理に Azure Resource Manager モデルの現行バージョンを使用する一連のコマンドレットが用意されています。 Azure PowerShell では .NET Standard が使用されているので、Windows、macOS、Linux で使用できます。 Azure PowerShell は、Azure Cloud Shell 上で利用することもできます。 詳細については、[Azure PowerShell の概要](https://docs.microsoft.com/powershell/azure/get-started-azureps)に関するページを参照してください。
+Azure PowerShell には、Azure リソースの操作に Azure Resource Manager の現行バージョンを使用する一連のコマンドレットが含まれています。 Azure PowerShell は、.NET Standard を使用します。 つまり、Windows、macOS、Linux で PowerShell のバージョンを使用することができます。 Azure PowerShell は、Azure Cloud Shell 上で利用することもできます。 詳細については、[Azure PowerShell の概要](https://docs.microsoft.com/powershell/azure/get-started-azureps)に関するページを参照してください。
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager
 
-Azure Stack PowerShell には、Azure Stack のリソース プロバイダーと互換性のある Azure Resource Manager の以前のバージョンを使用する一連のコマンドレットが用意されています。 Azure Stack の各リソース プロバイダーでは、グローバル Azure にあるプロバイダーの古いバージョンを使用します。 Azure Stack でサポートされている各プロバイダーのバージョンを調整しやすくするために、API プロファイルを使用できます。 Azure Stack PowerShell ではPowerShell 5.1 を使用し、Windows でのみ使用できます。 詳細については、「[Azure Stack での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
+Azure Stack PowerShell には、Azure Resource Manager の以前のバージョンを使用する一連のコマンドレットが用意されています。 これらのコマンドレットは、Azure Stack のリソース プロバイダーと互換性があります。 Azure Stack の各リソース プロバイダーでは、グローバル Azure にあるプロバイダーの古いバージョンを使用します。 Azure Stack でサポートされている各プロバイダーのバージョンを調整しやすくするために、API プロファイルを使用できます。 Azure Stack PowerShell ではPowerShell 5.1 を使用し、Windows でのみ使用できます。 詳細については、「[Azure Stack での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
 
 ### <a name="azure-stack-administrator"></a>Azure Stack Administrator
 

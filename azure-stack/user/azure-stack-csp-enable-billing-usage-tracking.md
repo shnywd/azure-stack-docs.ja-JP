@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: 8ed4822d7ee74572e9562191ab89d1035a56b188
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 05/20/2019
+ms.openlocfilehash: 209a0da31d4bd5b519771f68f4bddcbb833284fa
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310405"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941217"
 ---
 # <a name="enable-a-cloud-service-provider-to-manage-your-azure-stack-subscription"></a>クラウド サービス プロバイダーが Azure Stack サブスクリプションを管理できるようにする
 
@@ -38,7 +38,7 @@ ms.locfileid: "64310405"
 
 CSP を**ユーザー**としてサブスクリプションに追加します。
 
-1. CSP を、ユーザー ロールを持つゲスト ユーザーとしてテナント ディレクトリに追加します。 ユーザーを追加する手順については、[Azure Active Directory への新しいユーザーの追加](/azure/active-directory/add-users-azure-active-directory)に関するページを参照してください。
+1. CSP を、**ユーザー** ロールを持つゲスト ユーザーとしてテナント ディレクトリに追加します。 ユーザーを追加する手順については、[Azure Active Directory への新しいユーザーの追加](/azure/active-directory/add-users-azure-active-directory)に関するページを参照してください。
 2. CSP はユーザーに代わってローカル Azure Stack サブスクリプションを作成します。 これで、Azure Stack の使用を開始する準備ができました。
 3. CSP は、サブスクリプション内にリソースを作成して、その CSP もリソースを管理できることを確認する必要があります。 たとえば、[Azure Stack ポータルで Windows 仮想マシンを作成する](azure-stack-quick-windows-portal.md)ことができます。
 

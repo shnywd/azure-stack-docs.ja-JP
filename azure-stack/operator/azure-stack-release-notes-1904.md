@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 1904 更新プログラム | Microsoft Docs
+title: Azure Stack 1904 リリース ノート | Microsoft Docs
 description: 新機能、既知の問題、更新プログラムをダウンロードする場所など、Azure Stack 統合システムの 1904 更新プログラムについて説明します。
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 6d1170727f8dccca98d68f2363a44b2c1cc2d210
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 99906760e51c87a7403eabfb94a64b74b999aab5
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172549"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941173"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新プログラム
 
@@ -100,7 +100,7 @@ Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** で�
 - Azure Stack オペレーターが管理者ポータルのインフラストラクチャ ロール インスタンスをシャットダウンするオプションを削除しました。 再起動機能により、インフラストラクチャ ロール インスタンスを再起動する前にクリーン シャットダウンが確実に試行されます。 高度なシナリオでは、API と PowerShell の機能を引き続き使用できます。
 
 <!-- Feature ## 4199257 -->
-- Marketplace 管理エクスペリエンスが新しくなり、Marketplace イメージ用とリソース プロバイダー用に個別の画面が表示されるようになりました。 現在のところ、**[リソース プロバイダー]** ウィンドウは空ですが、今後のリリースでは新しい PaaS サービス オファリングが表示され、**[リソース プロバイダー]** ウィンドウで管理されるようになる予定です。
+- Marketplace 管理エクスペリエンスが新しくなり、Marketplace イメージ用とリソース プロバイダー用に個別の画面が表示されるようになりました。 現在のところ、 **[リソース プロバイダー]** ウィンドウは空ですが、今後のリリースでは新しい PaaS サービス オファリングが表示され、 **[リソース プロバイダー]** ウィンドウで管理されるようになる予定です。
 
 <!-- Feature ## 4199257 -->
 - オペレーター ポータルでの更新プログラム エクスペリエンスの変更。 リソース プロバイダーの更新プログラム用の新しいグリッドがあります。 リソース プロバイダーを更新する機能はまだ利用できません。
@@ -113,6 +113,8 @@ Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** で�
   - "ハード" で重大なアラートの場合、ポータルに "The most recent update failed. Microsoft recommends opening a service request as soon as possible. As part of the update process, Test-AzureStack is performed, and based on the output we generate the most appropriate alert. In this case, Test-AzureStack also failed." (最新の更新プログラムは失敗しました。マイクロソフトはできるだけ早くサポート リクエストを開くことをお勧めします。更新プロセスの一環として Test-AzureStack が実行され、その出力に基づいて最も適切なアラートが生成されます。このケースでは、Test-AzureStack も失敗しています。)
 
 - Azure Linux Agent バージョン 2.2.38.0 を更新しました。 このサポートにより、お客様は Azure と Azure Stack との間で一貫性のある Linux イメージを保持できるようになります。
+
+- オペレーター ポータルでの更新ログの変更。 成功した更新ログを取得する要求は利用できなくなりました。 失敗した更新ログは、診断のためのアクションにつながるため、引き続きダウンロードできます。
 
 ### <a name="fixes"></a>修正
 
@@ -142,13 +144,15 @@ Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** で�
 
 - 登録の期限が切れた場合、または削除された場合に、ダウンロードされたすべての製品が非表示になる Marketplace 管理の問題を修正しました。
 
-- 既存の仮想ネットワーク ゲートウェイ接続に対して PowerShell で **Set-AzureRmVirtualNetworkGatewayConnection** コマンドを発行すると、エラー メッセージ "**無効な共有キーが構成されています...**" が表示されて失敗する問題を修正しました。
+- 既存の仮想ネットワーク ゲートウェイ接続に対して PowerShell で **Set-AzureRmVirtualNetworkGatewayConnection** コマンドを発行すると、エラー メッセージ "**無効な共有キーが構成されています...** " が表示されて失敗する問題を修正しました。
 
 - ネットワーク リソース プロバイダー (NRP) がネットワーク コントローラーと同期しなくなり、その結果、重複するリソースが要求される問題を修正しました。 場合によっては、結果として親リソースがエラー状態のままになります。
 
-- サブスクリプションに共同作成者ロールが割り当てられていても読み取りアクセス許可が明示的に与えられていないユーザーが、リソースの変更を保存しようとすると、"**オブジェクト ID 'GUID' のクライアント 'somelogonaccount@domain.com' は、... アクション '...' の実行を承認されていません...**" というエラーが生成されていた問題を修正しました。
+- サブスクリプションに共同作成者ロールが割り当てられていても読み取りアクセス許可が明示的に与えられていないユーザーが、リソースの変更を保存しようとすると、"**オブジェクト ID 'GUID' のクライアント 'somelogonaccount@domain.com' は、... アクション '...' の実行を承認されていません...** " というエラーが生成されていた問題を修正しました。
 
 - オフライン シンジケーション ツールを使用してイメージをアップロードしたときに、マーケットプレース管理画面に何も表示されず、いずれにもアイコンの URI が表示されない問題を修正しました。
+
+- ダウンロードに失敗した製品が Marketplace Management から削除されるのを妨げる問題を修正しました。
 
 ### <a name="security-updates"></a>セキュリティ更新プログラム
 

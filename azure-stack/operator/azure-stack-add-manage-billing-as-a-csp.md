@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 0cd8503ac57c65fb4bcf2c75367caa75bfcc2fe5
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 5f11e9dd4f029228e73e5933cd8362c0b4710178
+ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985832"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65941167"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>クラウド サービス プロバイダーとして Azure Stack の使用状況と課金を管理する
 
 *適用対象: Azure Stack 統合システム*
 
-この記事では、クラウド プロバイダー (CSP) として Azure Stack を登録し、顧客を追加する方法について説明します。
+この記事では、Azure Stack をクラウド サービス プロバイダー (CSP) として登録する方法、および顧客を追加する方法について説明します。
 
 CSP は、Azure Stack を使用して多様な顧客を操作します。 各顧客には Azure に CSP サブスクリプションがあります。 Azure Stack から使用状況を各ユーザー サブスクリプションに転送する必要があります。
 
@@ -49,11 +49,11 @@ Azure Partner Shared Services (APSS) サブスクリプションは、直接 CSP
 
 APSS サブスクリプションは、共有サービス テナントに関連付けられています。 Azure Stack を登録する場合は、このサブスクリプションの所有者であるアカウントの資格情報を指定します。 Azure Stack を登録するために使用するアカウントは、デプロイに使用する管理者アカウントとは別のものにすることができます。 さらに、2 つのアカウントは同じドメインに属している必要はありません。既に使用しているテナントを使用してデプロイできます。 たとえば、`ContosoCSP.onmicrosoft.com` を使用するときに、別のテナント (例: `IURContosoCSP.onmicrosoft.com`) を使用して登録できます。 毎日の Azure Stack 管理を実行するときに、`ContosoCSP.onmicrosoft.com` を使用してサインインする必要があります。 登録操作を実行する必要がある場合は、`IURContosoCSP.onmicrosoft.com` を使用して Azure にサインインします。
 
-APSS サブスクリプションとその作成方法については、「[Add Azure Partner Shared Services (Azure Partner Shared Services の追加)](https://msdn.microsoft.com/partner-center/shared-services)」を参照してください。
+APSS サブスクリプションとその作成方法については、「[Add Azure Partner Shared Services (Azure Partner Shared Services の追加)](/partner-center/shared-services)」を参照してください。
 
 #### <a name="csp-subscriptions"></a>CSP サブスクリプション
 
-Cloud Service Provider (CSP) サブスクリプションは、CSP リセラーまたはエンド カスタマーが Azure Stack を運用するときに登録のために推奨される選択肢です。
+クラウド サービス プロバイダー サブスクリプションは、CSP リセラーまたはエンド カスタマーが Azure Stack を運用するときに推奨される登録の選択肢です。
 
 ## <a name="register-azure-stack"></a>Azure Stack の登録
 
@@ -61,16 +61,16 @@ Cloud Service Provider (CSP) サブスクリプションは、CSP リセラー�
 
 ## <a name="add-end-customer"></a>最終顧客を追加する
 
-新しいテナントがリソースを使用すると、それらの使用状況がその Cloud Service Provider (CSP) サブスクリプションに報告されるように Azure Stack を構成するには、[Azure Stack での使用状況と課金のためのテナントの追加](azure-stack-csp-howto-register-tenants.md)に関するページを参照してください。
+新しいテナントがリソースを使用したらそれらの使用状況がその CSP サブスクリプションに報告されるように Azure Stack を構成するには、[Azure Stack での使用状況と課金のためのテナントの追加](azure-stack-csp-howto-register-tenants.md)に関するページを参照してください。
 
 ## <a name="charge-the-right-subscriptions"></a>正しいサブスクリプションに課金する
 
-Azure Stack は、登録と呼ばれる機能を使用します。 登録は、Azure に格納されているオブジェクトです。 特定の Azure Stack に課金するために Azure サブスクリプションによって使用される、登録オブジェクト ドキュメント。 このセクションでは、登録の重要性について説明します。
+Azure Stack は、*登録*と呼ばれる機能を使用します。 登録は、Azure に格納されているオブジェクトです。 特定の Azure Stack に課金するために Azure サブスクリプションによって使用される、登録オブジェクト ドキュメント。 このセクションでは、登録の重要性について説明します。
 
 登録を使用すると、Azure Stack は次のことが可能になります。
 
 - Azure Stack の使用状況データを Azure コマースに転送し、Azure サブスクリプションに課金する。
-- マルチテナント Azure Stack デプロイを使用して、各顧客の使用状況を異なるサブスクリプションに報告する。 マルチテナント機能を使用すると、Azure Stack は同じ Azure Stack インスタンス上の異なる組織をサポートできます。
+- マルチテナント Azure Stack デプロイを使用して、各顧客の使用状況を異なるサブスクリプションに報告する。 マルチテナント機能を使用すると、Azure Stack は同じ Azure Stack インスタンスでさまざまな組織をサポートできます。
 
 Azure Stack ごとに、1 つの既定のサブスクリプションと、複数のテナント サブスクリプションが存在します。 既定のサブスクリプションは、テナント固有のサブスクリプションが存在しない場合に課金される Azure サブスクリプションです。 これは登録される最初のサブスクリプションである必要があります。 マルチテナント使用状況レポートが機能するには、サブスクリプションは CSP または APSS サブスクリプションである必要があります。
 

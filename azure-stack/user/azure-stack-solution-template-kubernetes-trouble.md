@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 2d4176ceaf1651539a248928faf2034376a8b97a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
+ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65712417"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes の Azure Stack へのデプロイのトラブルシューティング
 
@@ -28,11 +28,11 @@ ms.locfileid: "64310987"
 > [!Note]  
 > Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。
 
-以下の記事では、Kubernetes クラスターのトラブルシューティングについて説明します。 デプロイのアラートを確認し、デプロイに必要な要素によってデプロイの状態を確認することができます。 場合によっては、Azure Stack または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 また、場合によっては、管理エンドポイントからログを取得するために Azure Stack 管理者と連携する必要があります。
+この記事では、Kubernetes クラスターのトラブルシューティングを行う方法を確認します。 トラブルシューティングを開始するには、デプロイに必要な要素を確認します。 場合によっては、Azure Stack または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 管理エンドポイントからログを取得するには、Azure Stack 管理者にお問い合わせください。
 
 ## <a name="overview-of-kubernetes-deployment"></a>Kubernetes のデプロイの概要
 
-クラスターのトラブルシューティングを開始する前に、Azure Stack Kubernetes クラスターのデプロイ プロセスを確認することをお勧めします。 デプロイは、Azure Resource Manager ソリューション テンプレートを使用して VM を作成し、クラスター用の ACS Engine をインストールします。
+クラスターのトラブルシューティングを行う前に、Azure Stack Kubernetes クラスターのデプロイ プロセスを確認してください。 デプロイは、Azure Resource Manager ソリューション テンプレートを使用して VM を作成し、クラスター用の AKS エンジンをインストールします。
 
 ### <a name="kubernetes-deployment-workflow"></a>Kubernetes のデプロイ ワークフロー
 
@@ -48,7 +48,7 @@ ms.locfileid: "64310987"
     -  **ユーザー名**: Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名。
     -  **SSH 公開キー**: Kubernetes クラスターと DVM の一部として作成されたすべての Linux マシンの承認に使用されるキー。
     -  **サービス プリンシパル**: Kubernetes Azure クラウド プロバイダーによって使用される ID。 サービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 
-    -  **クライアント シークレット**: サービス プリンシパルを作成するときに作成されたキー。
+    -  **クライアント シークレット**: サービス プリンシパルを作成するときに作成したキー。
 
 2. デプロイの VM とカスタム スクリプト拡張機能を作成します。
     -  マーケットプレースの Linux イメージ **Ubuntu Server 16.04-LTS** を使用して、デプロイの Linux VM を作成します。
@@ -56,8 +56,8 @@ ms.locfileid: "64310987"
     -  DVM カスタム スクリプトを実行します。 スクリプトでは次のタスクを実行します。
         1. Azure Resource Manager メタデータ エンドポイントからギャラリー エンドポイントを取得します。
         2. Azure Resource Manager メタデータ エンドポイントからアクティブなディレクトリ リソース ID を取得します。
-        3. ACS Engine 用の API モデルを読み込みます。
-        4. Kubernetes クラスターに ACS Engine をデプロイし、Azure Stack クラウド プロファイルを `/etc/kubernetes/azurestackcloud.json` に保存します。
+        3. AKS エンジン用の API モデルを読み込みます。
+        4. Kubernetes クラスターに AKS エンジンをデプロイし、Azure Stack クラウド プロファイルを `/etc/kubernetes/azurestackcloud.json` に保存します。
 3. マスター VM を作成します。
 
 4. カスタム スクリプト拡張機能をダウンロードして実行します。
@@ -81,9 +81,9 @@ ms.locfileid: "64310987"
     - **kubelet** サービスを設定します。
     - Kubernetes クラスターを結合します。
 
-## <a name="steps-for-troubleshooting"></a>トラブルシューティングの手順
+## <a name="steps-to-troubleshoot-kubernetes"></a>Kubernetes のトラブルシューティング手順
 
-Kubernetes クラスターをサポートしている VM に関するログを収集できます。 デプロイ ログを確認することもできます。 場合によっては、使用する必要がある Azure Stack のバージョンを確認し、デプロイに関するログを Azure Stack から取得するために、Azure Stack 管理者に相談する必要があります。
+Kubernetes クラスターをサポートしている VM のデプロイ ログを収集して確認することができます。 Azure Stack 管理者に相談して、使用する必要がある Azure Stack のバージョンを確認し、デプロイに関連したログを Azure Stack から取得してください。
 
 1. Kubernetes クラスターで、[デプロイの状態](#review-deployment-status)を確認し、マスター ノードのログを取得します。
 2. Azure Stack の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack の管理者にお問い合わせください。
@@ -94,7 +94,7 @@ Kubernetes クラスターをサポートしている VM に関するログを�
 4.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
 
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - 特権付きエンド ポイントを使用して Azure Stack のログを取得するには、Azure Stack 管理者に問い合わせる必要があります。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-diagnostics.md)」を参照してください。
+    - Azure Stack 管理者に連絡して、特権付きエンド ポイントを使用して Azure Stack のログを取得してください。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-diagnostics.md)」を参照してください。
 5. デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 ## <a name="review-deployment-status"></a>デプロイの状態を確認する
@@ -103,9 +103,9 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 1. [Azure Stack ポータル](https://portal.local.azurestack.external)を開きます。
 2. **[リソース グループ]** を選択し、Kubernetes クラスターのデプロイ時に使用したリソース グループの名前を選択します。
-3. **[デプロイ]** を選択し、**[デプロイ名]** を選択します。
+3. **[デプロイ]** を選択し、 **[デプロイ名]** を選択します。
 
-    ![トラブルシューティング](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
+    ![Kubernetes のトラブルシューティング:デプロイの選択](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
 4.  トラブルシューティングのウィンドウを確認します。 デプロイ済みの各リソースから、次の情報が提供されます。
     
@@ -121,7 +121,7 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 ## <a name="review-deployment-logs"></a>デプロイ ログを確認する
 
-Azure Stack ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合、次に行う手順は、クラスター ログで詳細を確認することです。 デプロイ ログを手動で取得するには、通常、クラスターのマスター仮想マシンのいずれかに接続する必要があります。 より簡単な方法として、Azure Stack チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの仮想マシンに接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
+Azure Stack ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合は、次の手順として、クラスター ログで詳細を確認します。 デプロイ ログを手動で取得するには、通常、クラスターのマスター仮想マシンのいずれかに接続する必要があります。 より簡単な方法として、Azure Stack チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの仮想マシンに接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
 
 ### <a name="prerequisites"></a>前提条件
 
@@ -153,7 +153,7 @@ Azure Stack の管理に使用するマシンには Bash プロンプトが必�
     | -u、--user          | Kubernetes クラスターの作成時にマーケットプレース項目に渡されるユーザー名。 Kubernetes ノードにリモートからアクセスするために必要です。 | azureuser (既定値) |
 
 
-   パラメーター値を追加すると、コマンドは次のようになります。
+   パラメーター値を追加すると、コマンドは次の例のようになります。
 
     ```Bash  
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
