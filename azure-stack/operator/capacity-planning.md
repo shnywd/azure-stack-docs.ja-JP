@@ -3,7 +3,7 @@ title: Azure Stack のための容量計画 | Microsoft Docs
 description: Azure Stack デプロイのための容量計画について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: ad8fdc9181bb013735b8787658d1893e28c3799c
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1dbf12a8036ed434cfb582dac70b8b37be57e590
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618850"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267585"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack の容量計画
 Azure Stack ソリューションを評価するときに、Azure Stack クラウドのキャパシティ全体に直接影響するハードウェア構成を選択することができます。 CPU、メモリ密度、ストレージ構成、全体的なソリューションの規模 (つまり、サーバー数) といった従来の選択肢があります。 以前の仮想化ソリューションとは異なり、これらのコンポーネントを単純に計算して使用可能なキャパシティを決定することはできません。 その 1 つ目の理由は、Azure Stack が、ソリューション自体の中でインフラストラクチャまたは管理コンポーネントをホストするように設計されているためです。 2 つ目の理由は、ソリューションのキャパシティの一部が、回復性をサポートするために予約されることです。つまり、テナントのワークロードの中断を最小限に抑える方法で、ソリューションのソフトウェアが更新されます。

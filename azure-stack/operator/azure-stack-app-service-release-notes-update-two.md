@@ -3,7 +3,7 @@ title: App Service on Azure Stack Update 2 のリリース ノート | Microsoft
 description: App Service on Azure Stack Update 2 の内容、既知の問題、更新プログラムをダウンロードする場所について説明します。
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
+author: bryanla
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
-ms.reviewer: sethm
+ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 790f01583d589cdea226133d3ded9693cdf68af0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b56c90d9bac8039d428b7ee06a384956924e94f5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306463"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269048"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service on Azure Stack update 2 のリリース ノート
 
@@ -41,7 +41,7 @@ App Service on Azure Stack Update 2 のビルド番号は **72.0.13698.10** で�
 ### <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service の Azure Stack への新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、**\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
+> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service の Azure Stack への新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
 >
 >
 

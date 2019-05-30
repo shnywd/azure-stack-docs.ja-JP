@@ -3,7 +3,7 @@ title: Azure Stack 上の App Service を復旧する | Microsoft Docs
 description: Azure Stack 上の App Service の障害復旧に関する詳細なガイダンス
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: mabrigg
-ms.reviewer: apwestgarth
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 7932530f88365597de24ed49e93820150bc88c3c
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618303"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269218"
 ---
 # <a name="recovery-of-app-service-on-azure-stack"></a>Azure Stack 上の App Service の復旧
 
@@ -110,8 +110,8 @@ Azure Stack 用の App Service では、テナント ユーザー アプリの�
 1. Function App によって使用される新しいストレージ アカウントを作成します。 このストレージには、Azure Stack ストレージ、Azure ストレージ、または任意の互換性のあるストレージを指定できます。
 2. ストレージの接続文字列を取得します。
 3. 関数ポータルを開き、Function App を参照します。
-4. **[プラットフォーム機能]** タブを参照し、**[アプリケーションの設定]** をクリックします。
-5. **AzureWebJobsDashboard** および **AzureWebJobsStorage** を新しい接続文字列に変更し、**[保存]** をクリックします。
+4. **[プラットフォーム機能]** タブを参照し、 **[アプリケーションの設定]** をクリックします。
+5. **AzureWebJobsDashboard** および **AzureWebJobsStorage** を新しい接続文字列に変更し、 **[保存]** をクリックします。
 6. **[概要]** に切り替えます。
 7. アプリを再起動します。 すべてのエラーを解消するまでに、複数回試行される可能性があります。
 

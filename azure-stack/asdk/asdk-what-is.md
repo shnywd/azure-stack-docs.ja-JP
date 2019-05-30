@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) の概要 | Microsoft Docs
 description: ASDK の概要と、Microsoft Azure Stack を評価するための一般的なユース ケースについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 02/08/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 08f5d51eb4ded47d1e52ec53d4c75903d13c8815
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 0c6019fd07b21bf82d32bc516a05c5d491041783
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617685"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267239"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>Azure Stack Development Kit とは
 [Microsoft Azure Stack 統合システム](../operator/azure-stack-overview.md)には 4 ノードから 16 ノードまでのサイズがあり、ハードウェア パートナーと Microsoft によって共同でサポートされます。 Azure Stack 統合システムの使用により、運用ワークロード向けの新しいシナリオが可能になります。 統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack オペレーターは、[オペレーター ドキュメント](/azure-stack/operator)を参照してください。

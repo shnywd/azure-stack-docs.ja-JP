@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) の再デプロイ | Microsoft Docs
 description: この記事では、ASDK を再インストールする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: cc5c756075b2dbeb789727a6c6647cf3e97cac28
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: f61fff0d29b1e0bf847ffc1761ff53c90b703991
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782112"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267775"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK の再デプロイ
 この記事では、非運用環境で Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。 ASDK のアップグレードはサポートされていないため、新しいバージョンに移行するには、ASDK を完全に再デプロイする必要があります。 また、ゼロからやり直したいときにも、いつでも ASDK を再デプロイすることができます。
@@ -74,11 +74,11 @@ ms.locfileid: "65782112"
 Azure Stack を再デプロイするには、次に説明するように、最初から開始する必要があります。 ASDK のインストールに Azure Stack インストーラー (asdk-installer.ps1) スクリプトを使用したかどうかによって、手順が異なります。
 
 ### <a name="redeploy-the-asdk-using-the-installer-script"></a>インストーラー スクリプトを使用して ASDK を再デプロイする
-1. ASDK コンピューターで、管理者特権で PowerShell コンソールを開き、非システム ドライブにある **AzureStack_Installer** ディレクトリの asdk-installer.ps1 スクリプトに移動します。 スクリプトを実行し、**[再起動]** をクリックします。
+1. ASDK コンピューターで、管理者特権で PowerShell コンソールを開き、非システム ドライブにある **AzureStack_Installer** ディレクトリの asdk-installer.ps1 スクリプトに移動します。 スクリプトを実行し、 **[再起動]** をクリックします。
 
    ![asdk-installer.ps1 スクリプトを実行する](media/asdk-redeploy/1.png)
 
-2. ベース オペレーティング システム (**Azure Stack** でなく) を選択し、**[次へ]** をクリックします。
+2. ベース オペレーティング システム (**Azure Stack** でなく) を選択し、 **[次へ]** をクリックします。
 
    ![ホスト オペレーティング システムで再起動する](media/asdk-redeploy/2.png)
 
@@ -89,7 +89,7 @@ Azure Stack を再デプロイするには、次に説明するように、最�
 ### <a name="redeploy-the-asdk-without-using-the-installer"></a>インストーラーを使用せずに ASDK を再デプロイする
 ASDK をインストールするために asdk-installer.ps1 スクリプトを使用しなかった場合は、ASDK を再デプロイする前に、開発キットのホスト コンピューターを手動で再構成する必要があります。
 
-1. ASDK コンピューターで **msconfig.exe** を実行して、システム構成ユーティリティを起動します。 **[ブート]** タブでホスト コンピューターのオペレーティング システム (Azure Stack ではない) を選択し、**[既定値に設定する]** をクリックし、**[OK]** をクリックします。 確認を求めるメッセージが表示されたら、**[再起動]** をクリックします。
+1. ASDK コンピューターで **msconfig.exe** を実行して、システム構成ユーティリティを起動します。 **[ブート]** タブでホスト コンピューターのオペレーティング システム (Azure Stack ではない) を選択し、 **[既定値に設定する]** をクリックし、 **[OK]** をクリックします。 確認を求めるメッセージが表示されたら、 **[再起動]** をクリックします。
 
       ![ブート構成を設定する](media/asdk-redeploy/4.png)
 

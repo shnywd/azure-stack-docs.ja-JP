@@ -3,7 +3,7 @@ title: ASDK の Azure への登録 | Microsoft Docs
 description: Azure Stack を Azure に登録してマーケットプレース シンジケーションと使用状況レポートを有効にする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 46d934fe11147218c760340b508707188a6303fb
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 10fd52a85dd46002e40061c197641a716afa3230
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617395"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267692"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack の登録
 Azure Stack Development Kit (ASDK) インストールを Azure に登録して Azure からマーケットプレース項目をダウンロードしたり、Microsoft に返送するコマース データを設定したりできます。 マーケットプレース シンジケーションを含む、Azure Stack のすべての機能をサポートするには、登録が必要です。 マーケットプレース シンジケーションや使用状況レポートなどの Azure Stack の重要な機能をテストできるようにするには、登録が必要です。 Azure Stack を登録すると、使用状況が Azure コマースにレポートされます。 使用状況は、登録に使用したサブスクリプションの下に表示されます。 ただし、ASDK のユーザーは、レポートする使用状況に対して課金されることはありません。
@@ -75,7 +75,7 @@ $ExecutionContext.SessionState.LanguageMode
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. スクリプトが完了すると、**「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
+3. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
     ![ご利用の環境がこれで登録されました](media/asdk-register/1.PNG)
 
@@ -155,7 +155,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
   -RegistrationName $RegistrationName
   ```
 
-登録が完了したら、**「Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)」** といったメッセージが表示されます。
+登録が完了したら、 **「Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)」** といったメッセージが表示されます。
 
 > [!IMPORTANT]
 > PowerShell ウィンドウを閉じないでください。 
@@ -204,15 +204,15 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
   -ActivationKey $ActivationKey
   ```
 
-アクティブ化が完了したら、**「Your environment has finished the registration and activation process. (環境で登録とアクティブ化プロセスが終了しました。)」** といったメッセージが表示されます。
+アクティブ化が完了したら、 **「Your environment has finished the registration and activation process. (環境で登録とアクティブ化プロセスが終了しました。)」** といったメッセージが表示されます。
 
 ## <a name="verify-the-registration-was-successful"></a>登録が成功したことを確認する
 
-Azure Stack の登録に成功したことは、**[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。
+Azure Stack の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。
 
 1. [Azure Stack 管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-2. ダッシュボードで、**[Region management]\(リージョン管理\)** を選択します。
+2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 
     [![[Region management]\(リージョン管理\) タイル](media/asdk-register/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/asdk-register/admin1.png#lightbox)
 

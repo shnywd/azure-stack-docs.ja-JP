@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 47c619b1f490f4e4d3498a7c83501f24e96c77b4
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532288"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66043223"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack とデータセンターの統合 - ID
 
@@ -348,10 +348,8 @@ SPN の作成について詳しくは、「[AD FS のサービス プリンシ�
 2. その後次のコマンドレットを実行します。
 
    ```powershell  
-   Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
+   Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
-
-## <a name="next-steps"></a>次の手順
 
 [外部の監視ソリューションの統合](azure-stack-integrate-monitor.md)

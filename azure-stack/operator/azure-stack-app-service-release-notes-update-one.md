@@ -3,8 +3,8 @@ title: App Service on Azure Stack Update 1 のリリース ノート | Microsoft
 description: App Service on Azure Stack Update 1 の内容、既知の問題、更新プログラムをダウンロードする場所について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digmobile
+author: bryanla
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/25/2018
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.reviewer: sethm
+ms.date: 03/25/2019
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 86eb23e57516bc108557bbdc4f2d131153f5e855
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b9b884377e35b43670943f4cf94a24b5216bf233
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64306487"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269123"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack Update 1 のリリース ノート
 
@@ -42,7 +41,7 @@ App Service on Azure Stack Update 1 のビルド番号は **69.0.13698.9** で�
 ### <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service の Azure Stack への新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、**\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
+> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service の Azure Stack への新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
 >
 >
 
@@ -151,7 +150,7 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Azure Stack Administrator ポータルの [Virtual Machines] で **CN0-VM** を参照し、**[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
+2. Azure Stack Administrator ポータルの [Virtual Machines] で **CN0-VM** を参照し、 **[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
 3. **管理者権限で PowerShell** を起動し、次のスクリプトを実行します
 
     ```powershell
@@ -224,5 +223,3 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
 
 - Azure App Service の概要については、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
 - App Service on Azure Stack のデプロイの準備をする方法の詳細については、「[App Service on Azure Stack を開始する前に](azure-stack-app-service-before-you-get-started.md)」をご覧ください。
-
-<!-- Update_Description: wording update -->

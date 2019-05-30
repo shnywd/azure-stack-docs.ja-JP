@@ -3,7 +3,7 @@ title: Azure および Azure Stack を使用して Staged Data Analytics ソリ�
 description: Azure および Azure Stack を使用して Staged Data Analytics ソリューションを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 2c2b06db3bb6144620b5fce1a7e3e76fdd06589a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448559"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252006"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してステージング データ分析ソリューションを作成する 
 
@@ -78,11 +78,11 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 1.  [*Azure Stack Portal*](https://portal.local.azurestack.external/) にサインインします。
 
-2.  Azure Stack Portal で左側のメニューを展開してサービスのメニューを開き、**[すべてのサービス]** を選択します。 **[ストレージ]** まで下へスクロールし、**[ストレージ アカウント]** を選択します。 [ストレージ アカウント] ウィンドウで、**[追加]** を選択します。
+2.  Azure Stack Portal で左側のメニューを展開してサービスのメニューを開き、 **[すべてのサービス]** を選択します。 **[ストレージ]** まで下へスクロールし、 **[ストレージ アカウント]** を選択します。 [ストレージ アカウント] ウィンドウで、 **[追加]** を選択します。
 
 3.  アカウントに関する次の情報を使用します。
 
-    a.  名前:**<任意>**
+    a.  名前: **<任意>**
 
     b.  デプロイ モデル: **Resource Manager**
 
@@ -161,7 +161,7 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack 関数アプリに関数を追加する
 
-1.  **[関数]**、続いて **[+New Function] (+ 新しい関数)** ボタンをクリックして、新しい関数を作成します。
+1.  **[関数]** 、続いて **[+New Function] (+ 新しい関数)** ボタンをクリックして、新しい関数を作成します。
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
 
@@ -169,13 +169,13 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  言語として [**C\#**] を選択し、関数に `upload-to-azure` という名前を付けます。スケジュールを `0 0 * * * *` に設定します (これは CRON 表記で 1 時間に一度を意味します)。
+3.  言語として [**C\#** ] を選択し、関数に `upload-to-azure` という名前を付けます。スケジュールを `0 0 * * * *` に設定します (これは CRON 表記で 1 時間に一度を意味します)。
 
     ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage でトリガーされる関数の作成
 
-1. Function App を展開し、**[関数]** の横にある **[+]** ボタンを選択します。
+1. Function App を展開し、 **[関数]** の横にある **[+]** ボタンを選択します。
 
 2. 検索フィールドに、「`blob`」と入力し、**BLOB トリガー** テンプレート用の目的の言語を選択します。
 
@@ -201,11 +201,11 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 2.  Storage Explorer を開き、このセクションの冒頭で作成したストレージ アカウントに接続します。
 
-3.  ストレージ アカウント、**Blob コンテナー**、以前に作成した Blob を展開します。 **[アップロード]**、**[ファイルのアップロード]** の順に選択します。
+3.  ストレージ アカウント、**Blob コンテナー**、以前に作成した Blob を展開します。 **[アップロード]** 、 **[ファイルのアップロード]** の順に選択します。
 
     ![Blob コンテナーにファイルをアップロードします。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  [ファイルのアップロード] ダイアログ ボックスで、[ファイル] フィールドを選択します。 画像ファイルなど、ローカル コンピューター上のファイルを参照して選択し、**[開く]**、**[アップロード]** の順に選択します。
+4.  [ファイルのアップロード] ダイアログ ボックスで、[ファイル] フィールドを選択します。 画像ファイルなど、ローカル コンピューター上のファイルを参照して選択し、 **[開く]** 、 **[アップロード]** の順に選択します。
 
 5.  関数ログに戻り、Blob が読み取られたことを確認します。
 
@@ -229,7 +229,7 @@ Blob とキューを含む Azure Stack ストレージ アカウントを作成�
 
 2.  [Storage Account Overview] (ストレージ アカウントの概要) セクションで **[キュー]** を選択します。
 
-3.  **[+ Queue] (+ キュー)** を選択し、**[名前]** フィールドに新しいキューの名前を入力します。
+3.  **[+ Queue] (+ キュー)** を選択し、 **[名前]** フィールドに新しいキューの名前を入力します。
 
 4.  **[OK]** を選択します。
 
@@ -257,11 +257,11 @@ Blob とキューを含む Azure Stack ストレージ アカウントを作成�
 
 2. Storage Explorer を開き、このセクションの冒頭で作成したストレージ アカウントに接続します。
 
-3. ストレージ アカウント、**Blob コンテナー**、以前に作成した Blob を展開します。 **[アップロード]**、**[ファイルのアップロード]** の順に選択します。
+3. ストレージ アカウント、**Blob コンテナー**、以前に作成した Blob を展開します。 **[アップロード]** 、 **[ファイルのアップロード]** の順に選択します。
 
    ![Blob コンテナーにファイルをアップロードします。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4. [ファイルのアップロード] ダイアログ ボックスで、[ファイル] フィールドを選択します。 画像ファイルなど、ローカル コンピューター上のファイルを参照して選択し、**[開く]**、**[アップロード]** の順に選択します。
+4. [ファイルのアップロード] ダイアログ ボックスで、[ファイル] フィールドを選択します。 画像ファイルなど、ローカル コンピューター上のファイルを参照して選択し、 **[開く]** 、 **[アップロード]** の順に選択します。
 
 5. 関数ログに戻り、Blob が読み取られたことを確認します。
 

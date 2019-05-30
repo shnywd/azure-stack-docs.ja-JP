@@ -3,7 +3,7 @@ title: Azure Stack 上の App Service をバックアップする | Microsoft Do
 description: Azure Stack 上の App Services のバックアップの詳細なガイダンス。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
-ms.author: mabrigg
-ms.reviewer: apwestgarth
+ms.author: anwestg
+ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: dff128ad86de23aae0bf8fe4848d256510a80d85
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 8e8e866efe8de4d4c5d116339edbe81082c6545e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618330"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269266"
 ---
 # <a name="back-up-app-service-on-azure-stack"></a>Azure Stack 上の App Service をバックアップする
 
@@ -45,13 +45,13 @@ App Service をバックアップから復元する場合、初期デプロイ�
 
 1. Azure Stack 管理ポータルにサービス管理者としてサインインします。
 
-2. **[App Service]** -> **[シークレット]** に移動します。 
+2. **[App Service]**  ->  **[シークレット]** に移動します。 
 
 3. **[シークレットのダウンロード]** を選択します。
 
    ![シークレットのダウンロード](./media/app-service-back-up/download-secrets.png)
 
-4. シークレットのダウンロードの準備が整ったら、**[保存]** をクリックして安全な場所に App Service のシークレット (**SystemSecrets.JSON**) ファイルを保存します。 
+4. シークレットのダウンロードの準備が整ったら、 **[保存]** をクリックして安全な場所に App Service のシークレット (**SystemSecrets.JSON**) ファイルを保存します。 
 
    ![シークレットの保存](./media/app-service-back-up/save-secrets.png)
 

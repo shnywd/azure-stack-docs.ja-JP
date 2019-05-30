@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: fa1cdc4937e75a8d87a6faa16048a800b62e79be
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521306"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252128"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -57,8 +57,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | アプリケーションに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
 | ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
 | ![SharePoint Server 2016 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter の Microsoft SharePoint Server 2016 評価版。 | Microsoft |
-| ![Windows Server 2012 R2 の SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
-) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
+| ![Windows Server 2012 R2 の SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
 | ![Windows Server 2016 の SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 の SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | インテリジェントでミッション クリティカルなアプリケーション用のデータベース プラットフォーム。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
 | ![無料のライセンス:Windows Server 2016 の SQL Server 2016 SP2 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [無料のライセンス:Windows Server 2016 の SQL Server 2016 SP2 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | トランザクション、データ ウェアハウス、ビジネス インテリジェンス、分析の各ワークロード用の SQL Server 2016 SP2 の無償 Developer バージョン。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
 | ![無料のライセンス:Windows Server 2016 の SQL Server 2016 SP2 Express](media/azure-stack-marketplace-azure-items/sql.png) | [無料のライセンス:Windows Server 2016 の SQL Server 2016 SP2 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | SQL Server 2016 SP2 の無償 Express バージョン。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |

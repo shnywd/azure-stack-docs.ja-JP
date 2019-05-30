@@ -3,7 +3,7 @@ title: 高可用性構成で Azure Stack App Service をデプロイする | Mic
 description: 高可用性構成を使用して Azure Stack に App Service をデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: BryanLa
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 78476afd09d6c85fbe5790568dd46366beaf1991
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618362"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269507"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -56,24 +56,24 @@ ms.locfileid: "65618362"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. **\+[** **リソースの作成]** > **[カスタム]** の順に選択し、**[テンプレートのデプロイ]** を選択します。
+2. **\+[** **リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
 
    ![カスタム テンプレートのデプロイ](media/app-service-deploy-ha/1.png)
 
 
-3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]** > **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **appservice-fileshare-sqlserver-ha** テンプレートを選択し、**[OK]**、**[保存]** の順にクリックします。
+3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]**  >  **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **appservice-fileshare-sqlserver-ha** テンプレートを選択し、 **[OK]** 、 **[保存]** の順にクリックします。
 
    ![appservice-fileshare-sqlserver-ha クイック スタート テンプレートを選択します。](media/app-service-deploy-ha/2.png)
 
-4. **[カスタム デプロイ]** ブレードで、**[パラメーターの編集]** を選択し、下にスクロールしてテンプレートの既定値を確認します。 必要に応じてそれらの値を変更して、必要なすべてのパラメーター情報を入力し、**[OK]** をクリックします。<br><br> 少なくとも、ADMINPASSWORD、FILESHAREOWNERPASSWORD、FILESHAREUSERPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD、SQLLOGINPASSWORD の各パラメーターには複雑なパスワードを指定してください。
+4. **[カスタム デプロイ]** ブレードで、 **[パラメーターの編集]** を選択し、下にスクロールしてテンプレートの既定値を確認します。 必要に応じてそれらの値を変更して、必要なすべてのパラメーター情報を入力し、 **[OK]** をクリックします。<br><br> 少なくとも、ADMINPASSWORD、FILESHAREOWNERPASSWORD、FILESHAREUSERPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD、SQLLOGINPASSWORD の各パラメーターには複雑なパスワードを指定してください。
     
    ![カスタム デプロイ パラメーターを編集する](media/app-service-deploy-ha/3.png)
 
-5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションとして **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** が選択されていることを確認してから、カスタム デプロイ用に新しいリソース グループを作成するか、既存のリソース グループを選択します。<br><br> 次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、**[作成]** をクリックします。 テンプレートのデプロイが開始される前にカスタムのデプロイ設定が検証されます。
+5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションとして **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** が選択されていることを確認してから、カスタム デプロイ用に新しいリソース グループを作成するか、既存のリソース グループを選択します。<br><br> 次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、 **[作成]** をクリックします。 テンプレートのデプロイが開始される前にカスタムのデプロイ設定が検証されます。
 
     ![カスタム デプロイを作成する](media/app-service-deploy-ha/4.png)
 
-6. 管理ポータルで、**[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
+6. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
 
    > [!NOTE]
    > テンプレートのデプロイが完了するまでに約 1 時間かかります。
@@ -95,13 +95,13 @@ ms.locfileid: "65618362"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 管理ポータルで、**[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 
+2. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 
 
-3. **[デプロイ]** をクリックしてから、**[Microsoft.Template]** を選択します。
+3. **[デプロイ]** をクリックしてから、 **[Microsoft.Template]** を選択します。
 
     ![Microsoft.template のデプロイ](media/app-service-deploy-ha/6.png)
 
-4. **[Microsoft.Template]** デプロイを選択した後、**[出力]** を選択し、テンプレート パラメーターの出力を記録します。 App Service をデプロイするときに、この情報が必要になります。
+4. **[Microsoft.Template]** デプロイを選択した後、 **[出力]** を選択し、テンプレート パラメーターの出力を記録します。 App Service をデプロイするときに、この情報が必要になります。
 
     ![パラメーターの出力](media/app-service-deploy-ha/7.png)
 
@@ -142,11 +142,11 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     ![デプロイまたはアップグレード](media/app-service-deploy-ha/01.png)
 
-3. Microsoft のライセンス条項に同意し、**[次へ]** をクリックします。
+3. Microsoft のライセンス条項に同意し、 **[次へ]** をクリックします。
 
     ![Microsoft のライセンス条項](media/app-service-deploy-ha/02.png)
 
-4. Microsoft 以外のライセンス条項に同意し、**[次へ]** をクリックします。
+4. Microsoft 以外のライセンス条項に同意し、 **[次へ]** をクリックします。
 
     ![Microsoft 以外のライセンス条項](media/app-service-deploy-ha/03.png)
 
@@ -181,14 +181,14 @@ App Service リソースプロバイダーをデプロイするには、次の�
     - 優先順位:700
     - 名前:Outbound_Allow_SMB445
 
-10. Identity Application ID を入力し、ID 証明書のパスとパスワードを入力して、**[次へ]** をクリックします。
+10. Identity Application ID を入力し、ID 証明書のパスとパスワードを入力して、 **[次へ]** をクリックします。
     - Identity Application 証明書 (**sso.appservice.local.azurestack.external.pfx** の形式)
     - Azure Resource Manager ルート証明書 (**AzureStackCertificationAuthority.cer**)
 
     ![Identity Application 証明書とルート証明書](media/app-service-deploy-ha/008.png)
 
-10. 次に、以下の証明書に必要な残りの情報を入力して、**[次へ]** をクリックします。
-    - 既定の Azure Stack SSL 証明書 (**_.appservice.local.azurestack.external.pfx** の形式)
+10. 次に、以下の証明書に必要な残りの情報を入力して、 **[次へ]** をクリックします。
+    - 既定の Azure Stack SSL 証明書 ( **_.appservice.local.azurestack.external.pfx** の形式)
     - API SSL 証明書 (**api.appservice.local.azurestack.external.pfx** の形式)
     - パブリッシャー証明書 (**ftp.appservice.local.azurestack.external.pfx** の形式) 
 
@@ -198,7 +198,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     ![SQL Server の接続情報](media/app-service-deploy-ha/10.png)
 
-12. App Service のインストールに使用されているマシンは、App Service データベースをホストするために使用されている SQL Server と同じ VNet 上に配置されていないため、ユーザーは名前を解決することができません。  **これは予想される動作です**。<br><br>SQL Server の名前とアカウント情報に入力した情報が正しいことを確認し、**[はい]** を押して App Service のインストールを続行してください。 **[次へ]** をクリックします。
+12. App Service のインストールに使用されているマシンは、App Service データベースをホストするために使用されている SQL Server と同じ VNet 上に配置されていないため、ユーザーは名前を解決することができません。  **これは予想される動作です**。<br><br>SQL Server の名前とアカウント情報に入力した情報が正しいことを確認し、 **[はい]** を押して App Service のインストールを続行してください。 **[次へ]** をクリックします。
 
     ![SQL Server の接続情報](media/app-service-deploy-ha/11.png)
 
@@ -218,19 +218,19 @@ App Service リソースプロバイダーをデプロイするには、次の�
     > [!NOTE]
     > 既定値からこのチュートリアルで推奨されている値に変更すると、App Service をインストールするためのハードウェア要件が増加します。 15 VM 用に既定の 18 コアおよび 32,256 MB の RAM をサポートする代わりに、推奨される 21 VM をサポートするには、合計 26 コアおよび 46,592 MB のRAM が必要です。
 
-14. App Service インフラストラクチャ VM のインストールに使用するプラットフォーム イメージを選択して、**[次へ]** をクリックします。
+14. App Service インフラストラクチャ VM のインストールに使用するプラットフォーム イメージを選択して、 **[次へ]** をクリックします。
 
     ![プラットフォーム イメージの選択](media/app-service-deploy-ha/13.png)
 
-15. 使用する App Service インフラストラクチャ ロールの資格情報を入力して、**[次へ]** をクリックします。
+15. 使用する App Service インフラストラクチャ ロールの資格情報を入力して、 **[次へ]** をクリックします。
 
     ![インフラストラクチャ ロールの資格情報](media/app-service-deploy-ha/14.png)
 
-16. App Service のデプロイに使用される情報を確認し、**[次へ]** をクリックしてデプロイを開始します。 
+16. App Service のデプロイに使用される情報を確認し、 **[次へ]** をクリックしてデプロイを開始します。 
 
     ![インストールの概要の確認](media/app-service-deploy-ha/15.png)
 
-17. App Service デプロイの進行状況を確認します。 特定のデプロイ構成とハードウェアによっては、これに 1 時間以上かかることがあります。 インストーラーが正常に完了したら、**[終了]** を選択します。
+17. App Service デプロイの進行状況を確認します。 特定のデプロイ構成とハードウェアによっては、これに 1 時間以上かかることがあります。 インストーラーが正常に完了したら、 **[終了]** を選択します。
 
     ![セットアップの完了](media/app-service-deploy-ha/16.png)
 

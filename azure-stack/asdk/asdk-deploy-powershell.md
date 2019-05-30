@@ -3,7 +3,7 @@ title: Azure Stack をデプロイする - PowerShell | Microsoft Docs
 description: この記事では、PowerShell を使用してコマンド ラインから ASDK をインストールします。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.custom: ''
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 05a3d0a88f4852395942d58ac798d2eb06a1d766
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617566"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267168"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>ASDK をコマンド ラインからデプロイする
 ASDK は、Azure Stack の機能やサービスを評価したり実演したりするためにデプロイできるテスト/開発環境です。 この環境を準備するには、環境ハードウェアを用意し、いくつかのスクリプトを実行する必要があります (これには数時間かかります)。 その後、管理者ポータルとユーザー ポータルにサインインし、Azure Stack の使用を開始することができます。
@@ -106,7 +106,7 @@ ASDK のインストールを開始して数分後に、Azure AD 資格情報の
 
 AD FS デプロイでは、既定のスタンプ ディレクトリ サービスが ID プロバイダーとして使用されます。 サインインに使用する既定のアカウントは azurestackadmin@azurestack.local で、パスワードは PowerShell のセットアップ コマンドの一部として指定したものに設定されます。
 
-デプロイ処理には数時間かかる場合があります。その間に、システムは自動的に 1 回再起動されます。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')**。 デプロイが失敗した場合は、-rerun パラメーターを使用してスクリプトを再実行してみることができます。 または、最初から [ASDK を再デプロイ](asdk-redeploy.md)することもできます。
+デプロイ処理には数時間かかる場合があります。その間に、システムは自動的に 1 回再起動されます。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 デプロイが失敗した場合は、-rerun パラメーターを使用してスクリプトを再実行してみることができます。 または、最初から [ASDK を再デプロイ](asdk-redeploy.md)することもできます。
 
 > [!IMPORTANT]
 > ASDK ホストの再起動後にデプロイの進行状況を監視する場合は、AzureStack\AzureStackAdmin としてサインインする必要があります。 ホスト コンピューターが再起動され、azurestack.local ドメインに参加した後、ローカル管理者としてサインインすると、デプロイの進行状況は表示されません。 デプロイは再実行せず、代わりにローカル管理者と同じパスワードを使用して AzureStack\AzureStackAdmin としてサインインし、セットアップが実行中であることを確認します。

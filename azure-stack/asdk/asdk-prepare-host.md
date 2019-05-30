@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) ホスト コンピューターの準�
 description: ASDK のインストール用に Azure Stack Development Kit (ASDK) ホスト コンピューターを準備する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: b15a5b7e77f0b8fc4361af669cc9099753ad201d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 3352df80a64bb259320a49729e42c02cb19fca58
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617458"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267604"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK ホスト コンピューターの準備
 ASDK をホスト コンピューターにインストールするには、ASDK ホストがインストール用に準備されている必要があります。 開発キットのホスト コンピューターが準備されると、CloudBuilder.vhdx 仮想マシンのハード ドライブから起動して ASDK のデプロイが開始します。
@@ -47,7 +47,7 @@ ASDK をホスト コンピューターにインストールする前に、ASDK 
    Invoke-WebRequest $uri -OutFile ($LocalPath + '\' + 'asdk-installer.ps1')
    ```
 
-4. 管理者特権で PowerShell コンソールから **C:\AzureStack_Installer\asdk-installer.ps1** スクリプトを開始し、**[Prepare Environment]\(環境の準備\)** をクリックします。
+4. 管理者特権で PowerShell コンソールから **C:\AzureStack_Installer\asdk-installer.ps1** スクリプトを開始し、 **[Prepare Environment]\(環境の準備\)** をクリックします。
 
     ![](media/asdk-prepare-host/1.PNG) 
 
@@ -55,17 +55,17 @@ ASDK をホスト コンピューターにインストールする前に、ASDK 
 
     ![](media/asdk-prepare-host/2.PNG)
 
-6. **[オプション設定]** ページで、開発キットのホスト コンピューターのローカル管理者アカウント情報を指定し、**[次へ]** をクリックします。<br><br>この手順でローカル管理者の資格情報を指定しない場合は、開発キットのセットアップの一環としてコンピューターを再起動した後、ホストに直接または KVM でアクセスする必要があります。
+6. **[オプション設定]** ページで、開発キットのホスト コンピューターのローカル管理者アカウント情報を指定し、 **[次へ]** をクリックします。<br><br>この手順でローカル管理者の資格情報を指定しない場合は、開発キットのセットアップの一環としてコンピューターを再起動した後、ホストに直接または KVM でアクセスする必要があります。
 
    ![](media/asdk-prepare-host/3.PNG)
 
     次のオプションの設定の値を指定することもできます。
-    - **[コンピューター名]**: このオプションは、開発キット ホストの名前を設定します。 名前は FQDN の要件に準拠している必要があり、長さは 15 文字以下にする必要があります。 既定は、Windows によって生成されたランダムなコンピューター名です。
-    - **[Static IP configuration] (静的 IP 構成)**: 静的 IP アドレスを使用するようにデプロイを設定します。 それ以外の場合、インストーラーが cloudbuilder.vhdx から再起動されるときに、ネットワーク インターフェイスが DHCP と構成されます。 静的 IP 構成を使用することを選択した場合は、追加オプションが表示され、そこで次の操作も行う必要があります。
+    - **[コンピューター名]** : このオプションは、開発キット ホストの名前を設定します。 名前は FQDN の要件に準拠している必要があり、長さは 15 文字以下にする必要があります。 既定は、Windows によって生成されたランダムなコンピューター名です。
+    - **[Static IP configuration] (静的 IP 構成)** : 静的 IP アドレスを使用するようにデプロイを設定します。 それ以外の場合、インストーラーが cloudbuilder.vhdx から再起動されるときに、ネットワーク インターフェイスが DHCP と構成されます。 静的 IP 構成を使用することを選択した場合は、追加オプションが表示され、そこで次の操作も行う必要があります。
       - ネットワーク アダプターを選択します。 **[次へ]** をクリックする前に、アダプターに接続できることを確認します。
-      - 表示されている **[IP アドレス]**、**[ゲートウェイ]**、および **[DNS]** 値が正しいことを確認し、**[次へ]** をクリックします。
+      - 表示されている **[IP アドレス]** 、 **[ゲートウェイ]** 、および **[DNS]** 値が正しいことを確認し、 **[次へ]** をクリックします。
 13. **[次へ]** をクリックして、準備プロセスを開始します。
-14. 準備が **[完了]** と示されたら、**[次へ]** をクリックします。
+14. 準備が **[完了]** と示されたら、 **[次へ]** をクリックします。
 
     ![](media/asdk-prepare-host/4.PNG)
 

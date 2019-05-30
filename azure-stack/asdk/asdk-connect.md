@@ -3,7 +3,7 @@ title: Azure Stack への接続 | Microsoft Docs
 description: ASDK に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: 3cebbfa6-819a-41e3-9f1b-14ca0a2aaba3
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 39814c48af0a362bd62f7d7276a32d886628317b
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9a16201db137e7f34b42a0b12bbe802d3b10bdff
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617573"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267212"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK に接続する
 
@@ -40,7 +40,7 @@ ms.locfileid: "65617573"
 
 1. リモート デスクトップ接続 (mstc.exe) を開き、ASDK ホスト コンピューターにリモートでサインインする権限のあるアカウントを使用して、開発キット ホスト コンピューター IP アドレスに接続します。 既定では、**AzureStack\AzureStackAdmin** に ASDK ホスト コンピューターにリモートでアクセス許可があります。  
 
-2. 開発キットのホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、**[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
+2. 開発キットのホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
 
 3. 管理ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理ポータルのアドレスは [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) です。
 
@@ -116,7 +116,7 @@ Add-AzsVpnConnection `
       -Password $Password
     ```
 
-  * ローカル コンピューターの **[ネットワーク設定]** > **[VPN]** > **[Azure Stack]** > **[接続]** の順に選択します。 サインイン プロンプトで、ユーザー名 (**AzureStack\AzureStackAdmin**) とパスワードを入力します。
+  * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]**  >  **[Azure Stack]**  >  **[接続]** の順に選択します。 サインイン プロンプトで、ユーザー名 (**AzureStack\AzureStackAdmin**) とパスワードを入力します。
 
 初回の接続では、Azure Stack ルート証明書を **AzureStackCertificateAuthority** からローカル コンピューターの証明書ストアにインストールすることを求めるメッセージが表示されます。 この手順により、信頼されたホストの一覧に、ASDK 証明機関 (CA) が追加されます。 **[はい]** をクリックして証明書をインストールします。
 

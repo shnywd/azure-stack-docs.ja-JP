@@ -3,7 +3,7 @@ title: Azure Stack での管理ポータルの使用 | Microsoft Docs
 description: Azure Stack オペレーターとして管理ポータルを使用する方法を学習します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: 71932642d8c44d2043fe185eab3ebda25be7bb3f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618620"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268462"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>クイック スタート: Azure Stack 管理ポータルを使用する
 
@@ -76,24 +76,24 @@ Azure Stack には、管理ポータルとユーザー ポータル ("*テナン
 
 ### <a name="customize-the-dashboard"></a>ダッシュボードのカスタマイズ
 
-ダッシュボードには、既定のタイルのセットが含まれています。 **[ダッシュボードの編集]** を選択して既定のダッシュボードを変更したり、**[新しいダッシュボード]** を選択してカスタムのダッシュボードを追加したりできます。 ダッシュボードにはタイルを簡単に追加できます。 たとえば、**[+ リソースの作成]** を選択し、**[オファー + プラン]** を右クリックし、**[ダッシュボードにピン留めする]** を選択します。
+ダッシュボードには、既定のタイルのセットが含まれています。 **[ダッシュボードの編集]** を選択して既定のダッシュボードを変更したり、 **[新しいダッシュボード]** を選択してカスタムのダッシュボードを追加したりできます。 ダッシュボードにはタイルを簡単に追加できます。 たとえば、 **[+ リソースの作成]** を選択し、 **[オファー + プラン]** を右クリックし、 **[ダッシュボードにピン留めする]** を選択します。
 
-ポータルに空のダッシュボードが表示されることがあります。 ダッシュボードを回復するには、**[ダッシュボードの編集]** をクリックし、右クリックして、**[既定の状態にリセット]** を選択します。
+ポータルに空のダッシュボードが表示されることがあります。 ダッシュボードを回復するには、 **[ダッシュボードの編集]** をクリックし、右クリックして、 **[既定の状態にリセット]** を選択します。
 
 ### <a name="quick-access-to-online-documentation"></a>オンライン ドキュメントへのクイック アクセス
 
-Azure Stack オペレーター向けドキュメントにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を使用します。 カーソルをアイコンに移動し、**[ヘルプとサポート]** を選択します。
+Azure Stack オペレーター向けドキュメントにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を使用します。 カーソルをアイコンに移動し、 **[ヘルプとサポート]** を選択します。
 
 ### <a name="quick-access-to-help-and-support"></a>ヘルプとサポートへのクイック アクセス
 
-管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、**[新しいサポート要求]** を選択すると、次のいずれかの結果になります。
+管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[新しいサポート要求]** を選択すると、次のいずれかの結果になります。
 
 - 統合システムを使用している場合は、Microsoft カスタマー サポート サービス (CSS) のサポート チケットを直接開くことができるサイトが開きます。 Microsoft サポートと OEM (Original Equipment Manufacturer) ハードウェア ベンダーのサポートのどちらに連絡するかについては、「[サポートが受けられる場所](azure-stack-manage-basics.md#where-to-get-support)」を参照してください。
 - ASDK を使用している場合は、[Azure Stack フォーラムのサイト](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)が直接開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Azure ロードマップへのクイック アクセス
 
-管理ポータルの右上隅にある**ヘルプとサポート** (疑問符) を選択し、**[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに **Azure Stack** と入力すると、すべての Azure Stack ロードマップの更新プログラムを確認できます。
+管理ポータルの右上隅にある**ヘルプとサポート** (疑問符) を選択し、 **[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに **Azure Stack** と入力すると、すべての Azure Stack ロードマップの更新プログラムを確認できます。
 
 ## <a name="next-steps"></a>次の手順
 

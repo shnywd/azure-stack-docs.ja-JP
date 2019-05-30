@@ -3,7 +3,7 @@ title: Azure および Azure Stack を使用して地理的分散アプリ ソ�
 description: Azure および Azure Stack を使用して地理的分散アプリ ソリューションを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/14/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 81dfc9c7571bc191582425962d1e7b37c2ed05cd
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: eee89c90113187b51418801a46720f49e07fa533
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63449165"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252116"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>チュートリアル: Azure と Azure Stack を使用して地理的に分散されたアプリ ソリューションを作成する
 
@@ -291,15 +291,15 @@ Azure DevOps および Azure DevOps Server が提供するパイプラインは�
 
 1.  ドメイン プロバイダーの Web サイトにサインインします。
 
-2.  DNS レコードの管理ページを探します。 各ドメイン プロバイダーは、独自の DNS レコード インターフェイスを保有します。 **[ドメイン名]**、**[DNS]**、**[ネーム サーバー管理]** というラベルが付いたサイトの領域を探します。
+2.  DNS レコードの管理ページを探します。 各ドメイン プロバイダーは、独自の DNS レコード インターフェイスを保有します。 **[ドメイン名]** 、 **[DNS]** 、 **[ネーム サーバー管理]** というラベルが付いたサイトの領域を探します。
 
-DNS レコード ページは、**[My domains] (マイ ドメイン)** で表示できます。 **[ゾーン ファイル]**、**[DNS レコード]**、または **[詳細構成]** という名前のリンクを見つけます。
+DNS レコード ページは、 **[My domains] (マイ ドメイン)** で表示できます。 **[ゾーン ファイル]** 、 **[DNS レコード]** 、または **[詳細構成]** という名前のリンクを見つけます。
 
 以下のスクリーンショットは、DNS レコード ページの例です。
 
 ![DNS レコード ページの例](media/azure-stack-solution-geo-distributed/image28.png)
 
-1. ドメイン名レジストラーで、**[Add or Create] (追加または作成)** を選択してレコードを作成します。 プロバイダーによっては、追加するレコード タイプごとに異なるリンクが用意されています。 プロバイダーのドキュメントを参照してください。
+1. ドメイン名レジストラーで、 **[Add or Create] (追加または作成)** を選択してレコードを作成します。 プロバイダーによっては、追加するレコード タイプごとに異なるリンクが用意されています。 プロバイダーのドキュメントを参照してください。
 
 2. CNAME レコードを追加して、サブドメインをアプリの既定のホスト名にマップします。
 
@@ -317,7 +317,7 @@ CNAME を追加した後の DNS レコード ページは次の例のように�
 
 3. Web アプリを選択します。
 
-4. Azure Portal のアプリ ページの左側のナビゲーションで、**[カスタム ドメイン]** を選択します。
+4. Azure Portal のアプリ ページの左側のナビゲーションで、 **[カスタム ドメイン]** を選択します。
 
 5. **[ホスト名の追加]** の横の **+** アイコンを選択します。
 
@@ -331,7 +331,7 @@ CNAME を追加した後の DNS レコード ページは次の例のように�
 
    b.  アプリの既定のホスト名 <app_name>.azurewebsites.net にマップするための **TXT** レコード。 App Service は、このレコードを、カスタム ドメインの所有者を検証するために構成時にのみ使用します。 検証後、TXT レコードを削除してください。
 
-4. ドメイン レジスター タブでこのタスクを完了し、**[ホスト名の追加]** ボタンがアクティブになるまで、再検証します。
+4. ドメイン レジスター タブでこのタスクを完了し、 **[ホスト名の追加]** ボタンがアクティブになるまで、再検証します。
 
 5. **[ホスト名レコード タイプ] が **[CNAME (www.example.com または任意のサブドメイン)]** に設定されていることを確認します。
 
@@ -403,13 +403,13 @@ App Service で証明書を使用するには、証明書が次のすべての�
 
 1.  [Microsoft Azure portal](https://portal.azure.com/) を開き、Web アプリに移動します。
 
-2.  左側のメニューで、**[App Services]** を選択し、Web アプリ名を選択します。
+2.  左側のメニューで、 **[App Services]** を選択し、Web アプリ名を選択します。
 
 ![Web アプリの選択](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>価格レベルの確認
 
-1.  Web アプリ ページの左側のナビゲーションで **[設定]** セクションまでスクロールし、**[スケール アップ (App Service プラン)]** を選択します。
+1.  Web アプリ ページの左側のナビゲーションで **[設定]** セクションまでスクロールし、 **[スケール アップ (App Service プラン)]** を選択します。
 
     ![スケール アップ メニュー](media/azure-stack-solution-geo-distributed/image34.png)
 
@@ -417,7 +417,7 @@ App Service で証明書を使用するには、証明書が次のすべての�
 
     ![価格レベルの確認](media/azure-stack-solution-geo-distributed/image35.png)
 
-カスタム SSL は、**Free** レベルまたは **Shared** レベルではサポートされていません。 アップスケールするには、次のセクション、**[価格レベルの選択]** ページの手順に従い、[[Upload and bind your SSL certificate] (SSL 証明書のアップロードおよびバインド)](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) にスキップします。
+カスタム SSL は、**Free** レベルまたは **Shared** レベルではサポートされていません。 アップスケールするには、次のセクション、 **[価格レベルの選択]** ページの手順に従い、[[Upload and bind your SSL certificate] (SSL 証明書のアップロードおよびバインド)](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) にスキップします。
 
 #### <a name="scale-up-your-app-service-plan"></a>App Service プランのスケール アップ
 
@@ -470,7 +470,7 @@ App Service で証明書を使用するには、証明書が次のすべての�
 
 証明書で生成された秘密キーを使用して、結合した SSL 証明書をエクスポートします。
 
-秘密キー ファイルは OpenSSL 経由で作成されます。 証明書を PFX にエクスポートするには、*\<private-key-file>* と *\<merged-certificate-file>* のプレースホルダーを秘密キーのパスと結合した証明書ファイルに置き換えて次のコマンドを実行します。
+秘密キー ファイルは OpenSSL 経由で作成されます。 証明書を PFX にエクスポートするには、 *\<private-key-file>* と *\<merged-certificate-file>* のプレースホルダーを秘密キーのパスと結合した証明書ファイルに置き換えて次のコマンドを実行します。
 
 ```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
@@ -494,7 +494,7 @@ IIS または **Certreq.exe** を使用して証明書の要求を生成した�
 
 ![証明書のアップロード](media/azure-stack-solution-geo-distributed/image38.png)
 
-App Service による証明書のアップロードが完了すると、**[SSL 設定]** ページにアップロードした証明書が表示されます。
+App Service による証明書のアップロードが完了すると、 **[SSL 設定]** ページにアップロードした証明書が表示されます。
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image39.png)
 
@@ -507,7 +507,7 @@ App Service による証明書のアップロードが完了すると、**[SSL �
 
 1.  **[SSL バインディングの追加]** ページで、ドロップダウンから保護するドメインの名前と使用する証明書を選択します。
 
-2.  **[SSL Type] \(SSL の種類)** で、[**Server Name Indication (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) ベースの SSL を使用するか IP ベースの SSL を使用するかを選択します。
+2.  **[SSL Type] \(SSL の種類)** で、[**Server Name Indication (SNI)** ](https://en.wikipedia.org/wiki/Server_Name_Indication) ベースの SSL を使用するか IP ベースの SSL を使用するかを選択します。
 
 -   **SNI ベースの SSL** - 複数の SNI ベースの SSL バインドを追加できます。 このオプションでは、複数の SSL 証明書を使用して、同一の IP アドレス上の複数のドメインを保護できます。 最新のブラウザーのほとんど (Inernet Explorer、Chrome、Firefox、Opera など) が SNI をサポートしています (ブラウザーのサポートに関するより包括的な情報については、「[Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)」を参照してください)。
 
@@ -517,7 +517,7 @@ App Service による証明書のアップロードが完了すると、**[SSL �
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image40.png)
 
-App Service による証明書のアップロードが完了すると、**[SSL バインド]** セクションにアップロードした証明書が表示されます。
+App Service による証明書のアップロードが完了すると、 **[SSL バインド]** セクションにアップロードした証明書が表示されます。
 
 ![Alt text](media/azure-stack-solution-geo-distributed/image41.png)
 
@@ -544,7 +544,7 @@ A レコードが Web アプリにマップされた場合、ドメイン レジ
 
 既定では、どなたでも HTTP を使用して Web アプリにアクセスできます。 HTTPS ポートへのすべての HTTP 要求をリダイレクトできます。
 
-Web アプリページで、**[SSL 設定]** を選択します。 その後、**[HTTPS のみ]** で、**[On]** を選択します。
+Web アプリページで、 **[SSL 設定]** を選択します。 その後、 **[HTTPS のみ]** で、 **[On]** を選択します。
 
 ![HTTPS の適用](media/azure-stack-solution-geo-distributed/image43.png)
 
@@ -566,7 +566,7 @@ Web アプリページで、**[SSL 設定]** を選択します。 その後、*
 
 ### <a name="create-a-traffic-manager-profile"></a>Traffic Manager プロファイルの作成
 
-1.  **[リソースの作成]** > **[ネットワーク]** > **[Traffic Manager プロファイル]** > **[作成]** の順に選択します。
+1.  **[リソースの作成]**  >  **[ネットワーク]**  >  **[Traffic Manager プロファイル]**  >  **[作成]** の順に選択します。
 
 2.  **[Traffic Manager プロファイルの作成]** で、以下を実行します。
 
@@ -590,13 +590,13 @@ Web アプリページで、**[SSL 設定]** を選択します。 その後、*
 
 1. ポータルの検索バーで、前のセクションで作成した **Traffic Manager プロファイル** の名前を検索し、表示された結果から Traffic Manager プロファイルを選択します。
 
-2. **[Traffic Manager プロファイル]** の **[設定]** セクションで、**[エンドポイント]** を選択します。
+2. **[Traffic Manager プロファイル]** の **[設定]** セクションで、 **[エンドポイント]** を選択します。
 
 3. **[追加]** を選択します。
 
 4. Azure Stack エンドポイントを追加します。
 
-5. **[Type] (種類)** で、**[外部エンドポイント]** を選択します。
+5. **[Type] (種類)** で、 **[外部エンドポイント]** を選択します。
 
 6. このエンドポイントの**名前**を、理想的には Azure Stack の名前を入力します。
 
@@ -612,13 +612,13 @@ Web アプリページで、**[SSL 設定]** を選択します。 その後、*
 
 12. Azure エンドポイントの追加:
 
-    1.  **[Type] (種類)** で、**[Azure エンドポイント]** を選択します。
+    1.  **[Type] (種類)** で、 **[Azure エンドポイント]** を選択します。
 
     2.  このエンドポイントの **[名前]** を入力します。
 
-    3.  **[ターゲット リソースの種類]** で、**[App Service]** を選択します。
+    3.  **[ターゲット リソースの種類]** で、 **[App Service]** を選択します。
 
-    4.  **[ターゲット リソース]** で、**[アプリ サービスの選択]** を選択し、同じサブスクリプションにある Web Apps の一覧を表示します。 **[リソース]** で、最初のエンドポイントとして使用する App Service を選択します。
+    4.  **[ターゲット リソース]** で、 **[アプリ サービスの選択]** を選択し、同じサブスクリプションにある Web Apps の一覧を表示します。 **[リソース]** で、最初のエンドポイントとして使用する App Service を選択します。
 
 13. 地理的マッピングで、リソースが置かれているリージョン/大陸を選択します (たとえば**北米/中米/カリブ海**)。
 
@@ -631,7 +631,7 @@ Web アプリページで、**[SSL 設定]** を選択します。 その後、*
     > [!Note]  
     >  [All (World)] (すべて (世界)) の地理的範囲を持つ少なくとも 1 つのエンドポイントを作成して、リソースの既定のエンドポイントとして機能します。
 
-1. 両方のエンドポイントは、追加が完了すると、**[Traffic Manager プロファイル]** に、監視ステータスが **[オンライン]** の状態で表示されます。
+1. 両方のエンドポイントは、追加が完了すると、 **[Traffic Manager プロファイル]** に、監視ステータスが **[オンライン]** の状態で表示されます。
 
     ![Alt text](media/azure-stack-solution-geo-distributed/image46.png)
 

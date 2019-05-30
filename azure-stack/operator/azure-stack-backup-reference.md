@@ -3,7 +3,7 @@ title: Azure Stack インフラストラクチャ バックアップ サービ�
 description: この記事には、Azure Stack インフラストラクチャ バックアップ サービスについての参考資料が記載されています。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: D6EC0224-97EA-446C-BC95-A3D32F668E2C
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 7b95dba4b3462b2c0e36aa1464faf217fccd7a6a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 40be490efceb6747bf848518c55cca64784492da
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617802"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268755"
 ---
 # <a name="infrastructure-backup-service-reference"></a>インフラストラクチャ バックアップ サービスのリファレンス
 

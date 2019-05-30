@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) のデプロイの前提条件 | Micro
 description: Azure Stack Development Kit (ASDK) の環境とハードウェアの要件を確認します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 9cb349ec19edd493ca994b406b9311fe27bed242
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: e7006d599a597f66b8b1c76dac55f26cebacdacd
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712231"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267179"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack のデプロイ計画に関する考慮事項
 

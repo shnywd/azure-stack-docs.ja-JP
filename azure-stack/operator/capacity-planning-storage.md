@@ -3,7 +3,7 @@ title: Azure Stack のためのストレージ容量の計画 | Microsoft Docs
 description: Azure Stack デプロイのためのストレージ容量の計画について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 02/20/2019
-ms.openlocfilehash: 549428b7a47065dfcb0bdb55ff100332b066f4bc
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6ea35dac0cbc48565c96c969b411f2d2a7ac3081
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618903"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267839"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack ストレージ容量の計画
 次のセクションでは、ソリューションのストレージ ニーズに合わせて計画する場合に役立つ Azure Stack ストレージ容量の計画に関する情報を提供します。

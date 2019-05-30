@@ -3,7 +3,7 @@ title: Azure および Azure Stack へのアプリのデプロイ | Microsoft Do
 description: ハイブリッド CI/CD パイプラインを使用して、アプリを Azure と Azure Stack にデプロイする方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 3b98714a6cbc3601f98d5f9dfcb26edb5182cfa4
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: dfec5ff97b4c7aa3c3de6b4817689412cb41ea6a
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521232"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252095"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>チュートリアル: Azure と Azure Stack へのアプリのデプロイ
 
@@ -118,7 +118,7 @@ Azure DevOps Services では、サービス プリンシパルを使用して、
 [サービス プリンシパルの作成](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)手順を参照してサービス プリンシパルを作成します。 [アプリケーションの種類] で **[Web アプリ/API]** を選択するか、「[Create an Azure Resource Manager service connection with an existing service principal (既存のサービス プリンシパルで Azure Resource Manager サービス接続を作成する)](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)」の記事で説明されている [PowerShell スクリプト](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)を使用します。
 
  > [!Note]  
- > スクリプトを使用して Azure Stack の Azure Resource Manager エンドポイントを作成する場合は、**-azureStackManagementURL** パラメーターと **-environmentName** パラメーターを渡す必要があります。 例:   
+ > スクリプトを使用して Azure Stack の Azure Resource Manager エンドポイントを作成する場合は、 **-azureStackManagementURL** パラメーターと **-environmentName** パラメーターを渡す必要があります。 例:   
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>アクセス キーを作成する
@@ -133,15 +133,15 @@ Azure DevOps Services では、サービス プリンシパルを使用して、
 
     ![アプリケーション ID](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
-3. 認証キーを生成するには、**[設定]** を選択します。
+3. 認証キーを生成するには、 **[設定]** を選択します。
 
     ![アプリの設定を編集](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
-4. 認証キーを生成するには、**[キー]** を選択します。
+4. 認証キーを生成するには、 **[キー]** を選択します。
 
     ![キーの設定を構成](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
-5. キーの説明を入力し、キーの期間を設定します。 操作が完了したら、**[保存]** をクリックします。
+5. キーの説明を入力し、キーの期間を設定します。 操作が完了したら、 **[保存]** をクリックします。
 
     ![キーの説明と期間](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
@@ -171,7 +171,7 @@ Azure DevOps Services には、サービス エンドポイント構成の一部
 
 スコープは、サブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリケーションをリソース グループの閲覧者ロールに追加すると、アプリケーションではリソース グループとそのすべてのリソースを読み取ることができます。
 
-1. アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、**[サブスクリプション]** を選択します。
+1. アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、 **[サブスクリプション]** を選択します。
 
     ![[サブスクリプション] を選択します。](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
@@ -253,7 +253,7 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 
 1. VSTO にサインインし、アプリの設定ページに移動します。
 2. **[設定]** の **[セキュリティ]** を選択します。
-3. **[Azure DevOps Services グループ]** で、**[エンドポイント作成者]** を選択します。
+3. **[Azure DevOps Services グループ]** で、 **[エンドポイント作成者]** を選択します。
 
     ![NorthwindCloud のエンドポイント作成者](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
@@ -263,7 +263,7 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 
 5. **[ユーザーとグループの追加]** にユーザー名を入力し、そのユーザーをユーザー一覧から選択します。
 6. **[変更の保存]** を選択します。
-7. **[Azure DevOps Services グループ]** の一覧で、**[エンドポイント管理者]** を選択します。
+7. **[Azure DevOps Services グループ]** の一覧で、 **[エンドポイント管理者]** を選択します。
 
     ![NorthwindCloud のエンドポイント管理者](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
@@ -382,11 +382,11 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 アプリケーション ビルド プロセスの最後の手順は、リリース パイプラインの作成です。 このリリース パイプラインを使用してリリースを作成し、ビルドをデプロイします。
 
 1. Azure DevOps Services サービスにサインインし、プロジェクトの **Azure Pipelines** に移動します。
-2. **[リリース]** タブで **\[ + ]** を選択し、**[リリース定義の作成]** を選択します。
+2. **[リリース]** タブで **\[ + ]** を選択し、 **[リリース定義の作成]** を選択します。
 
    ![リリース パイプラインを作成する](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
-3. **[テンプレートの選択]** で **[Azure App Service の配置]** を選択し、**[適用]** を選択します。
+3. **[テンプレートの選択]** で **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
 
     ![テンプレートを適用](media/azure-stack-solution-hybrid-pipeline/102.png)
 
@@ -398,7 +398,7 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
     ![パイプライン ビューのタスク](media/azure-stack-solution-hybrid-pipeline/104.png)
 
-6. **[タスク]** タブで **[環境名]** に「Azure」と入力し、**[Azure サブスクリプション]** ボックスの一覧から [AzureCloud Traders-Web EP] を選択します。
+6. **[タスク]** タブで **[環境名]** に「Azure」と入力し、 **[Azure サブスクリプション]** ボックスの一覧から [AzureCloud Traders-Web EP] を選択します。
 
     ![環境変数の設定](media/azure-stack-solution-hybrid-pipeline/105.png)
 
@@ -406,7 +406,7 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
     ![App Service の名前](media/azure-stack-solution-hybrid-pipeline/106.png)
 
-8. [エージェント フェーズ] で、**[エージェント キュー]** ボックスの一覧から **[Hosted VS2017]** を選択します。
+8. [エージェント フェーズ] で、 **[エージェント キュー]** ボックスの一覧から **[Hosted VS2017]** を選択します。
 
     ![ホストされたエージェント](media/azure-stack-solution-hybrid-pipeline/107.png)
 
@@ -418,15 +418,15 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
     ![代替テキスト](media/azure-stack-solution-hybrid-pipeline/109.png)
 
-11. すべての変更を保存し、**[パイプライン]** に戻ります。
+11. すべての変更を保存し、 **[パイプライン]** に戻ります。
 
     ![代替テキスト](media/azure-stack-solution-hybrid-pipeline/110.png)
 
-12. **[パイプライン]** タブで **[成果物の追加]** を選択し、**[ソース (ビルド定義)]** ボックスの一覧から **[NorthwindCloud Traders-Vessel]** を選択します。
+12. **[パイプライン]** タブで **[成果物の追加]** を選択し、 **[ソース (ビルド定義)]** ボックスの一覧から **[NorthwindCloud Traders-Vessel]** を選択します。
 
     ![新しい成果物の追加](media/azure-stack-solution-hybrid-pipeline/111.png)
 
-13. **[テンプレートの選択]** で、もう 1 つ環境を追加します。 **[Azure App Service の配置]** を選択し、**[適用]** を選択します。
+13. **[テンプレートの選択]** で、もう 1 つ環境を追加します。 **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
 
     ![テンプレートの選択](media/azure-stack-solution-hybrid-pipeline/112.png)
 
@@ -446,7 +446,7 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
     ![App Service の名前](media/azure-stack-solution-hybrid-pipeline/116.png)
 
-18. **[エージェントの選択]** で、**[エージェント キュー]** ボックスの一覧から [AzureStack -bDouglas Fir] を選択します。
+18. **[エージェントの選択]** で、 **[エージェント キュー]** ボックスの一覧から [AzureStack -bDouglas Fir] を選択します。
 
     ![エージェントの選択](media/azure-stack-solution-hybrid-pipeline/117.png)
 
@@ -460,7 +460,7 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
     ![変数の構成](media/azure-stack-solution-hybrid-pipeline/120.png)
 
-21. **[パイプライン]** タブで、NorthwindCloud Traders-Web の成果物に使用する **[継続的配置トリガー]** アイコンを選択し、**[継続的配置トリガー]** を **[有効]** に設定します。  "NorthwindCloud Traders-Vessel" の成果物についても同じ操作を行います。
+21. **[パイプライン]** タブで、NorthwindCloud Traders-Web の成果物に使用する **[継続的配置トリガー]** アイコンを選択し、 **[継続的配置トリガー]** を **[有効]** に設定します。  "NorthwindCloud Traders-Vessel" の成果物についても同じ操作を行います。
 
     ![継続的配置トリガーの設定](media/azure-stack-solution-hybrid-pipeline/121.png)
 
@@ -477,15 +477,15 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
 リリース パイプラインに対する変更が完了したら、デプロイを開始できます。 これを行うには、リリース パイプラインからリリースを作成します。 リリースは自動的に作成される場合があります。たとえば、継続的配置トリガーは、リリース パイプラインで設定されています。 つまり、ソース コードを変更すると、新しいビルドが起動され、これにより新しいリリースが起動されます。 ただし、このセクションでは、新しいリリースを手動で作成します。
 
-1. **[パイプライン]** タブの **[リリース]** ボックスの一覧を開いて、**[リリースの作成]** を選択します。
+1. **[パイプライン]** タブの **[リリース]** ボックスの一覧を開いて、 **[リリースの作成]** を選択します。
 
     ![リリースを作成する](media/azure-stack-solution-hybrid-pipeline/200.png)
 
-2. リリースの説明を入力し、正しい成果物が選択されていることを確認して、**[作成]** を選択します。 しばらくすると、新しいリリースが作成されたことを示すバナーが表示され、そのリリース名がリンクとして表示されます。 リンクを選択すると、リリース概要ページが表示されます。
+2. リリースの説明を入力し、正しい成果物が選択されていることを確認して、 **[作成]** を選択します。 しばらくすると、新しいリリースが作成されたことを示すバナーが表示され、そのリリース名がリンクとして表示されます。 リンクを選択すると、リリース概要ページが表示されます。
 
     ![リリース作成バナー](media/azure-stack-solution-hybrid-pipeline/201.png)
 
-3. リリースの概要ページに、リリースに関する詳細が表示されます。 次の "Release-2" のキャプチャ画面で、**[環境]** セクションを見ると、Azure については**デプロイ状態**が "進行中" として表示され、Azure Stack については "成功" と表示されていることがわかります。 Azure 環境のデプロイ状態が "成功" に変わると、リリースの承認準備が完了したことを示すバナーが表示されます。 デプロイが保留中か、失敗した場合は、青い **(i)** 情報アイコンが表示されます。 このアイコンにマウス ポインターを合わせると、遅延または失敗の理由を示すポップアップが表示されます。
+3. リリースの概要ページに、リリースに関する詳細が表示されます。 次の "Release-2" のキャプチャ画面で、 **[環境]** セクションを見ると、Azure については**デプロイ状態**が "進行中" として表示され、Azure Stack については "成功" と表示されていることがわかります。 Azure 環境のデプロイ状態が "成功" に変わると、リリースの承認準備が完了したことを示すバナーが表示されます。 デプロイが保留中か、失敗した場合は、青い **(i)** 情報アイコンが表示されます。 このアイコンにマウス ポインターを合わせると、遅延または失敗の理由を示すポップアップが表示されます。
 
     ![リリース概要ページ](media/azure-stack-solution-hybrid-pipeline/202.png)
 
@@ -495,7 +495,7 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
 このセクションでは、すべてのデプロイを監視し、追跡する方法について説明します。 ここでは、2 つの Azure App Services Web サイトをデプロイするためのリリースを例に取り上げています。
 
-1. "Release-2" の概要ページで、**[ログ]** を選択します。 デプロイ時には、エージェントからリアルタイムのログがこのページに表示されます。 左側のウィンドウには、デプロイに伴う各操作の状態が環境ごとに表示されます。
+1. "Release-2" の概要ページで、 **[ログ]** を選択します。 デプロイ時には、エージェントからリアルタイムのログがこのページに表示されます。 左側のウィンドウには、デプロイに伴う各操作の状態が環境ごとに表示されます。
 
     デプロイ前またはデプロイ後の承認の **[アクション]** 列で人アイコンを選択すると、デプロイを承認 (または拒否) したユーザーと、そのユーザーからのメッセージが表示されます。
 

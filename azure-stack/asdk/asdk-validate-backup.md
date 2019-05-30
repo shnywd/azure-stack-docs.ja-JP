@@ -2,21 +2,21 @@
 title: ASDK を使用した Azure Stack のバックアップの検証 |Microsoft Docs
 description: ASDK を使用して、Azure Stack 統合システムのバックアップを検証する方法。
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 02/15/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 6d300c54044f2eb22eac8efe6f9434660d0b6fb8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 38c4de35b4d2b5eac16b8586aa6933b18c62b14a
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617323"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267329"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
 Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行は、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
@@ -110,7 +110,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 > 現在のインストーラー UI では、暗号化キーのみがサポートされています。
 
 1. ホスト コンピューターが CloudBuilder.vhdx イメージで正常に起動した後、ASDK インストールの[開発キットのホスト コンピューターを準備](asdk-prepare-host.md)するときに指定した管理者資格情報を使ってサインインします。 これは、開発キット ホストのローカル管理者の資格情報と同じである必要があります。
-2. 管理者特権の PowerShell コンソールを開き、**&lt;ドライブ文字>\AzureStack_Installer\asdk-installer.ps1** PowerShell スクリプトを実行します。 このスクリプトは現在、CloudBuilder.vhdx イメージの C:\ とは別のドライブに存在する可能性があります。 **[回復]** をクリックします。
+2. 管理者特権の PowerShell コンソールを開き、 **&lt;ドライブ文字>\AzureStack_Installer\asdk-installer.ps1** PowerShell スクリプトを実行します。 このスクリプトは現在、CloudBuilder.vhdx イメージの C:\ とは別のドライブに存在する可能性があります。 **[回復]** をクリックします。
 
     ![ASDK インストーラー スクリプト](media/asdk-validate-backup/1.PNG) 
 
@@ -118,7 +118,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ID と資格情報のページ](media/asdk-validate-backup/2.PNG) 
 
-4. ASDK ホスト コンピューターによって使用されるネットワーク アダプターを選択し、**[次へ]** をクリックします。 ASDK のインストール中、他のすべてのネットワーク インターフェイスは無効化されます。 
+4. ASDK ホスト コンピューターによって使用されるネットワーク アダプターを選択し、 **[次へ]** をクリックします。 ASDK のインストール中、他のすべてのネットワーク インターフェイスは無効化されます。 
 
     ![ネットワーク アダプター インターフェイス](media/asdk-validate-backup/3.PNG) 
 
@@ -126,7 +126,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ネットワーク構成ページ](media/asdk-validate-backup/4.PNG) 
 
-6. ネットワーク インターフェイス カードのプロパティが検証されたら、**[次へ]** をクリックします。 
+6. ネットワーク インターフェイス カードのプロパティが検証されたら、 **[次へ]** をクリックします。 
 
     ![ネットワーク カード設定の検証](media/asdk-validate-backup/5.PNG) 
 

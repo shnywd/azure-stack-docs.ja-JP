@@ -3,7 +3,7 @@ title: Azure Stack のテレメトリ | Microsoft Docs
 description: Azure Stack のテレメトリの設定を PowerShell を使用して構成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 78ca05eb15570022e6eb25a7023d91c5ff8b817f
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 24948fb53ed4c5bdbbe0490f581daff7c66c33bc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617334"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267433"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack のテレメトリ
 
@@ -81,9 +81,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 テレメトリ レベルは累積形式になっており、4 つのレベル (0 ～ 3) に分類されます。
 
-**0 (Security)**。 セキュリティ データのみ。 "接続ユーザー エクスペリエンスとテレメトリ" コンポーネントの設定に関するデータや Windows Defender に関するデータなど、オペレーティング システムのセキュリティを保つために必要な情報が対象となります。 Azure Stack に固有のテレメトリは、このレベルでは出力されません。
+**0 (Security)** 。 セキュリティ データのみ。 "接続ユーザー エクスペリエンスとテレメトリ" コンポーネントの設定に関するデータや Windows Defender に関するデータなど、オペレーティング システムのセキュリティを保つために必要な情報が対象となります。 Azure Stack に固有のテレメトリは、このレベルでは出力されません。
 
-**1 (Basic)**。 Security データに加え、基本的な正常性データと品質データ。 Security レベルからのデータに加え、品質関連のデータ、アプリの互換性、アプリの利用状況データなど、基本的なデバイス情報が対象となります。 テレメトリ レベルを Basic に設定すると、Azure Stack のテレメトリが有効になります。 このレベルで収集されるデータの例を次に示します。
+**1 (Basic)** 。 Security データに加え、基本的な正常性データと品質データ。 Security レベルからのデータに加え、品質関連のデータ、アプリの互換性、アプリの利用状況データなど、基本的なデバイス情報が対象となります。 テレメトリ レベルを Basic に設定すると、Azure Stack のテレメトリが有効になります。 このレベルで収集されるデータの例を次に示します。
 
 - **基本的なデバイス情報**: エコシステムに存在する Windows Server 2016 のネイティブ インスタンスと仮想化インスタンスの構成や種類が明らかとなります。具体的には、次のような情報が収集されます。
   - マシン属性 (OEM、モデルなど)
@@ -94,9 +94,9 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 - **品質関連の情報**: Microsoft は、この情報を通じて、Azure Stack がどのように実行されているかについての基本的な理解を深めることができます。 たとえば、特定のハードウェア構成に関する重要なアラートの件数が該当します。
 - **互換性データ**: システムや仮想マシンにインストールされているリソース プロバイダーについての情報を把握したり、互換性に関する問題のリスクを特定したりするために役立てられます。
 
-**2 (Enhanced)**。 さらに詳しい分析情報につながるデータ。Basic レベルと Security レベルからのデータに加え、オペレーティング システムや他の Azure Stack サービスがどのように使用され、どのように実行されているかについてのデータ、詳細な信頼性データが対象となります。
+**2 (Enhanced)** 。 さらに詳しい分析情報につながるデータ。Basic レベルと Security レベルからのデータに加え、オペレーティング システムや他の Azure Stack サービスがどのように使用され、どのように実行されているかについてのデータ、詳細な信頼性データが対象となります。
 
-**3 (Full)**。 **Security**、**Basic**、**Enhanced** の各レベルからのデータに加え、問題を特定して修正するために必要なあらゆるデータ。
+**3 (Full)** 。 **Security**、**Basic**、**Enhanced** の各レベルからのデータに加え、問題を特定して修正するために必要なあらゆるデータ。
 
 > [!NOTE]
 > 既定のテレメトリ レベル値は 2 (Enhanced) です。

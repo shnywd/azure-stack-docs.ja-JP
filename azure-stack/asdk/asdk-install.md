@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) のインストール | Microsoft Docs
 description: Azure Stack Development Kit (ASDK) をインストールする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c14b55379bfad08cbb604b8f27b45a125741a241
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 277b2e8c86cda65167a734d0e5775ec1748ef219
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617411"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267638"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK) のインストール
 [ASDK ホスト コンピューターの準備](asdk-prepare-host.md)ができたら、この記事の次の手順に従って ASDK を CloudBuilder.vhdx イメージにデプロイできます。
@@ -34,11 +34,11 @@ ms.locfileid: "65617411"
 
 
 1. ホスト コンピューターが CloudBuilder.vhdx イメージで正常に起動した後、ASDK インストールの[開発キットのホスト コンピューターを準備](asdk-prepare-host.md)するときに指定した管理者資格情報を使ってサインインします。 これは、開発キット ホストのローカル管理者の資格情報と同じである必要があります。
-2. 管理者特権の PowerShell コンソールを開き、**&lt;ドライブ文字>\AzureStack_Installer\asdk-installer.ps1** PowerShell スクリプトを実行します。 このスクリプトが現在、CloudBuilder.vhdx イメージの C:\ とは別のドライブに存在する可能性があることに注意してください。 **[インストール]** をクリックします。
+2. 管理者特権の PowerShell コンソールを開き、 **&lt;ドライブ文字>\AzureStack_Installer\asdk-installer.ps1** PowerShell スクリプトを実行します。 このスクリプトが現在、CloudBuilder.vhdx イメージの C:\ とは別のドライブに存在する可能性があることに注意してください。 **[インストール]** をクリックします。
 
     ![](media/asdk-install/1.PNG) 
 
-3. ID プロバイダーの **[種類]** ドロップダウン ボックスで、**[Azure China Cloud]**、**[Azure US Government]**、**[AD FS]**、または **[Azure Cloud]** を選択します。 **[ローカル管理者のパスワード]** の **[パスワード]** ボックスに、(現在の構成済みのローカル管理者パスワードと同じ) ローカル管理者パスワードを入力し、**[次へ]** をクリックします。
+3. ID プロバイダーの **[種類]** ドロップダウン ボックスで、 **[Azure China Cloud]** 、 **[Azure US Government]** 、 **[AD FS]** 、または **[Azure Cloud]** を選択します。 **[ローカル管理者のパスワード]** の **[パスワード]** ボックスに、(現在の構成済みのローカル管理者パスワードと同じ) ローカル管理者パスワードを入力し、 **[次へ]** をクリックします。
 
     ![](media/asdk-install/2.PNG) 
   
@@ -47,7 +47,7 @@ ms.locfileid: "65617411"
    > [!NOTE]
    > AD FS を ID プロバイダーとして使って、インターネット接続されていない Azure Stack 環境を使う場合でも、最適な結果を得るには、インターネットへの接続中に ASDK をインストールすることが最良です。 そうすることにより、開発キット インストールに含まれている Windows Server 2016 の評価バージョンがデプロイ時にアクティブ化されます。
 
-4. 開発キットに使用するネットワーク アダプターを選択して、**[次へ]** をクリックします。
+4. 開発キットに使用するネットワーク アダプターを選択して、 **[次へ]** をクリックします。
 
     ![](media/asdk-install/3.PNG)
 
@@ -60,11 +60,11 @@ ms.locfileid: "65617411"
 
     ![](media/asdk-install/4.PNG)
 
-6. **[Verifying network interface card properties]\(ネットワーク インターフェイス カードのプロパティを確認しています\)** ページに、進行状況バーが表示されます。 検証が完了したら、**[次へ]** をクリックします。
+6. **[Verifying network interface card properties]\(ネットワーク インターフェイス カードのプロパティを確認しています\)** ページに、進行状況バーが表示されます。 検証が完了したら、 **[次へ]** をクリックします。
 
     ![](media/asdk-install/5.PNG)
 
-7. **[概要]** ページで、**[Deploy]\(デプロイ\)** をクリックして、開発キットのホスト コンピューターへの ASDK のインストールを開始します。
+7. **[概要]** ページで、 **[Deploy]\(デプロイ\)** をクリックして、開発キットのホスト コンピューターへの ASDK のインストールを開始します。
 
     ![](media/asdk-install/6.PNG)
 
@@ -73,7 +73,7 @@ ms.locfileid: "65617411"
 
 8. Azure AD デプロイを実行している場合、セットアップを開始して数分後に、Azure AD のグローバル管理者アカウントの資格情報を入力するように求めるメッセージが表示されます。
 
-9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、開発キットのホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')**。 
+9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、開発キットのホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 
     > [!IMPORTANT]
     > コンピューターが azurestack ドメインに参加した後にローカル管理者としてサインインした場合、デプロイの進行状況は表示されません。 デプロイは再実行せず、代わりに azurestack\AzureStackAdmin としてサインインし、それが実行中であることを確認します。
 

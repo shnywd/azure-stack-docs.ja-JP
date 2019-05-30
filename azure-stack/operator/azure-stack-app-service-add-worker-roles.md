@@ -3,7 +3,7 @@ title: App Services の worker ロールをスケールアウトする - Azure S
 description: Azure Stack App Services の詳細なガイダンス
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mabrigg
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0d783e8383dc8b46371812a55300e92063a5d1f8
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: c7dcb31c74ac08f3045425d246e17376808a5b98
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618258"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269298"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上の App Service: インフラストラクチャまたは worker ロールを追加する
 
@@ -85,11 +85,11 @@ Azure Stack 上の Azure App Service では、仮想マシン スケール セ�
 
 3. **[ロール]** をクリックします。 デプロイされているすべての App Service ロールの内訳が表示されます。
 
-4. 拡大縮小する種類の行を右クリックし、**[ScaleSet]** をクリックします。
+4. 拡大縮小する種類の行を右クリックし、 **[ScaleSet]** をクリックします。
 
     ![](media/azure-stack-app-service-add-worker-roles/image02.png)
 
-5. **[拡大縮小]** をクリックし、拡大縮小するインスタンス数を選択し、**[保存]** をクリックします。
+5. **[拡大縮小]** をクリックし、拡大縮小するインスタンス数を選択し、 **[保存]** をクリックします。
 
     ![](media/azure-stack-app-service-add-worker-roles/image03.png)
 

@@ -3,7 +3,7 @@ title: Azure Stack Development Kit の基礎 | Microsoft Docs
 description: Azure Stack Development Kit (ASDK) の基本的な管理作業を実行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ab88d8bb2821fc73e0e97e7a3473d7416c38e6f7
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: cff86ea851b2be030faf0c42a91fed60ac17634d
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617379"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267026"
 ---
 # <a name="asdk-administration-basics"></a>ASDK の管理の基本 
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要と、テスト ユーザーの生産性を迅速に向上させる方法を示します。
@@ -60,7 +60,7 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 - 開発キットのホスト コンピューターで問題のあるハードウェアを交換する 
 
 ## <a name="where-to-get-support"></a>サポートが受けられる場所
-開発キットのサポート オプションは、[Microsoft Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることだけです。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) をクリックし、**[新しいサポート要求]** をクリックすると、フォーラムのサイトが直接開かれます。 これらのフォーラムは定期的にチェックされています。 
+開発キットのサポート オプションは、[Microsoft Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることだけです。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) をクリックし、 **[新しいサポート要求]** をクリックすると、フォーラムのサイトが直接開かれます。 これらのフォーラムは定期的にチェックされています。 
 
 > [!IMPORTANT]
 > ASDK は評価環境として提供されるものであるため、Microsoft カスタマー サポート サービス (CSS) を通じて公式なサポートは提供されません。

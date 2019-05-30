@@ -3,7 +3,7 @@ title: Azure と Azure Stack を使用してハイブリッド クラウドを�
 description: Azure と Azure Stack を使用してハイブリッド クラウドをデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: bryanla
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 4a77221ac9fcb365966435ed828ab743dd8e1034
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
+ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985826"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66252072"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
 
@@ -80,7 +80,7 @@ ms.locfileid: "64985826"
 
     ![Azure Stack Marketplace](media/azure-stack-solution-hybrid-cloud/image1.png)
 
-3. **[Marketplace]** で **[Compute]\(計算\)** を選択し、**[More]\(その他\)** を選択します。 **[More]\(その他\)** から **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** イメージを選択します。
+3. **[Marketplace]** で **[Compute]\(計算\)** を選択し、 **[More]\(その他\)** を選択します。 **[More]\(その他\)** から **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** イメージを選択します。
 
     ![仮想マシン イメージの選択](media/azure-stack-solution-hybrid-cloud/image2.png)
 
@@ -94,7 +94,7 @@ ms.locfileid: "64985826"
 
 7. **[設定] > [オプション機能の構成]** で、次の設定を構成します。
 
-   - **[ストレージ アカウント]**。 新しいアカウントが必要な場合は、作成します。
+   - **[ストレージ アカウント]** 。 新しいアカウントが必要な場合は、作成します。
    - **Virtual Network**
 
      > [!Important]  
@@ -114,17 +114,17 @@ ms.locfileid: "64985826"
    - **[SQL 認証]** には **[有効]** を選択します。
 
      > [!Note]  
-     > SQL 認証を有効にすると、**[基本]** で構成した "SQLAdmin" の情報が自動設定されます。
+     > SQL 認証を有効にすると、 **[基本]** で構成した "SQLAdmin" の情報が自動設定されます。
 
    - その他の設定は、既定値のままにしてください。 **[OK]** を選択します。
 
      ![SQL Server の設定を構成する](media/azure-stack-solution-hybrid-cloud/image5.png)
 
-9. **[概要]** で仮想マシンの構成を確認し、**[OK]** を選択してデプロイを開始します。
+9. **[概要]** で仮想マシンの構成を確認し、 **[OK]** を選択してデプロイを開始します。
 
     ![構成の概要](media/azure-stack-solution-hybrid-cloud/image6.png)
 
-10. 新しい VM の作成には多少時間がかかります。 VM の状態は、**[仮想マシン]** で確認できます。
+10. 新しい VM の作成には多少時間がかかります。 VM の状態は、 **[仮想マシン]** で確認できます。
 
     ![仮想マシン](media/azure-stack-solution-hybrid-cloud/image7.png)
 
@@ -156,7 +156,7 @@ Azure 内の Web フロントエンドと Azure Stack 内の SQL Server デー�
 
 Azure App Service と統合するためには、ハイブリッド ネットワークの Azure 側にある仮想ネットワーク ゲートウェイでポイント対サイト接続を許可する必要があります。
 
-1. Azure の仮想ネットワーク ゲートウェイ ページに移動します。 **[設定]** で、**[ポイント対サイトの構成]** を選択します。
+1. Azure の仮想ネットワーク ゲートウェイ ページに移動します。 **[設定]** で、 **[ポイント対サイトの構成]** を選択します。
 
     ![ポイント対サイト オプション](media/azure-stack-solution-hybrid-cloud/image8.png)
 
@@ -199,7 +199,7 @@ App Service のポイント対サイト アドレス範囲からのトラフィ�
 
     ![ゲートウェイの構成オプション](media/azure-stack-solution-hybrid-cloud/image14.png)
 
-2. Azure 内の仮想ネットワーク ゲートウェイに使用されるポイント対サイトのアドレス範囲を **[アドレス空間]** に入力します。**[保存]** を選択し、この構成を確認して保存します。
+2. Azure 内の仮想ネットワーク ゲートウェイに使用されるポイント対サイトのアドレス範囲を **[アドレス空間]** に入力します。 **[保存]** を選択し、この構成を確認して保存します。
 
     ![ポイント対サイトのアドレス空間](media/azure-stack-solution-hybrid-cloud/image15.png)
 
@@ -301,7 +301,7 @@ App Service 環境で Web アプリケーションを作成するときは、1 �
 
 ### <a name="enable-automatic-scale-out"></a>自動スケールアウトを有効にする
 
-1. Azure で、スケールアウトしたいサイトの App Service プランを見つけて、**[スケールアウト (App Service プラン)]** を選択します。
+1. Azure で、スケールアウトしたいサイトの App Service プランを見つけて、 **[スケールアウト (App Service プラン)]** を選択します。
 
     ![スケールアウト](media/azure-stack-solution-hybrid-cloud/image16.png)
 
@@ -309,7 +309,7 @@ App Service 環境で Web アプリケーションを作成するときは、1 �
 
     ![自動スケールの有効化](media/azure-stack-solution-hybrid-cloud/image17.png)
 
-3. **[自動スケール設定の名前]** に名前を入力します。 **既存**の自動スケール ルールで、**[メトリックに基づいてスケーリングする]** を選択します。 **[インスタンスの制限]** で、**[最小]** を 1、**[最大]** を 10、**[既定]** を 1 に設定します。
+3. **[自動スケール設定の名前]** に名前を入力します。 **既存**の自動スケール ルールで、 **[メトリックに基づいてスケーリングする]** を選択します。 **[インスタンスの制限]** で、 **[最小]** を 1、 **[最大]** を 10、 **[既定]** を 1 に設定します。
 
     ![自動スケールを構成](media/azure-stack-solution-hybrid-cloud/image18.png)
 
@@ -343,13 +343,13 @@ App Service 環境で Web アプリケーションを作成するときは、1 �
 6. **[メトリック ソース]** で **[現在のリソース]** を選択します。
 
    > [!Note]  
-   > 現在のリソースには、ご利用の App Service プランの名前/GUID が表示され、**[リソースの種類]** と **[リソース]** ドロップダウン リストは淡色表示されます。
+   > 現在のリソースには、ご利用の App Service プランの名前/GUID が表示され、 **[リソースの種類]** と **[リソース]** ドロップダウン リストは淡色表示されます。
 
 ### <a name="enable-automatic-scale-in"></a>自動スケールインを有効にする
 
 トラフィックが減少すると、Azure Web アプリケーションで自動的にアクティブ インスタンス数を減らして、コストを削減することができます。 このアクションはスケールアウトほど積極的には実行されません。アプリケーション ユーザーへの影響を最小限に抑えるためです。
 
-1. **[既定]** のスケールアウト条件に移動し、**[+ ルールの追加]** を選択します。 このルールには、次の条件とアクションを使用します。
+1. **[既定]** のスケールアウト条件に移動し、 **[+ ルールの追加]** を選択します。 このルールには、次の条件とアクションを使用します。
 
 **条件**
 
@@ -397,13 +397,13 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 1. 作成した Traffic Manager プロファイルを検索します  (プロファイルのリソース グループに移動した場合は、プロファイルを選択してください)。
 
-2. **[Traffic Manager プロファイル]** の **[設定]** で、**[エンドポイント]** を選択します。
+2. **[Traffic Manager プロファイル]** の **[設定]** で、 **[エンドポイント]** を選択します。
 
 3. **[追加]** を選択します。
 
-4. Azure Stack について、**[エンドポイントの追加]** で次の設定を使用します。
+4. Azure Stack について、 **[エンドポイントの追加]** で次の設定を使用します。
 
-   - **[Type] (種類)** で、**[外部エンドポイント]** を選択します。
+   - **[Type] (種類)** で、 **[外部エンドポイント]** を選択します。
    - このエンドポイントの **[名前]** を入力します。
    - **完全修飾ドメイン名 (FQDN) または IP** として、Azure Stack Web アプリの外部 URL を入力します。
    - **[重み]** は、既定値 (**1**) のままにします。 これにより、このエンドポイントが正常な状態である場合、すべてのトラフィックがそのエンドポイントに送信されるようになります。
@@ -415,11 +415,11 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 1. **[Traffic Manager プロファイル]** で **[エンドポイント]** を選択します。
 2. **[+追加]** を選択します。
-3. Azure について、**[エンドポイントの追加]** で次の設定を使用します。
+3. Azure について、 **[エンドポイントの追加]** で次の設定を使用します。
 
-   - **[Type] (種類)** で、**[Azure エンドポイント]** を選択します。
+   - **[Type] (種類)** で、 **[Azure エンドポイント]** を選択します。
    - このエンドポイントの **[名前]** を入力します。
-   - **[ターゲット リソースの種類]** で、**[App Service]** を選択します。
+   - **[ターゲット リソースの種類]** で、 **[App Service]** を選択します。
    - **[ターゲット リソース]** で **[アプリ サービスの選択]** を選択し、同じサブスクリプションにある Web アプリの一覧を表示します。
    - **[リソース]** で、最初のエンドポイントとして追加する App Service を選択します。
    - **[重み]** に **2** を選択します。 これにより、プライマリ エンドポイントが正常ではない場合や、トリガーされたらトラフィックをルーティングするルール/アラートがある場合、すべてのトラフィックがそのエンドポイントに送信されるようになります。
@@ -427,7 +427,7 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 4. **[OK]** を選択して、Azure エンドポイントを保存します。
 
-構成したエンドポイントはどちらも、**[Traffic Manager プロファイル]** で **[エンドポイント]** を選択すると表示されます。 次の画面キャプチャの例には、2 つのエンドポイントが、それぞれの状態および構成情報と共に表示されています。
+構成したエンドポイントはどちらも、 **[Traffic Manager プロファイル]** で **[エンドポイント]** を選択すると表示されます。 次の画面キャプチャの例には、2 つのエンドポイントが、それぞれの状態および構成情報と共に表示されています。
 
 ![エンドポイント](media/azure-stack-solution-hybrid-cloud/image20.png)
 
@@ -439,7 +439,7 @@ Azure Application Insights を使用すると、アプリケーションを監�
 
 ### <a name="create-an-alert-from-metrics"></a>メトリックに基づくアラートを作成する
 
-このチュートリアルのリソース グループに移動して Application Insights インスタンスを選択し、**[Application Insights]** を開きます。
+このチュートリアルのリソース グループに移動して Application Insights インスタンスを選択し、 **[Application Insights]** を開きます。
 
 ![Application Insights](media/azure-stack-solution-hybrid-cloud/image21.png)
 
@@ -505,12 +505,12 @@ Web サイトが構成済みのしきい値に達した場合、アラートが�
 
 2. **[エンドポイント]** を選択します。
 3. **[Azure エンドポイント]** を選択します。
-4. **[状態]** で **[有効]** を選択し、**[保存]** を選択します。
+4. **[状態]** で **[有効]** を選択し、 **[保存]** を選択します。
 
     ![Azure エンドポイントを有効化](media/azure-stack-solution-hybrid-cloud/image23.png)
 
-5. Traffic Manager プロファイルの **[エンドポイント]** で、**[外部エンドポイント]** を選択します。
-6. **[状態]** で **[無効]** を選択し、**[保存]** を選択します。
+5. Traffic Manager プロファイルの **[エンドポイント]** で、 **[外部エンドポイント]** を選択します。
+6. **[状態]** で **[無効]** を選択し、 **[保存]** を選択します。
 
     ![Azure Stack エンドポイントを無効化](media/azure-stack-solution-hybrid-cloud/image24.png)
 

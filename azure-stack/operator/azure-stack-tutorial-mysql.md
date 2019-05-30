@@ -3,7 +3,7 @@ title: Azure Stack で高可用性 MySQL データベースを提供する | Mic
 description: Azure Stack で MySQL Server リソース プロバイダーのホスト コンピューターと高可用性 MySQL データベースを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/12/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 1b1ebd27f87030b34b132eb31c4b4ae83f13a3b0
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 61d839e0f34de9387023b272aff32cf69ad9ae13
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618230"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268495"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>チュートリアル: 高可用性 MySQL データベースの提供
 
@@ -69,7 +69,7 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. **\+[** **リソースの作成]** > **[計算]** の順に選択し、**[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
+2. **\+[** **リソースの作成]**  >  **[計算]** の順に選択し、 **[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
 
    ![カスタム テンプレートのデプロイ](media/azure-stack-tutorial-mysqlrp/1.png)
 
@@ -84,14 +84,14 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 
    [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "デプロイの基本")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
-4. **[Environment Configuration]\(環境の構成\)** ページに次の情報を入力し、**[OK]** をクリックします。 
+4. **[Environment Configuration]\(環境の構成\)** ページに次の情報を入力し、 **[OK]** をクリックします。 
    - Secure Shell (SSH) 認証に使用するパスワードまたは SSH パブリック キー。 パスワードを使用する場合は、英字、数字を含める必要があります。また、特殊文字を**含めることもできます**。
    - VM サイズ (既定値は Standard D1 v2 VM)
-   - データ ディスク サイズ (GB) を入力し、**[OK]** をクリックします。
+   - データ ディスク サイズ (GB) を入力し、 **[OK]** をクリックします。
 
    [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "環境の構成")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
-5. デプロイの **[概要]** を確認します。 必要に応じて、カスタマイズしたテンプレートとパラメーターをダウンロードし、**[OK]** をクリックします。
+5. デプロイの **[概要]** を確認します。 必要に応じて、カスタマイズしたテンプレートとパラメーターをダウンロードし、 **[OK]** をクリックします。
 
    [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "概要")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
@@ -112,7 +112,7 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 
    ![オープン](media/azure-stack-tutorial-mysqlrp/6.png)
 
-2. **[受信セキュリティ規則]**、**[追加]** の順に選択します。<br><br>**[宛先ポート範囲]** に「**3306**」と入力し、必要に応じて **[名前]** フィールドと **[説明]** フィールドに説明を入力します。 [追加] をクリックして受信セキュリティ規則ダイアログを閉じます。
+2. **[受信セキュリティ規則]** 、 **[追加]** の順に選択します。<br><br>**[宛先ポート範囲]** に「**3306**」と入力し、必要に応じて **[名前]** フィールドと **[説明]** フィールドに説明を入力します。 [追加] をクリックして受信セキュリティ規則ダイアログを閉じます。
 
    ![オープン](media/azure-stack-tutorial-mysqlrp/7.png)
 
@@ -130,7 +130,7 @@ MySQL クラスターを Azure Stack MySQL Server ホストとして追加する
 
    ![サービスを確認する](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
 
-3. Azure Stack MySQL ホスティング サーバーが MySQL に接続し、SSH クライアントを終了するために使用するリモート アクセス ユーザー アカウントを作成します。<br><br>次のコマンドを使用して、以前に作成したルート パスワードを入力してルートとして MySQL にログインして、新しい管理者ユーザーを作成し、環境に合わせ、必要に応じて*\<ユーザー名\>* と*\<パスワード\>* を置き換えます。 この例では、作成するユーザーの名前は **sqlsa** であり、強力なパスワードが使用されています。
+3. Azure Stack MySQL ホスティング サーバーが MySQL に接続し、SSH クライアントを終了するために使用するリモート アクセス ユーザー アカウントを作成します。<br><br>次のコマンドを使用して、以前に作成したルート パスワードを入力してルートとして MySQL にログインして、新しい管理者ユーザーを作成し、環境に合わせ、必要に応じて *\<ユーザー名\>* と *\<パスワード\>* を置き換えます。 この例では、作成するユーザーの名前は **sqlsa** であり、強力なパスワードが使用されています。
 
    ```mysql
    mysql -u root -p
@@ -170,7 +170,7 @@ MySQL クラスターが Azure Stack Operator によって Azure StackSQL ホス
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. **\+[** **リソースの作成]** > **[データ \+ ストレージ]** の順に選択し、**[MySQL Database]** を選択します。<br><br>名前、照合順序、使用するサブスクリプション、デプロイに使用する場所などの必須のデータベースのプロパティを指定します。 
+2. **\+[** **リソースの作成]**  >  **[データ \+ ストレージ]** の順に選択し、 **[MySQL Database]** を選択します。<br><br>名前、照合順序、使用するサブスクリプション、デプロイに使用する場所などの必須のデータベースのプロパティを指定します。 
 
    ![MySQL データベースを作成する](./media/azure-stack-tutorial-mysqlrp/createdb1.png)
 
@@ -178,7 +178,7 @@ MySQL クラスターが Azure Stack Operator によって Azure StackSQL ホス
 
    ![SKU を選択する](./media/azure-stack-tutorial-mysqlrp/createdb2.png)
 
-4. **[ログイン]** > **[Create a new login]\(新しいログインの作成\)** の順に選択し、新しいデータベースに使用する MySQL の認証資格情報を入力します。 完了したら **[OK]**、**[作成]** の順にクリックし、データベースのデプロイ プロセスを開始します。
+4. **[ログイン]**  >  **[Create a new login]\(新しいログインの作成\)** の順に選択し、新しいデータベースに使用する MySQL の認証資格情報を入力します。 完了したら **[OK]** 、 **[作成]** の順にクリックし、データベースのデプロイ プロセスを開始します。
 
    ![ログインを追加する](./media/azure-stack-tutorial-mysqlrp/createdb3.png)
 

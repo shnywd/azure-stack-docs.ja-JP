@@ -3,7 +3,7 @@ title: Azure Stack で高可用性 SQL データベースを提供する | Micro
 description: Azure Stack で SQL Server リソース プロバイダーのホスト コンピューターと高可用性 SQL Always On データベースを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: cf957fd69cf581d1ca63d1331f8ea407b24394ad
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e21819fc6475161e63fcdb99a723847c5d7fbbad
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617745"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268410"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>チュートリアル:高可用性 SQL データベースの提供
 
@@ -67,28 +67,28 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. **\+[** **リソースの作成]** > **[カスタム]** の順に選択し、**[テンプレートのデプロイ]** を選択します。
+2. **\+[** **リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
 
    ![カスタム テンプレートのデプロイ](media/azure-stack-tutorial-sqlrp/1.png)
 
 
-3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]** > **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **sql-2016-AlwaysOn** テンプレートを選択し、**[OK]**、**[保存]** の順にクリックします。
+3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]**  >  **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **sql-2016-AlwaysOn** テンプレートを選択し、 **[OK]** 、 **[保存]** の順にクリックします。
 
    [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "クイック スタート テンプレートを選択する")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
-4. **[カスタム デプロイ]** ブレードで、**[パラメーターの編集]** を選択し、既定値を確認します。 必要に応じて値を変更して、必要なすべてのパラメーター情報を入力し、**[OK]** をクリックします。<br><br> 少なくとも以下を実行します。
+4. **[カスタム デプロイ]** ブレードで、 **[パラメーターの編集]** を選択し、既定値を確認します。 必要に応じて値を変更して、必要なすべてのパラメーター情報を入力し、 **[OK]** をクリックします。<br><br> 少なくとも以下を実行します。
 
     - ADMINPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD、および SQLAUTHPASSWORD パラメーターに複雑なパスワードを指定します。
     - DNSSUFFIX パラメーターの場合、すべての小文字で逆引き参照の DNS サフィックスを入力します (ASDK インストールの場合は、**azurestack.external**)。
     
    [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "カスタム デプロイ パラメーターを編集する")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
-5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションを選択し、カスタム デプロイ用に新しいデプロイ グループを作成するか、既存のリソース グループを選択します。<br><br> 次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、**[作成]** をクリックします。 カスタムのデプロイ設定が検証され、デプロイが開始されます。
+5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションを選択し、カスタム デプロイ用に新しいデプロイ グループを作成するか、既存のリソース グループを選択します。<br><br> 次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、 **[作成]** をクリックします。 カスタムのデプロイ設定が検証され、デプロイが開始されます。
 
     [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "カスタム デプロイを作成する")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. 管理ポータルで、**[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。<br><br>次に、リソース グループ項目を確認し、**SQLPIPsql\<リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、この情報を Azure Stack Operator に渡す必要があります。
+6. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。<br><br>次に、リソース グループ項目を確認し、**SQLPIPsql\<リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、この情報を Azure Stack Operator に渡す必要があります。
 
    > [!NOTE]
    > テンプレートのデプロイには数時間かかる場合があります。
@@ -137,7 +137,7 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 ## <a name="create-an-azure-stack-sql-hosting-server"></a>Azure Stack SQL ホスティング サーバーを作成する
 SQL Server AlwayOn 可用性グループが作成され、適切に構成された後、Azure Stack Operator は Azure Stack SQL ホスティング サーバーを作成して、ユーザーがデータベースを作成できるように追加容量を作成する必要があります。 
 
-以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<リソース グループ名\>**)。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
+以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<リソース グループ名\>** )。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
 
 > [!NOTE]
 > この手順は、Azure Stack Operator が Azure Stack 管理ポータルから実行する必要があります。
@@ -158,7 +158,7 @@ SQL AlwaysOn 可用性グループが Azure Stack Operator によって Azure St
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. **\+[** **リソースの作成]** > **[データ \+ ストレージ]** の順に選択し、**[SQL Database]** を選択します。<br><br>名前、照合順序、最大サイズ、サブスクリプションなどの必須のデータベースのプロパティと、リソース グループ、およびデプロイに使用する場所を指定します。 
+2. **\+[** **リソースの作成]**  >  **[データ \+ ストレージ]** の順に選択し、 **[SQL Database]** を選択します。<br><br>名前、照合順序、最大サイズ、サブスクリプションなどの必須のデータベースのプロパティと、リソース グループ、およびデプロイに使用する場所を指定します。 
 
    ![SQL データベースを作成する](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
@@ -166,7 +166,7 @@ SQL AlwaysOn 可用性グループが Azure Stack Operator によって Azure St
 
    ![SKU を選択する](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
-4. **[ログイン]** > **[Create a new login]\(新しいログインの作成\)** の順に選択し、新しいデータベースに使用する SQL の認証資格情報を入力します。 完了したら **[OK]**、**[作成]** の順にクリックし、データベースのデプロイ プロセスを開始します。
+4. **[ログイン]**  >  **[Create a new login]\(新しいログインの作成\)** の順に選択し、新しいデータベースに使用する SQL の認証資格情報を入力します。 完了したら **[OK]** 、 **[作成]** の順にクリックし、データベースのデプロイ プロセスを開始します。
 
    ![ログインを作成する](./media/azure-stack-tutorial-sqlrp/createdb3.png)
 

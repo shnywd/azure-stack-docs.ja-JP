@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 05/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 8b367811622eafdc62b47aa85eda47bc6a81be14
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 3663ce4338818a385bb544ad496323e1ce734608
+ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985135"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66174379"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack のストレージ容量を管理する 
 
@@ -88,7 +88,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 クラウド オペレーターは、管理者ポータルを使用して、すべての共有のストレージ容量を確認できます。
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
-2. **[すべてのサービス]** > **[ストレージ]** > **[ファイル共有]** を選択してファイル共有の一覧を開きます。そこで使用状況情報を確認できます。 
+2. **[すべてのサービス]**  >  **[ストレージ]**  >  **[ファイル共有]** を選択してファイル共有の一覧を開きます。そこで使用状況情報を確認できます。 
 
     ![例:ストレージ ファイル共有](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
@@ -104,7 +104,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 **警告**:ファイル共有の使用率が 80% を超えると、管理者ポータルで "*警告*" アラートを受信します。![例: 警告アラート](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**[高]**:ファイル共有の使用率が 90% を超えると、管理者ポータルで "*重大*" アラートを受信します。![例: 重大アラート](media/azure-stack-manage-storage-shares/alert-critical.png)
+**[高]** :ファイル共有の使用率が 90% を超えると、管理者ポータルで "*重大*" アラートを受信します。![例: 重大アラート](media/azure-stack-manage-storage-shares/alert-critical.png)
 
 **詳細の表示**: 管理者ポータルでアラートの詳細を開いて、軽減策を確認できます。![例: アラートの詳細の表示](media/azure-stack-manage-storage-shares/alert-details.png)
 
@@ -113,14 +113,14 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 共有の領域を開放する必要がある場合は、最も影響が少ない方法を先に使用してください。 たとえば、コンテナーを移行する前に領域の回収を試してください。  
 
 ### <a name="reclaim-capacity"></a>容量の回収
-"*このオプションは、マルチノード展開と Azure Stack Development Kit の両方に適用されます。*"
+"*このオプションは、マルチノード展開と Azure Stack Development Kit の両方に適用されます。* "
 
 削除されているテナント アカウントによって使用されている容量を回収できます。 この容量は、データ[保有期間](azure-stack-manage-storage-accounts.md#set-the-retention-period)に達すると自動的に回収されますが、今すぐ回収する操作を実行できます。
 
 詳細については、ストレージ リソースの管理に関する記事の「[容量の回収](azure-stack-manage-storage-accounts.md#reclaim)」を参照してください。
 
 ### <a name="migrate-a-container-between-volumes"></a>ボリューム間でコンテナーを移行する
-"*このオプションは、マルチノード展開のみに適用されます。*"
+"*このオプションは、マルチノード展開のみに適用されます。* "
 
 テナントの使用パターンによっては、一部のテナントの共有が他の共有よりも多くの領域を使用することがあります。 その結果、比較的使用されていない共有よりも前に領域が不足する可能性があります。
 
@@ -157,8 +157,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 3. 移行するコンテナーを保持できる最善の共有を識別します。
 
    ```powershell
-   $destinationshares = Get-AzsStorageShare -SourceShareName
-   $shares[0].ShareName -Intent ContainerMigration
+   $destinationshare = ($shares | Sort-Object FreeCapacity -Descending)[0]
    ```
 
    $destinationshares を確認します。
@@ -203,7 +202,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
     ![例:取り消し済みの状態](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM ディスクを移動する
-"*このオプションは、マルチノード展開のみに適用されます。*"
+"*このオプションは、マルチノード展開のみに適用されます。* "
 
 領域を管理する最も極端な方法には、仮想マシンのディスクの移動が伴います。 接続されているコンテナー (VM ディスクを含むコンテナー) の移動は複雑であるため、この操作を実行する場合は Microsoft サポートに問い合わせてください。
 

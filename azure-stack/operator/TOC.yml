@@ -327,6 +327,8 @@
               href: azure-stack-app-service-release-notes-update-four.md
             - name: App Service on Azure Stack update 5 のリリース ノート
               href: azure-stack-app-service-release-notes-update-five.md
+            - name: App Service on Azure Stack update 6 のリリース ノート
+              href: azure-stack-app-service-release-notes-update-six.md
     - name: プラン、オファー、クォータの作成
       items:
         - name: プラン、オファー、クォータ、サブスクリプションの概要

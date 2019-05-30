@@ -2,21 +2,21 @@
 title: Azure Stack の診断
 description: Azure Stack の診断のログ ファイルを収集する方法
 services: azure-stack
-author: mattbriggs
+author: justinha
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
 ms.date: 04/30/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: c2f552035fdffebbb24fbd64e5c416179853c51e
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618040"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268625"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack の診断ツール
 
@@ -131,9 +131,9 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   3. 手順 1 で作成したストレージ アカウントに接続します。
   4. **[Storage Service]\(Storage サービス\)** の **[BLOB コンテナー]** に移動します。
   5. **[Create a new container]\(新しいコンテナーの作成\)** を選択します。
-  6. 新しいコンテナーを右クリックして、**[Get Shared Access Signature]\(Shared Access Signature の取得\)** を選択します。
+  6. 新しいコンテナーを右クリックして、 **[Get Shared Access Signature]\(Shared Access Signature の取得\)** を選択します。
   7. お客様の要件に合わせて、有効な **[開始時間]** と **[終了時間]** を選択します。
-  8. 必要なアクセス許可については、**[読み取り]**、**[書き込み]**、**[一覧]** を選択します。
+  8. 必要なアクセス許可については、 **[読み取り]** 、 **[書き込み]** 、 **[一覧]** を選択します。
   9. **作成** を選択します。
   10. Shared Access Signature が表示されます。 URL の部分をコピーし、`-OutputSasUri` パラメーターに入力します。
 ```powershell
@@ -189,7 +189,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 
 * このコマンドは、どのロールに基づいてログが収集されるかによって、実行にいくらかの時間がかかります。 また、関連する要素には、ログ収集に指定した期間と、Azure Stack 環境のノード数が含まれます。
 * ログの収集と同時に、コマンドで指定した **OutputSharePath** パラメーターに作成された新しいフォルダーを確認します。
-* ロールごとに、個別の zip ファイル内にログがあります。 収集されたログのサイズによっては、1 つのロールのログが複数の zip ファイルに分割されることがあります。 そのようなロールでは、すべてのログ ファイルを単一のフォルダーに解凍したい場合は、一括で解凍するツール (7zip など) を使用します。 そのロールのすべての圧縮済みファイルを選択し、**[ここに展開]** を選択します。 これで、そのロールのすべてのログ ファイルが 1 つのマージされたフォルダーに解凍されます。
+* ロールごとに、個別の zip ファイル内にログがあります。 収集されたログのサイズによっては、1 つのロールのログが複数の zip ファイルに分割されることがあります。 そのようなロールでは、すべてのログ ファイルを単一のフォルダーに解凍したい場合は、一括で解凍するツール (7zip など) を使用します。 そのロールのすべての圧縮済みファイルを選択し、 **[ここに展開]** を選択します。 これで、そのロールのすべてのログ ファイルが 1 つのマージされたフォルダーに解凍されます。
 * また、**Get-AzureStackLog_Output.log** と呼ばれるファイルが、圧縮済みログ ファイルを含むフォルダーに作成されます。 このファイルはコマンド出力のログで、ログ収集中の問題のトラブルシューティングに使用できます。 ログ収集の実行後に予期したログ ファイルがない場合を除き、無視してかまわない `PS>TerminatingError` エントリがログ ファイルに含まれることがあります。
 * 特定のエラーを調べるには、複数のコンポーネントのログが必要な場合があります。
 

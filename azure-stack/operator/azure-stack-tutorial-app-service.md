@@ -3,7 +3,7 @@ title: Web アプリおよび API アプリを Azure Stack ユーザーが使用
 description: App Service リソース プロバイダーをインストールし、Azure Stack ユーザーが Web アプリおよび API アプリを作成できるようにするオファーを作成するためのチュートリアル。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: anwestg
 ms.custom: mvc
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 9954e351ecd584925d264d0c8c5e8fb8e2507192
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: fbf6993447f22a354c61102b9e670c8f1188f48d
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618653"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268093"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>チュートリアル: Web アプリおよび API アプリを Azure Stack ユーザーが使用できるようにする
 
@@ -48,12 +48,12 @@ Azure Stack クラウド管理者は、ユーザー (テナント) が Azure Fun
 例として、ユーザーが DNN Web コンテンツ管理システムを作成できるようにするオファーを作成できます。 それには、SQL Server リソース プロバイダーをインストールすることによって既に有効にしている SQL Server サービスが必要です。
 
 1.  [クォータを設定し](azure-stack-plan-offer-quota-overview.md )、それに *AppServiceQuota* という名前を付けます。 **[Namespace]\(名前空間)** フィールドの **[Microsoft.Web]** を選択します。
-2.  [プランを作成します](azure-stack-create-plan.md)。 *TestAppServicePlan* という名前を付け、**[Microsoft.SQL]** サービスと **[AppService Quota]\(AppService クォータ\)** クォータを選択します。
+2.  [プランを作成します](azure-stack-create-plan.md)。 *TestAppServicePlan* という名前を付け、 **[Microsoft.SQL]** サービスと **[AppService Quota]\(AppService クォータ\)** クォータを選択します。
 
     > [!NOTE]
     > ユーザーが他のアプリを作成できるようにするには、プランに他のサービスが必要になることがあります。 たとえば、Azure Functions ではプランに **Microsoft.Storage** サービスが含まれている必要があるのに対して、WordPress には **Microsoft.MySQL** が必要です。
 
-3.  [オファーを作成し](azure-stack-create-offer.md)、それに **TestAppServiceOffer** という名前を付け、**[TestAppServicePlan]** プランを選択します。
+3.  [オファーを作成し](azure-stack-create-offer.md)、それに **TestAppServiceOffer** という名前を付け、 **[TestAppServicePlan]** プランを選択します。
 
 ## <a name="test-the-offer"></a>オファーのテスト
 
@@ -64,28 +64,28 @@ Azure Stack クラウド管理者は、ユーザー (テナント) が Azure Fun
 ### <a name="subscribe-to-the-offer"></a>オファーへのサブスクライブ
 
 1. Azure Stack ポータル (https://portal.local.azurestack.external) にテナントとしてサインインします。
-2. **[サブスクリプションの取得]** を選択し、**[表示名]** > **[オファーの選択]** > **[TestAppServiceOffer]** > **[作成]** の下に「**TestAppServiceSubscription**」と入力します。
+2. **[サブスクリプションの取得]** を選択し、 **[表示名]**  >  **[オファーの選択]**  >  **[TestAppServiceOffer]**  >  **[作成]** の下に「**TestAppServiceSubscription**」と入力します。
 
 ### <a name="create-a-sql-database"></a>SQL Database の作成
 
-1. **+** > **[データ + ストレージ]** > **[SQL Database]** の順に選択します。
+1. **+**  >  **[データ + ストレージ]**  >  **[SQL Database]** の順に選択します。
 2. 次のフィールドを除き、既定値のままにします。
 
     - **データベース名**: DNNdb
-    - **最大サイズ (MB)**: 100
+    - **最大サイズ (MB)** : 100
     - **サブスクリプション**:TestAppServiceOffer
     - **リソース グループ**:DNN-RG
 
-3. **[Login Settings]\(ログイン設定\)** を選択し、データベースの資格情報を入力して、**[OK]** をクリックします。 これらの資格情報は、このチュートリアルで後ほど使用します。
-4. **[SKU]** で、SQL ホスティング サーバーに対して作成した SQL SKU を選択して、**[OK]** をクリックします。
+3. **[Login Settings]\(ログイン設定\)** を選択し、データベースの資格情報を入力して、 **[OK]** をクリックします。 これらの資格情報は、このチュートリアルで後ほど使用します。
+4. **[SKU]** で、SQL ホスティング サーバーに対して作成した SQL SKU を選択して、 **[OK]** をクリックします。
 5. **作成** を選択します。
 
 ### <a name="create-a-dnn-app"></a>DNN アプリの作成
 
-1. **+** > **[See all]\(すべてを表示\)** > **[DNN Platform preview]\(DNN プラットフォームのプレビュー\)** > **[作成]** の順に選択します。
-2. **[アプリ名]** の下に「*DNNapp*」と入力し、**[サブスクリプション]** の下にある **[TestAppServiceOffer]** を選択します。
-3. **[必要な設定の構成]** > **[新規作成]** の順に選択し、**[App Service プラン]** の名前を入力します。
-4. **[価格レベル]** > **[F1 Free]\(F1 無料\)** > **[選択]** > **[OK]** の順に選択します。
+1. **+**  >  **[See all]\(すべてを表示\)**  >  **[DNN Platform preview]\(DNN プラットフォームのプレビュー\)**  >  **[作成]** の順に選択します。
+2. **[アプリ名]** の下に「*DNNapp*」と入力し、 **[サブスクリプション]** の下にある **[TestAppServiceOffer]** を選択します。
+3. **[必要な設定の構成]**  >  **[新規作成]** の順に選択し、 **[App Service プラン]** の名前を入力します。
+4. **[価格レベル]**  >  **[F1 Free]\(F1 無料\)**  >  **[選択]**  >  **[OK]** の順に選択します。
 5. **[データベース]** を選択し、以前に作成した SQL データベースの情報を入力します。
 6. **作成** を選択します。
 

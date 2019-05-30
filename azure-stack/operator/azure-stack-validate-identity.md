@@ -3,7 +3,7 @@ title: Azure Stack の Azure ID を検証する | Microsoft Docs
 description: Azure Stack 適合性チェッカーを使用して、Azure ID を検証します。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: PatAltimore
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2019
-ms.author: sethm
+ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 876ed83e06d7daa9d2f9b513b3cb398a8e69072b
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: e8a52b1d3a111ee425276eab427c290c1ed2455e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984252"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267899"
 ---
 # <a name="validate-azure-identity"></a>Azure ID の検証
 
@@ -68,7 +68,7 @@ Azure Stack のユーザー、アプリケーション、グループ、およ�
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. PowerShell コマンド プロンプトから次を実行して、**$serviceAdminCredential** を、お使いの Azure AD テナントのサービス管理者として設定します。  **serviceadmin\@contoso.onmicrosoft.com** をお使いのアカウントとテナント名に置き換えます。
+2. PowerShell コマンド プロンプトから次を実行して、 **$serviceAdminCredential** を、お使いの Azure AD テナントのサービス管理者として設定します。  **serviceadmin\@contoso.onmicrosoft.com** をお使いのアカウントとテナント名に置き換えます。
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
@@ -191,7 +191,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **原因** - アカウントは正常にサインインできますが、そのアカウントが Azure Active Directory (**AADDirectoryTenantName**) の管理者ではありません。  
 
-**解決策** - [Azure portal](https://portal.azure.com) にアカウント オーナーとしてサインインし、**[Azure Active Directory]**、**[ユーザー]**、**[ユーザーの選択]**、**[ディレクトリ ロール]** に移動して、ユーザーが**グローバル管理者**であることを確認します。 アカウントが**ユーザー**である場合は、**[Azure Active Directory]** > **[カスタム ドメイン]** の名前に移動し、**AADDirectoryTenantName** に対して指定した名前が、このディレクトリのプライマリ ドメイン名としてマークされていることを確認します。 この例では、**contoso.onmicrosoft.com** です。
+**解決策** - [Azure portal](https://portal.azure.com) にアカウント オーナーとしてサインインし、 **[Azure Active Directory]** 、 **[ユーザー]** 、 **[ユーザーの選択]** 、 **[ディレクトリ ロール]** に移動して、ユーザーが**グローバル管理者**であることを確認します。 アカウントが**ユーザー**である場合は、 **[Azure Active Directory]**  >  **[カスタム ドメイン]** の名前に移動し、**AADDirectoryTenantName** に対して指定した名前が、このディレクトリのプライマリ ドメイン名としてマークされていることを確認します。 この例では、**contoso.onmicrosoft.com** です。
 
 Azure Stack では、ドメイン名がプライマリ ドメイン名である必要があります。
 
