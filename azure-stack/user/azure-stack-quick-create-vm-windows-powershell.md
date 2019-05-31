@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 内で PowerShell を使用して Windows Server 仮想マシンを作成する | Microsoft Docs
-description: Azure Stack 内で PowerShell を使用して Windows Server 仮想マシンを作成します。
+title: Azure Stack 内で PowerShell を使用して Windows Server VM を作成する | Microsoft Docs
+description: Azure Stack 内で PowerShell を使用して Windows Server VM を作成します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6293aec1d9a4a7ce58442b21302c09162cc3a61
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 1b0f367540012b86da322329f0536b3c484c39b4
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712442"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269557"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Windows Server 仮想マシンを作成する
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Windows Server VM を作成する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -85,7 +85,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>ネットワーク リソースの作成
 
-仮想ネットワーク、サブネット、パブリック IP アドレスを作成します。 これらのリソースは、仮想マシンにネットワーク接続を提供するために使用されます。
+仮想ネットワーク、サブネット、パブリック IP アドレスを作成します。 これらのリソースは、VM にネットワーク接続を提供するために使用されます。
 
 ```powershell
 # Create a subnet configuration
@@ -112,7 +112,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>ネットワーク セキュリティ グループとネットワーク セキュリティ グループの規則を作成する
 
-ネットワーク セキュリティ グループは、受信規則と送信規則を使用して仮想マシンを保護します。 ポート 3389 に、受信リモート デスクトップ接続を許可する受信規則を作成し、ポート 80 に、受信 Web トラフィックを許可する受信規則を作成しましょう。
+ネットワーク セキュリティ グループは、受信規則と送信規則を使用して VM をセキュリティで保護します。 ポート 3389 に、受信リモート デスクトップ接続を許可する受信規則を作成し、ポート 80 に、受信 Web トラフィックを許可する受信規則を作成しましょう。
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -147,9 +147,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>仮想マシン用のネットワーク カードを作成する
+### <a name="create-a-network-card-for-the-vm"></a>VM 用のネットワーク カードを作成する
 
-ネットワーク カードは、仮想マシンをサブネット、ネットワーク セキュリティ グループ、パブリック IP アドレスに接続します。
+ネットワーク カードは、VM をサブネット、ネットワーク セキュリティ グループ、パブリック IP アドレスに接続します。
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -162,17 +162,17 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>仮想マシンの作成
+## <a name="create-a-vm"></a>VM の作成
 
-仮想マシンの構成を作成します。 この構成には、仮想マシンをデプロイするときに使用される設定が含まれています。 たとえば、資格情報、サイズ、仮想マシン イメージなどです。
+VM 構成を作成します。 この構成には、VM をデプロイするときに使用される設定が含まれています。 たとえば、ユーザー資格情報、サイズ、VM イメージなどです。
 
 ```powershell
-# Define a credential object to store the username and password for the virtual machine
+# Define a credential object to store the username and password for the VM
 $UserName='demouser'
 $Password='Password@123'| ConvertTo-SecureString -Force -AsPlainText
 $Credential=New-Object PSCredential($UserName,$Password)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -192,7 +192,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -201,23 +201,23 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>仮想マシンへの接続
+## <a name="connect-to-the-vm"></a>VM に接続します
 
-前の手順で作成した仮想マシンにリモート接続するには、仮想マシンのパブリック IP アドレスが必要です。 次のコマンドを実行して、仮想マシンのパブリック IP アドレスを取得します。
+前の手順で作成した VM にリモート接続するには、仮想マシンのパブリック IP アドレスが必要です。 次のコマンドを実行して、VM のパブリック IP アドレスを取得します。
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-次のコマンドを使用して、仮想マシンとのリモート デスクトップ セッションを作成します。 IP アドレスを仮想マシンの *publicIPAddress* に置き換えます。 求められたら、仮想マシンの作成時に使用されたユーザー名とパスワードを入力します。
+次のコマンドを使用して、VM とのリモート デスクトップ セッションを作成します。 IP アドレスを VM の *publicIPAddress* に置き換えます。 求められたら、VM の作成時に使用されたユーザー名とパスワードを入力します。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,9 +237,9 @@ IIS をインストールし、VM 上のポート 80 を開いたら、任意の
 
 ![IIS の既定のサイト](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>仮想マシンの削除
+## <a name="delete-the-vm"></a>VM の削除
 
-不要になったときは次のコマンドを使用して、仮想マシンとその関連リソースを含むリソース グループを削除します。
+不要になったときは次のコマンドを使用して、VM とその関連リソースを含むリソース グループを削除します。
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -248,4 +248,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>次の手順
 
-このクイック スタートでは、単純な Windows 仮想マシンをデプロイしました。 Azure Stack 仮想マシンの詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」に進んでください。
+このクイック スタートでは、単純な Windows VM をデプロイしました。 Azure Stack VM の詳細については、[Azure Stack VM 機能](azure-stack-vm-considerations.md)に関する記事をご覧ください。

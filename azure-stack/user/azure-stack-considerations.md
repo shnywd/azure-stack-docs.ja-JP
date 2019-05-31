@@ -1,6 +1,6 @@
 ---
-title: サービスを使用する場合やアプリを作成する場合の Azure と Azure Stack の主な違いについて | Microsoft Docs
-description: Azure Stack のサービスを使用する場合やアプリを作成する場合に知っておく必要があること。
+title: サービスを使用する場合やアプリを作成する場合の Azure Stack と Azure の違い | Microsoft Docs
+description: サービスを使用する場合やアプリを作成する場合の Azure と Azure Stack の違いについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3c3e00358efd582b5a6f1ddb0f1ae3634fe577c7
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9fcf27c8ebbde86e775b54eda593b25fcd03979c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312880"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197284"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>重要な考慮事項:Azure Stack でのサービスの使用またはアプリの作成
+# <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack と Azure の違い
 
-Azure Stack のサービスを使用する場合やアプリを作成する場合、Azure Stack と Azure の違いを理解しておくことが重要です。 この記事では、Azure Stack をハイブリッド クラウド開発環境として使用する際の重要な考慮事項について説明します。
+Azure Stack のサービスを使用する場合やアプリを作成する場合、Azure Stack と Azure の違いを理解しておくことが重要です。 この記事では、Azure Stack をハイブリッド クラウド開発環境として使用する際のさまざまな機能と重要な考慮事項について説明します。
 
 ## <a name="overview"></a>概要
 
@@ -79,7 +79,7 @@ Azure Stack では、特定のバージョンの Azure PowerShell と Azure サ�
 > [!NOTE]
 > Azure Stack Development Kit を使用されていて、管理アクセス権がある場合は、「[現在のバージョンの判断](../operator/azure-stack-updates.md#determine-the-current-version)」セクションを参照して、Azure Stack のビルドを確認してください。
 
-その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack サブスクリプションでサポートされている API のバージョンを出力します。 プロパティ レベルでも違いがある可能性があることに注意してください  このコマンドを機能させるには、Azure Stack 環境用に PowerShell が既に[インストール](../operator/azure-stack-powershell-install.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack オファーのサブスクリプションも必要です。
+その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack サブスクリプションでサポートされている API のバージョンを出力します (プロパティ レベルでも違いがある場合があります)。 このコマンドを機能させるには、Azure Stack 環境用に PowerShell が既に[インストール](../operator/azure-stack-powershell-install.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack オファーのサブスクリプションも必要です。
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
@@ -92,6 +92,6 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 サービス レベルでの違いの詳細については、以下を参照してください。
 
-* [Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)
+* [Azure Stack の VMS に関する考慮事項](azure-stack-vm-considerations.md)
 * [Azure Stack のストレージに関する考慮事項](azure-stack-acs-differences.md)
 * [Azure Stack ネットワークに関する考慮事項](azure-stack-network-differences.md)
