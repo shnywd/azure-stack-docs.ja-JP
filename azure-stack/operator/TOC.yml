@@ -4,6 +4,8 @@
   items:
     - name: Azure Stack とは
       href: azure-stack-overview.md
+    - name: Azure Stack HCI とは
+      href: azure-stack-hci-overview.md
     - name: Azure エコシステムの比較
       href: compare-azure-azure-stack.md
     - name: リリース ノート
@@ -381,18 +383,14 @@
           href: azure-stack-backup-best-practices.md
         - name: バックアップの参照
           href: azure-stack-backup-reference.md
-    - name: 問い合わせ
+    - name: トラブルシューティング
       items:
-        - name: '[ヘルプとサポート]'
-          href: azure-stack-help-and-support.md
-        - name: トラブルシューティング
-          items:
-            - name: 既知の問題
-              href: azure-stack-troubleshooting.md
-            - name: Azure Stack の診断
-              href: azure-stack-diagnostics.md
-            - name: Azure Stack に対する検証
-              href: azure-stack-diagnostic-test.md
+        - name: 既知の問題
+          href: azure-stack-troubleshooting.md
+        - name: Azure Stack の診断
+          href: azure-stack-diagnostics.md
+        - name: Azure Stack に対する検証
+          href: azure-stack-diagnostic-test.md
 - name: リファレンス
   items:
     - name: Azure Stack PowerShell

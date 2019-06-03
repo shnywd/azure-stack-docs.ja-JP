@@ -169,8 +169,10 @@
             - name: Azure Stack ツールのダウンロード
               href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
               maintainContext: true
-            - name: Docker を使用した PowerShell の実行
+            - name: Docker を使用して PowerShell を実行する
               href: azure-stack-powershell-user-docker.md
+            - name: Azure Account 拡張機能を使用して接続する
+              href: azure-stack-dev-start-vscode-azure.md
             - name: Visual Studio のインストール
               href: azure-stack-install-visual-studio.md
             - name: SSH 公開キーの使用
