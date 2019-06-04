@@ -3,7 +3,7 @@ title: Azure Stack での Python による API バージョンのプロファイ
 description: Azure Stack での Python による API バージョンのプロファイルの使用について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,16 +11,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: ee5906e825af59e3b67792e8370cc5d26901ff2b
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782563"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269491"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure Stack での Python による API バージョンのプロファイルの使用
 
@@ -32,8 +32,10 @@ Python SDK では、Azure Stack とグローバル Azure などの異なるク�
 
 - **latest**  
     このプロファイルでは、Azure プラットフォーム内にある全サービス プロバイダー向けの最新の API バージョンをターゲットにします。
-- **2018-03-01-hybrid**     
+- **2019-03-01-hybrid**  
     このプロファイルでは、Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最新の API バージョンをターゲットにします。
+- **2018-03-01-hybrid**  
+    このプロファイルでは、Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最も互換性の高い API バージョンをターゲットにします。
 - **2017-03-09-profile**  
     このプロファイルでは、Azure Stack がサポートするリソース プロバイダーの最も互換性の高い API バージョンをターゲットにします。
 
@@ -64,7 +66,7 @@ Azure Stack で Python Azure SDK を使用するには、次の値を指定し�
 
 ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 1. お使いのマシン上で Python 証明書ストアの場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
 
@@ -72,7 +74,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
       python -c "import certifi; print(certifi.where())"
     ```
 
-    証明書ストアの場所を書き留めておきます。 たとえば、*~/lib/python3.5/site-packages/certifi/cacert.pem* です。 特定のパスは、お使いの OS やインストールした Python のバージョンによって異なります。
+    証明書ストアの場所を書き留めておきます。 たとえば、 *~/lib/python3.5/site-packages/certifi/cacert.pem* です。 特定のパスは、お使いの OS やインストールした Python のバージョンによって異なります。
 
 2. Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
@@ -117,7 +119,7 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
 
 - [リソースとリソース グループを管理する](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)。
 - [ストレージ アカウントを管理する](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)。
-- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。
+- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。 (Azure Stack でサポートされている最新の API バージョンをターゲットとする 2019-03-01-hybrid を使用するサンプル)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Python による仮想マシン サンプルの管理
 
