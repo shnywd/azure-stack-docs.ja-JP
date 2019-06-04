@@ -48,7 +48,15 @@
 - name: 概念
   items:
     - name: キャパシティ プランニング
-      href: capacity-planning.md
+      items:
+        - name: 概要
+          href: azure-stack-capacity-planning-overview.md
+        - name: Compute
+          href: azure-stack-capacity-planning-compute.md
+        - name: Storage
+          href: azure-stack-capacity-planning-storage.md
+        - name: Azure Stack のキャパシティ プランニング ツール
+          href: azure-stack-capacity-planner.md
     - name: データセンターの統合
       href: azure-stack-customer-journey.md
       items:
@@ -374,9 +382,9 @@
         - name: Azure Stack のバックアップ
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Azure Stack 上のファイルとアプリケーションのバックアップ
-          href: /azure/backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: Azure Stack VM を Azure にレプリケートする
-          href: /azure/site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
         - name: 致命的なデータ損失からの復旧
           href: azure-stack-backup-recover-data.md
         - name: バックアップのベスト プラクティス
