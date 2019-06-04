@@ -3,7 +3,7 @@ title: Azure Stack での GO による API バージョンのプロファイル�
 description: Azure Stack での GO による API バージョンのプロファイルの使用について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
@@ -11,15 +11,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 33fc05de4bf0107c8090badb77872082790aa087
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6f9136cb92851d10deac3455b054fe3c18cb891e
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782576"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269357"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack での GO による API バージョンのプロファイルの使用
 
@@ -32,10 +32,10 @@ ms.locfileid: "65782576"
 - 特定の API バージョンをロックすることによる、アプリケーションの安定性。
 - Azure Stack および地域の Azure データセンターでのアプリケーションの互換性。
 
-Go SDK では、プロファイルは、profiles パスでバージョンを **YYYY-MM-DD** 形式で指定することで利用できます。 現在の最新の Azure Stack API プロファイル バージョンは **2017-03-09** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2017-03-09** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、プロファイルは、profiles パスでバージョンを **YYYY-MM-DD** 形式で指定することで利用できます。 現在の最新の Azure Stack API プロファイル バージョンは **2018-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2018-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>GO 対応の Azure SDK をインストールする
@@ -88,11 +88,11 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
 
 4. **サブスクリプション** スコープと**所有者**ロールを使って、サービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack のサービス プリンシパルの作成の詳細については、[サービス プリンシパルの作成](azure-stack-create-service-principals.md)に関するページをご覧ください。 これで、使用する Azure Stack 環境が設定されました。
 
-5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの現在のバージョンは **2017-03-09** です。 たとえば、**2017-03-09** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
+5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの現在のバージョンは **2018-03-01** です。 たとえば、**2018-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
    ```
 
 6. 関数内で、**New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用できます。  
@@ -100,7 +100,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -183,7 +183,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
 この例では、Azure Stack で仮想ネットワークを作成する Go コードのサンプルを示します。 Go SDK の詳細な例については、[Azure Go SDK サンプル リポジトリ](https://github.com/Azure-Samples/azure-sdk-for-go-samples)をご覧ください。 リポジトリのサービス ホルダー内にある hybrid パスの Azure Stack のサンプルを使用できます。
 
 > [!NOTE]  
-> この例のコードを実行するには、使用されるサブスクリプションが、**ネットワーク** リソース プロバイダーの一覧に**登録済み**として示されていることを確認します。 これを確認するには、Azure Stack ポータルでサブスクリプションを検索し、**[リソース プロバイダー]** を選択します。
+> この例のコードを実行するには、使用されるサブスクリプションが、**ネットワーク** リソース プロバイダーの一覧に**登録済み**として示されていることを確認します。 これを確認するには、Azure Stack ポータルでサブスクリプションを検索し、 **[リソース プロバイダー]** を選択します。
 
 1. コード内で必要なパッケージをインポートします。 ネットワーク モジュールをインポートするには、Azure Stack で使用可能な最新のプロファイルを使用します。
 
@@ -193,7 +193,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"

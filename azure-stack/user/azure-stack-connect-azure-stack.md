@@ -1,6 +1,6 @@
 ---
 title: Azure Stack への接続 | Microsoft Docs
-description: Azure Stack に接続する方法について説明します
+description: Azure Stack に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: ee1314c26e0c30e64c3cb43af44d56a66911c1ff
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 8b7a9e58fd4d4d8c3a05fea60c79ff47a519bf8c
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783065"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197366"
 ---
 # <a name="connect-to-azure-stack"></a>Azure Stack への接続
 
@@ -34,14 +34,14 @@ ms.locfileid: "65783065"
 
 1. リモート デスクトップ接続を開き、Development Kit に接続します。 「**AzureStack\AzureStackAdmin**」というユーザー名と、Azure Stack セットアップ時に指定した管理者パスワードを入力します。  
 
-2. Development Kit コンピューターからサーバー マネージャーを開き、**[ローカル サーバー]** をクリックし、Internet Explorer セキュリティ強化を無効にして、サーバー マネージャーを閉じます。
+2. Development Kit コンピューターからサーバー マネージャーを開き、 **[ローカル サーバー]** をクリックし、Internet Explorer セキュリティ強化を無効にして、サーバー マネージャーを閉じます。
 
 3. ポータルを開くには、(https://portal.local.azurestack.external/) に移動し、ユーザーの資格情報を使用してサインインします。
 
 
 ## <a name="connect-to-azure-stack-with-vpn"></a>VPN を使用して Azure Stack に接続する
 
-Azure Stack Development Kit に対して、分割トンネルの仮想プライベート ネットワーク (VPN) 接続を確立することができます。 VPN 接続を介して、管理者ポータル、ユーザー ポータル、およびローカルにインストールされているツール (Visual Studio、PowerShell など) にアクセスして、Azure Stack リソースを管理できます。 VPN 接続は、Azure Active Directory (AAD) および Active Directory フェデレーション サービス (AD FS) ベースのデプロイの両方でサポートされています。 VPN 接続は、同時に複数のクライアントが Azure Stack に接続できます。 
+Azure Stack Development Kit に対して、分割トンネルの VPN 接続を確立することができます。 VPN 接続を介して、管理者ポータル、ユーザー ポータル、およびローカルにインストールされているツール (Visual Studio、PowerShell など) にアクセスして、Azure Stack リソースを管理できます。 VPN 接続は、Azure Active Directory (AAD) および Active Directory フェデレーション サービス (AD FS) ベースのデプロイの両方でサポートされています。 VPN 接続を使用すると、同時に複数のクライアントが Azure Stack に接続できます。 
 
 > [!NOTE] 
 > この VPN 接続では、Azure Stack インフラストラクチャ VM には接続できません。 
@@ -84,7 +84,7 @@ Add-AzsVpnConnection `
 
 ```
 
-セットアップが成功すると、VPN 接続の一覧に **azurestack** と表示されます。
+セットアップが成功すると、VPN 接続の一覧に `azurestack` と表示されます。
 
 ![ネットワーク接続](media/azure-stack-connect-azure-stack/image3.png)  
 
@@ -99,13 +99,13 @@ Add-AzsVpnConnection `
     -Password $Password
   ```
 
-  プロンプトに従って Azure Stack ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 (プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります)。 
+  プロンプトに従って Azure Stack ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
 
-* ローカル コンピューターの **[ネットワーク設定]** > **[VPN]** を開き、**[azurestack]** > **[接続]** をクリックします。 サインイン プロンプトで、ユーザー名 (AzureStack\AzureStackAdmin) とパスワードを入力します。
+* ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]** に移動し、[`azurestack`] >  **[接続]** を選択します。 サインイン プロンプトで、ユーザー名 (AzureStack\AzureStackAdmin) とパスワードを入力します。
 
 ### <a name="test-the-vpn-connectivity"></a>VPN 接続のテスト
 
-ポータル接続をテストするには、インターネット ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) にアクセスし、サインインしてリソースを作成します。  
+ポータル接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) に移動し、サインインしてリソースを作成します。  
 
 ## <a name="next-steps"></a>次の手順
 

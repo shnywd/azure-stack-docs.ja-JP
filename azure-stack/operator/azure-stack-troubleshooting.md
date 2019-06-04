@@ -3,7 +3,7 @@ title: Microsoft Azure Stack のトラブルシューティング | Microsoft Do
 description: Azure Stack のトラブルシューティング。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
@@ -12,32 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
-ms.author: mabrigg
+ms.date: 05/20/2019
+ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: c7486cb56dee87b8a894d165fce4c3a0dfaae6d9
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618116"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268235"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack のトラブルシューティング
 
-このドキュメントでは、Azure Stack の一般的なトラブルシューティング情報を提供します。 
-
-> [!NOTE]
-> Azure Stack Technical Development Kit (ASDK) は評価環境として提供されているため、Microsoft カスタマー サポート サービスによる公式なサポートは提供されません。 問題が発生する場合は、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で追加のサポートと情報について確認してください。  
-
-このセクションで説明されている問題のトラブルシューティングの推奨事項は、複数のソースから取得しており、特定の問題を解決できない場合があります。 コード例はそのまま提供されており、期待される結果を保証できません。 このセクションは、製品の機能強化の実装に合わせて、頻繁に編集および更新されます。
+このドキュメントでは、Azure Stack の一般的なトラブルシューティング情報を提供します。 推奨事項とコード例は現状のまま提供されており、必ずしもお客様の問題を解決できるとは限りません。 
 
 ## <a name="deployment"></a>Deployment
 ### <a name="general-deployment-failure"></a>一般的なデプロイの失敗
 インストール時に障害が発生した場合、デプロイ スクリプトの -rerun オプションを使用して、失敗した手順からデプロイを再開できます。  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>ASDK のデプロイの最後に、PowerShell セッションがまだ開いており、出力が表示されません。
-この動作は、PowerShell コマンド ウィンドウが選択されている場合の既定の動作の結果に過ぎない可能性があります。 開発キットのデプロイは成功しましたが、ウィンドウを選択したときに、スクリプトが一時停止しました。 設定が完了したことを確認するには、コマンド ウィンドウのタイトル バーで、"select" という単語を探します。  ESC キーを押してその選択を解除すると、その後に完了メッセージが表示されるはずです。
+この動作は、PowerShell コマンド ウィンドウが選択されている場合の既定の動作の結果に過ぎない可能性があります。 開発キットのデプロイは成功しましたが、ウィンドウを選択したときに、スクリプトが一時停止しました。 設定が完了したことを確認するには、コマンド ウィンドウのタイトル バーで、"select" という単語を探します。 ESC キーを押してその選択を解除すると、その後に完了メッセージが表示されるはずです。
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>外部アクセスがないことが原因でデプロイが失敗する
 外部アクセスが必要な段階でデプロイが失敗する場合は、次の例のような例外が返されます。
@@ -71,7 +66,7 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 1.  Azure Stack Development Kit ホストで、[スタート] メニューから**フェールオーバー クラスター マネージャー**を起動します。
 2.  クラスター **S-Cluster.azurestack.local** を選択します。
 3.  **[役割]** を選びます。
-4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、**[開始]** を選択して、VM を再開します。
+4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、VM を再開します。
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>一部の仮想マシンを削除しましたが、まだディスクに VHD ファイルが表示されます。 これは期待される動作ですか。
 はい、これは正しい動作です。 これがそのように設計された理由は次のとおりです。

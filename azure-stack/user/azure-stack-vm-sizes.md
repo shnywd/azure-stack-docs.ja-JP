@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でサポートされている仮想マシンのサイズ | Microsoft Docs
-description: Azure Stack でサポートされている仮想マシンのサイズに関するリファレンスです。
+title: Azure Stack でサポートされている VM のサイズ | Microsoft Docs
+description: Azure Stack でサポートされている VM のサイズを示します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,29 +14,29 @@ ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ab8c6c32a21afffd590a6f98359e051c7208b6ec
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: a7ec54d88a259b883f72c2396ab572118ba96a23
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712273"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269442"
 ---
-# <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack でサポートされている仮想マシンのサイズ
+# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack でサポートされている VM のサイズ
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-この記事では、Azure Stack で使用可能な仮想マシンのサイズの一覧を示します。
+この記事では、Azure Stack で使用可能な仮想マシン (VM) のサイズの一覧を示します。
 
-Azure Stack のディスク IOPS (Input/Output Operations Per Second) は、ディスクの種類ではなく仮想マシン (VM) サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 特定の VM サイズで得られる IOPS を保証するものではありません。
+Azure Stack のディスク IOPS (Input/Output Operations Per Second) は、ディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
 
-## <a name="virtual-machine-general-purpose"></a>汎用仮想マシン
+## <a name="vm-general-purpose"></a>VM 汎用
 
 汎用 VM サイズは、CPU とメモリのバランスの取れた比率を提供します。 これらはテストと開発、小～中規模のデータベース、および低～中程度のトラフィックの Web サーバーに使用されます。 各データ ディスクは、Basic A シリーズを除き、Premium VM サイズは 2300 IOPS です。 Basic A の場合、データ ディスクのサイズは 500 IOPS です。
 
 ### <a name="basic-a"></a>Basic A
 
 > [!NOTE]
-> *Basic A* の仮想マシン サイズは、ポータルを介して[仮想マシン スケール セット (VMSS) を作成する](../operator/azure-stack-compute-add-scalesets.md)ものとしては廃止されました。 このサイズの VMSS を作成するには、PowerShell またはテンプレートをご使用ください。
+> *Basic A* の VM サイズは、ポータルを介して[仮想マシン スケール セット (VMSS) を作成する](../operator/azure-stack-compute-add-scalesets.md)ものとしては廃止されました。 このサイズの VMSS を作成するには、PowerShell またはテンプレートをご使用ください。
 
 |サイズ - サイズ\名前 |vCPU     |メモリ | 一時ディスクの最大サイズ | OS ディスクの最大スループット:(IOPS) | 一時ストレージの最大スループット (IOPS) | データ ディスクの最大スループット (IOPS) | 最大 NIC 数 |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
@@ -185,4 +185,4 @@ Azure Stack のディスク IOPS (Input/Output Operations Per Second) は、デ�
 
 ## <a name="next-steps"></a>次の手順
 
-[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)
+[Azure Stack VM の機能](azure-stack-vm-considerations.md)

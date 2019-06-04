@@ -3,7 +3,7 @@ title: Azure Stack での Ruby による API バージョンのプロファイ�
 description: Azure Stack での Ruby による API バージョンのプロファイルの使用について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1bf4842746aa6a7bcdeedb41f58c267919cf1542
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782545"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269322"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack での Ruby による API バージョンのプロファイルの使用
 
@@ -34,7 +34,7 @@ Azure Stack Resource Manager 向けの Ruby SDK には､インフラストラ�
 API プロファイルは、リソース プロバイダーとサービス バージョンを組み合わせたものです。 API プロファイルを使用すると、種類の異なる複数のリソースを組み合わせることができます。
 
 - すべてのサービスの最新バージョンを使用するには、Azure SDK ロールアップ gem の **Latest** プロファイルを使用します。
-- Azure Stack と互換性のあるサービスを使用するには、Azure SDK ロールアップ gem の **V2018_03_01** プロファイルを使用します。
+- Azure Stack と互換性のあるサービスを使用するには、Azure SDK ロールアップ gem の **V2019_03_01_Hybrid** または **V2018_03_01** プロファイルを使用します。
 - サービスの最新の **api-version** を使用するには、特定の gem の **Latest** プロファイルを使用します。 たとえば、コンピュート サービスの最新の **api-version** を単独で使用する場合は、**Compute** gem の **Latest** プロファイルを使用します。
 - サービスの特定の **api-version** を使用するには、gem 内で定義された特定の API バージョンを使用します。
 
@@ -73,7 +73,7 @@ Azure Resource Manager Ruby SDK は現在プレビュー段階であり、今後
 
 ## <a name="use-the-azuresdk-gem"></a>azure_sdk gem を使用する
 
-この gem (**azure_sdk**) は、Ruby SDK でサポートされているすべての gem をまとめたロールアップです。 この gem は、すべてのサービスの最新バージョンをサポートする、 **Latest**  プロファイルで構成されています。 これにより、Azure Stack 用に作成された 2 つのバージョン管理されたプロファイル  **V2017_03_09** と **V2018_03_01**  プロファイルが導入されます。
+この gem (**azure_sdk**) は、Ruby SDK でサポートされているすべての gem をまとめたロールアップです。 この gem は、すべてのサービスの最新バージョンをサポートする、 **Latest**  プロファイルで構成されています。 これには、Azure Stack 用に構築された、バージョン管理されたプロファイル  **V2017_03_09** および **V2019_03_01_Hybrid** が含まれています。
 
 azure_sdk ロールアップ gem は、次のコマンドを使用してインストールできます。  
 
@@ -130,7 +130,7 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 Azure_sdk ロールアップ gem には、次の 3 つのプロファイルがあります。
 
-1. **V2018_03_01** Azure Stack 用に作成されたプロファイル。 Azure Stack で使用可能なサービスのすべての最新バージョンを使用するには、このプロファイルを使用します。
+1. **V2019_03_01_Hybrid** Azure Stack 用に作成されたプロファイル。 Azure Stack で使用可能なサービスのすべての最新バージョンを使用するには、このプロファイルを使用します。
 2. **V2017_03_09**  
   Azure Stack 用に作成されたプロファイル。 このプロファイルは、Azure Stack との互換性に優れたサービスに使用します。
 3. **最新**  
@@ -160,7 +160,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
 ```
 
 プロファイル クライアントは、個別のリソース プロバイダー (コンピュート、ストレージ、ネットワークなど) にアクセスするために使用できます。
@@ -174,7 +174,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack 環境設定関数の定義
@@ -204,7 +204,7 @@ end
 Ruby と Azure Stack API のプロファイルを使用してソリューションを作成する場合は、GitHub で見つかる次のサンプルを参考資料として使用できます。
 
 - [Azure のリソースとリソース グループを Ruby で管理する](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
-- [Ruby を使用して仮想マシンを管理する](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Ruby を使用して仮想マシンを管理する](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Azure Stack でサポートされている最新の API バージョンをターゲットにするために 2019-03-01-hybrid プロファイルを使用するサンプル)。
 - [Ruby からテンプレートを使用して SSH 対応 VM をデプロイする](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Resource Manager とグループのサンプル
@@ -271,7 +271,7 @@ Ruby と Azure Stack API のプロファイルを使用してソリューショ�
 7. Azure Stack プロファイルをターゲットとするプロファイル クライアントを作成します。
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
 8. サービス プリンシパルを Azure Stack に対して認証するには、**get_active_directory_settings()** を使用してエンドポイントを定義します。 このメソッドでは、環境変数を確立する際に設定した、**ARM_Endpoint** 環境変数が使用されます。

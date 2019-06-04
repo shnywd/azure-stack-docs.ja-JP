@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 05/28/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6db643e1123a27fe1716aeeb5ec97d6497764632
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e89e8a9d2f773c289bc279a1b4aa9f47e65e8741
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618962"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269335"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>App Service リソース プロバイダーを Azure Stack に追加する
 
@@ -29,16 +29,16 @@ ms.locfileid: "65618962"
 
 この記事のガイダンスを使用して、Azure Stack に App Service をデプロイします。
 
-> [!IMPORTANT]  
-> Azure App Service 1.5 をデプロイする前に、Azure Stack 統合システムに 1901 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
+> [!IMPORTANT]
+> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
 
 Web および API アプリケーションを作成する機能をユーザーに提供できます。 これらのアプリケーションをユーザーが作成できるようにするには、次のことを行う必要があります。
 
- - この記事で説明する手順を使用して、Azure Stack デプロイに [App Service リソース プロバイダー](azure-stack-app-service-overview.md)を追加します。
- - App Service リソース プロバイダーをインストールした後で、オファーやプランに含めることができます。 ユーザーはサブスクライブしてサービスを取得し、アプリケーションの作成を開始できます。
+- この記事で説明する手順を使用して、Azure Stack デプロイに [App Service リソース プロバイダー](azure-stack-app-service-overview.md)を追加します。
+- App Service リソース プロバイダーをインストールした後で、オファーやプランに含めることができます。 ユーザーはサブスクライブしてサービスを取得し、アプリケーションの作成を開始できます。
 
-> [!IMPORTANT]  
-> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.5 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-five.md)を読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
+> [!IMPORTANT]
+> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.6 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-six.md)を読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service リソースプロバイダーのインストーラーを実行する
 
@@ -60,13 +60,13 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     ![App Service インストーラー][1]
 
-3. マイクロソフト ソフトウェア ライセンス条項を確認して同意し、**[次へ]** を選択します。
+3. マイクロソフト ソフトウェア ライセンス条項を確認して同意し、 **[次へ]** を選択します。
 
-4. サード パーティのライセンス条項を確認して同意し、**[次へ]** を選択します。
+4. サード パーティのライセンス条項を確認して同意し、 **[次へ]** を選択します。
 
 5. App Service クラウド構成情報が正しいことを確認します。 Azure Stack Development Kit (ASDK) のデプロイ中に既定の設定を使用した場合は、既定値をそのまま使用することもできます。 しかし、ASDK のデプロイ時にオプションをカスタマイズした場合、または Azure Stack 統合システムにデプロイしている場合は、その差異を反映するように、このウィンドウで値を編集する必要があります。
 
-   たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、**[次へ]** を選択して設定を保存します。
+   たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、 **[次へ]** を選択して設定を保存します。
 
    ![App Service インストーラー][2]
 
@@ -75,14 +75,14 @@ App Service リソースプロバイダーをデプロイするには、次の�
     a. **[Azure Stack Subscriptions]\(Azure Stack サブスクリプション\)** の横にある **[接続]** を選択します。
 
    - Azure Active Directory (Azure AD) を使っている場合は、Azure Stack のデプロイ時に指定した、Azure AD の管理者アカウントとパスワードを入力します。 **[サインイン]** を選択します。
-   - Active Directory フェデレーション サービス (AD FS) を使用している場合は、ご自分の管理者アカウントを指定します。 たとえば、「 cloudadmin@azurestack.local 」のように入力します。 パスワードを入力し、**[サインイン]** を選択します。
+   - Active Directory フェデレーション サービス (AD FS) を使用している場合は、ご自分の管理者アカウントを指定します。 たとえば、「 cloudadmin@azurestack.local 」のように入力します。 パスワードを入力し、 **[サインイン]** を選択します。
 
-   b. **[Azure Stack Subscriptions]\(Azure Stack サブスクリプション\)** で、**[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** を選択します。
+   b. **[Azure Stack Subscriptions]\(Azure Stack サブスクリプション\)** で、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** を選択します。
 
-     > [!IMPORTANT]  
-     > App Service は、**[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** にデプロイする**必要があります**。
+     > [!IMPORTANT]
+     > App Service は、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** にデプロイする**必要があります**。
 
-   c. **[Azure Stack Locations]\(Azure Stack の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、Azure Stack Development Kit にデプロイしている場合は、**[ローカル]** を選びます。
+   c. **[Azure Stack Locations]\(Azure Stack の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、Azure Stack Development Kit にデプロイしている場合は、 **[ローカル]** を選びます。
 
     ![App Service インストーラー][3]
 
@@ -90,7 +90,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    a. **[Create VNet with default settings]\(既定の設定で VNet を作成する\)** をオンにし、既定値を受け入れて **[次へ]** を選択します。
 
-   b. または、**[Use existing VNet and Subnets]\(既存の VNet とサブネットを使用する\)** をオンにします。 次の操作を実行します。
+   b. または、 **[Use existing VNet and Subnets]\(既存の VNet とサブネットを使用する\)** をオンにします。 次の操作を実行します。
 
      - 仮想ネットワークが含まれている**リソース グループ**を選択します。
      - デプロイする**仮想ネットワーク**の名前を選択します。
@@ -99,7 +99,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    ![App Service インストーラー][4]
 
-8. ファイル共有の情報を入力してから、**[次へ]** を選択します。 ファイル共有のアドレスには、ファイル サーバーの完全修飾ドメイン名 (FQDN)、または IP アドレスを使用する必要があります。 たとえば、\\\appservicefileserver.local.cloudapp.azurestack.external\websites、または \\\10.0.0.1\websites を使用します。  ドメインに参加しているファイル サーバーを使用している場合は、ドメインを含む完全なユーザー名 (例: myfileserverdomain\FileShareOwner) を指定する必要があります。
+8. ファイル共有の情報を入力してから、 **[次へ]** を選択します。 ファイル共有のアドレスには、ファイル サーバーの完全修飾ドメイン名 (FQDN)、または IP アドレスを使用する必要があります。 たとえば、\\\appservicefileserver.local.cloudapp.azurestack.external\websites、または \\\10.0.0.1\websites を使用します。  ドメインに参加しているファイル サーバーを使用している場合は、ドメインを含む完全なユーザー名 (例: myfileserverdomain\FileShareOwner) を指定する必要があります。
 
    >[!NOTE]
    >インストーラーは、続行する前にファイル共有への接続性をテストしようとします。 しかし、既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 ファイル共有情報が正しい場合は、デプロイを続行します。
@@ -120,7 +120,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    ![App Service インストーラー][9]
 
-10. 3 つの証明書ファイルの各ボックスで、**[参照]** を選択し、適切な証明書ファイルに移動します。 各証明書のパスワードを入力する必要があります。 これらの証明書は、[必要な証明書の作成の手順](azure-stack-app-service-before-you-get-started.md#get-certificates)で作成したものです。 すべての情報を入力したら、**[次へ]** を選択します。
+10. 3 つの証明書ファイルの各ボックスで、 **[参照]** を選択し、適切な証明書ファイルに移動します。 各証明書のパスワードを入力する必要があります。 これらの証明書は、[必要な証明書の作成の手順](azure-stack-app-service-before-you-get-started.md#get-certificates)で作成したものです。 すべての情報を入力したら、 **[次へ]** を選択します。
 
     | Box | 証明書ファイル名の例 |
     | --- | --- |
@@ -132,11 +132,11 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     ![App Service インストーラー][10]
 
-11. App Service リソース プロバイダー データベースをホストするために使用するサーバー インスタンスについて、SQL Server の詳細を入力し、**[次へ]** を選択します。 インストーラーにより、SQL 接続のプロパティが検証されます。<br><br>App Service インストーラーは、続行する前に SQL Server への接続性をテストしようとします。 既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 SQL Server の情報が正しい場合は、デプロイを続行します。
+11. App Service リソース プロバイダー データベースをホストするために使用するサーバー インスタンスについて、SQL Server の詳細を入力し、 **[次へ]** を選択します。 インストーラーにより、SQL 接続のプロパティが検証されます。<br><br>App Service インストーラーは、続行する前に SQL Server への接続性をテストしようとします。 既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 SQL Server の情報が正しい場合は、デプロイを続行します。
 
     ![App Service インストーラー][11]
 
-12. ロール インスタンスと SKU のオプションを確認します。 ASDK デプロイの各ロールに対するインスタンスの最小数および SKU の最小値には、既定値が入力されています。 デプロイの計画に役立つ vCPU 要件とメモリ要件の概要が表示されています。 必要な項目を選択したら、**[次へ]** を選択します。
+12. ロール インスタンスと SKU のオプションを確認します。 ASDK デプロイの各ロールに対するインスタンスの最小数および SKU の最小値には、既定値が入力されています。 デプロイの計画に役立つ vCPU 要件とメモリ要件の概要が表示されています。 必要な項目を選択したら、 **[次へ]** を選択します。
 
     >[!NOTE]
     >運用環境デプロイの場合は、「[Azure Stack での Azure App Service サーバー ロールの容量計画](azure-stack-app-service-capacity-planning.md)」のガイダンスに従ってください。
@@ -168,11 +168,11 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 15. App Service インストーラーの概要ページで、次の手順に従います。
 
-    a. 選択した内容を確認します。 変更を加えるには、**[前へ]** を使って前のページに戻ります。
+    a. 選択した内容を確認します。 変更を加えるには、 **[前へ]** を使って前のページに戻ります。
 
     b. 構成が正しい場合は、チェック ボックスをオンにします。
 
-    c. デプロイを開始するには、**[次へ]** を選択します。
+    c. デプロイを開始するには、 **[次へ]** を選択します。
 
     ![App Service インストーラー][16]
 
@@ -180,34 +180,34 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     a. インストールの進行状況を追跡します。 App Service on Azure Stack を既定の選択内容に基づいてデプロイするには、60 分ほどかかります。
 
-    b. インストーラーが正常に完了したら、**[終了]** を選択します。
+    b. インストーラーが正常に完了したら、 **[終了]** を選択します。
 
     ![App Service インストーラー][17]
 
 ## <a name="post-deployment-steps"></a>デプロイ後の手順
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > SQL Always On インスタンスを使用して App Service RP を提供している場合は、データベースのフェールオーバー時にサービスの停止を防ぐために、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する必要があります。
+
+既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。  管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
+
+- ソース:任意
+- 送信元ポート範囲: *
+- 変換先:IP アドレス
+- 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
+- 送信先ポート範囲:445
+- プロトコル:TCP
+- アクション:ALLOW
+- 優先順位:700
+- 名前:Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>App Service on Azure Stack インストールを検証する
 
-1. Azure Stack 管理ポータルで、**[Administration - App Service]\(管理 - App Service\)** に移動します。
+1. Azure Stack 管理ポータルで、 **[Administration - App Service]\(管理 - App Service\)** に移動します。
 
-2. 概要の状態で、**[状態]** に **[ロールはいずれも準備ができています]** と表示されていることを確認します。
+2. 概要の状態で、 **[状態]** に **[ロールはいずれも準備ができています]** と表示されていることを確認します。
 
     ![App Service の管理](media/azure-stack-app-service-deploy/image12.png)
-
-    既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。  これを行うには、管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
-
-    - ソース:任意
-    - 送信元ポート範囲: *
-    - 変換先:IP アドレス
-    - 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
-    - 送信先ポート範囲:445
-    - プロトコル:TCP
-    - アクション:ALLOW
-    - 優先順位:700
-    - 名前:Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service on Azure Stack を試してみる
 
@@ -223,17 +223,17 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 テスト Web アプリを作成するには、次の手順に従います。
 
-1. Azure Stack ユーザー ポータルで、**[+ リソースの作成]** > **[Web + モバイル]** > **[Web アプリ]** を選択します。
+1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]**  >  **[Web + モバイル]**  >  **[Web アプリ]** を選択します。
 
-2. **[Web アプリ]** で、**[Web アプリ]** に名前を入力します。
+2. **[Web アプリ]** で、 **[Web アプリ]** に名前を入力します。
 
-3. **[リソース グループ]** で、**[新規]** を選択します。 **[リソース グループ]** の名前を入力します。
+3. **[リソース グループ]** で、 **[新規]** を選択します。 **[リソース グループ]** の名前を入力します。
 
-4. **[App Service プラン/場所]** > **[新規作成]** の順に選択します。
+4. **[App Service プラン/場所]**  >  **[新規作成]** の順に選択します。
 
-5. **[App Service プラン]** で、**[App Service プラン]** の名前を入力します。
+5. **[App Service プラン]** で、 **[App Service プラン]** の名前を入力します。
 
-6. **[価格レベル]** > **[Free-Shared]\(無料 - 共有\)** または **[Shared-Shared]\(共有 - 共有\)** > **[選択]** > **[OK]** > **[作成]** の順に選択します。
+6. **[価格レベル]**  >  **[Free-Shared]\(無料 - 共有\)** または **[Shared-Shared]\(共有 - 共有\)**  >  **[選択]**  >  **[OK]**  >  **[作成]** の順に選択します。
 
 7. ダッシュボードに新規 Web アプリのタイルが表示されます。 タイルを選択します。
 
@@ -241,7 +241,7 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress、DNN、Django の Web サイトを展開する (省略可能)
 
-1. Azure Stack テナント ポータルで、**+** を選択して Azure Marketplace にアクセスし、Django Web サイトをデプロイして、デプロイが完了するまで待ちます。 Django Web プラットフォームでは、ファイル システム ベースのデータベースが使われます。 SQL や MySQL など、追加のリソース プロバイダーは必要ありません。
+1. Azure Stack テナント ポータルで、 **+** を選択して Azure Marketplace にアクセスし、Django Web サイトをデプロイして、デプロイが完了するまで待ちます。 Django Web プラットフォームでは、ファイル システム ベースのデータベースが使われます。 SQL や MySQL など、追加のリソース プロバイダーは必要ありません。
 
 2. MySQL リソースプロバイダーも展開した場合は、Marketplace から WordPress Web サイトを展開できます。 データベース パラメーターを求められたら、お好きなユーザー名とサーバー名を使用して、ユーザー名を *User1\@Server1* として入力します。
 
@@ -251,8 +251,8 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 その他の [Platform as a Service (PaaS) サービス](azure-stack-offer-services-overview.md)を試してみることもできます。
 
- - [SQL Server リソースプロバイダー](azure-stack-sql-resource-provider-deploy.md)
- - [MySQL リソースプロバイダー](azure-stack-mysql-resource-provider-deploy.md)
+- [SQL Server リソースプロバイダー](azure-stack-sql-resource-provider-deploy.md)
+- [MySQL リソースプロバイダー](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
 [Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531

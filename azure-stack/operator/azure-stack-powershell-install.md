@@ -15,12 +15,12 @@ ms.date: 05/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 38a7398b157ad74f7f8849a3fa84b0cee82b80ad
-ms.sourcegitcommit: 95576d0cd780f3a200b2e98b6e9f031f5172f8c0
+ms.openlocfilehash: 9d05a218b9a93b19cdc694c49bde281dab1f91e9
+ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65814937"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66042960"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
@@ -101,9 +101,8 @@ Azure Stack バージョン 1901 以降では、AzureRM バージョン 2.4.0 �
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
     Install-Module -Name AzureRM.BootStrapper
-    
+
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Get-AzureRmProfile -Update
     Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
     Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
@@ -119,11 +118,11 @@ Azure Stack バージョン 1901 以降では、AzureRM バージョン 2.4.0 �
 
     > [!Note]  
     > - Azure Stack モジュール バージョン 1.7.1 は破壊的変更を伴うリリースです。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://aka.ms/azspshmigration171)を参照してください。
-    > - AzureRm モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に -Force パラメーターを指定する必要があります。
-    > - Azure stack バージョン 1901 以降のモジュールをインストールするために、**AzureRM.Bootstrapper** をインストールする必要はありません。
+    > - AzureRM モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に -Force パラメーターを指定する必要があります。
+    > - Azure Stack バージョン 1901 以降のモジュールをインストールするために、**AzureRM.BootStrapper** をインストールする必要はありません。
     > - Azure Stack バージョン 1901 以降で上記の AzureRM モジュールの使用に加えて 2018-03-01-hybrid プロファイルをインストールしないでください。
 
-- Azure Stack バージョン 1811 では、コマンドレットで示されたバージョンに加え、**AzureRM.Bootstrapper** を使用してプロファイルをインストールします。
+- Azure Stack バージョン 1811 では、コマンドレットで示されたバージョンに加え、**AzureRM.BootStrapper** を使用してプロファイルをインストールします。
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -143,7 +142,7 @@ Azure Stack バージョン 1901 以降では、AzureRM バージョン 2.4.0 �
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
-# Install the AzureRm.Storage module version 5.0.4
+# Install the AzureRM.Storage module version 5.0.4
 Install-Module -Name AzureRM.Storage -RequiredVersion 5.0.4 -Force -AllowClobber
 
 # Remove incompatible storage module installed by AzureRM.Storage
@@ -216,7 +215,7 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
     ```
 
-  - Azure Stack 1809 以前: 
+  - Azure Stack 1809 以前:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -240,7 +239,7 @@ Get-Module -Name "Azs*" -ListAvailable
 ```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM.Storage -Path $Path -Force -RequiredVersion 5.0.4
 ```
 
 ### <a name="add-your-packages-to-your-workstation"></a>パッケージをワークステーションに追加する

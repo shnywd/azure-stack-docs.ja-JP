@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/15/2019
-ms.openlocfilehash: 52279a7498e253771e16e66e0c5025b9afd4494d
-ms.sourcegitcommit: 442bd62d1dfbc1597592d7285aba1453298261ce
+ms.lastreviewed: 05/28/2019
+ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969834"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66268332"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 の既知の問題
 
@@ -60,6 +60,13 @@ ms.locfileid: "65969834"
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
 - 発生頻度: 一般
 
+
+### <a name="docker-extension"></a>Docker 拡張機能
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 管理者ポータルとユーザー ポータルの両方で、"Docker" を検索すると、返される項目が正しくありません。 これは Azure Stack でご利用になれません。 これを作成しようとすると、エラーを示すブレードが表示されます。
+- 修復: 軽減策はありません。
+- 発生頻度: 一般
+
 ### <a name="marketplace-management"></a>Marketplace Management
 
 - 適用先:これはリリース 1904 に関する新しい問題です。
@@ -70,16 +77,23 @@ ms.locfileid: "65969834"
 ### <a name="marketplace-management"></a>Marketplace Management
 
 - 適用先:この問題は、1904 に適用されます。
-- 原因: 管理者ポータル内の Marketplace management タブの **[Azure から追加]** ブレードで結果をフィルター処理したときに、間違ったフィルター処理結果が表示されることがあります。 
-- 修復: [名前] 列で結果の並べ替えを行うと、結果が修正されます。 
+- 原因: 管理者ポータル内の Marketplace management タブの **[Azure から追加]** ブレードで結果をフィルター処理したときに、間違ったフィルター処理結果が表示されることがあります。
+- 修復: [名前] 列で結果の並べ替えを行うと、結果が修正されます。
 - 発生頻度: 間欠的
 
 ### <a name="marketplace-management"></a>Marketplace Management
 
 - 適用先:この問題は、1904 に適用されます。
 - 原因: 管理者ポータルの Marketplace Management で結果をフィルター処理すると、パブリッシャー ドロップダウンに、重複するパブリッシャー名が表示されます。 
-- 修復: そのパブリッシャーで利用可能なすべてのマーケットプレース製品の正しい一覧を得るには、すべての重複を選択します。 
+- 修復: そのパブリッシャーで利用可能なすべてのマーケットプレース製品の正しい一覧を得るには、すべての重複を選択します。
 - 発生頻度: 間欠的
+
+### <a name="docker-extension"></a>Docker 拡張機能
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 管理者ポータルとユーザー ポータルの両方で、**Docker** を検索すると、返される項目が正しくありません。 これは Azure Stack でご利用になれません。 作成しようとすると、エラーが表示されます。
+- 修復: 軽減策はありません。
+- 発生頻度: 一般
 
 ### <a name="upload-blob"></a>BLOB のアップロード
 
@@ -156,11 +170,37 @@ ms.locfileid: "65969834"
 ### <a name="compute-host-agent-alert"></a>コンピューティング ホスト エージェントのアラート
 
 - 適用先:これはリリース 1904 に関する新しい問題です。
-- 原因: **コンピューティング ホスト エージェント**の警告は、スケール ユニット内のノードの再起動後に表示されます。 再起動により、コンピューティング ホスト エージェント サービスの既定のスタートアップ設定が変更されます。
-- 修復: 
+- 原因: **コンピューティング ホスト エージェント**の警告は、スケール ユニット内のノードの再起動後に表示されます。 再起動により、コンピューティング ホスト エージェント サービスの既定のスタートアップ設定が変更されます。 このアラートは次の例のようになります。
+
+   ```shell
+   NAME  
+   Compute Host Agent is not responding to calls.
+   SEVERITY  
+   Warning
+   STATE  
+   Active
+   CREATED TIME  
+   5/16/2019, 10:08:23 AM
+   UPDATED TIME  
+   5/22/2019, 12:27:27 PM
+   COMPONENT  
+   M#####-NODE02
+   DESCRIPTION  
+   Could not communicate with the Compute Host Agent running on node: M#####-NODE02
+   REMEDIATION  
+   Please disable Compute Host Agent feature flag and collect logs for further diagnosis.
+   ```
+
+- 修復:
   - このアラートは無視してかまいません。 応答していないエージェントは、オペレーターとユーザーの操作やユーザーのアプリケーションに何の影響もありません。 アラートは、手動で閉じられた場合、24 時間後に再び表示されます。
-  - Microsoft サポートは、サービスのスタートアップ設定を変更することにより問題を修復することができます。 このためには、サポート チケットを開く必要があります。 ノードがもう一度再起動されると、新しいアラートが表示されます。
+  - この問題は、[1904 用の最新の Azure Stack 修正プログラム](https://support.microsoft.com/help/4505688)で修正されています。
 - 発生頻度: 一般
+
+## <a name="storage"></a>Storage
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) は Azure Stack ではサポートされていないため、ID が **$null** のディスクが作成されます。 これにより、起動や停止など、VM に対する操作を実行できなくなります。 ディスクは UI に表示されず、API を使用しても表示されません。 その時点では VM を修復できないため、削除する必要があります。
+- 修復: ディスクを正しく変換するには、[マネージド ディスクへの変換ガイド](../user/azure-stack-managed-disk-considerations.md#convert-to-managed-disks)の手順に従ってください。
 
 ## <a name="app-service"></a>App Service
 

@@ -1,9 +1,9 @@
 ---
 title: Azure Stack のサービス プリンシパルを作成する | Microsoft Docs
-description: Azure Resource Manager でロール ベースのアクセス制御と共に使用してリソースへのアクセスを管理できる、サービス プリンシパルを作成する方法について説明します。
+description: Azure Resource Manager でのロールベースのアクセス制御に使用できるサービス プリンシパルを作成して、リソースへのアクセスを管理する方法について説明します。
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: PatAltimore
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
@@ -11,17 +11,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/15/2019
-ms.author: mabrigg
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 3860f8dcc99f3505fe2f838e75f5e8f09b78aefe
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.openlocfilehash: 8b3d0ad1f0854f7028e9dfff2d9114df141394a6
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855371"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269605"
 ---
-# <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>サービス プリンシパルを作成してアプリケーションに Azure Stack リソースへのアクセスを付与する
+# <a name="create-service-principals-to-give-applications-access-to-azure-stack-resources"></a>サービス プリンシパルを作成してアプリケーションに Azure Stack リソースへのアクセスを付与する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -50,7 +50,7 @@ Azure Stack に Active Directory を構成した方法によって、サービ�
 * [Azure Active Directory (Azure AD)](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad) のサービス プリンシパルを作成する。
 * [Active Directory フェデレーション サービス (AD FS)](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs) のサービス プリンシパルを作成する。
 
-サービス プリンシパルをロールに割り当てる手順は、Azure AD および AD FS で同じです。 サービス プリンシパルを作成した後は、ロールに割り当てることで[アクセス許可を委任](azure-stack-create-service-principals.md)できます。
+サービス プリンシパルをロールに割り当てる手順は、Azure AD および AD FS で同じです。 サービス プリンシパルを作成した後は、ロールに割り当てることでアクセス許可を委任できます。
 
 ## <a name="create-service-principal-for-azure-ad"></a>Azure AD のサービス プリンシパルを作成する
 
@@ -64,10 +64,10 @@ Azure Stack で Azure AD を ID ストアとして使用する場合、Azure Por
 アプリケーションのサービス プリンシパルを作成するには、次の手順を実行します。
 
 1. [Azure Portal](https://portal.azure.com) で Azure アカウントにサインインします。
-2. **[Azure Active Directory]** > **[アプリの登録]** > **[新規登録]** の順に選択します。
+2. **[Azure Active Directory]**  >  **[アプリの登録]**  >  **[新規登録]** の順に選択します。
 3. 名前を指定します。
 4. **[サポートされているアカウントの種類]** を選択します。
-5.  アプリケーションの URI を追加します。 作成するアプリケーションの種類として、**[Web]** を選択します。 値を設定したら、**[登録]** を選択します。
+5.  アプリケーションの URI を追加します。 作成するアプリケーションの種類として、 **[Web]** を選択します。 値を設定したら、 **[登録]** を選択します。
 
 アプリケーションのサービス プリンシパルが作成されました。
 
@@ -80,11 +80,11 @@ Azure Stack で Azure AD を ID ストアとして使用する場合、Azure Por
 2. **アプリケーション ID** をコピーし、アプリケーション コードに保存します。 サンプル アプリケーション内にあるアプリケーションでは、**アプリケーション ID** を参照するときに**クライアント ID** を使用します。
 
      ![アプリケーションのアプリケーション ID](./media/azure-stack-create-service-principals/image12.png)
-3. 認証キーを生成するには、**[証明書とシークレット]** を選択します。
+3. 認証キーを生成するには、 **[証明書とシークレット]** を選択します。
 
 4. **[新しいクライアント シークレット]** を選択します。
 
-5. キーの説明を入力し、キーの期間を選択して、**[追加]** を選択します。 
+5. キーの説明を入力し、キーの期間を選択して、 **[追加]** を選択します。 
 
 6. 完了すると、シークレットの値が表示されます。 後からキーを取得することはできないので、この値をメモしてください。 アプリケーションが取得できる場所にキー値を保存します。
 
@@ -111,7 +111,7 @@ AD FS を ID ストアとして使用して Azure Stack をデプロイした場
 
 次の手順を使用して、サービス プリンシパルにロールを割り当てます。
 
-1. Azure Stack ポータルで、アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、**[サブスクリプション]** を選択します。
+1. Azure Stack ポータルで、アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、 **[サブスクリプション]** を選択します。
 
 2. アプリケーションを割り当てるサブスクリプションを選択します。 この例では、サブスクリプションは、Visual Studio Enterprise です。
 

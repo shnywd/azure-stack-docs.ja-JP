@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 仮想マシンの概要
-description: Azure Stack 仮想マシンについての詳細
+title: Azure Stack VM の概要 | Microsoft Docs
+description: Azure Stack VM について説明します。
 services: azure-stack
 author: sethmanheim
 manager: femila
@@ -10,14 +10,14 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 33a7522994c23e20dddf587c2374c24e664e3171
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: f5086dcae534656cea4ef1addacae3f5acdcb2d6
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941142"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197386"
 ---
-# <a name="introduction-to-azure-stack-virtual-machines"></a>Azure Stack 仮想マシンの概要
+# <a name="introduction-to-azure-stack-vms"></a>Azure Stack VM の概要
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -25,13 +25,13 @@ Azure Stack は、オンデマンドでスケーラブルなコンピューテ�
 
 Azure Stack VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラムの適用、インストールは必要です。
 
-Azure Stack 仮想マシンは、いくつかの方法で利用できます。 例: 
+Azure Stack VM は、いくつかの方法で利用できます。 例:
 
 - **開発とテスト**:Azure Stack VM を使用すると、アプリケーションのコーディングとテストに必要な特定の構成でコンピューターを作成できます。
 
 - **クラウドのアプリケーション**:アプリケーションの需要は変動する可能性があるため、Azure Stack 内の VM でアプリケーションを実行することは経済的に理に適っています。 VM が必要になったら追加分の料金を支払い、不要になったらシャットダウンすることができます。
 
-- **データセンターの拡張**:Azure Stack 仮想ネットワーク内の仮想マシンは、組織のネットワークや Azure に接続できます。
+- **データセンターの拡張**:Azure Stack 仮想ネットワーク内の VM は、組織のネットワークや Azure に接続できます。
 
 アプリケーションで使用する VM は、ニーズに応じてスケールアップまたはスケールアウトできます。
 
@@ -48,9 +48,9 @@ Azure Stack でアプリケーション インフラストラクチャを構築�
 
 ### <a name="naming"></a>名前を付ける
 
-仮想マシンには名前が割り当てられ、コンピューター名がオペレーティング システムの一部として構成されます。 VM の名前は最大で 15 文字です。
+VM には名前が割り当てられ、コンピューター名がオペレーティング システムの一部として構成されます。 VM の名前は最大で 15 文字です。
 
-Azure Stack を使用してオペレーティング システム ディスクを作成する場合、コンピューター名と仮想マシン名は同じになります。 以前構成されたオペレーティング システムが含まれる独自のイメージをアップロードして使用し、それを基に仮想マシンを作成する場合は、別の名前にすることができます。 独自のイメージ ファイルをアップロードするときは、ベスト プラクティスとして、オペレーティング システムのコンピューター名と仮想マシン名が同じであることを確認します。
+Azure Stack を使用してオペレーティング システム ディスクを作成する場合、コンピューター名と VM 名は同じになります。 以前構成されたオペレーティング システムが含まれる独自のイメージをアップロードして使用し、それを基に VM を作成する場合は、別の名前にすることができます。 独自のイメージ ファイルをアップロードするときは、ベスト プラクティスとして、オペレーティング システムのコンピューター名と VM 名が同じであることを確認します。
 
 ### <a name="vm-size"></a>VM サイズ
 
@@ -62,7 +62,7 @@ Azure Stack を使用してオペレーティング システム ディスクを
 
 ### <a name="operating-system-disks-and-images"></a>オペレーティング システム ディスクおよびイメージ
 
-仮想マシンは、仮想ハード ディスク (VHD) を使用して、オペレーティング システム (OS) およびデータを保存します。 VHD は、OS をインストールするために選択できるイメージの保存にも使用できます。 Azure Stack には、オペレーティング システムのさまざまなバージョンと種類で使用できるマーケットプレースが用意されています。 Marketplace イメージは、イメージの発行元、プラン、SKU、およびバージョン (通常は**最新バージョン**として指定) によって識別されます。
+VM は、仮想ハード ディスク (VHD) を使用して、オペレーティング システム (OS) およびデータを格納します。 VHD は、OS をインストールするために選択するイメージの保存にも使用できます。 Azure Stack には、オペレーティング システムのさまざまなバージョンと種類で使用できるマーケットプレースが用意されています。 Marketplace イメージは、イメージの発行元、オファー、SKU、およびバージョン (通常、最新バージョンは**最新**として指定) によって識別されます。
 
 次の表に、イメージに関する情報を見つける方法を示します。
 
@@ -72,7 +72,7 @@ Azure Stack を使用してオペレーティング システム ディスクを
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST API     |[イメージ発行元の一覧表示](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[イメージ プランの一覧表示](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[イメージ SKU の一覧表示](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
-独自のイメージをアップロードして使用することもできます。 その場合、発行元の名前、プラン、および SKU は使用されません。
+独自のイメージをアップロードして使用することもできます。 その場合、発行元の名前、オファー、および SKU は使用されません。
 
 ### <a name="extensions"></a>Extensions
 
@@ -92,11 +92,11 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 |Resource|必須|説明|
 |---------|---------|---------|
 |リソース グループ|はい|VM は、リソース グループに含まれる必要があります。|
-|ストレージ アカウント|いいえ |マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
+|ストレージ アカウント|いいえ|マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
 |仮想ネットワーク|はい|VM は、仮想ネットワークのメンバーである必要があります。|
-|パブリック IP アドレス|いいえ |VM には、リモートでアクセスするためのパブリック IP アドレスを割り当てることができます。|
+|パブリック IP アドレス|いいえ|VM には、リモートでアクセスするためのパブリック IP アドレスを割り当てることができます。|
 |Linux|はい|VM には、ネットワークで通信するためのネットワーク インターフェイスが必要です。|
-|データ ディスク|いいえ |VM には、ストレージ容量を拡張するためのデータ ディスクを含めることができます。|
+|データ ディスク|いいえ|VM には、ストレージ容量を拡張するためのデータ ディスクを含めることができます。|
 
 ## <a name="create-your-first-vm"></a>最初の VM の作成
 
@@ -104,10 +104,10 @@ VM の作成方法にはいくつかの選択肢があります。 どれを選�
 
 |Method|記事|
 |---------|---------|
-|Azure Stack ポータル|Azure Stack ポータルで Windows 仮想マシンを作成する<br>[Azure Stack ポータルで Linux 仮想マシンを作成する](azure-stack-quick-linux-portal.md)|
-|テンプレート|Azure Stack のクイック スタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStart-Templates)|
-|PowerShell|[Azure Stack で PowerShell を使用して Windows 仮想マシンを作成する](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure Stack で PowerShell を使用して Linux 仮想マシンを作成する](azure-stack-quick-create-vm-linux-powershell.md)|
-|CLI|[Azure Stack で CLI を使用して Windows 仮想マシンを作成する](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure Stack で CLI を使用して Linux 仮想マシンを作成する](azure-stack-quick-create-vm-linux-cli.md)|
+|Azure Stack ポータル|Azure Stack ポータルを使用して Windows VM を作成する<br>[Azure Stack ポータルを使用して Linux VM を作成する](azure-stack-quick-linux-portal.md)|
+|テンプレート|Azure Stack のクイック スタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
+|PowerShell|[Azure Stack で PowerShell を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure Stack で PowerShell を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-powershell.md)|
+|CLI|[Azure Stack で CLI を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure Stack で CLI を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>VM の管理
 
@@ -134,4 +134,4 @@ Azure Stack ポータルの **[接続]** ボタンを使用して、VM に接続
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)
+- [Azure Stack の VM に関する考慮事項](azure-stack-vm-considerations.md)

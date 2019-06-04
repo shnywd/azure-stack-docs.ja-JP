@@ -1,6 +1,6 @@
 ---
 title: ユーザーとして PowerShell を使用して Azure Stack に接続する | Microsoft Docs
-description: PowerShell を使用して Azure Stack に接続する手順。
+description: PowerShell を使用して Azure Stack に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,26 +15,26 @@ ms.date: 04/26/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 855d7c03f4a18c4409d36b8ac5fd702c8549e413
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c9ef9c1e936c71a8b0a2a0eb636da1eac5bf69da
+ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986244"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66197322"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>ユーザーとして PowerShell を使用して Azure Stack に接続する
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
-PowerShell を使用して Azure Stack に接続できます。 Azure Stack リソースを管理するには、PowerShell を使用して接続する必要があります。 たとえば、PowerShell を使用し、オファーをサブスクライブしたり、仮想マシンを作成したり、Azure Resource Manager テンプレートをデプロイしたりできます。
+PowerShell を使用して Azure Stack に接続し、Azure Stack リソースを管理することができます。 たとえば、PowerShell を使用し、オファーをサブスクライブしたり、仮想マシン (VM) を作成したり、Azure Resource Manager テンプレートをデプロイしたりできます。
 
-設定の方法：
+セットアップするには:
   - 要件を満たしていることをご確認ください。
   - Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) と接続します。 
   - リソース プロバイダーを登録します。
   - 接続をテストします。
 
-## <a name="prerequisites-to-connect-using-powershell"></a>PowerShell を使用して接続するための前提条件
+## <a name="prerequisites-to-connecting-with-powershell"></a>PowerShell と接続するための前提条件
 
 次の前提条件は[開発キット](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)から構成するか、[VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は Windows ベースの外部クライアントから構成します。
 
@@ -44,11 +44,11 @@ PowerShell を使用して Azure Stack に接続できます。 Azure Stack リ�
 次のスクリプト変数を自分の Azure Stack 構成の値に必ず変更してください。
 
 - **Azure AD テナントの名前**  
-  Azure Stack の管理に使用する Azure AD テナントの名前 (yourdirectory.onmicrosoft.com など)。
+  Azure Stack の管理に使用される Azure AD テナントの名前。 たとえば、yourdirectory.onmicrosoft.com です。
 - **Azure Resource Manager エンドポイント**  
   Azure Stack 開発キットの場合、この値は https://management.local.azurestack.external に設定されます。 Azure Stack 統合システムのこの値を取得するには、サービス プロバイダーにお問い合わせください。
 
-## <a name="connect-with-azure-ad"></a>Azure AD との接続
+## <a name="connect-to-azure-stack-with-azure-ad"></a>Azure AD を使用して Azure Stack に接続する
 
 ```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
@@ -62,7 +62,7 @@ PowerShell を使用して Azure Stack に接続できます。 Azure Stack リ�
     Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
-## <a name="connect-with-ad-fs"></a>AD FS を使用した接続
+## <a name="connect-to-azure-stack-with-ad-fs"></a>AD FS を使用して Azure Stack に接続する
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
@@ -86,7 +86,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
-すべてが整ったら、PowerShell を使って接続をテストし、Azure Stack でリソースを作成します。 テストとして、アプリケーションのリソース グループを作成し、仮想マシンを追加します。 次のコマンドを実行し、"MyResourceGroup" という名前のリソース グループを作成します。
+すべてのセットアップが完了したら、PowerShell を使って接続をテストし、Azure Stack でリソースを作成します。 テストとして、アプリケーションのリソース グループを作成し、VM を追加します。 次のコマンドを実行し、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"

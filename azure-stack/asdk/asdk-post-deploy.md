@@ -3,7 +3,7 @@ title: Azure Stack Development Kit (ASDK) のデプロイ後の構成 | Microsof
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,19 +13,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: mabrigg
+ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 308edbc351b52d94842a1a96602371f6edb8ff5d
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 3d6b7ff0d52874fcbb058e87a737d7510aecc5db
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617525"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66267565"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK インストール後の構成タスク
 
-[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインイン中に、いくつかのインストール後の構成変更を行う必要があります。 
+[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインイン中に、いくつかのインストール後の構成変更を行う必要があります。
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
 
@@ -37,7 +37,7 @@ Azure Stack 用の PowerShell コマンドは、PowerShell ギャラリーを介
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-API バージョン プロファイルを使用して、Azure Stack と互換性のある AzureRM モジュールを指定できます。  API バージョンのプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の AzureRM PowerShell モジュールです。 PowerShell ギャラリーから入手できる **AzureRM.Bootstrapper** モジュールは、API バージョンのプロファイルを操作するために必要な PowerShell コマンドレットを提供します。
+API バージョン プロファイルを使用して、Azure Stack と互換性のある AzureRM モジュールを指定できます。  API バージョンのプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の AzureRM PowerShell モジュールです。 PowerShell ギャラリーから入手できる **AzureRM.BootStrapper** モジュールは、API バージョンのプロファイルを操作するために必要な PowerShell コマンドレットを提供します。
 
 ASDK ホスト コンピューターへのインターネット接続の有無にかかわらず、最新の Azure Stack PowerShell モジュールをインストールすることができます。
 
@@ -46,23 +46,22 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
 - ASDK ホスト コンピューターからの**インターネット接続がある場合**。 次の PowerShell スクリプトを実行して、これらのモジュールを開発キット インストールにインストールします。
 
-- 1904 ビルドまたはそれ以降の場合:
+  - 1904 ビルドまたはそれ以降の場合:
 
     ```powershell  
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
-      
+
       # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Get-AzureRMProfile -Update
       Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-- Azure Stack バージョン 1903 以前では、以下の 2 つのモジュールのみをインストールします。
+  - Azure Stack バージョン 1903 以前では、以下の 2 つのモジュールのみをインストールします。
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
@@ -72,8 +71,8 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
   - Azure Stack 1811:
 
     ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -119,12 +118,12 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  invoke-webrequest `
-    https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  Invoke-WebRequest `
+    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip -DestinationPath . -Force
+  Expand-Archive -Path master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
@@ -145,7 +144,7 @@ ASDK のデプロイが成功したことを確認するには、次の手順に
 
 エラーがあった場合は、トラブルシューティング手順に従ってヘルプを取得します。
 
-## <a name="reset-the-password-expiration-policy"></a>パスワードの有効期限ポリシーのリセット 
+## <a name="reset-the-password-expiration-policy"></a>パスワードの有効期限ポリシーのリセット
 
 開発キットのホストのパスワードが評価期間の終了前に期限切れにならないようにするには、ASDK のデプロイ後に次の手順を実行します。
 

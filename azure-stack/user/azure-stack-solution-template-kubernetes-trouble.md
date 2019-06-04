@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 0e02489bc9750183754b27887fa701d1dd1a8567
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 33eed0b574ad28c5fc0d1fb44f1c9b5a1ad37bb7
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712417"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269386"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes の Azure Stack へのデプロイのトラブルシューティング
 
@@ -45,8 +45,8 @@ ms.locfileid: "65712417"
 1. マーケットプレース項目から入力パラメーターを収集します。
 
     次のような Kubernetes クラスターの設定に必要な値を入力します。
-    -  **ユーザー名**: Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名。
-    -  **SSH 公開キー**: Kubernetes クラスターと DVM の一部として作成されたすべての Linux マシンの承認に使用されるキー。
+    -  **[ユーザー名]** : Kubernetes クラスターと DVM の一部である Linux 仮想マシン (VM) のユーザー名。
+    -  **[SSH 公開キー]** : Kubernetes クラスターと DVM の一部として作成されたすべての Linux マシンの承認に使用されるキー。
     -  **サービス プリンシパル**: Kubernetes Azure クラウド プロバイダーによって使用される ID。 サービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 
     -  **クライアント シークレット**: サービス プリンシパルを作成するときに作成したキー。
 
@@ -121,7 +121,7 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 ## <a name="review-deployment-logs"></a>デプロイ ログを確認する
 
-Azure Stack ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合は、次の手順として、クラスター ログで詳細を確認します。 デプロイ ログを手動で取得するには、通常、クラスターのマスター仮想マシンのいずれかに接続する必要があります。 より簡単な方法として、Azure Stack チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの仮想マシンに接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
+Azure Stack ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合は、次の手順として、クラスター ログで詳細を確認します。 デプロイ ログを手動で取得するには、通常、クラスターのマスター VM のいずれかに接続する必要があります。 より簡単な方法として、Azure Stack チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの VM に接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
 
 ### <a name="prerequisites"></a>前提条件
 
@@ -146,10 +146,10 @@ Azure Stack の管理に使用するマシンには Bash プロンプトが必�
 
     | パラメーター           | 説明                                                                                                      | 例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -d、--vmd-host      | DVM のパブリック IP または完全修飾ドメイン名 (FQDN)。 `vmd-` で開始する仮想マシン名。 | IP:192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -d、--vmd-host      | DVM のパブリック IP または完全修飾ドメイン名 (FQDN)。 VM 名は `vmd-` で始まります。 | IP:192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Print コマンドの使用方法。 | |
     | -i、--identity-file | Kubernetes クラスターの作成時にマーケットプレース項目に渡される RSA 秘密キー ファイル。 Kubernetes ノードにリモートからアクセスするために必要です。 | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
-    | -m、--master-host   | Kubernetes マスター ノードのパブリック IP または完全修飾ドメイン名 (FQDN)。 `k8s-master-` で開始する仮想マシン名。 | IP:192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
+    | -m、--master-host   | Kubernetes マスター ノードのパブリック IP または完全修飾ドメイン名 (FQDN)。 VM 名は `k8s-master-` で始まります。 | IP:192.168.102.37<br>FQDN: k8s-12345.local.cloudapp.azurestack.external      |
     | -u、--user          | Kubernetes クラスターの作成時にマーケットプレース項目に渡されるユーザー名。 Kubernetes ノードにリモートからアクセスするために必要です。 | azureuser (既定値) |
 
 
@@ -159,7 +159,7 @@ Azure Stack の管理に使用するマシンには Bash プロンプトが必�
     ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-4. 数分後に、スクリプトによって収集されたログが `KubernetesLogs_{{time-stamp}}` というディレクトリに出力されます。 そこに、クラスターに属している各仮想マシンのディレクトリがあります。
+4. 数分後に、スクリプトによって収集されたログが `KubernetesLogs_{{time-stamp}}` というディレクトリに出力されます。 そこに、クラスターに属している各 VM のディレクトリがあります。
 
     また、ログ コレクター スクリプトは、ログ ファイルでエラーを検索し、既知の問題を検出した場合はトラブルシューティング手順を含めます。 既知の問題が検出される可能性を高めるために、最新バージョンのスクリプトを実行してください。
 

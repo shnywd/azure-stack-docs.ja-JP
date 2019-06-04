@@ -3,7 +3,7 @@ title: Azure Stack での .NET SDK による API バージョンのプロファ�
 description: Azure Stack での .NET による API バージョンのプロファイルの使用について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,21 +13,21 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: mabrigg
+ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 1b81836c6262a73611ebfb2cc771ab74fd9f03fc
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: da93d2683805c6e9769a3d27a9e9ab3a4b998db5
+ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782747"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66269369"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Azure Stack での .NET による API バージョンのプロファイルの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack Resource Manager 向けの .NET SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 .NET SDK には、14 個の NuGet パッケージが含まれています。 これらのパッケージは、プロファイル情報を組み込むたびにプロジェクト ソリューションにダウンロードする必要があります。 ただし、アプリケーションのメモリを最適化するために、2018-03-01-hybrid または 2017-03-09-profile に使用するリソース プロバイダーを特別にダウンロードすることができます。 各パッケージは、リソース プロバイダー、それぞれの API バージョン、それが属する API プロファイルで構成されます。 .NET SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
+Azure Stack Resource Manager 向けの .NET SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 .NET SDK には、14 個の NuGet パッケージが含まれています。 これらのパッケージは、プロファイル情報を組み込むたびにプロジェクト ソリューションにダウンロードする必要があります。 ただし、アプリケーションのメモリを最適化するために、2019-03-01-hybrid または 2018-03-01-hybrid に使用するリソース プロバイダーを特別にダウンロードすることができます。 各パッケージは、リソース プロバイダー、それぞれの API バージョン、それが属する API プロファイルで構成されます。 .NET SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
 
 ## <a name="net-and-api-version-profiles"></a>.NET と API バージョンのプロファイル
 
@@ -35,11 +35,11 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 -   すべてのサービスの最新バージョンを使用するには、パッケージの **latest** プロファイルを使用します。 このプロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
--   Azure Stack と互換性のあるサービスを使用するには、**Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg** または **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg** パッケージを使用します。
-
-    -   各プロファイルのリソース プロバイダーごとに 2 つのパッケージがあります。
-
-    -   上記の NuGet パッケージの **ResourceProvider** 部分が適切なプロバイダーに変更されていることを確認します。
+-   Azure Stack と互換性のあるサービスを使用するには、次のいずれかのパッケージを使用します。
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+    - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+    
+    上記の NuGet パッケージの **ResourceProvider** 部分が適切なプロバイダーに変更されていることを確認します。
 
 -   サービスの最新の API バージョンを使用するには、特定の NuGet パッケージの **Latest** プロファイルを使用します。 たとえば、コンピュート サービスの **latest-API** バージョンを単独で使用する場合は、**compute** パッケージの **latest** プロファイルを使用します。 **latest** プロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
@@ -55,9 +55,9 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 3.  インストールする必要があるパッケージは、使用したいプロファイル バージョンによって異なります。 プロファイル バージョンのパッケージ名は次のとおりです。
 
-    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**
+    1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**
+    2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 4.  Visual Studio Code 用の適切な NuGet パッケージをインストールするには、次のリンクを参照して [NuGet パッケージ マネージャーについての指示][]をダウンロードしてください。
 
@@ -127,9 +127,9 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 ## <a name="existing-api-profiles"></a>既存の API プロファイル
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**:Azure Stack 用に作成された最新のプロファイル。 1808 以降のスタンプを使用している限り、Azure Stack との互換性に優れたサービスには、このプロファイルを使用します。
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**:Azure Stack 用に作成された最新のプロファイル。 1808 以降のスタンプを使用している限り、Azure Stack との互換性に優れたサービスには、このプロファイルを使用します。
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**:スタンプが 1808 ビルドよりも低い場合は、このプロファイルを使用します。
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 3.  **Latest**:すべてのサービスの最新バージョンで構成されているプロンプトファイル。 すべてのサービスの最新バージョンを使用してください。 このプロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
@@ -186,6 +186,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
     return settings;
 }
 ```
+
 これにより、API プロファイルの NuGet パッケージを使用して、アプリケーションを Azure Stack に正常にデプロイすることができます。
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
@@ -193,7 +194,7 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 次のサンプルは、.NET と Azure Stack API のプロファイルを使用してソリューションを作成するための参考資料として使用できます。
 - [リソース グループの管理](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [ストレージ アカウントの管理](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
-- [仮想マシンの管理](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm)
+- [仮想マシンを管理する](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (このサンプルでは、Azure Stack でサポートされている 2019-03-01-hybrid プロファイルを使用しています)
 
 ## <a name="next-steps"></a>次の手順
 
