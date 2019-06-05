@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 3d6b7ff0d52874fcbb058e87a737d7510aecc5db
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
+ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267565"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66411471"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK インストール後の構成タスク
 
@@ -49,6 +49,9 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
   - 1904 ビルドまたはそれ以降の場合:
 
     ```powershell  
+      Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+      Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
 

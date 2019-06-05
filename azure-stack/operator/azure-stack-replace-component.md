@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: ea316ebdba51ea80fcd02382023ccb46447a8cc0
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 0e1f379b651d022b2c698777a7d8708ff33bf76f
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984817"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469157"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Azure Stack スケール ユニット ノードのハードウェア コンポーネントを交換する
 
@@ -70,7 +70,7 @@ Azure Stack の正常性および監視システムは、記憶域スペース �
 4. 破損したハードウェア コンポーネントを交換します。 OEM ハードウェア ベンダーがコンポーネントの交換を行うかどうかは、サポート契約に応じて異なる場合があります。  
 5. ファームウェアを更新します。 ハードウェア ライフサイクル ホストを使用するベンダー固有のファームウェア更新プロセスに従って、交換したハードウェア コンポーネントに承認されたファームウェア レベルが適用されていることを確認します。 OEM ハードウェア ベンダーがこの手順を行うかどうかは、サポート契約に応じて異なる場合があります。  
 6. [修復](azure-stack-node-actions.md#scale-unit-node-actions)アクションを使用して、スケール ユニット ノードをスケール ユニットに戻します。
-7. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
+7. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
 8. 修復アクションが完了したら、すべてのアクティブなアラートが自動的に閉じていることを確認します。
 
 ## <a name="next-steps"></a>次の手順

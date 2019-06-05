@@ -5,19 +5,19 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/04/2019
+ms.date: 06/03/2019
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
-ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: fe465abed3d8fd506df23534cd4139b39978111c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/03/2019
+ms.openlocfilehash: 8f173ad486ed7fc1a4dae3c9a1c57f77ca623f0d
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986277"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459083"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Azure Stack 上に Ethereum ブロックチェーン ネットワークをデプロイする
 
@@ -57,7 +57,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 コンソーシアム リーダー テンプレートは、ネットワーク内の最初のメンバーのフットプリントを構成します。 
 
 1. [リーダー テンプレートを GitHub から](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)ダウンロードします
-2. Azure Stack テナント ポータルで、**[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
     
@@ -89,7 +89,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     BASEURL | 依存するテンプレートを取得するためのベース URL。 | デプロイ テンプレートをカスタマイズする場合を除き、既定値を使用します。 | 
 
 7. **[OK]** を選択します。
-8. **[カスタム デプロイ]** で、**[サブスクリプション]**、**[リソース グループ]**、および **[リソース グループの場所]** を指定します。
+8. **[カスタム デプロイ]** で、 **[サブスクリプション]** 、 **[リソース グループ]** 、および **[リソース グループの場所]** を指定します。
     
     ![リーダーのデプロイ パラメーター](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
@@ -112,7 +112,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 ### <a name="joining-consortium-member-deployment"></a>コンソーシアム メンバー参加デプロイ
 
 1. [コンソーシアム メンバー テンプレートを GitHub から](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)ダウンロードします
-2. Azure Stack テナント ポータルで、**[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
 5. **[保存]** を選択します。
@@ -139,7 +139,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     BASEURL | テンプレートのベース URL。 | デプロイ テンプレートをカスタマイズする場合を除き、既定値を使用します。 | 
 
 7. **[OK]** を選択します。
-8. **[カスタム デプロイ]** で、**[サブスクリプション]**、**[リソース グループ]**、および **[リソース グループの場所]** を指定します。
+8. **[カスタム デプロイ]** で、 **[サブスクリプション]** 、 **[リソース グループ]** 、および **[リソース グループの場所]** を指定します。
 
     パラメーター名 | 説明 | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
@@ -164,7 +164,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 このテンプレートは、リーダーからリモート メンバーへの接続を作成します。 
 
 1. [メンバーとリーダーの接続テンプレートを GitHub から](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)ダウンロードします
-2. Azure Stack テナント ポータルで、**[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
     
@@ -187,7 +187,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     BASEURL | テンプレートのベース URL。 | デプロイ テンプレートをカスタマイズする場合を除き、既定値を使用します。 | 
 
 7. **[OK]** を選択します。
-8. **[カスタム デプロイ]** で、**[サブスクリプション]**、**[リソース グループ]**、および **[リソース グループの場所]** を指定します。
+8. **[カスタム デプロイ]** で、 **[サブスクリプション]** 、 **[リソース グループ]** 、および **[リソース グループの場所]** を指定します。
     
     ![デプロイの接続パラメーター](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 

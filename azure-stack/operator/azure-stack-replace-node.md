@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 72449e25bf1787f686da786bc587b57a2a28254c
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782375"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469205"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Azure Stack 統合システムのスケール ユニット ノードを交換する
 
@@ -69,7 +69,7 @@ ms.locfileid: "65782375"
 
 4. 物理コンピューターを交換します。 通常、これは OEM ハードウェア ベンダーによって行われます。
 5. [修復](azure-stack-node-actions.md#repair)アクションを使用して、新しい物理コンピューターをスケール ユニットに追加します。
-6. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
+6. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
 7. 修復アクションが完了したら、すべてのアクティブなアラートが自動的に閉じていることを確認します。
 
 ## <a name="next-steps"></a>次の手順
