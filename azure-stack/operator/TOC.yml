@@ -15,7 +15,13 @@
         - name: 更新プログラムを適用するためのチェックリスト
           href: azure-stack-release-notes-checklist.md
         - name: セキュリティ更新プログラム
-          href: azure-stack-release-notes-security-updates-1904.md
+          href: azure-stack-release-notes-security-updates-1905.md
+        - name: 1905 更新プログラム
+          items:
+            - name: リリース ノート
+              href: azure-stack-release-notes-1905.md
+            - name: 既知の問題
+              href: azure-stack-release-notes-known-issues-1905.md
         - name: 1904 更新プログラム
           items:
             - name: リリース ノート
@@ -26,8 +32,6 @@
           href: azure-stack-update-1903.md
         - name: 1902 更新プログラム
           href: azure-stack-update-1902.md
-        - name: 1901 更新プログラム
-          href: azure-stack-update-1901.md
 - name: クイック スタート
   expanded: true
   items:
@@ -391,14 +395,18 @@
           href: azure-stack-backup-best-practices.md
         - name: バックアップの参照
           href: azure-stack-backup-reference.md
-    - name: トラブルシューティング
+    - name: サポートを受ける
       items:
-        - name: 既知の問題
-          href: azure-stack-troubleshooting.md
-        - name: Azure Stack の診断
-          href: azure-stack-diagnostics.md
-        - name: Azure Stack に対する検証
-          href: azure-stack-diagnostic-test.md
+        - name: ヘルプとサポート
+          href: azure-stack-help-and-support-overview.md
+        - name: トラブルシューティング
+          items:
+            - name: 既知の問題
+              href: azure-stack-troubleshooting.md
+            - name: Azure Stack の診断
+              href: azure-stack-diagnostics.md
+            - name: Azure Stack に対する検証
+              href: azure-stack-diagnostic-test.md
 - name: リファレンス
   items:
     - name: Azure Stack PowerShell
