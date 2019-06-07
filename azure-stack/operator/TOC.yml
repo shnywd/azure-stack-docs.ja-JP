@@ -419,6 +419,8 @@
       href: /azure-stack/asdk/
 - name: リソース
   items:
+    - name: トレーニングと認定
+      href: azure-stack-train-and-cert.md
     - name: Azure Stack のロードマップ
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
     - name: Azure Stack の MSDN フォーラム
@@ -429,5 +431,3 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: スタック オーバーフロー
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
-    - name: トレーニングと認定
-      href: azure-stack-train-and-cert.md
