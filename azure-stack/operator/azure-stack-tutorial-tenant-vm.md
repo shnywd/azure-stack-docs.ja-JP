@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: b39eaf4365f74e59c6dd60db67fdadf1162cb91d
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3719019ebdbc6edad17c523a937d77d4f11bb02a
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268132"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469221"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>チュートリアル: Azure Stack ユーザーが仮想マシンを使用できるようにする
 
@@ -41,7 +41,7 @@ Azure Stack では、サブスクリプション、オファー、プランを�
 
 ![サブスクリプション、オファー、およびプラン](media/azure-stack-key-features/image4.png)
 
-詳細については、「[Azure Stack の主要な機能と概念](azure-stack-overview.md)」を参照してください。
+詳細については、「[プラン、オファー、クォータ、サブスクリプションの概要](azure-stack-plan-offer-quota-overview.md)」を参照してください。
 
 ## <a name="create-an-offer"></a>オファーの作成
 
