@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 09aa51c329f7f4fd7004312092ff09c9ceb091d7
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984083"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828421"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Azure Stack の AD FS 統合を検証する
 
@@ -63,7 +63,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. PowerShell プロンプトから次のコマンドを実行して、検証を開始します。 フェデレーション メタデータの URI として、**-CustomADFSFederationMetadataEndpointUri** の値を指定します。
+1. PowerShell プロンプトから次のコマンドを実行して、検証を開始します。 フェデレーション メタデータの URI として、 **-CustomADFSFederationMetadataEndpointUri** の値を指定します。
 
      `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 

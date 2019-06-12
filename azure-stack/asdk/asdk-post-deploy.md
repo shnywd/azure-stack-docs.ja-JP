@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 6d930c99890f8cf0be7b2a47199772c58a10b34d
-ms.sourcegitcommit: 4e0b450c91c6515794b663a39f9a4b8b49999918
+ms.openlocfilehash: aac9bb8edce4b15d3d058cdb3b6cc6e23aa58493
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66411471"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835009"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK インストール後の構成タスク
 
@@ -146,28 +146,6 @@ ASDK のデプロイが成功したことを確認するには、次の手順に
 ![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
 
 エラーがあった場合は、トラブルシューティング手順に従ってヘルプを取得します。
-
-## <a name="reset-the-password-expiration-policy"></a>パスワードの有効期限ポリシーのリセット
-
-開発キットのホストのパスワードが評価期間の終了前に期限切れにならないようにするには、ASDK のデプロイ後に次の手順を実行します。
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>Powershell からパスワードの有効期限ポリシーを変更するには、次のようにします。
-
-管理者特権の PowerShell コンソールで、次のコマンドを実行します。
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>パスワードの有効期限ポリシーを手動で変更するには、次のようにします。
-
-1. 開発キットのホストで、 **[グループ ポリシーの管理]** (GPMC.MMC) を開き、 **[グループ ポリシーの管理]**  -  **[フォレスト: azurestack.local]**  -  **[ドメイン]**  -  **[azurestack.local]** の順に移動します。
-2. **[既定のドメイン ポリシー]** を右クリックし、 **[編集]** をクリックします。
-3. グループ ポリシー管理エディターで、 **[コンピューターの構成]**  -  **[ポリシー]**  -  **[Windows の設定]**  -  **[セキュリティの設定]**  -  **[アカウント ポリシー]**  -  **[パスワード ポリシー]** の順に移動します。
-4. 右側のウィンドウの **[パスワードの有効期間]** をダブルクリックします。
-5. **[Maximum password age Properties]\(パスワードの有効期間プロパティ\)** ダイアログ ボックスで、 **[パスワードの有効期限]** の値を **180** に変更し、 **[OK]** をクリックします。
-
-![グループ ポリシー管理コンソール](media/asdk-post-deploy/gpmc.png)
 
 ## <a name="enable-multi-tenancy"></a>マルチテナントの有効化
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: a839faa7ec5a93a506ad967f3449ee1788f1a21a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618499"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469162"
 ---
 # <a name="network-connectivity"></a>ネットワーク接続
 この記事では、Azure Stack を既存のネットワーク環境に統合する最善の方法を決定するために役立つ Azure Stack ネットワーク インフラストラクチャの情報を提供します。 
@@ -30,7 +30,7 @@ ms.locfileid: "65618499"
 > Azure Stack から外部の DNS 名 (たとえば www\.bing.com) を解決するには、DNS 要求を転送するための DNS サーバーを提供する必要があります。 Azure Stack の DNS 要件の詳細については、「[Azure Stack とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)」をご覧ください。
 
 ## <a name="physical-network-design"></a>物理ネットワークの設計
-Azure Stack ソリューションには、その操作やサービスをサポートするための回復性と可用性の高い物理インフラストラクチャが必要です。 ToR から境界スイッチへのアップリンクは、SFP + または SFP28 メディア、1 GB、10 GB、または 25 GB の速度に制限されます。 OEM (Original Equipment Manufacturer) ハードウェア ベンダーに可用性を確認してください。 推奨される設計を次の図に示します。
+Azure Stack ソリューションには、その操作やサービスをサポートするための回復性と可用性の高い物理インフラストラクチャが必要です。 ToR から境界スイッチへのアップリンクは、SFP+ または SFP28 メディア、1 GB、10 GB、または 25 GB の速度に制限されます。 OEM (Original Equipment Manufacturer) ハードウェア ベンダーに可用性を確認してください。 推奨される設計を次の図に示します。
 
 ![推奨される Azure Stack ネットワークの設計](media/azure-stack-network/recommended-design.png)
 
@@ -78,12 +78,28 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 この /29 (6 つのホスト IP) ネットワークは、スイッチの管理ポートの接続専用です。 これにより、デプロイ、管理、およびトラブルシューティングのためのアウトオブバンド アクセスが可能になります。 これは、上で説明したスイッチ インフラストラクチャ ネットワークから計算されます。
 
 ## <a name="publish-azure-stack-services"></a>Azure Stack サービスの公開
-Azure Stack の外部のユーザーに対して Azure Stack サービスを使用可能にする必要があります。 Azure Stack は、さまざまなエンドポイントをそのインフラストラクチャ ロールに応じて設定します。 それらのエンドポイントには、パブリック IP アドレス プールから VIP が割り当てられます。 デプロイ時に指定した外部 DNS ゾーン内のエンドポイントごとに DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal.*&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
+Azure Stack の外部のユーザーに対して Azure Stack サービスを使用可能にする必要があります。 Azure Stack は、さまざまなエンドポイントをそのインフラストラクチャ ロールに応じて設定します。 それらのエンドポイントには、パブリック IP アドレス プールから VIP が割り当てられます。 デプロイ時に指定した外部 DNS ゾーン内のエンドポイントごとに DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
 
 ### <a name="ports-and-urls"></a>ポートと URL
 Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークに対して使用可能にするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
  
 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、特定のポートと URL に[受信](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)および[送信](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)の両方の通信を許可する必要があります。 これには、ID、マーケットプレース、パッチと更新プログラム、登録、使用状況データに使用するポートと URL が該当します。
+
+### <a name="mac-address-pool"></a>MAC アドレス プール
+
+Azure Stack では、MAC アドレスを自動的に生成して仮想マシンに割り当てるために、静的 MAC アドレス プールが使用されます。
+この MAC アドレス プールは、デプロイ時に自動的に生成され、次の範囲を使用します。
+
+- StartMacAddress:00-1D-D8-B7-00-00
+- EndMacAddress:00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> この MAC アドレス プールは、各 Azure Stack システムで同じで、構成することはできません。
+
+仮想ネットワークと既存の企業ネットワークとの接続方法によっては、仮想マシンの MAC アドレスが重複することがあります。
+
+MAC アドレス プールの使用率に関する詳細情報は、Azure Stack Administrator の PowerShell モジュール内のコマンドレット [Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) を使用して確認できます。
+
 
 ## <a name="next-steps"></a>次の手順
 [境界接続](azure-stack-border-connectivity.md)

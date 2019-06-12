@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 087b7b8a5b307c5be56774024c99369286ae321d
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986176"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748974"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack ストレージのデータ転送ツールの使用
 
@@ -67,7 +67,7 @@ AzCopy ユーティリティには、2 つのバージョンがあります。Wi
  - **Linux での AzCopy**
 
     - Azure と同様の方法で、Azure Stack 上で AzCopy をインストールして使用することができます 詳細については、[Linux での AzCopy](/azure/storage/common/storage-use-azcopy-linux) に関するページを参照してください。
-    - 以前のバージョン (1802 から 1809 までの更新プログラム) については、「[AzCopy 7.1 以前のバージョンのインストール手順](/azure/storage/common/storage-use-azcopy-linux#installation-steps-for-azcopy-71-and-earlier-versions)」を参照してください。
+    - 以前のバージョン (1802 から 1809 までの更新プログラム) については、「[AzCopy 7.1 以前のバージョンのインストール手順](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy)」を参照してください。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>データ転送するための AzCopy コマンドの例
 
@@ -150,7 +150,7 @@ Azure Stack を使用するには、Azure Stack と互換性のある Azure Powe
 
 1. [Azure Stack と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
 2. [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
-3. **Windows PowerShell ISE** を開いて、**管理者として実行し**、**[ファイル]** > **[新規作成]** の順にクリックして、新しいスクリプト ファイルを作成します。
+3. **Windows PowerShell ISE** を開いて、**管理者として実行し**、 **[ファイル]**  >  **[新規作成]** の順にクリックして、新しいスクリプト ファイルを作成します。
 4. 次のスクリプトをコピーして新しいスクリプト ファイルに貼り付けます。
 5. 構成設定に基づいてスクリプト変数を更新します。
    > [!NOTE]

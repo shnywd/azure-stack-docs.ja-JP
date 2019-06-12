@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: bryanr
-ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: a35b16d2c862547ffed340f3e06dc769e373eb85
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 8547c1aea70d7b72538b5a681e7c8dd4b4d10a02
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64309595"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828309"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack でのマルチテナント
 
@@ -110,7 +110,7 @@ Register-AzSWithMyDirectoryTenant `
 
 あなたとメアリーの両方が Fabrikam ディレクトリのオンボード手順を完了したので、メアリーは Fabrikam のユーザーをサインインに誘導することができます。  Fabrikam のユーザー (つまり、fabrikam.onmicrosoft.com のサフィックスを持つユーザー) は、 https://portal.local.azurestack.external にアクセスしてサインインします。  
 
-メアリーは、Fabrikam ディレクトリの [外部プリンシパル]((/azure/role-based-access-control/rbac-and-directory-admin-roles) (つまり、fabrikam.onmicrosoft.com のサフィックスを持たない Fabrikam ディレクトリのユーザー) はすべて、 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com を使用してサインインするよう誘導します。  この URL を使用しない場合、これらのユーザーは自分の既定のディレクトリ (Fabrikam) に送信され、管理者が同意していないことを示すエラーを受信します。
+メアリーは、Fabrikam ディレクトリの[外部プリンシパル](/azure/role-based-access-control/rbac-and-directory-admin-roles) (つまり、fabrikam.onmicrosoft.com のサフィックスを持たない Fabrikam ディレクトリのユーザー) はすべて、 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com を使用してサインインするよう誘導します。  この URL を使用しない場合、これらのユーザーは自分の既定のディレクトリ (Fabrikam) に送信され、管理者が同意していないことを示すエラーを受信します。
 
 ## <a name="disable-multi-tenancy"></a>マルチテナントの無効化
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/01/2019
-ms.openlocfilehash: 935f144ebbb40da66ac43fc8e9d5dfc7c3e3d0b6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64983592"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428689"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -37,6 +37,15 @@ ms.locfileid: "64983592"
 - このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1904.md#whats-in-this-update)を参照してください。
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- 登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるため、正常に [ASDK を登録](asdk-register.md)するには、**RegisterWithAzure.psm1** PowerShell スクリプトを編集する必要があります。 以下の手順を実行します。
+
+  1. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
+  2. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 これが必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるためです。 1249 行目は次のようになります。
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
 
 - [このリリース 1902](#known-issues) で特定された VPN 接続の問題が修正されました。
 
@@ -67,7 +76,7 @@ ms.locfileid: "64983592"
 
 ### <a name="known-issues"></a>既知の問題
 
-- [この記事](asdk-connect.md)の手順を使用して別のホストから ASDK へのVPN 接続を確立する際に問題が発生します。 VPN クライアントから ASDK 環境に接続しようとすると、正しいアカウントを使用し、パスワードを正しく入力した場合でも、**[ユーザー名またはパスワードが正しくありません]** というエラーが表示されます。 この問題は、お使いの資格情報ではなく、ASDK の VPN 接続に使用される認証プロトコルの変更で発生します。 この問題を回避するには、次の手順を実行します。
+- [この記事](asdk-connect.md)の手順を使用して別のホストから ASDK へのVPN 接続を確立する際に問題が発生します。 VPN クライアントから ASDK 環境に接続しようとすると、正しいアカウントを使用し、パスワードを正しく入力した場合でも、 **[ユーザー名またはパスワードが正しくありません]** というエラーが表示されます。 この問題は、お使いの資格情報ではなく、ASDK の VPN 接続に使用される認証プロトコルの変更で発生します。 この問題を回避するには、次の手順を実行します。
 
    まず、ASDK のサーバー側で使用される認証プロトコルを変更します。
 
@@ -96,7 +105,7 @@ ms.locfileid: "64983592"
 
    3. 変更を保存してから、**azurestack.connect.psm1** モジュールを再インポートします。
    4. [この記事](asdk-connect.md#set-up-vpn-connectivity)の手順に従ってください。
-   5. VPN 経由で ASDK に接続する場合、タスクバーから接続するのではなく、Windows の **[ネットワークとインターネットの設定]**、**[VPN]** の順に移動して接続し、認証情報を求められるようにします。
+   5. VPN 経由で ASDK に接続する場合、タスクバーから接続するのではなく、Windows の **[ネットワークとインターネットの設定]** 、 **[VPN]** の順に移動して接続し、認証情報を求められるようにします。
 
 - 内部ロード バランサー (ILB) を宛先としたパケットが 1,450 バイトを上回る場合にドロップする問題が発見されています。 この問題は、ホストの MTU の設定が、ロールを走査するカプセル化された VXLAN パケットに対応できないほど低い値になっていることが原因となって発生します。この設定は、1901 の時点でホストに移行されました。 この問題が発生することが確認されているシナリオは少なくとも 2 つあります。
 

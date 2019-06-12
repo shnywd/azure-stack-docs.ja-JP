@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3f177ea0c261771b67e6434215df67211452b767
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307249"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459075"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace の Windows Server に関する FAQ
+# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
 
-この記事では、[Azure Stack Marketplace](azure-stack-marketplace.md) の Windows Server イメージについてよく寄せられるいくつかの質問に回答します。
+この記事では、[Azure Stack Marketplace](azure-stack-marketplace.md) 内の Windows Server イメージについてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
 
@@ -32,7 +32,7 @@ ms.locfileid: "64307249"
 
 まず、Azure Resource Manager テンプレートが特定のバージョンを参照しているかどうかを確認します。 該当する場合は、それらのテンプレートを更新するか、以前のバージョンのイメージを維持します。 **version: latest** を使用することをお勧めします。
 
-次に、Virtual Machine Scale Sets が特定のバージョンを参照している場合、これらを後でスケーリングするかどうかを検討し、さらに以前のバージョンを維持するかどうかを決める必要があります。 どの条件も該当しない場合は、新しいイメージをダウンロードする前に、以前のイメージを Marketplace で削除してください。 元のイメージのダウンロードに [Marketplace Management]\(Marketplace の管理\) を使用した場合は、それを使って行ってください。 そのうえで、新しいバージョンをダウンロードします。
+次に、仮想マシン スケール セットが特定のバージョンを参照している場合、これらを後でスケーリングするかどうかを検討し、さらに以前のバージョンを維持するかどうかを決める必要があります。 どの条件も該当しない場合は、新しいイメージをダウンロードする前に、Marketplace 内の以前のイメージを削除してください。 元のイメージのダウンロードに Marketplace 管理を使用した場合は、それを使って行ってください。 そのうえで、新しいバージョンをダウンロードします。
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack における Windows Server Marketplace イメージのライセンス オプションを教えてください。
 
@@ -40,14 +40,14 @@ Microsoft は、次の 2 つのバージョンの Windows Server イメージを
 
 - **従量課金制**: これらのイメージでは、正規の価格の Windows メーターが実行されます。
    対象ユーザーとしては、"*使用量課金モデル*" を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
-- **ライセンス持ち込み (BYOL)**: これらのイメージでは、基本メーターが実行されます。
+- **ライセンス持ち込み (BYOL)** : これらのイメージでは、基本メーターが実行されます。
    対象ユーザーとしては、Windows Server ライセンスを所有する EA のお客様や、SPLA ライセンスを使用する CSP にお勧めします。
 
 Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポートされません。 "容量" モデルを通じてライセンスを受けるお客様は、BYOL イメージを使用する必要があります。 Azure Stack Development Kit (ASDK) を使ってテストを行う場合は、どちらのオプションを使用してもかまいません。
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>テナント/ユーザーに提供する場合に間違ったバージョンをダウンロードした場合はどうすればよいですか?
 
-まず、[Marketplace Management]\(Marketplace の管理\) から、間違ったバージョンを削除します。 完了するまでお待ちください ([Marketplace Management]\(Marketplace の管理\) ブレードではなく、通知を見て完了を確認してください)。 そのうえで、正しいバージョンをダウンロードします。
+まず、[Marketplace Management]\(Marketplace の管理\) から、間違ったバージョンを削除します。 完了するまでお待ちください ( **[Marketplace Management]\(Marketplace の管理\)** ブレードではなく、通知を見て完了を確認してください)。 そのうえで、正しいバージョンをダウンロードします。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>実際にはライセンスを持っていないにもかかわらず、ユーザーが間違って以前の Windows ビルドの [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにしてしまった場合はどうすればよいですか?
 
@@ -70,7 +70,7 @@ Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポート
 Azure Stack で Windows Server 仮想マシンのライセンス認証を行うには、次の条件が満たされている必要があります。
 
 - Azure Stack のすべてのホスト システムに対し、OEM によって適切な BIOS マーカーが設定されていること。
-- Windows Server 2012 R2 および Windows Server 2016 で[仮想マシンの自動ライセンス認証](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))が使用されていること。 キー管理サービス (KMS) などのライセンス認証サービスは、Azure Stack ではサポートされていません。
+- Windows Server 2012 R2 および Windows Server 2016 で[仮想マシンの自動ライセンス認証](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))が使用されていること。 キー管理サービス (KMS) などのライセンス認証サービスは、Azure Stack ではサポートされていません。
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>自分の仮想マシンがライセンス認証されたことは、どのようにして確認できますか?
 
@@ -90,7 +90,7 @@ slmgr /dlv
 slmgr /ipk <AVMA key>
 ```
 
-イメージに使用するキーについては、記事「[Automatic Virtual Machine Activation (仮想マシンの自動ライセンス認証)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))」を参照してください。
+イメージに使用するキーについては、記事「[Automatic Virtual Machine Activation (仮想マシンの自動ライセンス認証)](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))」を参照してください。
 
 ### <a name="i-create-my-own-windows-server-images-how-can-i-make-sure-they-use-avma"></a>独自の Windows Server イメージを作成しています。確実に AVMA が使用されるようにするには、どうすればよいですか?
 
@@ -106,7 +106,7 @@ slmgr /ipk <AVMA key>
 
 ### <a name="what-about-earlier-versions-of-windows-server"></a>以前のバージョンの Windows Server についてはどうでしょうか?
 
-以前のバージョンの Windows Server では、[仮想マシンの自動ライセンス認証](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))はサポートされていません。 VM のライセンス認証を手動で行う必要があります。
+以前のバージョンの Windows Server では、[仮想マシンの自動ライセンス認証](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))はサポートされていません。 VM を手動でアクティブにする必要があります。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -11,23 +11,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/30/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 10fd52a85dd46002e40061c197641a716afa3230
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
+ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267692"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66428706"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack の登録
+
 Azure Stack Development Kit (ASDK) インストールを Azure に登録して Azure からマーケットプレース項目をダウンロードしたり、Microsoft に返送するコマース データを設定したりできます。 マーケットプレース シンジケーションを含む、Azure Stack のすべての機能をサポートするには、登録が必要です。 マーケットプレース シンジケーションや使用状況レポートなどの Azure Stack の重要な機能をテストできるようにするには、登録が必要です。 Azure Stack を登録すると、使用状況が Azure コマースにレポートされます。 使用状況は、登録に使用したサブスクリプションの下に表示されます。 ただし、ASDK のユーザーは、レポートする使用状況に対して課金されることはありません。
 
 自分の ASDK を登録しない場合、Azure Stack Development Kit を登録するように勧める警告アラート "**アクティブ化が必要**" が表示されます。 これは正しい動作です。
 
 ## <a name="prerequisites"></a>前提条件
+
 次の手順を使って Azure に ASDK を登録する前に、[デプロイ後の構成](asdk-post-deploy.md)の記事の説明に従って Azure Stack PowerShell をインストールし、Azure Stack ツールをダウンロードしたことを確認します。
 
 さらに、Azure に ASDK を登録するために使用されるコンピューター上で、PowerShell 言語モードを **FullLanguageMode** に設定する必要があります。 現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開き、次の PowerShell コマンドを実行します。
@@ -41,6 +43,7 @@ $ExecutionContext.SessionState.LanguageMode
 登録に使用される Azure AD アカウントは Azure サブスクリプションにアクセスできる必要があり、そのサブスクリプションに関連付けられているディレクトリで ID アプリケーションとサービス プリンシパルを作成するアクセス許可を持っている必要があります。 グローバル管理者の資格情報を使用するのではなく、[登録に使用するサービス アカウントを作成する](../operator/azure-stack-registration-role.md)ことで、最低限の特権による管理を使用し、Azure Stack を Azure に登録することをお勧めします。
 
 ## <a name="register-azure-stack-with-azure"></a>Azure を使用した Azure Stack の登録
+
 次の手順に従って、ASDK を Azure に登録します。
 
 > [!NOTE]
@@ -48,7 +51,15 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 管理者として PowerShell コンソールを開きます。  
 
-2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインする必要があります。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
+2. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
+
+3. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 これが必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こらないようにするためです。 1249 行目は次のようになります。
+
+   ```powershell
+   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+   ```
+
+4. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインする必要があります。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -75,18 +86,20 @@ $ExecutionContext.SessionState.LanguageMode
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
+
+5. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
     ![ご利用の環境がこれで登録されました](media/asdk-register/1.PNG)
 
-
 ## <a name="register-in-disconnected-environments"></a>切断された環境での登録
+
 切断された (インターネット接続のない) 環境で Azure Stack を登録している場合は、Azure Stack 環境から登録トークンを取得してから、Azure に接続し、ASDK 環境のアクティベーション リソースを作成できるコンピューターにそのトークンを使用する必要があります。
- 
+
  > [!IMPORTANT]
  > このような手順を使用して Azure Stack を登録する前に、[展開後の構成](asdk-post-deploy.md)の記事に従って、ASDK ホスト コンピューターと、Azure とレジスタへの接続に使用されるインターネット アクセスを備えたコンピューターの両方に PowerShell for Azure Stack をインストールし、Azure Stack ツールをダウンロードしておきます。
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack 環境から登録トークンを取得する
+
 ASDK ホスト コンピューター上で、管理者として PowerShell を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートし、**Get-AzsRegistrationToken** コマンドレットを使用して登録トークンを取得します。  
 
    ```powershell  
@@ -108,6 +121,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
 インターネット接続されたコンピューターで使用するためにこの登録トークンを保存します。 $FilePathForRegistrationToken パラメーターによって作成されたファイルからファイルまたはテキストをコピーできます。
 
 ### <a name="connect-to-azure-and-register"></a>Azure に接続して登録する
+
 インターネット接続されたコンピューターで、次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートしてから、作成した登録トークンと一意の登録名で **Register-AzsEnvironment** コマンドレットを使用して Azure に登録します。  
 
   ```powershell  
@@ -158,7 +172,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
 登録が完了したら、 **「Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)」** といったメッセージが表示されます。
 
 > [!IMPORTANT]
-> PowerShell ウィンドウを閉じないでください。 
+> PowerShell ウィンドウを閉じないでください。
 
 今後参照できるように登録トークンと登録リソース名を保存します。
 
@@ -175,6 +189,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
   -KeyOutputFilePath $KeyOutputFilePath
   ```
+
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack にアクティブ化リソースを作成する
 
 **Get-AzsActivationKey** から作成されたアクティブ化キーのファイルまたはテキストを使用して Azure Stack 環境に戻ります。 次の PowerShell コマンドを実行して、そのアクティブ化キーを使用して Azure Stack でアクティブ化リソースを作成します。   

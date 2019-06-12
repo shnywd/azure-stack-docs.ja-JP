@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7a599d3fdc68c6c41565111498108a202d8b3472
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252072"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66749040"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
 
@@ -207,7 +207,7 @@ App Service のポイント対サイト アドレス範囲からのトラフィ�
 
 クラウド間アプリケーション向けに DNS を適切に構成することで、ユーザーはグローバル Azure と Azure Stack の Web アプリ インスタンスにアクセスできます。 また、このチュートリアルの DNS 構成を使えば、負荷が増減したときに Azure Traffic Manager でトラフィックをルーティングすることも可能です。
 
-このチュートリアルでは、Azure DNS を使用して DNS を管理します  (App Service ドメインは機能しません)。
+このチュートリアルでは、Azure DNS を使用して DNS を管理します (App Service ドメインは機能しません)。
 
 ### <a name="create-subdomains"></a>サブドメインを作成する
 
@@ -237,7 +237,7 @@ Web アプリケーションによって収集される機密性の高いデー�
 
 Azure に SSL を追加するには、次の手順に従います。
 
-1. 作成したサブドメインに対し、取得した SSL 証明書が有効であることを確認します  (ワイルドカード証明書を使用してもかまいません)。
+1. 作成したサブドメインに対し、取得した SSL 証明書が有効であることを確認します (ワイルドカード証明書を使用してもかまいません)。
 
 2. Azure で、[Azure Web Apps への既存のカスタム SSL 証明書のバインド](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)に関する記事のセクション「**Web アプリの準備**」と「**SSL 証明書のバインド**」の手順に従います。 **[SSL の種類]** として **[SNI ベースの SSL]** を選択します。
 
@@ -255,7 +255,7 @@ Azure Stack に SSL を追加するには、次の手順に従います。
 
 1. Microsoft Visual Studio で Web アプリケーションを開きます。
 
-2. プロジェクトに [Application Insights を追加](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core#add-application-insights-telemetry)し、Web トラフィックが増減したときのアラートを生成するために Application Insights によって使用されるテレメトリが転送されるようにします。
+2. プロジェクトに [Application Insights を追加](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)し、Web トラフィックが増減したときのアラートを生成するために Application Insights によって使用されるテレメトリが転送されるようにします。
 
 ### <a name="configure-dynamic-connection-strings"></a>動的接続文字列を構成する
 
@@ -395,7 +395,7 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager エンドポイントの追加
 
-1. 作成した Traffic Manager プロファイルを検索します  (プロファイルのリソース グループに移動した場合は、プロファイルを選択してください)。
+1. 作成した Traffic Manager プロファイルを検索します (プロファイルのリソース グループに移動した場合は、プロファイルを選択してください)。
 
 2. **[Traffic Manager プロファイル]** の **[設定]** で、 **[エンドポイント]** を選択します。
 

@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 841e30367ded29e10c28573056f4a70361e28a9e
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782562"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469178"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack ネットワークに関する考慮事項
 
@@ -68,6 +68,7 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | アプリケーション セキュリティ グループ | サポートされています | まだサポートされていません。 |
 |  | 内部 DNS 名ラベル | サポートされています | まだサポートされていません。 |
 |  | プライベート IP アドレス バージョン | IPv6 と IPv4 の両方がサポートされています。 | IPv4 のみがサポートされています。 |
+|  | 静的 MAC アドレス | サポートされていません | サポートされていません。 各 Azure Stack システムでは、同じ MAC アドレス プールを使用します。 |
 | Network Watcher | Network Watcher テナント ネットワーク監視機能 | サポートされています | まだサポートされていません。 |
 | CDN | Content Delivery Network のプロファイル | サポートされています | まだサポートされていません。 |
 | Application gateway | レイヤー 7 の負荷分散 | サポートされています | まだサポートされていません。 |

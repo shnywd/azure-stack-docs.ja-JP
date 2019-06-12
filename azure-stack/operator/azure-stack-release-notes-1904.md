@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1904 リリース ノート | Microsoft Docs
-description: 新機能、既知の問題、更新プログラムをダウンロードする場所など、Azure Stack 統合システムの 1904 更新プログラムについて説明します。
+description: 新機能、既知の問題、更新プログラムをダウンロードする場所、Azure Stack のアーカイブされたリリース ノートなど、Azure Stack 統合システムの 1904 更新プログラムについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
-ms.lastreviewed: 05/22/2019
-ms.openlocfilehash: 3bb69c9817eaa12f2a6fab0f20bc79f510a3c251
-ms.sourcegitcommit: 9f5157ce6b938d190ef9df5a2df4342266ca5545
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66174352"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506345"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新プログラム
 
@@ -34,6 +34,10 @@ ms.locfileid: "66174352"
 
 > [!IMPORTANT]  
 > 更新プログラム パッケージは、Azure Stack 統合システム専用です。 Azure Stack Development Kit にこの更新プログラム パッケージは適用しないでください。
+
+## <a name="archived-release-notes"></a>アーカイブされたリリース ノート
+
+[以前のバージョンの Azure Stack のリリース ノートは TechNet ギャラリー](http://aka.ms/azsarchivedrelnotes)で確認できます。 これらのアーカイブされたリリース ノートは参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
@@ -208,4 +212,4 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 - Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」を参照してください。
 - Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。  
 - 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](azure-stack-monitor-update.md)」をご覧ください。  
-- アンケートに記入して、[リリース ノートに関するフィードバック](https://forms.microsoft.com)をお寄せください。
+

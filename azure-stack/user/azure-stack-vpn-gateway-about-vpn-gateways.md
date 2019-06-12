@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 03aea7833e59d3262fc54e71d3d5409b5b95c488
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991293"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836840"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack の VPN ゲートウェイについて
 
@@ -39,7 +39,7 @@ Azure Stack 用の VPN ゲートウェイを作成して構成する前に、「
 >[!NOTE]
 >Azure では、選択する VPN ゲートウェイ SKU の帯域幅スループットが、ゲートウェイに接続されるすべての接続に分配される必要があります。 一方、Azure Stack では、VPN ゲートウェイ SKU の帯域幅値が、ゲートウェイに接続される各接続リソースに適用されます。
 >
-> 例: 
+> 例:
 >
 > * Azure では、Basic VPN ゲートウェイ SKU で、約 100 Mbps の総スループットに対応できます。 その VPN ゲートウェイへの接続を 2 つ作成し、1 つの接続で 50 Mbps の帯域幅を使用する場合、もう 1 つの接続では 50 Mbps を使用できます。
 > * Azure Stack では、Basic VPN ゲートウェイ SKU への**各接続**に 100 Mbps のスループットが割り当てられます。
@@ -102,7 +102,6 @@ SKU を選択する場合、次を考慮してください。
 * Azure Stack では、ポリシー ベースのゲートウェイはサポートされていません。
 * Basic SKU では、ボーダー ゲートウェイ プロトコル (BGP) はサポートされていません。
 * ExpressRoute と VPN ゲートウェイが共存する構成は、Azure Stack ではサポートされていません。
-* アクティブ/アクティブ S2S VPN ゲートウェイ接続は、High Performance SKU のみで構成できます。
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>SKU の予測される合計スループット
 

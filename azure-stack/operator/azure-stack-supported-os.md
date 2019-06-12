@@ -16,12 +16,12 @@ ms.date: 02/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 69a0a9f84e0c4a5d0cb51eb8d48b3c9ca88b9cfc
-ms.sourcegitcommit: 41927cb812e6a705d8e414c5f605654da1fc6952
+ms.openlocfilehash: aca2517a49936296f73c34392ab4c5439909872f
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64477335"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748963"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack でサポートされているゲスト オペレーティング システム
 
@@ -34,6 +34,7 @@ Azure Stack は、次の表に示す Windows ゲスト オペレーティング 
 | オペレーティング システム | 説明 | Marketplace で利用可能 |
 | --- | --- | --- |
 | Windows Server、バージョン 1709 | 64 ビット | コンテナー付き Core |
+| Windows Server 2019 | 64 ビット |  Datacenter、Datacenter Core、Datacenter with Containers |
 | Windows Server 2016 | 64 ビット |  Datacenter、Datacenter Core、Datacenter with Containers |
 | Windows Server 2012 R2 | 64 ビット |  データセンター |
 | Windows Server 2012 | 64 ビット |  データセンター |
@@ -60,12 +61,13 @@ Marketplace で入手可能として示されている Linux ディストリビ�
 | ディストリビューション | 説明 | Publisher | マーケットプレース |
 | --- | --- | --- | --- |
 | CentOS-based 6.9 | 64 ビット | Rogue Wave | はい |
-| CentOS-based 7.4 | 64 ビット | Rogue Wave | はい |
+| CentOS-based 7.5 | 64 ビット | Rogue Wave | はい |
+| CentOS-based 7.3 | 64 ビット | Rogue Wave | はい |
 | ClearLinux | 64 ビット | ClearLinux.org | はい |
 | Container Linux |  64 ビット | CoreOS | 安定版 |
 | Debian 8 "Jessie" | 64 ビット | credativ |  はい |
 | Debian 9 "Stretch" | 64 ビット | credativ | はい |
-| Red Hat Enterprise Linux 7.1 (およびそれ以降) | 64 ビット | Red Hat |Bring your own image |
+| Red Hat Enterprise Linux 7.1 (およびそれ以降) | 64 ビット | Red Hat | Bring your own image |
 | SLES 11SP4 | 64 ビット | SUSE | はい |
 | SLES 12SP3 | 64 ビット | SUSE | はい |
 | Ubuntu 14.04-LTS | 64 ビット | Canonical | はい |

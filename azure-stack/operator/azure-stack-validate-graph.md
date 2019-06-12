@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: a34d070e5e26113216fe8a5fd598b0b5e27687f2
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 75943b3259db736a3dfcd4b30b76f434eaf19111
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984540"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828430"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Azure Stack の Graph 統合を検証する
 
@@ -63,11 +63,11 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. PowerShell プロンプトから次のコマンドを実行して、*$graphCredential* 変数を Graph アカウントに設定します。 `domain\username` の形式を使用して `contoso\graphservice` をご自身のアカウントで置き換えます。
+1. PowerShell プロンプトから次のコマンドを実行して、 *$graphCredential* 変数を Graph アカウントに設定します。 `domain\username` の形式を使用して `contoso\graphservice` をご自身のアカウントで置き換えます。
 
     `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
 
-1. PowerShell プロンプトから次のコマンドを実行して、Graph サービスの検証を開始します。 次のように、**-ForestFQDN** の値をフォレスト ルートの FQDN として指定します。
+1. PowerShell プロンプトから次のコマンドを実行して、Graph サービスの検証を開始します。 次のように、 **-ForestFQDN** の値をフォレスト ルートの FQDN として指定します。
 
      `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
 

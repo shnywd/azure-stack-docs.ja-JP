@@ -1,6 +1,6 @@
 ---
-title: Docker を使用した PowerShell for Azure Stack の実行 | Microsoft Docs
-description: Docker を使用して Azure Stack 上で PowerShell を実行する
+title: Docker を使用して Azure Stack 内で PowerShell を実行する | Microsoft Docs
+description: Docker を使用して Azure Stack 内で PowerShell を実行する
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,53 +15,54 @@ ms.date: 04/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 0eacd2c5a058bca68e86f2d34df8d3cc91987c1c
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 42ed9766b43ce3c0c1c455d8ea286a5b453df325
+ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985556"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66394375"
 ---
-# <a name="use-docker-to-run-powershell"></a>Docker を使用して PowerShell を実行する
+# <a name="use-docker-to-run-powershell-in-azure-stack"></a>Docker を使用して Azure Stack 内で PowerShell を実行する
 
-Docker を使用すると、Windows ベースのコンテナーを作成して、さまざまなインターフェイスの操作に必要な PowerShell の特定のバージョンを実行できます。 Docker の Windows ベースのコンテナーを使用する必要があります。
+この記事では、Docker を使用して、Windows ベースのコンテナーを作成します。そのコンテナー上で、さまざまなインターフェイスの操作に必要な PowerShell のバージョンを実行します。 Docker では、Windows ベースのコンテナーを使用する必要があります。
 
 ## <a name="docker-prerequisites"></a>Docker の前提条件
 
 1. [Docker](https://docs.docker.com/install/) をインストールします。
-2. Powershell や Bash などのコマンドラインを開き、次のように入力します。
+
+1. PowerShell や Bash などのコマンドライン ツールで、次を入力します。
 
     ```bash
         Docker -version
     ```
 
-3. Windows10 を必要とする Windows コンテナーを使って Docker を実行する必要があります。 Docker を実行しているときに、Windows コンテナーに切り替えます。
+1. Windows 10 を必要とする Windows コンテナーを使って Docker を実行する必要があります。 Docker を実行しているときに、Windows コンテナーに切り替えます。
 
-4. Azure Stack と同じドメインに参加しているマシンから Docker を実行する必要があります。 ASDK を使用している場合は、[お使いのリモート マシンに VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) をインストールする必要があります。
+1. Azure Stack と同じドメインに参加しているマシンから Docker を実行します。 Azure Stack Development Kit (ASDK) を使用している場合は、[お使いのリモート マシン上に VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) をインストールする必要があります。
 
-## <a name="service-principals-for-using-powershell"></a>PowerShell を使用するためのサービス プリンシパル
+## <a name="set-up-a-service-principal-for-using-powershell"></a>PowerShell を使用してサービス プリンシパルを設定する
 
-PowerShell を使用して Azure Stack のリソースにアクセスするには、Azure AD テナントのサービス プリンシパルが必要になります。 ユーザーのロール ベースのアクセス制御を使用してアクセス許可を委任します。
+PowerShell を使用して Azure Stack 内のリソースにアクセスするには、お使いの Azure Active Directory (Azure AD) テナントのサービス プリンシパルが必要になります。 ユーザーのロールベースのアクセス制御 (RBAC) を使用してアクセス許可を委任します。
 
-1. 「[サービス プリンシパルを作成してアプリケーションに Azure Stack リソースへのアクセスを付与する](azure-stack-create-service-principals.md)」記事の手順に従って、プリンシパルを設定します。
-2. アプリケーション ID、シークレット、お使いのテナント ID をメモします。
+1. サービス プリンシパルを設定するには、「[サービス プリンシパルを作成してアプリケーションに Azure Stack リソースへのアクセスを付与する](azure-stack-create-service-principals.md)」の手順に従います。
+
+2. 後で使用するためにアプリケーション ID、シークレット、お使いのテナント ID をメモします。
 
 ## <a name="docker---azure-stack-api-profiles-module"></a>Docker - Azure Stack API プロファイル モジュール
 
-Dockerfile は、Windows PowerShell 5.1 がインストールされている Microsoft イメージ microsoft/windowsservercore を開きます。 その後、そのファイルは、Azure Stack PowerShell モジュールである NuGet を読み込み、Azure Stack ツールからツールをダウンロードします。
+Dockerfile は、Windows PowerShell 5.1 がインストールされている Microsoft イメージ *microsoft/windowsservercore* を開きます。 その後、そのファイルは、NuGet と Azure Stack PowerShell モジュールを読み込み、Azure Stack ツールからツールをダウンロードします。
 
-1. このリポジトリを ZIP としてダウンロードするか、リポジトリを複製します。  
-[https://github.com/mattbriggs/azure-stack-powershell](https://github.com/mattbriggs/azure-stack-powershell)
+1. ZIP ファイルとして [azure-stack-powershell リポジトリをダウンロードする](https://github.com/mattbriggs/azure-stack-powershell)か、そのリポジトリを複製します。
 
 2. ターミナルからリポジトリ フォルダーを開きます。
 
-3. リポジトリでコマンドライン インターフェイスを開き、次のように入力します。
+3. お使いのリポジトリでコマンド ライン インターフェイスを開き、次のコマンドを入力します。
 
     ```bash  
     docker build --tag azure-stack-powershell .
     ```
 
-4. イメージがビルドされると、対話型コンテナーを開始できます。 型: 
+4. イメージがビルドされたら、次を入力して、対話型コンテナーを開始します。
 
     ```bash  
         docker run -it azure-stack-powershell powershell
@@ -76,9 +77,9 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
     PS C:\>
     ```
 
-6. サービス プリンシパルを使ってご使用の Azure Stack に接続します。 現在、Docker で PowerShell プロンプトを使用しています。 
+6. サービス プリンシパルを使用して、お使いの Azure Stack インスタンスに接続します。 現在、Docker で PowerShell プロンプトを使用しています。 
 
-    ```Powershell
+    ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
     Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
@@ -86,7 +87,7 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
 
    PowerShell からアカウント オブジェクトが返されます。
 
-    ```PowerShell  
+    ```powershell  
     Account    SubscriptionName    TenantId    Environment
     -------    ----------------    --------    -----------
     <AccountID>    <SubName>       <TenantID>  AzureCloud
@@ -94,13 +95,13 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
 
 7. Azure Stack でリソース グループを作成して、接続をテストします。
 
-    ```PowerShell  
+    ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
 ## <a name="next-steps"></a>次の手順
 
--  [Azure Stack の Azure Stack PowerShell](azure-stack-powershell-overview.md) の概要に関するページをお読みください。
-- Azure Stack の [PowerShell の API プロファイル](azure-stack-version-profiles.md)に関するページについてお読みください。
-- [Azure Stack PowerShell のインストール](../operator/azure-stack-powershell-install.md)を行います。
+-  [Azure Stack の Azure Stack PowerShell](azure-stack-powershell-overview.md) の概要をお読みください。
+- Azure Stack の [PowerShell の API プロファイル](azure-stack-version-profiles.md)についてお読みください。
+- [Azure Stack PowerShell](../operator/azure-stack-powershell-install.md) をインストールします。
 - クラウドの一貫性のための [Azure Resource Manager テンプレート](azure-stack-develop-templates.md)の作成についてお読みください。

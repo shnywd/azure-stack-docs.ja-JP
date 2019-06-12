@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 797e49f82938888776b2685ab44add281b730943
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: bfe18e0aa59f81f614ae00057b2c1f287b1257da
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782405"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469279"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack の物理ディスクを交換する
 
@@ -50,10 +50,37 @@ ms.locfileid: "65782405"
 統合システムでサポートされていないディスクの使用を回避するために、ベンダーでサポートされていないディスクはシステムでブロックされます。 サポートされていないディスクを使用しようとすると、サポートされていないモデルまたはファームウェアであるためディスクが検疫された、というアラートが新たに表示されます。
 
 ディスクを交換すると、Azure Stack が自動的に新しいディスクを検出し、仮想ディスクの修復プロセスを開始します。
+
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Azure Stack PowerShell を使用した仮想ディスクの修復状態の確認
+
+ディスクの交換後、Azure Stack PowerShell を使用して、仮想ディスクの正常性状態と修復ジョブの進行状況を監視できます。
+
+1. Azure Stack PowerShell がインストールされていることを確認してください。 詳細については、「[PowerShell for Azure Stack のインストール](azure-stack-powershell-install.md)」を参照してください。
+2. オペレーターとして PowerShell を使用して Azure Stack に接続します。 詳細については、「[オペレーターとして PowerShell を使用して Azure Stack に接続する](azure-stack-powershell-configure-admin.md)」を参照してください。
+3. 仮想ディスクの正常性と修復状態を検証するには、次のコマンドレットを実行します。
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
+    ```
+
+    ![Azure Stack のボリュームの正常性](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
+5. 必要に応じて、次のコマンドを実行して、交換した物理ディスクの状態を検証できます。
+
+```powershell  
+$scaleunit=Get-AzsScaleUnit
+$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+
+Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+```
+
+![Azure Stack 内の物理ディスクの交換](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+
+## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復状態の確認
  
-## <a name="check-the-status-of-virtual-disk-repair"></a>仮想ディスクの修復状態の確認
- 
- ディスクの交換後、特権エンドポイントを使用して、仮想ディスクの正常性状態と修復ジョブの進行を監視できます。 特権エンドポイントにネットワーク接続されている任意のコンピューターから、次の手順に従います。
+ディスクの交換後、特権エンドポイントを使用して、仮想ディスクの正常性状態と修復ジョブの進行を監視できます。 特権エンドポイントにネットワーク接続されている任意のコンピューターから、次の手順に従います。
 
 1. Windows PowerShell セッションを開き、特権エンドポイントに接続します。
     ```powershell
@@ -74,7 +101,10 @@ ms.locfileid: "65782405"
     ```
       ![Get-StorageJob コマンドの Powershell 出力](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>仮想ディスク修復のトラブルシューティング
+4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
+
+
+## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復のトラブルシューティング
 
 仮想ディスクの修復ジョブが進行しないようであれば、次のコマンドを実行してジョブを最初からやり直してください。
   ```powershell

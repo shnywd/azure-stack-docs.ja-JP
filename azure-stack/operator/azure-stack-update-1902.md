@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 3a59470075e7903f354646be5c6ddb9fb0e5b301
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532332"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506305"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新プログラム
 
@@ -32,9 +32,17 @@ ms.locfileid: "65532332"
 > [!IMPORTANT]  
 > 更新プログラム パッケージは、Azure Stack 統合システム専用です。 Azure Stack Development Kit にこの更新プログラム パッケージは適用しないでください。
 
+## <a name="archived-release-notes"></a>アーカイブされたリリース ノート
+
+[以前のバージョンの Azure Stack のリリース ノートは TechNet ギャラリー](http://aka.ms/azsarchivedrelnotes)で確認できます。 これらのアーカイブされたリリース ノートは参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
+
 ## <a name="build-reference"></a>ビルドのリファレンス
 
 Azure Stack 1902 更新プログラムのビルド番号は **1.1902.0.69** です。
+
+### <a name="update-type"></a>更新の種類
+
+Azure Stack 1902 更新プログラムのビルドの種類は**完全**です。 更新プログラムのビルドの種類については、[Azure Stack での更新プログラムの管理](azure-stack-updates.md)に関するページを参照してください。
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -168,7 +176,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
 ## <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
 
-- Azure Stack の更新プログラムをインストールしようとしたときに、更新プログラムの状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、ストレージ コンテナーから内部インフラストラクチャ共有にファイルを処理のために正しく転送できないことが原因です。 バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることにより回避できるようになりました。 そうすると、URP は前回の試行のファイルをクリーンアップして、もう一度ダウンロードを開始します。
+- Azure Stack の更新プログラムをインストールしようとしたときに、更新プログラムの状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることにより回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、もう一度ダウンロードを開始します。
 
 - [Test-AzureStack](azure-stack-diagnostic-test.md) を実行すると、ベースボード管理コントローラー (BMC) からの警告メッセージが表示されます。 この警告は無視してかまいません。
 
@@ -220,7 +228,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
    このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。 この問題を回避するには、以前使用したものと同じ名前のストレージ アカウントを再作成します。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 仮想マシン スケール セット (VMSS) の作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 このイメージは Azure Stack では使用できないため、デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートをご使用ください。  
+- 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 このイメージは Azure Stack では使用できないため、デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートをご使用ください。  
 
 <!-- TBD - IS ASDK --> 
 - 更新プログラム 1902 の適用後、Managed Disks を使用した VM をデプロイすると、次の問題が発生する可能性があります。
@@ -233,6 +241,8 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 - SSH の認可を有効にして作成した Ubuntu 18.04 VM では、SSH キーを使用してログインすることはできません。 回避策として、プロビジョニング後に Linux 拡張機能用の VM アクセスを使用して SSH キーを実装するか、パスワードベースの認証を使用してください。
 
 - スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
+
+- 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
 ### <a name="networking"></a>ネットワーク  
 
@@ -256,6 +266,12 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
 <!-- 3203799 - IS, ASDK -->
 - Azure Stack では、現在、インスタンス サイズに関係なく、VM インスタンスに 4 つを超えるネットワーク インターフェイス (NIC) をアタッチできません。
+
+- ユーザー ポータルで **[バックエンド プール]** を **[Load Balancer]** に追加しようとすると、"**Failed to update Load Balancer**" (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。この問題を回避するには、PowerShell、CLI、または Azure Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
+
+- ユーザー ポータルで **[Load Balancer]** に対して**インバウンド NAT 規則**を作成しようとすると、"**Failed to update Load Balancer**" (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。この問題を回避するには、PowerShell、CLI、または Azure Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
+
+- ユーザー ポータルで、 **[ロード バランサーの作成]** ウィンドウに **Standard** Load Balancer SKU を作成するためのオプションが表示されます。 このオプションは Azure Stack ではサポートされていません。
 
 <!-- ### SQL and MySQL-->
 

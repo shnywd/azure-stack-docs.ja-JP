@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 5e0b19e753380c519704f9b2064ff56245004896
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
+ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712323"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66506280"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新プログラム
 
@@ -32,9 +32,17 @@ ms.locfileid: "65712323"
 > [!IMPORTANT]
 > 更新プログラム パッケージは、Azure Stack 統合システム専用です。 Azure Stack Development Kit にこの更新プログラム パッケージは適用しないでください。
 
+## <a name="archived-release-notes"></a>アーカイブされたリリース ノート
+
+[以前のバージョンの Azure Stack のリリース ノートは TechNet ギャラリー](http://aka.ms/azsarchivedrelnotes)で確認できます。 これらのアーカイブされたリリース ノートは参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
+
 ## <a name="build-reference"></a>ビルドのリファレンス
 
 Azure Stack 1903 更新プログラムのビルド番号は **1.1903.0.35** です。
+
+### <a name="update-type"></a>更新の種類
+
+Azure Stack 1903 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、[Azure Stack での更新プログラムの管理](azure-stack-updates.md)に関するページを参照してください。 1903 更新プログラムが完了するまでの予測所要時間は約 16 時間ですが、正確な時間は変わる可能性があります。 このおおよその実行時間は、1903 更新プログラムに固有で、他の Azure Stack 更新プログラムと比較することはできません。
 
 > [!IMPORTANT]
 > 1903 ペイロードに、ASDK リリースは含まれません。
@@ -56,8 +64,6 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 - **1903**:[KB 4500638 - Azure Stack 修正プログラム 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>機能強化
-
-- 1903 の更新プログラムのペイロードには、Azure Stack をホストする、基になるオペレーティング システムを含まない Azure Stack のコンポーネントの更新プログラムが含まれています。 これにより、特定の更新プログラムのみを対象とすることができます。 その結果、1903 の更新プログラムが完了するまでの予測所要時間が短縮しています (約 16 時間。ただし正確な時間は変わる可能性があります)。 この実行時間の短縮は 1903 の更新プログラムに固有のものです。後続の更新プログラムにはオペレーティング システムの更新プログラムが含まれる可能性があるため、実行時間は変わると思われます。 今後の更新プログラムでも、含まれているペイロードに応じて更新プログラムが完了するまでの予測所要時間に関する同様のガイダンスを提供します。
 
 - **パブリック IP アドレス**の**アイドル タイムアウト (分)** 値の変更が有効になるのを阻止するネットワークのバグを修正しました。 以前はこの値の変更が無視されていたため、変更内容に関係なく値は既定値の 4 分でした。 この設定では、クライアントからキープアライブ メッセージを送信しなくても TCP 接続が開いたまま維持される時間 (分) が制御されます。 このバグの影響を受けていたのはインスタンス レベルのパブリック IP のみで、ロード バランサーに割り当てられたパブリック IP への影響はありませんでした。
 
@@ -188,6 +194,8 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
 - スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。 回避策として、削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
 
+- 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+
 ### <a name="networking"></a>ネットワーク
 
 <!-- 3239127 - IS, ASDK -->
@@ -217,7 +225,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 
 <!-- 2352906 - IS ASDK -->
 - テナントは、サブスクリプションで最初の Azure 関数を作成する前に、ストレージ リソースプロバイダーを登録する必要があります。
-- 1903 のポータル フレームワークと互換性がないため、テナント ポータルの一部のユーザー エクスペリエンス (主に、デプロイ スロット、運用環境でのテスト、およびサイト拡張機能のユーザー エクスペリエンス) は壊れています。 この問題を回避するには使用、[Azure App Service PowerShell モジュール](/azure/app-service/deploy-staging-slots#automate-with-powershell)または [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest) を使用します。 ポータル エクスペリエンスは、Azure Stack 1.6 (更新 6).上の Azure App Service の今後のリリースで復元されます。
+- 1903 のポータル フレームワークと互換性がないため、テナント ポータルの一部のユーザー エクスペリエンス (主に、デプロイ スロット、運用環境でのテスト、およびサイト拡張機能のユーザー エクスペリエンス) は壊れています。 この問題を回避するには、[Azure App Service PowerShell モジュール](/azure/app-service/deploy-staging-slots#automate-with-powershell)または [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest) を使用します。 ポータル エクスペリエンスは、Azure Stack 1.6 (更新 6).上の Azure App Service の今後のリリースで復元されます。
 
 <!-- ### Usage -->
 

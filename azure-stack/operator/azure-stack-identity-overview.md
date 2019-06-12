@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bd58611e08bf0b0de6808c9719311f904ea682ba
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985255"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459059"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack の ID の概要
 
@@ -60,7 +60,7 @@ Azure Stack 環境に依存するオプションの詳細については、以�
 
 Azure Stack では、ユーザー アカウントに次のような特徴があります。
 
-- *username\@domain* の形式で作成されています。 AD FS はユーザー アカウントを Active Directory インスタンスにマッピングしますが、AD FS では "*\\\<ドメイン>\\\<エイリアス>*" 形式の使用がサポートされていません。
+- *username\@domain* の形式で作成されています。 AD FS はユーザー アカウントを Active Directory インスタンスにマッピングしますが、AD FS では " *\\\<ドメイン>\\\<エイリアス>* " 形式の使用がサポートされていません。
 - 多要素認証を使用するようにセットアップすることができます。
 - 最初に登録するディレクトリ、つまり組織のディレクトリに制限されています。
 - オンプレミスのディレクトリからインポートすることができます。 詳細については、「[オンプレミスのディレクトリと Azure Active Directory の統合](/azure/active-directory/connect/active-directory-aadconnect)」を参照してください。
@@ -147,7 +147,7 @@ Azure AD をマルチテナンシーでセットアップすると、一部の�
 |---------|---------|
 |管理ポータルなどのツールとクライアント     | Azure Stack のリソースにアクセスしたりそれを変更したりするために、ツールとクライアントは [JSON Web トークン](/azure/active-directory/develop/active-directory-token-and-claims)を使用して Azure Resource Manager を呼び出します。 <br>Azure Resource Manager は JSON Web トークンを検証し、発行されたトークン内の "*要求*" を読み取って、ユーザーまたはサービス プリンシパルが Azure Stack で持つ承認のレベルを見積もります。 |
 |Azure Resource Manager とそのコア サービス     |Azure Resource Manager は、リソース プロバイダーと通信して、ユーザーからの通信を転送します。 <br> 転送では、[Azure Resource Manager テンプレート](/azure-stack/user/azure-stack-arm-templates)を通じて、"*直接命令*" 呼び出しまたは "*宣言*" 呼び出しが使用されます。|
-|リソース プロバイダー     |リソース プロバイダーに渡された呼び出しは、証明書ベースの認証で保護されます。 <br>Azure Resource Manager とリソース プロバイダーは、API を介した通信を継続します。 Azure Resource Manager から受信したすべての呼び出しを、リソース プロバイダーはその証明書で検証します。|
+|リソース プロバイダー     |リソース プロバイダーに渡された呼び出しは、証明書ベースの認証によって保護されます。 <br>Azure Resource Manager とリソース プロバイダーは、API を介した通信を継続します。 Azure Resource Manager から受信したすべての呼び出しを、リソース プロバイダーはその証明書で検証します。|
 |インフラストラクチャとビジネス ロジック     |リソース プロバイダーは、任意の認証モードを使用して、ビジネス ロジックおよびインフラストラクチャと通信します。 Azure Stack 付属の既定のリソース プロバイダーは、この通信を保護するために Windows 認証を使用します。|
 
 ![認証に必要な情報](media/azure-stack-identity-overview/authentication.png)

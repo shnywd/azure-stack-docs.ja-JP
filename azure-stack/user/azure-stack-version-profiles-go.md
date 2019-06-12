@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 6f9136cb92851d10deac3455b054fe3c18cb891e
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 4a7e36fda318c1987a39427c5ef1f5e5e307d1b6
+ms.sourcegitcommit: d04a93e913ff069e17f6d56811681804a6422b58
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269357"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66373009"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack での GO による API バージョンのプロファイルの使用
 
@@ -32,10 +32,10 @@ ms.locfileid: "66269357"
 - 特定の API バージョンをロックすることによる、アプリケーションの安定性。
 - Azure Stack および地域の Azure データセンターでのアプリケーションの互換性。
 
-Go SDK では、プロファイルは、profiles パスでバージョンを **YYYY-MM-DD** 形式で指定することで利用できます。 現在の最新の Azure Stack API プロファイル バージョンは **2018-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2018-03-01** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、プロファイルは、profiles パスでバージョンを **YYYY-MM-DD** 形式で指定することで利用できます。 現在の最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>GO 対応の Azure SDK をインストールする
@@ -88,11 +88,11 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
 
 4. **サブスクリプション** スコープと**所有者**ロールを使って、サービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack のサービス プリンシパルの作成の詳細については、[サービス プリンシパルの作成](azure-stack-create-service-principals.md)に関するページをご覧ください。 これで、使用する Azure Stack 環境が設定されました。
 
-5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの現在のバージョンは **2018-03-01** です。 たとえば、**2018-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
+5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. 関数内で、**New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用できます。  
@@ -100,7 +100,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -116,7 +116,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -193,7 +193,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -239,7 +239,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2018-03-01/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -292,14 +292,17 @@ Authorizer には、リソース クライアントの承認者を設定する�
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+Go SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
+- [仮想マシンの作成](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)。
+- [ストレージ データプレーン](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)。
+- [マネージド ディスクの使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
 ## <a name="next-steps"></a>次の手順
 
 - [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)

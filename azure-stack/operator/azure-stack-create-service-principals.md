@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 05/17/2019
 ms.author: patricka
 ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 57c5547c37fee58b37f8386983d43556ed0fd515
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268792"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691307"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack へのアクセスをアプリケーションに提供する
 
@@ -45,7 +45,7 @@ Azure Stack のデプロイ方法に応じて、サービス プリンシパル�
 
 ## <a name="manage-service-principal-for-azure-ad"></a>Azure AD のサービス プリンシパルの管理
 
-ID 管理サービスとして Azure Active Directory (Azure AD) を使用して Azure Stack をデプロイしてある場合は、Azure の場合と同様にサービス プリンシパルを作成できます。 このセクションでは、それらの手順をポータルで行う方法について説明します。 開始する前に、[必要な Azure AD のアクセス許可]((/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions) があることを確認してください。
+ID 管理サービスとして Azure Active Directory (Azure AD) を使用して Azure Stack をデプロイしてある場合は、Azure の場合と同様にサービス プリンシパルを作成できます。 このセクションでは、それらの手順をポータルで行う方法について説明します。 始める前に、[Azure AD で必要なアクセス許可](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)があることを確認してください。
 
 ### <a name="create-service-principal"></a>サービス プリンシパルの作成
 
@@ -181,7 +181,7 @@ ID のために AD FS を使用した状態でサービス プリンシパルを
 
 2. 自動化が完了すると、SPN を使用するために必要な詳細が表示されます。 後で使用できるように、出力を保存することをお勧めします。
 
-   例: 
+   例:
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -362,7 +362,7 @@ ERCS 仮想マシン上で、特権エンドポイントからスクリプトが
 
 ## <a name="assign-a-role"></a>ロールの割り当て
 
-サブスクリプション内のリソースにアクセスするには、アプリケーションをロールに割り当てる必要があります。 アプリケーションにとって適切なアクセス許可を表すのはどのロールであるかを判断します。 利用可能なロールについては、[RBAC:組み込みのロール]((/azure/role-based-access-control/built-in-roles) を参照してください。
+サブスクリプション内のリソースにアクセスするには、アプリケーションをロールに割り当てる必要があります。 アプリケーションにとって適切なアクセス許可を表すのはどのロールであるかを判断します。 利用可能なロールについては、「[RBAC: 組み込みロール](/azure/role-based-access-control/built-in-roles)」を参照してください。
 
 スコープは、サブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリケーションをリソース グループの閲覧者ロールに追加すると、アプリケーションではリソース グループとそれに含まれているすべてのリソースを読み取ることができます。
 

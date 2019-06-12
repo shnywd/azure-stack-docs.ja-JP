@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ed3dfda57bc544bd61efcc52ef7588a553ac634
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9ad15342a8c0116f928b416f26e64b08563a5c14
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447617"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748947"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>チュートリアル:サービスとしての検証のためのリソースを設定する
 
@@ -57,8 +57,8 @@ Azure AD テナントは、組織を登録し、VaaS を使用してユーザー
     **Azure Stack Validation Service** アプリケーションでロールを割り当てるには:
 
    1. [Azure Portal](https://portal.azure.com) にサインインします。
-   2. **[すべてのサービス]** > **[ID]** セクションの下の **[Azure Active Directory]** を選択します。
-   3. **[エンタープライズ アプリケーション]** > **[Azure Stack Validation Service]** アプリケーションを選択します。
+   2. **[すべてのサービス]**  >  **[ID]** セクションの下の **[Azure Active Directory]** を選択します。
+   3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Validation Service]** アプリケーションを選択します。
    4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Validation Service - Users and group]\(Azure Stack Validation Service - ユーザーとグループ\)** ブレードに、アプリケーションの使用を許可されたユーザーが一覧表示されます。
    5. **+ [ユーザーの追加]** を選択し、テナントからユーザーを追加してロールを割り当てます。
 
@@ -74,7 +74,7 @@ Azure AD テナントは、組織を登録し、VaaS を使用してユーザー
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | 組織名 | 組織の正式名称。 |
     | Azure AD テナント ディレクトリ名 | 登録する Azure AD テナント ディレクトリ名。 |
-    | Azure AD テナント ディレクトリ ID | Azure AD テナント ディレクトリに関連付けられている GUID。 Azure AD テナント ディレクトリ ID の確認方法については、「[Get tenant ID (テナント ID を取得する)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id)」を参照してください。 |
+    | Azure AD テナント ディレクトリ ID | Azure AD テナント ディレクトリに関連付けられている GUID。 Azure AD テナント ディレクトリ ID の確認方法については、「[Get tenant ID (テナント ID を取得する)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in)」を参照してください。 |
 
 2. ご利用のテナントで VaaS ポータルを使用できるかどうかを Azure Stack 検証チームがチェックし、確認するのを待ちます。
 
@@ -94,17 +94,17 @@ Azure AD 管理者として、テナントのために必要なアクセス許�
 
 Azure ストレージ アカウントは、お客様の Azure Stack 環境ではなく Azure パブリック クラウドでホストされます。
 
-1. Azure portal で、**[すべてのサービス]** > **[ストレージ]** > **[ストレージ アカウント]** の順に選択します。 **[ストレージ アカウント]** ブレードで、**[追加]** を選択します。
+1. Azure portal で、 **[すべてのサービス]**  >  **[ストレージ]**  >  **[ストレージ アカウント]** の順に選択します。 **[ストレージ アカウント]** ブレードで、 **[追加]** を選択します。
 
 2. ストレージ アカウントを作成するサブスクリプションを選択します。
 
-3. **[リソース グループ]** で、**[新規作成]** を選択します。 新しいリソース グループの名前を入力します。
+3. **[リソース グループ]** で、 **[新規作成]** を選択します。 新しいリソース グループの名前を入力します。
 
 4. Azure Storage アカウントの [[名前付け規則]](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) をレビューします。 ストレージ アカウントの名前を入力します。
 
 5. ストレージ アカウントのリージョンとして **[米国西部]** を選択します。
 
-    ログの格納に対してネットワーク料金が発生しないように、**[米国西部]** リージョンのみを使用するように Azure ストレージ アカウントを構成できます。 データのレプリケーションとホット ストレージ層機能は、このデータには必要ありません。 いずれかの機能を有効にすると、コストが大幅に増加します。
+    ログの格納に対してネットワーク料金が発生しないように、 **[米国西部]** リージョンのみを使用するように Azure ストレージ アカウントを構成できます。 データのレプリケーションとホット ストレージ層機能は、このデータには必要ありません。 いずれかの機能を有効にすると、コストが大幅に増加します。
 
 6. **[アカウントの種類]** 以外の設定は既定値のままにしておきます。
 

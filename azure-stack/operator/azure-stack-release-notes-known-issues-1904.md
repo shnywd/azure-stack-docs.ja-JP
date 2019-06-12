@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 9ebbdb19335db4f0c31d68c726f7b8c211d0f2e2
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 05/31/2019
+ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
+ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268332"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66469135"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 の既知の問題
 
@@ -43,7 +43,7 @@ ms.locfileid: "66268332"
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: バージョン 1804 で導入された 2 つの管理サブスクリプションは使用しないでください。 このサブスクリプションの種類は **Metering** サブスクリプションと **Consumption** サブスクリプションです。
-- 修復: これらのサブスクリプションは 1905 から一時停止され、最終的には削除される予定です。 これら 2 つのサブスクリプション上でリソースが実行されている場合は、1905 より前のユーザー サブスクリプションで再作成してください。
+- 修復: これらのサブスクリプションは 1906 から一時停止され、最終的には削除される予定です。 これら 2 つのサブスクリプション上でリソースが実行されている場合は、1906 より前のユーザー サブスクリプションで再作成してください。
 - 発生頻度: 一般
 
 ### <a name="subscription-resources"></a>サブスクリプション リソース
@@ -60,10 +60,10 @@ ms.locfileid: "66268332"
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
 - 発生頻度: 一般
 
-
 ### <a name="docker-extension"></a>Docker 拡張機能
+
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 管理者ポータルとユーザー ポータルの両方で、"Docker" を検索すると、返される項目が正しくありません。 これは Azure Stack でご利用になれません。 これを作成しようとすると、エラーを示すブレードが表示されます。
+- 原因: 管理者ポータルとユーザー ポータルの両方で、**Docker** を検索すると、返される項目が正しくありません。 これは Azure Stack でご利用になれません。 作成しようとすると、エラーが表示されます。
 - 修復: 軽減策はありません。
 - 発生頻度: 一般
 
@@ -149,7 +149,7 @@ ms.locfileid: "66268332"
 #### <a name="centos"></a>CentOS
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Virtual Machine Scale Set (VMSS) の作成エクスペリエンスには、デプロイのオプションとして CentOS-based 7.2 が表示されます。 CentOS 7.2 は Azure Stack では利用できません。
+- 原因: 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 CentOS 7.2 は Azure Stack では利用できません。
 - 修復: デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートを使用します。
 - 発生頻度: 一般
 
@@ -159,6 +159,12 @@ ms.locfileid: "66268332"
 - 原因: スケール セットを **[Virtual Machine Scale Sets]** ブレードから削除することはできません。
 - 修復: 削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
 - 発生頻度: 一般
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
+- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
 
@@ -196,6 +202,12 @@ ms.locfileid: "66268332"
   - この問題は、[1904 用の最新の Azure Stack 修正プログラム](https://support.microsoft.com/help/4505688)で修正されています。
 - 発生頻度: 一般
 
+### <a name="virtual-machine-scale-set-instance-view"></a>仮想マシン スケール セットのインスタンス ビュー
+
+- 適用先:この問題は、1904 および 1905 リリースに適用されます。
+- 原因: Azure Stack ポータル ( **[ダッシュボード]**  > **[仮想マシン スケール セット]**  >  **[AnyScaleSet - インスタンス]**  >  **[AnyScaleSetInstance]** ) にあるスケール セットのインスタンス ビュー ブレードが読み込みに失敗します。
+- 修復: 現在、修復方法はなく、修正に取り組んでいます。 それまでは、仮想マシン スケール セットのインスタンス ビューの取得には、CLI コマンドレット `az vmss get-instance-view` を使用してください。
+
 ## <a name="storage"></a>Storage
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
@@ -205,7 +217,7 @@ ms.locfileid: "66268332"
 ## <a name="app-service"></a>App Service
 
 - テナントは、サブスクリプションで最初の Azure 関数を作成する前に、ストレージ リソースプロバイダーを登録する必要があります。
-- 1903 のポータル フレームワークと互換性がないため、テナント ポータルの一部のユーザー エクスペリエンス (主に、デプロイ スロット、運用環境でのテスト、およびサイト拡張機能のユーザー エクスペリエンス) は壊れています。 この問題を回避するには、[Azure App Service PowerShell モジュール](/azure/app-service/deploy-staging-slots#automate-with-powershell)または [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest) を使用します。 ポータル エクスペリエンスは、Azure Stack 1.6 (更新 6).上の Azure App Service の今後のリリースで復元されます。
+- 1903 のポータル フレームワークと互換性がないため、テナント ポータルの一部のユーザー エクスペリエンス (主に、デプロイ スロット、運用環境でのテスト、およびサイト拡張機能のユーザー エクスペリエンス) は壊れています。 この問題を回避するには、[Azure App Service PowerShell モジュール](/azure/app-service/deploy-staging-slots#automate-with-powershell)または [Azure CLI](/cli/azure/webapp/deployment/slot?view=azure-cli-latest) を使用します。 ポータル エクスペリエンスは、[Azure App Service on Azure Stack のデプロイを 1.6 (Update 6)](azure-stack-app-service-release-notes-update-six.md) にアップグレードすることで復元されます。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

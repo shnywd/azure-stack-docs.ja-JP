@@ -11,22 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 52613c394d7a1caeef42a85f1dd4d5b645f5e8e4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
+ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267950"
+ms.lasthandoff: 06/03/2019
+ms.locfileid: "66459045"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack Usage API のよくあるご質問
 
-この記事では、Azure Stack Usage API についてよくあるご質問 (FAQ) とその回答を紹介します。
+この記事では、Azure Stack 使用量 API についてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="what-meter-ids-can-i-see"></a>どのような測定 ID を表示できますか。
+
 次のリソース プロバイダーの使用状況が報告されます。
 
 ### <a name="network"></a>ネットワーク
@@ -76,7 +77,7 @@ ms.locfileid: "66267950"
 **測定 ID**:1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **測定名**:TableDataTransOut  
 **単位**:GB 単位のエグレス  
-**注**:GB 単位の Table service データ送信  
+**注**:GB 単位の Table service データ エグレス。
   
 **測定 ID**:43DAF82B-4618-444A-B994-40C23F7CD438  
 **測定名**:BlobTransactions  
@@ -108,7 +109,7 @@ ms.locfileid: "66267950"
 **単位**:GB 単位のエグレス  
 **注**:GB 単位の Queue サービス データ送信  
 
-### <a name="compute"></a>Compute 
+### <a name="compute"></a>Compute
   
 **測定 ID**:FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **測定名**:ベース VM サイズ時間  
@@ -123,7 +124,7 @@ ms.locfileid: "66267950"
 **測定 ID**:6DAB500F-A4FD-49C4-956D-229BB9C8C793  
 **測定名**:VM サイズ時間  
 **単位**:VM 時間  
-**注**:ベース VM と Windows VM の両方をキャプチャ。 コアの調整なし。  
+**注**:ベースと Windows VM の両方をキャプチャ。 コアの調整なし。  
   
 ### <a name="managed-disks"></a>Managed Disks
 
@@ -385,23 +386,25 @@ ms.locfileid: "66267950"
 **単位**:GB  
 **注**:受信要求応答の合計バイト数 + 送信要求応答の合計バイト数 + 受信 FTP 要求応答の合計バイト数 + 受信 Web デプロイ要求応答の合計バイト数。  
   
-
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
-* Tenant Usage API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack では *showDetails* フラグがサポートされていません。
-* Provider Usage API は、Azure Stack にのみ適用されます。
-* 現在、Azure で使用可能な [RateCard API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) は Azure Stack で使用できません。
+
+* テナント使用量 API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack では *showDetails* フラグがサポートされていません。
+* プロバイダー使用量 API は、Azure Stack にのみ適用されます。
+* 現在、Azure で使用可能な [RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) は Azure Stack で使用できません。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用時間と報告時間の違いは何ですか。
+
 使用状況データ レポートには、2 つの主要な時間値があります。
 
 * **報告時間**。 使用状況システムに使用状況イベントが入力された時間
 * **使用時間**。 Azure Stack リソースが使用された時間
 
-特定の使用状況イベントに対して、使用時間と報告時間の値に不一致が見られることがあります。 遅延はすべての環境で数時間に達することもあります。
+特定の使用状況イベントに対して、使用時間とレポート時間の値に不一致が見られることがあります。 遅延はすべての環境で数時間に達することもあります。
 
 現在、"*報告時間によってのみ*" クエリを実行できます。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>これらの Usage API エラー コードの意味は何ですか。
+
 | **HTTP 状態コード** | **エラー コード** | **説明** |
 | --- | --- | --- |
 | 400/無効な要求 |*NoApiVersion* |*api-version* クエリ パラメーターがありません。 |
@@ -417,8 +420,7 @@ ms.locfileid: "66267950"
 実行中および停止中の VM は使用状況データを生成します。 Azure と一貫性があり、使用状況データの生成を停止するには割り当てを解除する必要があります。 ポータルが使用できなくても、コンピューティング リソース プロバイダーがまだ実行中の場合、使用状況が生成されます。
 
 ## <a name="next-steps"></a>次の手順
-[Azure Stack でのお客様への請求と配賦](azure-stack-billing-and-chargeback.md)
 
-[プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)
-
-[テナント リソース使用量 API](azure-stack-tenant-resource-usage-api.md)
+* [Azure Stack でのお客様への請求と配賦](azure-stack-billing-and-chargeback.md)
+* [プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)
+* [テナント リソース使用量 API](azure-stack-tenant-resource-usage-api.md)

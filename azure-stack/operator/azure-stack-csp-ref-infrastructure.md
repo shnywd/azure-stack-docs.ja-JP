@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca474c9addeec3b3b6fcaad8db55bc40a148bb8f
-ms.sourcegitcommit: c755c7eac0f871960f9290591421cf5990b9e734
+ms.openlocfilehash: d6f77483730c9609ad9750da9b11f62de2874ff2
+ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506096"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66453439"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>クラウド サービス プロバイダー向けの使用量レポート インフラストラクチャ
 
@@ -34,8 +34,8 @@ Azure Stack と Azure でのサービスの課金方法にはいくつか違い�
 
 Commerce で使用される Azure Stack メーターとその価格については、パートナー センターで Azure サービスの場合と同じ方法で確認できます。
 
-1. パートナー センターで、**[ダッシュ ボード] メニュー** > **[料金とプラン]** に移動します。
-2. **[使用量ベースのサービス]** で、**[最新]** を選択します。
+1. パートナー センターで、 **[ダッシュボード] メニュー**に移動し、 **[販売]** を選択してから、 **[料金とプラン]** を選択します。
+2. **[使用量ベースのサービス]** で、 **[最新]** を選択します。
 3. **Azure in Global CSP price list (グローバル CSP 価格表での Azure)** スプレッドシートを開きます。
 4. **リージョン = Azure Stack** でフィルターします。
 

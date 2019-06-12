@@ -14,12 +14,12 @@ ms.date: 05/08/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 996dacc1c95a172ffa09247c56a12a5afd00e086
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269532"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821792"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack での Azure CLI による API バージョンのプロファイルの使用
 
@@ -402,8 +402,8 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。 一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
@@ -513,8 +513,8 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。 一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。

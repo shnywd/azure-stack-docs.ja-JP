@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: a039830e01b85ec5e8d9c66a0c815a38d9c694f8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8f8d7ee82890788f60266f671bcc4041795c075e
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985742"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691645"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack を Azure に接続する
 
@@ -33,7 +33,7 @@ ms.locfileid: "64985742"
 
 Azure ExpressRoute を利用すると、接続プロバイダーが提供するプライベート接続を介して、オンプレミスのネットワークを Microsoft クラウドに拡張できます。 ExpressRoute は、公共のインターネットを経由する VPN 接続ではありません。
 
-Azure ExpressRoute の詳細については、[ExpressRoute の概要]((/azure/expressroute/expressroute-introduction) に関するページを参照してください。
+Azure ExpressRoute の詳細については、[ExpressRoute の概要](/azure/expressroute/expressroute-introduction)に関するページを参照してください。
 
 ### <a name="assumptions"></a>前提条件
 
@@ -47,7 +47,7 @@ Azure ExpressRoute の詳細については、[ExpressRoute の概要]((/azure/e
 
 ExpressRoute を使用して Azure Stack と Azure を接続するには、次の要件を満たしている必要があります。
 
-* [接続プロバイダー]((/azure/expressroute/expressroute-locations) を介してプロビジョニングされた [ExpressRoute 回線]((/azure/expressroute/expressroute-circuit-peerings)。
+* [接続プロバイダー](/azure/expressroute/expressroute-locations)経由でプロビジョニングされている [ExpressRoute 回線](/azure/expressroute/expressroute-circuit-peerings)。
 * Azure で ExpressRoute 回線と VNet を作成するための Azure サブスクリプション。
 * 次の機能を備えたルーター。
   * LAN インターフェイスと Azure Stack マルチテナント ゲートウェイの間でサイト間 VPN 接続をサポートする。
@@ -113,7 +113,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
    |サブネット名     |Tenant1 Sub1|
    |サブネットのアドレス範囲     |10.1.1.0/24|
 
-6. 先ほど作成したサブスクリプションが、**[サブスクリプション]** フィールドに設定されたことがわかります。 その他のフィールドは、次のように入力してください。
+6. 先ほど作成したサブスクリプションが、 **[サブスクリプション]** フィールドに設定されたことがわかります。 その他のフィールドは、次のように入力してください。
 
     * **[リソース グループ]** で **[新規作成]** を選択して新しいリソース グループを作成するか、既存のリソース グループがある場合は **[既存のものを使用]** を選択します。
     * 既定の**場所**を確認します。
@@ -123,7 +123,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 #### <a name="create-the-gateway-subnet"></a>ゲートウェイ サブネットを作成する
 
 1. **[仮想ネットワーク]** の **[Tenant1VNet1]** を選択します。
-1. **[設定]** で、**[サブネット]** を選択します。
+1. **[設定]** で、 **[サブネット]** を選択します。
 1. **[+ ゲートウェイ サブネット]** を選択し、ゲートウェイ サブネットを仮想ネットワークに追加します。
 1. サブネットの名前は、既定で **GatewaySubnet** に設定されます。 ゲートウェイ サブネットは特殊なケースであり、正しく動作するにはこの名前を使用する必要があります。
 1. **[アドレス範囲]** が **10.1.0.0/24** であることを確認します。
@@ -131,13 +131,13 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 #### <a name="create-the-virtual-network-gateway"></a>仮想ネットワーク ゲートウェイを作成する
 
-1. Azure Stack ユーザー ポータルで、**[+ リソースの作成]** をクリックします。
+1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** をクリックします。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. ネットワーク リソースの一覧から **[仮想ネットワーク ゲートウェイ]** を選択します。
 1. **[名前]** フィールドに「**GW1**」と入力します。
 1. **[仮想ネットワーク]** を選択します。
 1. ボックスの一覧から **[Tenant1VNet1]** を選択します。
-1. **[パブリック IP アドレス]**、**[パブリック IP アドレスの選択]** の順に選択し、**[新規作成]** をクリックします。
+1. **[パブリック IP アドレス]** 、 **[パブリック IP アドレスの選択]** の順に選択し、 **[新規作成]** をクリックします。
 1. **[名前]** フィールドに「**GW1-PiP**」と入力し、次に **[OK]** をクリックします。
 1. **[VPN の種類]** では、既定で **[ルートベース]** が選択されています。 この設定はそのままにしておきます。
 1. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 **Create** をクリックしてください。
@@ -146,7 +146,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 ローカル ネットワーク ゲートウェイ リソースは、VPN 接続のもう一方の端にあるリモート ゲートウェイを識別します。 この例の場合、接続のリモート側の終端は ExpressRoute ルーターの LAN サブインターフェイスです。 テナント 1 では、図 2 に示したように、10.60.3.255 がリモート アドレスになります。
 
-1. ユーザー アカウントを使用して Azure Stack ユーザー ポータルにサインインし、**[+ リソースの作成]** を選択します。
+1. ユーザー アカウントを使用して Azure Stack ユーザー ポータルにサインインし、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
 1. **[名前]** フィールドに「**ER-Router-GW**」と入力します。
@@ -159,19 +159,19 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
    > [!IMPORTANT]
    > この例では、Azure Stack ゲートウェイと ExpressRoute ルーターの間のサイト間 VPN 接続に静的ルートを使用していると想定しています。
 
-1. **[サブスクリプション]**、**[リソース グループ]**、**[場所]** がすべて正しいことを確認します。 **[作成]** を選択します。
+1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** がすべて正しいことを確認します。 **[作成]** を選択します。
 
 #### <a name="create-the-connection"></a>接続の作成
 
-1. Azure Stack ユーザー ポータルで、**[+ リソースの作成]** を選択します。
+1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. リソースの一覧から **[接続]** を選択します。
-1. **[基本]** で、**[接続の種類]** として **[サイト間 (IPSec)]** を選択します。
-1. **[サブスクリプション]**、**[リソース グループ]**、**[場所]** を選択します。 Click **OK**.
-1. **[設定]** で **[仮想ネットワーク ゲートウェイ]** を選択し、**[GW1]** を選択します。
-1. **[ローカル ネットワーク ゲートウェイ]** を選択し、**[ER Router GW]** を選択します。
+1. **[基本]** で、 **[接続の種類]** として **[サイト間 (IPSec)]** を選択します。
+1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を選択します。 Click **OK**.
+1. **[設定]** で **[仮想ネットワーク ゲートウェイ]** を選択し、 **[GW1]** を選択します。
+1. **[ローカル ネットワーク ゲートウェイ]** を選択し、 **[ER Router GW]** を選択します。
 1. **[接続名]** フィールドに、「**ConnectToAzure**」と入力します。
-1. **[共有キー (PSK)]** フィールドに「**abc123**」と入力し、**[OK]** を選択します。
+1. **[共有キー (PSK)]** フィールドに「**abc123**」と入力し、 **[OK]** を選択します。
 1. **[概要]** で **[OK]** を選択します。
 
 #### <a name="get-the-virtual-network-gateway-public-ip-address"></a>仮想ネットワーク ゲートウェイのパブリック IP アドレスを取得する
@@ -180,24 +180,24 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 1. Azure Stack ユーザー ポータルで **[すべてのリソース]** を選択します。
 1. **[すべてのリソース]** で、仮想ネットワーク ゲートウェイを選択します。この例では **GW1** が該当します。
-1. **[仮想ネットワーク ゲートウェイ]** で、リソースの一覧から **[概要]** を選択します。 または、**[プロパティ]** を選択することもできます。
-1. メモする必要のある IP アドレスは、**[パブリック IP アドレス]** に一覧表示されています。 この例の構成では、192.68.102.1 が該当します。
+1. **[仮想ネットワーク ゲートウェイ]** で、リソースの一覧から **[概要]** を選択します。 または、 **[プロパティ]** を選択することもできます。
+1. メモする必要のある IP アドレスは、 **[パブリック IP アドレス]** に一覧表示されています。 この例の構成では、192.68.102.1 が該当します。
 
 #### <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
 VPN 接続上のデータ トラフィックをテストするには、Azure Stack VNet 内でデータを送受信する仮想マシンが必要です。 仮想マシンを作成して、目的の仮想ネットワークの VM サブネットにデプロイします。
 
-1. Azure Stack ユーザー ポータルで、**[+ リソースの作成]** を選択します。
+1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[計算]** を選択します。
 1. 仮想マシンのイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 
    >[!NOTE]
    >この記事で使用されているイメージを入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
 
-1. **[仮想マシンの作成]** で、**[基本]** を選択し、次に **[名前]** に「**VM01**」と入力します。
+1. **[仮想マシンの作成]** で、 **[基本]** を選択し、次に **[名前]** に「**VM01**」と入力します。
 1. 有効なユーザー名とパスワードを入力します。 このアカウントは、作成後の VM へのサインインに使用します。
-1. **[サブスクリプション]**、**[リソース グループ]**、**[場所]** を指定します。 **[OK]** を選択します。
-1. **[サイズの選択]** で、このインスタンスの仮想マシンのサイズを選び、**[選択]** を選択します。
+1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を指定します。 **[OK]** を選択します。
+1. **[サイズの選択]** で、このインスタンスの仮想マシンのサイズを選び、 **[選択]** を選択します。
 1. **[設定]** で、次のことを確認します。
 
    * 仮想ネットワークが **Tenant1VNet1** であること。
@@ -205,7 +205,7 @@ VPN 接続上のデータ トラフィックをテストするには、Azure Sta
 
    既定の設定を使用して **[OK]** をクリックします。
 
-1. **[概要]** で VM の構成を確認し、**[OK]** をクリックします。
+1. **[概要]** で VM の構成を確認し、 **[OK]** をクリックします。
 
 さらにテナントを追加するには、次の各セクションで行った手順を繰り返します。
 
@@ -324,22 +324,22 @@ Azure での仮想ネットワークの作成の詳細については、「[Crea
 
 ### <a name="configure-an-expressroute-circuit"></a>ExpressRoute 回線を構成する
 
-1. [ExpressRoute の前提条件とチェックリスト]((/azure/expressroute/expressroute-prerequisites) にある ExpressRoute の前提条件を確認します。
+1. 「[ExpressRoute の前提条件とチェックリスト](/azure/expressroute/expressroute-prerequisites)」にある ExpressRoute の前提条件を確認します。
 
-1. [ExpressRoute 回線の作成と変更]((/azure/expressroute/expressroute-howto-circuit-portal-resource-manager) の手順に従い、Azure サブスクリプションを使用して ExpressRoute 回線を作成します。
+1. 「[ExpressRoute 回線の作成と変更](/azure/expressroute/expressroute-howto-circuit-portal-resource-manager)」の手順に従い、Azure サブスクリプションを使用して ExpressRoute 回線を作成します。
 
    >[!NOTE]
    >サービスには、接続の終端で ExpressRoute 回線を設定できるよう、ご利用の回線のサービス キーを指定してください。
 
-1. [ExpressRoute 回線のピアリングの作成と変更を行う]((/azure/expressroute/expressroute-howto-routing-portal-resource-manager) の手順に従い、ExpressRoute 回線でプライベート ピアリングを構成します。
+1. 「[ExpressRoute 回線のピアリングの作成と変更を行う](/azure/expressroute/expressroute-howto-routing-portal-resource-manager)」の手順に従い、ExpressRoute 回路でプライベート ピアリングを構成します。
 
 ### <a name="create-the-virtual-network-gateway"></a>仮想ネットワーク ゲートウェイを作成する
 
-[PowerShell を使用して ExpressRoute の仮想ネットワーク ゲートウェイを構成する]((/azure/expressroute/expressroute-howto-add-gateway-resource-manager) の手順に従い、ハブ VNet で ExpressRoute 用の仮想ネットワーク ゲートウェイを作成します。
+「[PowerShell を使用して ExpressRoute の仮想ネットワーク ゲートウェイを構成する](/azure/expressroute/expressroute-howto-add-gateway-resource-manager)」の手順に従い、ハブ VNet で ExpressRoute 用の仮想ネットワーク ゲートウェイを作成します。
 
 ### <a name="create-the-connection"></a>接続の作成
 
-ExpressRoute 回線をハブ VNet にリンクするには、[ExpressRoute 回線に仮想ネットワークを接続する]((/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager) の手順に従います。
+ExpressRoute 回線をハブ VNet にリンクするには、「[ExpressRoute 回線に仮想ネットワークを 接続する](/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager)」の手順に従います。
 
 ### <a name="peer-the-vnets"></a>VNet をピアリングする
 
@@ -624,10 +624,10 @@ New-NetFirewallRule `
 
 接続を通過するトラフィック量を知りたい場合は、Azure Stack ユーザー ポータルでその情報を見ることができます。 これは、ping テスト データが VPN 接続と ExpressRoute 接続を通過したかどうかを調べる手段としてもお勧めします。
 
-1. テナント アカウントを使用して、Azure Stack ユーザー ポータルにサインインし、**[すべてのリソース]** を選択します。
+1. テナント アカウントを使用して、Azure Stack ユーザー ポータルにサインインし、 **[すべてのリソース]** を選択します。
 1. VPN ゲートウェイのリソース グループに移動し、オブジェクトの種類として **[接続]** を選択します。
 1. 一覧から **[ConnectToAzure]** 接続を選択します。
-1. **[接続]** > **[概要]** で、**[受信データ]** と **[送信データ]** の統計情報を確認できます。0 以外の何らかの値が表示されていると思います。
+1. **[接続]**  >  **[概要]** で、 **[受信データ]** と **[送信データ]** の統計情報を確認できます。0 以外の何らかの値が表示されていると思います。
 
    ![受信データと送信データ](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
