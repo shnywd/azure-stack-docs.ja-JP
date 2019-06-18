@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: fb39928b50e6cce35d5c35c33a95fc2c6b82c160
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: fde2936f3b57fdf9fc6ddeda1786b9ffd5aa9fe0
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941135"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691523"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack で Azure リソース マネージャー テンプレートを使用する
 
@@ -33,10 +33,9 @@ Azure Resource Manager テンプレートを使用して、お使いのアプリ
 
 以下のクイックスタート テンプレートを [GitHub](https://aka.ms/azurestackgithub) で入手できます。
 
-
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>SharePoint サーバーのデプロイ (非高可用性デプロイ)
 
-PowerShell [Desired State Configuration](https://docs.microsoft.com/powershell/dsc/overview/overview) (DSC) 拡張機能を使用して、以下のリソースを含む [SharePoint Server 2013 ファームを作成](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)します。
+PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) (DSC) 拡張機能を使用して、以下のリソースを含む [SharePoint Server 2013 ファームを作成](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)します。
 
 * 仮想ネットワーク
 * 3 つのストレージ アカウント
@@ -78,7 +77,7 @@ PowerShell DSC 拡張機能を使用して、既存のバーチャル マシン�
 
 ## <a name="cancel-a-running-template-deployment"></a>実行中のテンプレートのデプロイのキャンセル
 
-実行中のテンプレートのデプロイをキャンセルするには、[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [コマンドレット](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview)を使用します。
+実行中のテンプレートのデプロイをキャンセルするには、[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [コマンドレット](/powershell/developer/cmdlet/cmdlet-overview)を使用します。
 
 ## <a name="next-steps"></a>次の手順
 

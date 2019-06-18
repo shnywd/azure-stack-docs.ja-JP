@@ -3,39 +3,39 @@ title: Azure Stack の管理の基本 | Microsoft Docs
 description: Azure Stack を管理するために知っておく必要があることについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
-ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: mabrigg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 83c4295c5f14cb89122aca096b7e90cfd44d8d4a
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.date: 05/29/2019
+ms.author: justinha
+ms.lastreviewed: 05/29/2019
+ms.openlocfilehash: 3887712d2c7f14498536e5ad22494bedaa41197c
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618598"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691675"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack の管理の基本
-Azure Stack の管理経験がない場合は、知っておく必要があることがいくつかあります。 この記事では、Azure Stack オペレーターとしての役割の概要と、ユーザーがすばやく生産的になれるようにユーザーに伝える必要があることを説明します。
+
+Azure Stack の管理経験がない場合は、知っておく必要があることがいくつかあります。 この記事では、Azure Stack オペレーターとしての役割の概要と、ユーザーが生産的になるのに役立つように、ユーザーに伝える必要がある内容について説明します。
 
 ## <a name="understand-the-builds"></a>ビルドを理解する
 
 ### <a name="integrated-systems"></a>統合システム
 
-Azure Stack 統合システムを使用している場合、Azure Stack の更新バージョンは更新プログラム パッケージを通して配布されます。 これらのパッケージをインポートして、管理者ポータルの [更新] タイルでパッケージを適用できます。 ASDK のインストールを更新する目的にはサポートされていません。 
+Azure Stack 統合システムを使用している場合、更新プログラム パッケージにより更新バージョンの Azure Stack が配布されます。 これらのパッケージをインポートし、管理者ポータルの **[更新]** タイルを使用して、これらを適用できます。
  
 ### <a name="development-kit"></a>開発キット
 
-Azure Stack Development Kit を使用している場合は、「[What is Azure Stack? (Azure Stack とは)](../asdk/asdk-what-is.md)」の記事を確認し、Development Kit の目的と制限事項について確実に理解しておいてください。 開発キットは "サンド ボックス" として使用する必要があります。その中では、Azure Stack を評価し、非運用環境でアプリの開発とテストを行うことができます。 (デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関する記事を参照してください。)
+Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は "*サンドボックス*" として使用できます。そこで Azure Stack を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
 
-Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 Development Kit を実行しており、最新のビルドに移行する場合は、[Azure Stack を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Microsoft Web サイトの Development Kit ドキュメントには、最新のリリース ビルドが反映されています。
+Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 ASDK を実行しており、最新のビルドに移行する場合は、[Azure Stack を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Web サイトの ASDK ドキュメントには、最新のリリース ビルドが反映されています。
 
 ## <a name="learn-about-available-services"></a>利用できるサービスの詳細
 
@@ -59,6 +59,7 @@ Azure Stack をデプロイすると、Azure Stack には既定で以下の "基
 - App Service
 - Azure Functions
 - SQL および MySQL データベース
+- Kubernetes (プレビュー段階)
 
 これらのサービスをユーザーに提供する前には、追加の構成が必要です。 詳細については、Azure Stack オペレーター ドキュメントの "チュートリアル" や "ハウツー ガイド\サービスの提供" に関するセクションをご覧ください。
 
@@ -80,23 +81,23 @@ Azure Stack を管理する場合に注意するいくつかのアカウント�
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
  
-[管理者ポータル](azure-stack-manage-portals.md)または PowerShell を使用して Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 PowerShell を[インストール](azure-stack-powershell-install.md)し、追加モジュールを[ダウンロード](azure-stack-powershell-download.md)して、PowerShell を[構成](azure-stack-powershell-configure-admin.md)する必要があります。
+[管理者ポータル](azure-stack-manage-portals.md)または PowerShell を使用して Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 開始する前に、Azure Stack での PowerShell の使用方法についてよく理解する必要がある場合があります。 詳細については、「[Azure Stack 内の PowerShell の概要](../user/azure-stack-powershell-overview.md)」を参照してください。
 
-Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定であれば、Resource Manager について学習する必要があります。 「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
+Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定の場合は、Resource Manager について学習できます。 「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
 
 ## <a name="your-typical-responsibilities"></a>クラウド オペレーターの通常の担当範囲
 
-ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにする必要があります。 詳細については、「[Overview of offering services in Azure Stack (Azure の提供サービスの概要)](azure-stack-offer-services-overview.md)」をご覧ください。 
+ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、「[Overview of offering services in Azure Stack (Azure の提供サービスの概要)](azure-stack-offer-services-overview.md)」をご覧ください。 
 
 仮想マシンのイメージなど、[マーケットプレース](azure-stack-marketplace.md)に項目を追加する必要もあります。 [マーケットプレースの項目を Azure から Azure Stack にダウンロードする](azure-stack-download-azure-marketplace-item.md)のが最も容易な方法です。
 
 > [!NOTE]
-> プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく[ユーザー ポータル](azure-stack-manage-portals.md)を使用する必要があります。
+> プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく、[ユーザー ポータル](azure-stack-manage-portals.md)を使用することができます。
 
-サービスを提供することに加えて、オペレーターとして Azure Stack を稼働させ続けるという通常の業務をすべて実行する必要があります。 これには以下のような業務が含まれます。
+サービスを提供することに加えて、オペレーターとして Azure Stack を稼働させ続けるという通常の業務を行う必要があります。 これには以下のような業務が含まれます。
 
 - ユーザー アカウントを追加する ([Azure Active Directory](azure-stack-add-new-user-aad.md) のデプロイや [Active Directory フェデレーション サービス (AD FS) ](azure-stack-add-users-adfs.md)のデプロイのため)
-- [ロールベースのアクセス制御 (RBAC) のロールを割り当てる](azure-stack-manage-permissions.md) (これは管理者に限られません)
+- [ロールベースのアクセス制御 (RBAC) のロールを割り当てる](azure-stack-manage-permissions.md) (これは管理者に限られません)。
 - [インフラストラクチャの正常性を監視する](azure-stack-monitor-health.md)
 - [ネットワーク](azure-stack-viewing-public-ip-address-consumption.md)と[ストレージ](azure-stack-manage-storage-accounts.md)のリソースを管理する
 - 不具合のあるハードウェアを交換する、たとえば[障害が発生したディスクを交換する](azure-stack-replace-disk.md)。
@@ -117,7 +118,7 @@ Azure Stack 内のサービスを使用してアプリを構築する前に、�
 
 **ユーザーとしての Azure Stack への接続**
 
-開発キット環境では、ユーザーが開発キット ホストに対するリモート デスクトップのアクセス権を持っていない場合は、Azure Stack にアクセスする前に仮想プライベート ネットワーク (VPN) 接続を構成する必要があります。 「[Azure Stack への接続](../asdk/asdk-connect.md)」を参照してください。 
+ASDK 環境で、ユーザーは、リモート デスクトップを使用して ASDK ホストに接続しない場合、仮想プライベートネットワーク (VPN) 接続を構成して Azure Stack に接続できます。 「[Azure Stack への接続](../asdk/asdk-connect.md)」を参照してください。 
 
 ユーザーは、[ユーザー ポータルへのアクセス方法](../user/azure-stack-use-portal.md)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
 
@@ -125,26 +126,27 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 
 **オファーへのサブスクライブ**
 
-ユーザーはサービスにアクセスする前に、オペレーターが作成した[オファーをサブスクライブする](azure-stack-subscribe-plan-provision-vm.md)必要があります。
+ユーザーはサービスを使用する前に、オペレーターが作成した[オファーをサブスクライブする](azure-stack-subscribe-plan-provision-vm.md)必要があります。
 
 ## <a name="where-to-get-support"></a>サポートが受けられる場所
+
+> [!Note]  
+> 以前のリリースの Azure Stack (1905 より前) に関するサポート情報を見つける場合は、[以前のリリースの Azure Stack (1905 より前) のヘルプとサポート](azure-stack-servicing-policy.md)に関するページを参照してください。
 
 ### <a name="integrated-systems"></a>統合システム
 
 統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間で、統合されたエスカレーションと解決のプロセスをご用意しています。
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供いたします。 管理者ポータルの右上隅にあるヘルプとサポート アイコン (疑問符) をクリックして **[新しいサポート要求]** をクリックすると、サポート要求を直接展開できるサイトが開きます。
+クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供いたします。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択してから、 **[ヘルプとサポート]** を選び、 **[サポート]** セクションで **[新しいサポート リクエスト]** を選択する場合は、 サポート リクエストを開きます。
 
-デプロイ、パッチ、更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、はじめに OEM ハードウェア ベンダーにお問い合わせください。
+デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。
 
-その他の問題については、Microsoft CSS にお問い合わせください。
+デプロイ、パッチ、更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、はじめに OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
 
-### <a name="development-kit"></a>Development kit
+### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-Development Kit については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) をクリックし、**[新しいサポート要求]** をクリックすると、フォーラムのサイトが直接開かれます。 これらのフォーラムは定期的にチェックされています。 開発キットは評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択すると、  フォーラム サイトが開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
 ## <a name="next-steps"></a>次の手順
 
 [Azure Stack でのリージョンの管理](azure-stack-region-management.md)
-
-

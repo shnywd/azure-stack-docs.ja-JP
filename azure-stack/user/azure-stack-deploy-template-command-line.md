@@ -15,14 +15,14 @@ ms.date: 05/09/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d225e113a19dc62ce66df49d89273d00e2e35683
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 92c9189f8144804f36e551ab89d8b4fc4c1f8598
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521114"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691365"
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>コマンド ラインを使った Azure Stack でのテンプレートのデプロイ
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Azure Stack でコマンド ラインを使ってテンプレートをデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 

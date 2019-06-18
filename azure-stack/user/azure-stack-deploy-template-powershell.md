@@ -1,10 +1,10 @@
 ---
 title: Azure Stack で PowerShell を使用してテンプレートをデプロイする | Microsoft Docs
-description: PowerShell を使用して Azure Stack にテンプレートをデプロイします。
+description: Azure Stack で PowerShell を使用してテンプレートをデプロイします。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
@@ -12,19 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 04/08/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9c1df99557293030dc0b1c0693b0bbc517a3f0ff
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: be325c41023c859ee70b8ee932673db75f41ec4b
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310357"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691430"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>PowerShell を使用して Azure Stack にテンプレートをデプロイする
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Azure Stack で PowerShell を使用してテンプレートをデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -66,8 +65,8 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
     >[!IMPORTANT]
     > このスクリプトを実行するたびに、`$myNum` パラメーターの値をインクリメントし、デプロイの上書きを防ぎます。
 
-4. Azure Stack ポータルを開き、**[参照]**、**[仮想マシン]** の順に選択して、新しい仮想マシン (**myDeployment001**) を探します。
+4. Azure Stack ポータルを開き、 **[参照]** 、 **[仮想マシン]** の順に選択して、新しい仮想マシン (**myDeployment001**) を探します。
 
 ## <a name="next-steps"></a>次の手順
 
-- [Visual Studio を使用したテンプレートのデプロイ](azure-stack-deploy-template-visual-studio.md)
+- [Visual Studio でテンプレートをデプロイする](azure-stack-deploy-template-visual-studio.md)

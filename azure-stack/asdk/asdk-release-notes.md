@@ -11,22 +11,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8de4447cd30204d0d4e1611afd057a75dc7688da
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428689"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691197"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md#determine-the-current-version)できます。
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+
+## <a name="build-11905040"></a>ビルド 1.1905.0.40
+
+<!-- ### Changes -->
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#whats-in-this-update)を参照してください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- 登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるため、正常に [ASDK を登録](asdk-register.md)するには、**RegisterWithAzure.psm1** PowerShell スクリプトを編集する必要があります。 以下の手順を実行します。
+
+  1. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
+  2. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 これが必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるためです。 1249 行目は次のようになります。
+
+     ```powershell
+      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
+      ```
+
+- このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#fixes)を参照してください。
+- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1905.md)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1905.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
 
 ## <a name="build-11904036"></a>ビルド 1.1904.0.36
 
@@ -118,23 +141,3 @@ ms.locfileid: "66428689"
   netsh interface ipv4 set sub "hostnic" mtu=1660
   netsh interface ipv4 set sub "management" mtu=1660
   ```
-
-## <a name="build-11901095"></a>ビルド 1.1901.0.95
-
-[Azure Stack リリースノート内の重要なビルド情報](../operator/azure-stack-update-1901.md#build-reference)を参照してください。
-
-### <a name="changes"></a>変更点
-
-このビルドには、Azure Stack に対する次の機能強化が含まれています。
-
-- 物理ホストに BGP および NAT コンポーネントがデプロイされるようになりました。 これにより、ASDK をデプロイするために 2 つのパブリックまたは企業 IP アドレスを持つ必要がなくなり、デプロイも簡略化されます。
-- **asdk-installer.ps1** PowerShell スクリプトを使用して、Azure Stack 統合システムのバックアップを[検証](asdk-validate-backup.md)できるようになりました。
-
-### <a name="new-features"></a>新機能
-
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-update-1901.md#new-features)を参照してください。
-
-### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
-
-- このリリースで修正された問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-update-1901.md#fixed-issues)を参照してください。 既知の問題の一覧については、[このセクション](../operator/azure-stack-update-1901.md#known-issues-post-installation)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-update-1901.md#azure-stack-hotfixes)が Azure Stack ASDK には適用できないことに注意してください。

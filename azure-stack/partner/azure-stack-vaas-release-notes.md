@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 06/10/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: 9360e8e5f4db14fbebba2642ed11ca2e3830bdf1
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310099"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828403"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>サービスとしての検証のリリース ノート
 
@@ -28,6 +28,13 @@ ms.locfileid: "64310099"
 この記事には、Azure Stack のサービスとしての検証のリリース ノートが含まれています。
 
 ## <a name="version-405"></a>バージョン 4.0.5
+
+2019 年 6 月 7 日
+
+- パッケージの検証ワークフローのクラウド シミュレーション エンジンが更新され、検証時間が短縮されました。  
+    実行時間: 6 時間に短縮  
+    バージョン:5.1.13.0 -> 5.1.22.0  
+
 
 2019 年 1 月 17 日
 
@@ -40,7 +47,7 @@ ms.locfileid: "64310099"
 
 2019 年 1 月 7 日
 
-Azure Stack 月間更新検証ワークフローを実行しているとき、ご利用の OEM 更新プログラム パッケージのバージョンが 1810 以降でない場合、OEM 更新手順に進んだときにエラーが表示されます。 これはバグです。 修正プログラムを開発中です。軽減策の手順は次のとおりです。
+Azure Stack 月間更新検証ワークフローを実行しているとき、ご利用の OEM 更新プログラム パッケージのバージョンが 1810 以降でない場合、OEM 更新手順に進んだときにエラーが表示されます。 これはバグです。 修正プログラムが開発されています。 軽減手順は次のとおりです。
 
 1. OEM の更新プログラムを通常どおり実行します。
 2. パッケージが正常に適用されたら Test-AzureStack を実行し、出力を保存します。

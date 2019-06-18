@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2019
+ms.date: 06/05/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: bbcc68f97fe55a6b4a67f5890b69c03803335438
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 278b010cd1883043549217d657e1315ea697a303
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310645"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691960"
 ---
 # <a name="using-dns-in-azure-stack"></a>Azure Stack での DNS の使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack はドメイン ネーム システム (DNS) 機能に対応しています。
+Azure Stack では、次の Azure DNS 機能がサポートされます。
 
 * DNS ホスト名の解決
 * API を使用して DNS のゾーンとレコードを作成し、管理する
@@ -63,7 +63,7 @@ Azure Stack の DNS は Azure の DNS に似ていますが、重要な例外が
 
 * **AAAA レコードのサポートがない**:Azure Stack では IPv6 アドレスがサポートされないので、AAAA レコードもサポートされません。 これは、Azure と Azure Stack の DNS の大きな違いのひとつです。
 
-* **マルチテナントではない**:Azure Stack の DNS サービスはマルチテナントではありません。 各テナントで同じ DNS ゾーンを作成することはできません。 ゾーンの作成を試みた最初のサブスクリプションだけが成功し、その後の要求は失敗します。 これは、Azure と Azure Stack DNS の大きな違いの 1 つです。
+* **マルチテナントではない**:Azure Stack の DNS サービスはマルチテナントではありません。 各テナントで同じ DNS ゾーンを作成することはできません。 ゾーンの作成を試みた最初のサブスクリプションだけが成功し、その後の要求は失敗します。 これは、Azure と Azure Stack DNS のもう 1 つの大きな違いです。
 
 * **タグ、メタデータ、Etag**:Azure Stack でのタグ、メタデータ、Etag、制限の処理方法にも多少の違いがあります。
 
@@ -106,4 +106,4 @@ Azure Stack DNS を使用する際は、次の制限が既定で適用されま�
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack の iDNS の概要](azure-stack-understanding-dns.md)
+* [Azure Stack の iDNS の概要](azure-stack-understanding-dns.md)

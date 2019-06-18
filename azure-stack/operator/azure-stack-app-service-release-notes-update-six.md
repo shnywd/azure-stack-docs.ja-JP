@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d280ffacf9cb74c519857ebafc907debc915ec21
-ms.sourcegitcommit: 85367001c332ed53fba0d2294eae3c06e8578070
+ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66307833"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828321"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack update 6 のリリース ノート
 
@@ -102,6 +102,16 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に関する既知の問題
 
 [Azure Stack 1904 リリース ノート](azure-stack-release-notes-1904.md)内のドキュメントを参照してください。
+
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack にアプリケーションをデプロイするテナントに関する既知の問題
+
+- デプロイ センターが淡色表示される
+
+テナントでは、デプロイ センターをまだ利用できません。これは、2018 年後半にパブリック クラウドにリリースされた機能です。  テナントではまだ、portal、CLI、PowerShell による標準のデプロイ方法 (FTP、Web 配置、Git など) を使用できます。
+
+- デプロイ オプション (クラシック) UX およびデプロイ資格情報ポータルのオプションを使用できない
+
+Azure Stack のデプロイでデプロイ オプションおよびデプロイ資格情報ユーザー エクスペリエンスを使用するには、テナントで https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true という URL 形式を使ってポータルにアクセスし (ASDK の場合は [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true))、その後で普通にアプリケーションに移動する必要があります。
 
 ## <a name="next-steps"></a>次の手順
 

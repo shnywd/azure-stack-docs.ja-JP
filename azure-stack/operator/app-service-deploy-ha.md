@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: dc4cb3e7931b456de6e807d9f7b691f9bfb71a33
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2d2aab654f2283cf019e609e9de14790ed44a76a
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269507"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66837037"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -234,8 +234,9 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     ![セットアップの完了](media/app-service-deploy-ha/16.png)
 
-
 ## <a name="next-steps"></a>次の手順
+
+SQL Always On インスタンスで App Service リソース プロバイダーを提供した場合は、[appservice_hosting および appservice_metering データベースを可用性グループに追加します](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期します。
 
 [App Service をスケールアウトします](azure-stack-app-service-add-worker-roles.md)。 ご使用の環境で予想されるアプリケーション需要を満たすために、App Service インフラストラクチャ ロール worker を追加する必要が生じる場合があります。 既定では、Azure Stack 上の App Service は無料の共有 worker 層をサポートしています。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
 

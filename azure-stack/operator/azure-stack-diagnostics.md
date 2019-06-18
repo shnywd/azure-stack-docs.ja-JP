@@ -7,16 +7,16 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/29/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: bc5710e0994480d7aa8b0496509ad2755bc9c9ac
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 98ad556bf1b0b5f0297cb7964cd9911a50145496
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268625"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691761"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack の診断ツール
 
@@ -85,21 +85,21 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
 
 * すべてのロールのすべてのログを収集します。
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
+  ```
 
 * VirtualMachines ロールと BareMetal ロールからログを収集します。
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
+  ```
 
 * ログ ファイルに対する過去 8 時間以内の日付範囲のフィルター処理で、VirtualMachines ロールと BareMetal ロールからログを収集します。
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
 * ログ ファイルに対する過去 8 時間から 2 時間以内の日付範囲のフィルター処理で、VirtualMachines ロールと BareMetal ロールからログを収集します。
 
@@ -110,14 +110,17 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * ログを収集して、指定された Azure Storage BLOB コンテナーに保存します。 この操作の一般的な構文は次のとおりです。
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "<Blob service SAS Uri>"
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  例: 
+  例:
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS Token>"
+  Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
   ```
+
+  > [!NOTE]
+  > この手順は、Microsoft サポートでケースを開き、ログのアップロードを求められた場合に役立ちます。 ERCS VM からアクセス可能な SMB 共有がなく、ERCS VM からインターネットにアクセスできない場合でも、Azure Stack で BLOB ストレージ アカウントを作成してログを転送し、クライアントを使用してそれらのログを取得して Microsoft にアップロードすることができます。  
 
   ストレージ アカウントの SAS トークンを生成するには、次のアクセス許可が必要です。
 
@@ -136,9 +139,6 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   8. 必要なアクセス許可については、 **[読み取り]** 、 **[書き込み]** 、 **[一覧]** を選択します。
   9. **作成** を選択します。
   10. Shared Access Signature が表示されます。 URL の部分をコピーし、`-OutputSasUri` パラメーターに入力します。
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK および統合システムの両方に関するパラメーターの考慮事項
 
@@ -146,13 +146,13 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 
 * **FromDate** パラメーターと **ToDate** パラメーターを使用して、特定の期間のログを収集できます。 これらのパラメーターが指定されない場合、既定では過去 4 時間のログが収集されます。
 
-* コンピューター名でログをフィルター処理するには、**FilterByNode** パラメーターを使用します。 例: 
+* コンピューター名でログをフィルター処理するには、**FilterByNode** パラメーターを使用します。 例:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* 種類でログをフィルター処理するには、**FilterByLogType** パラメーターを使用します。 File、Share、または WindowsEvent を選択してフィルター処理できます。 例: 
+* 種類でログをフィルター処理するには、**FilterByLogType** パラメーターを使用します。 File、Share、または WindowsEvent を選択してフィルター処理できます。 例:
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File

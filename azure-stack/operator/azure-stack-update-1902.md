@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a69ece2b97fca13a87819dce6e02e8971121944
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 53b33c7eb0dc71a65113ef8807de1c5b3c3c4c80
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506305"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691394"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新プログラム
 
@@ -63,7 +63,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 ## <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> [1.1901.0.95 または 1.1901.0.99](azure-stack-update-1901.md#build-reference) からは、最初に 1901 修正プログラムをインストールすることなく、1902 を直接インストールできます。 ただし、古い **1901.2.103** 修正プログラムをインストールしてある場合は、1902 をインストールする前に、新しい [1901.3.105 修正プログラム](https://support.microsoft.com/help/4495662)をインストールする必要があります。
+> **1.1901.0.95** または **1.1901.0.99** からは、最初に 1901 修正プログラムをインストールすることなく、1902 を直接インストールできます。 ただし、古い **1901.2.103** 修正プログラムをインストールしてある場合は、1902 をインストールする前に、新しい [1901.3.105 修正プログラム](https://support.microsoft.com/help/4495662)をインストールする必要があります。
 
 - この更新プログラムのインストールを開始する前に、次のパラメーターを指定して [Test-AzureStack](azure-stack-diagnostic-test.md) を実行して Azure Stack の状態を確認し、見つかったすべての操作上の問題 (すべての警告とエラーを含む) を解決します。 また、アクティブなアラートを確認し、アクションが必要なアラートを解決します。
 

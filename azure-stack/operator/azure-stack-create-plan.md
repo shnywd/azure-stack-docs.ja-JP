@@ -3,8 +3,8 @@ title: Azure Stack でのプランの作成 | Microsoft Docs
 description: クラウド管理者として、サブスクライバーが仮想マシンをプロビジョニングできるプランを作成する方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: 3dc92e5c-c004-49db-9a94-783f1f798b98
 ms.service: azure-stack
@@ -12,35 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/07/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 85c6fd58108653ba4876d8aa7802d5674ae1336c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311239"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836979"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Azure Stack でのプランの作成
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-[プラン](azure-stack-overview.md)は、1 つまたは複数のサービスとそのクォータをグループ化したものです。 プロバイダーは、ユーザーに提供するプランを作成できます。 そして、ユーザーがオファーをサブスクライブして、それに含まれるプラン、サービス、クォータを使用します。 この例では、コンピューティング、ネットワーク、およびストレージの各リソース プロバイダーを含むプランを作成する方法を示します。 このプランのサブスクライバーは仮想マシンをプロビジョニングすることができます。
+[Azure Stack プラン](azure-stack-overview.md)は、1 つまたは複数のサービスとそのクォータをグループ化したものです。 プロバイダーは、ユーザーに提供するプランを作成できます。 そして、ユーザーがオファーをサブスクライブして、それに含まれるプラン、サービス、クォータを使用します。 この例では、コンピューティング、ネットワーク、およびストレージの各リソース プロバイダーを含むプランを作成する方法を示します。 このプランのサブスクライバーは仮想マシンをプロビジョニングすることができます。
 
 ## <a name="create-a-plan-1902-and-later"></a>プランを作成する (1902 以降)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-2. ユーザーがサブスクライブできるプランやオファーを作成するには、**[+ リソースの作成]**、**[オファー + プラン]**、**[プラン]** の順に選択します。
+2. ユーザーがサブスクライブできるプランやオファーを作成するには、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[プラン]** の順に選択します。
   
    ![プランを選択する](media/azure-stack-create-plan/select-plan.png)
 
 3. タブ付きのユーザー インターフェイスが表示され、プラン名の指定、サービスの追加、選択した各サービスのクォータの定義を行うことができます。 最も重要なのは、作成を決定する前に、作成するオファーの詳細を確認できることです。
 
-   **[新しいプラン]** ウィンドウの **[基本]** タブで、**[表示名]** と **[リソース名]** を入力します。 表示名は、オペレーターに表示されるプランのフレンドリ名です。 管理者ポータル内でオペレーターに表示されるのはプランの詳細のみであることに注意してください。
+   **[新しいプラン]** ウィンドウの **[基本]** タブで、 **[表示名]** と **[リソース名]** を入力します。 表示名は、オペレーターに表示されるプランのフレンドリ名です。 管理者ポータル内でオペレーターに表示されるのはプランの詳細のみであることに注意してください。
 
    ![詳細を指定する](media/azure-stack-create-plan/plan-name.png)
 
@@ -48,11 +47,11 @@ ms.locfileid: "64311239"
 
    ![リソース グループを指定する](media/azure-stack-create-plan/resource-group.png)
 
-5. **[サービス]** タブを選択し、**[Microsoft.Compute]**、**[Microsoft.Network]**、および **[Microsoft.Storage]** のチェック ボックスをオンにします。
+5. **[サービス]** タブを選択するか、または **[次へ: サービス >]** ボタンをクリックしてから、 **[Microsoft.Compute]** 、 **[Microsoft.Network]** 、および **[Microsoft.Storage]** のチェックボックスをオンにします。
   
    ![サービスを選択する](media/azure-stack-create-plan/services.png)
 
-6. **[クォータ]** タブを選択します。**[Microsoft.Storage]** の横にあるドロップダウン ボックスから既定のクォータを選択するか、**[新規作成]** を選択してカスタマイズされたクォータを作成します。
+6. **[クォータ]** タブを選択するか、または **[次へ: クォータ >]** ボタンをクリックします。 **[Microsoft.Storage]** の横にあるドロップダウン ボックスから既定のクォータを選択するか、 **[新規作成]** を選択してカスタマイズされたクォータを作成します。
   
    ![Quotas (クォータ)](media/azure-stack-create-plan/quotas.png)
 
@@ -68,19 +67,19 @@ ms.locfileid: "64311239"
 
    ![プランを作成する](media/azure-stack-create-plan/create.png)
 
-10. 準備ができたら、**[作成]** を選択してプランを作成します。
+10. 準備ができたら、 **[作成]** を選択してプランを作成します。
 
-11. 新しいプランを表示するには、**[プラン]** を選択してプランを検索し、プラン名を選択します。 リソースの一覧が長い場合は、**[検索]** を使用して名前でプランを探すことができます。
+11. 新しいプランを表示するには、左側で **[すべてのサービス]** をクリックし、 **[プラン]** を選択してから、プランを検索して、その名前を選択します。 リソースの一覧が長い場合は、 **[検索]** を使用して名前でプランを探すことができます。
 
 ## <a name="create-a-plan-1901-and-earlier"></a>プランを作成する (1901 以前)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-2. ユーザーがサブスクライブできるプランやオファーを作成するには、**[+ リソースの作成]**、**[オファー + プラン]**、**[プラン]** の順に選択します。
+2. ユーザーがサブスクライブできるプランやオファーを作成するには、 **[+ 新規]** 、 **[オファー + プラン]** 、 **[プラン]** の順に選択します。
   
    ![プランを選択する](media/azure-stack-create-plan/select-plan1901.png)
 
-3. **[新しいプラン]** で、**[表示名]** と **[リソース名]** を入力します。 表示名は、ユーザーに表示されるプランのフレンドリ名です。 リソース名は管理者にのみ表示されます。リソース名は、Azure Resource Manager リソースとしてプランを操作するために管理者が使用します。
+3. **[新しいプラン]** で、 **[表示名]** と **[リソース名]** を入力します。 表示名は、ユーザーに表示されるプランのフレンドリ名です。 リソース名は管理者にのみ表示されます。リソース名は、Azure Resource Manager リソースとしてプランを操作するために管理者が使用します。
 
    ![詳細を指定する](media/azure-stack-create-plan/plan-name1901.png)
 
@@ -88,11 +87,11 @@ ms.locfileid: "64311239"
 
    ![リソース グループを指定する](media/azure-stack-create-plan/resource-group1901.png)
 
-5. **[サービス]** を選択し、**[Microsoft.Compute]**、**[Microsoft.Network]**、および **[Microsoft.Storage]** のチェックボックスをオンにします。 次に、**[選択]** を選択して構成を保存します。 マウスで各オプションをポイントすると、チェックボックスが表示されます。
+5. **[サービス]** を選択し、 **[Microsoft.Compute]** 、 **[Microsoft.Network]** 、および **[Microsoft.Storage]** のチェックボックスをオンにします。 次に、 **[選択]** を選択して構成を保存します。 マウスで各オプションをポイントすると、チェックボックスが表示されます。
   
    ![サービスを選択する](media/azure-stack-create-plan/services1901.png)
 
-6. **[クォータ]**、**[Microsoft.Storage (ローカル)]** の順に選択し、既定のクォータを選択するか **[新しいクォータの作成]** を選択してカスタマイズされたクォータを作成します。
+6. **[クォータ]** 、 **[Microsoft.Storage (ローカル)]** の順に選択し、既定のクォータを選択するか **[新しいクォータの作成]** を選択してカスタマイズされたクォータを作成します。
   
    ![Quotas (クォータ)](media/azure-stack-create-plan/quotas1901.png)
 
@@ -108,16 +107,14 @@ ms.locfileid: "64311239"
 
    ![クォータの割り当てを完了する](media/azure-stack-create-plan/all-quotas-assigned1901.png)
 
-9. **[クォータ]** で **[OK]** を選択し、**[新しいプラン]** で **[作成]** を選択してプランを作成します。
+9. **[クォータ]** で **[OK]** を選択し、 **[新しいプラン]** で **[作成]** を選択してプランを作成します。
 
     ![プランを作成する](media/azure-stack-create-plan/create1901.png)
 
-10. 新しいプランを表示するには、**[すべてのリソース]** を選択してプランを検索し、プラン名を選択します。 リソースの一覧が長い場合は、**[検索]** を使用して名前でプランを探すことができます。
+10. 新しいプランを表示するには、 **[すべてのリソース]** を選択してプランを検索し、プラン名を選択します。 リソースの一覧が長い場合は、 **[検索]** を使用して名前でプランを探すことができます。
 
     ![プランを確認する](media/azure-stack-create-plan/plan-overview1901.png)
 
 ## <a name="next-steps"></a>次の手順
 
 * [オファーの作成](azure-stack-create-offer.md)
-
-<!-- Update_Description: wording update -->

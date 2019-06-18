@@ -1,5 +1,5 @@
 ---
-title: Azure および Azure Stack へのアプリのデプロイ | Microsoft Docs
+title: チュートリアル&#58; Azure と Azure Stack にアプリをデプロイする | Microsoft Docs
 description: ハイブリッド CI/CD パイプラインを使用して、アプリを Azure と Azure Stack にデプロイする方法を説明します。
 services: azure-stack
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: dfec5ff97b4c7aa3c3de6b4817689412cb41ea6a
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252095"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692058"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>チュートリアル: Azure と Azure Stack へのアプリのデプロイ
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
-ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して Azure と Azure Stack にアプリケーションをデプロイする方法を説明します。
+ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して、Azure と Azure Stack にアプリをデプロイする方法について学習します。
 
 このチュートリアルでは、以下を実現するためのサンプル環境を作成します。
 
@@ -35,9 +35,9 @@ ms.locfileid: "66252095"
 > * ユーザー受け入れテストを目的として、アプリをグローバル Azure に自動的にデプロイします。
 > * コードがテストに合格した時点で自動的にアプリを Azure Stack にデプロイします。
 
-## <a name="benefits-of-the-hybrid-delivery-build-pipe"></a>ハイブリッド デリバリー ビルド パイプの利点
+## <a name="benefits-of-the-hybrid-delivery-build-pipeline"></a>ハイブリッド デリバリー ビルド パイプラインの利点
 
-継続性、セキュリティ、信頼性は、アプリケーション デプロイの重要な要素です。 これらは組織にとってこの上なく重要な要素であり、開発チームにとっては生命線ともいうべきものです。 ハイブリッド CI/CD パイプラインを使用することにより、オンプレミス環境とパブリック クラウドの垣根を越えてビルド パイプを統合することができます。 ハイブリッド デリバリー モデルを使用すれば、アプリケーションに変更を加えることなくデプロイ先を変更することもできます。
+継続性、セキュリティ、信頼性は、アプリ デプロイの重要な要素です。 これらは組織にとってこの上なく重要な要素であり、開発チームにとっては生命線ともいうべきものです。 ハイブリッド CI/CD パイプラインを使用することにより、オンプレミス環境およびパブリック クラウド全体でビルド パイプを統合することができます。 ハイブリッド デリバリー モデルを使用すれば、アプリに変更を加えることなくデプロイ先を変更することもできます。
 
 他にも、ハイブリッド アプローチの使用には次のような利点があります。
 
@@ -51,19 +51,19 @@ CI と CD については、次の記事をご覧ください。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack は、オンプレミスの環境にクラウド コンピューティングの俊敏性とイノベーションを提供します。これにより、どこでもハイブリッド アプリをビルドしてデプロイできる唯一のハイブリッド クラウドが実現されます。  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack により、オンプレミス環境にクラウド コンピューティングの機敏性と革新がもたらされます。 これは、ハイブリッド アプリをビルドして任意の場所にデプロイできる唯一のハイブリッド クラウドです。  
 > 
-> ホワイト ペーパー「[Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)」では、ハイブリッドアプリケーションの設計、デプロイ、および操作に関するソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理の容易性、セキュリティ) について概説しています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> 「[Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)」 (ハイブリッド アプリケーションのための設計の考慮事項) ホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、運用環境での課題を最小限に抑えるハイブリッド アプリケーションの設計を最適化するのに役立ちます。
 
 ## <a name="prerequisites"></a>前提条件
 
 ハイブリッド CI/CD パイプラインを構築するには、いくつかのコンポーネントが必要になります。 次のコンポーネントは準備に時間がかかります。
 
 * 運用 Azure Stack は、Azure OEM/ハードウェア パートナーがデプロイできます。 Azure Stack Development Kit (ASDK) は、すべてのユーザーがデプロイできます。
-* また、Azure Stack オペレーターが、App Service のデプロイ、プランとオファーの作成、テナント サブスクリプションの作成、および Windows Server 2016 イメージの追加を行う必要もあります。
+* Azure Stack オペレーターは、App Service のデプロイ、プランとオファーの作成、テナント サブスクリプションの作成、および Windows Server 2016 イメージの追加という項目を完了する必要があります。
 
 >[!NOTE]
->これらのコンポーネントの一部がデプロイ済みである場合は、このチュートリアルを開始する前にそれらがすべての要件を満たしていることをご確認ください。
+>これらのコンポーネントの一部がデプロイ済みである場合は、このチュートリアルを開始する前にそれらがすべての要件を満たしていることを確認してください。
 
 このチュートリアルは、Azure と Azure Stack について一定の基本知識があることを前提にしています。 チュートリアルを開始する前に詳細を確認するには、次の記事をお読みください。
 
@@ -78,7 +78,7 @@ CI と CD については、次の記事をご覧ください。
 ### <a name="azure-stack-requirements"></a>Azure Stack の要件
 
 * Azure Stack 統合システムを使用するか、Azure Stack Development Kit (ASDK) をデプロイします。 ASDK をデプロイするには、次の手順を実行します。
-  * [インストーラーを使った ASDK のデプロイに関するチュートリアル](../asdk/asdk-install.md)で詳しいデプロイ手順を確認します。
+  * 「[チュートリアル:インストーラーを使用する ASDK のデプロイ](../asdk/asdk-install.md)に関する記事に詳しいデプロイ手順が示されています。
   * [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell スクリプトを使って ASDK デプロイ後の手順を自動化します。
 
     > [!Note]
@@ -118,40 +118,40 @@ Azure DevOps Services では、サービス プリンシパルを使用して、
 [サービス プリンシパルの作成](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)手順を参照してサービス プリンシパルを作成します。 [アプリケーションの種類] で **[Web アプリ/API]** を選択するか、「[Create an Azure Resource Manager service connection with an existing service principal (既存のサービス プリンシパルで Azure Resource Manager サービス接続を作成する)](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)」の記事で説明されている [PowerShell スクリプト](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5)を使用します。
 
  > [!Note]  
- > スクリプトを使用して Azure Stack の Azure Resource Manager エンドポイントを作成する場合は、 **-azureStackManagementURL** パラメーターと **-environmentName** パラメーターを渡す必要があります。 例:   
+ > スクリプトを使用して Azure Stack の Azure Resource Manager エンドポイントを作成する場合は、 **-azureStackManagementURL** パラメーターと **-environmentName** パラメーターを渡す必要があります。 例:  
 > `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>アクセス キーを作成する
 
-サービス プリンシパルには、認証用のキーが必要です。 次の手順に従ってキーを生成してください。
+サービス プリンシパルには、認証用のキーが必要です。 次の手順を使用してキーを生成します。
 
-1. Azure Active Directory の **[アプリの登録]** で、アプリケーションを選択します。
+1. Azure Active Directory の **[アプリの登録]** で、アプリを選択します。
 
-    ![アプリケーションを選択](media/azure-stack-solution-hybrid-pipeline/000_01.png)
+    ![アプリケーションを選択する - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. **[アプリケーション ID]** の値をメモします。 この値は、Azure DevOps Services でサービス エンドポイントを構成するときに使用します。
 
-    ![アプリケーション ID](media/azure-stack-solution-hybrid-pipeline/000_02.png)
+    ![アプリケーション ID - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. 認証キーを生成するには、 **[設定]** を選択します。
 
-    ![アプリの設定を編集](media/azure-stack-solution-hybrid-pipeline/000_03.png)
+    ![アプリ設定を構成する - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. 認証キーを生成するには、 **[キー]** を選択します。
 
-    ![キーの設定を構成](media/azure-stack-solution-hybrid-pipeline/000_04.png)
+    ![キー設定を構成する - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. キーの説明を入力し、キーの期間を設定します。 操作が完了したら、 **[保存]** をクリックします。
 
-    ![キーの説明と期間](media/azure-stack-solution-hybrid-pipeline/000_05.png)
+    ![キーの説明と期間 - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
-    キーを保存した後、キーの**値**が表示されます。 この値をコピーしてください。この値を後から取得することはできません。 **キー値**は、アプリケーションとしてサインインする際にアプリケーション ID と共に入力します。 アプリケーションが取得できる場所にキー値を保存します。
+    キーを保存した後、キーの**値**が表示されます。 この値をコピーしてください。この値を後から取得することはできません。 **キー値**は、アプリとしてサインインする際に**アプリケーション ID** と共に入力します。 アプリで取得できる場所にキー値を格納します。
 
-    ![キー値](media/azure-stack-solution-hybrid-pipeline/000_06.png)
+    ![キー値 - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>テナント ID を取得する
 
-Azure DevOps Services には、サービス エンドポイント構成の一部として、Azure Stack スタンプのデプロイ先の AAD ディレクトリに対応する**テナント ID** が必要です。 テナント ID を取得するには次の手順に従います。
+サービス エンドポイント構成の一部として、Azure DevOps Services には、Azure Stack スタンプのデプロイ先の AAD ディレクトリに対応する**テナント ID** が必要です。 テナント ID を取得するには次の手順を使用します。
 
 1. **[Azure Active Directory]** を選択します。
 
@@ -159,41 +159,41 @@ Azure DevOps Services には、サービス エンドポイント構成の一部
 
 2. テナント ID を取得するには、Azure AD テナントの **[プロパティ]** を選択します。
 
-    ![テナントのプロパティを表示](media/azure-stack-solution-hybrid-pipeline/000_08.png)
+    ![テナント プロパティを表示する - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. **ディレクトリ ID** をコピーします。 この値がテナント ID です。
 
-    ![ディレクトリ ID](media/azure-stack-solution-hybrid-pipeline/000_09.png)
+    ![ディレクトリ ID - Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Azure Stack サブスクリプション内にリソースをデプロイするサービス プリンシパル権限を付与する
 
-サブスクリプション内のリソースにアクセスするには、アプリケーションをロールに割り当てる必要があります。 アプリケーションにとって最適なアクセス許可を表すのはどのロールであるかを判断します。 利用可能なロールについては、[RBAC: 組み込みロール](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)」を参照してください。
+サブスクリプション内のリソースにアクセスするには、アプリをロールに割り当てる必要があります。 アプリに最適なアクセス許可を表すロールを決定します。 利用可能なロールについては、「[RBAC: 組み込みロール](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)」を参照してください。
 
-スコープは、サブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリケーションをリソース グループの閲覧者ロールに追加すると、アプリケーションではリソース グループとそのすべてのリソースを読み取ることができます。
+スコープは、サブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリをリソース グループの閲覧者ロールに追加すると、リソース グループとそのすべてのリソースを読み取ることができます。
 
 1. アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、 **[サブスクリプション]** を選択します。
 
-    ![[サブスクリプション] を選択します。](media/azure-stack-solution-hybrid-pipeline/000_10.png)
+    ![サブスクリプションを選択する - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. **[サブスクリプション]** で [Visual Studio Enterprise] を選択します。
 
-    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
+    ![Visual Studio Enterprise - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. Visual Studio Enterprise で **[アクセス制御 (IAM)]** を選択します。
 
 4. **[ロールの割り当ての追加]** を選択します。
 
-    ![Add](media/azure-stack-solution-hybrid-pipeline/000_13.png)
+    ![ロール割り当てを追加する - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
-5. **[アクセス許可の追加]** で、アプリケーションに割り当てるロールを選択します。 この例では **[所有者]** ロールです。
+5. **[アクセス許可の追加]** で、アプリに割り当てるロールを選択します。 この例では **[所有者]** ロールです。
 
-    ![[所有者] ロール](media/azure-stack-solution-hybrid-pipeline/000_14.png)
+    ![所有者ロールのアクセス許可 - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
-6. 既定では、Azure Active Directory アプリケーションは、使用可能なオプションに表示されません。 目的のアプリケーションを見つけるには、その名前を **[選択]** フィールドに指定して検索する必要があります。 アプリを選びます。
+6. 既定では、Azure Active Directory アプリは使用可能なオプションに表示されません。 目的のアプリを見つけるには、その名前を **[選択]** フィールドに指定して検索する必要があります。 アプリを選びます。
 
-    ![アプリの検索結果](media/azure-stack-solution-hybrid-pipeline/000_16.png)
+    ![アプリの検索結果 - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
-7. **[保存]** を選択して、ロールの割り当てを完了します。 該当のスコープのロールに割り当てられたユーザーの一覧にアプリケーションが表示されます。
+7. **[保存]** を選択して、ロールの割り当てを完了します。 アプリは、そのスコープのロールに割り当てられたユーザーのリストで確認できます。
 
 ### <a name="role-based-access-control"></a>ロールベースのアクセス制御
 
@@ -209,27 +209,27 @@ Azure DevOps Services にアクセスするための個人用アクセス トー
 
 1. Azure DevOps Services 組織にサインインし、組織のプロファイル名を選択します。
 
-2. **[セキュリティの管理]** を選択して、トークン作成ページにアクセスします。
+2. **[セキュリティの管理]** を選択して、トークン作成ページにアクセスします。 
 
-    ![ユーザーのサインイン](media/azure-stack-solution-hybrid-pipeline/000_17.png)
+    ![セキュリティを管理する - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![プロジェクトの選択](media/azure-stack-solution-hybrid-pipeline/000_18.png)
+3. **[追加]** をクリックして、新しい個人用アクセス トークンを作成します。
 
-    ![個人用アクセス トークンの追加](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
+    ![個人用アクセス トークンを追加する - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![トークンの作成](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
+    ![トークンを作成する - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
-3. トークンをコピーします。
+4. トークンをコピーします。
 
     > [!Note]
     > トークン情報は保存しておいてください。 この情報は格納されず、この Web ページから離れると二度と表示されません。
 
-    ![個人用アクセス トークン](media/azure-stack-solution-hybrid-pipeline/000_19.png)
+    ![個人用アクセス トークン - Azure Stack](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Azure Stack でホストされているビルド サーバーに Azure DevOps Services ビルド エージェントをインストールする
 
 1. Azure Stack ホストにデプロイしたビルド サーバーに接続します。
-2. ご自身の個人用アクセス トークン (PAT) を使用して、ビルド エージェントをダウンロードし、サービスとしてデプロイします。その後、VM 管理者アカウントとして実行します。
+2. ご自身の個人用アクセス トークン (PAT) を使用して、ビルド エージェントをダウンロードし、サービスとしてデプロイし、VM 管理者としてそれを実行します。
 
     ![ビルド エージェントのダウンロード](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
@@ -239,7 +239,7 @@ Azure DevOps Services にアクセスするための個人用アクセス トー
 
     ![ビルド エージェントの登録](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
-4. config.cmd が完了すると、ビルド エージェントのフォルダーが追加ファイルで更新されます。 抽出された内容を含むフォルダーは次のようになります。
+4. config.cmd が完了すると、ビルド エージェントのフォルダーが追加ファイルで更新されます。 抽出された内容を含むフォルダーは、次の例のようになるはずです。
 
     ![ビルド エージェントのフォルダーの更新](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
@@ -252,7 +252,7 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 ![VSTO における NorthwindCloud サンプル アプリ](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. VSTO にサインインし、アプリの設定ページに移動します。
-2. **[設定]** の **[セキュリティ]** を選択します。
+2. **[設定]** で、 **[セキュリティ]** を選択します。
 3. **[Azure DevOps Services グループ]** で、 **[エンドポイント作成者]** を選択します。
 
     ![NorthwindCloud のエンドポイント作成者](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
@@ -261,25 +261,23 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 
     ![メンバーを追加する](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
-5. **[ユーザーとグループの追加]** にユーザー名を入力し、そのユーザーをユーザー一覧から選択します。
+5. **[ユーザーとグループの追加]** ページで、ユーザー名を入力し、そのユーザーをユーザーのリストから選択します。
 6. **[変更の保存]** を選択します。
 7. **[Azure DevOps Services グループ]** の一覧で、 **[エンドポイント管理者]** を選択します。
 
     ![NorthwindCloud のエンドポイント管理者](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. **[メンバー]** タブで **[追加]** を選択します。
-9. **[ユーザーとグループの追加]** にユーザー名を入力し、そのユーザーをユーザー一覧から選択します。
+9. **[ユーザーとグループの追加]** ページで、ユーザー名を入力し、そのユーザーをユーザーのリストから選択します。
 10. **[変更の保存]** を選択します。
 
-これでエンドポイント情報が存在するので、Azure DevOps Services から Azure Stack への接続を使用する準備ができました。 Azure Stack のビルド エージェントは、Azure DevOps Services から命令を受け取った後、Azure Stack との通信のためのエンドポイント情報を伝達します。
+これでエンドポイント情報が存在するので、Azure DevOps Services から Azure Stack への接続を使用する準備ができました。 Azure Stack のビルド エージェントでは、Azure DevOps Services から命令を受け取ってから、Azure Stack との通信のためのエンドポイント情報を伝達します。
 
 ## <a name="create-an-azure-stack-endpoint"></a>Azure Stack エンドポイントを作成する
 
 ### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Azure AD デプロイ用のエンドポイントを作成する
 
 「[Create an Azure Resource Manager service connection with an existing service principal (既存のサービス プリンシパルで Azure Resource Manager サービス接続を作成する)](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)」の記事の手順に従い、既存のサービス プリンシパルでサービス接続を作成します。次のマッピングを使用してください。
-
-次のマッピングを使用してサービス接続を作成できます。
 
 | Name | 例 | 説明 |
 | --- | --- | --- |
@@ -294,13 +292,13 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 | テナント ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 「[テナント ID を取得する](azure-stack-solution-pipeline.md#get-the-tenant-id)」の手順に従って取得したテナント ID。  |
 | 接続: | 未確認 | サービス プリンシパルに対する接続の設定を確認します。 |
 
-これでエンドポイントが作成されたので、DevOps から Azure Stack への接続を使用する準備は完了です。 Azure Stack のビルド エージェントは、DevOps から命令を受け取った後、Azure Stack との通信に使用されるエンドポイント情報を伝達します。
+これでエンドポイントが作成されたので、DevOps から Azure Stack への接続を使用する準備は完了です。 Azure Stack のビルド エージェントでは、DevOps から命令を受け取った後、Azure Stack との通信のためのエンドポイント情報を伝達します。
 
 ![ビルド エージェントの Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>AD FS のエンドポイントの作成
 
-Azure DevOps の最新の更新プログラムにより、認証に証明書を使用したサービス プリンシパルを使ってサービス接続を作成できるようになります。 これは、ID プロバイダーとして AD FS を使用して Azure Stack をデプロイするときに必要です。 
+Azure DevOps の最新の更新プログラムにより、認証に証明書を使用したサービス プリンシパルを使ってサービス接続を作成できるようになります。 この接続は、ID プロバイダーとして AD FS を使用して Azure Stack がデプロイされるときに必要です。 
 
 ![ビルド エージェントの AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
@@ -319,10 +317,10 @@ Azure DevOps の最新の更新プログラムにより、認証に証明書を�
 | テナント ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | 「[テナント ID を取得する](azure-stack-solution-pipeline.md#get-the-tenant-id)」の手順に従って取得したテナント ID。 |
 | 接続: | 未確認 | サービス プリンシパルに対する接続の設定を確認します。 |
 
-これでエンドポイントが作成されたので、Azure DevOps から Azure Stack への接続を使用する準備は完了です。 Azure Stack のビルド エージェントは、Azure DevOps から命令を受け取った後、Azure Stack との通信のためのエンドポイント情報を伝達します。
+これでエンドポイントが作成されたので、Azure DevOps から Azure Stack への接続を使用する準備は完了です。 Azure Stack のビルド エージェントでは、Azure DevOps から命令を受け取った後、Azure Stack との通信のためのエンドポイント情報を伝達します。
 
 > [!Note]
-> Azure Stack User ARM エンドポイントがインターネットに公開されていない場合、接続の検証は失敗します。 これは想定されているため、簡単なタスクのリリース パイプラインを作成することで接続を検証できます。 
+> Azure Resource Manager エンドポイントがインターネットに公開されていない場合、接続の検証は失敗します。 これは想定されているため、簡単なタスクのリリース パイプラインを作成することで接続を検証できます。 
 
 ## <a name="develop-your-application-build"></a>アプリケーション ビルドの開発
 
@@ -339,17 +337,17 @@ Azure DevOps の最新の更新プログラムにより、認証に証明書を�
 
 ### <a name="add-code-to-an-azure-devops-services-project"></a>Azure DevOps Services プロジェクトにコードを追加する
 
-1. Azure Stack でプロジェクト作成特権を持っている組織で、Azure DevOps Services にサインインします。 次のキャプチャ画面は、HybridCICD プロジェクトへの接続方法を示しています。
+1. Azure Stack でのプロジェクト作成権限がある組織で、Azure DevOps Services にサインインします。 次のキャプチャ画面は、HybridCICD プロジェクトへの接続方法を示しています。
 
-    ![プロジェクトに接続](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
+    ![プロジェクトに接続する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. 既定の Web アプリを作成して開くことで、**リポジトリを複製**します。
 
-    ![リポジトリの複製](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
+    ![リポジトリをクローンする - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>両方のクラウドで App Services の自己完結型 Web アプリ デプロイを作成する
 
-1. **WebApplication.csproj** ファイルを編集します。**Runtimeidentifier** を選択し、`win10-x64.` を追加します。詳細については、[自己完結型のデプロイ](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)に関するドキュメントをご覧ください。
+1. **WebApplication.csproj** ファイルを編集します。`Runtimeidentifier` を選択してから、`win10-x64.` を追加します。詳細については、[自己完結型のデプロイ](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)に関するドキュメントを参照してください。
 
     ![Runtimeidentifier の構成](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
@@ -363,7 +361,7 @@ Azure DevOps の最新の更新プログラムにより、認証に証明書を�
 
 2. プロジェクトの **[Build Web Application]\(Web アプリケーションのビルド\)** ページに移動します。
 
-3. **[引数]** に **-r win10-x64** コードを追加します。 これは、.NET Core を使用して自己完結型のデプロイをトリガーするために必要です。
+3. **[引数]** に **-r win10-x64** コードを追加します。 この手順は、.NET Core を使用して自己完結型のデプロイをトリガーするために必要です。
 
     ![ビルド パイプラインの引数の追加](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
@@ -379,94 +377,94 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
 ### <a name="create-release-pipeline"></a>リリース パイプラインを作成する
 
-アプリケーション ビルド プロセスの最後の手順は、リリース パイプラインの作成です。 このリリース パイプラインを使用してリリースを作成し、ビルドをデプロイします。
+リリース パイプラインの作成は、アプリ ビルド プロセスの最後の手順です。 このリリース パイプラインを使用してリリースを作成し、ビルドをデプロイします。
 
 1. Azure DevOps Services サービスにサインインし、プロジェクトの **Azure Pipelines** に移動します。
 2. **[リリース]** タブで **\[ + ]** を選択し、 **[リリース定義の作成]** を選択します。
 
-   ![リリース パイプラインを作成する](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
+   ![リリース パイプラインを作成する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
-3. **[テンプレートの選択]** で **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
+3. **[テンプレートの選択]** ページで、 **[Azure App Service の配置]** を選んでから **[適用]** を選択します。
 
-    ![テンプレートを適用](media/azure-stack-solution-hybrid-pipeline/102.png)
+    ![テンプレートを適用する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/102.png)
 
-4. **[成果物の追加]** の **[ソース (ビルド定義)]** プルダウン メニューから Azure Cloud ビルド アプリを選択します。
+4. **[成果物の追加]** ページの **[ソース (ビルド定義)]** プルダウン メニューから、Azure Cloud ビルド アプリを選択します。
 
-    ![成果物を追加する](media/azure-stack-solution-hybrid-pipeline/103.png)
+    ![成果物を追加する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. **[パイプライン]** タブで、**1 フェーズ**、**1 タスク**のリンクを選択し、**環境のタスクを表示**します。
 
-    ![パイプライン ビューのタスク](media/azure-stack-solution-hybrid-pipeline/104.png)
+    ![パイプライン ビューのタスク - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. **[タスク]** タブで **[環境名]** に「Azure」と入力し、 **[Azure サブスクリプション]** ボックスの一覧から [AzureCloud Traders-Web EP] を選択します。
 
-    ![環境変数の設定](media/azure-stack-solution-hybrid-pipeline/105.png)
+    ![サービス環境変数を設定する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. **Azure App Service の名前**として「northwindtraders」と入力します。次のキャプチャ画面を参照してください。
 
-    ![App Service の名前](media/azure-stack-solution-hybrid-pipeline/106.png)
+    ![App Service の名前 - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. [エージェント フェーズ] で、 **[エージェント キュー]** ボックスの一覧から **[Hosted VS2017]** を選択します。
 
-    ![ホストされたエージェント](media/azure-stack-solution-hybrid-pipeline/107.png)
+    ![ホステッド エージェント - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. **[Azure App Service 配置]** で、環境に対して有効な**パッケージまたはフォルダー**を選択します。
 
-    ![パッケージまたはフォルダーを選択](media/azure-stack-solution-hybrid-pipeline/108.png)
+    ![パッケージまたはフォルダーを選択する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/108.png)
 
-10. **[ファイルまたはフォルダーの選択]** で、**保存先**に対して **[OK]** を選択します。
+10. **[ファイルまたはフォルダーの選択]** ページで、フォルダーの場所に対して **[OK]** を選択します。
 
-    ![代替テキスト](media/azure-stack-solution-hybrid-pipeline/109.png)
+    ![ファイルまたはフォルダーを選択する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. すべての変更を保存し、 **[パイプライン]** に戻ります。
 
-    ![代替テキスト](media/azure-stack-solution-hybrid-pipeline/110.png)
+    ![変更を保存する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. **[パイプライン]** タブで **[成果物の追加]** を選択し、 **[ソース (ビルド定義)]** ボックスの一覧から **[NorthwindCloud Traders-Vessel]** を選択します。
 
-    ![新しい成果物の追加](media/azure-stack-solution-hybrid-pipeline/111.png)
+    ![新しい成果物を追加する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/111.png)
 
-13. **[テンプレートの選択]** で、もう 1 つ環境を追加します。 **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
+13. **[テンプレートの選択]** ページで、別の環境を追加します。 **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
 
-    ![テンプレートの選択](media/azure-stack-solution-hybrid-pipeline/112.png)
+    ![テンプレートを選択する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. **[環境名]** として「Azure Stack」と入力します。
 
-    ![環境名](media/azure-stack-solution-hybrid-pipeline/113.png)
+    ![環境名 - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. **[タスク]** タブで、[Azure Stack] を見つけて選択します。
 
-    ![Azure Stack 環境](media/azure-stack-solution-hybrid-pipeline/114.png)
+    ![Azure Stack 環境 - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. **[Azure サブスクリプション]** ボックスの一覧から、Azure Stack のエンドポイントに使用する [AzureStack Traders-Vessel EP] を選択します。
 
-    ![代替テキスト](media/azure-stack-solution-hybrid-pipeline/115.png)
+    ![Azure サブスクリプションのドロップダウン - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. **[App Service の名前]** として、Azure Stack Web アプリの名前を入力します。
 
-    ![App Service の名前](media/azure-stack-solution-hybrid-pipeline/116.png)
+    ![App Service の名前 - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. **[エージェントの選択]** で、 **[エージェント キュー]** ボックスの一覧から [AzureStack -bDouglas Fir] を選択します。
 
-    ![エージェントの選択](media/azure-stack-solution-hybrid-pipeline/117.png)
+    ![エージェントを選ぶ - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. **[Azure App Service 配置]** で、環境に対して有効な**パッケージまたはフォルダー**を選択します。 **[ファイルまたはフォルダーの選択]** で、フォルダーの**保存先**に対して **[OK]** を選択します。
 
-    ![パッケージまたはフォルダーの選択](media/azure-stack-solution-hybrid-pipeline/118.png)
+    ![パッケージまたはフォルダーを選ぶ - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![保存先の承認](media/azure-stack-solution-hybrid-pipeline/119.png)
+    ![場所を承認する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. **[変数]** タブで、**VSTS_ARM_REST_IGNORE_SSL_ERRORS** という名前の変数を見つけます。 変数の値を **[true]** に設定し、そのスコープを **[Azure Stack]** に設定します。
 
-    ![変数の構成](media/azure-stack-solution-hybrid-pipeline/120.png)
+    ![変数を構成する Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. **[パイプライン]** タブで、NorthwindCloud Traders-Web の成果物に使用する **[継続的配置トリガー]** アイコンを選択し、 **[継続的配置トリガー]** を **[有効]** に設定します。  "NorthwindCloud Traders-Vessel" の成果物についても同じ操作を行います。
 
-    ![継続的配置トリガーの設定](media/azure-stack-solution-hybrid-pipeline/121.png)
+    ![継続的デプロイ トリガーを設定する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. Azure Stack 環境で**配置前**条件アイコンを選択し、トリガーを**リリース後**に設定します。
 
-    ![配置前条件のトリガーを設定](media/azure-stack-solution-hybrid-pipeline/122.png)
+    ![デプロイ前条件のトリガーを設定する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. すべての変更を保存します。
 
@@ -475,19 +473,19 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
 ## <a name="create-a-release"></a>リリースを作成する
 
-リリース パイプラインに対する変更が完了したら、デプロイを開始できます。 これを行うには、リリース パイプラインからリリースを作成します。 リリースは自動的に作成される場合があります。たとえば、継続的配置トリガーは、リリース パイプラインで設定されています。 つまり、ソース コードを変更すると、新しいビルドが起動され、これにより新しいリリースが起動されます。 ただし、このセクションでは、新しいリリースを手動で作成します。
+これで、リリース パイプラインの変更が完了しました。次はデプロイを開始します。 デプロイを開始するには、リリース パイプラインからリリースを作成します。 リリースは自動的に作成される場合があります。たとえば、継続的デプロイ トリガーがリリース パイプラインで設定されている場合です。 このトリガーを設定した場合、ソース コードを変更すると、新しいビルドが開始されてから新しいリリースが開始されます。 しかし、このセクションでは、新しいリリースを手動で作成します。
 
-1. **[パイプライン]** タブの **[リリース]** ボックスの一覧を開いて、 **[リリースの作成]** を選択します。
+1. **[パイプライン]** タブで、 **[リリース]** ドロップダウン リストを開き、 **[リリースの作成]** を選択します。
 
-    ![リリースを作成する](media/azure-stack-solution-hybrid-pipeline/200.png)
+    ![リリースを作成する - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/200.png)
 
-2. リリースの説明を入力し、正しい成果物が選択されていることを確認して、 **[作成]** を選択します。 しばらくすると、新しいリリースが作成されたことを示すバナーが表示され、そのリリース名がリンクとして表示されます。 リンクを選択すると、リリース概要ページが表示されます。
+2. リリースの説明を入力し、正しい成果物が選択されていることを確認してから、 **[作成]** を選択します。 しばらくすると、新しいリリースが作成されたことを示すバナーが表示され、そのリリース名がリンクとして表示されます。 リンクを選択してリリース概要ページを表示します。
 
-    ![リリース作成バナー](media/azure-stack-solution-hybrid-pipeline/201.png)
+    ![リリース作成バナー - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/201.png)
 
-3. リリースの概要ページに、リリースに関する詳細が表示されます。 次の "Release-2" のキャプチャ画面で、 **[環境]** セクションを見ると、Azure については**デプロイ状態**が "進行中" として表示され、Azure Stack については "成功" と表示されていることがわかります。 Azure 環境のデプロイ状態が "成功" に変わると、リリースの承認準備が完了したことを示すバナーが表示されます。 デプロイが保留中か、失敗した場合は、青い **(i)** 情報アイコンが表示されます。 このアイコンにマウス ポインターを合わせると、遅延または失敗の理由を示すポップアップが表示されます。
+3. リリースの概要ページに、リリースに関する詳細が表示されます。 次の "Release-2" のキャプチャ画面では、 **[環境]** セクションに、Azure については **[デプロイ状態]** が "進行中" と表示され、Azure Stack の状態は "成功" と表示されています。 Azure 環境のデプロイ状態が "成功" に変わると、リリースの承認準備が完了したことを示すバナーが表示されます。 デプロイが保留中か、失敗した場合は、青い **(i)** 情報アイコンが表示されます。 このアイコンにマウス ポインターを合わせると、遅延または失敗の理由を示すポップアップが表示されます。
 
-    ![リリース概要ページ](media/azure-stack-solution-hybrid-pipeline/202.png)
+    ![リリース概要ページ - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 リリースの一覧など、その他のビューにも、承認待ちであることを示すアイコンが表示されます。 このアイコンのポップアップには、環境の名前のほか、デプロイに関連するさらに詳しい情報が表示されます。 管理者は、リリースの全体的な進行状況を見て、どのリリースが承認待ちになっているかを簡単に確認できます。
 
@@ -497,11 +495,11 @@ Azure DevOps Services および Team Foundation Server (TFS) が提供するパ�
 
 1. "Release-2" の概要ページで、 **[ログ]** を選択します。 デプロイ時には、エージェントからリアルタイムのログがこのページに表示されます。 左側のウィンドウには、デプロイに伴う各操作の状態が環境ごとに表示されます。
 
-    デプロイ前またはデプロイ後の承認の **[アクション]** 列で人アイコンを選択すると、デプロイを承認 (または拒否) したユーザーと、そのユーザーからのメッセージが表示されます。
+    デプロイ前またはデプロイ後の承認の **[アクション]** 列で人アイコンを選択し、デプロイを承認 (または拒否) したユーザーと、そのユーザーが入力したメッセージを表示します。
 
-2. デプロイ完了後、ログ ファイル全体が右側のウィンドウに表示されます。 左側のウィンドウでいずれかの**ステップ**を選択すると、"ジョブの初期化" など、単一ステップのログ ファイルが表示されます。 ログを個別に表示できることから、デプロイ全体を構成する各要素の追跡とデバッグがしやすくなっています。 特定のステップのログ ファイルを**保存**したり、**すべてのログを zip としてダウンロード**したりすることができます。
+2. デプロイ完了後、ログ ファイル全体が右側のウィンドウに表示されます。 左側のウィンドウでいずれかの**ステップ**を選択し、"ジョブの初期化" など、単一ステップのログ ファイルを表示します。 ログを個別に表示できることから、デプロイ全体を構成する各要素の追跡とデバッグがしやすくなっています。 特定のステップのログ ファイルを**保存**したり、**すべてのログを zip としてダウンロード**したりすることができます。
 
-    ![リリース ログ](media/azure-stack-solution-hybrid-pipeline/203.png)
+    ![リリース ログ - Azure DevOps Services](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. **[概要]** タブを開くと、そのリリースの概要情報が表示されます。 ビルドとそのデプロイ先となった環境の詳細、デプロイ状態など、リリースに関する各種の情報がこのビューに表示されます。
 

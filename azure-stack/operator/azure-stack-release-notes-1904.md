@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: ''
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 8d9603184e824bff5efc2536b3c4a89fdd87d685
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506345"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691601"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新プログラム
 
@@ -43,6 +43,10 @@ ms.locfileid: "66506345"
 
 Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** です。
 
+### <a name="update-type"></a>更新の種類
+
+Azure Stack 1904 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、[Azure Stack での更新プログラムの管理](azure-stack-updates.md)に関するページを参照してください。 1904 更新プログラムが完了するまでの予測所要時間は約 16 時間ですが、正確な時間は変わる可能性があります。 このおおよその実行時間は、1904 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
+
 ## <a name="whats-in-this-update"></a>この更新プログラムの新機能
 
 <!-- The current theme (if any) of this release. -->
@@ -52,8 +56,6 @@ Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** で�
 ### <a name="improvements"></a>機能強化
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- 1904 の更新プログラムのペイロードには、Azure Stack をホストする、基になるオペレーティング システムを含まない Azure Stack のコンポーネントの更新プログラムが含まれています。 これにより、特定の更新プログラムのみを対象とすることができます。 その結果、1904 の更新プログラムが完了するまでの予測所要時間が短縮しています (約 16 時間。ただし正確な時間は変わる可能性があります)。 この実行時間の短縮は 1903 更新プログラムと似ています。 ただし、後続の更新プログラムにはオペレーティング システムの更新プログラムが含まれる可能性があるため、実行時間は変わると思われます。 今後の更新プログラムでも、含まれているペイロードに応じて更新プログラムが完了するまでの予測所要時間に関する同様のガイダンスを提供します。
 
 - 1904 では、ソフトウェア定義ネットワーク (SDN) スタックが大幅に強化されました。 これらの機能強化により、Azure Stack の SDN スタックの全体的なサービスと信頼性が向上します。
 

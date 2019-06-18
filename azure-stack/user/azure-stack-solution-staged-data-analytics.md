@@ -1,6 +1,6 @@
 ---
 title: Azure および Azure Stack を使用して Staged Data Analytics ソリューションを作成する | Microsoft Docs
-description: Azure および Azure Stack を使用して Staged Data Analytics ソリューションを作成する方法について説明します。
+description: Azure と Azure Stack を使用してステージング データ分析ソリューションを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,18 +15,18 @@ ms.date: 04/15/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 9359c1393229709fc77ee08216a80a26de9135dc
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: a10f034e05e97942a6c20d019d0d1930f49f8c81
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252006"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691459"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してステージング データ分析ソリューションを作成する 
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
-オンプレミス環境とパブリック クラウド環境の両方を使用して、複数施設の企業の需要に応える方法について説明します。 Azure Stack は、特にセキュリティ、機密性、企業ポリシー、および規制の諸要件が場所やユーザーごとに異なる場合に、ローカルおよびリモートデータを収集、処理、保存、および分散するための迅速で安全で柔軟なソリューションを提供します。
+オンプレミス環境とパブリック クラウド環境の両方を使用して、複数施設の企業の需要に応える方法について説明します。 Azure Stack では、ローカルおよびリモート データを収集、処理、格納、配信するための高速で安全で柔軟なソリューションを提供します。 これは、場所やユーザーによってセキュリティ、機密性、会社のポリシー、規制の要件が異なる場合に重要です。
 
 このパターンでは、顧客が迅速な意思決定ができるように、収集の時点での分析を必要とするデータを収集します。 このデータ収集はインターネットにアクセスせずに行われることがあります。 接続が確立されたら、リソース集約的データ分析を行って、さらに洞察を得ることが必要になる場合があります。 パブリック クラウドが遅すぎるまたは使用できないときにも、データを分析できます。
 
@@ -42,7 +42,7 @@ ms.locfileid: "66252006"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack は、オンプレミスの環境にクラウド コンピューティングの俊敏性とイノベーションを提供します。これにより、どこでもハイブリッド アプリをビルドしてデプロイできる唯一のハイブリッド クラウドが実現されます。  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack は、オンプレミスの環境にクラウド コンピューティングの俊敏性とイノベーションを提供し、どこでもハイブリッド アプリをビルドしてデプロイできる唯一のハイブリッド クラウドを実現します。  
 > 
 > [ハイブリッド アプリケーションのための設計の考慮事項](https://aka.ms/hybrid-cloud-applications-pillars)に関するホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
@@ -50,13 +50,13 @@ ms.locfileid: "66252006"
 
 このソリューションのビルドには、いくつかの準備が必要です。
 
--   インストールされ機能している Azure Stack (詳細については[Azure Stack の概要](azure-stack-storage-overview.md)
+-   インストールされ、機能している Azure Stack。 詳細については、[Azure Stack の概要](azure-stack-storage-overview.md)に関するページを参照してください。
 
--   Azure サブスクリプション。 ([無料アカウントを作成](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+-   Azure サブスクリプション。 [無料アカウントを作成する](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)ことができます。
 
 -   [Microsoft Azure ストレージ エクスプローラーをダウンロードしてインストールする](https://storageexplorer.com/)。
 
--   関数で処理するデータは独自に用意することが必要。 データは生成する必要があり、Azure Stack ストレージ Blob コンテナーへのアップロードに使用できる必要があります。
+-   関数で処理するデータは独自に用意する必要があります。 データは生成する必要があり、Azure Stack ストレージ Blob コンテナーへのアップロードに使用できる必要があります。
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
@@ -104,7 +104,7 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 4.  **[作成]** をクリックしてストレージ アカウントを作成します。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image1.png)
+    ![Azure Stack でストレージ アカウントを作成する](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  作成し終えたら、ストレージ アカウントの名前を選択します。
 
@@ -112,7 +112,7 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 7.  ブレードの上部にある **[+ Container]\(+ コンテナー\)** を選択し、 **[コンテナー]** を選択します。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image2.png)
+    ![Azure Stack でコンテナーを選択する](media/azure-stack-solution-staged-data-analytics/image2.png)
 
 8.  名前:**任意**
 
@@ -130,7 +130,7 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 2. **[すべてのサービス]** を選択します。
 3. **[Web + モバイル]** グループの **[Function Apps]** を選択します。
 
-4.  イメージの下にある表で指定された設定を使用して、関数アプリを作成します。
+4.  下にある表で指定された設定を使用して、関数アプリを作成します。
 
     | Setting | 推奨値 | 説明 |
     | ---- | ---- | ---- |
@@ -153,25 +153,25 @@ Azure の関数とストレージ ソリューションは、データ ボリュ
 
 6.  ポータルの右上隅の通知アイコンを選択し、"**デプロイメントに成功しました**" というメッセージが表示されるまで待ちます。
 
-    ![新しい関数アプリの設定を定義する](media/azure-stack-solution-staged-data-analytics/image7.png)
+    ![デプロイメントの成功 - 新しい関数](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  **[リソースに移動]** を選択して、新しい関数アプリを確認します。
 
-![Function App が正常に作成されました。](media/azure-stack-solution-staged-data-analytics/image8.png)
+![新しい関数アプリを表示する](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>Azure Stack 関数アプリに関数を追加する
 
 1.  **[関数]** 、続いて **[+New Function] (+ 新しい関数)** ボタンをクリックして、新しい関数を作成します。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image3.png)
+    ![新しい関数を作成する](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  **[タイマー トリガー]** を選択します。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image4.png)
+    ![新しい関数のタイマー トリガー](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  言語として [**C\#** ] を選択し、関数に `upload-to-azure` という名前を付けます。スケジュールを `0 0 * * * *` に設定します (これは CRON 表記で 1 時間に一度を意味します)。
+3.  言語として **[C]\#** を選択し、関数に `upload-to-azure` という名前を付けます。  スケジュールを `0 0 * * * *` に設定します (これは CRON 表記で 1 時間に一度を意味します)。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image5.png)
+    ![新しい関数の設定](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Blob Storage でトリガーされる関数の作成
 
@@ -219,7 +219,7 @@ Blob とキューを含む Azure Stack ストレージ アカウントを作成�
 
 ### <a name="storage-blob--data-archiving"></a>ストレージ Blob データのアーカイブ
 
-このストレージ アカウントには、2 つのコンテナーが格納されています。 これらのコンテナーは、アーカイブ データを保持するために使用される 1 つの Blob と、主要オフィスの分散用に割り当てられたデータの処理に使用されるキューです。
+このストレージ アカウントには、2 つのコンテナーが格納されています。 これらのコンテナーは、アーカイブ データを保持するために使用される 1 つの BLOB と、主要オフィスの分散用に割り当てられたデータの処理に使用されるキューで構成されます。
 
 上記の手順と設定を使用して、別のストレージ アカウントと Blob コンテナーをアーカイブ ストレージとして作成します。
 
@@ -233,9 +233,9 @@ Blob とキューを含む Azure Stack ストレージ アカウントを作成�
 
 4.  **[OK]** を選択します。
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image14.png)
+    ![ストレージ キュー](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![Alt text](media/azure-stack-solution-staged-data-analytics/image15.png)
+    ![新しいストレージ キューに名前を追加する](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>キューによってトリガーされる関数の作成
 

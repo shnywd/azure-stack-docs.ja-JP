@@ -15,12 +15,12 @@ ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 1f8991fb25bb0b8c3a8159bc82abcc9b52d871c8
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c642a3eeb07ef2ce94ca8dc338a781256c5b9f37
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64986022"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691241"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack"></a>Azure Cognitive Services を Azure Stack にデプロイする
 
@@ -31,7 +31,7 @@ ms.locfileid: "64986022"
 
 Azure Cognitive Services は、Azure Stack 上のコンテナー サポートとともに使用できます。 Azure Cognitive Services でのコンテナーのサポートにより、Azure で使用できる同じ豊富な API を使用できます。 コンテナーを使用することで、[Docker コンテナー](https://www.docker.com/what-container)で提供されるサービスのデプロイ先やホスト先に柔軟に対応できるようになります。 現在、コンテナー サポートは、[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、[Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)、[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)、および [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS) など、Azure Cognitive Services のサブセットに対するプレビューで使用できます。
 
-コンテナー化とは、アプリケーションまたはサービスとその依存関係や構成をコンテナー イメージとしてパッケージ化する、ソフトウェア配布のアプローチです。 ほとんどまたはまったく変更せずに、コンテナー ホストにイメージをデプロイできます。 各コンテナーは、他のコンテナーや、基になるオペレーティング システムから分離されます。 システム自体には、イメージを実行するために必要なコンポーネントしかありません。 コンテナー ホストは、仮想マシンよりも小さいフット プリントです。 さらに、短期的なタスクでは、イメージからコンテナーを作成し、不要になったときには削除できます。
+コンテナー化とは、アプリまたはサービスとその依存関係や構成をコンテナー イメージとしてパッケージ化する、ソフトウェア配布のアプローチです。 ほとんどまたはまったく変更せずに、コンテナー ホストにイメージをデプロイできます。 各コンテナーは、他のコンテナーや、基になるオペレーティング システムから分離されます。 システム自体には、イメージを実行するために必要なコンポーネントしかありません。 コンテナー ホストは、仮想マシンよりも小さいフット プリントです。 短期的なタスクではイメージからコンテナーを作成することもでき、不要になったときには削除できます。
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack"></a>Azure Stack の Cognitive Services でコンテナーを使用する
 
@@ -39,44 +39,44 @@ Azure Cognitive Services は、Azure Stack 上のコンテナー サポートと
   Cognitive Services を使用しているときに、データを制御することをアプリ ユーザーに許可します。 Cognitive Services は、グローバル Azure またはパブリック クラウドにデータを送信できないアプリ ユーザーに配信できます。
 
 - **モデルの更新プログラムの制御**  
-  アプリ ユーザーに、ソリューションにデプロイされたモデルのバージョンと更新プログラムを提供します。
+  アプリ ユーザーに、ソリューションにデプロイされたモデルのバージョン更新プログラムを提供します。
 
 - **ポータブル アーキテクチャ**  
-  ポータブル アプリ アーキテクチャを作成できるようにして、ソリューションをパブリック クラウドや、オンプレミスまたはエッジのプライベート クラウドにデプロイできるようにします。 コンテナーは Azure Kubernetes Service、Azure Container Instances、または Azure Stack 内の Kubernetes cluster にデプロイできます。 詳しくは、「[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)」をご覧ください。
+  ポータブル アプリ アーキテクチャを作成できるようにして、ソリューションをパブリック クラウドや、オンプレミスまたはエッジのプライベート クラウドにデプロイできるようにします。 コンテナーは Azure Kubernetes Service、Azure Container Instances、または Azure Stack 内の Kubernetes クラスターにデプロイできます。 詳しくは、「[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)」をご覧ください。
 
 - **高スループットで待機時間の短いクエリ**  
-   高いスループットと低待機時間のために、アプリ ユーザーにトラフィックの急増に合わせて拡大縮小する機能を提供します。 Cognitive Services を、アプリケーション ロジックとデータに物理的に近い Azure Kubernetes サービスで実行できるようにします。
+   高いスループットと低待機時間のために、アプリ ユーザーにトラフィックの急増に合わせて拡大縮小する機能を提供します。 Cognitive Services を、アプリのロジックとデータに物理的に近い Azure Kubernetes Service で実行できるようにします。
 
-Azure Stack では、高可用性およびエラスティック スケーリングのために、Cognitive Services コンテナーをアプリケーション コンテナーとともに Kubernetes クラスターにデプロイします。 Cognitive Services を、App Services、関数、Blob ストレージ、または SQL あるいは mySQL データベースで作成されたコンポーネントと組み合わせることで、アプリケーションを開発できます。 
+Azure Stack では、高可用性およびエラスティック スケーリングのために、Cognitive Services コンテナーをアプリのコンテナーとともに Kubernetes クラスターにデプロイします。 Cognitive Services を、App Services、関数、BLOB ストレージ、SQL、または mySQL データベースで作成されたコンポーネントと組み合わせることで、アプリを開発できます。
 
 Cognitive Services のコンテナーの詳細については、「[Azure Cognitive Services でのコンテナーのサポート](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-container-support)」を参照してください。
 
 ## <a name="deploy-the-azure-face-api"></a>Azure Face API をデプロイする
 
-この記事では、Azure Stack の Kubernetes クラスターに Azure Face API をデプロイする方法について説明します。 他の Cognitive Services を Azure Stack Kubernetes クラスターにデプロイするには、同じアプローチを使用できます。
+この記事では、Azure Stack の Kubernetes クラスターに Azure Face API をデプロイする方法について説明します。 同じアプローチを使用して他のコグニティブ サービス コンテナーを Azure Stack Kubernetes クラスターにデプロイすることができます。
 
 ## <a name="prerequisites"></a>前提条件
 
-手順を開始する前に、次が必要となります。
+手順を開始する前に次が必要となります。
 
-1.  Azure Cognitive Services コンテナー レジストリから Face コンテナー イメージをプルするには、コンテナー レジストリへのアクセスを要求します。 詳細については、「[プライベート コンテナー レジストリへのアクセスの要求](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry)」のセクションを参照してください。
+1.  Azure Cognitive Services コンテナー レジストリから Face コンテナー イメージをプルするには、コンテナー レジストリへのアクセスを要求します。 詳細については、「[プライベート コンテナー レジストリへのアクセスの要求](https://docs.microsoft.com/azure/cognitive-services/face/face-how-to-install-containers#request-access-to-the-private-container-registry)」を参照してください。
 
 2.  Azure Stack で Kubernetes クラスターを準備します。 「[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)」の記事に記載されている手順に従うことができます。
 
 ## <a name="create-azure-resources"></a>Azure リソースを作成する
 
-それぞれ、Face、LUIS、またはテキスト認識コンテナーをプレビューする Cognitive Service リソースを Azure で作成します。 Cognitive Services コンテナーをインスタンス化するために、リソースからのサブスクリプション キーとエンドポイント URL を使用する必要があります。
+Face、LUIS、またはテキスト認識コンテナーをプレビューする Cognitive Service リソースを Azure で作成します。 Cognitive Services コンテナーをインスタンス化するために、リソースからのサブスクリプション キーとエンドポイント URL を使用する必要があります。
 
 1. Azure portal で Azure リソースを作成します。 Face コンテナーをプレビューする場合、まず Azure portal で対応する Face リソースを作成する必要があります。 詳細については、「[クイック スタート: Azure portal で Cognitive Services アカウントを作成する](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)」を参照してください。
 
    > [!Note]
    >  Face または Computer Vision リソースでは、F0 価格レベルを使用する必要があります。
 
-2. Azure リソースのエンドポイント URL とサブスクリプション キーを取得します。 Azure リソースを作成したら、そのリソースからのサブスクリプション キーとエンドポイント URL を使用して、対応する Face、LUIS、またはテキスト認識コンテナーをプレビュー用にインスタンス化する必要があります。
+2. Azure リソースのエンドポイント URL とサブスクリプション キーを取得します。 Azure リソースを作成したら、そのリソースからのサブスクリプション キーとエンドポイント URL を使用して、対応する Face、LUIS、またはテキスト認識コンテナーをプレビュー用にインスタンス化します。
 
 ## <a name="create-a-kubernetes-secret"></a>Kubernetes シークレットを作成する 
 
-プライベート コンテナー レジストリにアクセスするには、Kubectl はシークレット作成コマンドを使用します。 **&lt;username&gt;** と **&lt;password&gt;** を、Azure Cognitive Services チームから受け取った資格情報内で提供されているユーザー名とパスワードにそれぞれ置き換えます。
+プライベート コンテナー レジストリにアクセスするには、Kubectl シークレット作成コマンドを使用します。 `<username>` と `<password>` を Azure Cognitive Services チームから受け取った資格情報に指定されているユーザー名とパスワードにそれぞれ置き換えます。
 
 ```bash  
     kubectl create secret docker-registry <secretName> \
@@ -134,21 +134,21 @@ spec:
     app: <appName>
 ```
 
-この YAML 構成ファイルで、Azure Container Registry から Cognitive Service コンテナー イメージを取得するために使うシークレットを使用します。 シークレット ファイルを使用して、コンテナーの特定のレプリカをデプロイできます。 ユーザーが外部からこのサービスにアクセスできるかどうかを確認するために、ロード バランサーも作成します。
+この YAML 構成ファイルで、Azure Container Registry から Cognitive Service コンテナー イメージを取得するために使うシークレットを使用します。 シークレット ファイルを使用して、コンテナーの特定のレプリカをデプロイします。 ユーザーが外部からこのサービスにアクセスできるようにするために、ロード バランサーも作成できます。
 
 キー フィールドに関する詳細:
 
 | フィールド | メモ |
 | --- | --- |
-| replicaNumber | 作成するインスタンスの初期レプリカを定義します。 デプロイ後に確実に拡張できます。 |
+| replicaNumber | 作成するインスタンスの初期レプリカを定義します。 スケーリングはデプロイ後に可能になります。 |
 | ImageLocation | ACR での特定の Cognitive Service コンテナー イメージの場所を示します。 たとえば、顔サービスの場合は次のようになります: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
-| BillingURL |[Azure リソースの作成](#create-azure-resources) のステップで書き留めたエンドポイント URL |
-| ApiKey | [Azure リソースの作成](#create-azure-resources) の手順で書き留めたサブスクリプション キー |
-| SecretName | プライベート コンテナー レジストリにアクセスするシークレットの作成の手順で書き留めたシークレット名 |
+| BillingURL |「[Azure リソースを作成する](#create-azure-resources)」の手順で書き留めたエンドポイント URL |
+| ApiKey | 「[Azure リソースを作成する](#create-azure-resources)」の手順で書き留めたサブスクリプション キー |
+| SecretName | 「[Kubernetes シークレットを作成する](#create-a-kubernetes-secret)」の手順で作成したシークレットの名前 |
 
 ## <a name="deploy-the-cognitive-service"></a>Cognitive Services のデプロイ
 
-Cognitive Services コンテナーをデプロイする次のコマンドの使用
+Cognitive Services コンテナーをデプロイするには、次のコマンドを使用します。
 
 ```bash  
     Kubectl apply -f <yamlFineName>
@@ -160,7 +160,7 @@ Cognitive Services コンテナーをデプロイする次のコマンドの使�
 
 ## <a name="test-the-cognitive-service"></a>Cognitive Service をテストする
 
-インスタンス化されたコンテナーの **/swagger** 相対 URI から、そのコンテナーによってサポートされる操作について説明する [OpenAPI 仕様](https://swagger.io/docs/specification/about/) (以前の Swagger 仕様) にアクセスします。 たとえば、次の URI から、前の例でインスタンス化された感情分析コンテナーの OpenAPI 仕様にアクセスできます。
+[Open API 仕様](https://swagger.io/docs/specification/about/)には、そのコンテナーの相対 URI **/swagger** からアクセスします。 以前は Swagger 仕様と呼ばれていたこの仕様では、インスタンス化されたコンテナーによってサポートされる操作について説明しています。 たとえば、次の URI から、前の例でインスタンス化された感情分析コンテナーの OpenAPI 仕様にアクセスできます。
 
 ```HTTP  
 http:<External IP>:5000/swagger
@@ -176,11 +176,11 @@ http:<External IP>:5000/swagger
 
 いくつかの単純な Python スクリプトを実行して Azure Stack で Cognitive Services を検証することができます。 参照用に [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、[Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)、[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)、および [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS) の Python 公式クイックスタート サンプルがあります。
 
-コンテナーで実行されているサービスに対して実行する Python アプリを作成するには、次の 2 つのことを念頭に置いておく必要があります。 
-1. コンテナー内の Cognitive Services の認証にはサブ キーは必要ありませんが、SDK を満たすために、プレースホルダーとして任意の文字列を入力する必要があります。 
-2. base_URL を実際のサービス エンドポイントの IP アドレスに置き換える 
+Python アプリを使用してコンテナーで実行されているサービスを検証する場合は、次の 2 つのことを念頭に置いておく必要があります。 
+1. コンテナー内の Cognitive Services の認証にはサブ キーは必要ありませんが、SDK を満たすために、プレースホルダーとして何らかの文字列が必要です。 
+2. base_URL を実際のサービス エンドポイントの IP アドレスに置き換えます。
 
-ここでは、イメージの中で顔を検出してフレームするために、サンプルの Python スクリプトが Face サービスの Python SDK を使用しています。 
+ここでは、イメージの中で顔を検出してフレームするために、サンプルの Python スクリプトが Face サービスの Python SDK を使用しています。
 
 ```Python  
 import cognitive_face as CF

@@ -15,18 +15,18 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 36a80e0ce9a53b3ea2bdd7ddef990123af9e2669
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 841d8607999f4135a86e0cd6668c79dddb80bd83
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985934"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691955"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Azure Stack 用の iDNS の概要
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-iDNS は、外部 DNS 名 (例: http:\//www.bing.com) を解決することができる、Azure Stack のネットワーク機能です。内部仮想ネットワーク名を登録することもできます。 これを行うことで、同じ仮想ネットワーク内の VM を IP アドレスではなく名前で解決することができます。 このアプローチでは、カスタム DNS サーバー エントリを用意する必要がありません。 DNS の詳細については、「[Azure DNS の概要](https://docs.microsoft.com/azure/dns/dns-overview)」を参照してください。
+iDNS は、外部 DNS 名 (例: http:\//www.bing.com) を解決することができる、Azure Stack のネットワーク機能です。内部仮想ネットワーク名を登録することもできます。 これを行うことで、同じ仮想ネットワーク内の VM を IP アドレスではなく名前で解決することができます。 このアプローチでは、カスタム DNS サーバー エントリを用意する必要がありません。 DNS の詳細については、[Azure DNS の概要](https://docs.microsoft.com/azure/dns/dns-overview)に関するページを参照してください。
 
 ## <a name="what-does-idns-do"></a>iDNS が実行すること
 

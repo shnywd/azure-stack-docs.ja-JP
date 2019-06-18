@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2cca789487803124e1a7b24efa199d7f68760fb6
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 98aae8378e4bd516181cae95b153e6ee445ce4bf
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453411"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691994"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>仮想マシン スケール セットを Azure Stack 内で使用できるようにする
 
@@ -36,7 +36,7 @@ Azure Stack では、仮想マシン スケール セットは自動スケール
 ## <a name="prerequisites"></a>前提条件
 
 * **Marketplace:** Marketplace で項目の可用性を有効にするには、Azure Stack をグローバル Azure に登録します。 [Azure Stack の Azure への登録](azure-stack-registration.md)に関する記事の手順に従います。
-* **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md) から VMSS 内で使用する VM イメージをダウンロードする必要があります。 ユーザーが新しい VMSS を作成する前にイメージが既に存在している必要があります。
+* **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md) からスケール セットで使用する VM イメージをダウンロードする必要があります。 ユーザーが新しいスケール セットを作成する前に、イメージが既に存在している必要があります。
 
 ## <a name="use-the-azure-stack-portal"></a>Azure Stack ポータルの使用
 

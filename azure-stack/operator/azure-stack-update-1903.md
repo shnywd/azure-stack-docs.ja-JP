@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 972b47e5c8787d41d918544f220e082b9ac2d69d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 7f335a6ad59d6f27c8e402863849d21c87f1cee2
+ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506280"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66748897"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新プログラム
 
@@ -167,7 +167,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
    このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。 この問題を回避するには、以前使用したものと同じ名前のストレージ アカウントを再作成します。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 このイメージは Azure Stack では使用できないため、デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートをご使用ください。
+- 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 このイメージは Azure Stack Marketplace では使用できないため、デプロイ用に別のオペレーティング システムを選択するか、デプロイする前にオペレーターによって Marketplace からダウンロードされた別の CentOS イメージを指定する Azure Resource Manager テンプレートを使用してください。
 
 <!-- TBD - IS ASDK -->
 - 更新プログラム 1903 の適用後、Managed Disks を使用した VM をデプロイすると、次の問題が発生する可能性があります。

@@ -14,12 +14,12 @@ ms.date: 04/20/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 3ec925406ad3553c0beb073d39d84ae20f5bc472
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268639"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836692"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
 
@@ -48,13 +48,9 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
    詳細については、「[パラメーターに関する考慮事項](azure-stack-diagnostic-test.md#parameter-considerations)」と「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」を参照してください。
 
-3. いずれかのテストで **FAIL** が報告された場合は、次を実行します。
+3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   このコマンドレットは、Test-azurestack によって生成されたログを収集します。 診断ログの詳細については、「[Azure Stack diagnostics tools (Azure Stack 診断ツール)](azure-stack-diagnostics.md)」を参照してください。 テストで **WARN** が報告される場合は、ログを収集したり CSS に問い合わせたりしないでください。
+   このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集したり CSS に問い合わせたりしないでください。
 
 4. CSS により検証ツールを実行するように指示された場合、CSS の担当者は、問題のトラブルシューティングを続行するために、収集したログの提出を要求します。
 

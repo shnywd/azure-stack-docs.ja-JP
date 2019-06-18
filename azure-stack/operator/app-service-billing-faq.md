@@ -4,7 +4,7 @@ description: Azure App Service on Azure Stack の測定方法と課金方法に�
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
-manager: femila
+manager: stefsch
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2019
+ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 7b11f00c98c6433ad035b6190789276ea5aa6fa7
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: fa3bc647d11bca915c58aa1bd948881628405776
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66213049"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828366"
 ---
 # <a name="azure-app-service-on-azure-stack-billing-overview-and-faq"></a>Azure App Service on Azure Stack の課金の概要と FAQ
 
@@ -72,6 +72,22 @@ Azure App Service リソース プロバイダーに必要な SQL およびフ�
 ### <a name="the-usage-faq-lists-the-tenant-meters-but-not-the-prices-for-those-meters-where-can-i-find-them"></a>「使用量に関する FAQ」には、テナントの測定が記載され、測定の価格は記載されていませんが、どこで確認できますか
 
 クラウド オペレーターは、エンド ユーザーに独自の価格設定モデルを自由に適用できます。 使用量サービスから使用量の測定が提供されるので、クラウド オペレーターは、その測定量を使用して、自身が決定した価格モデルに基づいて顧客に課金する必要があります。 このように価格を設定できるので、オペレーターは他の Azure Stack オペレーターと差別化することができます。
+
+### <a name="as-a-csp-how-can-i-offer-free-and-shared-skus-for-customers-to-trial-the-service"></a>CSP は顧客がサービスを試すための無料 SKU と共有 SKU をどのような方法で提供できますか
+
+Microsoft が Azure で行っているのと同じように、クラウド オペレーターには、共有 worker でホストされる無料 SKU と共有 SKU を提供するコストが発生します。  そのコストを最小限に抑えるには、共有 worker のサービス レベルを最小限までスケールダウンできます。  たとえば、無料と共有の App Service プラン SKU を提供し、使用量ベースの機能を提供するには、少なくとも 1 つの A1 インスタンスを使用できるようにする必要があります。  共有 worker はマルチテナントなので、複数の顧客アプリをホストし、App Service サンドボックスでそれぞれを個別に分離して保護することができます。  この方法で共有 worker サービス レベルをスケーリングすることによって、出費を 1 か月あたり 1 vCPU のコストに制限できます。
+
+さらに、プランで使用するためのクォータを作成できます。それでは、無料 SKU と共有 SKU のみを提供し、顧客が作成できる無料および共有の App Service プランの数を制限します。
+
+## <a name="sample-scripts-to-assist-with-billing"></a>請求を支援するためのサンプル スクリプト
+
+Azure App Service チームは、Azure Stack 使用状況サービスの照会を支援し、クラウド オペレーターがテナント用に独自の請求を準備するのを支援するために、サンプル PowerShell スクリプトを作成しました。  サンプル スクリプトは GitHub の [Azure Stack ツール リポジトリ](https://github.com/Azure/AzureStack-tools)にあり、App Service スクリプトは [Usage の下の AppService フォルダー](https://github.com/Azure/AzureStack-Tools/tree/master/Usage/AppService)にあります。
+
+次のサンプル スクリプトを使用できます。
+
+- [Get-AppServiceBillingRecords](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceBillingRecords.ps1) - このサンプルは、Azure Stack Usage API から Azure App Service on Azure Stack の請求レコードをフェッチします
+- [Get-AppServiceSubscriptionUsage](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Get-AppServiceSubscriptionUsage.ps1) - このサンプルは、サブスクリプションごとに Azure App Service on Azure Stack の使用料を計算します。  このスクリプトでは、Usage API とクラウド オペレーターによって測定ごとに提供される価格からのデータに基づいて使用料を計算します。
+- [Suspend-UserSubscriptions](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/AppService/Suspend-UserSubscriptions.ps1) - このサンプルは、クラウド オペレーターによって指定された使用量の制限に基づいて、サブスクリプションを中断または有効にします。
 
 ## <a name="next-steps"></a>次の手順
 

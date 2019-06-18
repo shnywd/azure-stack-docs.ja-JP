@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 06/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5f03b80b871d3df467bc52b735432ce5568a3ad8
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: edc6fc17e426e5e391eb61d510097101ddcfce58
+ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212299"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66828331"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
 
@@ -51,7 +51,7 @@ ms.locfileid: "65212299"
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>エンド カスタマー ディレクトリにゲスト ユーザーを作成する
 
-エンド カスタマーが自分のアカウントを管理する場合は、エンド カスタマーのディレクトリ内にゲスト ユーザーを作成し、エンド カスタマーにその情報を送信します。 エンド ユーザーはゲストを追加し、ゲストのアクセス許可を Azure Stack の CSP アカウントの**所有者**に昇格させます。
+既定では、CSP (あなた) はエンド カスタマーの Azure Stack サブスクリプションにアクセスできません。 ただし、顧客があなたにリソースの管理を望む場合、顧客はあなたのアカウントを所有者/共同作成者として自分の Azure Stack サブスクリプションに追加できます。 それを行うには、AAD テナントにゲスト ユーザーとしてあなたのアカウントを追加する必要があります。 Azure CSP アカウントから別のアカウントを使用して顧客の Azure Stack サブスクリプションを管理し、顧客の Azure サブスクリプションへのアクセスが失われないようにすることをお勧めします。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>エンド カスタマーのサブスクリプションで登録を更新する
 

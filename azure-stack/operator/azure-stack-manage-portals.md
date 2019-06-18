@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
-ms.lastreviewed: 02/25/2019
-ms.openlocfilehash: b6863a86a5307375ea13f67c349da9f87b797fe5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cb57d43306b69c3698441b9bb7b01c0c292bd704
+ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268462"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66821752"
 ---
 # <a name="quickstart-use-the-azure-stack-administration-portal"></a>クイック スタート: Azure Stack 管理ポータルを使用する
 
@@ -86,7 +86,7 @@ Azure Stack オペレーター向けドキュメントにアクセスするに�
 
 ### <a name="quick-access-to-help-and-support"></a>ヘルプとサポートへのクイック アクセス
 
-管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[新しいサポート要求]** を選択すると、次のいずれかの結果になります。
+管理者ポータルの右上隅にあるヘルプ アイコン (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックしてから、 **[サポート]** で **[新しいサポート リクエスト]** をクリックすると、次のいずれかの結果になります。
 
 - 統合システムを使用している場合は、Microsoft カスタマー サポート サービス (CSS) のサポート チケットを直接開くことができるサイトが開きます。 Microsoft サポートと OEM (Original Equipment Manufacturer) ハードウェア ベンダーのサポートのどちらに連絡するかについては、「[サポートが受けられる場所](azure-stack-manage-basics.md#where-to-get-support)」を参照してください。
 - ASDK を使用している場合は、[Azure Stack フォーラムのサイト](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)が直接開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。

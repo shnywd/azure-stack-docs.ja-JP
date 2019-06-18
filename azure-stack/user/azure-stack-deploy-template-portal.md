@@ -1,6 +1,6 @@
 ---
 title: Azure Stack でポータルを使用してテンプレートをデプロイする | Microsoft Docs
-description: Azure Stack ポータルを使用してテンプレートをデプロイする方法について説明します。
+description: Azure Stack ポータルを使用してテンプレートをデプロイする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,14 +16,14 @@ ms.date: 05/07/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6e848af9049c7f105e6a31fdef8dc03308bd276a
-ms.sourcegitcommit: a78c0d143eadcab65a601746b9ea24be28091ad2
+ms.openlocfilehash: 8f61667351a6d22094d5f8a0ba39348cc92549a8
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65212481"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66692018"
 ---
-# <a name="deploy-templates-using-the-azure-stack-portal"></a>Azure Stack ポータルを使用したテンプレートのデプロイ
+# <a name="deploy-a-template-using-the-portal-in-azure-stack"></a>Azure Stack でポータルを使用してテンプレートをデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -31,33 +31,33 @@ ms.locfileid: "65212481"
 
 ## <a name="to-deploy-a-template"></a>テンプレートをデプロイするには
 
-1. ポータルにサインインし、**[+ リソースの作成]** を選択し、**[カスタム]** を選択します。
+1. ポータルにサインインし、 **[+ リソースの作成]** を選択し、 **[カスタム]** を選択します。
 
-   ![Create](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Azure Stack ポータルでリソースを作成する](media/azure-stack-deploy-template-portal/template-deploy1.png)
 
 1. **[テンプレートのデプロイ]** を選択します。
 
-   ![テンプレートのデプロイ](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Azure Stack ポータルでテンプレートをデプロイする](media/azure-stack-deploy-template-portal/template-deploy2.png)
 
 1. **[テンプレートの編集]** を選択してから、JSON テンプレート コードをコード ウィンドウに貼り付けます。 **[保存]** を選択します。
 
-   ![テンプレートの編集](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Azure Stack ポータルでテンプレートを編集する](media/azure-stack-deploy-template-portal/template-deploy3.png)
 
-1. **[パラメーターの編集]** を選択し、表示されているパラメーターの値を指定して、**[OK]** を選択します。
+1. **[パラメーターの編集]** を選択し、表示されているパラメーターの値を指定して、 **[OK]** を選択します。
 
-   ![パラメーターの編集](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Azure Stack ポータルでパラメーターを編集する](media/azure-stack-deploy-template-portal/template-deploy4.png)
 
-1. **[サブスクリプション]** を選択します。 使用するサブスクリプションを選択してから、**[OK]** を選択します。
+1. **[サブスクリプション]** を選択します。 使用するサブスクリプションを選択してから、 **[OK]** を選択します。
 
-   ![サブスクリプション](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Azure Stack ポータルでサブスクリプションを選択する](media/azure-stack-deploy-template-portal/template-deploy5.png)
 
-1. **[リソース グループ]** を選択します。 既存のリソース グループを選択するか、新しいリソース グループを作成して、**[OK]** を選択します。
+1. **[リソース グループ]** を選択します。 既存のリソース グループを選択するか、新しいリソース グループを作成して、 **[OK]** を選択します。
 
-   ![リソース グループ](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Azure Stack ポータルでリソース グループを選択する](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
 1. **作成** を選択します。 ダッシュボードの新しいタイルにより、テンプレート デプロイの進行状況を追跡します。
 
-   ![テンプレートの作成](media/azure-stack-deploy-template-portal/template-deploy7.png)
+   ![Azure Stack ポータルでテンプレートを作成する](media/azure-stack-deploy-template-portal/template-deploy7.png)
 
 ## <a name="next-steps"></a>次の手順
 

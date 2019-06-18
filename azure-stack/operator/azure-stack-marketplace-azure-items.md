@@ -16,12 +16,12 @@ ms.date: 04/12/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 43554f5659f3068657feda2997f90736a7be8495
-ms.sourcegitcommit: 261df5403ec01c3af5637a76d44bf030f9342410
+ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66252128"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835107"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -91,9 +91,9 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![CentOS-based 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC) | この Linux のディストリビューションは CentOS に基づいており、Rogue Wave Software によって提供されます。 | Rogue Wave Software (以前の OpenLogic) |
 | ![CentOS-based 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | この Linux のディストリビューションは CentOS に基づいており、Rogue Wave Software によって提供されます。 | Rogue Wave Software (以前の OpenLogic) |
 | ![CentOS-based 7.5-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 7.5-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | この Linux のディストリビューションは CentOS に基づいており、Rogue Wave Software によって提供されます。 | Rogue Wave Software (以前の OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4。 | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3。 | SUSE |
-| ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15。 | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 11 SP4。 | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 12 SP4。 | SUSE |
+| ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.sles-byos) | SUSE Linux Enterprise Server 15。 | SUSE |
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>サードパーティの BYOL、無料、試用版のイメージ、ソリューション テンプレート
 
@@ -116,7 +116,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Cassandra クラスター](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra クラスター](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra は、コモディティ サーバー間で大量のデータを処理するように設計されたオープン ソースの分散型データベース管理システムであり、単一点障害の不在による高可用性を備えています。 **このソリューション テンプレートでは、Debian 8 と Custom Script for Linux 2.0 Extension も必要です。** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | シンプルな Web ベースのリレーションシップ管理システム。 | Bitnami |
 | ![CMS Made Simple](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Web サイトのすばやく簡単な作成および管理方法。 | Bitnami |
-| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.codiad) | 最小フット プリントのオープン ソースのクラウド IDE。 | Bitnami |
+| ![Codiad](media/azure-stack-marketplace-azure-items/codiad.png) | [Codiad](https://azuremarketplace.microsoft.com/marketplace/apps?search=codiad) | 最小フット プリントのオープン ソースのクラウド IDE。 | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Web アプリケーション、Web サイト、ストア、フォーラムを簡単にデプロイできます。 | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | 多目的の全機能を備えた Web ギャラリー。 | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | 使いやすいオープン ソースのデータベース システム。 | Bitnami |
@@ -224,7 +224,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![WebMail Pro PHP](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | エンタープライズ機能を持つ Web メール システム。 | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Apache、WildFly、MySQL、および Java を含むアプリケーション サーバー。 | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最もよく使用されていて、すぐに使用できる CMS。 | Bitnami |
-| ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | コンパクトなマーケティング、販売、および顧客サービス アプリケーション。 | Bitnami |
+| ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps?search=x2engine%20sales%20crm) | コンパクトなマーケティング、販売、および顧客サービス アプリケーション。 | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS および動的な Web サイトを作成する Web ポータル プログラム。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | オープン ソースの CRM システム: モバイル、ソーシャル、および Gamified。 | Bitnami |
 | ![Check Point vSEC セキュリティ管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC セキュリティ管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC は、Azure 内の顧客の資産をマルウェアや高度な脅威から保護する高性能の多層脅威防止機能を提供します。 **両方の Check Point vSEC Marketplace アイテムをダウンロードしてください。** | Check Point |
@@ -238,7 +238,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Hortonworks Data Platform (HDP) サンドボックス](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) サンドボックス](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | HDP 2.5 を使用した、100% オープン ソースのプラットフォーム (Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari に対応)。 | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security は、シームレスに調整され、アダプティブなサイバーセキュリティ エコシステムを可能にします。 | Kaspersky Lab |
 | ![KEMP LoadMaster ロード バランサー ADC コンテンツ スイッチ](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster ロード バランサー ADC コンテンツ スイッチ](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | レイヤー 4 ～ 7 のアプリケーション配信コントローラー (ADC) ロード バランサー、コンテンツ スイッチ、および Traffic Manager。 | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | このソリューションは、ACS エンジンを使用して生成されたテンプレートを使用して、スタンドアロン クラスターとして実行される Kubernetes クラスターをデプロイします。<br>**このソリューション テンプレートには、Ubuntu Server 16.04 LTS と Custom Script for Linux 2.0 も必要です。**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | このソリューションは、AKS エンジンを使用して生成されたテンプレートを使用して、スタンドアロン クラスターとして実行される Kubernetes クラスターをデプロイします。<br>**このソリューション テンプレートには、Ubuntu Server 16.04 LTS と Custom Script for Linux 2.0 も必要です。**| Microsoft |
 | ![Service Fabric クラスター](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | このソリューションは、仮想マシン スケール セットでスタンドアロンのクラスターとして実行される Service Fabric をデプロイします。 <br>**このソリューション テンプレートでは、Windows Server 2016 Datacenter をダウンロードする必要もあります**| Microsoft |
 | ![NRI mPLAT スイート - マルチクラウド Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT スイート - マルチクラウド Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | ワークロードやクラウドの監視、構成、プロビジョニング、自動化、構成のプロビジョニング、自動化、および制御を行うための一枚のガラス。 | NRI |
 | ![NooBaa Hybrid AWS S3 互換性 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 互換性 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | パブリックとオンプレミスのキャパシティ リソースに対応した、S3 互換のストレージ サービス。 | NooBaa |

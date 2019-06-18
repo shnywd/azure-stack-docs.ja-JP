@@ -3,30 +3,29 @@ title: Azure Stack の証明書に関する問題を修復する | Microsoft Doc
 description: Azure Stack 適合性チェッカーを使用して、証明書の問題を確認し、修復します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/21/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+ms.date: 06/04/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 009eb56621f7cd395c3d2eefb29b9fa624af888b
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 24fdd5aa917d2454e56fc1843da25cda5db9c7db
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308089"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691539"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書に関する一般的な問題を修復する
 
-この記事の情報は、Azure Stack PKI 証明書の一般的な問題について理解し、解決するうえで役立ちます。 Azure Stack 適合性チェッカー ツールを使用して [Azure Stack PKI 証明書を検証](azure-stack-validate-pki-certs.md)すると、問題を見つけることができます。 このツールは、証明書が Azure Stack デプロイと Azure Stack シークレット ローテーションの PKI 要件を満たしていることを確認し、その結果のログを [report.json ファイル](azure-stack-validation-report.md)に出力します。  
+この記事の情報は、Azure Stack PKI 証明書の一般的な問題について理解し、解決するうえで役立ちます。 Azure Stack 適合性チェッカー ツールを使用して [Azure Stack PKI 証明書を検証](azure-stack-validate-pki-certs.md)すると、イシューを見つけることができます。 このツールは、証明書が Azure Stack デプロイと Azure Stack シークレット ローテーションの PKI 要件を満たしていることを確認し、その結果のログを [report.json ファイル](azure-stack-validation-report.md)に出力します。  
 
 ## <a name="pfx-encryption"></a>PFX の暗号化
 
@@ -60,11 +59,11 @@ ms.locfileid: "64308089"
 
 **エラー** - 証明書チェーンが完全ではありません。  
 
-**解決策** - 証明書には、完全な証明書チェーンを含める必要があります。 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して証明書を再度エクスポートし、**[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。
+**解決策** - 証明書には、完全な証明書チェーンを含める必要があります。 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して証明書を再度エクスポートし、 **[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。
 
 ## <a name="dns-names"></a>DNS 名
 
-**エラー** - 証明書の DNSNameList に、Azure Stack サービス エンドポイント名または有効なワイルドカード一致が含まれません。 ワイルドカード一致は、DNS 名の左端の名前空間に対してのみ有効です。 たとえば、_*.region.domain.com_ は、*portal.region.domain.com* に対してのみ有効です。_*.table.region.domain.com_ に対しては有効ではありません。
+**エラー** - 証明書の **DNSNameList** に、Azure Stack サービス エンドポイント名または有効なワイルドカード一致が含まれません。 ワイルドカード一致は、DNS 名の左端の名前空間に対してのみ有効です。 たとえば、`*.region.domain.com` は `portal.region.domain.com` のみで有効であり、`*.table.region.domain.com` では有効ではありません。
 
 **解決策** - 「Azure Stack 証明書署名要求の生成」の手順を使用して、Azure Stack エンドポイントをサポートするように正しい DNS 名で CSR を再生成します。 CSR を証明機関に再送信し、「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順に従って、CSR を生成したマシンから、証明書をエクスポートします。  
 
@@ -84,22 +83,22 @@ ms.locfileid: "64308089"
 
 **エラー** - 証明書チェーンの順序が正しくありません。  
 
-**解決策** - 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して、証明書を再度エクスポートし、**[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。 リーフ証明書のみがエクスポート用に選択されていることを確認します。
+**解決策** - 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して、証明書を再度エクスポートし、 **[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。 リーフ証明書のみがエクスポート用に選択されていることを確認します。
 
 ## <a name="other-certificates"></a>他の証明書
 
 **エラー** - PFX パッケージに、リーフ証明書または証明書チェーンの一部ではない証明書が含まれています。  
 
-**解決策** - 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して、証明書を再度エクスポートし、**[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。 リーフ証明書のみがエクスポート用に選択されていることを確認します。
+**解決策** - 「[デプロイ用の Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)」の手順を使用して、証明書を再度エクスポートし、 **[証明のパスにある証明書を可能であればすべて含む]** オプションを選択します。 リーフ証明書のみがエクスポート用に選択されていることを確認します。
 
 ## <a name="fix-common-packaging-issues"></a>パッケージに関する一般的な問題の修正
 
-**AzsReadinessChecker** には、`Repair-AzsPfxCertificate` というヘルパー コマンドレットが含まれています。これを使用すると、PFX ファイルをインポートしてからエクスポートし、パッケージに関する次のような一般的な問題を修正できます。
+**AzsReadinessChecker** ツールには、`Repair-AzsPfxCertificate` というヘルパー コマンドレットが含まれています。これを使用すると、PFX ファイルをインポートしてからエクスポートし、パッケージに関する次のような一般的なイシューを修正できます。
 
-- "*PFX 暗号化*" が TripleDES-SHA1 ではない。
-- "*秘密キー*" にローカル コンピューター 属性がない。
-- "*証明書チェーン*" が完全ではないか、間違っている  PFX パッケージに証明書チェーンが含まれない場合、ローカル コンピューターに証明書チェーンを含める必要があります。
-- *他の証明書*
+- **PFX 暗号化**が TripleDES-SHA1 ではない。
+- **秘密キー**にローカル コンピューター属性がない。
+- "**証明書チェーン**" が完全ではないか、間違っている PFX パッケージに証明書チェーンが含まれない場合、ローカル コンピューターに証明書チェーンを含める必要があります。
+- **他の証明書**
 
 新しい CSR を生成して証明書を再発行する必要がある場合は、`Repair-AzsPfxCertificate` は役に立ちません。
 
@@ -108,18 +107,18 @@ ms.locfileid: "64308089"
 ツールが実行されるコンピューターで、次の前提条件を満たす必要があります。
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
-- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、"*メジャー*" バージョンと "*マイナー*" バージョンを調べます。
+- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、*メジャー** バージョンと**マイナー** バージョンを調べます。
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
 - [PowerShell for Azure Stack](azure-stack-powershell-install.md) を構成します。
-- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツールをダウンロードします。
+- 最新バージョンの [Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツールをダウンロードします。
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>既存の PFX ファイルのインポートとエクスポート
 
-1. 前提条件を満たしているコンピューターで、管理 PowerShell プロンプトを開き、次のコマンドを実行して、AzsReadinessChecker をインストールします。
+1. 前提条件を満たしているコンピューターで、管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、Azure Stack 適合性チェッカーをインストールします。
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
@@ -142,7 +141,7 @@ ms.locfileid: "64308089"
 
 4. ツールが完了したら、成功したかどうかを出力で確認します。
 
-   ```powershell
+   ```shell
    Repair-AzsPfxCertificate v1.1809.1005.1 started.
    Starting Azure Stack Certificate Import/Export
    Importing PFX .\certificates\ssl.pfx into Local Machine Store
@@ -155,4 +154,4 @@ ms.locfileid: "64308089"
 
 ## <a name="next-steps"></a>次の手順
 
-- [ここに移動して、Azure Stack のセキュリティについて詳しく学習します](azure-stack-rotate-secrets.md)。
+- [Azure Stack のセキュリティについて詳しく学習する](azure-stack-rotate-secrets.md)

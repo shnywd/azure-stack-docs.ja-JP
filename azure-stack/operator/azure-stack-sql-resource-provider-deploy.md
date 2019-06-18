@@ -15,12 +15,12 @@ ms.date: 03/29/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 7cc05316222f7652e8c5eecbad6a02eee901e697
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1e4b8bddaa5bfa164e413ee7a20071fe6a0cc831
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617931"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835079"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>SQL Server リソース プロバイダーを Azure Stack にデプロイする
 
@@ -41,8 +41,8 @@ Azure Stack SQL リソース プロバイダーをデプロイする前に、い
   |最小の Azure Stack バージョン|SQL RP バージョン|
   |-----|-----|
   |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |バージョン 1804 (1.0.180513.1)|[SQL RP バージョン 1.1.24.0](https://aka.ms/azurestacksqlrp11240)
+  |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
+  |バージョン 1804 (1.0.180513.1)|[SQL RP バージョン 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
 
 - データセンターの統合の前提条件を満たしていることを確認します。
@@ -50,8 +50,8 @@ Azure Stack SQL リソース プロバイダーをデプロイする前に、い
     |前提条件|リファレンス|
     |-----|-----|
     |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)|
-    |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack デプロイの必須 PKI 前提条件](azure-stack-pki-certs.md#mandatory-certificates) [Azure Stack デプロイの PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack とデータセンターの統合 - ポートとプロトコル (受信)](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack デプロイの必須 PKI 前提条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack デプロイの PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>証明書
@@ -94,8 +94,8 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
 | **RetryDuration** | 再試行間のタイムアウト間隔 (秒単位)。 | 120 |
-| **アンインストール** | リソース プロバイダーと関連付けられているすべてのリソースを削除します (以下のメモを参照してください)。 | いいえ  |
-| **DebugMode** | 障害発生時に自動クリーンアップが行われないようにします。 | いいえ  |
+| **アンインストール** | リソース プロバイダーと関連付けられているすべてのリソースを削除します (以下のメモを参照してください)。 | いいえ |
+| **DebugMode** | 障害発生時に自動クリーンアップが行われないようにします。 | いいえ |
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>カスタム スクリプトを使用して SQL リソース プロバイダーをデプロイする
 

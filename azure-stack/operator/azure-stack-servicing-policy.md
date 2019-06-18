@@ -16,12 +16,12 @@ ms.date: 05/02/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c4c77cc08b1452c34ca7eba123a38b9d20001645
-ms.sourcegitcommit: 20becab55ac2bd4b7a974ed3928238412a22a4a6
+ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65030534"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691483"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack サービス ポリシー
 
@@ -53,10 +53,10 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
+- [Azure Stack 1905 更新プログラム](azure-stack-release-notes-1905.md)
 - [Azure Stack 1904 更新プログラム](azure-stack-release-notes-1904.md)
 - [Azure Stack 1903 更新プログラム](azure-stack-update-1903.md)
 - [Azure Stack 1902 更新プログラム](azure-stack-update-1902.md)
-- [Azure Stack 1901 更新プログラム](azure-stack-update-1901.md)
 
 ## <a name="hotfixes"></a>修正プログラム
 

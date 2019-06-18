@@ -3,27 +3,26 @@ title: この記事では、Azure Stack のオファーとプランを更新す�
 description: この記事では、既存の Azure Stack のオファーとプランを表示および変更する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.custom: mvc
-origin.date: 03/07/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 00bb17eadfee32e9b0d006ac76bb8e1cd614f13e
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/11/2019
+ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311539"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836789"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack のアドオン プラン
 
@@ -48,11 +47,11 @@ ms.locfileid: "64311539"
 
    ![アドオン プランを作成する](media/create-add-on-plan/add-on1.png)
 
-4. オファーのプロパティの一番下までスクロールし、**[アドオン プラン]** を選択します。 **[追加]** をクリックします。
+4. オファーのプロパティの一番下で、 **[アドオン プラン]** を選択します。 **[追加]** をクリックします。
 
     ![アドオン プランを作成する](media/create-add-on-plan/add-on2.png)
 
-5. 追加するプランを選択します。 この例では、プランの名前は **20-storageaccounts** です。 プランの選択後、**[選択]** をクリックして、オファーにプランを追加します。 プランがオファーに正常に追加されたという通知が届きます。
+5. 追加するプランを選択します。 この例では、プランの名前は **20-storageaccounts** です。 プランの選択後、 **[選択]** をクリックして、オファーにプランを追加します。 プランがオファーに正常に追加されたという通知が届きます。
 
     ![アドオン プランを作成する](media/create-add-on-plan/add-on3.png)
 
@@ -68,11 +67,11 @@ ms.locfileid: "64311539"
 
    ![アドオン プランを作成する](media/create-add-on-plan/1.PNG)
 
-4. オファーのプロパティの一番下までスクロールし、**[アドオン プラン]** を選択します。 **[追加]** をクリックします。
+4. オファーのプロパティの一番下までスクロールし、 **[アドオン プラン]** を選択します。 **[追加]** をクリックします。
 
     ![アドオン プランを作成する](media/create-add-on-plan/2.PNG)
 
-5. 追加するプランを選択します。 この例では、プランの名前は **[Key vault plan]** です。 プランの選択後、**[選択]** をクリックして、オファーにプランを追加します。 プランがオファーに正常に追加されたという通知が届きます。
+5. 追加するプランを選択します。 この例では、プランの名前は **[Key vault plan]** です。 プランの選択後、 **[選択]** をクリックして、オファーにプランを追加します。 プランがオファーに正常に追加されたという通知が届きます。
 
     ![アドオン プランを作成する](media/create-add-on-plan/3.PNG)
 

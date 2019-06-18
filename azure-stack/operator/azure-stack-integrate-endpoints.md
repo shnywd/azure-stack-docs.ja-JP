@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 885568035070bc4f74b94cddff200302fccfbb72
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 7ee47a5dc7344628561521f067a8310a0c8d3347
+ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618111"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66835084"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack とデータセンターの統合 - エンドポイントの公開
 
@@ -28,39 +28,42 @@ Azure Stack は、そのインフラストラクチャ ロールのために仮�
 
 ## <a name="ports-and-protocols-inbound"></a>ポートとプロトコル (受信)
 
-Azure Stack エンドポイントを外部ネットワークに公開するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)*" の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL のリソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーの展開に関するドキュメントを参照してください。
+Azure Stack エンドポイントを外部ネットワークに公開するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)* " の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL のリソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーの展開に関するドキュメントを参照してください。
 
 社内インフラストラクチャの VIP は Azure Stack の発行には不要なため、記載されていません。
 
 > [!Note]  
 > ユーザーの VIP は動的で、Azure Stack オペレーターによって管理されず、ユーザー自身が定義します。
 
-> [!Note]
+> [!Note]  
+> IKEv2 VPN。 IKEv2 VPN は、標準ベースの IPsec VPN ソリューションであり、UDP ポート 500 と 4500 のほか、IP プロトコル番号 50 を使用しています。 ファイアウォールでここに挙げたポートが必ずしも開いているとは限りません。このため、IKEv2 VPN ではプロキシとファイアウォールを通過できないことがあります。
+
+> [!Note]  
 > [拡張機能ホスト](azure-stack-extension-host-prepare.md)の追加により、1811 更新プログラム以降、12495 から 30015 の範囲のポートを開く必要はなくなりました。
 
 |エンドポイント (VIP)|DNS ホスト A レコード|Protocol|Port|
 |---------|---------|---------|---------|
-|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|ポータル (管理者)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|ポータル (管理者)|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |AdminHosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure Resource Manager (管理者)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|ポータル (ユーザー)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Azure Resource Manager (ユーザー)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|証明書の失効リスト|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP と UDP|53|
+|Azure Resource Manager (管理者)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|ポータル (ユーザー)|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure Resource Manager (ユーザー)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|証明書の失効リスト|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP と UDP|53|
 |Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Key Vault (ユーザー)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Key Vault (管理者)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|ストレージ キュー|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|ストレージ テーブル|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|ストレージ BLOB|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|SQL リソース プロバイダー|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL リソース プロバイダー|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|App Service|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
-|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
+|Key Vault (ユーザー)|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault (管理者)|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|ストレージ キュー|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|ストレージ テーブル|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|ストレージ BLOB|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL リソース プロバイダー|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL リソース プロバイダー|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|App Service|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (Azure Resource Manager)|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
 |VPN ゲートウェイ|     |     |[VPN Gateway に関する FAQ を参照してください](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |
 
@@ -89,8 +92,9 @@ Azure Stack は、透過的なプロキシ サーバーのみをサポートし�
 |AD FS|AD FS 統合のために用意されている AD FS メタデータ エンドポイント|TCP|443|パブリック VIP - /27|
 |     |     |     |     |     |
 
-> [!Note]  
-> 送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL に基づくフィルターをサポートするデバイスを使用する必要があります。
+送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL に基づくフィルターをサポートするデバイスを使用する必要があります。
+
+送信 DNS は常に必要です。違っているのは、外部 DNS のクエリを実行しているソースと、選択された ID 統合の種類です。 これが接続されたシナリオの場合は、デプロイ時には BMC ネットワーク上に配置された DVM でその送信アクセスが必要ですが、デプロイ後は、DNS サービスはパブリック VIP を使用してクエリを送信する内部コンポーネントに移動します。 その時点で、BMC ネットワーク経由での送信 DNS アクセスは削除できますが、その DNS サーバーへのパブリック VIP アクセスは残しておく必要があり、そうしないと認証は失敗します。
 
 ## <a name="next-steps"></a>次の手順
 

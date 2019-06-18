@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/06/2019
-ms.author: mabrigg
+ms.date: 06/05/2019
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 2871b5183833830368307c5d2b5152e3909fd3ea
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.lastreviewed: 06/05/2019
+ms.openlocfilehash: e0c3c4740a1bc8073e827ff9809cf1aafa029792
+ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618837"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66691697"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack と外部の監視ソリューションとの統合
 
@@ -69,28 +69,138 @@ Microsoft Azure Stack 用 System Center 管理パックと、関連するユー�
 
 ## <a name="integrate-with-nagios"></a>Nagios との統合
 
+Microsoft Azure Stack 用に Nagios プラグインを設定して構成することができます。
+
 Nagios 監視プラグインは、制約のない無料ソフトウェア ライセンスである MIT (Massachusetts Institute of Technology) ライセンスの下で使用できるパートナー クラウドベース ソリューションと合わせて開発されました。
 
 このプラグインは Python で書かれており、正常性リソースプロバイダーの REST API を使用します。 また、Azure Stack でアラートを取得したり終了したりする基本的な機能を提供します。 System Center 管理パックと同じように、このプラグインで複数の Azure Stack デプロイを追加したり、通知を送信したりすることが可能になります。
 
-このプラグインは、Nagios Enterprise と Nagios Core で使用可能です。 [こちら](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)からダウンロードできます。 このダウンロード サイトでインストールと詳細な構成も行えます。
+バージョン 1.2 の場合、Azure Stack - Nagios プラグインでは Microsoft ADAL ライブラリを活用し、シークレットまたは証明書を使用したサービス プリンシパルを利用する認証をサポートします。 また、構成は、新しいパラメーターを含む単一の構成ファイルを使用して簡略化されています。 現在、ID システムとして AAD と ADFS を使用する、Azure Stack のデプロイがサポートされています。
 
-### <a name="plugin-parameters"></a>プラグイン パラメーター
+プラグインは Nagios 4x および XI で動作します。 [こちら](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)からダウンロードできます。 このダウンロード サイトでインストールと詳細な構成も行えます。
 
-プラグイン ファイルの "Azurestack_plugin.py" を次のパラメーターで構成します。
+### <a name="requirements-for-nagios"></a>Nagios の要件
 
-| パラメーター | 説明 | 例 |
-|---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (管理者) エンドポイント | https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (管理者) エンドポイント  | https://adminmanagement.local.azurestack.external |
-| *Tenant_id* | 管理者のサブスクリプション ID | 管理者ポータルまたは PowerShell で取得します |
-| *User_name* | オペレーターのサブスクリプション ユーザー名 | operator@myazuredirectory.onmicrosoft.com |
-| *User_password* | オペレーターのサブスクリプション パスワード | mypassword |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
-| *リージョン* |  Azure Stack のリージョン名 | local |
-|  |  |
+1.  Nagios の最小バージョンは 4.x です
 
-* 指定の PowerShell GUID はユニバーサルです。 各デプロイ用に使用できます。
+2.  Microsoft Azure Active Directory Python ライブラリ。 これは、Python PIP を使用してインストールできます。
+
+```bash  
+sudo pip install adal pyyaml six
+```
+
+### <a name="install-plugin"></a>プラグインをインストールする
+
+このセクションでは、Nagios の既定のインストールと仮定し、Azure Stack プラグインをインストールする方法について説明します。
+
+このプラグイン パッケージには、次のファイルが含まれています。
+
+```
+  azurestack_plugin.py
+  azurestack_handler.sh
+  samples/etc/azurestack.cfg
+  samples/etc/azurestack_commands.cfg
+  samples/etc/azurestack_contacts.cfg
+  samples/etc/azurestack_hosts.cfg
+  samples/etc/azurestack_services.cfg
+```
+
+1.  プラグイン `azurestack_plugin.py` をディレクトリ `/usr/local/nagios/libexec` にコピーします。
+
+2.  ハンドラー `azurestack_handler.sh` をディレクトリ `/usr/local/nagios/libexec/eventhandlers` にコピーします。
+
+3.  プラグイン ファイルが実行可能ファイルとして設定されていることを確認します
+
+    ```bash
+      sudo cp azurestack_plugin.py <PLUGINS_DIR>
+      sudo chmod +x <PLUGINS_DIR>/azurestack_plugin.py
+    ```
+
+### <a name="configure-plugin"></a>プラグインを構成する
+
+次のパラメーターは azurestack.cfg ファイルで構成できます。 太字のパラメーターは、選択した認証モデルとは別に構成する必要があります。
+
+SPN の作成方法に関する詳細情報は、[ここ](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)に記載されています。
+
+| パラメーター | 説明 | Authentication |
+| --- | --- | --- |
+| **External_domain_fqdn ** | 外部ドメイン FQDN |    |
+| **region: ** | リージョン名 |    |
+| **tenant_id: ** | テナント ID\* |    |
+| client_id: | クライアント ID | シークレットを使用する SPN |
+| client_secret: | クライアント パスワード | シークレットを使用する SPN |
+| client_cert\*\*: | 証明書へのパス | 証明書を使用する SPN |
+| client_cert_thumbprint\*\*: | 証明書のサムプリント | 証明書を使用する SPN |
+
+\*テナント ID は、ADFS を使用する Azure Stack デプロイでは必要ありません。
+
+\*\* クライアント シークレットとクライアント証明書は、相互に排他的です。
+
+その他の構成ファイルには、Nagios でも構成できるため、オプションの構成設定が含まれます。
+
+> [!Note]  
+> azurestack_hosts.cfg と azurestack_services.cfg で目的の場所を確認します。
+
+| 構成 | 説明 |
+| --- | --- |
+| azurestack_commands.cfg | ハンドラー構成を変更する必要はありません |
+| azurestack_contacts.cfg | 通知設定 |
+| azurestack_hosts.cfg | Azure Stack デプロイの名前付け |
+| azurestack_services.cfg | サービスの構成 |
+
+### <a name="setup-steps"></a>セットアップの手順
+
+1.  構成ファイルを変更します
+
+2.  フォルダー `/usr/local/nagios/etc/objects` に変更された構成ファイルをコピーします。
+
+### <a name="update-nagios-configuration"></a>Nagios 構成を更新する
+
+Azure Stack – Nagios プラグインが確実に読み込まれるように、Nagios 構成を更新する必要があります。
+
+1.  次のファイルを開きます
+
+```bash  
+/usr/local/nagios/etc/nagios.cfg
+```
+
+1.  次のエントリを追加します
+
+```bash  
+  #load the Azure Stack Plugin Configuration
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+  cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+```
+
+1.  Nagios を再度読み込みます
+
+```bash  
+sudo service nagios reload
+```
+
+### <a name="manually-close-active-alerts"></a>手動でアクティブなアラートを閉じる
+
+カスタム通知機能を使用して、Nagios 内でアクティブなアラートを閉じることができます。 以下のようなカスタム通知である必要があります。
+
+```
+  /close-alert <ALERT_GUID>
+```
+
+ターミナルを使って、次のコマンドを使用してアラートを閉じることもできます。
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Close --alert-id <ALERT_GUID>
+```
+
+### <a name="troubleshooting"></a>トラブルシューティング
+
+プラグインのトラブルシューティングは、ターミナルでプラグインを手動で呼び出して行うことができます。 次のメソッドを使用します。
+
+```bash
+  /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor
+```
 
 ## <a name="use-powershell-to-monitor-health-and-alerts"></a>PowerShell を使用した正常性とアラートの監視
 

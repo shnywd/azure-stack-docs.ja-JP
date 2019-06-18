@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mabrigg
-ms.reviewer: brbartle
+ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: b70cd30653b8b324ae4d11a4a3e8aafe47d9a179
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 94eb107450271722af773bc96bec7dfeb12ff52e
+ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617985"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66836714"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure を使用した Azure Stack の登録
 
@@ -46,7 +46,7 @@ Azure Stack の Azure への登録により、Azure からマーケットプレ�
 
 Azure を使用して Azure Stack を登録する前に、以下のものが必要です。
 
-- Azure サブスクリプションのサブスクリプション ID。 登録には、EA、CSP、CSP 共有サービス サブスクリプションだけがサポートされています。 CSP では、[CSP サブスクリプションまたは APSS サブスクリプションのどちらを使用するか](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)を決める必要があります。<br><br>ID を取得するには、Azure にサインインして、**[すべてのサービス]** をクリックします。 次に、**[一般]** カテゴリの下で **[サブスクリプション]** を選び、使用するサブスクリプションをクリックすると、**[要点]** の下にサブスクリプション ID が表示されます。
+- Azure サブスクリプションのサブスクリプション ID。 登録には、EA、CSP、CSP 共有サービス サブスクリプションだけがサポートされています。 CSP では、[CSP サブスクリプションまたは APSS サブスクリプションのどちらを使用するか](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)を決める必要があります。<br><br>ID を取得するには、Azure にサインインして、 **[すべてのサービス]** をクリックします。 次に、 **[一般]** カテゴリの下で **[サブスクリプション]** を選び、使用するサブスクリプションをクリックすると、 **[要点]** の下にサブスクリプション ID が表示されます。
 
   > [!Note]  
   > ドイツのクラウド サブスクリプションは現在サポートされていません。
@@ -176,7 +176,7 @@ Run: Get-AzureStackStampInformation
    ```
    Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
 
-   このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「**Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)**」というメッセージが表示されます。
+   このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「**Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)** 」というメッセージが表示されます。
 
 ## <a name="register-connected-with-capacity-billing"></a>容量課金モデルを使用して接続された Azure Stack を登録する
 
@@ -249,13 +249,23 @@ Run: Get-AzureStackStampInformation
    Get-AzsRegistrationToken コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
 
    > [!Tip]  
-   > 登録トークンは、*$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
+   > 登録トークンは、 *$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
 
 3. 接続された Azure マシンで使用するためにこの登録トークンを保存します。 $FilePathForRegistrationToken からファイルまたはテキストをコピーできます。
 
 ### <a name="connect-to-azure-and-register"></a>Azure に接続して登録する
 
-インターネットに接続されたコンピューターで同じ手順を実行し、RegisterWithAzure.psm1 モジュールをインポートし、正しい Azure PowerShell コンテキストにサインインします。 次に、Register-AzsEnvironment を呼び出します。 Azure に登録する登録トークンを指定します。 同じ Azure サブスクリプション ID を利用して複数の Azure Stack インスタンスを登録している場合、一意の登録名を指定します。 次のコマンドレットを実行します。
+インターネットに接続されたコンピューターで同じ手順を実行し、RegisterWithAzure.psm1 モジュールをインポートし、正しい Azure PowerShell コンテキストにサインインします。 次に、Register-AzsEnvironment を呼び出します。 Azure に登録する登録トークンを指定します。 同じ Azure サブスクリプション ID を利用して複数の Azure Stack インスタンスを登録している場合、一意の登録名を指定します。
+
+自分の登録トークンと、一意のトークン名が必要です。
+
+1. 管理者として PowerShell ISE を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 **RegisterWithAzure.psm1** モジュールをインポートします。  
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+2. その後、PowerShell コマンドレットを実行します。  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -264,6 +274,16 @@ Run: Get-AzureStackStampInformation
   ```
 
 オプションで、Get-Content コマンドレットを使用して、登録トークンが含まれているファイルを示すことができます。
+
+自分の登録トークンと、一意のトークン名が必要です。
+
+1. 管理者として PowerShell ISE を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 **RegisterWithAzure.psm1** モジュールをインポートします。  
+
+  ```powershell  
+  Import-Module .\RegisterWithAzure.psm1
+  ```
+
+2. その後、PowerShell コマンドレットを実行します。  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -306,13 +326,13 @@ Get-AzsActivationKey から作成されたアクティブ化キーのファイ�
 
 ## <a name="verify-azure-stack-registration"></a>Azure Stack の登録を検証する
 
-Azure Stack の登録に成功したことは、**[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。 状態には、登録済みと未登録とがあります。 登録済みである場合は、Azure Stack の登録に使用した Azure サブスクリプション ID が、登録のリソース グループおよび名前と共に表示されます。
+Azure Stack の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。 状態には、登録済みと未登録とがあります。 登録済みである場合は、Azure Stack の登録に使用した Azure サブスクリプション ID が、登録のリソース グループおよび名前と共に表示されます。
 
 1. [Azure Stack 管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-2. ダッシュボードで、**[Region management]\(リージョン管理\)** を選択します。
+2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 
-3. **[プロパティ]** を選択します。 このブレードには、環境の状態と詳細が表示されます。 状態には、**[登録済み]**、**[未登録]** または **[有効期限切れ]** があります。
+3. **[プロパティ]** を選択します。 このブレードには、環境の状態と詳細が表示されます。 状態には、 **[登録済み]** 、 **[未登録]** または **[有効期限切れ]** があります。
 
     [![[Region management]\(リージョン管理\) タイル](media/azure-stack-registration/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/azure-stack-registration/admin1.png#lightbox)
 
@@ -426,7 +446,7 @@ Azure Stack のアクティブ化リソースを削除するには、Azure Stack
    ```
 
    > [!Tip]  
-   > 登録トークンは、*$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
+   > 登録トークンは、 *$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
 
 2. 接続された Azure マシンで使用するためにこの登録トークンを保存します。 $FilePathForRegistrationToken からファイルまたはテキストをコピーできます。
 
@@ -487,7 +507,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ## <a name="registration-failures"></a>登録エラー
 
 Azure Stack の登録を試みている間に、次のエラーのいずれかが発生する可能性があります。
-1. $hostName の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再実行してください。
+1. $hostName の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再度実行します。
 
 2. ハードウェア情報を取得するために $hostName に接続できません。物理ホストと接続を確認してから、登録を再実行してください。
 
