@@ -50,8 +50,6 @@
       href: azure-stack-use-portal.md
     - name: PowerShell で接続する
       href: azure-stack-powershell-configure-user.md
-    - name: Azure Stack API を使用する
-      href: azure-stack-rest-api-use.md
     - name: セキュリティとコンプライアンス
       items:
         - name: ロールベースのアクセス制御を使用する
@@ -152,36 +150,36 @@
                   href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services のデプロイ
               href: azure-stack-solution-template-cognitive-services.md
-    - name: アプリの構築
+    - name: Azure Stack Resource Manager の使用
       items:
-        - name: Azure Stack 向けの開発
-          href: azure-stack-developer.md
-        - name: 開発環境をセットアップする
-          href: azure-stack-dev-start.md
+        - name: クライアントの構成
           items:
-            - name: Azure Stack PowerShell の概要
-              href: azure-stack-powershell-overview.md
-            - name: Azure Stack PowerShell のインストール
-              href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: PowerShell で接続する
-              href: azure-stack-powershell-configure-user.md
-            - name: Azure Stack ツールのダウンロード
-              href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-              maintainContext: true
-            - name: Docker を使用して PowerShell を実行する
-              href: azure-stack-powershell-user-docker.md
-            - name: Azure Account 拡張機能を使用して接続する
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: Visual Studio のインストール
-              href: azure-stack-install-visual-studio.md
-            - name: SSH 公開キーの使用
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: Web アプリ用 Linux VM のデプロイ
-              href: azure-stack-dev-start-howto-deploy-linux.md
-            - name: API バージョンのプロファイルの使用
-              href: azure-stack-version-profiles.md
+            - name: Azure SDK クライアント
+              href: azure-stack-dev-start.md
+            - name: Azure Stack PowerShell クライアント
               items:
+                - name: Azure Stack PowerShell の概要
+                  href: azure-stack-powershell-overview.md
+                - name: Azure Stack PowerShell のインストール
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: PowerShell で接続する
+                  href: azure-stack-powershell-configure-user.md
+                - name: Azure Stack ツールのダウンロード
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Docker を使用して PowerShell を実行する
+                  href: azure-stack-powershell-user-docker.md
+            - name: Visual Studio Code クライアント
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: Visual Studio クライアント
+              href: azure-stack-install-visual-studio.md
+            - name: Secure Shell クライアント
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: API バージョンのプロファイルの使用
+              items:
+                - name: 概要
+                  href: azure-stack-version-profiles.md
                 - name: .NET
                   href: azure-stack-version-profiles-net.md
                 - name: Java
@@ -196,21 +194,24 @@
                   href: azure-stack-version-profiles-python.md
                 - name: プロファイルでサポートされているリソース プロバイダー API
                   href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Azure Stack 向けの一般的なデプロイ
-          href: azure-stack-dev-start-deploy-app.md
+        - name: VM と Web アプリをデプロイする
           items:
-            - name: 'VM への .Net Core (C#) のデプロイ'
+            - name: 'C# Web アプリを Windows VM にデプロイする'
               href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: VM への Java のデプロイ
-              href: azure-stack-dev-start-howto-vm-java.md
-            - name: VM への Go のデプロイ
-              href: azure-stack-dev-start-howto-vm-go.md
-            - name: VM への Ruby のデプロイ
-              href: azure-stack-dev-start-howto-vm-ruby.md
-            - name: VM への Python のデプロイ
-              href: azure-stack-dev-start-howto-vm-python.md
-            - name: VM への NodeJS のデプロイ
-              href: azure-stack-dev-start-howto-vm-nodejs.md
+            - name: Web アプリを Linux VM にデプロイする
+              items:
+                - name: Web アプリ用の Linux VM をデプロイする
+                  href: azure-stack-dev-start-howto-deploy-linux.md
+                - name: Java Web アプリをデプロイする
+                  href: azure-stack-dev-start-howto-vm-java.md
+                - name: Go Web アプリをデプロイする
+                  href: azure-stack-dev-start-howto-vm-go.md
+                - name: Ruby Web アプリをデプロイする
+                  href: azure-stack-dev-start-howto-vm-ruby.md
+                - name: Python Web アプリをデプロイする
+                  href: azure-stack-dev-start-howto-vm-python.md
+                - name: NodeJS Web アプリをデプロイする
+                  href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: Azure Stack ポリシー モジュールの使用
           href: azure-stack-policy-module.md
         - name: テンプレートの使用
@@ -219,6 +220,8 @@
               href: azure-stack-arm-templates.md
             - name: テンプレートに関する考慮事項
               href: azure-stack-develop-templates.md
+            - name: Azure でのテンプレートの開発
+              href: azure-stack-developer.md
             - name: テンプレートの確認
               href: azure-stack-validate-templates.md
             - name: ポータルでのデプロイ
@@ -229,6 +232,8 @@
               href: azure-stack-deploy-template-command-line.md
             - name: Visual Studio でのデプロイ
               href: azure-stack-deploy-template-visual-studio.md
+        - name: REST を使用してリソースにアクセスする
+          href: azure-stack-rest-api-use.md
     - name: クラウド サービス プロバイダーの有効化
       href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: リファレンス
