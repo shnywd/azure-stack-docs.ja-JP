@@ -15,7 +15,13 @@
         - name: 更新プログラムを適用するためのチェックリスト
           href: azure-stack-release-notes-checklist.md
         - name: セキュリティ更新プログラム
-          href: azure-stack-release-notes-security-updates-1905.md
+          href: azure-stack-release-notes-security-updates-1906.md
+        - name: 1906 更新プログラム
+          items:
+            - name: リリース ノート
+              href: azure-stack-release-notes-1906.md
+            - name: 既知の問題
+              href: azure-stack-release-notes-known-issues-1906.md
         - name: 1905 更新プログラム
           items:
             - name: リリース ノート
@@ -30,8 +36,6 @@
               href: azure-stack-release-notes-known-issues-1904.md
         - name: 1903 更新プログラム
           href: azure-stack-update-1903.md
-        - name: 1902 更新プログラム
-          href: azure-stack-update-1902.md
 - name: クイック スタート
   expanded: true
   items:
@@ -201,6 +205,8 @@
       items:
         - name: セキュリティの概要
           href: azure-stack-security-foundations.md
+        - name: セキュリティを構成する
+          href: azure-stack-security-configuration.md
         - name: ID
           items:
             - name: ID の概要
@@ -213,7 +219,7 @@
               href: azure-stack-add-new-user-aad.md
             - name: AD FS のユーザーの追加
               href: azure-stack-add-users-adfs.md
-            - name: サービス プリンシパルの作成
+            - name: アプリ ID を使用してリソースにアクセスする
               href: Azure-stack-create-service-principals.md
             - name: マルチテナントの有効化
               href: azure-stack-enable-multitenancy.md
@@ -368,7 +374,7 @@
           items:
             - name: 使用量データ レポート
               href: azure-stack-usage-reporting.md
-            - name: クラウド サービス プロバイダー向けの使用量レポート インフラストラクチャ
+            - name: 使用状況レポート インフラストラクチャ
               href: azure-stack-csp-ref-infrastructure.md
             - name: プロバイダー使用量 API
               href: azure-stack-provider-resource-api.md
@@ -376,6 +382,12 @@
               href: azure-stack-tenant-resource-usage-api.md
             - name: 使用量に関する FAQ
               href: azure-stack-usage-related-faq.md
+            - name: 使用状況に関する問題のトラブルシューティング
+              items:
+                - name: 使用量接続エラー
+                  href: azure-stack-usage-issues.md
+                - name: 使用量登録エラー コード
+                  href: azure-stack-registration-errors.md
     - name: Azure Stack のバックアップ
       href: azure-stack-backup-infrastructure-backup.md
       items:
@@ -386,9 +398,9 @@
         - name: Azure Stack のバックアップ
           href: azure-stack-backup-back-up-azure-stack.md
         - name: Azure Stack 上のファイルとアプリケーションのバックアップ
-          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Azure Stack VM を Azure にレプリケートする
-          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+          href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 致命的なデータ損失からの復旧
           href: azure-stack-backup-recover-data.md
         - name: バックアップのベスト プラクティス

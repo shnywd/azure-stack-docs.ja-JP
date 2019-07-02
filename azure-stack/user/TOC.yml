@@ -27,7 +27,7 @@
           href: azure-stack-subscribe-services.md
         - name: テンプレートからの VM の作成
           href: azure-stack-create-vm-template.md
-    - name: ハイブリッド クラウド アプリ
+    - name: ハイブリッド クラウド アプリの概要
       href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: Azure と Azure Stack へのアプリのデプロイ
@@ -36,26 +36,30 @@
           href: azure-stack-solution-hybrid-identity.md
         - name: ハイブリッド クラウド接続の構成
           href: azure-stack-solution-hybrid-connectivity.md
-        - name: ステージング データ分析ソリューションを作成する
-          href: azure-stack-solution-staged-data-analytics.md
         - name: Azure でクラウドの間スケーリング ソリューションを作成する
           href: azure-stack-solution-cloud-burst.md
         - name: 地理的に分散されたアプリ ソリューションを作成する
           href: azure-stack-solution-geo-distributed.md
         - name: ハイブリッド クラウド ソリューションのデプロイ
           href: azure-stack-solution-hybrid-cloud.md
+        - name: ステージング データ分析のデプロイ
+          href: azure-stack-solution-staged-data.md
+        - name: 高可用性 MongoDB のデプロイ
+          href: azure-stack-solution-mongodb-ha.md
+        - name: 高可用性 SQL Server 2016 のデプロイ
+          href: azure-stack-solution-sql-ha.md
 - name: ハウツー ガイド
   items:
     - name: Azure Stack ポータルの使用
       href: azure-stack-use-portal.md
     - name: PowerShell で接続する
       href: azure-stack-powershell-configure-user.md
-    - name: セキュリティとコンプライアンス
+    - name: セキュリティ、コンプライアンス、ID
       items:
         - name: ロールベースのアクセス制御を使用する
           href: azure-stack-manage-permissions.md
-        - name: サービス プリンシパルの使用
-          href: Azure-stack-create-service-principals.md
+        - name: アプリ ID を使用してリソースにアクセスする
+          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: サービスの使用
       items:
         - name: Compute
