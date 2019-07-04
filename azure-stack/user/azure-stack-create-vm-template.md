@@ -128,7 +128,7 @@ Minikube は、Kubernetes をローカルで簡単に実行できるようにす
 
     ![ダッシュボード](media/azure-stack-create-vm-template/12.PNG)
 
-5. サンプル アプリケーションをデプロイする場合は、公式 Kubernetes ドキュメント ページにアクセスします。「Create Minikube Cluster」 (Minikube クラスターを作成する) のセクションは、既にクラスターを作成済みなので、スキップします。 https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ の「Create your Node.js application (Node.js アプリケーションを作成する)」のセクションに移動します。
+5. サンプル アプリケーションをデプロイする場合は、公式 Kubernetes ドキュメント ページにアクセスします。「Create Minikube Cluster」 (Minikube クラスターを作成する) のセクションは、既にクラスターを作成済みなので、スキップします。 [https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/](https://kubernetes.io/docs/tutorials/stateless-application/hello-minikube/ ) の「Create your Node.js application (Node.js アプリケーションを作成する)」のセクションに移動します。
 
 ## <a name="next-steps"></a>次の手順
 
