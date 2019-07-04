@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: hectorl
 ms.lastreviewed: 05/30/2019
-ms.openlocfilehash: 31f2df0b5c7598c678daff8abe34a40b4e08d590
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: d3a50288464b81104ddd1dd032f93128fde43eae
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691601"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152524"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新プログラム
 
@@ -45,7 +45,7 @@ Azure Stack 1904 更新プログラムのビルド番号は **1.1904.0.36** で�
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack 1904 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、[Azure Stack での更新プログラムの管理](azure-stack-updates.md)に関するページを参照してください。 1904 更新プログラムが完了するまでの予測所要時間は約 16 時間ですが、正確な時間は変わる可能性があります。 このおおよその実行時間は、1904 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
+Azure Stack 1904 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。 1904 更新プログラムが完了するまでの予測所要時間は約 16 時間ですが、正確な時間は変わる可能性があります。 このおおよその実行時間は、1904 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
 
 ## <a name="whats-in-this-update"></a>この更新プログラムの新機能
 
@@ -75,8 +75,6 @@ Azure Stack 1904 更新プログラムのビルドの種類は**高速**です�
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - 不要なイベントを除外し、転送されるメッセージに目的の重大度を選択する構成パラメーターを用意することで、syslog メッセージの量を改良しました。 重大度の構成方法の詳細については、「[Azure Stack datacenter integration - syslog forwarding](azure-stack-integrate-security.md)」(Azure Stack データセンターの統合 - syslog 転送) を参照してください。
-
-- 1904 更新プログラム以降、Azure Stack Infrastructure では 12 GB + (4 GB * Azure Stack ホスト数) がさらに消費されます。 つまり、4 ノード スタンプの場合、Azure Stack 管理者ポータルの容量画面に反映される 28 GB (12 GB + 4 GB * 4) の追加の容量消費があります。 追加のメモリ消費によって Azure Stack スタンプが容量を超えたとしても、1904 リリースへの更新は成功するはずです。 更新が完了した後に Azure Stack スタンプがメモリ使用量を超えると、この状態を反映したアラートが表示され、一部の VM の割り当てを解除する修復手順が表示されます。
 
 <!--this applied to Bug 1473487 -->
 - 追加のパラメーター `-OutputSASUri` を組み込むことで、**Get-AzureStackLog** コマンドレットに新しい機能を追加しました。 これで、環境から Azure Stack ログを収集し、指定した Azure Storage Blob コンテナーに保存できるようになりました。 詳細については、「[Azure Stack の診断](azure-stack-diagnostics.md#examples)」を参照してください。

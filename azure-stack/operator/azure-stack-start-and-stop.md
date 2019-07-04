@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e4806dffd30786384adf92a50c3ac6879d8d4526
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: ee2c0e5551d6ee942d0459017412368f7e115dc7
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131378"
 ---
 # <a name="start-and-stop-azure-stack"></a>Azure Stack の開始および停止
 この記事の手順に従い、正しくシャットダウンして Azure Stack サービスを再起動してください。 シャットダウンは、Azure Stack 環境全体の電源を物理的に切ります。 スタートアップでは、すべてのインフラストラクチャ ロールの電源が入れられ、テナントのリソースがシャットダウン前の電源状態に戻されます。

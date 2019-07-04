@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/25/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b35368804423a4647b84000d95adf41ee5fe09b2
-ms.sourcegitcommit: 87d93cdcdb6efb06e894f56c2f09cad594e1a8b3
+ms.openlocfilehash: f14face1998b73ed0739db1d9ed0504eaad2799c
+ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65712458"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67042052"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric クラスターを Azure Stack にデプロイする
 
@@ -124,7 +124,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
 ## <a name="deploy-the-marketplace-item"></a>Marketplace 項目のデプロイ
 
-1. ユーザー ポータルで **[+ リソースの作成]** > **[Compute]** > **[Service Fabric クラスター]** の順に移動します。 
+1. ユーザー ポータルで **[+ リソースの作成]**  >  **[Compute]**  >  **[Service Fabric クラスター]** の順に移動します。 
 
    ![[Service Fabric クラスター] を選択](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
@@ -138,7 +138,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
 1. *[セキュリティ]* ページには、[Azure Key Vault の作成](#add-a-secret-to-key-vault)とシークレットのアップロードによって得られた値を追加します。
 
-   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、"*管理用クライアント証明書*" の拇印を入力します  (「[前提条件](#prerequisites)」を参照してください。)
+   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、"*管理用クライアント証明書*" の拇印を入力します (「[前提条件](#prerequisites)」を参照してください。)
    
    - [ソース Key Vault]: スクリプトの結果から得られる `keyVault id` 文字列全体を指定します。 
    - [Cluster Certificate URL]\(クラスター証明書 URL\): スクリプトの結果から得られる `Secret Id` の URL 全体を指定します。 
@@ -149,7 +149,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
    ![セキュリティ](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-1. ウィザードを完了し、**[作成]** を選択して Service Fabric クラスターをデプロイします。
+1. ウィザードを完了し、 **[作成]** を選択して Service Fabric クラスターをデプロイします。
 
 
 
@@ -160,9 +160,9 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 ### <a name="use-service-fabric-explorer"></a>Service Fabric Explorer の使用
 1.  ブラウザーから管理用クライアント証明書にアクセスできること、Service Fabric クラスターに対して認証できることを確認します。  
 
-    a. Internet Explorer を開いて **[インターネット オプション]** > **[コンテンツ]** > **[証明書]** の順に移動します。
+    a. Internet Explorer を開いて **[インターネット オプション]**  >  **[コンテンツ]**  >  **[証明書]** の順に移動します。
   
-    b. [証明書] の **[インポート]** を選択して "*証明書のインポート ウィザード*" を開始し、**[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した**管理用クライアント証明書**を選択します。
+    b. [証明書] の **[インポート]** を選択して "*証明書のインポート ウィザード*" を開始し、 **[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した**管理用クライアント証明書**を選択します。
         
        > [!NOTE]  
        > この証明書は、以前に Key Vault に追加されたクラスター証明書ではありません。  
@@ -175,7 +175,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
        ![証明書ストア](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
 1. Service Fabric クラスターの FQDN を特定するには、次の手順を実行します。  
 
-    a. Service Fabric クラスターに関連付けられているリソース グループに移動し、*[パブリック IP アドレス]* リソースを探します。 パブリック IP アドレスに関連付けられているオブジェクトを選択し、*[パブリック IP アドレス]* ブレードを開きます。  
+    a. Service Fabric クラスターに関連付けられているリソース グループに移動し、 *[パブリック IP アドレス]* リソースを探します。 パブリック IP アドレスに関連付けられているオブジェクトを選択し、 *[パブリック IP アドレス]* ブレードを開きます。  
 
       ![パブリック IP アドレス](media/azure-stack-solution-template-service-fabric-cluster/image10.png)   
 
@@ -186,9 +186,9 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 1. Service Fabric Explorer の URL とクライアント接続のエンドポイントを見つけるには、Template deployment の結果を確認します。
 
 1. ブラウザーで <https://*FQDN*:19080> に移動します。 *FQDN* の部分は、手順 2. で調べた実際の Service Fabric クラスターの FQDN に置き換えてください。   
-   自己署名証明書を使用した場合は、接続が安全ではないことを示す警告が表示されます。 Web サイトに進むには、**[詳細情報]**、**[Web ページへ移動]** の順に選択します。 
+   自己署名証明書を使用した場合は、接続が安全ではないことを示す警告が表示されます。 Web サイトに進むには、 **[詳細情報]** 、 **[Web ページへ移動]** の順に選択します。 
 
-1. サイトに対する認証を行うには、使用する証明書を選択する必要があります。 **[More choices]\(その他の選択肢\)** を選択して適切な証明書を選び、**[OK]** をクリックして Service Fabric Explorer に接続します。 
+1. サイトに対する認証を行うには、使用する証明書を選択する必要があります。 **[More choices]\(その他の選択肢\)** を選択して適切な証明書を選び、 **[OK]** をクリックして Service Fabric Explorer に接続します。 
 
    ![認証](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -200,7 +200,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 1. インストールが完了したら、Service Fabric のコマンドレットに PowerShell から確実にアクセスできるようシステム環境変数を構成します。  
     
-    a. **[コントロール パネル]** > **[システムとセキュリティ]** > **[システム]** に移動し、**[システムの詳細設定]** を選択します。  
+    a. **[コントロール パネル]**  >  **[システムとセキュリティ]**  >  **[システム]** に移動し、 **[システムの詳細設定]** を選択します。  
     
       ![コントロール パネル](media/azure-stack-solution-template-service-fabric-cluster/image15.png) 
 

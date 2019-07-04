@@ -5,7 +5,6 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: ''
 ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
@@ -14,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: sethm
-ms.reviewer: ''
+ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: 5a15d55a053fbacd3a947bd61d7186d93be77dbf
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 2e0e4ef7abd1885d843832ed7cc9e845003d0ed7
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64987803"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152530"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>クォータ、プラン、オファーおよびサブスクリプションの削除
 
@@ -35,7 +34,7 @@ ms.locfileid: "64987803"
 
 ## <a name="delete-a-subscription"></a>サブスクリプションを削除する
 
-サブスクリプションを削除するには、**[すべてのサービス]**、**[ユーザー サブスクリプション]** の順に選択して、システム上のすべてのサブスクリプションの一覧を表示します。 オファーを操作している場合は、そこから **[サブスクリプション]** を選択することもできます。
+サブスクリプションを削除するには、 **[すべてのサービス]** 、 **[ユーザー サブスクリプション]** の順に選択して、システム上のすべてのサブスクリプションの一覧を表示します。 オファーを操作している場合は、そこから **[サブスクリプション]** を選択することもできます。
 
 この一覧からサブスクリプションを削除することも、PowerShell で、「[サブスクリプション - 削除](/rest/api/azurestack/subscriptions/delete)」リファレンスに記載されているコマンドを使用して、すべてのサブスクリプションを削除するスクリプトを記述することもできます。
 
@@ -44,15 +43,15 @@ ms.locfileid: "64987803"
 
 ## <a name="delete-an-offer"></a>オファーを削除する
 
-オファーを削除するには、管理者ポータルで、**[すべてのサービス]**、**[オファー]** の順に移動します。 削除したいオファーを選択して、**[削除]** を選択します。
+オファーを削除するには、管理者ポータルで、 **[すべてのサービス]** 、 **[オファー]** の順に移動します。 削除したいオファーを選択して、 **[削除]** を選択します。
 
 ![delsub1](media/azure-stack-delete-offer/delsub1.png)
 
-オファーを削除できるのは、それを使用しているサブスクリプションがない場合のみです。 オファーに基づくサブスクリプションが存在する場合、**[削除]** オプションはグレー表示になります。この場合、「[サブスクリプションを削除する](#delete-a-subscription)」セクションを参照してください。
+オファーを削除できるのは、それを使用しているサブスクリプションがない場合のみです。 オファーに基づくサブスクリプションが存在する場合、 **[削除]** オプションはグレー表示になります。この場合、「[サブスクリプションを削除する](#delete-a-subscription)」セクションを参照してください。
 
 ## <a name="delete-a-plan"></a>プランを削除する
 
-プランを削除するには、管理者ポータルで、**[すべてのサービス]**、**[プラン]** の順に移動します。 削除したいプランを選択して、**[削除]** を選択します。
+プランを削除するには、管理者ポータルで、 **[すべてのサービス]** 、 **[プラン]** の順に移動します。 削除したいプランを選択して、 **[削除]** を選択します。
 
 ![delsub2](media/azure-stack-delete-offer/delsub2.png)
 
@@ -64,7 +63,7 @@ ms.locfileid: "64987803"
 
 ## <a name="edit-and-delete-a-quota"></a>クォータを編集および削除する
 
-管理者ポータルを使用して既存のクォータを表示および編集できます。**[Region Management]\(リージョン管理\)** を選択してから、関連するリソース プロバイダーを選択して、**[クォータ]** をクリックします。 特定のリソース プロバイダーのクォータを削除することもできます。
+管理者ポータルを使用して既存のクォータを表示および編集できます。 **[Region Management]\(リージョン管理\)** を選択してから、関連するリソース プロバイダーを選択して、 **[クォータ]** をクリックします。 特定のリソース プロバイダーのクォータを削除することもできます。
 
 ![delsub3](media/azure-stack-delete-offer/delsub3.png)
 

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 04/20/2019
+ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f95dcf44c2d9d30bc6ba40facbecff97ff26bf49
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 25280d1f5465776aedf2e3e0dfd84118e866a944
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836692"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397289"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
 
@@ -48,7 +48,7 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
    詳細については、「[パラメーターに関する考慮事項](azure-stack-diagnostic-test.md#parameter-considerations)」と「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」を参照してください。
 
-3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](/azure-stack-diagnostics#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](/azure-stack-diagnostics#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
+3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
 
    このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集したり CSS に問い合わせたりしないでください。
 

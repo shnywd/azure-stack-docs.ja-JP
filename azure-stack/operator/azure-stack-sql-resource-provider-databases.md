@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2b177f14fc787c05c0a7c1f654e8bcfaf8638b93
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: a8ebc50be9b1c3e1eaae491b6d8f8916f900e500
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618195"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308471"
 ---
 # <a name="create-sql-databases"></a>SQL データベースの作成
 
@@ -28,16 +28,16 @@ ms.locfileid: "65618195"
 
 1. [Azure Stack](azure-stack-overview.md) ユーザー ポータルにサインインします。
 
-2. **[+新規]** &gt;**[データ + ストレージ]** &gt; **[SQL Server データベース]** &gt; **[追加]** を選択します。
+2. **[+新規]** &gt; **[データ + ストレージ]** &gt; **[SQL Server データベース]** &gt; **[追加]** を選択します。
 
-3. **[データベースの作成]** で、**[データベース名]**、**[最大サイズ (MB)]** などの必要な情報を入力します。
+3. **[データベースの作成]** で、 **[データベース名]** 、 **[最大サイズ (MB)]** などの必要な情報を入力します。
 
    >[!NOTE]
    >データベースのサイズは少なくとも 64 MB 必要であり、データベースの配置後に増やすことができます。
 
    必要に応じて、環境に合うように他の設定を構成します。
 
-4. **[データベースの作成]** で、**[SKU]** を選択します。 **[SKU の選択]** で、データベースの SKU を選択します。
+4. **[データベースの作成]** で、 **[SKU]** を選択します。 **[SKU の選択]** で、データベースの SKU を選択します。
 
    ![データベースの作成](./media/azure-stack-sql-rp-deploy/newsqldb.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "65618195"
    >ホスティング サーバーは、Azure Stack に追加されるときに SKU が割り当てられます。 データベースは、ホスティング サーバー プールの SKU 内に作成されます。
 
 5. **[ログイン]** を選択します。
-6. **[ログインの選択]** で、既存のログインを選択するか、**[+ 新しいログインの作成]** を選択します。
+6. **[ログインの選択]** で、既存のログインを選択するか、 **[+ 新しいログインの作成]** を選択します。
 7. **[新しいログイン]** で、**データベースのログイン名**と**パスワード** を入力します。
 
    >[!NOTE]
@@ -55,7 +55,7 @@ ms.locfileid: "65618195"
 
 8. **[OK]** を選択して、データベースの配置を完了します。
 
-データベースの配置後に表示される **[要点]** で、**[接続文字列]** の情報を書き留めます。 この文字列は、SQL Server データベースにアクセスする必要があるすべてのアプリケーションで使用できます。
+データベースの配置後に表示される **[要点]** で、 **[接続文字列]** の情報を書き留めます。 この文字列は、SQL Server データベースにアクセスする必要があるすべてのアプリケーションで使用できます。
 
 ![接続文字列の取得](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
 

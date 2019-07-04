@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
-ms.reviewer: quying
+ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 480af6cc4cdfb8e2da7b7d324d3f1c657f292424
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: e2d2df6c5791b6a05c31950e69fb58b5d48360b2
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618008"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308503"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack で MySQL データベースを使用する
 
@@ -35,7 +35,7 @@ MySQL データベースは、Web サイトでよく使用されており、多�
 
 リソース プロバイダーには次のコンポーネントがあります。
 
-* **MySQL リソース プロバイダー アダプター仮想マシン (VM)**。これはプロバイダー サービスを実行する Windows Server VM です。
+* **MySQL リソース プロバイダー アダプター仮想マシン (VM)** 。これはプロバイダー サービスを実行する Windows Server VM です。
 * **リソース プロバイダー**。要求を処理し、データベース リソースにアクセスします。
 * **MySQL サーバーをホストするサーバー**。これはデータベースに容量を提供し、ホスティング サーバーと呼ばれます。 MySQL インスタンスを自分で作成することも、外部の MySQL インスタンスへのアクセスを提供することもできます。 [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) にあるテンプレートの例を使って、次のことができます。
 

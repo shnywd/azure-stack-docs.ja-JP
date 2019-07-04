@@ -3,24 +3,23 @@ title: Azure Stack ポータルの使用 | Microsoft Docs
 description: Azure Stack でユーザー ポータルにアクセスして使用する方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/25/2019
-ms.date: 03/18/2019
-ms.author: v-jay
+ms.date: 06/13/2019
+ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: dd68364585fd1d204713c5a014b141f4450a1d45
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311587"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131565"
 ---
 # <a name="use-the-azure-stack-portal"></a>Azure Stack ポータルの使用
 
@@ -38,21 +37,21 @@ Azure Stack オペレーター (サービス プロバイダーまたは組織�
 
 ## <a name="customize-the-dashboard"></a>ダッシュボードのカスタマイズ
 
-ダッシュボードには、タイルの既定のセットが含まれています。 **[ダッシュボードの編集]** を選択して既定のダッシュボードを変更したり、**[新しいダッシュボード]** を選択してカスタムのダッシュボードを作成したりできます。 タイルを追加または削除して、ダッシュボードを簡単にカスタマイズすることができます。 たとえば、[コンピューティング] タイルを追加するには、**[+ リソースの作成]** を選択します。 **[コンピューティング]** を右クリックし、**[ダッシュボードにピン留め]** を選択します。
+ダッシュボードには、タイルの既定のセットが含まれています。 **[ダッシュボードの編集]** を選択して既定のダッシュボードを変更したり、 **[新しいダッシュボード]** を選択してカスタムのダッシュボードを作成したりできます。 タイルを追加または削除して、ダッシュボードを簡単にカスタマイズすることができます。 たとえば、[コンピューティング] タイルを追加するには、 **[+ リソースの作成]** を選択します。 **[コンピューティング]** を右クリックし、 **[ダッシュボードにピン留め]** を選択します。
 
 ![Azure Stack ユーザー ポータルの画面キャプチャ](media/azure-stack-use-portal/userportal.png)
 
 ダッシュボードを元の設定に復元するには:
 1.  **[ダッシュボードの編集]** を選択します。 
-2.  右クリックし、**[既定の状態にリセット]** を選択します。
+2.  右クリックし、 **[既定の状態にリセット]** を選択します。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>サブスクリプションの作成と使用可能リソースの参照
 
 まだサブスクリプションがない場合、まずオファーをサブスクライブする必要があります。 その後、利用可能なリソースを参照することができます。 リソースを参照したり作成したりするには、次のいずれかの方法を使用します。
 
 - ダッシュボードで **[Marketplace]** タイルを選択します。
-- **[すべてのリソース]** タイルで、**[リソースの作成]** を選択します。
-- 左側のナビゲーション ウィンドウで、**[+ リソースの作成]** を選択します。
+- **[すべてのリソース]** タイルで、 **[リソースの作成]** を選択します。
+- 左側のナビゲーション ウィンドウで、 **[+ リソースの作成]** を選択します。
 
 ## <a name="learn-how-to-use-available-services"></a>使用可能なサービスの使用方法を学ぶ
 
@@ -60,7 +59,7 @@ Azure Stack オペレーター (サービス プロバイダーまたは組織�
 
 - 組織またはサービス プロバイダーによって独自のドキュメントが提供されることがあります。これは通常、カスタマイズされたサービスまたはアプリが提供される場合です。
 - サード パーティのアプリには、独自のドキュメントがあります。
-- Azure 互換サービスについては、まず Azure Stack のドキュメントを確認することを強くお勧めします。 Azure Stack ユーザー ドキュメントにアクセスするには、ヘルプ アイコン、**[ヘルプとサポート]** の順に選択します。
+- Azure 互換サービスについては、まず Azure Stack のドキュメントを確認することを強くお勧めします。 Azure Stack ユーザー ドキュメントにアクセスするには、ヘルプ アイコン、 **[ヘルプとサポート]** の順に選択します。
 
     ![UI の [ヘルプとサポート] オプション](media/azure-stack-use-portal/HelpAndSupport.png)
 
@@ -80,5 +79,3 @@ Azure Stack Development Kit を使用している場合、[Azure Stack フォー
 ## <a name="next-steps"></a>次の手順
 
 [重要な考慮事項: Azure Stack でのサービスの使用またはアプリの作成](azure-stack-considerations.md)
-
-<!-- Update_Description: wording update -->

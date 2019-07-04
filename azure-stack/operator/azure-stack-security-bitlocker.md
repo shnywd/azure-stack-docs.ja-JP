@@ -2,21 +2,20 @@
 title: Azure Stack における保存データの暗号化
 description: Azure Stack が暗号化によって保存データをどのように保護するかを説明します。
 services: azure-stack
-author: WenJason
-manager: digimobile
+author: PatAltimore
 ms.service: azure-stack
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 06/17/2019
+ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 018b8f6cf4fc5d3cd380535fca71a038b7fd4208
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
+ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307063"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67166497"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Azure Stack における保存データの暗号化
 
@@ -46,7 +45,6 @@ Get-AzsRecoveryKeys
 | パラメーター | 説明 | データ型 | 必須 |
 |---------|---------|---------|---------|
 |*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるマッピングの生データを返します。  | スイッチ | × (サポート シナリオ用)|
-
 
 ## <a name="troubleshoot-issues"></a>問題のトラブルシューティング
 

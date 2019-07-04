@@ -3,21 +3,20 @@ title: Azure Stack の拡張機能ホストを準備する | Microsoft Docs
 description: 今後の Azure Stack 更新プログラム パッケージによって自動的に有効になる拡張機能ホストを準備する方法について説明します。
 services: azure-stack
 keywords: ''
-author: WenJason
-ms.author: v-jay
-origin.date: 03/07/2019
-ms.date: 04/29/2019
+author: mattbriggs
+ms.author: mabrigg
+ms.date: 06/13/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
-manager: digimobile
+manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 23f91454027b3073498ef3c1b4a388cca0c88bab
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307081"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131157"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack の拡張機能ホストを準備する
 

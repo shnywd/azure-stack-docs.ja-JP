@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: da48a9a04c9daaf2d7a29bc2d4b300563bebd6e5
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 2fc9416515b09941deefbeb97d4a3801b47e146f
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618974"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131329"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 統合システムの接続モデル
 Azure Stack 統合システムの購入に関心がある場合は、このシステムがデータセンターにどのように適合するかを確認するために、Azure Stack のデプロイに関する[データセンターの統合のいくつかの考慮事項](azure-stack-datacenter-integration.md)を理解する必要があります。 さらに、Azure Stack をハイブリッド クラウド環境にどのように統合するかを決定する必要があります。 この記事では、これらの主な決定 (Azure 接続、ID ストア、および課金モデルの決定を含む) の概要について説明します。

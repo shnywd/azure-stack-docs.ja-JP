@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: e783d9ea577c76505f59e73230b2a00c90f867cf
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1d5d6399887d5567806e8a9131444b5eada2f719
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618771"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131182"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack をハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定したら、Azure Stack デプロイの決定を完成させることができます。
@@ -59,7 +59,7 @@ CSP サブスクリプションを使用する場合は、厳密な CSP シナ�
 
 |シナリオ|ドメインおよびサブスクリプション オプション|
 |-----|-----|
-|ユーザーは**直接 CSP パートナー**または**間接 CSP プロバイダー**であり、Azure Stack を操作します|CSL (Common Service Layer) サブスクリプションを使用します。<br>     or<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します  (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
+|ユーザーは**直接 CSP パートナー**または**間接 CSP プロバイダー**であり、Azure Stack を操作します|CSL (Common Service Layer) サブスクリプションを使用します。<br>     or<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
 |ユーザーは**間接 CSP リセラー**であり、Azure Stack を操作します|パートナー センターを使用して、間接 CSP プロバイダーに、組織の Azure AD テナントとそれに関連付けられた Azure CSP サブスクリプションを作成するよう依頼します。|
 
 ### <a name="capacity-based-billing"></a>容量ベースの課金

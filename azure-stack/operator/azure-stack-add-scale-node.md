@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7a2ba164c5d35bc1f5b52d3ff68c18b7b3e47dcd
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 56dbc301c87e819b241d9dd6e801544df4afa152
+ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65618941"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67131198"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack のスケール ユニット ノードを追加する
 
@@ -53,7 +53,7 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
 3. ベースボード管理コントローラー (BMC) で正しい IP アドレスを設定し、すべての BIOS 設定を適用します。OEM から提供されたドキュメントに従ってください。
 4. HLH 上で実行されているハードウェア メーカー製ツールを使って、最新のファームウェア ベースラインをすべてのコンポーネントに適用します。
 5. Azure Stack 管理ポータルでノードの追加操作を実行します。
-6. ノードの追加操作が成功したことを確認します。 [スケール ユニットの **[状態]**](#monitor-add-node-operations) をチェックしてください。 
+6. ノードの追加操作が成功したことを確認します。 [スケール ユニットの **[状態]** ](#monitor-add-node-operations) をチェックしてください。 
 
 ## <a name="add-the-node"></a>ノードの追加
 
@@ -62,7 +62,7 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
 ### <a name="use-the-admin-portal"></a>管理ポータルの使用
 
 1. Azure Stack 管理ポータルに Azure Stack オペレーターとしてサインインします。
-2. **[+ リソースの作成]** > **[キャパシティ]** > **[Scale Unit Node]\(スケール ユニット ノード\)** に移動します。
+2. **[+ リソースの作成]**  >  **[キャパシティ]**  >  **[Scale Unit Node]\(スケール ユニット ノード\)** に移動します。
    ![スケール ユニット ノード](media/azure-stack-add-scale-node/select-node1.png)
 3. **[ノードの追加]** ウィンドウで *[リージョン]* を選択し、ノードを追加する *スケール ユニット* を選択します。 また、追加するスケール ユニット ノードには、*BMC IP アドレス*を指定します。 一度に追加できるノードは 1 つだけです。
    ![ノードの詳細の追加](media/azure-stack-add-scale-node/select-node2.png)
@@ -89,7 +89,7 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
 ノードの追加操作の状態は、管理ポータルまたは PowerShell を使用して取得できます。 ノードの追加操作は、完了までに数時間から数日かかることがあります。
 
 ### <a name="use-the-admin-portal"></a>管理ポータルの使用 
-新しいノードの追加を監視するには、管理ポータルで、スケール ユニットまたはスケール ユニット ノード オブジェクトを確認します。 そのためには、**[Region management]\(リージョン管理\)** > **[Scale units]\(スケール ユニット\)** に移動します。 次に、確認するスケール ユニットまたはスケール ユニット ノードを選択します。 
+新しいノードの追加を監視するには、管理ポータルで、スケール ユニットまたはスケール ユニット ノード オブジェクトを確認します。 そのためには、 **[Region management]\(リージョン管理\)**  >  **[Scale units]\(スケール ユニット\)** に移動します。 次に、確認するスケール ユニットまたはスケール ユニット ノードを選択します。 
 
 ### <a name="use-powershell"></a>PowerShell の使用
 スケール ユニットとスケール ユニット ノードの状態は、次のように PowerShell を使って取得できます。
@@ -121,7 +121,7 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
 |停止済み               |ノードは利用不可です。|
 |追加中                |ノードは、アクティブにスケール ユニットに追加されています。|
 |修復中             |ノードは現在、アクティブに修復されています。|
-|メンテナンス            |ノードは一時停止され、アクティブなユーザー ワークロードは実行されていません。 |
+|メンテナンス           |ノードは一時停止され、アクティブなユーザー ワークロードは実行されていません。 |
 |修復が必要  |ノードの修復を必要とするエラーが検出されました。|
 
 
