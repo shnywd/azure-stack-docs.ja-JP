@@ -73,7 +73,7 @@ App Service on Azure Stack では、複数のソース管理プロバイダー�
 3. 顧客の **[名前]** を入力します (例: **App Service on Azure Stack**)。
 4. アプリケーションの **[説明]** を入力します。
 5. **[Callback URL (コールバック URL)]** を入力します。 既定の Azure Stack デプロイでは、コールバック URL は https://portal.local.azurestack.external/TokenAuthorize という形式になります。 別のドメインで実行する場合は、azurestack.local のドメイン名に置き換えます。 BitBucket の統合を成功させるには、URL の大文字と小文字をここに示されているとおりにする必要があります。
-6. **[URL]** を入力します。 この URL は、Azure Stack ポータルの URL にする必要があります (例: https://portal.local.azurestack.external)。
+6. **[URL]** を入力します。 この URL は、Azure Stack ポータルの URL にする必要があります (例: https://portal.local.azurestack.external )。
 7. 必要な **[Permissions]\(権限\)** を次のように選択します。
     - **リポジトリ**: *読み取り*
     - **Webhooks**: *読み取りと書き込み*
@@ -92,7 +92,7 @@ App Service on Azure Stack では、複数のソース管理プロバイダー�
 > [!NOTE]
 > 現時点では、OneDrive for Business アカウントはサポートされていません。
 
-1. https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm に移動し、Microsoft アカウントを使用してサインインします。
+1. [https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm](https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm ) に移動し、Microsoft アカウントを使用してサインインします。
 2. **[マイ アプリケーション]** で **[アプリを追加]** をクリックします。
 ![OneDrive アプリケーション][10]
 3. 新しく登録するアプリケーションの **[名前]** を入力します。「**App Service on Azure Stack**」と入力し、 **[アプリケーションの作成]** をクリックします。
@@ -100,7 +100,7 @@ App Service on Azure Stack では、複数のソース管理プロバイダー�
 ![OneDrive アプリケーションのプロパティ][11]
 5. **[アプリケーション シークレット]** で **[新しいパスワードを生成]** をクリックします。 **新しく生成されたパスワード**をメモします。 これがお客様のアプリケーション シークレットになります。 **[OK]** をクリックした後で、もう一度取得することはできません。
 6. **[プラットフォーム]** で **[プラットフォームの追加]** をクリックし、 **[Web]** を選択します。
-7. **[リダイレクト URI]** を入力します。 既定の Azure Stack デプロイでは、リダイレクト URI は https://portal.local.azurestack.external/TokenAuthorize という形式になります。 別のドメインで実行する場合は、azurestack.local のドメイン名に置き換えます。
+7. **[リダイレクト URI]** を入力します。 既定の Azure Stack デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](https://portal.local.azurestack.external/TokenAuthorize ) という形式になります。 別のドメインで実行する場合は、azurestack.local のドメイン名に置き換えます。
 ![OneDrive アプリケーション - Web プラットフォームの追加][12]
 8. **[Microsoft Graph のアクセス許可]**  -  **[委任されたアクセス許可]** を設定します。
     - **Files.ReadWrite.AppFolder**
@@ -118,7 +118,7 @@ App Service on Azure Stack では、複数のソース管理プロバイダー�
 > [!NOTE]
 > このタスクを完了するには、DropBox アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
-1. https://www.dropbox.com/developers/apps に移動し、DropBox アカウントの資格情報を使用してサインインします。
+1. [https://www.dropbox.com/developers/apps](https://www.dropbox.com/developers/apps ) に移動し、DropBox アカウントの資格情報を使用してサインインします。
 2. **[Create app]** をクリックします。
 
     ![Dropbox アプリケーション][14]
@@ -129,7 +129,7 @@ App Service on Azure Stack では、複数のソース管理プロバイダー�
 ![Dropbox アプリケーションの登録][15]
 6. **[Create app (アプリの作成)]** をクリックします。 **[アプリ キー]** と **[アプリケーション シークレット]** を含む、アプリの設定を一覧表示するページが表示されます。
 7. **[App folder name]\(アプリ フォルダー名\)** が **[App Service on Azure Stack]** に設定されていることを確認します。
-8. **[OAuth 2 Redirect URI\(OAuth 2 リダイレクト URI\])** を設定し、 **[追加]** をクリックします。 既定の Azure Stack デプロイでは、リダイレクト URI は https://portal.local.azurestack.external/TokenAuthorize という形式になります。 別のドメインで実行する場合は、azurestack.local のドメインに置き換えます。
+8. **[OAuth 2 Redirect URI\(OAuth 2 リダイレクト URI\])** を設定し、 **[追加]** をクリックします。 既定の Azure Stack デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](https://portal.local.azurestack.external/TokenAuthorize ) という形式になります。 別のドメインで実行する場合は、azurestack.local のドメインに置き換えます。
 ![Dropbox アプリケーションの構成][16]
 9.  新しいブラウザー タブまたはウィンドウで、Azure Stack 管理ポータル (https://adminportal.local.azurestack.external) にサービス管理者としてサインインします。
 10.  **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin (App Service リソース プロバイダー管理)]** を選択します。
