@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: f1dd98c8c75c28ee176ca318fb9d274110e9b5fe
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
+ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749040"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67492439"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
 
@@ -32,7 +32,7 @@ ms.locfileid: "66749040"
 
 ## <a name="overview-and-assumptions"></a>概要と前提条件
 
-このチュートリアルに従うことにより、開発者がパブリック クラウドとプライベート クラウドにまったく同じ Web アプリケーションをデプロイできるようにするワークフローを構築できます。 このアプリケーションは、プライベート クラウド上にホストされた、インターネットを介したルーティングが不可能なネットワークにアクセスできるようになります。 これらの Web アプリケーションは監視され、トラフィックが急増すると、トラフィックをパブリック クラウドにリダイレクトするように DNS レコードがプログラムによって書き換えられます。 急増前の水準までトラフィックが減少すると、トラフィックは再びプライベート クラウドへルーティングされます。
+このチュートリアルに従うことにより、開発者がパブリック クラウドとプライベート クラウドにまったく同じ Web アプリをデプロイできるようにするワークフローを構築します。 このアプリは、プライベート クラウド上にホストされた、インターネットを介したルーティングが不可能なネットワークにアクセスできます。 これらの Web アプリは監視され、トラフィックが急増すると、トラフィックをパブリック クラウドにリダイレクトするように DNS レコードがプログラムによって書き換えられます。 急増前の水準までトラフィックが減少すると、トラフィックは再びプライベート クラウドへルーティングされます。
 
 このチュートリアルに含まれるタスクは次のとおりです。
 
@@ -41,7 +41,7 @@ ms.locfileid: "66749040"
 > - グローバル Azure 内の Web アプリをハイブリッド ネットワークに接続する。
 > - クラウド間スケーリング向けに DNS を構成する。
 > - クラウド間スケーリング向けに SSL 証明書を構成する。
-> - Web アプリケーションを構成してデプロイする。
+> - Web アプリを構成してデプロイする。
 > - Traffic Manager プロファイルを作成し、クラウド間スケーリング向けに構成する。
 > - トラフィックの増加に関して Application Insights の監視とアラートを設定する。
 > - グローバル Azure と Azure Stack の間で自動トラフィック切り替えを構成する。
@@ -57,20 +57,20 @@ ms.locfileid: "66749040"
 
 ## <a name="prerequisites"></a>前提条件
 
-このチュートリアルを開始する前に、次の要件を満たせるようにしておいてください。
+このチュートリアルを開始する前に、次の要件を満たしてください。
 
 - Azure Stack 統合システムのサブスクリプションまたは Azure Stack Development Kit (ASDK)。 Azure Stack Development Kit をデプロイするには、[インストーラーを使用した ASDK のデプロイ](../asdk/asdk-install.md)に関するページの手順に従ってください。
 - ご利用の Azure Stack 環境に次のものがインストールされている必要があります。
-  - Azure App Service。 Azure Stack のオペレーターと協力して、Azure App Service をご自分の環境にデプロイし、構成してください。 このチュートリアルでは、利用可能な専用 worker ロールが App Service に少なくとも 1 つ必要です。
-  - Windows Server 2016 イメージ
-  - Microsoft SQL Server を含んだ Windows Server 2016 のイメージ
-  - 適切なプランとオファー
-  - Web アプリケーションのドメイン名。 ドメイン名がない場合は、GoDaddy、Bluehost、InMotion などのドメイン プロバイダーから購入できます。
+  - Azure App Service。 Azure Stack のオペレーターと協力して、Azure App Service をご自分の環境にデプロイし、構成してください。 このチュートリアルでは、App Service で専用の worker ロールを少なくとも 1 つ利用できるようにすることが求められます。
+  - Windows Server 2016 イメージ。
+  - Windows Server 2016 と Microsoft SQL Server イメージ。
+  - 適切なプランとオファー。
+  - Web アプリのドメイン名。 ドメイン名を持っていない場合、GoDaddy、Bluehost、InMotion などのドメイン プロバイダーから 1 つ購入できます。
 - 信頼のおける証明機関 (LetsEncrypt など) から取得したドメインの SSL 証明書。
-- SQL Server データベースと通信し、Application Insights をサポートする Web アプリケーション。 GitHub から [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) サンプル アプリをダウンロードできます。
+- SQL Server データベースと通信し、Application Insights をサポートする Web アプリ。 GitHub から [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) サンプル アプリをダウンロードできます。
 - Azure 仮想ネットワークと Azure Stack 仮想ネットワークの間のハイブリッド ネットワーク。 詳細な手順については、[Azure と Azure Stack を使用したハイブリッド クラウド接続の構成](azure-stack-solution-hybrid-connectivity.md)に関するページを参照してください。
 
-- Azure Stack にプライベート ビルド エージェントが存在する、継続的インテグレーション/継続的デプロイ (CI/CD) のハイブリッド パイプライン。 詳細な手順については、[Azure および Azure Stack アプリケーション向けのハイブリッド クラウド ID の構成](azure-stack-solution-hybrid-identity.md)に関するページを参照してください。
+- Azure Stack にプライベート ビルド エージェントが存在する、継続的インテグレーション/継続的デプロイ (CI/CD) のハイブリッド パイプライン。 詳細な手順については、「[Azure および Azure Stack アプリケーションのハイブリッド クラウド ID を構成する](azure-stack-solution-hybrid-identity.md)」を参照してください。
 
 ## <a name="deploy-a-hybrid-connected-sql-server-database-server"></a>ハイブリッド接続の SQL Server データベース サーバーをデプロイする
 
@@ -84,31 +84,31 @@ ms.locfileid: "66749040"
 
     ![仮想マシン イメージの選択](media/azure-stack-solution-hybrid-cloud/image2.png)
 
-4. **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** で **[作成]** を選択します。
+4. **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** で、 **[作成]** を選択します。
 
-5. **[基本] > [基本設定の構成]** で、仮想マシン (VM) の**名前**、SQL Server SA の**ユーザー名**、その SA の**パスワード**を指定します。  **[サブスクリプション]** ボックスの一覧から、デプロイ先のサブスクリプションを選択します。 **[リソース グループ]** では **[Choose existing]\(既存の選択\)** を使用し、Azure Stack Web アプリと同じリソース グループに VM を配置します。
+5. **[基本] の [基本設定の構成]** で、仮想マシン (VM) の **[名前]** 、SQL Server SA の **[ユーザー名]** 、SA の **[パスワード]** を入力します。  **[サブスクリプション]** ドロップダウン リストから、デプロイ先のサブスクリプションを選択します。 **[リソース グループ]** では **[Choose existing]\(既存の選択\)** を使用し、Azure Stack Web アプリと同じリソース グループに VM を配置します。
 
     ![VM の基本設定を構成する](media/azure-stack-solution-hybrid-cloud/image3.png)
 
 6. **[サイズ]** で VM のサイズを選択します。 このチュートリアルでは、A2_Standard または DS2_V2_Standard をお勧めします。
 
-7. **[設定] > [オプション機能の構成]** で、次の設定を構成します。
+7. **[設定] の [オプション機能の構成]** で、次の設定を構成します。
 
-   - **[ストレージ アカウント]** 。 新しいアカウントが必要な場合は、作成します。
-   - **Virtual Network**
+   - **ストレージ アカウント**: 新しいアカウントが必要な場合は、作成します。
+   - **仮想ネットワーク**:
 
      > [!Important]  
      > SQL Server VM が VPN ゲートウェイと同じ仮想ネットワーク上にデプロイされていることを確認してください。
 
-   - **パブリック IP アドレス**。 既定の設定を使用できます。
-   - **ネットワーク セキュリティ グループ** (NSG)。 新しい NSG を作成します。
-   - **拡張機能と監視**。 既定の設定のままにします。
-   - **診断ストレージ アカウント**。 新しいアカウントが必要な場合は、作成します。
+   - **[パブリック IP アドレス]** : 既定の設定を使用します。
+   - **[ネットワーク セキュリティ グループ]** : (NSG)。 新しい NSG を作成します。
+   - **[拡張機能] と [監視]** :既定の設定のままにします。
+   - **[診断ストレージ アカウント]** :新しいアカウントが必要な場合は、作成します。
    - **[OK]** を選択して構成を保存します。
 
      ![オプション機能を構成する](media/azure-stack-solution-hybrid-cloud/image4.png)
 
-1. **[SQL Server の設定]** で、次の設定を構成します。
+8. **[SQL Server の設定]** で、次の設定を構成します。
    - **[SQL 接続]** で **[パブリック (インターネット)]** を選択します。
    - **[ポート]** は、既定値 (**1433**) のままにします。
    - **[SQL 認証]** には **[有効]** を選択します。
@@ -124,13 +124,13 @@ ms.locfileid: "66749040"
 
     ![構成の概要](media/azure-stack-solution-hybrid-cloud/image6.png)
 
-10. 新しい VM の作成には多少時間がかかります。 VM の状態は、 **[仮想マシン]** で確認できます。
+10. 新しい VM の作成には時間がかかります。 VM の状態は、 **[仮想マシン]** で確認できます。
 
     ![仮想マシン](media/azure-stack-solution-hybrid-cloud/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack"></a>Azure と Azure Stack に Web アプリを作成する
 
-Azure App Service は、Web アプリケーションの実行と管理をシンプルにします。 Azure Stack は Azure と一貫性があるため、App Service はどちらの環境でも実行できます。 App Service を使用してご自分のアプリケーションをホストしてみましょう。
+Azure App Service は、Web アプリの実行と管理を簡単にします。 Azure Stack は Azure と一貫性があるため、App Service はどちらの環境でも実行できます。 App Service を使用し、アプリをホストします。
 
 ### <a name="create-web-apps"></a>Web アプリを作成する
 
@@ -140,16 +140,16 @@ Azure App Service は、Web アプリケーションの実行と管理をシン�
 
 ### <a name="add-route-for-azure-stack"></a>Azure Stack 用のルートを追加する
 
-Azure Stack 上の App Service は、ユーザーがアプリケーションにアクセスできるよう、パブリック インターネットからルーティングできなければなりません。 Azure Stack にインターネットからアクセスできる場合は、Azure Stack Web アプリの公開 IP アドレスまたは URL を書き留めておいてください。
+Azure Stack 上の App Service は、ユーザーがアプリにアクセスできるよう、パブリック インターネットからルーティングできなければなりません。 Azure Stack がインターネットからアクセスできる場合、Azure Stack Web アプリの公開 IP アドレスまたは URL をメモします。
 
 ASDK を使用している場合は、[静的 NAT のマッピングを構成](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal)することで、仮想環境の外部に App Service を公開することができます。
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>Azure 内の Web アプリをハイブリッド ネットワークに接続する
 
-Azure 内の Web フロントエンドと Azure Stack 内の SQL Server データベースの間で接続性を確保するために、Azure と Azure Stack の間のハイブリッド ネットワークに Web アプリを接続します。 接続を有効にするためには、次の作業が必要となります。
+Azure の Web フロントエンドと Azure Stack の SQL Server を接続するには、Azure と Azure Stack の間のハイブリッド ネットワークに Web アプリを接続する必要があります。 接続を有効にするためには、次の作業が必要となります。
 
-- ポイント対サイト接続を構成する
-- Web アプリを構成する
+- ポイント対サイト接続を構成します。
+- Web アプリを構成します。
 - Azure Stack 内のローカル ネットワーク ゲートウェイに変更を加える
 
 ### <a name="configure-the-azure-virtual-network-for-point-to-site-connectivity"></a>ポイント対サイト接続のために Azure 仮想ネットワークを構成する
@@ -160,7 +160,7 @@ Azure App Service と統合するためには、ハイブリッド ネットワ�
 
     ![ポイント対サイト オプション](media/azure-stack-solution-hybrid-cloud/image8.png)
 
-2. **[今すぐ構成]** を選択して、ポイント対サイトの構成を行います。
+2. **[今すぐ構成]** を選択し、ポイント対サイトを構成します。
 
     ![ポイント対サイトの構成を開始](media/azure-stack-solution-hybrid-cloud/image9.png)
 
@@ -173,11 +173,11 @@ Azure App Service と統合するためには、ハイブリッド ネットワ�
 
    ![ポイント対サイトの設定](media/azure-stack-solution-hybrid-cloud/image10.png)
 
-### <a name="integrate-the-azure-app-service-application-with-the-hybrid-network"></a>Azure App Service アプリケーションをハイブリッド ネットワークと統合する
+### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>Azure App Service アプリとハイブリッド ネットワークを統合する
 
-1. Azure VNet にアプリケーションを接続するために、「[VNet 統合の有効化](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#enabling-vnet-integration)」の手順に従います。
+1. Azure VNet にアプリを接続するには、「[ゲートウェイが必要な Vnet 統合](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet#gateway-required-vnet-integration)」の指示に従ってください。
 
-2. Web アプリケーションをホストする App Service プランの **[設定]** に移動します。 **[設定]** の **[ネットワーク]** を選択します。
+2. Web アプリをホストしている App Service プランの **[設定]** に移動します。 **[設定]** の **[ネットワーク]** を選択します。
 
     ![ネットワークを構成する](media/azure-stack-solution-hybrid-cloud/image11.png)
 
@@ -199,21 +199,23 @@ App Service のポイント対サイト アドレス範囲からのトラフィ�
 
     ![ゲートウェイの構成オプション](media/azure-stack-solution-hybrid-cloud/image14.png)
 
-2. Azure 内の仮想ネットワーク ゲートウェイに使用されるポイント対サイトのアドレス範囲を **[アドレス空間]** に入力します。 **[保存]** を選択し、この構成を確認して保存します。
+2. **[アドレス空間]** に、Azure の仮想ネットワーク ゲートウェイのポイント対サイト アドレス範囲を入力します。
 
     ![ポイント対サイトのアドレス空間](media/azure-stack-solution-hybrid-cloud/image15.png)
 
+3. **[保存]** を選択し、構成を検証して保存します。
+
 ## <a name="configure-dns-for-cross-cloud-scaling"></a>クラウド間スケーリング向けに DNS を構成する
 
-クラウド間アプリケーション向けに DNS を適切に構成することで、ユーザーはグローバル Azure と Azure Stack の Web アプリ インスタンスにアクセスできます。 また、このチュートリアルの DNS 構成を使えば、負荷が増減したときに Azure Traffic Manager でトラフィックをルーティングすることも可能です。
+クラウド間アプリ向けに DNS を適切に構成することで、ユーザーはグローバル Azure と Azure Stack の Web アプリ インスタンスにアクセスできます。 また、このチュートリアルの DNS 構成を使えば、負荷が増減したときに Azure Traffic Manager でトラフィックをルーティングすることも可能です。
 
-このチュートリアルでは、Azure DNS を使用して DNS を管理します (App Service ドメインは機能しません)。
+App Service ドメインが機能しないため、このチュートリアルでは Azure DNS を使用して DNS を管理します。
 
 ### <a name="create-subdomains"></a>サブドメインを作成する
 
-Traffic Manager は DNS の CNAME に依存しているため、エンドポイントに対して適切にトラフィックをルーティングするためには、サブドメインが必要となります。 DNS レコードとドメインのマッピングの詳細については、「[Traffic Manager を使用したドメインのマップ](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name)」を参照してください。
+Traffic Manager は DNS の CNAME に依存しているため、エンドポイントに対して適切にトラフィックをルーティングするためには、サブドメインが必要となります。 DNS レコードとドメイン マッピングの詳細については、「[Traffic Manager を使用したドメインのマップ](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager-custom-domain-name)」を参照してください。
 
-Azure エンドポイントについては、ユーザーが Web アプリにアクセスするために使用できるサブドメインを作成します。 このチュートリアルでは、**app.northwind.com** を使用できますが、この値はご自身のドメインに合わせてカスタマイズする必要があります。
+Azure エンドポイントについては、Web アプリにアクセスするためにユーザーが使用できるサブドメインを作成します。 このチュートリアルでは、**app.northwind.com** を使用できますが、この値はご自身のドメインに合わせてカスタマイズする必要があります。
 
 また、Azure Stack エンドポイントについても、A レコードを使用してサブドメインを作成する必要があります。 **azurestack.northwind.com** を使用できます。
 
@@ -223,15 +225,15 @@ Azure エンドポイントについては、ユーザーが Web アプリにア
 
 ### <a name="configure-custom-domains-in-azure-stack"></a>Azure Stack でカスタム ドメインを構成する
 
-1. [Azure App Service に A レコードをマップ](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)して、ホスト名 **azurestack.northwind.com** を Azure Stack Web アプリに追加します。 App Service アプリケーションには、インターネットを介したルーティングが可能な IP アドレスを使用します。
+1. [Azure App Service に A レコードをマップ](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-an-a-record)して、ホスト名 **azurestack.northwind.com** を Azure Stack Web アプリに追加します。 App Service アプリには、インターネット ルーティング可能な IP アドレスを使用します。
 
 2. [Azure App Service に CNAME をマップ](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)して、ホスト名 **app.northwind.com** を Azure Stack Web アプリに追加します。 CNAME のターゲットとして、前の手順 (1) で構成したホスト名を使用してください。
 
 ## <a name="configure-ssl-certificates-for-cross-cloud-scaling"></a>クラウド間スケーリング向けに SSL 証明書を構成する
 
-Web アプリケーションによって収集される機密性の高いデータについては、SQL データベースへの転送中も、SQL データベースに保存されている間も、セキュリティを確保する必要があります。
+Web アプリによって収集される機密データを移動中および SQL データベースで保管されている間、セキュリティで保護することが重要です。
 
-すべての受信トラフィックについて SSL 証明書を使用するように、Azure の Web アプリケーションと Azure Stack の Web アプリケーションを構成します。
+すべての受信トラフィックについて SSL 証明書を使用するように、Azure の Web アプリと Azure Stack の Web アプリを構成します。
 
 ### <a name="add-ssl-to-azure-and-azure-stack"></a>Azure と Azure Stack に SSL を追加する
 
@@ -239,7 +241,7 @@ Azure に SSL を追加するには、次の手順に従います。
 
 1. 作成したサブドメインに対し、取得した SSL 証明書が有効であることを確認します (ワイルドカード証明書を使用してもかまいません)。
 
-2. Azure で、[Azure Web Apps への既存のカスタム SSL 証明書のバインド](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)に関する記事のセクション「**Web アプリの準備**」と「**SSL 証明書のバインド**」の手順に従います。 **[SSL の種類]** として **[SNI ベースの SSL]** を選択します。
+2. Azure で、[Azure Web Apps に既存のカスタム SSL 証明書をバインドする](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)方法に関する記事の「**Web アプリの準備**」と **SSL 証明書のバインド**に関するセクションの指示に従います。 **[SSL の種類]** として **[SNI ベースの SSL]** を選択します。
 
 3. すべてのトラフィックを HTTP ポートにリダイレクトします。 [Azure Web Apps への既存のカスタム SSL 証明書のバインド](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)に関する記事のセクション「**HTTPS の適用**」の手順に従ってください。
 
@@ -247,26 +249,26 @@ Azure Stack に SSL を追加するには、次の手順に従います。
 
 - Azure で使用した手順 1. から手順 3. を繰り返します。
 
-## <a name="configure-and-deploy-the-web-application"></a>Web アプリケーションを構成してデプロイする
+## <a name="configure-and-deploy-the-web-app"></a>Web アプリを構成し、デプロイする
 
-適切な Application Insights インスタンスにテレメトリをレポートするようアプリケーション コードを構成し、適切な接続文字列を使って Web アプリケーションを構成します。 Application Insights の詳細については、「[Application Insights とは何か?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)」を参照してください。
+テレメトリを正しい Application Insights インスタンスに報告するようにアプリ コードを構成し、正しい接続文字列で Web アプリを構成します。 Application Insights の詳細については、「[Application Insights とは何か?](https://docs.microsoft.com/azure/application-insights/app-insights-overview)」を参照してください。
 
 ### <a name="add-application-insights"></a>Application Insights を追加する
 
-1. Microsoft Visual Studio で Web アプリケーションを開きます。
+1. Microsoft Visual Studio で Web アプリを開きます。
 
 2. プロジェクトに [Application Insights を追加](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core#enable-client-side-telemetry-for-web-applications)し、Web トラフィックが増減したときのアラートを生成するために Application Insights によって使用されるテレメトリが転送されるようにします。
 
 ### <a name="configure-dynamic-connection-strings"></a>動的接続文字列を構成する
 
-Web アプリケーションの各インスタンスは、異なる方法で SQL データベースに接続することになります。 Azure 内のアプリケーションでは SQL Server 仮想マシン (VM) のプライベート IP アドレスが使用され、Azure Stack 内のアプリケーションでは SQL Server VM のパブリック IP アドレスが使用されます。
+Web アプリの各インスタンスでは、異なる方法を使用して SQL データベースに接続します。 Azure のアプリでは SQL Server 仮想マシン (VM) のプライベート IP アドレスが使用され、Azure Stack のアプリでは SQL Server VM のパブリック IP アドレスが使用されます。
 
 > [!Note]  
-> Azure Stack 統合システムでは、インターネットを介したルーティングが可能なアドレスをパブリック IP アドレスとして使用しないようにしてください。 Azure Stack Development Kit (ASDK) では、パブリック IP アドレスを ASDK の外部でルーティングすることはできません。
+> Azure Stack 統合システムでは、パブリック IP アドレスをインターネット ルーティング可能にしないでください。 Azure Stack Development Kit (ASDK) では、パブリック IP アドレスを ASDK の外部でルーティングすることはできません。
 
-App Service の環境変数を使用すれば、アプリケーションの各インスタンスに異なる接続文字列を渡すことができます。
+App Service 環境変数を使用し、アプリの各インスタンスに異なる接続文字列を渡すことができます。
 
-1. Visual Studio でアプリケーションを開きます。
+1. Visual Studio でアプリを開きます。
 
 2. Startup.cs を開いて、次のコード ブロックを見つけます。
 
@@ -275,7 +277,7 @@ App Service の環境変数を使用すれば、アプリケーションの各�
         options.UseSqlite("Data Source=localdatabase.db"));
     ```
 
-3. 前のコード ブロックを次のコードに置き換えます。このコードでは、appsettings.json ファイルで定義されている接続文字列が使用されます。
+3. 前のコード ブロックを次のコードに置き換えます。このコードでは、*appsettings.json* ファイルで定義されている接続文字列が使用されます。
 
     ```C#
     services.AddDbContext<MyDatabaseContext>(options =>
@@ -284,17 +286,17 @@ App Service の環境変数を使用すれば、アプリケーションの各�
      services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
     ```
 
-### <a name="configure-app-service-application-settings"></a>App Service アプリケーション設定を構成する
+### <a name="configure-app-service-app-settings"></a>App Service アプリ設定を構成する
 
 1. Azure と Azure Stack 用の接続文字列を作成します。 IP アドレス以外は、同じ文字列を使用してください。
 
-2. Azure と Azure Stack で、Web アプリケーションの[アプリケーション設定として](https://docs.microsoft.com/azure/app-service/web-sites-configure)適切な接続文字列を追加します。名前のプレフィックスとしては `SQLCONNSTR\_` を使用してください。
+2. Azure と Azure Stack で、Web アプリの[アプリ設定として](https://docs.microsoft.com/azure/app-service/web-sites-configure)適切な接続文字列を追加します。そのとき、名前のプレフィックスとして `SQLCONNSTR\_` を使用します。
 
-3. Web アプリの設定を**保存**して、アプリケーションを再起動します。
+3. Web アプリ設定を**保存**し、アプリを再起動します。
 
 ## <a name="enable-automatic-scaling-in-global-azure"></a>グローバル Azure で自動スケーリングを有効にする
 
-App Service 環境で Web アプリケーションを作成するときは、1 つのインスタンスから始めます。 自動的にスケールアウトしてインスタンスを追加することで、アプリ用のコンピューティング リソースを増やすことができます。 同様に、自動的にスケールインして、アプリに必要なインスタンスの数を減らすことができます。
+App Service 環境で Web アプリを作成するとき、1 つのインスタンスから始めます。 自動的にスケールアウトしてインスタンスを追加することで、アプリ用のコンピューティング リソースを増やすことができます。 同様に、自動的にスケールインして、アプリに必要なインスタンスの数を減らすことができます。
 
 > [!Note]  
 > スケールアウトとスケールインを構成するには、App Service プランが必要です。 プランをお持ちでない場合は、作成したうえで次の手順を開始してください。
@@ -343,11 +345,11 @@ App Service 環境で Web アプリケーションを作成するときは、1 �
 6. **[メトリック ソース]** で **[現在のリソース]** を選択します。
 
    > [!Note]  
-   > 現在のリソースには、ご利用の App Service プランの名前/GUID が表示され、 **[リソースの種類]** と **[リソース]** ドロップダウン リストは淡色表示されます。
+   > 現在のリソースには、App Service プランの名前/GUID が表示され、 **[リソースの種類]** ドロップダウン リストと **[リソース]** ドロップダウン リストは利用できません。
 
 ### <a name="enable-automatic-scale-in"></a>自動スケールインを有効にする
 
-トラフィックが減少すると、Azure Web アプリケーションで自動的にアクティブ インスタンス数を減らして、コストを削減することができます。 このアクションはスケールアウトほど積極的には実行されません。アプリケーション ユーザーへの影響を最小限に抑えるためです。
+トラフィックが減ると、Azure Web アプリでは、アクティブ インスタンスの数を自動的に減らし、コストを減らすことができます。 このアクションはスケールアウトより消極的であり、アプリ ユーザーへの影響を最小限に抑えます。
 
 1. **[既定]** のスケールアウト条件に移動し、 **[+ ルールの追加]** を選択します。 このルールには、次の条件とアクションを使用します。
 
@@ -373,13 +375,13 @@ App Service 環境で Web アプリケーションを作成するときは、1 �
 
 ## <a name="create-a-traffic-manager-profile-and-configure-cross-cloud-scaling"></a>Traffic Manager プロファイルを作成し、クラウド間スケーリングを構成する
 
-Azure で Traffic Manager プロファイルを作成し、エンドポイントを構成してクラウド間スケーリングを有効にします。
+Azure で Traffic Manager プロファイルを作成し、クラウド間スケーリングを有効にするようにエンドポイントを構成します。
 
 ### <a name="create-traffic-manager-profile"></a>Traffic Manager プロファイルを作成する
 
 1. **[リソースの作成]** を選択します。
 2. **[ネットワーク]** を選択します。
-3. **[Traffic Manager プロファイル]** を選択し、次を構成します。
+3. **[Traffic Manager プロファイル]** を選択し、次の設定を構成します。
 
    - **[名前]** に、プロファイルの名前を入力します。 この名前は、trafficmanager.net ゾーン内で一意であることが**必要**です。新しい DNS 名を作成するときに使用されます (例: northwindstore.trafficmanager.net)。
    - **[ルーティング方法]** で **[重み付け]** を選択します。
@@ -395,7 +397,7 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager エンドポイントの追加
 
-1. 作成した Traffic Manager プロファイルを検索します (プロファイルのリソース グループに移動した場合は、プロファイルを選択してください)。
+1. 作成した Traffic Manager プロファイルを検索します プロファイルのリソース グループに移動した場合は、プロファイルを選択してください。
 
 2. **[Traffic Manager プロファイル]** の **[設定]** で、 **[エンドポイント]** を選択します。
 
@@ -404,7 +406,7 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 4. Azure Stack について、 **[エンドポイントの追加]** で次の設定を使用します。
 
    - **[Type] (種類)** で、 **[外部エンドポイント]** を選択します。
-   - このエンドポイントの **[名前]** を入力します。
+   - エンドポイントの **[名前]** を入力します。
    - **完全修飾ドメイン名 (FQDN) または IP** として、Azure Stack Web アプリの外部 URL を入力します。
    - **[重み]** は、既定値 (**1**) のままにします。 これにより、このエンドポイントが正常な状態である場合、すべてのトラフィックがそのエンドポイントに送信されるようになります。
    - **[無効として追加]** はオフのままにします。
@@ -418,11 +420,11 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 3. Azure について、 **[エンドポイントの追加]** で次の設定を使用します。
 
    - **[Type] (種類)** で、 **[Azure エンドポイント]** を選択します。
-   - このエンドポイントの **[名前]** を入力します。
+   - エンドポイントの **[名前]** を入力します。
    - **[ターゲット リソースの種類]** で、 **[App Service]** を選択します。
    - **[ターゲット リソース]** で **[アプリ サービスの選択]** を選択し、同じサブスクリプションにある Web アプリの一覧を表示します。
    - **[リソース]** で、最初のエンドポイントとして追加する App Service を選択します。
-   - **[重み]** に **2** を選択します。 これにより、プライマリ エンドポイントが正常ではない場合や、トリガーされたらトラフィックをルーティングするルール/アラートがある場合、すべてのトラフィックがそのエンドポイントに送信されるようになります。
+   - **[重み]** に **2** を選択します。 この設定により、プライマリ エンドポイントが正常ではない場合や、トリガーされたらトラフィックをルーティングするルール/アラートがある場合、すべてのトラフィックがそのエンドポイントに送信されるようになります。
    - **[無効として追加]** はオフのままにします。
 
 4. **[OK]** を選択して、Azure エンドポイントを保存します。
@@ -433,9 +435,9 @@ Azure で Traffic Manager プロファイルを作成し、エンドポイント
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights の監視とアラートを設定する
 
-Azure Application Insights を使用すると、アプリケーションを監視し、構成した条件に応じてアラートを送信することができます。 たとえば、アプリケーションが利用できなくなった、障害が発生した、パフォーマンスの問題が生じたなどの例が間陰られます。
+Azure Application Insights を使用すると、アプリを監視し、構成した条件に応じてアラートを送信できます。 たとえば、アプリが利用できなくなった、障害が発生した、パフォーマンスの問題が生じたなどの例があります。
 
-アラートの作成には、Application Insights のメトリックを使用します。 これらのアラートがトリガーされると、Web アプリケーション インスタンスが自動的に Azure Stack から Azure に切り替わってスケールアウトし、その後、Azure Stack に戻ってスケールインします。
+アラートの作成には、Application Insights のメトリックを使用します。 これらのアラートがトリガーされると、Web アプリ インスタンスが自動的に Azure Stack から Azure に切り替わってスケールアウトし、その後、Azure Stack に戻ってスケールインします。
 
 ### <a name="create-an-alert-from-metrics"></a>メトリックに基づくアラートを作成する
 
@@ -449,7 +451,7 @@ Azure Application Insights を使用すると、アプリケーションを監�
 
 1. **[構成]** で **[アラート (クラシック)]** を選択します。
 2. **[メトリック アラートの追加 (クラシック)]** を選択します。
-3. **[ルールの追加]** で、次を構成します。
+3. **[ルールの追加]** で、次の設定を構成します。
 
    - **[名前]** に「**Burst into Azure Cloud**」と入力します。
    - **[説明]** は省略できます。
@@ -470,7 +472,7 @@ Azure Application Insights を使用すると、アプリケーションを監�
 
 1. **[構成]** で **[アラート (クラシック)]** を選択します。
 2. **[メトリック アラートの追加 (クラシック)]** を選択します。
-3. **[ルールの追加]** で、次を構成します。
+3. **[ルールの追加]** で、次の設定を構成します。
 
    - **[名前]** に「**Scale back into Azure Stack**」と入力します。
    - **[説明]** は省略できます。
@@ -514,18 +516,18 @@ Web サイトが構成済みのしきい値に達した場合、アラートが�
 
     ![Azure Stack エンドポイントを無効化](media/azure-stack-solution-hybrid-cloud/image24.png)
 
-エンドポイントの構成後、アプリケーション トラフィックは、Azure Stack Web アプリではなく、Azure スケールアウト Web アプリに送信されます。
+エンドポイントの構成後、アプリ トラフィックは、Azure Stack Web アプリではなく、Azure スケールアウト Web アプリに送信されます。
 
  ![変更されたエンドポイント](media/azure-stack-solution-hybrid-cloud/image25.png)
 
 フローを再び Azure Stack に戻すには、前の手順を使用して次の設定を行います。
 
-- Azure Stack エンドポイントを有効にする
-- Azure エンドポイントを無効にする
+- Azure Stack エンドポイントを有効にします。
+- Azure エンドポイントを無効にします。
 
 ### <a name="configure-automatic-switching-between-azure-and-azure-stack"></a>Azure と Azure Stack の間で自動切り替えを構成する
 
-Azure Functions によって実現される[サーバーレス](https://azure.microsoft.com/overview/serverless-computing/)環境で対象のアプリケーションが実行されている場合は、Application Insights の監視を使用することもできます。
+Azure Functions によって実現される[サーバーレス](https://azure.microsoft.com/overview/serverless-computing/)環境で対象のアプリが実行されている場合は、Application Insights の監視を使用することもできます。
 
 このシナリオでは、関数アプリを呼び出す Webhook を使用するように Application Insights を構成することができます。 このアプリでは、アラートに応じてエンドポイントの有効と無効を自動的に切り替えます。
 
