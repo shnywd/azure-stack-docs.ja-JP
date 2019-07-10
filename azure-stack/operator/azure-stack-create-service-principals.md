@@ -1,388 +1,358 @@
 ---
-title: Azure Stack のサービス プリンシパルを管理する | Microsoft Docs
-description: Azure Resource Manager でロールベースのアクセス制御と共に使用してリソースへのアクセスを管理できる、新しいサービス プリンシパルを管理する方法について説明します。
+title: アプリ ID を使用してリソースにアクセスする
+description: サインインとリソースへのアクセスを目的としてロールベースのアクセス制御とともに使用できる、サービス プリンシパルを管理する方法を説明します。
 services: azure-resource-manager
 documentationcenter: na
-author: PatAltimore
+author: BryanLa
 manager: femila
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
-ms.author: patricka
-ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: b08d2b59653b099b0cd0a314347ea2667fa42ca8
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.date: 06/25/2019
+ms.author: bryanla
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691307"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397308"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>Azure Stack へのアクセスをアプリケーションに提供する
+# <a name="use-an-app-identity-to-access-resources"></a>アプリ ID を使用してリソースにアクセスする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit (ASDK)*
 
-Azure Stack 内の Azure Resource Manager を通じてリソースをデプロイまたは構成するためのアクセスがアプリケーションに必要な場合は、アプリケーションの資格情報であるサービス プリンシパルを作成します。 サービス プリンシパルには必要な権限のみを委任できます。  
+アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 ユーザーをユーザー プリンシパルで表すのと同様に、サービス プリンシパルはセキュリティ プリンシパルの一種であり、アプリケーションを表します。 サービス プリンシパルは、開発者が開発するアプリケーションの ID となり、開発者は必要なアクセス許可のみをそのサービス プリンシパルに委任することができます。  
 
-たとえば、Azure Resource Manager を使用して Azure リソースのインベントリを管理する構成管理ツールがあります。 このシナリオでは、サービス プリンシパルを作成し、これに閲覧者のロールを付与して、構成管理ツールのアクセスを読み取り専用に制限します。 
+たとえば、開発する構成管理アプリケーションで Azure Resource Manager を使用して Azure リソースのインベントリを管理するとします。 このシナリオでは、サービス プリンシパルを作成して閲覧者ロールをそのサービス プリンシパルに付与し、構成管理アプリケーションによるアクセスを読み取りに限定します。 
 
-サービス プリンシパルは、お客様自身の資格情報でアプリを実行するよりも推奨されますが、その理由は次のとおりです。
+## <a name="overview"></a>概要
 
- - お客様自身のアカウントのアクセス許可とは異なるアクセス許可を、サービス プリンシパルに割り当てることができます。 通常、こうしたアクセス許可は、アプリが行う必要があることに制限されます。
- - お客様の責任が変わっても、アプリの資格情報を変更する必要はありません。
- - 無人インストール用スクリプトを実行するときに、証明書を使用して認証を自動化できます。  
+ユーザー プリンシパルと同様に、サービス プリンシパルは認証時に資格情報を提示する必要があります。この情報は、次の 2 つの要素で構成されます。
 
-## <a name="getting-started"></a>使用の開始
+- **アプリケーション ID**。クライアント ID と呼ばれることもあります。 これは、Active Directory テナント内でのそのアプリケーションの登録を一意に識別する GUID です。
+- アプリケーション ID に関連付けられている**シークレット**。 クライアント シークレット文字列 (パスワードに似ています) を生成することも、X509 証明書 (証明書の公開キーを使用します) を指定することもできます。 
 
-Azure Stack のデプロイ方法に応じて、サービス プリンシパルを作成して開始します。 このドキュメントでは、以下のもののサービス プリンシパルの作成について説明します。
+ユーザー プリンシパルよりも、サービス プリンシパルの ID の下でアプリを実行することをお勧めしますが、それは次の理由からです。
 
-- Azure Active Directory (Azure AD)。 Azure AD は、マルチテナントに対応したクラウドベースのディレクトリおよび ID の管理サービスです。 Azure AD は、接続された Azure Stack で使用できます。
+ - サービス プリンシパルでは X509 証明書を使用できるので、**資格情報が強力に**なります。  
+ - サービス プリンシパルには、**より限定的なアクセス許可**を割り当てることができます。 一般的に、このアクセス許可はそのアプリでの実行に必要なものだけに限定され、このことを*最小限の特権の原則*といいます。
+ - サービス プリンシパルの**資格情報とアクセス許可の変更の頻度は高くありませんが**、ユーザー プリンシパルでは頻繁に変更されます。 たとえば、ユーザーの責務が変わるときや、パスワードの要件で変更が要求されているときや、ユーザーが退職したときです。
+
+開発者は初めに、使用するディレクトリ内に新しいアプリ登録を作成します。これによって、対応する[サービス プリンシパル オブジェクト](/azure/active-directory/develop/developer-glossary#service-principal-object)が作成され、これがそのディレクトリの中でアプリの ID を表します。 このドキュメントでは、サービス プリンシパルの作成と管理について説明しますが、そのプロセスは Azure Stack インスタンス用に次のどのディレクトリを選択したかによって異なります。
+
+- Azure Active Directory (Azure AD)。 Azure AD は、マルチテナントに対応したクラウドベースのディレクトリおよび ID の管理サービスです。 Azure AD は、接続された Azure Stack インスタンスとともに使用できます。
 - Active Directory フェデレーション サービス (AD FS)。 AD FS は、シンプルかつ安全な ID フェデレーションと Web シングル サインオン (SSO) 機能を実現します。 AD FS は、接続された Azure Stack インスタンスでも、切断された Azure Stack インスタンスでも使用できます。
 
-サービス プリンシパルを作成したら、AD FS と Azure Active Directory の両方に共通する一連の手順を実行して、ロールにアクセス許可を委任します。
+ここでは、初めにサービス プリンシパルを管理する方法を説明し、その後でそのサービス プリンシパルをロールに割り当ててリソースへのアクセスを制限する方法を説明します。
 
-## <a name="manage-service-principal-for-azure-ad"></a>Azure AD のサービス プリンシパルの管理
+## <a name="manage-an-azure-ad-service-principal"></a>Azure AD サービス プリンシパルを管理する 
 
-ID 管理サービスとして Azure Active Directory (Azure AD) を使用して Azure Stack をデプロイしてある場合は、Azure の場合と同様にサービス プリンシパルを作成できます。 このセクションでは、それらの手順をポータルで行う方法について説明します。 始める前に、[Azure AD で必要なアクセス許可](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)があることを確認してください。
+Azure Stack をデプロイするときに Azure Active Directory (Azure AD) を ID 管理サービスとして選択した場合は、サービス プリンシパルを Azure の場合と同様に作成できます。 このセクションでは、このことを Azure portal で行う手順を説明します。 始める前に、[Azure AD で必要なアクセス許可](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)があることを確認してください。
 
-### <a name="create-service-principal"></a>サービス プリンシパルの作成
+### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>クライアント シークレット資格情報を使用するサービス プリンシパルを作成する
 
-このセクションでは、アプリケーションが表示される Azure AD にアプリケーション (サービス プリンシパル) を作成します。
+このセクションでは、Azure portal を使用してアプリケーションを登録します。これによってサービス プリンシパル オブジェクトが Azure AD テナント内に作成されます。 この例では、サービス プリンシパルとともにクライアント シークレット資格情報が作成されますが、このポータルでは X509 証明書ベースの資格情報もサポートされます。
 
-1. [Azure Portal](https://portal.azure.com) で Azure アカウントにサインインします。
+1. Azure アカウントを使用して [Azure Portal](https://portal.azure.com) にサインインします。
 2. **[Azure Active Directory]**  >  **[アプリの登録]**  >  **[新規登録]** の順に選択します。
-3. アプリケーションの名前と URL を指定します。 
-4. **[サポートされているアカウントの種類]** を選択します。
-5.  アプリケーションの URI を追加します。 作成するアプリケーションの種類として、 **[Web]** を選択します。 値を設定したら、 **[登録]** を選択します。
+3. アプリケーションの**名前**を入力します。 
+4. **[サポートされているアカウントの種類]** で適切なものを選択します。
+5. **[リダイレクト URI]** の下で、アプリケーションの種類として **[Web]** を選択し、このアプリケーションにリダイレクト URI が必要な場合はここで指定します。 
+6. 値を設定したら、 **[登録]** を選択します。 アプリケーション登録が作成されて **[概要]** ページが表示されます。
+7. **アプリケーション ID** をコピーします。この ID をアプリケーションのコードの中で使用するためです。 この値は、クライアント ID と呼ばれることもあります。
+8. クライアント シークレットを生成するために、 **[証明書とシークレット]** ページを選択します。 **[新しいクライアント シークレット]** を選択します。
+9. シークレットの**説明**と**有効期限**を指定します。 
+10. 完了したら、 **[追加]** をクリックします。
+11. シークレットの値が表示されます。 この値をコピーして別の場所に保存します。後でこの値を取得することはできないからです。 このシークレットは、クライアント アプリケーションの中でサービス プリンシパルでサインインするときにアプリケーション ID とともに提示します。 
 
-アプリケーションのサービス プリンシパルが作成されました。
+    ![保存されたキー](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
-### <a name="get-credentials"></a>資格情報の取得
+## <a name="manage-an-ad-fs-service-principal"></a>AD FS サービス プリンシパルを管理する
 
-プログラムでログインする場合、アプリケーションに対しては ID を、Web アプリ/API に対しては認証キーを使用します。 これらの値を取得するには、次の手順に従います。
+Azure Stack をデプロイするときに Active Directory Federation Services (AD FS) を ID 管理サービスとして選択した場合は、サービス プリンシパルの管理には PowerShell を使用する必要があります。 次に示すサービス プリンシパル資格情報の管理の例では、X509 証明書とクライアント シークレットの両方について説明します。
 
-1. **[Azure Active Directory]**  >  **[アプリの登録]** の順に選択します。 アプリケーションを選択します。
+スクリプトは、管理者特権のある ("管理者として実行") PowerShell コンソールで実行する必要があります。このコンソールから、Azure Stack インスタンスの特権エンドポイントをホストする VM への別のセッションを開きます。 特権エンドポイント セッションが確立した後に、追加のコマンドレットを実行してサービス プリンシパルの管理を行います。 特権エンドポイントの詳細については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
 
-2. **アプリケーション ID** をコピーし、アプリケーション コードに保存します。 サンプル アプリケーションの各アプリケーションでは、この値をクライアント ID と呼んでいます。
+### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>証明書資格情報を使用するサービス プリンシパルを作成する
 
-3. Web アプリ/API の認証キーを生成するには、 **[証明書とシークレット]** を選択します。 **[新しいクライアント シークレット]** を選択します。
-
-4. キーの説明を入力し、キーの期間を指定します。 操作が完了したら、 **[追加]** をクリックします。
-
-キーを保存すると、キーの値が表示されます。 キーは後から取得できないため、この値をメモ帳などの一時的な場所にコピーします。 キー値は、アプリケーションとしてサインインする際にアプリケーション ID と共に入力します。 アプリケーションが取得できる場所にキー値を保存します。
-
-![保存されたキー](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
-
-完了したら、アプリケーションにロールを割り当てることができます。
-
-## <a name="manage-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルの管理
-
-ID 管理サービスとして Active Directory Federation Services (AD FS) を使用して Azure Stack をデプロイしてある場合は、PowerShell を使用してサービス プリンシパルを作成し、アクセスのためのロールを割り当て、その ID でサインインします。
-
-AD FS を使用してサービス プリンシパルを作成する場合は、次の 2 つの方法のいずれかを使用できます。 次のようにすることができます。
- - [証明書を使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
- - [クライアント シークレットを使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
-
-AD FS のサービス プリンシパルを管理するタスクは以下のとおりです。
-
-| Type | Action |
-| --- | --- |
-| AD FS 証明書 | [作成](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS 証明書 | [Update](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
-| AD FS 証明書 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-| AD FS クライアント シークレット | [作成](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS クライアント シークレット | [Update](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS クライアント シークレット | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-
-### <a name="create-a-service-principal-using-a-certificate"></a>証明書を使用したサービス プリンシパルの作成
-
-ID のために AD FS を使用した状態でサービス プリンシパルを作成するときは、証明書を使用できます。
-
-#### <a name="certificate"></a>証明書
-
-証明書が必要です。
-
-**証明書の要件**
+サービス プリンシパル資格情報のための証明書を作成するときは、次の要件を満たす必要があります。
 
  - 暗号化サービス プロバイダー (CSP) は、従来のキー プロバイダーである必要があります。
  - 公開キーと秘密キーの両方が必要なため、証明書は PFX ファイル形式である必要があります。 Windows サーバーでは、公開キー ファイル (SSL 証明書ファイル) と関連付けられている秘密キー ファイルが含まれている .pfx ファイルが使用されます。
  - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に関するページに完全な一覧があります。
  - お使いの Azure Stack インフラストラクチャは、証明書において公開されている証明機関の証明書失効リスト (CRL) の場所にネットワーク アクセスできる必要があります。 この CRL は、HTTP エンドポイントである必要があります。
 
-#### <a name="parameters"></a>parameters
+証明書を用意できたら、下記の PowerShell スクリプトを使用してアプリケーションを登録し、サービス プリンシパルを作成します。 また、このサービス プリンシパルを使用して Azure にサインインします。 次のプレースホルダーを実際の値で置き換えてください。
 
-自動化パラメーターの入力として、次の情報が必要です。
+| プレースホルダー | 説明 | 例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourAppName\> | 新しいアプリ登録を説明する名前 | "My management tool" |
 
-|パラメーター|説明|例|
-|---------|---------|---------|
-|Name|SPN アカウントの名前|MyAPP|
-|ClientCertificates|証明書オブジェクトの配列|X509 証明書|
-|ClientRedirectUris<br>(省略可能)|アプリケーションのリダイレクト URI|-|
-
-#### <a name="use-powershell-to-create-a-service-principal"></a>PowerShell を使用したサービス プリンシパルの作成
-
-1. Windows PowerShell セッションを管理者特権で開き、次のコマンドレットを実行します。
+1. Windows PowerShell セッションを管理者特権で開き、次のスクリプトを実行します。
 
    ```powershell  
-    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
     $Creds = Get-Credential
 
-    # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # Use the Get-Item cmdlet to retrieve your certificate.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
     # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
     $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-
-    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
+    # Register and set an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
 
-    # Set the GraphEndpointResourceId value
-    Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
-
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
+    # Sign in using the new service principal identity
+    $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
-    -CertificateThumbprint $ServicePrincipal.Thumbprint `
-    -ApplicationId $ServicePrincipal.ClientId `
+    -CertificateThumbprint $SpObject.Thumbprint `
+    -ApplicationId $SpObject.ClientId `
     -TenantId $TenantID
 
-    # Output the SPN details
-    $ServicePrincipal
+    # Output the service principal details
+    $SpObject
 
    ```
-   > [!Note]  
-   > 検証を目的として、次の例を使用して自己署名証明書を作成できます。
-
-   ```powershell  
-   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-   ```
-
-
-2. 自動化が完了すると、SPN を使用するために必要な詳細が表示されます。 後で使用できるように、出力を保存することをお勧めします。
-
-   例:
+   
+2. このスクリプトが完了すると、アプリケーション登録の情報が表示され、この中にサービス プリンシパルの資格情報があります。 上の例で示したように、`ClientID` と `Thumbprint` はサービス プリンシパルの ID でのサインインに使用されています。 サインインに成功した後は、Azure Resource Manager によって管理されるリソースに対するアクセス認可とアクセスにはサービス プリンシパルの ID が使用されます。 
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
    ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   ClientSecret          :
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-### <a name="update-certificate-for-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルの証明書の更新
+PowerShell コンソール セッションは開いたままにします。`ApplicationIdentifier` の値とともに次のセクションで使用するからです。
 
-AD FS を使用して Azure Stack をデプロイしてある場合は、PowerShell を使用してサービス プリンシパルのシークレットを更新できます。
+### <a name="update-a-service-principals-certificate-credential"></a>サービス プリンシパルの証明書資格情報を更新する
 
-ERCS 仮想マシン上で、特権エンドポイントからスクリプトが実行されます。
+サービス プリンシパルが作成されたので、このセクションでは次のことを行う方法を説明します。
 
-#### <a name="parameters"></a>parameters
+1. 新しい自己署名 X509 証明書をテスト用に生成します。
+2. サービス プリンシパルの資格情報を更新します。具体的には、**Thumbprint** プロパティを新しい証明書に合わせて更新します。
 
-自動化パラメーターの入力として、次の情報が必要です。
+PowerShell を使用して証明書資格情報を更新します。次のプレースホルダーを実際の値で置き換えてください。
 
-|パラメーター|説明|例|
-|---------|---------|---------|
-|Name|SPN アカウントの名前|MyAPP|
-|ApplicationIdentifier|一意識別子|S-1-5-21-1634563105-1224503876-2692824315-2119|
-|ClientCertificate|証明書オブジェクトの配列|X509 証明書|
+| プレースホルダー | 説明 | 例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<YourAppName\> | 新しいアプリ登録を説明する名前 | "My management tool" |
+| \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子 | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
-#### <a name="example-of-updating-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルの更新の例
-
-この例では、自己署名証明書を作成します。 運用環境のデプロイでこれらのコマンドレットを実行する場合、[Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) を利用して、使用する証明書の証明書オブジェクトを取得します。
-
-1. Windows PowerShell セッションを管理者特権で開き、次のコマンドレットを実行します。
+1. 管理者特権のある Windows PowerShell セッションを使用して、次のコマンドレットを実行します。
 
      ```powershell
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # Create a self-signed certificate for testing purposes. 
+     $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # In production, use Get-Item and a managed certificate instead.
+     # $Cert = Get-Item "<YourCertificateLocation>"
 
-          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
+     # Use the privileged endpoint to update the certificate thumbprint, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ClientCertificates $using:NewCert}
+     $Session | Remove-PSSession
 
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. 自動化が完了したら、SPN の認証に必要な、更新済みの拇印の値が表示されます。
+2. このスクリプトが完了すると、更新後のアプリケーション登録の情報が表示され、この中に新しい自己署名証明書の拇印の値があります。
 
      ```Shell  
-          ClientId              : 
-          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
-          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
-          ClientSecret          : 
-          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+     ClientId              : 
+     Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+     ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+     ClientSecret          : 
+     PSComputerName        : azs-ercs01
+     RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
      ```
 
-### <a name="create-a-service-principal-using-a-client-secret"></a>クライアント シークレットを使用したサービス プリンシパルの作成
+### <a name="create-a-service-principal-that-uses-client-secret-credentials"></a>クライアント シークレット資格情報を使用するサービス プリンシパルを作成する
 
-ID のために AD FS を使用した状態でサービス プリンシパルを作成するときは、証明書を使用できます。 コマンドレットを実行するためには特権エンドポイントを使用します。
+> [!IMPORTANT]
+> クライアント シークレットを使用する場合は、X509 証明書資格情報を使用する場合に比べて安全性が低くなります。 認証メカニズムの安全性が低いだけでなく、一般的にはシークレットをクライアント アプリのソース コードに埋め込むことが必要になります。 そのため、実稼働アプリケーションでは証明書資格情報を使用することを強くお勧めします。
 
-ERCS 仮想マシン上で、特権エンドポイントからこれらのスクリプトが実行されます。 特権エンドポイントの詳細については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
+別のアプリ登録を作成しますが、今回はクライアント シークレット資格情報を指定します。 証明書資格情報とは異なり、クライアント シークレット資格情報はディレクトリが生成することができます。 したがって、開発者はクライアント シークレットを指定する代わりに `-GenerateClientSecret` スイッチを使用してシークレットの生成を要求します。 次のプレースホルダーを実際の値で置き換えてください。
 
-#### <a name="parameters"></a>parameters
-
-自動化パラメーターの入力として、次の情報が必要です。
-
-| パラメーター | 説明 | 例 |
-|----------------------|--------------------------|---------|
-| Name | SPN アカウントの名前 | MyAPP |
-| GenerateClientSecret | シークレットの作成 |  |
-
-#### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>ERCS PrivilegedEndpoint を使用 したサービス プリンシパルの作成
+| プレースホルダー | 説明 | 例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<YourAppName\> | 新しいアプリ登録を説明する名前 | "My management tool" |
 
 1. Windows PowerShell セッションを管理者特権で開き、次のコマンドレットを実行します。
 
      ```powershell  
-      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
      $Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the Privileged Endpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     # Use the privileged endpoint to create the new app registration (and service principal object)
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Output the SPN details
-     $ServicePrincipal
+     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # - AzureRM endpoint used for Azure Resource Manager operations 
+     # - Audience for acquiring an OAuth token used to access Graph API 
+     # - GUID of the directory tenant
+     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+     $TenantID = $AzureStackInfo.AADTenantID
+
+     # Register and set an AzureRM environment that targets your Azure Stack instance
+     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+     Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
+
+     # Sign in using the new service principal identity
+     $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+     $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+
+     # Output the service principal details
+     $SpObject
      ```
 
-2. コマンドレットを実行すると、SPN を使用するために必要な情報がシェルに表示されます。 クライアント シークレットは必ず保存してください。
+2. このスクリプトが完了すると、アプリケーション登録の情報が表示され、この中にサービス プリンシパルの資格情報があります。 上の例で示したように、`ClientID` と生成された `ClientSecret` はサービス プリンシパルの ID でのサインインに使用されています。 サインインに成功した後は、Azure Resource Manager によって管理されるリソースに対するアクセス認可とアクセスにはサービス プリンシパルの ID が使用されます。
 
-     ```powershell  
+     ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
      ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
-     PSComputerName        : 192.168.200.224
+     ClientSecret          : 6RUWLRoBw3EebBLgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : azs-ercs01
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-#### <a name="update-client-secret-for-a-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルのクライアント シークレットの更新
+PowerShell コンソール セッションは開いたままにします。`ApplicationIdentifier` の値とともに次のセクションで使用するからです。
 
-新しいクライアント シークレットは、PowerShell コマンドレットによって自動的に生成されます。
+### <a name="update-a-service-principals-client-secret"></a>サービス プリンシパルのクライアント シークレットを更新する
 
-ERCS 仮想マシン上で、特権エンドポイントからスクリプトが実行されます。
+PowerShell を使用してクライアント シークレット資格情報を更新します。**ResetClientSecret** パラメーターを使用するので、クライアント シークレットが即座に変更されます。 次のプレースホルダーを実際の値で置き換えてください。
 
-##### <a name="parameters"></a>parameters
+| プレースホルダー | 説明 | 例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
-自動化パラメーターの入力として、次の情報が必要です。
+1. 管理者特権のある Windows PowerShell セッションを使用して、次のコマンドレットを実行します。
 
-| パラメーター | 説明 | 例 |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| ApplicationIdentifier | 一意識別子。 | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-| ChangeClientSecret | 古いシークレットがまだ有効であり続ける 2,880 分間のロールオーバー期間を設けてクライアント シークレットを変更します。 |  |
-| ResetClientSecret | クライアント シークレットをすぐに変更します |  |
+     ```powershell
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>AD FS のクライアント シークレットの更新の例
+     # Use the privileged endpoint to update the client secret, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ResetClientSecret}
+     $Session | Remove-PSSession
 
-この例では **ResetClientSecret** パラメーターを使用します。これにより、クライアント シークレットはすぐに変更されます。
-
-1. Windows PowerShell セッションを管理者特権で開き、次のコマンドレットを実行します。
-
-     ```powershell  
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
-
-          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
-
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. 自動化が完了したら、SPN の認証に必要な、新しく生成されたシークレットが表示されます。 新しいクライアント シークレットは必ず保存してください。
+2. このスクリプトが完了すると、更新後のアプリケーション登録の情報が表示され、この中に新しく生成されたクライアント シークレットがあります。
 
-     ```powershell  
-          ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
-          ClientId              :  
-          Thumbprint            : 
-          ApplicationName       : Azurestack-Yourapp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-          ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
-          RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
+     ```shell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
+     PSComputerName        : azs-ercs01
+     RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
      ```
 
-### <a name="remove-a-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルの削除
+### <a name="remove-a-service-principal"></a>サービス プリンシパルを削除する
 
-AD FS を使用して Azure Stack をデプロイしてある場合は、PowerShell を使用してサービス プリンシパルを削除できます。
+ここでは、PowerShell を使用してアプリ登録をディレクトリから削除する方法を説明します。関連付けられたサービス プリンシパル オブジェクトも削除されます。 
 
-ERCS 仮想マシン上で、特権エンドポイントからスクリプトが実行されます。
+次のプレースホルダーを実際の値で置き換えてください。
 
-#### <a name="parameters"></a>parameters
-
-自動化パラメーターの入力として、次の情報が必要です。
-
-|パラメーター|説明|例|
-|---------|---------|---------|
-| パラメーター | 説明 | 例 |
-| ApplicationIdentifier | 一意識別子 | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-
-> [!Note]  
-> 既存のすべてのサービス プリンシパルと、そのアプリケーション識別子の一覧を表示するには、get-graphapplication コマンドを使用できます。
-
-#### <a name="example-of-removing-the-service-principal-for-ad-fs"></a>AD FS のサービス プリンシパルの削除の例
+| プレースホルダー | 説明 | 例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
-     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $Creds = Get-Credential
+# Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+$Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+# Create a PSSession to the PrivilegedEndpoint VM
+$Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+# OPTIONAL: Use the privileged endpoint to get a list of applications registered in AD FS
+$AppList = Invoke-Command -Session $Session -ScriptBlock {Get-GraphApplication}
 
-     $Session | Remove-PSSession
+# Use the privileged endpoint to remove the application and associated service principal object for <AppIdentifier>
+Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier "<AppIdentifier>"}
+```
+
+Remove-GraphApplication コマンドレットを特権エンドポイントに対して呼び出したときに返される出力はありませんが、このコマンドレットの実行中に次のような詳細な確認出力がコンソールに表示されます。
+
+```shell
+VERBOSE: Deleting graph application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623.
+VERBOSE: Remove-GraphApplication : BEGIN on AZS-ADFS01 on ADFSGraphEndpoint
+VERBOSE: Application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623 was deleted.
+VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint configuration
 ```
 
 ## <a name="assign-a-role"></a>ロールの割り当て
 
-サブスクリプション内のリソースにアクセスするには、アプリケーションをロールに割り当てる必要があります。 アプリケーションにとって適切なアクセス許可を表すのはどのロールであるかを判断します。 利用可能なロールについては、「[RBAC: 組み込みロール](/azure/role-based-access-control/built-in-roles)」を参照してください。
+ユーザーやアプリケーションによる Azure リソースへのアクセスは、ロールベースのアクセス制御 (RBAC) を通して認可されます。 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定の*リソース*に対する*ロール*に*割り当てる*必要があります。 初めに、どのロールがそのアプリケーションのための適切な*アクセス許可*を表すかを判断します。 利用可能なロールについては、「[Azure リソースの組み込みロール](/azure/role-based-access-control/built-in-roles)」を参照してください。
 
-スコープは、サブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリケーションをリソース グループの閲覧者ロールに追加すると、アプリケーションではリソース グループとそれに含まれているすべてのリソースを読み取ることができます。
+選択したリソースの種類に応じて、サービス プリンシパルの*アクセス スコープ*も決まります。 アクセス スコープはサブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリケーションをリソース グループの "閲覧者" ロールに追加すると、そのリソース グループと、その中にあるどのリソースも読み取りができることになります。
 
-1. Azure Stack ポータルで、アプリケーションを割り当てるスコープのレベルに移動します。 たとえば、サブスクリプション スコープでロールを割り当てるには、 **[サブスクリプション]** を選択します。 リソース グループまたはリソースを選択することもできます。
+1. Azure Stack のインストール時に指定したディレクトリに基づいて、適切なポータルにサインインします (たとえば、Azure AD の場合は Azure portal、AD FS の場合は Azure Stack ユーザー ポータル)。 この例では、ユーザーが Azure Stack ユーザー ポータルにサインインしたとします。
 
-2. アプリケーションを割り当てる特定のサブスクリプション (リソース グループまたはリソース) を選択します。
+   > [!NOTE]
+   > リソースに対するロール割り当てを追加するには、この操作を行うユーザー アカウントが属しているロールで `Microsoft.Authorization/roleAssignments/write` の許可が宣言されている必要があります。 この条件を満たすのは、組み込みロールである[所有者](/azure/role-based-access-control/built-in-roles#owner)や[ユーザー アクセス管理者](/azure/role-based-access-control/built-in-roles#user-access-administrator)などです。  
+2. どのリソースへのアクセスをサービス プリンシパルに許可するかを決定して、そのリソースの場所まで移動します。 この例では、サブスクリプションをスコープとしてサービス プリンシパルをロールに割り当てるので、 **[サブスクリプション]** を選択してから特定のサブスクリプションを選択します。 代わりに、リソース グループを選択することや、特定のリソース (たとえば仮想マシン) を選択することもできます。 
 
-     ![割り当てのためのサブスクリプションを選択する](./media/azure-stack-create-service-principal/image16.png)
+     ![割り当てのためのサブスクリプションを選択する](./media/azure-stack-create-service-principal/select-subscription.png)
 
-3. **[アクセス制御 (IAM)]** を選択します。
+3. **[アクセス制御 (IAM)]** ページを選択します。このページは、RBAC をサポートするすべてのリソースにあります。
+4. **[+ 追加]** を選択します。
+5. **[ロール]** の下で、アプリケーションに割り当てるロールを選択します。
+6. **[選択]** の下で、アプリケーション名の全体または一部を入力してアプリケーションを検索します。 登録時に、アプリケーション名は *Azurestack-\<YourAppName\>-\<ClientId\>* の形式で生成されます。 たとえば、作成時にアプリケーション名として *App2* を使用し、クライアント ID として *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* が割り当てられた場合のフル ネームは *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* となります。 検索するときに、この文字列全体を正確に指定することも、その一部分 (たとえば *Azurestack* や *Azurestack-App2*) を指定することもできます。
+7. アプリが見つかったら、そのアプリを選択すると **[選択したメンバー]** に表示されます。
+8. **[保存]** を選択して、ロールの割り当てを完了します。 
 
-     ![アクセスを選択する](./media/azure-stack-create-service-principal/image17.png)
+     [ ![ロールを割り当てる](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
-4. **[ロールの割り当ての追加]** を選択します。
+9. 完了すると、現在のスコープに割り当てられているプリンシパルの一覧の、指定のロールのセクションにアプリケーションが表示されます。
 
-5. アプリケーションに割り当てるロールを選択します。
-
-6. アプリケーションを検索して選択します。
-
-7. **[OK]** をクリックして、ロールの割り当てを完了します。 該当のスコープのロールに割り当てられたユーザーの一覧にアプリケーションが表示されます。
+     [ ![割り当てられたロール](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
 サービス プリンシパルを作成してロールを割り当てたら、アプリケーション内でこれを使用して、Azure Stack リソースにアクセスできます。  
 
