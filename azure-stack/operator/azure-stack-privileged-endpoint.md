@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 850d99232b408aa9264caf0d928231ed229e5c23
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
+ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782430"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67596077"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack での特権エンドポイントの使用
 
@@ -78,7 +78,7 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
      ``` 
      入力を求められたら、次の資格情報を使用します。
 
-     - **[ユーザー名]**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+     - **[ユーザー名]** : **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
      - **Password**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
      > [!NOTE]
@@ -150,7 +150,7 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
      ``` 
      入力を求められたら、次の資格情報を使用します。
 
-     - **[ユーザー名]**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+     - **[ユーザー名]** : **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
      - **Password**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
 3. ローカル コンピューターに PEP セッションをインポートします
@@ -167,10 +167,17 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 エンドポイント セッションを閉じるには:
 
 1. PEP からアクセス可能な外部ファイル共有を作成します。 開発キット環境では、開発キットのホスト上にファイル共有を作成することができます。
-2. `Close-PrivilegedEndpoint` コマンドレットを実行します。 
-3. トランスクリプト ログ ファイルを保存するパスの指定を求められます。 作成済みのファイル共有を &#92;&#92;*servername*&#92;*sharename* の形式で指定します。 パスを指定しない場合、コマンドレットは失敗し、セッションは開いたままです。 
+2. コマンドレットを実行します。 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+各値の説明:
 
-    ![トランスクリプトの保存先パスとして指定した場所を示す Close-PrivilegedEndpoint コマンドレットの出力](media/azure-stack-privileged-endpoint/closeendpoint.png)
+| パラメーター | 説明 | データ型 | 必須 |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | string | はい|
+| *資格情報* | ファイル共有にアクセスするための資格情報 | SecureString |  はい |
+
 
 トランスクリプト ログ ファイルがファイル共有に正常に転送された後、それらのファイルは PEP から自動的に削除されます。 
 

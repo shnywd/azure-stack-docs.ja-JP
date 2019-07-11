@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: ab5b0b5ac0e67a2a625285bd37a04b084fa8da0f
-ms.sourcegitcommit: 39ba6d18781aed98b29ac5e08aac2d75c37bf18c
+ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65386600"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397293"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
@@ -30,7 +30,7 @@ ms.locfileid: "65386600"
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN ゲートウェイ用の IPsec/IKE ポリシーのパラメーター
 
-IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさまざまな組み合わせでサポートされています。 Azure Stack でサポートされているパラメーターを確認するには、ご自身のコンプライアンスまたはセキュリティ要件を満たすのに役立つ「 [IPsec/IKE パラメーター](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)」を参照してください。
+IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさまざまな組み合わせでサポートされています。 Azure Stack でサポートされているパラメーターを確認するには、ご自身のコンプライアンスまたはセキュリティ要件を満たすのに役立つ「[IPsec/IKE パラメーター](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)」を参照してください。
 
 この記事では、IPsec/IKE ポリシーを作成して構成し、新規または既存の接続に適用する方法を示します。
 
@@ -38,9 +38,9 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 ポリシーを使用する際は、次の重要な考慮事項に注意してください。
 
-- IPsec/IKE ポリシーは、*Standard*  および  *HighPerformance*  (ルートベース) ゲートウェイ SKU でのみ機能します。
+- IPsec/IKE ポリシーは、*Standard* および *HighPerformance* (ルートベース) ゲートウェイ SKU でのみ機能します。
 
-- 特定の接続に対して指定できるポリシーの組み合わせは  **1 つ** だけです。
+- ある特定の接続に対して指定できるポリシーの組み合わせは **1 つ**だけです。
 
 - IKE (メイン モード) と IPsec (クイック モード) の両方について、すべてのアルゴリズムとパラメーターを指定する必要があります。 ポリシーを部分的に指定することはできません。
 
@@ -111,7 +111,7 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 | 20                   | ECP384    | ECP384        | 384 ビット ECP   |
 | 24                   | DHGroup24 | PFS24         | 2048 ビット MODP |
 
-詳細については、 [RFC3526](https://tools.ietf.org/html/rfc3526)  と  [RFC5114](https://tools.ietf.org/html/rfc5114) を参照してください。
+詳細については、[RFC3526](https://tools.ietf.org/html/rfc3526) および [RFC5114](https://tools.ietf.org/html/rfc5114) を参照してください。
 
 ## <a name="part-3---create-a-new-site-to-site-vpn-connection-with-ipsecike-policy"></a>パート 3 - IPsec/IKE ポリシーを使用する新しいサイト対サイト VPN 接続を作成する
 
@@ -119,15 +119,15 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 ![サイト対サイト ポリシー](media/azure-stack-vpn-s2s/site-to-site.png)
 
-サイト対サイト VPN 接続を作成するための詳細な手順については、 [サイト対サイト VPN 接続の作成](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)に関する記事をご覧ください。
+サイト対サイト VPN 接続を作成するための詳細な手順については、[サイト対サイト VPN 接続の作成](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)に関する記事を参照してください。
 
 ### <a name="prerequisites"></a>前提条件
 
 開始する前に、以下の前提条件を確認してください。
 
-- Azure サブスクリプション。 Azure サブスクリプションをまだお持ちでない場合は、 [MSDN サブスクライバーの特典](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)を有効にするか、 [無料アカウント](https://azure.microsoft.com/pricing/free-trial/)にサインアップしてください。
+- Azure サブスクリプション。 Azure サブスクリプションをまだお持ちでない場合は、[MSDN サブスクライバーの特典](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)を有効にするか、[無料アカウント](https://azure.microsoft.com/pricing/free-trial/)にサインアップしてください。
 
-- Azure Resource Manager PowerShell コマンドレット。 PowerShell コマンドレットのインストールの詳細については、「 [PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md) 」を参照してください。
+- Azure Resource Manager PowerShell コマンドレット。 PowerShell コマンドレットのインストールの詳細については、「[PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>手順1 - 仮想ネットワーク、VPN ゲートウェイ、およびローカル ネットワーク ゲートウェイを作成する
 
@@ -161,7 +161,7 @@ $LNGIP6 = "131.107.72.22"
 
 #### <a name="2-connect-to-your-subscription-and-create-a-new-resource-group"></a>2.サブスクリプションに接続して新しいリソース グループを作成する
 
-リソース マネージャー コマンドレットを使用するように PowerShell モードを切り替えてください。 手順については、「 [ユーザーとして PowerShell を使用して Azure Stack に接続する](azure-stack-powershell-configure-user.md)」をご覧ください。
+リソース マネージャー コマンドレットを使用するように PowerShell モードを切り替えてください。 手順については、「[ユーザーとして PowerShell を使用して Azure Stack に接続する](azure-stack-powershell-configure-user.md)」を参照してください。
 
 PowerShell コンソールを開き、アカウントに接続します。 接続するには、次のサンプルを参照してください。
 
@@ -239,7 +239,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 3. 接続から IPsec/IKE ポリシーを削除する
 
 > [!NOTE]
-> IPsec/IKE ポリシーは、ルートベースの VPN ゲートウェイである  *Standard*  および  *HighPerformance*  のみでサポートされています。 *Basic* ゲートウェイ SKU では機能しません。
+> IPsec/IKE ポリシーは、"*Standard*" および "*HighPerformance*" のルート ベースの VPN ゲートウェイでのみサポートされています。 *Basic* ゲートウェイ SKU では機能しません。
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.接続の IPsec/IKE ポリシーを表示する
 
@@ -305,7 +305,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>手順 3.接続から IPsec/IKE ポリシーを削除する
 
-接続からカスタム ポリシーを削除すると、Azure VPN ゲートウェイは [既定の IPsec/IKE 提案](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)に戻り、オンプレミスの VPN デバイスとの再ネゴシエーションが実行されます。
+接続からカスタム ポリシーを削除すると、Azure VPN ゲートウェイは[既定の IPsec/IKE 提案](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)に戻り、オンプレミスの VPN デバイスとの再ネゴシエーションが実行されます。
 
 ```powershell
 $RG1 = "TestPolicyRG1"

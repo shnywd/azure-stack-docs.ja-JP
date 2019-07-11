@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: a8fe96d645d9277003e17144089a91e0722d0088
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 0df791c6eb9a898c5263b2c628899b512d49601c
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836840"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198657"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>Azure Stack の VPN ゲートウェイについて
 
@@ -102,6 +102,14 @@ SKU を選択する場合、次を考慮してください。
 * Azure Stack では、ポリシー ベースのゲートウェイはサポートされていません。
 * Basic SKU では、ボーダー ゲートウェイ プロトコル (BGP) はサポートされていません。
 * ExpressRoute と VPN ゲートウェイが共存する構成は、Azure Stack ではサポートされていません。
+
+## <a name="gateway-availability"></a>ゲートウェイの可用性
+
+高可用性シナリオは、**ハイ パフォーマンス ゲートウェイ**の接続 SKU 上でのみ構成できます。 アクティブ/アクティブとアクティブ/パッシブの両方の構成で可用性を提供する Azure とは異なり、Azure Stack はアクティブ/パッシブ構成のみサポートしています。 
+
+### <a name="failover"></a>フェールオーバー
+
+Azure Stack には 3 つのマルチ テナント ゲートウェイ インフラストラクチャの VM があります。 これらの VM のうち 2 つはアクティブ モードで、3 つ目は冗長モードです。 アクティブな VM ではその上に VPN 接続を作成でき、冗長 VM ではフェールオーバーの発生時に VPN 接続のみを受け入れます。 アクティブなゲートウェイ VM が使用できなくなった場合、短い時間 (数秒) 接続が失われた後に、VPN 接続が冗長 VM にフェールオーバーします。
 
 ## <a name="estimated-aggregate-throughput-by-sku"></a>SKU の予測される合計スループット
 

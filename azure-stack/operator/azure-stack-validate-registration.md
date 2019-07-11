@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a777fc1d9052eb58bbebd319fe6cc7f42a09cb9a
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64307321"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316170"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
@@ -40,7 +40,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 以下の前提条件が必要です。
 
-**ツールを実行するコンピューター:**
+### <a name="the-computer-on-which-the-tool-runs"></a>ツールを実行するコンピューター
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
 - PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、"**メジャー**" バージョンと "**マイナー**" バージョンを調べます。  
@@ -52,7 +52,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 - [Azure Stack 用に構成された PowerShell](azure-stack-powershell-install.md)。
 - 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker)。  
 
-**Azure Active Directory の環境:**
+### <a name="azure-active-directory-environment"></a>Azure Active Directory の環境
 
 - Azure Stack で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを特定します。  
 - 使用する Azure サブスクリプションのサブスクリプション ID を特定します。
@@ -106,7 +106,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 これらのファイルは、Azure Stack をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
 
-既定では、両方のファイルが **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
+既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
 
 - 別のレポートの場所を指定するには、実行コマンド ラインの末尾で **-OutputPath** ***&lt;パス&gt;*** パラメーターを使用します。
 - ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンドの末尾に **-CleanReport** パラメーターを使用します。

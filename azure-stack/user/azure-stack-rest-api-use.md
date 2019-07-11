@@ -1,5 +1,5 @@
 ---
-title: Azure Stack API を使用する | Microsoft Docs
+title: Azure Stack に対する API 要求を作成する | Microsoft Docs
 description: Azure から認証を取得して、Azure Stack に対して API 要求を行う方法を説明します。
 services: azure-stack
 documentationcenter: ''
@@ -14,26 +14,26 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 22aeab6c6f33462ebea50bafa795630a648e2dd5
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 83578f7644f7a4bfc47f854fe9974809c22bba02
+ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269414"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67138909"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>Azure Stack API を使用する
+# <a name="make-api-requests-to-azure-stack"></a>Azure Stack に対する API 要求を作成する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-アプリケーション プログラミング インターフェイス (API) を使用して、Azure Stack クラウドへの VM の追加などの操作を自動化できます。
+アプリケーション プログラミング インターフェイス (API) を使用して、Azure Stack クラウドへの仮想マシン (VM) の追加などの操作を自動化できます。
 
-この API では、Microsoft Azure サインイン エンドポイントに対するクライアントの認証が必要です。 エンドポイントは、Azure Stack API に送信されるすべての要求のヘッダーで使用されるトークンを返します  Microsoft Azure では Oauth 2.0 を使用します。
+この API では、Microsoft Azure サインイン エンドポイントに対するクライアントの認証が必要です。 エンドポイントは、Azure Stack API に送信されるすべての要求のヘッダーで使用されるトークンを返します Microsoft Azure では Oauth 2.0 を使用します。
 
-この記事では、**cURL** ユーティリティを使用して Azure Stack 要求を作成する例を示します。 アプリケーション cURL は、データの転送にライブラリを使用するコマンドライン ツールです。 これらの例で説明するのは、Azure Stack API にアクセスするためのトークンを取得するプロセスです。 ほとんどのプログラミング言語に Oauth 2.0 ライブラリが用意されています。このライブラリでは、トークンの更新など、堅牢なトークン管理および処理タスクを行うことができます。
+この記事では、**cURL** ユーティリティを使用して Azure Stack 要求を作成する例を示します。 cURL は、データの転送にライブラリを使用するコマンドライン ツールです。 これらの例で説明するのは、Azure Stack API にアクセスするためのトークンを取得するプロセスです。 ほとんどのプログラミング言語に Oauth 2.0 ライブラリが用意されています。このライブラリでは、トークンの更新など、堅牢なトークン管理および処理タスクを行うことができます。
 
-Azure Stack REST API を **cURL** などの汎用 REST クライアントと共に使用するプロセス全体をレビューすることは、基になる要求を把握するのに役立ち、応答ペイロードで受信する内容を確認できます。
+Azure Stack REST API を **cURL** などの汎用 REST クライアントと共に使用するプロセス全体をレビューすることは、基になる要求と、期待できる応答ペイロードの内容を把握するのに役立ちます。
 
 この記事では、対話型サインインなどのトークンを取得したり、専用アプリ ID を作成したりするときに使用できる、すべてのオプションを取り上げているわけではありません。 これらのトピックの情報を取得するには、[Azure REST API リファレンス](https://docs.microsoft.com/rest/api/)のページを参照してください。
 
@@ -66,19 +66,19 @@ grant_type=password
 
 各値:
 
-- **grant_type**  
-   使用する認証スキームの種類。 この例では、値は `password` です
+- **grant_type**:  
+   使用する認証スキームの種類。 この例では、値は `password` です。
 
-- **resource**  
-   トークンがアクセスするリソース。 リソースを見つけるには、Azure Stack 管理メタデータ エンドポイントにクエリを実行します。 **audiences** セクションを確認します
+- **resource**:  
+   トークンがアクセスするリソース。 リソースを見つけるには、Azure Stack 管理メタデータ エンドポイントにクエリを実行します。 **audiences** セクションを確認します。
 
-- **Azure Stack 管理エンドポイント**  
+- **Azure Stack 管理エンドポイント**:  
    ```
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > 管理者がテナント API へのアクセスを試みる場合は、必ずテナント エンドポイント (`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011` など) を使用する必要があります。  
+  > 管理者がテナント API へのアクセスを試みる場合は、必ずテナント エンドポイントを使用してください。 次に例を示します。`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   たとえば、エンドポイントとして Azure Stack Development Kit を使用するとします。
 
@@ -168,7 +168,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API クエリ
 
-アクセス トークンを取得したら、そのトークンは、自分の各 API 要求にヘッダーとして追加する必要があります。 そのためには、値 `Bearer <access token>` を含むヘッダー **authorization** を作成する必要があります。 例: 
+アクセス トークンを取得したら、そのトークンを各 API 要求にヘッダーとして追加する必要があります。 そのためには、値 `Bearer <access token>` を含むヘッダー **authorization** を作成します。 例:
 
 要求:
 
@@ -190,7 +190,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL の構造とクエリ構文
 
-汎用要求 URI の構成: {URI-scheme} :// {URI-host} / {resource-path} ? {query-string}
+汎用要求 URI の構成: `{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI スキーム**:  
 URI は、要求を送信するときに使用されるプロトコルです。 たとえば、`http` または `https` です。

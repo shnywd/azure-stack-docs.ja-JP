@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 05/17/2019
-ms.openlocfilehash: 62626240c59c9f78c0b0d21553e8c6ffeb0367a0
-ms.sourcegitcommit: 8cb2b567e9914d4d07e754d95c0864aa55868579
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: c6d96a24866f4371dcca8aa953137288f94ac7ff
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65855387"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308481"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack に Kubernetes をデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!Note]  
-> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。
+> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。 Marketplace 項目は、開発とテストのシナリオでのみ使用します。
 
 この記事の手順に従えば、Azure Active Directory (Azure AD) を ID 管理サービスとして 1 回の連携した操作で使用するときに、Kubernetes のリソースをデプロイおよび設定することができます。
 
@@ -41,7 +41,7 @@ ms.locfileid: "65855387"
 
 1. SSH 公開および秘密キー ペアを生成して Azure Stack 上の Linux VM にサインインします。 クラスターを作成するときに、公開キーが必要になります。
 
-    キーを生成する手順については、[SSH キーの生成](https://github.com/msazurestackworkloads/acs-engine/blob/master/docs/ssh.md#ssh-key-generation)に関するページを参照してください。
+    キーを生成する手順については、[SSH キーの生成](azure-stack-dev-start-howto-ssh-public-key.md)に関するページを参照してください。
 
 1. Azure Stack テナント ポータルに有効なサブスクリプションがあること、また、新しいアプリケーションの追加に使用できる十分なパブリック IP アドレスがあることを確認します。
 
@@ -62,7 +62,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 1. Azure AD アプリケーションを作成します。
 
     a. [Azure Portal](https://portal.azure.com) で Azure アカウントにサインインします。  
-    b. **[Azure Active Directory]**  >  **[アプリの登録]**  >  **[新規登録]** の順に選択します  
+    b. **[Azure Active Directory]**  >  **[アプリの登録]**  >  **[新規登録]** の順に選択します。  
     c. アプリケーションの名前と URL を指定します。  
     d. **[サポートされているアカウントの種類]** を選択します。  
     e.  アプリケーションの URI の `http://localhost` を追加します。 作成するアプリケーションの種類として、 **[Web]** を選択します。 値を設定したら、 **[登録]** を選択します。
@@ -121,7 +121,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
     ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
-1. **[Linux VM Admin Username]\(Linux VM 管理者ユーザー名\)** を入力します。 Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名
+1. **[Linux VM admin username]\(Linux VM 管理者ユーザー名\)** を入力します。 Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名
 
 1. Kubernetes クラスターと DVM の一部として作成されたすべての Linux マシンに対する承認に使用される **[SSH 公開キー]** を入力します。
 
@@ -130,21 +130,21 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
     > [!Note]  
     > 各クラスターに対して、新しい一意のマスター プロファイル DNS プレフィックスを使用してください。
 
-1. **[Kubernetes Master Pool Profile Count] (Kubernetes マスター プール プロファイル数)** を選択します。 この数には、マスター プール内のノードの数が含まれます。 1 ～ 7 を使用できます。 この値は奇数である必要があります。
+1. **[Kubernetes master pool profile count]\(Kubernetes マスター プール プロファイル数\)** を選択します。 この数には、マスター プール内のノードの数が含まれます。 1 ～ 7 を使用できます。 この値は奇数である必要があります。
 
-1. **[The VMSize of the Kubernetes master VMs] (Kubernetes マスター VM の VMSize)** を選択します。
+1. **[The VMSize of the Kubernetes master VMs] (Kubernetes マスター VM の VMSize)** を選択します。 これにより、Kubernetes マスター VM の VM サイズを指定します。 
 
-1. **[Kubernetes Node Pool Profile Count] (Kubernetes ノード プール プロファイル数)** を選択します。 値には、クラスター内のエージェントの数が含まれます。 
+1. **[Kubernetes node pool profile count]\(Kubernetes ノード プール プロファイル数\)** を選択します。 値には、クラスター内のエージェントの数が含まれます。 
 
-1. **[Storage Profile] (ストレージ プロファイル)** を選択します。 **[Blob Disk] (Blob ディスク)** または **[Managed Disk] (マネージド ディスク)** を選択できます。 これにより、Kubernetes ノード VM の VM サイズを指定します。 
+1. **[VMSize of the Kubernetes node VMs]\(Kubernetes ノード VM の VM サイズ\)** を選択します。 これにより、Kubernetes ノード VM の VM サイズを指定します。 
 
-1. Azure Stack のインストールに対して、**Azure Stack の ID システム**用の **Azure AD** を選択します。 
+1. Azure Stack のインストールに対して、**Azure Stack の ID システム**用の **Azure AD** を選択します。
 
-1. **[Service Principal ClientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 サービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。
+1. **[Service principal clientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 Azure Stack 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。
 
-1. サービス プリンシパルを作成するときに作成した、 **[Service Principal Client Secret]\(サービス プリンシパル クライアント シークレット\)** を入力します。
+1. **[Service principal client secret]\(サービス プリンシパルのクライアント シークレット\)** を入力します。 これは、サービスの作成時に設定するクライアント シークレットです。
 
-1. **Kubernetes Azure クラウド プロバイダーのバージョン**を入力します。 これは、Kubernetes Azure プロバイダーのバージョンです。 Azure Stack は、各 Azure Stack バージョンに対してカスタムの Kubernetes ビルドをリリースします。
+1. **[Kubernetes バージョン]** を入力します。 これは、Kubernetes Azure プロバイダーのバージョンです。 Azure Stack は、各 Azure Stack バージョンに対してカスタムの Kubernetes ビルドをリリースします。
 
 ### <a name="3-summary"></a>手順 3.まとめ
 

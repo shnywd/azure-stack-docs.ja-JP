@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: d3464681463cfb66a368210beed79d5ef4c28739
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
+ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828321"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67348734"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack update 6 のリリース ノート
 
@@ -112,6 +112,10 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
 - デプロイ オプション (クラシック) UX およびデプロイ資格情報ポータルのオプションを使用できない
 
 Azure Stack のデプロイでデプロイ オプションおよびデプロイ資格情報ユーザー エクスペリエンスを使用するには、テナントで https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true という URL 形式を使ってポータルにアクセスし (ASDK の場合は [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true))、その後で普通にアプリケーションに移動する必要があります。
+
+- ポータルで Azure Function の監視が継続して "読み込み中" と表示される
+
+個々の関数を監視しようとしても、テナント ポータルに呼び出しのログ、成功数、エラー数が表示されません。  この機能を再度有効にするには、 **[関数アプリ]** 、 **[プラットフォーム機能]** 、 **[アプリケーション設定]** の順に移動します。  **AzureWebJobsDashboard** という名前の新しいアプリの設定を追加し、AzureWebJobsStorage と同じ値を設定します。  それから、関数の監視ビューに移動すると、監視情報が表示されます。
 
 ## <a name="next-steps"></a>次の手順
 

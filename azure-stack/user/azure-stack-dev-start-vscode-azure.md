@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: Howto
-ms.date: 05/31/2019
+ms.date: 06/25/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 8e64a570ab45e57e3cf58639bc2ec23d9b9bd81b
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.lastreviewed: 06/25/2019
+ms.openlocfilehash: 4e7dd18267060f632e2d059b0a7b0d9158b2e260
+ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453580"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67387747"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack に接続する
 
@@ -34,9 +34,15 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
 ## <a name="steps-to-connect-to-azure-stack"></a>Azure Stack に接続する手順
 
-1. VS Code を開きます。
+1. GitHub の Azure Stack ツールから **Identity** スクリプトを実行します。
 
-2. 左隅にある **[拡張機能]** を選択します。
+    - スクリプトを実行する前に、PowerShell がインストールされ、お使いの環境用に構成されている必要があります。 手順については、「[PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
+
+    - **Identity** スクリプトの手順とスクリプトについては、「[AzureStack-Tools/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity)」を参照してください。
+
+2. VS Code を開きます。
+
+3. 左隅にある **[拡張機能]** を選択します。
 
 3. 検索ボックスに「 `Azure Account`」と入力します。
 
@@ -55,7 +61,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
     たとえば、お使いの Azure Resource Manager エンドポイントのメタデータを取得する URL は次のようになります。`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
 
-    返された JSON をメモします。 `loginEndpoint` と `loginEndgraphEndpointpoint` プロパティの値が必要になります。
+    返された JSON をメモします。 `loginEndpoint` と `audiences` プロパティの値が必要になります。
 
 7. **Ctrl + Shift + P** キーを押し、 **[Preferences:Open User Settings (JSON)]\(基本設定: ユーザー設定 (JSON) を開く\)** を選択します。
 
@@ -67,7 +73,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
         | --- | --- |
         | `tenant-ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
         | `activeDirectoryEndpointUrl` | これは loginEndpoint プロパティからの URL です。 |
-        | `activeDirectoryResourceId` | これは loginEndgraphEndpointpoint プロパティからの URL です。
+        | `activeDirectoryResourceId` | これは、audiences プロパティからの URL です。
         | `resourceManagerEndpointUrl` | これは Azure Stack の Azure Resource Manager のルート URL です。 | 
 
     - JSON スニペット:
@@ -76,15 +82,15 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
       "azure.tenant": "tenant-ID",
       "azure.ppe": {
           "activeDirectoryEndpointUrl": "Login endpoint",
-          "activeDirectoryResourceId": "graph audience",
-          "resourceManagerEndpointUrl": "Management Endpoint",
+          "activeDirectoryResourceId": "This is the URL from the audiences property.",
+          "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
       },
       "azure.cloud": "AzurePPE"
       ```
 
-8. ユーザー設定を保存し、**Ctrl + Shift + P** キーをもう一度使用します。 **[Azure:Sign in to Azure Cloud]\(Azure: Azure クラウドへのサインイン\)** を選択します。 ターゲットの一覧に新しいオプション **[AzurePPE]** が表示されます。
+9. ユーザー設定を保存し、**Ctrl + Shift + P** キーをもう一度使用します。 **[Azure:Sign in to Azure Cloud]\(Azure: Azure クラウドへのサインイン\)** を選択します。 ターゲットの一覧に新しいオプション **[AzurePPE]** が表示されます。
 
-9. **[AzurePPE]** を選択します。 お使いのブラウザーに認証ページが読み込まれます。 お使いのエンドポイントにサインインします。
+10. **[AzurePPE]** を選択します。 お使いのブラウザーに認証ページが読み込まれます。 お使いのエンドポイントにサインインします。
 
 11. お使いの Azure Stack サブスクリプションに正常にログインしたことをテストするために、**Ctrl + Shift + P** キーを使用し、 **[Azure:Select Subscription]\(Azure: サブスクリプションの選択\)** を選択し、ご自分のサブスクリプションが使用できるかどうかを確認します。
 

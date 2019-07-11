@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6a636a1ed7b2426649afbe163b15780bfc4e9f0e
-ms.sourcegitcommit: 2cd17b8e7352891d8b3eb827d732adf834b7693e
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428706"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197195"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack の登録
 
@@ -32,13 +32,13 @@ Azure Stack Development Kit (ASDK) インストールを Azure に登録して A
 
 次の手順を使って Azure に ASDK を登録する前に、[デプロイ後の構成](asdk-post-deploy.md)の記事の説明に従って Azure Stack PowerShell をインストールし、Azure Stack ツールをダウンロードしたことを確認します。
 
-さらに、Azure に ASDK を登録するために使用されるコンピューター上で、PowerShell 言語モードを **FullLanguageMode** に設定する必要があります。 現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開き、次の PowerShell コマンドを実行します。
+さらに、Azure に ASDK を登録するために使用されるコンピューター上で、PowerShell 言語モードを **FullLanguage** に設定する必要があります。 現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開き、次の PowerShell コマンドを実行します。
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-出力で **FullLanguageMode** が返されていることを確認します。 その他の言語モードが返されている場合は、別のコンピューター上で再登録を実行するか、言語モードを **FullLanguageMode** に設定してから作業を続行する必要があります。
+出力で **FullLanguage** が確実に返されるようにします。 その他の言語モードが返されている場合は、別のコンピューター上で再登録を実行するか、言語モードを **FullLanguage** に設定してから作業を続行する必要があります。
 
 登録に使用される Azure AD アカウントは Azure サブスクリプションにアクセスできる必要があり、そのサブスクリプションに関連付けられているディレクトリで ID アプリケーションとサービス プリンシパルを作成するアクセス許可を持っている必要があります。 グローバル管理者の資格情報を使用するのではなく、[登録に使用するサービス アカウントを作成する](../operator/azure-stack-registration-role.md)ことで、最低限の特権による管理を使用し、Azure Stack を Azure に登録することをお勧めします。
 
@@ -51,15 +51,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 1. 管理者として PowerShell コンソールを開きます。  
 
-2. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
-
-3. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 これが必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こらないようにするためです。 1249 行目は次のようになります。
-
-   ```powershell
-   $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-   ```
-
-4. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインする必要があります。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
+2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインする必要があります。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
@@ -87,7 +79,7 @@ $ExecutionContext.SessionState.LanguageMode
     -UsageReportingEnabled:$true
     ```
 
-5. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
+3. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
     ![ご利用の環境がこれで登録されました](media/asdk-register/1.PNG)
 

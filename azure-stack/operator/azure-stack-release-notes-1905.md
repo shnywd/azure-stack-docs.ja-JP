@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 018c5e2a6e099fb0a0ed7bc164ef26728a9d8ed3
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.reviewer: hectorl
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
+ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828242"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67397264"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新プログラム
 
@@ -41,7 +41,7 @@ Azure Stack 1905 更新プログラムのビルド番号は **1.1905.0.40** で�
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack 1905 更新プログラムのビルドの種類は**完全**です。 更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。
+Azure Stack 1905 更新プログラムのビルドの種類は**完全**です。 そのため、1905 更新プログラムは、1903 や 1904 のような高速更新プログラムよりもランタイムが長くなります。 完全な更新プログラムの正確なランタイムは、Azure Stack インスタンスに含まれているノード数、テナントのワークロードごとにシステムで使用される容量、システムのネットワーク接続 (インターネットに接続されている場合)、システムのハードウェア構成によって異なります。 内部テストでは、1905 更新プログラムのランタイムが次のように予測されました。4 ノード - 35 時間、8 ノード - 45 時間、12 ノード - 55 時間、16 ノード - 70 時間。 1905 のランタイムがこの予測値よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack オペレーターによるアクションは不要です。 更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。
 
 ## <a name="whats-in-this-update"></a>この更新プログラムの新機能
 
@@ -65,12 +65,13 @@ Azure Stack 1905 更新プログラムのビルドの種類は**完全**です�
   - microsoft.dsc-arm-2.77.0.0
   - microsoft.vmaccessforlinux-1.5.2
 
-  これらのバージョンの拡張機能をすぐにダウンロードして、将来のリリースで TLS 1.2 が適用されるときに、拡張機能の新しいデプロイが失敗しないようにしてください。 常に **autoupdateminorversion=true** を設定し、拡張機能に対するマイナー バージョンの更新プログラム (たとえば、1.8 から 1.9) が自動的に実行されるようにします。
+  これらのバージョンの拡張機能をすぐにダウンロードして、将来のリリースで TLS 1.2 が適用されるときに、拡張機能の新しいデプロイが失敗しないようにしてください。 常に **autoUpgradeMinorVersion=true** を設定し、拡張機能に対するマイナー バージョンの更新プログラム (たとえば、1.8 から 1.9) が自動的に実行されるようにします。
 
-- Azure Stack ポータルの新しい**ヘルプとサポートの概要**により、オペレーターは簡単にサポート オプションを確認したり、専門家の支援を得たり、Azure Stack の詳細について学習したりできます。 統合システムでは、サポート リクエストを作成するときは Azure Stack サービスが事前に選択されます。 お客様には、パブリック Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することを強くお勧めします。 詳しくは、「[Azure Stack Help and Support](azure-stack-help-and-support-overview.md)」(Azure Stack のヘルプとサポート) をご覧ください。
+- Azure Stack ポータルの新しい**ヘルプとサポートの概要**により、オペレーターは簡単にサポート オプションを確認したり、専門家の支援を得たり、Azure Stack の詳細について学習したりできます。 統合システムでは、サポート リクエストを作成するときは Azure Stack サービスが事前に選択されます。 グローバルな Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することをお客様に強くお勧めします。 詳しくは、「[Azure Stack Help and Support](azure-stack-help-and-support-overview.md)」(Azure Stack のヘルプとサポート) をご覧ください。
+
 - 複数の Azure Active Directory を ([このプロセス](azure-stack-enable-multitenancy.md)で) オンボードすると、特定の更新プログラムが発生したとき、または AAD サービス プリンシパルの認可に対する変更によって権限がなくなったときに、スクリプトの再実行を無視することができます。 これにより、特定の機能に対するアクセスのブロックから、元の問題まで追跡することが困難なさらに個別の障害まで、さまざまな問題が発生する可能性があります。 これを防ぐため、1905 では、これらのアクセス許可をチェックし、特定の構成の問題が見つかったときはアラートを作成する、新しい機能が導入されています。 この検証は 1 時間ごとに実行され、問題を解決するために必要な修復アクションが表示されます。 すべてのテナントが正常な状態になると、アラートは閉じます。
 
-- サービスのフェールオーバーの間の、インフラストラクチャのバックアップ操作の信頼性の向上。 
+- サービスのフェールオーバーの間の、インフラストラクチャのバックアップ操作の信頼性の向上。
 
 - 認証に [Azure Active Directory 認証ライブラリ](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) を使用する、新しいバージョンの [Azure Stack Nagios プラグイン](azure-stack-integrate-monitor.md#integrate-with-nagios)を利用できます。 プラグインでは、Azure Active Directory (AAD) と Active Directory フェデレーション サービス (ADFS) での Azure Stack のデプロイもサポートされるようになっています。 詳しくは、[Nagios プラグインの交換](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)に関するサイトをご覧ください。
 
@@ -78,6 +79,22 @@ Azure Stack 1905 更新プログラムのビルドの種類は**完全**です�
 
 - [Node.js SDK](https://www.npmjs.com/search?q=2019-03-01-hybrid) では、API プロファイルがサポートされるようになっています。 **2019-03-01-Hybrid** プロファイルをサポートするパッケージが、公開されます。
 
+- 1905 Azure Stack 更新プログラムでは、プラットフォームの信頼性とサポート性を向上させるために次の 2 つの新しいインフラストラクチャ ロールを追加しています。
+
+  - **インフラストラクチャ リング**: 現在、xrp などは独自に指定したインフラストラクチャ VM が必要ですが、今後はインフラストラクチャ リングがこのような既存のインフラストラクチャ ロールのコンテナー化されたバージョンをホストします。 これにより、プラットフォームの信頼性が向上し、Azure Stack で必要とするインフラストラクチャ VM の数が少なくなります。 これにより、Azure Stack のインフラストラクチャ ロールの全体的なリソース消費が今後大幅に削減されます。
+  - **サポート リング**: 今後は、お客様向けに強化されたサポートのシナリオを処理するためにサポート リングが使用されます。  
+
+  さらに、このロールの可用性向上のため、ドメイン コントローラー VM にインスタンスを追加しました。
+
+  この変更により、Azure Stack インフラストラクチャのリソースの消費量が次のように増加します。
+  
+    | Azure Stack SKU | コンピューティング消費量の増加 | メモリ消費量の増加 |
+    | -- | -- | -- |
+    |4 ノード|22 vCPU|28 GB|
+    |8 ノード|38 vCPU|44 GB|
+    |12 ノード|54 vCPU|60 GB|
+    |16 ノード|70 vCPU|76 GB|
+  
 - Visual Studio Code で動作する Azure Stack 拡張機能が提供されるようになりました。 **Azure アカウント**拡張機能を使うと、開発者はサブスクリプションにログインして表示することで、Azure Stack や他の多数のサービスをターゲットにできます。 Azure アカウント拡張機能は AAD 環境と ADFS 環境の両方で動作し、Visual Studio Code のユーザー設定を少し変更するだけで、Azure Stack のメタデータ値を入力できます。 詳しくは、[こちらのドキュメントをご覧ください](../user/azure-stack-dev-start-vscode-azure.md)。
 
 ### <a name="changes"></a>変更点
@@ -118,7 +135,7 @@ Azure Stack のこの更新でのセキュリティ更新プログラムにつ�
 
 ## <a name="download-the-update"></a>更新プログラムをダウンロードする
 
-Azure Stack 1905 更新プログラム パッケージは、[Azure Stack ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
+Azure Stack 1905 更新プログラム パッケージは、[Azure Stack ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。 ダウンローダー ツールを使用する場合は、ダウンロード ディレクトリからキャッシュされたコピーではなく最新バージョンを使用してください。
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -138,7 +155,7 @@ Azure Stack の 1905 リリースは、次の修正プログラムが適用さ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 1905 用の修正プログラムはありません。
+- [Azure Stack 修正プログラム 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ## <a name="automatic-update-notifications"></a>自動更新通知
 

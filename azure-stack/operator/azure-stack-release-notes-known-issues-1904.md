@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: 9b92e6e2e059f4b57742248672751111b504136c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469135"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419599"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 の既知の問題
 
@@ -43,7 +43,7 @@ ms.locfileid: "66469135"
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: バージョン 1804 で導入された 2 つの管理サブスクリプションは使用しないでください。 このサブスクリプションの種類は **Metering** サブスクリプションと **Consumption** サブスクリプションです。
-- 修復: これらのサブスクリプションは 1906 から一時停止され、最終的には削除される予定です。 これら 2 つのサブスクリプション上でリソースが実行されている場合は、1906 より前のユーザー サブスクリプションで再作成してください。
+- 修復: これら 2 つのサブスクリプション上でリソースが実行されている場合は、ユーザー サブスクリプションで再作成してください。
 - 発生頻度: 一般
 
 ### <a name="subscription-resources"></a>サブスクリプション リソース
@@ -102,6 +102,13 @@ ms.locfileid: "66469135"
 - 修復: SAS オプションを使用して BLOB をアップロードします。
 - 発生頻度: 一般
 
+### <a name="template"></a>Template
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、テンプレート デプロイ UI によって "_" (アンダースコア文字) で始まるテンプレート名のパラメーターの設定が行われません。
+- 修復: テンプレート名から "_" (アンダースコア文字) を削除します。
+- 発生頻度: 一般
+
 ## <a name="networking"></a>ネットワーク
 
 ### <a name="load-balancer"></a>Load Balancer
@@ -149,7 +156,7 @@ ms.locfileid: "66469135"
 #### <a name="centos"></a>CentOS
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 CentOS 7.2 は Azure Stack では利用できません。
+- 原因: 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 CentOS 7.2 は Azure Stack Marketplace では利用できず、イメージが見つからないという理由でデプロイ エラーが発生します。
 - 修復: デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートを使用します。
 - 発生頻度: 一般
 

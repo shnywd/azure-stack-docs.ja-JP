@@ -3,8 +3,8 @@ title: テンプレート検証ツールを使用して Azure Stack のテンプ
 description: Azure Stack にデプロイするためのテンプレートをチェックする
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: d9e6aee1-4cba-4df5-b5a3-6f38da9627a3
 ms.service: azure-stack
@@ -12,23 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2018
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 06/11/2019
+ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: def5b2f49998cfc9a9bf3a857b56b5537b14b9f1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 3cba34e2748d00ebb886e7122ce1dd7151325c85
+ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311317"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67028289"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>テンプレート検証ツールを使用して Azure Stack のテンプレートをチェックする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-テンプレート検証ツールを使用して、Azure Stack に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックできます。 テンプレート検証ツールは Azure Stack ツールの一部として使用できます。 Azure Stack ツールをダウンロードするには、[GitHub からのツールのダウンロード](../operator/azure-stack-powershell-download.md)に関する記事に記載されている手順を使用します。
+テンプレート検証ツールを使用して、Azure Stack に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックできます。 テンプレート検証ツールは Azure Stack ツールの一部として使用できます。 Azure Stack ツールをダウンロードするには、「[GitHub からの Azure Stack ツールのダウンロード](../operator/azure-stack-powershell-download.md)」で説明されている手順を行います。
 
 ## <a name="overview"></a>概要
 
@@ -51,7 +50,7 @@ ms.locfileid: "64311317"
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. `Get-CloudCapabilities` コマンドレットを使用して、サービスのバージョンを取得し、クラウド機能 JSON ファイルを作成します。 **-OutputPath** を指定しない場合は、ファイル AzureCloudCapabilities.Json は現在のディレクトリに作成されます。 実際の Azure の場所を使用してください。
+3. `Get-CloudCapabilities` コマンドレットを使用して、サービスのバージョンを取得し、クラウド機能 JSON ファイルを作成します。 `-OutputPath` を指定しない場合、ファイル AzureCloudCapabilities.Json は現在のディレクトリに作成されます。 実際の Azure の場所を使用してください。
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -82,17 +81,17 @@ ms.locfileid: "64311317"
 
 ### <a name="parameters"></a>parameters
 
-テンプレートの検証では、次のパラメーターがサポートされています。
+テンプレート検証コマンドレットでは、次のパラメーターがサポートされます。
 
 | パラメーター | 説明 | 必須 |
 | ----- | -----| ----- |
-| TemplatePath | Azure Resource Manager テンプレートを再帰的に検索するパスを指定します。 | はい |
-| TemplatePattern | 照合するテンプレート ファイルの名前を指定します。 | いいえ  |
-| CapabilitiesPath | クラウド機能 JSON ファイルのパスを指定します。 | はい |
-| IncludeComputeCapabilities | VM サイズや VM 拡張機能などの IaaS リソースの評価が含まれます。 | いいえ  |
-| IncludeStorageCapabilities | SKU の種類などのストレージ リソースの評価が含まれます。 | いいえ  |
-| レポート | 生成される HTML レポートの名前を指定します。 | いいえ  |
-| 詳細 | エラーと警告をコンソールに記録します。 | いいえ |
+| `TemplatePath` | Azure Resource Manager テンプレートを再帰的に検索するパスを指定します。 | はい |
+| `TemplatePattern` | 照合するテンプレート ファイルの名前を指定します。 | いいえ |
+| `CapabilitiesPath` | クラウド機能 JSON ファイルへのパスを指定します。 | はい |
+| `IncludeComputeCapabilities` | VM サイズや VM 拡張機能などの IaaS リソースの評価が含まれます。 | いいえ |
+| `IncludeStorageCapabilities` | SKU の種類などのストレージ リソースの評価が含まれます。 | いいえ |
+| `Report` | 生成される HTML レポートの名前を指定します。 | いいえ |
+| `Verbose` | エラーと警告をコンソールに記録します。 | いいえ|
 
 ### <a name="examples"></a>例
 
@@ -110,5 +109,3 @@ test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 
 - [テンプレートを Azure Stack にデプロイする](azure-stack-arm-templates.md)
 - [Azure Stack のテンプレートの開発](azure-stack-develop-templates.md)
-
-<!-- Update_Description: wording update -->

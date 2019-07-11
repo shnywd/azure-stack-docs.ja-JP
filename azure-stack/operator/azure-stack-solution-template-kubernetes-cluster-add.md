@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 09fa7b503f0c594d2af0c6f16a6d4618cec0fac3
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: 61d2739475a0593671e7a363671dd2859a6e6f24
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308479"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316247"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes を Azure Stack Marketplace に追加する
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!note]  
-> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。
+> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。 Marketplace 項目は、開発とテストのシナリオでのみ使用します。
 
 Kubernetes は、Marketplace 項目としてユーザーに提供できます。 ユーザーはその後、1 回の連携した操作で Kubernetes をデプロイできます。
 
@@ -49,7 +49,7 @@ Kubernetes の Marketplace 項目のプラン、オファー、サブスクリ�
 
 1. **[状態の変更]** を選択します。 **[パブリック]** を選択します。
 
-1. **[+ リソースの作成]** > **[Offers and Plans] (オファーとプラン)** > **[サブスクリプション]** と選択し、サブスクリプションを作成します。
+1. **[+ リソースの作成]**  >  **[Offers and Plans] (オファーとプラン)**  >  **[サブスクリプション]** と選択し、サブスクリプションを作成します。
 
     a. **表示名**を入力します。
 
@@ -63,129 +63,7 @@ Kubernetes の Marketplace 項目のプラン、オファー、サブスクリ�
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>AD FS でサービス プリンシパルと資格情報を作成する
 
-ID 管理サービスのために Active Directory Federated Services (AD FS) を使用する場合は、Kubernetes クラスターをデプロイするユーザーのサービス プリンシパルを作成する必要があります。
-
-1. サービス プリンシパルを作成するために使用される自己署名証明書を作成してエクスポートします。 
-
-    - 次の情報が必要です。
-
-       | 値 | 説明 |
-       | ---   | ---         |
-       | パスワード | 証明書の新しいパスワードを入力します。 |
-       | ローカルの証明書パス | 証明書のパスとファイル名を入力します。 次に例を示します。`c:\certfilename.pfx` |
-       | 証明書名 | 証明書の名前を入力します。 |
-       | 証明書ストアの場所 |  たとえば、`Cert:\LocalMachine\My` のように指定します。 |
-
-    - 管理者特権のプロンプトで PowerShell を開きます。 実際の値に更新したパラメーターを指定して、次のスクリプトを実行します。
-
-        ```powershell  
-        # Creates a new self signed certificate 
-        $passwordString = "<password>"
-        $certlocation = "<local certificate path>.pfx"
-        $certificateName = "CN=<certificate name>"
-        $certStoreLocation="<certificate store location>"
-        
-        $params = @{
-        CertStoreLocation = $certStoreLocation
-        DnsName = $certificateName
-        FriendlyName = $certificateName
-        KeyLength = 2048
-        KeyUsageProperty = 'All'
-        KeyExportPolicy = 'Exportable'
-        Provider = 'Microsoft Enhanced Cryptographic Provider v1.0'
-        HashAlgorithm = 'SHA256'
-        }
-        
-        $cert = New-SelfSignedCertificate @params -ErrorAction Stop
-        Write-Verbose "Generated new certificate '$($cert.Subject)' ($($cert.Thumbprint))." -Verbose
-        
-        #Exports certificate with password in a .pfx format
-        $pwd = ConvertTo-SecureString -String $passwordString -Force -AsPlainText
-        Export-PfxCertificate -cert $cert -FilePath $certlocation -Password $pwd
-        ```
-
-2.  PowerShell セッションに表示される新しい証明書 ID `1C2ED76081405F14747DC3B5F76BB1D83227D824` を書きとめます。 この ID は、サービス プリンシパルを作成するときに使用されます。
-
-    ```powershell  
-    VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
-    ```
-
-3. 証明書を使用したサービス プリンシパルの作成。
-
-    - 次の情報が必要です。
-
-       | 値 | 説明                     |
-       | ---   | ---                             |
-       | ERCS IP | ASDK では、特権エンドポイントは通常 `AzS-ERCS01` です。 |
-       | アプリケーション名 | アプリケーションのサービス プリンシパルの簡易名を入力します。 |
-       | 証明書ストアの場所 | 証明書を保存したコンピューター上のパス。 これは、最初の手順で生成されたストアの場所と証明書 ID によって示されます。 次に例を示します。`Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
-
-       メッセージが表示されたら、次の資格情報を使用して特権エンドポイントに接続します。 
-        - ユーザー名: CloudAdmin アカウントを `<Azure Stack domain>\cloudadmin` の形式で指定します。 (ASDK の場合、ユーザー名は azurestack\cloudadmin です。)
-        - Password (パスワード):インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
-
-    - 実際の値に更新したパラメーターを指定して、次のスクリプトを実行します。
-
-        ```powershell  
-        #Create service principal using the certificate
-        $privilegedendpoint="<ERCS IP>"
-        $applicationName="<application name>"
-        $certStoreLocation="<certificate location>"
-        
-        # Get certificate information
-        $cert = Get-Item $certStoreLocation
-        
-        # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-        $creds = Get-Credential
-
-        # Creating a PSSession to the ERCS PrivilegedEndpoint
-        $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
-
-        # Get Service principal Information
-        $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
-
-        # Get Stamp information
-        $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-
-        # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-
-        # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-
-        # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
-        $TenantID = $AzureStackInfo.AADTenantID
-
-        # Register an AzureRM environment that targets your Azure Stack instance
-        Add-AzureRMEnvironment `
-        -Name "AzureStackUser" `
-        -ArmEndpoint $ArmEndpoint
-
-        # Set the GraphEndpointResourceId value
-        Set-AzureRmEnvironment `
-        -Name "AzureStackUser" `
-        -GraphAudience $GraphAudience `
-        -EnableAdfsAuthentication:$true
-        Add-AzureRmAccount -EnvironmentName "azurestackuser" `
-        -ServicePrincipal `
-        -CertificateThumbprint $ServicePrincipal.Thumbprint `
-        -ApplicationId $ServicePrincipal.ClientId `
-        -TenantId $TenantID
-
-        # Output the SPN details
-        $ServicePrincipal
-        ```
-
-    - サービス プリンシパルの詳細は、次のスニペットのようになります
-
-        ```Text  
-        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
-        ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
-        Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
-        ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
-        PSComputerName        : azs-ercs01
-        RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
-        ```
+ID 管理サービスのために Active Directory Federated Services (AD FS) を使用する場合は、Kubernetes クラスターをデプロイするユーザーのサービス プリンシパルを作成する必要があります。 クライアント シークレットを使用してサービス プリンシパルを作成します。 手順については、[クライアント シークレットを使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)に関するセクションを参照してください。
 
 ## <a name="add-an-ubuntu-server-image"></a>Ubuntu サーバーのイメージを追加する
 
@@ -193,7 +71,7 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-1. **[すべてのサービス]** を選択し、**[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
+1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
@@ -213,7 +91,7 @@ Marketplace から Kubernetes を追加します。
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
 
-1. **[すべてのサービス]** を選択し、**[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
+1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
@@ -222,7 +100,7 @@ Marketplace から Kubernetes を追加します。
 1. 次のプロファイルを持つスクリプトを選択します。
    - **プラン**: Linux 2.0 用のカスタム スクリプト
    - **バージョン**:2.0.6 (または最新バージョン)
-   - **[発行者]**: Microsoft Corp
+   - **[発行者]** : Microsoft Corp
 
      > [!Note]  
      > 複数バージョンの Linux 用カスタム スクリプトが表示されることがあります。 最新バージョンの項目を追加する必要があります。
@@ -234,7 +112,7 @@ Marketplace から Kubernetes を追加します。
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
 
-1. **[すべてのサービス]** を選択し、**[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
+1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 

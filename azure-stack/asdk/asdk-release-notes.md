@@ -11,22 +11,39 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2ca85da5d9fde42fb06eef149e7304ab08bc32ee
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: ba3ad4bf5e5d7f76d5d29e7967944be72e989c27
+ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691197"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67511295"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md#determine-the-current-version)できます。
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+
+## <a name="build-11906030"></a>ビルド 1.1906.0.30
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1906.md#whats-in-this-update)を参照してください。
+
+### <a name="changes"></a>変更点
+
+- Azure Stack のログ コレクション サービスをホストする **AzS-SRNG01** サポート リング VM を追加しました。 詳しくは、[仮想マシン ロール](asdk-architecture.md)に関するページをご覧ください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- 一部の Marketplace イメージを使用して仮想マシンのリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。 
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1906.md#fixes)を参照してください。
+- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1906.md)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1906.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
 
 ## <a name="build-11905040"></a>ビルド 1.1905.0.40
 
@@ -38,15 +55,7 @@ ms.locfileid: "66691197"
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
-- 登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるため、正常に [ASDK を登録](asdk-register.md)するには、**RegisterWithAzure.psm1** PowerShell スクリプトを編集する必要があります。 以下の手順を実行します。
-
-  1. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
-  2. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 これが必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるためです。 1249 行目は次のようになります。
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
+- [ASDK を正常に登録する](asdk-register.md)には、**RegisterWithAzure.psm1** PowerShell スクリプトを編集しなければならない問題を修正しました。
 - このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#fixes)を参照してください。
 - 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1905.md)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1905.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
@@ -79,23 +88,6 @@ ms.locfileid: "66691197"
 ## <a name="build-1903"></a>ビルド 1903
 
 1903 ペイロードに、ASDK リリースは含まれません。
-
-## <a name="build-11902069"></a>ビルド 1.1902.0.69
-
-### <a name="new-features"></a>新機能
-
-- 1902 ビルドでは、Azure Stack の管理者ポータル上にプラン、オファー、クォータ、アドオン プランの作成のための新しいユーザー インターフェイスを導入しています。 スクリーンショットを含めた詳細については、[プラン、オファー、クォータの作成](../operator/azure-stack-create-plan.md)に関するページを参照してください。
-
-- このリリースでのその他の変更点および機能強化点の一覧は、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-update-1902.md#improvements)を参照してください。
-
-<!-- ### New features
-
-- For a list of new features in this release, see [this section](../operator/azure-stack-update-1902.md#new-features) of the Azure Stack release notes.
-
-### Fixed and known issues
-
-- For a list of issues fixed in this release, see [this section](../operator/azure-stack-update-1902.md#fixed-issues) of the Azure Stack release notes. For a list of known issues, see [this section](../operator/azure-stack-update-1902.md#known-issues-post-installation).
-- Note that [available Azure Stack hotfixes](../operator/azure-stack-update-1902.md#azure-stack-hotfixes) are not applicable to the Azure Stack ASDK. -->
 
 ### <a name="known-issues"></a>既知の問題
 

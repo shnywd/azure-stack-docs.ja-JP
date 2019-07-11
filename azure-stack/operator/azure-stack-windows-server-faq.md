@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: ffb58392075521b81d9b0cd71928ac0db680991f
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
+ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459075"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67334427"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
 
@@ -36,7 +36,7 @@ ms.locfileid: "66459075"
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack における Windows Server Marketplace イメージのライセンス オプションを教えてください。
 
-Microsoft は、次の 2 つのバージョンの Windows Server イメージを Azure Stack Marketplace で提供しています。
+Microsoft は、2 つのバージョンの Windows Server イメージを Azure Stack Marketplace で提供しています。 Azure Stack 環境で使用できるのは、このイメージの 1 バージョンのみです。  
 
 - **従量課金制**: これらのイメージでは、正規の価格の Windows メーターが実行されます。
    対象ユーザーとしては、"*使用量課金モデル*" を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
@@ -47,7 +47,9 @@ Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポート
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>テナント/ユーザーに提供する場合に間違ったバージョンをダウンロードした場合はどうすればよいですか?
 
-まず、[Marketplace Management]\(Marketplace の管理\) から、間違ったバージョンを削除します。 完了するまでお待ちください ( **[Marketplace Management]\(Marketplace の管理\)** ブレードではなく、通知を見て完了を確認してください)。 そのうえで、正しいバージョンをダウンロードします。
+まず、[marketplace management]\(Marketplace の管理\) から、間違ったバージョンを削除します。 完了するまでお待ちください ( **[marketplace management]\(Marketplace の管理\)** ブレードではなく、通知を見て完了を確認してください)。 そのうえで、正しいバージョンをダウンロードします。
+
+両方のバージョンのイメージをダウンロードした場合、エンド ユーザーのマーケットプレース ギャラリーには最新バージョンのみが表示されます。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>実際にはライセンスを持っていないにもかかわらず、ユーザーが間違って以前の Windows ビルドの [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにしてしまった場合はどうすればよいですか?
 

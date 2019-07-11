@@ -11,23 +11,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 06/18/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 672528f05a4fb3214e9a97e78922eeb12739c44f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 06/18/2019
+ms.openlocfilehash: 16bbd9b7554eb9e42bac2b0f5694f148589b94ed
+ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269541"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67308693"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Azure Stack でコンテナーを使用するための Kubernetes をデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!Note]  
-> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。
+> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。 Marketplace 項目は、開発とテストのシナリオでのみ使用します。
 
 この記事の手順に従えば、1 回の連携した操作で Kubernetes のリソースをデプロイおよび設定することができます。 この手順では、Azure Resource Manager ソリューション テンプレートを使用します。 Azure Stack のインストールに関する必要な情報を収集し、テンプレートを生成してから、クラウドにデプロイする必要があります。 Azure Stack テンプレートでは、グローバルな Azure で提供されているのと同じマネージド型の AKS サービスは使用されません。
 

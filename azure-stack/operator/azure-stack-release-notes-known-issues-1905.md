@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 38c7ec337ba8cdb73925b1c07f77331c05b25d8a
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: 40b2eb51b3e05a25706037f404a53d86fa7cae5a
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836677"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419578"
 ---
 # <a name="azure-stack-1905-known-issues"></a>Azure Stack 1905 の既知の問題
 
@@ -47,13 +47,6 @@ ms.locfileid: "66836677"
 - 発生頻度: 一般
 
 ## <a name="portal"></a>ポータル
-
-### <a name="administrative-subscriptions"></a>管理サブスクリプション
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: バージョン 1804 で導入された 2 つの管理サブスクリプションは使用しないでください。 このサブスクリプションの種類は **Metering** サブスクリプションと **Consumption** サブスクリプションです。
-- 修復: これらのサブスクリプションは 1906 から一時停止され、最終的には削除される予定です。 これら 2 つのサブスクリプション上でリソースが実行されている場合は、1906 より前のユーザー サブスクリプションで再作成してください。
-- 発生頻度: 一般
 
 ### <a name="subscription-resources"></a>サブスクリプション リソース
 
@@ -88,6 +81,13 @@ ms.locfileid: "66836677"
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。
 - 修復: SAS オプションを使用して BLOB をアップロードします。
+- 発生頻度: 一般
+
+### <a name="template"></a>Template
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、テンプレート デプロイ UI によって "_" (アンダースコア文字) で始まるテンプレート名のパラメーターの設定が行われません。
+- 修復: テンプレート名から "_" (アンダースコア文字) を削除します。
 - 発生頻度: 一般
 
 ## <a name="networking"></a>ネットワーク
@@ -132,6 +132,13 @@ ms.locfileid: "66836677"
 - 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
 - 発生頻度: 一般
 
+### <a name="vm-resize"></a>VM のサイズ変更
+
+- 適用先:この問題は、1905 リリースに適用されます。
+- 原因: マネージド ディスク VM のサイズ変更ができません。 VM のサイズ変更を試行すると、"コード": "InternalOperationError"、"メッセージ": "操作中に内部エラーが発生しました" を伴うエラーが発生します。
+- 修復: 次のリリースで修復できるよう取り組んでいます。 現時点では、新しい VM サイズで VM を再作成する必要があります。
+- 発生頻度: 一般
+
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
 
 #### <a name="centos"></a>CentOS
@@ -154,11 +161,11 @@ ms.locfileid: "66836677"
 - 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
 - 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
-#### <a name="vmss-instance-view-blade-doesnt-load"></a>VMSS インスタンス ビュー ブレードが読み込まれない
- 
+#### <a name="scale-set-instance-view-blade-doesnt-load"></a>スケール セット インスタンス ビュー ブレードが読み込まれない
+
 - 適用先:この問題は、1904 と 1905 リリースで発生します。
-- 原因: Azure Stack ポータル ([ダッシュボード] -> [仮想マシン スケール セット] -> [AnyScaleSet - インスタンス] -> [AnyScaleSetInstance]) にあるスケール セットのインスタンス ビュー ブレードが、クラウドの問題で読み込みに失敗します。
-- 修復: 現在、修復方法はなく、修正に取り組んでいます。 それまでは、CLI コマンド az vmss get-instance-view を使って VMSS のインスタンス ビューを取得してください。
+- 原因: Azure Stack ポータル ([ダッシュボード] -> [仮想マシン スケール セット] -> [AnyScaleSet - インスタンス] -> [AnyScaleSetInstance]) にある仮想マシン スケール セットのインスタンス ビュー ブレードが、読み込みに失敗し、泣いているクラウドの画像を表示します。
+- 修復: 現在、修復方法はなく、修正に取り組んでいます。 それまでは、スケール セットのインスタンス ビューの取得には、CLI コマンド `az vmss get-instance-view` を使用してください。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
 

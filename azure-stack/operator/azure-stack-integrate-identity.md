@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 6fb879dc49197b52133750d65aadf96b601bda69
-ms.sourcegitcommit: 914daff43ae0f0fc6673a06dfe2d42d9b4fbab48
+ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66043223"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419507"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack とデータセンターの統合 - ID
 
@@ -131,6 +131,7 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 |---------|---------|---------|---------|
 |CustomAdfsName|ADFS プロバイダー名|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|ADFS メタデータ URI|フェデレーション メタデータのリンク| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|NA|CRL チェックをスキップする、オプション パラメーター|なし|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Azure Stack で自動化をトリガーしてクレーム プロバイダー信頼を構成する

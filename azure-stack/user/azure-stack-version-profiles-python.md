@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 98014cfa015f839e1801ffae95d08f3cbd00c986
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269491"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198595"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure Stack での Python による API バージョンのプロファイルの使用
 
@@ -33,7 +33,7 @@ Python SDK では、Azure Stack とグローバル Azure などの異なるク�
 - **latest**  
     このプロファイルでは、Azure プラットフォーム内にある全サービス プロバイダー向けの最新の API バージョンをターゲットにします。
 - **2019-03-01-hybrid**  
-    このプロファイルでは、Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最新の API バージョンをターゲットにします。
+    このプロファイルでは、スタンプのバージョンが 1904 以降の Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最新の API バージョンをターゲットにします。
 - **2018-03-01-hybrid**  
     このプロファイルでは、Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最も互換性の高い API バージョンをターゲットにします。
 - **2017-03-09-profile**  

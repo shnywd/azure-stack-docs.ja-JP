@@ -16,18 +16,18 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 44ebb631ca916ed1c5b933517d40a756c987fee0
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fdab3fd9296388f19687e2d7ce1d4af3584640ef
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269479"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198545"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack での Java による API バージョンのプロファイルの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack Resource Manager 向けの Java SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 Java SDK は、.java ファイルに適切なモジュールを読み込む Pom.xml ファイルに依存関係を含めることで、API プロファイルを組み込みます。 ただし、依存関係として複数のプロファイル (**2018-03-01-hybrid** など) を追加したり、Azure プロファイルとして**最新のもの**を追加したりできます。 これらの依存関係を使用すると適切なモジュールが読み込まれるため、リソースの種類を作成するときに、それらのプロファイルから使用したい API バージョンを選択することができます。 これにより、Azure Stack の最新の API バージョンに対する開発の際に、Azure で最新バージョンを使用することができます。 Java SDK を使用すると、真のハイブリッド クラウド開発者エクスペリエンスを実現できます。 Java SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
+Azure Stack Resource Manager 向けの Java SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 Java SDK は、.java ファイルに適切なモジュールを読み込む Pom.xml ファイルに依存関係を含めることで、API プロファイルを組み込みます。 ただし、依存関係として複数のプロファイル (**2019-03-01-hybrid** など) を追加したり、Azure プロファイルとして**最新のもの**を追加したりすることができます。 これらの依存関係を使用すると適切なモジュールが読み込まれるため、リソースの種類を作成するときに、それらのプロファイルから使用したい API バージョンを選択することができます。 これにより、Azure Stack の最新の API バージョンに対する開発の際に、Azure で最新バージョンを使用することができます。 Java SDK を使用すると、真のハイブリッド クラウド開発者エクスペリエンスを実現できます。 Java SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
 
 ## <a name="java-and-api-version-profiles"></a>Java と API バージョンのプロファイル
 
@@ -37,17 +37,15 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
   - latest プロファイルを使用する場合、依存関係は **com.microsoft.azure** です。
 
-  - Azure Stack と互換性のあるサービスを使用するには、**com.microsoft.azure.profile\_2018\_03\_01\_hybrid** プロファイルを使用します。
+  - Azure Stack でサポートされている最新のサービスを使用するには、**com.microsoft.azure.profile\_2019\_03\_01\_hybrid** プロファイルを使用します。
 
     - これは、Pom.xml ファイルに依存関係として指定するためです。これにより、.NET と同様に、ドロップダウン リストから適切なクラスを選択すると、モジュールが自動的に読み込まれます。
-
-    - 各モジュールの先頭は次のようになります: `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - 依存関係は次のようになります。
 
      ```xml
      <dependency>
-     <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+     <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
      <version>1.0.0-beta</version>
      </dependency>
@@ -69,7 +67,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
    ```xml  
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <version>1.0.0-beta</version>
    </dependency>
@@ -77,7 +75,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 4. インストールする必要があるパッケージのセットは、使用したいプロファイル バージョンによって異なります。 プロファイル バージョンのパッケージ名は次のとおりです。
 
-   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **latest**
 
@@ -122,7 +120,7 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
 
-#### <a name="windows"></a> Windows
+#### <a name="windows"></a>Windows
 
 1. Azure Stack の自己署名証明書を自分のデスクトップにエクスポートします。
 
@@ -165,7 +163,9 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 ## <a name="existing-api-profiles"></a>既存の API プロファイル
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**:Azure Stack 用に作成された最新のプロファイル。 1808 以降のスタンプを使用している限り、Azure Stack との互換性に優れたサービスには、このプロファイルを使用します。
+- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**: Azure Stack 用に作成された最新のプロファイル。 1904 以降のスタンプを使用している限り、Azure Stack との互換性に優れたサービスには、このプロファイルを使用します。
+
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**:Azure Stack 用に作成されたプロファイル。 1808 以降のバージョンのスタンプを使用する Azure Stack と互換するサービスには、このプロファイルを使用します。
 
 - **com.microsoft.azure**:すべてのサービスの最新バージョンで構成されているプロンプトファイル。 すべてのサービスの最新バージョンを使用してください。
 
@@ -190,6 +190,9 @@ Azure azureStack = Azure.configure()
 適切なエンドポイントで Azure Stack クラウドを登録するには、次のコードを使用します。
 
 ```java
+// Get Azure Stack cloud endpoints
+final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+
 AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>() {
                 {
                     put("managementEndpointUrl", settings.get("audience"));
@@ -204,29 +207,50 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-次のコードの `getActiveDirectorySettings` 呼び出しは、メタデータ エンドポイントからエンドポイントを取得します。 これは、この呼び出しからの環境変数を示しています。
+上のコードの `getActiveDirectorySettings` 呼び出しは、メタデータ エンドポイントからエンドポイントを取得します。 これは、この呼び出しからの環境変数を示しています。
 
 ```java
-public static HashMap<String, String>
-getActiveDirectorySettings(String armEndpoint) {
+public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
 
-HashMap<String, String> adSettings = new HashMap<String, String>();
+    HashMap<String, String> adSettings = new HashMap<String, String>();
+    try {
 
-try {
+        // create HTTP Client
+        HttpClient httpClient = HttpClientBuilder.create().build();
 
-// create HTTP Client
-HttpClient httpClient = HttpClientBuilder.create().build();
+        // Create new getRequest with below mentioned URL
+        HttpGet getRequest = new HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
+                             armEndpoint));
 
-// Create new getRequest with below mentioned URL
-HttpGet getRequest = new
-HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
-armEndpoint));
+        // Add additional header to getRequest which accepts application/xml data
+        getRequest.addHeader("accept", "application/xml");
 
-// Add additional header to getRequest which accepts application/xml data
-getRequest.addHeader("accept", "application/xml");
+        // Execute request and catch response
+        HttpResponse response = httpClient.execute(getRequest);
+        
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        
+        String responseStr = EntityUtils.toString(response.getEntity());
+        JSONObject responseJson = new JSONObject(responseStr);
+        adSettings.put("galleryEndpoint", responseJson.getString("galleryEndpoint"));
+        JSONObject authentication = (JSONObject) responseJson.get("authentication");
+        String audience = authentication.get("audiences").toString().split("\"")[1];
+        adSettings.put("login_endpoint", authentication.getString("loginEndpoint"));
+        adSettings.put("audience", audience);
+        adSettings.put("graphEndpoint", responseJson.getString("graphEndpoint"));
 
-// Execute request and catch response
-HttpResponse response = httpClient.execute(getRequest);
+    } catch (ClientProtocolException cpe) {
+        cpe.printStackTrace();
+        throw new RuntimeException(cpe);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+        throw new RuntimeException(ioe);
+    }
+    return adSettings;
+}
 ```
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
@@ -237,7 +261,7 @@ HttpResponse response = httpClient.execute(getRequest);
 
 - [ストレージ アカウントの管理](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-- [仮想マシンの管理](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [仮想マシンの管理](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm) (2019-03-01-hybrid プロファイルで更新済み)。
 
 ### <a name="sample-unit-test-project"></a>単体テスト プロジェクトのサンプル
 
@@ -267,33 +291,18 @@ HttpResponse response = httpClient.execute(getRequest);
 
    Windows では、**export** ではなく **set** を使用します。
 
-5. `getactivedirectorysettings` コードを使用して ARM メタデータ エンドポイントを取得し、HTTP クライアントを使用してエンドポイント情報を設定します。
+5. Azure Resource Manager のメタデータ エンドポイントを取得するには、`getActiveDirectorySettings` の関数を使用します。
 
-   ```java
-   public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
-   HashMap<String, String> adSettings = new HashMap<String,> String>();
+    ```java
+    // Get Azure Stack cloud endpoints
+    final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+    ```
 
-   try {
-
-   // create HTTP Client
-   HttpClient httpClient = HttpClientBuilder.create().build();
-
-   // Create new getRequest with below mentioned URL
-   HttpGet getRequest = new
-   HttpGet(String.format("%s/metadata/endpoints?api-version=1.0", armEndpoint));
-
-   // Add additional header to getRequest which accepts application/xml data
-   getRequest.addHeader("accept", "application/xml");
-
-   // Execute request and catch response
-   HttpResponse response = httpClient.execute(getRequest);
-   ```
-
-6. Pom.xml ファイルで、Azure Stack 用の **2018-03-01-hybrid** プロファイルを使用するために下の依存関係を追加します。 この依存関係では、コンピューティング、ネットワーク、ストレージ、KeyVault、App Services のリソース プロバイダー用の、このプロファイルに関連付けられているモジュールがインストールされます。
+6. Pom.xml ファイルで、Azure Stack 用の **2019-03-01-hybrid** プロファイルを使用するために次の依存関係を追加します。 この依存関係では、コンピューティング、ネットワーク、ストレージ、KeyVault、App Services のリソース プロバイダー用の、このプロファイルに関連付けられているモジュールがインストールされます。
 
    ```xml
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <vers1s.0.0-beta</version>
    </dependency>

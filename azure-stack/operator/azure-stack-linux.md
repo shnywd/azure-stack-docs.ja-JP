@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 40a60c5207494ae70ccdfd051c8a223493b704c5
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: 8e9617974984afac55c2b1542065ea0455da0acc
+ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991107"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67197151"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Azure Stack への Linux イメージの追加
 
@@ -40,7 +40,7 @@ Azure Marketplace から Linux イメージをダウンロードするには、�
 
 ### <a name="azure-linux-agent"></a>Azure Linux エージェント
 
-Azure Linux エージェント (一般に `WALinuxAgent` または `walinuxagent` と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2.2.20 から 2.2.35 までのバージョンは、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 現在、[cloud-init](https://cloud-init.io/) は Azure Stack でサポートされていないことに注意してください。
+Azure Linux エージェント (一般に `WALinuxAgent` または `walinuxagent` と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2\.2.20 から 2.2.35 までのバージョンは、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 現在、[cloud-init](https://cloud-init.io/) は Azure Stack でサポートされていないことに注意してください。
 
 | Azure Stack のビルド | Azure Linux エージェントのビルド |
 | ------------- | ------------- |
@@ -49,6 +49,7 @@ Azure Linux エージェント (一般に `WALinuxAgent` または `walinuxagent
 |  1.1901.3.105   | 2.2.35 以降 |
 | 1.1902.2.73  | 2.2.35 以降 |
 | 1.1903.0.35  | 2.2.35 以降 |
+| 1903 移行のビルド | 2.2.35 以降 |
 | サポートされていません | 2.2.21-2.2.34 |
 
 次の手順を使って、独自の Linux イメージを準備できます。

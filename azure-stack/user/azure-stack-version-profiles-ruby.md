@@ -16,12 +16,12 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 625ddb8341b58c98e47b37701547de5d6acea45b
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3c897300dc2130b2c75449829304d4bd58b21898
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269322"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198662"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack での Ruby による API バージョンのプロファイルの使用
 
@@ -130,10 +130,10 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 Azure_sdk ロールアップ gem には、次の 3 つのプロファイルがあります。
 
-1. **V2019_03_01_Hybrid** Azure Stack 用に作成されたプロファイル。 Azure Stack で使用可能なサービスのすべての最新バージョンを使用するには、このプロファイルを使用します。
-2. **V2017_03_09**  
-  Azure Stack 用に作成されたプロファイル。 このプロファイルは、Azure Stack との互換性に優れたサービスに使用します。
-3. **最新**  
+1. **V2019_03_01_Hybrid** Azure Stack 用に作成されたプロファイル。 スタンプのバージョンが 1904 以降の Azure Stack で使用可能なサービスのすべての最新バージョンを使用するには、このプロファイルを使用します。
+1. **V2017_03_09**  
+  Azure Stack 用に作成されたプロファイル。 このプロファイルは、スタンプのバージョンが 1808 以降の Azure Stack との互換性に優れたサービスに使用します。
+1. **最新**  
   このプロファイルは、すべてのサービスの最新バージョンで構成されます。 すべてのサービスの最新バージョンを使用してください。
 
 Azure Stack および API プロファイルについて詳しくは、「[API プロファイルの概要](azure-stack-version-profiles.md#summary-of-api-profiles)」をご覧ください。
@@ -244,7 +244,7 @@ Ruby と Azure Stack API のプロファイルを使用してソリューショ�
    - export AZURE_CLIENT_ID={ご使用のクライアント ID}
    - export AZURE_CLIENT_SECRET={ご使用のクライアント シークレット}
    - export AZURE_SUBSCRIPTION_ID={ご使用のサブスクリプション ID}
-   - export ARM_ENDPOINT={ご使用の AzureStack Resource Manager URL}
+   - export ARM_ENDPOINT={ご使用の Azure Stack Resource Manager URL}
 
    > [!NOTE]  
    > Windows では、export ではなく set を使用します。

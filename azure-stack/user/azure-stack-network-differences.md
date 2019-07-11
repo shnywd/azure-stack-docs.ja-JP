@@ -5,18 +5,18 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/04/2019
+ms.date: 06/17/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: de39645d1414fc852b98036e7071befcf5262cb1
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
+ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469178"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67198828"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack ネットワークに関する考慮事項
 
@@ -35,6 +35,7 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | サブスクリプションあたりの DNS ゾーン数 | 100 (既定値)<br>ご希望により増やすことができます。 | 100 |
 |  | ゾーンあたりの DNS レコード セット数 | 5000 (既定値)<br>ご希望により増やすことができます。 | 5000 |
 |  | ゾーンの委任用のネーム サーバー | Azure では、作成されるユーザー (テナント) ゾーンごとに 4 つのネーム サーバーを提供します。 | Azure Stack では、作成されるユーザー (テナント) ゾーンごとに 2 つのネーム サーバーを提供します。 |
+| Azure Firewall | ネットワーク セキュリティ サービス | Azure Firewall は、Azure Virtual Network リソースを保護するクラウドベースのマネージド ネットワーク セキュリティ サービスです。 | まだサポートされていません。 |
 | Virtual Network | 仮想ネットワーク ピアリング | 同じリージョンに存在する 2 つの仮想ネットワークを Azure のバックボーン ネットワークを介して接続します。 | まだサポートされていません |
 |  | IPv6 アドレス | [ネットワーク インターフェイス構成](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)の一部として IPv6 アドレスを割り当てることができます。 | IPv4 のみがサポートされています。 |
 |  | DDoS 保護計画 | サポートされています | まだサポートされていません。 |
@@ -54,7 +55,7 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | BGP 設定 | Azure では、BGP ピアリング アドレスとピアの重みの構成がサポートされています。 | BGP ピアリング アドレスとピアの重みは、Azure Stack で自動構成されます。 ユーザーがこれらの設定を独自の値で構成する方法はありません。 |
 |  | 既定のゲートウェイ サイト | Azure では、強制トンネリングの既定のサイトの構成がサポートされています。 | まだサポートされていません。 |
 |  | ゲートウェイのサイズ変更 | Azure では、デプロイ後のゲートウェイのサイズ変更がサポートされています。 | サイズ変更はサポートされていません。 |
-|  | アクティブ/アクティブ構成 | サポートされています | まだサポートされていません。 |
+|  | 高可用性構成 | アクティブ/アクティブ | アクティブ/パッシブ |
 |  | UsePolicyBasedTrafficSelectors | Azure では、ルート ベースのゲートウェイ接続によるポリシー ベースのトラフィック セレクターの使用がサポートされています。 | まだサポートされていません。 |
 | Load Balancer | SKU | Basic Load Balancer と Standard Load Balancer がサポートされています | Basic Load Balancer のみがサポートされています。  SKU のプロパティはサポートされていません。 |
 |  | ゾーン | Availability Zones がサポートされています。 | まだサポートされていません |

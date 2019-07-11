@@ -1,0 +1,213 @@
+---
+title: Azure Stack 1906 の既知の問題 | Microsoft Docs
+description: Azure Stack 1906 の既知の問題について説明します。
+services: azure-stack
+documentationcenter: ''
+author: sethmanheim
+manager: femila
+editor: ''
+ms.assetid: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 06/28/2019
+ms.author: sethm
+ms.reviewer: hectorl
+ms.lastreviewed: 06/28/2019
+ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
+ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67557870"
+---
+# <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 の既知の問題
+
+この記事では、Azure Stack 1906 リリースの既知の問題について説明します。 新しい問題が特定されると、この一覧は更新されます。
+
+> [!IMPORTANT]  
+> 更新プログラムを適用する前に、このセクションを確認してください。
+
+## <a name="update-process"></a>更新処理
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 1906 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状況が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 
+- 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md#import-and-install-updates)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
+- 発生頻度: 一般
+
+## <a name="portal"></a>ポータル
+
+### <a name="administrative-subscriptions"></a>管理サブスクリプション
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: バージョン 1804 で導入された 2 つの管理サブスクリプションは使用しないでください。 このサブスクリプションの種類は **Metering** サブスクリプションと **Consumption** サブスクリプションです。
+- 修復: これら 2 つのサブスクリプション上でリソースが実行されている場合は、ユーザー サブスクリプションで再作成してください。
+- 発生頻度: 一般
+
+### <a name="subscription-resources"></a>サブスクリプション リソース
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー サブスクリプションを削除すると、リソースが孤立します。
+- 修復: まず、ユーザー リソースまたはリソース グループ全体を削除してから、ユーザー サブスクリプションを削除します。
+- 発生頻度: 一般
+
+### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: Azure Stack ポータルを使用して、サブスクリプションへのアクセス許可を表示することはできません。
+- 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
+- 発生頻度: 一般
+
+### <a name="storage-account-settings"></a>Storage アカウントの設定
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 機能は現在 Azure Stack でサポートされていません。
+- 発生頻度: 一般
+
+### <a name="upload-blob"></a>BLOB のアップロード
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。
+- 修復: SAS オプションを使用して BLOB をアップロードします。
+- 発生頻度: 一般
+
+## <a name="networking"></a>ネットワーク
+
+### <a name="service-endpoints"></a>サービス エンドポイント
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 発生頻度: 一般
+
+### <a name="network-interface"></a>Linux
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 新しいネットワーク インターフェイスを、**実行**状態にある VM に追加することはできません。
+- 修復: 仮想マシンを停止してから、ネットワーク インターフェイスを追加/削除します。
+- 発生頻度: 一般
+
+### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
+
+#### <a name="alerts"></a>アラート
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 発生頻度: 一般
+
+#### <a name="active-active"></a>アクティブ/アクティブ
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 発生頻度: 一般
+
+#### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 発生頻度: 一般
+
+#### <a name="documentation"></a>ドキュメント
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack のドキュメントについては、次のリンクを使用してください。
+
+  - [ゲートウェイ SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
+  - [高可用性接続](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
+  - [Azure Stack での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
+  - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
+
+### <a name="load-balancer"></a>Load Balancer
+
+#### <a name="add-backend-pool"></a>バックエンド プールを追加する
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで **[バックエンド プール]** を **[Load Balancer]** に追加しようとすると、"**failed to update Load Balancer...** " (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。
+- 修復: PowerShell、CLI、または Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
+- 発生頻度: 一般
+
+#### <a name="create-inbound-nat"></a>インバウンド NAT を作成する
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで **[Load Balancer]** に対して**インバウンド NAT 規則**を作成しようとすると、"**Failed to update Load Balancer**" (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。
+- 修復: PowerShell、CLI、または Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
+- 発生頻度: 一般
+
+## <a name="compute"></a>Compute
+
+### <a name="vm-boot-diagnostics"></a>VM ブート診断
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 新しい Windows 仮想マシン (VM) を作成するときに、次のエラーが表示されることがあります。**仮想マシン 'vm-name' を起動できませんでした。エラー:Failed to update serial output settings for VM 'vm-name'** . (VM 'vm-name' のシリアル出力設定を更新できませんでした。) このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。
+- 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
+- 発生頻度: 一般
+
+### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
+
+#### <a name="centos"></a>CentOS
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 仮想マシン スケール セットの作成エクスペリエンスでは、デプロイのオプションとして CentOS-based 7.2 が提供されます。 CentOS 7.2 は Azure Stack では利用できません。
+- 修復: デプロイ用に別のオペレーティング システムを選択するか、またはデプロイする前にオペレーターが Marketplace からダウンロードしておいた別の CentOS イメージを指定する Azure Resource Manager テンプレートを使用します。
+- 発生頻度: 一般
+
+#### <a name="remove-scale-set"></a>スケール セットを削除する
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: スケール セットを**仮想マシン スケール セット** ブレードから削除することはできません。
+- 修復: 削除するスケール セットを選択し、 **[概要]** ウィンドウから **[削除]** ボタンをクリックします。
+- 発生頻度: 一般
+
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
+- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+
+#### <a name="scale-set-instance-view-blade-does-not-load"></a>スケール セット インスタンス ビュー ブレードが読み込まれない
+
+- 適用先:この問題は、1904、1905、1906 リリースに適用されます。
+- 原因: Azure Stack ポータル ( **[ダッシュボード] > [仮想マシン スケール セット] > [AnyScaleSet - インスタンス] > [AnyScaleSetInstance]** ) にある仮想マシン スケール セットのインスタンス ビュー ブレードが、読み込みに失敗し、"雨雲" の画像が表示されます。
+- 修復: 現在、修復方法はなく、修正に取り組んでいます。 それまでは、スケール セットのインスタンス ビューの取得には、CLI コマンド `az vmss get-instance-view` を使用してください。
+
+### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: SSH の承認を有効にして作成した Ubuntu 18.04 VM では、SSH キーを使用してサインインすることはできません。
+- 修復: プロビジョニング後に Linux 拡張機能用の VM アクセスを使用して SSH キーを実装するか、パスワードベースの認証を使用します。
+- 発生頻度: 一般
+
+### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
+
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack ではスケール セットでのパスワードのリセットがまだサポートされていません。
+- 修復: なし。
+- 発生頻度: 一般
+
+### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
+
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack ビルドでサポートされている機能ではありません。
+- 修復: なし。
+- 発生頻度: 一般
+
+### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
+
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack ではまだサポートされていません。
+- 修復: なし。
+- 発生頻度: 一般
+
+<!-- ## Storage -->
+<!-- ## SQL and MySQL-->
+<!-- ## App Service -->
+<!-- ## Usage -->
+<!-- ### Identity -->
+<!-- ### Marketplace -->
+
+## <a name="next-steps"></a>次の手順
+
+- [更新アクティビティのチェック リストを確認する](azure-stack-release-notes-checklist.md)
+- [セキュリティ更新プログラムの一覧を確認する](azure-stack-release-notes-security-updates-1906.md)

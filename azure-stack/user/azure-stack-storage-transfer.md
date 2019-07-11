@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: bdbf30a0913aeb4839d31e68c84a4b1b7965bf85
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
+ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66748974"
+ms.lasthandoff: 06/26/2019
+ms.locfileid: "67406893"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack ストレージのデータ転送ツールの使用
 
@@ -57,85 +57,57 @@ AzCopy は、最適なパフォーマンスの単純なコマンドを使用し�
 
 ### <a name="download-and-install-azcopy"></a>AzCopy のダウンロードとインストール
 
-AzCopy ユーティリティには、2 つのバージョンがあります。Windows 上の AzCopy と Linux 上の AzCopy です。
+* 1811 以降の更新プログラムの場合は、[AzCopy V10 以降をダウンロード](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)します。
+* それより前のバージョン (1802 から 1809 までの更新プログラム) では、[AzCopy 7.1.0 をダウンロード](https://aka.ms/azcopyforazurestack20170417)します。
 
- - **Windows での AzCopy**
-    - Azure Stack 用のサポートされているバージョンの AzCopy をダウンロードします。 Azure と同様の方法で、Azure Stack 上で AzCopy をインストールして使用することができます 詳細については、[Windows での AzCopy](/azure/storage/common/storage-use-azcopy) に関するページを参照してください。
-        - 1811 更新プログラム以降のバージョンの場合は、[AzCopy 7.3.0 をダウンロード](https://aka.ms/azcopyforazurestack20171109)します。
-        - それより前のバージョン (1802 から 1809 までの更新プログラム) では、[AzCopy 7.1.0 をダウンロード](https://aka.ms/azcopyforazurestack20170417)します。
+### <a name="accopy-101-configuration-and-limits"></a>AcCopy 10.1 の構成と制限事項
 
- - **Linux での AzCopy**
+AzCopy 10.1 を構成して、古い API バージョンを使用できるようになりました。 これにより、Azure Stack のサポート (制限あり) が有効になります。
+AzCopy の API バージョンを構成して Azure Stack をサポートするには、`AZCOPY_DEFAULT_SERVICE_API_VERSION` 環境変数を `2017-11-09` に設定します。
 
-    - Azure と同様の方法で、Azure Stack 上で AzCopy をインストールして使用することができます 詳細については、[Linux での AzCopy](/azure/storage/common/storage-use-azcopy-linux) に関するページを参照してください。
-    - 以前のバージョン (1802 から 1809 までの更新プログラム) については、「[AzCopy 7.1 以前のバージョンのインストール手順](/azure/storage/common/storage-use-azcopy-v10#use-the-previous-version-of-azcopy)」を参照してください。
+| オペレーティング システム | command  |
+|--------|-----------|
+| **Windows** | コマンド プロンプトでは、`set AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` を使用します<br> PowerShell では、`$env:AZCOPY_DEFAULT_SERVICE_API_VERSION="2017-11-09"` を使用します|
+| **Linux** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+| **MacOS** | `export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09` |
+
+AzCopy 10.1 では、Azure Stack の次の機能がサポートされます。
+
+| 機能 | サポートされているアクション |
+| --- | --- |
+|コンテナーを管理する|コンテナーを作成する<br>コンテナーの内容を一覧表示する
+|ジョブを管理する|ジョブを表示する<br>ジョブを再開する
+|BLOB を削除する|1 つの BLOB を削除する<br>全部または一部の仮想ディレクトリを削除する
+|ファイルをアップロードする|ファイルをアップロードする<br>ディレクトリをアップロードする<br>ディレクトリの内容をアップロードする
+|ファイルのダウンロード|ファイルをダウンロードする<br>ディレクトリをダウンロードする<br>ディレクトリの内容をダウンロードする
+|ファイルを同期する|ローカル ファイル システムにコンテナーを同期する<br>コンテナーにローカル ファイル システムを同期する
+
+   > [!NOTE]
+   > * Azure Stack では、Azure Active Directory (AD) の使用による承認資格情報の AzCopy への提供はサポートされていません。 Shared Access Signature (SAS) トークンを使用して、Azure Stack 上にあるストレージ オブジェクトにアクセスする必要があります。
+   > * Azure Stack では、2 か所の Azure Stack BLOB の間、および Azure Storage と Azure Stack との間の同期データ転送はサポートされていません。 AzCopy 10.1 を直接使用して Azure Stack から Azure Storage (または逆方向) へデータを移動させるために "azcopy cp" を使用することはできません。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>データ転送するための AzCopy コマンドの例
 
-以下の例では、Azure Stack BLOB との間でデータをコピーする代表的なシナリオを紹介しています。 詳細については、[Windows 上の AzCopy](/azure/storage/common/storage-use-azcopy) と [Linux 上の AzCopy](/azure/storage/common/storage-use-azcopy-linux) に関するページを参照してください。
+以下の例では、Azure Stack BLOB との間でデータをコピーする代表的なシナリオを紹介しています。 詳細については、「[AzCopy を使ってみる](/azure/storage/common/storage-use-azcopy-v10)」を参照してください。
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>すべての BLOB をローカル ディスクにダウンロードする
 
-**Windows**
-
-```shell
-AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount.blob.local.azurestack.external/mycontainer \
-    --destination /mnt/myfiles \
-    --source-key <key> \
-    --recursive
+azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
 ```
 
 ### <a name="upload-single-file-to-virtual-directory"></a>1 つのファイルを仮想ディレクトリにアップロードする
 
-**Windows**
-
-```shell
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
-
-**Linux**
-
-```bash
-azcopy \
-    --source /mnt/myfiles/abc.txt \
-    --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
-    --dest-key <key>
-```
-
-### <a name="move-data-between-azure-and-azure-stack-storage"></a>Azure と Azure Stack ストレージ間でデータを移動します
-
-Azure ストレージと Azure Stack との間の非同期のデータ転送がサポートされていません。 **/SyncCopy** または **--sync-copy** オプションを使用して転送を指定する必要があります。
-
-**Windows**
-
-```shell
-Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-```
-
-**Linux**
-
-```bash
-azcopy \
-    --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
-    --destination https://myaccount2.blob.core.windows.net/myContainer/ \
-    --source-key <key1> \
-    --dest-key <key2> \
-    --include "abc.txt" \
-    --sync-copy
+azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
 ### <a name="azcopy-known-issues"></a>Azcopy の既知の問題
 
  - ファイル ストレージは、Azure Stack で使用できないために、ファイル ストアに関する AzCopy 操作は使用できません。
- - Azure ストレージと Azure Stack との間の非同期のデータ転送がサポートされていません。 **/SyncCopy** オプションを使用して転送を指定し、データをコピーすることができます。
+ - AzCopy 10.1 を使用して 2 か所の Azure Stack BLOB の間、または Azure Stack と Azure Storage との間でデータを転送する場合は、最初にデータをローカルの場所にダウンロードしてから Azure Stack または Azure Storage 上にあるターゲット ディレクトリに再度アップロードする必要があります。 または、AzCopy 7.1 を使用し、 **/SyncCopy** オプションで転送を指定して、データをコピーすることができます。  
  - Linux バージョンの Azcopy は、1802 更新プログラム以降のバージョンのみをサポートしています。 Table service はサポートしていません。
-
+ 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
 Azure PowerShell は、Azure と Azure Stack の両方ででサービスを管理するためのコマンドレットを提供するモジュールです。 タスク ベースのコマンドライン シェルであり、特にシステム管理用に設計されたスクリプト言語です。

@@ -15,12 +15,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: db73f0b787b9b163f39d5af89e260ca6a30855bd
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 437fb7c62436c0565945b851f0a70550a228d54c
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828133"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419526"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack インフラストラクチャのセキュリティ体制
 
@@ -99,6 +99,7 @@ Azure Stack はサード パーティの独立した監査法人による正式�
 
 ## <a name="next-steps"></a>次の手順
 
+- [Azure Stack セキュリティ コントロールを構成する](azure-stack-security-configuration.md)
 - [Azure Stack でシークレットをローテーションする方法を確認する](azure-stack-rotate-secrets.md)
 - [Azure Stack 用の PCI-DSS および CSA-CCM ドキュメント ](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
 - [Azure Stack 用の DoD および NIST ドキュメント](https://servicetrust.microsoft.com/ViewPage/Blueprint)

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 06/26/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bcf499b0b3e7cd58d4b938b4be64c19eecf649e2
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 8965ad94d1c8576e437e85a9714997f842f7dd50
+ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691483"
+ms.lasthandoff: 06/27/2019
+ms.locfileid: "67419466"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack サービス ポリシー
 
@@ -33,7 +33,7 @@ Microsoft では、特定の問題に対処する修正プログラム パッケ
 
 月例更新プログラム パッケージは、セキュリティで保護された Azure エンドポイントでホストされます。 これらは、[Azure Stack 更新プログラム ダウンローダー ツール](https://aka.ms/azurestackupdatedownload)を使用して手動でダウンロードすることができます。 スケール ユニットが接続されている場合、更新プログラムは、"**更新プログラムが利用可能です**" と自動的に管理者ポータルに表示されます。 月例更新プログラム パッケージは、各リリースで詳細にドキュメント化されます。 各リリースの詳細については、この記事の「[更新プログラム パッケージのリリース周期](#update-package-release-cadence)」セクションの任意のリリースをクリックしてください。
 
-修正プログラム パッケージは、セキュリティで保護された同じ Azure エンドポイントでホストされます。 各修正プログラム KB 記事の埋め込みリンク (たとえば、[Azure Stack 修正プログラム 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) を使用して、それらを手動でダウンロードできます。 完全な月例更新プログラム パッケージと同様に、Azure Stack オペレーターは、「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」の手順を使用して、.xml、.bin、および .exe ファイルをダウンロードしてインポートできます。 スケール ユニットが接続されている Azure Stack オペレーターに対しては、修正プログラムが "**更新プログラムが利用可能です**" というメッセージと共に自動的に管理者ポータルに表示されます。
+修正プログラム パッケージは、セキュリティで保護された同じ Azure エンドポイントでホストされます。 各修正プログラム KB 記事の埋め込みリンク (たとえば、[Azure Stack 修正プログラム 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) を使用して、それらをダウンロードできます。 完全な月例更新プログラム パッケージと同様に、Azure Stack オペレーターは、「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」の手順を使用して、.xml、.bin、および .exe ファイルをダウンロードしてインポートできます。 スケール ユニットが接続されている Azure Stack オペレーターに対しては、修正プログラムが "**更新プログラムが利用可能です**" というメッセージと共に自動的に管理者ポータルに表示されます。
 
 スケール ユニットが接続されておらず、各修正プログラムのリリースについて通知を受け取る場合は、各リリースに記載されている [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。  
 
@@ -53,16 +53,18 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
+- [Azure Stack 1906 更新プログラム](azure-stack-release-notes-1906.md)
 - [Azure Stack 1905 更新プログラム](azure-stack-release-notes-1905.md)
 - [Azure Stack 1904 更新プログラム](azure-stack-release-notes-1904.md)
 - [Azure Stack 1903 更新プログラム](azure-stack-update-1903.md)
-- [Azure Stack 1902 更新プログラム](azure-stack-update-1902.md)
 
 ## <a name="hotfixes"></a>修正プログラム
 
 Microsoft は、随時、Azure Stack に関する予防可能な、または緊急の問題に対応するため、修正プログラムを提供します。  各修正プログラムは、問題、原因、および解決方法の詳細が記載された Microsoft のナレッジ ベースの記事に対応してリリースされます。
 
-修正プログラムは、Azure Stack の通常の完全版の更新プログラム パッケージと同様にインストールできます。 ただし、完全な更新プログラムとは異なり、修正プログラムは数分でインストールできます。 修正プログラムをインストールする際に、Azure Stack オペレーターがメンテナンス期間を設定することをお勧めします。 修正プログラムは、修正プログラムが適用されているかを簡単に判別できるように、お使いの Azure Stack クラウドのバージョンを更新します。 まだサポート対象である Azure Stack のバージョンごとに個別の修正プログラムが提供されています。 特定のイテレーションの各修正プログラムは重複しており、同じバージョンの以前の更新プログラムが含まれています。 修正プログラム内の特定の修正プログラムの該当性については、対応するナレッジ ベースの記事を参照してください。  
+詳細および特定の修正プログラムへのリンクについては、前のセクションのリリース ノートのリンクを参照してください。
+
+修正プログラムは、Azure Stack の通常の完全版の更新プログラム パッケージと同様にインストールできます。 ただし、完全な更新プログラムとは異なり、修正プログラムは数分でインストールできます。 修正プログラムをインストールする際に、Azure Stack オペレーターによるメンテナンス期間の設定をお勧めします。 修正プログラムは、修正プログラムが適用されているかを簡単に判別できるように、お使いの Azure Stack クラウドのバージョンを更新します。 まだサポート対象である Azure Stack のバージョンごとに個別の修正プログラムが提供されています。 特定のイテレーションの各修正プログラムは重複しており、同じバージョンの以前の更新プログラムが含まれています。 特定の修正プログラムの該当性については、対応するナレッジ ベースの記事を参照してください。 前のセクションのリリース ノートのリンクを参照してください。  
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 

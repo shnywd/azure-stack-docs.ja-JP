@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 06/14/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 3c962f0ef9fccdf814ccfaf0a432b1c303a63368
-ms.sourcegitcommit: 23816ec68f67f3ac51f78de925b7631590743a29
+ms.reviewer: ihcherie
+ms.lastreviewed: 06/14/2019
+ms.openlocfilehash: dd6421e915f170ee576d6486362e8b93ac01465f
+ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66835107"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67152587"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -54,7 +54,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 
 |  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
-| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) | アプリケーションに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
+| ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | アプリケーションに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
 | ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
 | ![SharePoint Server 2016 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter の Microsoft SharePoint Server 2016 評価版。 | Microsoft |
 | ![Windows Server 2012 R2 の SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
@@ -249,4 +249,5 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery による高度なデータ保護は、バックアップ、レプリケーション、復旧を 1 つの使いやすいソフトウェア ソリューションに統合します。 | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos?tab=Overview) | クラス最高のオープン ソースのインフラストラクチャ管理。 | SUSE |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | CipherTrust Cloud Key Manager では、Microsoft Azure およびその他のクラウド プロバイダーの Bring Your Own Key (BYOK) API を活用して、一元化された管理と可視性によって暗号化キーのマルチクラウド ライフサイクル制御を実現することで、キー管理の複雑さと運用コストを軽減します。 | Thales eSecurity |
+| ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & Replication™ は、企業がすべてのワークロード、つまり、仮想、物理、クラウドベースの包括的なデータ保護を実現するのに役立ちます。 単一のコンソールで、すべてのアプリケーションとデータの高速かつ柔軟で、信頼性の高いバックアップ、復旧、レプリケーションを実現できます。 | Veeam Software |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® Software のテクノロジは、Business Continuity as a Service (BCaaS、サービスとしてのビジネス継続性)™ アーキテクチャを介して、自らの会社データへの継続的なアクセスを事業者に提供し、通常なら企業を麻痺させるネットワークの中断が発生した場合でも、アプリケーションおよびトランザクションを保護します。 | ZeroDown Software |

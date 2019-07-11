@@ -3,25 +3,24 @@ title: オペレーターとして PowerShell を使用して Azure Stack に接
 description: オペレーターとして PowerShell を使用して Azure Stack に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 03/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 03/15/2019
+ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9d49727538f89e9429c1ae979057e89c40dc0ce9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fa4013c00cd9d496b6c8bb479d9fe6cbfe113575
+ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308227"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67316213"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>オペレーターとして PowerShell を使用して Azure Stack に接続する
 
@@ -48,7 +47,7 @@ PowerShell を使用する Azure Stack オペレーター環境を構成しま�
 
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
-    $AADTenantName = "<myDirectoryTenantName>.partner.onmschina.cn"
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
     # After signing in to your environment, Azure Stack cmdlets
@@ -72,7 +71,7 @@ Azure Stack オペレーター環境に Active Directory フェデレーショ�
   ```
 
 > [!Note]  
-> AD FS でサポートされるのは、ユーザー ID を使用した対話型認証のみです。 資格情報オブジェクトが必要な場合は、サービス プリンシパル (SPN) を使用する必要があります。 Azure Stack と AD FS を ID 管理サービスとしてサービス プリンシパルを設定する方法の詳細については、「[AD FS のサービス プリンシパルの管理](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)」を参照してください。
+> AD FS でサポートされるのは、ユーザー ID を使用した対話型認証のみです。 資格情報オブジェクトが必要な場合は、サービス プリンシパル (SPN) を使用する必要があります。 Azure Stack と AD FS を ID 管理サービスとしてサービス プリンシパルを設定する方法の詳細については、[AD FS のサービス プリンシパルの管理](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)に関する記事を参照してください。
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
