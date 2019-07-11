@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 42ed9766b43ce3c0c1c455d8ea286a5b453df325
-ms.sourcegitcommit: 2ee75ded704e8cfb900d9ac302d269c54a5dd9a3
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: 27f2b4c1817c28cf5d345f5aa9387a26cd18316b
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66394375"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725756"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack"></a>Docker を使用して Azure Stack 内で PowerShell を実行する
 
@@ -33,7 +33,7 @@ ms.locfileid: "66394375"
 1. PowerShell や Bash などのコマンドライン ツールで、次を入力します。
 
     ```bash
-        Docker -version
+        Docker --version
     ```
 
 1. Windows 10 を必要とする Windows コンテナーを使って Docker を実行する必要があります。 Docker を実行しているときに、Windows コンテナーに切り替えます。
