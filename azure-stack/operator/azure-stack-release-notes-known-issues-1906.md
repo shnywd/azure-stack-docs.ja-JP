@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: d1d3b3c33652811964b16a35686df3e3a24eb59a
-ms.sourcegitcommit: 7348876a97e8bed504b5f5d90690ec8d1d9472b0
+ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67557870"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648043"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 の既知の問題
 
@@ -71,6 +71,13 @@ ms.locfileid: "67557870"
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。
 - 修復: SAS オプションを使用して BLOB をアップロードします。
+- 発生頻度: 一般
+
+### <a name="template"></a>Template
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルで、テンプレート デプロイ ユーザー インターフェイスによって "_" (アンダースコア文字) で始まるテンプレート名のパラメーターの設定が行われません。
+- 修復: テンプレート名から "_" (アンダースコア文字) を削除します。
 - 発生頻度: 一般
 
 ## <a name="networking"></a>ネットワーク

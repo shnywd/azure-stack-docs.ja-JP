@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e7737033b0f94473f4b794e452c9239f275c8f8
-ms.sourcegitcommit: d1fdecdfa843dfc0629bfc226f1baf14f3ea621d
+ms.openlocfilehash: 9ea7c3de75be447870d0506cebbbbe8af0f2ffe9
+ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67387743"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67648087"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack マネージド ディスク: 相違点と考慮事項
 
@@ -45,7 +45,7 @@ ms.locfileid: "67387743"
 |Premium Disk の IOP  |ディスク サイズによって異なります  |ディスクあたりの 2300 IOP |
 |Premium ディスクのスループット |ディスク サイズによって異なります |ディスクあたり 145 MB/秒 |
 |ディスク サイズ  |Azure Premium ディスク:P4 (32 GiB) ～ P80 (32 TiB)<br>Azure Standard SSD ディスク:E10 (128 GiB) ～ E80 (32 TiB)<br>Azure Standard HDD ディスク:S4 (32 GiB) ～ S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1,024 GiB |
-|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはサポートされています|まだサポートされていません |
+|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはサポートされています|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはまだサポートされていません |
 |ディスクのパフォーマンス分析 |サポートされる合計メトリックおよびディスクあたりのメトリック |まだサポートされていません |
 |移行      |VM を再作成する必要なしに既存のアンマネージド Azure Resource Manager VM から移行するためのツールが提供されます  |まだサポートされていません |
 

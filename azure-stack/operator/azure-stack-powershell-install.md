@@ -11,22 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: c0f680aec95c23db2567100b47a341a5d3fb9dad
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.lastreviewed: 07/09/2019
+ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
+ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197165"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725771"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 互換性は、*API プロファイル*と呼ばれる機能によって有効になります。
+Azure PowerShell には、Azure Stack リソースの管理に Azure Resource Manager モデルを使う一連のコマンドレットが用意されています。
+
+クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 Azure Stack では、グローバル Azure で使われている新しい **AzureAZ** モジュールではなく、**AzureRM** モジュールが使われます。 さらに、"*API プロファイル*" を使って、Azure Stack リソース プロバイダーと互換性のあるエンドポイントを指定する必要があります。
 
 API のプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack では**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
@@ -138,6 +140,7 @@ Get-Module -Name "Azs*" -ListAvailable
 1. 接続されているコンピューターに Azure Stack PowerShell をインストールする
 2. 追加のストレージ機能を有効にする
 3. 接続が切断されたワークステーションに PowerShell パッケージを転送する
+4. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。
 4. PowerShell のインストールを確認する
 
 ### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
@@ -179,7 +182,9 @@ Get-Module -Name "Azs*" -ListAvailable
 
 2. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
 
-3. ここで、その場所を既定のレポジトリとして登録し、そのレポジトリから AzureRM および AzureStack モジュールをインストールします。
+3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
+
+4. ここで、その場所を既定のレポジトリとして登録し、そのレポジトリから AzureRM および AzureStack モジュールをインストールします。
 
    ```powershell
    # requires -Version 5
