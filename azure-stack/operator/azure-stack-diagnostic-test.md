@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: f1c846b6d429fa323e1081d96cbca8bd10f877b5
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648078"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239434"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
 
@@ -209,8 +209,8 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 インフラストラクチャのバックアップを構成する*前に*、**AzsBackupShareAccessibility** テストを使用して、バックアップ共有パスと資格情報をテストできます。 
 
   ```powershell
-  New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
-  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
 バックアップを構成した*後*、PEP セッションの実行から **AzsBackupShareAccessibility** を実行して、ERCS から共有にアクセスできることを検証できます。
