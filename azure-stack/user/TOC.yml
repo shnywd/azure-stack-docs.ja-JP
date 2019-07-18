@@ -2,6 +2,8 @@
   href: index.yml
 - name: 概要
   items:
+    - name: Azure Stack を使用したソリューションの構築
+      href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要な考慮事項
       href: azure-stack-considerations.md
 - name: クイック スタート
@@ -21,14 +23,203 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: チュートリアル
   items:
-    - name: 一般的なタスク
+    - name: テンプレートからの VM の作成
+      href: azure-stack-create-vm-template.md
+- name: ハウツー ガイド
+  items:
+    - name: ハイブリッド クラウド用のソリューションの構築を開始する
       items:
         - name: プランへのサブスクライブ
           href: azure-stack-subscribe-services.md
-        - name: テンプレートからの VM の作成
-          href: azure-stack-create-vm-template.md
-    - name: ハイブリッド クラウド アプリの概要
-      href: azure-stack-hybrid-cloud-patterns.md
+        - name: クラウド サービス プロバイダーの有効化
+          href: azure-stack-csp-enable-billing-usage-tracking.md
+        - name: Azure Stack ポータルの使用
+          href: azure-stack-use-portal.md
+        - name: クライアントの構成
+          items:
+            - name: 開発環境をセットアップする
+              href: azure-stack-dev-start.md
+            - name: Azure Stack で PowerShell を使用する
+              items:
+                - name: Azure Stack PowerShell の概要
+                  href: azure-stack-powershell-overview.md
+                - name: Azure Stack PowerShell のインストール
+                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: PowerShell で接続する
+                  href: azure-stack-powershell-configure-user.md
+                - name: Azure Stack ツールのダウンロード
+                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  maintainContext: true
+                - name: Docker を使用して PowerShell を実行する
+                  href: azure-stack-powershell-user-docker.md
+                - name: Azure Stack ポリシー モジュールの使用
+                  href: azure-stack-policy-module.md
+            - name: Azure Stack で Azure CLI を使用する
+              href: azure-stack-version-profiles-azurecli2.md
+            - name: Visual Studio Code を使用する
+              href: azure-stack-dev-start-vscode-azure.md
+            - name: Visual Studio を使用する
+              href: azure-stack-install-visual-studio.md
+            - name: Secure Shell を使用する
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: API と共に REST クライアントを使用する
+              href: azure-stack-rest-api-use.md
+        - name: Azure Stack Resource Manager テンプレートを使用する
+          items:
+            - name: テンプレートの概要
+              href: azure-stack-arm-templates.md
+            - name: テンプレートに関する考慮事項
+              href: azure-stack-develop-templates.md
+            - name: Azure でのテンプレートの開発
+              href: azure-stack-developer.md
+            - name: テンプレートの確認
+              href: azure-stack-validate-templates.md
+            - name: ポータルでのデプロイ
+              href: azure-stack-deploy-template-portal.md
+            - name: PowerShell でデプロイする
+              href: azure-stack-deploy-template-powershell.md
+            - name: CLI を使用したデプロイ
+              href: azure-stack-deploy-template-command-line.md
+            - name: Visual Studio でのデプロイ
+              href: azure-stack-deploy-template-visual-studio.md
+        - name: API バージョンのプロファイルの使用
+          items:
+            - name: 概要
+              href: azure-stack-version-profiles.md
+            - name: .NET
+              href: azure-stack-version-profiles-net.md
+            - name: Java
+              href: azure-stack-version-profiles-java.md
+            - name: Go
+              href: azure-stack-version-profiles-go.md
+            - name: Ruby
+              href: azure-stack-version-profiles-ruby.md
+            - name: Python
+              href: azure-stack-version-profiles-python.md
+            - name: プロファイルでサポートされているリソース プロバイダー API
+              href: azure-stack-profiles-azure-resource-manager-versions.md
+    - name: リソース プロバイダーを使用する
+      items:
+        - name: セキュリティ、コンプライアンス、ID
+          items:
+            - name: ロールベースのアクセス制御を使用する
+              href: azure-stack-manage-permissions.md
+            - name: アプリ ID を使用してリソースにアクセスする
+              href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+        - name: サービスの使用
+          items:
+            - name: Compute
+              items:
+                - name: 概要
+                  href: azure-stack-compute-overview.md
+                - name: VM に関する考慮事項
+                  href: azure-stack-vm-considerations.md
+                - name: VM サイズ
+                  href: azure-stack-vm-sizes.md
+                - name: VM ディスクの管理
+                  href: azure-stack-manage-vm-disks.md
+                - name: マネージド ディスクに関する考慮事項
+                  href: azure-stack-managed-disk-considerations.md
+                - name: VM の保護
+                  href: azure-stack-manage-vm-protect.md
+                - name: VM の更新と管理
+                  href: vm-update-management.md
+                - name: SQL Server VM に関する考慮事項
+                  href: azure-stack-sql-server-vm-considerations.md
+            - name: Storage
+              items:
+                - name: 概要
+                  href: azure-stack-storage-overview.md
+                - name: ストレージに関する考慮事項
+                  href: azure-stack-acs-differences.md
+                - name: ストレージ開発ツール
+                  href: azure-stack-storage-dev.md
+                - name: データ転送ツール
+                  href: azure-stack-storage-transfer.md
+                - name: ストレージ エクスプローラーの接続
+                  href: azure-stack-storage-connect-se.md
+            - name: ネットワーク
+              items:
+                - name: 概要
+                  href: azure-stack-network-overview.md
+                - name: ネットワークに関する考慮事項
+                  href: azure-stack-network-differences.md
+                - name: VPN ゲートウェイ
+                  items:
+                    - name: VPN を使用した接続
+                      href: azure-stack-connect-vpn.md
+                    - name: VPN ゲートウェイについて
+                      href: azure-stack-vpn-gateway-about-vpn-gateways.md
+                    - name: IPsec/IKE 接続ポリシーの構成
+                      href: azure-stack-vpn-s2s.md
+                    - name: VPN ゲートウェイの設定
+                      href: azure-stack-vpn-gateway-settings.md
+                - name: Azure Stack 用の iDNS
+                  href: azure-stack-understanding-dns.md
+                - name: Azure Stack の DNS
+                  href: azure-stack-dns.md
+            - name: Key Vault
+              items:
+                - name: 概要
+                  href: azure-stack-key-vault-intro.md
+                - name: ポータルを使用した管理
+                  href: azure-stack-key-vault-manage-portal.md
+                - name: PowerShell で管理する
+                  href: azure-stack-key-vault-manage-powershell.md
+                - name: シークレットを使用して VM を作成する
+                  href: azure-stack-key-vault-deploy-vm-with-secret.md
+                - name: 証明書を使用して VM を作成する
+                  href: azure-stack-key-vault-push-secret-into-vm.md
+                - name: Key Vault に資格情報を格納する
+                  href: azure-stack-key-vault-store-credentials.md
+                - name: Key Vault サンプル アプリ
+                  href: azure-stack-key-vault-sample-app.md
+            - name: Azure Monitor
+              href: azure-stack-metrics-azure-data.md
+              items:
+                - name: サポートされるメトリック
+                  href: azure-stack-metrics-supported.md
+                - name: Azure 監視データの使用
+                  href: azure-stack-metrics-monitor.md
+        - name: ソリューション テンプレートの使用
+          items:
+            - name: Ethereum のデプロイ
+              href: azure-stack-ethereum.md
+            - name: Service Fabric クラスターのデプロイ
+              href: azure-stack-solution-template-service-fabric-cluster.md
+            - name: Kubernetes クラスターのデプロイ
+              href: azure-stack-solution-template-kubernetes-deploy.md
+              items:
+                - name: Azure AD を使用した Kubernetes のデプロイ
+                  href: azure-stack-solution-template-kubernetes-azuread.md
+                - name: AD FS を使用した Kubernetes のデプロイ
+                  href: azure-stack-solution-template-kubernetes-adfs.md
+                - name: Kubernetes ダッシュボードの有効化
+                  href: azure-stack-solution-template-kubernetes-dashboard.md
+                - name: Kubernetes クラスターのトラブルシューティング
+                  href: azure-stack-solution-template-kubernetes-trouble.md
+            - name: Cognitive Services のデプロイ
+              href: azure-stack-solution-template-cognitive-services.md
+    - name: アプリをデプロイする
+      items:
+        - name: 'C# Web アプリを Windows VM にデプロイする'
+          href: azure-stack-dev-start-howto-vm-dotnet.md
+        - name: Web アプリを Linux VM にデプロイする
+          items:
+            - name: Web アプリ用の Linux VM をデプロイする
+              href: azure-stack-dev-start-howto-deploy-linux.md
+            - name: Java Web アプリをデプロイする
+              href: azure-stack-dev-start-howto-vm-java.md
+            - name: Go Web アプリをデプロイする
+              href: azure-stack-dev-start-howto-vm-go.md
+            - name: Ruby Web アプリをデプロイする
+              href: azure-stack-dev-start-howto-vm-ruby.md
+            - name: Python Web アプリをデプロイする
+              href: azure-stack-dev-start-howto-vm-python.md
+            - name: NodeJS Web アプリをデプロイする
+              href: azure-stack-dev-start-howto-vm-nodejs.md
+    - name: ハイブリッド クラウド パターンをデプロイする
       items:
         - name: Azure と Azure Stack へのアプリのデプロイ
           href: azure-stack-solution-pipeline.md
@@ -48,198 +239,6 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: 高可用性 SQL Server 2016 のデプロイ
           href: azure-stack-solution-sql-ha.md
-- name: ハウツー ガイド
-  items:
-    - name: Azure Stack ポータルの使用
-      href: azure-stack-use-portal.md
-    - name: PowerShell で接続する
-      href: azure-stack-powershell-configure-user.md
-    - name: セキュリティ、コンプライアンス、ID
-      items:
-        - name: ロールベースのアクセス制御を使用する
-          href: azure-stack-manage-permissions.md
-        - name: アプリ ID を使用してリソースにアクセスする
-          href: /azure-stack/operator/azure-stack-create-service-principals?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-    - name: サービスの使用
-      items:
-        - name: Compute
-          items:
-            - name: 概要
-              href: azure-stack-compute-overview.md
-            - name: VM に関する考慮事項
-              href: azure-stack-vm-considerations.md
-            - name: VM サイズ
-              href: azure-stack-vm-sizes.md
-            - name: VM ディスクの管理
-              href: azure-stack-manage-vm-disks.md
-            - name: マネージド ディスクに関する考慮事項
-              href: azure-stack-managed-disk-considerations.md
-            - name: VM の保護
-              href: azure-stack-manage-vm-protect.md
-            - name: VM の更新と管理
-              href: vm-update-management.md
-            - name: SQL Server VM に関する考慮事項
-              href: azure-stack-sql-server-vm-considerations.md
-        - name: Storage
-          items:
-            - name: 概要
-              href: azure-stack-storage-overview.md
-            - name: ストレージに関する考慮事項
-              href: azure-stack-acs-differences.md
-            - name: ストレージ開発ツール
-              href: azure-stack-storage-dev.md
-            - name: データ転送ツール
-              href: azure-stack-storage-transfer.md
-            - name: ストレージ エクスプローラーの接続
-              href: azure-stack-storage-connect-se.md
-        - name: ネットワーク
-          items:
-            - name: 概要
-              href: azure-stack-network-overview.md
-            - name: ネットワークに関する考慮事項
-              href: azure-stack-network-differences.md
-            - name: VPN ゲートウェイ
-              items:
-                - name: VPN を使用した接続
-                  href: azure-stack-connect-vpn.md
-                - name: VPN ゲートウェイについて
-                  href: azure-stack-vpn-gateway-about-vpn-gateways.md
-                - name: IPsec/IKE 接続ポリシーの構成
-                  href: azure-stack-vpn-s2s.md
-                - name: VPN ゲートウェイの設定
-                  href: azure-stack-vpn-gateway-settings.md
-            - name: Azure Stack 用の iDNS
-              href: azure-stack-understanding-dns.md
-            - name: Azure Stack の DNS
-              href: azure-stack-dns.md
-        - name: Key Vault
-          items:
-            - name: 概要
-              href: azure-stack-key-vault-intro.md
-            - name: ポータルを使用した管理
-              href: azure-stack-key-vault-manage-portal.md
-            - name: PowerShell で管理する
-              href: azure-stack-key-vault-manage-powershell.md
-            - name: シークレットを使用して VM を作成する
-              href: azure-stack-key-vault-deploy-vm-with-secret.md
-            - name: 証明書を使用して VM を作成する
-              href: azure-stack-key-vault-push-secret-into-vm.md
-            - name: Key Vault に資格情報を格納する
-              href: azure-stack-key-vault-store-credentials.md
-            - name: Key Vault サンプル アプリ
-              href: azure-stack-key-vault-sample-app.md
-        - name: Azure Monitor
-          href: azure-stack-metrics-azure-data.md
-          items:
-            - name: サポートされるメトリック
-              href: azure-stack-metrics-supported.md
-            - name: Azure 監視データの使用
-              href: azure-stack-metrics-monitor.md
-        - name: ソリューション テンプレート
-          items:
-            - name: Ethereum のデプロイ
-              href: azure-stack-ethereum.md
-            - name: Service Fabric クラスターのデプロイ
-              href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: Kubernetes クラスターのデプロイ
-              href: azure-stack-solution-template-kubernetes-deploy.md
-              items:
-                - name: Azure AD を使用した Kubernetes のデプロイ
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: AD FS を使用した Kubernetes のデプロイ
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: Kubernetes ダッシュボードの有効化
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Kubernetes クラスターのトラブルシューティング
-                  href: azure-stack-solution-template-kubernetes-trouble.md
-            - name: Cognitive Services のデプロイ
-              href: azure-stack-solution-template-cognitive-services.md
-    - name: Azure Stack Resource Manager の使用
-      items:
-        - name: クライアントの構成
-          items:
-            - name: Azure SDK クライアント
-              href: azure-stack-dev-start.md
-            - name: Azure Stack PowerShell クライアント
-              items:
-                - name: Azure Stack PowerShell の概要
-                  href: azure-stack-powershell-overview.md
-                - name: Azure Stack PowerShell のインストール
-                  href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                  maintainContext: true
-                - name: PowerShell で接続する
-                  href: azure-stack-powershell-configure-user.md
-                - name: Azure Stack ツールのダウンロード
-                  href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
-                  maintainContext: true
-                - name: Docker を使用して PowerShell を実行する
-                  href: azure-stack-powershell-user-docker.md
-            - name: Visual Studio Code クライアント
-              href: azure-stack-dev-start-vscode-azure.md
-            - name: Visual Studio クライアント
-              href: azure-stack-install-visual-studio.md
-            - name: Secure Shell クライアント
-              href: azure-stack-dev-start-howto-ssh-public-key.md
-            - name: API バージョンのプロファイルの使用
-              items:
-                - name: 概要
-                  href: azure-stack-version-profiles.md
-                - name: .NET
-                  href: azure-stack-version-profiles-net.md
-                - name: Java
-                  href: azure-stack-version-profiles-java.md
-                - name: Azure CLI
-                  href: azure-stack-version-profiles-azurecli2.md
-                - name: Go
-                  href: azure-stack-version-profiles-go.md
-                - name: Ruby
-                  href: azure-stack-version-profiles-ruby.md
-                - name: Python
-                  href: azure-stack-version-profiles-python.md
-                - name: プロファイルでサポートされているリソース プロバイダー API
-                  href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: VM と Web アプリをデプロイする
-          items:
-            - name: 'C# Web アプリを Windows VM にデプロイする'
-              href: azure-stack-dev-start-howto-vm-dotnet.md
-            - name: Web アプリを Linux VM にデプロイする
-              items:
-                - name: Web アプリ用の Linux VM をデプロイする
-                  href: azure-stack-dev-start-howto-deploy-linux.md
-                - name: Java Web アプリをデプロイする
-                  href: azure-stack-dev-start-howto-vm-java.md
-                - name: Go Web アプリをデプロイする
-                  href: azure-stack-dev-start-howto-vm-go.md
-                - name: Ruby Web アプリをデプロイする
-                  href: azure-stack-dev-start-howto-vm-ruby.md
-                - name: Python Web アプリをデプロイする
-                  href: azure-stack-dev-start-howto-vm-python.md
-                - name: NodeJS Web アプリをデプロイする
-                  href: azure-stack-dev-start-howto-vm-nodejs.md
-        - name: Azure Stack ポリシー モジュールの使用
-          href: azure-stack-policy-module.md
-        - name: テンプレートの使用
-          items:
-            - name: テンプレートの概要
-              href: azure-stack-arm-templates.md
-            - name: テンプレートに関する考慮事項
-              href: azure-stack-develop-templates.md
-            - name: Azure でのテンプレートの開発
-              href: azure-stack-developer.md
-            - name: テンプレートの確認
-              href: azure-stack-validate-templates.md
-            - name: ポータルでのデプロイ
-              href: azure-stack-deploy-template-portal.md
-            - name: PowerShell でデプロイする
-              href: azure-stack-deploy-template-powershell.md
-            - name: CLI を使用したデプロイ
-              href: azure-stack-deploy-template-command-line.md
-            - name: Visual Studio でのデプロイ
-              href: azure-stack-deploy-template-visual-studio.md
-        - name: REST を使用してリソースにアクセスする
-          href: azure-stack-rest-api-use.md
-    - name: クラウド サービス プロバイダーの有効化
-      href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: 概念
   items:
     - name: ハイブリッド クラウド パターン
