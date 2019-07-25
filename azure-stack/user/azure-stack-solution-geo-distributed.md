@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a348e4e7eada9537defa292f667cfd3eb1e27438
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492456"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286954"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
+# <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Azure と Azure Stack を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 地理的分散アプリ パターンを使用して、さまざまなメトリックに基づき、特定のエンドポイントにトラフィックを送信する方法について説明します。 地理的ベースのルーティングとエンドポイント構成で Traffic Manager プロファイルを作成すると、リージョンの要件、企業および国際的な規制、およびデータ ニーズに基づいて、情報がエンドポイントにルーティングされます。
 
-このチュートリアルでは、以下を実現するためのサンプル環境を構築します。
+このソリューションでは、以下を実現するためのサンプル環境を構築します。
 
 > [!div class="checklist"]
 > - 地理的分散アプリを作成します。
@@ -42,7 +42,7 @@ ms.locfileid: "67492456"
 
 #### <a name="scalability-considerations"></a>スケーラビリティに関する考慮事項
 
-このチュートリアルで作成するソリューションは、スケーラビリティに対応しません。 ただし、他の Azure とオンプレミスのソリューションと組み合わせて使用すれば、スケーラビリティ要件に対応できます。 Traffic Manager を介した自動スケーリングを伴うハイブリッド ソリューションの作成に関する詳細については、「[Azure でクラウド間スケーリング ソリューションを作成する](azure-stack-solution-cloud-burst.md)」を参照してください。
+この記事で作成するソリューションは、スケーラビリティに対応しません。 ただし、他の Azure とオンプレミスのソリューションと組み合わせて使用すれば、スケーラビリティ要件に対応できます。 Traffic Manager を介した自動スケーリングを伴うハイブリッド ソリューションの作成に関する詳細については、「[Azure でクラウド間スケーリング ソリューションを作成する](azure-stack-solution-cloud-burst.md)」を参照してください。
 
 #### <a name="availability-considerations"></a>可用性に関する考慮事項
 
@@ -74,7 +74,7 @@ ms.locfileid: "67492456"
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](https://aka.ms/hybrid-cloud-applications-pillars)に関するホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ## <a name="part-1-create-a-geo-distributed-app"></a>パート 1:地理的分散アプリを作成する
 
@@ -260,9 +260,9 @@ Azure DevOps および Azure DevOps Server が提供するパイプラインは�
 
 ### <a name="prerequisites"></a>前提条件
 
-このチュートリアルを完了するには、以下が必要です。
+このソリューションを完了するには:
 
--   [App Service アプリを作成する](https://docs.microsoft.com/azure/app-service/)か、別のチュートリアルで作成したアプリを使用します。
+-   [App Service アプリを作成する](https://docs.microsoft.com/azure/app-service/)か、別のソリューションで作成したアプリを使用します。
 
 -   ドメイン名を購入し、ドメイン プロバイダーの DNS レジストリへのアクセスを確認します。
 
@@ -371,7 +371,7 @@ CNAME を追加した後の DNS レコード ページは次の例のように�
 
 ### <a name="prerequisites"></a>前提条件
 
-このチュートリアルを完了するには、以下が必要です。
+このソリューションを完了するには:
 
 -   [App Service アプリを作成します。](https://docs.microsoft.com/azure/app-service/)
 -   [カスタム DNS 名を Web アプリにマップします。](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)

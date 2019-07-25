@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: fedfd7f83a35398586734fa647751e537b850bf8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 9c8807d6fb28a99c9de8464a0eaff7114bd6a162
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310057"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418276"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>サービスとしての検証のトラブルシューティング
 
@@ -93,7 +93,7 @@ ms.locfileid: "64310057"
 環境が正常である場合は、VaaS テストの実行に必要な 5 つの VM イメージを手動でアップロードします。
 
 1. 管理ポータルにサービス管理者としてサインインします。 管理ポータルの URL は、ECE ストアまたはスタンプ情報ファイルで確認できます。 手順については、「[環境パラメーター](azure-stack-vaas-parameters.md#environment-parameters)」をご覧ください。
-1. **[その他のサービス]** > **[リソース プロバイダー]** > **[コンピューティング]** > **[VM イメージ]** を選択します。
+1. **[その他のサービス]**  >  **[リソース プロバイダー]**  >  **[コンピューティング]**  >  **[VM イメージ]** を選択します。
 1. **[VM イメージ]** ブレードの上部にある **[+ 追加]** を選択します。
 1. 最初の VM イメージの次のフィールドの値を変更または確認します。
     > [!IMPORTANT]
@@ -103,9 +103,9 @@ ms.locfileid: "64310057"
     |---------|---------|
     | Publisher | MicrosoftWindowsServer |
     | プラン | WindowsServer |
-    | [OS Type]\(OS の種類\) |  Windows |
+    | [OS Type]\(OS の種類\) | Windows |
     | SKU | 2012-R2-Datacenter |
-    | バージョン | 1.0.0 |
+    | Version | 1.0.0 |
     | OS ディスク BLOB URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 
 1. **[作成]** ボタンを選択します。
@@ -113,11 +113,11 @@ ms.locfileid: "64310057"
 
 全 5 つの VM イメージのプロパティは次のとおりです。
 
-| Publisher  | プラン  | [OS Type]\(OS の種類\) | SKU | バージョン | OS ディスク BLOB URI |
+| Publisher  | プラン  | [OS Type]\(OS の種類\) | SKU | Version | OS ディスク BLOB URI |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| WindowsServer |  Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer |  Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer |  Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
 | Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
 | Canonical | UbuntuServer | Linux | 16.04 LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
 

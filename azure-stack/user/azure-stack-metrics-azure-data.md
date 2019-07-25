@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の Azure Monitor | Microsoft Docs
-description: Azure Stack 上の Azure Monitor について説明します。
+title: Azure Stack 上の Azure Monitor を使用する | Microsoft Docs
+description: Azure Stack 上の Azure Monitor の使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,24 +14,24 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: a4905951910a220185a8ae0651f5297c97af41f2
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: d243a574e43d3a68d3d5caf0f60235019a57462a
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311449"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816252"
 ---
-# <a name="azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor
+# <a name="use-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor を使用する
 
 *適用対象:Azure Stack 統合システム*
 
 この記事では、Azure Stack 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack での Azure Monitor の使用方法に関するその他の情報を紹介します。 
 
-Azure Monitor の紹介、概要、および使用開始方法については、[Azure Stack 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関する Azure の記事を参照してください。
+Azure Monitor の概要については、[Azure Stack 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
 
 ![Azure Stack の Monitor ブレード](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure Monitor は、Azure リソースを監視するための 1 つのソースを提供するプラットフォーム サービスです。 Azure Monitor を使用すると、Azure のリソースのメトリックとログに対して、視覚化、クエリ、ルーティング、アーカイブなどのアクションを実行できます。 このデータは、Azure Stack 管理ポータル、Monitor PowerShell コマンドレット、クロスプラットフォーム CLI、または Azure Monitor REST API を使用して操作できます。 Azure Stack でサポートされている特定の接続については、「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照してください
+Azure Monitor は、Azure リソースを監視するための 1 つのソースを提供するプラットフォーム サービスです。 Azure Monitor では、Azure のリソースのメトリックとログを視覚化、クエリ、ルーティング、アーカイブし、そのメトリックとログに対してその他のアクションを実行できます。 このデータは、Azure Stack 管理ポータル、Monitor PowerShell コマンドレット、クロスプラットフォーム CLI、または Azure Monitor REST API を使用して操作できます。 Azure Stack でサポートされている特定の接続については、「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照してください。
 
 > [!Note]
 > Azure Stack Development Kit では、メトリックと診断ログを使用できません。
@@ -43,7 +43,7 @@ Azure Monitor は、Azure リソースを監視するための 1 つのソース
 1. Azure Stack 管理ポータルを開きます。
 2. **[オファー]** を選択します。
 3. サブスクリプションに関連付けられているオファーを選択します。
-4. **[設定]** で、**[リソース プロバイダー]** を選択します。 
+4. **[設定]** で、 **[リソース プロバイダー]** を選択します。 
 5. 一覧内で **Microsoft.Insights** を見つけ、状態が **[登録済み]** になっていることを確認します。
 
 ## <a name="overview-of-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor の概要
@@ -55,16 +55,16 @@ Azure 上の Azure Monitor と同様、Azure Monitor 上の Azure Stack では�
 ![Azure Stack 上の Azure Monitor のソース: コンピューティングのサブセット](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Azure Stack 上の **Microsoft.Compute** リソース プロバイダーには、以下が含まれます。
- - Virtual Machines 
+ - 仮想マシン 
  - 仮想マシン スケール セット
 
-### <a name="application---diagnostics-logs-application-logs-and-metrics"></a>アプリケーション - 診断ログ、アプリケーション ログ、およびメトリック
+### <a name="application---diagnostics-logs-app-logs-and-metrics"></a>アプリケーション - 診断ログ、アプリ ログ、およびメトリック
 
-アプリケーションは、**Microsoft.Compute** リソース プロバイダーで実行されている VM の OS で実行できます。 これらのアプリケーションと VM からは、それぞれに固有のログとメトリックのセットが出力されます。 Azure Monitor は、Azure 診断拡張機能 (Windows または Linux) を利用して、アプリケーション レベルのメトリックとログの大半を収集します。 
+アプリは、**Microsoft.Compute** リソース プロバイダーで実行されている VM の OS で実行できます。 これらのアプリと VM からは、それぞれに固有のログとメトリックのセットが出力されます。 Azure Monitor は、Azure 診断拡張機能 (Windows または Linux) を利用して、アプリ レベルのメトリックとログの大半を収集します。
 
 メジャーの種類は次のとおりです。
  - パフォーマンス カウンター
- - アプリケーション ログ
+ - アプリ ログ
  - Windows イベント ログ
  - .NET イベント ソース
  - IIS ログ
@@ -115,9 +115,9 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 グラフィックスやグラフで監視データを視覚化すると、データ自体を見るよりも格段に早く傾向を把握できます。 
 
 視覚化の方法には、次のようなものがあります。
- - Azure Stack ユーザーおよび管理ポータルを使用する
- - データを Microsoft Power BI にルーティングする
- - ライブ ストリーミングを使ってサード パーティ製の視覚化ツールにデータをルーティングするか、ツールに Azure Storage のアーカイブからデータを読み込ませる
+ - Azure Stack ユーザーおよび管理ポータルを使用する。
+ - データを Microsoft Power BI にルーティングする。
+ - ライブ ストリーミングを使ってサード パーティ製の視覚化ツールにデータをルーティングするか、ツールに Azure Storage のアーカイブからデータを読み込ませる。
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor にアクセスする方法
 
@@ -131,4 +131,4 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 
 ## <a name="next-steps"></a>次の手順
 
-「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照して、Azure Stack での監視データの使用に関するオプションの詳細を確認してください。
+「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照して、Azure Stack での監視データの使用の詳細を確認してください。

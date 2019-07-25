@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: scenario
 ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 97869ef7659cb5619ff962fc4b3bc8facbc599ed
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 73fc9559e639973b07c576f8590c756032db0c3e
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492439"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286937"
 ---
-# <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>チュートリアル:Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
+# <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-このチュートリアルでは、Azure パブリック クラウドと Azure Stack プライベート クラウドを使用するハイブリッド クラウド ソリューションのデプロイ方法について説明します。
+このシナリオでは、Azure パブリック クラウドと Azure Stack プライベート クラウドを使用するハイブリッド クラウド ソリューションのデプロイ方法について説明します。
 
 ハイブリッド クラウド ソリューションを使用することで、プライベート クラウドが持つコンプライアンス面でのメリットとパブリック クラウドが持つスケーラビリティとを融合することができます。 加えて開発者は、Microsoft デベロッパーのエコシステムを活用し、クラウド環境とオンプレミス環境にそのスキルを活かすことができます。
 
@@ -46,6 +46,12 @@ ms.locfileid: "67492439"
 > - トラフィックの増加に関して Application Insights の監視とアラートを設定する。
 > - グローバル Azure と Azure Stack の間で自動トラフィック切り替えを構成する。
 
+> [!Tip]  
+> ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
+> 
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+
 ### <a name="assumptions"></a>前提条件
 
 このチュートリアルは、グローバル Azure と Azure Stack についての基本知識があることを前提にしています。 チュートリアルを開始する前に、より詳しい情報を確認しておきたい場合は、以下の記事をお読みください。
@@ -57,7 +63,7 @@ ms.locfileid: "67492439"
 
 ## <a name="prerequisites"></a>前提条件
 
-このチュートリアルを開始する前に、次の要件を満たしてください。
+このソリューションを開始する前に、次の要件を満たしてください。
 
 - Azure Stack 統合システムのサブスクリプションまたは Azure Stack Development Kit (ASDK)。 Azure Stack Development Kit をデプロイするには、[インストーラーを使用した ASDK のデプロイ](../asdk/asdk-install.md)に関するページの手順に従ってください。
 - ご利用の Azure Stack 環境に次のものがインストールされている必要があります。

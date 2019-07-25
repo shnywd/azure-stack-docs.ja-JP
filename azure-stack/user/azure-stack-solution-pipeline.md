@@ -1,5 +1,5 @@
 ---
-title: チュートリアル&#58; Azure と Azure Stack にアプリをデプロイする | Microsoft Docs
+title: Azure と Azure Stack にアプリをデプロイする | Microsoft Docs
 description: ハイブリッド CI/CD パイプラインを使用して、アプリを Azure と Azure Stack にデプロイする方法を説明します。
 services: azure-stack
 documentationcenter: ''
@@ -10,25 +10,25 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 03/11/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 9f0f25e5810fc4c9a27d3607defbaca9dcfc0388
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 9fbadb923452fc2420d1f8626a69d377c4d72e12
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66692058"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286961"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>チュートリアル: Azure と Azure Stack へのアプリのデプロイ
+# <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure と Azure Stack へのアプリのデプロイ
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
 ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して、Azure と Azure Stack にアプリをデプロイする方法について学習します。
 
-このチュートリアルでは、以下を実現するためのサンプル環境を作成します。
+このソリューションでは、以下を実現するためのサンプル環境を作成します。
 
 > [!div class="checklist"]
 > * コード コミットに基づいて、Azure DevOps Services リポジトリに対して新しいビルドを開始します。
@@ -51,9 +51,9 @@ CI と CD については、次の記事をご覧ください。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack により、オンプレミス環境にクラウド コンピューティングの機敏性と革新がもたらされます。 これは、ハイブリッド アプリをビルドして任意の場所にデプロイできる唯一のハイブリッド クラウドです。  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> 「[Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars)」 (ハイブリッド アプリケーションのための設計の考慮事項) ホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、運用環境での課題を最小限に抑えるハイブリッド アプリケーションの設計を最適化するのに役立ちます。
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -63,9 +63,9 @@ CI と CD については、次の記事をご覧ください。
 * Azure Stack オペレーターは、App Service のデプロイ、プランとオファーの作成、テナント サブスクリプションの作成、および Windows Server 2016 イメージの追加という項目を完了する必要があります。
 
 >[!NOTE]
->これらのコンポーネントの一部がデプロイ済みである場合は、このチュートリアルを開始する前にそれらがすべての要件を満たしていることを確認してください。
+>これらのコンポーネントの一部がデプロイ済みである場合は、このソリューションを開始する前にそれらがすべての要件を満たしていることを確認してください。
 
-このチュートリアルは、Azure と Azure Stack について一定の基本知識があることを前提にしています。 チュートリアルを開始する前に詳細を確認するには、次の記事をお読みください。
+このソリューションは、Azure と Azure Stack について一定の基本知識があることを前提にしています。 ソリューションを開始する前に詳細を確認するには、次の記事をお読みください。
 
 * [Azure 入門](https://azure.microsoft.com/overview/what-is-azure/)
 * [Azure Stack の主要概念](../operator/azure-stack-overview.md)
@@ -73,12 +73,12 @@ CI と CD については、次の記事をご覧ください。
 ### <a name="azure-requirements"></a>Azure の要件
 
 * Azure サブスクリプションをお持ちでない場合は、開始する前に [無料アカウント](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) を作成してください。
-* Azure で [Web アプリ](https://docs.microsoft.com/azure/app-service/overview)を作成します。 Web アプリの URL は書き留めておいてください。このチュートリアルの中で必要になります。
+* Azure で [Web アプリ](https://docs.microsoft.com/azure/app-service/overview)を作成します。 Web アプリの URL は書き留めておいてください。このソリューションの中で必要になります。
 
 ### <a name="azure-stack-requirements"></a>Azure Stack の要件
 
 * Azure Stack 統合システムを使用するか、Azure Stack Development Kit (ASDK) をデプロイします。 ASDK をデプロイするには、次の手順を実行します。
-  * 「[チュートリアル:インストーラーを使用する ASDK のデプロイ](../asdk/asdk-install.md)に関する記事に詳しいデプロイ手順が示されています。
+  * [ソリューション:インストーラーを使用する ASDK のデプロイ](../asdk/asdk-install.md)に関する記事に詳しいデプロイ手順が示されています。
   * [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell スクリプトを使って ASDK デプロイ後の手順を自動化します。
 
     > [!Note]
@@ -279,12 +279,12 @@ Visual Studio Online (VSTO) のビルドでは、エンドポイントを作成�
 
 「[Create an Azure Resource Manager service connection with an existing service principal (既存のサービス プリンシパルで Azure Resource Manager サービス接続を作成する)](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal)」の記事の手順に従い、既存のサービス プリンシパルでサービス接続を作成します。次のマッピングを使用してください。
 
-| Name | 例 | 説明 |
+| EnableAdfsAuthentication | 例 | 説明 |
 | --- | --- | --- |
 | 接続名 | Azure Stack Azure AD | 接続の名前。 |
 | 環境 | AzureStack | 環境の名前。 |
 | 環境 URL | `https://management.local.azurestack.external` | 管理エンドポイント。 |
-| スコープのレベル | サブスクリプション | 接続のスコープ。 |
+| スコープのレベル | Subscription | 接続のスコープ。 |
 | サブスクリプション ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack のユーザーのサブスクリプション ID |
 | サブスクリプション名 | name@contoso.com | Azure Stack のユーザーのサブスクリプション名。 |
 | サービス プリンシパルのクライアント ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | この記事で取得したプリンシパル ID ([こちら](azure-stack-solution-pipeline.md#create-a-service-principal)のセクションを参照)。 |
@@ -304,12 +304,12 @@ Azure DevOps の最新の更新プログラムにより、認証に証明書を�
 
 次のマッピングを使用してサービス接続を作成できます。
 
-| Name | 例 | 説明 |
+| EnableAdfsAuthentication | 例 | 説明 |
 | --- | --- | --- |
 | 接続名 | Azure Stack ADFS | 接続の名前。 |
 | 環境 | AzureStack | 環境の名前。 |
 | 環境 URL | `https://management.local.azurestack.external` | 管理エンドポイント。 |
-| スコープのレベル | サブスクリプション | 接続のスコープ。 |
+| スコープのレベル | Subscription | 接続のスコープ。 |
 | サブスクリプション ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | Azure Stack のユーザーのサブスクリプション ID |
 | サブスクリプション名 | name@contoso.com | Azure Stack のユーザーのサブスクリプション名。 |
 | サービス プリンシパルのクライアント ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | AD FS 用に作成したサービス プリンシパルのクライアント ID。 |
@@ -324,7 +324,7 @@ Azure DevOps の最新の更新プログラムにより、認証に証明書を�
 
 ## <a name="develop-your-application-build"></a>アプリケーション ビルドの開発
 
-チュートリアルのこの部分では、次の内容について説明します。
+ソリューションのこの部分では、次のことを行います。
 
 * Azure DevOps Services プロジェクトにコードを追加する。
 * 自己完結型 Web アプリ デプロイを作成する。
