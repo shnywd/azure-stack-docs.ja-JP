@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 96a29ab11ffc15b35c7035576fa68544caef594b
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: ff64a04731f32934c676ece8e29860bbb9acda3f
+ms.sourcegitcommit: 0bb2fdeccda3183d0bf4572819a28af8ca5f244a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648043"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67863152"
 ---
 # <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 の既知の問題
 
@@ -73,12 +73,12 @@ ms.locfileid: "67648043"
 - 修復: SAS オプションを使用して BLOB をアップロードします。
 - 発生頻度: 一般
 
-### <a name="template"></a>Template
+### <a name="update"></a>アップデート
 
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、テンプレート デプロイ ユーザー インターフェイスによって "_" (アンダースコア文字) で始まるテンプレート名のパラメーターの設定が行われません。
-- 修復: テンプレート名から "_" (アンダースコア文字) を削除します。
-- 発生頻度: 一般
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: オペレーター ポータルで、修正プログラムの更新状態が、更新プログラムに対して正しくない状態を示しています。 初期状態は、まだ進行中であっても、更新プログラムのインストールに失敗したことを示します。
+- 修復: ポータルを更新すると、状態が "進行中" に更新されます。
+- 発生頻度: 間欠的
 
 ## <a name="networking"></a>ネットワーク
 

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 7dba3d791a2ce19429506699ae538c747ed37dbd
-ms.sourcegitcommit: 7ceddf8b67f920d5a5eef4a84e157079a53b3374
+ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66821792"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299456"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack での Azure CLI による API バージョンのプロファイルの使用
 
@@ -29,7 +29,7 @@ ms.locfileid: "66821792"
 
 ## <a name="prepare-for-azure-cli"></a>Azure CLI の準備
 
-開発用マシン上で Azure CLI を使用するには、Azure Stack の CA ルート証明書が必要です。 CLI を使用してリソースを管理する場合に、この証明書を使用します。
+Azure Stack Development Kit を使用している場合、開発用マシン上で Azure CLI を使用するには、Azure Stack の CA ルート証明書が必要です。 CLI を使用してリソースを管理する場合に、この証明書を使用します。
 
  - ASDK の外部のワークステーションから CLI を使用する場合は、**Azure Stack の CA ルート証明書**が必要です。  
 
@@ -102,7 +102,7 @@ ASDK ルート証明書を PEM 形式でエクスポートするには:
 
     ![Azure Stack 上の Azure CLI の Python の場所](media/azure-stack-version-profiles-azurecli2/cli-python-location.png)
 
-2. CLI の Python の場所を書き留めておきます。 ASDK を実行する場合には、この場所に証明書を追加する必要があります。
+2. CLI の Python の場所を書き留めておきます。 ASDK を実行する場合には、この場所を使用して証明書を追加する必要があります。
 
 
 ## <a name="windows-azure-ad"></a>Windows (Azure AD)

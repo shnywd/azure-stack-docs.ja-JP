@@ -10,21 +10,21 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7eb57c38de01c3ad7de34b96b4c6baf7a4c14ad8
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: e5e76c3edcaa93e412d2715d7dc732731ac3d2ce
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782603"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816144"
 ---
 # <a name="introduction-to-azure-stack-networking"></a>Azure Stack ネットワークの概要
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack には、単独でまたは組み合わせて使用できるさまざまなネットワーク機能が用意されています。
+Azure Stack には、単独でまたは組み合わせて使用できる、さまざまな種類のネットワーク機能が用意されています。
 
 - **Azure Stack リソースの間の接続**  
-    クラウド内の安全なプライベート仮想ネットワークで Azure のリソースを接続します。
+    クラウド内の安全でプライベートな仮想ネットワークで Azure のリソースを接続します。
 - **インターネット接続**  
     インターネットを介して双方向で Azure Stack リソースと通信します。
 - **オンプレミスの接続**  
@@ -32,7 +32,7 @@ Azure Stack には、単独でまたは組み合わせて使用できるさま�
 - **負荷分散とトラフィックの方向**  
     同じ場所のサーバー間でトラフィックを負荷分散したり、異なる場所のサーバーにトラフィックを誘導したりします。
 - **セキュリティ**  
-    ネットワーク サブネット間や個々の仮想マシン (VM) 間のネットワーク トラフィックをフィルタリングします。
+    ネットワーク サブネット間や個々の VM 間のネットワーク トラフィックをフィルタリングします。
 - **ルーティング**  
     Azure Stack リソースとオンプレミス リソースとの間で既定のルーティングまたは完全制御のルーティングを使用します。
 - **管理の容易性**  

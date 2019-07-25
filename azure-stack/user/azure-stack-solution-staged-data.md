@@ -14,18 +14,18 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 7148e93977f50a7c64d79c422c43c6825b22b4a3
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: ca4c2480fff511ab3bad43ea82fc81522d9afba0
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308991"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286741"
 ---
-# <a name="tutorial-deploy-a-staged-data-analytics-solution-to-azure-stack"></a>チュートリアル:Azure Stack にステージング データ分析ソリューションをデプロイする
+# <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Azure Stack にステージング データ分析ソリューションをデプロイする
 
 この記事では、迅速な意思決定ができるように、収集の時点での分析を必要とするデータを収集するためのソリューションをデプロイする方法を示します。 このデータ収集はインターネットにアクセスせずに行われることがあります。 接続が確立されたら、リソース集約的データ分析を行って、さらに洞察を得ることが必要になる場合があります。
 
-このチュートリアルでは、以下を実現するためのサンプル環境を作成します。
+このソリューションでは、以下を実現するためのサンプル環境を作成します。
 
 > [!div class="checklist"]
 > - 生データのストレージ Blob を作成します。
@@ -37,9 +37,9 @@ ms.locfileid: "67308991"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack は、オンプレミスの環境にクラウド コンピューティングの俊敏性とイノベーションを提供し、どこでもハイブリッド アプリをビルドしてデプロイできる唯一のハイブリッド クラウドを実現します。  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](https://aka.ms/hybrid-cloud-applications-pillars)に関するホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ## <a name="architecture-for-staged-data-analytics"></a>ステージング データ分析のためのアーキテクチャ
 

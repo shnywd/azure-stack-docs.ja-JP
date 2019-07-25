@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 9c263b97deb12a199f2941be7ea4ae05a048837b
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131633"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286703"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack コンピューティング
 
@@ -40,7 +40,23 @@ Azure Stack 内でのマルチ VM による実稼働システムの高可用性�
 
 仮想マシン スケール セットは、バックエンド上で可用性セットを使用し、各仮想マシン スケール セット インスタンスが異なる障害ドメインに配置されていることを確認します。 つまり、これらは別々の Azure Stack インフラストラクチャ ノードを使用します。 たとえば、4 ノードの Azure Stack システムの場合、3 つのインスタンスの仮想マシン スケール セットの作成時に 4 ノードの容量が不足しているために 3 つの別々の Azure Stack ノードに 3 つの仮想マシン スケール セット インスタンスを配置できない状況になる場合があります。 さらに、Azure Stack ノードは、配置を試行する前に、さまざまなレベルでいっぱいになることがあります。 
 
-Azure Stack ではメモリがオーバーコミットされません。 ただし、物理コア数のオーバーコミットは許可されています。 配置アルゴリズムでは、既存の仮想対物理コアのオーバープロビジョニングの比率を係数と見なさないため、各ホストの比率が異なる可能性があります。 Microsoft では、ワークロードやサービス レベルの要件に差異があるため、仮想対物理コアの比率に対するガイダンスは提供していません。 
+Azure Stack ではメモリがオーバーコミットされません。 ただし、物理コア数のオーバーコミットは許可されています。 
+
+配置アルゴリズムでは、既存の仮想対物理コアのオーバープロビジョニングの比率を係数と見なさないため、各ホストの比率が異なる可能性があります。 Microsoft では、ワークロードやサービス レベルの要件に差異があるため、仮想対物理コアの比率に対するガイダンスは提供していません。 
+
+## <a name="consideration-for-total-number-of-vms"></a>VM の合計数に関する考慮事項 
+
+Azure Stack のキャパシティを正確に計画するための新しい考慮事項があります。 1901 更新プログラム (および今後のすべての更新プログラム) では、作成できる仮想マシンの合計数に制限があります。 この制限は、ソリューションの不安定性を回避するための一時的なものです。 VM の数が多い場合の安定性の問題の原因は対処されていますが、修復のための具体的なタイムラインは決定されていません。 VM の数は現在、サーバーごとに 60 個、ソリューションの合計で 700 個に制限されています。 たとえば、8 サーバーの Azure Stack VM の制限は 480 個 (8 * 60) になります。 12 ～ 16 サーバーの Azure Stack ソリューションでは、制限は 700 個になります。 この制限は、オペレーターがスタンプで維持したい回復性の予約や仮想と物理の CPU の比率など、コンピューティング容量に関するすべての考慮事項を念頭に置いて作成されています。 詳細については、Capacity Planner の新しいリリースに関するページを参照してください。 
+
+VM のスケールの上限に達すると、次のエラー コードが返されます: VMsPerScaleUnitLimitExceeded、VMsPerScaleUnitNodeLimitExceeded。
+
+## <a name="considerations-for-deallocation"></a>割り当て解除に関する考慮事項
+
+VM が_割り当て解除済み_の状態にある場合、メモリ リソースは使用されていません。 このため、他の VM をシステムに配置できます。 
+
+その後、割り当てが解除された VM が再起動されると、メモリの使用量または割り当てはシステムに配置された新しい VM と同じように扱われ、使用可能なメモリが消費されます。 
+
+使用可能なメモリがない場合、VM は起動しません。
 
 ## <a name="azure-stack-memory"></a>Azure Stack メモリ 
 

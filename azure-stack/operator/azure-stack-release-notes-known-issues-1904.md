@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: f25bc769e7461c21e40017d6413cfbe35186441b
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 3a92a142181b9e2268948d430b0a62d6ffa189d8
+ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419599"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68239430"
 ---
 # <a name="azure-stack-1904-known-issues"></a>Azure Stack 1904 の既知の問題
 
@@ -214,6 +214,11 @@ ms.locfileid: "67419599"
 - 適用先:この問題は、1904 および 1905 リリースに適用されます。
 - 原因: Azure Stack ポータル ( **[ダッシュボード]**  > **[仮想マシン スケール セット]**  >  **[AnyScaleSet - インスタンス]**  >  **[AnyScaleSetInstance]** ) にあるスケール セットのインスタンス ビュー ブレードが読み込みに失敗します。
 - 修復: 現在、修復方法はなく、修正に取り組んでいます。 それまでは、仮想マシン スケール セットのインスタンス ビューの取得には、CLI コマンドレット `az vmss get-instance-view` を使用してください。
+
+### <a name="user-image-service"></a>ユーザー イメージ サービス
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー イメージの作成に失敗すると、ユーザー イメージ サービスが正しくない状態になります。 ユーザー イメージの作成と削除の操作が失敗し始めます。 ユーザー イメージの削除は、次のエラーで失敗することがあります。"エラー: 内部ディスク管理エラーが発生しました。"
+- 修復: 軽減策はありません。 Microsoft にサポート チケットを申請します。
 
 ## <a name="storage"></a>Storage
 

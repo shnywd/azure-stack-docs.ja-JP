@@ -1,24 +1,24 @@
 ---
-title: Azure Stack ネットワークの相違点と考慮事項 | Microsoft Docs
+title: Azure Stack ネットワークの違い | Microsoft Docs
 description: Azure Stack でネットワークを操作する際の違いと考慮事項について説明します。
 services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 06/17/2019
+ms.date: 07/10/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
-ms.reviewer: scottnap
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: a59b716df7e8bf7c9a76abbfcdbe6b300c985c9f
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.reviewer: wamota
+ms.lastreviewed: 07/10/2019
+ms.openlocfilehash: 7e0f533c10e8dae0566284ffb09cfa7281213002
+ms.sourcegitcommit: ca7e6b7b9b27d0d93ee4d5d1eeaf3113bbcea4da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198828"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68229436"
 ---
-# <a name="considerations-for-azure-stack-networking"></a>Azure Stack ネットワークに関する考慮事項
+# <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack ネットワークの違いと考慮事項
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -49,19 +49,19 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | アプリケーション セキュリティ グループ | サポートされています | まだサポートされていません。 |
 | 仮想ネットワーク ゲートウェイ | ポイント対サイト VPN ゲートウェイ | サポートされています | まだサポートされていません。 |
 |  | VNet 間ゲートウェイ | サポートされています | まだサポートされていません。 |
-|  | 仮想ネットワーク ゲートウェイの種類 | Azure では、以下がサポートされています: VPN<br> ExpressRoute <br> ハイパー ネット | Azure Stack では、現時点では VPN の種類のみがサポートされています。 |
+|  | 仮想ネットワーク ゲートウェイの種類 | Azure では、以下がサポートされています: VPN<br> ExpressRoute <br> ハイパー ネット。 | Azure Stack では現在、VPN の種類のみがサポートされています。 |
 |  | VPN ゲートウェイの SKU | Basic、GW1、GW2、GW3、Standard High Performance、Ultra-High Performance をサポートします。 | Basic、Standard、および High-Performance の SKU をサポートします。 |
-|  | VPN の種類 | Azure では、ポリシー ベースおよびルート ベースの両方がサポートされています。 | Azure Stack では、ルート ベースのみがサポートされています。 |
+|  | VPN の種類 | Azure では、ポリシー ベースとルート ベースの両方がサポートされています。 | Azure Stack では、ルート ベースのみがサポートされています。 |
 |  | BGP 設定 | Azure では、BGP ピアリング アドレスとピアの重みの構成がサポートされています。 | BGP ピアリング アドレスとピアの重みは、Azure Stack で自動構成されます。 ユーザーがこれらの設定を独自の値で構成する方法はありません。 |
 |  | 既定のゲートウェイ サイト | Azure では、強制トンネリングの既定のサイトの構成がサポートされています。 | まだサポートされていません。 |
 |  | ゲートウェイのサイズ変更 | Azure では、デプロイ後のゲートウェイのサイズ変更がサポートされています。 | サイズ変更はサポートされていません。 |
 |  | 高可用性構成 | アクティブ/アクティブ | アクティブ/パッシブ |
 |  | UsePolicyBasedTrafficSelectors | Azure では、ルート ベースのゲートウェイ接続によるポリシー ベースのトラフィック セレクターの使用がサポートされています。 | まだサポートされていません。 |
-| Load Balancer | SKU | Basic Load Balancer と Standard Load Balancer がサポートされています | Basic Load Balancer のみがサポートされています。  SKU のプロパティはサポートされていません。 |
+| Load Balancer | SKU | Basic Load Balancer と Standard Load Balancer がサポートされています | Basic Load Balancer のみがサポートされています。<br>SKU のプロパティはサポートされていません。<br>Basic SKU ロード バランサーの /path/ には、5 つを超えるフロントエンド IP 構成を含めることはできません。  |
 |  | ゾーン | Availability Zones がサポートされています。 | まだサポートされていません |
 |  | サービス エンドポイントの受信 NAT ルール サポート | Azure では、受信 NAT 規則のサービス エンドポイントの指定がサポートされています。 | Azure Stack でサービス エンドポイントはまだサポートされていないため、指定できません。 |
 |  | Protocol | Azure では、GRE または ESP の指定がサポートされています。 | Azure Stack では、プロトコル クラスはサポートされていません。 |
-| パブリック IP アドレス | パブリック IP アドレスのバージョン | Azure では、IPv6 と IPv4 の両方がサポートされています | IPv4 のみがサポートされています。 |
+| パブリック IP アドレス | パブリック IP アドレスのバージョン | Azure では、IPv6 と IPv4 の両方がサポートされています。 | IPv4 のみがサポートされています。 |
 | ネットワーク インターフェイス | 有効なルート テーブルの取得 | サポートされています | まだサポートされていません。 |
 |  | 有効な ACL の取得 | サポートされています | まだサポートされていません。 |
 |  | Accelerated Networking の有効化 | サポートされています | まだサポートされていません。 |

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fcf27c8ebbde86e775b54eda593b25fcd03979c
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
+ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197284"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68303156"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack と Azure の違い
 
@@ -32,7 +32,7 @@ Azure Stack は、会社またはサービス プロバイダーのデータセ�
 
 Azure Stack オペレーターは、ユーザーに使用可能なサービスと、サポートを受ける方法を知らせます。 これらのサービスはカスタマイズされたプランやオファーを通じて提供されます。
 
-Azure に関する技術的な内容は、Azure Stack ではなく、Azure サービス用にアプリが開発されていることを前提としています。 アプリを作成して Azure Stack にデプロイする場合は、次のようないくつかの主な違いを理解する必要があります。
+Azure に関する技術的なドキュメントの内容は、Azure Stack ではなく、Azure サービス用にアプリが開発されていることを前提としています。 アプリを作成して Azure Stack にデプロイする場合は、次のようないくつかの主な違いを理解する必要があります。
 
 * Azure Stack では、Azure で利用可能なサービスと機能のサブセットが提供されます。
 * 会社またはサービス プロバイダーは、提供するサービスを選択できます。 使用可能なオプションには、カスタマイズされたサービスまたはアプリケーションが含まれる場合があります。 独自のカスタマイズされたドキュメントが提供される場合もあります。
@@ -48,7 +48,7 @@ Azure に関する技術的な内容は、Azure Stack ではなく、Azure サ�
 | 領域 | Azure (グローバル) | Azure Stack |
 | -------- | ------------- | ----------|
 | 運用担当(オペレーター) | Microsoft | 組織またはサービス プロバイダー。|
-| サポートに関する連絡先 | Microsoft | 統合システムについては、(組織またはサービス プロバイダーの) Azure Stack オペレーターにお問い合わせください。<br><br>Azure Stack Development Kit のサポートについては、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)にアクセスして確認してください。 開発キットは評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通した正式なサポートは提供されていません。
+| サポートに関する連絡先 | Microsoft | 統合システムについては、(組織またはサービス プロバイダーの) Azure Stack オペレーターにお問い合わせください。<br><br>Azure Stack Development Kit (ASDK) のサポートについては、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)にアクセスして確認してください。 開発キットは評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通した正式なサポートは提供されていません。
 | 利用可能なサービス | [Azuer 製品](https://azure.microsoft.com/services/?b=17.04b)の一覧を参照してください。 利用可能なサービスは Azure リージョンによって異なります。 | Azure Stack では Azure サービスのサブセットがサポートされます。 提供される実際のサービスは、組織またはサービス プロバイダーによる選択内容によって異なります。
 | Azure Resource Manager のエンドポイント* | https://management.azure.com | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、 https://management.local.azurestack.external を使用します。
 | ポータル URL* | [https://portal.azure.com](https://portal.azure.com) | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供された URL を使用します。<br><br>開発キットの場合は、 https://portal.local.azurestack.external を使用します。
@@ -67,7 +67,7 @@ Microsoft では、Azure Stack 向けの開発に役立つツールとガイダ�
 | -------- | ------------- |
 | 開発者用ワークステーションに適切なツールをインストールします。 | - [PowerShell のインストール](../operator/azure-stack-powershell-install.md)<br>- [ツールのダウンロード](../operator/azure-stack-powershell-download.md)<br>- [PowerShell の構成](azure-stack-powershell-configure-user.md)<br>- [Visual Studio のインストール](azure-stack-install-visual-studio.md) 
 | 次の項目に関する情報を確認します。<br>- Azure Resource Manager テンプレートに関する考慮事項<br>- クイックスタート テンプレートを見つける方法<br>- Azure Stack 向けの開発で Azure を使用する場合に役立つポリシー モジュールの使用 | [Azure Stack 向けの開発](azure-stack-developer.md) | 
-| テンプレートのベスト プラクティスを確認して、それに従います。 | [Resource Manager のクイックスタート テンプレート](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
+| テンプレートのベスト プラクティスを確認して、それに従います。 | [Resource Manager のクイックスタート テンプレート](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
 | | |
 
 ## <a name="version-requirements"></a>バージョンの要件

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack のマネージド ディスクとマネージド イメージに関する相違点と考慮事項 | Microsoft Docs
+title: Azure Stack マネージド ディスクの違いと考慮事項 | Microsoft Docs
 description: Azure Stack でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9ea7c3de75be447870d0506cebbbbe8af0f2ffe9
-ms.sourcegitcommit: 1c4eda123857d714109e38bb853eb1ce49af5f5c
+ms.openlocfilehash: 8ccaa5bf3ae4b53b2c4fe70995a751f87756c039
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67648087"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816237"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack マネージド ディスク: 相違点と考慮事項
 
-この記事は、[Azure Stack のマネージド ディスク](azure-stack-manage-vm-disks.md)と [Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の既知の相違点をまとめたものです。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+この記事は、[Azure Stack のマネージド ディスク](azure-stack-manage-vm-disks.md)と [Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の相違点をまとめたものです。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
-マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS VM のディスク管理が簡素化されます。
+マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS 仮想マシン (VM) のディスク管理が簡素化されます。
 
 > [!NOTE]  
-> Azure Stack のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack ポータルを使用して仮想マシンを作成すると、既定で有効になります。
+> Azure Stack のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack ポータルを使用して VM を作成すると、既定で有効になります。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>チート シート: マネージド ディスクの相違点
 
@@ -45,9 +45,9 @@ ms.locfileid: "67648087"
 |Premium Disk の IOP  |ディスク サイズによって異なります  |ディスクあたりの 2300 IOP |
 |Premium ディスクのスループット |ディスク サイズによって異なります |ディスクあたり 145 MB/秒 |
 |ディスク サイズ  |Azure Premium ディスク:P4 (32 GiB) ～ P80 (32 TiB)<br>Azure Standard SSD ディスク:E10 (128 GiB) ～ E80 (32 TiB)<br>Azure Standard HDD ディスク:S4 (32 GiB) ～ S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1,024 GiB |
-|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはサポートされています|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはまだサポートされていません |
+|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはサポートされています|まだサポートされていません |
 |ディスクのパフォーマンス分析 |サポートされる合計メトリックおよびディスクあたりのメトリック |まだサポートされていません |
-|移行      |VM を再作成する必要なしに既存のアンマネージド Azure Resource Manager VM から移行するためのツールが提供されます  |まだサポートされていません |
+|移行      |VM を再作成せずに既存の非管理対象の Azure Resource Manager VM から移行するためのツールを提供します  |まだサポートされていません |
 
 > [!NOTE]  
 > Azure Stack のマネージド ディスクの IOP とスループットは、プロビジョニングされた数値に代わりの上限数です。これは Azure Stack で実行されているハードウェアとワークロードによって影響を受ける可能性があります。
@@ -56,7 +56,7 @@ ms.locfileid: "67648087"
 
 ストレージ メトリックにも相違点があります。
 
-- Azure Stack では、ストレージ メトリックのトランザクション データで、内部と外部のネットワーク帯域幅は区別されません。
+- Azure Stack では、ストレージ メトリックのトランザクション データは、内部と外部のネットワーク帯域幅を区別しません。
 - ストレージ メトリックの Azure Stack トランザクション データには、マウントされたディスクへの仮想マシンのアクセスは含まれません。
 
 ## <a name="api-versions"></a>API のバージョン
@@ -69,7 +69,7 @@ Azure Stack のマネージド ディスクは次の API バージョンをサ�
 ## <a name="convert-to-managed-disks"></a>マネージド ディスクへの変換
 
 > [!NOTE]  
-> Azure Stack でアンマネージド ディスクをマネージド ディスクに変更する場合に、Azure PowerShell コマンドレット **ConvertTo-AzureRmVMManagedDisk** は使用できません。 Azure Stack では、このコマンドレットはまだサポートされません。
+> Azure Stack でアンマネージド ディスクをマネージド ディスクに変更する場合に、Azure PowerShell コマンドレット **ConvertTo-AzureRmVMManagedDisk** は使用できません。 Azure Stack は現在、このコマンドレットをサポートしていません。
 
 次のスクリプトを使用して、現在プロビジョニングされている VM をアンマネージド ディスクからマネージド ディスクに変換できます。 プレースホルダーを実際の値に置き換えてください。
 
@@ -159,13 +159,13 @@ Windows の場合は、「[Sysprep を使用して Windows VM を一般化する
 
 この手順を実行する前に、VM を適切に一般化してください。 一般化の後ではその VM を使用できなくなります。 適切に一般化されていないイメージから VM を作成すると、**VMProvisioningTimeout** エラーが発生します。
 
-[ストレージ アカウントで VHD からイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)手順に従って、ストレージ アカウントで汎用化された VHD からマネージド イメージを作成します。 以降、このイメージを使用して、マネージド VM を作成します。
+[ストレージ アカウントで VHD からイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)手順に従って、ストレージ アカウントで汎用化された VHD からマネージド イメージを作成します。 このイメージは、後でマネージド VM を作成するために使用できます。
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>ケース 2:Powershell を使用してマネージド イメージからマネージド VM を作成する
 
-「[PowerShell を使ってマネージド ディスクからイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)」のスクリプトを使って既存のマネージド ディスク VM からイメージを作成した後、次のサンプル スクリプトで、既存のイメージ オブジェクトから類似の Linux VM を作成します。
+「[PowerShell を使ってマネージド ディスクからイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)」のスクリプトを使って既存のマネージド ディスク VM からイメージを作成した後、次のサンプル スクリプトを使って、既存のイメージ オブジェクトから類似の Linux VM を作成します。
 
-Azure Stack PowerShell モジュール 1.7.0 以上: [マネージド イメージから VM を作成する](/azure/virtual-machines/windows/create-vm-generalized-managed)に説明されている手順に従います。
+Azure Stack PowerShell モジュール 1.7.0 以上:[マネージド イメージから VM を作成する](/azure/virtual-machines/windows/create-vm-generalized-managed)の手順に従います。
 
 Azure Stack PowerShell モジュール 1.6.0 以前:
 
@@ -223,12 +223,12 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 
 ## <a name="configuration"></a>構成
 
-1808 以降の更新プログラムを適用した後、マネージド ディスクを使用する前に次の構成を実行する必要があります。
+1808 以降の更新プログラムを適用した後、マネージド ディスクを使用する前に次の構成変更を行う必要があります。
 
 - 1808 更新プログラムの前にサブスクリプションが作成された場合は、次の手順に従ってサブスクリプションを更新します。 そうでないと、このサブスクリプションに VM をデプロイする操作がエラー メッセージ "ディスク マネージャーでの内部エラーです" で失敗することがあります。
    1. Azure Stack ユーザー ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** をクリックし、 **[Microsoft.Compute]** をクリックした後、 **[再登録]** をクリックします。
    2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、 **[Azure Stack - マネージド ディスク]** がリストに含まれていることを確認します。
-- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうしないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイする操作が "**ディスク マネージャーでの内部エラーです**" というエラー メッセージとともに失敗することがあります。
+- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうでないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイする操作がエラー メッセージ "ディスク マネージャーでの内部エラーです" で失敗することがあります。
 
 ## <a name="next-steps"></a>次の手順
 

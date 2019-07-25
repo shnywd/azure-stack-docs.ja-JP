@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 5d3d32df25aeba90ef065fc4363f0887dcbc36e5
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447839"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418361"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>VaaS ポータルでのテストの監視と管理
 
@@ -53,10 +53,10 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 ### <a name="add-tests-test-pass-only"></a>テストを追加する (テスト成功のみ)
 
-**テスト成功**のワークフローでは、**[テストの追加]** ボタンでも **[編集]** ボタンでも、ワークフローに新しいテストをスケジュールすることができます。
+**テスト成功**のワークフローでは、 **[テストの追加]** ボタンでも **[編集]** ボタンでも、ワークフローに新しいテストをスケジュールすることができます。
 
 > [!TIP]
-> 新しいテストをスケジュールするだけで、**テスト成功**のワークフローのパラメーターを編集する必要がない場合は、**[テストの追加]** を選択します。
+> 新しいテストをスケジュールするだけで、**テスト成功**のワークフローのパラメーターを編集する必要がない場合は、 **[テストの追加]** を選択します。
 
 ## <a name="managing-test-instances"></a>テスト インスタンスを管理する
 
@@ -70,7 +70,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 | --- | --- |
 | テスト名 | テストの名前とバージョン。 |
 | Category | テストの目的。 |
-| 作成日時 | テストがスケジュールされた時刻。 |
+| 作成されました | テストがスケジュールされた時刻。 |
 | 開始済み | テストの実行が開始された時刻。 |
 | Duration | テストが実行された時間の長さ。 |
 | Status | テストの状態または結果。 実行前または進行中の状態は、`Pending`、`Running` です。 終了状態は、`Cancelled`、`Failed`、`Aborted`、`Succeeded` です。 |
@@ -132,7 +132,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 1. 適用できる任意のパラメーターを入力します。
 
-1. テスト インスタンスをスケジュール変更して既存のインスタンスと置き換えるには、**[送信]** を選択します。
+1. テスト インスタンスをスケジュール変更して既存のインスタンスと置き換えるには、 **[送信]** を選択します。
 
 ##### <a name="validation-workflows"></a>検証のワークフロー
 
@@ -144,7 +144,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 1. テスト インスタンスを取り消すためのプロンプトを開くには、コンテキスト メニューの **[キャンセル]** を選択します。
 
-1. テスト インスタンスを取り消すには、**[送信]** を選択します。
+1. テスト インスタンスを取り消すには、 **[送信]** を選択します。
 
 ## <a name="next-steps"></a>次の手順
 

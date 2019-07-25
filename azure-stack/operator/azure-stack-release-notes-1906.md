@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 07/01/2019
-ms.openlocfilehash: cc348bba064ddb003bbe6a2a06d2694714ad7894
-ms.sourcegitcommit: 068350a79805366e7e6536fb7df85a412bd0be99
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
+ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67511268"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67885349"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新プログラム
 
@@ -128,7 +128,7 @@ Azure Stack 1906 更新プログラム パッケージは、[Azure Stack ダウ�
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Azure Stack では、修正プログラムが定期的にリリースされます。 Azure Stack を 1906 に更新する前に、必ず 1905 用の最新の Azure Stack 修正プログラムをインストールしてください。
+Azure Stack では、修正プログラムが定期的にリリースされます。 Azure Stack を 1906 に更新する前に、必ず 1905 用の最新の Azure Stack 修正プログラムをインストールしてください。 更新後、[1906 に対して利用可能な修正プログラム](#after-successfully-applying-the-1906-update)があればインストールします。
 
 Azure Stack 修正プログラムを適用できるのは Azure Stack 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
@@ -144,7 +144,7 @@ Azure Stack の 1906 リリースは、次の修正プログラムが適用さ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.2.37](https://support.microsoft.com/help/4511282)
+- [Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4513119)
 
 ## <a name="automatic-update-notifications"></a>自動更新通知
 

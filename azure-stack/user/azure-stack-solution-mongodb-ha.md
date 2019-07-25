@@ -10,23 +10,23 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 77d0b7c856e594e7e97ad30085419bfac13bd4f7
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: aa48e3b40afc841a26f15ce06870d002261c5932
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308816"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286850"
 ---
-# <a name="tutorial-deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>チュートリアル:高可用性の MongoDB ソリューションを Azure と Azure Stack にデプロイする
+# <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack"></a>高可用性の MongoDB ソリューションを Azure と Azure Stack にデプロイする
 
 この記事では、2 つの Azure Stack 環境にわたって、DR (ディザスター リカバリー) サイトと共に、基本的な高可用性 (HA) MongoDB クラスターを自動デプロイする方法を段階的に説明します。 MongoDB と高可用性の詳細については、「[Replica Set Members](https://docs.mongodb.com/manual/core/replica-set-members/)」(レプリカ セット メンバー) を参照してください。
 
-このチュートリアルでは、以下を実現するためのサンプル環境を作成します。
+このソリューションでは、以下を実現するためのサンプル環境を作成します。
 
 > [!div class="checklist"]
 > - 2 つの Azure Stack にわたってデプロイを調整する
@@ -36,9 +36,9 @@ ms.locfileid: "67308816"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack は、オンプレミスの環境にクラウド コンピューティングの俊敏性とイノベーションを提供し、どこでもハイブリッド アプリをビルドしてデプロイできる唯一のハイブリッド クラウドを実現します。  
+> Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](https://aka.ms/hybrid-cloud-applications-pillars)に関するホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 
 
@@ -58,7 +58,7 @@ ms.locfileid: "67308816"
 
 ## <a name="get-the-docker-image"></a>Docker イメージを取得する
 
-各デプロイの Docker イメージにより、異なる Azure PowerShell バージョン間の依存関係問題がなくなります。
+各デプロイの Docker イメージにより、異なる Azure PowerShell バージョン間の依存関係イシューがなくなります。
 1.  Docker for Windows で Windows コンテナーが使用されていることを確認します。
 2.  管理者特権でのコマンド プロンプトで次を実行し、Docker コンテナーとデプロイ スクリプトを取得します。
 ```powershell  

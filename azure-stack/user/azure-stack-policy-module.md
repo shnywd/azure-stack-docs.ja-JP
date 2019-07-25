@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 1ae0c24fe5f3a130c7878c8623facada222a0e49
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fdb17c1f8f7fd183b4542a1a0417b6880a8afe9b
+ms.sourcegitcommit: b36d078e699c7924624b79641dbe9021af9606ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310795"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67816153"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Azure Stack ポリシー モジュールを使用して Azure ポリシー管理する
 
@@ -33,7 +33,7 @@ Azure Stack ポリシー モジュールを使用すると、Azure Stack と同�
 1. 「[PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)」の手順 1 の説明に従って、AzureRM PowerShell モジュールの必要なバージョンをインストールします。
 2. [GitHub から Azure Stack ツールをダウンロードします](../operator/azure-stack-powershell-download.md)。
 3. [PowerShell を Azure Stack で使用するために構成します](azure-stack-powershell-configure-user.md)。
-4. AzureStack.Policy.psm1 モジュールをインポートします。
+4. *AzureStack.Policy.psm1* モジュールをインポートします。
 
 
    ```powershell

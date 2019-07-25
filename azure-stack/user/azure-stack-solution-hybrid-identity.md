@@ -10,19 +10,19 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: solution
 ms.date: 06/26/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 06/26/2019
-ms.openlocfilehash: 074d971c1f951797b5dc2d53a62eef56d0b7249f
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 3ed0c109e0253fe6d710801dbc30de04c0b5a6e5
+ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492324"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68286826"
 ---
-# <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>チュートリアル:Azure および Azure Stack アプリケーションのハイブリッド クラウド ID を構成する
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>Azure および Azure Stack アプリケーションのハイブリッド クラウド ID を構成する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -35,19 +35,19 @@ Azure と Azure Stack アプリのハイブリッド クラウド ID を構成�
 
 Azure Stack 内の Azure Resource Manager を使用したデプロイまたは構成のために、サービス プリンシパルを使用し、Azure Stack アプリへのアクセスを許可します。
 
-このチュートリアルでは、以下を実現するためのサンプル環境を構築します。
+このソリューションでは、以下を実現するためのサンプル環境を構築します。
 
 > [!div class="checklist"]
 > - グローバル Azure および Azure Stack でハイブリッド ID を確立する
 > - Azure Stack API にアクセスするためのトークンを取得します。
 
-このチュートリアルの手順を行うには、Azure Stack オペレーターのアクセス許可が必要です。
+このソリューションの手順を行うには、Azure Stack オペレーターのアクセス許可が必要です。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
 > Microsoft Azure Stack は Azure の拡張機能です。 Azure Stack はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](https://aka.ms/hybrid-cloud-applications-pillars)に関するホワイト ペーパーでは、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリケーションの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリケーションのための設計の考慮事項](azure-stack-edge-pattern-overview.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>ポータルで Azure AD のサービス プリンシパルを作成する
@@ -60,7 +60,7 @@ AD FS を使用して Azure Stack をデプロイした場合は、PowerShell �
 
 ## <a name="using-the-azure-stack-api"></a>Azure Stack API を使用する
 
-Azure Stack API にアクセスするためのトークンを取得するプロセスについては、[Azure Stack API](azure-stack-rest-api-use.md) に関するチュートリアルで説明されています。
+Azure Stack API にアクセスするためのトークンを取得するプロセスについては、[Azure Stack API](azure-stack-rest-api-use.md) に関するソリューションで説明されています。
 
 ## <a name="connect-to-azure-stack-using-powershell"></a>PowerShell を使用して Azure Stack に接続する
 

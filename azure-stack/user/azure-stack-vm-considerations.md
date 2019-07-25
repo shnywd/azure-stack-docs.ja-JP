@@ -11,28 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: 2a9a9a2c402538eee428bad08c9772b288fa1740
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.lastreviewed: 07/16/2019
+ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
+ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197335"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68299431"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブルなコンピューティング リソースが提供されます。 VM を展開する前に、Azure Stack と Microsoft Azure で使用できる VM の機能の相違点を理解しておく必要があります。 この記事では、これらの相違点について説明し、VM の展開を計画する際の重要な考慮事項を特定します。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブルなコンピューティング リソースが提供されます。 VM を展開する前に、Azure Stack と Microsoft Azure で使用できる VM の機能の相違点について学ぶ必要があります。 この記事では、これらの相違点について説明し、VM の展開を計画する際の重要な考慮事項を特定します。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
 ## <a name="vm-differences"></a>VM の相違点
 
 | 機能 | Azure (グローバル) | Azure Stack |
 | --- | --- | --- |
-| 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージが含まれています。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Marketplace に使用可能なイメージはありません。 Azure Stack のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
+| 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Marketplace に使用可能なイメージはありません。 Azure Stack のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
 | 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
 | 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
 | 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
@@ -40,18 +40,19 @@ Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブ�
 | 仮想マシンのストレージ | [マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)をサポートしています。 | マネージド ディスクは、バージョン 1808 以降の Azure Stack でサポートされています。 |
 | 仮想マシン ディスクのパフォーマンス | ディスクの種類とサイズによって異なります。 | ディスクが接続されている VM の VM サイズによって異なります。 詳細については、「[Azure Stack でサポートされている VM のサイズ](azure-stack-vm-sizes.md)」の記事を参照してください。
 | API のバージョン | Azure では常に、すべての VM 機能について最新の API のバージョンが用意されます。 | Azure Stack では特定の Azure サービスがサポートされ、それらのサービスについて特定の API バージョンがサポートされます。 サポートされている API バージョンの一覧を参照するには、この記事の [API バージョン](#api-versions)についてのセクションを参照してください。 |
-| Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理と構成を行うことができます。  | Azure Stack では、Azure Instance Metadata Service がサポートされません。 |
+| Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理とセットアップを行うことができます。  | Azure Stack では、Azure Instance Metadata Service がサポートされません。 |
 | 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン (最大 20)。|
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
-| 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。
+| クラウド監視 | Azure Stack で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
 
 ## <a name="vm-sizes"></a>VM サイズ
 
 Azure Stack は、リソースの過剰消費を防ぐため、(サーバー ローカルおよびサービス レベルで) リソースの制限を適用します。これらの制限は、他のテナントによるリソース消費の影響を軽減してテナントのエクスペリエンスを改善します。
 
 - VM からのネットワーク送信には、帯域幅の上限が設けられます。 Azure Stack での上限は、Azure での上限と同様です。
-- ストレージ リソースの場合、テナントによるストレージ アクセスのためのリソースの基本的な過剰消費を防ぐため、Azure Stack によってストレージ IOPS (1 秒あたりの入力/出力操作) 制限が実装されます。
-- VM ディスクの場合、Azure Stack 上のディスクの IOPS はディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。
+- ストレージ リソースの場合、テナントによるストレージ使用のためのリソースの基本的な過剰消費を防ぐため、Azure Stack によってストレージ IOPS (1 秒あたりの入力/出力操作) 制限が実装されます。
+- VM ディスクの場合、Azure Stack 上のディスクの IOPS はディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、2 番目のデータ ディスクの IOPS 制限は 2,300 IOPS です。
 
 次の表は、Azure Stack でサポートされている VM とその構成の一覧です。
 
