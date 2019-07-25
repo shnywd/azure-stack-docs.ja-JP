@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3830dc15cebe24a8fb910b641b7b986437aeec52
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 1ffb66bb1abe9f2ffb64162f834c682df2aaa609
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310315"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418406"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>サービスとしての検証の主要概念
 
@@ -33,7 +33,7 @@ VaaS ソリューションは、特定のハードウェア部品表 (BoM) を�
 ### <a name="create-a-solution-in-the-vaas-portal"></a>VaaS ポータルでソリューションを作成する
 
 1. [VaaS ポータル](https://azurestackvalidation.com)にサインインします。
-2. ソリューション ダッシュボードで、**[新しいソリューション]** を選択します。
+2. ソリューション ダッシュボードで、 **[新しいソリューション]** を選択します。
 3. ソリューションの名前を入力します。 名前付けの推奨事項については、「[VaaS ソリューションの名前付け規則](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions)」をご覧ください。
 4. **[保存]** を選択してソリューションを作成します。
 
@@ -59,7 +59,7 @@ VaaS ワークフローは、VaaS ソリューションのコンテキスト内�
     - パッケージ検証 (毎月の更新プログラム):[Microsoft のソフトウェア更新プログラムの検証](azure-stack-vaas-validate-microsoft-updates.md)
     - パッケージ検証 (パッケージの署名):[OEM パッケージの検証](azure-stack-vaas-validate-oem-package.md)
 
-3. 既存のワークフローを管理または監視するには、ワークフロー タイルで **[管理]** を選択します。 ワークフローの名前を選択し、**[編集]** ボタンを使用してプロパティを表示するか、共通のテスト パラメーターを変更します。
+3. 既存のワークフローを管理または監視するには、ワークフロー タイルで **[管理]** を選択します。 ワークフローの名前を選択し、 **[編集]** ボタンを使用してプロパティを表示するか、共通のテスト パラメーターを変更します。
 
 ワークフローのプロパティとパラメーターの詳細については、「[Azure Stack のサービスとしての検証のワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」をご覧ください。
 
@@ -75,8 +75,8 @@ VaaS でのテストは、Azure Stack ソリューションに対して実行さ
 
 テストは VaaS エージェントによって実行されます。 VaaS テストを実行するエージェントには、次の 2 種類があります。
 
-- **クラウド エージェント**:  これは、VaaS で使用できる既定のエージェントです。 セットアップは不要ですが、環境へのインバウンド接続が必要であり、Azure Stack エンドポイントはインターネットから解決できる必要があります。 クラウド エージェントと互換性がないテストもあります。
-- **ローカル エージェント**:  これを使用すると、環境へのインバウンド接続を実現できないシナリオで検証を実行できます。 一部のテストは、ローカル エージェントを使用して実行する必要があります。
+- **クラウド エージェント**: これは、VaaS で使用できる既定のエージェントです。 セットアップは不要ですが、環境へのインバウンド接続が必要であり、Azure Stack エンドポイントはインターネットから解決できる必要があります。 クラウド エージェントと互換性がないテストもあります。
+- **ローカル エージェント**: これを使用すると、環境へのインバウンド接続を実現できないシナリオで検証を実行できます。 一部のテストは、ローカル エージェントを使用して実行する必要があります。
 
 ローカル エージェントは、特定の Azure Stack または VaaS ソリューションに関連付けられているわけではありません。 ベスト プラクティスとして、Azure Stack 環境の外部で実行してください。
 

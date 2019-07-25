@@ -12,21 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 53289e46a2f29a03535958b76743db107f6ecf64
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 07191c95ede4f9a3ce80117bfeca9b5a02cfc0b1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617785"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417376"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムのデータ センター統合に関する考慮事項
+
 Azure Stack 統合システムに関心がある場合は、デプロイや、このシステムがデータセンターにどのように適合するかに関する計画の主な考慮事項を理解する必要があります。 この記事では、Azure Stack マルチノード システムに関するインフラストラクチャの重要な決定を行うときに役立つこれらの考慮事項の概要について説明します。 これらの考慮事項を理解していると、OEM ハードウェア ベンダーと協力して Azure Stack をデータセンターにデプロイする場合に役立ちます。  
 
-> [!NOTE]
+> [!NOTE]  
 > Azure Stack マルチノード システムは、承認されたハードウェア ベンダーからのみ購入できます。 
 
 Azure Stack をデプロイするには、デプロイが開始される前にソリューション プロバイダーに計画の情報を提供して、プロセスが迅速かつ円滑に進むようにする必要があります。 必要な情報はネットワーク、セキュリティ、および ID に関する情報全般にわたり、多くの重要な決定にはさまざまな領域の知識と意思決定者が必要になる可能性があります。 そのため、デプロイが開始される前に必要なすべての情報を確実に準備するために、組織内の複数のチームからメンバーを集めることが必要になるかもしれません。 ハードウェア ベンダーは意思決定に役立つアドバイスを持っている可能性があるため、これらの情報を収集しているときにそれらのベンダーに伝えると有効な場合があります。
@@ -86,7 +87,7 @@ Azure Stack の名前空間 (特にリージョン名と外部のドメイン名
 
 次の表は、これらのドメイン名前付けの決定事項をまとめたものです。
 
-| Name | 説明 | 
+| EnableAdfsAuthentication | 説明 | 
 | -------- | ------------- | 
 |リージョン名 | 最初の Azure Stack リージョンの名前。 この名前は、Azure Stack によって管理されるパブリック仮想 IP アドレス (VIP) の FQDN の一部として使用されます。 通常、リージョン名は、データセンターの場所などの物理的な場所の識別子になります。<br><br>リージョン名は文字と 0 から 9 までの数字で作成する必要があります。 "-" や "#" のような特殊文字は使用できません。| 
 | 外部ドメイン名 | 外部接続 VIP を持つエンドポイントのドメイン ネーム システム (DNS) ゾーンの名前。 パブリック VIP の FQDN に使用します。 | 

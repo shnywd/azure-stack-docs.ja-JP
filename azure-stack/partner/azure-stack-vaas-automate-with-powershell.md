@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 39ed9ee9dab7f2ec97d2fb6a0148db333648b227
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 5a49685da010fd7188fd04514a17b91dff7404f7
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63447599"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418435"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell を使用した Azure Stack の検証の自動化
 
@@ -77,7 +77,7 @@ ms.locfileid: "63447599"
     | VaaSAccountTenantId | VaaS テナントの GUID。 |
     | VaaSSolutionName | テスト成功を実行する VaaS ソリューションの名前。 |
     | VaaSTestPassName | 作成する VaaS テスト成功ワークフローの名前。 |
-    | VaaSTestCategories | `Integration`、`Functional`、または  `Reliability` 複数の値を使用する場合は、それぞれの値をコンマで区切ってください。  |
+    | VaaSTestCategories | `Integration`、`Functional`、または `Reliability` 複数の値を使用する場合は、それぞれの値をコンマで区切ってください。  |
     | ServiceAdminUserName | Azure Stack サービス管理者アカウント。  |
     | ServiceAdminPassword | Azure Stack サービスのパスワード。  |
     | TenantAdminUserName | プライマリ テナントの管理者。  |

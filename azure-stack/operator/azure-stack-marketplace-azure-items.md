@@ -16,12 +16,12 @@ ms.date: 07/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/12/2019
-ms.openlocfilehash: 38427f55f07c4982b909c153a500340b6e61efde
-ms.sourcegitcommit: 51ec68b5e6dbf437aaca19a9f35ba07d2c402892
+ms.openlocfilehash: 42e221442d62381c369bdb5361c724e0146e5a85
+ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67851856"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68413197"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -55,7 +55,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 |  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | アプリケーションに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
-| ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2013Trial) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
+| ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
 | ![SharePoint Server 2016 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter の Microsoft SharePoint Server 2016 評価版。 | Microsoft |
 | ![Windows Server 2012 R2 の SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
 | ![Windows Server 2016 の SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 の SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | インテリジェントでミッション クリティカルなアプリケーション用のデータベース プラットフォーム。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
@@ -238,7 +238,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Service Fabric クラスター](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | このソリューションは、仮想マシン スケール セットでスタンドアロンのクラスターとして実行される Service Fabric をデプロイします。 <br>**このソリューション テンプレートでは、Windows Server 2016 Datacenter をダウンロードする必要もあります**| Microsoft |
 | ![NRI mPLAT スイート - マルチクラウド Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT スイート - マルチクラウド Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | ワークロードやクラウドの監視、構成、プロビジョニング、自動化、構成のプロビジョニング、自動化、および制御を行うための一枚のガラス。 | NRI |
 | ![NooBaa Hybrid AWS S3 互換性 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 互換性 - Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | パブリックとオンプレミスのキャパシティ リソースに対応した、S3 互換のストレージ サービス。 | NooBaa |
-| ![NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | Azure Stack と任意の場所の間に、どんなネットワーク接続を介してであろうと、ソフトウェアのみによるマルチポイント接続を提供します。業界をリードするゼロ トラスト セキュリティを装備し、VPN の 5 倍のスループットを実現する、並列ユーザー無制限の接続です。 | NetFoundry |
+| ![NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Azure Stack と任意の場所の間に、どんなネットワーク接続を介してであろうと、ソフトウェアのみによるマルチポイント接続を提供します。業界をリードするゼロ トラスト セキュリティを装備し、VPN の 5 倍のスループットを実現する、並列ユーザー無制限の接続です。 | NetFoundry |
 | ![Palo Alto VM-Series 次世代ファイアウォール](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series 次世代ファイアウォール](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series の次世代ファイアウォールにより、お客様はアプリケーションやデータを Azure Stack に安全に移行させ、アプリケーションのホワイトリスト登録や脅威防止ポリシーによって既知および未知の脅威から保護することができます。 **このイメージにはデプロイするためのテンプレートが必要です。重要な情報については、こちらの[記事](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)を参照してください。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall は既知の脆弱性および不明な脆弱性を検出し、Web アプリに対する攻撃を防止します。 **両方の PT Marketplace アイテムをダウンロードします。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise では、Azure Stack インフラストラクチャのライフ サイクル全体を自動化することができます。 **両方の Puppet Marketplace アイテムをダウンロードしてください。** | Puppet |

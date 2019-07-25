@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 558853309faecbf2955a08d7a8f629d83a38dbd1
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 6554a18ee881f053eebc2fc3df8d846cd8d9d12e
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617830"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417956"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
 
@@ -63,8 +63,8 @@ SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降�
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
 | **RetryDuration** |再試行間のタイムアウト間隔 (秒単位)。 | 120 |
-| **アンインストール** | リソース プロバイダーと関連付けられているすべてのリソースを削除します。 | いいえ  |
-| **DebugMode** | 障害発生時に自動クリーンアップが行われないようにします。 | いいえ  |
+| **アンインストール** | リソース プロバイダーと関連付けられているすべてのリソースを削除します。 | いいえ |
+| **DebugMode** | 障害発生時に自動クリーンアップが行われないようにします。 | いいえ |
 
 ## <a name="update-script-powershell-example"></a>PowerShell 更新スクリプトの例
 次に、管理者特権の PowerShell コンソールから実行できる *UpdateSQLProvider.ps1* スクリプトの使用例を示します。 必要に応じて変数情報とパスワードを変更してください。  

@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: af36943ebaa78ad1838506d6614a7fd6671afe4f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "63448553"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418472"
 ---
 # <a name="interactive-feature-verification-testing"></a>対話型機能検証テスト  
 
@@ -82,7 +82,7 @@ ms.locfileid: "63448553"
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-1. 事前チェック スクリプトが正常に完了したら、**[情報]** タブの **[ドキュメント]** リンクと **[検証]** リンクのとおりに、手動シナリオ (ディスク交換) を実行します。
+1. 事前チェック スクリプトが正常に完了したら、 **[情報]** タブの **[ドキュメント]** リンクと **[検証]** リンクのとおりに、手動シナリオ (ディスク交換) を実行します。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "63448553"
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-1. 手動シナリオ (ディスク交換) が正常に完了した後、**[次へ]** を選択します。
+1. 手動シナリオ (ディスク交換) が正常に完了した後、 **[次へ]** を選択します。
 
     ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 

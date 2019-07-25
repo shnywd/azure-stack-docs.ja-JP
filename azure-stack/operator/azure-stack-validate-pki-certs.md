@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: abf2d10c50271217220d9dc218b4d50f7411d867
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984523"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68417831"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書の検証
 
@@ -83,13 +83,13 @@ Azure Stack のデプロイに対して PKI 証明書を検証する前に、シ
     ```
     
     > [!Note]  
-    > AD FS を ID システムとして使用している場合は、AD FS と Graph が必要です。 例: 
+    > AD FS を ID システムとして使用している場合は、AD FS と Graph が必要です。 例:
     >
     > ```powershell  
     > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'ARM Admin', 'ARM Public', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal'
     > ```
     
-     - 前の手順で作成された適切なディレクトリに証明書を配置します。 例:   
+     - 前の手順で作成された適切なディレクトリに証明書を配置します。 例:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\ARM Admin\CustomerCertificate.pfx`
@@ -102,7 +102,7 @@ Azure Stack のデプロイに対して PKI 証明書を検証する前に、シ
     Invoke-AzsCertificateValidation -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
-4. 出力を確認し、すべての証明書がすべてのテストに合格していることを確認します。 例: 
+4. 出力を確認し、すべての証明書がすべてのテストに合格していることを確認します。 例:
 
 ```powershell
 Invoke-AzsCertificateValidation v1.1809.1005.1 started.

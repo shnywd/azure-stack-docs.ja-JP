@@ -3,8 +3,8 @@ title: Azure Stack で使用するための Red Hat Enterprise Linux VHD の作�
 description: Red Hat Linux オペレーティング システムを格納した Azure 仮想ハード ディスク (VHD) を作成してアップロードする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: mattbriggs
+manager: femila
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -13,17 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 07/23/2019
+ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: 636ac38785f2604b97ee5bf1cfc3615baa259d26
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 52ca03b01e762f980cbabcbe63d718bfd4c2c152
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308173"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418188"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack 用の Red Hat ベースの仮想マシンの準備
 
@@ -37,7 +36,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 ### <a name="rhel-installation-notes"></a>RHEL のインストールに関する注記
 
-* Azure Stack では、VHDX 形式はサポートされません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、**[容量固定]** を選択します。
+* Azure Stack では、VHDX 形式はサポートされません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、 **[容量固定]** を選択します。
 * Azure Stack でサポートされるのは、第 1 世代の仮想マシンのみです。 第 1 世代の仮想マシンを、VHDX ファイル形式から VHD ファイル形式に、容量可変から容量固定ディスクに変換できます。 ただし仮想マシンの世代を変更することはできません。 詳細については、「[Should I create a generation 1 or 2 virtual machine in Hyper-V? (Hyper-V で第 1 世代または第 2 世代の仮想マシンを作成する必要はありますか)](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)」を参照してください。
 * VHD のサイズの上限は、1,023 GB です。
 * Linux オペレーティング システムをインストールする場合は、Logical Volume Manager (LVM) (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 特にオペレーティング システム ディスクをトラブルシューティングのために別の同じ仮想マシンに接続する必要がある場合、そうすることで、複製された仮想マシンとの LVM 名の競合を回避することができます。
@@ -84,7 +83,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例: 
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -158,7 +157,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     logout
     ```
 
-1. Hyper-V マネージャーで **[アクション]** > **[シャットダウン]** の順にクリックします。
+1. Hyper-V マネージャーで **[アクション]**  >  **[シャットダウン]** の順にクリックします。
 
 1. Hyper-V Manager の "ディスクの編集" 機能または Convert-VHD PowerShell コマンドを使用して、VHD を固定サイズの VHD に変換します。 これで、Linux VHD を Azure にアップロードする準備が整いました。
 
@@ -221,7 +220,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この構成を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例: 
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この構成を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -275,7 +274,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際は、Azure Stack 環境ではバージョン 2.2.20 から 2.2.35 の WALinuxAgent (両バージョンを含む) が機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリースに更新するか、1901/1902 修正プログラムを適用します。 
+1. Azure Stack 用のカスタム vhd を作成する際は、Azure Stack 環境ではバージョン 2.2.20 から 2.2.35 の WALinuxAgent (両バージョンを含む) が機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリースに更新するか、1901/1902 修正プログラムを適用します。 
 
      次の手順に従って WALinuxAgent をダウンロードします。
     
@@ -285,7 +284,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. 次の例では、GitHub リポジトリから "2.2.20" バージョンをダウンロードします。 2.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。 
+   b. 次の例では、GitHub リポジトリから "2.2.20" バージョンをダウンロードします。 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
@@ -338,7 +337,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 1. qcow2 イメージを VHD 形式に変換します。
 
     > [!NOTE]
-    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。  https://bugs.launchpad.net/qemu/+bug/1490611 を参照してください。
+    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](https://bugs.launchpad.net/qemu/+bug/1490611 ) を参照してください。
 
     まず、イメージを未加工の形式に変換します。
 
@@ -410,7 +409,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例: 
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -501,7 +500,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 1. 仮想マシンをシャットダウンし、VMDK ファイルを VHD 形式に変換します。
 
     > [!NOTE]
-    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。  <https://bugs.launchpad.net/qemu/+bug/1490611> を参照してください。
+    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](<https://bugs.launchpad.net/qemu/+bug/1490611>) を参照してください。
 
     まず、イメージを未加工の形式に変換します。
 
@@ -662,7 +661,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 1. インストール システムからアクセスできる場所に kickstart ファイルを置きます。
 
-1. Hyper-V マネージャーで新しい仮想マシンを作成します。 **[仮想ハード ディスクの接続]** ページで、**[後で仮想ハード ディスクを接続する]** を選択し、仮想マシンの新規作成ウィザードを完了します。
+1. Hyper-V マネージャーで新しい仮想マシンを作成します。 **[仮想ハード ディスクの接続]** ページで、 **[後で仮想ハード ディスクを接続する]** を選択し、仮想マシンの新規作成ウィザードを完了します。
 
 1. 仮想マシンの設定を開きます。
 

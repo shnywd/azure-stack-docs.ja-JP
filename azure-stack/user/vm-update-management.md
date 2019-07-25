@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: fc5466880c7340f5e9a79b7ece79663d12c9a598
-ms.sourcegitcommit: 75b13158347963063b7ee62b0ec57894b542c1be
+ms.openlocfilehash: 1e43f5df97ff91e7117759027499ffa6cd0df7c8
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66749011"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418249"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack の VM の更新と管理
 以下の Azure Automation ソリューション機能を使用すると、Azure Stack を使用してデプロイされている Windows および Linux の VM を管理できます。
@@ -137,7 +137,3 @@ Azure Stack の VM の数が多い場合は、[この Azure Resource Manager テ
  
 ## <a name="next-steps"></a>次の手順
 [SQL Server VM のパフォーマンスを最適化する](azure-stack-sql-server-vm-considerations.md)
-
-
-
-

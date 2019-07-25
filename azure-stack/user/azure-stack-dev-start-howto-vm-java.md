@@ -9,12 +9,12 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 1738d106a0688518f7a739d3fb02ec1b16c2b8b9
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 28d60e8fc5b575cd2fbefee1298220418e4f59a1
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838362"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418240"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Java Web アプリをデプロイする
 
@@ -110,7 +110,7 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
         java-1.8.0-openjdk-amd64       1081       /usr/lib/jvm/java-1.8.0-openjdk-amd64
     ```
 
-    *JAVA_HOME* 変数の値は、出力からパスを取り出し、*/jre* を追加することによって構築できます。 たとえば、上記の例の */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre* を使用します。
+    *JAVA_HOME* 変数の値は、出力からパスを取り出し、 */jre* を追加することによって構築できます。 たとえば、上記の例の */usr/lib/jvm/java-1.8.0-openjdk-amd64/jre* を使用します。
 
     b. ご自分のサーバーからの値を使用して、systemd サービス ファイルを作成します。
 
@@ -252,7 +252,7 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
 
 1. Azure Stack と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
 
-    a. Tomcat サーバーの状態を確認し、アクセス権があることを確認するには、**[サーバーの状態]** を選択します。
+    a. Tomcat サーバーの状態を確認し、アクセス権があることを確認するには、 **[サーバーの状態]** を選択します。
 
     b. ご自分の Tomcat の資格情報を使用してサインインします。
 
@@ -284,15 +284,16 @@ Azure 内での Java アプリの開発に関するガイダンスについて�
 
     a. *TOMCAT_HOME/webapps* をクリアします。
 
-    b. WAR を *TOMCAT_HOME/webapps* (*/opt/tomcat/webapps/* など) に追加します。
+    b. WAR を *TOMCAT_HOME/webapps* ( */opt/tomcat/webapps/* など) に追加します。
 
-1.  Tomcat は自動的に、アプリケーションを展開して配置します。 これは、先ほど作成した DNS 名を使用して確認できます。 例: 
+1.  Tomcat は自動的に、アプリケーションを展開して配置します。 これは、先ほど作成した DNS 名を使用して確認できます。 例:
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
+    ```
+    
+## <a name="next-steps"></a>次の手順
 
-## Next steps
-
-- Learn more about how to [develop for Azure Stack](azure-stack-dev-start.md).
-- Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
-- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).
+- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
+- [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- Java プログラミング言語の詳細および Java の他のリソースについては、[Java.com](https://www.java.com) を参照してください。

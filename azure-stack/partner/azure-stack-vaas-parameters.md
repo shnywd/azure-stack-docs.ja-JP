@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0979588e358d1e163a29ab46bdbe99c27fc37649
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 7e5467945db4987bdd86b7265117c486fb6f7e1b
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64310855"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418333"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Azure Stack のサービスとしての検証のワークフロー共通パラメーター
 
@@ -77,11 +77,11 @@ ms.locfileid: "64310855"
 
 1. **[使用できるサービス]** のオプションから **[BLOB]** を選択します。 残りのオプションについてはすべて選択を解除します。
 
-1. **[使用できるリソースの種類]** で、**[サービス]**、**[コンテナー]**、**[オブジェクト]** を選択します。
+1. **[使用できるリソースの種類]** で、 **[サービス]** 、 **[コンテナー]** 、 **[オブジェクト]** を選択します。
 
-1. **[与えられているアクセス許可]** で、**[読み取り]**、**[書き込み]**、**[リスト]**、**[追加]**、**[作成]** を選択します。 残りのオプションについてはすべて選択を解除します。
+1. **[与えられているアクセス許可]** で、 **[読み取り]** 、 **[書き込み]** 、 **[リスト]** 、 **[追加]** 、 **[作成]** を選択します。 残りのオプションについてはすべて選択を解除します。
 
-1. **[開始時間]** を現在の時刻に設定し、**[終了時刻]** を現在の時刻から 3 か月後に設定します。
+1. **[開始時間]** を現在の時刻に設定し、 **[終了時刻]** を現在の時刻から 3 か月後に設定します。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 

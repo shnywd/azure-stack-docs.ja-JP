@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1e194583b583bfc442a3c7b99a842ee788fc423c
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: b1a658b428d13cdd12c16b767430f87a80e89fdc
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312850"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418370"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 
@@ -78,7 +78,7 @@ ms.locfileid: "64312850"
 
     | パラメーター | 説明 |
     | --- | --- |
-    | aadServiceAdminUser | Azure AD テナントの全体管理者ユーザー  (例: vaasadmin@contoso.onmicrosoft.com)。 |
+    | aadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
     | aadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
     | AadTenantId | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
     | ExternalFqdn | 完全修飾ドメイン名は、構成ファイルから取得できます。 その手順については、「[Azure Stack のサービスとしての検証の一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください。 |

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: bf377234b71683e6c56bef030cd5de5b4a06a743
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311113"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418393"
 ---
 # <a name="scheduling-a-test"></a>テストのスケジュール設定
 
@@ -46,7 +46,7 @@ ms.locfileid: "64311113"
 ポータルにサインインし、ソリューションを選択するか、ソリューションを作成してそのソリューションを選択します。
 
 1. [VaaS ポータル](https://azurestackvalidation.com)にサインインします。
-2. 既存のソリューションの名前を入力するか、**[新しいソリューション]** を選択して新しいソリューションを作成します。 手順については、「[VaaS ポータルでソリューションを作成する](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)」をご覧ください。
+2. 既存のソリューションの名前を入力するか、 **[新しいソリューション]** を選択して新しいソリューションを作成します。 手順については、「[VaaS ポータルでソリューションを作成する](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)」をご覧ください。
 3. **[Test Passes]\(テスト成功\)** タイルで **[開始]** を選択します。
 
 ## <a name="specify-parameters"></a>パラメーターの指定
@@ -81,7 +81,7 @@ ms.locfileid: "64311113"
 
     サービスにより、指定した情報を使用してワークフローが作成され、選択したテストがスケジュールされます。
 
-    誤りがある場合は、**[前へ]** ボタンを使用して前のセクションに移動します。
+    誤りがある場合は、 **[前へ]** ボタンを使用して前のセクションに移動します。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 

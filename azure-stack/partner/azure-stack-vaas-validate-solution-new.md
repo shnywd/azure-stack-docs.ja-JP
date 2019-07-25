@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: fb7b98a5307606f7335e76ada42d583b975730f5
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: fe744fc95c79cb7482e1baa213471335ebb6e1fd
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64312874"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418298"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>新しい Azure Stack ソリューションの検証
 
@@ -45,8 +45,8 @@ Azure Stack ソリューションは、Windows Server ロゴ認定要件に合�
 4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 
 5. **ソリューション構成**を選択します。
-    - **[最小]**: ソリューションは、サポートされる最小ノード数で構成されます。
-    - **[最大]**: ソリューションは、サポートされる最大ノード数で構成されます。
+    - **[最小]** : ソリューションは、サポートされる最小ノード数で構成されます。
+    - **[最大]** : ソリューションは、サポートされる最大ノード数で構成されます。
 6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
     ![ソリューションの検証の情報](media/workflow_validation-solution_info.png)
@@ -68,7 +68,7 @@ Azure Stack ソリューションは、Windows Server ロゴ認定要件に合�
 
 > [!NOTE]
 > 既存のインスタンスに対して検証テストをスケジュール設定すると、ポータルの古いインスタンスに代わる新しいインスタンスが作成されます。 古いインスタンスのログは保持されますが、ポータルからアクセスできません。  
-テストが正常に完了すると、**[スケジュール]** アクションが無効になります。
+テストが正常に完了すると、 **[スケジュール]** アクションが無効になります。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
 
@@ -83,7 +83,7 @@ Azure Stack ソリューションは、Windows Server ロゴ認定要件に合�
 
 3. テスト インスタンスをスケジュール設定するためのプロンプトを開くには、コンテキスト メニューの **[スケジュール]** を選択します。
 
-4. テスト パラメーターを確認し、**[送信]** を選択してテストの実行をスケジュール設定します。
+4. テスト パラメーターを確認し、 **[送信]** を選択してテストの実行をスケジュール設定します。
 
 ![ソリューションの検証テストをスケジュール設定する](media/workflow_validation-solution_schedule-test.png)
 
