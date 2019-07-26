@@ -15,7 +15,13 @@
         - name: 更新プログラムを適用するためのチェックリスト
           href: azure-stack-release-notes-checklist.md
         - name: セキュリティ更新プログラム
-          href: azure-stack-release-notes-security-updates-1906.md
+          href: azure-stack-release-notes-security-updates-1907.md
+        - name: 1907 更新プログラム
+          items:
+            - name: リリース ノート
+              href: azure-stack-release-notes-1907.md
+            - name: 既知の問題
+              href: azure-stack-release-notes-known-issues-1907.md
         - name: 1906 更新プログラム
           items:
             - name: リリース ノート
@@ -34,8 +40,6 @@
               href: azure-stack-release-notes-1904.md
             - name: 既知の問題
               href: azure-stack-release-notes-known-issues-1904.md
-        - name: 1903 更新プログラム
-          href: azure-stack-update-1903.md
 - name: クイック スタート
   expanded: true
   items:
@@ -235,6 +239,8 @@
       items:
         - name: Marketplace の概要
           href: azure-stack-marketplace.md
+        - name: Marketplace の変更点
+          href: azure-stack-marketplace-changes.md
         - name: Marketplace アイテムのダウンロード
           href: azure-stack-download-azure-marketplace-item.md
         - name: Azure Stack 用の Azure Marketplace アイテム
@@ -409,16 +415,26 @@
           href: azure-stack-backup-reference.md
     - name: サポートを受ける
       items:
-        - name: ヘルプとサポート
-          href: azure-stack-help-and-support-overview.md
-        - name: トラブルシューティング
+        - name: '[ヘルプとサポート] ポータル'
           items:
-            - name: 既知の問題
-              href: azure-stack-troubleshooting.md
-            - name: Azure Stack の診断
-              href: azure-stack-diagnostics.md
-            - name: Azure Stack に対する検証
-              href: azure-stack-diagnostic-test.md
+            - name: 概要
+              href: azure-stack-help-and-support-overview.md
+            - name: 診断ログの収集
+              items:
+                - name: 概要
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 自動収集
+                  items:
+                    - name: 自動収集の構成
+                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
+                    - name: ベスト プラクティス
+                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
+                - name: オンデマンドでの収集
+                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+        - name: Azure Stack に対する検証
+          href: azure-stack-diagnostic-test.md
+        - name: 既知の問題
+          href: azure-stack-troubleshooting.md
 - name: リファレンス
   items:
     - name: Azure Stack PowerShell
