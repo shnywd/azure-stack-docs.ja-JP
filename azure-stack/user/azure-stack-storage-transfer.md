@@ -1,5 +1,5 @@
 ---
-title: Azure Stack ストレージ用のツール | Microsoft Docs
+title: Azure Stack Storage でのデータ転送ツールの使用 | Microsoft Docs
 description: Azure Stack Storage のデータ転送ツールについて説明します。
 services: azure-stack
 documentationcenter: ''
@@ -10,28 +10,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a76676c5f4fd1e23a20df04622dafb450e162448
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406893"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418455"
 ---
-# <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Azure Stack ストレージのデータ転送ツールの使用
+# <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Azure Stack Storage でのデータ転送ツールの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Microsoft Azure Stack は、ディスク、BLOB、テーブル、キュー、およびアカウント管理機能のストレージ サービスのセットを提供します。 Azure Stack ストレージのデータを管理または移動する場合は、Azure ストレージ ツールのセットを使用することができます。 この記事では、使用可能なツールの概要について説明します。
+Azure Stack は、ディスク、BLOB、テーブル、キュー、およびアカウント管理機能のストレージ サービスのセットを提供します。 Azure Stack Storage のデータを管理または移動する場合、いくつかの Azure Storage ツールを利用できます。 この記事では、使用可能なツールの概要について説明します。
 
 お客様の要件によって、次のツールのうちどれが最適であるかが決まります。
 
 * [AzCopy](#azcopy)
 
-    ストレージ アカウント内のあるオブジェクトから別のオブジェクトにデータをコピーしたり、ストレージ アカウント間でコピーしたりすることができるダウンロード可能なストレージ固有のコマンドライン ユーティリティです。
+    ストレージ固有のコマンドライン ユーティリティであり、これをダウンロードして、ストレージ アカウント内のあるオブジェクトから別のオブジェクトに、またはストレージ アカウント間でデータをコピーすることができます。
 
 * [Azure PowerShell](#azure-powershell)
 
@@ -47,20 +47,20 @@ Microsoft Azure Stack は、ディスク、BLOB、テーブル、キュー、お
 
 * [Blobfuse](#blobfuse)
 
-    ストレージ アカウント内の既存のブロック BLOB データに Linux ファイル システム経由でアクセスできるようにする、Azure Blob Storage 用の仮想ファイル システム ドライバーです。 
+    ストレージ アカウント内の既存のブロック BLOB データに Linux ファイル システム経由でアクセスできるようにする、Azure Blob Storage 用の仮想ファイル システム ドライバーです。
 
-Azure と Azure Stack の間のストレージ サービスの違いにより、次のセクションで説明されている各ツールにはいくつかの固有の要件があります。 Azure Stack ストレージと Azure ストレージの間の比較については、「[Azure Stack ストレージ:違いと考慮事項](azure-stack-acs-differences.md)」をご覧ください。
+Azure と Azure Stack の間のストレージ サービスの違いのため、次のセクションで説明されている各ツールにはいくつかの固有の要件があります。 Azure Stack Storage と Azure Storage の比較については、「[Azure Stack Storage:違いと考慮事項](azure-stack-acs-differences.md)」をご覧ください。
 
 ## <a name="azcopy"></a>AzCopy
 
-AzCopy は、最適なパフォーマンスの単純なコマンドを使用して、Microsoft Azure の Blob Storage と Table Storage との間でデータをコピーするために設計されたコマンドライン ユーティリティです。 ストレージ アカウント内のあるオブジェクトから別のオブジェクトにデータをコピーしたり、ストレージ アカウント間でコピーしたりすることができます。
+AzCopy は、最適なパフォーマンスの単純なコマンドを使用して、Microsoft Azure の Blob Storage と Table Storage との間でデータをコピーするために設計されたコマンドライン ユーティリティです。 ストレージ アカウント内のあるオブジェクトから別のオブジェクトに、またはストレージ アカウント間でデータをコピーできます。
 
 ### <a name="download-and-install-azcopy"></a>AzCopy のダウンロードとインストール
 
 * 1811 以降の更新プログラムの場合は、[AzCopy V10 以降をダウンロード](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)します。
 * それより前のバージョン (1802 から 1809 までの更新プログラム) では、[AzCopy 7.1.0 をダウンロード](https://aka.ms/azcopyforazurestack20170417)します。
 
-### <a name="accopy-101-configuration-and-limits"></a>AcCopy 10.1 の構成と制限事項
+### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10.1 の構成と制限事項
 
 AzCopy 10.1 を構成して、古い API バージョンを使用できるようになりました。 これにより、Azure Stack のサポート (制限あり) が有効になります。
 AzCopy の API バージョンを構成して Azure Stack をサポートするには、`AZCOPY_DEFAULT_SERVICE_API_VERSION` 環境変数を `2017-11-09` に設定します。
@@ -84,7 +84,7 @@ AzCopy 10.1 では、Azure Stack の次の機能がサポートされます。
 
    > [!NOTE]
    > * Azure Stack では、Azure Active Directory (AD) の使用による承認資格情報の AzCopy への提供はサポートされていません。 Shared Access Signature (SAS) トークンを使用して、Azure Stack 上にあるストレージ オブジェクトにアクセスする必要があります。
-   > * Azure Stack では、2 か所の Azure Stack BLOB の間、および Azure Storage と Azure Stack との間の同期データ転送はサポートされていません。 AzCopy 10.1 を直接使用して Azure Stack から Azure Storage (または逆方向) へデータを移動させるために "azcopy cp" を使用することはできません。
+   > * Azure Stack では、2 か所の Azure Stack BLOB の間、および Azure Storage と Azure Stack との間の同期データ転送はサポートされていません。 AzCopy 10.1 を直接使用して Azure Stack から Azure Storage に (または逆方向に) データを移動させるために "azcopy cp" を使用することはできません。
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>データ転送するための AzCopy コマンドの例
 
@@ -102,11 +102,11 @@ azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/director
 azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
 ```
 
-### <a name="azcopy-known-issues"></a>Azcopy の既知の問題
+### <a name="azcopy-known-issues"></a>AzCopy の既知の問題
 
- - ファイル ストレージは、Azure Stack で使用できないために、ファイル ストアに関する AzCopy 操作は使用できません。
+ - ファイル ストレージはまだ Azure Stack で使用できないため、ファイル ストアに対する AzCopy 操作は使用できません。
  - AzCopy 10.1 を使用して 2 か所の Azure Stack BLOB の間、または Azure Stack と Azure Storage との間でデータを転送する場合は、最初にデータをローカルの場所にダウンロードしてから Azure Stack または Azure Storage 上にあるターゲット ディレクトリに再度アップロードする必要があります。 または、AzCopy 7.1 を使用し、 **/SyncCopy** オプションで転送を指定して、データをコピーすることができます。  
- - Linux バージョンの Azcopy は、1802 更新プログラム以降のバージョンのみをサポートしています。 Table service はサポートしていません。
+ - Linux バージョンの AzCopy では、1802 以降のバージョンの更新プログラムのみがサポートされており、Table service はサポートされていません。
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -114,11 +114,11 @@ Azure PowerShell は、Azure と Azure Stack の両方ででサービスを管�
 
 ### <a name="install-and-configure-powershell-for-azure-stack"></a>PowerShell for Azure Stack のインストールと構成
 
-Azure Stack を使用するには、Azure Stack と互換性のある Azure PowerShell モジュールが必要です。 詳細については、「[Install PowerShell for Azure Stack](../operator/azure-stack-powershell-install.md)」(PowerShell for Azure Stack のインストール) および「[Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)」(Azure Stack ユーザーの PowerShell 環境を構成する) を参照してください。
+Azure Stack を使用するには、Azure Stack と互換性のある Azure PowerShell モジュールが必要です。 詳細については、「[PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md)」と、[Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)に関する記事を参照してください。
 
 ### <a name="powershell-sample-script-for-azure-stack"></a>Azure Stack 用の PowerShell サンプル スクリプト 
 
-このサンプルでは、[PowerShell for Azure Stack を正常にインストール](../operator/azure-stack-powershell-install.md)していることを前提としています。 このスクリプトは、構成を完了し、ローカルの PowerShell 環境にアカウントを追加するために Azure Stack テナントの資格情報を要求するために役立ちます。 次に、スクリプトは、既定の Azure サブスクリプションを設定して、Azure 内に新しいストレージ アカウントを作成し、この新しいストレージ アカウントに新しいコンテナーを作成して、既存の画像ファイル (BLOB) をこのコンテナーにアップロードします。 このスクリプトにより、コンテナー内のすべての BLOB がリストされると、ローカル コンピューターに新しい格納先ディレクトリが作成され、画像ファイルがダウンロードされます。
+このサンプルでは、[PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)が正常に完了していることを前提としています。 このスクリプトは、構成を完了し、ローカルの PowerShell 環境にアカウントを追加するために Azure Stack テナントの資格情報を要求するために役立ちます。 次に、スクリプトは、既定の Azure サブスクリプションを設定して、Azure 内に新しいストレージ アカウントを作成し、この新しいストレージ アカウントに新しいコンテナーを作成して、既存の画像ファイル (BLOB) をこのコンテナーにアップロードします。 このスクリプトにより、コンテナー内のすべての BLOB がリストされると、ローカル コンピューターに新しい格納先ディレクトリが作成され、画像ファイルがダウンロードされます。
 
 1. [Azure Stack と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
 2. [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
@@ -195,7 +195,7 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 ### <a name="powershell-known-issues"></a>PowerShell の既知の問題
 
-Azure Stack の現在の互換性のある Azure PowerShell モジュールのバージョンは、ユーザー操作の場合は 1.2.11 です。 これは Azure PowerShell の最新バージョンとは異なります。 この違いは、ストレージ サービスの操作に影響します。
+Azure Stack の現在の互換性のある Azure PowerShell モジュールのバージョンは、ユーザー操作の場合は 1.2.11 です。 これは Azure PowerShell の最新バージョンとは異なります。 この違いは、ストレージ サービスの操作に次のように影響します。
 
 バージョン 1.2.11 では `Get-AzureRmStorageAccountKey` の戻り値の形式に `Key1` と `Key2` という 2 つのプロパティがありますが、Azure 最新バージョンは、すべてのアカウント キーが含まれる配列を返します。
 
@@ -219,7 +219,7 @@ Azure CLI は、Azure リソースを管理するための、Azure のコマン�
 
 Azure CLI は、コマンド ラインから Azure リソースを管理したり、Azure Resource Manager を操作対象とする自動化スクリプトを作成したりするために最適化されています。 豊富なデータ アクセスを含む、Azure Stack Portal にあるものと同じ機能の多くを使用できます。
 
-Azure Stack には、Azure CLI バージョン 2.0 以降が必要です。 Azure Stack と Azure CLI のインストールと構成の詳細については、「[Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)」(Azure Stack CLI のインストールと構成) を参照してください。 Azure CLI を使用して Azure Stack ストレージ アカウント内のリソースを操作するいくつかのタスクを実行する方法の詳細については、「[Azure ストレージでの Azure CLI の使用](/azure/storage/storage-azure-cli)」を参照してください
+Azure Stack には、Azure CLI バージョン 2.0 以降が必要です。 Azure Stack と Azure CLI のインストールと構成の詳細については、「[Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md)」(Azure Stack CLI のインストールと構成) を参照してください。 Azure CLI を使用して Azure Stack ストレージ アカウント内のリソースを操作するいくつかのタスクを実行する方法の詳細については、「[Azure ストレージでの Azure CLI の使用](/azure/storage/storage-azure-cli)」を参照してください。
 
 ### <a name="azure-cli-sample-script-for-azure-stack"></a>Azure Stack 用の Azure CLI サンプル スクリプト
 
@@ -273,22 +273,22 @@ echo "Done"
 
 ## <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure ストレージ エクスプローラー
 
-Microsoft Azure ストレージ エクスプローラーは、Microsoft のスタンドアロン アプリです。 これを使用すると、Windows、macOS、Linux のコンピューターで Azure ストレージと Azure Stack ストレージ両方のデータを簡単に操作できます。 Azure Stack ストレージ データを簡単に管理する方法が必要な場合は、Microsoft Azure ストレージ エクスプローラーの使用を検討してください。
+Azure Storage Explorer は、Microsoft のスタンドアロン アプリです。 これを使用すると、Windows、macOS、Linux のコンピューターで Azure Storage と Azure Stack Storage 両方のデータを簡単に操作できます。 簡単に、Azure Stack Storage データを簡単に管理する方法が必要な場合は、Microsoft Azure Storage Explorer の使用を検討してください。
 
-* Azure Stack を操作する Azure ストレージ エクスプローラーの構成について詳しくは、「[Azure Stack サブスクリプションに Microsoft Azure ストレージ エクスプローラーを接続する](azure-stack-storage-connect-se.md)」をご覧ください。
-* Microsoft Azure ストレージ エクスプローラーについて詳しくは、「[Storage Explorer の概要](/azure/vs-azure-tools-storage-manage-with-storage-explorer)」をご覧ください
+* Azure Stack を操作する Azure Storage Explorer の構成の詳細については、「[Azure Stack サブスクリプションに Microsoft Azure Storage Explorer を接続する](azure-stack-storage-connect-se.md)」を参照してください。
+* Microsoft Azure Storage Explorer について詳しくは、「[Storage Explorer の概要](/azure/vs-azure-tools-storage-manage-with-storage-explorer)」をご覧ください
 
 ## <a name="blobfuse"></a>blobfuse 
 
-[blobfuse](https://github.com/Azure/azure-storage-fuse) は、ストレージ アカウント内の既存のブロック BLOB データに Linux ファイル システム経由でアクセスできるようにする、Azure Blob Storage 用の仮想ファイル システム ドライバーです。 Azure Blob Storage はオブジェクト ストレージ サービスであるため、階層的な名前空間を持っていません。 blobfuse は、フォワードスラッシュ `/` を区切り記号として使用して、仮想ディレクトリ スキームによってこの名前空間を提供します。 blobfuse は、Azure と Azure Stack の両方で動作します。 
+[blobfuse](https://github.com/Azure/azure-storage-fuse) は、ストレージ アカウント内の既存のブロック BLOB データに Linux ファイル システム経由でアクセスできるようにする、Azure Blob Storage 用の仮想ファイル システム ドライバーです。 Azure Blob Storage はオブジェクト ストレージ サービスであるため、階層型名前空間を持っていません。 blobfuse は、フォワードスラッシュ `/` を区切り記号として使用して、仮想ディレクトリ スキームによってこの名前空間を提供します。 blobfuse は、Azure と Azure Stack の両方で動作します。 
 
 Linux 上で blobfuse を使用して Blob Storage をファイル システムとしてマウントする方法の詳細については、「[blobfuse を使用して Blob Storage をファイル システムとしてマウントする方法](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)」を参照してください。 
 
-Azure Stack の場合、マウントを準備する手順で Storage アカウントの資格情報を構成する際に、accountName、accountKey/sasToken、containerName に加えて **blobEndpoint** を指定する必要があります。 
+Azure Stack の場合、ストレージ アカウントの資格情報を構成する際に、accountName、accountKey/sasToken、および containerName と共に *blobEndpoint* を指定する必要があります。
 
-Azure Stack 開発キットでは、blobEndpoint を `myaccount.blob.local.azurestack.external` にする必要があります。 Azure Stack 統合システムでは、エンドポイントが不明の場合は、クラウド管理者に問い合わせてください。 
+Azure Stack Development Kit (ASDK) では、*blobEndpoint* を `myaccount.blob.local.azurestack.external` にする必要があります。 Azure Stack 統合システムでは、エンドポイントが不明の場合は、クラウド管理者に問い合わせてください。
 
-accountKey と sasToken は一度に 1 つずつしか構成できないことに注意してください。 ストレージ アカウント キーを指定した資格情報構成ファイルの形式を次に示します。 
+*accountKey* と *sasToken* は一度に 1 つずつしか構成できません。 ストレージ アカウント キーを指定した資格情報構成ファイルの形式を次に示します。
 
 ```
 accountName myaccount 

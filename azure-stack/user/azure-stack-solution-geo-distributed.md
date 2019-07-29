@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 47a0fd72da842cc4d2f73372870c561f2d88e48d
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: ba6eb236086fe9ba0d3ee37d35e1ac69c8ee7224
+ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286954"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68418168"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack"></a>Azure と Azure Stack を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
 
@@ -60,7 +60,7 @@ ms.locfileid: "68286954"
 
 分散アプリのフットプリントを構築する前に、次を知っておくと役立ちます。
 
--   **アプリのカスタム ドメイン:** 顧客がアプリへのアクセスに使用するカスタム ドメイン名が必要です。 サンプル アプリでは、カスタム ドメイン名は *www.scalableasedemo.com.* です。
+-   **アプリのカスタム ドメイン:** 顧客がアプリへのアクセスに使用するカスタム ドメイン名が必要です。 サンプル アプリでは、カスタム ドメイン名は *www\.scalableasedemo.com* です。
 
 -   **Traffic Manager ドメイン:** [Azure Traffic Manager プロファイル](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)の作成時に、ドメイン名が選択されます。 この名前は、Traffic Manager が管理するドメイン エントリを登録する際に、*trafficmanager.net* サフィックスと組み合わされます。 サンプル アプリでは、選択される名前は *scalable-ase-demo*です。 そのため、Traffic Manager で管理される完全なドメイン名は、*scalable-ase-demo.trafficmanager.net* になります。
 
@@ -274,7 +274,7 @@ Azure DevOps および Azure DevOps Server が提供するパイプラインは�
 
 -   Azure AD から提供された DNS エントリを追加して、ドメインの DNS ゾーン ファイルを更新します。
 
-たとえば、northwindcloud.com と www.northwindcloud.com の DNS エントリを追加するには、northwindcloud.com ルート ドメインの DNS 設定を構成します。
+たとえば、northwindcloud.com と www\.northwindcloud.com の DNS エントリを追加するには、northwindcloud.com ルート ドメインの DNS 設定を構成します。
 
 > [!Note]  
 >  ドメイン名は [Microsoft Azure portal](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain) を使用して購入できます。 Web アプリにカスタム DNS 名をマップするには、Web アプリの [App Service プラン](https://azure.microsoft.com/pricing/details/app-service/)が有料レベル (**Shared**、**Basic**、**Standard**、または **Premium**) である必要があります。

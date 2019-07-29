@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
-ms.reviewer: ppacent
-ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: fa0292419a228fcf9bbfef2bbfc2503f4ba5a702
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.reviewer: thoroet
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 7ac25e86be91cf6a2e8384c88c79fe3022b3f00d
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782331"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380473"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack でのスケール ユニット ノードの操作
 
@@ -38,9 +38,9 @@ ms.locfileid: "65782331"
 スケール ユニットの状態を表示するには、以下のようにします。
 
 1. **[Region management]\(リージョンの管理\)** タイルで、リージョン名をクリックします。
-2. 左側の **[インフラストラクチャ リソース]** で、**[スケール ユニット]** を選択します。
+2. 左側の **[インフラストラクチャ リソース]** で、 **[スケール ユニット]** を選択します。
 3. 結果画面で、スケール ユニットを選択します。
-4. 左側の **[全般]** で、**[ノード]** を選択します。
+4. 左側の **[全般]** で、 **[ノード]** を選択します。
 
    次の情報を確認します。
 
@@ -62,7 +62,7 @@ ms.locfileid: "65782331"
 | 停止済み | ノードは利用不可です。 |
 | 追加中 | ノードは、アクティブにスケール ユニットに追加されています。 |
 | 修復中 | ノードは現在、アクティブに修復されています。 |
-| メンテナンス  | ノードは一時停止され、アクティブなユーザー ワークロードは実行されていません。 |
+| メンテナンス | ノードは一時停止され、アクティブなユーザー ワークロードは実行されていません。 |
 | 修復が必要 | ノードの修復を必要とするエラーが検出されました。 |
 
 ## <a name="scale-unit-node-actions"></a>スケール ユニットのノード操作
@@ -137,6 +137,20 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 詳細については、「[Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)」を参照してください。
 
 ## <a name="repair"></a>修復
+
+> [!CAUTION]  
+> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムが不安定になったり、パフォーマンスが低下したり、セキュリティ スレッドが発生したり、オペレーティング システムをデプロイするための Azure Stack の自動化が妨げられたりする可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されているファームウェアが、[Azure Stack 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。<br>
+詳細およびパートナー ドキュメントへのリンクについては、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関する記事を参照してください。
+
+| ハードウェア パートナー | リージョン | URL |
+|------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb) (運用ガイド)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
+| Dell EMC | All | [Cloud for Microsoft Azure Stack 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Fujitsu | 日本 | [富士通マネージド サービス サポート デスク (アカウントとログインが必要)](https://eservice.fujitsu.com/supportdesk-web/) |
+|  | ヨーロッパ、中東およびアフリカ | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
+|  |  | [Fujitsu MySupport (アカウントとログインが必要)](https://support.ts.fujitsu.com/IndexMySupport.asp) (英語) |
+| HPE | All | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 **修復**アクションは、ノードを修復します。 次のシナリオのいずれかに対してのみ使用します。
  - ノードの完全交換 (新しいデータ ディスクあり、またはなし)

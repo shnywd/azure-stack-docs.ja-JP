@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 78fe71768b83082e152685f7fe4c7cc606ae5b3c
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 35f350628a5c13e26bf6f3d1c931aa78a05bfb53
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469205"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380482"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Azure Stack 統合システムのスケール ユニット ノードを交換する
 
@@ -28,11 +28,15 @@ ms.locfileid: "66469205"
 
 この記事では、Azure Stack 統合システムの物理コンピューター ("スケール ユニット ノード" とも呼ばれます) を交換するための一般的なプロセスについて説明します。 実際のスケール ユニット ノード交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 お使いのシステムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントをご覧ください。
 
+> [!CAUTION]  
+> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムが不安定になったり、パフォーマンスが低下したり、セキュリティ スレッドが発生したり、オペレーティング システムをデプロイするための Azure Stack の自動化が妨げられたりする可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されているファームウェアが、[Azure Stack 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。<br>
+詳細およびパートナー ドキュメントへのリンクについては、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関する記事を参照してください。
+
 次のフロー図は、スケール ユニット ノード全体を交換するための一般的な FRU プロセスを示しています。
 
 ![ノード交換プロセスのフロー チャート](media/azure-stack-replace-node/replacenodeflow.png)
 
-* このアクションは、ハードウェアの物理的な状態によっては必須でありません。
+\* このアクションは、ハードウェアの物理的な状態によっては必須でありません。
 
 > [!Note]  
 > シャットダウン操作に失敗した場合は、ドレイン操作に続けて停止操作を実行することをお勧めします。 詳細については、利用可能なノード操作に関するページを参照してください。  

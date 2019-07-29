@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: c5108dc8b24fec7569d54964217f146a5cefa5e6
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
+ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419571"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380404"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新アクティビティのチェックリスト
 
@@ -29,15 +29,17 @@ ms.locfileid: "67419571"
 
 ## <a name="prepare-for-azure-stack-update"></a>Azure Stack の更新を準備する
 
-| アクティビティ              | 詳細                                                                          |
-|-----------------------|----------------------------------------------------------------------------------|
-| 既知の問題の確認   | [既知の問題の一覧](azure-stack-release-notes-known-issues-1906.md)                |
+| アクティビティ                     | 詳細                                                   |
+|------------------------------|-----------------------------------------------------------|
+| 既知の問題の確認     | [既知の問題の一覧](azure-stack-release-notes-known-issues-1906.md)                |
 | セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](azure-stack-release-notes-security-updates-1906.md)      |
-| Test-AzureStack を実行する   | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。      |
-| 問題の解決        | **Test-AzureStack** によって特定された操作上の問題を解決します。                |
-| 最新の修正プログラムの適用 | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。         |
-| 容量計画ツールの実行 | ワークロードの計画とサイズ設定を行うには、最新バージョンの [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  ツールを使用します。 最新バージョンではバグの修正が含まれ、Azure Stack の各更新プログラムでリリースされる新機能が提供されています。 |
-| 更新プログラムが利用可能       | Azure Stack デプロイでは、接続されたシナリオに限り、セキュリティで保護されたエンドポイントが定期的にチェックされ、お客様のクラウド用の更新プログラムが入手可能かどうかが自動的に通知されます。 接続していないお客様は、[ここで説明されているプロセス](azure-stack-apply-updates.md)を使用して、新しい 1906 パッケージをダウンロードしてインポートできます。               |
+| 最新の OEM パッケージの適用 | OEM に問い合わせて、ご利用のシステムのアップグレード先の Azure Stack バージョンの最小 OEM パッケージ要件を、システムが満たしていることを確認してください。 |
+| Test-AzureStack を実行する     | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。      |
+| 問題の解決          | **Test-AzureStack** によって特定された操作上の問題を解決します。                |
+| 最新の修正プログラムの適用   | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。         |
+| 容量計画ツールの実行   | ワークロードの計画とサイズ設定を行うには、最新バージョンの [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) ツールを使用します。 最新バージョンではバグの修正が含まれ、Azure Stack の各更新プログラムでリリースされる新機能が提供されています。 |
+| 更新プログラムが利用可能        | Azure Stack デプロイでは、接続されたシナリオに限り、セキュリティで保護されたエンドポイントが定期的にチェックされ、お客様のクラウド用の更新プログラムが入手可能かどうかが自動的に通知されます。 接続していないお客様は、[ここで説明されているプロセス](azure-stack-apply-updates.md)を使用して、新しい 1906 パッケージをダウンロードしてインポートできます。 |
+
 
 ## <a name="during-azure-stack-update"></a>Azure Stack の更新中
 

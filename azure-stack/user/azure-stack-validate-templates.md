@@ -1,6 +1,6 @@
 ---
-title: テンプレート検証ツールを使用して Azure Stack のテンプレートをチェックする | Microsoft Docs
-description: Azure Stack にデプロイするためのテンプレートをチェックする
+title: Azure Stack でのテンプレート検証ツールの使用 | Microsoft Docs
+description: テンプレート検証ツールを使用して、Azure Stack にデプロイするテンプレートをチェックします。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,18 +16,17 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 3cba34e2748d00ebb886e7122ce1dd7151325c85
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 30513e279b406561fd2bcf88f9119807b371e4a1
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028289"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376781"
 ---
-# <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>テンプレート検証ツールを使用して Azure Stack のテンプレートをチェックする
-
+# <a name="use-the-template-validation-tool-in-azure-stack"></a>Azure Stack でのテンプレート検証ツールの使用
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-テンプレート検証ツールを使用して、Azure Stack に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックできます。 テンプレート検証ツールは Azure Stack ツールの一部として使用できます。 Azure Stack ツールをダウンロードするには、「[GitHub からの Azure Stack ツールのダウンロード](../operator/azure-stack-powershell-download.md)」で説明されている手順を行います。
+テンプレート検証ツールを使用して、Azure Stack に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックします。 テンプレート検証ツールは Azure Stack ツールの一部として使用できます。 Azure Stack ツールをダウンロードするには、「[GitHub からの Azure Stack ツールのダウンロード](../operator/azure-stack-powershell-download.md)」で説明されている手順を行います。
 
 ## <a name="overview"></a>概要
 
@@ -43,7 +42,7 @@ ms.locfileid: "67028289"
 >[!NOTE]
 > 統合システムを更新する場合や、新しいサービスまたは仮想拡張機能を追加する場合は、このモジュールの再実行が必要になります。
 
-1. Azure Stack への接続があることを確認してください。 これらの手順は Azure Stack Development Kit ホストから実行するか、または [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) を使用して、ワークステーションから接続できます。
+1. Azure Stack への接続があることを確認してください。 これらの手順は Azure Stack Development Kit (ASDK) ホストから実行するか、または、[VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) を使用してワークステーションから接続できます。
 2. **AzureRM.CloudCapabilities** PowerShell モジュールをインポートします。
 
     ```powershell
@@ -95,7 +94,7 @@ ms.locfileid: "67028289"
 
 ### <a name="examples"></a>例
 
-この例では、ローカル ストレージにダウンロードした [Azure Stack クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)をすべて検証します。 例では、仮想マシンのサイズと Azure Stack Development Kit 機能に対する拡張機能も検証します。
+この例では、ローカル ストレージにダウンロードした [Azure Stack クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)をすべて検証します。 例では、仮想マシン (VM) のサイズと Azure Stack Development Kit 機能に対する拡張機能も検証します。
 
 ```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `

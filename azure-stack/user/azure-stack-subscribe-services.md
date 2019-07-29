@@ -1,6 +1,6 @@
 ---
-title: このチュートリアルでは、Azure Stack オファーにサブスクライブする方法について説明します | Microsoft Docs
-description: このチュートリアルでは、Azure Stack サービスの新しいサブスクリプションを作成し、テスト仮想マシンを作成してオファーをテストする方法について説明します。
+title: Azure Stack でオファーを使用してサブスクリプションを作成する | Microsoft Docs
+description: Azure Stack でオファーを使用して新しいサブスクリプションを作成し、テスト VM でオファーをテストする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,23 +17,23 @@ ms.date: 06/04/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 3f577ebd5a57b271a449b5db262ea70779ebdb3d
-ms.sourcegitcommit: a427e72e4f3b6cd6000b1459af9bbf221e049e08
+ms.openlocfilehash: 5b72ccee255aadd5d8f42aefea9e397ba310812c
+ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66506365"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68376813"
 ---
-# <a name="tutorial-create-and-test-a-subscription"></a>チュートリアル: サブスクリプションの作成とテスト
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>チュートリアル:Azure Stack でサブスクリプションを作成してテストする
 
-このチュートリアルでは、オファーが含まれているサブスクリプションを作成してテストする方法を示します。 テストの場合は、クラウド管理者として Azure Stack ユーザー ポータルにサインインし、オファーにサブスクライブしてから、仮想マシンを作成します。
+このチュートリアルでは、オファーが含まれているサブスクリプションを作成する方法とそのテスト方法を示します。 テストの場合は、クラウド管理者として Azure Stack ユーザー ポータルにサインインし、オファーにサブスクライブしてから、仮想マシン (VM) を作成します。
 
 > [!TIP]
 > より高度な評価エクスペリエンスを使用するには、[特定のユーザーのサブスクリプションを作成](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)し、ユーザー ポータルでそのユーザーとしてサインインします。
 
 このチュートリアルでは、Azure Stack のオファーにサブスクライブする方法について説明します。
 
-学習内容
+ここでは、次の内容について学習します。
 
 > [!div class="checklist"]
 > * プランへのサブスクライブ 
@@ -41,7 +41,7 @@ ms.locfileid: "66506365"
 
 ## <a name="subscribe-to-an-offer"></a>プランへのサブスクライブ
 
-ユーザーとしてオファーにサブスクライブするには、Azure Stack ユーザー ポータルにサインインして、Azure Stack オペレーターによって提供されているサービスを見つけます。
+ユーザーとしてオファーにサブスクライブするには、Azure Stack ユーザー ポータルにサインインして、Azure Stack オペレーターから提供される利用可能なサービスを確認します。
 
 1. ユーザー ポータルにサインインし、 **[サブスクリプションの取得]** を選択します。
 
@@ -52,7 +52,7 @@ ms.locfileid: "66506365"
    ![オファーの作成](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
-   > サブスクリプションの使用を開始するには、ここでユーザー ポータルを更新する必要があります。
+   > サブスクリプションの使用を開始するには、ユーザー ポータルを更新します。
 
 3. 作成したサブスクリプションを表示するには、 **[すべてのサービス]** を選択します。 その後、 **[一般]** カテゴリで **[サブスクリプション]** を選択し、新しいサブスクリプションを選択します。 オファーにサブスクライブしたら、ポータルを更新して、サービスが新しいサブスクリプションの一部として含まれているかどうかを確認します。 この例では、**仮想マシン**が追加されています。
 
@@ -60,37 +60,31 @@ ms.locfileid: "66506365"
 
 ## <a name="test-the-offer"></a>オファーのテスト
 
-ユーザー ポータルにサインインしている間に、新しいサブスクリプション機能を使用して仮想マシンをプロビジョニングすることで、オファーをテストできます。
+ユーザー ポータルにサインインしている間に、新しいサブスクリプション機能を使用して VM をプロビジョニングすることで、オファーをテストします。
 
 > [!NOTE]
-> このテストでは、まず Windows Server 2016 Datacenter VM が Azure Stack マーケットプレースに追加されている必要があります。
+> このテストでは、まず Windows Server 2016 Datacenter VM を Azure Stack マーケットプレースに追加する必要があります。
 
 1. ユーザー ポータルにサインインします。
 
-2. ユーザー ポータルで、 **[仮想マシン]** 、 **[追加]** 、 **[Windows Server 2016 Datacenter]** の順に選択し、 **[作成]** をクリックします。
+2. ユーザー ポータルで、 **[仮想マシン]** 、 **[追加]** 、 **[Windows Server 2016 Datacenter]** の順に選択し、 **[作成]** を選択します。
 
 3. **[基本]** セクションで、 **[名前]** 、 **[ユーザー名]** 、 **[パスワード]** を入力し、 **[サブスクリプション]** を選択します。次に、 **[リソース グループ]** を作成し (または既存のものを選択し)、 **[OK]** を選択します。
 
-4. **[サイズの選択]** セクションで、 **[Standard A1]** を選択してから **[選択]** をクリックします。  
+4. **[サイズの選択]** セクションで、 **[Standard A1]** を選択してから **[選択]** を選びます。  
 
 5. **[設定]** ブレードで、既定値のまま **[OK]** を選択します。
 
-6. **[概要]** セクションで、 **[OK]** をクリックして仮想マシンを作成します。  
+6. **[概要]** セクションで、 **[OK]** を選択して VM を作成します。  
 
-7. 新しい仮想マシンを表示するには、 **[仮想マシン]** を選択し、新しい仮想マシンを検索して、その名前をクリックします。
+7. 新しい VM を表示するには、 **[仮想マシン]** を選択してから新しい VM を検索し、その名前を選択します。
 
     ![すべてのリソース](media/azure-stack-subscribe-services/view-vm.png)
 
 > [!NOTE]
-> 仮想マシンのデプロイが完了するまでに数分かかる場合があります。
+> VM のデプロイが完了するまでに数分かかる場合があります。
 
 ## <a name="next-steps"></a>次の手順
-
-このチュートリアルで学習した内容:
-
-> [!div class="checklist"]
-> * プランへのサブスクライブ 
-> * オファーのテスト
 
 > [!div class="nextstepaction"]
 > [コミュニティ テンプレートからの VM の作成](azure-stack-create-vm-template.md)
