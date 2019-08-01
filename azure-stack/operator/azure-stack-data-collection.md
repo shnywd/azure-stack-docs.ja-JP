@@ -16,28 +16,28 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 9da7ced492a86cb97a1b90a2224383d834073423
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 495b75359cb8c859e532885a1c9fa284691bd90f
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828355"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493798"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack のログおよび顧客データの処理 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
 
 Microsoft は、Azure Stack に関係する個人データのプロセッサーまたはサブプロセッサーである範囲において、2018 年 5 月 25 日、すべてのお客様に対して、(a) [オンライン サービス条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の "データ保護条件" セクションの "個人データの処理: GDPR" 条項、および (b) [オンライン サービス条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の特則 4 の EU 一般データ保護規則の条件に対するコミットメントを有効にします。 
 
-Azure Stack がお客様のデータセンター内に常駐している間、Microsoft は、[診断](azure-stack-diagnostics.md)、[テレメトリ](azure-stack-telemetry.md)、および[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
+Azure Stack がお客様のデータセンター内に常駐している間、Microsoft は、[診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)、[テレメトリ](azure-stack-telemetry.md)、および[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
 
 ## <a name="data-access-controls"></a>データ アクセスの制御 
 特定のサポート ケースを調査するために割り当てられた Microsoft の従業員には、暗号化されたデータを読み取り専用でアクセスする権限が付与されます。 また、Microsoft の従業員は、必要に応じてデータの削除に使用するツールにアクセスできます。 顧客データへのアクセスは、すべて監査および記録されます。  
 
 データ アクセスの制御:
-1.  データは、ケースの終了後、最大でも 90 日間しか保持されません。
-2.  お客様は、その 90 日の期間中、いつでもデータを削除することを選択できます。
-3.  Microsoft の従業員は、サポート問題を解決するために、 ケースバイケースなおかつ必要な場合にのみ、データにアクセスできます。 
-4.  Microsoft が顧客データを OEM パートナーと共有する必要がある場合は、必ずお客様の同意を得る必要があります。  
+- データは、ケースの終了後、最大でも 90 日間しか保持されません。
+- お客様は、その 90 日の期間中、いつでもデータを削除することを選択できます。
+- Microsoft の従業員は、サポート問題を解決するために、 ケースバイケースなおかつ必要な場合にのみ、データにアクセスできます。 
+- Microsoft が顧客データを OEM パートナーと共有する必要がある場合は、必ずお客様の同意を得る必要があります。  
 
 ### <a name="what-data-subject-requests-dsr-controls-do-customers-have"></a>お客様が持つデータ主体の要求 (DSR) コントロール
 前述したように、Microsoft は、お客様の要求に応じたオンデマンドでのデータ削除をサポートしています。 お客様は、データが完全に消去されるより前に、お客様が選んだ任意の時点でサポート エンジニアに特定のケースのすべてのログを削除してもらうことを要求できます。  
@@ -48,7 +48,7 @@ Azure Stack がお客様のデータセンター内に常駐している間、Mi
 オンデマンド データ削除アクションを実行する場合、Microsoft サポート エンジニアは、データの削除をオンデマンドで開始できるツールにアクセスし、データの削除が完了したら、その旨を電話でお客様に確認します。
 
 ## <a name="diagnostic-data"></a>診断データ
-サポート プロセスの一環として、Azure Stack Operator は、トラブルシューティングを円滑に行うため、Azure Stack のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-diagnostics.md)できます。
+サポート プロセスの一環として、Azure Stack Operator は、トラブルシューティングを円滑に行うため、Azure Stack のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)できます。
 
 Microsoft は、お客様が、要求された診断ログ ファイルを収集してアップロードするためのツールおよびスクリプトを提供します。 収集されたログ ファイルは、HTTPS で保護された暗号化接続を通じて Microsoft に転送されます。 HTTPS では、ネットワーク データが暗号化されるため、転送時に暗号化のためのパスワードは不要です。 受信されたログは、サポート ケースが終了して 90 日後に自動削除されるまで、暗号化された状態で保管されます。
 

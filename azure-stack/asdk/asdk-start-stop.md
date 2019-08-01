@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2019
+ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: d3289ae5db5e54ee6ad5d1948653ef82946d16ff
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 07/18/2019
+ms.openlocfilehash: 6736da0f792c0e01d1a0af06e35a0984ec398158
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267460"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493706"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK) の起動と終了
 ASDK ホスト コンピューターをただ再起動することはお勧めしません。 この記事の手順に従い、正しくシャット ダウンして ASDK サービスを再起動してください。 
@@ -63,7 +63,7 @@ ASDK のシャット ダウン方法に関係なく、次のステップを実�
    ```
 6. 出力を確認して Azure Stack サービスが正常に再起動したことを確認してください。
 
-Microsoft Azure Stack サービスの正しいシャットダウンと再起動について、推奨される手順の詳細を見るには、[Azure Stack の開始および停止](../operator/azure-stack-start-and-stop.md)をご覧ください。 
+Microsoft Azure Stack サービスの正しいシャットダウンと再起動について、推奨される手順の詳細を見るには、[Azure Stack の開始および停止](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)をご覧ください。 
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>スタートアップおよびシャットダウンのトラブルシューティング 
 ASDK ホスト コンピューターの電源投入後 2 時間以内に Azure Stack サービスが正常に起動しない場合は、次の手順を実行します。
@@ -90,4 +90,4 @@ ASDK ホスト コンピューターの電源投入後 2 時間以内に Azure S
 **Start-AzureStack**の実行が失敗した場合、[Azure Stack サポート フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack)で ASDK トラブルシューティングのサポートを得てください。 
 
 ## <a name="next-steps"></a>次の手順 
-Azure Stack 診断ツールと問題のログ記録については、「[Azure Stack の診断ツール](../operator/azure-stack-diagnostics.md)」をご覧ください。
+Azure Stack 診断ツールと問題のログ記録については、「[Azure Stack の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)」をご覧ください。

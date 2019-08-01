@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: c099d67c6446fbd77db62f4c496868437d861f85
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: a66b6fce646a591efac17a5b6e4ed804dba211e7
+ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418493"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68692157"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor でサポートされるメトリック
 
@@ -50,8 +50,7 @@ Azure Stack 上の Azure Monitor のメトリックは、グローバル Azure �
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
 | メトリック | メトリックの表示名 | 単位 | 集計の種類 | 説明 | Dimensions |
-|----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
+|--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob Capacity (BLOB 容量) | Bytes | 合計 | ストレージ アカウントの Blob service によって使われているストレージの量 (バイト単位)。 | BlobType |
 | BlobCount | Blob Count (BLOB 数) | Count | 合計 | ストレージ アカウントの Blob service 内の BLOB の数。 | BlobType |
 | ContainerCount | Blob Container Count (BLOB コンテナー数) | Count | 平均 | ストレージ アカウントの Blob service 内のコンテナーの数。 | ディメンションなし |

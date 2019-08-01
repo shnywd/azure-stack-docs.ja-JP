@@ -14,12 +14,12 @@ ms.author: mabrigg
 ms.date: 06/18/2019
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 89138601d1049f192946473d0a1fdb2c21df3e4c
-ms.sourcegitcommit: 104ccafcb72a16ae7e91b154116f3f312321cff7
+ms.openlocfilehash: 135bffd37c98ce53de4b7ec58ddca1d65f4c9495
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67308715"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493829"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes の Azure Stack へのデプロイのトラブルシューティング
 
@@ -94,7 +94,7 @@ Kubernetes クラスターをサポートしている VM のデプロイ ログ�
 4.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
 
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - Azure Stack 管理者に連絡して、特権付きエンド ポイントを使用して Azure Stack のログを取得してください。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-diagnostics.md)」を参照してください。
+    - Azure Stack 管理者に連絡して、特権付きエンド ポイントを使用して Azure Stack のログを取得してください。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)」を参照してください。
 5. デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 ## <a name="review-deployment-status"></a>デプロイの状態を確認する
