@@ -15,12 +15,12 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: c9e796a4ece453c3cd74bbf9a2fb6996757a0b4e
-ms.sourcegitcommit: 44f1bf6e0bfa85ee14819cad27c9b1de65d375df
+ms.openlocfilehash: 9d088cb128243b0b178e7a317ba05176a59e83c1
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67596077"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494073"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack での特権エンドポイントの使用
 
@@ -30,7 +30,7 @@ Azure Stack オペレーターは、管理ポータル、PowerShell、または 
 
 PEP を使用して、次のようなタスクを実行することができます。
 
-- [診断ログの収集](azure-stack-diagnostics.md#log-collection-tool)などの低レベル タスクを実行するため。
+- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)などの低レベル タスクを実行するため。
 - デプロイ後の Domain Name System (DNS) フォワーダーの追加、Microsoft Graph 統合のセットアップ、Active Directory Federation Services (AD FS) 統合、証明書ローテーションなど、統合システムのための多くのデプロイ後データセンター統合タスクを実行するため。
 - 統合システムの詳細なトラブルシューティングのために、サポート部門と連携して一時的な高レベル アクセスを取得するため。
 
@@ -154,9 +154,9 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
      - **Password**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
 3. ローカル コンピューターに PEP セッションをインポートします
-    ```powershell 
+     ```powershell 
         Import-PSSession $session
-    ```
+   ```
 4. これで、Azure Stack のセキュリティ対策を損なうことなく、PEP のすべての関数およびコマンドレットと共に、ローカルの PowerShell セッションで通常どおりにタブ補完を使用し、スクリプトを実行できるようになりました。 機能を有効にご活用ください。
 
 
@@ -167,16 +167,16 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 エンドポイント セッションを閉じるには:
 
 1. PEP からアクセス可能な外部ファイル共有を作成します。 開発キット環境では、開発キットのホスト上にファイル共有を作成することができます。
-2. コマンドレットを実行します。 
-    ```powershell
-    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-    ```
-各値の説明:
+2. 次のコマンドレットを実行します。 
+     ```powershell
+     Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+     ```
+   これは次の表のパラメーターを使用します。
 
-| パラメーター | 説明 | データ型 | 必須 |
-|---------|---------|---------|---------|
-| *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | string | はい|
-| *資格情報* | ファイル共有にアクセスするための資格情報 | SecureString |  はい |
+   | パラメーター | 説明 | データ型 | 必須 |
+   |---------|---------|---------|---------|
+   | *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | string | はい|
+   | *資格情報* | ファイル共有にアクセスするための資格情報 | SecureString |   はい |
 
 
 トランスクリプト ログ ファイルがファイル共有に正常に転送された後、それらのファイルは PEP から自動的に削除されます。 
@@ -187,4 +187,4 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 
 ## <a name="next-steps"></a>次の手順
 
-[Azure Stack の診断ツール](azure-stack-diagnostics.md)
+[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)

@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7cc55659df1da1c51d92f0fc2926cee7255c422e
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: c5a53fcd2aa2ec516e5677e85a1516ac10208c3f
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67315980"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544116"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure から Azure Stack に Marketplace の項目をダウンロードする
 
@@ -54,7 +54,7 @@ Azure Stack デプロイは、インターネットに接続し、[Azure に登�
 
     ![ストレージ領域を確認する](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. Azure Stack Marketplace を開き、Azure に接続します。 そのためには、 **[Marketplace items]\(Marketplace 項目\)** を選択し、 **[Add from Azure]\(Azure から追加\)** を選択します。
+3. Azure Stack Marketplace を開き、Azure に接続します。 そのためには、 **[Marketplace management]\(Marketplace 管理\)** サービスを選択し、 **[Marketplace の項目]** を選択して、 **[Add from Azure]\(Azure から追加\)** を選択します。
 
     ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 

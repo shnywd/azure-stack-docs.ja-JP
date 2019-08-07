@@ -16,12 +16,12 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 5330136bd1d4950ace26fa3f232be039c90ab144
-ms.sourcegitcommit: 12aef286fc14ab27ed737a17e2761c38f054b9b3
+ms.openlocfilehash: ffd6436b9e7bf27ef069ecdc44ff2d6efadfc795
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67885349"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685558"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新プログラム
 
@@ -109,6 +109,10 @@ Azure Stack 1906 更新プログラムのビルドの種類は**高速**です�
 - 管理者ポータルとユーザー ポータルで、検索で Docker 拡張機能が不正に返されるが、Azure Stack では使用できないため、それ以上の操作を実行できないマーケットプレースでの問題を修正しました。
 
 - テンプレートの名前がアンダー スコア ('_') で始まる場合、テンプレートのデプロイ UI でパラメーターが設定されない問題を修正しました。
+
+- 仮想マシン スケール セットの作成エクスペリエンスで、デプロイのオプションとして CentOS-based 7.2 が提供される問題を修正しました。 CentOS 7.2 は Azure Stack では利用できません。 Centos 7.5 をデプロイのオプションとして提供するようになりました
+
+- **[仮想マシン スケール セット]** ブレードからスケール セットを削除できるようになりました。
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 

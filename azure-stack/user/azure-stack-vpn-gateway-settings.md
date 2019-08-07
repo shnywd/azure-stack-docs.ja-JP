@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の VPN ゲートウェイ設定 | Microsoft Docs
-description: Azure Stack で使用する VPN ゲートウェイの設定について説明します。
+title: Azure Stack の VPN ゲートウェイ設定の構成 | Microsoft Docs
+description: Azure Stack の VPN ゲートウェイ設定についてと、その構成について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 83fa2e96a7cd956c050efa33ab6e9564b1834e93
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.openlocfilehash: 53a423ebc8e9f503934bfd3df2f4962a7b584059
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028299"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658584"
 ---
-# <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack の VPN ゲートウェイ構成設定
+# <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Azure Stack の VPN ゲートウェイ設定の構成
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -34,7 +34,7 @@ VPN Gateway の接続は複数のリソースの構成に依存し、それぞ�
 
 ### <a name="gateway-types"></a>ゲートウェイの種類
 
-各 Azure Stack 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、**Vpn** である必要があります。  これは Azure とは異なります。Azure では、その他の種類もサポートされています。
+各 Azure Stack 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、**Vpn** である必要があります。  このサポートは Azure とは異なります。Azure では、その他の種類もサポートされています。
 
 仮想ネットワーク ゲートウェイを作成するときは、ゲートウェイの種類が構成に対して適切であることを確認する必要があります。 VPN ゲートウェイでは、次の例のように `-GatewayType Vpn` フラグが必要です。
 
@@ -60,7 +60,7 @@ Azure Stack には、以下の表に示すように VPN ゲートウェイ SKU �
 
 Azure Stack は、サポートされているレガシ SKU 間での SKU のサイズ変更をサポートしていません。
 
-同様に、Azure Stack では、サポートされているレガシ SKU (**Basic**、**Standard**、**HighPerformance**) から Azure でサポートされている新しい SKU (**VpnGw1**、**VpnGw2**、**VpnGw3**) へのサイズ変更もサポートされません。
+同様に、Azure Stack は、サポートされているレガシ SKU (**Basic**、**Standard**、**HighPerformance**) から Azure でサポートされている新しい SKU (**VpnGw1**、**VpnGw2**、**VpnGw3**) へのサイズ変更もサポートしていません。
 
 ### <a name="configure-the-gateway-sku"></a>ゲートウェイ SKU の構成
 
@@ -106,7 +106,7 @@ VPN Gateway 構成に対して仮想ネットワーク ゲートウェイを作�
   >[!NOTE]
   >**PolicyBased** は Azure ではサポートされていますが、Azure Stack ではサポートされていません。
 
-* **RouteBased**: RouteBased VPN は、IP 転送やルーティング テーブルに構成されているルートを使用して、対応するトンネル インターフェイスにパケットを転送します。 その後、トンネル インターフェイスではトンネルの内部または外部でパケットを暗号化または復号します。 **RouteBased** VPN のポリシー (またはトラフィック セレクター) は、Any-to-Any (またはワイルドカードを使用して) 構成できます。 既定では変更できません。 **RouteBased** VPN の種類の値は **RouteBased** です。
+* **RouteBased**: ルートベースの VPN は、IP 転送やルーティング テーブルに構成されているルートを使用して、対応するトンネル インターフェイスにパケットを転送します。 その後、トンネル インターフェイスではトンネルの内部または外部でパケットを暗号化または復号します。 **RouteBased** VPN のポリシー (またはトラフィック セレクター) は、Any-to-Any (またはワイルドカードを使用して) 構成できます。 既定では変更できません。 **RouteBased** VPN の種類の値は **RouteBased** です。
 
 次の PowerShell の例では、 `-VpnType` を **RouteBased**に指定しています。 ゲートウェイを作成する場合、`-VpnType` が自分の構成に対して適切であることを確認する必要があります。
 
@@ -120,16 +120,16 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 次の表に、VPN ゲートウェイの要件を示します。
 
-| |PolicyBased の Basic VPN Gateway | RouteBased の Basic VPN Gateway | RouteBased の Standard VPN Gateway | RouteBased の High Performance VPN Gateway|
+| |ポリシーベースの Basic VPN Gateway | ルートベースの Basic VPN Gateway | ルートベースの Standard VPN Gateway | ルートベースの High Performance VPN Gateway|
 |--|--|--|--|--|
-| **サイト間接続 (S2S 接続)** | サポートされていません | RouteBased VPN の構成 | RouteBased VPN の構成 | RouteBased VPN の構成 |
+| **サイト間接続 (S2S 接続)** | サポートされていません | ルートベースの VPN 構成 | ルートベースの VPN 構成 | ルートベースの VPN 構成 |
 | **認証方法**  | サポートされていません | S2S 接続用の事前共有キー  | S2S 接続用の事前共有キー  | S2S 接続用の事前共有キー  |
 | **S2S 接続の最大数**  | サポートされていません | 20 | 20| 10|
 |**アクティブ ルーティングのサポート (BGP)** | サポートされていません | サポートされていません | サポートされています | サポートされています |
 
 ### <a name="gateway-subnet"></a>ゲートウェイ サブネット
 
-VPN ゲートウェイを作成する前に、ゲートウェイ サブネットを作成する必要があります。 ゲートウェイ サブネットには、仮想ネットワーク ゲートウェイの VM とサービスが使用する IP アドレスが含まれます。 仮想ネットワーク ゲートウェイを作成すると、ゲートウェイ VM はゲートウェイ サブネットにデプロイされ、必要な VPN ゲートウェイ設定で構成されます。 ゲートウェイ サブネットには、追加の VM などをデプロイしないでください。
+VPN ゲートウェイを作成する前に、ゲートウェイ サブネットを作成する必要があります。 ゲートウェイ サブネットには、仮想ネットワーク ゲートウェイの VM とサービスが使用する IP アドレスが含まれます。 仮想ネットワーク ゲートウェイを作成すると、ゲートウェイ VM はゲートウェイ サブネットにデプロイされ、必要な VPN ゲートウェイ設定で構成されます。 ゲートウェイ サブネットには、何も (追加の VM など) をデプロイしないでください。
 
 >[!IMPORTANT]
 >ゲートウェイ サブネットを正常に動作させるには、 **GatewaySubnet** という名前を付ける必要があります。 Azure Stack は、この名前を使用して、仮想ネットワーク ゲートウェイ VM およびサービスをデプロイするサブネットを識別します。
@@ -149,9 +149,9 @@ Add-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.
 
 ### <a name="local-network-gateways"></a>ローカル ネットワーク ゲートウェイ
 
-Azure で VPN ゲートウェイ構成を作成する場合、多くのローカル ネットワーク ゲートウェイはオンプレミスの場所を表します。 Azure Stack では、Azure Stack の外にある任意のリモート VPN デバイスを表します。 これは、データセンター (またはリモート データセンター) 内の VPN デバイス、または Azure 内の VPN ゲートウェイにすることができます。
+Azure で VPN ゲートウェイ構成を作成する場合、多くのローカル ネットワーク ゲートウェイはオンプレミスの場所を表します。 Azure Stack では、Azure Stack の外にある任意のリモート VPN デバイスを表します。 このデバイスは、データセンター (またはリモート データセンター) 内の VPN デバイス、または Azure 内の VPN ゲートウェイなどになります。
 
-ローカル ネットワーク ゲートウェイに名前と VPN デバイスのパブリック IP アドレスを指定し、オンプレミスの場所を示すアドレスのプレフィックスを指定します。 Azure は、ネットワーク トラフィックの宛先アドレスのプレフィックスを参照して、ローカル ネットワーク ゲートウェイに指定された構成を確認し、それに応じてパケットをルーティングします。
+ローカル ネットワーク ゲートウェイに名前と VPN デバイスのパブリック IP アドレスを指定し、オンプレミスの場所を示すアドレスのプレフィックスを指定します。 Azure によって、ネットワーク トラフィックの宛先アドレスのプレフィックスが参照され、ローカル ネットワーク ゲートウェイに指定した構成が確認されて、それに応じてパケットがルーティングされます。
 
 次の PowerShell の例では、新しいローカル ネットワーク ゲートウェイを作成します。
 
@@ -160,7 +160,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-場合によっては、ローカル ネットワーク ゲートウェイの設定を変更する必要があります。たとえば、アドレスの範囲を追加または変更した場合や、VPN デバイスの IP アドレスが変更された場合などです。 「[PowerShell を使用したローカル ネットワーク ゲートウェイの設定の変更](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway)」を参照してください。
+場合によっては、ローカル ネットワーク ゲートウェイの設定を変更する必要があります。たとえば、アドレスの範囲を追加または変更した場合や、VPN デバイスの IP アドレスが変更された場合などです。 詳細については、「[PowerShell を使用したローカル ネットワーク ゲートウェイの設定の変更](/azure/vpn-gateway/vpn-gateway-modify-local-network-gateway)」を参照してください。
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE パラメーター
 

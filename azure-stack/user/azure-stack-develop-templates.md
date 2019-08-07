@@ -1,6 +1,6 @@
 ---
 title: Azure Stack のテンプレートの開発 | Microsoft Docs
-description: Azure Stack テンプレートのベスト プラクティスを説明します
+description: Azure と Azure Stack 間のアプリの移植性のために Azure Resource Manager テンプレートを開発する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,18 +16,18 @@ ms.date: 05/21/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 9967da0434be577e3db8586f28e3078658623e9b
-ms.sourcegitcommit: 6fcd5df8b77e782ef72f0e1419f1f75ec8c16c04
+ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991331"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658642"
 ---
-# <a name="azure-resource-manager-template-considerations"></a>Azure Resource Manager テンプレートに関する考慮事項
+# <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Azure Resource Manager による Azure Stack 用テンプレートの開発
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-アプリケーションを開発するときは、Azure および Azure Stack 間のテンプレートの移植性を確保する必要があります。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)を開発するための考慮事項を説明して、アプリケーションのプロトタイプ作成とデプロイのテストを、Azure Stack 環境にアクセスせずに Azure で実行できるようにします。
+アプリを開発するときは、Azure と Azure Stack 間のテンプレートの移植性を確保する必要があります。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)の開発に関する考慮事項について説明します。 これらのテンプレートを使用すると、Azure Stack 環境にアクセスせずに、Azure でアプリのプロトタイプを作成し、デプロイをテストできます。
 
 ## <a name="resource-provider-availability"></a>リソース プロバイダーの可用性
 
@@ -63,7 +63,7 @@ Azure Resource Manager の[関数](/azure/azure-resource-manager/resource-group-
 * その他のリソースからの値の参照。
 * 複数のインスタンスをデプロイするためのリソースの反復処理。
 
-次の関数は、Azure Stack では使用できません。
+次の関数は、Azure Stack で使用できません。
 
 * Skip
 * Take

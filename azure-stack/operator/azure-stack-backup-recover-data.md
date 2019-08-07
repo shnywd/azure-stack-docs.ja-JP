@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d7b38d2eb0e840a35729879211934e470bec6dfe
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: b6b6796f5d47189499e01c94b9c988dbf03091bb
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268959"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493997"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -63,8 +63,8 @@ Azure Stack を保護する過程は、インフラストラクチャとアプ�
 Azure Stack では、クラウド回復モードというタイプの展開がサポートされます。 このモードは、障害や製品のバグによってソリューションが回復不能になったときに Azure Stack を復旧する場合にのみ、使用します。 この展開モードでは、ソリューションに格納されているユーザー データは一切復旧されません。 この展開モードの範囲は、次のデータの復元に限定されます。
 
  - 展開の入力
- - 社内の ID システム
- - フェデレーション ID の構成 (オフライン展開)
+ - 内部 ID サービス データ (ADFS デプロイ)
+ - フェデレーション ID の構成 (ADFS デプロイ)
  - 内部の証明機関によって使用されるルート証明書
  - Azure Resource Manager 構成のユーザー データ (例: サブスクリプション、プラン、オファー、ストレージのクォータ、ネットワーク、コンピューティング リソースなど)
  - Key Vault のシークレットと資格情報コンテナー

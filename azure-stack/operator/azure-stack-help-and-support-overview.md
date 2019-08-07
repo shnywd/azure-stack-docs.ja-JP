@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Stack のヘルプとサポート | Microsoft Docs
+title: Microsoft Azure Stack のヘルプとサポートの概要 | Microsoft Docs
 description: Microsoft Azure Stack のサポートを利用します。
 services: azure-stack
 documentationcenter: ''
@@ -12,22 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4649866a020a9ddc3d359dcb69e8d4165a00a88d
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.lastreviewed: 07/24/2019
+ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
+ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828393"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68493857"
 ---
 # <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack のヘルプとサポート
 
-1905 リリース以降では、Azure Stack ポータルの **[ヘルプとサポート]** の実装により、オペレーターは簡単にサポート オプションを確認したり、専門家の支援を得たり、Azure Stack の詳細について学習したりできます。 
+Azure Stack ポータルの**ヘルプとサポート**には、オペレーターが Azure Stack の詳細を参照し、サポート オプションを確認し、専門家の支援を得るためのリソースが用意されています。 1907 リリース以降、オペレーターはヘルプとサポートを使用して、トラブルシューティングのための診断ログを収集することもできます。  
 
-## <a name="documentation-billing-and-support"></a>ドキュメント、請求、サポート
+## <a name="help-resources"></a>ヘルプ リソース 
+
+オペレーターは、**ヘルプとサポート**を使用して、Azure Stack の詳細を参照し、サポート オプションを確認し、専門家の支援を得ることもできます。 
+
+### <a name="things-to-try-first"></a>最初に試すべきこと
 
 **[ヘルプとサポート]** の先頭には、新しい概念の確認、請求のしくみの理解、使用可能なサポート オプションの確認など、最初に試すことへのリンクがあります。 
 
@@ -39,7 +43,7 @@ ms.locfileid: "66828393"
 
 - **サポート オプション**。 Azure Stack オペレーターは、あらゆる企業のニーズに対応できる幅広い [Azure サポート オプション](https://aka.ms/azstacksupport)から選択できます。 
 
-## <a name="get-expert-help"></a>専門家のサポートを受ける 
+### <a name="get-expert-help"></a>専門家のサポートを受ける 
 
 統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間で、統合されたエスカレーションと解決のプロセスをご用意しています。
 
@@ -49,7 +53,7 @@ ms.locfileid: "66828393"
 
 ![統合システムの専門家のサポートを受ける](media/azure-stack-help-and-support/get-support-integrated.png)
 
-Azure Stack Development Kit (ASDK) については、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 
+ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 
 
 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックすると、フォーラムへのリンクが含まれるヘルプとサポートの**概要**が開きます。 MSDN フォーラムは定期的にチェックされています。  
 開発キットは評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
@@ -60,12 +64,24 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack MSDN フォー
 
 ![専門家のサポートを受ける](media/azure-stack-help-and-support/get-support-cards.png)
 
-
-## <a name="get-up-to-speed-with-azure-stack"></a>Azure Stack をすぐに理解する
+### <a name="get-up-to-speed-with-azure-stack"></a>Azure Stack をすぐに理解する
 
 この一連のチュートリアルは、ASDK と統合システムのどちらを実行しているかに応じてカスタマイズされているので、自分の環境をすぐに理解することができます。 
 
 ![サポート利用のチュートリアル](media/azure-stack-help-and-support/get-support-tutorials.png)
+
+## <a name="diagnostic-log-collection"></a>診断ログの収集
+
+1907 リリース以降、**ヘルプとサポート**にはログを収集するために 2 つの新しい方法があります。
+
+- **自動収集**:有効にすると、特定の正常性アラートによってログの収集がトリガーされます 
+- **Collect logs now (今すぐログを収集する)** :過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択できます
+
+![診断ログ収集オプションのスクリーンショット](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
+
+統合システムでは、Microsoft カスタマー サポート サービス (CSS) と診断ログを共有できます。 Azure Stack Development Kit (ASDK) は評価環境であるため、CSS ではサポートされません。 詳細については、[Azure Stack 診断ログの収集の概要](azure-stack-diagnostic-log-collection-overview.md)に関するページを参照してください。
+
+
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>以前のリリースの Azure Stack (1905 より前) に関するヘルプとサポート
 
@@ -83,4 +99,5 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack MSDN フォー
 開発キットは評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
 ## <a name="next-steps"></a>次の手順
+
 - [Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)について学習します

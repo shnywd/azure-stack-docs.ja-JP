@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: 09e38de68f740cab50e7a3e0ee8cc7364a9909b9
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299431"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544108"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
 
@@ -41,7 +41,7 @@ Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブ�
 | 仮想マシン ディスクのパフォーマンス | ディスクの種類とサイズによって異なります。 | ディスクが接続されている VM の VM サイズによって異なります。 詳細については、「[Azure Stack でサポートされている VM のサイズ](azure-stack-vm-sizes.md)」の記事を参照してください。
 | API のバージョン | Azure では常に、すべての VM 機能について最新の API のバージョンが用意されます。 | Azure Stack では特定の Azure サービスがサポートされ、それらのサービスについて特定の API バージョンがサポートされます。 サポートされている API バージョンの一覧を参照するには、この記事の [API バージョン](#api-versions)についてのセクションを参照してください。 |
 | Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理とセットアップを行うことができます。  | Azure Stack では、Azure Instance Metadata Service がサポートされません。 |
-| 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン (最大 20)。|
+| 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>更新中のワークロードを保護するためのライブ マイグレーションによる単一の更新ドメイン。 テンプレート互換性のために、20 個の更新ドメインがサポートされています|
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
 | クラウド監視 | Azure Stack で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
@@ -56,18 +56,22 @@ Azure Stack は、リソースの過剰消費を防ぐため、(サーバー ロ
 
 次の表は、Azure Stack でサポートされている VM とその構成の一覧です。
 
-| Type           | Size          | サポートされるサイズの範囲 |
-| ---------------| ------------- | ------------------------ |
-|汎用 |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
-|汎用 |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
-|汎用 |D シリーズ       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
-|汎用 |Dv2 シリーズ     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
-|汎用 |DS シリーズ      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
-|汎用 |DSv2 シリーズ    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|メモリ最適化|D シリーズ       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
-|メモリ最適化|DS シリーズ      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|メモリ最適化|Dv2 シリーズ     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|メモリ最適化|DSv2 シリーズ  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+| Type            | Size          | サポートされるサイズの範囲 |
+| ----------------| ------------- | ------------------------ |
+|汎用  |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|汎用  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
+|汎用  |Av2 シリーズ     |[A1_v2 - A8m_v2](azure-stack-vm-sizes.md#av2-series)     |
+|汎用  |D シリーズ       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
+|汎用  |Dv2 シリーズ     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
+|汎用  |DS シリーズ      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
+|汎用  |DSv2 シリーズ    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
+|メモリ最適化 |D シリーズ       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
+|メモリ最適化 |DS シリーズ      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
+|メモリ最適化 |Dv2 シリーズ     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|メモリ最適化 |DSv2 シリーズ    |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|コンピューティング最適化|F シリーズ       |[F1 - F16](azure-stack-vm-sizes.md#f-series)    |
+|コンピューティング最適化|Fs シリーズ      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
+|コンピューティング最適化|Fsv2 シリーズ    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
 VM のサイズと、それに関連付けられるリソースの量は、Azure Stack と Azure の間で一貫しています。 この一貫性には、作成できるメモリの量、コアの数、データ ディスクの数やサイズが含まれます。 ただし、同じサイズの VM のパフォーマンスは、基になっている特定の Azure Stack 環境の特性によって異なります。
 

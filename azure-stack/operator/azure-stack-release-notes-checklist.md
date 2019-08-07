@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 49b4276da5c7e42728cf96261104f59c70355c20
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380404"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544073"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新アクティビティのチェックリスト
 
@@ -58,8 +58,9 @@ ms.locfileid: "68380404"
 |-----------------------|----------------------------------------------------------------------------------|
 | 最新の修正プログラムの適用 | 更新されたバージョンに適用可能な最新の修正プログラムを適用します。                          |
 | 暗号化キーの取得 | 保存データの暗号化キーを取得し、お客様の Azure Stack デプロイの外部に安全に保管します。 [キーを取得する方法の手順](azure-stack-security-bitlocker.md)に関する記事に従ってください。 |
+| マルチテナントの再有効化 | マルチテナント Azure Stack の場合、更新の成功後に、[すべてのゲスト ディレクトリ テナントを構成してください](https://docs.microsoft.com/azure-stack/operator/azure-stack-enable-multitenancy#configure-guest-directory)。 |
 
 ## <a name="next-steps"></a>次の手順
 
-- [既知の問題の一覧を確認する](azure-stack-release-notes-known-issues-1906.md)
-- [セキュリティ更新プログラムの一覧を確認する](azure-stack-release-notes-security-updates-1906.md)
+- [既知の問題の一覧を確認する](azure-stack-release-notes-known-issues-1907.md)
+- [セキュリティ更新プログラムの一覧を確認する](azure-stack-release-notes-security-updates-1907.md)

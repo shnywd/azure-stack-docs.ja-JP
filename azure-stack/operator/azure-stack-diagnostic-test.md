@@ -14,12 +14,12 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a582e1d9abbd690a62f27f6bcaee8c2dd2e6be4b
-ms.sourcegitcommit: 90ed5aa051d0756b2432c8aca0e2232c8ec493a4
+ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
+ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68239434"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68685521"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
 
@@ -48,7 +48,7 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
    詳細については、「[パラメーターに関する考慮事項](azure-stack-diagnostic-test.md#parameter-considerations)」と「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」を参照してください。
 
-3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
+3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
 
    このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集したり CSS に問い合わせたりしないでください。
 
@@ -78,6 +78,7 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 | Azure Stack インフラストラクチャの容量                  | AzsInfraCapacity                  |
 | Azure Stack インフラストラクチャのパフォーマンス               | AzsInfraPerformance               |
 | Azure Stack インフラストラクチャ ロールの概要              | AzsInfraRoleSummary               |
+| Azure Stack ネットワーク インフラストラクチャ                            | AzsNetworkInfra                   |
 | Azure Stack ポータルおよび API の概要                   | AzsPortalAPISummary               |
 | Azure Stack スケール ユニットの VM イベント                     | AzsScaleUnitEvents                |
 | Azure Stack スケール ユニットの VM リソース                  | AzsScaleUnitResources             |
@@ -227,10 +228,20 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>検証ツールを実行してネットワーク インフラストラクチャをテストする 
+
+このテストでは、Azure Stack ソフトウェア定義ネットワーク (SDN) をバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および認証エンドポイントへの接続が示されます。 これには、ID プロバイダーとして Azure AD を使用する場合に Azure への、または ID プロバイダーとして ADFS を使用する場合にフェデレーション サーバーへの接続が含まれます。 
+
+コマンドの詳細な出力を取得するには、debug パラメーターを含めます。
+
+```powershell 
+Test-AzureStack -Include AzsNetworkInfra -Debug
+```
+
 
 
 ## <a name="next-steps"></a>次の手順
 
-Azure Stack 診断ツールと問題のログ記録の詳細については、「[Azure Stack の診断ツール](azure-stack-diagnostics.md)」を参照してください。
+Azure Stack 診断ツールと問題のログ記録の詳細については、「[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)」を参照してください。
 
 トラブルシューティングの詳細については、「[Microsoft Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)」を参照してください。

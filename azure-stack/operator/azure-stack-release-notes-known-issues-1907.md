@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 1906 の既知の問題 | Microsoft Docs
-description: Azure Stack 1906 の既知の問題について説明します。
+title: Azure Stack 1907 の既知の問題 | Microsoft Docs
+description: Azure Stack 1907 の既知の問題について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: cb98d587f766a3039887e0ba800ab255686121bc
+ms.lastreviewed: 07/25/2019
+ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
 ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685537"
+ms.locfileid: "68685568"
 ---
-# <a name="azure-stack-1906-known-issues"></a>Azure Stack 1906 の既知の問題
+# <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 の既知の問題
 
-この記事では、Azure Stack 1906 リリースの既知の問題について説明します。 新しい問題が特定されると、この一覧は更新されます。
+この記事では、Azure Stack 1907 リリースの既知の問題について説明します。 新しい問題が特定されると、この一覧は更新されます。
 
 > [!IMPORTANT]  
 > 更新プログラムを適用する前に、このセクションを確認してください。
@@ -33,7 +33,7 @@ ms.locfileid: "68685537"
 ## <a name="update-process"></a>更新処理
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 1906 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状況が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 
+- 原因: 1907 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
 - 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md#import-and-install-updates)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 - 発生頻度: 一般
 
@@ -46,11 +46,11 @@ ms.locfileid: "68685537"
 - 修復: これら 2 つのサブスクリプション上でリソースが実行されている場合は、ユーザー サブスクリプションで再作成してください。
 - 発生頻度: 一般
 
-### <a name="subscription-resources"></a>サブスクリプション リソース
+### <a name="subscriptions-properties-blade"></a>サブスクリプションの [プロパティ] ブレード
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー サブスクリプションを削除すると、リソースが孤立します。
-- 修復: まず、ユーザー リソースまたはリソース グループ全体を削除してから、ユーザー サブスクリプションを削除します。
+- 原因: 管理者ポータルで、サブスクリプションの **[プロパティ]** ブレードが正しく読み込まれません
+- 修復: これらのサブスクリプションのプロパティは、 **[サブスクリプションの概要]** ブレードの **[要点]** ウィンドウで表示できます。
 - 発生頻度: 一般
 
 ### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
@@ -58,12 +58,6 @@ ms.locfileid: "68685537"
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: Azure Stack ポータルを使用して、サブスクリプションへのアクセス許可を表示することはできません。
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
-- 発生頻度: 一般
-
-### <a name="subscriptions-properties-blade"></a>サブスクリプションの [プロパティ] ブレード
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 管理者ポータルで、サブスクリプションの **[プロパティ]** ブレードが正しく読み込まれません
-- 修復: これらのサブスクリプションのプロパティは、[サブスクリプションの概要] ブレードの [要点] ウィンドウで表示できます
 - 発生頻度: 一般
 
 ### <a name="storage-account-settings"></a>Storage アカウントの設定
@@ -78,13 +72,6 @@ ms.locfileid: "68685537"
 - 原因: ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。
 - 修復: SAS オプションを使用して BLOB をアップロードします。
 - 発生頻度: 一般
-
-### <a name="update"></a>アップデート
-
-- 適用先:この問題は、1906 リリースに適用されます。
-- 原因: オペレーター ポータルで、修正プログラムの更新状態が、更新プログラムに対して正しくない状態を示しています。 初期状態は、まだ進行中であっても、更新プログラムのインストールに失敗したことを示します。
-- 修復: ポータルを更新すると、状態が "進行中" に更新されます。
-- 発生頻度: 間欠的
 
 ## <a name="networking"></a>ネットワーク
 
@@ -102,6 +89,13 @@ ms.locfileid: "68685537"
 - 発生頻度: 一般
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
+
+#### <a name="local-network-gateway-deletion"></a>ローカル ネットワーク ゲートウェイの削除
+
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: ユーザー ポータルで、**ローカル ネットワーク ゲートウェイ**を削除すると、次のエラー メッセージが表示されます。アクティブな接続がない場合でも、**アクティブな接続のあるローカル ネットワーク ゲートウェイを削除できません**。
+- 軽減策: この問題の修正プログラムは 1907 でリリースされます。 この問題の回避策は、別の名前で、同じ IP アドレス、アドレス空間、および構成の詳細を持つ新しいローカル ネットワーク ゲートウェイを作成することです。 環境が 1907 に更新されたら、古い LNG を削除できます。
+- 発生頻度: 一般
 
 #### <a name="alerts"></a>アラート
 
@@ -132,22 +126,6 @@ ms.locfileid: "68685537"
   - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
-### <a name="load-balancer"></a>Load Balancer
-
-#### <a name="add-backend-pool"></a>バックエンド プールを追加する
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで **[バックエンド プール]** を **[Load Balancer]** に追加しようとすると、"**failed to update Load Balancer...** " (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。
-- 修復: PowerShell、CLI、または Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
-- 発生頻度: 一般
-
-#### <a name="create-inbound-nat"></a>インバウンド NAT を作成する
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで **[Load Balancer]** に対して**インバウンド NAT 規則**を作成しようとすると、"**Failed to update Load Balancer**" (Load Balancer の更新に失敗しました) というエラー メッセージで操作が失敗します。
-- 修復: PowerShell、CLI、または Resource Manager テンプレートを使用して、バックエンド プールをロード バランサー リソースに関連付けます。
-- 発生頻度: 一般
-
 ## <a name="compute"></a>Compute
 
 ### <a name="vm-boot-diagnostics"></a>VM ブート診断
@@ -158,7 +136,6 @@ ms.locfileid: "68685537"
 - 発生頻度: 一般
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
-
 
 #### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
 
@@ -175,21 +152,21 @@ ms.locfileid: "68685537"
 
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
 
-- 適用先:この問題は、1906 リリースに適用されます。
+- 適用先:この問題は、1906 および 1907 リリースに適用されます。
 - 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack ではスケール セットでのパスワードのリセットがまだサポートされていません。
 - 修復: なし。
 - 発生頻度: 一般
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
 
-- 適用先:この問題は、1906 リリースに適用されます。
+- 適用先:この問題は、1906 および 1907 リリースに適用されます。
 - 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack ビルドでサポートされている機能ではありません。
 - 修復: なし。
 - 発生頻度: 一般
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
 
-- 適用先:この問題は、1906 リリースに適用されます。
+- 適用先:この問題は、1906 および 1907 リリースに適用されます。    
 - 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack ではまだサポートされていません。
 - 修復: なし。
 - 発生頻度: 一般
@@ -204,4 +181,4 @@ ms.locfileid: "68685537"
 ## <a name="next-steps"></a>次の手順
 
 - [更新アクティビティのチェック リストを確認する](azure-stack-release-notes-checklist.md)
-- [セキュリティ更新プログラムの一覧を確認する](azure-stack-release-notes-security-updates-1906.md)
+- [セキュリティ更新プログラムの一覧を確認する](azure-stack-release-notes-security-updates-1907.md)

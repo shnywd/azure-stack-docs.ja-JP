@@ -16,12 +16,12 @@ ms.date: 06/14/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 6f178d0208f5111a7ae60d23e1d914fcf8e3aba5
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 68b83ac38da20f341242618a1cfa62a9838a0ada
+ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397264"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68544089"
 ---
 # <a name="azure-stack-1905-update"></a>Azure Stack 1905 更新プログラム
 
@@ -54,6 +54,8 @@ Azure Stack 1905 更新プログラムのビルドの種類は**完全**です�
 - Windows Server 2019 がサポートされるようになっており、Azure Stack Marketplace を通した配信に利用できます。
 この更新プログラムでは、2016 ホスト上で Windows Server 2019 を正常にアクティブにできるようになりました。
 
+- 新しい [Azure アカウント Visual Studio Code 拡張機能](../user/azure-stack-dev-start-vscode-azure.md)を使うと、開発者はサブスクリプションにログインして表示することで、Azure Stack や他の多数のサービスをターゲットにできます。 Azure アカウント拡張機能は、Azure Active Directory (Azure AD) 環境と AD FS 環境の両方で動作し、Visual Studio Code ユーザー設定で必要な変更はわずかです。 Visual Studio Code には、この環境で実行するために、サービス プリンシパルにアクセス許可を付与する必要があります。 これを行うには、ID スクリプトをインポートし、[Azure Stack のマルチテナント](../operator/azure-stack-enable-multitenancy.md)に指定されているコマンドレットを実行します。 これには、ホーム ディレクトリの更新と、各ディレクトリのゲスト テナント ディレクトリの登録が必要です。 1905 以降に更新後、Visual Studio Code サービス プリンシパルが含まれているホーム ディレクトリ テナントを更新するように、アラートが表示されます。 
+
 ### <a name="improvements"></a>機能強化
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
@@ -69,11 +71,11 @@ Azure Stack 1905 更新プログラムのビルドの種類は**完全**です�
 
 - Azure Stack ポータルの新しい**ヘルプとサポートの概要**により、オペレーターは簡単にサポート オプションを確認したり、専門家の支援を得たり、Azure Stack の詳細について学習したりできます。 統合システムでは、サポート リクエストを作成するときは Azure Stack サービスが事前に選択されます。 グローバルな Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することをお客様に強くお勧めします。 詳しくは、「[Azure Stack Help and Support](azure-stack-help-and-support-overview.md)」(Azure Stack のヘルプとサポート) をご覧ください。
 
-- 複数の Azure Active Directory を ([このプロセス](azure-stack-enable-multitenancy.md)で) オンボードすると、特定の更新プログラムが発生したとき、または AAD サービス プリンシパルの認可に対する変更によって権限がなくなったときに、スクリプトの再実行を無視することができます。 これにより、特定の機能に対するアクセスのブロックから、元の問題まで追跡することが困難なさらに個別の障害まで、さまざまな問題が発生する可能性があります。 これを防ぐため、1905 では、これらのアクセス許可をチェックし、特定の構成の問題が見つかったときはアラートを作成する、新しい機能が導入されています。 この検証は 1 時間ごとに実行され、問題を解決するために必要な修復アクションが表示されます。 すべてのテナントが正常な状態になると、アラートは閉じます。
+- 複数の Azure Active Directory を ([このプロセス](azure-stack-enable-multitenancy.md)で) オンボードすると、特定の更新プログラムが発生したとき、または Azure AD サービス プリンシパルの認可に対する変更によって権限がなくなったときに、スクリプトの再実行が無視されることがあります。 これにより、特定の機能に対するアクセスのブロックから、元の問題まで追跡することが困難なさらに個別の障害まで、さまざまな問題が発生する可能性があります。 これを防ぐため、1905 では、これらのアクセス許可をチェックし、特定の構成の問題が見つかったときはアラートを作成する、新しい機能が導入されています。 この検証は 1 時間ごとに実行され、問題を解決するために必要な修復アクションが表示されます。 すべてのテナントが正常な状態になると、アラートは閉じます。
 
 - サービスのフェールオーバーの間の、インフラストラクチャのバックアップ操作の信頼性の向上。
 
-- 認証に [Azure Active Directory 認証ライブラリ](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) を使用する、新しいバージョンの [Azure Stack Nagios プラグイン](azure-stack-integrate-monitor.md#integrate-with-nagios)を利用できます。 プラグインでは、Azure Active Directory (AAD) と Active Directory フェデレーション サービス (ADFS) での Azure Stack のデプロイもサポートされるようになっています。 詳しくは、[Nagios プラグインの交換](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)に関するサイトをご覧ください。
+- 認証に [Azure Active Directory 認証ライブラリ](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) を使用する、新しいバージョンの [Azure Stack Nagios プラグイン](azure-stack-integrate-monitor.md#integrate-with-nagios)を利用できます。 プラグインでは、Azure AD と Active Directory フェデレーション サービス (ADFS) での Azure Stack のデプロイもサポートされるようになっています。 詳しくは、[Nagios プラグインの交換](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)に関するサイトをご覧ください。
 
 - Azure Stack のすべての最新機能がサポートされている新しいハイブリッド プロファイル **2019-03-01-Hybrid** がリリースされました。 **2019-03-01-Hybrid** プロファイルは、Azure PowerShell と Azure CLI の両方でサポートされています。 .NET、Ruby、Node.js、Go、Python の SDK で、**2019-03-01-Hybrid** プロファイルをサポートするパッケージが公開されています。 その変更を反映するように、それぞれのドキュメントといくつかのサンプルが更新されています。
 
@@ -95,8 +97,6 @@ Azure Stack 1905 更新プログラムのビルドの種類は**完全**です�
     |12 ノード|54 vCPU|60 GB|
     |16 ノード|70 vCPU|76 GB|
   
-- Visual Studio Code で動作する Azure Stack 拡張機能が提供されるようになりました。 **Azure アカウント**拡張機能を使うと、開発者はサブスクリプションにログインして表示することで、Azure Stack や他の多数のサービスをターゲットにできます。 Azure アカウント拡張機能は AAD 環境と ADFS 環境の両方で動作し、Visual Studio Code のユーザー設定を少し変更するだけで、Azure Stack のメタデータ値を入力できます。 詳しくは、[こちらのドキュメントをご覧ください](../user/azure-stack-dev-start-vscode-azure.md)。
-
 ### <a name="changes"></a>変更点
 
 - 計画的および非計画的なメンテナンス シナリオでの信頼性と可用性を向上させるため、Azure Stack では、ドメイン サービス用に新しいインフラストラクチャ ロール インスタンスが追加されています。

@@ -15,12 +15,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e8a1e40ec5b333862eaca59d7269a46a91460237
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 6dda8562e47f17c97da5e0597a2ed88865bc6425
+ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376789"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68497857"
 ---
 # <a name="use-idns-in-azure-stack"></a>Azure Stack での iDNS の使用 
 
@@ -34,7 +34,7 @@ Azure Stack の iDNS を使用して、カスタム DNS サーバー エント�
 
 - テナントのワークロードに対する共有 DNS 名前解決サービス。
 - テナントの仮想ネットワーク内で名前解決と DNS 登録を行う権限がある DNS サービス。
-- テナントの VM からインターネット名を解決する再帰的な DNS サービス。 テナントは、インターネット名 (例: www.bing.com) を解決するためにカスタム DNS エントリを指定する必要はもうありません。
+- テナントの VM からインターネット名を解決する再帰的な DNS サービス。 テナントは、インターネット名 (例: www\.bing.com) を解決するためにカスタム DNS エントリを指定する必要がなくなりました。
 
 独自の DNS とカスタム DNS サーバーを使用することもできます。 しかし iDNS を使用すれば、インターネットの DNS 名を解決することに加え、同じ仮想ネットワーク内の他の VM に接続することもでき、カスタム DNS エントリを作成する必要がありません。
 

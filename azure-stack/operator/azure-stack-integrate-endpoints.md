@@ -10,12 +10,12 @@ ms.date: 07/22/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/22/2019
-ms.openlocfilehash: 85022f074dd494978780d67db8cc14e4c243a49c
-ms.sourcegitcommit: 159da88a52701679571bbedde1c36b72bbfe32dd
+ms.openlocfilehash: 6bf9f9bb66ba7e2c9722f64e7116778f17e0e4e2
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380447"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658615"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack とデータセンターの統合 - エンドポイントの公開
 
@@ -77,10 +77,10 @@ Azure Stack は、透過的なプロキシ サーバーのみをサポートし�
 |目的|接続先 URL|Protocol|Port|ソース ネットワーク|
 |---------|---------|---------|---------|---------|
 |ID|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net<br>https:\//secure.aadcdn.microsoftonline-p.com<br>www.office.com|HTTP<br>HTTPS|80<br>443|パブリック VIP - /27<br>パブリック インフラストラクチャ ネットワーク|
-|Marketplace シンジケーション|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net|HTTPS|443|パブリック VIP - /27|
+|Marketplace シンジケーション|https:\//management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://\*.azureedge.net|HTTPS|443|パブリック VIP - /27|
 |パッチと更新プログラム|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|パブリック VIP - /27|
 |登録|https:\//management.azure.com|HTTPS|443|パブリック VIP - /27|
-|使用法|https://*.trafficmanager.net |HTTPS|443|パブリック VIP - /27|
+|使用法|**Azure**<br>- https://&#42;.trafficmanager.net<br>**Azure Government**<br>- https://&#42;.usgovtrafficmanager.net<br>**Azure China**<br>- https://&#42;.trafficmanager.cn<br> |HTTPS|443|パブリック VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|パブリック VIP - /27<br>パブリック インフラストラクチャ ネットワーク|
 |NTP|(デプロイに提供される NTP サーバーの IP)|UDP|123|パブリック VIP - /27|
 |DNS|(デプロイに提供される DNS サーバーの IP)|TCP<br>UDP|53|パブリック VIP - /27|

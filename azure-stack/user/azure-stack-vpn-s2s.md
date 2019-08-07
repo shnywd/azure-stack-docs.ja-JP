@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のサイト対サイト VPN 接続を構成する | Microsoft Docs
-description: Azure Stack でのサイト対サイト VPN 接続または VNet 対 VNet 接続用の IPsec/IKE ポリシーについて説明します。
+title: IPsec/IKE のサイト対サイト VPN 接続を構成する | Microsoft Docs
+description: Azure Stack でのサイト対サイト VPN 接続または VNet 対 VNet 接続用の IPsec/IKE ポリシーについて説明し、構成します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,23 +14,23 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d6944fefeb55c1b2a109964271c84daafb8b8ff8
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 0c9c1af77ecf2bdf1c8da23cc7ab9e8d281067ea
+ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397293"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68658708"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
 この記事では、Azure Stack でサイト対サイト (S2S) VPN 接続用の IPsec/IKE ポリシーを構成する手順について説明します。
 
 >[!NOTE]
-> この機能を使用するには、Azure Stack ビルド **1809** 以降を実行している必要があります。  1809 より前のビルドを現在実行している場合は、この機能を使用する前に Azure Stack システムを最新のビルド前に更新するか、この記事のステップにしたがってください。
+> この機能を使用するには、Azure Stack ビルド **1809** 以降を実行している必要があります。  1809 より前のビルドを現在実行している場合は、この記事のステップに進む前に Azure Stack システムを最新のビルドに更新します。
 
 ## <a name="ipsec-and-ike-policy-parameters-for-vpn-gateways"></a>VPN ゲートウェイ用の IPsec/IKE ポリシーのパラメーター
 
-IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさまざまな組み合わせでサポートされています。 Azure Stack でサポートされているパラメーターを確認するには、ご自身のコンプライアンスまたはセキュリティ要件を満たすのに役立つ「[IPsec/IKE パラメーター](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)」を参照してください。
+IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさまざまな組み合わせでサポートされています。 コンプライアンスまたはセキュリティ要件を満たすことができるように、Azure Stack でサポートされているパラメーターを確認するには、「[IPsec/IKE パラメーター](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)」を参照してください。
 
 この記事では、IPsec/IKE ポリシーを作成して構成し、新規または既存の接続に適用する方法を示します。
 
@@ -81,22 +81,22 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 - ご使用のオンプレミス VPN デバイスの構成は、Azure IPsec/IKE ポリシーで指定した次のアルゴリズムおよびパラメーターと一致している (または含んでいる) 必要があります。
 
-  - IKE 暗号化アルゴリズム (メイン モード/フェーズ 1)
-  - IKE 整合性アルゴリズム (メイン モード/フェーズ 1)
-  - DH グループ (メイン モード/フェーズ 1)
-  - IPsec 暗号化アルゴリズム (クイック モード/フェーズ 2)
-  - IPsec 整合性アルゴリズム (クイック モード/フェーズ 2)
-  - PFS グループ (クイック モード/フェーズ 2)
-  - SA の有効期間は、ローカルの指定のみとなります。一致している必要はありません。
+  - IKE 暗号化アルゴリズム (メイン モード/フェーズ 1)。
+  - IKE 整合性アルゴリズム (メイン モード/フェーズ 1)。
+  - DH グループ (メイン モード/フェーズ 1)。
+  - IPsec 暗号化アルゴリズム (クイック モード/フェーズ 2)。
+  - IPsec 整合性アルゴリズム (クイック モード/フェーズ 2)。
+  - PFS グループ (クイック モード/フェーズ 2)。
+  - SA の有効期間は、ローカルの指定のみであり、それらが一致している必要はありません。
 
-- IPsec 暗号化アルゴリズム用として GCMAES を使用する場合は、IPsec との整合性を取るため、同じ GCMAES アルゴリズムとキーの長さを選択する必要があります。たとえば、両方に GCMAES128 を使用します。
+- IPsec 暗号化アルゴリズム用として GCMAES を使用する場合は、IPsec 整合性に、同じ GCMAES アルゴリズムとキーの長さを選択する必要があります。 たとえば、両方に GCMAES128 を使用します。
 
 - 上記の表では、
 
-  - IKEv2 はメイン モードまたはフェーズ 1 に対応しています
-  - IPsec はクイック モードまたはフェーズ 2 に対応しています
-  - DH グループは、メイン モードまたはフェーズ 1 で使用される Diffie-Hellman グループを指定します
-  - PFS グループは、クイック モードまたはフェーズ 2 で使用される Diffie-Hellman グループを指定します
+  - IKEv2 はメイン モードまたはフェーズ 1 に対応しています。
+  - IPsec はクイック モードまたはフェーズ 2 に対応しています。
+  - DH グループは、メイン モードまたはフェーズ 1 で使用される Diffie-Hellman グループを指定します。
+  - PFS グループは、クイック モードまたはフェーズ 2 で使用される Diffie-Hellman グループを指定します。
 
 - Azure Stack VPN ゲートウェイでは、IKEv2 メイン モード SA の有効期間は 28,800 秒に固定されています。
 
@@ -173,7 +173,7 @@ New-AzureRmResourceGroup -Name $RG1 -Location $Location1
 
 #### <a name="3-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>手順 3.仮想ネットワーク、VPN ゲートウェイ、およびローカル ネットワーク ゲートウェイを作成する
 
-次の例では、3 つのサブネットを持つ仮想ネットワーク **TestVNet1** と VPN ゲートウェイが作成されます。 値を代入するときは、ゲートウェイ サブネットの名前を必ず **GatewaySubnet** にすることが重要です。 別の名前にすると、ゲートウェイの作成は失敗します。
+次の例では、仮想ネットワーク **TestVNet1** と 3 つのサブネットと VPN ゲートウェイが作成されます。 値を代入するときは、ゲートウェイ サブネットの名前を必ず **GatewaySubnet** にすることが重要です。 別の名前にすると、ゲートウェイの作成は失敗します。
 
 ```powershell
 $fesub1 = New-AzureRmVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -234,9 +234,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 前のセクションでは、既存のサイト対サイト接続用の IPsec/IKE ポリシーを管理する方法を示しました。 このセクションでは、接続に対して次の操作を行います。
 
-1. 接続の IPsec/IKE ポリシーを表示する
-2. 接続に IPsec/IKE ポリシーを追加する、またはポリシーを更新する
-3. 接続から IPsec/IKE ポリシーを削除する
+1. 接続の IPsec/IKE ポリシーを表示する。
+2. 接続に IPsec/IKE ポリシーを追加する、またはポリシーを更新する。
+3. 接続から IPsec/IKE ポリシーを削除する。
 
 > [!NOTE]
 > IPsec/IKE ポリシーは、"*Standard*" および "*HighPerformance*" のルート ベースの VPN ゲートウェイでのみサポートされています。 *Basic* ゲートウェイ SKU では機能しません。
