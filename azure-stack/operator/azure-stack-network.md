@@ -16,12 +16,12 @@ ms.date: 06/04/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e9c373ebaa6452c57acad866c66c8b3d5ab0c5ed
-ms.sourcegitcommit: cf9440cd2c76cc6a45b89aeead7b02a681c4628a
+ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66469162"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842732"
 ---
 # <a name="network-connectivity"></a>ネットワーク接続
 この記事では、Azure Stack を既存のネットワーク環境に統合する最善の方法を決定するために役立つ Azure Stack ネットワーク インフラストラクチャの情報を提供します。 
@@ -77,28 +77,7 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 ### <a name="switch-management-network"></a>スイッチ管理ネットワーク
 この /29 (6 つのホスト IP) ネットワークは、スイッチの管理ポートの接続専用です。 これにより、デプロイ、管理、およびトラブルシューティングのためのアウトオブバンド アクセスが可能になります。 これは、上で説明したスイッチ インフラストラクチャ ネットワークから計算されます。
 
-## <a name="publish-azure-stack-services"></a>Azure Stack サービスの公開
-Azure Stack の外部のユーザーに対して Azure Stack サービスを使用可能にする必要があります。 Azure Stack は、さまざまなエンドポイントをそのインフラストラクチャ ロールに応じて設定します。 それらのエンドポイントには、パブリック IP アドレス プールから VIP が割り当てられます。 デプロイ時に指定した外部 DNS ゾーン内のエンドポイントごとに DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
 
-### <a name="ports-and-urls"></a>ポートと URL
-Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークに対して使用可能にするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
- 
-透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、特定のポートと URL に[受信](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)および[送信](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)の両方の通信を許可する必要があります。 これには、ID、マーケットプレース、パッチと更新プログラム、登録、使用状況データに使用するポートと URL が該当します。
-
-### <a name="mac-address-pool"></a>MAC アドレス プール
-
-Azure Stack では、MAC アドレスを自動的に生成して仮想マシンに割り当てるために、静的 MAC アドレス プールが使用されます。
-この MAC アドレス プールは、デプロイ時に自動的に生成され、次の範囲を使用します。
-
-- StartMacAddress:00-1D-D8-B7-00-00
-- EndMacAddress:00-1D-D8-F4-FF-FF
-
-> [!Note]  
-> この MAC アドレス プールは、各 Azure Stack システムで同じで、構成することはできません。
-
-仮想ネットワークと既存の企業ネットワークとの接続方法によっては、仮想マシンの MAC アドレスが重複することがあります。
-
-MAC アドレス プールの使用率に関する詳細情報は、Azure Stack Administrator の PowerShell モジュール内のコマンドレット [Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) を使用して確認できます。
 
 
 ## <a name="next-steps"></a>次の手順

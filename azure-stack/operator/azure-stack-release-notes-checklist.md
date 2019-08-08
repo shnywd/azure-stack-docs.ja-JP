@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0c7840c723aedd38b51002e4a1f18f5a87d66ec4
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.openlocfilehash: b789b7ba1f4c55f0ee44c214d4e214b73678b1fc
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544073"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68719963"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新アクティビティのチェックリスト
 
@@ -31,8 +31,8 @@ ms.locfileid: "68544073"
 
 | アクティビティ                     | 詳細                                                   |
 |------------------------------|-----------------------------------------------------------|
-| 既知の問題の確認     | [既知の問題の一覧](azure-stack-release-notes-known-issues-1906.md)                |
-| セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](azure-stack-release-notes-security-updates-1906.md)      |
+| 既知の問題の確認     | [既知の問題の一覧](azure-stack-release-notes-known-issues-1907.md)                |
+| セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](azure-stack-release-notes-security-updates-1907.md)      |
 | 最新の OEM パッケージの適用 | OEM に問い合わせて、ご利用のシステムのアップグレード先の Azure Stack バージョンの最小 OEM パッケージ要件を、システムが満たしていることを確認してください。 |
 | Test-AzureStack を実行する     | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。      |
 | 問題の解決          | **Test-AzureStack** によって特定された操作上の問題を解決します。                |

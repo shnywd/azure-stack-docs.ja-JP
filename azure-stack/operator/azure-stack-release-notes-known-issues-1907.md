@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: cf09162fb29630ed01834aa6b2b508785206a088
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
+ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685568"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68738338"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 の既知の問題
 
@@ -89,13 +89,6 @@ ms.locfileid: "68685568"
 - 発生頻度: 一般
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
-
-#### <a name="local-network-gateway-deletion"></a>ローカル ネットワーク ゲートウェイの削除
-
-- 適用先:この問題は、1906 リリースに適用されます。
-- 原因: ユーザー ポータルで、**ローカル ネットワーク ゲートウェイ**を削除すると、次のエラー メッセージが表示されます。アクティブな接続がない場合でも、**アクティブな接続のあるローカル ネットワーク ゲートウェイを削除できません**。
-- 軽減策: この問題の修正プログラムは 1907 でリリースされます。 この問題の回避策は、別の名前で、同じ IP アドレス、アドレス空間、および構成の詳細を持つ新しいローカル ネットワーク ゲートウェイを作成することです。 環境が 1907 に更新されたら、古い LNG を削除できます。
-- 発生頻度: 一般
 
 #### <a name="alerts"></a>アラート
 
