@@ -1,6 +1,6 @@
 ---
 title: ポータルを使って Azure Stack の Key Vault を管理する | Microsoft Docs
-description: ポータルを使って Azure Stack の Key Vault を管理する方法を説明します。
+description: Azure Stack ポータルを使用して Azure Stack の Key Vault を管理する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: sethm
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 57a23dc63c72657c19a92fa8f69e029be7f12f60
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 4b6d6e784a640894fb1ef304d4469586e9fc2297
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836846"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842737"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>ポータルを使って Azure Stack の Key Vault を管理する
 
-Azure Stack ポータルを使用して Azure Stack の Key Vault を管理できます。 この記事では、Azure Stack でキー コンテナーを作成および管理する方法について説明します。
+この記事では、Azure Stack ポータルを使用して Azure Stack でキー コンテナーを作成および管理する方法について説明します。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,7 +38,7 @@ Azure Key Vault サービスを含むプランをサブスクライブする必�
 
     ![Key Vault 画面](media/azure-stack-key-vault-manage-portal/image1.png)
 
-3. **[Key Vault の作成]** ウィンドウで、Vault に**名前**を割り当てます。 Vault の名前には、英数字とハイフン (-) 文字のみを含めることができます。 名前を数字で始めることはできません。
+3. **[Key Vault の作成]** ウィンドウで、Vault に**名前**を割り当てます。 Vault の名前には、英数字とハイフン (-) 文字のみを含めることができます。 これらを数字で始めることはできません。
 
 4. 使用可能なサブスクリプションの一覧から**サブスクリプション**を選択します。 Key Vault サービスを提供するすべてのサブスクリプションがドロップダウン リストに表示されます。
 
@@ -46,11 +46,11 @@ Azure Key Vault サービスを含むプランをサブスクライブする必�
 
 6. **[価格レベル]** を選択します。 Azure Stack Development Kit (ASDK) では、キー コンテナーは **Standard** SKU のみをサポートします。
 
-7. 既存の**アクセス ポリシー**のいずれかを選択するか、新しいアクセス ポリシーを作成します。 アクセス ポリシーでは、この Vault で操作を実行する権限を、ユーザー、アプリケーション、またはセキュリティ グループに付与できます。
+7. 既存の**アクセス ポリシー**のいずれかを選択するか、新しいアクセス ポリシーを作成します。 アクセス ポリシーでは、この Vault で操作を実行する権限を、ユーザー、アプリ、またはセキュリティ グループに付与できます。
 
 8. 必要に応じて、 **[高度なアクセス ポリシー]** を選んで機能へのアクセスを有効にします。 例: デプロイのための仮想マシン (VM)、テンプレートのデプロイのための Resource Manager、ボリューム暗号化のための Azure Disk Encryption へのアクセス。
 
-9. 設定を構成したら、 **[OK]** を選択し、 **[作成]** を選択します。 これにより、キー コンテナーのデプロイが開始されます。
+9. 設定を構成したら、 **[OK]** を選択し、 **[作成]** を選択します。 この手順で、キー コンテナーのデプロイが開始されます。
 
 ## <a name="manage-keys-and-secrets"></a>キーとシークレットの管理
 
@@ -72,7 +72,7 @@ Azure Key Vault サービスを含むプランをサブスクライブする必�
 
 7. **[作成]** を選択してデプロイを開始します。
 
-キーが正常に作成されたら、 **[キー]** で選択してプロパティを表示したり変更したりできます。 プロパティ セクションには **[キー識別子]** が含まれます。これは、外部アプリケーションがこのキーにアクセスするために使う Uniform Resource Identifier (URI) です。 このキーでの操作を制限するには、 **[許可された操作]** で設定を構成します。
+キーが正常に作成されたら、 **[キー]** で選択してプロパティを表示したり変更したりできます。 プロパティ セクションには **[キー識別子]** が含まれます。これは、外部アプリがこのキーにアクセスするために使う Uniform Resource Identifier (URI) です。 このキーでの操作を制限するには、 **[許可された操作]** で設定を構成します。
 
 ![キーの URI](media/azure-stack-key-vault-manage-portal/image4.png)
 
@@ -92,7 +92,7 @@ Azure Key Vault サービスを含むプランをサブスクライブする必�
 
 7. **[作成]** を選択してデプロイを開始します。
 
-シークレットが正常に作成されたら、 **[シークレット]** で選択してプロパティを表示したり変更したりできます。 **[シークレット識別子]** は、外部アプリケーションがこのシークレットへのアクセスに使用できる URI です。
+シークレットが正常に作成されたら、 **[シークレット]** で選択してプロパティを表示したり変更したりできます。 **[シークレット識別子]** は、外部アプリがこのシークレットへのアクセスに使用できる URI です。
 
 ![シークレットの URI](media/azure-stack-key-vault-manage-portal/image5.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Visual Studio をインストールして Azure Stack に接続する | Microsoft Docs
-description: Visual Studio をインストールして Azure Stack に接続するために必要な手順を説明します。
+description: Visual Studio をインストールして Azure Stack に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 11d389b96ed730d6395231ecf24eced6a65fbae8
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: 12f0b8d13ebaa7a31153dd89f65f27fd97294700
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64311749"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842945"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Visual Studio をインストールして Azure Stack に接続する
 
@@ -35,13 +35,13 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
 2. **Microsoft Web Platform Installer** を開きます。
 
-3. **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6** を検索します。 **[追加]**、**[インストール]** の順にクリックします。
+3. **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6** を検索します。 **[追加]** をクリックし、 **[インストール]** をクリックします。
 
 4. Azure SDK の一部としてインストールされている **Microsoft Azure PowerShell** をアンインストールします。
 
     ![WebPI のインストール手順を示すスクリーンショット](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
+5. [PowerShell for Azure Stack をインストールします](../operator/azure-stack-powershell-install.md)。
 
 6. インストールが完了したら、オペレーティング システムを再起動します。
 
@@ -63,11 +63,11 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
 2. **[ツール]** から **[オプション]** を選択します。
 
-3. **ナビゲーション ウィンドウ**の **[環境]** を展開し、**[アカウント]** を選択します。
+3. **ナビゲーション ウィンドウ**の **[環境]** を展開し、 **[アカウント]** を選択します。
 
-4. **[追加]** を選択し、User Azure Resource Manger エンドポイントを入力します。 Azure Stack Development Kit の URL は `https://management.local.azurestack/external` です。  Azure Stack 統合システムの URL は `https://management.[Region}.[External FQDN]` です。
+4. **[追加]** を選択し、User Azure Resource Manger エンドポイントを入力します。 Azure Stack Development Kit (ASDK) の URL は `https://management.local.azurestack/external` です。  Azure Stack 統合システムの URL は `https://management.[Region}.[External FQDN]` です。
 
-    ![X](./media/azure-stack-install-visual-studio/image5.png)
+    ![新しい Azure Cloud 検出エンドポイントを追加する](./media/azure-stack-install-visual-studio/image5.png)
 
 5. **[追加]** を選択します。  
 
@@ -79,11 +79,11 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
 7. **[アカウントの追加]** を選択し、AD FS の資格情報でサインインします。  
 
-    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
+    ![Cloud Explorer で Visual Studio にサインインする](./media/azure-stack-install-visual-studio/image7.png)
 
     Cloud Explorer は使用できるサブスクリプションのクエリを実行します。 使用できるサブスクリプションを選択して管理できます。
 
-    ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
+    ![Cloud Explorer で管理するサブスクリプションを選択する](./media/azure-stack-install-visual-studio/image8.png)
 
 8. 既存のリソース、リソース グループ、またはデプロイ テンプレートを参照します。
 

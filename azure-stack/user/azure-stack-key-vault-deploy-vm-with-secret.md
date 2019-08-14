@@ -1,6 +1,6 @@
 ---
-title: Azure Stack に安全に格納されたパスワードで VM をデプロイする | Microsoft Docs
-description: Azure Stack Key Vault に格納されているパスワードを使って VM をデプロイする方法を説明します
+title: Key Vault に格納されたパスワードを使用して Azure Stack VM をデプロイする | Microsoft Docs
+description: Azure Stack キー コンテナーに格納されているパスワードを使用して VM をデプロイする方法を説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e4163921662b88cbd62f77eedc92d3a7db4bf491
-ms.sourcegitcommit: ca46bef5d5f824d22bdbc00605eb881410b1ffd0
+ms.openlocfilehash: 480740b12796fe90e2acd6fd1eb164b4c89d5ded
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67041978"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842833"
 ---
-# <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Azure Stack Key Vault に格納されているセキュリティ保護されたパスワードを使用して仮想マシンを作成する
+# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Key Vault に格納されたパスワードを使用して Azure Stack VM をデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-この記事では、Azure Stack Key Vault に格納されたパスワードを使用して、Windows Server 仮想マシンをデプロイする手順を説明します。 Key Vault パスワードを使用する方が、プレーンテキスト パスワードを渡すよりも安全性が高くなります。
+この記事では、Azure Stack Key Vault に格納されたパスワードを使用して、Windows Server 仮想マシン (VM) をデプロイする手順を説明します。 Key Vault パスワードを使用する方が、プレーンテキスト パスワードを渡すよりも安全性が高くなります。
 
 ## <a name="overview"></a>概要
 
@@ -41,18 +41,18 @@ Azure Stack Key Vault にはパスワードなどの値をシークレットと�
 * [PowerShell for Azure Stack のインストール。](../operator/azure-stack-powershell-install.md)
 * [PowerShell 環境の構成。](azure-stack-powershell-configure-user.md)
 
-次の手順では、Key Vault に格納されているパスワードを取得することによって仮想マシンを作成するために必要なプロセスについて説明します。
+次の手順では、キー コンテナーに格納されているパスワードを取得することによって VM を作成するために必要なプロセスについて説明します。
 
 1. Key Vault シークレットを作成します。
-2. azuredeploy.parameters.json ファイルを更新します。
+2. `azuredeploy.parameters.json` ファイルを更新します。
 3. テンプレートをデプロイします。
 
 > [!NOTE]  
-> この手順は、Azure Stack Development Kit から、または VPN 経由で接続している場合は外部クライアントから実行できます。
+> この手順は、Azure Stack Development Kit (ASDK) から、または VPN 経由で接続している場合は外部クライアントから実行できます。
 
 ## <a name="create-a-key-vault-secret"></a>Key Vault シークレットを作成する
 
-次のスクリプトは、Key Vault を作成し、パスワードをシークレットとして Key Vault に格納します。 Key Vault を作成するときは、`-EnabledForDeployment` パラメーターを使います。 このパラメーターを指定すると、Azure Resource Manager テンプレートから Key Vault を参照できるようになります。
+次のスクリプトは、キー コンテナーを作成し、パスワードをシークレットとしてキー コンテナーに格納します。 Key Vault を作成するときは、`-EnabledForDeployment` パラメーターを使います。 このパラメーターを指定すると、Azure Resource Manager テンプレートから Key Vault を参照できるようになります。
 
 ```powershell
 
@@ -80,13 +80,13 @@ Set-AzureKeyVaultSecret `
 
 ```
 
-前のスクリプトを実行すると、出力にはシークレットの URI が含まれます。 この URI を書き留めておきます。 それを、[Key Vault のパスワードでの Windows 仮想マシンのデプロイ テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv)で参照する必要があります。 開発用コンピューターに [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) フォルダーをダウンロードします。 このフォルダーには、次の手順で必要な `azuredeploy.json` ファイルと `azuredeploy.parameters.json` ファイルが含まれます。
+前のスクリプトを実行すると、出力にはシークレットの URI (Uniform Resource Identifier) が含まれます。 この URI を書き留めておきます。 それを、[Key Vault のパスワードでの Windows VM のデプロイ テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv)で参照する必要があります。 開発用コンピューターに [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) フォルダーをダウンロードします。 このフォルダーには、次の手順で必要な `azuredeploy.json` ファイルと `azuredeploy.parameters.json` ファイルが含まれます。
 
 環境の値に従って `azuredeploy.parameters.json` ファイルを変更します。 特に重要なパラメーターは、コンテナー名、コンテナー リソース グループ、およびシークレットの URI (前のスクリプトによって生成されたもの) です。 パラメーター ファイルの例を次に示します。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>azuredeploy.parameters.json ファイルを更新する
 
-環境に従って仮想マシンの値の KeyVault URI、secretName、adminUsername で azuredeploy.parameters.json ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
+環境に応じて、VM 値の KeyVault URI、secretName、adminUsername を使用して `azuredeploy.parameters.json` ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
 
 ```json
 {

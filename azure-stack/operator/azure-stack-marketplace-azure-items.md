@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 07/12/2019
-ms.openlocfilehash: edb11dc0f80702d804305ea671427d91f13cc786
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.lastreviewed: 08/05/2019
+ms.openlocfilehash: 76ce6d491969913ad48486fd9004f7686af8e6f3
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692166"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68807124"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -118,6 +118,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Cassandra クラスター](media/azure-stack-marketplace-azure-items/cassandra.png) | [Cassandra クラスター](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cassandra-cluster) | Apache Cassandra は、コモディティ サーバー間で大量のデータを処理するように設計されたオープン ソースの分散型データベース管理システムであり、単一点障害の不在による高可用性を備えています。 **このソリューション テンプレートでは、Debian 8 と Custom Script for Linux 2.0 Extension も必要です。** | Bitnami |
 | ![CiviCRM](media/azure-stack-marketplace-azure-items/civicrm.png) | [CiviCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.civicrm) | シンプルな Web ベースのリレーションシップ管理システム。 | Bitnami |
 | ![CMS Made Simple](media/azure-stack-marketplace-azure-items/cmsmadesimple.png) | [CMS Made Simple](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.cmsmadesimple) | Web サイトのすばやく簡単な作成および管理方法。 | Bitnami |
+| ![Composr](media/azure-stack-marketplace-azure-items/composr.png) | [Composr](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ocportal) | Composr は、高度なコンテンツ、ソーシャル、対話型、および動的な機能を備えた CMS です。 高い柔軟性、テーマ対応、拡張可能: ほぼすべての種類の Web サイトの構築に適しています。 | Bitnami |
 | ![Concrete5](media/azure-stack-marketplace-azure-items/concrete5.png) | [Concrete5](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.concrete5) | Web アプリケーション、Web サイト、ストア、フォーラムを簡単にデプロイできます。 | Bitnami |
 | ![Coppermine](media/azure-stack-marketplace-azure-items/coppermine.png) | [Coppermine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.coppermine) | 多目的の全機能を備えた Web ギャラリー。 | Bitnami |
 | ![CouchDB](media/azure-stack-marketplace-azure-items/couchdb.png) | [CouchDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.couchdb) | 使いやすいオープン ソースのデータベース システム。 | Bitnami |
@@ -127,14 +128,17 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Dolibarr](media/azure-stack-marketplace-azure-items/dolibarr.png) | [Dolibarr](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.dolibarr) | 無料のオープン ソースのソフトウェア パッケージ。 | Bitnami |
 | ![DokuWiki](media/azure-stack-marketplace-azure-items/dokuwiki.png) | [DokuWiki](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.dokuwiki) | 汎用的なオープン ソースの Wiki ソフトウェア。 | Bitnami |
 | ![DreamFactory](media/azure-stack-marketplace-azure-items/dreamfactory.png) | [DreamFactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.dreamfactory) | SQL、NoSQL、BLOB などのサービスを含むオープン ソースの REST API。 | Bitnami |
+| ![Drupal](media/azure-stack-marketplace-azure-items/drupal.png) | [Drupal](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.drupal) | Drupal は、世界有数の汎用性の高いオープン ソースのコンテンツ管理システムの 1 つです。 Ctools および Views モジュール、Drush、および Let's Encrypt の自動構成がサポートされ、事前に構成されています。 | Bitnami |
 | ![Elasticsearch](media/azure-stack-marketplace-azure-items/elasticsearch.png) | [Elasticsearch](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elastic-search) | 柔軟性が高く強力なオープン ソースの分析エンジン。 | Bitnami |
 | ![ELK](media/azure-stack-marketplace-azure-items/elk.png) | [ELK](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.elk) | Elasticsearch、Kibana、Logstash で構成されるビッグ データ スイート。 | Bitnami |
 | ![ERPNext](media/azure-stack-marketplace-azure-items/erpnext.png) | [ERPNext](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.erpnext) | オープン ソースのエンタープライズ リソース プランニング (ERP) プラットフォーム。 | Bitnami |
 | ![EspoCRM](media/azure-stack-marketplace-azure-items/espocrm.png) | [EspoCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.espocrm) | 顧客関係の管理に役立つシンプルな CRM システム。 | Bitnami |
+| ![etcd](media/azure-stack-marketplace-azure-items/etcd.png) | [etcd](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.etcd) | etcd は、クラスター全体でデータを安全に格納するように設計された分散型のキー値ストアです。 etcd は、その信頼性、フォールトトレランス、使いやすさから、運用環境で広く使用されています。 | Bitnami |
 | ![eXo Platform](media/azure-stack-marketplace-azure-items/exoplatform.png) | [eXo Platform](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.exoplatform) | 企業向けに設計されているオープン ソースのソーシャル ソフトウェア。 | Bitnami |
 | ![Fat Free CRM](media/azure-stack-marketplace-azure-items/fatfreecrm.png) | [Fat Free CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.fatfreecrm) | Rails ベースの CRM のオープン ソースの Ruby。 | Bitnami |
 | ![GitLab Community Edition](media/azure-stack-marketplace-azure-items/bitnami.png) | [GitLab Community Edition](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.gitlab) | 高速でセキュリティ保護された Git 管理ソフトウェア。 | Bitnami |
 | ![Ghost](media/azure-stack-marketplace-azure-items/ghost.png) | [Ghost](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.ghost) | パブリッシングに特化したプラットフォーム。 | Bitnami |
+| ![Grafana](media/azure-stack-marketplace-azure-items/grafana.png) | [Grafana](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.grafana) | Grafana は、Graphite、Elasticsearch、Prometheus、MariaDB/MySQL、PostgreSQL、InfluxDB、OpenTSDB など、40 を超えるデータ ソースを対象としたオープン ソースの分析および監視ダッシュボードです。 | Bitnami |
 | ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | 信頼性の高いスケーラブルな分散型コンピューティング用のフレームワーク。 | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | 完全に統合された、すぐに実行できる開発環境。 | Bitnami |
 | ![Horde Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horde Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | 無料でエンタープライズ対応の、ブラウザー ベースの通信スイート。 | Bitnami |
@@ -167,7 +171,9 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 無料のオープン ソースのフォーラム ソフトウェア。 | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | 最もよく使用されているデータベース システム。 | Bitnami |
 | ![レプリケーション付きの MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [レプリケーション付きの MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql-cluster) | MySQL は、高速で信頼性が高く、スケーラブルで使いやすいオープン ソースのリレーショナル データベース システムです。 MySQL サーバーは、広く展開されるソフトウェアに埋め込まれるだけでなく、ミッション クリティカルで負荷の高い運用システム向けでもあります。 このソリューションは、複数の VM を使用して、マスター ノードから構成可能な数のレプリカにデータベースをレプリケートします。 **このソリューション テンプレートでは、Debian 8 と Custom Script for Linux 2.0 Extension も必要です。** | Bitnami |
+| ![NATS](media/azure-stack-marketplace-azure-items/nats.png) | [NATS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nats) | NATS は、オープン ソース、軽量、高パフォーマンスのメッセージング システムです。 分散システムに最適であり、最新のクラウド アーキテクチャと発行/サブスクライブ、要求/応答、およびキュー モデルをサポートします。 | Bitnami |
 | ![Neos](media/azure-stack-marketplace-azure-items/neos.png) | [Neos](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neos) | 汎用的なオープン ソースのコンテンツ管理システム。 | Bitnami |
+| ![Neo4j](media/azure-stack-marketplace-azure-items/neo4j.png) | [Neo4j](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neo4j) | Neo4j は、使いやすいクエリ言語や ACID トランザクションなど、成熟した堅牢なデータベースに必要なすべての機能を備えた高パフォーマンスのグラフ ストアです。| Bitnami |
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | PHP、MySQL、および Nginx の完全な開発環境。 | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | 強力な複式簿記システム。 | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | ビルドを容易にする、Javascript で記述されたオープン ソースの環境。 | Bitnami |
@@ -182,6 +188,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Osclass](media/azure-stack-marketplace-azure-items/osclass.png) | [Osclass](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.osclass) | 技術的なノウハウなしに無料の案内広告を作成および管理できます。 | Bitnami |
 | ![ownCloud](media/azure-stack-marketplace-azure-items/owncloud.png) | [ownCloud](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.owncloud) | よく使用されているオープン ソースのファイル同期および共有ソリューション。 | Bitnami |
 | ![OXID eShop](media/azure-stack-marketplace-azure-items/oxideshop.png) | [OXID eShop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.oxid-eshop) | 信頼できるオープン ソースの e コマース システム。 | Bitnami |
+| ![Parse Server](media/azure-stack-marketplace-azure-items/parseserver.png) | [Parse Server](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.parseserver) | Parse は、スケーラブルで強力なバックエンドを追加して、iOS、Android、JavaScript、Windows、Unity などに対応したフル機能のアプリを起動できるプラットフォームです。 | Bitnami |
 | ![phpBB](media/azure-stack-marketplace-azure-items/phpbb.png) | [phpBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phpbb) | カスタマイズ可能な掲示板ソリューション。 | Bitnami |
 | ![phpList](media/azure-stack-marketplace-azure-items/phplist.png) | [phpList](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.phplist) | 一方向のメール通知配信システム。 | Bitnami |
 | ![Pimcore](media/azure-stack-marketplace-azure-items/pimcore.png) | [Pimcore](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.pimcore) | 強力な契約管理プラットフォーム (CEM/CXM)。 | Bitnami |
@@ -205,6 +212,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![ReportServer Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | オープン ソースのビジネス インテリジェンス プラットフォーム。 | Bitnami |
 | ![ReportServer Enterprise](media/azure-stack-marketplace-azure-items/reportserverenterprise.png) | [ReportServer Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserverenterprise) | エンタープライズ ビジネス インテリジェンス プラットフォーム。 | Bitnami |
 | ![ResourceSpace](media/azure-stack-marketplace-azure-items/resourcespace.png) | [ResourceSpace](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.resourcespace) | コラボレーション向上のためのデジタル資産管理システム。 | Bitnami |
+| ![Review Board](media/azure-stack-marketplace-azure-items/reviewboard.png) | [Review Board](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reviewboard) | Review Board は Web ベースのコード レビュー アプリケーションであり、開発者がシンプルなコード レビューを簡単に実行できるように、さまざまなツールが用意されています。 小規模なプロジェクトから大規模な企業に適しています。| Bitnami |
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | MIME サポートなどの機能を持つブラウザー ベースの IMAP クライアント。 | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Rails の Ruby 用の使いやすい開発環境。 | Bitnami |
 | ![SEO Panel](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | 複数の Web サイトを追跡するためのオープン ソースの SEO 管理アプリケーション。 | Bitnami |
@@ -213,6 +221,7 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![Spree](media/azure-stack-marketplace-azure-items/spree.png) | [Spree](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.spree) | 使いやすい e コマース プラットフォーム。 | Bitnami |
 | ![Subversion](media/azure-stack-marketplace-azure-items/subversion.png) | [Subversion](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.subversion) | オープン ソースのバージョン管理システム。 | Bitnami |
 | ![SuiteCRM](media/azure-stack-marketplace-azure-items/suitecrm.png) | [SuiteCRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.suitecrm) | よく使用されているエンタープライズ レベルの CRM アプリケーション。 | Bitnami |
+| ![TensorFlow Serving](media/azure-stack-marketplace-azure-items/tensorflow.png) | [TensorFlow Serving](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tensorflowserving) | TensorFlow Serving は、機械学習モデルを提供するためのシステムです。 このスタックには、画像認識用のトレーニング済みデータを含む Inception バージョン 3 が付属していますが、他のモデルに対応するように拡張することもできます。 | Bitnami |
 | ![TestLink](media/azure-stack-marketplace-azure-items/testlink.png) | [TestLink](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.testlink) | 品質保証を円滑化するテスト管理ソフトウェア。 | Bitnami |
 | ![Tiki Wiki CMS Groupware](media/azure-stack-marketplace-azure-items/tikiwikicmsgroupware.png) | [Tiki Wiki CMS Groupware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tikiwikicmsgroupware) | 完全な機能を備えた Wiki プラットフォーム。 | Bitnami |
 | ![Tiny Tiny RSS](media/azure-stack-marketplace-azure-items/tinytinyrss.png) | [Tiny Tiny RSS](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.tinytinyrss) | 柔軟性に優れたオープン ソースで Web ベースのニュース フィードおよびアグリゲーター。 | Bitnami |
@@ -223,8 +232,10 @@ Microsoft Azure Stack では、次の Azure Marketplace 仮想マシンおよび
 | ![WebMail Pro PHP](media/azure-stack-marketplace-azure-items/webmailprophp.png) | [WebMail Pro PHP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.webmailpro) | エンタープライズ機能を持つ Web メール システム。 | Bitnami |
 | ![WildFly](media/azure-stack-marketplace-azure-items/wildfly.png) | [WildFly](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wildfly) | Apache、WildFly、MySQL、および Java を含むアプリケーション サーバー。 | Bitnami |
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最もよく使用されていて、すぐに使用できる CMS。 | Bitnami |
+| ![WordPress Multisite](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress Multisite](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress-multisite) | WordPress は、世界有数の人気があるブログおよびコンテンツ管理プラットフォームです。 WordPress Multisite では、同じサーバーとインターフェイスから複数のブログと Web サイトを管理することで、リソースを節約できます。 | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS および動的な Web サイトを作成する Web ポータル プログラム。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | オープン ソースの CRM システム: モバイル、ソーシャル、および Gamified。 | Bitnami |
+| ![ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper では、分散アプリケーションの構成データとサービスを、信頼性が高く一元的な方法で登録できます。 | Bitnami |
 | ![Check Point vSEC セキュリティ管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC セキュリティ管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC は、Azure 内の顧客の資産をマルウェアや高度な脅威から保護する高性能の多層脅威防止機能を提供します。 **両方の Check Point vSEC Marketplace アイテムをダウンロードしてください。** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Chef Automate を使用して Continuous Automation Platform をビルド、デプロイ、管理します。 **両方の Chef Marketplace アイテムをダウンロードしてください**。 | Chef Software, Inc |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Azure Stack 環境のディザスター リカバリー、バックアップと復旧、Azure Stack へのアプリケーションと VM の移行を 1 つのソリューションにまとめた包括的なソリューションです。 | Commvault |

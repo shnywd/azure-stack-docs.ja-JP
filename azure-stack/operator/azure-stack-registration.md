@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/01/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 3fd84e5c294c2cdcfa942aeaf9c2daf9f9245891
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: d36761cd7480d782ea01bc1b0d3606b5fa244ed3
+ms.sourcegitcommit: 49cfe13427f5255915d5ccbed87b36eec2caf8ca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418219"
+ms.lasthandoff: 08/01/2019
+ms.locfileid: "68720030"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure を使用した Azure Stack の登録
 
@@ -34,13 +34,13 @@ Azure Stack の Azure への登録により、Azure からマーケットプレ�
 
 ## <a name="prerequisites"></a>前提条件
 
-登録する前に、次の操作が完了している必要があります。
+登録する前に、次の前提条件が満たされている必要があります。
 
- - 資格情報を確認する
- - PowerShell 言語モードを設定する
- - PowerShell for Azure Stack をインストールする
- - Azure Stack ツールをダウンロードする
- - 登録シナリオを決定する
+- 資格情報を確認する
+- PowerShell 言語モードを設定する
+- PowerShell for Azure Stack をインストールする
+- Azure Stack ツールをダウンロードする
+- 登録シナリオを決定する
 
 ### <a name="verify-your-credentials"></a>資格情報を確認する
 
@@ -92,16 +92,17 @@ Azure Stack ツールの GitHub リポジトリには、Azure Stack 機能 (登�
 
 Azure Stack のデプロイは、"*接続*" デプロイまたは "*切断*" デプロイになります。
 
- - **接続中**  
+- **接続中**  
  "接続" とは、インターネットと Azure に接続できるように Azure Stack がデプロイされたことを意味します。 ID ストアには、Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) のどちらかを使用します。 接続されたデプロイの場合、従量課金制と容量ベースの 2 つの課金モデルから選択できます。
-    - [**従量課金制**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-pay-as-you-go-billing)
-    - [**容量**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-capacity-billing)
+  - [**従量課金制**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-pay-as-you-go-billing)
+  - [**容量**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-capacity-billing)
 
- - **切断**  
+- **切断**  
  Azure からの切断デプロイ オプションを使用すると、インターネットへの接続なしで Azure Stack をデプロイして使用できます。 ただし、切断されたデプロイでは、AD FS ID ストアおよび容量ベースの課金モデルに制限されます。
-    - [**容量**課金モデルを使用して切断された Azure Stack を登録する](#register-disconnected-with-capacity-billing)
+  - [**容量**課金モデルを使用して切断された Azure Stack を登録する](#register-disconnected-with-capacity-billing)
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>使用する一意の登録名の判別 
+
 Azure Stack を Azure に登録するときに、一意の登録名を指定する必要があります。 Azure の登録に Azure Stack サブスクリプションを関連付ける簡単な方法は、Azure Stack の**クラウド ID** を使用することです。 
 
 > [!NOTE]
@@ -341,17 +342,13 @@ Azure Stack の登録に成功したことは、 **[Region management]\(リー�
     - **登録サブスクリプション ID**:登録され、Azure Stack に関連付けられた Azure サブスクリプション ID
     - **登録リソース グループ**:Azure Stack リソースを含む関連付けられているサブスクリプション内の Azure リソース グループ。
 
-4. Azure portal を使用して、Azure Stack のアプリの登録を表示します。 Azure Stack の登録に使用したサブスクリプションに関連付けられているアカウントを使用して、Azure portal にサインインします。 Azure Stack に関連付けられているテナントに切り替えます。
-5. **[Azure Active Directory] > [アプリの登録] > [アプリケーションをすべて表示]** に移動します。
-
-    ![アプリの登録](media/azure-stack-registration/app-registrations.png)
-
-    Azure Stack のアプリの登録には、プレフィックス **Azure Stack** が付加されます。
+4. Azure portal を使用して Azure Stack 登録リソースを表示し、登録が成功したことを確認できます。 Azure Stack の登録に使用したサブスクリプションに関連付けられているアカウントを使用して、[Azure portal](https://portal.azure.com) にサインインします。 **[すべてのリソース]** を選択し、 **[非表示の型の表示]** チェックボックスをオンにして、登録名を選択します。
+5. 登録が成功しなかった場合、この問題を解決するには、[こちらの手順](#change-the-subscription-you-use)に従って再登録する必要があります。  
 
 また、登録が成功したかどうかは、Marketplace の管理機能を使用して確認することもできます。 [Marketplace Management]\(Marketplace の管理\) ブレードに Marketplace アイテムの一覧が表示された場合、登録は成功しています。 一方、非接続環境では、[Marketplace management]\(Marketplace の管理\) に Marketplace アイテムを表示することができません。
 
 > [!NOTE]
-> 登録が完了すると、登録されていないことを示すアクティブな警告は表示されなくなります。 非接続のシナリオでは、正常に登録が完了しても、Azure Stack を登録してアクティブ化するよう求めるメッセージが [Marketplace management]\(Marketplace の管理\) に表示されます。
+> 登録が完了すると、登録されていないことを示すアクティブな警告は表示されなくなります。 1904 より前の Azure Stack リリースの場合、非接続のシナリオでは、正常に登録が完了しても、Azure Stack を登録してアクティブ化するよう求めるメッセージが [Marketplace management]\(Marketplace の管理\) に表示されます。 このメッセージは、リリース 1904 以降では表示されません。
 
 ## <a name="renew-or-change-registration"></a>登録を更新または変更する
 
@@ -451,15 +448,20 @@ Azure Stack のアクティブ化リソースを削除するには、Azure Stack
 2. 接続された Azure マシンで使用するためにこの登録トークンを保存します。 $FilePathForRegistrationToken からファイルまたはテキストをコピーできます。
 
 ## <a name="move-a-registration-resource"></a>登録リソースを移動する
-同じサブスクリプションのリソース グループ間における登録リソースの移動は、すべての環境で**サポートされています**。 ただし、サブスクリプションをまたがる登録リソースの移動がサポートされるのは、両方のサブスクリプションで同じパートナー ID が解決される場合の CSP のみです。 新しいリソース グループへのリソースの移動については、「[新しいリソース グループまたはサブスクリプションへのリソースの移動](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
+
+同じサブスクリプションのリソース グループ間における登録リソースの移動は、すべての環境で**サポートされています**。 ただし、サブスクリプションをまたがる登録リソースの移動がサポートされるのは、両方のサブスクリプションで同じパートナー ID が解決される場合の CSP のみです。 新しいリソース グループへのリソースの移動については、「[新しいリソース グループまたはサブスクリプションへのリソースの移動](/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
+
+> [!IMPORTANT]
+> ポータルで登録リソースが誤って削除されないように、登録スクリプトではリソースに自動的にロックが追加されます。 移動または削除する前に、このロックを解除する必要があります。 誤って削除されないように、登録リソースにロックを追加することをお勧めします。
 
 ## <a name="registration-reference"></a>登録に関するリファレンス
 
 ### <a name="set-azsregistration"></a>Set-AzsRegistration
 
-Set-AzsRegistration を使用すると、Azure Stack を Azure に登録し、マーケットプレースでの項目のオファーと使用状況レポートを有効または無効にすることができます。
+**Set-AzsRegistration** を使用すると、Azure Stack を Azure に登録し、マーケットプレースでの項目のオファーと使用状況レポートを有効または無効にすることができます。
 
 コマンドレットを実行するには、以下が必要です。
+
 - 任意の種類のグローバルな Azure サブスクリプション。
 - そのサブスクリプションの所有者または共同作成者であるアカウントを使用して Azure PowerShell にログインしている必要があります。
 

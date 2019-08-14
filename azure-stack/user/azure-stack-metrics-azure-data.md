@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: aafdc25293ea3cc584d24688d071dadb2151ce22
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418543"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806940"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor を使用する
 
@@ -121,13 +121,16 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 
 ## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor にアクセスする方法
 
-一般に、次のいずれかの方法で、データの追跡、ルーティング、および取得の操作を行うことができます。 ただし、アクションやデータの種類によっては利用できない方法もあります。
+次のいずれかの方法を使用して、データの追跡、ルーティング、および取得を行うことができます。 ただし、アクションやデータの種類によっては利用できない方法もあります。 
 
  - [Azure Stack ポータル](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [クロスプラットフォーム コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
+
+> [!Important]  
+> VM のパフォーマンス グラフを表示しているときに**リソースが見つからない**というエラーが発生した場合は、VM に関連付けられているサブスクリプションに対して、Microsoft.insights が登録されていることを確認してください。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack での GO による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での GO による API バージョンのプロファイルの使用について説明します。
+description: Azure Stack での GO による API バージョンのプロファイルの使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,12 +14,12 @@ ms.date: 05/26/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 6759264afaf3f44dd612662d9778d7de65a15924
-ms.sourcegitcommit: 6876ccb85c20794969264a1b27e479f4e938f990
+ms.openlocfilehash: dac2eeaf3499068812d9c9a66348b0c44ea07b7d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67406956"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842700"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack での GO による API バージョンのプロファイルの使用
 
@@ -29,10 +29,10 @@ ms.locfileid: "67406956"
 
 プロファイルとは、各種のサービスから異なるバージョンのさまざまなリソースの種類を組み合わせたものです。 プロファイルを使用すると、さまざまなリソースの種類を取り混ぜてマッチングできます。 プロファイルには次の利点があります。
 
-- 特定の API バージョンをロックすることによる、アプリケーションの安定性。
-- Azure Stack および地域の Azure データセンターでのアプリケーションの互換性。
+- 特定の API バージョンをロックすることによる、アプリの安定性。
+- Azure Stack および地域の Azure データセンターでのアプリの互換性。
 
-Go SDK では、プロファイルは、profiles パスでバージョンを **YYYY-MM-DD** 形式で指定することで利用できます。 1904 以降のスタンプ バージョンの場合、現在の最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 これらのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 1904 以降のスタンプ バージョンの場合、最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -84,9 +84,9 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    }
    ```
 
-3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法の詳細については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」をご覧ください。
+3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法に関する詳細については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
 
-4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack 環境が設定されました。
+4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 <br>これで、使用する Azure Stack 環境が設定されました。
 
 5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
@@ -95,7 +95,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
     import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
-6. 関数内で、**New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用できます。  
+6. 関数内で、**New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用します。  
 
    ```go
    package main
@@ -128,11 +128,11 @@ Go SDK プロファイルを使用して Azure Stack に仮想ネットワーク
 
 ## <a name="authentication"></a>Authentication
 
-Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、**Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。インストールされていない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールしてください。
+Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、**Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。 そうでない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールします。
 
 Authorizer には、リソース クライアントの承認者を設定する必要があります。 クライアント資格情報を使用して Azure Stack に authorizer トークンを取得する方法は複数あります。
 
-1. サブスクリプションの所有者ロールを備えたサービス プリンシパルが使用可能な場合は、この手順を省略します。 それ以外の場合は、クライアント シークレットを使用するサービス プリンシパルの作成、およびご利用のサブスクリプションにスコープされた "所有者" ロールへのその割り当てに関する指示については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 サービス プリンシパル アプリケーション ID とシークレットを必ずキャプチャしてください。
+1. サブスクリプションの所有者ロールを備えたサービス プリンシパルが使用可能な場合は、この手順を省略します。 それ以外の場合は、クライアント シークレットを使用するサービス プリンシパルの作成に関する指示と、ご利用のサブスクリプションにスコープされた "所有者" ロールへの割り当て方法のヘルプについては、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 サービス プリンシパル アプリケーション ID とシークレットを必ずキャプチャしてください。
 
 2. コード内で Go-AutoRest から **adal** パッケージをインポートします。
 
@@ -175,7 +175,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    ```
 
     `<activeDirectoryResourceID>` に、このドキュメントの前のセクションで取得した **ResourceManagerUrl** メタデータの "audience" リストのいずれかの値を設定します。
-    `<clientID>` に、この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーションの ID を設定します。
+    `<clientID>` を、この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID に設定します。
     `<clientSecret>` に、この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーションのシークレットを設定します。
 
 ## <a name="example"></a>例
@@ -215,7 +215,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    )
    ```
 
-3. 使用する環境変数を定義したので、**adal** パッケージを使用して、認証トークンを作成するためのメソッドを追加します。 認証について詳しくは、前のセクションをご覧ください。
+3. 使用する環境変数を定義したので、**adal** パッケージを使用して、認証トークンを作成するためのメソッドを追加します。 認証の詳細については、前のセクションを参照してください。
 
    ```go
    //CreateToken creates a service principal token
@@ -300,9 +300,9 @@ Authorizer には、リソース クライアントの承認者を設定する�
    }
    ```
 Go SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
-- [仮想マシンの作成](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)。
-- [ストレージ データプレーン](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)。
-- [マネージド ディスクの使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
+- [仮想マシンの作成](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
+- [ストレージ データプレーン](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
+- [Managed Disks の使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
 ## <a name="next-steps"></a>次の手順
 
 - [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)

@@ -1,6 +1,6 @@
 ---
-title: CLI を使用した Azure Stack への接続 | Microsoft Docs
-description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack でリソースを管理およびデプロイする方法
+title: Azure CLI を使用して Azure Stack を管理する | Microsoft Docs
+description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack でリソースを管理およびデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,47 +14,47 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 788d0fd6479ab054568d549af2f7a4306a963d3b
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299456"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842930"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Azure Stack での Azure CLI による API バージョンのプロファイルの使用
+# <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Azure CLI を使用した Azure Stack へのリソースの管理とデプロイ
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-この記事の手順に従うと、Linux、Mac、Windows クライアントのプラットフォームから Azure Stack Development Kit (ASDK) のリソースを管理するように Azure コマンド ライン インターフェイス (CLI) を設定できます。
+この記事の手順に従って、Linux、Mac、Windows クライアントのプラットフォームから Azure Stack Development Kit (ASDK) のリソースを管理するように Azure コマンド ライン インターフェイス (CLI) を設定します。
 
 ## <a name="prepare-for-azure-cli"></a>Azure CLI の準備
 
-Azure Stack Development Kit を使用している場合、開発用マシン上で Azure CLI を使用するには、Azure Stack の CA ルート証明書が必要です。 CLI を使用してリソースを管理する場合に、この証明書を使用します。
+ASDK を使用している場合、開発用マシン上で Azure CLI を使用するには、Azure Stack の CA ルート証明書が必要です。 CLI を使用してリソースを管理する場合に、この証明書を使用します。
 
  - ASDK の外部のワークステーションから CLI を使用する場合は、**Azure Stack の CA ルート証明書**が必要です。  
 
- - **仮想マシンのエイリアス エンドポイント**は、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、およびバージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
+ - **仮想マシンのエイリアス エンドポイント**は、"UbuntuLTS" や "Win2012Datacenter" などのエイリアスを提供します。 このエイリアスは、VM をデプロイするときに、1 つのパラメーターとしてイメージの発行元、オファー、SKU、およびバージョンを参照します。  
 
 これらの値の取得方法については、以下のセクションで説明します。
 
 ### <a name="export-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書をエクスポートする
 
-統合システムを使用している場合は、CA ルート証明書をエクスポートする必要はありません。 ASDK で CA ルート証明書をエクスポートする必要があります。
+統合システムを使用している場合は、CA ルート証明書をエクスポートする必要はありません。 ASDK を使用している場合は、ASDK 上で CA のルート証明書をエクスポートします。
 
 ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 1. Azure Stack のルート証明書の名前を取得します。
     - Azure Stack テナントまたは管理者ポータルにサインインします。
-    - アドレス バーの近くにある [セキュア] をクリックします。
-    - ポップアップ ウィンドウで、[有効] をクリックします。
-    - [証明書] ウィンドウで、[証明のパス] タブをクリックします。 
+    - アドレス バーの近くにある **[セキュア]** をクリックします。
+    - ポップアップ ウィンドウで、 **[有効]** をクリックします。
+    - [証明書] ウィンドウで、 **[証明のパス]** タブをクリックします。
     - Azure Stack のルート証明書の名前を書き留めます。
 
     ![Azure Stack のルート証明書](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
 
 2. [Azure Stack に Windows VM を作成](azure-stack-quick-windows-portal.md)します。
 
-3. このマシンにサインインし、管理者特権の PowerShell プロンプトを開き、次のスクリプトを実行します。
+3. この VM にサインインし、管理者特権の PowerShell プロンプトを開き、次のスクリプトを実行します。
 
     ```powershell  
       $label = "<the name of your azure stack root cert from Step 1>"
@@ -78,7 +78,7 @@ ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>仮想マシンのエイリアス エンドポイントを設定する
 
-仮想マシンのエイリアス ファイルをホストする、パブリックにアクセス可能なエンドポイントを設定できます。 仮想マシンのエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。
+VM のエイリアス ファイルをホストする、パブリックにアクセス可能なエンドポイントを設定できます。 VM のエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。
 
 1. カスタム イメージを発行する場合は、発行時に指定した発行者、プラン、SKU、およびバージョン情報をメモしておいてください。 Marketplace のイメージである場合は、```Get-AzureVMImage``` コマンドレットを使用して情報を表示できます。  
 
@@ -90,7 +90,7 @@ ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 ### <a name="install-or-upgrade-cli"></a>CLI をインストールまたはアップグレードする
 
-開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。  CLI は、「[Azure CLI のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)」で説明されている手順を使用してインストールできます。 
+開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。 CLI をインストールするには、「[Azure CLI のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)」で説明されている手順を使用します。 
 
 1. インストールが正常に完了したことを確認するには、ターミナルまたはコマンド プロンプト ウィンドウを開いて次のコマンドを実行します。
 
@@ -111,13 +111,13 @@ ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムでは、この手順は必要ありません。
 
 Azure Stack の CA ルート証明書を信頼するには、そのルート証明書を、Azure CLI と一緒にインストールされたバージョンの Python 用の既存の Python 証明書ストアに追加します。 人によっては、独自の Python インスタンスを実行している可能性があります。 Azure CLI には、独自のバージョンの Python が含まれています。
 
 1. マシン上の証明書ストアの場所を探します。  この場所は、コマンド `az --version` を実行することによって調べることができます。
 
-2. CLI の Python アプリケーションが格納されているフォルダーに移動します。 実行する必要があるのは、このバージョンの Python です。 Python をシステム パスに設定している場合には、お使いのバージョンの Python が実行されます。 代わりに、CLI で使用しているバージョンを実行すると共に、そのバージョンに証明書を追加する必要があります。 たとえば、CLI の Python が `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` にあるとします。
+2. CLI の Python アプリが格納されているフォルダーに移動します。 実行する必要があるのは、このバージョンの Python です。 Python をシステム パスに設定している場合には、お使いのバージョンの Python が実行されます。 代わりに、CLI で使用しているバージョンを実行すると共に、そのバージョンに証明書を追加する必要があります。 たとえば、CLI の Python が `C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\` にあるとします。
 
     次のコマンドを使用します。
 
@@ -175,13 +175,13 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
-    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 1. 次のコマンドを使用して、アクティブな環境を設定します。
@@ -197,9 +197,9 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
    ```
 
     >[!NOTE]  
-    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 Azure CLI の最新バージョンを使用する必要があります。
+    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 また、Azure CLI の最新バージョンを使用する必要もあります。
  
-1. `az login` コマンドを使用して、Azure Stack 環境にサインインします。 Azure Stack 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインできます。 
+1. `az login` コマンドを使用して、Azure Stack 環境にサインインします。 Azure Stack 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインします。 
 
    - *ユーザー*としてサインインする場合: 
 
@@ -210,7 +210,7 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
      ```
 
      > [!NOTE]
-     > お使いのユーザー アカウントで多要素認証が有効になっている場合は、`-u` パラメーターを指定しないで、`az login` コマンドを使用できます。 このコマンドを実行すると、認証で使用する必要がある URL とコードを取得できます。
+     > お使いのユーザー アカウントで多要素認証が有効になっている場合は、`-u` パラメーターを指定しないで、`az login` コマンドを使用します。 このコマンドを実行すると、認証で使用する必要がある URL とコードを取得できます。
 
    - *サービス プリンシパル*を使ってサインインする｡ 
     
@@ -222,7 +222,7 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
 
 ### <a name="test-the-connectivity"></a>接続のテスト
 
-すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリケーションのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
+すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成し、VM を追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -238,7 +238,7 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムでは、この手順は必要ありません。
 
 1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 コマンド プロンプトまたは管理者特権の PowerShell プロンプトを開き、次のコマンドを入力します。
 
@@ -295,13 +295,13 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
-    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 1. 次のコマンドを使用して、アクティブな環境を設定します。
@@ -317,7 +317,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
    ```
 
     >[!NOTE]  
-    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 Azure CLI の最新バージョンを使用する必要があります。
+    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 また、Azure CLI の最新バージョンを使用する必要もあります。
 
 1. `az login` コマンドを使用して、Azure Stack 環境にサインインします。 Azure Stack 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインできます。 
 
@@ -326,17 +326,17 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
      `az login` コマンド内で直接ユーザー名とパスワードを指定するか、ブラウザーを使用して認証できます。 多要素認証が有効になっているアカウントの場合は、後者を実行する必要があります。
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
-     > お使いのユーザー アカウントで多要素認証が有効になっている場合は、`-u` パラメーターを指定しないで、`az login` コマンドを使用できます。 このコマンドを実行すると、認証で使用する必要がある URL とコードを取得できます。
+     > お使いのユーザー アカウントで多要素認証が有効になっている場合は、`-u` パラメーターを指定しないで、`az login` コマンドを使用します。 このコマンドを実行すると、認証で使用する必要がある URL とコードを取得できます。
 
    - *サービス プリンシパル*を使ってサインインする｡ 
     
      サービス プリンシパルのログインに使用する .pem ファイルを用意します。
 
-     プリンシパルが作成されたクライアント マシン上でサービス プリンシパル証明書 (`cert:\CurrentUser\My` にあり､cert 名はプリンシパル名と同じ) を秘密キーを含む pfx としてエクスポートします。
+     プリンシパルが作成されたクライアント マシン上で、サービス プリンシパル証明書を、`cert:\CurrentUser\My` にある秘密キーを持つ pfx としてエクスポートします。 証明書名にはプリンシパルと同じ名前が付けられています。
 
      pfx を pem に変換します (OpenSSL ユーティリティ を使用)。
 
@@ -352,7 +352,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 ### <a name="test-the-connectivity"></a>接続のテスト
 
-すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリケーションのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
+すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成し、VM を追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```azurecli
 az group create -n MyResourceGroup -l local
@@ -369,17 +369,17 @@ az group create -n MyResourceGroup -l local
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムでは、この手順は必要ありません。
 
 Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
-1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
+1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用します。
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    証明書の場所を書き留めておきます (例: `~/lib/python3.5/site-packages/certifi/cacert.pem`)。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
+    証明書の場所を書き留めておきます。 たとえば、「 `~/lib/python3.5/site-packages/certifi/cacert.pem` 」のように入力します。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
 
 2. 証明書のパスを指定して、次の bash コマンドを実行します。
 
@@ -411,13 +411,13 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
-    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 3. アクティブな環境を設定します。 
@@ -433,7 +433,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
    ```
 
     >[!NOTE]  
-    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 Azure CLI の最新バージョンを使用する必要があります。
+    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 また、Azure CLI の最新バージョンを使用する必要もあります。
 
 5. `az login` コマンドを使用して、Azure Stack 環境にサインインします。 Azure Stack 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインできます。 
 
@@ -464,7 +464,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 ### <a name="test-the-connectivity"></a>接続のテスト
 
-すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリケーションのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
+すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成し、VM を追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```azurecli
     az group create -n MyResourceGroup -l local
@@ -480,17 +480,17 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムでは、この手順は必要ありません。
 
 Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
-1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用できます。
+1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用します。
 
     ```bash  
     python3 -c "import certifi; print(certifi.where())"
     ```
 
-    証明書の場所を書き留めておきます (例: `~/lib/python3.5/site-packages/certifi/cacert.pem`)。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
+    証明書の場所を書き留めておきます。 たとえば、「 `~/lib/python3.5/site-packages/certifi/cacert.pem` 」のように入力します。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
 
 2. 証明書のパスを指定して、次の bash コマンドを実行します。
 
@@ -522,13 +522,13 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
-    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、お客様のシステムのエンドポイントを使用します。  |
-    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | 仮想マシン イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」をご覧ください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
 
     ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
     ```
 
 3. アクティブな環境を設定します。 
@@ -544,7 +544,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
    ```
 
     >[!NOTE]  
-    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 Azure CLI の最新バージョンを使用する必要があります。
+    >1808 ビルドより前のバージョンの Azure Stack を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 また、Azure CLI の最新バージョンを使用する必要もあります。
 
 5. `az login` コマンドを使用して、Azure Stack 環境にサインインします。 Azure Stack 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインできます。 
 
@@ -563,7 +563,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
         
      サービス プリンシパルのログインに使用する .pem ファイルを用意します。
 
-      * プリンシパルが作成されたクライアント マシン上でサービス プリンシパル証明書 (`cert:\CurrentUser\My` にあり､cert 名はプリンシパル名と同じ) を秘密キーを含む pfx としてエクスポートします。
+      * プリンシパルが作成されたクライアント マシン上で、サービス プリンシパル証明書を、`cert:\CurrentUser\My` にある秘密キーを持つ pfx としてエクスポートします。 証明書名にはプリンシパルと同じ名前が付けられています。
   
       * pfx を pem に変換します (OpenSSL ユーティリティ を使用)。
 
@@ -579,7 +579,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 ### <a name="test-the-connectivity"></a>接続のテスト
 
-すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリケーションのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
+すべての設定が完了したら、Azure Stack 内で CLI を使ってリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成し、VM を追加できます。 次のコマンドを使用して、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```azurecli
   az group create -n MyResourceGroup -l local
@@ -593,9 +593,9 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 Azure Stack 内で CLI を使用する場合、次のような既知の問題があります。
 
- - CLI 対話モード。たとえば、Azure Stack では、`az interactive` コマンドはまだサポートされていません。
- - Azure Stack で使用できる仮想マシン イメージの一覧を取得するには、`az vm image list` コマンドの代わりに、`az vm image list --all` コマンドを使用します。 `--all` オプションを指定すると、Azure Stack 環境内で使用できるイメージのみが応答として返されます。
- - Azure で使用できる仮想マシン イメージの別名は、Azure Stack に適用できない場合があります。 仮想マシン イメージを使用する場合は、イメージの別名の代わりに、URN パラメーター全体 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) を使用する必要がありますします。 この URN は、`az vm images list` コマンドから派生したイメージ仕様と一致している必要があります。
+ - CLI 対話モード。 たとえば、`az interactive` コマンドは Azure Stack ではまだサポートされていません。
+ - Azure Stack で使用できる VM イメージの一覧を取得するには、`az vm image list` コマンドの代わりに、`az vm image list --all` コマンドを使用します。 `--all` オプションを指定すると、Azure Stack 環境内で使用できるイメージのみが応答として返されます。
+ - Azure で使用できる仮想マシン イメージのエイリアスは、Azure Stack に適用できない場合があります。 仮想マシン イメージを使用する場合は、イメージのエイリアスの代わりに、URN パラメーター全体 (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) を使用する必要がありますします。 この URN は、`az vm images list` コマンドから派生したイメージ仕様と一致している必要があります。
 
 ## <a name="next-steps"></a>次の手順
 

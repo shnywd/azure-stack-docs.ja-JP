@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でパブリック IP アドレスの使用量を表示する | Microsoft Docs
-description: 管理者は、リージョン内のパブリック IP アドレスの使用量を表示できます。
+title: Azure Stack でのネットワーク リソースの管理 | Microsoft Docs
+description: 管理者は、MAC アドレス プールや、リージョン内のパブリック IP アドレスの使用など、ネットワーク リソースを管理できます。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,31 @@ ms.date: 05/16/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 35dc40fc3539038ab3c44318374e8c1fb327e6e4
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
+ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782449"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68842917"
 ---
-# <a name="view-public-ip-address-consumption-in-azure-stack"></a>Azure Stack でパブリック IP アドレスの使用量を表示する
+# <a name="manage-network-resources"></a>ネットワーク リソースの管理
+
+## <a name="mac-address-pool"></a>MAC アドレス プール
+
+Azure Stack では、MAC アドレスを自動的に生成して仮想マシンに割り当てるために、静的 MAC アドレス プールが使用されます。
+この MAC アドレス プールは、デプロイ時に自動的に生成され、次の範囲を使用します。
+
+- StartMacAddress:00-1D-D8-B7-00-00
+- EndMacAddress:00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> この MAC アドレス プールは、各 Azure Stack システムで同じで、構成することはできません。
+
+仮想ネットワークと既存の企業ネットワークとの接続方法によっては、仮想マシンの MAC アドレスが重複することがあります。
+
+MAC アドレス プールの使用率に関する詳細情報は、Azure Stack Administrator の PowerShell モジュール内のコマンドレット [Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) を使用して確認できます。
+
+## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Azure Stack でパブリック IP アドレスの使用量を表示する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -35,20 +52,20 @@ ms.locfileid: "65782449"
 
 タイルの目的は、その場所で使用されているパブリック IP アドレスの数を Azure Stack オペレーターに直観的に理解させることです。 数を理解することで、管理者はこのリソースをローコストで運用しているかどうかを判断できます。
 
-**[テナント リソース]** の下にある **[パブリック IP アドレス]** メニュー項目は、"*テナントによって明示的に作成されている*" パブリック IP アドレスのみを表示します。 メニュー項目は、**[リソース プロバイダー]** の **[ネットワーク]** ウィンドウで簡単に見つかります。 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルの **[使用済み]** パブリック IP アドレスの数は、**[テナント リソース]** の **[パブリック IP アドレス]** タイルの数と一致することはなく、常にその数よりも大きくなります。
+**[テナント リソース]** の下にある **[パブリック IP アドレス]** メニュー項目は、"*テナントによって明示的に作成されている*" パブリック IP アドレスのみを表示します。 メニュー項目は、 **[リソース プロバイダー]** の **[ネットワーク]** ウィンドウで簡単に見つかります。 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルの **[使用済み]** パブリック IP アドレスの数は、 **[テナント リソース]** の **[パブリック IP アドレス]** タイルの数と一致することはなく、常にその数よりも大きくなります。
 
-## <a name="view-the-public-ip-address-usage-information"></a>パブリック IP アドレスの使用量情報を表示する
+### <a name="view-the-public-ip-address-usage-information"></a>パブリック IP アドレスの使用量情報を表示する
 
 リージョンで使用されているパブリック IP アドレスの合計数を表示するには:
 
-1. Azure Stack 管理者ポータルで、**[すべてのサービス]** を選択します。 次に、**[管理]** カテゴリで **[ネットワーク]** を選択します。
-1. **[ネットワーク]** ウィンドウの **[概要]** セクションに、**[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルが表示されます。
+1. Azure Stack 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[管理]** カテゴリで **[ネットワーク]** を選択します。
+1. **[ネットワーク]** ウィンドウの **[概要]** セクションに、 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルが表示されます。
 
 ![ネットワーク リソース プロバイダーのウィンドウ](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
 **[使用済み]** の数は、パブリック IP アドレス プールにおける割り当て済みのパブリック IP アドレスの数を表しています。 **[フリー]** の数は、パブリック IP アドレス プール内の、割り当て済みでないまだ使用可能なパブリック IP アドレスの数を表します。 **[% 使用]** の数は、使用済みまたは割り当て済みの数を、その場所にあるパブリック IP アドレス プール内のパブリック IP アドレスの合計数に対する割合として表わしています。
 
-## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>テナントのサブスクリプションによって作成されたパブリック IP アドレスを表示する
+### <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>テナントのサブスクリプションによって作成されたパブリック IP アドレスを表示する
 
 **[テナント リソース]** の下にある **[パブリック IP アドレス]** を選択します。 特定のリージョンでテナントのサブスクリプションによって明示的に作成されたパブリック IP アドレスの一覧を確認します。
 
@@ -58,17 +75,17 @@ ms.locfileid: "65782449"
 
 ネットワーク コントローラーは、リソースがインターフェイス、ネットワーク インターフェイス カード (NIC)、ロード バランサー、または仮想ネットワーク ゲートウェイにバインドされるまで、アドレスの割り当てを行いません。 パブリック IP アドレスがインターフェイスにバインドされると、ネットワーク コントローラーは IP アドレスの割り当てを行います。 アドレスは **[アドレス]** フィールドに表示されます。
 
-## <a name="view-the-public-ip-address-information-summary-table"></a>パブリック IP アドレス情報の表示に関するまとめ
+### <a name="view-the-public-ip-address-information-summary-table"></a>パブリック IP アドレス情報の表示に関するまとめ
 
 パブリック IP アドレスの割り当てはさまざまな状況で実行され、その状況に応じてどの一覧に表示されるかが決まります。
 
 | **プライベート IP アドレスの割り当て状況** | **使用状況の概要に表示** | **テナントのパブリック IP アドレスの一覧に表示** |
 | --- | --- | --- |
-| NIC またはロード バランサーにまだ割り当てられていない動的パブリック IP アドレス (一時的) |いいえ  |はい |
+| NIC またはロード バランサーにまだ割り当てられていない動的パブリック IP アドレス (一時的) |いいえ |はい |
 | NIC またはロード バランサーに割り当て済みの動的パブリック IP アドレス |はい |はい |
 | テナントの NIC またはロード バランサーに割り当て済みの静的パブリック IP アドレス |はい |はい |
-| ファブリック インフラストラクチャ サービス エンドポイントに割り当て済みの静的パブリック IP アドレス |はい |いいえ  |
-| IaaS VM インスタンス用に暗黙的に作成され、仮想ネットワークのアウトバウンド NAT で使用されるパブリック IP アドレス。 これらは、テナントが VM インスタンスを作成するたびにバック グラウンドで作成され、VM が情報をインターネットに送信できるようにします。 |はい |いいえ  |
+| ファブリック インフラストラクチャ サービス エンドポイントに割り当て済みの静的パブリック IP アドレス |はい |いいえ |
+| IaaS VM インスタンス用に暗黙的に作成され、仮想ネットワークのアウトバウンド NAT で使用されるパブリック IP アドレス。 これらは、テナントが VM インスタンスを作成するたびにバック グラウンドで作成され、VM が情報をインターネットに送信できるようにします。 |はい |いいえ |
 
 ## <a name="next-steps"></a>次の手順
 

@@ -11,28 +11,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c70334bea80a84166a4bb614f15852e44f2b99f4
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 3d0aad849395a93b1086daf5cf2c17e198d69ed5
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692132"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806923"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace の変更
 
-この記事では、[Azure Stack Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、および削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
+この記事では、過去約 3 か月間の [Azure Stack Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、および削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
 
-この記事では、過去約 3 か月間に発生した Marketplace の変更について説明します。 [Azure Stack Marketplace 項目](azure-stack-marketplace-azure-items.md)に関する記事には、常に最新の Azure Stack Marketplace 項目の一覧が掲載されています。
+[Azure Stack Marketplace 項目](azure-stack-marketplace-azure-items.md)に関する記事には、常に最新の Azure Stack Marketplace 項目の一覧が掲載されています。
 
 ## <a name="new-marketplace-items"></a>新しい Marketplace 項目
 
-- Veeam® Backup & Replication™:企業がすべてのワークロード、つまり、仮想、物理、クラウドベースのワークロードの包括的なデータ保護を実現するのに役立ちます。 単一のコンソールで、すべてのアプリケーションとデータの高速かつ柔軟で、信頼性の高いバックアップ、復旧、レプリケーションを実現します。 2019/6/14 に追加されました。
+- 2019/1/25:A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
 
-- A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight。 2019/1/25 に追加されました。
+- 2019/6/14:Veeam® Backup & Replication™
+
+- 2019/08/05:Drupal
+
+- 2019/08/05: etcd
+
+- 2019/08/05:Grafana
+
+- 2019/08/05:Neo4j
+
+- 2019/08/05:Parse Server
+
+- 2019/08/05:WordPress Multisite
+
+- 2019/08/05:ZooKeeper
+
+- 2019/08/05:TensorFlow Serving
+
+- 2019/08/05:NATS
+
+- 2019/08/05:Review Board
+
+- 2019/08/05:Composr
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 

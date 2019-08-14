@@ -15,12 +15,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 0896ea921408d651a4b8e072c3d66ab4e333ebd6
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
+ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334427"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68806898"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
 
@@ -53,11 +53,11 @@ Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポート
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>実際にはライセンスを持っていないにもかかわらず、ユーザーが間違って以前の Windows ビルドの [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにしてしまった場合はどうすればよいですか?
 
-「[特典付きの Windows Server VM を従量課金制に戻す](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)」を参照してください。
+[Windows Server BYOL VM を従量課金制に変換する](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)方法に関する記事を参照してください。
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>私が以前のイメージを所有しているにもかかわらず、私のユーザーが [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにするのを忘れてしまった場合は、どうすればよいですか。または、私たちが独自のイメージを使用していて、なおかつマイクロソフト エンタープライズ契約の権利がある場合はどうすればよいですか?
 
-「[既存の VM を Windows Server 向け Azure ハイブリッド特典を使用するように変換する](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)」を参照してください。 Azure ハイブリッド特典は Azure Stack には適用されませんが、この設定の効果は適用されることに注意してください。
+[既存の Windows Server VM を BYOL に変換する](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)方法に関する記事を参照してください。 Azure ハイブリッド特典は Azure Stack には適用されませんが、この設定の効果は適用されることに注意してください。
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Windows Server を使用する他の VM (SQL Server、Machine Learning Server など) についてはどうでしょうか?
 
