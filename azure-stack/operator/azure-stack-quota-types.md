@@ -3,8 +3,8 @@ title: Azure Stack のクォータの種類 | Microsoft Docs
 description: Azure Stack のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
 services: azure-stack
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: sethmanheim
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,17 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/27/2019
-ms.date: 04/29/2019
-ms.author: v-jay
+ms.date: 08/13/2019
+ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
-ms.sourcegitcommit: 0973dddb81db03cf07c8966ad66526d775ced8b9
+ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "64308893"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991776"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
 
@@ -75,17 +74,17 @@ ms.locfileid: "64308893"
 
 ### <a name="plans"></a>プラン
 
-1. 管理者ポータルの左側のナビゲーション ウィンドウで、**[プラン]** を選択します。
+1. 管理者ポータルの左側のナビゲーション ウィンドウで、 **[プラン]** を選択します。
 2. 詳細を表示するプランの名前をクリックして選択します。
-3. 表示されたブレードで、**[サービスとクォータ]** を選択します。
+3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 表示するクォータの **[名前]** 列をクリックして選択します。
 
     [![クォータ](media/azure-stack-quota-types/quotas1sm.png "クォータの表示")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>リソース プロバイダー
 
-1. 管理ポータルの既定のダッシュボードで、**[リソース プロバイダー]** タイルを見つけます。
-2. **[コンピューティング]**、**[ネットワーク]**、**[ストレージ]** など、表示するクォータを含むサービスを選択します。
+1. 管理ポータルの既定のダッシュボードで、 **[リソース プロバイダー]** タイルを見つけます。
+2. **[コンピューティング]** 、 **[ネットワーク]** 、 **[ストレージ]** など、表示するクォータを含むサービスを選択します。
 3. **[クォータ]** を選択して、表示するクォータを選択します。
 
 ## <a name="edit-a-quota"></a>クォータの編集
@@ -94,21 +93,21 @@ ms.locfileid: "64308893"
 
 ### <a name="edit-a-plan"></a>プランを編集する
 
-1. 管理者ポータルの左側のナビゲーション ウィンドウで、**[プラン]** を選択します。
+1. 管理者ポータルの左側のナビゲーション ウィンドウで、 **[プラン]** を選択します。
 2. 編集するプランの名前をクリックして選択します。
-3. 表示されたブレードで、**[サービスとクォータ]** を選択します。
+3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 編集するクォータの **[名前]** 列をクリックして選択します。
     [![クォータ](media/azure-stack-quota-types/quotas1sm.png "クォータの表示")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5. 表示されたブレードで、**[Edit in Compute]\(コンピューティングで編集\)**、**[Edit in Network]\(ネットワークで編集\)**、または **[Edit in Storage]\(\)** を選択します。
+5. 表示されたブレードで、 **[Edit in Compute]\(コンピューティングで編集\)** 、 **[Edit in Network]\(ネットワークで編集\)** 、または **[Edit in Storage]\(\)** を選択します。
     ![クォータ](media/azure-stack-quota-types/quotas3.png "クォータの表示")
 
 または、次の手順に従ってクォータを編集できます。
 
-1. 管理者ポータルの既定のダッシュボードで、**[リソース プロバイダー]** タイルを見つけます。
-2. **[計算]**、**[ネットワーク]**、**[ストレージ]** など、変更するクォータを含んだサービスを選択します。
-3. 次に、**[クォータ]** を選択して、変更するクォータを選択します。
-4. **[Set Storage quotas]\(ストレージのクォータの設定\)**、**[Set Compute quotas]\(コンピューティングのクォータの設定\)**、または **[Set Network quotas]\(ネットワークのクォータの設定\)** ウィンドウ (編集するために選択したクォータの種類によって決まります) で、**[保存]** を選択します。
+1. 管理者ポータルの既定のダッシュボードで、 **[リソース プロバイダー]** タイルを見つけます。
+2. **[計算]** 、 **[ネットワーク]** 、 **[ストレージ]** など、変更するクォータを含んだサービスを選択します。
+3. 次に、 **[クォータ]** を選択して、変更するクォータを選択します。
+4. **[Set Storage quotas]\(ストレージのクォータの設定\)** 、 **[Set Compute quotas]\(コンピューティングのクォータの設定\)** 、または **[Set Network quotas]\(ネットワークのクォータの設定\)** ウィンドウ (編集するために選択したクォータの種類によって決まります) で、 **[保存]** を選択します。
 
 ### <a name="edit-original-configuration"></a>元の構成を編集する
   
@@ -120,5 +119,3 @@ ms.locfileid: "64308893"
 
 - [プラン、オファーおよびクォータについて](azure-stack-plan-offer-quota-overview.md)
 - [プランの作成時にクォータを作成する](azure-stack-create-plan.md)
-
-<!-- Update_Description: add edit a quota -->

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 792589eabf13b9aca493e230f7e3e93cfab21736
-ms.sourcegitcommit: 426380a3a27954cd609ba52d1066d9d69f5267fe
+ms.openlocfilehash: 51b61eae1f2c00a959eded275c13c5c4b8d06e4c
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65532364"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991800"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Azure Stack でオファーのサブスクリプションを作成する
 
@@ -45,7 +45,7 @@ ms.locfileid: "65532364"
 2. **[追加]** を選択します。 **[新しいユーザー サブスクリプション]** で、次の情報を入力します。  
 
    - **[表示名]** - "*ユーザー サブスクリプション名*" として表示される、サブスクリプションを識別するための表示名。
-   - **[ユーザー]** - このサブスクリプションで使用可能なディレクトリ テナントからユーザーを指定します。 このユーザー名は "*所有者*" として表示されます。  ユーザー名の形式は、ID ソリューションによって異なります。 例: 
+   - **[ユーザー]** - このサブスクリプションで使用可能なディレクトリ テナントからユーザーを指定します。 このユーザー名は "*所有者*" として表示されます。  ユーザー名の形式は、ID ソリューションによって異なります。 例:
 
      - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1f8d7573d9d3da54ddb5fa7aae85ba15d1db4c3c
-ms.sourcegitcommit: 2b6a0b3b4dc63c26df3d0535d630d640ff232fb0
+ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65521247"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991705"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
@@ -302,7 +302,7 @@ Azure Stack デプロイのリージョン名を指定します。
 
 |  |  |
 |----------------------------|--------------|
-|型:                        |String        |
+|型:                       |String        |
 |位置:                   |named         |
 |既定値:              |なし          |
 |パイプライン入力を許可する:      |False         |
@@ -314,7 +314,7 @@ Azure Stack デプロイの外部 FQDN (別名: **ExternalFQDN** および **Ext
 
 |  |  |
 |----------------------------|--------------|
-|型:                        |String        |
+|型:                       |String        |
 |位置:                   |named         |
 |既定値:              |ExternalFQDN、ExternalDomainName |
 |パイプライン入力を許可する:      |False         |
@@ -326,10 +326,10 @@ Azure Stack デプロイの ID システム有効値、AAD (Azure Active Directo
 
 |  |  |
 |----------------------------|--------------|
-|型:                        |String        |
+|型:                       |String        |
 |位置:                   |named         |
 |既定値:              |なし          |
-|有効な値:                |"AAD"、"ADFS"  |
+|有効な値:               |"AAD"、"ADFS"  |
 |パイプライン入力を許可する:      |False         |
 |ワイルドカード文字を許可する: |False         |
 
@@ -339,7 +339,7 @@ PFX 証明書ファイルに関連付けられているパスワードを指定�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |SecureString |
+|次のコマンドを入力します:                       |SecureString |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -351,7 +351,7 @@ PaaS 証明書に対するパスとパスワードを含むハッシュテーブ
 
 |  |  |
 |----------------------------|---------|
-|型:                        |Hashtable |
+|型:                       |Hashtable |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -363,7 +363,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -375,7 +375,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|型:                        |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -387,7 +387,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|型:                        |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -399,7 +399,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |OrderedDictionary   |
+|次のコマンドを入力します:                       |OrderedDictionary   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -414,10 +414,10 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
-|有効な値:                |"MultipleCSR"、"SingleCSR" |
+|有効な値:               |"MultipleCSR"、"SingleCSR" |
 |パイプライン入力を許可する:      |False    |
 |ワイルドカード文字を許可する: |False    |
 
@@ -427,7 +427,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|型:                        |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -439,7 +439,7 @@ Azure Stack のデプロイに使用する Azure Active Directory サービス�
 
 |  |  |
 |----------------------------|---------|
-|型:                        |PSCredential   |
+|型:                       |PSCredential   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -451,7 +451,7 @@ Azure Stack のデプロイに使用する Azure Active Directory 名を指定�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -463,10 +463,10 @@ Azure Stack のデプロイと登録に使用するアカウント、ディレ�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
-|有効な値:                |"AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment" |
+|有効な値:               |"AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment" |
 |パイプライン入力を許可する:      |False    |
 |ワイルドカード文字を許可する: |False    |
 
@@ -476,7 +476,7 @@ Azure Stack の登録に使用する登録アカウントを指定します。
 
 |  |  |
 |----------------------------|---------|
-|型:                        |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -488,7 +488,7 @@ Azure Stack の登録に使用する登録サブスクリプション ID を指�
 
 |  |  |
 |----------------------------|---------|
-|型:                        |Guid     |
+|型:                       |Guid     |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -500,7 +500,7 @@ Azure Stack の登録に使用する登録サブスクリプション ID を指�
 
 |  |  |
 |----------------------------|---------|
-|型:                        |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |All      |
 |パイプライン入力を許可する:      |False    |
@@ -522,7 +522,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |.\Certificates |
 |パイプライン入力を許可する:      |False    |
@@ -534,7 +534,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|型:                        |SwitchParameter   |
+|型:                       |SwitchParameter   |
 |位置:                   |named             |
 |既定値:              |False             |
 |パイプライン入力を許可する:      |False             |
@@ -546,10 +546,10 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                        |String   |
+|次のコマンドを入力します:                       |String   |
 |位置:                   |named    |
 |既定値:              |All      |
-|有効な値:                |"Certificate"、"AzureRegistration"、"AzureIdentity"、"Jobs"、"All" |
+|有効な値:               |"Certificate"、"AzureRegistration"、"AzureIdentity"、"Jobs"、"All" |
 |パイプライン入力を許可する:      |False    |
 |ワイルドカード文字を許可する: |False    |
 
@@ -559,7 +559,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                        |SwitchParameter   |
+|次のコマンドを入力します:                       |SwitchParameter   |
 |位置:                   |named             |
 |既定値:              |False             |
 |パイプライン入力を許可する:      |False             |
@@ -571,7 +571,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                        |SwitchParameter   |
+|次のコマンドを入力します:                       |SwitchParameter   |
 |別名:                    |cf                |
 |位置:                   |named             |
 |既定値:              |False             |
@@ -584,7 +584,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|型:                        |String            |
+|型:                       |String            |
 |位置:                   |named             |
 |既定値:              |$ENV:TEMP\AzsReadinessChecker  |
 |パイプライン入力を許可する:      |False             |
@@ -596,7 +596,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                        |SwitchParameter   |
+|次のコマンドを入力します:                       |SwitchParameter   |
 |別名:                    |cf                |
 |位置:                   |named             |
 |既定値:              |False             |
@@ -609,7 +609,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                        |SwitchParameter   |
+|次のコマンドを入力します:                       |SwitchParameter   |
 |別名:                    |wi                |
 |位置:                   |named             |
 |既定値:              |False             |

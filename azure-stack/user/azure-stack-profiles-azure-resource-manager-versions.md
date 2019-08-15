@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 21e1e8df3d5f43f91e391b8c39f3f5aca3aefea8
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7f86ff3347d5d6f24bcd1fe450156c2557fb41e1
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269582"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959393"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack のプロファイルでサポートされているリソース プロバイダー API バージョン
 
@@ -33,7 +33,7 @@ API プロファイルでは、次の 3 つの名前付け規則を使用しま�
 
 Azure Stack の API プロファイルとバージョン リリース周期の詳細については、「[Azure Stack での API バージョン プロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
 
-> [!Note]
+> [!NOTE]
 > **最新**の API プロファイルには最新バージョンのリソース プロバイダーの API が含まれており、この記事には示されていません。
 
 ## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>2019-03-01 ハイブリッド プロファイルの概要
@@ -199,5 +199,5 @@ Azure Resource Manager を使用して、Azure ソリューション用のイン
 
 ## <a name="next-steps"></a>次の手順
 
-* [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
-* [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)  
+- [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
+- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)  

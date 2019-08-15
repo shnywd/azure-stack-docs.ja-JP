@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: d02173731f8cf7834160a0228c589b036aac7fe6
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64984016"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991719"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 検証レポート
 
@@ -35,7 +35,7 @@ ms.locfileid: "64984016"
 
 両方のファイルに、同じコンピューター上で実行された以降の検証チェックの結果が保持されます。 たとえば、ツールを実行して証明書を検証した後、再度実行して Azure ID を検証し、3 回目に実行では登録を検証することができます。 この 3 回の検証の結果はすべて、結果として生成される .json レポートで確認できます。  
 
-既定では、両方のファイルが **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
+既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
 
 - 別のレポートの場所を指定するには、コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
 - ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
@@ -46,7 +46,7 @@ PowerShell でレポートを表示するには、レポートへのパスを `-
 
 たとえば、レポートがある場所で開かれている PowerShell プロンプトからレポートを表示するには、次のコマンドを実行します。
 
-```shell
+```powershell
 Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json
 ```
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>レポートの概要を表示する
 
-レポートの概要を表示するには、PowerShell コマンドの末尾に `-summary` パラメーターを追加します。 例: 
+レポートの概要を表示するには、PowerShell コマンドの末尾に `-summary` パラメーターを追加します。 例:
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -130,7 +130,7 @@ Azure Stack ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>フィルター処理されたレポートを表示する
 
-1 種類の検証でフィルター処理されたレポートを表示するには、**-ReportSections** パラメーターを使用して、次のいずれかの値を指定します。
+1 種類の検証でフィルター処理されたレポートを表示するには、 **-ReportSections** パラメーターを使用して、次のいずれかの値を指定します。
 
 - 証明書
 - AzureRegistration

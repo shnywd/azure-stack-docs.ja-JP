@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 06/06/2018
-ms.openlocfilehash: 53acfa3a2d85e73b5d8136c7a1f42ee00d8ed1be
-ms.sourcegitcommit: 07c51a03f07a6a3ee2721aa942d31a7a4c6a339b
+ms.lastreviewed: 06/06/2019
+ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
+ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67028262"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69021844"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack でサポートされているゲスト オペレーティング システム
 
@@ -67,6 +67,7 @@ Marketplace で入手可能として示されている Linux ディストリビ�
 | Container Linux |  64 ビット | CoreOS | 安定版 |
 | Debian 8 "Jessie" | 64 ビット | credativ |  はい |
 | Debian 9 "Stretch" | 64 ビット | credativ | はい |
+| Oracle Linux | 64 ビット | Oracle | はい |
 | Red Hat Enterprise Linux 7.1 (およびそれ以降) | 64 ビット | Red Hat | Bring your own image |
 | SLES 11SP4 | 64 ビット | SUSE | はい |
 | SLES 12SP3 | 64 ビット | SUSE | はい |
