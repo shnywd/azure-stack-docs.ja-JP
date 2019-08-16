@@ -171,6 +171,8 @@
               href: azure-stack-updates.md
             - name: 更新プログラムを適用する
               href: azure-stack-apply-updates.md
+            - name: OEM の更新プログラムを適用する
+              href: azure-stack-update-oem.md
             - name: 更新プログラムのステータスの監視
               href: azure-stack-monitor-update.md
         - name: 正常性とアラートの監視
