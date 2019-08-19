@@ -86,6 +86,8 @@
               href: azure-stack-network.md
             - name: 境界接続
               href: azure-stack-border-connectivity.md
+            - name: スイッチの構成
+              href: azure-stack-customer-defined.md
             - name: DNS の統合
               href: azure-stack-integrate-dns.md
             - name: ファイアウォールの統合
