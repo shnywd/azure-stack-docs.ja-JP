@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での .NET SDK による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での .NET による API バージョンのプロファイルの使用について説明します。
+title: Azure Stack での .NET による API バージョンのプロファイルの使用 | Microsoft Docs
+description: Azure Stack での .NET SDK による API バージョンのプロファイルの使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,22 +16,22 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 0d0c4af4d3016989440dc6b9760bda0a3fc8d947
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 14f19fa432d782eace721d47b6b578dc73846631
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198617"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959371"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Azure Stack での .NET による API バージョンのプロファイルの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack Resource Manager 向けの .NET SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 .NET SDK には、14 個の NuGet パッケージが含まれています。 これらのパッケージは、プロファイル情報を組み込むたびにプロジェクト ソリューションにダウンロードする必要があります。 ただし、アプリケーションのメモリを最適化するために、2019-03-01-hybrid または 2018-03-01-hybrid に使用するリソース プロバイダーを特別にダウンロードすることができます。 各パッケージは、リソース プロバイダー、それぞれの API バージョン、それが属する API プロファイルで構成されます。 .NET SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
+Azure Stack Resource Manager 向けの .NET SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、Compute、Networking、Storage、App Services、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 .NET SDK には、14 個の NuGet パッケージが含まれています。 プロジェクトをコンパイルするたびに、これらのパッケージをソリューションにダウンロードする必要があります。 ただし、アプリのメモリを最適化するために、2019-03-01-hybrid または 2018-03-01-hybrid に使用するリソース プロバイダーを具体的にダウンロードすることができます。 各パッケージは、リソース プロバイダー、それぞれの API バージョン、それが属する API プロファイルで構成されます。 .NET SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
 
 ## <a name="net-and-api-version-profiles"></a>.NET と API バージョンのプロファイル
 
-API プロファイルは、リソース プロバイダーと API バージョンを組み合わせたものです。 API プロファイルを使用すると、リソース プロバイダーのパッケージに含まれる各リソースの種類の、最も安定した最新バージョンを取得できます。
+API プロファイルは、リソース プロバイダーと API バージョンを組み合わせたものです。 API プロファイルを使用して、リソース プロバイダーのパッケージに含まれる各リソースの種類の、最も安定した最新バージョンを取得します。
 
 -   すべてのサービスの最新バージョンを使用するには、パッケージの **latest** プロファイルを使用します。 このプロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
@@ -41,7 +41,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
     
     上記の NuGet パッケージの **ResourceProvider** 部分が適切なプロバイダーに変更されていることを確認します。
 
--   サービスの最新の API バージョンを使用するには、特定の NuGet パッケージの **Latest** プロファイルを使用します。 たとえば、コンピュート サービスの **latest-API** バージョンを単独で使用する場合は、**compute** パッケージの **latest** プロファイルを使用します。 **latest** プロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
+-   サービスの最新の API バージョンを使用するには、特定の NuGet パッケージの **Latest** プロファイルを使用します。 たとえば、Compute サービスの **latest-API** バージョンを単独で使用する場合は、**compute** パッケージの **latest** プロファイルを使用します。 **latest** プロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
 -   特定のリソース プロバイダーのリソースの種類に合わせて特定の API バージョンを使用するには、パッケージ内で定義されている特定の API バージョンを使用します。
 
@@ -63,22 +63,22 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 5.  使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成手順については、「[Azure Stack でオファーのサブスクリプションを作成する][]」をご覧ください。
 
-6.  サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 Azure Stack 用のサービス プリンシパルの作成方法については、「[Azure Stack へのアクセスをアプリケーションに提供する][]」を参照してください。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。
+6.  サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 Azure Stack 用のサービス プリンシパルの作成方法については、Azure Stack へのアプリのアクセスを提供する方法に関するページを参照してください。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。
 
 7.  サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、「[Azure Stack へのアクセスをアプリケーションに提供する][]」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack で .NET Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用しているオペレーティング システムの表の後にある手順を参照してください。
+Azure Stack で .NET Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
 | 値                     | 環境変数   | 説明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| テナント ID                 | AZURE_TENANT_ID       | Azure Stack の[*テナント ID*][] の値。                                                                          |
-| クライアント ID                 | AZURE_CLIENT_ID       | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。 |
-| サブスクリプション ID           | AZURE_SUBSCRIPTION_ID | [*サブスクリプション ID*][] は Azure Stack 内のオファーにアクセスするために必要です。                                                      |
-| クライアント シークレット             | AZURE_CLIENT_SECRET   | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。                                      |
-| Resource Manager エンドポイント | ARM_ENDPOINT           | 「[*Azure Stack Resource Manager エンドポイント*][]」をご覧ください。                                                                    |
-| Location                  | RESOURCE_LOCATION     | Azure Stack の場所。
+| テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack の[*テナント ID*][] の値。                                                                          |
+| クライアント ID                 | `AZURE_CLIENT_ID `      | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
+| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID` | [*サブスクリプション ID*][] は Azure Stack 内のオファーにアクセスするために必要です。                                                      |
+| クライアント シークレット             | `AZURE_CLIENT_SECRET`   | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。                                      |
+| Resource Manager エンドポイント | `ARM_ENDPOINT`          | 「[*Azure Stack Resource Manager エンドポイント*][]」をご覧ください。                                                                    |
+| Location                  | `RESOURCE_LOCATION`     | Azure Stack の場所。
 
 Azure Stack のテナント ID を確認するには、[こちら](../operator/azure-stack-csp-ref-operations.md)の手順に従ってください。 環境変数を設定するには、次の手順に従います。
 
@@ -92,7 +92,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS、Linux、および Unix ベースのシステム
 
-Unix ベースのシステムでは、次のコマンドを使用できます。
+Unix ベースのシステムでは、次のコマンドを使用します。
 
 ```shell
 Export Azure_Tenant_ID=Your_Tenant_ID
@@ -100,9 +100,9 @@ Export Azure_Tenant_ID=Your_Tenant_ID
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager エンドポイント
 
-Microsoft Azure Resource Manager は、管理者が Azure リソースのデプロイ、管理、監視を行えるようにするための管理フレームワークです。 Azure Resource Manager では、これらのタスクを個別に処理するのではなく、グループとして単一の操作で処理することができます。
+Microsoft Azure Resource Manager は、管理者が Azure リソースのデプロイ、管理、監視を行うことができる管理フレームワークです。 Azure Resource Manager では、これらのタスクを個別に処理するのではなく、グループとして単一の操作で処理することができます。
 
-メタデータ情報は、Resource Manager エンドポイントから取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
+Resource Manager エンドポイントからメタデータ情報を取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
 次の考慮事項に注意してください。
 
@@ -137,7 +137,7 @@ Azure Stack および API プロファイルについて詳しくは、「[API �
 
 ## <a name="azure-net-sdk-api-profile-usage"></a>Azure .NET SDK API プロファイルの使用
 
-リソース管理クライアントをインスタンス化するには、次のコードを使用する必要があります。 同様のコードを使用して、他のリソース プロバイダー (コンピューティング、ネットワーク、ストレージなど) のクライアントをインスタンス化することができます。 
+リソース管理クライアントをインスタンス化するには、次のコードを使用する必要があります。 同様のコードを使用して、他のリソース プロバイダー (Compute、Network、Storage など) のクライアントをインスタンス化することができます。
 
 ```csharp
 var client = new ResourceManagementClient(armEndpoint, credentials)
@@ -152,7 +152,7 @@ var client = new ResourceManagementClient(armEndpoint, credentials)
 var azureStackSettings = getActiveDirectoryServiceSettings(armEndpoint);
 var credentials = ApplicationTokenProvider.LoginSilentAsync(tenantId, servicePrincipalId, servicePrincipalSecret, azureStackSettings).GetAwaiter().GetResult();
 ```
-コードの `getActiveDirectoryServiceSettings` 呼び出しは、メタデータ エンドポイントから Azure Stack エンドポイントを取得します。 これは、この呼び出しからの環境変数を示しています。 
+コードの `getActiveDirectoryServiceSettings` 呼び出しは、メタデータ エンドポイントから Azure Stack エンドポイントを取得します。 これは、この呼び出しからの環境変数を示しています。
 
 ```csharp
 public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(string armEndpoint)
@@ -187,18 +187,18 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 }
 ```
 
-これにより、API プロファイルの NuGet パッケージを使用して、アプリケーションを Azure Stack に正常にデプロイすることができます。
+これらの手順により、API プロファイルの NuGet パッケージを使用して、アプリを Azure Stack に正常にデプロイすることができます。
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
 
-次のサンプルは、.NET と Azure Stack API のプロファイルを使用してソリューションを作成するための参考資料として使用できます。
+次のサンプルは、.NET と Azure Stack の API プロファイルを使用してソリューションを作成するための参考資料として使用します。
 - [リソース グループの管理](https://github.com/Azure-Samples/hybrid-resources-dotnet-manage-resource-group)
 - [ストレージ アカウントの管理](https://github.com/Azure-Samples/hybird-storage-dotnet-manage-storage-accounts)
 - [仮想マシンを管理する](https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm) (このサンプルでは、Azure Stack でサポートされている 2019-03-01-hybrid プロファイルを使用しています)
 
 ## <a name="next-steps"></a>次の手順
 
-API プロファイルの詳細については、以下を参照してください。
+API プロファイルの詳細については、次を参照してください。
 
 - [Azure Stack での API バージョン プロファイルの管理](azure-stack-version-profiles.md)
 - [プロファイルでサポートされているリソース プロバイダー API バージョン](azure-stack-profiles-azure-resource-manager-versions.md)

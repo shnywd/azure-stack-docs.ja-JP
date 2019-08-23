@@ -15,12 +15,12 @@ ms.date: 07/09/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: d22b1df33f4fc57cf9f823f620054a6baa6bb5d3
-ms.sourcegitcommit: d2df594e8346a875967e3cfb04c23562a1bd2e3c
+ms.openlocfilehash: d760eb4a9ca0f958ab8be09810b97820b09f5621
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725771"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959486"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
@@ -28,7 +28,7 @@ ms.locfileid: "67725771"
 
 Azure PowerShell には、Azure Stack リソースの管理に Azure Resource Manager モデルを使う一連のコマンドレットが用意されています。
 
-クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 Azure Stack では、グローバル Azure で使われている新しい **AzureAZ** モジュールではなく、**AzureRM** モジュールが使われます。 さらに、"*API プロファイル*" を使って、Azure Stack リソース プロバイダーと互換性のあるエンドポイントを指定する必要があります。
+クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 Azure Stack では、グローバル Azure で使われている新しい **AzureAZ** モジュールではなく、**AzureRM** モジュールが使われます。 さらに、*API プロファイル*を使って、Azure Stack リソース プロバイダーと互換性のあるエンドポイントを指定する必要もあります。
 
 API のプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack では**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
@@ -38,14 +38,16 @@ Azure Stack と互換のある PowerShell モジュールのインストール�
 
 Azure Stack と PowerShell を開始する前に、次の前提条件が必要です。
 
-- **PowerShell Version 5.0** 使用しているバージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.0 を使用していない場合は、[Installing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) (Windows PowerShell のインストール) に従ってください。
+- **PowerShell バージョン 5.0** <br>
+バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.0 を使用していない場合は、[Windows PowerShell のインストール](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)に関するページに従ってください。
 
   > [!Note]
   > PowerShell 5.0 には、Windows コンピューターが必要です。
 
 - **PowerShell の実行 (管理者特権でのコマンド プロンプト)** 。
 
-- **PowerShell ギャラリーへのアクセス** [PowerShell ギャラリー](https://www.powershellgallery.com)にアクセスする必要があります。 ギャラリーとは、PowerShell コンテンツのための中央のリポジトリです。 **PowerShellGet** モジュールには、PowerShell ギャラリーやその他のプライベート リポジトリから PowerShell アーティファクト (モジュール、DSC リソース、ロール機能、スクリプトなど) を検出、インストール、更新、発行するためのコマンドレットが含まれています。 切断されたシナリオで PowerShell を使用している場合は、インターネットに接続しているマシンからリソースを取得し、切断されたマシンがアクセスできる場所に格納する必要があります。
+- **PowerShell ギャラリーへのアクセス** <br>
+  [PowerShell ギャラリー](https://www.powershellgallery.com)へのアクセスが必要になります。 ギャラリーとは、PowerShell コンテンツのための中央のリポジトリです。 **PowerShellGet** モジュールには、PowerShell 成果物の検出、インストール、更新、および発行を行うためのコマンドレットが含まれています。 これらの成果物の例としては、モジュール、DSC リソース、ロール機能、PowerShell ギャラリーおよびその他のプライベート リポジトリからのスクリプトなどがあります。 切断されたシナリオで PowerShell を使用している場合は、インターネットに接続しているマシンからリソースを取得し、切断されたマシンがアクセスできる場所に格納する必要があります。
 
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2.PowerShell ギャラリーにアクセスできるか検証する
 
@@ -62,7 +64,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
 
-PSGallery リポジトリが登録されていない場合は、管理者特権の PowerShell セッションを開き、次のコマンドを実行します。
+リポジトリが登録されていない場合は、管理者特権の PowerShell セッションを開き、次のコマンドを実行します。
 
 ```powershell
 Register-PSRepository -Default
@@ -71,7 +73,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-powershell-modules"></a>手順 3.既存のバージョンの Azure Stack PowerShell モジュールのアンインストール
 
-必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack AzureRM PowerShell モジュールをアンインストールしてください。 アンインストールには、次の 2 つの方法の 1 つを使用できます。
+必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack AzureRM PowerShell モジュールをアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
 
 1. 既存の AzureRM PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて終了し、次のコマンドレットを実行します。
 
@@ -114,7 +116,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
     > [!Note]  
     > - Azure Stack モジュール バージョン 1.7.1 は破壊的変更を伴うリリースです。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://aka.ms/azspshmigration171)を参照してください。
-    > - AzureRM モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に -Force パラメーターを指定する必要があります。
+    > - AzureRM モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に `-Force` パラメーターを指定する必要があります。
     > - Azure Stack バージョン 1901 以降のモジュールをインストールするために、**AzureRM.BootStrapper** をインストールする必要はありません。
     > - Azure Stack バージョン 1901 以降で上記の AzureRM モジュールの使用に加えて 2018-03-01-hybrid プロファイルをインストールしないでください。
 
@@ -131,17 +133,17 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5.切断状態の場合: インターネット接続なしで PowerShell をインストールする
 
-接続が切断されたシナリオでは、まずインターネット接続が確立されたコンピューターに PowerShell モジュールをダウンロードしてから、モジュールを Azure Stack Development Kit に転送してインストールします。
+接続が切断されたシナリオでは、まずインターネット接続が確立されたマシンに PowerShell モジュールをダウンロードします。 次に、それらを Azure Stack Development Kit (ASDK) に転送してインストールします。
 
 インターネット接続が確立されたコンピューターにサインインし、Azure Stack のバージョンに応じて次のスクリプトを使用して、Azure Resource Manager および AzureStack パッケージをダウンロードします。
 
 インストールには 4 つの手順があります:
 
-1. 接続されているコンピューターに Azure Stack PowerShell をインストールする
-2. 追加のストレージ機能を有効にする
-3. 接続が切断されたワークステーションに PowerShell パッケージを転送する
+1. 接続されているマシンに Azure Stack PowerShell をインストールします。
+2. 追加のストレージ機能を有効にします。
+3. 接続が切断されたワークステーションに PowerShell パッケージを転送します。
 4. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。
-4. PowerShell のインストールを確認する
+5. PowerShell のインストールを確認します。
 
 ### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
 
@@ -184,7 +186,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
-4. ここで、その場所を既定のレポジトリとして登録し、そのレポジトリから AzureRM および AzureStack モジュールをインストールします。
+4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM および AzureStack モジュールをインストールします。
 
    ```powershell
    # requires -Version 5
@@ -213,7 +215,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6.プロキシ サーバーを使用するように PowerShell を構成する
 
-インターネットへのアクセスにプロキシ サーバーを必要とするシナリオでは、最初に既存のプロキシ サーバーを使用するように PowerShell を構成する必要があります。
+インターネットへのアクセスにプロキシ サーバーを必要とするシナリオでは、まず既存のプロキシ サーバーを使用するように PowerShell を構成します。
 
 1. 管理者特権の PowerShell プロンプトを開きます。
 2. 次のコマンドを実行します。

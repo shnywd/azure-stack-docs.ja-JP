@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2019
+ms.date: 08/13/2019
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: ca303590d4dc923380e10e50fc9b8b9ce2e5aac6
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
+ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842969"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68991688"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell を使用した Azure Stack での Key Vault の管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "68842969"
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Key Vault 操作のためのテナント サブスクリプションの有効化
 
-キー コンテナーに対してなんらかの操作を発行するには、テナント サブスクリプションでコンテナー操作が有効になっていることを確認する必要があります。 コンテナー操作が有効になっていることを確認するには、次のコマンドを実行します。
+キー コンテナーに対してなんらかの操作を発行するには、テナント サブスクリプションでコンテナー操作が有効になっていることを確認する必要があります。 キー コンテナー操作が有効になっていることを確認するには、次のコマンドを実行します。
 
 ```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
@@ -75,7 +75,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ![PowerShell で生成された新しいリソース グループ](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-ここで、**New-AzureRMKeyVault** コマンドを使用して、前に作成したリソース グループでキー コンテナーを作成します。 このコマンドは、3 つの必須パラメーター (リソース グループ名、キー コンテナー名、地理的な場所) を読み取ります。
+次に、**New-AzureRMKeyVault** コマンドレットを使用して、以前に作成したリソース グループ内にキー コンテナーを作成します。 このコマンドは、3 つの必須パラメーター (リソース グループ名、キー コンテナー名、地理的な場所) を読み取ります。
 
 次のコマンドを実行して、キー コンテナーを作成します。
 
@@ -154,7 +154,7 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 **Set-AzureRmKeyVaultAccessPolicy** コマンドを使用して、キー コンテナーのキーまたはシークレットへの、アプリによるアクセスを承認します。
 
-次の例では、コンテナー名が *ContosoKeyVault* で、承認するアプリのクライアント ID が *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed* です。 アプリを承認するには、次のコマンドを実行します。 また、**PermissionsToKeys** パラメーターを指定し、ユーザー、アプリ、またはセキュリティ グループに対してアクセス許可を設定することもできます。
+次の例では、コンテナー名が **ContosoKeyVault** で、承認するアプリのクライアント ID が **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed** です。 アプリを承認するには、次のコマンドを実行します。 また、**PermissionsToKeys** パラメーターを指定し、ユーザー、アプリ、またはセキュリティ グループに対してアクセス許可を設定することもできます。
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign

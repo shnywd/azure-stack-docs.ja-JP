@@ -1,6 +1,6 @@
 ---
 title: Azure Stack での Python による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での Python による API バージョンのプロファイルの使用について説明します。
+description: Azure Stack での Python による API バージョンのプロファイルの使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: 18884a4570f5c90d00b8e17e42fe8bc1b3c073c2
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 35ce331c29e89af3a81396a9658cf8a0f29018d3
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198595"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959432"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure Stack での Python による API バージョンのプロファイルの使用
 
@@ -28,7 +28,7 @@ ms.locfileid: "67198595"
 
 ## <a name="python-and-api-version-profiles"></a>Python と API バージョン プロファイル
 
-Python SDK では、Azure Stack とグローバル Azure などの異なるクラウド プラットフォームをターゲットとする API バージョン プロファイルをサポートします。 ハイブリッド クラウド向けのソリューションの作成時に API プロファイルを使用できます。 Python SDK では、以下の API プロファイルをサポートします。
+Python SDK では、Azure Stack とグローバル Azure などの異なるクラウド プラットフォームをターゲットとする API バージョン プロファイルをサポートします。 ハイブリッド クラウド向けのソリューションの作成時に API プロファイルを使用します。 Python SDK では、以下の API プロファイルをサポートします。
 
 - **latest**  
     このプロファイルでは、Azure プラットフォーム内にある全サービス プロバイダー向けの最新の API バージョンをターゲットにします。
@@ -51,20 +51,20 @@ Python SDK では、Azure Stack とグローバル Azure などの異なるク�
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack で Python Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定する方法については、表の後にある、オペレーティング システム別の手順を参照してください。
+Azure Stack で Python Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
 | 値 | 環境変数 | 説明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| テナント ID | AZURE_TENANT_ID | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
-| クライアント ID | AZURE_CLIENT_ID | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。 |
-| サブスクリプション ID | AZURE_SUBSCRIPTION_ID | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために必要です。 |
-| クライアント シークレット | AZURE_CLIENT_SECRET | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。 |
-| Resource Manager エンドポイント | ARM_ENDPOINT | 「[Azure Stack Resource Manager エンドポイント](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
-| リソースの場所 | AZURE_RESOURCE_LOCATION | Azure Stack 環境のリソースの場所。
+| テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
+| クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
+| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために必要です。 |
+| クライアント シークレット | `AZURE_CLIENT_SECRET` | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 |
+| Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Resource Manager エンドポイント](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
+| リソースの場所 | `AZURE_RESOURCE_LOCATION` | Azure Stack 環境のリソースの場所。
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムで CA ルート証明書を信頼する必要はありません。
 
 #### <a name="windows"></a>Windows
 
@@ -117,36 +117,36 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 Python SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
 
-- [リソースとリソース グループを管理する](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)。
-- [ストレージ アカウントを管理する](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)。
-- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。 (Azure Stack でサポートされている最新の API バージョンをターゲットとする 2019-03-01-hybrid を使用するサンプル)
+- [リソースとリソース グループを管理する](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
+- [ストレージ アカウントを管理する](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
+- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/) (このサンプルでは、Azure Stack でサポートされている最新の API バージョンをターゲットとする 2019-03-01-hybrid が使われています)
 
 ## <a name="python-manage-virtual-machine-sample"></a>Python による仮想マシン サンプルの管理
 
-次のコード サンプルを使用することで､Azure Stack 内で仮想マシンに対する一般的な管理タスクを行うことができます｡ コード サンプルでは、次の操作を示しています。
+次のコード サンプルを使用して､Azure Stack 内で仮想マシン (VM) に対する一般的な管理タスクを行います｡ コード サンプルでは、次の操作を示しています。
 
-- 仮想マシンを作成する
-  - Linux 仮想マシンの作成
-  - Windows 仮想マシンの作成
-- 仮想マシンを更新する
+- VM の作成:
+  - Linux VM の作成
+  - Windows VM の作成
+- VM の更新:
   - ドライブの拡張
-  - 仮想マシンへのタグ付け
+  - VM にタグを付ける
   - データ ディスクを接続する
   - データ ディスクをデタッチする
-- 仮想マシンを操作する
-  - 仮想マシンの起動
-  - 仮想マシンの停止
-  - 仮想マシンの再起動
-- 仮想マシンの列挙
-- 仮想マシンの削除
+- VM の操作:
+  - VM の起動
+  - VM の停止
+  - VM の再起動
+- VM の一覧表示
+- VM の削除
 
 これらの操作を実行するコードを確認するには、GitHub リポジトリの [Hybrid-Compute-Python-Manage-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM) にある Python スクリプト **example.py** の **run_example()** 関数を参照してください。
 
-それぞれの操作には､それと分かるコメントと print 関数が付いています｡ これらの例は、この一覧の順序どおりではない場合があります。
+それぞれの操作には､それと分かるコメントと print 関数が付いています｡ これらの例は、必ずしもこの一覧の順序どおりではありません。
 
 ## <a name="run-the-python-sample"></a>Python のサンプルコードを実行する
 
-1. まだ [Python をインストールしていない場合はインストールします](https://www.python.org/downloads/)。 このサンプル (と SDK) は､Python 2.7 と 3.4､3.5､3.6 に対応しています｡
+1. まだ [Python をインストールしていない場合はインストールします](https://www.python.org/downloads/)。 このサンプル (と SDK) は､Python 2.7、3.4､3.5､3.6 に対応しています｡
 
 2. Python 開発に対する一般的なレコメンデーションとしては､仮想環境を使用するということがあります｡ 詳細については、[Python のドキュメント](https://docs.python.org/3/tutorial/venv.html)を参照してください。
 
@@ -186,7 +186,7 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. このサンプルを実行するには､Azure Stack Marketplace に Ubuntu 16.04-LTS と WindowsServer 2012-R2-DataCenter のイメージが存在している必要があります｡ これらは [Azure からダウンロード](../operator/azure-stack-download-azure-marketplace-item.md)するか､[Platform Image Repository](../operator/azure-stack-add-vm-image.md) に追加することができます｡
+8. このサンプルを実行するには､Azure Stack Marketplace に Ubuntu 16.04-LTS と WindowsServer 2012-R2-DataCenter のイメージが存在している必要があります｡ これらのイメージは [Azure からダウンロード](../operator/azure-stack-download-azure-marketplace-item.md)するか､[Platform Image Repository](../operator/azure-stack-add-vm-image.md) に追加することができます｡
 
 9. サンプルを実行します。
 
@@ -200,4 +200,5 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
 - [Azure Python 開発センター](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines 関係のドキュメント](https://azure.microsoft.com/services/virtual-machines/)
 - [Virtual Machines のラーニング パス](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
-- Microsoft Azure のサブスクリプションをお持ちでない場合は､[ここ](https://go.microsoft.com/fwlink/?LinkId=330212)から無料の試用アカウントを入手できます｡
+
+Microsoft Azure のサブスクリプションをお持ちでない場合は､[ここ](https://go.microsoft.com/fwlink/?LinkId=330212)から無料の試用アカウントを入手できます｡

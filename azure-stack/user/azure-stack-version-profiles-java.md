@@ -1,6 +1,6 @@
 ---
 title: Azure Stack での Java による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での Java による API バージョンのプロファイルの使用について説明します。
+description: Azure Stack での Java による API バージョンのプロファイルの使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,22 +16,26 @@ ms.date: 05/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: fdab3fd9296388f19687e2d7ce1d4af3584640ef
-ms.sourcegitcommit: c4507a100eadd9073aed0d537d054e394b34f530
+ms.openlocfilehash: 755a4b373bcf305d7eb589acebca18f4ee4aafb8
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67198545"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959405"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack での Java による API バージョンのプロファイルの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack Resource Manager 向けの Java SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 Java SDK は、.java ファイルに適切なモジュールを読み込む Pom.xml ファイルに依存関係を含めることで、API プロファイルを組み込みます。 ただし、依存関係として複数のプロファイル (**2019-03-01-hybrid** など) を追加したり、Azure プロファイルとして**最新のもの**を追加したりすることができます。 これらの依存関係を使用すると適切なモジュールが読み込まれるため、リソースの種類を作成するときに、それらのプロファイルから使用したい API バージョンを選択することができます。 これにより、Azure Stack の最新の API バージョンに対する開発の際に、Azure で最新バージョンを使用することができます。 Java SDK を使用すると、真のハイブリッド クラウド開発者エクスペリエンスを実現できます。 Java SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
+Azure Stack Resource Manager 向けの Java SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには、Compute、Networking、Storage、App Services、および [KeyVault](/azure/key-vault/key-vault-whatis) が含まれます。 
+
+Java SDK は、 *.java* ファイルに適切なモジュールを読み込む *Pom.xml* ファイルに依存関係を含めることで、API プロファイルを組み込みます。 ただし、依存関係として複数のプロファイル (**2019-03-01-hybrid** など) を追加したり、Azure プロファイルとして**最新のもの**を追加したりすることができます。 これらの依存関係を使用すると適切なモジュールが読み込まれるため、リソースの種類を作成するときに、それらのプロファイルから使用したい API バージョンを選択することができます。 これにより、Azure Stack の最新の API バージョンに対する開発の際に、Azure で最新バージョンを使用することができます。 
+
+Java SDK を使用すると、真のハイブリッド クラウド開発者エクスペリエンスを実現できます。 Java SDK に含まれている API プロファイルを使用すると、グローバルな Azure リソースと Azure Stack 上のリソース間を切り替えることで、ハイブリッド クラウド開発を行うことができます。
 
 ## <a name="java-and-api-version-profiles"></a>Java と API バージョンのプロファイル
 
-API プロファイルは、リソース プロバイダーと API バージョンを組み合わせたものです。 API プロファイルを使用すると、リソース プロバイダーのパッケージに含まれる各リソースの種類の、最も安定した最新バージョンを取得できます。
+API プロファイルは、リソース プロバイダーと API バージョンを組み合わせたものです。 API プロファイルを使用して、リソース プロバイダーのパッケージに含まれる各リソースの種類の、最も安定した最新バージョンを取得します。
 
 - すべてのサービスの最新バージョンを使用するには、依存関係として **latest** プロファイルを使用します。
 
@@ -39,7 +43,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
   - Azure Stack でサポートされている最新のサービスを使用するには、**com.microsoft.azure.profile\_2019\_03\_01\_hybrid** プロファイルを使用します。
 
-    - これは、Pom.xml ファイルに依存関係として指定するためです。これにより、.NET と同様に、ドロップダウン リストから適切なクラスを選択すると、モジュールが自動的に読み込まれます。
+    - これは、*Pom.xml* ファイルに依存関係として指定するためです。これにより、.NET と同様に、ドロップダウン リストから適切なクラスを選択すると、モジュールが自動的に読み込まれます。
 
   - 依存関係は次のようになります。
 
@@ -53,7 +57,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
   - 特定のリソース プロバイダーのリソースの種類に合わせて特定の API バージョンを使用するには、Intellisense を使用して定義した特定の API バージョンを使用します。
 
-すべてのオプションを同じアプリケーション内で組み合わせることができることに注意してください。
+すべてのオプションを同じアプリ内で組み合わせることができます。
 
 ## <a name="install-the-azure-java-sdk"></a>Azure Java SDK のインストール
 
@@ -61,9 +65,9 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 1. 正式な指示に従って、Git をインストールします。 手順については、「[Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)」 (はじめに - Git をインストールする) をご覧ください。
 
-2. 指示に従って、[Java SDK](https://zulu.org/download/) と [Maven](https://maven.apache.org/) をインストールします。 適切なバージョンは、Java Developer Kit のバージョン 8 です。 適切な Apache Maven はバージョン 3.0 以降です。 このクイック スタートを完了するには、JAVA_HOME 環境変数を Java Development Kit のインストール場所に設定する必要があります。 詳細については、「[Java と Maven を使用して初めての関数を作成する](/azure/azure-functions/functions-create-first-java-maven)」を参照してください。
+2. 指示に従って、[Java SDK](https://zulu.org/download/) と [Maven](https://maven.apache.org/) をインストールします。 適切なバージョンは、Java Developer Kit のバージョン 8 です。 適切な Apache Maven はバージョン 3.0 以降です。 このクイック スタートを完了するには、`JAVA_HOME` 環境変数を Java Development Kit のインストール場所に設定する必要があります。 詳細については、「[Java と Maven を使用して初めての関数を作成する](/azure/azure-functions/functions-create-first-java-maven)」を参照してください。
 
-3. 適切な依存関係パッケージをインストールするには、Java アプリケーションで Pom.xml ファイルを開きます。 次のコードに示されているように、依存関係を追加します。
+3. 適切な依存関係パッケージをインストールするには、Java アプリで *Pom.xml* ファイルを開きます。 次のコードに示されているように、依存関係を追加します。
 
    ```xml  
    <dependency>
@@ -81,7 +85,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 5. 使用できない場合は、サブスクリプションを作成し、後で使用するためにサブスクリプション ID を保存します。 サブスクリプションの作成方法については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
 
-6. サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 Azure Stack 用のサービス プリンシパルの作成方法については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれることに注意してください。
+6. サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 Azure Stack 用のサービス プリンシパルの作成方法については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。
 
 7. サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
 
@@ -91,12 +95,12 @@ Azure Stack で Azure Java SDK を使用するには、次の値を指定した�
 
 | 値                     | 環境変数 | 説明                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| テナント ID                 | AZURE_TENANT_ID            | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。                                                          |
-| クライアント ID                 | AZURE_CLIENT_ID             | 前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。                                                                                              |
-| サブスクリプション ID           | AZURE_SUBSCRIPTION_ID      | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために必要です。                |
-| クライアント シークレット             | AZURE_CLIENT_SECRET        | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。                                                                                                                                   |
-| Resource Manager エンドポイント | ARM_ENDPOINT              | 「[Azure Stack Resource Manager エンドポイント](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
-| Location                  | RESOURCE_LOCATION    | Azure Stack 用の**ローカル**。                                                                                                                                                                                                |
+| テナント ID                 | `AZURE_TENANT_ID`            | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。                                                          |
+| クライアント ID                 | `AZURE_CLIENT_ID`             | 前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。                                                                                              |
+| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID`      | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために必要です。                |
+| クライアント シークレット             | `AZURE_CLIENT_SECRET`        | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。                                                                                                                                   |
+| Resource Manager エンドポイント | `ARM_ENDPOINT`              | 「[Azure Stack Resource Manager エンドポイント](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
+| Location                  | `RESOURCE_LOCATION`    | Azure Stack 用の**ローカル**。                                                                                                                                                                                                |
 
 Azure Stack のテナント ID を確認するには、[こちら](../operator/azure-stack-csp-ref-operations.md)の手順をご覧ください。 環境変数を設定するには、次の手順に従います。
 
@@ -118,13 +122,13 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムではそれを行う必要はありません。
+Azure Stack Development Kit (ASDK) を使用する場合は、リモート マシン上で CA ルート証明書を信頼する必要があります。 統合システムで CA ルート証明書を信頼する必要はありません。
 
 #### <a name="windows"></a>Windows
 
 1. Azure Stack の自己署名証明書を自分のデスクトップにエクスポートします。
 
-1. コマンド プロンプトでディレクトリを %JAVA_HOME%\bin に変更します。
+1. コマンド プロンプトでディレクトリを `%JAVA_HOME%\bin` に変更します。
 
 1. 次のコマンドを実行します。
 
@@ -134,13 +138,13 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager エンドポイント
 
-Microsoft Azure Resource Manager は、管理者が Azure リソースのデプロイ、管理、監視を行えるようにするための管理フレームワークです。 Azure Resource Manager では、これらのタスクを個別に処理するのではなく、グループとして単一の操作で処理することができます。
+Microsoft Azure Resource Manager は、管理者が Azure リソースのデプロイ、管理、監視を行うことができる管理フレームワークです。 Azure Resource Manager では、これらのタスクを個別に処理するのではなく、グループとして単一の操作で処理することができます。
 
-メタデータ情報は、Resource Manager エンドポイントから取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
+Resource Manager エンドポイントからメタデータ情報を取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
 次の考慮事項に注意してください。
 
-- Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は https://management.local.azurestack.external/ です。
+- ASDK の **ResourceManagerUrl** は `https://management.local.azurestack.external/` です。
 
 - 統合されたシステムの **ResourceManagerUrl** は `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` です。
 
@@ -183,7 +187,7 @@ Azure azureStack = Azure.configure()
                     .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
-これにより、API プロファイルの依存関係を使用して、アプリケーションを Azure Stack に正常にデプロイすることができます。
+このコードにより、API プロファイルの依存関係を使用して、アプリを Azure Stack に正常にデプロイすることができます。
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack 環境設定関数の定義
 
@@ -255,7 +259,7 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
 
-.NET と Azure Stack API のプロファイルを使用してソリューションを作成する場合は、次の GitHub のサンプルを参考資料として使用できます。
+.NET と Azure Stack の API プロファイルを使用してソリューションを作成する場合は、次の GitHub のサンプルを参考資料として使用します。
 
 - [リソース グループの管理](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
@@ -273,21 +277,21 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
 
 3. 次の必要な環境変数値を取得します。
 
-   - AZURE_TENANT_ID
-   - AZURE_CLIENT_ID
-   - AZURE_CLIENT_SECRET
-   - AZURE_SUBSCRIPTION_ID
-   - ARM_ENDPOINT
-   - RESOURCE_LOCATION
+   - `AZURE_TENANT_ID`
+   - `AZURE_CLIENT_ID`
+   - `AZURE_CLIENT_SECRET`
+   - `AZURE_SUBSCRIPTION_ID`
+   - `ARM_ENDPOINT`
+   - `RESOURCE_LOCATION`
 
 4. コマンド プロンプトを使用して作成したサービス プリンシパルから取得した情報を使用して、次の環境変数を設定します。
 
-   - export AZURE_TENANT_ID={ご使用のテナント ID}
-   - export AZURE_CLIENT_ID={ご使用のクライアント ID}
-   - export AZURE_CLIENT_SECRET={ご使用のクライアント シークレット}
-   - export AZURE_SUBSCRIPTION_ID={ご使用のサブスクリプション ID}
-   - export ARM_ENDPOINT={ご使用の Azure Stack Resource Manager URL}
-   - export RESOURCE_LOCATION={Azure Stack の場所}
+   - `export AZURE_TENANT_ID={your tenant ID}`
+   - `export AZURE_CLIENT_ID={your client ID}`
+   - `export AZURE_CLIENT_SECRET={your client secret}`
+   - `export AZURE_SUBSCRIPTION_ID={your subscription ID}`
+   - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
+   - `export RESOURCE_LOCATION={location of Azure Stack}`
 
    Windows では、**export** ではなく **set** を使用します。
 
@@ -298,7 +302,7 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
     final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
     ```
 
-6. Pom.xml ファイルで、Azure Stack 用の **2019-03-01-hybrid** プロファイルを使用するために次の依存関係を追加します。 この依存関係では、コンピューティング、ネットワーク、ストレージ、KeyVault、App Services のリソース プロバイダー用の、このプロファイルに関連付けられているモジュールがインストールされます。
+6. *Pom.xml* ファイルで、Azure Stack 用の **2019-03-01-hybrid** プロファイルを使用するために次の依存関係を追加します。 この依存関係では、Compute、Networking、Storage、Key Vault、App Services のリソース プロバイダー用の、このプロファイルに関連付けられているモジュールがインストールされます。
 
    ```xml
    <dependency>

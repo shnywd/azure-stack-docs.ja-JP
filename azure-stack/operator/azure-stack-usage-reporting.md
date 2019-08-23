@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: c744a686be2a00418f48b769a5971997a603693f
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 3aeae5c1a0106a0c13c9b6bbe2eb4ba07de14dd4
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172650"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959451"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack 使用状況データの Azure への報告
 
@@ -31,7 +31,7 @@ ms.locfileid: "65172650"
 > [!IMPORTANT]
 > すべてのワークロードは、Azure Stack のライセンス条項に従って、[テナント サブスクリプションでデプロイする必要があります](#are-users-charged-for-the-infrastructure-vms)。
 
-使用状況データの報告は、従量課金モデルのライセンスを持つ Azure Stack マルチノードのユーザーにとっては必須事項です。 一方、容量モデルのライセンスを持つユーザーはこの報告を省略できます ([購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)に関するページを参照してください)。 Azure Stack Development Kit ユーザーの場合は、Azure Stack オペレーターが使用状況データを報告し、機能をテストできます。 ただし、ユーザーの使用に対して課金されることはありません。
+使用状況データの報告は、従量課金モデルのライセンスを持つ Azure Stack マルチノードのユーザーにとっては必須事項です。 一方、容量モデルのライセンスを持つユーザーはこの報告を省略できます ([購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)に関するページを参照してください)。 Azure Stack Development Kit (ASDK) ユーザーの場合は、Azure Stack オペレーターが使用状況データを報告し、機能をテストできます。 ただし、ユーザーの使用に対して課金されることはありません。
 
 ![課金のフロー](media/azure-stack-usage-reporting/billing-flow.png)
 
@@ -70,11 +70,11 @@ Azure Stack をその他のサブスクリプションの種類 (従量課金制
 
 ![課金のフロー](media/azure-stack-usage-reporting/pricing-details.png)
 
-Azure Stack Development Kit の場合、Azure Stack リソースは課金されないため、表示される価格は $0.00 です。
+ASDK の場合、Azure Stack リソースは課金されないため、表示される価格は $0.00 です。
 
 ## <a name="which-azure-stack-deployments-are-charged"></a>どの Azure Stack デプロイが課金されますか?
 
-リソース使用状況は、Azure Stack Development Kit では無料です。 Azure Stack マルチノード システム、ワークロード VM、ストレージ サービス、および App Services は課金されます。
+ASDK では、リソースの使用は無料です。 Azure Stack マルチノード システム、ワークロード VM、ストレージ サービス、および App Services は課金されます。
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>ユーザーはインフラストラクチャ VM に対して課金されますか?
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 59e86e15289833d63b85314a84d0bb9e60dc5da8
-ms.sourcegitcommit: ccd86bd0862c45de1f6a4993f783ea2e186c187a
+ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
+ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65172568"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68956600"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace アイテムを作成および発行する
 
@@ -81,11 +81,11 @@ ms.locfileid: "65172568"
 12. フォルダーを .azpkg ファイルにパッケージ化するには、コマンド プロンプトを開き、次のコマンドを実行します。
 
     ```shell
-    AzureGalleryPackager.exe package -m <path to manifest.json> -o <output location for the package>
+    AzureGalleryPackager.exe package -m <absolute path to manifest.json> -o <output location for the package>
     ```
 
     > [!NOTE]
-    > 出力パッケージへの完全パスが存在している必要があります。 たとえば、出力パスが C:\MarketPlaceItem\yourpackage.azpkg の場合は、**C:\MarketPlaceItem** フォルダーが存在する必要があります。
+    > 出力パッケージに加えて、manifest.json ファイルへの完全なパスが存在している必要があります。 たとえば、出力パスが C:\MarketPlaceItem\yourpackage.azpkg の場合は、**C:\MarketPlaceItem** フォルダーが存在する必要があります。
     >
     >
 
@@ -116,14 +116,14 @@ ms.locfileid: "65172568"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 例: 
+6. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 例:
 
    ```powershell
    Remove-AzsGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  -Verbose
    ```
 
    > [!NOTE]
-   > アイテムを削除した後に Marketplace UI でエラーが表示される可能性があります。 このエラーを解決するには、ポータルで **[設定]** をクリックします。 次に、**[ポータルのカスタマイズ]** で **[変更を破棄する]** を選択します。
+   > アイテムを削除した後に Marketplace UI でエラーが表示される可能性があります。 このエラーを解決するには、ポータルで **[設定]** をクリックします。 次に、 **[ポータルのカスタマイズ]** で **[変更を破棄する]** を選択します。
    >
    >
 
@@ -131,56 +131,56 @@ ms.locfileid: "65172568"
 
 ### <a name="identity-information"></a>ID 情報
 
-| Name | 必須 | Type | 制約 | Description |
+| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| Name |X |String |[A-Za-z0-9]+ | |
-| Publisher |X |String |[A-Za-z0-9]+ | |
-| バージョン |X |String |[SemVer v2](https://semver.org/) | |
+| EnableAdfsAuthentication |X |string |[A-Za-z0-9]+ | |
+| Publisher |X |string |[A-Za-z0-9]+ | |
+| Version |X |string |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | 必須 | Type | 制約 | Description |
+| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |推奨 80 文字 |80 文字より長い場合、ポータルでアイテム名が適切に表示されないことがあります。 |
-| PublisherDisplayName |X |String |推奨 30 文字 |30 文字より長い場合、ポータルで発行元の名前が適切に表示されないことがあります。 |
-| PublisherLegalName |X |String |最大 256 文字 | |
-| Summary |X |String |60 ～ 100 文字 | |
-| LongSummary |X |String |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
+| DisplayName |X |string |推奨 80 文字 |80 文字より長い場合、ポータルでアイテム名が適切に表示されないことがあります。 |
+| PublisherDisplayName |X |string |推奨 30 文字 |30 文字より長い場合、ポータルで発行元の名前が適切に表示されないことがあります。 |
+| PublisherLegalName |X |string |最大 256 文字 | |
+| Summary |X |string |60 ～ 100 文字 | |
+| LongSummary |X |string |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
 | Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
 
 ### <a name="images"></a>イメージ
 
 Marketplace では、次のアイコンを使用します。
 
-| Name | 幅 | 高さ | メモ |
+| EnableAdfsAuthentication | 幅 | 高さ | メモ |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |常に必要 |
 | Large |115 px |115 px |常に必要 |
 | Medium |90 px |90 px |常に必要 |
 | Small |40 px |40 px |常に必要 |
-| Screenshot |533 px |32 px |省略可能 |
+| Screenshot |533 px |324 px |常に必要 |
 
 ### <a name="categories"></a>Categories
 
-Marketplace の各アイテムは、そのアイテムのポータル UI における表示場所を識別するカテゴリでタグ付けする必要があります。 Azure Stack 内の既存のカテゴリのいずれか (**[コンピューティング]**、**[データ + ストレージ]** など) を選択するか、新しいものを選択します。
+Marketplace の各アイテムは、そのアイテムのポータル UI における表示場所を識別するカテゴリでタグ付けする必要があります。 Azure Stack 内の既存のカテゴリのいずれか ( **[コンピューティング]** 、 **[データ + ストレージ]** など) を選択するか、新しいものを選択します。
 
 ### <a name="links"></a>リンク
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| Name | 必須 | Type | 制約 | Description |
+| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最大 64 文字。 | |
+| DisplayName |X |string |最大 64 文字。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>追加のプロパティ
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| Name | 必須 | Type | 制約 | Description |
+| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最大 25 文字。 | |
-| 値 |X |String |最大 30 文字。 | |
+| DisplayName |X |string |最大 25 文字。 | |
+| 値 |X |string |最大 30 文字。 | |
 
 ### <a name="html-sanitization"></a>HTML のサニタイズ
 

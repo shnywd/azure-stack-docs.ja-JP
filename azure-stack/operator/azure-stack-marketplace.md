@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d00f7f90f05eddaeb52555a1759187b8282aaf1a
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: be62ddc3c3e5ea7180164cac95edd125030cbc6a
+ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152493"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959500"
 ---
 # <a name="azure-stack-marketplace-overview"></a>Azure Stack Marketplace の概要
 
@@ -40,7 +40,7 @@ Marketplace を開くには、管理者ポータルで **[+ リソースの作�
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
 
-Azure Stack Marketplace の項目は、ユーザーがダウンロードおよび使用できるサービス、アプリケーション、またはリソースです。 プランやオファーなどの管理アイテムを含むすべての Azure Stack Marketplace アイテムがすべてのユーザーに表示されます。 これらのアイテムは、表示するためのサブスクリプションは必要ありませんが、ユーザーは使用できません。
+Azure Stack Marketplace の項目は、ユーザーがダウンロードおよび使用できるサービス、アプリケーション、またはリソースです。 プランやオファーなどの管理アイテムを含むすべての Azure Stack Marketplace アイテムがすべてのユーザーに表示されます。 これらの管理アイテムは、表示するためのサブスクリプションを必要としませんが、ユーザーは使用することができません。
 
 各 Marketplace アイテムには以下のものが含まれます。
 
