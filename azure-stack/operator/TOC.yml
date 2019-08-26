@@ -10,10 +10,6 @@
       href: compare-azure-azure-stack.md
     - name: リリース ノート
       items:
-        - name: 更新プログラムとサービス ポリシー
-          href: azure-stack-servicing-policy.md
-        - name: 更新プログラムを適用するためのチェックリスト
-          href: azure-stack-release-notes-checklist.md
         - name: セキュリティ更新プログラム
           href: azure-stack-release-notes-security-updates-1907.md
         - name: 1907 更新プログラム
@@ -171,12 +167,22 @@
           items:
             - name: 更新プログラムの管理の概要
               href: azure-stack-updates.md
+            - name: 更新プログラムとサービス ポリシー
+              href: azure-stack-servicing-policy.md
+            - name: 更新プログラムを適用するためのチェックリスト
+              href: azure-stack-release-notes-checklist.md
+            - name: 更新の計画
+              href: azure-stack-update-plan.md
+            - name: 更新プログラム パッケージの準備
+              href: azure-stack-update-prepare-package.md
             - name: 更新プログラムを適用する
-              href: azure-stack-apply-updates.md
-            - name: OEM の更新プログラムを適用する
-              href: azure-stack-update-oem.md
+              items:
+                - name: 更新プログラムを適用する
+                  href: azure-stack-apply-updates.md
+                - name: OEM の更新プログラムを適用する
+                  href: azure-stack-update-oem.md
             - name: 更新プログラムのステータスの監視
-              href: azure-stack-monitor-update.md
+              href: azure-stack-update-monitor.md
         - name: 正常性とアラートの監視
           href: azure-stack-monitor-health.md
         - name: ネットワーク リソースの管理
