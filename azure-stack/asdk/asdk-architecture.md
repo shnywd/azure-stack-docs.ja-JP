@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Development Kit のアーキテクチャ | Microsoft Docs
+title: ASDK のアーキテクチャ |Microsoft Docs
 description: Azure Stack Development Kit (ASDK) のアーキテクチャについて説明します。
 services: azure-stack
 documentationcenter: ''
@@ -16,14 +16,14 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 4cd20ed4c76b062ea2fcfdf3d314ef2bcdecaff0
-ms.sourcegitcommit: eccbd0098ef652919f357ef6dba62b68abde1090
+ms.openlocfilehash: 5a34061b1fa6cd30f3bbf9f9780b13c01f0a4866
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67492343"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579087"
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit のアーキテクチャ
+# <a name="asdk-architecture"></a>ASDK アーキテクチャ
 Azure Stack Development Kit (ASDK) は、1 台のホスト コンピューター上で実行される Azure Stack の単一ノード デプロイです。 Azure Stack に NAT および VPN 機能を提供するために、ホスト コンピューターにエッジ ルーティング コンポーネントがインストールされます。 Azure Stack インフラストラクチャ ロールは、物理ホスト コンピューターの Hyper-V レイヤーで実行されます。
 
 
@@ -39,7 +39,7 @@ ASDK は、開発キットのホスト コンピューターにホストされ�
 | **AzS-ERCS01** | 緊急回復コンソールの VM。 |
 | **AzS-GWY01** | テナント ネットワーク用の VPN サイト間接続などのエッジ ゲートウェイ サービス。|
 | **AzS-NC01** | ネットワーク コントローラー。Azure Stack ネットワーク サービスを管理します。  |
-| **AzS-SLB01** | テナントおよび Azure Stack インフラストラクチャ サービス用の、Azure Stack の負荷分散マルチプレクサー サービス。  |
+| **AzS-SLB01** | テナントと Azure Stack インフラストラクチャ サービスの両方のための、Azure Stack の負荷分散マルチプレクサー サービス。  |
 | **AzS-SQL01** | Azure Stack インフラストラクチャ ロール用の内部データ ストア。  |
 | **AzS-WAS01** | Azure Stack 管理ポータルと Azure Resource Manager のサービス。|
 | **AzS-WASP01**| Azure Stack ユーザー (テナント) ポータルと Azure Resource Manager のサービス。|

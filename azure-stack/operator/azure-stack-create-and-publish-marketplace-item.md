@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 24fc0f7993001ce95a21e175c84f37d755a5ce6c
-ms.sourcegitcommit: ec38ec569ad2193369c438f55e5c190aa5f0efd5
+ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
+ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68956600"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "69643851"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace アイテムを作成および発行する
 
@@ -55,7 +55,7 @@ ms.locfileid: "68956600"
    >
    >
 
-8. **Manifest.json** ファイルで、**name** を Marketplace アイテムの名前に変更します。 さらに**発行者**を自分の名前または会社に変更します。
+8. **Manifest.json** ファイルで、**name** を Marketplace アイテムの名前に変更します。 さらに**発行者**を自分の名前または会社に変更します。 イメージを発行する前に、manifest.json ファイルを更新し、"name": "xxx" という行を更新します。 イメージのバージョンごとに異なる名前を使用してください。
 9. **artifacts** で、**name** と **path** を、追加した Azure Resource Manager テンプレートの正しい情報に変更します。
 
    ```json
@@ -131,15 +131,15 @@ ms.locfileid: "68956600"
 
 ### <a name="identity-information"></a>ID 情報
 
-| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
+| Name | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| EnableAdfsAuthentication |X |string |[A-Za-z0-9]+ | |
+| Name |X |string |[A-Za-z0-9]+ | |
 | Publisher |X |string |[A-Za-z0-9]+ | |
 | Version |X |string |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
+| Name | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |推奨 80 文字 |80 文字より長い場合、ポータルでアイテム名が適切に表示されないことがあります。 |
 | PublisherDisplayName |X |string |推奨 30 文字 |30 文字より長い場合、ポータルで発行元の名前が適切に表示されないことがあります。 |
@@ -152,7 +152,7 @@ ms.locfileid: "68956600"
 
 Marketplace では、次のアイコンを使用します。
 
-| EnableAdfsAuthentication | 幅 | 高さ | メモ |
+| Name | 幅 | 高さ | メモ |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |常に必要 |
 | Large |115 px |115 px |常に必要 |
@@ -168,7 +168,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
+| Name | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |最大 64 文字。 | |
 | Uri |X |URI | | |
@@ -177,7 +177,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| EnableAdfsAuthentication | 必須 | Type | 制約 | Description |
+| Name | 必須 | Type | 制約 | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |最大 25 文字。 | |
 | 値 |X |string |最大 30 文字。 | |

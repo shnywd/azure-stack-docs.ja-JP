@@ -1,6 +1,6 @@
 ---
-title: Azure Stack への接続 | Microsoft Docs
-description: ASDK に接続する方法について説明します。
+title: ASDK に接続する | Microsoft Docs
+description: Azure Stack Development Kit (ASDK) に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,38 +16,38 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9a16201db137e7f34b42a0b12bbe802d3b10bdff
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 3f1dd0d7efa2aa9549f65ef97ebb7a589949154b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267212"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579144"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK に接続する
 
 リソースを管理するにはまず、Azure Stack Development Kit (ASDK) に接続する必要があります。 この記事では、次の接続オプションを使用して ASDK に接続するために必要な手順を説明します。
 
-* [リモート デスクトップ接続 (RDP)](#connect-with-rdp)。 リモート デスクトップ接続を使用して接続する場合、単一のユーザーが開発キットにすばやく接続できます。
-* [仮想プライベート ネットワーク (VPN)](#connect-with-vpn)。 VPN を使用して接続する場合、Azure Stack インフラストラクチャの外部のクライアントから複数のユーザーが同時に Azure Stack ポータルに接続できます。 VPN 接続には、いくつかのセットアップが必要です。
+* [リモート デスクトップ接続 (RDP)](#connect-with-rdp):リモート デスクトップ接続を使用して接続する場合、単一のユーザーが ASDK にすばやく接続できます。
+* [仮想プライベート ネットワーク (VPN)](#connect-with-vpn):VPN を使用して接続する場合、Azure Stack インフラストラクチャの外部のクライアントから複数のユーザーが同時に Azure Stack ポータルに接続できます。 VPN 接続には、いくつかのセットアップが必要です。
 
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>RDP を使用して Azure Stack に接続する
 
-リモート デスクトップ接続では、同時に 1 人のユーザーが、ASDK ホスト コンピューターから Azure Stack 管理ポータルまたはユーザー ポータルでリモート デスクトップ接続を使用してリソースを管理できます。 
+同時に 1 人のユーザーが、ASDK ホスト コンピューターから直接リモート デスクトップ接続を使用して、Azure Stack 管理ポータルまたはユーザー ポータルでリソースを管理できます。
 
 > [!TIP]
-> このオプションでは、ASDK ホスト コンピューターにサインインしているときに、RDP を再度使用して、ASDK ホスト コンピューター上に作成された仮想マシンにサインインできます。 
+> このオプションでは、ASDK ホスト コンピューターにサインインしているときに、RDP を再度使用して、ASDK ホスト コンピューター上に作成された仮想マシン (VM) にサインインできます。
 
-1. リモート デスクトップ接続 (mstc.exe) を開き、ASDK ホスト コンピューターにリモートでサインインする権限のあるアカウントを使用して、開発キット ホスト コンピューター IP アドレスに接続します。 既定では、**AzureStack\AzureStackAdmin** に ASDK ホスト コンピューターにリモートでアクセス許可があります。  
+1. リモート デスクトップ接続 (mstc.exe) を開き、ASDK ホスト コンピューターの IP アドレスに接続します。 ASDK ホスト コンピューターにリモートでサインインする権限のあるアカウントを使用してください。 既定では、**AzureStack\AzureStackAdmin** に ASDK ホスト コンピューターにリモートでアクセス許可があります。  
 
-2. 開発キットのホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
+2. ASDK ホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
 
 3. 管理ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理ポータルのアドレスは [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) です。
 
 4. ユーザー ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack ユーザーの資格情報を使用します。 ASDK ユーザー ポータルのアドレスは [https://portal.local.azurestack.external](https://portal.local.azurestack.external) です。
 
 > [!NOTE]
-> どのアカウントをいつ使用するかについては、「[ASDK の管理の基本](asdk-admin-basics.md#what-account-should-i-use)」をご覧ください。
+> どのアカウントをいつ使用するかについては、「[ASDK 管理の基礎](asdk-admin-basics.md#what-account-should-i-use)」をご覧ください。
 
 <a name="connect-with-vpn"></a>
 ## <a name="connect-to-azure-stack-using-vpn"></a>VPN を使用して Azure Stack に接続する
@@ -81,7 +81,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module.
 Import-Module .\Connect\AzureStack.Connect.psm1
 
-# Add the development kit host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+# Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -123,11 +123,11 @@ Add-AzsVpnConnection `
 ![ルート証明書](media/asdk-connect/cert.png)  
   
   > [!IMPORTANT]
-  > プロンプトが PowerShell ウィンドウや他のアプリケーションで隠れている場合があります。
+  > プロンプトが PowerShell ウィンドウや他のアプリで隠れている場合があります。
 
 ### <a name="test-vpn-connectivity"></a>VPN 接続をテストする
 
-ポータルの接続をテストするには、Web ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) または管理ポータル (https://adminportal.local.azurestack.external/) のいずれかに移動します。 
+ポータルの接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) または管理ポータル (https://adminportal.local.azurestack.external/) のいずれかに移動します。 
 
 適切なサブスクリプションの資格情報でサインインし、リソースを作成して管理します。  
 

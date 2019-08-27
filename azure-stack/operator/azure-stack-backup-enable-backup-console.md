@@ -12,16 +12,16 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: eefd393fa12814260711590f028c9a787811d8af
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 08/21/2019
+ms.openlocfilehash: d3ac538109f48e38f6483cd1ecae4896f1d3e635
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269025"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896380"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>管理ポータルで Azure Stack のバックアップを有効にする
 Azure Stack でインフラストラクチャ バックアップを生成できるように、管理ポータルで Infrastructure Backup サービスを有効にします。 ハードウェア パートナーは、[壊滅的な障害](./azure-stack-backup-recover-data.md)が発生した場合、これらのバックアップとクラウドの復旧を使って環境を復元できます。 クラウドを復旧する目的は、復旧の完了後に、作業者とユーザーがポータルに再度ログインできるということを確認することです。 ユーザーのサブスクリプションが復元され、これにはロールベースのアクセス許可とロール、当初のプラン、オファー、および以前に定義されていたコンピューティング、ストレージ、ネットワークのクォータ、および Key Vault のシークレットが含まれます。
@@ -53,7 +53,7 @@ Azure Stack でインフラストラクチャ バックアップを生成でき�
     > [!Note]  
     > 保有期間より前のバックアップをアーカイブする場合は、スケジューラがバックアップを削除する前に必ずファイルをバックアップしてください。 バックアップの保有期間を短縮すると (たとえば、7 日を 5 日にする)、スケジューラは新しい保有期間より前のすべてのバックアップを削除します。 この値を更新する前に、バックアップが削除されても問題がないことをご確認ください。 
 
-9. [暗号化設定] では、[Certificate .cer file]\(証明書 .cer ファイル\) ボックスで証明書を指定します。 バックアップ ファイルは証明書内のこの公開キーを使用して暗号化されます。 バックアップの設定を構成するときは、公開キー部分のみを含む証明書を提供する必要があります。 この証明書を初めて設定するとき、または後で証明書を交換するときは、証明書のサムプリントのみを表示できます。 アップロードした証明書ファイルをダウンロードまたは表示することはできません。 証明書ファイルを作成するには、次の PowerShell コマンドを実行して公開キーと秘密キーを含む自己署名証明書を作成した後、公開キー部分のみを含む証明書をエクスポートします。
+9. [暗号化設定] では、[Certificate .cer file]\(証明書 .cer ファイル\) ボックスで証明書を指定します。 バックアップ ファイルは証明書内のこの公開キーを使用して暗号化されます。 バックアップの設定を構成するときは、公開キー部分のみを含む証明書を提供する必要があります。 この証明書を初めて設定するとき、または後で証明書を交換するときは、証明書のサムプリントのみを表示できます。 アップロードした証明書ファイルをダウンロードまたは表示することはできません。 証明書ファイルを作成するには、次の PowerShell コマンドを実行して公開キーと秘密キーを含む自己署名証明書を作成した後、公開キー部分のみを含む証明書をエクスポートします。 管理ポータルからアクセスできる任意の場所に証明書を配置できます。
 
     ```powershell
 
@@ -118,7 +118,7 @@ Azure Stack でインフラストラクチャ バックアップを生成でき�
 ![Azure Stack - 証明書のサムプリントを表示する](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>下位互換性モード
-1901 に更新する前にバックアップを構成した場合、設定は動作の変更なしで引き継がれます。 この場合、暗号化キーは下位互換性のためにサポートされます。 暗号化キーを更新するか、または証明書の使用に切り替えることができます。 少なくともあと 3 回のリリースの間は、引き続き暗号化キーを更新できます。 この期間を使用して、証明書に移行してください。 新しい暗号化キーを作成するには、[New-AzsEncryptionKeyBase64 コマンドレット](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)を使用します。
+1901 に更新する前にバックアップを構成した場合、設定は動作の変更なしで引き継がれます。 この場合、暗号化キーは下位互換性のためにサポートされます。 暗号化キーを更新するか、または証明書の使用に切り替えることができます。 少なくともあと 3 回のリリースの間は、引き続き暗号化キーを更新できます。 この期間を使用して、証明書に移行してください。 新しい暗号化キーを作成するには、[New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) を使用します。
 
 ![Azure Stack - 下位互換性モードでの暗号化キーの使用](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

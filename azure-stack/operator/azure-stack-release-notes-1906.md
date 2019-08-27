@@ -16,12 +16,12 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: ffd6436b9e7bf27ef069ecdc44ff2d6efadfc795
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
+ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685558"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69887125"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新プログラム
 
@@ -148,7 +148,7 @@ Azure Stack の 1906 リリースは、次の修正プログラムが適用さ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack 修正プログラム 1.1906.12.54](https://support.microsoft.com/help/4518365)
 
 ## <a name="automatic-update-notifications"></a>自動更新通知
 

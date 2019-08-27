@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の App Service を復旧する | Microsoft Docs
-description: Azure Stack 上の App Service の障害復旧に関する詳細なガイダンス
+title: Azure Stack 上の App Service の復旧 | Microsoft Docs
+description: Azure Stack 上の App Service の障害復旧について説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,23 @@ ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: c302ad1188d52c86d2d42734fa9061820268d420
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269218"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579032"
 ---
-# <a name="recovery-of-app-service-on-azure-stack"></a>Azure Stack 上の App Service の復旧
+# <a name="app-service-recovery-on-azure-stack"></a>Azure Stack 上の App Service の復旧
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
 
-このドキュメントでは、App Service の障害復旧のために実行するアクションについての手順を示します。
+このトピックでは、App Service の障害復旧のために実行するアクションの手順を説明します。
 
 Azure Stack 上の App Service をバックアップから復旧するために、次のアクションを実行する必要があります。
-1.  App Service のデータベースの復旧
-2.  ファイル サーバーの共有コンテンツの復旧
-3.  App Service のロールとサービスの復旧
+1. App Service のデータベースを復元します。
+2. ファイル サーバーの共有コンテンツを復元します。
+3. App Service のロールとサービスを復元します。
 
 Azure Stack ストレージが Function App ストレージに使用されていた場合は、Function App を復旧するための手順も実行する必要があります。
 
@@ -42,7 +42,7 @@ App Service SQL Server のデータベースは、実稼働対応の SQL Server 
 App Service データベースをホストするように [SQL Server インスタンスを準備](azure-stack-app-service-before-you-get-started.md#prepare-the-sql-server-instance)してから、次の手順を使用して、データベースをバックアップから復旧します。
 
 1. 復旧した App Service データベースをホストする SQL Server に管理者権限でサインインします。
-2. 管理者権限で実行しているコマンド プロンプトから、App Service データベースを復旧するための次のコマンドを使用します。
+2. 管理者権限で実行しているコマンド プロンプトから、App Service データベースを復元するための次のコマンドを使用します。
     ```dos
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_hosting FROM DISK='<full path to backup>' WITH REPLACE"
     sqlcmd -U <SQL admin login> -P <SQL admin password> -Q "RESTORE DATABASE appservice_metering FROM DISK='<full path to backup>' WITH REPLACE"
@@ -50,7 +50,7 @@ App Service データベースをホストするように [SQL Server インス�
 3. 両方の App Service データベースが正常に復旧されたことを確認し、SQL Server Management Studio を終了します。
 
 > [!NOTE]
-> フェールオーバー クラスター インスタンスの障害から復旧するには、[これらの手順](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)に従います。 
+> フェールオーバー クラスター インスタンスの障害から復旧するには、「[フェールオーバー クラスター インスタンス障害からの復旧](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/recover-from-failover-cluster-instance-failure?view=sql-server-2017)」を参照してください。 
 
 ## <a name="restore-the-app-service-file-share-content"></a>App Service ファイル共有のコンテンツを復旧する
 App Service ファイル共有をホストするように[ファイル サーバーを順](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)したら、テナント ファイル共有のコンテンツをバックアップから復旧する必要があります。 新しく作成された App Service ファイル共有場所にファイルをコピーするために、利用可能な任意の方法を使用できます。 ファイル サーバーで次の例を実行すると、リモート共有に接続してファイルを共有にコピーするために、PowerShell と Robocopy が使用されます。
@@ -63,7 +63,7 @@ robocopy /E $source $destination
 net use $source /delete
 ```
 
-ファイル共有のコンテンツのコピーに加えて、ファイル共有自体のアクセス許可をリセットする必要もあります。 そのためには、ファイル サーバー コンピューターで管理コマンド プロンプトを開き、**ReACL.cmd**ファイルを実行します。 **ReACL.cmd** ファイルは、**BCDR** ディレクトリー内の App Service インストール ファイルにあります。
+ファイル共有のコンテンツのコピーに加えて、ファイル共有自体のアクセス許可をリセットする必要もあります。 アクセス許可をリセットするには、ファイル サーバー コンピューターで管理コマンド プロンプトを開き、**ReACL.cmd** ファイルを実行します。 **ReACL.cmd** ファイルは、**BCDR** ディレクトリー内の App Service インストール ファイルにあります。
 
 ## <a name="restore-app-service-roles-and-services"></a>App Service のロールとサービスの復旧
 App Service データベースとファイル共有コンテンツを復旧したら、PowerShell を使用して App Service のロールとサービスを復旧する必要があります。 これらの手順により、App Service のシークレットとサービス構成を復旧します。  
@@ -71,7 +71,7 @@ App Service データベースとファイル共有コンテンツを復旧し�
 1. App Service のインストール時に指定したパスワードを使用して、App Service コントローラー **CN0-VM** VM に **roleadmin** としてログインします。 
     > [!TIP]
     > VM のネットワーク セキュリティ グループが RDP 接続を許可するように変更する必要があります。 
-2. **SystemSecrets.JSON** ファイルをコントローラー VM にコピーします。 次の手順で、このファイルへのパスを `$pathToExportedSecretFile` パラメーターとして渡す必要があります。 
+2. **SystemSecrets.JSON** ファイルをコントローラー VM にコピーします。 次の手順で、このファイルへのパスを `$pathToExportedSecretFile` パラメーターとして渡す必要があります。
 3. 管理者特権の PowerShell コンソール ウィンドウで次のコマンドを実行し、App Service のロールとサービスを復旧します。
 
     ```powershell
@@ -105,7 +105,7 @@ App Service データベースとファイル共有コンテンツを復旧し�
 > コマンドが完了したら、この PowerShell セッションを閉じることを強くお勧めします。
 
 ## <a name="restore-function-apps"></a>Function App を復旧する 
-Azure Stack 用の App Service では、テナント ユーザー アプリの復旧およびファイル共有コンテンツ以外のデータの復旧はサポートされていません。 このため、これらは、App Service のバックアップと復旧操作以外でバックアップして復旧する必要があります。 Azure Stack ストレージが Function App ストレージに使用されていた場合は、失われたデータを復旧するために次の手順を実行する必要があります。
+Azure Stack 用の App Service では、テナント ユーザー アプリの復旧およびファイル共有コンテンツ以外のデータの復旧はサポートされていません。 他のすべてのデータは、App Service のバックアップと復旧操作以外でバックアップして復旧する必要があります。 Azure Stack ストレージが Function App ストレージに使用されていた場合は、失われたデータを復旧するために次の手順を実行する必要があります。
 
 1. Function App によって使用される新しいストレージ アカウントを作成します。 このストレージには、Azure Stack ストレージ、Azure ストレージ、または任意の互換性のあるストレージを指定できます。
 2. ストレージの接続文字列を取得します。

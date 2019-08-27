@@ -1,6 +1,6 @@
 ---
-title: Azure Stack をデプロイする - PowerShell | Microsoft Docs
-description: この記事では、PowerShell を使用してコマンド ラインから ASDK をインストールします。
+title: Powershell を使用してコマンド ラインから ASDK をデプロイする | Microsoft Docs
+description: PowerShell を使用してコマンド ラインから ASDK デプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -17,65 +17,67 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4a32631441760db715443b8979e2769b55258fcf
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
+ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66267168"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69579105"
 ---
-# <a name="deploy-the-asdk-from-the-command-line"></a>ASDK をコマンド ラインからデプロイする
-ASDK は、Azure Stack の機能やサービスを評価したり実演したりするためにデプロイできるテスト/開発環境です。 この環境を準備するには、環境ハードウェアを用意し、いくつかのスクリプトを実行する必要があります (これには数時間かかります)。 その後、管理者ポータルとユーザー ポータルにサインインし、Azure Stack の使用を開始することができます。
+# <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
-## <a name="prerequisites"></a>前提条件 
-開発キットのホスト コンピューターを準備します。 ハードウェア、ソフトウェア、およびネットワークを計画します。 開発キットをホストするコンピューター (開発キット ホスト) は、ハードウェア、ソフトウェア、ネットワークの要件を満たす必要があります。 Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) のどちらを使用するかを選択します。 インストール プロセスが滞りなく進行するように、デプロイの開始前に以上の前提条件を必ず満たしてください。 
+Azure Stack Development Kit (ASDK) は、Azure Stack の機能やサービスを評価したり、実演したりするためにデプロイできるテスト/開発環境です。 それを稼働させるには、環境ハードウェアを用意し、いくつかのスクリプトを実行する必要があります。 このスクリプトは実行に数時間かかります。 その後、管理者ポータルとユーザー ポータルにサインインし、Azure Stack の使用を開始することができます。
 
-ASDK をデプロイする前に、計画している開発キット ホスト コンピューターのハードウェア、オペレーティング システム、アカウント、およびネットワーク構成が、ASDK をインストールするための最小要件を満たしていることを確認してください。
+## <a name="prerequisites"></a>前提条件
 
-**[ASDK デプロイ計画に関する考慮事項を確認する](asdk-deploy-considerations.md)**
+ASDK ホスト コンピューターを準備します。 ハードウェア、ソフトウェア、およびネットワークを計画します。 ASDK をホストするコンピューターでは、ハードウェア、ソフトウェア、ネットワークの要件を満たす必要があります。 Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) のどちらを使用するかを選択します。 インストール プロセスが滞りなく進行するように、デプロイの開始前にこれらの前提条件に従ってください。
+
+ASDK をデプロイする前に、計画している ASDK ホスト コンピューターのハードウェア、オペレーティング システム、アカウント、およびネットワーク構成が、ASDK をインストールするための最小要件を満たしていることを確認してください。
+
+**[ASDK のデプロイの要件と考慮事項を確認してください](asdk-deploy-considerations.md)** 。
 
 > [!TIP]
 > オペレーティング システムをインストールした後、ハードウェアがすべての要件を満たしていることを確認するには、[Azure Stack デプロイ要件チェック ツール](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)を使用できます。
 
 ## <a name="download-and-extract-the-deployment-package"></a>デプロイ パッケージをダウンロードし、展開する
-開発キット ホスト コンピューターが ASDK の基本的なインストール要件を満たしていることを確認したら、次の手順は ASDK デプロイ パッケージをダウンロードして展開することです。 デプロイ パッケージには、Cloudbuilder.vhdx ファイルが含まれています。このファイルは、起動可能なオペレーティング システムと Azure Stack インストール ファイルを含む仮想ハード ドライブです。
+ASDK ホスト コンピューターが ASDK の基本的なインストール要件を満たしていることを確認したら、次の手順は ASDK デプロイ パッケージをダウンロードして展開することです。 デプロイ パッケージには、Cloudbuilder.vhdx ファイルが含まれています。このファイルは、起動可能なオペレーティング システムと Azure Stack インストール ファイルを含む仮想ハード ドライブです。
 
-開発キット ホストや別のコンピューターに、デプロイ パッケージをダウンロードできます。 展開されたデプロイ ファイルは 60 GB の空きディスク容量を占めます。そのため、別のコンピューターを利用することで、開発キット ホストのハードウェア要件を緩和できます。
+ASDK ホストや別のコンピューターに、デプロイ パッケージをダウンロードできます。 展開されたデプロイ ファイルは 60 GB の空きディスク容量を占めます。そのため、別のコンピューターを利用することで、ASDK ホストのハードウェア要件を緩和できます。
 
 **[Azure Stack Development Kit (ASDK) をダウンロードして展開する](asdk-download.md)**
 
-## <a name="prepare-the-development-kit-host-computer"></a>開発キットのホスト コンピューターを準備する
-ASDK をホスト コンピューターにインストールする前に、環境を準備し、VHD から起動するようにシステムを構成する必要があります。 この手順の後、開発キット ホストは Cloudbuilder.vhdx (起動可能なオペレーティング システムと Azure Stack インストール ファイルを含む仮想ハード ドライブ) から起動します。
+## <a name="prepare-the-asdk-host-computer"></a>ASDK ホスト コンピューターの準備
+ASDK をホスト コンピューターにインストールする前に、環境を準備し、VHD から起動するようにシステムを構成する必要があります。 この手順の後、ASDK ホストは Cloudbuilder.vhdx (起動可能なオペレーティング システムと Azure Stack インストール ファイルを含む仮想ハード ドライブ) から起動します。
 
 PowerShell を使用して、CloudBuilder.vhdx から起動するように ASDK ホスト コンピューターを構成します。 これらのコマンドは、ダウンロードして展開した Azure Stack 仮想ハード ディスク (CloudBuilder.vhdx) から起動するように ASDK ホスト コンピューターを構成します。 以下の手順の完了後、ASDK ホスト コンピューターを再起動します。
 
 CloudBuilder.vhdx から起動するように ASDK ホスト コンピューターを構成するには、次の手順に従います。
 
-  1. 管理者としてコマンド プロンプトを開きます。
+  1. 管理者としてコマンド プロンプトを起動します。
   2. `bcdedit /copy {current} /d "Azure Stack"` を実行します。
-  3. 返された CLSID 値を、必要な {} を含めてコピー (Ctrl + C) します。 この値は {CLSID} と呼ばれ、後の手順で貼り付け (Ctrl + V または右クリック) を行う必要があります。
-  4. `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` を実行します。 
-  5. `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` を実行します。 
-  6. `bcdedit /set {CLSID} detecthal on` を実行します。 
+  3. 返された CLSID 値を、必要な中かっこ (`{}`) を含めてコピー (Ctrl + C) します。 この値は `{CLSID}` と呼ばれ、後の手順で貼り付ける (Ctrl + V または右クリック) 必要があります。
+  4. `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` を実行します。
+  5. `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` を実行します。
+  6. `bcdedit /set {CLSID} detecthal on` を実行します。
   7. `bcdedit /default {CLSID}` を実行します。
-  8. 起動設定を確認するには、`bcdedit` を実行します。 
-  9. CloudBuilder.vhdx ファイルが C:\ ドライブのルート (C:\CloudBuilder.vhdx) に移動してあることを確認し、開発キットのホスト コンピューターを再起動します。 ASDK ホスト コンピューターが再起動されるときに、ASDK のデプロイを開始するには、CloudBuilder.vhdx 仮想マシンのハード ドライブから起動する必要があります。 
+  8. 起動設定を確認するには、`bcdedit` を実行します。
+  9. CloudBuilder.vhdx ファイルが C:\ ドライブのルートに移動されている (`C:\CloudBuilder.vhdx`) ことを確認し、ASDK ホスト コンピューターを再起動します。 ASDK ホスト コンピューターが再起動されるときに、ASDK のデプロイを開始するには、CloudBuilder.vhdx 仮想マシン (VM) のハード ドライブから起動する必要があります。
 
 > [!IMPORTANT]
-> 再起動する前に、開発キット ホスト コンピューターへの直接の物理的アクセスまたは KVM アクセスがあることを確認してください。 VM が初めて起動するときに、Windows Server セットアップを完了するように求めるメッセージが表示されます。 開発キット ホスト コンピューターにログインするときに使用したのと同じ管理者資格情報を入力します。 
+> 再起動する前に、ASDK ホスト コンピューターへの直接の物理的アクセスまたは KVM アクセスがあることを確認してください。 VM が初めて起動するときに、Windows Server セットアップを完了するように求めるメッセージが表示されます。 ASDK ホスト コンピューターにログインするときに使用したのと同じ管理者資格情報を入力します。
 
-### <a name="prepare-the-development-kit-host-using-powershell"></a>PowerShell を使用して開発キットのホストを準備する 
-開発キット ホスト コンピューターが CloudBuilder.vhdx イメージから正常に起動したら、開発キット ホスト コンピューターにサインインするときに使用した (およびホスト コンピューターが VHD から起動したときに Windows Server セットアップを完了するために指定した) のと同じローカル管理者資格情報でログインします。 
+### <a name="prepare-the-asdk-host-using-powershell"></a>PowerShell を使用して ASDK ホストを準備する 
+ASDK ホスト コンピューターが CloudBuilder.vhdx イメージから正常に起動したら、ASDK ホスト コンピューターへのログインに使用した同じローカル管理者資格情報を使用してサインインします。 さらに、ホスト コンピューターが VHD から起動したときに Windows Server セットアップの実行の一環として指定した同じ資格情報もあります。
 
 > [!NOTE]
 > 必要に応じて、ASDK のインストール "*前*" に [Azure Stack のテレメトリ設定](asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)を構成することもできます。
 
-管理者特権の PowerShell コンソールを開いてこのセクションのコマンドを実行し、ASDK を開発キットのホストにデプロイします。
+管理者特権の PowerShell コンソールを開いてこのセクションのコマンドを実行し、ASDK を ASDK ホストにデプロイします。
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > ASDK のインストールでは、ネットワーク用に 1 つだけの NIC (ネットワーク インターフェイス カード) がサポートされています。 NIC が複数ある場合は、デプロイ スクリプトを実行する前に、1 つのみが有効になっている (他はすべて無効になっている) ことを確認します。
 
-Azure Stack と、ID プロバイダーとして Azure AD または Windows Server AD FS をデプロイできます。 どちらを使用しても、Azure Stack、リソース プロバイダー、およびその他のアプリケーションは同様に動作します。
+Azure Stack と、ID プロバイダーとして Azure AD または Windows Server AD FS をデプロイできます。 どちらを使用しても、Azure Stack、リソース プロバイダー、およびその他のアプリは同様に動作します。
 
 > [!TIP]
 > セットアップ パラメーター (InstallAzureStackPOC.ps1 のオプションのパラメーターと以下の例を参照) を指定しない場合、必須パラメーターの入力を求めるメッセージが表示されます。
@@ -83,7 +85,7 @@ Azure Stack と、ID プロバイダーとして Azure AD または Windows Serv
 ### <a name="deploy-azure-stack-using-azure-ad"></a>Azure AD を使用して Azure Stack をデプロイする 
 **Azure AD を ID プロバイダーとして使用**して Azure Stack をデプロイするには、インターネットに直接または透過プロキシ経由で接続する必要があります。 
 
-Azure AD を使用して開発キットをデプロイするには、次の PowerShell コマンドを実行します。
+Azure AD を使用して ASDK をデプロイするには、次の PowerShell コマンドを実行します。
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -91,12 +93,12 @@ Azure AD を使用して開発キットをデプロイするには、次の Powe
   .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password
   ```
 
-ASDK のインストールを開始して数分後に、Azure AD 資格情報の入力を求めるメッセージが表示されます。 Azure AD テナントのグローバル管理者の資格情報を指定する必要があります。 
+ASDK のインストールを開始して数分後に、Azure AD 資格情報の入力を求めるメッセージが表示されます。 Azure AD テナントのグローバル管理者の資格情報を入力します。
 
-デプロイの後、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
+デプロイの後、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 そのような操作の例には、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>AD FS を使用して Azure Stack をデプロイする 
-**AD FS を ID プロバイダーとして使用**して開発キットをデプロイするには、次の PowerShell コマンドを実行します (-UseADFS パラメーターを追加するだけです)。 
+**AD FS を ID プロバイダーとして使用**して ASDK をデプロイするには、次の PowerShell コマンドを実行します (-UseADFS パラメーターを追加するだけです)。
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -106,7 +108,7 @@ ASDK のインストールを開始して数分後に、Azure AD 資格情報の
 
 AD FS デプロイでは、既定のスタンプ ディレクトリ サービスが ID プロバイダーとして使用されます。 サインインに使用する既定のアカウントは azurestackadmin@azurestack.local で、パスワードは PowerShell のセットアップ コマンドの一部として指定したものに設定されます。
 
-デプロイ処理には数時間かかる場合があります。その間に、システムは自動的に 1 回再起動されます。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 デプロイが失敗した場合は、-rerun パラメーターを使用してスクリプトを再実行してみることができます。 または、最初から [ASDK を再デプロイ](asdk-redeploy.md)することもできます。
+デプロイ処理には数時間かかる場合があります。その間に、システムは自動的に 1 回再起動されます。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 デプロイが失敗した場合は、-rerun パラメーターを使用してスクリプトを再実行してみてください。 または、最初から [ASDK を再デプロイ](asdk-redeploy.md)することもできます。
 
 > [!IMPORTANT]
 > ASDK ホストの再起動後にデプロイの進行状況を監視する場合は、AzureStack\AzureStackAdmin としてサインインする必要があります。 ホスト コンピューターが再起動され、azurestack.local ドメインに参加した後、ローカル管理者としてサインインすると、デプロイの進行状況は表示されません。 デプロイは再実行せず、代わりにローカル管理者と同じパスワードを使用して AzureStack\AzureStackAdmin としてサインインし、セットアップが実行中であることを確認します。
@@ -141,8 +143,8 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 
 |パラメーター|必須/省略可能|説明|
 |-----|-----|-----|
-|AdminPassword|必須|開発キットのデプロイの一環として作成されたすべての仮想マシンのローカル管理者アカウントと他のすべてのユーザー アカウントを設定します。 このパスワードは、ホスト上の現在のローカル管理者パスワードと一致する必要があります。|
-|InfraAzureDirectoryTenantName|必須|テナント ディレクトリを設定します。 このパラメーターを使用して、AAD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 AAD ディレクトリ テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
+|AdminPassword|必須|ASDK のデプロイの一環として作成されたすべての仮想マシンのローカル管理者アカウントと他のすべてのユーザー アカウントを設定します。 このパスワードは、ホスト上の現在のローカル管理者パスワードと一致する必要があります。|
+|InfraAzureDirectoryTenantName|必須|テナント ディレクトリを設定します。 このパラメーターを使用して、AAD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 AAD テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
 |TimeServer|必須|このパラメーターを使用して、特定のタイム サーバーを指定します。 このパラメーターは、有効なタイム サーバーの IP アドレスとして指定する必要があります。 サーバー名はサポートされていません。|
 |InfraAzureDirectoryTenantAdminCredential|省略可能|Azure Active Directory のユーザー名とパスワードを設定します。 これらの Azure 資格情報は、組織 ID である必要があります。|
 |InfraAzureEnvironment|省略可能|この Azure Stack デプロイを登録する Azure 環境を選択します。 オプションには、グローバル Azure、Azure China、Azure US Government などがあります。|
@@ -151,9 +153,9 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 
 
 ## <a name="perform-post-deployment-configurations"></a>デプロイ後の構成を実行する
-ASDK をインストールした後、推奨されるインストール後の確認と構成変更がいくつかあります。 test-AzureStack コマンドレットを使用してインストールが正常に行われたことを検証し、Azure Stack PowerShell および GitHub ツールをインストールすることができます。 
+ASDK をインストールした後、推奨されるインストール後の確認と構成変更がいくつかあります。 test-AzureStack コマンドレットを使用してインストールが正常に行われたことを検証してから、Azure Stack PowerShell および GitHub ツールをインストールします。
 
-評価期間が終了する前に開発キット ホストのパスワードが期限切れにならないように、パスワードの有効期限のポリシーをリセットする必要もあります。
+評価期間が終了する前に ASDK ホストのパスワードが期限切れにならないように、パスワードの有効期限のポリシーをリセットすることをお勧めします。
 
 > [!NOTE]
 > 必要に応じて、ASDK のインストール "*後*" に [Azure Stack のテレメトリ設定](asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)を構成することもできます。
@@ -166,7 +168,7 @@ Azure Stack に [Azure マーケットプレース項目をダウンロード](.
 **[Azure Stack を Azure に登録する](asdk-register.md)**
 
 ## <a name="next-steps"></a>次の手順
-お疲れさまでした。 これらの手順を完了すると、[管理者](https://adminportal.local.azurestack.external)ポータルと[ユーザー](https://portal.local.azurestack.external) ポータルの両方を開発キット環境で利用できるようになります。 
+お疲れさまでした。 これらの手順を完了すると、[管理](https://adminportal.local.azurestack.external)ポータルと[ユーザー](https://portal.local.azurestack.external) ポータルの両方で ASDK 環境を利用できるようになります。 
 
 [ASDK インストール後の構成タスク](asdk-post-deploy.md)
 

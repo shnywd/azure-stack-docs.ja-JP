@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 41d07532960776cd5ed9312007877489e9ebbf20
-ms.sourcegitcommit: 83d9dbecd7334f37862e47ca028a50f8d7dafe2d
+ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
+ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68738338"
+ms.lasthandoff: 08/22/2019
+ms.locfileid: "69896338"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 の既知の問題
 
@@ -107,6 +107,12 @@ ms.locfileid: "68738338"
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在 Azure Stack でサポートされていません。
 - 発生頻度: 一般
+
+### <a name="network-connection-type"></a>ネットワーク接続の種類
+
+- 適用先:この問題は、すべての 1906 または 1907 環境に適用されます。 
+- 原因: ユーザーポータルの **[AddConnection]** ブレードに、**VNet 間**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。 
+- 発生頻度: 一般 
 
 #### <a name="documentation"></a>ドキュメント
 
