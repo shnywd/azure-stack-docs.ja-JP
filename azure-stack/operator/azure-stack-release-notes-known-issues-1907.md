@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 0b305f07344540555b444017a04c1002bb8a08a8
-ms.sourcegitcommit: 250689d6d09acc677bf59de76510d5d5f1c6190e
+ms.openlocfilehash: 2d87ff424c224f10bede28099435915ab6cd6bce
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896338"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008620"
 ---
 # <a name="azure-stack-1907-known-issues"></a>Azure Stack 1907 の既知の問題
 
@@ -34,7 +34,7 @@ ms.locfileid: "69896338"
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 1907 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
-- 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md#import-and-install-updates)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
+- 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 - 発生頻度: 一般
 
 ## <a name="portal"></a>ポータル

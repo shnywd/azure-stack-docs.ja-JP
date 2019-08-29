@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/17/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: a7a61e8eef33ee6a6efb87001504fe5234e3cf16
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303156"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008343"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack と Azure の違い
 
@@ -52,7 +52,7 @@ Azure に関する技術的なドキュメントの内容は、Azure Stack で�
 | 利用可能なサービス | [Azuer 製品](https://azure.microsoft.com/services/?b=17.04b)の一覧を参照してください。 利用可能なサービスは Azure リージョンによって異なります。 | Azure Stack では Azure サービスのサブセットがサポートされます。 提供される実際のサービスは、組織またはサービス プロバイダーによる選択内容によって異なります。
 | Azure Resource Manager のエンドポイント* | https://management.azure.com | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、 https://management.local.azurestack.external を使用します。
 | ポータル URL* | [https://portal.azure.com](https://portal.azure.com) | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供された URL を使用します。<br><br>開発キットの場合は、 https://portal.local.azurestack.external を使用します。
-| リージョン | デプロイ先のリージョンを選択することができます。 | Azure Stack 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>開発キットの場合、リージョンは常に**ローカル**になります。
+| Region | デプロイ先のリージョンを選択することができます。 | Azure Stack 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>開発キットの場合、リージョンは常に**ローカル**になります。
 | リソース グループ | リソース グループは複数のリージョンにまたがることができます。 | 統合システムと開発キットのいずれも、リージョンは 1 つのみです。
 |サポートされている名前空間、リソースの種類、および API のバージョン | 最新 (またはまだ非推奨ではない以前のバージョン)。 | Azure Stack では特定のバージョンがサポートされます。 この記事の「[バージョンの要件](#version-requirements)」セクションを参照してください。
 | | |
@@ -77,7 +77,7 @@ Azure Stack では、特定のバージョンの Azure PowerShell と Azure サ�
 正しいバージョンの Azure PowerShell を使用していることを確認するには、[API バージョン プロファイル](azure-stack-version-profiles.md)を使用します。 使用可能な最新の API バージョン プロファイルを確認するには、使用している Azure Stack のビルドを調べます。 この情報は、Azure Stack 管理者から取得できます。
 
 > [!NOTE]
-> Azure Stack Development Kit を使用されていて、管理アクセス権がある場合は、「[現在のバージョンの判断](../operator/azure-stack-updates.md#determine-the-current-version)」セクションを参照して、Azure Stack のビルドを確認してください。
+> Azure Stack Development Kit を使用されていて、管理アクセス権がある場合は、「[現在のバージョンの判断](../operator/azure-stack-updates.md)」セクションを参照して、Azure Stack のビルドを確認してください。
 
 その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack サブスクリプションでサポートされている API のバージョンを出力します (プロパティ レベルでも違いがある場合があります)。 このコマンドを機能させるには、Azure Stack 環境用に PowerShell が既に[インストール](../operator/azure-stack-powershell-install.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack オファーのサブスクリプションも必要です。
 

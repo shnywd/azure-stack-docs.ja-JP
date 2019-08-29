@@ -16,12 +16,12 @@ ms.date: 08/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 2f840fdd06caf92dcadb8e49d26d7570d9d6aa71
-ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
+ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69548293"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008749"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新プログラム
 
@@ -143,7 +143,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 Azure Stack の 1907 リリースは、次の修正プログラムが適用された 1906 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4513119)
+- [Azure Stack 修正プログラム 1.1906.12.54](https://support.microsoft.com/help/4518365)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>1907 更新プログラムの適用に成功した後
 
