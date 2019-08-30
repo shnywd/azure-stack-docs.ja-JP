@@ -184,7 +184,7 @@
                   href: azure-stack-metrics-supported.md
                 - name: Azure 監視データの使用
                   href: azure-stack-metrics-monitor.md
-        - name: ソリューション テンプレートの使用
+        - name: アドオン サービスのデプロイ
           items:
             - name: Ethereum のデプロイ
               href: azure-stack-ethereum.md
