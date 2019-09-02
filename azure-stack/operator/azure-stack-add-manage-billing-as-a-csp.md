@@ -1,6 +1,6 @@
 ---
 title: クラウド サービス プロバイダーとして Azure Stack の使用状況と課金を管理する | Microsoft Docs
-description: クラウド プロバイダー (CSP) として Azure Stack を登録し、課金のために顧客を追加するためのチュートリアル。
+description: クラウド プロバイダー (CSP) として Azure Stack を登録し、課金のために顧客を追加する方法を説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 05/20/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 5f11e9dd4f029228e73e5933cd8362c0b4710178
-ms.sourcegitcommit: d2012e765c3fa5bccb4756d190349e890f9f48bd
+ms.openlocfilehash: a8ae60e9ee19f96196d1c3763a32be0842567c7a
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65941167"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118684"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>クラウド サービス プロバイダーとして Azure Stack の使用状況と課金を管理する
 
@@ -36,7 +36,7 @@ CSP は、Azure Stack を使用して多様な顧客を操作します。 各顧
 
 ## <a name="create-a-csp-or-apss-subscription"></a>CSP または APSS サブスクリプションを作成する
 
-### <a name="cloud-service-provider-subscription-types"></a>クラウド サービス プロバイダーのサブスクリプションの種類
+### <a name="csp-subscription-types"></a>CSP サブスクリプションの種類
 
 Azure Stack で使用する共有サービス アカウントの種類を選択します。 マルチテナント Azure Stack の登録に使用できるサブスクリプションの種類は次のとおりです。
 
@@ -53,7 +53,7 @@ APSS サブスクリプションとその作成方法については、「[Add A
 
 #### <a name="csp-subscriptions"></a>CSP サブスクリプション
 
-クラウド サービス プロバイダー サブスクリプションは、CSP リセラーまたはエンド カスタマーが Azure Stack を運用するときに推奨される登録の選択肢です。
+CSP サブスクリプションは、CSP リセラーまたはエンド カスタマーが Azure Stack を運用するときに登録のために推奨される選択肢です。
 
 ## <a name="register-azure-stack"></a>Azure Stack の登録
 

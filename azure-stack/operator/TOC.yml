@@ -11,7 +11,13 @@
     - name: リリース ノート
       items:
         - name: セキュリティ更新プログラム
-          href: azure-stack-release-notes-security-updates-1907.md
+          href: azure-stack-release-notes-security-updates.md
+        - name: 1908 更新プログラム
+          items:
+            - name: リリース ノート
+              href: azure-stack-release-notes-1908.md
+            - name: 既知の問題
+              href: azure-stack-release-notes-known-issues-1908.md
         - name: 1907 更新プログラム
           items:
             - name: リリース ノート
@@ -30,12 +36,6 @@
               href: azure-stack-release-notes-1905.md
             - name: 既知の問題
               href: azure-stack-release-notes-known-issues-1905.md
-        - name: 1904 更新プログラム
-          items:
-            - name: リリース ノート
-              href: azure-stack-release-notes-1904.md
-            - name: 既知の問題
-              href: azure-stack-release-notes-known-issues-1904.md
 - name: クイック スタート
   expanded: true
   items:

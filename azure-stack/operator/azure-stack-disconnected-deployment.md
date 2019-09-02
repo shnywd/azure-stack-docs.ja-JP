@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: a3986bcdff911fb70957dcb7529a07f77b586c0a
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 11bf3bd4cc670d45fc4a4c9d1421fc0c25440726
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131504"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118678"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムの Azure から切断されたデプロイ計画の決定
 [Azure Stack をハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定したら、Azure Stack デプロイの決定を完成させることができます。
@@ -52,7 +52,7 @@ Azure Stack は Azure に接続されているときに最適に機能するよ�
 |アプリケーション サービス|損なわれる - WebApps では、コンテンツの更新のためにインターネットへのアクセスが必要です。|
 |コマンド ライン インターフェイス (CLI)|損なわれる - CLI は、サービス プリンシパルの認証およびプロビジョニングの点で機能が削減されます。|
 |Visual Studio - クラウド検出|損なわれる - Cloud Discovery は別のクラウドを検出するか、まったく機能しないかのどちらかです。|
-|Visual Studio - AD FS|損なわれる - AD FS をサポートするのは Visual Studio Enterprise だけです。
+|Visual Studio - AD FS|損なわれる - AD FS 認証をサポートするのは、Visual Studio Enterprise と Visual Studio Code のみです。
 テレメトリ|使用できない - Azure Stack のテレメトリ データや、テレメトリ データに依存するすべてのサード パーティ製ギャラリー パッケージ。|
 |証明書|使用できない - HTTPS のコンテキストでの証明書失効リスト (CRL) およびオンライン証明書ステータス プロトコル (OSCP) サービスにはインターネット接続が必要です。|
 |Key Vault|損なわれる - Key Vault の一般的なユースケースでは、アプリケーションに実行時にシークレットを読み取らせます。 このため、アプリケーションではディレクトリ内にサービス プリンシパルが必要です。 Azure Active Directory では、通常のユーザー (非管理者) は、既定ではサービス プリンシパルの追加を許可されます。 AD (ADFS を使用) では許可されません。 これにより、どのアプリケーションを追加するにもディレクトリ管理者を経由する必要があるため、エンド ツー エンドのエクスペリエンスに問題が発生します。| 

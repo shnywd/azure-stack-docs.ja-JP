@@ -15,12 +15,12 @@ ms.date: 08/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1342eb503abb81308740c0103b1d54887a46cf85
-ms.sourcegitcommit: f62d58ae724020a24fa5905b6663abb5f1d62178
+ms.openlocfilehash: 73671431c70960fa517ee83c68945f14e2621b46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69520926"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060187"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する
 
@@ -42,9 +42,9 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 
 このセクションには、OEM の連絡先情報と OEM Azure Stack の参考資料へのリンクが記載されています。
 
-| ハードウェア パートナー | リージョン | URL |
+| ハードウェア パートナー | Region | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb) (運用ガイド)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
+| Cisco | All | [Cisco Azure Stack Support/Firmware Updates - Automatic Notification (アカウント/ログインが必要)](https://software.cisco.com/download/redirect?i=!y&mdfid=283862063&softwareid=286320368&release=1.0(0)&os=)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
 | Dell EMC | All | [Cloud for Microsoft Azure Stack 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [富士通マネージド サービス サポート デスク (アカウントとログインが必要)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | ヨーロッパ、中東およびアフリカ | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
@@ -60,12 +60,12 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 1. 次の場合に、OEM に問い合わせる必要があります。
       - OEM パッケージの現在のバージョンを確認する。  
       - OEM パッケージをダウンロードするための最適な方法を見つける。  
-2. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md#download-update-packages-for-integrated-systems)」に記載されている手順で、OEM パッケージを準備します。
+2. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md)」に記載されている手順で、OEM パッケージを準備します。
 3. 「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」に記載されている手順で更新プログラムを適用します。
 
 ## <a name="configure-hardware-vendor-vm"></a>ハードウェアベンダー VM を構成する
 
-ハードウェア ベンダーによっては、OEM 更新プロセスを支援するために VM が必要になる場合があります。 **Set-OEMExternalVM** コマンドレットを実行する際に、 **-VMType** に、`ProxyVM` または `HardwareManager` が必要な場合、ハードウェア ベンダーは、これらの VM を作成し、文書化する責任があります。 VM が作成されたら、特権エンドポイントからの **Set-OEMExternalVM** を使用してそれらを構成します。
+ハードウェア ベンダーによっては、OEM 更新プロセスを支援するために VM が必要になる場合があります。 ハードウェア ベンダーは、これらの VM を作成し、**Set-OEMExternalVM** コマンドレットを実行する際に、 **-VMType** に、`ProxyVM` または `HardwareManager` が必要な場合、および **-Credential** に使用すべき資格情報について、文書化する責任があります。 VM が作成されたら、特権エンドポイントからの **Set-OEMExternalVM** を使用してそれらを構成します。
 
 Azure Stack 上の特権エンドポイントの詳細については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
 
@@ -77,14 +77,14 @@ Azure Stack 上の特権エンドポイントの詳細については、「[Azur
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. **Set-OEMExternalVM** コマンドレットを使用して、ハードウェア ベンダー VM を構成します。 このコマンドレットは、 **-VMType** `ProxyVM` の IP アドレスと資格情報を検証します。 **-VMType** `HardwareManager` の場合、コマンドレットによって入力が検証されません。
+2. **Set-OEMExternalVM** コマンドレットを使用して、ハードウェア ベンダー VM を構成します。 このコマンドレットは、 **-VMType** `ProxyVM` の IP アドレスと資格情報を検証します。 **-VMType** `HardwareManager` の場合、コマンドレットによって入力が検証されません。 **Set-OEMExternalVM** に指定される **-Credential** パラメーターは、ハードウェアベンダーのドキュメントで明確に文書化されるものです。  これは、特権エンドポイントやその他の既存の Azure Stack 資格情報で使用される CloudAdmin 資格情報ではありません。
 
     ```powershell  
-    
+    $VmCred = Get-Credential
     Invoke-Command -Session $session
         { 
     Set-OEMExternalVM -VMType <Either "ProxyVM" or "HardwareManager">
-        -IPAddress <IP Address of hardware vendor VM>
+        -IPAddress <IP Address of hardware vendor VM> -Credential $using:VmCred
         }
     ```
 

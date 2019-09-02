@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Development Kit (ASDK) ホスト コンピューターの準備 | Microsoft Docs
+title: ASDK ホスト コンピューターの準備 |Microsoft Docs
 description: ASDK のインストール用に Azure Stack Development Kit (ASDK) ホスト コンピューターを準備する方法について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -16,21 +16,22 @@ ms.date: 08/20/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 291042e0a7af78ed2431c901901e7e44b1f05de1
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887144"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025955"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK ホスト コンピューターの準備
-ASDK をホスト コンピューターにインストールするには、ASDK ホストがインストール用に準備されている必要があります。 開発キットのホスト コンピューターが準備されると、CloudBuilder.vhdx 仮想マシンのハード ドライブから起動して ASDK のデプロイが開始します。
+Azure Stack Development Kit (ASDK) をホスト コンピューターにインストールするには、ASDK ホストがインストール用に準備されている必要があります。 ホストが準備されると、CloudBuilder.vhdx 仮想マシン (VM) のハード ドライブから起動して ASDK のデプロイが開始されます。
 
-## <a name="prepare-the-development-kit-host-computer"></a>開発キットのホスト コンピューターの準備
-ASDK をホスト コンピューターにインストールする前に、ASDK ホスト コンピューター環境を準備する必要があります。
-1. 開発キットのホスト コンピューターにローカル管理者としてサインインします。
-2. CloudBuilder.vhdx ファイルが C:\ ドライブのルート (C:\CloudBuilder.vhdx) に移動してあることを確認します。
-3. 次のスクリプトを実行して、開発キットのインストーラー ファイル (asdk-installer.ps1) を [Azure Stack の GitHub ツール リポジトリ](https://github.com/Azure/AzureStack-Tools)から開発キットのホスト コンピューターの **C:\AzureStack_Installer** フォルダーにダウンロードします。
+## <a name="prepare-the-development-kit-host-computer"></a>開発キットのホスト コンピューターを準備する
+ASDK をホスト コンピューターにインストールする前に、ASDK ホスト コンピューター環境を準備する必要があります。 その環境を準備するには、次の手順に従います。
+
+1. ASDK ホスト コンピューターに、ローカル管理者としてサインインします。
+2. CloudBuilder.vhdx ファイルが C:\ ドライブのルート (`C:\CloudBuilder.vhdx`) に移動されていることを確認します。
+3. 次のスクリプトを実行して、ASDK インストーラー ファイル (asdk-installer.ps1) を [Azure Stack の GitHub ツール リポジトリ](https://github.com/Azure/AzureStack-Tools)から ASDK ホスト コンピューターの **C:\AzureStack_Installer** フォルダーにダウンロードします。
 
    > [!IMPORTANT]
    > ASDK をインストールするたびに、必ず asdk-installer.ps1 ファイルをダウンロードしてください。 このスクリプトは頻繁に変更されるため、各 ASDK デプロイに対して最新バージョンを使用する必要があります。 古いバージョンのスクリプトは最新リリースでは動作しない可能性があります。
@@ -49,38 +50,35 @@ ASDK をホスト コンピューターにインストールする前に、ASDK 
 
 4. 管理者特権で PowerShell コンソールから **C:\AzureStack_Installer\asdk-installer.ps1** スクリプトを開始し、 **[Prepare Environment]\(環境の準備\)** をクリックします。
 
-    ![環境の準備のスクリーンショット](media/asdk-prepare-host/1.PNG) 
+    ![ASDK で環境を準備する](media/asdk-prepare-host/1.PNG) 
 
-5. インストーラーの **[Select Cloudbuilder vhdx]\(Cloudbuilder vhdx の選択\)** ページで、[前の手順](asdk-download.md)でダウンロードおよび展開した **cloudbuilder.vhdx** ファイルを探して選択します。 このページでは、開発キットのホスト コンピューターに他のドライバーを追加する必要がある場合、オプションで **[ドライバーの追加]** チェック ボックスをオンにすることもできます。 **[次へ]** をクリックします。  
+5. インストーラーの **[Select Cloudbuilder vhdx]\(Cloudbuilder vhdx の選択\)** ページで、[前の手順](asdk-download.md)でダウンロードおよび展開した **cloudbuilder.vhdx** ファイルを探して選択します。 このページでは、ASDK キットのホスト コンピューターに他のドライバーを追加する必要がある場合に、 **[ドライバーの追加]** チェック ボックスをオンにすることもできます。 **[次へ]** をクリックします。  
 
-    ![Cloudbuilder.vhdx の選択のスクリーンショット](media/asdk-prepare-host/2.PNG)
+    ![cloudbuilder.vhdx を選択して、ドライバーを ASDK に追加する](media/asdk-prepare-host/2.PNG)
 
-6. **[オプション設定]** ページで、開発キットのホスト コンピューターのローカル管理者アカウント情報を指定し、 **[次へ]** をクリックします。<br><br>この手順でローカル管理者の資格情報を指定しない場合は、開発キットのセットアップの一環としてコンピューターを再起動した後、ホストに直接または KVM でアクセスする必要があります。
+6. **[オプション設定]** ページで、ASDK ホスト コンピューターのローカル管理者アカウント情報を指定し、 **[次へ]** をクリックします。
 
-   ![オプションの設定のスクリーンショット](media/asdk-prepare-host/3.PNG)
+    この手順でローカル管理者の資格情報を指定しない場合は、ASDK のセットアップの一環としてコンピューターを再起動した後、ホストに直接または KVM でアクセスする必要があります。
+
+   ![ASDK のオプション設定 - ローカルの管理者アカウント情報を指定する](media/asdk-prepare-host/3.PNG)
 
     次のオプションの設定の値を指定することもできます。
-    - **[コンピューター名]** : このオプションは、開発キット ホストの名前を設定します。 名前は FQDN の要件に準拠している必要があり、長さは 15 文字以下にする必要があります。 既定は、Windows によって生成されたランダムなコンピューター名です。
+    - **[コンピューター名]** : このオプションでは、ASDK ホストの名前を設定します。 名前は FQDN の要件に準拠している必要があり、長さは 15 文字以下にする必要があります。 既定は、Windows によって生成されたランダムなコンピューター名です。
     - **[Static IP configuration] (静的 IP 構成)** : 静的 IP アドレスを使用するようにデプロイを設定します。 それ以外の場合、インストーラーが cloudbuilder.vhdx から再起動されるときに、ネットワーク インターフェイスが DHCP と構成されます。 静的 IP 構成を使用することを選択した場合は、追加オプションが表示され、そこで次の操作も行う必要があります。
       - ネットワーク アダプターを選択します。 **[次へ]** をクリックする前に、アダプターに接続できることを確認します。
+      - 表示されている **[IP アドレス]** 、 **[ゲートウェイ]** 、および **[DNS]** 値が正しいことを確認し、 **[次へ]** をクリックします。
 
-        ![ネットワーク アダプターの設定のスクリーンショット](media/asdk-prepare-host/step-four-network-adapter.png)
-
-      - 表示されている **[IP アドレス]** 、 **[ゲートウェイ]** 、および **[DNS]** 値が正しいことを確認し、有効な**時刻サーバーの IP** アドレスを入力して、 **[次へ]** をクリックします。
-
-        >[!TIP]
-        >タイム サーバーの IP アドレスを検索するには、[ntppool.org](https://www.ntppool.org/) にアクセスするか、time.windows.com に ping を実行します。 
-
-        ![IP 構成設定のスクリーンショット](media/asdk-prepare-host/step-five-host-ip-config.png)
+   > [!TIP]
+   > タイム サーバーの IP アドレスを検索するには、[ntppool.org](https://www.ntppool.org/) にアクセスするか、time.windows.com に ping を実行します。
 
 7. **[次へ]** をクリックして、準備プロセスを開始します。
 8. 準備が **[完了]** と示されたら、 **[次へ]** をクリックします。
 
-    ![[完了] 画面のスクリーンショット](media/asdk-prepare-host/4.PNG)
+    ![ASDK での環境の準備](media/asdk-prepare-host/4.PNG)
 
-9. **[今すぐ再起動する]** をクリックして開発キットのホスト コンピューターを cloudbuilder.vhdx から起動し、[デプロイ処理を続行](asdk-install.md)します。
+9. **[今すぐ再起動する]** をクリックして ASDK ホスト コンピューターを cloudbuilder.vhdx から起動し、[デプロイ プロセスを続行](asdk-install.md)します。
 
-    ![[今すぐ再起動する] のスクリーンショット](media/asdk-prepare-host/5.PNG)
+    ![ASDK を再起動する](media/asdk-prepare-host/5.PNG)
 
 
 ## <a name="next-steps"></a>次の手順

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit (ASDK) の起動と終了 | Microsoft Docs
-description: Azure Stack Development Kit (ASDK) を起動、シャット ダウンする方法を学習します。
+title: ASDK を起動および停止する | Microsoft Docs
+description: Azure Stack Development Kit (ASDK) を起動および停止する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,15 +16,15 @@ ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: 6736da0f792c0e01d1a0af06e35a0984ec398158
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 5232b1087414d6e7149157063a253b18a6b6e13a
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493706"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025810"
 ---
-# <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK) の起動と終了
-ASDK ホスト コンピューターをただ再起動することはお勧めしません。 この記事の手順に従い、正しくシャット ダウンして ASDK サービスを再起動してください。 
+# <a name="start-and-stop-the-asdk"></a>ASDK を起動および停止する
+ASDK ホスト コンピューターを単純に再起動することはお勧めしません。 この記事の手順に従い、正しくシャット ダウンして ASDK サービスを再起動してください。
 
 ## <a name="stop-azure-stack"></a>Azure Stack の停止 
 次の PowerShell コマンドを使用し、Azure Stack サービス、および ASDK ホスト コンピューターを正しくシャット ダウンします。
@@ -44,7 +44,7 @@ ASDK ホスト コンピューターをただ再起動することはお勧め�
 5. PowerShell の出力を確認し、ASDK ホスト コンピューターがシャット ダウンする前にすべての Azure Stack サービスが正常にシャット ダウンされたことを確認します。 シャットダウンのプロセスには数分かかります。
 
 ## <a name="start-azure-stack"></a>Azure Stack の開始 
-ASDK サービスは、ホスト コンピューターが起動したときに自動的に開始する必要があります。 ただし、ASDK インフラストラクチャ サービスの起動時間は、ASDK ホスト コンピューターのハードウェア構成のパフォーマンスによって変わります。 すべてのサービスが正常に再起動するまでに、場合によっては数時間がかかることもあります。
+ASDK サービスは、ホスト コンピューターが起動したときに自動的に開始する必要があります。 しかし、ASDK インフラストラクチャ サービスの起動時間は、ASDK ホスト コンピューターのハードウェア構成のパフォーマンスによって変わります。 すべてのサービスが正常に再起動するまでに、場合によっては数時間がかかることもあります。
 
 ASDK のシャット ダウン方法に関係なく、次のステップを実行して、ホスト コンピューターの電源投入後に、すべての Azure Stack サービスが起動し完全に動作していることを確認する必要があります。 
 
@@ -63,7 +63,7 @@ ASDK のシャット ダウン方法に関係なく、次のステップを実�
    ```
 6. 出力を確認して Azure Stack サービスが正常に再起動したことを確認してください。
 
-Microsoft Azure Stack サービスの正しいシャットダウンと再起動について、推奨される手順の詳細を見るには、[Azure Stack の開始および停止](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)をご覧ください。 
+Microsoft Azure Stack サービスの正しいシャットダウンと再起動について、推奨される手順の詳細を見るには、[Azure Stack の開始および停止](../operator/azure-stack-start-and-stop.md)をご覧ください。
 
 ## <a name="troubleshoot-startup-and-shutdown"></a>スタートアップおよびシャットダウンのトラブルシューティング 
 ASDK ホスト コンピューターの電源投入後 2 時間以内に Azure Stack サービスが正常に起動しない場合は、次の手順を実行します。

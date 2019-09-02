@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Development Kit (ASDK) のデプロイ後の構成 | Microsoft Docs
+title: ASDK のデプロイ後の構成 | Microsoft Docs
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: cbf9872fa75013fdb3e933c102b813924d396a83
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 111e8e6cb72baac64229e4808003818efece54cd
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692093"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025878"
 ---
-# <a name="post-asdk-installation-configuration-tasks"></a>ASDK インストール後の構成タスク
+# <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 
-[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインイン中に、いくつかのインストール後の構成変更を行う必要があります。
+[Azure Stack Development Kit (ASDK) をインストール](asdk-install.md)した後、ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインイン中に、いくつかの推奨されるデプロイ後の構成変更を行う必要があります。
 
 ## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
 
@@ -37,14 +37,14 @@ Azure Stack 用の PowerShell コマンドは、PowerShell ギャラリーを介
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-API バージョン プロファイルを使用して、Azure Stack と互換性のある AzureRM モジュールを指定できます。  API バージョンのプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の AzureRM PowerShell モジュールです。 PowerShell ギャラリーから入手できる **AzureRM.BootStrapper** モジュールは、API バージョンのプロファイルを操作するために必要な PowerShell コマンドレットを提供します。
+API バージョン プロファイルを使用して、Azure Stack と互換性のある AzureRM モジュールを指定します。  API バージョンのプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の AzureRM PowerShell モジュールです。 PowerShell ギャラリーから入手できる **AzureRM.BootStrapper** モジュールは、API バージョンのプロファイルを操作するために必要な PowerShell コマンドレットを提供します。
 
 ASDK ホスト コンピューターへのインターネット接続の有無にかかわらず、最新の Azure Stack PowerShell モジュールをインストールすることができます。
 
 > [!IMPORTANT]
 > 必要なバージョンをインストールする前に、必ず[既存の Azure PowerShell モジュールをアンインストールしてください](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
-- ASDK ホスト コンピューターからの**インターネット接続がある場合**。 次の PowerShell スクリプトを実行して、これらのモジュールを開発キット インストールにインストールします。
+- ASDK ホスト コンピューターからの**インターネット接続がある場合**:次の PowerShell スクリプトを実行して、これらのモジュールを ASDK インストールにインストールします。
 
 
   ```powershell  
@@ -61,7 +61,7 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
   インストールに成功した場合、出力に AzureRM および AzureStack モジュールが表示されます。
 
-- ASDK ホスト コンピューターからの**インターネット接続がない場合**。 接続が切断されたシナリオでは、まず次の PowerShell コマンドを使って、インターネット接続が確立されたマシンに PowerShell モジュールをダウンロードします。
+- ASDK ホスト コンピューターからの**インターネット接続がない場合**:接続が切断されたシナリオでは、まず次の PowerShell コマンドを使って、インターネット接続が確立されたマシンに PowerShell モジュールをダウンロードします。
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -109,7 +109,7 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
 ## <a name="validate-the-asdk-installation"></a>ASDK インストールを検証する
 
-ASDK のデプロイが成功したことを確認するには、次の手順に従って Test-AzureStack コマンドレットを使用できます。
+ASDK のデプロイが成功したことを確認するには、次の手順に従って Test-AzureStack コマンドレットを使用します。
 
 1. ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインインします。
 2. PowerShell を (PowerShell ISE ではなく) 管理者として開きます。
@@ -118,7 +118,7 @@ ASDK のデプロイが成功したことを確認するには、次の手順に
 
 テストが完了するまでに数分かかります。 インストールが成功した場合、出力は次のようになります。
 
-![test-azurestack](media/asdk-post-deploy/test-azurestack.png)
+![Test Azure Stack - Installation successful (Azure Stack のテスト - インストールに成功しました)](media/asdk-post-deploy/test-azurestack.png)
 
 エラーがあった場合は、トラブルシューティング手順に従ってヘルプを取得します。
 

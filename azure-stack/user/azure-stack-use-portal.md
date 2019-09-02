@@ -1,5 +1,5 @@
 ---
-title: Azure Stack ポータルの使用 | Microsoft Docs
+title: Azure Stack ユーザー ポータルの使用 | Microsoft Docs
 description: Azure Stack でユーザー ポータルにアクセスして使用する方法を説明します。
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 629056556b04a7b5d19c2463b619f3da3a70f7e0
-ms.sourcegitcommit: 72d45bb935db0db172d4d7c37d8e48e79e25af64
+ms.openlocfilehash: 9f6282c9b08547c9449dc7f340f06a6280a98589
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68376900"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064169"
 ---
-# <a name="use-the-azure-stack-portal"></a>Azure Stack ポータルの使用
+# <a name="use-the-azure-stack-user-portal"></a>Azure Stack ユーザー ポータルの使用
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 

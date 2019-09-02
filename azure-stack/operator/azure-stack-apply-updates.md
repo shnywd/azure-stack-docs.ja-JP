@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で更新プログラムを適用する | Microsoft Docs
-description: Azure Stack 統合システム用の Microsoft 更新プログラム パッケージをインポートしてインストールする方法を説明します。
+title: Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する | Microsoft Docs
+description: Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,114 +11,79 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.reviewer: justini
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 04494c3f394fb5a3b836c8fcf67cd02fb2900910
-ms.sourcegitcommit: 4f3e161e7632c8a6e3d41946b09f22b5bdb08d36
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 792790c2ae5c14e31914b64fc6e5d7eba11aacc0
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413189"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025936"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure Stack で更新を適用する
 
 *適用対象: Azure Stack 統合システム*
 
-管理者ポータルの **[更新]** タイルを使用して、Azure Stack 用の Microsoft または OEM 更新プログラム パッケージを適用できます。
+更新プログラムを適用するには、Azure Stack の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、および現在の OEM パッケージバージョンの表示を行うことができます。
 
-統合システム バージョン 1807 以前を使用している場合は、更新プログラム パッケージをダウンロードし、パッケージ ファイルを Azure Stack にインポートした後、更新プログラム パッケージをインストールする必要があります。 手順については、「[パッケージをダウンロードして Azure Stack を更新する](#update-azure-stack-by-downloading-the-package)」をご覧ください
+管理者ポータルから更新プログラムを管理できます。 ダッシュボードの **[更新]** を使用して、次のことを行うことができます。
 
-このアップグレードの説明は、Azure Stack 統合システムに適用されます。 Azure Stack 開発システムを使用している場合は、現在のバージョンのインストール パッケージをダウンロードする必要があります。 方法については、「[Azure Stack Development Kit のインストール](../asdk/asdk-install.md)」をご覧ください
+-   現在のバージョンなどの重要な情報を表示します。
+-   更新プログラムをインストールし、進行状況を監視します。
+-   以前にインストールされた更新プログラムの更新履歴を確認します。
+-   クラウドの現在の OEM パッケージ バージョンを表示します。
 
-## <a name="update-azure-stack"></a>Azure Stack の更新
+## <a name="determine-the-current-version"></a>現在のバージョンの判断
 
-### <a name="select-and-apply-an-update-package"></a>更新プログラム パッケージを選択して適用する
+現在のバージョンの Azure Stack は **[更新]** ブレードで表示できます。 開くには:
 
-1. 管理ポータルを開きます。
+1.  Azure Stack 管理者ポータルを開きます。
 
-2. **[ダッシュボード]** を選択します。 **[更新プログラム]** タイルを選択します。
+2.  **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。
 
-    ![Azure Stack の更新プログラムが使用可能](media/azure-stack-apply-updates/azure-stack-updates-1901-dashboard.png)
+    ![既定のダッシュボードの [更新] タイル](./media/azure-stack-update-apply/image1.png)
 
-3. お使いの Azure Stack の現在のバージョンを記録しておきます。 次の完全バージョンに更新することができます。 たとえば、Azure Stack 1811 を実行している場合、次のリリース バージョンは 1901 です。
+    たとえば、このイメージではバージョンは 1.1903.0.35 です。
 
-    ![Azure Stack の更新プログラムを適用する](media/azure-stack-apply-updates/azure-stack-updates-1901-updateavailable.png)
+## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
-4. [更新プログラム] の一覧で、使用可能な次のバージョンを選択します。 バージョンの変更点を確認したい場合は、リリース ノート列の **[表示]** を選択して、バージョンのリリース ノート トピックを開くことができます。
+1.  Azure Stack 管理者ポータルを開きます。
 
-5. [今すぐ更新] を選択します。 更新が開始されます。
+2.  **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 
-### <a name="review-update-history"></a>更新履歴を確認する
+3.  適用する使用可能な更新プログラムを選択します。 **[使用可能]** とマークされた更新プログラムがない場合は、[更新プログラム パッケージを準備する](azure-stack-update-prepare-package.md)必要があります
 
-1. 管理ポータルを開きます。
+4.  **[今すぐ更新]** を選択します。
 
-2. **[ダッシュボード]** を選択します。 **[更新プログラム]** タイルを選択します。
+    ![Azure Stack 更新実行の詳細](./media/azure-stack-update-apply/image2.png)
 
-3. **[更新の履歴]** を選択します。
+5.  Azure Stack のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新に関するその他の詳細 (成功した手順数、進行中の数など) が報告されます。
 
-![Azure Stack の更新履歴](media/azure-stack-apply-updates/azure-stack-update-history.PNG)
+6.  更新実行の詳細ブレードから **[ダウンロードの概要]** を選択して、詳細ログをダウンロードします。
 
-## <a name="update-azure-stack-by-downloading-the-package"></a>パッケージをダウンロードして Azure Stack を更新する
+    更新の監視中に問題が発生した場合、[特権エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)を使用して、Azure Stack 更新プログラムの実行の進行状況を監視し、Azure Stack ポータルが使用できなくなった場合に、失敗した更新プログラムの実行を、成功した最後の手順から再開することができます。 手順については、「[Monitor updates in Azure Stack using PowerShell](azure-stack-update-monitor.md)」 (PowerShell を使用して Azure Stack の更新を監視する) を参照してください。
 
-統合システム バージョン 1807 以前を使用している場合は、更新プログラム パッケージをダウンロードし、パッケージ ファイルを Azure Stack にインポートした後、更新プログラム パッケージをインストールする必要があります。
+    ![Azure Stack 更新実行の詳細](./media/azure-stack-update-apply/image3.png)
 
-## <a name="download-the-update-package"></a>更新プログラム パッケージをダウンロードする
+7.  完了したら、更新リソース プロバイダーにより、**成功**の確認が提供され、更新プロセスが完了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
 
-Azure Stack 用の Microsoft または OEM 更新プログラム パッケージを利用できるときに、Azure Stack からアクセスできる場所にパッケージをダウンロードし、パッケージの内容を確認します。 通常、更新プログラム パッケージは、次のファイルで構成されます。
+    ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
-- 自己解凍形式`<PackageName>.zip`ファイル。 このファイルには、更新用のペイロード (Windows Server の最新の累積更新プログラムなど) が含まれます。
+    更新が失敗した場合、 **[更新]** ブレードで **[要注意]** と報告されます。 **[詳細ログのダウンロード]** オプションを使用して、更新失敗時の大まかな状態を取得します。 Azure Stack のログ収集は、診断とトラブルシューティングで役立ちます。
 
-- 対応する`<PackageName>.bin`ファイル。 これらのファイルは、*PackageName*.zip ファイルに関連付けられているペイロードの圧縮を提供します。
+## <a name="review-update-history"></a>更新履歴を確認する
 
-- `Metadata.xml`ファイル。 このファイルには、更新プログラムに関する重要な情報 (発行元、名前、前提条件、サイズ、サポート パス URL など) が含まれます。
+1.  管理者ポータルを開きます。
 
-> [!IMPORTANT]  
-> Azure Stack 1901 更新プログラム パッケージの適用後、Azure Stack の更新プログラム パッケージのパッケージ形式は、.zip、.bin、.xml の形式から .zip および .xml の形式に変わります。 スタンプが接続された Azure Stack オペレーターは影響を受けません。 切断されている Azure Stack オペレーターは、以下の説明にあるプロセスと同じプロセスを使用して、.xml ファイルと .zip ファイルをインポートできます。
+2.  **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 
-## <a name="import-and-install-updates"></a>更新プログラムをインポートしてインストールする
+3.  **[更新の履歴]** を選択します。
 
-次の手順は、管理者ポータルで更新プログラム パッケージをインポートしてインストールする方法を示しています。
-
-> [!IMPORTANT]  
-> メンテナンス操作についてユーザーに通知することと、通常のメンテナンス期間はできるだけ勤務時間外にスケジュールすることを強くお勧めします。 メンテナンス操作は、ユーザーのワークロードとポータル操作の両方に影響を及ぼす可能性があります。
-
-1. 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[DATA + STORAGE]\(データ + ストレージ\)** カテゴリで、 **[ストレージ アカウント]** を選択します (または、フィルター ボックスで「**ストレージ アカウント**」の入力を開始して選択します)。
-
-    ![ポータルでストレージ アカウントを探す場所を示している画面](media/azure-stack-apply-updates/ApplyUpdates1.png)
-
-2. フィルター ボックスに「**更新**」と入力し、**updateadminaccount** ストレージ アカウントを選択します。
-
-3. ストレージ アカウントの詳細で、 **[サービス]** の **[BLOB]** を選択します。
- 
-    ![ストレージ アカウントの BLOB を選択する方法を示している画面](media/azure-stack-apply-updates/ApplyUpdates3.png) 
-
-4. **[Blob service]** で、 **[+ コンテナー]** を選択してコンテナーを作成します。 名前 (例: *update-1811*) を入力し、 **[OK]** を選択します。
- 
-     ![ストレージ アカウントにコンテナーを追加する方法を示している画面](media/azure-stack-apply-updates/ApplyUpdates4.png)
-
-5. コンテナーが作成されたら、コンテナー名をクリックした後、 **[アップロード]** をクリックしてパッケージ ファイルをコンテナーにアップロードします。
- 
-    ![パッケージ ファイルをアップロードする方法を示している画面](media/azure-stack-apply-updates/ApplyUpdates5.png)
-
-6. **[BLOB のアップロード]** で、フォルダー アイコンをクリックし、更新プログラム パッケージの .zip ファイルを参照し、エクスプローラー ウィンドウで **[開く]** をクリックします。
-  
-7. **[BLOB のアップロード]** で、 **[アップロード]** をクリックします。
-  
-    ![各パッケージ ファイルをアップロードする場所を示している画面](media/azure-stack-apply-updates/ApplyUpdates6.png)
-
-8. *PackageName*.bin ファイルと Metadata.xml ファイルに対して、手順 6 と 7 を繰り返します。 Supplemental Notice.txt ファイルが含まれている場合、そのファイルはインポートしないでください。 1901 以降、ファイルは .bin と .zip ではなく .zip になることに注意してください.xml は、これからも通常どおりインポートします。
-
-9. 終了したら、通知を確認できます (ポータルの右上隅にあるベル アイコン)。 アップロードの完了が通知に示されている必要があります。
-10. ダッシュボードの [更新] タイルに戻ります。 更新プログラムが使用可能であることがタイルに示されている必要があります。 新しく追加された更新プログラム パッケージを確認するには、タイルをクリックします。
-11. 更新プログラムをインストールするには、 **[準備完了]** とマークされているパッケージを選択し、パッケージを右クリックして **[今すぐ更新]** を選択するか、上部にある **[今すぐ更新]** アクションをクリックします。
-12. 更新プログラム パッケージのインストールをクリックしたら、 **[Update run details]\(更新実行の詳細\)** 領域でその状態を確認できます。 ここから **[Download summary]\(サマリーのダウンロード\)** をクリックして、ログ ファイルをダウンロードすることもできます。 更新実行のログは、試行が終了してから 6 か月間は利用できます。 
-13. 更新プログラムが完了すると、更新された Azure Stack のバージョンが [更新] タイルに表示されます。
-
-更新プログラムが Azure Stack にインストールされた後、手動でストレージ アカウントから更新プログラムを削除することができます。 Azure Stack は古い更新プログラム パッケージを定期的にチェックし、ストレージから削除します。 Azure Stack で古いパッケージが削除されるまでに 2 週間ほどかかる場合があります。
+    ![Azure Stack の更新履歴](./media/azure-stack-update-apply/image7.png)
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)
-- [Azure Stack サービス ポリシー](azure-stack-servicing-policy.md)
+-   [Azure Stack での更新プログラムの管理概要](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Azure Stack サービス ポリシー](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

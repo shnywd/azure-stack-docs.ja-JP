@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2019
+ms.date: 08/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 177d18261d8a85807826226b0dcabdfd03e87135
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 21364595b30c62f47c293e38bdcb9c5663c56e90
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806898"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008334"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
 
@@ -53,11 +53,29 @@ Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポート
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>実際にはライセンスを持っていないにもかかわらず、ユーザーが間違って以前の Windows ビルドの [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにしてしまった場合はどうすればよいですか?
 
-[Windows Server BYOL VM を従量課金制に変換する](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#powershell-1)方法に関する記事を参照してください。
+次のスクリプトを実行して、ライセンス モデル属性を変更して、ライセンス持ち込み (BYOL) から従量課金制 (PAYG) モデルに切り替えることができます。
+
+```powershell
+vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
+
+VM のライセンスの種類を確認するには、次のコマンドを実行します。 ライセンス モデルに、**Windows_Server** と示されている場合、Windows ライセンスに対して、PAYG モデルに従って課金されます。
+
+```powershell
+$vm | ft Name, VmId,LicenseType,ProvisioningState
+```
 
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>私が以前のイメージを所有しているにもかかわらず、私のユーザーが [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにするのを忘れてしまった場合は、どうすればよいですか。または、私たちが独自のイメージを使用していて、なおかつマイクロソフト エンタープライズ契約の権利がある場合はどうすればよいですか?
 
-[既存の Windows Server VM を BYOL に変換する](/azure/virtual-machines/windows/hybrid-use-benefit-licensing#convert-an-existing-vm-using-azure-hybrid-benefit-for-windows-server)方法に関する記事を参照してください。 Azure ハイブリッド特典は Azure Stack には適用されませんが、この設定の効果は適用されることに注意してください。
+次のコマンドを実行して、ライセンス モデル属性をライセンス持ち込みモデルに変更できます。
+
+```powershell
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Windows Server を使用する他の VM (SQL Server、Machine Learning Server など) についてはどうでしょうか?
 

@@ -1,6 +1,6 @@
 ---
-title: ASDK を使用した Azure Stack のバックアップの検証 |Microsoft Docs
-description: ASDK を使用して、Azure Stack 統合システムのバックアップを検証する方法。
+title: ASDK を使用して Azure Stack のバックアップを検証する | Microsoft Docs
+description: ASDK を使用して、Azure Stack 統合システムのバックアップを検証する方法について説明します。
 services: azure-stack
 author: justinha
 manager: femila
@@ -11,18 +11,18 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 3ab7dfbaef82868f45b181fb81d9b98050147191
-ms.sourcegitcommit: bf4d265a3522cbfdd9dd295a0f4ad0daf2ed5eca
+ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
+ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68692114"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70118750"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
-Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行は、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
+Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行により、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
 
 > [!TIP]
-> 使用可能な最新のインフラストラクチャ データのコピーを確実に保持するには、この手順を開始する前に、[、オンデマンド バックアップを実行](../operator/azure-stack-backup-back-up-azure-stack.md)することをお勧めします。 バックアップが正常に完了した後、必ずバックアップの ID をキャプチャしてください。 この ID は、クラウドの復旧中に必要になります。 
+> 使用可能な最新のインフラストラクチャ データのコピーを確実に保持するには、この手順を開始する前に、[、オンデマンド バックアップを実行](../operator/azure-stack-backup-back-up-azure-stack.md)することをお勧めします。 バックアップが正常に完了した後、必ずバックアップの ID をキャプチャしてください。 この ID は、クラウドの復旧時に必要になります。
 
 Azure Stack インフラストラクチャ バックアップには、Azure Stack の再デプロイ中に復元できる、クラウドに関する重要なデータが含まれます。 ASDK を使用して、運用しているクラウドに影響を与えずにこれらのバックアップを検証します。 
 
@@ -46,7 +46,7 @@ ASDK によるバックアップの検証は、次のシナリオでサポート
 ASDK のクラウドの復旧デプロイを実行することによって、統合システムのデプロイからインフラストラクチャのバックアップを検証できます。 この種類のデプロイでは、ホスト コンピューターで ASDK をインストールした後、特定のサービス データがバックアップから復元します。
 
 ### <a name="prereqs"></a>クラウドの復旧の前提条件
-ASDK のクラウドの復旧デプロイを開始する前に、次の情報があることを確認します:
+ASDK のクラウドの復旧デプロイを開始する前に、次の情報があることを確認します。
 
 **UI インストーラーの要件**
 
@@ -58,7 +58,7 @@ ASDK のクラウドの復旧デプロイを開始する前に、次の情報が
 |復元するバックアップの ID|クラウドの復旧中に復元するバックアップを識別する、「xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx」という英数字形式のバックアップ ID。|
 |時刻サーバーの IP|132.163.97.2 など、有効な時刻サーバーの IP は、Azure Stack のデプロイに必要です。|
 |外部の 証明書のパスワード|Azure Stack で使用される外部の証明書のパスワード。 CA のバックアップには、このパスワードを使用して復元する必要がある外部の証明書が含まれています。|
-|バックアップ暗号化キー|バックアップ設定が暗号化キーで構成されている場合は必要です (これは非推奨です)。 インストーラーでは、少なくとも 3 リリースに対する下位互換性モードで暗号化キーがサポートされます。 証明書を使用するようにバックアップの設定を更新した後、次の表で必要な情報を参照してください。|
+|バックアップ暗号化キー|バックアップ設定が暗号化キーで構成されている場合は必要です (これは非推奨です)。 インストーラーでは、少なくとも 3 リリースに対する下位互換性モードで暗号化キーがサポートされます。 証明書を使用するようにバックアップの設定を更新したら、次の表で必要な情報を参照してください。|
 
 |     |     | 
 
@@ -77,7 +77,7 @@ ASDK のクラウドの復旧デプロイを開始する前に、次の情報が
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>ホスト コンピューターを準備する 
-通常 ASDK のデプロイのように、インストール用にASDK ホスト システムの環境を準備する必要があります。 開発キットのホスト コンピューターが準備されると、CloudBuilder.vhdx 仮想マシンのハード ドライブから起動して ASDK のデプロイが開始します。
+通常 ASDK のデプロイのように、インストール用にASDK ホスト システムの環境を準備する必要があります。 ASDK ホスト コンピューターが準備されると、CloudBuilder.vhdx VM のハード ドライブから起動して ASDK のデプロイが開始します。
 
 ASDK ホスト コンピューターで、バックアップされた Azure Stack の同じバージョンに対応する新しい cloudbuilder.vhdx をダウンロードして、指示に従って[ASDK ホスト コンピューターの準備](asdk-prepare-host.md)をします。
 
@@ -104,39 +104,39 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 このセクションの手順は、**asdk-installer.ps1** PowerShell スクリプトをダウンロードして実行することによって提供されるグラフィカル ユーザー インターフェイス (GUI) を使って ASDK をデプロイする方法を示しています。
 
 > [!NOTE]
-> Azure Stack Development Kit のインストーラー ユーザー インターフェイスは、WCF および PowerShell に基づくオープン ソースのスクリプトです。
+> ASDK のインストーラー ユーザー インターフェイスは、WCF および PowerShell に基づくオープン ソースのスクリプトです。
 
 > [!IMPORTANT]
 > 現在のインストーラー UI では、暗号化キーのみがサポートされています。
 
-1. ホスト コンピューターが CloudBuilder.vhdx イメージで正常に起動した後、ASDK インストールの[開発キットのホスト コンピューターを準備](asdk-prepare-host.md)するときに指定した管理者資格情報を使ってサインインします。 これは、開発キット ホストのローカル管理者の資格情報と同じである必要があります。
+1. ホスト コンピューターが CloudBuilder.vhdx イメージで正常に起動した後、ASDK インストール用に [ASDK ホスト コンピューターを準備](asdk-prepare-host.md)したときに指定した管理者資格情報を使ってサインインします。 これらは、ASDK ホストのローカル管理者の資格情報と同じである必要があります。
 2. 管理者特権の PowerShell コンソールを開き、 **&lt;ドライブ文字>\AzureStack_Installer\asdk-installer.ps1** PowerShell スクリプトを実行します。 このスクリプトは現在、CloudBuilder.vhdx イメージの C:\ とは別のドライブに存在する可能性があります。 **[回復]** をクリックします。
 
     ![ASDK インストーラー スクリプト](media/asdk-validate-backup/1.PNG) 
 
 3. ID プロバイダーと資格情報のページで、Azure AD のディレクトリ情報 (省略可能) と、ASDK ホスト コンピューターのローカル管理者パスワードを入力します。 **[次へ]** をクリックします。
 
-    ![ID と資格情報のページ](media/asdk-validate-backup/2.PNG) 
+    ![ASDK ID および資格情報ページ](media/asdk-validate-backup/2.PNG) 
 
 4. ASDK ホスト コンピューターによって使用されるネットワーク アダプターを選択し、 **[次へ]** をクリックします。 ASDK のインストール中、他のすべてのネットワーク インターフェイスは無効化されます。 
 
-    ![ネットワーク アダプター インターフェイス](media/asdk-validate-backup/3.PNG) 
+    ![ASDK ネットワーク アダプター インターフェイス](media/asdk-validate-backup/3.PNG) 
 
 5. [ネットワーク構成] ページで、タイム サーバーと DNS フォワーダーの有効な IP アドレスを指定します。 **[次へ]** をクリックします。
 
-    ![ネットワーク構成ページ](media/asdk-validate-backup/4.PNG) 
+    ![ASDK ネットワーク構成ページ](media/asdk-validate-backup/4.PNG) 
 
 6. ネットワーク インターフェイス カードのプロパティが検証されたら、 **[次へ]** をクリックします。 
 
-    ![ネットワーク カード設定の検証](media/asdk-validate-backup/5.PNG) 
+    ![ASDK ネットワーク カード設定の検証](media/asdk-validate-backup/5.PNG) 
 
 7. [バックアップ設定] ページで、前述の[前提条件セクション](#prereqs)で説明した必須情報を指定し、共有へのアクセスに使用するユーザー名とパスワードを指定します。 **[次へ]** をクリックします。 
 
-   ![バックアップ設定ページ](media/asdk-validate-backup/6.PNG) 
+   ![ASDK バックアップ設定ページ](media/asdk-validate-backup/6.PNG) 
 
 8. [概要] ページで、ASDK のデプロイに使用するデプロイ スクリプトを確認します。 **[デプロイ]** をクリックしてデプロイを開始します。 
 
-    ![概要ページ](media/asdk-validate-backup/7.PNG) 
+    ![ASDK 概要ページ](media/asdk-validate-backup/7.PNG) 
 
 
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>PowerShell を使用して ASDK を回復モードでデプロイする
@@ -184,7 +184,7 @@ Azure Stack オペレーターとしてログインした後、[Azure Stack Powe
 
 **証明書ファイルによる回復モード**
 
-> [!NOTE] 
+> [!NOTE]
 > セキュリティ上の理由から、Azure Stack のデプロイでは解読証明書は保存されません。 解読証明書とそれに関連するパスワードを、もう一度指定する必要があります。
 
 ```powershell

@@ -1,6 +1,6 @@
 ---
 title: ASDK の Azure への登録 | Microsoft Docs
-description: Azure Stack を Azure に登録してマーケットプレース シンジケーションと使用状況レポートを有効にする方法について説明します。
+description: Azure Stack Development Kit (ASDK) を Azure に登録して、マーケットプレース シンジケーションと使用状況レポートを有効にする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,47 +15,47 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: cf25678ad84ac79dd29ddd1684b1ca2f958180ff
-ms.sourcegitcommit: 5a720b17bd6a5aab44929c0247db8d512e0669ef
+ms.openlocfilehash: 886271e99b10d3fec0801f977a693a01e59fc0a5
+ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67197195"
+ms.lasthandoff: 08/26/2019
+ms.locfileid: "70025858"
 ---
-# <a name="azure-stack-registration"></a>Azure Stack の登録
+# <a name="register-the-asdk-with-azure"></a>ASDK の Azure への登録
 
 Azure Stack Development Kit (ASDK) インストールを Azure に登録して Azure からマーケットプレース項目をダウンロードしたり、Microsoft に返送するコマース データを設定したりできます。 マーケットプレース シンジケーションを含む、Azure Stack のすべての機能をサポートするには、登録が必要です。 マーケットプレース シンジケーションや使用状況レポートなどの Azure Stack の重要な機能をテストできるようにするには、登録が必要です。 Azure Stack を登録すると、使用状況が Azure コマースにレポートされます。 使用状況は、登録に使用したサブスクリプションの下に表示されます。 ただし、ASDK のユーザーは、レポートする使用状況に対して課金されることはありません。
 
-自分の ASDK を登録しない場合、Azure Stack Development Kit を登録するように勧める警告アラート "**アクティブ化が必要**" が表示されます。 これは正しい動作です。
+自分の ASDK を登録しない場合、ASDK を登録するように勧める警告アラート "**アクティブ化が必要**" が表示されます。 これは正しい動作です。
 
 ## <a name="prerequisites"></a>前提条件
 
 次の手順を使って Azure に ASDK を登録する前に、[デプロイ後の構成](asdk-post-deploy.md)の記事の説明に従って Azure Stack PowerShell をインストールし、Azure Stack ツールをダウンロードしたことを確認します。
 
-さらに、Azure に ASDK を登録するために使用されるコンピューター上で、PowerShell 言語モードを **FullLanguage** に設定する必要があります。 現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開き、次の PowerShell コマンドを実行します。
+Azure に ASDK を登録するために使用されるコンピューター上で、PowerShell 言語モードを **FullLanguage** に設定する必要もあります。 現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開き、次の PowerShell コマンドを実行します。
 
 ```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
-出力で **FullLanguage** が確実に返されるようにします。 その他の言語モードが返されている場合は、別のコンピューター上で再登録を実行するか、言語モードを **FullLanguage** に設定してから作業を続行する必要があります。
+出力で **FullLanguage** が確実に返されるようにします。 その他の言語モードが返される場合は、別のコンピューターで再登録を実行するか、言語モードを **FullLanguage** に設定してから続行する必要があります。
 
-登録に使用される Azure AD アカウントは Azure サブスクリプションにアクセスできる必要があり、そのサブスクリプションに関連付けられているディレクトリで ID アプリケーションとサービス プリンシパルを作成するアクセス許可を持っている必要があります。 グローバル管理者の資格情報を使用するのではなく、[登録に使用するサービス アカウントを作成する](../operator/azure-stack-registration-role.md)ことで、最低限の特権による管理を使用し、Azure Stack を Azure に登録することをお勧めします。
+登録に使用される Azure AD アカウントは Azure サブスクリプションにアクセスできる必要があり、そのサブスクリプションに関連付けられているディレクトリで ID アプリとサービス プリンシパルを作成するアクセス許可を持っている必要があります。 全体管理者の資格情報を使用するのではなく、[登録に使用するサービス アカウントを作成する](../operator/azure-stack-registration-role.md)ことで、Azure Stack を Azure に登録することをお勧めします。
 
-## <a name="register-azure-stack-with-azure"></a>Azure を使用した Azure Stack の登録
+## <a name="register-the-asdk"></a>ASDK の登録
 
 次の手順に従って、ASDK を Azure に登録します。
 
 > [!NOTE]
-> これらすべての手順は、特権エンドポイントにアクセスできるコンピューターから実行する必要があります。 ASDK の場合は、開発キットのホスト コンピューターです。
+> これらすべての手順は、特権エンドポイントにアクセスできるコンピューターから実行する必要があります。 ASDK の場合は、ASDK のホスト コンピューターです。
 
 1. 管理者として PowerShell コンソールを開きます。  
 
-2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインする必要があります。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
+2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインします。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
 
     ```powershell  
     # Add the Azure cloud subscription environment name. 
-    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+    # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
@@ -85,14 +85,14 @@ $ExecutionContext.SessionState.LanguageMode
 
 ## <a name="register-in-disconnected-environments"></a>切断された環境での登録
 
-切断された (インターネット接続のない) 環境で Azure Stack を登録している場合は、Azure Stack 環境から登録トークンを取得してから、Azure に接続し、ASDK 環境のアクティベーション リソースを作成できるコンピューターにそのトークンを使用する必要があります。
+切断された (インターネット接続のない) 環境で Azure Stack を登録している場合は、Azure Stack 環境から登録トークンを取得してから、Azure に接続できるコンピューターでそのトークンを使用して、登録して、ASDK 環境のアクティベーション リソースを作成する必要があります。
 
  > [!IMPORTANT]
- > このような手順を使用して Azure Stack を登録する前に、[展開後の構成](asdk-post-deploy.md)の記事に従って、ASDK ホスト コンピューターと、Azure とレジスタへの接続に使用されるインターネット アクセスを備えたコンピューターの両方に PowerShell for Azure Stack をインストールし、Azure Stack ツールをダウンロードしておきます。
+ > このような手順を使用して Azure Stack を登録する前に、[デプロイ後の構成](asdk-post-deploy.md)の記事に従って、ASDK ホスト コンピューターと、Azure への接続と登録に使用されるインターネット アクセスを備えたコンピューターの両方に PowerShell for Azure Stack をインストールし、Azure Stack ツールをダウンロードしておきます。
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack 環境から登録トークンを取得する
 
-ASDK ホスト コンピューター上で、管理者として PowerShell を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートし、**Get-AzsRegistrationToken** コマンドレットを使用して登録トークンを取得します。  
+ASDK ホスト コンピューターで、管理者として PowerShell を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートし、**Get-AzsRegistrationToken** コマンドレットを使用して登録トークンを取得します。  
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
@@ -110,7 +110,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
-インターネット接続されたコンピューターで使用するためにこの登録トークンを保存します。 $FilePathForRegistrationToken パラメーターによって作成されたファイルからファイルまたはテキストをコピーできます。
+インターネット接続されたコンピューターで使用するためにこの登録トークンを保存します。 `$FilePathForRegistrationToken` パラメーターによって作成されたファイルからファイルまたはテキストをコピーできます。
 
 ### <a name="connect-to-azure-and-register"></a>Azure に接続して登録する
 
@@ -161,10 +161,10 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
   -RegistrationName $RegistrationName
   ```
 
-登録が完了したら、 **「Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)」** といったメッセージが表示されます。
+登録が完了すると、次のようなメッセージが表示されます。**Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)**
 
 > [!IMPORTANT]
-> PowerShell ウィンドウを閉じないでください。
+> PowerShell ウィンドウを**閉じない**でください。
 
 今後参照できるように登録トークンと登録リソース名を保存します。
 
@@ -172,7 +172,7 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
 
 この場合もインターネット接続されたコンピューター、**および同じ PowerShell コンソール ウィンドウ**を使用して、Azure に登録したときに作成された登録リソースからアクティブ化キーを取得します。
 
-アクティブ化キーを取得するには、次の PowerShell コマンドを実行し、前の手順で Azure に登録するときに指定したものと同じ一意の登録名の値を使用します。  
+アクティブ化キーを取得するには、次の PowerShell コマンドを実行します。 前の手順で Azure に登録するときに指定したものと同じ一意の登録名の値を使用します。  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
@@ -211,22 +211,22 @@ ASDK ホスト コンピューター上で、管理者として PowerShell を�
   -ActivationKey $ActivationKey
   ```
 
-アクティブ化が完了したら、 **「Your environment has finished the registration and activation process. (環境で登録とアクティブ化プロセスが終了しました。)」** といったメッセージが表示されます。
+アクティブ化が完了すると、次のようなメッセージが表示されます。**Your environment has finished the registration and activation process. (環境で登録とアクティブ化プロセスが終了しました。)**
 
 ## <a name="verify-the-registration-was-successful"></a>登録が成功したことを確認する
 
-Azure Stack の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。
+Azure Stack の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理ポータルの既定のダッシュボードにあります。
 
 1. [Azure Stack 管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
 2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 
-    [![[Region management]\(リージョン管理\) タイル](media/asdk-register/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/asdk-register/admin1.png#lightbox)
+    [![Azure Stack 管理ポータルの [Region management]\(リージョン管理\) タイル](media/asdk-register/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/asdk-register/admin1.png#lightbox)
 
 3. **[プロパティ]** を選択します。 このブレードには、環境の状態と詳細が表示されます。 **[登録済み]** 状態と **[未登録]** 状態とがあります。 登録済みである場合は、Azure Stack の登録に使用した Azure サブスクリプション ID が、登録のリソース グループおよび名前と共に表示されます。
 
 ## <a name="move-a-registration-resource"></a>登録リソースを移動する
-同じサブスクリプションのリソース グループ間で登録リソースを移動する操作は、**サポートされています**。 新しいリソース グループへのリソースの移動については、「[新しいリソース グループまたはサブスクリプションへのリソースの移動](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
+同じサブスクリプションのリソース グループ間で登録リソースを移動する操作は、**サポートされています**。 新しいリソース グループへのリソースの移動については、「[リソースを新しいリソース グループまたはサブスクリプションに移動する](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
 
 
 ## <a name="next-steps"></a>次の手順

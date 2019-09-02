@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4c57cad7a5b002e6c73c0555c450a8103eaf8aa4
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: c2a61e165ee64c4b0ee91fbe387973aaa5039f46
+ms.sourcegitcommit: 9cb82df1eccb0486bcabec0bd674162d4820c00c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418000"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060222"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Azure Stack 用のストレージ インフラストラクチャを管理する
 
@@ -83,7 +83,7 @@ Azure Stack の記憶域プール上に作成されるボリュームは 3 種�
 
 ![Azure Stack のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image5.png)
 
-ミラーリングを使ってあらゆるデータのコピーを複数保持することによって、フォールト トレランスが実現します。 データをどのようにストライピングおよび配置するかは重要な問題ですが (詳細については、こちらのブログを参照してください)、ミラーリングを使って格納するデータがいずれも、そのままの形で複数回書き込まれるという点は間違いありません。 コピーはそれぞれ、障害の発生が個別にとどまることが想定される別々の物理ハードウェア (別のサーバーの別のドライブ) に書き込まれます。 3 方向ミラーリングでは、一度に 2 台以上のハードウェア (ドライブまたはサーバー) に問題が発生した場合でも、安全に耐えることができます。 たとえば、あるドライブまたはサーバーに突然障害が発生したときに、別のサーバーを再起動した場合でも、あらゆるデータが安全かつアクセス可能な状態に保たれます。
+ミラーリングを使ってあらゆるデータのコピーを複数保持することによって、フォールト トレランスが実現します。 データをどのようにストライピングおよび配置するかは重要な問題ですが、ミラーリングを使って格納するデータがいずれも、そのままの形で複数回書き込まれるという点は間違いありません。 コピーはそれぞれ、障害の発生が個別にとどまることが想定される別々の物理ハードウェア (別のサーバーの別のドライブ) に書き込まれます。 3 方向ミラーリングでは、一度に 2 台以上のハードウェア (ドライブまたはサーバー) に問題が発生した場合でも、安全に耐えることができます。 たとえば、あるドライブまたはサーバーに突然障害が発生したときに、別のサーバーを再起動した場合でも、あらゆるデータが安全かつアクセス可能な状態に保たれます。
 
 ## <a name="volume-states"></a>ボリュームの状態
 

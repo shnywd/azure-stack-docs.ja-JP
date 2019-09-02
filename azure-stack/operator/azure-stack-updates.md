@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での更新プログラムの管理概要 | Microsoft Docs
-description: Azure Stack 統合システムの更新プログラムの管理について説明します。
+title: Azure Stack での更新の管理 | Microsoft Docs
+description: Azure Stack での更新の管理について説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,31 +11,89 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: mabrigg
-ms.lastreviewed: 04/04/2019
-ms.reviewer: justini
-ms.openlocfilehash: a5fb41e63a8cd9e5f57e4476b1b7c23738f116bb
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.lastreviewed: 08/23/2019
+ms.reviewer: ppacent
+ms.openlocfilehash: 0cd83c7a16ef56e3432de7dcba39cc11ca20a379
+ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418006"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70008465"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
 *適用対象:Azure Stack 統合システム*
 
-Azure Stack 統合システム用の Microsoft 更新プログラム パッケージは、通常、毎月リリースされます。 更新通知が確実に組織に届くようにする具体的な通知プロセスについては、ご利用の OEM (Original Equipment Manufacturer) にお問い合わせください。 また、サポートが有効なリリースの情報については、このドキュメント ライブラリの「**概要**」 > 「**リリース ノート**」を参照してください。
+Azure Stack のフルおよび高速更新、および OEM (相手先ブランド供給) パッケージの更新を適用することにより、Azure Stack を最新の状態に保つ必要があります。 最新の更新プログラムによって、最新のセキュリティ更新、製品の更新、ドライバー、およびファームウェアの更新をシステムに適用して、Azure Stack を最新の状態に保ちます。 この記事では、さまざまな更新プログラム パッケージの概要、これらのリリース パッケージの頻度、現在のリリースを見つける場所、および全体的な更新プロセスについて説明します。
 
-Microsoft ソフトウェア更新プログラムの各リリースは、1 つの更新プログラム パッケージとしてバンドルされます。 Azure Stack のオペレーターは、これらの更新プログラム パッケージのインポート、インストール、そのインストール状況の監視を、Azure Stack 管理ポータルから行うことができます。
+> [!Note]  
+> Azure Stack Development Kit (ASDK) に Azure Stack 更新プログラム パッケージを適用することはできません。 更新プログラム パッケージは統合システム用に設計されています。 詳細については、[ASDK の再デプロイ](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy)に関する記事を参照してください。
 
-また、OEM ベンダーがドライバーやファームウェアの更新プログラムなど、更新プログラムをリリースします。 これらの更新プログラムは、ベンダーから個別のパッケージとして提供されますが、一部のインポート、インストール、および管理方法は、Microsoft の更新プログラム パッケージと同じです。
+## <a name="update-package-types"></a>更新プログラム パッケージの種類
 
-お使いのシステムのサポートを維持するには、Azure Stack を継続的にアップデートして常に特定のバージョン レベルを保つようにする必要があります。 必ず「[Azure Stack servicing policy (Azure Stack サービス ポリシー)](azure-stack-servicing-policy.md)」を確認してください。
+統合システムの更新プログラム パッケージには、次の 3 つの種類があります。
 
-> [!NOTE]
-> Azure Stack Development Kit (ASDK) に Azure Stack 更新プログラム パッケージを適用することはできません。 更新プログラム パッケージは統合システム用に設計されています。 詳細については、[ASDK の再デプロイ](../asdk/asdk-redeploy.md)に関する記事を参照してください。
+-   **Azure Stack ソフトウェア更新プログラム**. Microsoft には、Microsoft ソフトウェア更新プログラム パッケージについて、エンド ツー エンドでサービスを提供し続ける責任があります。 これらのパッケージには、最新の Windows Server のセキュリティ更新プログラム、セキュリティ以外の更新プログラム、Azure Stack の機能の更新プログラムを含めることができます。 これらの更新プログラム パッケージは Microsoft から直接ダウンロードします。
+
+    各更新プログラム パッケージには、**フル**または**高速**の対応する種類があります。 
+ 
+    **フル**更新プログラム パッケージでは、スケール ユニット内の物理ホスト オペレーティング システムが更新されるため、より長いメンテナンス期間が必要です。 
+
+    **高速**更新プログラム パッケージは範囲が限定されており、基となる物理ホスト オペレーティング システムは更新されません。
+
+-   **Azure Stack 修正プログラム**。 Microsoft では、Azure Stack に関して、多くの場合に予防的または緊急の特定の問題に対応するため、修正プログラムを提供しています。 各修正プログラムは、問題、原因、および解決方法の詳細が記載された Microsoft のナレッジ ベースの記事に対応してリリースされます。 修正プログラムは、Azure Stack の通常のフル更新プログラム パッケージとまったく同じように、ダウンロードしてインストールします。 修正プログラムは累積的であるため、数分でインストールできます。
+
+-   **OEM ハードウェア ベンダー提供の更新プログラム**。 Azure Stack ハードウェア パートナーには、ハードウェアに関連するファームウェアおよびドライバーの更新プログラム パッケージについて、ガイドを含めエンド ツー エンドでサービスを提供し続ける責任があります。 また、Azure Stack ハードウェア パートナーは、すべてのソフトウェアとハードウェアのハードウェア ライフサイクル ホストに関するガイドを所有して管理します。 OEM ハードウェア ベンダーは、自社のダウンロード サイトでこれらの更新プログラム パッケージを管理します。
+
+## <a name="when-to-update"></a>更新のタイミング
+
+次の頻度で、3 種類の更新プログラムがリリースされます。
+
+-   **Azure Stack ソフトウェア更新プログラム**。 Microsoft は通常、毎月ソフトウェア更新プログラム パッケージをリリースしています。
+
+-   **Azure Stack 修正プログラム**。 修正プログラムは、いつでもリリースされる可能性がある緊急のリリースです。
+
+-   **OEM ハードウェア ベンダー提供の更新プログラム**。 OEM ハードウェア ベンダーは、必要に応じて随時更新プログラムをリリースします。
+
+サポートを継続して受けるには、Azure Stack 環境を、サポートされる Azure Stack ソフトウェア バージョンで維持する必要があります。 詳細については「[Azure Stack Servicing Policy](azure-stack-update-servicing-policy.md)」 (Azure Stack サービス ポリシー) を参照してください。
+
+## <a name="where-to-get-notice-of-an-update"></a>更新の通知を受け取る場所
+
+更新の通知は、インターネットへの接続や更新の種類など、いくつかの要因によって異なります。
+
+- **Microsoft ソフトウェア更新プログラムおよび修正プログラム** 
+
+    Microsoft ソフトウェア更新プログラムおよび修正プログラムの更新アラートは、インターネットに接続されている Azure Stack インスタンスの [更新] ブレードに表示されます。
+
+    インスタンスが接続されておらず、各修正プログラムのリリースについて通知を受け取ることを希望する場合は、[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
+
+- **OEM ハードウェア ベンダー提供の更新プログラム**
+
+    OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM の更新プログラムがあるときに気付くように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
+
+## <a name="update-processes"></a>更新プロセス
+
+更新プログラムがあることに気付いたら、次の手順に従って更新プログラムを適用します。
+
+![Azure Stack 更新プロセス](./media/azure-stack-updates/azure-stack-update-process.png)
+
+1. **更新を計画します**。
+
+    ユーザーへの影響が最小限になるように、可能な限りスムーズに更新プロセスを進めるために Azure Stack を準備します。 サービス停止の可能性についてユーザーに通知し、手順に従って、インスタンスの更新を準備します。 更新を計画するための詳細な手順については、「[Plan for an Azure Stack update](azure-stack-update-plan.md)」 (Azure Stack の更新の計画) を参照してください。
+
+2. **更新プログラム パッケージをアップロードして準備します**。
+
+    インターネットに接続された Azure Stack 環境では、Azure Stack ソフトウェア更新プログラムおよび修正プログラムが自動的にシステムにインポートされ、更新用に準備されます。
+
+    インターネットに接続されていない Azure Stack 環境やインターネット接続が弱いか途切れがちの環境の場合、Azure Stack 管理者ポータル経由で、更新プログラム パッケージを Azure Stack ストレージにインポートします。 更新プログラム パッケージをアップロードして準備する詳細な手順については、[Azure Stack 更新プログラム パッケージのアップロードと準備](azure-stack-update-prepare-package.md)に関するページを参照してください。
+
+    すべての OEM 更新プログラム パッケージは、Azure Stack システムのインターネット接続に関係なく、手動で環境にインポートします。 更新プログラム パッケージをインポートして準備する詳細な手順については、[Azure Stack 更新プログラム パッケージのアップロードと準備](azure-stack-update-prepare-package.md)に関するページを参照してください。
+
+3. **更新プログラムを適用**します。
+
+    更新プログラムを適用するには、Azure Stack の **[更新]** ブレードを使用します。 更新時に更新の進行状況を監視し、必要に応じて更新プロセスのトラブルシューティングを行います。 更新を計画するための詳細な手順については、[Azure Stack 更新プログラムの適用](azure-stack-apply-updates.md)に関するページを参照してください。
 
 ## <a name="the-update-resource-provider"></a>更新リソース プロバイダー
 
@@ -43,59 +101,8 @@ Azure Stack には、Microsoft ソフトウェア更新プログラムの適用�
 
 更新プログラムをインストールすると、更新プロセスが Azure Stack 内のさまざまなサブシステム (例: 物理ホスト、インフラストラクチャ仮想マシン) をターゲットとしていく状況の概要を確認できます。
 
-## <a name="plan-for-updates"></a>更新の計画
-
-メンテナンス操作についてユーザーに通知することと、通常のメンテナンス期間はできるだけ勤務時間外にスケジュールすることを強くお勧めします。 メンテナンス操作は、テナントのワークロードとポータル操作の両方に影響を及ぼす可能性があります。
-
-メンテナンス期間を計画するときは、各リリース ノートに記載されているように、Microsoft からリリースされた特定の種類の更新プログラム パッケージを確認することが重要です。 不定期の修正プログラムの他に、各更新プログラム パッケージには**完全**または**高速**という対応する種類があります。 完全更新プログラム パッケージでは、スケール ユニット内の物理ホスト オペレーティング システムが更新されるため、より長いメンテナンス期間が必要です。 高速更新プログラム パッケージは範囲が限定されており、基となる物理ホスト オペレーティング システムは更新されません。
-
-この更新プログラムのインストールを開始する前に、次のパラメーターを指定して [Test-AzureStack](azure-stack-diagnostic-test.md) を実行して Azure Stack の状態を確認し、見つかったすべての操作上の問題 (すべての警告とエラーを含む) を解決します。 また、アクティブなアラートを確認し、アクションが必要なアラートを解決します。  
-
-```powershell
-Test-AzureStack -Group UpdateReadiness
-```
-
-## <a name="using-the-update-tile-to-manage-updates"></a>[更新] タイルによる更新プログラムの管理
-
-管理者ポータルから更新プログラムを管理します。 Azure Stack オペレーターとして、ダッシュボードの **[更新]** タイルを使用して以下のことができます。
-
-- 現在のバージョンなどの重要な情報を表示します。
-- 更新プログラムをインストールし、進行状況を監視します。
-- 以前にインストールされた更新プログラムの更新履歴を確認します。
-- クラウドの現在の OEM パッケージ バージョンを表示します。
-
-## <a name="determine-the-current-version"></a>現在のバージョンの判断
-
-現在のバージョンの Azure Stack は **[更新]** タイルで表示できます。 タイルを開くには:
-
-1. Azure Stack 管理者ポータルを開きます。
-2. **[ダッシュボード]** を選択します。 **[更新]** タイルに現在のバージョンが表示されます。
-
-    ![既定のダッシュボードの [更新] タイル](./media/azure-stack-updates/image1.png)
-
-    たとえば、このイメージではバージョンは 1.1903.0.35 です。
-
-## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
-
-1. Azure Stack 管理者ポータルを開きます。
-2. **[ダッシュボード]** を選択します。 **[更新プログラム]** タイルを選択します。
-3. **[今すぐ更新]** を選択します。
-
-    ![Azure Stack 更新実行の詳細](media/azure-stack-updates/azure-stack-update-button.png)
-
-4. Azure Stack のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新 (成功した手順数、進行中の数など) に関するその他の詳細が報告されます。
-
-5. 更新実行の詳細ブレードから **[詳細ログのダウンロード]** を選択して、詳細ログをダウンロードします。
-
-    ![Azure Stack 更新実行の詳細](media/azure-stack-updates/update-run-details.png)
-
-6. 完了したら、更新リソース プロバイダーにより**完了した**ことの確認が提供され、更新プロセスが完了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
-
-    ![Azure Stack 更新実行の詳細の成功](media/azure-stack-updates/update-success.png)
-
-   更新が失敗した場合、 **[更新プログラム]** タイルで **[要注意]** と報告されます。 **[詳細ログのダウンロード]** オプションを使用して、更新失敗時の大まかな状態を取得します。 Azure Stack のログ収集により、診断とトラブルシューティングが容易になります。
-
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack サービス ポリシー](azure-stack-servicing-policy.md) 
-- [Azure Stack でのリージョンの管理](azure-stack-region-management.md)
+- 更新プロセスを開始するには、「[Plan for an Azure Stack update](azure-stack-update-plan.md)」 (Azure Stack の更新の計画) の手順に従います。
+- サポートされている Azure Stack のバージョンについては、「[Azure Stack Servicing Policy](azure-stack-servicing-policy.md)」 (Azure Stack サービス ポリシー) を参照してください。  
+- 現在および最新の更新プログラムの詳細については、[Azure Stack のリリースノート](azure-stack-release-notes-security-updates-1907.md)のページを参照してください。

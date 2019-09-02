@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/27/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: 329ef95f7902f3fe6dfcdd71b599675fdf7c6286
-ms.sourcegitcommit: 0e0d010c4e010f2fd6799471db8bf71652d8d4e1
+ms.openlocfilehash: 88b07c5c3325263e068de49b78df25d17861a37e
+ms.sourcegitcommit: f1a21af6517978ddb62f4cbfa1d1df8c867814d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68806940"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70064185"
 ---
 # <a name="use-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor を使用する
 
@@ -40,7 +40,7 @@ Azure Monitor は、Azure リソースを監視するための 1 つのソース
 
 サブスクリプションのオファー リソース プロバイダー設定で **Microsoft.insights** リソース プロバイダーを登録します。 サブスクリプションに関連付けられているオファーでリソース プロバイダーが使用可能であることを確認できます。
 
-1. Azure Stack 管理ポータルを開きます。
+1. Azure Stack ユーザーポータルを開きます。
 2. **[オファー]** を選択します。
 3. サブスクリプションに関連付けられているオファーを選択します。
 4. **[設定]** で、 **[リソース プロバイダー]** を選択します。 
@@ -123,7 +123,7 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 
 次のいずれかの方法を使用して、データの追跡、ルーティング、および取得を行うことができます。 ただし、アクションやデータの種類によっては利用できない方法もあります。 
 
- - [Azure Stack ポータル](azure-stack-use-portal.md)
+ - [Azure Stack ユーザー ポータル ](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [クロスプラットフォーム コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
