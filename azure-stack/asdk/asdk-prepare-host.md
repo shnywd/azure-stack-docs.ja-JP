@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 23cacc7a9005e1695f7394d1e441298f3f90bca8
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/28/2019
+ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
+ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025955"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70144012"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK ホスト コンピューターの準備
 Azure Stack Development Kit (ASDK) をホスト コンピューターにインストールするには、ASDK ホストがインストール用に準備されている必要があります。 ホストが準備されると、CloudBuilder.vhdx 仮想マシン (VM) のハード ドライブから起動して ASDK のデプロイが開始されます。
@@ -64,12 +64,17 @@ ASDK をホスト コンピューターにインストールする前に、ASDK 
 
     次のオプションの設定の値を指定することもできます。
     - **[コンピューター名]** : このオプションでは、ASDK ホストの名前を設定します。 名前は FQDN の要件に準拠している必要があり、長さは 15 文字以下にする必要があります。 既定は、Windows によって生成されたランダムなコンピューター名です。
-    - **[Static IP configuration] (静的 IP 構成)** : 静的 IP アドレスを使用するようにデプロイを設定します。 それ以外の場合、インストーラーが cloudbuilder.vhdx から再起動されるときに、ネットワーク インターフェイスが DHCP と構成されます。 静的 IP 構成を使用することを選択した場合は、追加オプションが表示され、そこで次の操作も行う必要があります。
-      - ネットワーク アダプターを選択します。 **[次へ]** をクリックする前に、アダプターに接続できることを確認します。
-      - 表示されている **[IP アドレス]** 、 **[ゲートウェイ]** 、および **[DNS]** 値が正しいことを確認し、 **[次へ]** をクリックします。
 
-   > [!TIP]
-   > タイム サーバーの IP アドレスを検索するには、[ntppool.org](https://www.ntppool.org/) にアクセスするか、time.windows.com に ping を実行します。
+        - ネットワーク アダプターを選択します。 **[次へ]** をクリックする前に、アダプターに接続できることを確認します。
+
+            ![ネットワーク アダプターの設定のスクリーンショット](media/asdk-prepare-host/step-four-network-adapter.png)
+
+        - 表示されている **[IP アドレス]** 、 **[ゲートウェイ]** 、および **[DNS]** 値が正しいことを確認し、有効な**時刻サーバーの IP** アドレスを入力して、 **[次へ]** をクリックします。
+
+            >[!TIP]
+            >タイム サーバーの IP アドレスを検索するには、[ntppool.org](https://www.ntppool.org/) にアクセスするか、time.windows.com に ping を実行します。 
+
+            ![IP 構成設定のスクリーンショット](media/asdk-prepare-host/step-five-host-ip-config.png)
 
 7. **[次へ]** をクリックして、準備プロセスを開始します。
 8. 準備が **[完了]** と示されたら、 **[次へ]** をクリックします。

@@ -16,12 +16,13 @@ ms.date: 07/15/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: c646ca836728cc1963354afb66ee04ee0accf1b6
-ms.sourcegitcommit: fc7da38321736e952b2cc6d5d07f276d095dc8d1
+monikerRange: azs-1906
+ms.openlocfilehash: bf8e32d6395b3ddfc54fe586568b51b76b71dc63
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69887125"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188311"
 ---
 # <a name="azure-stack-1906-update"></a>Azure Stack 1906 更新プログラム
 
@@ -116,14 +117,14 @@ Azure Stack 1906 更新プログラムのビルドの種類は**高速**です�
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
-Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](azure-stack-release-notes-security-updates-1906.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
+Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](azure-stack-release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
 
 ## <a name="update-planning"></a>計画の更新
 
 更新プログラムを適用する前に、必ず次の情報を確認してください。
 
 - [既知の問題](azure-stack-release-notes-known-issues-1906.md)
-- [セキュリティ更新プログラム](azure-stack-release-notes-security-updates-1906.md)
+- [セキュリティ更新プログラム](azure-stack-release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>更新プログラムをダウンロードする

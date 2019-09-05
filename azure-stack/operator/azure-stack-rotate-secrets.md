@@ -15,12 +15,13 @@ ms.date: 07/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
-ms.openlocfilehash: 7d8990616bcf5cdca628f4aad91e2aee6b95d42a
-ms.sourcegitcommit: 82d09bbae3e5398d2fce7e2f998dfebff018716c
+monikerRange: '>=azs-1803'
+ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68497834"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188176"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack でシークレットをローテーションする
 
@@ -298,7 +299,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>parameters
 
-| パラメーター | Type | 必須 | 位置 | 既定値 | 説明 |
+| パラメーター | Type | 必須 | 位置 | Default | 説明 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | string  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |

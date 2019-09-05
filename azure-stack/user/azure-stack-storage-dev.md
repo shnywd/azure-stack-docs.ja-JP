@@ -10,12 +10,12 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 10bf2bcc13ceab3b28e44759bbacae57d63b9b97
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: c708c7f94f7d7e956b0ca4a6c4c4c2c70b1590fc
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131658"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188108"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack ストレージの開発ツールの概要
 
@@ -32,6 +32,7 @@ Microsoft Azure Stack には、Blob Storage、Table Storage、Queue Storage な�
 
 したがって、ストレージのクライアント ライブラリについて、REST API と互換性のあるバージョンを把握しておいてください。 また、コード内で Azure Stack エンドポイントも指定する必要があります。
 
+::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>更新プログラム 1811 以降のバージョン
 
 | クライアント ライブラリ | Azure Stack でサポートされるバージョン | Link | エンドポイントの指定 |
@@ -60,7 +61,9 @@ Composer 経由でインストールするには (BLOB の例):
 
 2. [composer.phar](https://getcomposer.org/composer.phar) をプロジェクトのルートにダウンロードします。
 3. `php composer.phar install` を実行します。
+::: moniker-end
 
+::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>以前のバージョン (1802 から 1809 までの更新プログラム)
 
 | クライアント ライブラリ | Azure Stack でサポートされるバージョン | Link | エンドポイントの指定 |
@@ -89,6 +92,7 @@ Composer 経由でインストールするには (BLOB の例):
 
 2. [composer.phar](https://getcomposer.org/composer.phar) をプロジェクトのルートにダウンロードします。
 3. `php composer.phar install` を実行します。
+:::moniker-end
 
 ## <a name="endpoint-declaration"></a>エンドポイントの宣言
 

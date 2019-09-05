@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 6b6ab8ac8292f8d548b49331cf5d2e2ae100e68f
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418455"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188032"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Azure Stack Storage でのデータ転送ツールの使用
 
@@ -57,8 +57,13 @@ AzCopy は、最適なパフォーマンスの単純なコマンドを使用し�
 
 ### <a name="download-and-install-azcopy"></a>AzCopy のダウンロードとインストール
 
+::: moniker range=">=azs-1811"
 * 1811 以降の更新プログラムの場合は、[AzCopy V10 以降をダウンロード](/azure/storage/common/storage-use-azcopy-v10#download-azcopy)します。
+::: moniker-end
+
+::: moniker range="<azs-1811"
 * それより前のバージョン (1802 から 1809 までの更新プログラム) では、[AzCopy 7.1.0 をダウンロード](https://aka.ms/azcopyforazurestack20170417)します。
+::: moniker-end
 
 ### <a name="azcopy-101-configuration-and-limits"></a>AzCopy 10.1 の構成と制限事項
 
