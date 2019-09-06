@@ -445,7 +445,7 @@
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
         - name: Azure Stack に対する検証
           href: azure-stack-diagnostic-test.md
-        - name: 既知の問題
+        - name: トラブルシューティング
           href: azure-stack-troubleshooting.md
 - name: リファレンス
   items:
