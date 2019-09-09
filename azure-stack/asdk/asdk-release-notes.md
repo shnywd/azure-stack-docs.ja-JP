@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 3f11a7b5066d0b50d85a40be1df47dfe1a5ade38
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 08/30/2019
+ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025844"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188182"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -28,6 +28,23 @@ ms.locfileid: "70025844"
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
 
+::: moniker range="azs-1908"
+## <a name="build-11908020"></a>ビルド 1.1908.0.20
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1908.md#whats-new)を参照してください。
+
+<!-- ### Changes -->
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
+- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1908.md)を参照してください。
+- 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
+::: moniker-end
+
+::: moniker range="azs-1907"
 ## <a name="build-11907020"></a>ビルド 1.1907.0.20
 
 ### <a name="new-features"></a>新機能
@@ -42,7 +59,9 @@ ms.locfileid: "70025844"
 - このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1907.md#fixes)を参照してください。
 - 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1907.md)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1907.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
+::: moniker-end
 
+::: moniker range="azs-1906"
 ## <a name="build-11906030"></a>ビルド 1.1906.0.30
 
 ### <a name="new-features"></a>新機能
@@ -59,7 +78,9 @@ ms.locfileid: "70025844"
 - このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1906.md#fixes)を参照してください。
 - 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1906.md)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1906.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
+::: moniker-end
 
+::: moniker range="azs-1905"
 ## <a name="build-11905040"></a>ビルド 1.1905.0.40
 
 <!-- ### Changes -->
@@ -74,29 +95,4 @@ ms.locfileid: "70025844"
 - このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#fixes)を参照してください。
 - 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1905.md)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1905.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
-
-## <a name="build-11904036"></a>ビルド 1.1904.0.36
-
-<!-- ### Changes -->
-
-### <a name="new-features"></a>新機能
-
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1904.md#whats-in-this-update)を参照してください。
-
-### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
-
-- 登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるため、正常に [ASDK を登録](asdk-register.md)するには、**RegisterWithAzure.psm1** PowerShell スクリプトを編集する必要があります。 以下の手順を実行します。
-
-  1. ASDK ホスト コンピューター上で、管理者特権のアクセス許可を使用してエディターでファイル **C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1** を開きます。
-  2. 1249 行目の末尾に、`-TimeoutInSeconds 1800` パラメーターを追加します。 この追加が必要なのは、登録スクリプトの実行中にサービス プリンシパルのタイムアウトが起こるためです。 1249 行目は次のようになります。
-
-     ```powershell
-      $servicePrincipal = Invoke-Command -Session $PSSession -ScriptBlock { New-AzureBridgeServicePrincipal -RefreshToken $using:RefreshToken -AzureEnvironment $using:AzureEnvironmentName -TenantId $using:TenantId -TimeoutInSeconds 1800 }
-      ```
-
-- リリース 1902 で特定された VPN 接続の問題が修正されました。
-
-- このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1904.md#fixes)を参照してください。
-- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1904.md)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1904.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
-
+::: moniker-end

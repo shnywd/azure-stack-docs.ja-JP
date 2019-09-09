@@ -1,6 +1,6 @@
 ---
 title: VM イメージを Azure Stack に追加する | Microsoft Docs
-description: テナントが使用する組織のカスタム VM イメージ (Windows または Linux) を追加または削除します。
+description: Azure Stack に VM イメージを追加または削除する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 84aa627f6c274d22ebdab411d6abd1064c6ecd6d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417465"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271754"
 ---
-# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>Azure Stack のオファーに VM イメージを追加する
+# <a name="add-a-vm-image-to-azure-stack"></a>VM イメージを Azure Stack に追加する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack では、仮想マシン (VM) イメージをマーケットプレースに追加してユーザーに提供することができます。 VM イメージは、Azure Stack 用の Azure Resource Manager テンプレートを使用して追加できます。 VM イメージを Marketplace 項目として Azure Marketplace UI に追加することもできます。 グローバル Azure Marketplace のイメージか、独自のカスタム VM イメージを使用します。 VM イメージは、管理ポータルまたは Windows PowerShell を使用して追加できます。
+Azure Stack では、仮想マシン (VM) イメージをマーケットプレースに追加してユーザーに提供することができます。 イメージは、Azure Stack 用の Azure Resource Manager テンプレートを使用して追加します。 管理ポータルまたは Windows PowerShell を使用して、VM イメージを Marketplace 項目として Azure Marketplace UI に追加することもできます。 グローバル Azure Marketplace のイメージか、独自のカスタム VM イメージを使用します。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>ポータルから VM イメージを追加する
 
@@ -35,12 +35,12 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 
 イメージは、Blob Storage URI で参照できなければなりません。 Windows または Linux オペレーティング システムのイメージを VHD 形式 (VHDX ではない) で準備して、そのイメージを Azure のストレージ アカウントまたは Azure Stack にアップロードします。 イメージが既に Azure の Blob Storage または Azure Stack にアップロードされている場合、手順 1. をスキップできます。
 
-1. [Resource Manager のデプロイのために Windows VM イメージを Azure にアップロードする](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)か、Linux イメージの場合は、「[Deploy Linux virtual machines on Azure Stack](azure-stack-linux.md)」(Azure Stack への Linux 仮想マシンのデプロイ) の説明に従います。 イメージをアップロードする前に、次の事実を考慮する必要があります。
+1. [Resource Manager のデプロイのために Windows VM イメージを Azure にアップロードする](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)か、Linux イメージの場合は、[Azure Stack への Linux 仮想マシンのデプロイ](azure-stack-linux.md)に関するページの説明に従います。 イメージをアップロードする前に、次の事実を考慮する必要があります。
 
    - Azure Stack は、VHD フォーマットの固定ディスクで第 1 世代の VM のみサポートします。 固定フォーマットの場合、ファイル内で論理ディスクがリニアに構成されるため、ディスク オフセット X は BLOB オフセット X に格納されます。BLOB 末尾の小さなフッターに、VHD のプロパティが記述されます。 ディスクが固定フォーマットであるかどうかを確認するには、[Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell コマンドを使用します。  
 
      > [!IMPORTANT]  
-     >  Azure Stack では、ダイナミック ディスク VHD はサポートされていません。 VM に接続されているダイナミック ディスクのサイズを変更すると、VM はエラー状態になります。 この問題を軽減するには、VM のディスク、つまりストレージ アカウントの VHD BLOB を削除せずに VM を削除します。 次に、VHD をダイナミック ディスクから固定ディスクに変換した後、仮想マシンを再作成します。
+     >  Azure Stack では、ダイナミック ディスク VHD はサポートされていません。 VM に接続されているダイナミック ディスクのサイズを変更すると、VM はエラー状態になります。 この問題を軽減するには、VM のディスク、つまりストレージ アカウントの VHD BLOB を削除せずに VM を削除します。 次に、VHD をダイナミック ディスクから固定ディスクに変換した後、VM を再作成します。
 
    - Azure Blob Storage よりも Azure Stack Blob Storage の方がイメージを効率よくアップロードできます。イメージを Azure Stack イメージ リポジトリにプッシュする方が時間がかからないためです。
 
@@ -48,7 +48,7 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 
    - イメージのアップロード先の Blob Storage URI をメモしておきます。 Blob Storage URI の形式は *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd です。
 
-   - BLOB に匿名でアクセスできるようにするには、VM イメージ VHD がアップロードされたストレージ アカウントの BLOB コンテナーに移動します。 **[BLOB]** を選択し、 **[アクセス ポリシー]** を選択してください。 必要であれば、このコンテナーの Shared Access Signature を生成し、それを BLOB URI に含めることもできます。 この手順により、これをイメージとして追加する目的で確実に BLOB が利用できるようになります。 BLOB に匿名でアクセスできない場合、VM イメージがエラー状態で作成されます。
+   - BLOB に匿名でアクセスできるようにするには、VM イメージ VHD がアップロードされたストレージ アカウントの BLOB コンテナーに移動します。 **[BLOB]** を選択し、 **[アクセス ポリシー]** を選択してください。 必要であれば、このコンテナーの Shared Access Signature を生成し、それを BLOB URI に含めることもできます。 この手順により、確実に BLOB が利用できるようになります。 BLOB に匿名でアクセスできない場合、VM イメージがエラー状態で作成されます。
 
      ![ストレージ アカウント BLOB に移動](./media/azure-stack-add-vm-image/image1.png)
 
@@ -62,7 +62,7 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 
    イメージが正常に作成されると、VM イメージの状態が **[成功]** に変わります。
 
-4. 仮想マシン イメージをユーザーが UI ですぐに使用できるようにするには、[Marketplace 項目の作成](azure-stack-create-and-publish-marketplace-item.md)が最適です。
+4. VM イメージをユーザーが UI ですぐに使用できるようにするには、[Marketplace 項目の作成](azure-stack-create-and-publish-marketplace-item.md)が最適です。
 
 ## <a name="remove-a-vm-image-through-the-portal"></a>ポータルから VM イメージを削除する
 
@@ -75,7 +75,7 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>PowerShell を使用して VM イメージを Marketplace に追加する
 
 > [!Note]  
-> イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell の展開のみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。
+> イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、次の記事の手順を使用して Marketplace 項目を公開してください。[Marketplace アイテムの作成と発行](azure-stack-create-and-publish-marketplace-item.md)
 
 1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。  
 
@@ -177,7 +177,7 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 
 ## <a name="remove-a-vm-image-by-using-powershell"></a>PowerShell を使用して VM イメージを削除する
 
-過去にアップロードした仮想マシン イメージが必要なくなった場合は、次のコマンドレットを使用して Marketplace から削除できます。
+過去にアップロードした VM イメージが必要なくなった場合は、次のコマンドレットを使用して Marketplace から削除できます。
 
 1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
 

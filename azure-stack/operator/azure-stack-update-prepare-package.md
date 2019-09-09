@@ -3,7 +3,7 @@ title: Azure Stack 更新プログラム パッケージを準備する |Microso
 description: Azure Stack 更新プログラム パッケージの準備について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2019
-ms.author: mabrigg
-ms.lastreviewed: 08/15/2019
+ms.date: 09/03/2019
+ms.author: justinha
+ms.lastreviewed: 09/03/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ab7b764e608ed1fb8008071296d0004f6ef65e7a
-ms.sourcegitcommit: 1c45814696e70ba987dd39ce61d93ea4ef5222ea
+ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
+ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70029473"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235003"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Azure Stack 更新プログラム パッケージを準備する
 
@@ -28,14 +28,14 @@ ms.locfileid: "70029473"
 
 この記事では、Azure Stack 環境を更新するために使用できるように Azure Stack 更新パッケージを準備する概要について説明します。 このプロセスは次のもので構成されます。
 
-- [更新プログラム パッケージのダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#download-the-update-package)
-- [Azure Stack 管理者ポータルを使用した、Azure Stack 環境への更新プログラム パッケージのインポート](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#import-and-install-updates)
+- [更新プログラム パッケージのダウンロード](#download-the-update-package)
+- [Azure Stack 管理者ポータルを使用した、Azure Stack 環境への更新プログラム パッケージのインポート](#import-and-install-updates)
 
-このプロセスは、[Azure Stack 自動更新エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)にインターネット接続しているシステムで、Azure Stack ソフトウェア更新プログラムと修正プログラムに対して自動的に行われます。
+Azure Stack 自動更新エンドポイントに接続できるシステムでは、Azure Stack ソフトウェア更新プログラムと修正プログラムが自動的にダウンロードされ準備されます。 接続できないシステムと OEM からの更新プログラムの場合は、このトピックの説明に従って更新プログラム パッケージを準備する必要があります。  
 
 次の表は、更新プログラム パッケージが手動による準備を必要とするタイミングと、それらが自動的に準備されるタイミングを示しています。
 
-| 更新の種類 | [Azure Stack 自動更新エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)への Azure Stack 環境の接続 | 必要な操作 |
+| 更新の種類 | 接続 | 必要な操作 |
 | --- | --- | --- |
 | Azure Stack ソフトウェア更新 | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
 | Azure Stack 修正プログラム | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
@@ -46,6 +46,9 @@ ms.locfileid: "70029473"
 
 ## <a name="download-the-update-package"></a>更新プログラム パッケージをダウンロードする
 Azure Stack 更新プログラムと修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、Azure Stack インスタンスにアクセスできる場所にパッケージを移動する必要があります。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
+
+>[!NOTE]
+>更新プログラム パッケージとそのコンテンツ (バイナリ、PowerShell スクリプトなど) は、Microsoft が所有する証明書で署名されています。 パッケージを改ざんすると、この署名は無効になります。
 
 パッケージの内容を確認します。 通常、更新プログラム パッケージは、次のファイルで構成されます。
 

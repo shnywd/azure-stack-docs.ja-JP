@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 08/16/2019
-ms.openlocfilehash: 526343889bbd5cc784ebb87c39603e2152a98f3b
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.lastreviewed: 08/30/2019
+monikerRange: azs-1907
+ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008749"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188117"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新プログラム
 
@@ -77,7 +78,7 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 ### <a name="changes"></a>変更点
 
-- Azure Stack バージョン 1907 には、バージョン 1908 に更新する**前**に、システムの OEM パッケージをバージョン 2.1 以降に更新するようにオペレーターに指示する警告アラートが含まれています。 ハードウェア プロバイダーは Azure Stack バージョン 1908 と同時に OEM パッケージ 2.1 をリリースします。 Azure Stack バージョン 1908 には OEM パッケージ 2.1 以降が前提条件になります。 OEM パッケージ 2.1 以降をダウンロードする方法の詳細については、システムのハードウェア プロバイダーに問い合わせてください。
+- Azure Stack バージョン 1907 には、バージョン 1908 に更新する前に、システムの OEM パッケージをバージョン 2.1 以降に更新するようにオペレーターに指示する警告アラートが含まれています。 Azure Stack の OEM 更新プログラムの適用方法の詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
 
 - Azure Stack 診断ログ収集サービスの通信を有効にするための新しいアウトバウンド規則 (HTTPS) が追加されました。 詳細については、[Azure Stack データセンター統合 - エンドポイントの発行](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページをご覧ください。
 
@@ -118,14 +119,14 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
-Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](azure-stack-release-notes-security-updates-1907.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
+Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](azure-stack-release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
 
 ## <a name="update-planning"></a>計画の更新
 
 更新プログラムを適用する前に、必ず次の情報を確認してください。
 
 - [既知の問題](azure-stack-release-notes-known-issues-1907.md)
-- [セキュリティ更新プログラム](azure-stack-release-notes-security-updates-1907.md)
+- [セキュリティ更新プログラム](azure-stack-release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](azure-stack-release-notes-checklist.md)
 
 ## <a name="download-the-update"></a>更新プログラムをダウンロードする

@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 01e359b2fc92abfe2c4903b75fd52687c2246d56
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959548"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271825"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -63,7 +63,7 @@ ms.locfileid: "68959548"
 
 3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]**  >  **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **appservice-fileshare-sqlserver-ha** テンプレートを選択します。 **[OK]** 、 **[保存]** の順にクリックします。
 
-   ![appservice-fileshare-sqlserver-ha クイック スタート テンプレートを選択します。](media/app-service-deploy-ha/2.png)
+   ![appservice-fileshare-sqlserver-ha クイック スタート テンプレートを選択します](media/app-service-deploy-ha/2.png)
 
 4. **[カスタム デプロイ]** ブレードで、 **[パラメーターの編集]** を選択し、下にスクロールしてテンプレートの既定値を確認します。 必要に応じてそれらの値を変更して、必要なすべてのパラメーター情報を入力し、 **[OK]** をクリックします。<br><br> 少なくとも、`ADMINPASSWORD`、`FILESHAREOWNERPASSWORD`、`FILESHAREUSERPASSWORD`、`SQLSERVERSERVICEACCOUNTPASSWORD`、および `SQLLOGINPASSWORD` パラメーターには、複雑なパスワードを指定してください。
     
@@ -123,7 +123,7 @@ App Service インストーラーを実行する前に、「[App Service on Azur
 - [App Service インストーラーおよびヘルパー スクリプトをダウンロードする](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
 - [Azure Stack Marketplace に最新のカスタム スクリプト拡張機能をダウンロードする](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
 - [必要な証明書を生成する](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- Azure Stack 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-application)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-application) のいずれかに対して作成し、アプリケーション ID を記録できます。
+- Azure Stack 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
 - Windows Server 2016 Datacenter イメージを Azure Stack Marketplace に追加したことを確認してください。 このイメージは App Service のインストールに必要です。
 
 ### <a name="steps-for-app-service-deployment"></a>App Service のデプロイの手順
@@ -204,7 +204,7 @@ App Service リソース プロバイダーをデプロイするには、次の�
 
 14. 既定のロール構成値を受け入れるか、または推奨値に変更して **[次へ]** をクリックします。<br><br>高可用性構成の場合は、App Service インフラストラクチャ ロール インスタンスの既定値を次のように変更することをお勧めします。
 
-    |Role|既定値|高可用性の推奨設定|
+    |Role|Default|高可用性の推奨設定|
     |-----|-----|-----|
     |コントローラー ロール|2|2|
     |管理ロール|1|3|

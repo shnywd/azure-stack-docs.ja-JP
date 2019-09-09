@@ -11,28 +11,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/28/2019
-ms.openlocfilehash: 95611e776d2517bffaa7a3693362f5d227943bd0
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 8bc2b996892f8b19fb602fa0d91354b08dcf3cd6
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269079"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159647"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を更新する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
+> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
 
 この記事の手順に従うことによって、インターネットに接続されている Azure Stack 環境にデプロイされた [App Service リソース プロバイダー](azure-stack-app-service-overview.md)をアップグレードできます。
 
 > [!IMPORTANT]
-> アップグレードを実行する前に、[Azure App Service on Azure Stack リソース プロバイダーのデプロイ](azure-stack-app-service-deploy.md)を既に完了していること、および 1.6 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-six.md)を読んで、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
+> アップグレードを実行する前に、[Azure App Service on Azure Stack リソース プロバイダーのデプロイ](azure-stack-app-service-deploy.md)を既に完了していること、および 1.7 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-seven.md)を読んで、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service リソースプロバイダーのインストーラーを実行する
 
@@ -52,9 +52,9 @@ ms.locfileid: "66269079"
 
 App Service on Azure Stack のデプロイをアップグレードするには、次の手順に従います。
 
-1. [App Service インストーラー](https://aka.ms/appsvcupdate6installer)をダウンロードする
+1. [App Service インストーラー](https://aka.ms/appsvcupdate7installer)をダウンロードする。
 
-2. 管理者として appservice.exe を実行する
+2. 管理者として appservice.exe を実行します。
 
     ![App Service インストーラー][1]
 
@@ -102,7 +102,7 @@ App Service on Azure Stack のデプロイをアップグレードするには�
 
 ## <a name="next-steps"></a>次の手順
 
-その他の [Platform as a Service (PaaS) サービス](azure-stack-offer-services-overview.md)を試してみることもできます。
+App Service on Azure Stack のための追加の管理者操作を準備します
 
-* [SQL Server リソースプロバイダー](azure-stack-sql-resource-provider-deploy.md)
-* [MySQL リソースプロバイダー](azure-stack-mysql-resource-provider-deploy.md)
+* [追加容量の計画を立てる](azure-stack-app-service-capacity-planning.md)
+* [追加容量を追加する](azure-stack-app-service-add-worker-roles.md)

@@ -1,6 +1,6 @@
 ---
-title: 'App Services をデプロイする: Azure Stack | Microsoft Docs'
-description: Azure Stack への App Service のデプロイに関する詳しいガイダンスです
+title: Azure Stack に App Services にデプロイする | Microsoft Docs
+description: Azure Stack に App Service をデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,33 +12,33 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: e89e8a9d2f773c289bc279a1b4aa9f47e65e8741
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 7088a001fab8e3e618da4be8107f5a5f5a22373f
+ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269335"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "70271772"
 ---
-# <a name="add-an-app-service-resource-provider-to-azure-stack"></a>App Service リソース プロバイダーを Azure Stack に追加する
+# <a name="deploy-app-service-in-azure-stack"></a>Azure Stack に App Service をデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-この記事のガイダンスを使用して、Azure Stack に App Service をデプロイします。
+この記事では、Azure Stack に App Service をデプロイする方法について説明します。
 
 > [!IMPORTANT]
-> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
+> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1907 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
 
-Web および API アプリケーションを作成する機能をユーザーに提供できます。 これらのアプリケーションをユーザーが作成できるようにするには、次のことを行う必要があります。
+Web および API アプリケーションを作成する機能をユーザーに提供できます。 これらのアプリをユーザーが作成できるようにするには、次のことを行う必要があります。
 
 - この記事で説明する手順を使用して、Azure Stack デプロイに [App Service リソース プロバイダー](azure-stack-app-service-overview.md)を追加します。
 - App Service リソース プロバイダーをインストールした後で、オファーやプランに含めることができます。 ユーザーはサブスクライブしてサービスを取得し、アプリケーションの作成を開始できます。
 
 > [!IMPORTANT]
-> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.6 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-six.md)を読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
+> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.7 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-seven.md)を読んでいることを確認してください。 このコンテンツを読むと、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認することができます。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service リソースプロバイダーのインストーラーを実行する
 
@@ -48,9 +48,6 @@ App Service リソース プロバイダーのインストールには少なく�
 - App Service の DNS ゾーンとエントリを作成します。
 - App Service リソース プロバイダーを登録します。
 - App Service のギャラリー アイテムを登録します。
-
-  > [!IMPORTANT]
-  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
 
 App Service リソースプロバイダーをデプロイするには、次の手順を実行します。
 
@@ -64,7 +61,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 4. サード パーティのライセンス条項を確認して同意し、 **[次へ]** を選択します。
 
-5. App Service クラウド構成情報が正しいことを確認します。 Azure Stack Development Kit (ASDK) のデプロイ中に既定の設定を使用した場合は、既定値をそのまま使用することもできます。 しかし、ASDK のデプロイ時にオプションをカスタマイズした場合、または Azure Stack 統合システムにデプロイしている場合は、その差異を反映するように、このウィンドウで値を編集する必要があります。
+5. App Service クラウド構成情報が正しいことを確認します。 ASDK のデプロイ中に既定の設定を使用した場合は、既定値をそのまま使用することもできます。 しかし、ASDK のデプロイ時にオプションをカスタマイズした場合、または Azure Stack 統合システムにデプロイしている場合は、その差異を反映するように、このウィンドウで値を編集する必要があります。
 
    たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、 **[次へ]** を選択して設定を保存します。
 
@@ -82,7 +79,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
      > [!IMPORTANT]
      > App Service は、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** にデプロイする**必要があります**。
 
-   c. **[Azure Stack Locations]\(Azure Stack の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、Azure Stack Development Kit にデプロイしている場合は、 **[ローカル]** を選びます。
+   c. **[Azure Stack Locations]\(Azure Stack の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、ASDK にデプロイしている場合は、 **[ローカル]** を選びます。
 
     ![App Service インストーラー][3]
 
@@ -99,7 +96,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    ![App Service インストーラー][4]
 
-8. ファイル共有の情報を入力してから、 **[次へ]** を選択します。 ファイル共有のアドレスには、ファイル サーバーの完全修飾ドメイン名 (FQDN)、または IP アドレスを使用する必要があります。 たとえば、\\\appservicefileserver.local.cloudapp.azurestack.external\websites、または \\\10.0.0.1\websites を使用します。  ドメインに参加しているファイル サーバーを使用している場合は、ドメインを含む完全なユーザー名 (例: myfileserverdomain\FileShareOwner) を指定する必要があります。
+8. ファイル共有の情報を入力してから、 **[次へ]** を選択します。 ファイル共有のアドレスには、ファイル サーバーの完全修飾ドメイン名 (FQDN)、または IP アドレスを使用する必要があります。 たとえば、\\\appservicefileserver.local.cloudapp.azurestack.external\websites、または \\\10.0.0.1\websites を使用します。  ドメインに参加しているファイル サーバーを使用している場合は、ドメインを含む完全なユーザー名を指定する必要があります。 たとえば、myfileserverdomain\FileShareOwner です。
 
    >[!NOTE]
    >インストーラーは、続行する前にファイル共有への接続性をテストしようとします。 しかし、既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 ファイル共有情報が正しい場合は、デプロイを続行します。
@@ -108,7 +105,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 9. 次の App Service インストーラー ページで、次の手順に従います。
 
-   a. **[Identity Application ID]\(ID アプリケーションの ID\)** ボックスで、(Azure AD から) 本人確認のために使っているアプリケーションの GUID を入力します。
+   a. **[Identity Application ID]\(ID アプリケーションの ID\)** ボックスで、(Azure AD から) 本人確認のために使っているアプリの GUID を入力します。
 
    b. **[Identity Application certificate file]\(ID アプリケーションの証明書ファイル\)** ボックスで、証明書ファイルの場所を入力 (または参照) します。
 
@@ -146,21 +143,21 @@ App Service リソースプロバイダーをデプロイするには、次の�
     | コントローラー | 1 | Standard_A2 - (2 vCPU、3584 MB) | App Service クラウドの正常性を管理および維持します。 |
     | 管理 | 1 | Standard_A2 - (2 vCPU、3584 MB) | App Service Azure Resource Manager および API のエンドポイント、ポータル拡張機能 (管理、テナント、Functions ポータル)、データ サービスを管理します。 フェールオーバーをサポートする場合は、お勧めのインスタンス数は 2 つに増えます。 |
     | Publisher | 1 | Standard_A1 - (1 vCPU、1792 MB) | FTP および Web デプロイによってコンテンツを公開します。 |
-    | FrontEnd | 1 | Standard_A1 - (1 vCPU、1792 MB) | App Service アプリケーションに要求をルーティングします。 |
-    | 共有 Worker | 1 | Standard_A1 - (1 vCPU、1792 MB) | Web または API アプリケーション、および Azure Functions アプリをホストします。 より多くのインスタンスの追加が必要になる場合があります。 オペレーターは、サービスを定義することや任意の SKU レベルを選ぶことができます。 レベルには、少なくとも 1 つの vCPU が必要です。 |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU、1792 MB) | App Service アプリに要求をルーティングします。 |
+    | 共有 Worker | 1 | Standard_A1 - (1 vCPU、1792 MB) | Web または API アプリ、および Azure Functions アプリをホストします。 より多くのインスタンスの追加が必要になる場合があります。 オペレーターは、サービスを定義することや任意の SKU レベルを選ぶことができます。 レベルには、少なくとも 1 つの vCPU が必要です。 |
 
     ![App Service インストーラー][13]
 
     >[!NOTE]
     >**Windows Server 2016 Core は、Azure Stack 上で Azure App Service と共に使用するためにサポートされているプラットフォーム イメージではありません。運用環境デプロイには評価版イメージを使用しないでください。**
 
-13. **[プラットフォーム イメージの選択]** ボックスで、App Service クラウド用のコンピューティング リソース プロバイダーで選択可能なイメージの中から、ご自分のデプロイの Windows Server 2016 仮想マシン イメージを選びます。 **[次へ]** を選択します。
+13. **[プラットフォーム イメージの選択]** ボックスで、App Service クラウド用のコンピューティング リソース プロバイダーで選択可能なイメージの中から、ご自分のデプロイの Windows Server 2016 仮想マシン (VM) イメージを選びます。 **[次へ]** を選択します。
 
 14. 次の App Service インストーラー ページで、次の手順に従います。
 
-     a. Worker ロールの仮想マシン管理者のユーザー名とパスワードを入力します。
+     a. Worker ロールの VM 管理者のユーザー名とパスワードを入力します。
 
-     b. その他のロールの仮想マシン管理者のユーザー名とパスワードを入力します。
+     b. その他のロールの VM 管理者のユーザー名とパスワードを入力します。
 
      c. **[次へ]** を選択します。
 
@@ -187,17 +184,17 @@ App Service リソースプロバイダーをデプロイするには、次の�
 ## <a name="post-deployment-steps"></a>デプロイ後の手順
 
 > [!IMPORTANT]
-> SQL Always On インスタンスを使用して App Service RP を提供している場合は、データベースのフェールオーバー時にサービスの停止を防ぐために、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する必要があります。
+> SQL Always On インスタンスを使用して App Service RP を提供している場合は、データベースのフェールオーバー時にサービスの停止を防ぐために、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する**必要があります**。
 
-既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。  管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
+既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。 管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
 
-- ソース:任意
+- ソース:Any
 - 送信元ポート範囲: *
 - 変換先:IP アドレス
 - 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
 - 送信先ポート範囲:445
 - プロトコル:TCP
-- アクション:ALLOW
+- アクション:Allow
 - 優先順位:700
 - 名前:Outbound_Allow_SMB445
 
@@ -207,16 +204,16 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 2. 概要の状態で、 **[状態]** に **[ロールはいずれも準備ができています]** と表示されていることを確認します。
 
-    ![App Service の管理](media/azure-stack-app-service-deploy/image12.png)
+    ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service on Azure Stack を試してみる
 
 App Service リソースプロバイダーをデプロイして登録したら、テストしてユーザーが Web アプリと API アプリをデプロイできることを確認します。
 
 >[!NOTE]
->プラン内に Microsoft.Web 名前空間があるオファーを作成する必要があります。 また、このオファーにサブスクライブするテナント サブスクリプションも必要です。 詳しくは、「[Azure Stack でのオファーの作成](azure-stack-create-offer.md)」および「[Azure Stack でのプランの作成](azure-stack-create-plan.md)」をご覧ください。
+>プラン内に Microsoft.Web 名前空間があるオファーを作成する必要があります。 また、このオファーにサブスクライブするテナント サブスクリプションも必要です。 詳細については、[オファーの作成](azure-stack-create-offer.md)と[プランの作成](azure-stack-create-plan.md)に関するページをご覧ください。
 >
->App Service on Azure Stack を使うアプリケーションを作るには、テナント サブスクリプションが*必要です*。 管理ポータル内でサービス管理者が実行できるタスクは、App Service のリソース プロバイダー管理に関連するものだけです。 これには、容量の追加、デプロイ ソースの構成、worker 層と SKU の追加などが含まれます。
+>App Service on Azure Stack を使うアプリを作るには、テナント サブスクリプションが*必要です*。 管理ポータル内でサービス管理者が実行できるタスクは、App Service のリソース プロバイダー管理に関連するものだけです。 これには、容量の追加、デプロイ ソースの構成、worker 層と SKU の追加などが含まれます。
 >
 >Web アプリ、API アプリ、Azure Functions アプリを作るには、テナント ポータルを使う必要があり、テナント サブスクリプションがある必要があります。
 >
@@ -249,15 +246,10 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 ## <a name="next-steps"></a>次の手順
 
-その他の [Platform as a Service (PaaS) サービス](azure-stack-offer-services-overview.md)を試してみることもできます。
+App Service on Azure Stack のための追加の管理者操作を準備します。
 
-- [SQL Server リソースプロバイダー](azure-stack-sql-resource-provider-deploy.md)
-- [MySQL リソースプロバイダー](azure-stack-mysql-resource-provider-deploy.md)
-
-<!--Links-->
-[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
+- [容量計画](azure-stack-app-service-capacity-planning.md)
+- [デプロイ ソースを構成する](azure-stack-app-service-configure-deployment-sources.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

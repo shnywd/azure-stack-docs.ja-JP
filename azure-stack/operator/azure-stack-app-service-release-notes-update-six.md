@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: db403f68879efa9103e35bb3581801240c0d64d3
-ms.sourcegitcommit: 1545e18a31cd715a12c7ddc3bcb173b41eb41730
+ms.openlocfilehash: c142ecda309f00ee94429be3d7b8f3c6e8072668
+ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2019
-ms.locfileid: "67348734"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70188221"
 ---
 # <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack update 6 のリリース ノート
 
@@ -89,19 +89,19 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
 - App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。Azure App Service on Azure Stack のデプロイ ドキュメントで説明されているとおりです。
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする必要があります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
- * ソース:任意
+ * ソース:Any
  * 送信元ポート範囲: *
  * 変換先:IP アドレス
  * 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
  * 送信先ポート範囲:445
  * プロトコル:TCP
- * アクション:ALLOW
+ * アクション:Allow
  * 優先順位:700
  * 名前:Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に関する既知の問題
 
-[Azure Stack 1904 リリース ノート](azure-stack-release-notes-1904.md)内のドキュメントを参照してください。
+[Azure Stack 1908 リリース ノート](azure-stack-release-notes-1908.md)内のドキュメントを参照してください
 
 ### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack にアプリケーションをデプロイするテナントに関する既知の問題
 

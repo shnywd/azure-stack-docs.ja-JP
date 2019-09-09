@@ -12,23 +12,23 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: c97598145b0d03f3b25876296cb070b0301a3742
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: a33dc4ee1d9889b1dfa817b18b2c5c97e78c8432
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269229"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159619"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>App Service リソースプロバイダーを AD FS によって保護されているオフラインの Azure Stack 環境に追加する
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
+> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1907 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
 
 この記事の手順に従うと、次のような Azure Stack 環境に [App Service リソースプロバイダー](azure-stack-app-service-overview.md)をインストールできます。
 
@@ -36,7 +36,7 @@ ms.locfileid: "66269229"
 - Active Directory フェデレーション サービス (AD FS) によって保護されている
 
 > [!IMPORTANT]
-> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、6 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-six.md)を読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
+> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.7 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-seven.md)を読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
 
 App Service リソースプロバイダーをオフライン Azure Stack の展開に追加するには、次の最上位のタスクをすべて実行する必要があります。
 
@@ -203,13 +203,13 @@ App Service リソースプロバイダーをオフライン Azure Stack の展�
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする必要があります。  管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
 
-- ソース:任意
+- ソース:Any
 - 送信元ポート範囲: *
 - 変換先:IP アドレス
 - 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
 - 送信先ポート範囲:445
 - プロトコル:TCP
-- アクション:ALLOW
+- アクション:Allow
 - 優先順位:700
 - 名前:Outbound_Allow_SMB445
 
@@ -219,7 +219,7 @@ App Service リソースプロバイダーをオフライン Azure Stack の展�
 
 2. 概要の状態で、 **[状態]** に **[ロールはいずれも準備ができています]** と表示されていることを確認します。
 
-    ![App Service の管理](media/azure-stack-app-service-deploy/image12.png)
+    ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>App Service on Azure Stack を試してみる
 
@@ -258,15 +258,10 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 ## <a name="next-steps"></a>次の手順
 
-その他の [Platform as a Service (PaaS) サービス](azure-stack-offer-services-overview.md)を試してみることもできます。
+App Service on Azure Stack のための追加の管理者操作を準備します
 
-- [SQL Server リソースプロバイダー](azure-stack-sql-resource-provider-deploy.md)
-- [MySQL リソースプロバイダー](azure-stack-mysql-resource-provider-deploy.md)
-
-<!--Links-->
-[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
-[App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
+- [容量計画](azure-stack-app-service-capacity-planning.md)
+- [デプロイ ソースを構成する](azure-stack-app-service-configure-deployment-sources.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 08/29/2019
 ms.author: sethm
 ms.reviewer: efemmano
-ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 6f417b8afdf5315f581db52dc4b850f72e02b1f0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.lastreviewed: 08/29/2019
+ms.openlocfilehash: 72787bda5dd5fad372af33141e276b4852f86c39
+ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991746"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70159514"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>プラン、オファー、クォータ、サブスクリプションの概要
 
@@ -85,7 +85,7 @@ ms.locfileid: "68991746"
 
 ### <a name="default-provider-subscription"></a>既定のプロバイダー サブスクリプション
 
-既定のプロバイダー サブスクリプションは、Azure Stack Development Kit をデプロイするときに、自動的に作成されます。 このサブスクリプションは、Azure Stack の管理、追加のリソース プロバイダーのデプロイ、およびユーザーのためのプランおよびオファーの作成に使用できます。 セキュリティとライセンス上の理由から、このサブスクリプションを顧客ワークロードとアプリケーションの実行に使用しないでください。
+既定のプロバイダー サブスクリプションは、Azure Stack Development Kit をデプロイするときに、自動的に作成されます。 このサブスクリプションは、Azure Stack の管理、追加のリソース プロバイダーのデプロイ、およびユーザーのためのプランおよびオファーの作成に使用できます。 セキュリティとライセンス上の理由から、このサブスクリプションを顧客ワークロードとアプリケーションの実行に使用しないでください。 既定のプロバイダー サブスクリプションのクォータは変更できません。
 
 ## <a name="next-steps"></a>次の手順
 
