@@ -143,6 +143,8 @@
       items:
         - name: 管理の基本
           href: azure-stack-manage-basics.md
+        - name: ポータルからユーザー データをクリアする
+          href: azure-stack-portal-clear.md
         - name: テレメトリの収集の構成
           href: azure-stack-telemetry.md
         - name: Azure Stack の登録
