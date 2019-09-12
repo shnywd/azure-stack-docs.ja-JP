@@ -15,16 +15,16 @@ ms.date: 05/06/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 77b341baca92e53448065325118088ff01a59052
-ms.sourcegitcommit: 2a4321a9cf7bef2955610230f7e057e0163de779
+ms.openlocfilehash: 1fa83cbbdba011646016e1e0b0fd5bef3b8d0baf
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65617822"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377274"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
-SQL リソース プロバイダーは、ロック ダウンされた仮想マシン上で実行されます。 保守操作を有効にするには、仮想マシンのセキュリティを更新する必要があります。 最小限の特権の原則を使用してそれを行うには、[PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/jea/overview) エンドポイント *DBAdapterMaintenance* を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
+SQL リソース プロバイダーは、ロック ダウンされた仮想マシン上で実行されます。 保守操作を有効にするには、仮想マシンのセキュリティを更新する必要があります。 最小限の特権の原則を使用してそれを行うには、[PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイント *DBAdapterMaintenance* を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
 
 ## <a name="patching-and-updating"></a>修正プログラム適用と更新
 
@@ -38,7 +38,7 @@ SQL リソース プロバイダーはアドオン コンポーネントであ�
 
 管理者は、SQL Server の sysadmin アカウントの作成と保守を担当します。 リソース プロバイダーには、ユーザーに代わってデータベースを管理するためにこれらの権限があるアカウントが必要となりますが、ユーザーのデータにアクセスする必要はありません。 SQL Server で sysadmin パスワードを更新する必要がある場合、リソース プロバイダーの管理者インターフェイスを使用して、保存済みパスワードを変更できます。 これらのパスワードは、Azure Stack インスタンス上の Key Vault に格納されています。
 
-設定を変更するには、**[参照]** &gt; **[管理リソース]** &gt; **[SQL ホスティング サーバー]** &gt; **[SQL ログイン]** の順に選択し、ユーザー名を選択します。 変更は、最初に SQL インスタンス (および必要な場合はレプリカ) で行う必要があります。**[設定]** で **[パスワード]** を選択します。
+設定を変更するには、 **[参照]** &gt; **[管理リソース]** &gt; **[SQL ホスティング サーバー]** &gt; **[SQL ログイン]** の順に選択し、ユーザー名を選択します。 変更は、最初に SQL インスタンス (および必要な場合はレプリカ) で行う必要があります。 **[設定]** で **[パスワード]** を選択します。
 
 ![管理パスワードの更新](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
@@ -116,7 +116,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 **問題**:シークレット ローテーション ログ。<br>
 シークレット ローテーションのカスタム スクリプトが実行され、失敗した場合、シークレット ローテーションのログは自動的に収集されません。
 
-**対処法**: <br>
+**対処法**:<br>
 Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存されているすべてのリソース プロバイダーのログ (AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log など) を収集します。
 
 ## <a name="update-the-virtual-machine-operating-system"></a>仮想マシンのオペレーティング システムの更新
@@ -128,7 +128,7 @@ Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存さ
 
 ## <a name="update-the-virtual-machine-windows-defender-definitions"></a>仮想マシンの Windows Defender の定義を更新する
 
-Windows Defender の定義を更新するには: 
+Windows Defender の定義を更新するには:
 
 1. [Windows Defender の定義](https://www.microsoft.com/en-us/wdsi/definitions)から Windows Defender 定義の更新をダウンロードします。
 

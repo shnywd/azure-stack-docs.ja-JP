@@ -3,7 +3,7 @@ title: Azure Stack での更新の管理 | Microsoft Docs
 description: Azure Stack での更新の管理について説明します
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f34f31ac54881c5911488f5049cc75ffee85bd38
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234925"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70862993"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
@@ -67,7 +67,7 @@ ms.locfileid: "70234925"
 
     Microsoft ソフトウェア更新プログラムおよび修正プログラムの更新アラートは、インターネットに接続されている Azure Stack インスタンスの [更新] ブレードに表示されます。
 
-    インスタンスが接続されておらず、各修正プログラムのリリースについて通知を受け取ることを希望する場合は、[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
+    インスタンスが接続されておらず、各修正プログラムのリリースについて通知を受け取ることを希望する場合は、[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
 
 - **OEM ハードウェア ベンダー提供の更新プログラム**
 
