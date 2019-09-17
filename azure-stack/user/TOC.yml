@@ -191,16 +191,39 @@
             - name: Service Fabric クラスターのデプロイ
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Kubernetes クラスターのデプロイ
-              href: azure-stack-solution-template-kubernetes-deploy.md
               items:
-                - name: Azure AD を使用した Kubernetes のデプロイ
-                  href: azure-stack-solution-template-kubernetes-azuread.md
-                - name: AD FS を使用した Kubernetes のデプロイ
-                  href: azure-stack-solution-template-kubernetes-adfs.md
-                - name: Kubernetes ダッシュボードの有効化
-                  href: azure-stack-solution-template-kubernetes-dashboard.md
-                - name: Kubernetes クラスターのトラブルシューティング
-                  href: azure-stack-solution-template-kubernetes-trouble.md
+                - name: AKS Engine
+                  items:
+                    - name: Azure Stack 上の AKS Engine
+                      href: azure-stack-kubernetes-aks-engine-overview.md
+                    - name: サポート ポリシー
+                      href: azure-stack-kubernetes-ask-engine-support.md
+                    - name: AKS Engine を設定する
+                      href: azure-stack-kubernetes-aks-engine-set-up.md
+                    - name: Linux クライアントを作成する
+                      href: azure-stack-kubernetes-aks-engine-deploy-linux.md
+                    - name: Windows クライアントを作成する
+                      href: azure-stack-kubernetes-aks-engine-deploy-windows.md
+                    - name: クラスターのデプロイ
+                      href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: クラスターのスケーリング
+                      href: azure-stack-kubernetes-aks-engine-scale.md
+                    - name: クラスターをアップグレードする
+                      href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: AKS Engine のトラブルシューティング
+                      href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                - name: Marketplace の項目
+                  items:
+                    - name: Kubernetes クラスターのデプロイ
+                      href: azure-stack-solution-template-kubernetes-deploy.md
+                    - name: Azure AD を使用した Kubernetes のデプロイ
+                      href: azure-stack-solution-template-kubernetes-azuread.md
+                    - name: AD FS を使用した Kubernetes のデプロイ
+                      href: azure-stack-solution-template-kubernetes-adfs.md
+                    - name: Kubernetes ダッシュボードの有効化
+                      href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Kubernetes クラスターのトラブルシューティング
+                      href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services のデプロイ
               href: azure-stack-solution-template-cognitive-services.md
     - name: アプリをデプロイする
