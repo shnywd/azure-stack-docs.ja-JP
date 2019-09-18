@@ -12,22 +12,86 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 09/04/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 9b78a7ee9af9dde3cbb40b52268cb4cbfc0a6dcc
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.lastreviewed: 09/04/2019
+ms.openlocfilehash: a9d62640b2baabfd3283099656719a880dd0a41b
+ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268235"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70377240"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack のトラブルシューティング
 
-このドキュメントでは、Azure Stack の一般的なトラブルシューティング情報を提供します。 推奨事項とコード例は現状のまま提供されており、必ずしもお客様の問題を解決できるとは限りません。 
+このドキュメントでは、Azure Stack のトラブルシューティング情報を提供します。 
 
-## <a name="deployment"></a>Deployment
+
+## <a name="frequently-asked-questions"></a>よく寄せられる質問
+
+以下のセクションには、Microsoft カスタマー サポート サービス (CSS) に送られてくる一般的な質問を取り上げたドキュメントのリンクが含まれています。
+
+### <a name="purchase-considerations"></a>購入に関する考慮事項
+
+* [購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)
+* [Azure Stack の概要](azure-stack-overview.md)
+
+### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
+
+[Azure Stack Development Kit](../asdk/asdk-what-is.md) のヘルプについては、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で専門家に問い合わせます。 ASDK は、CSS によるサポートがない評価環境として提供されています。 ASDK に対してオープンされたサポート ケースは MSDN フォーラムに回されます。
+
+### <a name="updates-and-diagnostics"></a>更新と診断
+
+* [Azure Stack で診断ツールを使用する方法](azure-stack-diagnostics.md)
+* [Azure Stack システム状態を確認する方法](azure-stack-diagnostic-test.md)
+* [更新プログラム パッケージのリリース周期](azure-stack-servicing-policy.md#update-package-release-cadence)
+
+### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>ゲスト VM でサポートされているオペレーティング システムとサイズ
+
+* [Azure Stack でサポートされているゲスト オペレーティング システム](azure-stack-supported-os.md)
+* [Azure Stack でサポートされている VM サイズ](../user/azure-stack-vm-sizes.md)
+
+### <a name="azure-marketplace"></a>Azure Marketplace
+
+* [Azure Stack 用の Azure Marketplace 項目](azure-stack-marketplace-azure-items.md)
+
+### <a name="manage-capacity"></a>キャパシティの管理
+
+#### <a name="memory"></a>メモリ
+
+Azure Stack に関して使用可能な総メモリ容量を増やすために、新たにメモリを増設することができます。 Azure Stack では、物理サーバーは スケール ユニット ノードと呼ばれることもあります。 単一のスケール ユニットに属しているすべてのスケール ユニット ノードには、[同量のメモリ](azure-stack-manage-storage-physical-memory-capacity.md)が確保されている必要があります。
+
+#### <a name="retention-period"></a>保持期間
+
+保有期間の設定では、クラウド オペレーターは削除されたアカウントが回復できる可能性がある期間を日数で指定できます (0 から 9999 日の間)。 既定の保有期間は 0 日に設定されています。 値を "0" に設定すると、削除されたすべてのアカウントがすぐに保有期間外になり、定期的なガベージ コレクションの対象としてマークされます。
+
+* [保有期間の設定](azure-stack-manage-storage-accounts.md#set-the-retention-period)
+
+### <a name="security-compliance-and-identity"></a>セキュリティ、コンプライアンス、ID  
+
+#### <a name="manage-rbac"></a>RBAC の管理
+
+Azure Stack のユーザーは、サブスクリプション、リソース グループ、またはサービスの各インスタンスの閲覧者、所有者、または共同作業者になることができます。
+
+* [Azure Stack での RBAC の管理](azure-stack-manage-permissions.md)
+
+Azure リソースの組み込みロールが組織の特定のニーズを満たさない場合は、独自のカスタム ロールを作成することができます。 このチュートリアルでは、Azure PowerShell を使用して、Reader Support Tickets というカスタム ロールを作成します。
+
+* [チュートリアル:Azure PowerShell を使用して Azure リソースのカスタム ロールを作成する](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+
+### <a name="manage-usage-and-billing-as-a-csp"></a>使用量と課金を CSP として管理する
+
+* [使用量と課金を CSP として管理する](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+* [CSP または APSS サブスクリプションを作成する](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)
+
+Azure Stack で使用する共有サービス アカウントの種類を選択します。 マルチテナント Azure Stack の登録に使用できるサブスクリプションの種類は次のとおりです。
+
+* Cloud Service Provider
+* Partner Shared Services サブスクリプション
+
+
+## <a name="troubleshoot-deployment"></a>デプロイのトラブルシューティング 
 ### <a name="general-deployment-failure"></a>一般的なデプロイの失敗
 インストール時に障害が発生した場合、デプロイ スクリプトの -rerun オプションを使用して、失敗した手順からデプロイを再開できます。  
 
@@ -54,7 +118,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 
 このコマンドが失敗する場合は、TOR スイッチおよびその他のネットワーク デバイスがすべて、[ネットワーク トラフィックを許可する](azure-stack-network.md)ように構成されていることを確認します。
 
-## <a name="virtual-machines"></a>仮想マシン
+## <a name="troubleshoot-virtual-machines"></a>仮想マシンのトラブルシューティング
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム
 Azure Stack に VM をデプロイする前に、まず Windows Server イメージとギャラリー アイテムを追加する必要があります。
 
@@ -66,7 +130,7 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 1.  Azure Stack Development Kit ホストで、[スタート] メニューから**フェールオーバー クラスター マネージャー**を起動します。
 2.  クラスター **S-Cluster.azurestack.local** を選択します。
 3.  **[役割]** を選びます。
-4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、VM を再開します。
+4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、それらを再開します。
 
 ### <a name="i-have-deleted-some-virtual-machines-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>一部の仮想マシンを削除しましたが、まだディスクに VHD ファイルが表示されます。 これは期待される動作ですか。
 はい、これは正しい動作です。 これがそのように設計された理由は次のとおりです。
@@ -78,7 +142,7 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 
 リテンション期間しきい値と、オンデマンドの再利用の設定について詳しくは、[ストレージ アカウントの管理](azure-stack-manage-storage-accounts.md)に関するページを参照してください。
 
-## <a name="storage"></a>Storage
+## <a name="troubleshoot-storage"></a>ストレージのトラブルシューティング
 ### <a name="storage-reclamation"></a>記憶域の再利用
 ポータルに再利用された容量が表示されるまで、最大で 14 時間かかる場合があります。 領域の再利用は、ブロック BLOB ストア内の内部コンテナー ファイルの使用率をなど、さまざまな要因に依存します。 そのため、削除されるデータの量によって、ガベージ コレクターの実行時に再利用可能になる領域の量に対する保証はありません。
 

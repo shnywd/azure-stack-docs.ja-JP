@@ -1,24 +1,24 @@
 ---
 title: アプリ ID を使用してリソースにアクセスする
 description: サインインとリソースへのアクセスを目的としてロールベースのアクセス制御とともに使用できる、サービス プリンシパルを管理する方法を説明します。
-services: azure-resource-manager
+services: azure-stack
 documentationcenter: na
 author: BryanLa
 manager: femila
-ms.service: azure-resource-manager
+ms.service: azure-stack
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2019
+ms.date: 09/09/2019
 ms.author: bryanla
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 8c27948185df5f98926a3500db0981a1ccddc321
-ms.sourcegitcommit: c9d11be7d27c73797bdf279d4fcabb7a22451541
+ms.openlocfilehash: 6855ca4d6453c152bc46584248865bb1934419ca
+ms.sourcegitcommit: 305536bfd49319455ca3ca270fe3644b1796bad1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/26/2019
-ms.locfileid: "67397308"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70876577"
 ---
 # <a name="use-an-app-identity-to-access-resources"></a>アプリ ID を使用してリソースにアクセスする
 
@@ -80,9 +80,9 @@ Azure Stack をデプロイするときに Active Directory Federation Services 
 
 サービス プリンシパル資格情報のための証明書を作成するときは、次の要件を満たす必要があります。
 
- - 暗号化サービス プロバイダー (CSP) は、従来のキー プロバイダーである必要があります。
+ - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に関するページに完全な一覧があります。 "自己署名" テスト証明書の作成の例については、後で「[サービス プリンシパルの証明書資格情報を更新する](#update-a-service-principals-certificate-credential)」でも示しています。 
+ - 暗号化プロバイダーを、Microsoft レガシ暗号化サービス プロバイダー (CSP) のキー プロバイダーとして指定する必要があります。
  - 公開キーと秘密キーの両方が必要なため、証明書は PFX ファイル形式である必要があります。 Windows サーバーでは、公開キー ファイル (SSL 証明書ファイル) と関連付けられている秘密キー ファイルが含まれている .pfx ファイルが使用されます。
- - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に関するページに完全な一覧があります。
  - お使いの Azure Stack インフラストラクチャは、証明書において公開されている証明機関の証明書失効リスト (CRL) の場所にネットワーク アクセスできる必要があります。 この CRL は、HTTP エンドポイントである必要があります。
 
 証明書を用意できたら、下記の PowerShell スクリプトを使用してアプリケーションを登録し、サービス プリンシパルを作成します。 また、このサービス プリンシパルを使用して Azure にサインインします。 次のプレースホルダーを実際の値で置き換えてください。

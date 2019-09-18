@@ -3,23 +3,23 @@ title: Azure Stack 統合システム デプロイのための Azure Stack 公�
 description: Azure Stack 統合システムの Azure Stack PKI 証明書のデプロイ プロセスについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 1c342b1edb86629fff95dc04735fd5b6d98fc70a
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782269"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902682"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 証明書署名要求の生成
 
@@ -39,7 +39,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
   - リージョン名
   - 外部完全修飾ドメイン名 (FQDN)
   - サブジェクト
-- Windows 10 または Windows Server 2016
+- Windows 10 または Windows Server 2016 以降
 
   > [!NOTE]  
   > 証明機関から証明書が送り返されたら、「[Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md)」の手順を同じシステムで完了する必要があります。
@@ -54,7 +54,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 順序指定されたディクショナリとして**サブジェクト**を宣言します。 例: 
+2. 順序指定されたディクショナリとして**サブジェクト**を宣言します。 例:
 
     ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
@@ -63,7 +63,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     > [!note]  
     > 共通名 (CN) が指定されている場合、証明書要求の最初の DNS 名によって上書きされます。
 
-3. 既に存在する出力ディレクトリを宣言します。 例: 
+3. 既に存在する出力ディレクトリを宣言します。 例:
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -101,7 +101,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
 
     PaaS サービスを含めるには、スイッチ ```-IncludePaaS``` を指定します
 
-7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、**-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨**されません**)。
+7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨**されません**)。
 
     ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

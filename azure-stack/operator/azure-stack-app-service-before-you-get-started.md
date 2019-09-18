@@ -16,12 +16,12 @@ ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a12aceff00cf5be2d6ab70c4957ef04ea1c135d5
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271707"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386232"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>App Service on Azure Stack のデプロイの前提条件
 
@@ -47,9 +47,12 @@ Azure App Service on Azure Stack をデプロイする前に、この記事に�
    - モジュール フォルダー
      - GraphAPI.psm1
 
-## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>Marketplace からカスタム スクリプト拡張機能を配信する
+## <a name="download-items-from-the-azure-marketplace"></a>Azure Marketplace からの項目のダウンロード
 
-Azure App Service on Azure Stack ではカスタム スクリプト拡張機能 v1.9.1 が必要です。  Azure App Service on Azure Stack のデプロイまたはアップグレードを開始する前に、拡張機能を [Marketplace から配信](azure-stack-download-azure-marketplace-item.md)する必要があります。
+Azure App Service on Azure Stack では、[Azure Marketplace から項目をダウンロード](azure-stack-download-azure-marketplace-item.md)し、Azure Stack Marketplace でそれらを使用できるようにする必要があります。 Azure App Service on Azure Stack のデプロイまたはアップグレードを開始する前に、これらの項目をダウンロードする必要があります。
+
+1. Windows Server 2016 Datacenter Edition 仮想マシン イメージの最新バージョン。
+2. カスタム スクリプト拡張機能 v1.9.1 以上。 これは仮想マシンの拡張機能です。
 
 ## <a name="get-certificates"></a>証明書を取得する
 

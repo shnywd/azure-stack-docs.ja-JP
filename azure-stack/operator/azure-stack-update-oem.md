@@ -15,12 +15,12 @@ ms.date: 08/28/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bea83d743e7f43ff25d446a09b0e12d0c0af4232
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b218a1b40953d9266ec5a8bcdd49f5d89a421146
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188373"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749931"
 ---
 # <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する
 
@@ -42,7 +42,7 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 
 このセクションには、OEM の連絡先情報と OEM Azure Stack の参考資料へのリンクが記載されています。
 
-| ハードウェア パートナー | Region | URL |
+| ハードウェア パートナー | リージョン | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cisco | All | [Cisco Azure Stack Support/Firmware Updates - Automatic Notification (アカウント/ログインが必要)](https://software.cisco.com/download/redirect?i=!y&mdfid=283862063&softwareid=286320368&release=1.0(0)&os=)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
 | Dell EMC | All | [Cloud for Microsoft Azure Stack 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
@@ -59,8 +59,9 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 1. 次の場合に、OEM に問い合わせる必要があります。
       - OEM パッケージの現在のバージョンを確認する。  
       - OEM パッケージをダウンロードするための最適な方法を見つける。  
-2. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md)」に記載されている手順で、OEM パッケージを準備します。
-3. 「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」に記載されている手順で更新プログラムを適用します。
+2. OEM パッケージ更新プログラムを適用する前に、常にシステムの現在の Azure Stack バージョンで利用可能な最新の Azure Stack 修正プログラムを適用する必要があります。 修正プログラムの詳細については、[Azure Stack 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)に関するページを参照してください。
+3. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md)」に記載されている手順で、OEM パッケージを準備します。
+4. 「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」に記載されている手順で更新プログラムを適用します。
 
 ## <a name="configure-hardware-vendor-vm"></a>ハードウェアベンダー VM を構成する
 

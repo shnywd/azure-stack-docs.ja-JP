@@ -1,9 +1,9 @@
 ---
-title: Azure Stack で OEM 更新プログラムをインストールする | Microsoft Docs
-description: Azure Stack で OEM 更新プログラムをインストールする方法を説明します。
+title: Azure Stack 更新プログラムのインストール | Microsoft Docs
+description: Azure Stack 更新プログラムをインストールする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabriggs
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a563c3ec43950122e045b0ec3168bcb3ca11fe56
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
+ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271793"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "70863061"
 ---
-# <a name="install-oem-updates-in-azure-stack"></a>Azure Stack で OEM 更新プログラムをインストールする
+# <a name="install-azure-stack-updates"></a>Azure Stack 更新プログラムのインストール
 
 *適用対象:Azure Stack 統合システム*
 
-Azure Stack の **[更新]** ブレードを使用して、OEM (相手先ブランド供給) 更新プログラムをインストールすることができます。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、および現在の OEM パッケージ バージョンの表示を行います。
+更新プログラム パッケージをインストールするには、Azure Stack の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、および現在の Azure Stack と OEM パッケージ バージョンの表示を行います。
 
 管理ポータルから更新プログラムを管理したり、ダッシュボードの **[更新プログラム]** セクションで次のことを行ったりできます。
 
@@ -39,7 +39,7 @@ Azure Stack の **[更新]** ブレードを使用して、OEM (相手先ブラ�
 
 現在のバージョンの Azure Stack は **[更新]** ブレードで表示できます。 開くには:
 
-1.  Azure Stack 管理ポータルを開きます。
+1.  Azure Stack 管理者ポータルを開きます。
 
 2.  **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。
 

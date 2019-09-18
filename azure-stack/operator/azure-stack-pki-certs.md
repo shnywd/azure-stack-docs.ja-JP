@@ -3,7 +3,7 @@ title: Azure Stack 統合システムの Azure Stack 公開キー インフラ�
 description: Azure Stack 統合システムの Azure Stack PKI 証明書のデプロイ要件について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
-ms.author: mabrigg
+ms.date: 09/10/2019
+ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 3ca7624627ff02cc3ef230a510038f2db5ff5247
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.lastreviewed: 09/10/2019
+ms.openlocfilehash: 53d8e3daecba269bcdd21fc726e312758f1f6c6f
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782305"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902698"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開キー インフラストラクチャ証明書の要件
 
@@ -31,8 +31,8 @@ Azure Stack には、少数の Azure Stack サービスやテナント VM に割
 - これらの仕様に一致する証明書を取得するプロセス
 - デプロイ中にこれらの証明書を準備、検証、および使用する方法
 
-> [!Note]  
-> デプロイ時には、その対象となる ID プロバイダー (Azure AD または AD FS) に合ったデプロイ フォルダーに証明書をコピーする必要があります。 すべてのエンドポイントについて 1 つの証明書を使用する場合は、後述の表に記載した各デプロイ フォルダーに、その証明書ファイルをコピーしてください。 フォルダー構造は、デプロイ仮想マシンにあらかじめ作成されており、次の場所で確認できます。C:\CloudDeployment\Setup\Certificates 
+> [!NOTE]
+> 既定で Azure Stack では、ノード間の認証に、内部の Active Directory 統合証明機関 (CA) から発行された証明書も使用されます。 証明書を検証するには、すべての Azure Stack インフラストラクチャ マシンで、その証明書をローカルの証明書ストアに追加することによって、内部 CA のルート証明書を信頼します。 Azure Stack には、証明書のピン留めまたはホワイトリスト登録がありません。 各サーバー証明書の SAN は、ターゲットの FQDN に対して検証されます。 証明書の有効期限 (証明書のピン留めがない標準 TLS サーバー認証) と共に、信頼チェーン全体も検証されます。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 次の一覧では、Azure Stack をデプロイするために必要な証明書の要件について説明します。 
@@ -56,17 +56,20 @@ Azure Stack には、少数の Azure Stack サービスやテナント VM に割
 > 自己署名証明書は使用できません。
 
 > [!NOTE]  
-> 証明書の信頼チェーン内での中間証明機関の存在がサポートされています。 
+> 証明書の信頼チェーン内での中間証明機関の存在が*サポートされています*。 
 
 ## <a name="mandatory-certificates"></a>必須の証明書
 このセクションの表では、Azure AD と AD FS Azure Stack の両方のデプロイに必要な Azure Stack パブリック エンドポイント PKI 証明書について説明します。 証明書の要件が領域のほか、使用される名前空間や、名前空間ごとに必要な証明書でグループ化されています。 この表ではまた、ソリューション プロバイダーがパブリック エンドポイントごとに異なる証明書をコピーするフォルダーについても説明します。 
 
-各 Azure Stack パブリック インフラストラクチャ エンドポイントの適切な DNS 名を持つ証明書が必要です。 各エンドポイントの DNS 名は、*&lt;prefix>.&lt;region>.&lt;fqdn>* の形式で表されます。 
+各 Azure Stack パブリック インフラストラクチャ エンドポイントの適切な DNS 名を持つ証明書が必要です。 各エンドポイントの DNS 名は、 *&lt;prefix>.&lt;region>.&lt;fqdn>* の形式で表されます。 
 
 デプロイでは、[region] と [externalfqdn] の値が Azure Stack システム用に選択したリージョン名と外部ドメイン名に一致している必要があります。 例として、リージョン名が *Redmond* で、外部ドメイン名が *contoso.com* である場合、DNS 名は *&lt;prefix>.redmond.contoso.com* の形式になります。 *&lt;prefix>* 値は、その証明書によってセキュリティ保護されるエンドポイントを指定するようにマイクロソフトによって事前に設計されています。 さらに、外部インフラストラクチャ エンドポイントの *&lt;prefix>* 値は、特定のエンドポイントを使用する Azure Stack サービスによって異なります。 
 
-> [!note]  
-> 運用環境では、各証明書がエンドポイントごとに生成され、対応するディレクトリにコピーされることをお勧めします。 開発環境では、証明書は、すべてのディレクトリにコピーされるサブジェクト フィールドおよびサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つのワイルドカード証明書として提供することができます。 すべてのエンドポイントとサービスをカバーする 1 つの証明書は開発専用であるため、安全でない状態です。 どちらのオプションでも、証明書を必要とする **acs** や Key Vault などのエンドポイントにはワイルドカード証明書を使う必要があることに注意してください。 
+運用環境では、各証明書がエンドポイントごとに生成され、対応するディレクトリにコピーされることをお勧めします。 開発環境では、証明書は、すべてのディレクトリにコピーされるサブジェクト フィールドおよびサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つのワイルドカード証明書として提供することができます。 すべてのエンドポイントとサービスをカバーする 1 つの証明書は開発専用であるため、安全でない状態です。 どちらのオプションでも、証明書を必要とする **acs** や Key Vault などのエンドポイントにはワイルドカード証明書を使う必要があることに注意してください。 
+
+> [!Note]  
+> デプロイ時には、その対象となる ID プロバイダー (Azure AD または AD FS) に合ったデプロイ フォルダーに証明書をコピーする必要があります。 すべてのエンドポイントについて 1 つの証明書を使用する場合は、次の表に記載した各デプロイ フォルダーに、その証明書ファイルをコピーする必要があります。 フォルダー構造は、デプロイ仮想マシンにあらかじめ作成されており、次の場所で確認できます。C:\CloudDeployment\Setup\Certificates 
+
 
 | デプロイ フォルダー | 必要な証明書のサブジェクト名とサブジェクトの別名 (SAN) | スコープ (リージョンごと) | サブドメインの名前空間 |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
@@ -86,8 +89,8 @@ Azure AD デプロイ モードを使用して Azure Stack をデプロイする
 
 |デプロイ フォルダー|必要な証明書のサブジェクト名とサブジェクトの別名 (SAN)|スコープ (リージョンごと)|サブドメインの名前空間|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL 証明書)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(SSL 証明書)|Graph|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graph|graph. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書)|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -103,15 +106,15 @@ Azure Stack がデプロイおよび構成された後に追加の Azure Stack P
 
 |スコープ (リージョンごと)|証明書|必要な証明書のサブジェクト名とサブジェクトの別名 (SAN)|サブドメインの名前空間|
 |-----|-----|-----|-----|
-|SQL、MySQL|SQL および MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|dbadapter.*&lt;region>.&lt;fqdn>*|
-|App Service|Web トラフィックの既定の SSL 証明書|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(マルチドメイン ワイルドカード SSL 証明書<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|App Service|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|SQL、MySQL|SQL および MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|dbadapter. *&lt;region>.&lt;fqdn>*|
+|App Service|Web トラフィックの既定の SSL 証明書|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(マルチドメイン ワイルドカード SSL 証明書<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 複数のワイルドカード サブジェクトの別名を持つ 1 つの証明書が必要です。 1 つの証明書での複数のワイルドカード SAN は、公的証明機関によってはサポートされない可能性があります。 
 
-<sup>2</sup> これらの 3 つの証明書 (api.appservice.*&lt;region>.&lt;fqdn>*、ftp.appservice.*&lt;region>.&lt;fqdn>*、および sso.appservice.*&lt;region>.&lt;fqdn>*) の代わりに &#42;.appservice.*&lt;region>.&lt;fqdn>* ワイルドカード証明書を使用することはできません。 App Service では、これらのエンドポイントに個別の証明書を明示的に使用する必要があります。 
+<sup>2</sup> これらの 3 つの証明書 (api.appservice. *&lt;region>.&lt;fqdn>* 、ftp.appservice. *&lt;region>.&lt;fqdn>* 、および sso.appservice. *&lt;region>.&lt;fqdn>* ) の代わりに &#42;.appservice. *&lt;region>.&lt;fqdn>* ワイルドカード証明書を使用することはできません。 App Service では、これらのエンドポイントに個別の証明書を明示的に使用する必要があります。 
 
 ## <a name="learn-more"></a>詳細情報
 [Azure Stack デプロイのための PKI 証明書を生成する](azure-stack-get-pki-certs.md)方法について理解を深めましょう。 

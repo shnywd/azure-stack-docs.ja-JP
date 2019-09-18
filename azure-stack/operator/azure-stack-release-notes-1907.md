@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1907
-ms.openlocfilehash: 4dc9c69479066aad3f2b4ebd08646e09da89ba3a
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: e6e873e42d6913fb6662a756a146e9af10906817
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188117"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386180"
 ---
 # <a name="azure-stack-1907-update"></a>Azure Stack 1907 更新プログラム
 
@@ -144,14 +144,14 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 Azure Stack の 1907 リリースは、次の修正プログラムが適用された 1906 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.12.54](https://support.microsoft.com/help/4518365)
+- [Azure Stack 修正プログラム 1.1906.13.56](https://support.microsoft.com/help/4520375)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>1907 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack 修正プログラム 1.1907.15.50](https://support.microsoft.com/help/4520315)
 
 ## <a name="automatic-update-notifications"></a>自動更新通知
 

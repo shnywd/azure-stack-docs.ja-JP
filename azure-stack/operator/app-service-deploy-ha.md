@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e09cc9e5c77379441d7757fa1395941712ecc5ff
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
+ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271825"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70386256"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -121,7 +121,7 @@ App Service インストーラーを実行する前に、「[App Service on Azur
 > テンプレートのデプロイによってインフラストラクチャ VM が自動的に構成されるため、[App Service を開始する前に関する記事](azure-stack-app-service-before-you-get-started.md)で説明されているすべての手順が必ずしも必要というわけではありません。
 
 - [App Service インストーラーおよびヘルパー スクリプトをダウンロードする](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
-- [Azure Stack Marketplace に最新のカスタム スクリプト拡張機能をダウンロードする](azure-stack-app-service-before-you-get-started.md#syndicate-the-custom-script-extension-from-the-marketplace)。
+- [Azure Stack Marketplace から項目をダウンロードする](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
 - [必要な証明書を生成する](azure-stack-app-service-before-you-get-started.md#get-certificates)。
 - Azure Stack 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
 - Windows Server 2016 Datacenter イメージを Azure Stack Marketplace に追加したことを確認してください。 このイメージは App Service のインストールに必要です。

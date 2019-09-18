@@ -3,7 +3,7 @@ title: Azure Stack 更新プログラム パッケージを準備する |Microso
 description: Azure Stack 更新プログラム パッケージの準備について説明します。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
-ms.lastreviewed: 09/03/2019
+ms.date: 09/10/2019
+ms.author: mabrigg
+ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 9b58b4911a575ef66c95594b6cb4cd1cc9e27a43
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
+ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235003"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70902668"
 ---
 # <a name="prepare-an-azure-stack-update-package"></a>Azure Stack 更新プログラム パッケージを準備する
 
@@ -47,9 +47,6 @@ Azure Stack 自動更新エンドポイントに接続できるシステムで�
 ## <a name="download-the-update-package"></a>更新プログラム パッケージをダウンロードする
 Azure Stack 更新プログラムと修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、Azure Stack インスタンスにアクセスできる場所にパッケージを移動する必要があります。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
 
->[!NOTE]
->更新プログラム パッケージとそのコンテンツ (バイナリ、PowerShell スクリプトなど) は、Microsoft が所有する証明書で署名されています。 パッケージを改ざんすると、この署名は無効になります。
-
 パッケージの内容を確認します。 通常、更新プログラム パッケージは、次のファイルで構成されます。
 
 -   **自己解凍形式の \<PackageName>.zip ファイル**。 このファイルには、更新プログラムのペイロードが含まれています。
@@ -62,9 +59,13 @@ Azure Stack ソフトウェア更新プログラムと修正プログラムは�
 
 [フル更新と高速更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)用の Azure Stack 更新プログラムは、セキュリティで保護された Azure エンドポイントでホストされます。 インスタンスが接続されている Azure Stack オペレーターに対しては、[Azure Stack の更新が管理者ポータルに自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 インターネットに接続されていないシステム、またはインターネット接続が弱いシステムの場合は、[Azure Stack 更新プログラム ダウンローダー ツール](https://aka.ms/azurestackupdatedownload)を使用して更新プログラム パッケージをダウンロードできます。 Azure Stack ソフトウェアの更新プログラム パッケージには、Azure Stack サービスの更新プログラムのほか、Azure Stack のスケール ユニットのオペレーティング システムの更新プログラムが含まれている場合があります。
 
+>[!NOTE]
+>更新プログラム パッケージとそのコンテンツ (バイナリ、PowerShell スクリプトなど) は、Microsoft が所有する証明書で署名されています。 パッケージを改ざんすると、この署名は無効になります。
+
+
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Azure Stack 修正プログラム パッケージをダウンロードする場所
 
-[Azure Stack 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)のパッケージは、Azure Stack 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 インスタンスが接続されている Azure Stack オペレーターに対しては、[Azure Stack の更新が管理者ポータルに自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 各修正プログラムの KB 記事 (たとえば、[Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650)) の埋め込みリンクを使用して、それらをダウンロードできます。 修正プログラムは、お使いの Azure Stack バージョンに対応するリリースノートに記載されています。OEM ハードウェアベンダーによって提供される更新プログラム
+[Azure Stack 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)のパッケージは、Azure Stack 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 インスタンスが接続されている Azure Stack オペレーターに対しては、[Azure Stack の更新が管理者ポータルに自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 各修正プログラムの KB 記事 ([Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650) など) の埋め込みリンクを使用して、それらをダウンロードできます。 修正プログラムは、お使いの Azure Stack バージョンに対応するリリースノートに記載されています。
 
 ### <a name="where-to-download-oem-update-packages"></a>OEM 更新プログラム パッケージをダウンロードする場所
 また、OEM ベンダーがドライバーやファームウェアの更新プログラムなど、更新プログラムをリリースします。 これらの更新プログラムは、ハードウェア ベンダーから個別の [OEM パッケージ更新プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)として提供されますが、それらは引き続き、Microsoft の更新プログラム パッケージと同じようにインポート、インストール、および管理されます。 ベンダーの連絡先リンクの一覧については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)」を参照してください。

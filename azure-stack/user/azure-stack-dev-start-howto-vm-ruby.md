@@ -9,12 +9,12 @@ ms.date: 04/24/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: f7867e963551d04336ac4092e8b1b2f033c29e94
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.openlocfilehash: 07b18ea8933afc225f09bfc49a8c60d9d7d43961
+ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838330"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70808174"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Ruby Web アプリをデプロイする
 
@@ -102,4 +102,4 @@ Azure Stack でご自分の Ruby Web アプリをホストする VM を作成で
 
 - [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
 - [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
-- Ruby プログラミング言語の詳細および Python の他のリソースについては、[Ruby-lang.org](https://www.ruby-lang.org) を参照してください。
+- Ruby プログラミング言語の詳細および Ruby の他のリソースについては、[Ruby-lang.org](https://www.ruby-lang.org) を参照してください。

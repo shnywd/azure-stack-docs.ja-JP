@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/05/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
 monikerRange: azs-1908
-ms.openlocfilehash: fbf4983f6f7d2f88da70552ae182792ee316994a
-ms.sourcegitcommit: 314fd74caf356b157583d38d2b8b1dee30408b7d
+ms.openlocfilehash: ad059e09bbd544e4709a237ee0c51cafc2a734b4
+ms.sourcegitcommit: 9438b559ea314cc8c19fd710e1b2a6ceb15e50c3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70234946"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "70912648"
 ---
 # <a name="azure-stack-1908-update"></a>Azure Stack 1908 更新プログラム
 
@@ -35,7 +35,7 @@ ms.locfileid: "70234946"
 
 ## <a name="previous-release-notes"></a>以前のリリース ノート
 
-1908 リリース以降、以前のバージョンのリリース ノートは、左側の目次に表示されなくなりました。 以前のバージョンのリリース ノートにアクセスするには、別の記事 ([Azure Stack の概要](azure-stack-overview.md)に関する記事など) を選択し、左側の目次の上部にあるバージョン セレクターから 1905、1906、1907、または 1908 を選択します。 以前のバージョンのリリース ノートについては、「[アーカイブされたリリース ノート](#archived-release-notes)」を参照してください。
+1908 リリース以降、以前のバージョンのリリース ノートは、左側の目次に表示されなくなりました。 以前のバージョンのリリース ノートにアクセスするには、別の記事 ([Azure Stack の概要](azure-stack-overview.md)など) を選択し、左側の目次の上部にあるバージョン セレクターから 1905、1906、1907、または 1908 を選択します。 以前のバージョンのリリース ノートについては、「[アーカイブされたリリース ノート](#archived-release-notes)」を参照してください。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
@@ -63,7 +63,7 @@ Azure Stack 1908 更新プログラムのビルドの種類は**完全**です�
 
 - 1908 では、Azure Stack が実行される基になるオペレーティング システムが Windows Server 2019 に更新されていることに注意してください。 これにより、核となる基本的な機能強化だけでなく、近い将来に Azure Stack に機能を追加する機能も使用可能になります。
 - Azure Stack インフラストラクチャのすべてのコンポーネントが FIPS 140-2 モードで動作するようになりました。
-
+- Azure Stack オペレーターは、ポータル ユーザー データを削除できるようになりました。 詳細については、「[Clear portal user data from Azure Stack](azure-stack-portal-clear.md)」 (Azure Stack からポータル ユーザー データをクリアする) を参照してください。
 
 ### <a name="improvements"></a>機能強化
 

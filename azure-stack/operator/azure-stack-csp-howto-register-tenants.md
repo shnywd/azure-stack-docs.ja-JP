@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: e69000eb862411dd0c8b415ab1f0ad7c8573f046
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: 9f35a2bef6e5aa3b9ae1866927be007d58532b74
+ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419552"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749960"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
 
@@ -58,7 +58,7 @@ ms.locfileid: "67419552"
 エンド カスタマーの新しいサブスクリプションで登録を更新します。 Azure は、パートナー センターの顧客 ID を使用して顧客の使用量をレポートします。 この手順により、各顧客の使用量が、その顧客それぞれの CSP サブスクリプションごとに報告されるようになります。 これで、ユーザーの使用量の追跡と課金がより簡単になります。
 
 > [!NOTE]  
-> この手順を実行するためには、[Azure Stack に登録済み](azure-stack-registration.md)である必要があります。
+> この手順を実行するためには、まず [Azure Stack に登録する](azure-stack-registration.md)必要があります。
 
 1. 管理者特権のプロンプトで Windows PowerShell を開き、次のコマンドを実行します。  
     `Add-AzureRmAccount`
