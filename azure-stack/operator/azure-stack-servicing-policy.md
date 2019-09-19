@@ -16,12 +16,12 @@ ms.date: 09/06/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: dbfce7138d76892c7f66e2cf6f33883668e55395
-ms.sourcegitcommit: 5703255b4647ff0ebec23658a3f5c25d67f076a2
+ms.openlocfilehash: 9ca13d62c69c84f29e3038899ff224d7d9cdc6d3
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749954"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101188"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack サービス ポリシー
 
@@ -53,10 +53,10 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
-- [Azure Stack 1908 更新プログラム](azure-stack-release-notes-1908.md)
-- [Azure Stack 1907 更新プログラム](azure-stack-release-notes-1907.md)
-- [Azure Stack 1906 更新プログラム](azure-stack-release-notes-1906.md)
-- [Azure Stack 1905 更新プログラム](azure-stack-release-notes-1905.md)
+- [Azure Stack 1908 更新プログラム](/azure-stack/operator/release-notes?view=azs-1908)
+- [Azure Stack 1907 更新プログラム](/azure-stack/operator/release-notes?view=azs-1907)
+- [Azure Stack 1906 更新プログラム](/azure-stack/operator/release-notes?view=azs-1906)
+- [Azure Stack 1905 更新プログラム](/azure-stack/operator/release-notes?view=azs-1905)
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -68,10 +68,10 @@ Microsoft は、随時、Azure Stack に関する予防可能な、または緊�
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
-- [Azure Stack 1908 修正プログラム](azure-stack-release-notes-1908.md#hotfixes)
-- [Azure Stack 1907 修正プログラム](azure-stack-release-notes-1907.md#hotfixes)
-- [Azure Stack 1906 修正プログラム](azure-stack-release-notes-1906.md#hotfixes)
-- [Azure Stack 1905 修正プログラム](azure-stack-release-notes-1905.md#hotfixes)
+- [Azure Stack 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1908)
+- [Azure Stack 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)
+- [Azure Stack 1906 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)
+- [Azure Stack 1905 修正プログラム](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 

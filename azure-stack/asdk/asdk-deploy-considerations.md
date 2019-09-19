@@ -16,12 +16,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 691eac0c76763dcaae60aa6946c5dcbc479486a6
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579008"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974566"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -100,7 +100,7 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 > AD FS のオプションを使ってデプロイする場合は、Azure Stack を再デプロイして Azure AD に切り替える必要があります。
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory アカウント
-Azure AD アカウントを使って Azure Stack をデプロイするには、デプロイ用の PowerShell スクリプトを実行する前に、Azure AD アカウントを準備する必要があります。 このアカウントは、Azure AD テナントの全体管理者になります。 それは、Azure AD および Graph API と対話するすべての Azure Stack サービス用のアプリおよびサービス プリンシパルのプロビジョニングと委任に使われます。 また、既定のプロバイダー サブスクリプションの所有者としても使われます (これは後で変更できます)。 このアカウントを使って、Azure Stack システムの管理ポータルにサインインできます。
+Azure AD アカウントを使って Azure Stack をデプロイするには、デプロイ用の PowerShell スクリプトを実行する前に、Azure AD アカウントを準備する必要があります。 このアカウントは、Azure AD テナントの全体管理者になります。 それは、Azure AD および Graph API と対話するすべての Azure Stack サービス用のアプリおよびサービス プリンシパルのプロビジョニングと委任に使われます。 また、既定のプロバイダー サブスクリプションの所有者としても使われます (これは後で変更できます)。 このアカウントを使って、Azure Stack システムの管理者ポータルにサインインできます。
 
 1. 少なくとも 1 つの Azure AD のディレクトリ管理者である Azure AD アカウントを作成します。 既にある場合は、それを使うことができます。 それ以外の場合は、[https://azure.microsoft.com/free/](https://azure.microsoft.com/free/) で無料で作成できます (中国では、代わりに <https://go.microsoft.com/fwlink/?LinkID=717821> にアクセスしてください)。 後で [Azure Stack を Azure に登録する](asdk-register.md)予定の場合は、この新規作成したアカウントでのサブスクリプションも必要です。
    

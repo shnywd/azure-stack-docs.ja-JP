@@ -15,12 +15,12 @@ ms.date: 08/30/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 9d0820634a469f775c1e3b6637c604ae98681be2
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 98e43cfe0226e06ca936484a78da5a61915f5797
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70188182"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101027"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -33,14 +33,14 @@ ms.locfileid: "70188182"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1908.md#whats-new)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1908)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/azure-stack-release-notes-1908.md#fixes) of the Azure Stack release notes. -->
-- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1908.md)を参照してください。
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1908) of the Azure Stack release notes. -->
+- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1908)を参照してください。
 - 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
 ::: moniker-end
 
@@ -49,16 +49,16 @@ ms.locfileid: "70188182"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1907.md#whats-in-this-update)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update-1907)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1907.md#fixes)を参照してください。
-- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1907.md)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1907.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-1907)を参照してください。
+- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1907)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -66,7 +66,7 @@ ms.locfileid: "70188182"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1906.md#whats-in-this-update)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1906)を参照してください。
 
 ### <a name="changes"></a>変更点
 
@@ -75,9 +75,9 @@ ms.locfileid: "70188182"
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1906.md#fixes)を参照してください。
-- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1906.md)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1906.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906)を参照してください。
+- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1906)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end
 
 ::: moniker range="azs-1905"
@@ -87,12 +87,12 @@ ms.locfileid: "70188182"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#whats-in-this-update)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905)を参照してください。
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - [ASDK を正常に登録する](asdk-register.md)には、**RegisterWithAzure.psm1** PowerShell スクリプトを編集しなければならない問題を修正しました。
-- このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/azure-stack-release-notes-1905.md#fixes)を参照してください。
-- 既知の問題の一覧については、[この記事](../operator/azure-stack-release-notes-known-issues-1905.md)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](../operator/azure-stack-release-notes-1905.md#hotfixes)が Azure Stack ASDK には適用できないことに注意してください。
+- このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905)を参照してください。
+- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1905)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end

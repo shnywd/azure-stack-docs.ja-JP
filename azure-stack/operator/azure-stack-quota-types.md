@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: df0bee87f512f00ea57fc11492f824730dbf9b42
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991776"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010795"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
 
@@ -60,12 +60,12 @@ ms.locfileid: "68991776"
 
 | **項目** | **既定値** | **説明** |
 | --- | --- | --- |
-| [Maximum public IPs]\(パブリック IP の最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるパブリック IP アドレスの最大数です。 |
 | [Maximum virtual networks]\(仮想ネットワークの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワークの最大数です。 |
 | [Maximum virtual network gateways]\(仮想ネットワーク ゲートウェイの最大数\) |1 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワーク ゲートウェイ (VPN ゲートウェイ) の最大数です。 |
 | [Maximum network connections]\(ネットワーク接続の最大数\) |2 |1 つのサブスクリプションで、すべての仮想ネットワーク ゲートウェイにまたがってこの場所に作成できるネットワーク接続 (ポイント対ポイントまたはサイト対サイト) の最大数です。 |
-| [Maximum load balancers]\(ロード バランサーの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるロード バランサーの最大数です。 |
+| [Maximum public IPs]\(パブリック IP の最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるパブリック IP アドレスの最大数です。 |
 | [Maximum NICs]\(最大 NIC 数\) |100 |1 つのサブスクリプションでこの場所に作成できるネットワーク インターフェイスの最大数です。 |
+| [Maximum load balancers]\(ロード バランサーの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるロード バランサーの最大数です。 |
 | [Maximum network security groups]\(ネットワーク セキュリティ グループの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるネットワーク セキュリティ グループの最大数です。 |
 
 ## <a name="view-an-existing-quota"></a>[View an existing quota]\(既存のクォータの表示\)

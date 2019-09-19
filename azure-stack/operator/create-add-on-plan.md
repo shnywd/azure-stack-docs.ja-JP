@@ -17,12 +17,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 54c6c44d6ab5d03819ba07ca1d34269e7a87ee77
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 01e5bc6e91311a0c27acffd4079931c3ee000d29
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836789"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936127"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack のアドオン プラン
 
@@ -39,6 +39,7 @@ ms.locfileid: "66836789"
 
 アドオン プランは、既存のオファーを変更して作成します。
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>アドオン プランを作成する (1902 以降)
 
 1. Azure Stack 管理者ポータルにクラウド管理者としてサインインします。
@@ -58,7 +59,9 @@ ms.locfileid: "66836789"
 6. オファーに含まれているアドオン プランの一覧を見て、新しいアドオン プランが一覧に表示されていることを確認します。
 
     [![アドオン プランを作成する](media/create-add-on-plan/add-on4.png "アドオン プランを作成する")](media/create-add-on-plan/add-on4lg.png#lightbox)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>アドオン プランを作成する (1901 以前)
 
 1. Azure Stack 管理者ポータルにクラウド管理者としてサインインします。
@@ -78,6 +81,7 @@ ms.locfileid: "66836789"
 6. オファーに含まれているアドオン プランの一覧を見て、新しいアドオン プランが一覧に表示されていることを確認します。
 
     ![アドオン プランを作成する](media/create-add-on-plan/4.PNG)
+::: moniker-end
 
 ## <a name="next-steps"></a>次の手順
 

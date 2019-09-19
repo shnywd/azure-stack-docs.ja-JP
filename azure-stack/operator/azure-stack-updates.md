@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2a6165d37aa813c332cd664ef905717ef7a8ffa8
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862993"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101198"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
@@ -105,4 +105,4 @@ Azure Stack には、Microsoft ソフトウェア更新プログラムの適用�
 
 - 更新プロセスを開始するには、「[Plan for an Azure Stack update](azure-stack-update-plan.md)」 (Azure Stack の更新の計画) の手順に従います。
 - サポートされている Azure Stack のバージョンについては、「[Azure Stack Servicing Policy](azure-stack-servicing-policy.md)」 (Azure Stack サービス ポリシー) を参照してください。  
-- 現在および最新の更新プログラムの詳細については、[Azure Stack のリリースノート](azure-stack-release-notes-security-updates-1907.md)のページを参照してください。
+- 現在および最新の更新プログラムの詳細については、[Azure Stack のリリースノート](release-notes.md)のページを参照してください。

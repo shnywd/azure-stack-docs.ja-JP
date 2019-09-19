@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 58bfdf49492caf7f8db7f4d2a04de97a17738eac
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 9582c47f37bdd6ae4c306593bea094b66652c49e
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863034"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101167"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Azure Stack の更新の計画
 
@@ -36,9 +36,9 @@ ms.locfileid: "70863034"
 
 更新を準備するには、すべての修正プログラム、セキュリティ更新プログラム、および OEM の更新プログラムを適用し、Azure Stack インスタンスの正常性を検証して、利用可能な容量を確認し、更新プログラム パッケージを確認してください。
 
-1. 既知の問題を確認します。 手順については、[Azure Stack の既知の問題](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-known-issues-1907)に関するページをご覧ください。
+1. 既知の問題を確認します。 手順については、[Azure Stack の既知の問題](https://docs.microsoft.com/azure-stack/operator/release-notes.md)に関するページをご覧ください。
 
-2. セキュリティ更新プログラムを確認します。 更新の一覧については、「[Azure Stack security updates](https://docs.microsoft.com/azure-stack/operator/azure-stack-release-notes-security-updates-1907)」(Azure Stack のセキュリティ更新プログラム) を参照してください。
+2. セキュリティ更新プログラムを確認します。 更新の一覧については、「[Azure Stack security updates](https://docs.microsoft.com/azure-stack/operator/release-notes-security-updates.md)」(Azure Stack のセキュリティ更新プログラム) を参照してください。
 
 3. この更新プログラムのインストールを開始する前に、[Test-AzureStack](https://docs.microsoft.com/azure-stack/operator/azure-stack-diagnostic-test) を実行して Azure Stack の状態を確認し、見つかったすべての操作上の問題 (すべての警告とエラーを含む) を解決します。 また、アクティブなアラートを確認し、アクションが必要なアラートを解決します。
 

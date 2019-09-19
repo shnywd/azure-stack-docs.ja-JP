@@ -15,17 +15,18 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: a2bb84cef5c24cd84653092a34dea7f0e20b624e
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836907"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936154"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack でのオファーの作成
 
 [オファー](azure-stack-overview.md)は、プロバイダーがユーザーに提示する 1 つまたは複数のプランのグループで、ユーザーはそれを購入またはサブスクライブします。 この記事では、[作成したプラン](azure-stack-create-plan.md)を含むオファーを作成する方法について説明します。 このオファーのサブスクライバーは仮想マシン (VM) を設定できます。
 
+::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>オファーの作成 (1902 以降)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[オファー]** の順に選択します。
@@ -70,7 +71,9 @@ ms.locfileid: "66836907"
 2. **[プランの設定]** を選択します。 使用する状態 ( **[パブリック]** など) を選択し、 **[保存]** を選択します。
 
    ![アクセシビリティの状態を選択する](media/azure-stack-create-offer/offer-settings.png)
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>オファーの作成 (1901 以前)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[テナントのプラン]** 、 **[オファー]** の順に選択します。
@@ -104,6 +107,7 @@ ms.locfileid: "66836907"
 
 > [!NOTE]
 > PowerShell を使用して、既定のオファー、プラン、およびクォータを作成することもできます。 詳しくは、「[Azure Stack PowerShell Module 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)」をご覧ください。
+::: moniker-end
 
 ## <a name="next-steps"></a>次の手順
 

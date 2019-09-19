@@ -3,7 +3,7 @@ title: Azure Stack での特権エンドポイントの使用 | Microsoft Docs
 description: Azure Stack での特権エンドポイント (PEP) の使用方法を説明します (Azure Stack オペレーター向け)。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/03/2019
-ms.author: justinha
+ms.date: 09/18/2019
+ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 09/03/2019
-ms.openlocfilehash: a278a918100619953b2b7eb9b288236625968187
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.lastreviewed: 09/18/2019
+ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
+ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902616"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71101097"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack での特権エンドポイントの使用
 

@@ -16,12 +16,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: b120346d489f676919cb05863f81db9bfb102634
-ms.sourcegitcommit: e51cdc84a09250e8fa701bb2cb09de38d7de2c07
+ms.openlocfilehash: 6e127983afe023448d6caad23cf79e8a3a289c17
+ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66836979"
+ms.lasthandoff: 09/12/2019
+ms.locfileid: "70936167"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Azure Stack でのプランの作成
 
@@ -29,6 +29,7 @@ ms.locfileid: "66836979"
 
 [Azure Stack プラン](azure-stack-overview.md)は、1 つまたは複数のサービスとそのクォータをグループ化したものです。 プロバイダーは、ユーザーに提供するプランを作成できます。 そして、ユーザーがオファーをサブスクライブして、それに含まれるプラン、サービス、クォータを使用します。 この例では、コンピューティング、ネットワーク、およびストレージの各リソース プロバイダーを含むプランを作成する方法を示します。 このプランのサブスクライバーは仮想マシンをプロビジョニングすることができます。
 
+::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>プランを作成する (1902 以降)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
@@ -70,7 +71,9 @@ ms.locfileid: "66836979"
 10. 準備ができたら、 **[作成]** を選択してプランを作成します。
 
 11. 新しいプランを表示するには、左側で **[すべてのサービス]** をクリックし、 **[プラン]** を選択してから、プランを検索して、その名前を選択します。 リソースの一覧が長い場合は、 **[検索]** を使用して名前でプランを探すことができます。
+::: moniker-end
 
+::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>プランを作成する (1901 以前)
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
@@ -114,6 +117,7 @@ ms.locfileid: "66836979"
 10. 新しいプランを表示するには、 **[すべてのリソース]** を選択してプランを検索し、プラン名を選択します。 リソースの一覧が長い場合は、 **[検索]** を使用して名前でプランを探すことができます。
 
     ![プランを確認する](media/azure-stack-create-plan/plan-overview1901.png)
+::: moniker-end
 
 ## <a name="next-steps"></a>次の手順
 

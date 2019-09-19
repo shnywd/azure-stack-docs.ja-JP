@@ -3,7 +3,7 @@ title: Azure から Marketplace の項目をダウンロードする | Microsoft
 description: クラウド オペレーターは、Marketplace 項目を Azure から Azure Stack デプロイにダウンロードできます。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: sethm
+ms.author: justinha
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 4c4bac9a083ca35f851acb2f2d8201742be0ed1e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 99d0c48a5e7f5fd4e58d6fdf13e0a12c4b9dfb1e
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991825"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070269"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Azure から Azure Stack に Marketplace の項目をダウンロードする
 
@@ -100,6 +100,8 @@ Azure Stack が切断モードでインターネットに接続されていな�
 1. インターネットに接続されているコンピューターで、PowerShell コンソールを管理者として開きます。
 
 2. Azure Stack の登録に使用した Azure アカウントを追加します。 アカウントを追加するには、PowerShell でパラメーターなしで `Add-AzureRmAccount` を実行します。 Azure アカウントの資格情報の入力を求めるメッセージが表示されます。アカウントの構成によっては、2 要素認証を使用する必要があります。
+
+   [!include[Remove Account](../../includes/remove-account.md)]
 
 3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、登録に使用したサブスクリプションを選択します。  
 
