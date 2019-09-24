@@ -251,7 +251,9 @@
           href: azure-stack-linux.md
         - name: Red Hat 仮想マシンの追加
           href: azure-stack-redhat-create-upload-vhd.md
-        - name: Kubernetes クラスターの提供
+        - name: AKS エンジンの提供
+          href: azure-stack-aks-engine.md
+        - name: Kubernetes マーケットプレース アイテムの提供
           href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: サイト間 VPN 接続の作成
           href: azure-stack-create-vpn-connection-one-node.md
