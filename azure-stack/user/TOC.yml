@@ -274,6 +274,8 @@
           href: azure-stack-edge-pattern-cross-cloud-scaling.md
         - name: DevOps (ハイブリッド CI/CD)
           href: azure-stack-edge-pattern-hybrid-ci-cd.md
+        - name: 足音検知
+          href: hybrid-solution-retail-footfall-detection.md
         - name: 地理的に分散されたアプリケーション
           href: azure-stack-edge-pattern-geo-distribution.md
 - name: リファレンス
