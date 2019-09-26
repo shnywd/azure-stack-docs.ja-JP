@@ -16,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 224f5832af5d7fdc57f6b5fcb91d6308d479448b
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 17136cbe86029f0ea776d8dc8860ff96c82c756e
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286703"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142589"
 ---
 # <a name="azure-stack-compute"></a>Azure Stack コンピューティング
 
@@ -111,7 +111,7 @@ Azure Stack は、正常にプロビジョニングされた VM の実行を維�
 
 **Q**: メモリを消費する場合、テナント VM はどの状態である必要がありますか?
 
-A: 実行中の VM だけでなく、ファブリック上に配置されているすべての VM もメモリを消費します。 つまり、"作成中"、"失敗"、または portal / powershell / cli から停止 (割り当て解除) されるのではなく、ゲスト内からシャットダウンされた VM がメモリを消費することを意味します。
+A: 実行中の VM だけでなく、ファブリック上に配置されているすべての VM もメモリを消費します。 つまり、portal/powershell/cli から停止 (割り当て解除) されたものではなく、"作成中" または "失敗" 状態の VM、あるいはゲスト内からシャットダウンされた VM でメモリが消費されます。
 
 **Q**: 4 ホストの Azure Stack があります。 テナントには VM が 3 つあり、それぞれ 56 GB の RAM (D5_v2) が消費されています。 VM の 1 つが 112 GB RAM (D14_v2) にサイズ変更されており、ダッシュボードの使用可能なメモリ レポートの結果、容量ブレードの使用量が 168 GB に急増しました。 その後、他の 2 つの D5_v2 VM を D14_v2 にサイズ変更すると、それぞれ RAM が 56 GB だけ増えました。 これはなぜですか?
 
