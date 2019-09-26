@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute を使用して Azure Stack を Azure に接続する
+title: ExpressRoute を使用して Azure Stack を Azure に接続する | Microsoft Docs
 description: ExpressRoute を使用して Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 06/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 2ddc95097539eb1a7b15fdfc1fd2faf2c71f9ced
-ms.sourcegitcommit: a8379358f11db1e1097709817d21ded0231503eb
+ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70377298"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094410"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack を Azure に接続する
 
@@ -62,7 +62,7 @@ ExpressRoute を使用して Azure Stack と Azure を接続するには、次�
 
 ![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/Conceptual.png)
 
-次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack インフラストラクチャから Microsoft エッジで Azure に接続するしくみを示しています。
+次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack インフラストラクチャから Microsoft Edge で Azure に接続するしくみを示しています。
 
 ![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -142,7 +142,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 ローカル ネットワーク ゲートウェイ リソースは、VPN 接続のもう一方の端にあるリモート ゲートウェイを識別します。 この例の場合、接続のリモート側の終端は ExpressRoute ルーターの LAN サブインターフェイスです。 前の図のテナント 1 のリモート アドレスは、10.60.3.255 です。
 
-1. ユーザー アカウントを使用して Azure Stack ユーザー ポータルにサインインし、 **[+ リソースの作成]** を選択します。
+1. Azure Stack ユーザー ポータルにサインインして、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
 1. **[名前]** フィールドに「**ER-Router-GW**」と入力します。
@@ -179,21 +179,21 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 1. **[仮想ネットワーク ゲートウェイ]** で、リソースの一覧から **[概要]** を選択します。 または、 **[プロパティ]** を選択することもできます。
 1. メモする必要のある IP アドレスは、 **[パブリック IP アドレス]** に一覧表示されています。 この例の構成では、192.68.102.1 が該当します。
 
-#### <a name="create-a-virtual-machine"></a>仮想マシンの作成
+#### <a name="create-a-virtual-machine-vm"></a>仮想マシン (VM) の作成
 
-VPN 接続上のデータ トラフィックをテストするには、Azure Stack VNet 内でデータを送受信する仮想マシンが必要です。 仮想マシンを作成して、目的の仮想ネットワークの VM サブネットにデプロイします。
+VPN 接続上のデータ トラフィックをテストするには、Azure Stack VNet 内でデータを送受信する VM が必要です。 VM を作成して、ご利用の仮想ネットワークの VM サブネットにデプロイします。
 
 1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[計算]** を選択します。
-1. 仮想マシンのイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
+1. VM のイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 
    >[!NOTE]
-   >この記事で使用されているイメージを入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
+   >この記事で使用されているイメージが入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
 
 1. **[仮想マシンの作成]** で、 **[基本]** を選択し、次に **[名前]** に「**VM01**」と入力します。
 1. 有効なユーザー名とパスワードを入力します。 このアカウントは、作成後の VM へのサインインに使用します。
 1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を指定します。 **[OK]** を選択します。
-1. **[サイズの選択]** で、このインスタンスの仮想マシンのサイズを選び、 **[選択]** を選択します。
+1. **[サイズの選択]** で、このインスタンスの VM のサイズを選び、 **[選択]** を選択します。
 1. **[設定]** で、次のことを確認します。
 
    * 仮想ネットワークが **Tenant1VNet1** であること。
@@ -212,16 +212,16 @@ VPN 接続上のデータ トラフィックをテストするには、Azure Sta
 * [接続を作成する](#create-the-connection)
 * [仮想マシンの作成](#create-a-virtual-machine)
 
-テナント 2 を例として使用する場合は、重複を避けるために必ず IP アドレスを変更してください。
+テナント 2 を例として使用する場合は、重複を避けるために、IP アドレスを変更することを忘れないでください。
 
-### <a name="configure-the-nat-virtual-machine-for-gateway-traversal"></a>ゲートウェイ トラバーサル用に NAT 仮想マシンを構成する
+### <a name="configure-the-nat-vm-for-gateway-traversal"></a>ゲートウェイ トラバーサル用に NAT VM を構成する
 
 > [!IMPORTANT]
-> このセクションは、Azure Stack Development Kit (ASDK) デプロイにのみ適用されます。 マルチノード デプロイでは NAT は必要ありません。
+> このセクションは ASDK デプロイのみを対象としています。 マルチノード デプロイでは NAT は必要ありません。
 
-Azure Stack Development Kit は自己完結型であり、物理ホストがデプロイされているネットワークから分離されています。 ゲートウェイが接続されている VIP ネットワークは外部には公開されず、ネットワーク アドレス変換 (NAT) を行うルーターの内側に隠されています。
+ASDK は自己完結型であり、物理ホストがデプロイされているネットワークから分離されています。 ゲートウェイが接続されている VIP ネットワークは外部には公開されず、ネットワーク アドレス変換 (NAT) を行うルーターの背後に隠されています。
 
-このルーターは ルーティングとリモート アクセス サービス (RRAS) ロールを実行する ASDK ホストです。 ASDK ホストでは、両端を結ぶサイト間 VPN 接続を有効にするように NAT を構成する必要があります。
+このルーターは、ルーティングとリモート アクセス サービス (RRAS) ロールを実行する ASDK ホストです。 ASDK ホストでは、両端を結ぶサイト間 VPN 接続を有効にするように NAT を構成する必要があります。
 
 #### <a name="configure-the-nat"></a>NAT を構成する
 
@@ -329,7 +329,7 @@ ExpressRoute 回線をハブ VNet にリンクするには、「[ExpressRoute �
 
 ### <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
-ワークロード仮想マシンをスポーク VNet にデプロイします。
+ワークロード VM をスポーク VNet にデプロイします。
 
 Azure で接続する追加のテナント VNet ごとに、それぞれの ExpressRoute 回線を使用してこれらの手順を繰り返します。
 
@@ -341,7 +341,7 @@ ExpressRoute ルーターは、次の ExpressRoute ルーターの構成図を�
 
 Azure Stack からサイト間 VPN 接続を終了するには、IKEv2 VPN と BGP をサポートする任意のルーターを使用できます。 ExpressRoute 回線を使用して Azure に接続する際は、同じルーターが使用されます。
 
-次の Cisco ASR 1000 Series Aggregation Services Router の構成例は、「*ExpressRoute ルーターの構成*」の図に示したネットワーク インフラストラクチャをサポートします。
+次の Cisco Site Recovery 1000 シリーズ アグリゲーション サービス ルータの構成例は、*ExpressRoute ルーターの構成*の図に示したネットワーク インフラストラクチャをサポートします。
 
 ```shell
 ip vrf Tenant 1
@@ -566,15 +566,15 @@ route-map VNET-ONLY permit 10
 
 次の ping テストを実行します。
 
-* Azure VNet 内のいずれかの仮想マシンにサインインし、Azure Stack 内に作成した仮想マシンに ping を実行します。
-* Azure Stack 内に作成したいずれかの仮想マシンにサインインし、Azure VNet 内に作成した仮想マシンに ping を実行します。
+* Azure VNet 内のいずれかの VM にサインインし、Azure Stack 内に作成した VM に ping を実行します。
+* Azure Stack 内に作成したいずれかの VM にサインインし、Azure VNet 内に作成した VM に ping を実行します。
 
 >[!NOTE]
->送信するトラフィックがサイト間および ExpressRoute 接続を確実に通過するようにするため、両方の端で仮想マシンの VIP アドレスでなく専用 IP (DIP) アドレスに ping を実行する必要があります。
+>送信するトラフィックがサイト間および ExpressRoute 接続を確実に通過するようにするため、両方の端で VM の VIP アドレスでなく、VM の専用 IP (DIP) アドレスに ping を実行する必要があります。
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>ファイアウォールで ICMP を許可する
 
-Windows Server 2016 の既定では、受信 ICMP パケットがファイアウォールを通過できないように設定されています。 ping テストに使用するすべての仮想マシンについて、受信 ICMP パケットを許可する必要があります。 ICMP のファイアウォール規則を作成するには、管理者特権の PowerShell ウィンドウで次のコマンドレットを実行します。
+Windows Server 2016 では、受信 ICMP パケットがファイアウォールを通過できないように既定で設定されています。 ping テストに使用するすべての VM について、受信 ICMP パケットを許可する必要があります。 ICMP のファイアウォール規則を作成するには、管理者特権の PowerShell ウィンドウで次のコマンドレットを実行します。
 
 ```powershell
 # Create ICMP firewall rule.
@@ -583,23 +583,23 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-virtual-machine"></a>Azure Stack 仮想マシンへの ping
+### <a name="ping-the-azure-stack-vm"></a>Azure Stack VM に ping を実行する
 
-1. テナント アカウントを使用して、Azure Stack ユーザー ポータルにサインインします。
+1. Azure Stack ユーザー ポータルにサインインします。
 
-1. 作成した仮想マシンを見つけて選択します。
+1. 作成した VM を見つけて選択します。
 
 1. **[接続]** を選択します。
 
 1. Windows または PowerShell の管理者特権のコマンド プロンプトで「**ipconfig /all**」と入力します。 出力として返された IPv4 アドレスをメモします。
 
-1. Azure VNet 内の仮想マシンから、この IPv4 アドレスに ping を実行します。
+1. Azure VNet 内の VM から、この IPv4 アドレスに ping を実行します。
 
    例の環境では、この IPv4 アドレスは 10.1.1.x/24 サブネットから来ています。 このアドレスは、ご使用の環境で異なる場合がありますが、テナント VNet サブネット用に作成したサブネット内にある必要があります。
 
 ### <a name="view-data-transfer-statistics"></a>データ転送統計情報を表示する
 
-接続を通過するトラフィック量を知りたい場合は、Azure Stack ユーザー ポータルでその情報を見ることができます。 これは、ping テスト データが VPN 接続と ExpressRoute 接続を通過したかどうかを調べる手段としてもお勧めします。
+接続を通過するトラフィック量を知りたい場合は、Azure Stack ユーザー ポータルでその情報を見ることができます。 データ転送統計情報を表示することは、ping テスト データが VPN 接続と ExpressRoute 接続を通過したかどうかを調べる手段としてもお勧めします。
 
 1. Azure Stack ユーザー ポータルにサインインし、 **[すべてのリソース]** を選択します。
 1. VPN ゲートウェイのリソース グループに移動し、オブジェクトの種類として **[接続]** を選択します。

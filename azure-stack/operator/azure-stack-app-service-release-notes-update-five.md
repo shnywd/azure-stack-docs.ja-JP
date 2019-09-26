@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 1955689929ef3277096aab558cca57e719a59a87
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 4adad49b27b1ab1d255ccc566c95b003cfd09b3b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808193"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974916"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service on Azure Stack Update 5 のリリース ノート
 
@@ -42,7 +42,7 @@ App Service on Azure Stack Update 5 のビルド番号は **80.0.2.15** です�
 
 Azure App Service on Azure Stack の 1.5 へのアップグレードを開始する前に:
 
-- Azure Stack 管理ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確認します。
+- Azure Stack 管理者ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確認します。
 
 - App Service とマスター データベースをバックアップします。
   - AppService_Hosting

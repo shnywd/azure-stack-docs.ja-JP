@@ -16,12 +16,12 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 3978ac3339a2bf6a9dd4df770736bca1a21cc5a3
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 090c532541ffe6ae6221958d395145c5215c3112
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902662"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974937"
 ---
 # <a name="add-public-ip-addresses"></a>パブリック IP アドレスの追加
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
@@ -46,8 +46,8 @@ Azure Stack に新しいパブリック IP アドレス ブロックを追加す
 
 ## <a name="add-the-ip-address-range-to-azure-stack"></a>Azure Stack に IP アドレス範囲を追加する
 
-1. ブラウザーで、管理ポータル ダッシュボードにアクセスします。 この例では、 https://adminportal.local.azurestack.external を使用します。
-2. Azure Stack 管理ポータルにクラウド オペレーターとしてサインインします。
+1. ブラウザーで、管理者ポータル ダッシュボードにアクセスします。 この例では、 https://adminportal.local.azurestack.external を使用します。
+2. Azure Stack 管理者ポータルにクラウド オペレーターとしてサインインします。
 3. 既定のダッシュボードで、[Region management]\(リージョンの管理\) リストを見つけ、管理するリージョンを選択します。 この例では、ローカルを使用します。
 4. [リソース プロバイダー] タイルを見つけて、ネットワーク リソース プロバイダーをクリックします。
 5. [パブリック IP プールの使用量] タイルをクリックします。

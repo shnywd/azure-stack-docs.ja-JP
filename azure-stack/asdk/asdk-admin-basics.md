@@ -16,12 +16,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2982012901b410b9e6e3830aa24fe4c62be8aa4c
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 1074f359063855ef5f80ef6f1e3807b87184a4ca
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579051"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974884"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理の基礎
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要を示します。 この情報をよく理解することで、テスト ユーザーの生産性が可能な限り迅速に向上することになります。
@@ -36,13 +36,13 @@ Azure Stack を管理する場合に注意するいくつかのアカウント�
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
 |ローカル管理者 (.\Administrator)|ASDK ホスト管理者|ASDK ホスト管理者|
-|AzureStack\AzureStackAdmin|ASDK ホスト管理者<br><br>Azure Stack 管理ポータルにサインインするために使用できます<br><br>Service Fabric リングを表示および管理するためのアクセス権|ASDK ホスト管理者<br><br>Azure Stack 管理ポータルへのアクセス権なし<br><br>Service Fabric リングを表示および管理するためのアクセス権<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました|
+|AzureStack\AzureStackAdmin|ASDK ホスト管理者<br><br>Azure Stack 管理者ポータルにサインインするために使用できます<br><br>Service Fabric リングを表示および管理するためのアクセス権|ASDK ホスト管理者<br><br>Azure Stack 管理者ポータルにはアクセスできません<br><br>Service Fabric リングを表示および管理するためのアクセス権<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました|
 |AzureStack\CloudAdmin|特権エンドポイント内で許可されたコマンドにアクセス、実行できます|特権エンドポイント内で許可されたコマンドにアクセス、実行できます<br><br>ASDK ホストにサインインできません<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者|
 |Azure AD 全体管理者|インストール時に使用<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者|適用不可|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
-[Azure Stack 管理ポータル](https://adminportal.local.azurestack.external)または PowerShell を使用して Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使う場合は、[PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) をインストールし、[GitHub から Azure Stack ツールをダウンロードする](asdk-post-deploy.md#download-the-azure-stack-tools)必要があります。
+[Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)または PowerShell を使って Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使う場合は、[PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) をインストールし、[GitHub から Azure Stack ツールをダウンロードする](asdk-post-deploy.md#download-the-azure-stack-tools)必要があります。
 
 Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定であれば、Azure Resource Manager について学習する必要があります。 詳しくは、「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーをご覧ください。
 
@@ -50,7 +50,7 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 ASDK を使って、提供するサービスと、[プラン、オファー、クォータを作成する](../operator/azure-stack-tutorial-tenant-vm.md)ことで、それらのサービスを使用できるようにする方法を確認できます。 仮想マシン (VM) のイメージなど、マーケットプレースに項目を追加する必要もあります。 Azure から Azure Stack に[マーケットプレースの項目をダウンロードする](../operator/azure-stack-create-and-publish-marketplace-item.md)のが最も容易な方法です。
 
 > [!NOTE]
-> プラン、オファー、およびサービスをテストする場合は、[管理ポータル](https://adminportal.local.azurestack.external)ではなく[ユーザー ポータル](https://portal.local.azurestack.external)を使用する必要があります。
+> プラン、オファー、およびサービスをテストする場合は、[管理者ポータル](https://adminportal.local.azurestack.external)ではなく[ユーザー ポータル](https://portal.local.azurestack.external)を使用する必要があります。
 
 サービスを提供することに加えて、Azure Stack オペレーターとして Azure を稼働させ続けるという通常の業務にすべて対応する必要があります。 これらの業務には、次のものが含まれます。
 - Azure AD または AD FS デプロイ用のユーザー アカウントを追加します。
@@ -62,7 +62,7 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 ## <a name="where-to-get-support"></a>サポートが受けられる場所
 ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。
 
-また、管理ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックして、フォーラムにアクセスすることもできます。 次に、 **[ヘルプとサポート]** をクリックすると、フォーラムへのリンクが含まれるヘルプとサポートの **[概要]** が開きます。 MSDN フォーラムは定期的にチェックされています。  
+また、管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックして、フォーラムにアクセスすることもできます。 次に、 **[ヘルプとサポート]** をクリックすると、フォーラムへのリンクが含まれるヘルプとサポートの **[概要]** が開きます。 MSDN フォーラムは定期的にチェックされています。  
 
 > [!IMPORTANT]
 > ASDK は評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通じて公式なサポートは提供されません。

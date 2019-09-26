@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 3f1dd0d7efa2aa9549f65ef97ebb7a589949154b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 8a9fae5324e20ecd808df1f73dc90555b4802da5
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579144"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974599"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK に接続する
 
@@ -33,7 +33,7 @@ ms.locfileid: "69579144"
 <a name="connect-with-rdp"></a>
 ## <a name="connect-to-azure-stack-using-rdp"></a>RDP を使用して Azure Stack に接続する
 
-同時に 1 人のユーザーが、ASDK ホスト コンピューターから直接リモート デスクトップ接続を使用して、Azure Stack 管理ポータルまたはユーザー ポータルでリソースを管理できます。
+同時に 1 人のユーザーが、ASDK ホスト コンピューターから直接リモート デスクトップ接続を使用して、Azure Stack 管理者ポータルまたはユーザー ポータルでリソースを管理できます。
 
 > [!TIP]
 > このオプションでは、ASDK ホスト コンピューターにサインインしているときに、RDP を再度使用して、ASDK ホスト コンピューター上に作成された仮想マシン (VM) にサインインできます。
@@ -42,7 +42,7 @@ ms.locfileid: "69579144"
 
 2. ASDK ホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
 
-3. 管理ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理ポータルのアドレスは [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) です。
+3. 管理者ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理者ポータルのアドレスは [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) です。
 
 4. ユーザー ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack ユーザーの資格情報を使用します。 ASDK ユーザー ポータルのアドレスは [https://portal.local.azurestack.external](https://portal.local.azurestack.external) です。
 
@@ -127,7 +127,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-vpn-connectivity"></a>VPN 接続をテストする
 
-ポータルの接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) または管理ポータル (https://adminportal.local.azurestack.external/) のいずれかに移動します。 
+ポータルの接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) または管理者ポータル (https://adminportal.local.azurestack.external/) のいずれかに移動します。
 
 適切なサブスクリプションの資格情報でサインインし、リソースを作成して管理します。  
 

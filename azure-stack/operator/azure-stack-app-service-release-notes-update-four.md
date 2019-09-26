@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: b92fcd3f729bf068dd578893f24f1c7fa66bbcff
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 9098fb61c0d4edcb534bd7b9d07b4727c953df8d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808129"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974887"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service on Azure Stack update 4 のリリース ノート
 
@@ -42,7 +42,7 @@ App Service on Azure Stack Update 4 のビルド番号は **78.0.13698.5** で�
 
 Azure App Service on Azure Stack の 1.4 へのアップグレードを開始する前に:
 
-- Azure Stack 管理ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確認します。
+- Azure Stack 管理者ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確認します。
 
 - App Service とマスター データベースをバックアップします。
   - AppService_Hosting
@@ -92,7 +92,7 @@ Azure App Service on Azure Stack Update 4 には、次の機能強化と修正�
 
 - App Service テナント ポータルでのクロス オリジン リソース共有設定の機能が復元されました。
 
-- リソース プロバイダーのコントロール プレーンが構成済みの SQL Server インスタンスに接続できないとき、App Service 管理ポータルにエラー メッセージが表示されるようになりました。
+- リソース プロバイダーのコントロール プレーンが構成済みの SQL Server インスタンスに接続できないとき、App Service 管理者ポータルにエラー メッセージが表示されるようになりました。
 
 - エンドポイントが新しい関数アプリに指定されたとき、確実にカスタム ストレージ接続文字列にエンドポイントが指定されるようにします。
 

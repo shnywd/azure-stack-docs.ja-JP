@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 92e0c1a3bfd055373ffba5091d79922f1203b20b
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: 87e9021c6d2b085c95e186e410b009ae89753311
+ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188032"
+ms.lasthandoff: 09/16/2019
+ms.locfileid: "71010808"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-storage"></a>Azure Stack Storage でのデータ転送ツールの使用
 
@@ -112,6 +112,7 @@ azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[containe
  - ファイル ストレージはまだ Azure Stack で使用できないため、ファイル ストアに対する AzCopy 操作は使用できません。
  - AzCopy 10.1 を使用して 2 か所の Azure Stack BLOB の間、または Azure Stack と Azure Storage との間でデータを転送する場合は、最初にデータをローカルの場所にダウンロードしてから Azure Stack または Azure Storage 上にあるターゲット ディレクトリに再度アップロードする必要があります。 または、AzCopy 7.1 を使用し、 **/SyncCopy** オプションで転送を指定して、データをコピーすることができます。  
  - Linux バージョンの AzCopy では、1802 以降のバージョンの更新プログラムのみがサポートされており、Table service はサポートされていません。
+ - Azure Table Storage サービスとの間でデータをコピーする場合、[AzCopy バージョン 7.3 0 をインストール](https://aka.ms/azcopyforazurestack20171109)してください。
  
 ## <a name="azure-powershell"></a>Azure PowerShell
 

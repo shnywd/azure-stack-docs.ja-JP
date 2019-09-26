@@ -16,12 +16,12 @@ ms.date: 06/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/28/2019
-ms.openlocfilehash: 5a34061b1fa6cd30f3bbf9f9780b13c01f0a4866
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 1d740b219b971f85b34ae821d82b97eff7d3d70d
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579087"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974585"
 ---
 # <a name="asdk-architecture"></a>ASDK アーキテクチャ
 Azure Stack Development Kit (ASDK) は、1 台のホスト コンピューター上で実行される Azure Stack の単一ノード デプロイです。 Azure Stack に NAT および VPN 機能を提供するために、ホスト コンピューターにエッジ ルーティング コンポーネントがインストールされます。 Azure Stack インフラストラクチャ ロールは、物理ホスト コンピューターの Hyper-V レイヤーで実行されます。
@@ -30,7 +30,7 @@ Azure Stack Development Kit (ASDK) は、1 台のホスト コンピューター
 ## <a name="virtual-machine-roles"></a>仮想マシンのロール
 ASDK は、開発キットのホスト コンピューターにホストされている次の VM を使ってサービスを提供します。
 
-| Name | 説明 |
+| 名前 | 説明 |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack ストレージ サービス。|
 | **AzS-ADFS01** | Active Directory フェデレーション サービス (ADFS)。  |
@@ -41,7 +41,7 @@ ASDK は、開発キットのホスト コンピューターにホストされ�
 | **AzS-NC01** | ネットワーク コントローラー。Azure Stack ネットワーク サービスを管理します。  |
 | **AzS-SLB01** | テナントと Azure Stack インフラストラクチャ サービスの両方のための、Azure Stack の負荷分散マルチプレクサー サービス。  |
 | **AzS-SQL01** | Azure Stack インフラストラクチャ ロール用の内部データ ストア。  |
-| **AzS-WAS01** | Azure Stack 管理ポータルと Azure Resource Manager のサービス。|
+| **AzS-WAS01** | Azure Stack 管理者ポータルと Azure Resource Manager のサービス。|
 | **AzS-WASP01**| Azure Stack ユーザー (テナント) ポータルと Azure Resource Manager のサービス。|
 | **AzS-XRP01** | Microsoft Azure Stack 用のインフラストラクチャ管理コントローラー。計算、ネットワーク、ストレージのリソースプロバイダーなどがあります。|
 | **AzS-SRNG01** | Azure Stack のログ コレクション サービスをホストする Ring VM のサポート。 |

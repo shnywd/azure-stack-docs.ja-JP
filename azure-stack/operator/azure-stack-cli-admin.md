@@ -1,6 +1,6 @@
 ---
 title: Azure Stack ユーザーに対する Azure CLI の有効化 | Microsoft Docs
-description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack でリソースを管理およびデプロイする方法
+description: クロスプラットフォーム コマンド ライン インターフェイス (CLI) を使用して、Azure Stack でリソースの管理およびデプロイを行えるようにする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,28 +14,28 @@ ms.topic: article
 ms.date: 05/16/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ace99053d9aac4c525e9481e5430ac1f5648f194
-ms.sourcegitcommit: 889fd09e0ab51ad0e43552a800bbe39dc9429579
+ms.openlocfilehash: 6e901b2d806e85f7bc394dc9bee6412270753649
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782329"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094306"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack ユーザーに対する Azure CLI の有効化
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack のユーザーに CA ルート証明書を提供して、開発マシンで Azure CLI を使用できるようにすることができます。 ユーザーが CLI を使用してリソースを管理するには証明書が必要です。
+Azure Stack のユーザーに CA ルート証明書を提供して、開発マシンで Azure CLI を有効にすることができます。 ユーザーが CLI を使用してリソースを管理するには証明書が必要です。
 
- - ユーザーが Azure Stack Development Kit の外部のワークステーションから CLI を使用する場合は、**Azure Stack の CA ルート証明書**が必要です。  
+ - ユーザーが Azure Stack Development Kit (ASDK) の外部のワークステーションから CLI を使用する場合は、**Azure Stack の CA ルート証明書**が必要です。  
 
- - **仮想マシンのエイリアス エンドポイント**は、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、およびバージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
+ - **仮想マシン (VM) のエイリアス エンドポイント**では、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、バージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
 
 これらの値の取得方法については、以下のセクションで説明します。
 
 ## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書をエクスポートする
 
-統合システムを使用している場合は、CA ルート証明書をエクスポートする必要はありません。 Azure Stack Development Kit (ASDK) で CA ルート証明書をエクスポートする必要があります。
+統合システムを使用している場合は、CA ルート証明書をエクスポートする必要はありません。 ASDK で CA ルート証明書をエクスポートする必要があります。
 
 PEM 形式で ASDK ルート証明書をエクスポートするには、サインインして次のスクリプトを実行します。
 
@@ -56,11 +56,11 @@ Write-Host "Converting certificate to PEM format"
 certutil -encode root.cer root.pem
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>仮想マシンのエイリアス エンドポイントを設定する
+## <a name="set-up-the-vm-aliases-endpoint"></a>VM のエイリアス エンドポイントを設定する
 
-Azure Stack オペレーターは、仮想マシンのエイリアス ファイルをホストする、公的にアクセス可能なエンドポイントを設定する必要があります。 仮想マシンのエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。  
+Azure Stack オペレーターは、VM のエイリアス ファイルをホストする、公開されているエンドポイントを設定する必要があります。 VM のエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。  
 
-エイリアス ファイルにエントリを追加する前に、[Azure Marketplace からイメージをダウンロード](azure-stack-download-azure-marketplace-item.md)するか、[独自のカスタム イメージを発行](azure-stack-add-vm-image.md)してください。 カスタム イメージを発行する場合は、発行時に指定した発行者、プラン、SKU、およびバージョン情報をメモしておいてください。 Marketplace のイメージである場合は、`Get-AzureVMImage` コマンドレットを使用して情報を表示できます。  
+エイリアス ファイルにエントリを追加する前に、[Azure Marketplace からイメージをダウンロード](azure-stack-download-azure-marketplace-item.md)するか、[独自のカスタム イメージを発行](azure-stack-add-vm-image.md)してください。 カスタム イメージを発行する場合は、発行時に指定した発行者、オファー、SKU、バージョン情報をメモしておいてください。 マーケットプレースのイメージである場合は、`Get-AzureVMImage` コマンドレットを使用して情報を表示できます。  
 
 多くの一般的なイメージの別名を含む[サンプル エイリアス ファイル](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)が使用できます。 それを出発点として使用できます。 このファイルを CLI クライアントがアクセスできる場所にホストします。 そのためには、BLOB ストレージ アカウント内でファイルをホストし、ユーザーと URL を共有する方法があります。
 

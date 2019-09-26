@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: ab06f5d3674000733227894a5a69778d90c29d48
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 9b28d6b55530de6716fd7781b4c7894cbc859288
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118736"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974996"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Azure Stack のスケール ユニット ノードを追加する
 
@@ -53,16 +53,16 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
 2. 物理スイッチ ポートを有効にし、アクセス制御リスト (ACL) を調整します (該当する場合)。
 3. OEM から提供されたドキュメントに従って、ベースボード管理コントローラー (BMC) で正しい IP アドレスを設定し、すべての BIOS 設定を適用します。
 4. HLH 上で実行されているハードウェア メーカー製ツールを使って、最新のファームウェア ベースラインをすべてのコンポーネントに適用します。
-5. Azure Stack 管理ポータルでノードの追加操作を実行します。
+5. Azure Stack 管理者ポータルでノードの追加操作を実行します。
 6. ノードの追加操作が成功したことを確認します。 [スケール ユニットの **[状態]** ](#monitor-add-node-operations) をチェックしてください。 
 
 ## <a name="add-the-node"></a>ノードの追加
 
-新しいノードは、管理ポータルまたは PowerShell を使って追加できます。 ノードの追加操作では、まず新しいスケール ユニット ノードを利用可能な計算処理能力として追加します。その後、ストレージ容量が自動的に拡張されます。 Azure Stack は、"*計算*" と "*ストレージ*" が一体となってスケーリングされるハイパーコンバージド システムであるため、容量は自動的に拡張されます。
+新しいノードは、管理者ポータルまたは PowerShell を使って追加できます。 ノードの追加操作では、まず新しいスケール ユニット ノードを利用可能な計算処理能力として追加します。その後、ストレージ容量が自動的に拡張されます。 Azure Stack は、"*計算*" と "*ストレージ*" が一体となってスケーリングされるハイパーコンバージド システムであるため、容量は自動的に拡張されます。
 
-### <a name="use-the-admin-portal"></a>管理ポータルの使用
+### <a name="use-the-administrator-portal"></a>管理者ポータルを使用する
 
-1. Azure Stack 管理ポータルに Azure Stack オペレーターとしてサインインします。
+1. Azure Stack 管理者ポータルに Azure Stack オペレーターとしてサインインします。
 2. **[+ リソースの作成]**  >  **[キャパシティ]**  >  **[Scale Unit Node]\(スケール ユニット ノード\)** に移動します。
    ![スケール ユニット ノード](media/azure-stack-add-scale-node/select-node1.png)
 3. **[ノードの追加]** ウィンドウで *[リージョン]* を選択し、ノードを追加する *スケール ユニット* を選択します。 また、追加するスケール ユニット ノードに、*BMC IP アドレス*を指定します。 一度に追加できるノードは 1 つだけです。
@@ -87,10 +87,10 @@ Azure Stack オペレーターは、物理コンピューターを追加する�
   ```  
 
 ## <a name="monitor-add-node-operations"></a>ノードの追加操作の監視 
-ノードの追加操作の状態は、管理ポータルまたは PowerShell を使用して取得します。 ノードの追加操作は、完了までに数時間から数日かかることがあります。
+ノードの追加操作の状態は、管理者ポータルまたは PowerShell を使用して取得します。 ノードの追加操作は、完了までに数時間から数日かかることがあります。
 
-### <a name="use-the-admin-portal"></a>管理ポータルの使用 
-新しいノードの追加を監視するには、管理ポータルで、スケール ユニットまたはスケール ユニット ノード オブジェクトを確認します。 そのためには、 **[Region management]\(リージョン管理\)**  >  **[Scale units]\(スケール ユニット\)** に移動します。 次に、確認するスケール ユニットまたはスケール ユニット ノードを選択します。 
+### <a name="use-the-administrator-portal"></a>管理者ポータルを使用する 
+新しいノードの追加を監視するには、管理者ポータルで、スケール ユニットまたはスケール ユニット ノード オブジェクトを確認します。 そのためには、 **[Region management]\(リージョン管理\)**  >  **[Scale units]\(スケール ユニット\)** に移動します。 次に、確認するスケール ユニットまたはスケール ユニット ノードを選択します。 
 
 ### <a name="use-powershell"></a>PowerShell の使用
 スケール ユニットとスケール ユニット ノードの状態は、次のように PowerShell を使って取得できます。

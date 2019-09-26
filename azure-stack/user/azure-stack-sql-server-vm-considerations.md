@@ -16,18 +16,18 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: deed8e358c339e5a55cf2928002b9c0e6910f0d4
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: d054f4ad45f27994c7ef6fc5e52f07eb1fa7f761
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269417"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974632"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Azure Stack におけるパフォーマンスを最適化するための SQL サーバーのベスト プラクティス
 
 この記事では、Microsoft Azure Stack 仮想マシン (VM) における SQL Server の最適化とパフォーマンス向上を行うための、SQL サーバーのベスト プラクティスを紹介します。 Azure Stack VM で SQL Server を実行するときは、オンプレミスのサーバー環境で SQL Server に適用されるデータベース パフォーマンス チューニング オプションと同じものを使用します。 Azure Stack クラウド内のリレーショナル データベースのパフォーマンスは、VM のファミリ サイズやデータ ディスクの構成などの多くの要因に左右されます。
 
-SQL Server イメージを作成するときは、[VM を Azure Stack ポータルにプロビジョニングすることを検討してください](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 Azure Stack 管理ポータルの Marketplace Management から SQL IaaS 拡張機能をダウンロードします。次に、任意の SQL VM の仮想ハード ドライブ (VHD) をダウンロードします。 これには、SQL2014SP2、SQL2016SP1、SQL2017 が含まれます。
+SQL Server イメージを作成するときは、[VM を Azure Stack ポータルにプロビジョニングすることを検討してください](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 Azure Stack 管理者ポータルの Marketplace Management から SQL IaaS 拡張機能をダウンロードし、任意の SQL VM の仮想ハード ドライブ (VHD) をダウンロードします。 これには、SQL2014SP2、SQL2016SP1、SQL2017 が含まれます。
 
 > [!NOTE]  
 > この記事では、グローバルな Azure portal を使用して SQL Server VM をプロビジョニングする方法について説明しますが、ガイダンスは次の点を除いて Azure Stack にも適用されます。オペレーティング システム ディスクで SSD は利用できません。マネージド ディスクは利用できません。さらに、ストレージ構成に若干の違いがあります。

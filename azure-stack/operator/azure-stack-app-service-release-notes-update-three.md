@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 88255a15a204f5dcb18dd83f9763e8297a1af51c
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: c80a6068aa46cd182f8ec928942e7072638b143f
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808244"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974843"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack Update 3 のリリース ノート
 
@@ -40,7 +40,7 @@ App Service on Azure Stack Update 3 のビルド番号は **74.0.13698.31** で�
 
 デプロイを開始する前に、[App Service on Azure Stack の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
-Azure App Service on Azure Stack を 1.3 にアップグレードする前に、Azure Stack 管理ポータルの Azure App Service 管理画面ですべてのロールの準備ができていることを確認してください。
+Azure App Service on Azure Stack を 1.3 にアップグレードする前に、Azure Stack 管理者ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確実にしてください。
 
 ![App Service のロールの状態](media/azure-stack-app-service-release-notes-update-three/image01.png)
 

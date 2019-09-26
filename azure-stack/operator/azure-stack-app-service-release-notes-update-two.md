@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: c85cc176949c9f3c86cded80be14417add6c40da
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: f427a31001f8f486fd231af7e59ef2bb30592661
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808162"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974807"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service on Azure Stack update 2 のリリース ノート
 
@@ -62,7 +62,7 @@ Azure App Service on Azure Stack Update 2 には、次の機能強化と修正�
     - NodeJS 8.11.1
   - **NPM** の次のバージョンが追加されました。
     - 5.6.0
-  - パブリック クラウドで Azure App Service と一致するように更新された .NET コア コンポーネント。
+  - パブリック クラウドで Azure App Service と一致するように更新された .NET Core コンポーネント。
   - 更新された Kudu
 
 - デプロイ スロット機能の自動スワップを有効化: [自動スワップの構成](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)。

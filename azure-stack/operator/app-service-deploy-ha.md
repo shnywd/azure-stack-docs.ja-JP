@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 994291eb0a990521dc932adc63f0ad52d4430e0d
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386256"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975221"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -73,7 +73,7 @@ ms.locfileid: "70386256"
 
     ![カスタム デプロイを作成する](media/app-service-deploy-ha/4.png)
 
-6. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
+6. 管理者ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
 
    > [!NOTE]
    > テンプレートのデプロイが完了するまでに約 1 時間かかります。
@@ -95,7 +95,7 @@ ms.locfileid: "70386256"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 
+2. 管理者ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **app-service-ha**)。 
 
 3. **[デプロイ]** をクリックしてから、 **[Microsoft.Template]** を選択します。
 

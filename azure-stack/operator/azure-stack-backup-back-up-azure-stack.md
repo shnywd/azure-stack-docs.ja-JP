@@ -1,6 +1,6 @@
 ---
 title: Azure Stack のバックアップ | Microsoft Docs
-description: Azure Stack でバックアップを設定してオンデマンド バックアップを実行します。
+description: Azure Stack でオンデマンド バックアップを行う方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: a572275ff81918d1b8f739a99fbe7a57784d0651
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66269013"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974717"
 ---
 # <a name="back-up-azure-stack"></a>Azure Stack のバックアップ
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack でオンデマンド バックアップを実行します。 PowerShell 環境の構成方法については、「[PowerShell for Azure Stack をインストールする](azure-stack-powershell-install.md)」をご覧ください。 Azure Stack にサインインするには、「[Azure Stack の管理者ポータルの使用](azure-stack-manage-portals.md)」をご覧ください。
+この記事では、Azure Stack でオンデマンド バックアップを行う方法について示します。 PowerShell 環境の構成方法については、「[PowerShell for Azure Stack をインストールする](azure-stack-powershell-install.md)」をご覧ください。 Azure Stack にサインインするには、「[Azure Stack の管理者ポータルの使用](azure-stack-manage-portals.md)」をご覧ください。
 
 ## <a name="start-azure-stack-backup"></a>Azure Stack のバックアップを開始する
 
@@ -44,7 +44,7 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
 > [!NOTE]
 > バックアップ ジョブは、ジョブが完了する約 10 から 15 分前に、正常に完了したことがポータルに表示されます。
 >
-> そのため、実際の状態は次のコードを使用するとより適切に監視できます。
+> 実際の状態は、次のコードを使用するとより適切に監視できます。
 
 > [!IMPORTANT]
 > 最初に 1 ミリ秒の遅延を入れたのは、コードがジョブを正しく登録するには早すぎて、**PSBeginTime** なしで戻り、次にジョブの **State** なしで戻ることへの対処としてです。
@@ -86,7 +86,7 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
 ## <a name="confirm-backup-has-completed"></a>バックアップの完了を確認する
 
 ### <a name="confirm-backup-has-completed-using-powershell"></a>PowerShell を使用してバックアップが完了したことを確認する
-次の PowerShell コマンドを使用して、バックアップが正常に完了したことを確認します。
+次の PowerShell コマンドを使用して、バックアップが正常に完了したことを確実にします。
 
 ```powershell
    Get-AzsBackup
@@ -111,8 +111,8 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
     Tags              : {}
 ```
 
-### <a name="confirm-backup-has-completed-in-the-administration-portal"></a>管理ポータルでバックアップの完了を確認する
-Azure Stack 管理ポータルを使用して、以下の手順でバックアップが正常に完了したことを確認します。
+### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>管理者ポータルでバックアップの完了を確認する
+Azure Stack 管理者ポータルを使用して、以下の手順でバックアップが正常に完了したことを確認します。
 
 1. [Azure Stack 管理者ポータル](azure-stack-manage-portals.md)を開きます。
 2. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Infrastructure backup]** を選択します。 **[Infrastructure backup]\(インフラストラクチャ バックアップ\)** ブレードで **[構成]** を選択します。

@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 45fddcb71781f11cdab600200631737d284935d9
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271700"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975198"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Azure Stack での App Service サーバー ロールのキャパシティ プランニング
 
@@ -99,7 +99,7 @@ worker のアップグレードおよびメンテナンス中、Azure App Servic
 
 アップグレードおよびメンテナンス中、Azure App Service はワークロードが確実に動作し続けるようにワークロードを未割り当ての worker に移動します。 ただし、アップグレード中に未割り当ての worker を利用できない場合、テナント ワークロードのダウンタイムが発生する可能性があります。 共有 worker に関しては、利用可能な worker 内でテナント アプリがサービスによって自動的に割り当てられるため、お客様が追加の worker をプロビジョニングする必要はありません。 高可用性を実現するためには、この層に 2 個の worker があることが最小要件です。
 
-クラウド管理者は、Azure Stack 管理ポータルの App Service 管理領域で worker 層の割り当てを監視できます。 App Service に移動し、左側のウィンドウにある [worker 層] を選択します。 [worker 層] テーブルには、worker 層の名前、サイズ、使用されているイメージ、利用可能な worker (未割り当て) の数、各層の worker の合計数、および worker 層の全体的な状態が表示されます。
+クラウド管理者は、Azure Stack 管理者ポータルの App Service 管理領域で worker 層の割り当てを監視できます。 App Service に移動し、左側のウィンドウにある [worker 層] を選択します。 [worker 層] テーブルには、worker 層の名前、サイズ、使用されているイメージ、利用可能な worker (未割り当て) の数、各層の worker の合計数、および worker 層の全体的な状態が表示されます。
 
 ![App Service 管理 - [worker 層]][1]
 

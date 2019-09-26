@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 891727c8e80af479e800feef9c292f7355fb208c
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842693"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975165"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Azure Stack での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
@@ -44,7 +44,7 @@ ms.locfileid: "68842693"
 Azure Stack の VM に対して Azure Monitor for VMs、Inventory、Change Tracking、Update Management の Azure Automation 機能を使用するには、まず、Azure でこれらのソリューションを有効にする必要があります。
 
 > [!TIP]
-> Azure VM に対してこれらの機能をすでに有効にしてある場合は、Log Analytics ワークスペースの既存の資格情報を使用できます。 使用する Log Analytics のワークスペース ID とプライマリ キーが既にある場合は、[次のセクション](./vm-update-management.md#in-the-azure-stack-admin-portal)に進んでください。 それ以外の場合は、引き続きこのセクションで新しい Log Analytics ワークスペースと Automation アカウントを作成します。
+> Azure VM に対してこれらの機能をすでに有効にしてある場合は、Log Analytics ワークスペースの既存の資格情報を使用できます。 使用する Log Analytics のワークスペース ID とプライマリ キーが既にある場合は、[次のセクション](./vm-update-management.md#in-the-azure-stack-administrator-portal)に進んでください。 それ以外の場合は、引き続きこのセクションで新しい Log Analytics ワークスペースと Automation アカウントを作成します。
 
 これらのソリューションを有効にする最初のステップは、Azure サブスクリプションで [Log Analytics ワークスペースを作成する](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)ことです。 Log Analytics ワークスペースは、独自のデータ リポジトリ、データ ソース、ソリューションを備えた固有の Azure Monitor ログ環境です。 ワークスペースを作成した後、ワークスペース ID とキーを書き留めておいてください。 この情報は、ワークスペース ブレードに移動し、 **[詳細設定]** をクリックして、 **[ワークスペース ID]** と **[プライマリ キー]** で確認できます。 
 
@@ -76,8 +76,8 @@ Azure Monitor for VMs では、ご利用の Azure VM および仮想マシン �
 
 Log Analytics ワークスペースが作成されたら、Linux および Windows VM 上のコレクションに対し、ワークスペースのパフォーマンス カウンターを有効にします。 次に、ワークスペースに ServiceMap および InfrastructureInsights ソリューションをインストールして有効にします。 このプロセスについて詳しくは、「[Azure Monitor for VMs をデプロイする](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview)」をご覧ください。
 
-### <a name="in-the-azure-stack-admin-portal"></a>Azure Stack 管理ポータルで
-Azure portal で Azure Automation のソリューションを有効にしたら、次に、クラウド管理者として Azure Stack 管理ポータルにサインインし、Azure Stack マーケットプレースの **Azure Monitor、更新および構成管理**および **Linux 用 Azure Monitor、更新および構成管理**という拡張機能をダウンロードします。
+### <a name="in-the-azure-stack-administrator-portal"></a>Azure Stack 管理者ポータルで
+Azure portal で Azure Automation のソリューションを有効にしたら、次に、クラウド管理者として Azure Stack 管理者ポータルにサインインし、Azure Stack マーケットプレースの **Azure Monitor、更新および構成管理**および **Linux 用 Azure Monitor、更新および構成管理**という拡張機能をダウンロードします。
 
    ![[Azure Monitor, Update and Configuration Management]\(Azure Monitor、更新および構成管理\) 拡張機能マーケットプレース項目](media/vm-update-management/2.PNG) 
 

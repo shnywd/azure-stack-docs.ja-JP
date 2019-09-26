@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d056cbf73e2417bd826fba7a7de263cc8e015b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842917"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070184"
 ---
 # <a name="manage-network-resources"></a>ネットワーク リソースの管理
 
@@ -61,7 +61,7 @@ MAC アドレス プールの使用率に関する詳細情報は、Azure Stack 
 1. Azure Stack 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[管理]** カテゴリで **[ネットワーク]** を選択します。
 1. **[ネットワーク]** ウィンドウの **[概要]** セクションに、 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルが表示されます。
 
-![ネットワーク リソース プロバイダーのウィンドウ](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
+    ![ネットワーク リソース プロバイダーのウィンドウ](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
 
 **[使用済み]** の数は、パブリック IP アドレス プールにおける割り当て済みのパブリック IP アドレスの数を表しています。 **[フリー]** の数は、パブリック IP アドレス プール内の、割り当て済みでないまだ使用可能なパブリック IP アドレスの数を表します。 **[% 使用]** の数は、使用済みまたは割り当て済みの数を、その場所にあるパブリック IP アドレス プール内のパブリック IP アドレスの合計数に対する割合として表わしています。
 
@@ -69,7 +69,7 @@ MAC アドレス プールの使用率に関する詳細情報は、Azure Stack 
 
 **[テナント リソース]** の下にある **[パブリック IP アドレス]** を選択します。 特定のリージョンでテナントのサブスクリプションによって明示的に作成されたパブリック IP アドレスの一覧を確認します。
 
-![テナントのパブリック IP アドレス](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
+![テナントのパブリック IP アドレス](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-02.png)
 
 動的に割り当て済みのパブリック IP アドレスが一覧に表示される場合があります。 ただし、アドレスはまだそれらに関連付けられていません。 アドレス リソースは、ネットワーク リソース プロバイダー内に作成されているものの、ネットワーク コントローラー内にはまだ作成されていません。
 

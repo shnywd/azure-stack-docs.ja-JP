@@ -1,9 +1,9 @@
 ---
-title: Azure Stack ユーザー サブスクリプションの所有者の更新 | Microsoft Docs
-description: Azure Stack ユーザー サブスクリプションの課金の所有者を変更します。
+title: Azure Stack ユーザー サブスクリプションの課金の所有者を変更する | Microsoft Docs
+description: Azure Stack ユーザー サブスクリプションの課金の所有者を変更する方法について学習します。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: justinha
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.author: sethm
+ms.date: 09/17/2019
+ms.author: justinha
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 99f995941c4e7b09af70dff9391aeceb9a59844d
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691924"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094365"
 ---
-# <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Azure Stack ユーザー サブスクリプションの所有者の変更
+# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Azure Stack ユーザー サブスクリプションの課金の所有者を変更する
 
 Azure Stack オペレーターは、PowerShell を使用して、ユーザー サブスクリプションの課金の所有者を変更することができます。 所有者を変更する理由の 1 つに、組織を離れるユーザーの後任を指定することなどがあります。
 
@@ -66,6 +66,8 @@ $subscription = Get-AzsUserSubscription -SubscriptionId $SubscriptionId
 $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
+
+[!include[Remove Account](../../includes/remove-account.md)]
 
 ## <a name="next-steps"></a>次の手順
 

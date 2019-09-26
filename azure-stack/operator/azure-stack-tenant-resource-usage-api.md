@@ -11,44 +11,51 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 6aaeff9ef708bcb89147d89205aa6526ebdb874f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 85bb518335c473a70ff97473d1b8b61654372cb8
+ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268220"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71070107"
 ---
 # <a name="tenant-resource-usage-api"></a>テナント リソース使用量 API
 
-テナントは、テナント API を使用して、テナントの独自のリソース使用状況データを表示できます。 この API は、Azure 使用状況 API (現在プライベート プレビュー中) と一貫性があります。
+テナントは、テナント API を使用して、テナントの独自のリソース使用状況データを表示できます。 これらの API は、Azure の使用状況の API と一致しています。
 
-Windows PowerShell コマンドレット **Get-UsageAggregates** を使用して、Azure と同様に使用状況データを取得できます。
+Windows PowerShell のコマンドレット [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) を使用すると、Azure と同様に使用量データを取得できます。
 
 ## <a name="api-call"></a>API 呼び出し
+
 ### <a name="request"></a>Request
+
 要求は、要求されたサブスクリプションと要求された期間の使用の詳細を取得します。 要求の本文はありません。
 
 | **メソッド** | **要求 URI** |
 | --- | --- |
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
-### <a name="arguments"></a>引数
-| **引数** | **説明** |
+### <a name="parameters"></a>parameters
+
+| **パラメーター** | **説明** |
 | --- | --- |
-| *Armendpoint* |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack 規則は、Azure Resource Manager エンドポイントの名前が、`https://management.{domain-name}` の形式であることです。 たとえば、開発キットでは、ドメイン名が local.azurestack.external の場合、Resource Manager エンドポイントは `https://management.local.azurestack.external` です。 |
-| *subId* |呼び出しを行っているユーザーのサブスクリプション ID。 この API は、1 つのサブスクリプションの使用状況をクエリするためにのみ使用できます。 プロバイダーは、プロバイダー リソース使用量 API を使用して、すべてのテナントの使用状況をクエリできます。 |
-| *reportedStartTime* |クエリの開始時間。 *DateTime* の値は UTC で、13:00 など、毎時 0 分にする必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式は*エスケープされた* ISO 8601 です。たとえば、2015-06-16T18%3a53%3a11%2b00%3a00Z などで、URI フレンドリになるように、コロンは %3a にエスケープされ、プラスは %2b にエスケープされます。 |
-| *reportedEndTime* |クエリの終了時間。 *reportedStartTime* に適用される制約は、この引数にも適用されます。 *reportedEndTime* の値は将来の値にすることはできません。 |
-| *aggregationGranularity* |daily と hourly の 2 つの個別の指定可能な値を持つ省略可能なパラメーター。 値が示すように、一方は日単位の粒度でデータを返し、もう一方は時間単位の解像度です。 daily オプションが、既定値です。 |
-| *api-version* |この要求を行うために使用するプロトコルのバージョン。 2015-06-01-preview を使用する必要があります。 |
-| *continuationToken* |使用状況 API プロバイダーへの最後の呼び出しから取得されたトークン。 このトークンは、応答が 1,000 行より大きい場合に必要であり、進行状況のブックマークとして機能します。 これが存在しない場合、渡された単位に基づいて、日または時間の開始から、データが取得されます。 |
+| Armendpoint |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack 規則は、Azure Resource Manager エンドポイントの名前が、`https://management.{domain-name}` の形式であることです。 たとえば、開発キットでは、ドメイン名が local.azurestack.external の場合、Resource Manager エンドポイントは `https://management.local.azurestack.external` です。 |
+| subId |呼び出しを行っているユーザーのサブスクリプション ID。 この API は、1 つのサブスクリプションの使用状況をクエリするためにのみ使用できます。 プロバイダーは、プロバイダー リソース使用量 API を使用して、すべてのテナントの使用状況をクエリできます。 |
+| reportedStartTime |クエリの開始時間。 *DateTime* の値は UTC で、13:00 など、毎時 0 分にする必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 です。たとえば、**2015-06-16T18%3a53%3a11%2b00%3a00Z** などで、URI に対応できるように、コロンは %3a にエスケープされ、プラスは %2b にエスケープされます。 |
+| reportedEndTime |クエリの終了時間。 **reportedStartTime** に適用される制約は、このパラメーターにも適用されます。 **reportedEndTime** の値は将来の値にすることはできません。 |
+| aggregationGranularity |**daily** と **hourly** の 2 つの個別の指定可能な値を持つ省略可能なパラメーター。 値が示すように、一方は日単位の粒度でデータを返し、もう一方は時間単位の解像度です。 **daily** オプションが既定値です。 |
+| api-version |この要求を行うために使用するプロトコルのバージョン。 **2015-06-01-preview** を使用する必要があります。 |
+| continuationToken |使用状況 API プロバイダーへの最後の呼び出しから取得されたトークン。 このトークンは、応答が 1,000 行より大きい場合に必要であり、 進行状況のブックマークとして機能します。 これが存在しない場合、渡された単位に基づいて、日または時間の開始から、データが取得されます。 |
 
 ### <a name="response"></a>Response
-GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
+
+```html
+GET
+/subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
+```
 
 ```json
 {
@@ -71,25 +78,24 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 }
 },
 
-. . .
+...
 ```
 
 ### <a name="response-details"></a>応答の詳細
-| **引数** | **説明** |
-| --- | --- |
-| *id* |使用状況集計の一意の ID |
-| *name* |使用状況集計の名前 |
-| *type* |リソース定義 |
-| *subscriptionId* |Azure ユーザーのサブスクリプション識別子 |
-| *usageStartTime* |この使用状況集計が属する使用状況バケットの UTC 開始時間 |
-| *usageEndTime* |この使用状況集計が属する使用状況バケットの UTC 終了時間 |
-| *instanceData* |インスタンスの詳細のキーと値のペア (新しい形式)。<br>  *resourceUri*:完全修飾リソース ID。リソース グループとインスタンス名が含まれます <br>  *location*:このサービスが実行されたリージョン <br>  *tags*:ユーザーが指定するリソース タグ <br>  *additionalInfo*:OS のバージョンやイメージの種類など、使用されたリソースの詳細 |
-| *quantity* |この期間に発生したリソース使用量 |
-| *meterId* |使用されたリソースの一意の ID (*ResourceID* とも呼ばれる) |
 
+| **パラメーター** | **説明** |
+| --- | --- |
+| id |使用状況集計の一意の ID |
+| 名前 |使用状況集計の名前 |
+| type |リソース定義 |
+| subscriptionId |Azure ユーザーのサブスクリプション識別子。 |
+| usageStartTime |この使用状況集計が属する使用状況バケットの UTC 開始時間 |
+| usageEndTime |この使用状況集計が属する使用状況バケットの UTC 終了時間 |
+| instanceData |インスタンスの詳細のキーと値のペア (新しい形式)。<br>  *resourceUri*:完全修飾リソース ID。リソース グループとインスタンス名が含まれます。 <br>  *location*:このサービスが実行されたリージョン。 <br>  *tags*:ユーザーが指定するリソース タグ。 <br>  *additionalInfo*:OS のバージョンやイメージの種類など、使用されたリソースの詳細。 |
+| 数量 |この期間に発生したリソース使用量 |
+| meterId |使用されたリソースの一意の ID (**ResourceID** とも呼ばれます) |
 
 ## <a name="next-steps"></a>次の手順
-[プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)
 
-[使用量に関するよくあるご質問 (FAQ)](azure-stack-usage-related-faq.md)
-
+- [プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)
+- [使用量に関するよくあるご質問 (FAQ)](azure-stack-usage-related-faq.md)

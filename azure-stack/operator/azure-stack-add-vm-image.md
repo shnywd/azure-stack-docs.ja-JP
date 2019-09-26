@@ -3,7 +3,7 @@ title: VM イメージを Azure Stack に追加する | Microsoft Docs
 description: Azure Stack に VM イメージを追加または削除する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: Justinha
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: mabrigg
+ms.date: 09/17/2019
+ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 8fec1b3702aa7c8c55f1a90167b1ac13f0ac8847
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: fef815ec23655638bbe4df1bcdccae42aeee13e2
+ms.sourcegitcommit: 9f4c6e96f60b4c229316e7a4ab6e0e5ef0a9a232
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271754"
+ms.lasthandoff: 09/17/2019
+ms.locfileid: "71061169"
 ---
 # <a name="add-a-vm-image-to-azure-stack"></a>VM イメージを Azure Stack に追加する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack では、仮想マシン (VM) イメージをマーケットプレースに追加してユーザーに提供することができます。 イメージは、Azure Stack 用の Azure Resource Manager テンプレートを使用して追加します。 管理ポータルまたは Windows PowerShell を使用して、VM イメージを Marketplace 項目として Azure Marketplace UI に追加することもできます。 グローバル Azure Marketplace のイメージか、独自のカスタム VM イメージを使用します。
+Azure Stack では、仮想マシン (VM) のイメージをマーケットプレースに追加してご自分のユーザーに提供することができます。 イメージは、Azure Stack 用の Azure Resource Manager テンプレートを使用して追加します。 管理ポータルまたは Windows PowerShell を使用して、VM イメージを Marketplace 項目として Azure Marketplace UI に追加することもできます。 グローバル Azure Marketplace のイメージか、独自のカスタム VM イメージを使用します。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>ポータルから VM イメージを追加する
 
@@ -66,7 +66,7 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 
 ## <a name="remove-a-vm-image-through-the-portal"></a>ポータルから VM イメージを削除する
 
-1. [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) で管理ポータルを開きます。
+1. [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) の管理者ポータルを開きます。
 
 2. **Marketplace Management** を選択し、削除する VM を選択します。
 
@@ -155,10 +155,13 @@ Azure Stack では、仮想マシン (VM) イメージをマーケットプレ�
 5. Windows または Linux オペレーティング システムのイメージを VHD 形式 (VHDX ではない) で準備して、そのイメージをご自身のストレージ アカウントにアップロードし、PowerShell で VM イメージを取得するときに使用する URI を取得します。  
 
    ```powershell
-    Add-AzureRmAccount `
-      -EnvironmentName "AzureStackAdmin" `
-      -TenantId $TenantID
+   Add-AzureRmAccount 
+   -EnvironmentName "AzureStackAdmin" 
+   -TenantId $TenantID
    ```
+  
+   >[!Note]
+   > ご自分のセッションの期限が切れたり、ご自分のパスワードが変更になったり、または単純にアカウントを切り替えたい場合は、サインイン前に次のコマンドレットを Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process` を使用して実行します。
 
 6. (省略可能) データ ディスクの配列を VM イメージの一部としてアップロードできます。 New-DataDiskObject コマンドレットを使用して、データ ディスクを作成します。 管理者特権のプロンプトで PowerShell を開き、次を実行します。
 

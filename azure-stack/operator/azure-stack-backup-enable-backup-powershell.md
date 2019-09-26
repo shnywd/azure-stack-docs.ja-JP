@@ -1,6 +1,6 @@
 ---
 title: PowerShell で Azure Stack のバックアップを有効にする | Microsoft Docs
-description: Windows PowerShell でインフラストラクチャ バックアップ サービスを有効にし、障害が発生した場合に Azure Stack を復元できるようにします。
+description: PowerShell で Infrastructure Backup サービスを有効にし、障害が発生した場合に Azure Stack を復元できるようにする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -15,12 +15,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 08950940510d874b407448bab37c6a43f6965c7f
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: 2e419c32caf78d97ee38e570ce0fa823cc94651a
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268944"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70975183"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>PowerShell で Azure Stack のバックアップを有効にする
 
@@ -46,16 +46,16 @@ PowerShell 環境の構成方法については、「[PowerShell for Azure Stack
 
 | 変数        | 説明   |
 |---              |---                                        |
-| $username       | ファイルを読み書きするための十分なアクセス権がある共有ドライブの場所のドメインとユーザー名を使用して**ユーザー名**を入力します。 たとえば、「 `Contoso\backupshareuser` 」のように入力します。 |
-| $password       | ユーザーの**パスワード**を入力します。 |
-| $sharepath      | **バックアップ ストレージの場所**のパスを入力します。 別のデバイスでホストされるファイル共有へのパスの場合、汎用名前付け規則 (UNC) の文字列を使用する必要があります。 UNC 文字列は、共有ファイルやデバイスといった、リソースの場所を指定します。 バックアップ データを確実に利用できるようにするためには、保存デバイスは別の場所に配置する必要があります。 |
-| $frequencyInHours | 頻度 (時間単位) はバックアップの作成頻度を決定します。 既定値は 12 です。 Scheduler では、最大値 12 から最小値 4 までをサポートします。|
-| $retentionPeriodInDays | 保有期間 (日単位) は、バックアップが外部の保存場所に保持される日数を決定します。 既定値は 7 です。 Scheduler では、最大値 14 から最小値 2 までをサポートします。 保有期間より前のバックアップは、外部の保存場所から自動的に削除されます。|
-| $encryptioncertpath | 1901 以降に適用されます。  パラメーターは、Azure Stack Module バージョン 1.7 以降で利用できます。 暗号化証明書パスは、.CER ファイルのファイル パスと、データ暗号化に使用される公開キーを指定します。 |
-| $encryptionkey | ビルド 1811 以前に適用されます。 パラメーターは、Azure Stack Module バージョン 1.6 以前で利用できます。 データの暗号化に使用される暗号化キー。 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) コマンドレットを使用して、新しいキーを生成します。 |
+| `$username`       | ファイルを読み書きするための十分なアクセス権がある共有ドライブの場所のドメインとユーザー名を使用して**ユーザー名**を入力します。 たとえば、「 `Contoso\backupshareuser` 」のように入力します。 |
+| `$password`       | ユーザーの**パスワード**を入力します。 |
+| `$sharepath`      | **バックアップ ストレージの場所**のパスを入力します。 別のデバイスでホストされるファイル共有へのパスの場合、汎用名前付け規則 (UNC) の文字列を使用する必要があります。 UNC 文字列は、共有ファイルやデバイスといった、リソースの場所を指定します。 バックアップ データを確実に利用できるようにするためには、保存デバイスは別の場所に配置する必要があります。 |
+| `$frequencyInHours` | 頻度 (時間単位) はバックアップの作成頻度を決定します。 既定値は 12 です。 Scheduler では、最大値 12 から最小値 4 までをサポートします。|
+| `$retentionPeriodInDays` | 保有期間 (日単位) は、バックアップが外部の保存場所に保持される日数を決定します。 既定値は 7 です。 Scheduler では、最大値 14 から最小値 2 までをサポートします。 保有期間より前のバックアップは、外部の保存場所から自動的に削除されます。|
+| `$encryptioncertpath` | 1901 以降に適用されます。 パラメーターは、Azure Stack Module バージョン 1.7 以降で利用できます。 暗号化証明書パスは、.CER ファイルのファイル パスと、データ暗号化に使用される公開キーを指定します。 |
+| `$encryptionkey` | ビルド 1811 以前に適用されます。 パラメーターは、Azure Stack Module バージョン 1.6 以前で利用できます。 暗号化キーはデータの暗号化に使用されます。 [New-AzsEncryptionKeyBase64](https://docs.microsoft.com/powershell/module/azs.backup.admin/new-azsencryptionkeybase64) コマンドレットを使用して、新しいキーを生成します。 |
 |     |     |
 
-### <a name="enable-backup-on-1901-and-beyond-using-certificate"></a>証明書を使用して 1901 以降に対してバックアップを有効にする
+### <a name="enable-backup-on-1901-and-later-using-certificate"></a>証明書を使用して 1901 以降に対してバックアップを有効にする
 ```powershell
     # Example username:
     $username = "domain\backupadmin"
@@ -141,14 +141,14 @@ PowerShell 環境の構成方法については、「[PowerShell for Azure Stack
    ```
 
 ### <a name="azure-stack-powershell"></a>Azure Stack PowerShell 
-インフラストラクチャ バックアップを構成するための PowerShell コマンドレットは Set-AzsBackupConfiguration です。 以前のリリースでは、コマンドレットは Set-AzsBackupShare でした。 このコマンドレットは証明書の提供を要求します。 暗号化キーを使用してインフラストラクチャ バックアップが構成されている場合、暗号化キーの更新またはプロパティの表示は行えません。 Admin PowerShell のバージョン 1.6 を使用する必要があります。 
+インフラストラクチャ バックアップを構成するための PowerShell コマンドレットは Set-AzsBackupConfiguration です。 以前のリリースでは、コマンドレットは Set-AzsBackupShare でした。 このコマンドレットは証明書の提供を要求します。 暗号化キーを使用してインフラストラクチャ バックアップが構成されている場合、暗号化キーの更新またはプロパティの表示は行えません。 Admin PowerShell のバージョン 1.6 を使用する必要があります。
 
-1901 に更新する前にインフラストラクチャ バックアップが構成された場合、Admin PowerShell のバージョン 1.6 を使用して暗号化キーを設定および表示できます。 バージョン 1.6 では、暗号化キーから証明書ファイルへの更新ができなくなります。
-モジュールの正しいバージョンのインストールについて、詳しくは「[Azure Stack PowerShell のインストール](azure-stack-powershell-install.md)」を参照してください。 
+1901 に更新する前にインフラストラクチャ バックアップが構成された場合、管理者の PowerShell のバージョン 1.6 を使用して暗号化キーを設定および表示できます。 バージョン 1.6 では、暗号化キーから証明書ファイルへの更新ができなくなります。
+モジュールの正しいバージョンのインストールについて、詳しくは「[Azure Stack PowerShell のインストール](azure-stack-powershell-install.md)」を参照してください。
 
 
 ## <a name="next-steps"></a>次の手順
 
-「[Azure Stack のバックアップ](azure-stack-backup-back-up-azure-stack.md)」でバックアップの実行方法を学びます
+「[Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md)」(Azure Stack のバックアップ) でバックアップの実行方法を学びます。
 
-「[Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md)」(管理ポータルでのバックアップ完了の確認) でバックアップが実行されたことを確認する方法について学びます
+「[Confirm backup completed in administration portal](azure-stack-backup-back-up-azure-stack.md)」(管理ポータルでのバックアップ完了の確認) でバックアップが実行されたことを確認する方法について学びます。

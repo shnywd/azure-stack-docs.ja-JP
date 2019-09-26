@@ -15,12 +15,12 @@ ms.date: 09/10/2019
 ms.author: mabriggs
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 2153a91bcf833386ef5884a9fd4e7c0fc759c01b
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: 3d760e981f3dd298284b10ed56c4c6ace683f49b
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863061"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974787"
 ---
 # <a name="install-azure-stack-updates"></a>Azure Stack 更新プログラムのインストール
 
@@ -28,7 +28,7 @@ ms.locfileid: "70863061"
 
 更新プログラム パッケージをインストールするには、Azure Stack の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、および現在の Azure Stack と OEM パッケージ バージョンの表示を行います。
 
-管理ポータルから更新プログラムを管理したり、ダッシュボードの **[更新プログラム]** セクションで次のことを行ったりできます。
+管理者ポータルから更新プログラムを管理したり、ダッシュボードの **[更新プログラム]** セクションを使用して次のことを行ったりすることができます。
 
 - 現在のバージョンなどの重要な情報を表示します。
 - 更新プログラムをインストールし、進行状況を監視します。
@@ -49,7 +49,7 @@ ms.locfileid: "70863061"
 
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
-1. Azure Stack 管理ポータルを開きます。
+1. Azure Stack 管理者ポータルを開きます。
 
 2. **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 
@@ -75,7 +75,7 @@ ms.locfileid: "70863061"
 
 ## <a name="review-update-history"></a>更新履歴を確認する
 
-1. 管理ポータルを開きます。
+1. 管理者ポータルを開きます。
 
 2. **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 

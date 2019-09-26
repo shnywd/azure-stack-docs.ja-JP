@@ -14,12 +14,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 430df1c886a869239c040085dcea983d07b3b36d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842930"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974659"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Azure CLI を使用した Azure Stack へのリソースの管理とデプロイ
 
@@ -44,7 +44,7 @@ ASDK を使用している場合、開発用マシン上で Azure CLI を使用�
 ASDK ルート証明書を PEM 形式でエクスポートするには:
 
 1. Azure Stack のルート証明書の名前を取得します。
-    - Azure Stack テナントまたは管理者ポータルにサインインします。
+    - Azure Stack ユーザーまたは管理者ポータルにサインインします。
     - アドレス バーの近くにある **[セキュア]** をクリックします。
     - ポップアップ ウィンドウで、 **[有効]** をクリックします。
     - [証明書] ウィンドウで、 **[証明のパス]** タブをクリックします。

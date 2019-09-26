@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でのお客様への請求と配賦 | Microsoft Docs
-description: Azure Stack からリソース使用量情報を取得する方法を説明します。
+title: Azure Stack での顧客への請求と配賦 | Microsoft Docs
+description: Azure Stack ユーザーにどのようにリソース使用量が請求されるかと、分析および配賦のために請求情報にアクセスする方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 06/21/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 05a1e106a171df2a8948601376dbc152cb5ca70a
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
+ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316192"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094336"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack での使用量と請求
 
@@ -28,7 +28,7 @@ ms.locfileid: "67316192"
 
 Azure Stack では、使用されたリソースの使用量データを収集してグループ化し、このデータを Azure Commerce に転送します。 Azure Commerce では、Azure の使用量に対する課金と同様に、Azure Stack の使用量に対して課金が行われます。
 
-また、請求アダプターを使用して、使用量データを取得し、独自の請求システムや配賦システムにエクスポートしたり、Microsoft Power BI などのビジネス インテリジェンス ツールにエクスポートできます。
+また、請求アダプターを使用して、使用量データを取得し、独自の請求システムや配賦システムにエクスポートしたり、Microsoft Power BI などのビジネス インテリジェンス ツールにエクスポートしたりすることもできます。
 
 ## <a name="usage-pipeline"></a>使用量パイプライン
 
@@ -44,7 +44,7 @@ Azure Stack 内の各リソース プロバイダーは、リソース使用率�
 
 コンピューティング、ストレージ、ネットワークなど、Azure Stack のリソース プロバイダーでは、サブスクリプションごとに 1 時間間隔で使用量データが生成されます。 使用量データには、リソース名、使用されたサブスクリプション、使用された量など、使用されたリソースに関する情報が含まれます。 測定 ID リソースについては、[Usage API の FAQ](azure-stack-usage-related-faq.md) に関するページをご覧ください。
 
-使用量データが収集されると、そのデータが [Azure に報告され](azure-stack-usage-reporting.md)、請求書が生成されます。請求書は、Azure Billing Portal から表示できます。
+使用量データが収集されると、それが [Azure に報告され](azure-stack-usage-reporting.md)、請求書が生成されます。これは Azure Billing Portal から表示できます。
 
 > [!NOTE]  
 > 使用量データのレポートは、Azure Stack Development Kit (ASDK) および容量モデルのライセンスを持つ Azure Stack 統合システムのユーザーにとっては必須ではありません。 Azure Stack のライセンスの詳細については、[パッケージと価格に関するデータ シート](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)をご覧ください。
@@ -53,7 +53,7 @@ Azure 課金ポータルには、課金対象のリソースの使用量デー�
 
 ## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>マルチテナント クラウド サービス プロバイダーの使用状況レポート
 
-Azure Stack を使用している多数の顧客を持つマルチテナント クラウド サービス プロバイダー (CSP) は、各顧客の使用状況を個別に報告できます。これにより、プロバイダーはさまざまな Azure サブスクリプションに使用料金を課金できます。
+Azure Stack を使用しているマルチテナント クラウド サービス プロバイダー (CSP) は、各顧客の使用状況を個別に報告できるため、プロバイダーはさまざまな Azure サブスクリプションに使用料金を課金できます。
 
 各顧客の ID は、異なる Azure Active Directory (Azure AD) テナントによって表されます。 Azure Stack では、Azure AD テナントごとに 1 つの CSP サブスクリプションを割り当てることができます。 テナントとそのサブスクリプションを Azure Stack の基本登録に追加できます。 基本登録はすべての Azure Stack インスタンスに対して行われます。 サブスクリプションがテナントに登録されていなくても、ユーザーは引き続き Azure Stack を使用することができ、使用状況は基本登録に使用されたサブスクリプションに送信されます。
 

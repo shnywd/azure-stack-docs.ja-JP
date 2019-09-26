@@ -16,12 +16,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d9155edcf23154f70f2a7f8098df55e7acb2b552
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808275"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974822"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack update 1 のリリース ノート
 
@@ -146,7 +146,7 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Azure Stack 管理ポータルの [Virtual Machines] で **CN0-VM** を参照し、 **[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
+2. Azure Stack 管理者ポータルの [Virtual Machines] で **CN0-VM** を参照し、 **[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
 3. **管理者権限で PowerShell** を起動し、次のスクリプトを実行します。
 
     ```powershell

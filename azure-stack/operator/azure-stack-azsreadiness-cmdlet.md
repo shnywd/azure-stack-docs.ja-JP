@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 7d0e9c6914ce8748d842c9addf040355e3dc1cb1
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 9e92101b6d00da397359ed25e8682f18305f5a83
+ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991705"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "70974747"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
@@ -166,7 +166,7 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>説明
 
-**Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、および Azure Active Directory が検証されます。 Azure Stack の配置前、またはシークレット ローテーションなどの Azure Stack サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
+**Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、Azure Active Directory (AAD) が検証されます。 Azure Stack の配置前、またはシークレット ローテーションなどの Azure Stack サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
 
 ## <a name="examples"></a>例
 
@@ -237,7 +237,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-この例では、セキュリティのためにサービス管理者アカウントの資格情報が必要です。また、`Start-AzsReadinessChecker` によって、Azure アカウントと Azure Active Directory が、**azurestack.contoso.com** というテナント ディレクトリ名を持つ AAD デプロイに対して有効であることが確認されます
+この例では、セキュリティのためにサービス管理者アカウントの資格情報が必要です。また、`Start-AzsReadinessChecker` によって、Azure アカウントと AAD が、**azurestack.contoso.com** というテナント ディレクトリ名を持つ AAD デプロイに対して有効であることが確認されます。
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>例: デプロイ データで Azure ID を検証する (デプロイ サポート)
 
@@ -246,7 +246,7 @@ $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-この例では、セキュリティのためにサービス管理者アカウントの資格情報が必要です。また、`Start-AzsReadinessChecker` によって、Azure アカウントと Azure Active Directory が、デプロイ用について生成されたデプロイ データ JSON ファイルから **AzureCloud** と **TenantName** が読み取られた AAD デプロイに対して有効であることが確認されます。
+この例では、セキュリティのためにサービス管理者アカウントの資格情報が必要です。また、`Start-AzsReadinessChecker` によって、Azure アカウントと AAD が、デプロイ用について生成されたデプロイ データ JSON ファイルから **AzureCloud** と **TenantName** が読み取られた AAD デプロイに対して有効であることが確認されます。
 
 ### <a name="example-validate-azure-registration"></a>例: Azure の登録を検証する
 
@@ -435,7 +435,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Azure Stack のデプロイに使用する Azure Active Directory サービス管理者を指定します。
+Azure Stack のデプロイに使用する AAD サービス管理者を指定します。
 
 |  |  |
 |----------------------------|---------|
@@ -447,11 +447,11 @@ Azure Stack のデプロイに使用する Azure Active Directory サービス�
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Azure Stack のデプロイに使用する Azure Active Directory 名を指定します。
+Azure Stack のデプロイに使用する AAD 名を指定します。
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -512,13 +512,13 @@ Azure Stack の登録に使用する登録サブスクリプション ID を指�
 
 証明書の必須証明書フォルダーのみが存在するパスを指定します。
 
-Azure Active Directory ID システムを使用した Azure Stack デプロイの必須フォルダーは次のとおりです。
+AAD ID システムを使用した Azure Stack デプロイの必須フォルダーは次のとおりです。
 
-ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
 
 Active Directory フェデレーション サービス (AD FS) ID システムを使用した Azure Stack デプロイの必須フォルダーは次のとおりです。
 
-ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
+- ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -605,11 +605,11 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 ### <a name="-whatif"></a>-WhatIf
 
-コマンドレットの実行時に発生する内容を示します。 このコマンドレットは実行されません。
+コマンドレットの実行時に発生する内容を示します。 コマンドレットは実行されません。
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                       |SwitchParameter   |
+|型:                       |SwitchParameter   |
 |別名:                    |wi                |
 |位置:                   |named             |
 |既定値:              |False             |
