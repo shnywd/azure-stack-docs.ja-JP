@@ -165,6 +165,8 @@
                   href: azure-stack-update-oem.md
             - name: 更新プログラムのステータスの監視
               href: azure-stack-update-monitor.md
+            - name: 更新プログラムのトラブルシューティング
+              href: azure-stack-updates-troubleshoot.md
         - name: 正常性とアラートの監視
           href: azure-stack-monitor-health.md
         - name: ネットワーク リソースの管理
