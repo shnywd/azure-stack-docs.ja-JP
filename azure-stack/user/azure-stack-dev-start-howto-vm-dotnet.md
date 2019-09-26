@@ -9,12 +9,12 @@ ms.date: 08/09/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: beddafb351af39f0a21a1cd0d7a7baa4ccfee28e
-ms.sourcegitcommit: 94669fe8a55fadd3103e80be307e9e8c823bf746
+ms.openlocfilehash: cd7ca2e1a198cb66c5d7627029215b55af0de975
+ms.sourcegitcommit: ae79b8bea670ea854ed00e9998d45f6b47fc8347
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68940272"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71142574"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に C# ASP.NET Web アプリをデプロイする
 
@@ -111,7 +111,7 @@ Azure Stack 内のご自分の VM への発行ターゲットを作成します�
     ![ASP.NET Web アプリを Azure Stack にデプロイする (発行)](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. **[発行]** ウィンドウで、 **[新しいプロファイル]** を選択します。
-1. **[IIS]** 、 **[FTP]** などを選択します。
+1. **[IIS]、[FTP] など**を選択します。
 1. **[発行]** を選択します。
 1. **[発行方法]** で **[Web 配置]** を選択します。
 1. **[サーバー]** で、以前に定義した DNS 名 (*w21902.local.cloudapp.azurestack.external* など) を入力します。
