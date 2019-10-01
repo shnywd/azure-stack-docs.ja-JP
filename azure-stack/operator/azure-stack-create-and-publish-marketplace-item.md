@@ -1,6 +1,6 @@
 ---
 title: Azure Stack の Marketplace アイテムの作成と発行 | Microsoft Docs
-description: Azure Stack にある Marketplace アイテムを作成および発行します。
+description: Azure Stack の Marketplace 項目を作成して発行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 08/20/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: b9e1e9a1cdd0afe18a5395c99fb2eef932791667
-ms.sourcegitcommit: 1a8ebd8103608b5ee9e804d7015eefe05ef55185
+ms.openlocfilehash: 668882b1f5e0702ce51798468c8f102efe92edcd
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69643851"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159691"
 ---
-# <a name="create-and-publish-a-marketplace-item"></a>Marketplace アイテムを作成および発行する
+# <a name="create-and-publish-a-marketplace-item-in-azure-stack"></a>Azure Stack で Marketplace 項目を作成して発行する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -46,7 +46,7 @@ ms.locfileid: "69643851"
     > プロダクト キー、パスワード、お客様を特定できる情報などの機密情報を Azure Resource Manager テンプレートにハード コーディングしないでください。 テンプレート JSON ファイルは、ギャラリーで公開されると、認証の必要なくアクセスできます。 機密情報はすべて [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) に格納し、テンプレート内から呼び出してください。
 
 4. リソースを正常にデプロイできるようにするには、Microsoft Azure Stack API を使用してテンプレートをテストします。
-5. テンプレートが仮想マシン イメージに依存する場合、指示に従って [Azure Stack に仮想マシン イメージを追加](azure-stack-add-vm-image.md)します。
+5. テンプレートが仮想マシン (VM) イメージに依存する場合、指示に従って [Azure Stack に VM イメージを追加](azure-stack-add-vm-image.md)します。
 6. Azure Resource Manager テンプレートを **/Contoso.TodoList/DeploymentTemplates/** フォルダーに保存します。
 7. Marketplace アイテムのアイコンとテキストを選択します。 **Icons** フォルダーにアイコンを追加し、**Strings** フォルダー内の **resources** ファイルにテキストを追加します。 アイコンには **small**、**medium**、**large**、および **wide** の名前付け規則を使用します。 これらのサイズの詳細については、「[Marketplace アイテムの UI リファレンス](#reference-marketplace-item-ui)」を参照してください。
 
@@ -91,9 +91,9 @@ ms.locfileid: "69643851"
 
 ## <a name="publish-a-marketplace-item"></a>Marketplace アイテムの発行
 
-1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack ストレージにアップロードするか、またはパッケージの一時的な場所である Azure Storage にアップロードできます。 BLOB がパブリックにアクセスできることを確認します。
-2. Microsoft Azure Stack 環境のクライアント仮想マシンで、PowerShell セッションがサービス管理者の資格情報を使用して設定されていることを確認します。 Azure Stack で PowerShell を認証する方法については、[PowerShell を使用したテンプレートのデプロイ](../user/azure-stack-deploy-template-powershell.md)に関するページを参照してください。
-3. [PowerShell 1.3.0](azure-stack-powershell-install.md) 以降を使用する場合、**Add-AzsGalleryItem** PowerShell コマンドレットを使用して Marketplace アイテムを Azure Stack に発行できます。 PowerShell 1.3.0 を使用する前は、**Add-AzsGalleryItem** の代わりに、**Add-AzureRMGalleryitem** コマンドレットを使用します。 たとえば、PowerShell 1.3.0 以降を使用する場合
+1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack ストレージにアップロードすることも、パッケージの一時的な場所である Azure Storage にアップロードするこもできます。 BLOB がパブリックにアクセスできることを確認します。
+2. Microsoft Azure Stack 環境のクライアント VM で、PowerShell セッションがサービス管理者の資格情報を使用して設定されていることを確認します。 Azure Stack で PowerShell を認証する方法については、[PowerShell を使用したテンプレートのデプロイ](../user/azure-stack-deploy-template-powershell.md)に関するページを参照してください。
+3. [PowerShell 1.3.0](azure-stack-powershell-install.md) 以降を使用する場合、**Add-AzsGalleryItem** PowerShell コマンドレットを使用して Marketplace アイテムを Azure Stack に発行できます。 以前のバージョンの場合は、**Add-AzsGalleryItem** コマンドレットの代わりに、**Add-AzureRMGalleryitem** コマンドレットを使用します。 たとえば、PowerShell 1.3.0 以降を使用する場合
 
    ```powershell
    Add-AzsGalleryItem -GalleryItemUri `
@@ -131,18 +131,18 @@ ms.locfileid: "69643851"
 
 ### <a name="identity-information"></a>ID 情報
 
-| Name | 必須 | Type | 制約 | Description |
+| 名前 | 必須 | 種類 | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| Name |X |string |[A-Za-z0-9]+ | |
+| 名前 |X |string |[A-Za-z0-9]+ | |
 | Publisher |X |string |[A-Za-z0-9]+ | |
 | Version |X |string |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | 必須 | Type | 制約 | Description |
+| 名前 | 必須 | 種類 | 制約 | Description |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |string |推奨 80 文字 |80 文字より長い場合、ポータルでアイテム名が適切に表示されないことがあります。 |
-| PublisherDisplayName |X |string |推奨 30 文字 |30 文字より長い場合、ポータルで発行元の名前が適切に表示されないことがあります。 |
+| DisplayName |X |string |推奨 80 文字 |項目名が 80 文字より長い場合、ポータルで適切に表示されないことがあります。 |
+| PublisherDisplayName |X |string |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
 | PublisherLegalName |X |string |最大 256 文字 | |
 | Summary |X |string |60 ～ 100 文字 | |
 | LongSummary |X |string |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
@@ -152,7 +152,7 @@ ms.locfileid: "69643851"
 
 Marketplace では、次のアイコンを使用します。
 
-| Name | 幅 | 高さ | メモ |
+| 名前 | 幅 | 高さ | メモ |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |常に必要 |
 | Large |115 px |115 px |常に必要 |
@@ -168,7 +168,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| Name | 必須 | Type | 制約 | Description |
+| 名前 | 必須 | 種類 | 制約 | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |最大 64 文字。 | |
 | Uri |X |URI | | |
@@ -177,7 +177,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| Name | 必須 | Type | 制約 | Description |
+| 名前 | 必須 | 種類 | 制約 | Description |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |string |最大 25 文字。 | |
 | 値 |X |string |最大 30 文字。 | |
@@ -194,11 +194,11 @@ Azure Stack ポータルで表示される Marketplace アイテムのアイコ�
 
 ### <a name="create-blade"></a>[作成] ブレード
 
-![[作成] ブレード](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![[作成] ブレード - Azure Stack の Marketplace 項目](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>[Marketplace item details (Marketplace アイテムの詳細)] ブレード
 
-![[Marketplace item details (Marketplace アイテムの詳細)] ブレード](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack の [Marketplace item details]\(Marketplace 項目の詳細\) ブレード](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>次の手順
 

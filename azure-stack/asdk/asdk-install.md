@@ -16,12 +16,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: c616736cf9ea8cc350c2c53bb7d6994346dac990
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025962"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159433"
 ---
 # <a name="install-the-asdk"></a>ASDK のインストール
 [ASDK ホスト コンピューターの準備](asdk-prepare-host.md)ができたら、この記事の次の手順に従って、Azure Stack Development Kit (ASDK) を CloudBuilder.vhdx イメージにデプロイできます。
@@ -44,7 +44,7 @@ ms.locfileid: "70025962"
   
     Azure サブスクリプション ID プロバイダーを選択する場合は、インターネット接続、Azure AD ディレクトリ テナントのフルネーム (*domainname*.onmicrosoft.com の形式) または Azure AD の検証済みのカスタム ドメイン名が必要です。 また、指定されたディレクトリの全体管理者の資格情報も必要です。
 
-    デプロイの後、Azure Active Directory (AAD) の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
+    デプロイの後、Azure Active Directory (Azure AD) の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
 
     ID プロバイダーとして AD FS を使用している場合は、既定のスタンプ ディレクトリ サービスが使用されます。 サインインに使用する既定のアカウントは azurestackadmin@azurestack.local であり、使用するパスワードは、セットアップの一部として指定したものです。
 

@@ -12,22 +12,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 0091571dca5c966cb58fc7ce1533a17850558205
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106534"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279187"
 ---
-# <a name="azure-stack-updates"></a>Azure Stack の更新プログラム
+# <a name="azure-stack-updates-release-notes"></a>Azure Stack の更新プログラム: リリース ノート
 
 *適用対象:Azure Stack 統合システム*
 
-この記事では、Azure Stack 更新プログラム パッケージの内容について説明します。 この更新プログラムには、このリリースの Azure Stack に対する新機能、機能強化、および修正が含まれています。 **別のバージョンのリリース ノートにアクセスするには、左上のバージョン ピッカーを使用します。**
+この記事では、Azure Stack 更新プログラム パッケージの内容について説明します。 この更新プログラムには、このリリースの Azure Stack に対する新機能、機能強化、および修正が含まれています。
+
+別のバージョンのリリース ノートにアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用します。
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -37,6 +39,16 @@ ms.locfileid: "71106534"
 > [!IMPORTANT]  
 > ご利用の Azure Stack インスタンスが 2 つ前の更新プログラムより遅れている場合、コンプライアンスに対応していないとみなされます。 [サポートを受けるためには、少なくともサポートされる最小バージョンまで更新する](azure-stack-servicing-policy.md#keep-your-system-under-support)必要があります。 
 ::: moniker-end
+
+## <a name="update-planning"></a>計画の更新
+
+更新プログラムを適用する前に、必ず次の情報を確認してください。
+
+- [既知の問題](known-issues.md)
+- [セキュリティ更新プログラム](release-notes-security-updates.md)
+- [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
+
+更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング](azure-stack-updates-troubleshoot.md)に関するページをご確認ください。
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -91,14 +103,6 @@ Azure Stack 1908 更新プログラムのビルドの種類は**完全**です�
 ## <a name="security-updates-1908"></a>セキュリティ更新プログラム
 
 Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
-
-## <a name="update-planning-1908"></a>更新プログラムの計画
-
-更新プログラムを適用する前に、必ず次の情報を確認してください。
-
-- [既知の問題](known-issues.md)
-- [セキュリティ更新プログラム](release-notes-security-updates.md)
-- [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
 
 ## <a name="download-the-update-1908"></a>更新プログラムのダウンロード
 
@@ -506,7 +510,7 @@ Azure Stack の 1905 リリースは、次の修正プログラムが適用さ�
 
 ## <a name="archive"></a>アーカイブ
 
-古いバージョンのアーカイブされたリリース ノートにアクセスするには、ページの左上にあるバージョン ピッカーを使用して、目的のバージョンを選択します。 
+アーカイブされた、以前のバージョンのリリース ノートにアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用して、表示するバージョンを選択します。
 
 ## <a name="next-steps"></a>次の手順
 

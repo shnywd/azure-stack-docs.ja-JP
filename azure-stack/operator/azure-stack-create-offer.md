@@ -1,6 +1,6 @@
 ---
 title: Azure Stack でのオファーの作成 | Microsoft Docs
-description: クラウド管理者が Azure Stack でユーザーのオファーを作成する方法について説明します。
+description: Azure Stack でユーザーに対してオファーを作成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 1492c779144eac235e5c32e767e966b3a6cfb9fd
-ms.sourcegitcommit: 8ddd70ba5ce05c591d3fa62597981859af107c06
+ms.openlocfilehash: 4f49d3205c53c7e795bd0c3dbb37564f86e802d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70936154"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159750"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack でのオファーの作成
 
@@ -31,25 +31,25 @@ ms.locfileid: "70936154"
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[オファー]** の順に選択します。
 
-   ![オファーの作成](media/azure-stack-create-offer/offers.png)
+   ![Azure Stack でのオファーの作成](media/azure-stack-create-offer/offers.png)
 
-2. タブ付きのユーザー インターフェイスが表示され、オファー名の定義、既存の基本プランとアドオン プランの追加、新しい基本プランとアドオン プランの作成を行うことができます。 最も重要なのは、作成を決定する前に、作成するオファーの詳細を確認できることです。
+2. タブ付きのユーザー インターフェイスが表示され、ここでオファー名を定義できます。 また、既存の基本プランやアドオン プランを追加したり、新規に作成したりすることもできます。 最も重要なのは、作成を決定する前に、作成するオファーの詳細を確認できることです。
 
-   **[基本]** タブで、 **[表示名]** と **[リソース名]** を入力し、 **[リソース グループ]** の下で **[新規作成]** または **[既存のものを使用]** を選択します。 表示名は、オファーのフレンドリ名です。 このフレンドリ名は、ユーザーがユーザー ポータル内でオファーをサブスクライブするときに表示されるオファーに関する唯一の情報です。 ユーザーがオファーで提供される内容を理解できるように、わかりやすい名前を付けてください。 リソース名は、管理者のみが表示できます。 この名前を使用して、管理者はオファーを Azure リソース マネージャーのリソースとして操作します。 このタブでは、このオファーをパブリックにするか、プライベート (既定) のままにするかを選択することもできます。 後で[オファーのパブリックまたはプライベートの状態を変更する](#change-the-state-of-an-offer)ことも可能です。
+   **[基本]** タブで、 **[表示名]** と **[リソース名]** を入力し、 **[リソース グループ]** の下で **[新規作成]** または **[既存のものを使用]** を選択します。 表示名は、オファーのフレンドリ名です。 このフレンドリ名は、ユーザーがユーザー ポータル内でオファーをサブスクライブするときに表示されるオファーに関する唯一の情報です。 ユーザーがオファーで提供される内容を理解できるように、わかりやすい名前を付けてください。 リソース名は、管理者のみが表示できます。 この名前を使用して、管理者はオファーを Azure リソース マネージャーのリソースとして操作します。 このタブでは、このオファーをパブリックにするか、プライベートのままにするかを選択することもできます。 既定の設定はプライベートです。 いつでも、[オファーのパブリックまたはプライベートの状態を変更する](#change-the-state-of-an-offer)ことが可能です。
 
-   ![新しいオファー](media/azure-stack-create-offer/new-offer.png)
+   ![Azure Stack での新しいオファー](media/azure-stack-create-offer/new-offer.png)
   
 3. **[基本プラン]** タブを選択するか、または **[次へ: 基本プラン >]** ボタンをクリックします。 オファーに含めるプランを選択します。
 
-   ![プランの選択](media/azure-stack-create-offer/select-plan.png)
+   ![Azure Stack オファーに含めるプランを選択する](media/azure-stack-create-offer/select-plan.png)
 
 4. この時点で、アドオン プランを作成して基本プランを変更できますが、これはオプションです。 次の記事「[Azure Stack のアドオン プラン](create-add-on-plan.md)」では、アドオン プランを作成します。
 
-5. **[確認および作成]** タブを選択します。オファーの概要に目を通し、値がすべて正しいことを確認します。 このインターフェイスでは、選択したプランのクォータを一度に 1 つずつ展開して、プランの各クォータの詳細を表示し、戻って必要な編集を加えることができます。
+5. **[確認および作成]** タブを選択します。オファーの概要に目を通し、値がすべて正しいことを確認します。 このインターフェイスでは、選択したプランのクォータを一度に 1 つずつ展開して、プランの各クォータの詳細を表示できます。 また、戻って必要な編集を加えることもできます。
 
 6. **[作成]** を選択して、オファーを作成します。
 
-   ![[Review and create] (確認および作成)](media/azure-stack-create-offer/review-offer.png)
+   ![Azure Stack でオファーを確認および作成する](media/azure-stack-create-offer/review-offer.png)
 
 ### <a name="change-the-state-of-an-offer"></a>オファーの状態の変更
 
@@ -60,17 +60,17 @@ ms.locfileid: "70936154"
 - **使用停止**:新しいサブスクライバーに公開されません。 クラウド管理者は、オファーを使用停止することによって、既存のサブスクライバーに影響を及ぼすことなく、以降のサブスクリプションを回避することができます。
 
   > [!TIP]  
-  > オファーの変更は、ユーザーにすぐに表示されるわけではありません。 変更された新しいオファーをユーザーが見るには、サインアウトしてから、もう一度ユーザー ポータルにサインインする必要がある場合があります。
+  > オファーへの変更は、ユーザーにすぐに表示されるわけではありません。 変更された新しいオファーをユーザーが見るには、サインアウトしてから、もう一度ユーザー ポータルにサインインする必要がある場合があります。
 
 オファーの状態を変更するには 2 つの方法があります。
 
 1. **[すべてのリソース]** で、オファーの名前を選択します。 オファーの **[概要]** 画面で、 **[状態の変更]** を選択します。 使用する状態 ( **[パブリック]** など) を選択します。
 
-   ![状態の選択](media/azure-stack-create-offer/change-state.png)
+   ![Azure Stack オファーの状態を変更する](media/azure-stack-create-offer/change-state.png)
 
 2. **[プランの設定]** を選択します。 使用する状態 ( **[パブリック]** など) を選択し、 **[保存]** を選択します。
 
-   ![アクセシビリティの状態を選択する](media/azure-stack-create-offer/offer-settings.png)
+   ![Azure Stack オファーの設定](media/azure-stack-create-offer/offer-settings.png)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -78,15 +78,15 @@ ms.locfileid: "70936154"
 
 1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[テナントのプラン]** 、 **[オファー]** の順に選択します。
 
-   ![オファーの作成](media/azure-stack-create-offer/image01.png)
+   ![Azure Stack でのオファーの作成](media/azure-stack-create-offer/image01.png)
   
 2. **[新しいオファー]** で **[表示名]** と **[リソース名]** を入力し、 **[リソース グループ]** の下で **[新規作成]** または **[既存のものを使用]** を選択します。 表示名は、オファーのフレンドリ名です。 このフレンドリ名は、ユーザーがオファーをサブスクライブするときに表示されるオファーに関する唯一の情報です。 ユーザーがオファーで提供される内容を理解できるように、わかりやすい名前を付けてください。 リソース名は、管理者のみが表示できます。 この名前を使用して、管理者はオファーを Azure リソース マネージャーのリソースとして操作します。
 
-   ![新しいオファー](media/azure-stack-create-offer/image01a.png)
+   ![Azure Stack での新しいオファー](media/azure-stack-create-offer/image01a.png)
   
 3. **[基本プラン]** を選択して **[プラン]** を開きます。 オファーに含めるプランを選択し、 **[選択]** を選択します。 オファーを作成するには、 **[作成]** を選択します。
 
-   ![プランの選択](media/azure-stack-create-offer/image02.png)
+   ![Azure Stack オファーに含めるプランを選択する](media/azure-stack-create-offer/image02.png)
   
 4. オファーの作成後、その状態を変更することができます。 ユーザーがサブスクライブ時にすべての情報を見ることができるように、オファーは "**パブリック**" にする必要があります。 オファーの状態:
 
@@ -95,15 +95,15 @@ ms.locfileid: "70936154"
    - **使用停止**:新しいサブスクライバーに公開されません。 クラウド管理者は、オファーを使用停止することによって、既存のサブスクライバーに影響を及ぼすことなく、以降のサブスクリプションを回避することができます。
 
    > [!TIP]  
-   > オファーの変更は、ユーザーにすぐに表示されるわけではありません。 変更された新しいオファーをユーザーが見るには、サインアウトしてから、もう一度ユーザー ポータルにサインインする必要がある場合があります。
+   > オファーへの変更は、ユーザーにすぐに表示されるわけではありません。 変更された新しいオファーをユーザーが見るには、サインアウトしてから、もう一度ユーザー ポータルにサインインする必要がある場合があります。
 
    オファーの概要画面で、 **[アクセシビリティの状態]** を選択します。 使用する状態 ( **[パブリック]** など) を選択し、 **[保存]** を選択します。
 
-     ![状態の選択](media/azure-stack-create-offer/change-stage-1807.png)
+     ![Azure Stack オファーの状態を変更する](media/azure-stack-create-offer/change-stage-1807.png)
 
      または、 **[状態の変更]** を選択して、状態を選択します。
 
-    ![アクセシビリティの状態を選択する](media/azure-stack-create-offer/change-stage-select-1807.png)
+    ![Azure Stack オファーのアクセシビリティの状態を選択する](media/azure-stack-create-offer/change-stage-select-1807.png)
 
 > [!NOTE]
 > PowerShell を使用して、既定のオファー、プラン、およびクォータを作成することもできます。 詳しくは、「[Azure Stack PowerShell Module 1.4.0](/powershell/azure/azure-stack/overview?view=azurestackps-1.4.0)」をご覧ください。

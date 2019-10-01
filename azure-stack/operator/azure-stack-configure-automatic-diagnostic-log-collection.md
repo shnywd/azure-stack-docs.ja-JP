@@ -16,12 +16,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: efab23f12086fee2e4f5c14a70f95717ac9669b9
-ms.sourcegitcommit: b752f4e6733d9ebe56dbd171a14528dcb9a693fd
+ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68522056"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224957"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>自動 Azure Stack 診断ログ収集の構成
 
@@ -44,12 +44,12 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 1. [Azure Portal](https://portal.azure.com) にサインインします。
 1. **[ストレージ アカウント]**  >  **[追加]** をクリックします。 
 1. 次の設定を使用して BLOB コンテナーを作成します。
-   - **サブスクリプション**:Azure サブスクリプションを選択します。
-   - **[リソース グループ]** :リソース グループを指定します。
-   - **ストレージ アカウント名**: 一意のストレージ アカウント名を指定します。
-   - **[場所]** :会社のポリシーに従ってデータセンターを選択します。
-   - **パフォーマンス**: Standard (TCP/IP) を選択します。
-   - **アカウントの種類** - StorageV2 (汎用 V2) を選択します。 
+   - **サブスクリプション**:Azure サブスクリプションを選びます
+   - **[リソース グループ]** :リソース グループを指定します
+   - **ストレージ アカウント名**: 一意のストレージ アカウント名を指定します
+   - **[場所]** :会社のポリシーに従ってデータセンターを選択します
+   - **パフォーマンス**: Standard を選択します
+   - **アカウントの種類**: StorageV2 (汎用 v2) を選択します 
    - **[Replication]\(レプリケーション\)** :ローカル冗長ストレージ (LRS) を選択します
    - **アクセス層**:クールを選択します
 
@@ -100,7 +100,6 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 >[!NOTE]
 >自動ログ収集は、いつでも無効にして再度有効にすることができます。 SAS URL 構成は変更されません。 自動ログ収集を再び有効にすると、以前に入力した SAS URL で同じ検証チェックが実行され、期限切れの SAS URL が拒否されます。 
 
-
 ## <a name="view-log-collection"></a>ログ収集の表示
 
 Azure Stack から収集されたログの履歴は、[ヘルプとサポート] の **[ログ収集]** ページに次の日付と時刻と共に表示されます。
@@ -116,6 +115,36 @@ Azure Stack から収集されたログの履歴は、[ヘルプとサポート]
 オペレーターは、自動的に収集されたログについて、ストレージ アカウントを確認することもできます。 たとえば、次のスクリーンショットは、Azure portal の Storage Explorer プレビューを使用して、ログの収集を示しています。
 
 ![ログの収集を示すスクリーンショット](media/azure-stack-automatic-log-collection/check-storage-account.png)
+
+## <a name="automatic-diagnostic-log-collection-alerts"></a>自動診断ログ収集アラート 
+
+有効にすると、必要な場合にのみ自動診断ログの収集が行われます。 次のアラートによってのみ、収集がトリガーされます。 
+
+|アラートのタイトル  | FaultIdType|    
+|-------------|------------|
+|リモート サービスに接続できない |  UsageBridge.NetworkError|
+|更新失敗 |    Urp.UpdateFailure   |          
+|ストレージ リソース プロバイダーのインフラストラクチャまたは依存関係を利用できない |  StorageResourceProviderDependencyUnavailable     |     
+|ノードがコントローラーに接続されていない|  ServerHostNotConnectedToController   |     
+|ルート パブリケーションの失敗 |    SlbMuxRoutePublicationFailure | 
+|ストレージ リソースプロバイダーの内部データ ストアを利用できない |    StorageResourceProvider. DataStoreConnectionFail     |       
+|ストレージ デバイスの障害 | Microsoft.Health.FaultType.VirtualDisks.Detached   |      
+|正常性コントローラーが外部ストレージ アカウントにアクセスできない | Microsoft.Health.FaultType.StorageError |    
+|物理ディスクへの接続が失われた |    Microsoft.Health.FaultType.PhysicalDisk.LostCommunication    |    
+|ノードで Blob service が実行されていない | StorageService.The.blob.service.is.not.running.on.a.node-Critical | 
+|インフラストラクチャ ロールの異常 |    Microsoft.Health.FaultType.GenericExceptionFault |        
+|Table service のエラー | StorageService.Table.service.errors-Critical |              
+|ファイル共有の使用率が 80% を超えている |    Microsoft.Health.FaultType.FileShare.Capacity.Warning.Infra |       
+|Scale unit node is offline\(スケール ユニットがオフラインです\) | FRP.Heartbeat.PhysicalNode |  
+|インフラストラクチャ ロール インスタンスを利用できない | FRP.Heartbeat.InfraVM   |    
+|インフラストラクチャ ロール インスタンスを利用できない  |    FRP.Heartbeat.NonHaVm     |        
+|インフラストラクチャ ロールのディレクトリ管理で時刻同期のエラーが報告された |  DirectoryServiceTimeSynchronizationError |     
+|保留中の外部証明書の有効期限 |  CertificateExpiration.ExternalCert.Warning |
+|保留中の外部証明書の有効期限 |  CertificateExpiration.ExternalCert.Critical |
+|メモリ容量不足のため、特定のクラスとサイズの仮想マシンをプロビジョニングできない |  AzureStack.ComputeController.VmCreationFailure.LowMemory |
+|Node inaccessible for virtual machine placement\(仮想マシンを配置するためのノードにアクセスできません\) |  AzureStack.ComputeController.HostUnresponsive | 
+|バックアップ失敗  | AzureStack.BackupController.BackupFailedGeneralFault |    
+|失敗した操作と競合するため、スケジュールされたバックアップがスキップされた  | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |   
 
 
 ## <a name="see-also"></a>関連項目

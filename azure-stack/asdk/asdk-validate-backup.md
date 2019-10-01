@@ -11,12 +11,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 8905a376a165776acde2fb792df1e8f35279140e
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: 685f2d868314610ea7c19443fe47f29182561a51
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118750"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71225019"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
 Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行により、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
@@ -59,7 +59,6 @@ ASDK のクラウドの復旧デプロイを開始する前に、次の情報が
 |時刻サーバーの IP|132.163.97.2 など、有効な時刻サーバーの IP は、Azure Stack のデプロイに必要です。|
 |外部の 証明書のパスワード|Azure Stack で使用される外部の証明書のパスワード。 CA のバックアップには、このパスワードを使用して復元する必要がある外部の証明書が含まれています。|
 |バックアップ暗号化キー|バックアップ設定が暗号化キーで構成されている場合は必要です (これは非推奨です)。 インストーラーでは、少なくとも 3 リリースに対する下位互換性モードで暗号化キーがサポートされます。 証明書を使用するようにバックアップの設定を更新したら、次の表で必要な情報を参照してください。|
-
 |     |     | 
 
 **PowerShell インストーラーの要件**
@@ -89,9 +88,9 @@ $azsbackupshare = New-Item -Path $shares.FullName -Name "AzSBackups" -ItemType "
 New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\Administrator")  -Name "AzSBackups"
 ```
 
-次に、最新の Azure Stack のバックアップ ファイルを新しく作成した共有にコピーします。 共有内のフォルダーの構造は次のようにする必要があります: `\\<ComputerName>\AzSBackups\MASBackup\<BackupID>\`。
+次に、最新の Azure Stack のバックアップ ファイルを新しく作成した共有にコピーします。 `<BackupID>` フォルダーの親フォルダーを必ずコピーしてください。これは、バックアップが作成された時点のタイムスタンプとなります。 共有内のフォルダーの構造は次のようにする必要があります: `\\<ComputerName>\AzSBackups\MASBackup\<TimeStamp>\<BackupID>\`。 
 
-最後に、解読証明書 (.pfx) を証明書ディレクトリ `C:\CloudDeployment\Setup\Certificates\` にコピーし、ファイルの名前を `BackupDecryptionCert.pfx` に変更します。
+最後に、解読証明書 (.pfx) を証明書ディレクトリ `C:\CloudDeployment\Setup\BackupDecryptionCert\` にコピーし、ファイルの名前を `BackupDecryptionCert.pfx` に変更します。
 
 ## <a name="deploy-the-asdk-in-cloud-recovery-mode"></a>クラウド復旧モードで ASDK をデプロイする
 

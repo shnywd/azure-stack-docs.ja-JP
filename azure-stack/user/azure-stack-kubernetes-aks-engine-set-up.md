@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: a65449d39f114bd0ff5eb859bd49ec36d4bb4281
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: cc278020bb4d2ba530e20b6f2f56bcb841207bbc
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019403"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159736"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Azure Stack の AKS エンジンの前提条件を設定する
 
@@ -29,6 +29,8 @@ ms.locfileid: "71019403"
 AKS エンジンは、ご自分の環境内の VM、または Azure Stack Resource Manager エンドポイントにアクセスできる任意のクライアント マシンにインストールできます。 エンジンを実行する前に、次のものを用意する必要があります: サブスクリプションで使用できる AKS ベースの Ubuntu サーバーと Linux カスタム スクリプト拡張機能、共同作成者ロールに割り当てられているサービス プリンシパル ID、ご自分の Ubuntu サーバーにアクセスするための SSH 用秘密/公開キー。 また、Azure Stack Development Kit を使用している場合は、ご自分のマシンで適切な証明書を信頼する必要があります。
 
 前提条件がある場合は、[クラスターの定義](azure-stack-kubernetes-aks-engine-deploy-cluster.md)を開始することができます。
+
+Azure Stack のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。
 
 ## <a name="prerequisites-for-the-aks-engine"></a>AKS エンジンの前提条件
 

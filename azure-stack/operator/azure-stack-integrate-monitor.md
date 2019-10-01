@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 7b5bfb39c3ec14c23b1df54c13f2733724fcfe05
-ms.sourcegitcommit: ddb625bb01de11bfb75d9f7a1cc61d5814b3bc31
+ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68712918"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159628"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack と外部の監視ソリューションとの統合
 
@@ -75,7 +75,7 @@ Nagios 監視プラグインは、制約のない無料ソフトウェア ライ
 
 このプラグインは Python で書かれており、正常性リソースプロバイダーの REST API を使用します。 また、Azure Stack でアラートを取得したり終了したりする基本的な機能を提供します。 System Center 管理パックと同じように、このプラグインで複数の Azure Stack デプロイを追加したり、通知を送信したりすることが可能になります。
 
-バージョン 1.2 の場合、Azure Stack - Nagios プラグインでは Microsoft ADAL ライブラリを活用し、シークレットまたは証明書を使用したサービス プリンシパルを利用する認証をサポートします。 また、構成は、新しいパラメーターを含む単一の構成ファイルを使用して簡略化されています。 現在、ID システムとして AAD と ADFS を使用する、Azure Stack のデプロイがサポートされています。
+バージョン 1.2 の場合、Azure Stack - Nagios プラグインでは Microsoft ADAL ライブラリを活用し、シークレットまたは証明書を使用したサービス プリンシパルを利用する認証をサポートします。 また、構成は、新しいパラメーターを含む単一の構成ファイルを使用して簡略化されています。 現在、ID システムとして Azure AD と AD FS を使用した、Azure Stack のデプロイがサポートされています。
 
 プラグインは Nagios 4x および XI で動作します。 [こちら](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)からダウンロードできます。 このダウンロード サイトでインストールと詳細な構成も行えます。
 
@@ -122,7 +122,7 @@ samples/etc/azurestack_services.cfg
 
 SPN の作成方法に関する詳細情報は、[ここ](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)に記載されています。
 
-| パラメーター | 説明 | Authentication |
+| パラメーター | 説明 | 認証 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部ドメイン FQDN |    |
 | **region: ** | リージョン名 |    |

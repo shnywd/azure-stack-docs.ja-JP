@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 7e2ac217ead86502513b7914a102a029f2472a40
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 9c600451070373d10ee943d8e497693d89708801
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019475"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224973"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Azure Stack の Linux に AKS エンジンをインストールする
 
@@ -43,13 +43,13 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Linux サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)」を参照してください。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行する場合、`--version v0.39.0` のようにバージョンを指定します。 バージョンを指定しない場合、ご自分の Marketplace にはない可能性がある最新のバージョンがコマンドでインストールされます。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.41.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.XX.X
+        ./get-akse.sh --version v0.41.0
     ```
 
     > [!Note]  
@@ -87,7 +87,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
     aks-engine version
     ```
 
-ご自分のクライアント VM に AKS エンジンがインストールされていることを確認できない場合は、[AKS エンジンのインストールのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)に関するページを参照してください。
+クライアント VM に AKS エンジンがインストールされていることを確認できない場合は、[AKS エンジンのインストールのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)に関するページを参照してください。
 
 
 ## <a name="asdk-installation"></a>ASDK のインストール

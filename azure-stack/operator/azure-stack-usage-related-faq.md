@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 6a5ef529d2eabf8039be1da6c53da907c0b7aaaf
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
+ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459045"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71269481"
 ---
-# <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack Usage API のよくあるご質問
+# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Azure Stack の使用量に関してよく寄せられる質問
 
-この記事では、Azure Stack 使用量 API についてよく寄せられるいくつかの質問に回答します。
+この記事では、Azure Stack の使用量と Azure Stack 使用量 API についてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="what-meter-ids-can-i-see"></a>どのような測定 ID を表示できますか。
 
@@ -418,6 +418,16 @@ ms.locfileid: "66459045"
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM の課金ポリシーはどうなっていますか。
 
 実行中および停止中の VM は使用状況データを生成します。 Azure と一貫性があり、使用状況データの生成を停止するには割り当てを解除する必要があります。 ポータルが使用できなくても、コンピューティング リソース プロバイダーがまだ実行中の場合、使用状況が生成されます。
+
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Azure Stack 使用量 API から使用量データを抽出するにはどのようにすればよいですか。
+
+Azure Stack でローカルの使用量 API から使用量データを抽出する最も簡単な方法は、[GitHub の使用量の概要スクリプト](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)を使用することです。 このスクリプトでは、入力パラメーターとして開始日と終了日が必要です。
+
+または、「[プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)」と「[テナント リソース使用量 API](azure-stack-tenant-resource-usage-api.md)」の記事で説明されているように、REST API を使用することもできます。
+
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Azure 使用量 API から抽出された使用量を特定の Azure Stack ユーザー サブスクリプションに関連付けるには、どのようにすればよいですか。
+
+使用量レコードには **additionalinfo** という名前のプロパティ バッグが含まれています。これには、Azure Stack サブスクリプション ID が含まれます。 これは、対応する使用量レコードを生成するユーザー サブスクリプションです。
 
 ## <a name="next-steps"></a>次の手順
 

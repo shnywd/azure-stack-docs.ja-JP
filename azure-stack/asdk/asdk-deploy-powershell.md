@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 5b517eec23950380bf5f0fc8febe717683960b65
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579105"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159297"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
@@ -144,7 +144,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 |パラメーター|必須/省略可能|説明|
 |-----|-----|-----|
 |AdminPassword|必須|ASDK のデプロイの一環として作成されたすべての仮想マシンのローカル管理者アカウントと他のすべてのユーザー アカウントを設定します。 このパスワードは、ホスト上の現在のローカル管理者パスワードと一致する必要があります。|
-|InfraAzureDirectoryTenantName|必須|テナント ディレクトリを設定します。 このパラメーターを使用して、AAD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 AAD テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
+|InfraAzureDirectoryTenantName|必須|テナント ディレクトリを設定します。 このパラメーターを使用して、Azure AD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 Azure AD テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
 |TimeServer|必須|このパラメーターを使用して、特定のタイム サーバーを指定します。 このパラメーターは、有効なタイム サーバーの IP アドレスとして指定する必要があります。 サーバー名はサポートされていません。|
 |InfraAzureDirectoryTenantAdminCredential|省略可能|Azure Active Directory のユーザー名とパスワードを設定します。 これらの Azure 資格情報は、組織 ID である必要があります。|
 |InfraAzureEnvironment|省略可能|この Azure Stack デプロイを登録する Azure 環境を選択します。 オプションには、グローバル Azure、Azure China、Azure US Government などがあります。|

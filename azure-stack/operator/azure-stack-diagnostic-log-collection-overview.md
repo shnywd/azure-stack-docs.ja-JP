@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/23/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/04/2019
-ms.openlocfilehash: 338df8d335376ebbaf14230e62d8dee9f813994f
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: ecaea28d3b753520c53710a4e888cf37bf508fe1
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271735"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224936"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 診断ログの収集の概要 
 
@@ -34,7 +34,7 @@ Azure Stack は、相互に連携して作用する複数のコンポーネン�
 1907 リリース以降、 **[ヘルプとサポート]** ページに、**診断ログの収集**を使用した簡単なエクスペリエンスが追加されています。 
 **診断ログ**の収集は、トラブルシューティング プロセスで Azure Stack オペレーターのエクスペリエンスを向上させるための継続的な投資の一部です。 これらの向上により、オペレーターは診断ログを迅速に収集し、Microsoft カスタマーサポートサービス (CSS) と共有することができます。 ログは、Azure の BLOB コンテナーに格納でき、そこで必要に応じてアクセスをカスタマイズできます。    
    
-**診断ログの収集**では、次の 2 つの方法で診断ログを収集できます。
+**診断ログの収集**は、次の 2 つの方法で動作します。
 
 - **自動収集**:有効にした (推奨) 場合、ログ収集は特定の正常性アラートによって自動的にトリガーされ、Azure ストレージ アカウントに格納されます
 - **Collect logs now (今すぐログを収集する)** :これは、オンデマンドのオプションで、過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウからログを収集することを選択できます
@@ -46,7 +46,7 @@ Azure Stack は、相互に連携して作用する複数のコンポーネン�
 
 ## <a name="automatic-diagnostic-log-collection"></a>自動診断ログ収集 
 
-特定の重要なアラートが発生したときに、自動診断ログ収集によって、Azure Stack からストレージ BLOB に診断ログが事前にアップロードされるため、CSS と診断ログを共有するために必要な時間が大幅に短縮されます。
+[特定の正常性アラート](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts)が発生したときに、自動診断ログ収集が開始され、Azure Stack から Azure のストレージ BLOB に診断ログが事前にアップロードされるため、診断ログを CSS と共有するために必要な時間が大幅に短縮されます。 診断ログは、アラートが発生した場合にのみ収集されます。  
 
 自動ログの収集の詳細については、「[Configure automatic Azure Stack diagnostic log collection](azure-stack-configure-automatic-diagnostic-log-collection.md)」(自動 Azure Stack 診断ログの収集の構成) を参照してください。
 

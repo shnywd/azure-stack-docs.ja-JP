@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 123849750cbfb343fc63cb43376651a6554ab6b4
-ms.sourcegitcommit: 6239b35370d21852529978777c0e39cfba5a4552
+ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
+ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68917546"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71279118"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace の変更
 
@@ -30,33 +30,32 @@ ms.locfileid: "68917546"
 
 ## <a name="new-marketplace-items"></a>新しい Marketplace 項目
 
-- 2019/1/25:A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
+- 2019/08/05:Bitnami Drupal
 
-- 2019/6/14:Veeam® Backup & Replication™
+- 2019/08/05:Bitnami etcd
 
-- 2019/08/05:Drupal
+- 2019/08/05:Bitnami Grafana
 
-- 2019/08/05: etcd
+- 2019/08/05:Bitnami Neo4j
 
-- 2019/08/05:Grafana
+- 2019/08/05:Bitnami Parse Server
 
-- 2019/08/05:Neo4j
+- 2019/08/05:Bitnami WordPress Multisite
 
-- 2019/08/05:Parse Server
+- 2019/08/05:Bitnami ZooKeeper
 
-- 2019/08/05:WordPress Multisite
+- 2019/08/05:Bitnami TensorFlow Serving
 
-- 2019/08/05:ZooKeeper
+- 2019/08/05:Bitnami NATS
 
-- 2019/08/05:TensorFlow Serving
+- 2019/08/05:Bitnami Review Board
 
-- 2019/08/05:NATS
-
-- 2019/08/05:Review Board
-
-- 2019/08/05:Composr
+- 2019/08/05:Bitnami Composr
 
 - 2019/08/09:Oracle Linux
+
+- 2019/08/19:Iguazio Data Science Platform
+
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 
@@ -64,13 +63,23 @@ ms.locfileid: "68917546"
 - X2Engine Sales CRM
 - SugarCRM
 - node.js の高可用性クラスター
+- A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
+- JsonADDomain 拡張機能
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
-- 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) 13.2.20190410
-- 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) 13.2.20190410
-- 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) 14.0.20190410
-- 2019/07/30:SQLIaaSExtension 1.3.20180
+- 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
+- 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
+- 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) - バージョン 14.0.20190410
+- 2019/07/30:SQLIaaSExtension - バージョン 1.3.20180
+- 2019/08/08:CloudLink SecureVM Extension for Linux - バージョン 6.8
+- 2019/08/08:CloudLink SecureVM Extension for Windows - バージョン 6.8
+- 2019/08/30:Azure Stack Kubernetes クラスター - バージョン 0.5.1
+- 2019/09/02:AKS 基本イメージ - バージョン 2019.08.09 およびバージョン 2019.08.21
+- 2019/09/12:Service Fabric - バージョン 1.0.3
+- 2019/09/24:F5-Networks Big-IP Virtual Edition - バージョン 14.1.200000
+- 2019/09/25:Debian 8 - バージョン 8.0.20190806
+
 
 ## <a name="next-steps"></a>次の手順
 

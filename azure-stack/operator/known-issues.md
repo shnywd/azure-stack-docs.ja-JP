@@ -16,16 +16,18 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 3179416a7f8dacc5c3282372038c6761009b5b76
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
+ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106510"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71164248"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack の既知の問題
 
-この記事では、Azure Stack のリリースにおける既知の問題を一覧表示します。 新しい問題が特定されると、この一覧は更新されます。 **別のバージョンの既知の問題にアクセスするには、左上のバージョン ピッカーを使用します。**
+この記事では、Azure Stack のリリースにおける既知の問題を一覧表示します。 新しい問題が特定されると、この一覧は更新されます。
+
+別のバージョンの既知の問題にアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用します。
 
 ::: moniker range=">=azs-1905"
 > [!IMPORTANT]  
@@ -674,7 +676,7 @@ ms.locfileid: "71106510"
 ::: moniker range=">=azs-1905"
 ## <a name="archive"></a>アーカイブ
 
-古いバージョンのアーカイブされた既知の問題にアクセスするには、ページの左上にあるバージョン ピッカーを使用して、目的のバージョンを選択します。 
+アーカイブされた、以前のバージョンの既知の問題にアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用して、表示するバージョンを選択します。
 
 ## <a name="next-steps"></a>次の手順
 

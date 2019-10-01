@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: de2c0c2181025b7dbbc01691b72b0756fa201274
-ms.sourcegitcommit: bcaad8b7db2ea596018d973cb29283d8c6daebfb
+ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
+ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2019
-ms.locfileid: "67419507"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "71127513"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack とデータセンターの統合 - ID
 
@@ -57,7 +57,7 @@ Graph は、単一の Active Directory フォレストとの統合のみをサ�
 
 |パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|ADFS フォレスト FQDN|統合する対象の Active Directory<br>フォレストの FQDN|Contoso.com|
+|`CustomADGlobalCatalog`|AD FS Forest FQDN|統合する対象の Active Directory<br>フォレストの FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |LDAP の読み取りアクセス許可を持つユーザー|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Active Directory サイトを構成する
@@ -116,7 +116,7 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 
 Azure Stack の Graph サービスは、次のプロトコルとポートを使用して、対象の Active Directory と通信します。
 
-|Type|Port|Protocol|
+|種類|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP と UDP|
 |LDAP SSL|636|TCP|
@@ -129,8 +129,8 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 
 |パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
-|CustomAdfsName|ADFS プロバイダー名|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|ADFS メタデータ URI|フェデレーション メタデータのリンク| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAdfsName|AD FS Provider Name|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS Metadata URI|フェデレーション メタデータのリンク| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 |SigningCertificateRevocationCheck|NA|CRL チェックをスキップする、オプション パラメーター|なし|
 
 

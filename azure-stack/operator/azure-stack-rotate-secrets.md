@@ -16,12 +16,12 @@ ms.reviewer: ppacent
 ms.author: mabrigg
 ms.lastreviewed: 07/15/2019
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 5b8beccab17eaa9aedadb63327150a70a327df1f
-ms.sourcegitcommit: 71d7990a2b21576c44bb2aea13ae2026e9510c55
+ms.openlocfilehash: b79e3def3444db2228992b423ca21945d7964f26
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70188176"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159619"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack でシークレットをローテーションする
 
@@ -147,7 +147,7 @@ Azure Stack では、次のようなコンテキストで、新しい証明書�
 
 1. 前の手順で新しく作成した **\Certificates\\\<ID プロバイダー>** ディレクトリに、「[Azure Stack 公開キー インフラストラクチャ証明書の要件](azure-stack-pki-certs.md#mandatory-certificates)」の「必須の証明書」セクションに記載されている形式に従ったディレクトリ構造で、交換用の外部証明書の新しいセットを配置します。
 
-    AAD ID プロバイダーのフォルダー構造の例:
+    Azure AD ID プロバイダーのフォルダー構造の例:
     ```powershell
         <ShareName>
         │   │
@@ -299,7 +299,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>parameters
 
-| パラメーター | Type | 必須 | 位置 | Default | 説明 |
+| パラメーター | 種類 | 必須 | 位置 | Default | 説明 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | string  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |

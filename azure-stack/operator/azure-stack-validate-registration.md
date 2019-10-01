@@ -16,12 +16,12 @@ ms.date: 06/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ca2ea89ab73c7a8e056e4b4700e92a872e628f34
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316170"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159579"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
@@ -73,7 +73,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
    ```
 
    > [!NOTE]
-   > CSP として、共有サービスまたは IUR サブスクリプションを使用する場合は、それぞれの AAD のユーザーの資格情報を指定する必要があります。 これは、通常、`subscriptionowner@iurcontoso.onmicrosoft.com` のようになります。 前の手順で説明したように、そのユーザーは適切な資格情報を持っている必要があります。
+   > CSP として、共有サービスまたは IUR サブスクリプションを使用する場合は、それぞれの Azure AD のユーザーの資格情報を指定する必要があります。 これは、通常、`subscriptionowner@iurcontoso.onmicrosoft.com` のようになります。 前の手順で説明したように、そのユーザーは適切な資格情報を持っている必要があります。
 
 3. PowerShell プロンプトから次を実行して、`$subscriptionID` を、使用する Azure サブスクリプションとして設定します。 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` をお使いのサブスクリプション ID に置き換えます。
 

@@ -16,17 +16,17 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: d06dabc32141fcf2f487151e92c5f47aa79b6149
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: fa90091f93556cd313fa8e4e21bfe0fd24011e38
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094318"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159139"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack をハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定したら、Azure Stack デプロイの決定を完了することができます。
 
-Azure に接続された Azure Stack をデプロイすることは、ID ストアに Azure Active Directory (AAD) または Active Directory フェデレーション サービス (AD FS) のいずれかを使用できることを意味します。 また、従量制または容量ベースのどちらかの課金モデルも選択できます。 接続されたデプロイは、特に Azure と Azure Stack の両方を含むハイブリッド クラウドのシナリオの場合、顧客が Azure Stack を最大限に活用できるため、既定のオプションになります。
+Azure に接続された Azure Stack をデプロイすることは、ID ストアとして Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) のどちらかを使用できることを示します。 また、従量制または容量ベースのどちらかの課金モデルも選択できます。 接続されたデプロイは、特に Azure と Azure Stack の両方を含むハイブリッド クラウドのシナリオの場合、顧客が Azure Stack を最大限に活用できるため、既定のオプションになります。
 
 ## <a name="choose-an-identity-store"></a>ID ストアを選択する
 接続されたデプロイでは、ID ストアとして Azure AD または AD FS のどちらかを選択できます。 インターネット接続のない切断されたデプロイは、AD FS しか使用できません。
@@ -38,9 +38,9 @@ ID ストアの選択は、テナント仮想マシン (VM) とは何の関係�
 ### <a name="azure-ad-identity-store"></a>Azure AD ID ストア
 ID ストアに Azure AD を使用するには、グローバル管理者アカウントと課金アカウントの 2 つの Azure AD アカウントが必要です。 これらのアカウントは同じアカウントにすることも、別のアカウントにすることもできます。 Azure アカウントの数が制限されている場合は同じユーザー アカウントを使用する方が簡単で便利な可能性がありますが、ビジネス ニーズによって 2 つのアカウントの使用が指定されることもあります。
 
-1. **グローバル管理者アカウント** (接続されたデプロイにのみ必要です)。 これは、AAD 内の Azure Stack インフラストラクチャ サービスのためのアプリとサービス プリンシパルを作成するために使用される Azure アカウントです。 このアカウントには、ご利用の Azure Stack システムがデプロイされるディレクトリへのディレクトリ管理者権限が必要です。 これが Azure AD ユーザーの "クラウド オペレーター" グローバル管理者になり、次のタスクのために使用されます。
+1. **グローバル管理者アカウント** (接続されたデプロイにのみ必要です)。 これは、Azure AD 内の Azure Stack インフラストラクチャ サービスのためのアプリとサービス プリンシパルを作成するために使用される Azure アカウントです。 このアカウントには、ご利用の Azure Stack システムがデプロイされるディレクトリへのディレクトリ管理者権限が必要です。 これが Azure AD ユーザーの "クラウド オペレーター" グローバル管理者になり、次のタスクのために使用されます。
 
-    - AAD および Graph API とやりとりするために必要なすべての Azure Stack サービス用のアプリとサービス プリンシパルのプロビジョニングと委任を行います。
+    - Azure AD および Graph API とやりとりするために必要なすべての Azure Stack サービス用のアプリとサービス プリンシパルのプロビジョニングと委任を行います。
     - サービス管理者アカウントとして。 このアカウントは、既定のプロバイダー サブスクリプションの所有者 (後で変更可能) です。 このアカウントで Azure Stack 管理者ポータルにログインできるほか、これを使用してオファーやプランを作成したり、クォータを設定したり、Azure Stack のその他の管理機能を実行したりすることができます。
 
 2. **課金アカウント** (接続されたデプロイと切断されたデプロイの両方に必要です)。 この Azure アカウントは、Azure Stack 統合システムと Azure コマース バックエンドの課金関係を確立するために使用されます。 これは、Azure Stack の料金に対して課金されるアカウントです。 このアカウントは、マーケットプレイスや他のハイブリッド シナリオで項目を提供するためにも使用されます。

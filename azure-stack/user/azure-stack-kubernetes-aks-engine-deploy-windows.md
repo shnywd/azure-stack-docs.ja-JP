@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b7057acd34625ffdea1de9ed533bf608de3059d6
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: 87cd2031c15611173308bf23e50d07690d3930e9
+ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019409"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71224914"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Azure Stack の Windows に AKS エンジンをインストールする
 
@@ -30,12 +30,12 @@ Azure Stack の Windows マシンを使用して、Kubernetes クラスターを
 
 ## <a name="prepare-the-client-vm"></a>クライアント VM の準備
 
-AKS エンジンとは、Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、Azure Stack のマシンで実行できます。 このマシンから AKS エンジンを実行して、クラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているマシンを使用して、お使いのクラスターで管理タスクを実行できます。
+AKS エンジンとは、お使いの Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、お使いの Azure Stack のコンピューターで実行できます。 このコンピューターから AKS エンジンを実行して、お使いのクラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているコンピューターを使用して、お使いのクラスターで管理タスクを実行できます。
 
-クライアント マシンを選択する場合は、次の点を考慮してください。
+お使いのクライアント コンピューターを選択する場合には、次の点を考慮してください。
 
-1. 障害が発生した場合にクライアント マシンを回復可能にする必要があるか。
-3. クライアント マシンにどのように接続するかと、マシンがどのようにクラスターと通信するか。
+1. 障害が発生した場合にクライアント コンピューターを回復可能にする必要があるか。
+3. クライアント コンピューターにどのように接続するかと、コンピューターがどのようにご自分のクラスターと通信するか。
 
 ## <a name="install-in-a-connected-environment"></a>接続されている環境へのインストール
 
@@ -46,11 +46,11 @@ AKS エンジンとは、Kubernetes クラスターをデプロイおよび管�
 3. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
     Chocolaty の Web サイトによると:Chocolatey は、Windows のパッケージ マネージャーです。例えば、Windows 用の apt-get や yum などです。 必要なアプリケーションとツールを迅速にインストールするための分散型フレームワークとして設計されています。 現在 PowerShell を使用している NuGet インフラストラクチャ上に構築されており、ディストリビューションからドア、err、コンピューターへのパッケージの配信に重点を置いています。
-4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、AKS エンジンのバージョンを確認します。 AKS ベースのエンジンは、Azure Stack Marketplace に用意されている必要があります。 コマンドを実行する場合、`--version v0.39.0` のようにバージョンを指定します。 バージョンを指定しない場合、コマンドでは最新のバージョンがインストールされますが、それは Marketplace にはない可能性があります。
+4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.41.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version v0.0.0 -y
+        choco install aks-engine --version v0.41.0 -y
     ```
 
 > [!Note]  
@@ -58,7 +58,7 @@ AKS エンジンとは、Kubernetes クラスターをデプロイおよび管�
 
 ## <a name="install-in-a-disconnected-environment"></a>切断されている環境へのインストール
 
-クライアント VM をインストールし、インターネットから切断されている Azure Stack 上の Kubernetes クラスターを管理できます。
+インターネットから切断されている Azure Stack 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
 
 1.  インターネットにアクセスできるマシンから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
 
@@ -80,9 +80,9 @@ AKS エンジンとは、Kubernetes クラスターをデプロイおよび管�
 
 ## <a name="verify-the-installation"></a>インストールの確認
 
-クライアント VM がセットアップされたら、AKS エンジンがインストールされていることを確認します。
+お使いのクライアント VM がセットアップされたら、AKS エンジンがインストールされていることを確認します。
 
-1. クライアント VM に接続します。
+1. お使いのクライアント VM に接続します。
 2. 次のコマンドを実行します。
 
     ```PowerShell  

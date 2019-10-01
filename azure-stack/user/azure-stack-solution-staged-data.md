@@ -15,12 +15,12 @@ ms.date: 06/20/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 06/20/2019
-ms.openlocfilehash: 859d80c9782926602769664006375cb131de8637
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 37ffb494ab6ae124c6a0eb460da4569f660cd283
+ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68602940"
+ms.lasthandoff: 09/20/2019
+ms.locfileid: "71159369"
 ---
 # <a name="deploy-a-staged-data-analytics-solution-to-azure-stack"></a>Azure Stack にステージング データ分析ソリューションをデプロイする
 
@@ -49,7 +49,7 @@ ms.locfileid: "68602940"
 ## <a name="prerequisites-for-staged-data-analytics"></a>ステージング データ分析の前提条件
 
   - Azure サブスクリプション。
-  - Azure と Azure Stack でのテナント サブスクリプションに対する権限が与えられた Azure Active Directory (AAD) サービス プリンシパル。 Azure Stack が Azure サブスクリプションと異なる AAD テナントを使用している場合は、2 つのサービス プリンシパルを作成する必要があります。 Azure Stack のサービス プリンシパルを作成する方法については、[Azure Stack リソースへのアクセスをアプリケーションに与えるサービス プリンシパルを作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)方法に関する記事を参照してください。
+  - Azure と Azure Stack でのテナント サブスクリプションに対する権限が与えられた Azure Active Directory (Azure AD) サービス プリンシパル。 Azure Stack が Azure サブスクリプションと異なる AAD テナントを使用している場合は、2 つのサービス プリンシパルを作成する必要があります。 Azure Stack のサービス プリンシパルを作成する方法については、[Azure Stack リソースへのアクセスをアプリケーションに与えるサービス プリンシパルを作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)方法に関する記事を参照してください。
       - **各サービス プリンシパルのアプリケーション ID、クライアント シークレット、Azure AD テナント ID、テナント名 (xxxxx.onmicrosoft.com) をメモしてください。**
   - データ分析のためのデータのコレクションを提供する必要があります。 サンプル データが提供されます。
   - ローカル コンピューターにインストールされた [Docker for Windows](https://docs.docker.com/docker-for-windows/)。
