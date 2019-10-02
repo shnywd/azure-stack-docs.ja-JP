@@ -73,16 +73,19 @@
               href: azure-stack-develop-templates.md
             - name: Azure でのテンプレートの開発
               href: azure-stack-developer.md
-            - name: テンプレートの確認
+            - name: テンプレートのデプロイ
               href: azure-stack-validate-templates.md
-            - name: ポータルでのデプロイ
-              href: azure-stack-deploy-template-portal.md
-            - name: PowerShell でデプロイする
-              href: azure-stack-deploy-template-powershell.md
-            - name: CLI を使用したデプロイ
-              href: azure-stack-deploy-template-command-line.md
-            - name: Visual Studio でのデプロイ
-              href: azure-stack-deploy-template-visual-studio.md
+              items:
+                - name: ポータルでのデプロイ
+                  href: azure-stack-deploy-template-portal.md
+                - name: PowerShell でデプロイする
+                  href: azure-stack-deploy-template-powershell.md
+                - name: CLI を使用したデプロイ
+                  href: azure-stack-deploy-template-command-line.md
+                - name: Visual Studio Code でのデプロイ
+                  href: azure-stack-resource-manager-deploy-template-vscode.md
+                - name: Visual Studio でのデプロイ
+                  href: azure-stack-deploy-template-visual-studio.md
         - name: API バージョンのプロファイルの使用
           items:
             - name: 概要
