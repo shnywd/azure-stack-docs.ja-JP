@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c0b55579c5103c7bb1073546243dbfcc0b700b4a
-ms.sourcegitcommit: 05a16552569fae342896b6300514c656c1df3c4e
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65838389"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824502"
 ---
 # <a name="use-an-ssh-public-key"></a>SSH 公開キーの使用
 
@@ -32,7 +32,7 @@ ms.locfileid: "65838389"
 
     ![[キー] ボックスが空の状態の PuTTY Key Generator](media/azure-stack-dev-start-howto-ssh-public-key/001-putty-key-gen-start.png)
 
-1. **[パラメーター]** で、**[RSA]** を選択します。
+1. **[パラメーター]** で、 **[RSA]** を選択します。
 
 1. **[Number of bits in a generated key]\(生成されるキーのビット数\)** ボックスに、「**2048**」と入力します。  
 
@@ -42,7 +42,7 @@ ms.locfileid: "65838389"
 
     ![[キー] ボックスが設定された状態の PuTTY Key Generator](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-key-gen-result.png)
 
-1. **[キーのパスフレーズ]** を入力し、**[パスフレーズの確認入力]** ボックスでそれを確認します。 後で使用できるようにパスフレーズをメモしておきます。
+1. **[キーのパスフレーズ]** を入力し、 **[パスフレーズの確認入力]** ボックスでそれを確認します。 後で使用できるようにパスフレーズをメモしておきます。
 
 1. **[Save public key]\(公開キーの保存\)** を選択し、アクセスできる場所に保存します。
 
@@ -79,14 +79,14 @@ PuTTY をインストールした場合は、PuTTY Key Generator と SSH クラ�
 
     ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-connect.png)
 
-2. **[Host Name (or IP address)]\(ホスト名 (または IP アドレス)\)** ボックスに、マシンのユーザー名とパブリック IP アドレス (**username@192.XXX.XXX.XX** など) を入力します。 
-3. **[ポート]** が **[22]** で、**[接続の種類]** が **[SSH]** であることを確認します。
-4. **[カテゴリ]** ツリーで、**[SSH]** と **[認証]** を展開します。
+2. **[Host Name (or IP address)]\(ホスト名 (または IP アドレス)\)** ボックスに、マシンのユーザー名とパブリック IP アドレス ( **username@192.XXX.XXX.XX** など) を入力します。 
+3. **[ポート]** が **[22]** で、 **[接続の種類]** が **[SSH]** であることを確認します。
+4. **[カテゴリ]** ツリーで、 **[SSH]** と **[認証]** を展開します。
 
     ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウ - SSH 秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. **[Private key file for authentication]\(認証のための秘密キー ファイル\)** ボックスの横にある **[参照]** を選択してから、公開キーと秘密キーのペアの秘密キー ファイル (*\<ファイル名>.ppk*) を検索します。
-6. **[カテゴリ]** ツリーで、**[セッション]** を選択します。
+5. **[Private key file for authentication]\(認証のための秘密キー ファイル\)** ボックスの横にある **[参照]** を選択してから、公開キーと秘密キーのペアの秘密キー ファイル ( *\<ファイル名>.ppk*) を検索します。
+6. **[カテゴリ]** ツリーで、 **[セッション]** を選択します。
 
     ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウの [Saved Sessions]\(保存されたセッション\) ボックス](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
 
@@ -102,28 +102,28 @@ PuTTY をインストールした場合は、PuTTY Key Generator と SSH クラ�
 
 1. [FileZilla をダウンロードしてインストールします](https://filezilla-project.org/download.php)。
 1. FileZilla を開きます。
-1. **[File]\(ファイル\)** > **[Site Manager]\(サイト マネージャー\)** の順に選択します。
+1. **[File]\(ファイル\)**  >  **[Site Manager]\(サイト マネージャー\)** の順に選択します。
 
     ![FileZilla の [Site Manager]\(サイト マネージャー\) ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/005-filezilla-file-manager.png)
 
-1. **[プロトコル]** ドロップダウン リストで、**[SFTP - SSH File Transfer Protocol]\(SFTP - SSH ファイル転送プロトコル\)** を選択します。
+1. **[プロトコル]** ドロップダウン リストで、 **[SFTP - SSH File Transfer Protocol]\(SFTP - SSH ファイル転送プロトコル\)** を選択します。
 1. **[ホスト]** ボックスに、ご自分のマシンのパブリック IP アドレスを入力します。
-1. **[ログオンの種類]** ボックスで、**[標準]** を選択します。
+1. **[ログオンの種類]** ボックスで、 **[標準]** を選択します。
 1. ユーザー名とパスワードを入力します。
 1. **[OK]** を選択します。
-1. **[Edit]\(編集\)** > **[Settings]\(設定\)** の順に選択します。
+1. **[Edit]\(編集\)**  >  **[Settings]\(設定\)** の順に選択します。
 
     ![FileZilla の [設定] ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
-1. **[ページの選択]** ツリーで、**[接続]** を展開してから **[SFTP]** を選択します。
-1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル (*\<ファイル名>.ppk* など) を入力します。
+1. **[ページの選択]** ツリーで、 **[接続]** を展開してから **[SFTP]** を選択します。
+1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル ( *\<ファイル名>.ppk* など) を入力します。
 1. **[OK]** を選択します。
 
 ### <a name="open-your-connection"></a>ご自分の接続を開く
 
 1. FileZilla を開きます。
-1. **[File]\(ファイル\)** > **[Site Manager]\(サイト マネージャー\)** の順に選択します。
-1. ご自分のサイトの名前を選択してから、**[接続]** を選びます。
+1. **[File]\(ファイル\)**  >  **[Site Manager]\(サイト マネージャー\)** の順に選択します。
+1. ご自分のサイトの名前を選択してから、 **[接続]** を選びます。
 
 ## <a name="next-steps"></a>次の手順
 

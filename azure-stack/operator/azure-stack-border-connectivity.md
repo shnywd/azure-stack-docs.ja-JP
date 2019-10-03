@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 142ea9b53d64e89157ce5c5556241b41275d430d
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 583b23f8b70856e39f5d6f53204fd3234cb92a4e
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094347"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829123"
 ---
 # <a name="border-connectivity"></a>境界接続 
 ネットワーク統合の計画は、Azure Stack 統合システムの展開、操作、および管理を正常に行うための重要な前提条件です。 境界接続の計画は、境界ゲートウェイ プロトコル (BGP) による動的ルーティングを使用するかどうかを選択することから始まります。 これを行うには、16 ビットの BGP 自律システム番号 (パブリックまたはプライベート) を割り当てるか、または既定の静的ルートが境界デバイスに割り当てられる静的ルーティングを使用する必要があります。
