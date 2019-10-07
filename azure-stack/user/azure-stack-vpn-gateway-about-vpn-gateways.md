@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 980d601dd5830d653787fe4cc31f57be3b3f8d00
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: a66057ea2490f4510d28db8b07d03e4ed17ba3ad
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658673"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714762"
 ---
 # <a name="create-vpn-gateways-for-azure-stack"></a>Azure Stack の VPN ゲートウェイの作成
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure 仮想ネットワークとオンプレミスのサイトとの間でネットワーク トラフィックを送信する前に、仮想ネットワーク用の仮想ネットワーク ゲートウェイを作成する必要があります。
+Azure 仮想ネットワークとオンプレミスのサイトとの間でネットワーク トラフィックを送信する前に、仮想ネットワーク用の仮想ネットワーク (VPN) ゲートウェイを作成する必要があります。
 
 VPN ゲートウェイは、パブリック接続で暗号化されたトラフィックを送信する仮想ネットワーク ゲートウェイの一種です。 VPN ゲートウェイを使用して、Azure Stack 内の仮想ネットワークと Azure 内の仮想ネットワーク間で安全にトラフィックを送信できます。 また、仮想ネットワークと、VPN デバイスに接続されている別のネットワーク間で安全にトラフィックを送信することもできます。
 
@@ -42,7 +42,7 @@ Azure Stack 用の VPN ゲートウェイを作成して構成する前に、「
 > 例:
 >
 > * Azure では、Basic VPN ゲートウェイ SKU で、約 100 Mbps の総スループットに対応できます。 その VPN ゲートウェイへの接続を 2 つ作成し、1 つの接続で 50 Mbps の帯域幅を使用する場合、もう 1 つの接続では 50 Mbps を使用できます。
-> * Azure Stack では、Basic VPN ゲートウェイ SKU への**各接続**に 100 Mbps のスループットが割り当てられます。
+> * Azure Stack では、Basic VPN ゲートウェイ SKU への各接続に 100 Mbps のスループットが割り当てられます。
 
 ## <a name="configuring-a-vpn-gateway"></a>VPN ゲートウェイの構成
 
@@ -75,7 +75,7 @@ VPN ゲートウェイ接続では、さまざまな構成を利用できます�
 
 ### <a name="site-to-site"></a>サイト間
 
-"*サイト間*" (S2S) VPN ゲートウェイ接続とは、IPsec/IKE (IKEv2) VPN トンネルを介した接続です。 この種類の接続では、オンプレミスに配置され、パブリック IP アドレスが割り当てられている、VPN デバイスが必要です。 このデバイスを NAT の内側に配置することはできません。 S2S 接続は、クロスプレミスおよびハイブリッド構成に使用できます。
+"*サイト間*" (S2S) VPN ゲートウェイ接続とは、IPsec/IKE (IKEv2) VPN トンネルを介した接続です。 この種類の接続では、オンプレミスに配置され、パブリック IP アドレスが割り当てられている、VPN デバイスが必要です。 このデバイスは NAT の内側に配置することはできません。 S2S 接続は、クロスプレミスおよびハイブリッド構成に使用できます。
 
 ![サイト間 VPN 接続の構成の例](media/azure-stack-vpn-gateway-about-vpn-gateways/vpngateway-site-to-site-connection-diagram.png)
 
@@ -99,13 +99,13 @@ Azure Stack では、Ultra Performance ゲートウェイ SKU はサポートさ
 
 SKU を選択する場合、次を考慮してください。
 
-* Azure Stack では、ポリシーベースのゲートウェイはサポートされていません。
-* Basic SKU では、Border Gateway Protocol (BGP) はサポートされていません。
+* Azure Stack では、ポリシー ベースのゲートウェイはサポートされていません。
+* Basic SKU では、ボーダー ゲートウェイ プロトコル (BGP) はサポートされていません。
 * ExpressRoute と VPN ゲートウェイが共存する構成は、Azure Stack ではサポートされていません。
 
 ## <a name="gateway-availability"></a>ゲートウェイの可用性
 
-高可用性シナリオは、**ハイ パフォーマンス ゲートウェイ**の接続 SKU 上でのみ構成できます。 アクティブ/アクティブとアクティブ/パッシブの両方の構成で可用性を提供する Azure とは異なり、Azure Stack はアクティブ/パッシブ構成のみサポートしています。 
+高可用性シナリオは、**ハイ パフォーマンス ゲートウェイ**の接続 SKU 上でのみ構成できます。 アクティブ/アクティブとアクティブ/パッシブの両方の構成で可用性を提供する Azure とは異なり、Azure Stack はアクティブ/パッシブ構成のみサポートしています。
 
 ### <a name="failover"></a>フェールオーバー
 
@@ -115,17 +115,17 @@ Azure Stack には 3 つのマルチ テナント ゲートウェイ インフ�
 
 次の表は、ゲートウェイの種類と、ゲートウェイ SKU 別の予測される合計スループットを示したものです。
 
-|| VPN Gateway のスループット *(1)* | VPN Gateway の IPsec トンネルの最大数 *(2)* |
+|| VPN Gateway のスループット (1) | VPN Gateway の IPsec トンネルの最大数 (2) |
 |-------|-------|-------|
-|**Basic SKU** ***(3)*** | 100 Mbps | 20 |
+|**Basic SKU** **(3)** | 100 Mbps | 20 |
 |**Standard SKU** | 100 Mbps | 20 |
 |**高性能 SKU** | 200 Mbps | 10 |
 
-**テーブルの注意事項:**
+### <a name="table-notes"></a>表の注記:
 
-*注 (1)* - インターネット経由でのクロスプレミス接続では、VPN スループットが保証されるわけではありません。 この値は、達成可能な最大スループットです。  
-"*注 (2)* " - トンネルの最大数は、すべてのサブスクリプションにおいて、Azure Stack デプロイの合計です。  
-*注 (3)* - Basic SKU に対しては BGP ルーティングはサポートされません。
+**(1)** インターネット経由でのクロスプレミス接続では、VPN スループットが保証されるわけではありません。 この値は、達成可能な最大スループットです。  
+**(2)** トンネルの最大数は、すべてのサブスクリプションの Azure Stack デプロイの合計です。  
+**(3)** BGP ルーティングは、Basic SKU ではサポートされていません。
 
 >[!NOTE]
 >2 つの Azure Stack デプロイ間に作成できるのは、サイト間 VPN 接続だけです。 これは、同じ IP アドレスに対して許容される VPN 接続が 1 つだけであるというプラットフォームの制限によるものです。 Azure Stack では、そのシステム内のすべての VPN Gateway に単一のパブリック IP を使用するマルチテナント ゲートウェイが活用されているため、2 つの Azure Stack システム間に存在できる VPN 接続は 1 つだけです。 この制限は、単一の IP アドレスを使用する VPN ゲートウェイに複数のサイト間 VPN 接続を接続する場合にも当てはまります。 Azure Stack では、同じ IP アドレスを使用して複数のローカル ネットワーク ゲートウェイ リソースを作成することはできません。

@@ -1,6 +1,6 @@
 ---
-title: 異なる Azure Stack Development Kit 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する | Microsoft Docs
-description: 2 つのシングル ノード Azure Stack Development Kit 環境の間にクラウド管理者がサイト間 VPN 接続を作成するための詳細な手順。
+title: 異なる ASDK 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する | Microsoft Docs
+description: 2 つのシングル ノード Azure Stack Development Kit (ASDK) 環境の間にクラウド オペレーターがサイト間 VPN 接続を作成するためのチュートリアル。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,14 +17,14 @@ ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: f34ed3459ad8346860872a4b63a25e214501a2dd
-ms.sourcegitcommit: 4139b507d6da98a086929da48e3b4661b70bc4f3
+ms.openlocfilehash: 2ae267d470d9862e262f26ea11d2ba4b07bfb299
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68299463"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342912"
 ---
-# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>異なる Azure Stack Development Kit 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する
+# <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>異なる ASDK 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する
 
 ## <a name="overview"></a>概要
 
@@ -41,7 +41,7 @@ ms.locfileid: "68299463"
 接続構成を行うには、作業開始前に次のものを用意する必要があります。
 
 * ASDK のハードウェア要件を満たす 2 つのサーバーおよびその他の前提条件 ([Azure Stack Development Kit の評価に関するクイック スタート](../asdk/asdk-download.md)を参照)。
-* [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) デプロイ パッケージ。
+* [ASDK](https://azure.microsoft.com/overview/azure-stack/try/) デプロイ パッケージ。
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Azure Stack Development Kit 環境のデプロイ
 
@@ -52,7 +52,7 @@ ms.locfileid: "68299463"
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>POC1 と POC2 でプランを用意する
 
-POC1 と POC2 の両方で、ユーザーがプランに加入し、仮想マシンをデプロイできるようにプランを用意します。 オファーの作成方法については、「[Make virtual machines available to your Azure Stack users](azure-stack-tutorial-tenant-vm.md)」 (Azure Stack ユーザーが仮想マシンを使えるようにする) を参照してください。
+POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブし、仮想マシン (VM) をデプロイできるようにオファーを用意します。 オファーの作成方法については、「[Azure Stack ユーザーが VM を使えるようにする](azure-stack-tutorial-tenant-vm.md)」 を参照してください。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>ネットワーク構成表を確認し、完成する
 
@@ -145,7 +145,7 @@ POC1 と POC2 の両方で、ユーザーがプランに加入し、仮想マシ
 
 Azure デプロイでは、ローカル ネットワーク ゲートウェイは、Azure の仮想ネットワーク ゲートウェイへの接続に使用するオンプレミスの (テナントの) 物理デバイスを表します。 この Azure Stack 評価デプロイでは、接続の両端が仮想ネットワーク ゲートウェイになります。
 
-これをより一般化すると、ローカル ネットワーク ゲートウェイ リソースは、常に接続の反対側の端にあるリモート ゲートウェイを示します。 Azure Stack Development Kit の設計上、ローカル ネットワーク ゲートウェイのパブリック IP アドレスとして、他の ASDK のネットワーク アドレス変換 (NAT) VM で外部ネットワーク アダプターの IP アドレスを指定する必要があります。 その後、NAT VM で NAT マッピングを作成し、両端が正しく接続されるようにします。
+これをより一般化すると、ローカル ネットワーク ゲートウェイ リソースは、常に接続の反対側の端にあるリモート ゲートウェイを示します。 ASDK の設計上、ローカル ネットワーク ゲートウェイのパブリック IP アドレスとして、他の ASDK のネットワーク アドレス変換 (NAT) VM で外部ネットワーク アダプターの IP アドレスを指定する必要があります。 その後、NAT VM で NAT マッピングを作成し、両端が正しく接続されるようにします。
 
 ### <a name="create-the-local-network-gateway-resource"></a>ローカル ネットワーク ゲートウェイ リソースを作成する
 
@@ -171,17 +171,17 @@ Azure デプロイでは、ローカル ネットワーク ゲートウェイは
 9. **[共有キー (PSK)]** に「**12345**」と入力し、 **[OK]** を選択します。
 10. **[概要]** ブレードで、 **[OK]** を選択します。
 
-### <a name="create-a-vm"></a>VM の作成
+### <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
-VPN 接続で送信されるデータを検証するには、各 Azure Stack Development Kit でデータを送受信する仮想マシンが必要です。 今から POC1 に仮想マシンを作成し、次に仮想ネットワークで作成し、VM サブネットにそれを配置します。
+VPN 接続で送信されるデータを検証するには、各 ASDK で、データを送受信する VM が必要です。 ここでは POC1 に VM を作成し、次に仮想ネットワークで、VM サブネットにそれを配置します。
 
 1. Azure portal で **[+ リソースの作成]** を選択します。
 2. **[Marketplace]** に移動し、 **[計算]** を選択します。
-3. 仮想マシンのイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
+3. VM のイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 4. **[基本]** ブレードの **[名前]** に「**VM01**」と入力します。
 5. 有効なユーザー名とパスワードを入力します。 このアカウントを利用し、作成後の VM にサインインします。
 6. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を指定し、 **[OK]** を選択します。
-7. **[サイズ]** ブレードで、この場合、仮想マシンのサイズを選択し、 **[選択]** を選択します。
+7. **[サイズ]** ブレードで、この場合、VM のサイズを選び、 **[選択]** を選択します。
 8. **[設定]** ブレードで、既定値を選択します。 **VNET-01** 仮想ネットワークが選択されていることを確認します。 サブネットが **10.0.10.0/24** に設定されていることを確認します。 **[OK]** をクリックします。
 9. **[サマリー]** ブレードで、設定を確認し、 **[OK]** を選択します。
 
@@ -252,40 +252,40 @@ VPN 接続で送信されるデータを検証するには、各 Azure Stack Dev
 
 ## <a name="create-a-virtual-machine"></a>仮想マシンの作成
 
-ここでは POC2 に仮想マシンを作成し、仮想ネットワーク内の VM サブネットにそれを配置します。
+ここでは POC2 に VM を作成し、仮想ネットワーク内の VM サブネットにそれを配置します。
 
 1. Azure portal で **[+ リソースの作成]** を選択します。
 2. **[Marketplace]** に移動し、 **[計算]** を選択します。
-3. 仮想マシンのイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
+3. VM のイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 4. **[基本]** ブレードの **[名前]** に「**VM02**」と入力します。
-5. 有効なユーザー名とパスワードを入力します。 このアカウントを利用し、作成後の仮想マシンにサインインします。
+5. 有効なユーザー名とパスワードを入力します。 このアカウントを利用し、作成後の VM にサインインします。
 6. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を指定し、 **[OK]** を選択します。
-7. **[サイズ]** ブレードで、この場合は仮想マシンのサイズを選択し、 **[選択]** を選択します。
+7. **[サイズ]** ブレードで、この場合は VM のサイズを選び、 **[選択]** を選択します。
 8. **[設定]** ブレードは既定値のままでかまいません。 **VNET-02** 仮想ネットワークが選択されていること、サブネットが **10.0.20.0/24** に設定されていることを確認します。 **[OK]** を選択します。
 9. **[サマリー]** ブレードで設定を確認し、 **[OK]** を選択します。
 
-## <a name="configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal"></a>ゲートウェイ通過のために各 Azure Stack Development Kit で NAT 仮想マシンを構成する
+## <a name="configure-the-nat-vm-on-each-asdk-for-gateway-traversal"></a>ゲートウェイ トラバーサル用に各 ASDK の NAT VM を構成する
 
 ASDK は自己完結型であり、物理ホストがデプロイされるネットワークから分離されているため、ゲートウェイの接続先の*外部* VIP ネットワークは実際は外部にはありません。 VIP ネットワークは、ネットワーク アドレス変換を実行しているルーターの背後に隠れています。
 
-このルーターは **AzS-bgpnat01** という名前の Windows Server 仮想マシンです。この仮想マシンは、ASDK インフラストラクチャでルーティングとリモート アクセス サービス (RRAS) ロールを実行します。 AzS-bgpnat01 仮想マシンでは、両端を結ぶサイト間 VPN 接続を許可するよう NAT を構成する必要があります。
+このルーターは **AzS-bgpnat01** という名前の Windows Server VM です。これは、ASDK インフラストラクチャでルーティングとリモート アクセス サービス (RRAS) ロールを実行します。 AzS-bgpnat01 VM では、両端を結ぶサイト間 VPN 接続を許可するよう NAT を構成する必要があります。
 
 VPN 接続を構成するには、静的 NAT マップ ルートを作成する必要があります。このルートにより、BGPNAT VM の外部インターフェイスがエッジ ゲートウェイ プールの VIP にマップされます。 静的 NAT マップ ルートは、VPN 接続の各ポートに必須です。
 
 > [!NOTE]
-> この構成は、Azure Stack Development Kit 環境のみで必要です。
+> この構成は ASDK 環境にのみ必要です。
 
 ### <a name="configure-the-nat"></a>NAT を構成する
 
 > [!IMPORTANT]
 > この手順は、両方の ASDK 環境で実行する必要があります。
 
-1. 次の PowerShell スクリプトで使用する**内部 IP アドレス**を決定します。 仮想ネットワーク ゲートウェイ (GW1 と GW2) を開き、 **[概要]** ブレードで後で使用するために **[パブリック IP アドレス]** の値を保存します。
+1. 次の PowerShell スクリプトで使用する**内部 IP アドレス**を決定します。 仮想ネットワーク ゲートウェイ (GW1 と GW2) を開きます。 **[概要]** ブレードで、後で使用するために **[パブリック IP アドレス]** の値を保存します。
 
    ![内部 IP アドレス](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
 2. POC1 の Azure Stack 物理マシンにサインインします。
-3. 次の PowerShell スクリプトをコピーし、編集します。 各 Azure Stack Development Kit で NAT を構成するには、管理者特権の Windows PowerShell ISE でこのスクリプトを実行します。 このスクリプトでは、値が `External BGPNAT address` と `Internal IP address` プレースホルダーに追加されます。
+3. 次の PowerShell スクリプトをコピーし、編集します。 各 ASDK で NAT を構成するには、管理者特権の Windows PowerShell ISE でこのスクリプトを実行します。 このスクリプトでは、値が `External BGPNAT address` と `Internal IP address` プレースホルダーに追加されます。
 
    ```powershell
    # Designate the external NAT address for the ports that use the IKE authentication.
@@ -331,9 +331,9 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
 ## <a name="test-the-connection"></a>接続をテストする
 
-サイト間接続が確立されたので、トラフィックがこの接続を経由できることをことを検証する必要があります。 検証するには、いずれかの ASDK 環境で作成した仮想マシンの 1 つにサインインします。 次に、もう 1 つの環境で作成した仮想マシンに ping を実行します。
+サイト間接続が確立されたので、トラフィックがこの接続を経由できることをことを検証する必要があります。 検証するには、いずれかの ASDK 環境で作成した VM の 1 つにサインインします。 次に、もう 1 つの環境で作成した VM に ping を実行します。
 
-トラフィックがサイト間接続を通過するように、VIP ではなく、リモート サブネットの仮想マシンのダイレクト IP (DIP) に ping を実行します。 これを実行するには、接続の反対側の DIP アドレスを探します。 後で使用するためにアドレスを保存します。
+トラフィックがサイト間接続を通過するように、VIP ではなく、リモート サブネットの VM のダイレクト IP (DIP) アドレスに ping を実行します。 これを実行するには、接続の反対側の DIP アドレスを探します。 後で使用するためにアドレスを保存します。
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>POC1 のテナント VM にサインインする
 
@@ -344,11 +344,11 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
      ![[接続] ボタン](media/azure-stack-create-vpn-connection-one-node-tp2/image17.png)
 
-5. 仮想マシンの作成時に構成したアカウントでサインインします。
+5. VM の作成時に構成したアカウントでサインインします。
 6. 管理者特権の **Windows PowerShell** ウィンドウを開きます。
 7. 「**ipconfig /all**」と入力します。
 8. 出力で **IPv4 アドレス**を見つけ、後で使用するためにそのアドレスを保存します。 これは POC2 から ping を実行するアドレスです。 この例の環境ではアドレスは **10.0.10.4** ですが、実際の環境では異なる場合があります。 このアドレスは、先ほど作成した **10.0.10.0/24** サブネット内に含まれています。
-9. 仮想マシンが ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
+9. VM が ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
 
    ```powershell
    New-NetFirewallRule `
@@ -360,13 +360,13 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
 1. POC2 の Azure Stack 物理マシンにサインインし、テナント アカウントを使用してユーザー ポータルにサインインします。
 2. 左側のナビゲーション バーで、 **[計算]** をクリックします。
-3. 仮想マシンの一覧で、先ほど作成した **VM02** を探して選択します。
-4. 仮想マシンのブレードで、 **[接続]** をクリックします。
-5. 仮想マシンの作成時に構成したアカウントでサインインします。
+3. VM の一覧で、先ほど作成した **VM02** を探して選択します。
+4. VM のブレードで、 **[接続]** をクリックします。
+5. VM の作成時に構成したアカウントでサインインします。
 6. 管理者特権の **Windows PowerShell** ウィンドウを開きます。
 7. 「**ipconfig /all**」と入力します。
 8. **10.0.20.0/24** の範囲内にある IPv4 アドレスが表示されます。 この例の環境ではアドレスは **10.0.20.4** ですが、実際の環境では異なる場合があります。
-9. 仮想マシンが ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
+9. VM が ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
 
    ```powershell
    New-NetFirewallRule `
@@ -374,16 +374,16 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
     -Protocol ICMPv4
    ```
 
-10. POC2 の仮想マシンから、トンネル経由で POC1 の仮想マシンに ping を実行します。 これを行うには、VM01 から記録した DIP に ping を実行します。 この例の環境ではこのアドレスは **10.0.10.4** ですが、必ずラボでメモしたアドレスに ping を実行するようにしてください。 結果は次の例のようになります。
+10. POC2 の VM から、トンネル経由で POC1 の VM に ping を実行します。 これを行うには、VM01 から記録した DIP に ping を実行します。 この例の環境ではこのアドレスは **10.0.10.4** ですが、必ずラボでメモしたアドレスに ping を実行するようにしてください。 結果は次の例のようになります。
 
     ![ping 成功](media/azure-stack-create-vpn-connection-one-node-tp2/image19b.png)
-11. リモート仮想マシンからの応答は、テストが成功したことを示します。 仮想マシン ウィンドウを閉じてもかまいません。 ファイル コピーなど、他の種類のデータ転送を試し、接続をテストすることもできます。
+11. リモート VM からの応答は、テストが成功したことを示します。 VM ウィンドウを閉じることができます。 ファイル コピーなど、他の種類のデータ転送を試し、接続をテストすることもできます。
 
 ### <a name="viewing-data-transfer-statistics-through-the-gateway-connection"></a>ゲートウェイ接続を使用したデータ転送の統計情報を表示する
 
 サイト間接続を通過したデータの量を把握したい場合、 **[接続]** ブレードでこの情報を確認できます。 このテストは、先ほど送信した ping が実際に VPN 接続を通過したことを検証するためのもう 1 つの手段でもあります。
 
-1. POC2 のテナント仮想マシンにサインインしているとき、テナント アカウントを利用してユーザー ポータルにサインインします。
+1. POC2 のテナント VM にサインインしているとき、テナント アカウントを利用してユーザー ポータルにサインインします。
 2. **[すべてのリソース]** に移動し、**POC2-POC1** 接続を選択します。 **[接続]** が表示されます。
 3. **[接続]** ウィンドウには、 **[受信データ]** と **[送信データ]** の統計情報が表示されます。 次のスクリーンショットでは大きな数値を確認できますが、これは追加のファイル転送によるものです。 ここには 0 以外の値が表示されます。
 

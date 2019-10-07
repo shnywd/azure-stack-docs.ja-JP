@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 検証ツールの使用 |Microsoft Docs
-description: Azure Stack の診断のログ ファイルを収集する方法。
+title: Azure Stack 検証ツールを使用してシステム状態を検証する |Microsoft Docs
+description: Azure Stack 検証ツールを使用してシステム状態を検証する方法について説明します。
 services: azure-stack
 author: justinha
 manager: femila
@@ -14,33 +14,33 @@ ms.date: 06/26/2019
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: da89c973637042b18410db9dc3dc618bfbde12d5
-ms.sourcegitcommit: d96adbb821175167f6a4c8f3aba305981d7e7c3e
+ms.openlocfilehash: 194af241480cce42273ff81d91213a63b1b9fd59
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68685521"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829166"
 ---
 # <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack オペレーターは、システムの正常性と状態をオンデマンドで判断できることが不可欠です。 Azure Stack の検証ツール (**Test-azurestack**) は PowerShell コマンドレットであり、システム上で一連のテストを実行して、障害があればそれを特定できます。 通常このツールは、Microsoft カスタマー サービス サポート (CSS) にアクセスして問題について問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行することが求められます。 手元にシステム全体の正常性および状態情報があれば、CSS は詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を解決できます。
+Azure Stack オペレーターは、システムの正常性と状態をオンデマンドで判断できることが不可欠です。 Azure Stack の検証ツール (**Test-azurestack**) は PowerShell コマンドレットであり、システム上で一連のテストを実行して、障害があればそれを特定できます。 通常このツールは、問題について Microsoft カスタマー サービス サポート (CSS) に問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行するよう求められます。 手元にシステム全体の正常性および状態情報があれば、CSS は詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を修正できます。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>検証ツールを実行して結果にアクセスする
 
-前述のとおり、検証ツールは PEP 経由で実行されます。 各テストは、PowerShell ウィンドウで**合格/不合格**のいずれかの状態を返します。 以下に示すのは、エンド ツー エンド検証テスト プロセスの概要です。 
+前述のとおり、この検証ツールは PEP 経由で実行されます。 各テストは、PowerShell ウィンドウで**合格/不合格**のいずれかの状態を返します。 次に示すのは、エンド ツー エンド検証テスト プロセスの概要です。
 
-1. 特権エンドポイント (PEP) にアクセスします。 PEP セッションを確立するために、次のコマンドを実行します。
+1. PEP にアクセスします。 PEP セッションを確立するために、次のコマンドを実行します。
 
    ```powershell
    Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
    ```
 
    > [!TIP]
-   > ASDK ホスト コンピューターで PEP にアクセスするには、-ComputerName に対して azs-ercs01 を使用します。
+   > Azure Stack Development Kit (ASDK) ホスト コンピューターで PEP にアクセスするには、-ComputerName に対して AzS-ERCS01 を使用します。
 
-2. PEP から、次のコマンドを実行します。 
+2. PEP にアクセスしたら、次を実行します。
 
    ```powershell
    Test-AzureStack
@@ -48,15 +48,15 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
    詳細については、「[パラメーターに関する考慮事項](azure-stack-diagnostic-test.md#parameter-considerations)」と「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」を参照してください。
 
-3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
+3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については、「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照し、ASDK での手順については、「[ASDK システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
 
-   このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集したり CSS に問い合わせたりしないでください。
+   このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集せずに CSS に連絡することをお勧めします。
 
-4. CSS により検証ツールを実行するように指示された場合、CSS の担当者は、問題のトラブルシューティングを続行するために、収集したログの提出を要求します。
+4. CSS により検証ツールを実行するように指示された場合、CSS の担当者から、問題のトラブルシューティングを続行するために、お客様が収集したログの提出が求められます。
 
 ## <a name="tests-available"></a>利用可能なテスト
 
-検証ツールでは、現在の状態への洞察を提供してシステム内の問題を確認できる、一連のシステム レベルのテストや基本的なクラウド シナリオを実行できます。
+検証ツールを使用すると、一連のシステム レベルのテストと基本的なクラウド シナリオを実行して、現在の状態を把握し、システムの問題を修正できます。
 
 ### <a name="cloud-infrastructure-tests"></a>クラウド インフラストラクチャのテスト
 
@@ -93,26 +93,26 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
 ### <a name="cloud-scenario-tests"></a>クラウド シナリオのテスト
 
-上記のインフラストラクチャ テストだけでなく、インフラストラクチャ コンポーネント全体で機能をチェックするための、クラウド シナリオのテストを実行する機能もあります。 リソースのデプロイが関係するため、これらのテストを実行するは、クラウド管理者の資格情報が必要です。
+上記のインフラストラクチャ テストに加えて、クラウド シナリのオテストを実行して、インフラストラクチャ コンポーネント全体の機能を確認することもできます。 リソースのデプロイが関係するため、これらのテストを実行するは、クラウド管理者の資格情報が必要です。
 
 > [!NOTE]
-> 現時点では、Active Directory フェデレーション サービス (AD FS) の資格情報を使用してクラウド シナリオのテストを実行することはできません。 
+> 現時点では、Active Directory フェデレーション サービス (AD FS) の資格情報を使用してクラウド シナリオのテストを実行することはできません。
 
 検証ツールでは、次のクラウドのシナリオがテストされます。
-- リソース グループの作成   
-- プランの作成              
-- オファーの作成            
-- ストレージ アカウントの作成   
-- 仮想マシンの作成 
-- Blob ストレージの操作   
-- キュー ストレージの操作  
-- テーブル ストレージの操作  
+- リソース グループの作成
+- プランの作成
+- オファーの作成
+- ストレージ アカウントの作成
+- 仮想マシン (VM) の作成
+- Blob ストレージの操作
+- キュー ストレージの操作
+- テーブル ストレージの操作
 
 ## <a name="parameter-considerations"></a>パラメーターに関する考慮事項
 
 - パラメーター **List** は、利用可能なすべてのテスト カテゴリを表示するために使用できます。
 
-- パラメーター **Include** と **Ignore** は、テスト カテゴリを含めたり除外したりするために使用できます。 これらの引数で使用する情報の詳細については、次のセクションを参照してください。
+- パラメーター **Include** と **Ignore** は、テスト カテゴリを含めたり除外したりするために使用できます。 これらの引数の詳細については、次のセクションを参照してください。
 
   ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
@@ -122,7 +122,7 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- テナント VM はクラウド シナリオ テストの一部としてデプロイされます。 これを向こうにするには **DoNotDeployTenantVm** を使用できます。
+- テナント VM はクラウド シナリオ テストの一部としてデプロイされます。 この VM のデプロイを無効にするには、**DoNotDeployTenantVm** を使用します。
 
 - クラウド シナリオ テストを実行するには、**ServiceAdminCredential** パラメーターを指定する必要があります。これについては「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」のセクションで説明しています。
 
@@ -167,7 +167,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 オペレーターの操作性を向上させるため、複数のテスト カテゴリを同時に実行できるように **Group** パラメーターが有効になっています。 現時点では、次の 3 つのグループが定義されています。**既定**、**UpdateReadiness**、および **SecretRotationReadiness**。
 
 - **既定**:**Test-AzureStack** の標準実行と見なされます。 他のグループが選択されていない場合、このグループが既定で実行されます。
-- **UpdateReadiness**:スタンプが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 次のカテゴリは、**UpdateReadiness** グループの一部です。
+- **UpdateReadiness**:Azure Stack インスタンスが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 次のカテゴリは、**UpdateReadiness** グループの一部です。
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -178,7 +178,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
   - **AzsSFRoleSummary**
   - **AzsStoreSummary**
 
-- **SecretRotationReadiness**:スタンプがシークレット ローテーションを実行できる状態かどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
+- **SecretRotationReadiness**:Azure Stack インスタンスが、シークレット ローテーションを実行できる状態にあるかどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -192,13 +192,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 #### <a name="group-parameter-example"></a>Group パラメーターの例
 
-次の例では、**Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、**Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、**Test-AzureStack** を実行して Azure Stack の状態を確認する必要があります。
+次の例では、**Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、**Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、**Test-AzureStack** を実行して Azure Stack の状態を確認します。
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-ただし、お使いの Azure Stack で 1811 より前のバージョンが実行されている場合、次の PowerShell コマンドを使用して **Test-AzureStack** を実行してください。
+お使いの Azure Stack で 1811 より前のバージョンが実行されている場合、次の PowerShell コマンドを使用して **Test-AzureStack** を実行してください。
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -207,7 +207,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>インフラストラクチャのバックアップ設定をテストするには、検証ツールを実行します。
 
-インフラストラクチャのバックアップを構成する*前に*、**AzsBackupShareAccessibility** テストを使用して、バックアップ共有パスと資格情報をテストできます。 
+インフラストラクチャのバックアップを構成する*前に*、**AzsBackupShareAccessibility** テストを使用して、バックアップ共有パスと資格情報をテストできます。
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -228,20 +228,18 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
   ```
 
-### <a name="run-validation-tool-to-test-network-infrastructure"></a>検証ツールを実行してネットワーク インフラストラクチャをテストする 
+### <a name="run-validation-tool-to-test-network-infrastructure"></a>検証ツールを実行してネットワーク インフラストラクチャをテストする
 
-このテストでは、Azure Stack ソフトウェア定義ネットワーク (SDN) をバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および認証エンドポイントへの接続が示されます。 これには、ID プロバイダーとして Azure AD を使用する場合に Azure への、または ID プロバイダーとして ADFS を使用する場合にフェデレーション サーバーへの接続が含まれます。 
+このテストでは、Azure Stack ソフトウェア定義ネットワーク (SDN) をバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および認証エンドポイントへの接続が示されます。 これには、ID プロバイダーとして Azure AD を使用する場合の Azure への接続、または ID プロバイダーとして AD FS を使用する場合のフェデレーション サーバーへの接続が含まれます。
 
 コマンドの詳細な出力を取得するには、debug パラメーターを含めます。
 
-```powershell 
+```powershell
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-
-
 ## <a name="next-steps"></a>次の手順
 
-Azure Stack 診断ツールと問題のログ記録の詳細については、「[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)」を参照してください。
+Azure Stack 診断ツールと問題のログ記録の詳細については、「[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)」を参照してください。
 
 トラブルシューティングの詳細については、「[Microsoft Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)」を参照してください。

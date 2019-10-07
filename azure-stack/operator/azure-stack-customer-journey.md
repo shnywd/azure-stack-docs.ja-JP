@@ -1,6 +1,6 @@
 ---
 title: Azure Stack データセンターの統合のチュートリアル |Microsoft Docs
-description: データセンターでの Azure Stack のオンサイト デプロイの成功に何を期待できるかについて説明します。
+description: 計画からデプロイ後まで、データセンターでの Azure Stack のオンサイト デプロイの成功のために期待されることについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,16 +16,16 @@ ms.date: 06/13/2019
 ms.author: mabrigg
 ms.reviewer: asganesh
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 9282747cf26598aee93fb6ae302a3d687eee2b17
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 57e92f877ab9516b7b4978b5a919b18dad9b60ea
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131540"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342843"
 ---
-# <a name="azure-stack-datacenter-integration"></a>Azure Stack データセンターの統合
+# <a name="azure-stack-datacenter-integration-walkthrough"></a>Azure Stack データセンターの統合のチュートリアル
 
-この記事では、統合システムの購入から、ソリューション プロバイダーによるオンサイト デプロイの成功までの、エンド ツー エンドの Azure Stack カスタマー エクスペリエンスについて説明します。 この情報を利用して、ユーザー体験を容易にし、Azure Stack のお客様の期待の設定に役立てます。
+この記事では、統合システムの購入から、ソリューション プロバイダーによるオンサイト デプロイの成功までの、エンド ツー エンドの Azure Stack カスタマー エクスペリエンスについて説明します。 この情報により、一連の行程に対応しやすくなり、Azure Stack のお客様の期待を設定することが容易になります。
 
 Azure Stack のお客様は、次のフェーズを予想しておく必要があります。
 
@@ -40,7 +40,7 @@ Azure Stack のお客様は、次のフェーズを予想しておく必要が�
 ## <a name="planning-phase"></a>計画フェーズ
 計画フェーズでは、Microsoft、または、Azure Stack ソリューション パートナーが、Azure Stack がお客様にとって最適なソリューションであるかを判断するためのニーズの評価と把握においてお客様とともに作業します。
 
-次を判断することを支援します。
+次の質問について判断することを支援します。
 
 -   Azure Stack が組織にとって最適なソリューションであるか?
 
@@ -50,7 +50,7 @@ Azure Stack のお客様は、次のフェーズを予想しておく必要が�
 
 -   電源と冷却に関する要件はどのようなものか?
 
-ハードウェア ソリューションが確実にお客様のニーズに最適なものとなるように、[Azure Site Recovery Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) に相談して購入前計画において支援を受け、ご使用の Azure Stack ハードウェア ソリューションの適切な容量と構成を決定することができます。
+ハードウェア ソリューションが確実にお客様のニーズに最適となるようにするには、[Azure Site Recovery Capacity Planner](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) を購入前計画の支援に使用し、ご使用の Azure Stack ハードウェア ソリューションの適切な容量と構成を決定します。
 
 スプレッドシートは、お客様のニーズに最適のハードウェア ソリューションについて、お客様自身の調査や分析の代わりに使用することは意図して*いません*。 Azure Stack のデプロイを計画するときも、Azure Stack 統合システムについての[一般的なデータ センター統合の考慮事項](azure-stack-datacenter-integration.md)を確認する必要があります。
 
@@ -58,35 +58,35 @@ Azure Stack のお客様は、次のフェーズを予想しておく必要が�
 この段階で、適合性に関する多くの質問は回答済みとなっています。 これで Azure Stack を購入して、必要なすべての契約や購入注文に署名をする準備ができたので、統合要件データをソリューション プロバイダーに提供することが求められます。
 
 ## <a name="pre-deployment-phase"></a>デプロイ前フェーズ
-このフェーズでは、データセンターに Azure Stack を統合する方法を決定する必要があります。 このプロセスを容易にするために、Microsoft はソリューション プロバイダーと連携して、お客様の環境内での統合システムのデプロイを計画するために必要な情報の収集に役立つ、要件のテンプレートを準備します。
+このフェーズでは、データセンターに Azure Stack を統合する方法を決定する必要があります。 このプロセスを容易にするために、Microsoft はお客様の環境内での統合システムのデプロイを計画するために必要な情報の収集に役立つ、要件のテンプレートを準備しています。 この要件テンプレートは、ソリューション プロバイダーと連携して作成されました。
 
-[一般的なデータセンター統合に関する考慮事項](azure-stack-datacenter-integration.md)についての記事では、テンプレートを完成させるために役立つデプロイ ワークシートと呼ばれる情報が提供されています。 
+[一般的なデータセンター統合に関する考慮事項](azure-stack-datacenter-integration.md)についての記事では、テンプレートを完成させるために役立つデプロイ ワークシートと呼ばれる情報が提供されています。
 
 > [!IMPORTANT]
 > この段階では、ソリューションの注文前にすべての前提情報が調査されて判別されていることが重要です。 この手順は時間がかかり、調整と、組織内の複数の分野からのデータ収集が必要であることに注意してください。 不正確または不完全な情報のため、デプロイに時間がかかる可能性があります。 
 
-デプロイ前のフェーズでは、次を決定する必要があります。
+デプロイ前フェーズでは、次の項目を決定する必要があります。
 
-- **Azure Stack の接続モデルと ID プロバイダー**。 Azure Stack を[インターネット (および Azure) に接続した状態でデプロイするか、接続していない状態でデプロイするか](azure-stack-connection-models.md)を選択できます。 ハイブリッド シナリオを含めて、Azure Stack から最大のメリットを得るには、Azure に接続した状態でのデプロイをお勧めします。 Active Directory フェデレーション サービス (AD FS) または Azure Active Directory (Azure AD) の選択は、デプロイ時に行う必要がある 1 回限りの決定です。 **システム全体を再デプロイせずに、後でこれを変更することはできません**。
+- **Azure Stack の接続モデルと ID プロバイダー**。 Azure Stack を[インターネット (および Azure) に接続した状態でデプロイするか、接続していない状態でデプロイするか](azure-stack-connection-models.md)を選択できます。 ハイブリッド シナリオを含めて、Azure Stack から最大のメリットを得るには、Azure に接続した状態でのデプロイをお勧めします。 Active Directory フェデレーション サービス (AD FS) または Azure Active Directory (Azure AD) の選択は、デプロイ時に行う必要がある 1 回限りの決定です。 **システム全体を再デプロイせずに、後で ID プロバイダーを変更することはできません**。
 
 - **ライセンス モデル**。 選択するライセンス モデル オプションは、行うデプロイの種類によって異なります。 ID プロバイダーの選択は、テナントの仮想マシン、または ID システムや使用するアカウントには影響を与えません。
     - [接続されていないデプロイ](azure-stack-disconnected-deployment.md)のお客様のオプションは、容量ベース課金の 1 つのみです。
 
-    - [接続されたデプロイ](azure-stack-connected-deployment.md)のお客様は、容量ベース課金と従量課金のいずれかを選択できます。 容量ベース課金では、登録のために Enterprise Agreement (EA) Azure サブスクリプションが必要です。 これは登録に必要であり、Azure サブスクリプションにより Marketplace 内の項目の可用性を提供します。
+    - [接続されたデプロイ](azure-stack-connected-deployment.md)のお客様は、容量ベース課金と従量課金のいずれかを選択できます。 容量ベース課金では、登録のために Enterprise Agreement (EA) Azure サブスクリプションが必要です。 これは登録に必要であり、Azure サブスクリプションを通じて Azure Marketplace で項目を利用できるようにします。
 
 - **ネットワーク統合**。 [ネットワーク統合](azure-stack-network.md) は、展開、操作、および Azure Stack システムの管理に非常に重要です。 Azure Stack ソリューションに回復力があり、運用をサポートする高可用な物理インフラストラクチャがあることを確認する、いくつかの考慮事項があります。
 
-- **ファイアウォールの統合**。 Azure Stack は、[ファイアウォール](azure-stack-firewall.md) を使って保護することをお勧めします。 ファイアウォールは、DDOS 攻撃の防止、侵入検出、およびコンテンツ検査に役立ちます。 ただし、Azure ストレージ サービスのスループットのボトルネックになる可能性があることに注意してください。
+- **ファイアウォールの統合**。 Azure Stack は、[ファイアウォールを使用](azure-stack-firewall.md)して保護することをお勧めします。 ファイアウォールは、DDOS 攻撃の防止、侵入検出、およびコンテンツ検査に役立ちます。 ただし、Azure ストレージ サービスのスループットのボトルネックになる可能性があることに注意してください。
 
 
-- **証明書の要件**。 デプロイのためにデータセンターにオンサイト エンジニアが到着する*前に*、すべての[必要な証明書](azure-stack-pki-certs.md)が入手可能になっていることは重要です。
+- **証明書の要件**。 デプロイのためにデータセンターにオンサイト エンジニアが到着する*前に*、すべての[必要な証明書](azure-stack-pki-certs.md)が使用可能になっていることが重要です。
 
 デプロイ ワークシートから必要なすべての前提条件情報を収集したら、ソリューション プロバイダーは収集されたデータに基づいて工場出荷時のプロセスを開始し、Azure Stack をデータセンターに正常に統合することができます。
 
 ## <a name="hardware-delivery-phase"></a>ハードウェアの出荷フェーズ
 ソリューション プロバイダーは、ソリューションのお客様の施設への納入をスケジュールするためにお客様と連携します。 受け取って適切に配置したら、Azure Stack のデプロイを実行するためにエンジニアがオンサイトに来る時間をソリューション プロバイダーとともにスケジュールする必要があります。
 
-*オンサイト エンジニアがソリューションをデプロイするために到着する前に、* すべての前提条件データをロックして使用可能にしておくことが**重要です**。
+*オンサイト エンジニアがソリューションをデプロイするために到着する前に*、すべての前提条件データをロックして使用可能にしておくことが**重要です**。
 
 -   すべての証明書を購入して準備しておく必要があります。
 
@@ -98,9 +98,9 @@ Azure Stack のお客様は、次のフェーズを予想しておく必要が�
 > このいずれかの情報が変更された場合は、実際のデプロイをスケジュールする前に、ソリューション プロバイダーに必ず変更を通知しておきます。
 
 ## <a name="onsite-deployment-phase"></a>オンサイトのデプロイ フェーズ
-Azure Stack をデプロイするには、ハードウェア ソリューション プロバイダーからのオンサイト エンジニアは、デプロイを開始するためにそこにいる必要があります。 デプロイを成功させるために、デプロイ ワークシートを通じて提供されるすべての情報が変更されていないことを確認します。 
+Azure Stack をデプロイするには、ハードウェア ソリューション プロバイダーからのオンサイト エンジニアは、デプロイを開始するためにそこにいる必要があります。 デプロイを成功させるために、デプロイ ワークシートを通じて提供されるすべての情報が変更されていないことを確認します。
 
-次に示すのは、デプロイの実施中にオンサイト エンジニアに期待できる事柄です。
+次のチェックは、デプロイの実施中にオンサイト エンジニアに期待できる事柄です。
 
 - すべてのケーブル配線と境界接続をチェックして、ソリューションが適切に構築され要件が満たされることを確認します。
 - HLH (ハードウェア ライフサイクル ホスト) ソリューションが存在する場合はこれを構成します。
@@ -116,19 +116,19 @@ Azure Stack をデプロイするには、ハードウェア ソリューショ�
 
 OEM パートナーによって必ず実行されるアクションは次のとおりです。
 
-- [test-azurestack の実行](azure-stack-diagnostic-test.md)
+- [test-azurestack の実行](azure-stack-diagnostic-test.md)。
 
-- [Azure への登録](azure-stack-registration.md)
+- [Azure への登録](azure-stack-registration.md)。
 
-- [Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)
+- [Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md#use-the-marketplace-syndication-tool-to-download-marketplace-items)。
 
-- スイッチ構成ファイルと HLH 構成ファイルのバックアップ
+- スイッチ構成ファイルと HLH 構成ファイルのバックアップ。
 
-- DVM の削除
+- DVM の削除。
 
-- デプロイの顧客概要の準備
+- デプロイの顧客概要の準備。
 
-- [ソリューションのソフトウェアが必ず最新バージョンに更新されているように、更新プログラムを確認します。](./azure-stack-updates.md)
+- [ソリューションのソフトウェアが必ず最新バージョンに更新されているように、更新プログラムを確認する](./azure-stack-updates.md)。
 
 インストールの種類によっては、いくつかの手順は必須または省略可能です。
 
@@ -141,14 +141,14 @@ OEM パートナーによって必ず実行されるアクションは次のと�
 
   -   [System Center Operations Manager 統合](azure-stack-integrate-monitor.md)も、フリート管理機能をサポートします。
 
-  -   [Nagios の統合](azure-stack-integrate-monitor.md#integrate-with-nagios)
+  -   [Nagios の統合](azure-stack-integrate-monitor.md#integrate-with-nagios)。
 
 ## <a name="overall-timeline"></a>全体的なタイムライン
 
-![](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
+![Azure Stack のオンサイト デプロイの全体的なタイムライン](./media/azure-stack-datacenter-integration-walkthrough/image1.png)
 
 ## <a name="support"></a>サポート
-Azure Stack は、システムのライフサイクル全体をカバーする、Azure による一貫した統合サポート エクスペリエンスを実現します。 Azure Stack 統合システムを完全にサポートするには、お客様は Azure サービスのサポート用に Microsoft (またはクラウド ソリューション プロバイダー) と 1 つ、およびシステムのサポート用にハードウェア プロバイダーと 1 つの、計 2 つのサポート契約が必要です。 統合サポート エクスペリエンスは、調整されたエスカレーションと解決を提供するため、お客様が誰に最初に問い合わせるかに関係なく、一貫したサポート エクスペリエンスが得られます。 Microsoft での Premier、Azure -Standard / ProDirect または Partner サポートを既にお持ちのお客様の場合、Azure Stack ソフトウェア サポートは含まれています。
+Azure Stack は、システムのライフサイクル全体をカバーする、Azure による一貫した統合サポート エクスペリエンスを実現します。 Azure Stack 統合システムを完全にサポートするには、お客様は 2 つのサポート契約が必要です。1 つは Azure サービスのサポート用の Microsoft (またはクラウド ソリューション プロバイダー) との契約、もう 1 つはシステム サポート用のハードウェア プロバイダーとの契約です。 統合サポート エクスペリエンスは、調整されたエスカレーションと解決を提供するため、お客様が誰に最初に問い合わせるかに関係なく、一貫したサポート エクスペリエンスが得られます。 Microsoft での Premier、Azure -Standard / ProDirect または Partner サポートを既にお持ちのお客様の場合、Azure Stack ソフトウェア サポートは含まれています。
 
 統合サポート エクスペリエンスでは、Microsoft とハードウェア パートナーとの間のサポート ケースおよびケース更新の双方向転送のために、ケース交換メカニズムを使用します。 Microsoft Azure Stack は、[モダン ライフサイクル ポリシー](https://support.microsoft.com/help/30881) に従います。
 

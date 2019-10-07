@@ -1,6 +1,6 @@
 ---
-title: Azure Kubernetes Services (AKS) エンジンを Azure Stack Marketplace に追加する | Microsoft Docs
-description: AKS エンジンを Azure Stack Marketplace に追加する方法について説明します。
+title: Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Marketplace に追加する | Microsoft Docs
+description: AKS エンジンの前提条件を Azure Stack Marketplace に追加する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,18 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 948d2a00b021b701990b5d8e3192e053e1277a3e
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.lastreviewed: 09/25/2019
+ms.openlocfilehash: bcb9dab55d00c48e5b77e7184fae0567ff1f620e
+ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71160259"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71311283"
 ---
-# <a name="add-the-azure-kubernetes-services-aks-engine-to-the-azure-stack-marketplace"></a>Azure Kubernetes Services (AKS) エンジンを Azure Stack Marketplace に追加する
+# <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Marketplace に追加する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 

@@ -12,24 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 09/26/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7946b8339c9ff1127c0a9d9572c49527208b38f2
-ms.sourcegitcommit: e8f7fe07b32be33ef621915089344caf1fdca3fd
+ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
+ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70118657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71319102"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK のトラブルシューティング
-この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 記載されていない問題が発生している場合は、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポートについて確認してください。  
+この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 Azure Stack 統合システムに関するヘルプについては、「[Microsoft Azure Stack のトラブルシューティング](../operator/azure-stack-troubleshooting.md)」を参照してください。 
 
-> [!IMPORTANT]
-> ASDK は評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通じて公式なサポートは提供されません。
+ASDK は評価環境であるため、Microsoft カスタマー サポート サービス (CSS) によるサポートは提供されません。 記載されていない問題が発生している場合は、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で専門家からのヘルプを得られます。 
 
-このセクションで説明されている問題のトラブルシューティングの推奨事項は、複数のソースから取得しており、特定の問題を解決できない場合があります。 コード例は "そのまま" 提供されており、期待される結果を保証できません。 このセクションは、製品の機能強化の実装に合わせて、頻繁に編集および更新されます。
 
 ## <a name="deployment"></a>Deployment
 ### <a name="deployment-failure"></a>デプロイの失敗
@@ -47,18 +45,18 @@ ms.locfileid: "70118657"
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム
 Azure Stack に VM をデプロイする前に、まず Windows Server イメージとギャラリー アイテムを追加する必要があります。
 
-### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Azure Stack ホストの再起動後、一部の VM が自動的に起動しないことがあります。
+### <a name="after-restarting-my-azure-stack-host-some-vms-dont-automatically-start"></a>Azure Stack ホストの再起動後、一部の VM が自動的に起動しない
 ホストの再起動後、Azure Stack サービスがすぐに使用できないことに気付く場合があります。 これは、Azure Stack [インフラストラクチャ VM](asdk-architecture.md#virtual-machine-roles) および RP が一貫性をチェックするために少し時間がかかるためですが、最終的に自動的に起動します。
 
-また、ASDK ホストの再起動後に、そのテナント VM が自動的に起動しないことに気付く場合もあります。 これは既知の問題であり、それらをオンラインにするために、いくつかの手動の手順が必要です。
+また、ASDK ホストの再起動後に、そのテナント VM が自動的に起動しないことに気付く場合もあります。 手動でいくつかの手順を実行して、オンラインにすることができます。
 
 1.  ASDK ホストで、[スタート] メニューから**フェールオーバー クラスター マネージャー**を起動します。
 2.  クラスター **S-Cluster.azurestack.local** を選択します。
 3.  **[役割]** を選びます。
 4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、VM を再開します。
 
-### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk-is-this-behavior-expected"></a>一部の VM を削除しましたが、まだディスクに VHD ファイルが表示されます。 これは期待される動作ですか。
-はい、これは正しい動作です。 これがそのように設計された理由は次のとおりです。
+### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>一部の VM の削除後に、まだディスクに VHD ファイルが表示される 
+この動作は仕様によるものです。
 
 * VM を削除しても VHD は削除されません。 ディスクはリソース グループ内の個別のリソースです。
 * ストレージ アカウントが削除されると、削除は Azure Resource Manager にただちに表示されますが、それを格納している可能性のあるディスクは、ガベージ コレクションが実行されるまで、記憶域に維持されます。

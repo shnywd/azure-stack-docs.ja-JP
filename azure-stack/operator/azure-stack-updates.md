@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 64e1bd7934b1b3b8c0bc935a920a2e4e188c4bd9
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101198"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714708"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
@@ -65,7 +65,7 @@ ms.locfileid: "71101198"
 
 - **Microsoft ソフトウェア更新プログラムおよび修正プログラム** 
 
-    Microsoft ソフトウェア更新プログラムおよび修正プログラムの更新アラートは、インターネットに接続されている Azure Stack インスタンスの [更新] ブレードに表示されます。
+    Microsoft ソフトウェア更新プログラムおよび修正プログラムの更新アラートは、インターネットに接続されている Azure Stack インスタンスの [更新] ブレードに表示されます。 [更新] ブレードが表示されない場合は、インフラストラクチャ管理コントローラー VM を再起動します。
 
     インスタンスが接続されておらず、各修正プログラムのリリースについて通知を受け取ることを希望する場合は、[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
 

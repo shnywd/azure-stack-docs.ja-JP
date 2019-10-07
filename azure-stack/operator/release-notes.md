@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: ed613e78cb2d592d40eb762f155e9e925f68721b
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: 62440c61ee637a0092b1e956b08ba0a9c94d8bab
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279187"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342923"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack の更新プログラム: リリース ノート
 
@@ -56,7 +56,7 @@ ms.locfileid: "71279187"
 ::: moniker range="azs-1908"
 ## <a name="1908-build-reference"></a>1908 ビルドのリファレンス
 
-Azure Stack 1908 更新プログラムのビルド番号は **1.1908.0.20** です。
+Azure Stack 1908 更新プログラムのビルド番号は **1.1908.4.33** です。
 
 ### <a name="update-type-1908"></a>更新の種類
 
@@ -119,7 +119,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 Azure Stack の 1908 リリースは、次の修正プログラムが適用された 1907 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.12.44](https://support.microsoft.com/help/4517473)
+- [Azure Stack 修正プログラム 1.1907.17.54](https://support.microsoft.com/help/4523826)
 
 Azure Stack 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
 
@@ -250,7 +250,7 @@ Azure Stack の 1907 リリースは、次の修正プログラムが適用さ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.15.50](https://support.microsoft.com/help/4520315)
+- [Azure Stack 修正プログラム 1.1907.17.54](https://support.microsoft.com/help/4523826)
 ::: moniker-end
 
 ::: moniker range="azs-1906"

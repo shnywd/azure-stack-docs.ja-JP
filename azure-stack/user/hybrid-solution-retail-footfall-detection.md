@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/01/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: e87baeba1b961c134fc5754fda8c9f1688f3fe90
-ms.sourcegitcommit: f38903cb925276e96dd62ebe8ffe92df8bf6e5c8
+ms.openlocfilehash: 32533b063d4c42b740825923e9e2b5692ec03728
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256554"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714630"
 ---
 # <a name="footfall-detection-solution"></a>足取り検出ソリューション
 
@@ -92,6 +92,6 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 
 ## <a name="next-steps"></a>次の手順
 
-このソリューションで使用される関連パターンの詳細については、[階層化されたデータ パターン](azure-stack-solution-staged-data.md)に関するページをご覧ください。 
-
-Custom Vision の使用方法の詳細については、[Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) に関するページをご覧ください。 
+- このソリューションで使用される関連パターンの詳細については、[階層化されたデータ パターン](azure-stack-solution-staged-data.md)に関するページをご覧ください。 
+- Custom Vision の使用方法の詳細については、[Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) に関するページをご覧ください。 
+- [足取りソリューションのサンプル実装](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis)をダウンロードしてデプロイします。 Azure、Azure Stack、Custom Vision AI Dev Kit を使用して、実際の行動から分析情報を生成する方法を確認します。   

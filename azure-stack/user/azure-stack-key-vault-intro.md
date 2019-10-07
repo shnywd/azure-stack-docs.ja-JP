@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: fc68f80688f6b8cbe0376d332d706c9dc7b6dd92
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 2ad70754a63660a2ad374a324e8778c405446d29
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842897"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714675"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack での Key Vault の概要
 
 ## <a name="prerequisites"></a>前提条件
 
 * Azure Key Vault サービスを含むオファーをサブスクライブします。  
-* [Azure Stack で使うように PowerShell を構成します](azure-stack-powershell-configure-user.md)。
+* PowerShell をインストールし、[Azure Stack で使うように構成します](azure-stack-powershell-configure-user.md)。
 
 ## <a name="key-vault-basics"></a>Key Vault の基礎
 

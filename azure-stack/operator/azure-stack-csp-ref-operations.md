@@ -1,6 +1,6 @@
 ---
 title: Azure Stack に使用状況追跡のためのテナントを登録する | Microsoft Docs
-description: Azure Stack でテナント登録の管理に使用される操作とテナントの使用状況を追跡する方法についての詳細。
+description: Azure Stack でのテナントの登録方法とテナントの使用状況の追跡方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 619bfc89e5def3406d719abfb589193c76c3db6b
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070087"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342822"
 ---
-# <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack でテナントの登録を管理する
+# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Azure Stack に使用状況追跡のためのテナントを登録する
 
 *適用対象:Azure Stack 統合システム*
 
@@ -50,9 +50,9 @@ Azure Stack と API プロファイルの詳細については、「[Azure Stack
 | パラメーター                  | 説明 |
 |---                         | --- |
 | registrationSubscriptionID | 初期登録に使用された Azure サブスクリプション。 |
-| customerSubscriptionID     | 登録される顧客の Azure サブスクリプション (Azure Stack ではない)。 パートナー センターを使用してクラウド サービス プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack にログインするためのサブスクリプションを作成します。 |
+| customerSubscriptionID     | 登録される顧客の Azure サブスクリプション (Azure Stack ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack にサインインするためのサブスクリプションを作成します。 |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。 |
-| registrationName           | Azure Stack の登録名。 Azure にオブジェクトとして格納されています。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。 |
+| registrationName           | Azure Stack の登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。 |
 
 > [!NOTE]  
 > テナントは、それが使用する各 Azure Stack デプロイに登録されている必要があります。 テナントで複数の Azure Stack を使用する場合は、各デプロイの初期登録をテナントのサブスクリプションで更新する必要があります。
@@ -86,7 +86,7 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 |---                         | ---                  |
 | registrationSubscriptionId | 初期登録に使用された Azure サブスクリプション。   |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。    |
-| registrationName           | お使いの Azure Stack デプロイの登録名。 Azure にオブジェクトとして格納されています。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。   |
+| registrationName           | お使いの Azure Stack デプロイの登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。   |
 
 ### <a name="powershell"></a>PowerShell
 

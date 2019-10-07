@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: bedc4c3971c5d4a177f4d8ac804878babebaa9b6
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5cd8e87613d1d4aa4adc8dedac7dcac4fa57eae2
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658642"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714726"
 ---
 # <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Azure Resource Manager による Azure Stack 用テンプレートの開発
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-アプリを開発するときは、Azure と Azure Stack 間のテンプレートの移植性を確保する必要があります。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)の開発に関する考慮事項について説明します。 これらのテンプレートを使用すると、Azure Stack 環境にアクセスせずに、Azure でアプリのプロトタイプを作成し、デプロイをテストできます。
+アプリを開発するときは、Azure と Azure Stack 間のテンプレートの移植性を確保することが重要です。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)の開発に関する考慮事項について説明します。 これらのテンプレートを使用すると、Azure Stack 環境にアクセスせずに、Azure でアプリのプロトタイプを作成し、デプロイをテストできます。
 
 ## <a name="resource-provider-availability"></a>リソース プロバイダーの可用性
 
@@ -63,7 +63,7 @@ Azure Resource Manager の[関数](/azure/azure-resource-manager/resource-group-
 * その他のリソースからの値の参照。
 * 複数のインスタンスをデプロイするためのリソースの反復処理。
 
-次の関数は、Azure Stack で使用できません。
+次の関数は、Azure Stack では使用できません。
 
 * Skip
 * Take

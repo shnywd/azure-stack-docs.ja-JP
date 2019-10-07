@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/26/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: dac2eeaf3499068812d9c9a66348b0c44ea07b7d
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 0636f3069db80613f02e979b5a102a471f12efad
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842700"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814477"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack での GO による API バージョンのプロファイルの使用
 
@@ -32,17 +32,17 @@ ms.locfileid: "68842700"
 - 特定の API バージョンをロックすることによる、アプリの安定性。
 - Azure Stack および地域の Azure データセンターでのアプリの互換性。
 
-Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 これらのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 1904 以降のスタンプ バージョンの場合、最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 プロファイルのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 Azure Stack バージョン 1904 以降の場合、最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
-## <a name="install-azure-sdk-for-go"></a>GO 対応の Azure SDK をインストールする
+## <a name="install-the-azure-sdk-for-go"></a>Azure SDK for Go のインストール
 
 1. GIT をインストールします。 手順については、「[Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)」 (はじめに - Git をインストールする) をご覧ください。
 2. [Go プログラミング言語](https://golang.org/dl)をインストールします。 Azure 用の API プロファイルでは、Go バージョン 1.9 以降が必要です。
-3. 次の bash コマンドを実行して、GO の Azure SDK とその依存関係をインストールします。
+3. 次の bash コマンドを実行して、Azure GO SDK とその依存関係をインストールします。
 
    ```bash
    go get -u -d github.com/Azure/azure-sdk-for-go/...
@@ -63,7 +63,7 @@ Go SDK では、Azure **Go-AutoRest** モジュールに依存して、Azure Res
 
 Azure Stack でサンプルの Go コードを実行するには、次の手順に従います。
 
-1. Go 対応の Azure SDK とその依存関係をインストールします。 手順については、前のセクションの「[Azure SDK for Go をインストールする](#install-azure-sdk-for-go)」をご覧ください。
+1. Azure SDK for Go とその依存関係をインストールします。 手順については、前のセクションの「[Azure SDK for Go をインストールする](#install-the-azure-sdk-for-go)」をご覧ください。
 2. リソース マネージャー エンドポイントからメタデータ情報を取得します。 エンドポイントは、Go コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
    > [!NOTE]  
@@ -86,7 +86,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
 
 3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法に関する詳細については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
 
-4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 <br>これで、使用する Azure Stack 環境が設定されました。
+4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack 環境が設定されました。
 
 5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
@@ -126,7 +126,7 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
 
 Go SDK プロファイルを使用して Azure Stack に仮想ネットワークを作成する詳細な例については、「[例](#example)」をご覧ください。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>認証
 
 Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、**Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。 そうでない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールします。
 
@@ -134,7 +134,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
 
 1. サブスクリプションの所有者ロールを備えたサービス プリンシパルが使用可能な場合は、この手順を省略します。 それ以外の場合は、クライアント シークレットを使用するサービス プリンシパルの作成に関する指示と、ご利用のサブスクリプションにスコープされた "所有者" ロールへの割り当て方法のヘルプについては、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 サービス プリンシパル アプリケーション ID とシークレットを必ずキャプチャしてください。
 
-2. コード内で Go-AutoRest から **adal** パッケージをインポートします。
+2. コード内で **Go-AutoRest** から **adal** パッケージをインポートします。
 
    ```go
    package main
@@ -299,11 +299,14 @@ Authorizer には、リソース クライアントの承認者を設定する�
       }
    }
    ```
+
 Go SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
+
 - [仮想マシンの作成](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
 - [ストレージ データプレーン](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
 - [Managed Disks の使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
+
 ## <a name="next-steps"></a>次の手順
 
 - [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
-- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)  
+- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)

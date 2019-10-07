@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c0faaa7be69ad8d23dc94eec1107362a7a7eadfa
-ms.sourcegitcommit: 58c28c0c4086b4d769e9d8c5a8249a76c0f09e57
+ms.openlocfilehash: d9ef8ab09031db59311317693f72433b63737c34
+ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959341"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71814466"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack での Ruby による API バージョンのプロファイルの使用
 
@@ -47,11 +47,15 @@ API プロファイルは、リソース プロバイダーとサービス バ�
 - 正式な指示に従って、[Ruby](https://www.ruby-lang.org/en/documentation/installation/) をインストールします。
   - インストール時には、**PATH 変数に Ruby を追加する**ためのオプションを選択します。
   - Ruby のインストール時にプロンプトが表示された場合は、開発キットをインストールします。
-  - 次に、下記のコマンドを使用して bundler をインストールします。  
-    `Gem install bundler`
-- 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成手順については、[こちら](../operator/azure-stack-subscribe-plan-provision-vm.md)をご覧ください。
-- サービス プリンシパルを作成し、その ID とシークレットを保存します。 Azure Stack 用のサービス プリンシパルを作成する手順については、[こちら](../operator/azure-stack-create-service-principals.md)をご覧ください。
-- サブスクリプションでサービス プリンシパルに共同作成者/所有者ロールが割り当てられていることを確認します。 サービス プリンシパルにロールを割り当てる手順については、[こちら](../operator/azure-stack-create-service-principals.md)をご覧ください。
+  - 次に、下記のコマンドを使用して bundler をインストールします。 
+
+       ```Ruby
+       Gem install bundler
+       ```
+
+- 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成手順については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」の記事で説明しています。
+- サービス プリンシパルを作成し、その ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」の記事で説明しています。
+- サブスクリプションでサービス プリンシパルに共同作成者/所有者ロールが割り当てられていることを確認します。 サービス プリンシパルへのロールの割り当て方法に関する手順は、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」の記事で説明しています。
 
 ## <a name="install-the-rubygem-packages"></a>RubyGem パッケージをインストールする
 
@@ -62,7 +66,11 @@ gem install azure_mgmt_compute
 gem install azure_mgmt_storage
 gem install azure_mgmt_resources
 gem install azure_mgmt_network
-Or use them in your Gemfile.
+```
+
+または、Gemfile でそれらを使用します。
+
+```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
 gem 'azure_mgmt_resources'
@@ -87,9 +95,9 @@ Azure Stack で Ruby Azure SDK を使用するには、次の値を指定した�
 
 | 値 | 環境変数 | 説明 |
 | --- | --- | --- |
-| テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
-| クライアント ID | `AZURE_CLIENT_ID` | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。  |
-| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために必要です。 |
+| テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
+| クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。  |
+| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
 | クライアント シークレット | `AZURE_CLIENT_SECRET` | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 |
 | Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Resource Manager エンドポイント](#the-azure-stack-resource-manager-endpoint)」を参照してください。  |
 
@@ -117,26 +125,31 @@ Resource Manager エンドポイントからメタデータ情報を取得でき
  }
 ```
 
-### <a name="set-environmental-variables"></a>環境変数の設定
+### <a name="set-environment-variables"></a>環境変数の設定
 
-**Microsoft Windows**  
-環境変数を設定するには、Windows コマンド プロンプトで次の形式を使用します。  
-`set AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+#### <a name="microsoft-windows"></a>Microsoft Windows
 
-**macOS、LinuxおよびUnixベース システム** <br>
-Unix ベースのシステムでは、次のコマンドを使用します。  
-`export AZURE_TENANT_ID=<YOUR_TENANT_ID>`
+環境変数を設定するには、Windows コマンド プロンプトで次の形式を使用します。
+
+```shell
+set AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
+
+#### <a name="macos-linux-and-unix-based-systems"></a>macOS、Linux、および Unix ベースのシステム
+
+Unix ベースのシステムでは、次のコマンドを使用します。
+
+```bash
+export AZURE_TENANT_ID=<YOUR_TENANT_ID>
+```
 
 ## <a name="existing-api-profiles"></a>既存の API プロファイル
 
-Azure_sdk ロールアップ gem には、次の 3 つのプロファイルがあります。
+**Azure_sdk** ロールアップ gem には、次の 3 つのプロファイルがあります。
 
-1. **V2019_03_01_Hybrid** <br>
-  Azure Stack 用に作成されたプロファイル。 スタンプのバージョンが 1904 以降の Azure Stack で使用可能なサービスのすべての最新バージョンを使用するには、このプロファイルを使用します。
-1. **V2017_03_09**  
-  Azure Stack 用に作成されたプロファイル。 このプロファイルは、スタンプのバージョンが 1808 以降の Azure Stack との互換性に優れたサービスに使用します。
-1. **最新**  
-  このプロファイルは、すべてのサービスの最新バージョンで構成されます。 すべてのサービスの最新バージョンを使用してください。
+- **V2019_03_01_Hybrid**:Azure Stack 用に作成されたプロファイル。 このプロファイルは、Azure Stack バージョン 1904 以降で使用可能なすべてのサービスの最新バージョンを使用する場合に使用します。
+- **V2017_03_09**:Azure Stack 用に作成されたプロファイル。 このプロファイルは、Azure Stack バージョン 1808 以前との互換性に優れたサービスに使用します。
+- **Latest**:このプロファイルは、すべてのサービスの最新バージョンで構成されます。 すべてのサービスの最新バージョンを使用してください。
 
 Azure Stack および API プロファイルについて詳しくは、「[API プロファイルの概要](azure-stack-version-profiles.md#summary-of-api-profiles)」をご覧ください。
 
@@ -181,7 +194,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Azure Stack 環境設定関数の定義
 
-サービス プリンシパルを Azure Stack 環境に対して認証するには、`get_active_directory_settings()` を使用してエンドポイントを定義します。 このメソッドでは、環境変数を確立する際に設定した、**ARM_Endpoint** 環境変数が使用されます。
+サービス プリンシパルを Azure Stack 環境に対して認証するには、`get_active_directory_settings()` を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint**環境変数を使用します。
 
 ```Ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -203,7 +216,7 @@ end
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
 
-Ruby と Azure Stack の API のプロファイルを使用してソリューションを作成する場合は、GitHub で見つかる次のサンプルを参考資料として使用します。
+Ruby と Azure Stack の API のプロファイルを使用してソリューションを作成する場合は、GitHub の次のサンプルを参考資料として使用します。
 
 - [Azure のリソースとリソース グループを Ruby で管理する](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)。
 - [Ruby を使用して仮想マシンを管理する](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM) (Azure Stack でサポートされている最新の API バージョンをターゲットにするために 2019-03-01-hybrid プロファイルを使用するサンプル)。
@@ -214,7 +227,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
 このサンプルを実行するには、Ruby がインストールされていることを確認してください。 Visual Studio Code を使用している場合は、Ruby SDK 拡張機能もダウンロードしてください。
 
 > [!NOTE]  
-> このサンプルのリポジトリは、「[Manage Azure resources and resource groups with Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)」(Rubyを使用して Azure リソースとリソース グループを管理する) で取得します。
+> サンプルのリポジトリは、[Hybrid-Resource-Manager-Ruby-Resources-And-Groups](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)です。
 
 1. リポジトリを複製します。
 
@@ -234,6 +247,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
    サービス プリンシパルの作成方法については、「[Azure PowerShell を使用して資格情報でのサービス プリンシパルを作成する](../operator/azure-stack-create-service-principals.md)」をご覧ください。
 
    必要な値は次のとおりです。
+
    - テナント ID
    - クライアント ID
    - クライアント シークレット
@@ -249,7 +263,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
    - `export ARM_ENDPOINT={your Azure Stack Resource Manager URL}`
 
    > [!NOTE]  
-   > Windows では、export ではなく set を使用します。
+   > Windows では、`export`ではなく、`set`を使用します。
 
 4. location 変数が、たとえば `LOCAL="local"` のように Azure Stack の場所に設定されていることを確認します。
 
@@ -259,7 +273,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
    active_directory_settings = get_active_directory_settings(ENV['ARM_ENDPOINT'])
    ```
 
-6. options 変数内で、Azure Stack と連携するための Active Directory 設定とベース URL を追加します。
+6. `options` 変数内で、Azure Stack と連携するための Active Directory 設定とベース URL を追加します。
 
    ```ruby  
    options = {
@@ -276,7 +290,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. サービス プリンシパルを Azure Stack に対して認証するには、**get_active_directory_settings()** を使用してエンドポイントを定義します。 このメソッドでは、環境変数を確立する際に設定した、**ARM_Endpoint** 環境変数が使用されます。
+8. サービス プリンシパルを Azure Stack に対して認証するには、**get_active_directory_settings()** を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint**環境変数を使用します。
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -297,7 +311,7 @@ Ruby と Azure Stack の API のプロファイルを使用してソリューシ
 
 9. サンプルを実行します。
 
-   ```ruby
+   ```Ruby
    bundle exec ruby example.rb
    ```
 

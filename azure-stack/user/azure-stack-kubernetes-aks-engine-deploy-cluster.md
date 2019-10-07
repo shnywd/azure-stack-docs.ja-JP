@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 957ea4bc52e6f629ffd7fbd06a14d8dc2fb85021
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 09/27/2019
+ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
+ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279173"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71681828"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする
 
@@ -60,9 +60,23 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
     aks-engine get-versions
     ```
 
-4.  `portalURL` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。
+4.  `customCloudProfile` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。 
 
-5.  配列 `masterProfile` で、次のフィールドを設定します。
+5. AD FS を使用している場合は、`"identitySystem":"adfs"` を追加します。 たとえば、次のように入力します。
+
+    ```JSON  
+        "customCloudProfile": {
+            "portalURL": "https://portal.local.azurestack.external",
+            "identitySystem": "adfs"
+        },
+    ```
+
+    > [!Note]  
+    > ID システムに Azure AD を使用している場合は、**identitySystem** フィールドを追加する必要はありません。
+
+6. `portalURL` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。
+
+7.  配列 `masterProfile` で、次のフィールドを設定します。
 
     | フィールド | 説明 |
     | --- | --- |
@@ -71,7 +85,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
     | vmSize |  [Azure Stack でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「 `aks-ubuntu-16.04` 」を入力します。 |
 
-6.  配列 `agentPoolProfiles` の更新では、次のようにします。
+8.  配列 `agentPoolProfiles` の更新では、次のようにします。
 
     | フィールド | 説明 |
     | --- | --- |
@@ -79,7 +93,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
     | vmSize | [Azure Stack でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「 `aks-ubuntu-16.04` 」を入力します。 |
 
-7.  配列 `linuxProfile` の更新では、次のようにします。
+9.  配列 `linuxProfile` の更新では、次のようにします。
 
     | フィールド | 説明 |
     | --- | --- |

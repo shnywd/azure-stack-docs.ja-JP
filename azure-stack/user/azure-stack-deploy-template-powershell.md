@@ -6,22 +6,21 @@ documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 12fe32d7-0a1a-4c02-835d-7b97f151ed0f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2019
+ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: unknown
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6824e6bfd0b6c824783c82041fb1a51ba8f5213f
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.reviewer: sijuman
+ms.lastreviewed: 09/23/2019
+ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303116"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71708959"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Azure Stack で PowerShell を使用してテンプレートをデプロイする
 
@@ -44,7 +43,7 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
     # Set deployment variables
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
-    $myLocation = "local"
+    $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
@@ -53,19 +52,19 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
-        -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-        -NewStorageAccountName mystorage$myNum `
-        -DnsNameForPublicIP mydns$myNum `
+        -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
         -AdminUsername <username> `
-        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-        -VmName myVM$myNum `
-        -WindowsOSVersion 2012-R2-Datacenter
+        -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force)
     ```
 
     >[!IMPORTANT]
     > このスクリプトを実行するたびに、`$myNum` パラメーターの値をインクリメントし、デプロイの上書きを防ぎます。
 
 4. Azure Stack ポータルを開き、 **[参照]** 、 **[仮想マシン]** の順に選択して、新しい仮想マシン (**myDeployment001**) を探します。
+
+## <a name="cancel-a-running-template-deployment"></a>実行中のテンプレートのデプロイのキャンセル
+
+実行中のテンプレートのデプロイをキャンセルするには、`Stop-AzureRmResourceGroupDeployment` PowerShell コマンドレットを使用します。
 
 ## <a name="next-steps"></a>次の手順
 

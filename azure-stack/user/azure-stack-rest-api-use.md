@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 0be1e7832d5ac32b092e44674b78c59552af351c
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 822d05c53db2d55b3cddac44fa919c72e9af2efe
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159713"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714657"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -27,19 +27,19 @@ ms.locfileid: "71159713"
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-アプリケーション プログラミング インターフェイス (API) を使用して、Azure Stack クラウドへの仮想マシン (VM) の追加などの操作を自動化できます。
+Azure Stack REST API を使用して、Azure Stack クラウドへの仮想マシン (VM) の追加などの操作を自動化できます。
 
-この API では、Microsoft Azure サインイン エンドポイントに対するクライアントの認証が必要です。 エンドポイントは、Azure Stack API に送信されるすべての要求のヘッダーで使用されるトークンを返します Microsoft Azure では Oauth 2.0 を使用します。
+この API では、Microsoft Azure サインイン エンドポイントに対するクライアントの認証が必要です。 エンドポイントは、Azure Stack API に送信されるすべての要求のヘッダーで使用されるトークンを返します。 Microsoft Azure では Oauth 2.0 を使用します。
 
 この記事では、**cURL** ユーティリティを使用して Azure Stack 要求を作成する例を示します。 cURL は、データの転送にライブラリを使用するコマンドライン ツールです。 これらの例で説明するのは、Azure Stack API にアクセスするためのトークンを取得するプロセスです。 ほとんどのプログラミング言語に Oauth 2.0 ライブラリが用意されています。このライブラリでは、トークンの更新など、堅牢なトークン管理および処理タスクを行うことができます。
 
 Azure Stack REST API を **cURL** などの汎用 REST クライアントと共に使用するプロセス全体をレビューすることは、基になる要求と、期待できる応答ペイロードの内容を把握するのに役立ちます。
 
-この記事では、対話型サインインなどのトークンを取得したり、専用アプリ ID を作成したりするときに使用できる、すべてのオプションを取り上げているわけではありません。 これらのトピックの情報を取得するには、[Azure REST API リファレンス](https://docs.microsoft.com/rest/api/)のページを参照してください。
+この記事では、対話型サインインなどのトークンの取得や専用アプリ ID の作成に使用できるすべてのオプションについては説明しません。 これらのトピックの情報を取得するには、[Azure REST API リファレンス](/rest/api/)に関するページを参照してください。
 
 ## <a name="get-a-token-from-azure"></a>Azure からトークンを取得する
 
-コンテンツの種類 x-www-form-urlencoded を使用して書式設定された要求 "本文" を作成して、アクセス トークンを取得します。 その要求を Azure REST 認証とログイン エンドポイントに POST します。
+コンテンツの種類 `x-www-form-urlencoded` を使用して書式設定された要求本文を作成し、アクセス トークンを取得します。 その要求を Azure REST 認証とログイン エンドポイントに POST します。
 
 ### <a name="uri"></a>URI
 
@@ -49,9 +49,9 @@ POST https://login.microsoftonline.com/{tenant id}/oauth2/token
 
 **テナント ID** は次のいずれかです。
 
- - テナントのドメイン (`fabrikam.onmicrosoft.com` など)
- - テナントの ID (`8eaed023-2b34-4da1-9baa-8bc8c9d6a491` など)
- - テナント独立のキーの既定値: `common`
+- テナントのドメイン (`fabrikam.onmicrosoft.com` など)
+- テナントの ID (`8eaed023-2b34-4da1-9baa-8bc8c9d6a491` など)
+- テナント独立のキーの既定値: `common`
 
 ### <a name="post-body"></a>Post 本文
 
@@ -72,13 +72,14 @@ grant_type=password
 - **resource**:  
    トークンがアクセスするリソース。 リソースを見つけるには、Azure Stack 管理メタデータ エンドポイントにクエリを実行します。 **audiences** セクションを確認します。
 
-- **Azure Stack 管理エンドポイント**:  
-   ```
+- **Azure Stack 管理エンドポイント**:
+
+   ```bash
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > 管理者がテナント API へのアクセスを試みる場合は、必ずテナント エンドポイントを使用してください。 次に例を示します。`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > 管理者がテナント API へのアクセスを試みる場合は、必ずテナント エンドポイント (`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011` など) を使用してください。
 
   たとえば、エンドポイントとして Azure Stack Development Kit を使用するとします。
 
@@ -88,7 +89,7 @@ grant_type=password
 
   応答:
 
-  ```
+  ```bash
   {
   "galleryEndpoint":"https://adminportal.local.azurestack.external:30015/",
   "graphEndpoint":"https://graph.windows.net/",
@@ -102,21 +103,20 @@ grant_type=password
 
 ### <a name="example"></a>例
 
-  ```
+  ```bash
   https://contoso.onmicrosoft.com/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-  **client_id**
+- **client_id**
 
   この値は、既定値にハードコードされています。
 
-  ```
+  ```bash
   1950a258-227b-4e31-a9cf-717495945fc2
   ```
 
   特定のシナリオについては代替オプションを使用できます。
 
-  
   | アプリケーション | ApplicationID |
   | --------------------------------------- |:-------------------------------------------------------------:|
   | LegacyPowerShell | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 |
@@ -125,15 +125,15 @@ grant_type=password
   | VisualStudio | 872cd9fa-d31f-45e0-9eab-6e460a02d1f1 |
   | AzureCLI | 04b07795-8ddb-461a-bbee-02f9e1bf7b46 |
 
-  **username**
+- **username**
 
   Azure Stack Azure AD アカウント。以下に例を示します。
 
-  ```
+  ```bash
   azurestackadmin@fabrikam.onmicrosoft.com
   ```
 
-  **password**
+- **password**
 
   Azure Stack Azure AD 管理者パスワード。
 
@@ -141,7 +141,7 @@ grant_type=password
 
 要求:
 
-```
+```bash
 curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token" \
 -H "Content-Type: application/x-www-form-urlencoded" \
 --data-urlencode "client_id=1950a258-227b-4e31-a9cf-717495945fc2" \
@@ -153,7 +153,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 応答:
 
-```
+```bash
 {
   "token_type": "Bearer",
   "scope": "user_impersonation",
@@ -168,7 +168,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API クエリ
 
-アクセス トークンを取得したら、そのトークンを各 API 要求にヘッダーとして追加する必要があります。 そのためには、値 `Bearer <access token>` を含むヘッダー **authorization** を作成します。 例:
+アクセス トークンを取得したら、それを各 API 要求にヘッダーとして追加します。 それをヘッダーとして追加するためには、値 `Bearer <access token>` を含むヘッダー **authorization** を作成します。 例:
 
 要求:
 
@@ -203,22 +203,22 @@ URI は、要求を送信するときに使用されるプロトコルです。 
 
 ## <a name="azure-stack-request-uri-construct"></a>Azure Stack 要求 URI コンストラクト
 
-```
+```bash
 {URI-scheme} :// {URI-host} / {subscription id} / {resource group} / {provider} / {resource-path} ? {OPTIONAL: filter-expression} {MANDATORY: api-version}
 ```
 
 ### <a name="uri-syntax"></a>URI 構文
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/{subscription id}/resourcegroups/{resource group}/providers/{provider}/{resource-path}?{api-version}
 ```
 
 ### <a name="query-uri-example"></a>クエリ URI の例
 
-```
+```bash
 https://adminmanagement.local.azurestack.external/subscriptions/800c4168-3eb1-406b-a4ca-919fe7ee42e8/resourcegroups/system.local/providers/microsoft.infrastructureinsights.admin/regionhealths/local/Alerts?$filter=(Properties/State eq 'Active') and (Properties/Severity eq 'Critical')&$orderby=Properties/CreatedTimestamp desc&api-version=2016-05-01"
 ```
 
 ## <a name="next-steps"></a>次の手順
 
-Azure RESTful エンドポイントの使用の詳細については、「[Azure REST API Reference (Azure REST API リファレンス)](https://docs.microsoft.com/rest/api/)」を参照してください。
+Azure REST エンドポイントの使用の詳細については、[Azure REST API リファレンス](/rest/api/)に関するページを参照してください。

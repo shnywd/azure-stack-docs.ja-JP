@@ -16,12 +16,12 @@ ms.date: 06/25/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: a2809ed8a745f2ec4cdb31d924e964ecc28209b0
-ms.sourcegitcommit: e2f6205e6469b39c2395ee09424bb7632cb94c40
+ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
+ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70271733"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687996"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack マネージド ディスク: 相違点と考慮事項
 
@@ -159,7 +159,7 @@ Windows の場合は、「[Sysprep を使用して Windows VM を一般化する
 
 この手順を実行する前に、VM を適切に一般化してください。 一般化の後ではその VM を使用できなくなります。 適切に一般化されていないイメージから VM を作成すると、**VMProvisioningTimeout** エラーが発生します。
 
-[ストレージ アカウントで VHD からイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)手順に従って、ストレージ アカウントで汎用化された VHD からマネージド イメージを作成します。 このイメージは、後でマネージド VM を作成するために使用できます。
+「[ストレージ アカウントを使用する VM からイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account)」の手順に従って、ストレージ アカウント内の一般化された VHD からマネージド イメージを作成します。 このイメージは、後でマネージド VM を作成するために使用できます。
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>ケース 2:Powershell を使用してマネージド イメージからマネージド VM を作成する
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack でのオファーの委任 | Microsoft Docs
-description: 他のユーザーにオファーの作成とユーザーのサインアップを任せる方法を説明します。
+description: オファーの作成やユーザーのサインアップなどのタスクを委任する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 97b253e4df3762d4579923124b7768c14f40d3de
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: eee3a928f8f3c6f376e9019af6da71a77ab09450
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159676"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829232"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Azure Stack でのオファーの委任
 
@@ -30,7 +30,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 次の図に示すように、委任することで、自分で行う場合より簡単に、多くのユーザーに連絡したり、ユーザーを管理したりできます。
 
-![委任のレベル](media/azure-stack-delegated-provider/image1.png)
+![Azure Stack での委任のレベル](media/azure-stack-delegated-provider/image1.png)
 
 委任を使用すると、委任されたプロバイダーがオファーを管理する (*委任されたオファー*と呼ばれる) ため、エンド カスタマーはシステム管理者からの関与なしに、そのオファーのサブスクリプションを取得します。
 
@@ -54,7 +54,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 次の図は、委任を設定するための手順を示しています。
 
-![委任されたプロバイダーを作成し、ユーザーのサインアップを有効にします。](media/azure-stack-delegated-provider/image2.png)
+![Azure Stack で委任されたプロバイダーを作成し、ユーザーをサインアップできるようにする手順](media/azure-stack-delegated-provider/image2.png)
 
 ### <a name="delegated-provider-requirements"></a>委任されたプロバイダーの要件
 
@@ -76,7 +76,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 | User |User |
 
  > [!NOTE]
- > CSP リセラーの場合、この委任されたプロバイダーを作成するには、テナント ディレクトリ内にこれらのユーザーが存在する必要があります (ユーザー Azure AD)。 Azure Stack オペレーターは、そのテナント Azure AD を[まずオンボード](azure-stack-enable-multitenancy.md)してから、[こちらの手順](azure-stack-csp-howto-register-tenants.md)に従って使用量と課金を構成する必要があります。
+ > CSP リセラーの場合、この委任されたプロバイダーを作成するには、テナント ディレクトリ内にこれらのユーザーが存在する必要があります (ユーザー Azure AD)。 Azure Stack オペレーターは、そのテナント Azure AD を[まずオンボード](azure-stack-enable-multitenancy.md)してから、[こちらの手順](azure-stack-csp-howto-register-tenants.md)に従って使用量と課金を設定する必要があります。
 
 ### <a name="identify-the-delegated-provider"></a>委任されたプロバイダーを識別します。
 
@@ -91,14 +91,14 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
    c.  **[サブスクリプション]** 、 **[追加]** 、 **[新しいテナント サブスクリプション]** の順に選択することによって、委任されたプロバイダーをこのオファーへのサブスクライバーとして追加します。
 
-   ![委任されたプロバイダーをサブスクライバーとして追加します。](media/azure-stack-delegated-provider/image3.png)
+   ![Azure Stack 管理者ポータルで委任されたプロバイダーをサブスクライバーとして追加する](media/azure-stack-delegated-provider/image3.png)
 
    > [!NOTE]
    > すべての Azure Stack オファーと同様に、オファーをパブリックにしてユーザーにサインアップさせる、または、プライベートのままにして Azure Stack オペレーターがサインアップを管理する、というオプションがあります。 委任されたプロバイダーは通常、小規模なグループです。 参加しているユーザーを管理したいため、たいていの場合このオファーはプライベートにしておくのが適切です。
 
 ### <a name="azure-stack-operator-creates-the-delegated-offer"></a>Azure Stack オペレーターが委任されたオファーを作成する
 
-次の手順は、委任することになる、そしてユーザーが使用することになる、プランとオファーの作成です。 委任されたプロバイダーはオファーに含まれるプランやクォータを変更できないため、このオファーをユーザーに表示されるとおりに正確に定義することをお勧めします。
+次の手順は、委任することになる、そしてユーザーが使用することになる、プランとオファーの作成です。 委任されたプロバイダーはそこに含まれるプランとクォータを変更できないため、このオファーは、ユーザーに表示させたいとおりに定義することをお勧めします。
 
 1. Azure Stack オペレーターとして、[プランを作成し](azure-stack-create-plan.md)、そのプランに基づいた[オファー](azure-stack-create-offer.md)を作成することが必要です。 この記事では、**DelegatedOffer** という名前のオファーを例として使用します。
 
@@ -109,7 +109,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 3. ドロップダウン リストから、委任されたプロバイダーのサブスクリプションを選択してから、 **[委任]** を選択します。
 
-   ![委任されたプロバイダーを追加する](media/azure-stack-delegated-provider/image4.png)
+   ![Azure Stack 管理者ポータルで委任されたプロバイダーを追加する](media/azure-stack-delegated-provider/image4.png)
 
 ### <a name="delegated-provider-customizes-the-offer"></a>委任されたプロバイダーがオファーをカスタマイズする
 
@@ -117,14 +117,14 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 1. **[+ リソースの作成]** 、 **[テナントのプラン]** 、 **[オファー]** の順に選択します。
 
-    ![新しいオファーを作成する](media/azure-stack-delegated-provider/image5.png)
+    ![Azure Stack ユーザー ポータルで新しいオファーを作成する](media/azure-stack-delegated-provider/image5.png)
 
 2. オファーに名前を割り当てます。 この例では、**ResellerOffer** を使用します。 基になる委任されたオファーを選択して、 **[作成]** を選択します。
 
-   ![名前の割り当て](media/azure-stack-delegated-provider/image6.png)
+   ![Azure Stack ユーザー ポータルで名前を割り当てる](media/azure-stack-delegated-provider/image6.png)
 
    >[!IMPORTANT]
-   >委任されたプロバイダーは自分に委任されたオファーしか選択できない点を理解することが重要です。 それらのオファーを変更することもできません。 これらのオファーの変更 (プランやクォータの変更など) を行うことができるのは Azure Stack オペレーターだけです。 委任されたプロバイダーが基本プランやアドオン プランからオファーを構築することはありません。
+   >委任されたプロバイダーは自分に委任されたオファーしか選択できない点を理解することが重要です。 それらのオファーを変更することはできません。 これらのオファーを変更できるのは、Azure Stack オペレーターだけです。 たとえば、オペレーターのみがプランとクォータを変更できます。 委任されたプロバイダーが基本プランとアドオン プランからオファーを作成することはありません。
 
 3. 委任されたプロバイダーは、独自のポータル URL からこれらのオファーを公開できます。 オファーを公開するには、 **[参照]** 、 **[オファー]** の順に選択します。 オファーを選び、 **[状態の変更]** を選択します。
 
@@ -134,7 +134,7 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
     b.  ポータル URL を、メモ帳など別の場所にコピーします。
 
-    ![委任されたプロバイダーのサブスクリプションを選択する](media/azure-stack-delegated-provider/dpportaluri.png)  
+    ![Azure Stack ユーザー ポータルで委任されたプロバイダーのサブスクリプションを選択する](media/azure-stack-delegated-provider/dpportaluri.png)  
 
    委任されたプロバイダーとして委任されたオファーの作成を完了しました。 委任されたプロバイダーとしてサインアウトし、ブラウザー ウィンドウを閉じます。
 
@@ -147,18 +147,18 @@ Azure Stack オペレーターとして、ユーザーのサインアップと�
 
 1. ダッシュボードで、 **[Get a subscription]\(サブスクリプションを取得\)** を選択します。 委任されたプロバイダーによって作成された、委任されたオファーのみがユーザーに表示されることがわかります。
 
-   ![オファーを表示および選択する](media/azure-stack-delegated-provider/image8.png)
+   ![Azure Stack ユーザー ポータルでオファーを表示して選択する](media/azure-stack-delegated-provider/image8.png)
 
 オファーを委任するプロセスは完了しました。 これで、ユーザーはそのサブスクリプションを取得することによって、このオファーにサインアップできます。
 
 ## <a name="move-subscriptions-between-delegated-providers"></a>委任されたプロバイダー間でのサブスクリプションの移動
 
-必要に応じて、同じディレクトリ テナントに属する新規または既存の委任されたプロバイダー サブスクリプションの間でサブスクリプションを移動できます。 これは、PowerShell コマンドレットの [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin) を使用して実行されます。
+必要に応じて、同じディレクトリ テナントに属する新規または既存の委任されたプロバイダー サブスクリプションの間でサブスクリプションを移動できます。 移動するには、PowerShell コマンドレットの [Move-AzsSubscription](/powershell/module/azs.subscriptions.admin) を使用できます。
 
-これは、次の場合に便利です。
+サブスクリプションの移動は、次の場合に役立ちます。
 
 * 委任されたプロバイダー ロールを引き受ける新しいチーム メンバーを追加し、このチーム メンバーに、既定のプロバイダー サブスクリプションで前に作成したユーザー サブスクリプションを割り当てる場合。
-* 同じディレクトリ テナント (Azure Active Directory) 内に複数の委任されたプロバイダー サブスクリプションがあり、それらの間でユーザー サブスクリプションを移動する必要がある場合。 このシナリオは、チーム メンバーがチーム間を移動し、そのサブスクリプションを新しいチームに割り当てる必要がある場合に発生する可能性があります。
+* 同じディレクトリ テナント (Azure AD) 内に複数の委任されたプロバイダー サブスクリプションがあり、それらの間でユーザー サブスクリプションを移動する必要がある場合。 このシナリオは、チーム メンバーがチーム間を移動し、そのサブスクリプションを新しいチームに割り当てる必要がある場合に発生する可能性があります。
 
 ## <a name="next-steps"></a>次の手順
 

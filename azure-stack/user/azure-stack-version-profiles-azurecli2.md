@@ -3,23 +3,23 @@ title: Azure CLI を使用して Azure Stack を管理する | Microsoft Docs
 description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack でリソースを管理およびデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
-ms.author: sethm
+ms.date: 10/02/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 18644d3d331a5c093d0a78da435d6f79e03cb531
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974659"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71824790"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Azure CLI を使用した Azure Stack へのリソースの管理とデプロイ
 
@@ -175,7 +175,7 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
@@ -295,7 +295,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
@@ -411,7 +411,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |
@@ -522,7 +522,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
     | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+    | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
     | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
     | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](#set-up-the-virtual-machine-aliases-endpoint)」を参照してください。 |

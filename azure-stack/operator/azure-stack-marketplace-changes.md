@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 878e4712cf805fec188645e92784beaf6a19d591
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279118"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342726"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace の変更
 
@@ -29,6 +29,26 @@ ms.locfileid: "71279118"
 [Azure Stack Marketplace 項目](azure-stack-marketplace-azure-items.md)に関する記事には、常に最新の Azure Stack Marketplace 項目の一覧が掲載されています。
 
 ## <a name="new-marketplace-items"></a>新しい Marketplace 項目
+
+- 2019/06/27: SIOS Datakeeper Cluster Edition
+
+- 2019/06/27: Veeam Backup & Replication
+
+- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers Pay-as-you-use
+
+- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers BYOL
+
+- 2019/06/27: Windows Server 2019 Datacenter Pay-as-you-use
+
+- 2019/06/27: Windows Server 2019 Datacenter BYOL
+
+- 2019/06/27:Windows Server 2019 Datacenter Server Core Pay-as-you-use
+
+- 2019/06/27:Windows Server 2019 Datacenter Server Core BYOL
+
+- 2019/06/27: Windows Server 2019 Datacenter With Containers Pay-as-you-use
+
+- 2019/06/27: Windows Server 2019 Datacenter With Containers BYOL
 
 - 2019/08/05:Bitnami Drupal
 
@@ -59,15 +79,26 @@ ms.locfileid: "71279118"
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 
-- Codiad
-- X2Engine Sales CRM
-- SugarCRM
-- node.js の高可用性クラスター
+- Bitnami Codiad
+- Bitnami X2Engine Sales CRM
+- Bitnami SugarCRM
+- Bitnami Node.js の高可用性クラスター
 - A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
 - JsonADDomain 拡張機能
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2019/07/11: Thales CipherTrust Cloud Key Manager - バージョン 1.0.7
+- 2019/07/16: Windows Server 2016 Datacenter Server Core BYOL - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2016 Datacenter Server Core Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2016 Datacenter With Containers BYOL - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2016 Datacenter With Containers Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2016 Datacenter BYOL - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2016 Datacenter Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16: Windows Server 2008 R2 BYOL - バージョン 2.127.20190522
+- 2019/07/16: Windows Server 2008 R2 Pay-as-you-use - バージョン 2.127.20190522
+- 2019/07/16: Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20190522
+- 2019/07/16: Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20190522
 - 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
 - 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
 - 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) - バージョン 14.0.20190410

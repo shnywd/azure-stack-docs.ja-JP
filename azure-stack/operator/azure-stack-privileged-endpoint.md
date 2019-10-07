@@ -1,6 +1,6 @@
 ---
 title: Azure Stack での特権エンドポイントの使用 | Microsoft Docs
-description: Azure Stack での特権エンドポイント (PEP) の使用方法を説明します (Azure Stack オペレーター向け)。
+description: オペレーターが Azure Stack で特権エンドポイント (PEP) を使用する方法を説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,24 +15,24 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: cb339e4d6d368481060c673482d80244f63f9cc4
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 3730da9d185f1c38411453a6bef965ab5df7d3ae
+ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101097"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71829367"
 ---
-# <a name="using-the-privileged-endpoint-in-azure-stack"></a>Azure Stack での特権エンドポイントの使用
+# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Azure Stack で特権エンドポイントを使用する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 Azure Stack オペレーターは、管理ポータル、PowerShell、または Azure Resource Manager API を使用して、ほとんどの日常的な管理タスクを実行します。 ただし、あまり一般的でない一部の操作については、*特権エンドポイント* (PEP) を使用する必要があります。 この PEP は、あらかじめ構成されたリモート PowerShell コンソールであり、必要なタスクを実行するために十分な機能だけを提供します。 エンドポイントは [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) を使用して、コマンドレットの限定的なセットのみを公開します。 PEP にアクセスしてコマンドレットの限定的なセットを起動するために、低権限のアカウントが使用されます。 管理者アカウントは必要ありません。 セキュリティ強化のため、スクリプトは許可されません。
 
-PEP を使用して、次のようなタスクを実行することができます。
+PEP を使用すると、次のタスクを実行できます。
 
-- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)などの低レベル タスクを実行するため。
-- デプロイ後の Domain Name System (DNS) フォワーダーの追加、Microsoft Graph 統合のセットアップ、Active Directory Federation Services (AD FS) 統合、証明書ローテーションなど、統合システムのための多くのデプロイ後データセンター統合タスクを実行するため。
-- 統合システムの詳細なトラブルシューティングのために、サポート部門と連携して一時的な高レベル アクセスを取得するため。
+- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)などの低レベル タスク。
+- デプロイ後のドメイン ネーム システム (DNS) フォワーダーの追加や、Microsoft Graph 統合、Active Directory フェデレーション サービス (AD FS) 統合、証明書ローテーションの設定など、統合システムのための多くのデプロイ後データセンター統合タスク。
+- 統合システムの詳細なトラブルシューティングのために、サポート部門と連携して一時的な高レベル アクセスを取得。
 
 PEP では、PowerShell セッションで実行するすべてのアクション (および、それに対応する出力) がログに記録されます。 これにより、完全な透明性と操作の完全な監査が提供されます。 これらのログ ファイルは将来の監査のために保持できます。
 
@@ -41,24 +41,24 @@ PEP では、PowerShell セッションで実行するすべてのアクショ�
 
 ## <a name="access-the-privileged-endpoint"></a>特権エンドポイントへのアクセス
 
-PEP には、PEP をホストする仮想マシン上のリモート PowerShell セッションを介してアクセスします。 ASDK では、この仮想マシンの名前は **AzS-ERCS01** です。 統合システムを使用している場合、PEP の 3 つのインスタンスがあり、それぞれ異なるホスト上の仮想マシン (*Prefix*-ERCS01、*Prefix*-ERCS02、または *Prefix*-ERCS03) 内で動作することで、回復性を確保しています。 
+PEP には、PEP をホストする仮想マシン (VM) 上のリモート PowerShell セッションを介してアクセスします。 ASDK では、この VM の名前は **AzS-ERCS01** です。 統合システムを使用している場合、PEP の 3 つのインスタンスがあり、それぞれ異なるホスト上の VM (*Prefix*-ERCS01、*Prefix*-ERCS02、または *Prefix*-ERCS03) 内で動作することで、回復性を確保しています。
 
 統合システムに対してこの手順を開始する前に、IP アドレスによって、または DNS を介して PEP にアクセスできることを確認してください。 Azure Stack の初期デプロイ後は、DNS 統合がまだセットアップされていないため、IP アドレスでしか PEP にアクセスできません。 PEP の IP アドレス を含む **AzureStackStampDeploymentInfo** という名前の JSON ファイルが、OEM ハードウェア ベンダーから提供されます。
 
 
 > [!NOTE]
-> セキュリティ上の理由から、PEP への接続は、ハードウェア ライフサイクル ホスト上で実行するセキュリティを強化された仮想マシンから、または [Privileged Access Workstation](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations) のような専用のセキュリティで保護されたコンピューターからに限定して行う必要があります。 ハードウェア ライフサイクル ホストは、元の構成から変更しないようにするか (新しいソフトウェアのインストールするなど)、または PEP への接続に使わないようにする必要があります。
+> セキュリティ上の理由から、PEP への接続は、ハードウェア ライフサイクル ホスト上で実行されているセキュリティ強化された VM から、または[特権アクセス ワークステーション](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)のような専用のセキュリティで保護されたコンピューターからに限定して行う必要があります。 ハードウェア ライフサイクル ホストは、元の構成から変更しないようにし (新しいソフトウェアのインストールするなど)、PEP への接続にも使わないようにする必要があります。
 
 1. 信頼関係を確立します。
 
-    - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは Privileged Access Workstation で実行されているセキュリティ強化された仮想マシンの信頼されたホストとして PEP を追加します。
+    - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK を実行している場合、開発キットのホストにサインインします。
 
-2. ハードウェア ライフサイクル ホストまたは Privileged Access Workstation で実行しているセキュリティ強化された仮想マシンで、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする仮想マシン上でリモート セッションを確立します。
+2. ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM で、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする VM 上でリモート セッションを確立します。
  
    - 統合システム上で:
      ```powershell
@@ -67,7 +67,7 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` パラメーターは、PEP をホストする仮想マシンの 1 台の IP アドレスまたは DNS 名のどちらかです。 
+     `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
 
      >[!NOTE]
      >Azure Stack は、PEP 資格情報の検証時にリモート呼び出しを行いません。 ローカルに保存された RSA 公開キーに依存して、それを行います。
@@ -113,28 +113,28 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 
 ## <a name="tips-for-using-the-privileged-endpoint"></a>特権エンドポイントを使用するためのヒント 
 
-前述のとおり、PEP は、[PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイントです。 JEA エンドポイントにより、強力なセキュリティ層が提供される一方で、スクリプトやタブ補完などの基本的な PowerShell の機能の一部が失われます。 何らかの種類のスクリプト操作を試みると、エラー **ScriptsNotAllowed** で操作は失敗します。 これは正しい動作です。
+前述のとおり、PEP は、[PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイントです。 JEA エンドポイントにより、強力なセキュリティ層が提供される一方で、スクリプトやタブ補完などの基本的な PowerShell の機能の一部が失われます。 何らかの種類のスクリプト操作を試みると、エラー **ScriptsNotAllowed** で操作は失敗します。 このエラーは予想される動作です。
 
-そのため、たとえば、特定のコマンドレットについてパラメーターの一覧を取得するには、次のコマンドを実行します。
+たとえば、特定のコマンドレットについてパラメーターの一覧を取得するには、次のコマンドを実行します。
 
 ```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
-または、[Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 これにより、PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。 
+または、[Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 これにより、PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。
 
 ローカル コンピューターに PEP セッションをインポートするには、次の手順を実行します。
 
 1. 信頼関係を確立します。
 
-    統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは Privileged Access Workstation で実行されているセキュリティ強化された仮想マシンの信頼されたホストとして PEP を追加します。
+    統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
 
       ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - ASDK を実行している場合、開発キットのホストにサインインします。
 
-2. ハードウェア ライフサイクル ホストまたは Privileged Access Workstation で実行しているセキュリティ強化された仮想マシンで、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする仮想マシン上でリモート セッションを確立します。
+2. ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM で、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする仮想マシン上でリモート セッションを確立します。
  
    - 統合システム上で:
      ```powershell
@@ -143,7 +143,7 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
          -ConfigurationName PrivilegedEndpoint -Credential $cred
      ```
-     `ComputerName` パラメーターは、PEP をホストする仮想マシンの 1 台の IP アドレスまたは DNS 名のどちらかです。 
+     `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
    - ASDK を実行している場合:
      
      ```powershell
@@ -171,11 +171,11 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 エンドポイント セッションを閉じるには:
 
 1. PEP からアクセス可能な外部ファイル共有を作成します。 開発キット環境では、開発キットのホスト上にファイル共有を作成することができます。
-2. 次のコマンドレットを実行します。 
+2. 次のコマンドレットを実行します。
      ```powershell
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
      ```
-   これは次の表のパラメーターを使用します。
+   このコマンドレットでは次の表のパラメーターを使用します。
 
    | パラメーター | 説明 | データ型 | 必須 |
    |---------|---------|---------|---------|
@@ -191,4 +191,4 @@ PEP には、PEP をホストする仮想マシン上のリモート PowerShell 
 
 ## <a name="next-steps"></a>次の手順
 
-[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep)
+[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)

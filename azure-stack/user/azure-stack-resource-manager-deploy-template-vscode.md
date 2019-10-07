@@ -1,0 +1,92 @@
+---
+title: Visual Studio Code を使用して Azure Stack にデプロイする | Microsoft Docs
+description: ユーザーとして、Visual Studio Code で Azure Resource Manager テンプレートを作成し、デプロイ スキーマを使って、使用しているバージョンの Azure Stack と互換性のあるテンプレートを準備します。
+services: azure-stack
+documentationcenter: ''
+author: mattbriggs
+manager: femila
+editor: ''
+ms.service: azure-stack
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/30/2019
+ms.author: mabrigg
+ms.reviewer: sijuman
+ms.lastreviewed: 09/30/2019
+ms.openlocfilehash: 914e3e8db57009d58a14aa87d24ff86a8291e52b
+ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71711104"
+---
+# <a name="deploy-with-visual-studio-code-to-azure-stack"></a>Visual Studio Code を使用して Azure Stack にデプロイする
+
+Visual Studio Code と Azure Resource Manager ツール拡張機能を使用して、お使いのバージョンの Azure Stack で動作する Azure Resource Manager テンプレートを作成および編集できます。 Visual Studio Code では、拡張機能を使わずに Resource Manager テンプレートを作成することもできますが、拡張機能を利用すれば、オートコンプリート機能によってテンプレートの開発を省力化することができます。 さらに、Azure Stack で使用可能なリソースの理解に役立つデプロイ スキーマを指定できます。
+
+この記事では、Windows 仮想マシンをデプロイします。
+
+## <a name="concepts-for-azure-stack-resource-manager"></a>Azure Stack Resource Manager の概念
+
+### <a name="azure-stack-resource-manager"></a>Azure Stack Resource Manager
+
+Azure Stack での Azure ソリューションのデプロイと管理に関する概念を理解するには、「[Azure Stack で Azure リソース マネージャー テンプレートを使用する](azure-stack-arm-templates.md)」を参照してください。
+
+### <a name="api-profiles"></a>API プロファイル
+Azure Stack でのリソース プロバイダーの調整に関する概念を理解するには、「[Azure Stack での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
+
+### <a name="the-deployment-schema"></a>デプロイ スキーマ
+
+Azure Stack デプロイ スキーマでは、Visual Studio Code での Azure Resource Manager テンプレートを使用したハイブリッド プロファイルがサポートされています。 JSON テンプレート内の 1 行を変更してスキーマを参照できます。その後、IntelliSense を使用して、Azure と互換性のあるリソースを確認できます。 このスキーマを使用して、お使いのバージョンの Azure Stack 内でサポートされているリソース プロバイダー、種類、および API のバージョンを確認します。 このスキーマは、お使いのバージョンの Azure Stack でサポートされているリソース プロバイダー内の API エンドポイントの特定バージョンを取得する API プロファイルに依存します。 type と apiVersion に単語補完を使用すると、API プロファイルで使用可能な apiVersion とリソースの種類に制限されます。
+
+## <a name="prerequisites"></a>前提条件
+
+- [Visual Studio Code](https://code.visualstudio.com/)
+- Azure Stack へのアクセス
+- 管理エンドポイントに到達するマシンに、[Azure Stack PowerShell がインストールされている](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)
+
+## <a name="install-resource-manager-tools-extension"></a>Resource Manager ツール拡張機能のインストール
+
+Resource Manager ツール拡張機能をインストールするには、次の手順を使用します。
+
+1. Visual Studio Code を開きます。
+2. Ctrl + Shift + X キーを押して、拡張機能ウィンドウを開きます
+3. `Azure Resource Manager Tools` を検索し、 **[インストール]** を選択します。
+4. **[再読み込み]** を選択して、拡張機能のインストールを完了します。
+
+## <a name="get-a-template"></a>テンプレートの取得
+
+ゼロからテンプレートを作成するのではなく、AzureStack-QuickStart-Templates (https://github.com/Azure/AzureStack-QuickStart-Templates) からテンプレートを開きます。 AzureStack-QuickStart-Templates は、リソースを Azure Stack にデプロイする Resource Manager テンプレートのリポジトリです。 
+
+この記事のテンプレートの名前は `101-vm-windows-create` です。 このテンプレートは、Azure Stack への Windows VM の基本的なデプロイを定義します。  このテンプレートでは、仮想ネットワーク (DNS 付き)、ネットワーク セキュリティ グループ、およびネットワーク インターフェイスもデプロイされます。
+
+1. Visual Studio Code を開き、お使いのマシン上の作業フォルダーに移動します。
+2. Visual Studio Code で Git bash ターミナルを開きます。
+3. 次のコマンドを実行して、Azure Stack クイックスタート リポジトリを取得します。
+    ```bash  
+    Git clone https://github.com/Azure/AzureStack-QuickStart-Templates.git
+    ```
+4. リポジトリが格納されているディレクトリを開きます。
+    ```bash  
+    CD AzureStack-QuickStart-Templates
+    ```
+5. **[開く]** を選択して、リポジトリ内の `/101-vm-windows-create/azuredeploy.json` のファイルを開きます。
+6. そのファイルを自分のワークスペースに保存します。または、リポジトリのブランチを作成した場合は、その場で作業できます。
+7. そのファイルを開いたまま、`$Schema` フィールドを `https://schema.management.azure.com/schemas/2019-03-01-hybrid/deploymentTemplate.json#` に変更します。
+8. apiProfile フィールドの値をクリアすることで、デプロイ スキーマが機能することを確認できます。
+    ```JSON  
+    "apiProfile": ""
+    ```
+9. 空の引用符の間にカーソルを置き、CTRL + SPACE キーを押します。 Azure Stack のデプロイ スキーマ内の有効な API プロファイルから選択できます。 この操作は、テンプレート内の各リソース プロバイダーで実行できます。
+
+    ![Azure Stack Resource Manager のデプロイ スキーマ](./media/azure-stack-resource-manager-deploy-template-vscode/azure-stack-resource-manager-vscode-schema.png)
+
+10. 準備ができたら、PowerShell を使用してテンプレートをデプロイできます。 [PowerShell を使用したデプロイ](azure-stack-deploy-template-powershell.md)に関する記事の手順に従います。 スクリプトのテンプレートの場所を指定します。
+11. Windows VM をデプロイした後、Azure Stack ポータルに移動し、リソース グループを見つけます。 この演習の結果を Azure Stack から消去する場合は、このリソース グループを削除します。
+
+## <a name="next-steps"></a>次の手順
+
+- [Azure Stack Resource Manager テンプレート](azure-stack-arm-templates.md)の詳細を確認します。  
+- [Azure Stack の API プロファイル](azure-stack-version-profiles.md)の詳細を確認します。

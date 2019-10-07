@@ -11,26 +11,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: efa8dda8061ce81d751e9cce47c5e81a3917f2bf
-ms.sourcegitcommit: ad2f2cb4dc8d5cf0c2c37517d5125921cff44cdd
+ms.openlocfilehash: 9d86f7e68b2e96eb4a22f9896ff65a4ed6b96f92
+ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67138836"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71714747"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Azure Stack でサービス プリンシパルの資格情報を Key Vault に格納する
 
 通常、Azure Stack におけるアプリの開発では、デプロイ前にサービス プリンシパルを作成し、その資格情報を使用して認証を行う必要があります。 しかし、保存したサービス プリンシパルの資格情報を失ってしまう場合があります。 この記事では、サービス プリンシパルを作成し、その値を後で取り出せるよう Azure Key Vault に格納する方法について説明します。
 
-Key Vault の詳細については、[こちらの記事](azure-stack-key-vault-intro.md)を参照してください。
+Key Vault の詳細については、「[Azure Stack での Key Vault の概要](azure-stack-key-vault-intro.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
 - Azure Key Vault サービスを含むオファーをサブスクライブします。
-- Azure Stack で使うように PowerShell を構成します。
+- PowerShell をインストールし、Azure Stack で使うように構成します。
 
 ## <a name="key-vault-in-azure-stack"></a>Azure Stack の Key Vault
 
@@ -44,11 +44,11 @@ Azure Stack の Key Vault には、クラウド アプリやクラウド サー�
 
    ![キー コンテナーの作成](media/azure-stack-key-vault-store-credentials/create-key-vault.png)
 
-3. **[Key Vault の作成]** ウィンドウで、Vault に**名前**を割り当てます。 Vault の名前には、英数字とハイフン (-) 文字のみを含めることができます。 これらを数字で始めることはできません。
+3. **[Key Vault の作成]** ウィンドウで、Vault に**名前**を割り当てます。 Vault の名前には、英数字とハイフン (-) 文字のみを含めることができます。 名前を数字で始めることはできません。
 
 4. 使用可能なサブスクリプションの一覧から選択します。
 
-5. 既存のリソース グループを選択するか、新しいリソース グループを作成します。
+5. 既存のリソース グループを選択するか、新しいものを作成します。
 
 6. [価格レベル] を選択します。
 
@@ -96,7 +96,7 @@ Azure Stack の Key Vault には、クラウド アプリやクラウド サー�
 
 8. **[作成]** を選択してデプロイを開始します。
 
-シークレットが正常に作成された後、そこにサービス プリンシパルの情報が格納されます。 いつでも **[シークレット]** からそれを選択し、そのプロパティを表示したり変更を加えたりすることができます。 プロパティ セクションにはシークレット識別子が含まれます。これは、外部アプリがこのシークレットにアクセスするために使う Uniform Resource Identifier (URI) です。
+シークレットが正常に作成された後、そこにサービス プリンシパルの情報が格納されます。 いつでも **[シークレット]** からそれを選択し、そのプロパティを表示したり変更を加えたりすることができます。 **[プロパティ]** セクションにはシークレット識別子が含まれます。これは、外部アプリがこのシークレットにアクセスするために使う Uniform Resource Identifier (URI) です。
 
 ## <a name="next-steps"></a>次の手順
 
