@@ -31,7 +31,7 @@
       items:
         - name: プランへのサブスクライブ
           href: azure-stack-subscribe-services.md
-        - name: クラウド サービス プロバイダーの有効化
+        - name: クラウド ソリューション プロバイダーを有効にする
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Azure Stack ポータルの使用
           href: azure-stack-use-portal.md
@@ -267,6 +267,14 @@
           href: azure-stack-solution-mongodb-ha.md
         - name: 高可用性 SQL Server 2016 のデプロイ
           href: azure-stack-solution-sql-ha.md
+    - name: 基本パターンのデプロイ
+      items:
+        - name: オンプレミスへの VPN のセットアップ
+          href: azure-stack-network-howto-vnet-to-onprem.md
+        - name: VNet 間接続
+          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+        - name: VNet ピアリング
+          href: azure-stack-network-howto-vnet-to-vnet.md
 - name: 概念
   items:
     - name: ハイブリッド クラウド パターン
