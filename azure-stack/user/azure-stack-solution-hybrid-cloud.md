@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 201af19756ef3958e943549482610ee32e208f01
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: 4bf1334f2b4e83223bb2eb1dfbb187dc860ed360
+ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603071"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71342964"
 ---
 # <a name="deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>Azure と Azure Stack を使用してハイブリッド クラウド ソリューションをデプロイする
 
@@ -148,11 +148,11 @@ Azure App Service は、Web アプリの実行と管理を簡単にします。 
 
 Azure Stack 上の App Service は、ユーザーがアプリにアクセスできるよう、パブリック インターネットからルーティングできなければなりません。 Azure Stack がインターネットからアクセスできる場合、Azure Stack Web アプリの公開 IP アドレスまたは URL をメモします。
 
-ASDK を使用している場合は、[静的 NAT のマッピングを構成](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-virtual-machine-on-each-azure-stack-development-kit-for-gateway-traversal)することで、仮想環境の外部に App Service を公開することができます。
+ASDK を使用している場合は、[静的 NAT のマッピングを構成](../operator/azure-stack-create-vpn-connection-one-node.md#configure-the-nat-vm-on-each-asdk-for-gateway-traversal)することで、仮想環境の外部に App Service を公開することができます。
 
 ### <a name="connect-a-web-app-in-azure-to-a-hybrid-network"></a>Azure 内の Web アプリをハイブリッド ネットワークに接続する
 
-Azure の Web フロントエンドと Azure Stack の SQL Server を接続するには、Azure と Azure Stack の間のハイブリッド ネットワークに Web アプリを接続する必要があります。 接続を有効にするためには、次の作業が必要となります。
+Azure の Web フロントエンドと Azure Stack の SQL Server データベースを接続するには、Azure と Azure Stack の間のハイブリッド ネットワークに Web アプリを接続する必要があります。 接続を有効にするためには、次の作業が必要となります。
 
 - ポイント対サイト接続を構成します。
 - Web アプリを構成します。

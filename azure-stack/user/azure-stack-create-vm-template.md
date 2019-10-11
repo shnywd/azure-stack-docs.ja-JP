@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: d82cdb1cccd52cc5e4c11571d85914be3f79a74e
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: 02300ae5c3a6ef7fd104dfb59e179b557e0c8778
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691578"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961705"
 ---
 # <a name="tutorial-create-a-vm-using-a-community-template"></a>チュートリアル:コミュニティ テンプレートを使用して VM を作成する
 
@@ -37,7 +37,7 @@ Azure Stack のオペレーターやユーザーは、Azure Stack マーケッ�
 
 ## <a name="azure-stack-quickstart-templates"></a>Azure Stack クイック スタート テンプレート
 
-Azure Stack クイック スタート テンプレートは、GitHub の[グローバル Azure Stack クイック スタート テンプレート リポジトリ](https://github.com/Azure/AzureStack-QuickStart-Templates)に格納されています。 このリポジトリには、Microsoft Azure Stack Development Kit (ASDK) でテスト済みの、Azure Resource Manager デプロイ テンプレートが含まれています。 それらを使用すると、簡単に Azure Stack を評価したり ASDK 環境を使用したりすることができます。
+Azure Stack クイック スタート テンプレートは、GitHub の[グローバル Azure Stack クイック スタート テンプレート リポジトリ](https://github.com/Azure/AzureStack-QuickStart-Templates)に格納されています。 このリポジトリには、Microsoft Azure Stack Development Kit (ASDK) でテスト済みの、Azure Resource Manager のデプロイ テンプレートが含まれています。 それらを使用すると、簡単に Azure Stack を評価したり ASDK 環境を使用したりすることができます。
 
 長期間にわたって多くの GitHub ユーザーがリポジトリに貢献してきた結果、400 を超えるデプロイ テンプレートが集まりました。 このリポジトリは、さまざまな種類の環境を Azure Stack にどのようにデプロイできるかをより深く理解するのによい出発点です。
 
