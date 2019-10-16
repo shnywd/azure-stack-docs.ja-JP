@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 9fa12d91e9f2ec738c68f4a04438a93415bd36fb
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144027"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961456"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Azure Stack の VPN ゲートウェイ設定の構成
 
@@ -48,7 +48,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 仮想ネットワーク ゲートウェイを作成するときは、使用するゲートウェイの SKU を指定する必要があります。 ワークロード、スループット、機能、および SLA の種類に基づく要件を満たす SKU を選択します。
 
-Azure Stack には、以下の表に示すように VPN ゲートウェイ SKU が用意されています。
+Azure Stack には、次の表に示す VPN ゲートウェイ SKU が用意されています。
 
 | | VPN ゲートウェイのスループット |VPN ゲートウェイの IPsec トンネルの最大数 |
 |-------|-------|-------|
@@ -60,7 +60,7 @@ Azure Stack には、以下の表に示すように VPN ゲートウェイ SKU �
 
 Azure Stack は、サポートされているレガシ SKU 間での SKU のサイズ変更をサポートしていません。
 
-同様に、Azure Stack は、サポートされているレガシ SKU (**Basic**、**Standard**、**HighPerformance**) から Azure でサポートされている新しい SKU (**VpnGw1**、**VpnGw2**、**VpnGw3**) へのサイズ変更もサポートしていません。
+同様に、Azure Stack では、サポートされているレガシ SKU (**Basic**、**Standard**、**HighPerformance**) から Azure でサポートされている新しい SKU (**VpnGw1**、**VpnGw2**、**VpnGw3**) へのサイズ変更もサポートされません。
 
 ### <a name="configure-the-gateway-sku"></a>ゲートウェイ SKU の構成
 
@@ -70,7 +70,7 @@ Azure Stack ポータルを使用して Resource Manager の仮想ネットワ�
 
 #### <a name="powershell"></a>PowerShell
 
-次の PowerShell の例では、`-GatewaySku` が **Standard** として指定されています。
+次の PowerShell の例では、`-GatewaySku` パラメーターが **Standard** として指定されています。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
@@ -97,7 +97,7 @@ VPN Gateway 構成に対して仮想ネットワーク ゲートウェイを作�
 > [!IMPORTANT]  
 > 現時点の Azure Stack では、ルート ベースの VPN の種類のみがサポートされます。 お使いのデバイスがポリシー ベースの VPN のみに対応している場合、Azure Stack からこれらのデバイスへの接続はサポートされません。  
 >
-> さらに、カスタムの IPSec/IKE ポリシー構成はサポートされていないため、現時点で Azure Stack はルート ベース ゲートウェイに対するポリシー ベース トラフィック セレクターの使用をサポートしていません。
+> さらに、IPSec/IKE ポリシーのカスタム構成はサポートされていないため、現時点で Azure Stack はルート ベース ゲートウェイに対するポリシー ベース トラフィック セレクターの使用をサポートしていません。
 
 * **PolicyBased**: PolicyBased VPN では、パケットを暗号化し、オンプレミス ネットワークと Azure Stack VNet の間でアドレスのプレフィックスの組み合わせで構成された IPsec ポリシーに基づいて、IPsec トンネル経由でそのパケットを送信します。 VPN デバイスの構成では、通常このポリシー (またはトラフィック セレクター) がアクセス リストになります。
 
@@ -151,7 +151,7 @@ Azure で VPN ゲートウェイ構成を作成する場合、多くのローカ
 
 ローカル ネットワーク ゲートウェイに名前と VPN デバイスのパブリック IP アドレスを指定し、オンプレミスの場所を示すアドレスのプレフィックスを指定します。 Azure によって、ネットワーク トラフィックの宛先アドレスのプレフィックスが参照され、ローカル ネットワーク ゲートウェイに指定した構成が確認されて、それに応じてパケットがルーティングされます。
 
-次の PowerShell の例では、新しいローカル ネットワーク ゲートウェイを作成します。
+この PowerShell の例では、新しいローカル ネットワーク ゲートウェイを作成します。
 
 ```powershell
 New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
@@ -164,7 +164,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 Azure Stack で VPN 接続を設定する場合、両端で接続を構成する必要があります。 VPN ゲートウェイとして動作するスイッチやルーターなどのハードウェア デバイスと Azure Stack との間で VPN 接続を構成している場合、そのデバイスには追加の設定が必要になることがあります。
 
-イニシエーターとレスポンダーの両方として複数のオファーをサポートしている Azure とは異なり、Azure Stack は、既定では 1 つのオファーだけをサポートします。  VPN デバイスを操作するために異なる IPSec/IKE 設定を使用する必要がある場合は、接続を手動で構成するために使用できる設定が他にもあります。  詳細については、「[サイト間 VPN 接続の IPsec/IKE ポリシーを構成する](azure-stack-vpn-s2s.md)」を参照してください。
+イニシエーターとレスポンダーの両方として複数のオファーをサポートしている Azure とは異なり、Azure Stack は、既定では 1 つのオファーだけをサポートします。 VPN デバイスを操作するために異なる IPSec/IKE 設定を使用する必要がある場合は、接続を手動で構成するために使用できる設定が他にもあります。 詳細については、「[サイト間 VPN 接続の IPsec/IKE ポリシーを構成する](azure-stack-vpn-s2s.md)」を参照してください。
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE フェーズ 1 (メイン モード) のパラメーター
 
@@ -185,10 +185,10 @@ Azure Stack で VPN 接続を設定する場合、両端で接続を構成する
 |暗号化とハッシュ アルゴリズム (認証) | GCMAES256|
 |SA の有効期間 (時間)  | 27,000 秒  |
 |SA の有効期間 (キロバイト単位) | 33,553,408     |
-|Perfect Forward Secrecy (PFS) |なし (注 1 を参照) |
+|Perfect Forward Secrecy (PFS) |なし (**注 1** を参照) |
 |Dead Peer Detection | サポートされています|  
 
-* "*注 1:* " 1807 より前のバージョンの Azure Stack では、Perfect Forward Secrecy (PFS) の値として PFS2048 を使用しています。
+"**注 1:** " 1807 より前のバージョンの Azure Stack では、Perfect Forward Secrecy (PFS) の値として PFS2048 を使用しています。
 
 ## <a name="next-steps"></a>次の手順
 

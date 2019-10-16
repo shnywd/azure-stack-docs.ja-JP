@@ -6,16 +6,16 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: f5086dcae534656cea4ef1addacae3f5acdcb2d6
-ms.sourcegitcommit: be5382f715a9c1c18c660b630d8fcd823f13aae3
+ms.openlocfilehash: de96b74351fa3becd0b066da4430e42cb2a9cea7
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66197386"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961679"
 ---
 # <a name="introduction-to-azure-stack-vms"></a>Azure Stack VM の概要
 
@@ -23,7 +23,7 @@ ms.locfileid: "66197386"
 
 Azure Stack は、オンデマンドでスケーラブルなコンピューティング リソースの一種として仮想マシン (VM) を提供します。 コンピューティング環境をより細かく管理する必要がある場合は、VM を選択できます。 この記事では、最初の VM を作成する前に詳細を説明します。
 
-Azure Stack VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラムの適用、インストールは必要です。
+Azure Stack VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラム/更新プログラムの適用、インストールは必要です。
 
 Azure Stack VM は、いくつかの方法で利用できます。 例:
 
@@ -66,7 +66,7 @@ VM は、仮想ハード ディスク (VHD) を使用して、オペレーティ
 
 次の表に、イメージに関する情報を見つける方法を示します。
 
-|Method|説明|
+|方法|説明|
 |---------|---------|
 |Azure Stack ポータル|値は、使用するイメージを選択する際に自動的に指定されます。|
 |Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -89,9 +89,9 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 
 次の表のリソースは VM によって使用されるため、VM の作成時に存在するか、作成する必要があります。
 
-|Resource|必須|説明|
+|リソース|必須|説明|
 |---------|---------|---------|
-|リソース グループ|はい|VM は、リソース グループに含まれる必要があります。|
+|Resource group|はい|VM は、リソース グループに含まれる必要があります。|
 |ストレージ アカウント|いいえ|マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
 |仮想ネットワーク|はい|VM は、仮想ネットワークのメンバーである必要があります。|
 |パブリック IP アドレス|いいえ|VM には、リモートでアクセスするためのパブリック IP アドレスを割り当てることができます。|
@@ -102,7 +102,7 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 
 VM の作成方法にはいくつかの選択肢があります。 どれを選ぶかは環境によって異なります。 次の表は、VM の作成を開始するのに役立つ情報を提供します。
 
-|Method|記事|
+|方法|記事|
 |---------|---------|
 |Azure Stack ポータル|Azure Stack ポータルを使用して Windows VM を作成する<br>[Azure Stack ポータルを使用して Linux VM を作成する](azure-stack-quick-linux-portal.md)|
 |テンプレート|Azure Stack のクイック スタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
@@ -122,7 +122,7 @@ VM は、ブラウザーベースのポータル、スクリプトがサポー�
 
 次の表に、VM に関する情報の取得方法の一部を示します。
 
-|Method|説明|
+|方法|説明|
 |---------|---------|
 |Azure Stack ポータル|ハブ メニューの **[仮想マシン]** をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
 |Azure PowerShell|VM の管理は、Azure と Azure Stack とで似ています。 PowerShell の使用について詳しくは、次の Azure トピックをご覧ください。<br>[Azure PowerShell モジュールを使用して Windows VM を作成および管理する](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

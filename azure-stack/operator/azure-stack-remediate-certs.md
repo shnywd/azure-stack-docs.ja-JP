@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: ac6e04fbb884b3689cec7e5f435f9265f7e2108e
-ms.sourcegitcommit: 593d40bccf1b2957a763017a8a2d7043f8d8315c
+ms.openlocfilehash: 6e8adbc0d84c7816a081e751473764aab79cfcf2
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67152412"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961909"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書に関する一般的な問題を修復する
 
@@ -93,14 +93,14 @@ ms.locfileid: "67152412"
 
 ## <a name="fix-common-packaging-issues"></a>パッケージに関する一般的な問題の修正
 
-**AzsReadinessChecker** ツールには、`Repair-AzsPfxCertificate` というヘルパー コマンドレットが含まれています。これを使用すると、PFX ファイルをインポートしてからエクスポートし、パッケージに関する次のような一般的なイシューを修正できます。
+**AzsReadinessChecker** ツールには、**Repair-AzsPfxCertificate** というヘルパー コマンドレットが含まれています。これを使用すると、PFX ファイルをインポートしてからエクスポートし、パッケージに関する次のような一般的な問題を修正できます。
 
 - **PFX 暗号化**が TripleDES-SHA1 ではない。
 - **秘密キー**にローカル コンピューター属性がない。
 - "**証明書チェーン**" が完全ではないか、間違っている PFX パッケージに証明書チェーンが含まれない場合、ローカル コンピューターに証明書チェーンを含める必要があります。
 - **他の証明書**
 
-新しい CSR を生成して証明書を再発行する必要がある場合は、`Repair-AzsPfxCertificate` は役に立ちません。
+新しい CSR を生成して証明書を再発行する必要がある場合は、**Repair-AzsPfxCertificate** は役に立ちません。
 
 ### <a name="prerequisites"></a>前提条件
 
@@ -130,7 +130,7 @@ ms.locfileid: "67152412"
    $password = Read-Host -Prompt PFXpassword -AsSecureString
    ```
 
-3. PowerShell プロンプトから次を実行して、新しい PFX ファイルをエクスポートします。
+3. PowerShell プロンプトから次のコマンドを実行して、新しい PFX ファイルをエクスポートします。
 
    - `-PfxPath` には、操作している PFX ファイルへのパスを指定します。 次の例では、パスは `.\certificates\ssl.pfx` です。
    - `-ExportPFXPath` には、エクスポートする PFX ファイルの場所と名前を指定します。 次の例では、パスは `.\certificates\ssl_new.pfx` です。

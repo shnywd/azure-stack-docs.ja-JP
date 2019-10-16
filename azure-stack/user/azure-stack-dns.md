@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 8bfe15ad19e4aaec45492aa98cfb2ef02294742a
-ms.sourcegitcommit: b3dac698f2e1834491c2f9af56a80e95654f11f3
+ms.openlocfilehash: 5600dd6537df35e703e0ac7a08ad4a61f976e489
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68658487"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961478"
 ---
 # <a name="use-dns-in-azure-stack"></a>Azure Stack での DNS の使用
 
@@ -49,7 +49,7 @@ Azure Stack では、次の Azure DNS 機能がサポートされます。
 
 Web アプリからの要求を処理するロード バランサーがあります。 その背後では、ある Web サイトが 1 つ以上の仮想マシン上で実行されているとします。 この負荷分散された Web サイトには、IP アドレスではなく、DNS 名でアクセスできます。
 
-## <a name="create-and-manage-dns-zones-and-records-using-the-api"></a>API を使用して DNS のゾーンとレコードを作成し、管理する
+## <a name="create-and-manage-dns-zones-and-records-using-the-apis"></a>API を使用して DNS のゾーンとレコードを作成し、管理する
 
 Azure Stack 内に DNS ゾーンとレコードを作成して管理することができます。
 
@@ -63,7 +63,7 @@ Azure Stack の DNS は Azure の DNS に似ていますが、重要な例外が
 
 * **AAAA レコードのサポートがない**:Azure Stack では IPv6 アドレスがサポートされないので、AAAA レコードもサポートされません。 これは、Azure と Azure Stack の DNS の大きな違いのひとつです。
 
-* **マルチテナントでない**:Azure Stack の DNS サービスはマルチテナントではありません。 テナントで同じ DNS ゾーンを作成することはできません。 ゾーンの作成を試みた最初のサブスクリプションだけが成功し、後の要求は失敗します。 これは、Azure と Azure Stack DNS のもう 1 つの大きな違いです。
+* **マルチテナントではない**:Azure Stack の DNS サービスはマルチテナントではありません。 テナントで同じ DNS ゾーンを作成することはできません。 ゾーンの作成を試みた最初のサブスクリプションだけが成功し、後の要求は失敗します。 これは、Azure と Azure Stack DNS のもう 1 つの大きな違いです。
 
 * **タグ、メタデータ、Etag**:Azure Stack でのタグ、メタデータ、Etag、制限の処理方法にも多少の違いがあります。
 
@@ -71,11 +71,11 @@ Azure DNS の詳細については、[DNS のゾーンとレコード](/azure/dn
 
 ### <a name="tags"></a>Tags
 
-Azure Stack DNS では、DNS ゾーン リソースに対して Azure Resource Manager のタグを使用できます。 DNS レコード セットのタグはサポートされていません。 その代わりとして、DNS レコード セットでは、次のセクションで説明するように**メタデータ**がサポートされます。
+Azure Stack DNS では、DNS ゾーン リソースに対して Azure Resource Manager のタグを使用できます。 DNS レコード セットへのタグ設定はサポートされていません。 その代わりとして、DNS レコード セットでは、次のセクションで説明するように**メタデータ**がサポートされます。
 
 ### <a name="metadata"></a>Metadata
 
-レコード セットのタグの代わりに、Azure Stack DNS では*メタデータ*を使用してレコード セットに注釈を付けることができます。 メタデータを使用すると、タグと同じように、各レコード セットに名前と値のペアを関連付けることができます。 たとえば、メタデータは、各レコード セットの用途を記録する場合に便利です。 タグと異なり、メタデータは、Azure の課金内容に関するフィルター ビューを提供するためには使用できず、Azure Resource Manager のポリシーで指定することもできません。
+レコード セットのタグの代わりに、Azure Stack DNS では*メタデータ*を使用してレコード セットに注釈を付けることができます。 メタデータを使用すると、タグと同じように、各レコード セットに名前と値のペアを関連付けることができます。 たとえば、メタデータは、各レコード セットの用途を記録する場合に便利です。 タグと異なる点として、メタデータは、Azure の課金内容に関するフィルター ビューを提供するためには使用できず、Azure Resource Manager のポリシーで指定することもできません。
 
 ### <a name="etags"></a>Etag
 

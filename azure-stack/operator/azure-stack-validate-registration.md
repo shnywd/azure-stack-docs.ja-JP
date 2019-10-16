@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/23/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9c4ddec0606556290e55850a9081c6665f2524d1
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159579"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961858"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
-Azure Stack 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure サブスクリプションを Azure Stack で使用する準備が整っていることを検証します。 Azure Stack デプロイを開始する前に、登録を検証します。 適合性チェッカーは以下を検証します。
+Azure Stack のデプロイを開始する前に、Azure Stack 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure サブスクリプションを Azure Stack で使用する準備が整っていることを検証します。 適合性チェッカーは以下を検証します。
 
-- 使用する Azure サブスクリプションの種類がサポート対象であること。 サブスクリプションは、Cloud Service Provider (CSP) または Enterprise Agreement (EA) である必要があります。
+- 使用する Azure サブスクリプションの種類がサポート対象であること。 サブスクリプションは、クラウド ソリューション プロバイダー (CSP) またはマイクロソフトエンタープライズ契約 (EA) である必要があります。
 - ご自身のサブスクリプションの登録に使用するアカウントが Azure にサインインでき、サブスクリプション所有者であること。
 
 Azure Stack 登録の詳細については、「[Azure を使用した Azure Stack の登録](azure-stack-registration.md)」を参照してください。
@@ -50,7 +50,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
   ```
 
 - [Azure Stack 用に構成された PowerShell](azure-stack-powershell-install.md)。
-- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker)。  
+- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory の環境
 
@@ -58,7 +58,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 - 使用する Azure サブスクリプションのサブスクリプション ID を特定します。
 - 使用する **AzureEnvironment** を特定します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** です。使用している Azure サブスクリプションに応じて異なります。
 
-## <a name="steps-to-validate-azure-registration"></a>Azure の登録を検証する手順
+## <a name="steps-to-validate-the-azure-registration"></a>Azure の登録を検証する手順
 
 1. 前提条件を満たしているコンピューターで、管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、**AzsReadinessChecker** をインストールします。
 
@@ -86,9 +86,9 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
    - `AzureEnvironment` の値を **AzureCloud**、**AzureGermanCloud**、または **AzureChinaCloud** として指定します。  
    - Azure Active Directory 管理者と、お使いの Azure Active Directory テナントの名前を指定します。
 
-   ```powershell
-   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
-   ```
+      ```powershell
+      Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
+      ```
 
 5. ツールの実行後、出力を確認します。 サインインと登録の両方の要件ついて、状態が適切であることを確認します。 検証が成功した場合の出力は、次の例のように表示されます。
 
@@ -108,8 +108,8 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
 
-- 別のレポートの場所を指定するには、実行コマンド ラインの末尾で **-OutputPath** ***&lt;パス&gt;*** パラメーターを使用します。
-- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンドの末尾に **-CleanReport** パラメーターを使用します。
+- 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
+- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
 
 詳細については、「[Azure Stack 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
@@ -117,7 +117,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、**AzsReadinessChecker.log** ファイルにログ情報が記録されます。
 
-次の例は、一般的な検証エラーに関するガイダンスです。
+次の例は、一般的な検証エラーの詳細を示します。
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>ユーザーがサブスクリプションの所有者でなければならない
 

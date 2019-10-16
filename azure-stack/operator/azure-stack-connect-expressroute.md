@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: d7fa69b632ec6d205eff0ed0c388c1f9ec9b9c41
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094410"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961554"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack を Azure に接続する
 
@@ -62,7 +62,7 @@ ExpressRoute を使用して Azure Stack と Azure を接続するには、次�
 
 ![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/Conceptual.png)
 
-次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack インフラストラクチャから Microsoft Edge で Azure に接続するしくみを示しています。
+次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack インフラストラクチャから Microsoft エッジで Azure に接続するしくみを示しています。
 
 ![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/Architecture.png)
 
@@ -188,7 +188,7 @@ VPN 接続上のデータ トラフィックをテストするには、Azure Sta
 1. VM のイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 
    >[!NOTE]
-   >この記事で使用されているイメージが入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
+   >この記事で使用されているイメージを入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
 
 1. **[仮想マシンの作成]** で、 **[基本]** を選択し、次に **[名前]** に「**VM01**」と入力します。
 1. 有効なユーザー名とパスワードを入力します。 このアカウントは、作成後の VM へのサインインに使用します。
@@ -219,7 +219,7 @@ VPN 接続上のデータ トラフィックをテストするには、Azure Sta
 > [!IMPORTANT]
 > このセクションは ASDK デプロイのみを対象としています。 マルチノード デプロイでは NAT は必要ありません。
 
-ASDK は自己完結型であり、物理ホストがデプロイされているネットワークから分離されています。 ゲートウェイが接続されている VIP ネットワークは外部には公開されず、ネットワーク アドレス変換 (NAT) を行うルーターの背後に隠されています。
+ASDK は自己完結型であり、物理ホストがデプロイされているネットワークから分離されています。 ゲートウェイが接続されている VIP ネットワークは外部には公開されず、ネットワーク アドレス変換 (NAT) を行うルーターの内側に隠されています。
 
 このルーターは、ルーティングとリモート アクセス サービス (RRAS) ロールを実行する ASDK ホストです。 ASDK ホストでは、両端を結ぶサイト間 VPN 接続を有効にするように NAT を構成する必要があります。
 
@@ -574,7 +574,7 @@ route-map VNET-ONLY permit 10
 
 ### <a name="allow-icmp-in-through-the-firewall"></a>ファイアウォールで ICMP を許可する
 
-Windows Server 2016 では、受信 ICMP パケットがファイアウォールを通過できないように既定で設定されています。 ping テストに使用するすべての VM について、受信 ICMP パケットを許可する必要があります。 ICMP のファイアウォール規則を作成するには、管理者特権の PowerShell ウィンドウで次のコマンドレットを実行します。
+Windows Server 2016 の既定では、受信 ICMP パケットがファイアウォールを通過できないように設定されています。 ping テストに使用するすべての VM について、受信 ICMP パケットを許可する必要があります。 ICMP のファイアウォール規則を作成するには、管理者特権の PowerShell ウィンドウで次のコマンドレットを実行します。
 
 ```powershell
 # Create ICMP firewall rule.

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/02/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 82aa27440a496a813e2f1fa99879005503ba8d07
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: e14c57cb5d0444c68619e6be5db688d7b1542e93
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159493"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961889"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-solution-provider"></a>クラウド ソリューション プロバイダーとして Azure Stack の使用状況と課金を管理する
 
 *適用対象:Azure Stack 統合システム*
 
-この記事では、Azure Stack をクラウド サービス プロバイダー (CSP) として登録する方法、および顧客を追加する方法について説明します。
+この記事では、Azure Stack をクラウド ソリューション プロバイダー (CSP) として登録する方法、および顧客を追加する方法について説明します。
 
 CSP は、Azure Stack を使用して多様な顧客を操作します。 各顧客には Azure に CSP サブスクリプションがあります。 Azure Stack から使用状況を各ユーザー サブスクリプションに転送する必要があります。
 
@@ -61,7 +61,7 @@ CSP サブスクリプションは、CSP リセラーまたはエンド カス�
 
 ## <a name="add-end-customer"></a>最終顧客を追加する
 
-新しいテナントがリソースを使用したらそれらの使用状況がその CSP サブスクリプションに報告されるように Azure Stack を構成するには、[Azure Stack での使用状況と課金のためのテナントの追加](azure-stack-csp-howto-register-tenants.md)に関するページを参照してください。
+新しいテナントのリソースの使用状況がその CSP サブスクリプションに報告されるように Azure Stack を構成するには、「[Azure Stack に使用量と課金のためのテナントを追加する](azure-stack-csp-howto-register-tenants.md)」を参照してください。
 
 ## <a name="charge-the-right-subscriptions"></a>正しいサブスクリプションに課金する
 
@@ -78,7 +78,7 @@ Azure Stack ごとに、1 つの既定のサブスクリプションと、複数
 
 Azure Stack によって使用状況の情報がグローバル Azure に転送されると、Azure 内のサービスによって登録が調べられ、各テナントの使用状況が適切なテナント サブスクリプションにマップされます。 テナントがまだ登録されていない場合、その使用状況は、発信元の Azure Stack インスタンスの既定のサブスクリプションに転送されます。
 
-テナント サブスクリプションは CSP サブスクリプションであるため、その課金は CSP パートナーに送信され、最終顧客には使用状況の情報が表示されません。
+テナント サブスクリプションは CSP サブスクリプションであるため、その課金は CSP パートナーに送信され、最終顧客には使用状況の情報は表示されません。
 
 ## <a name="next-steps"></a>次の手順
 

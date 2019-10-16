@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 1a3c59ab7650c9cd2337e8256556f8a449feacec
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c170e450739609e0ef0be353f2354a17e39a28b1
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342812"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961852"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>クラウド ソリューション プロバイダー向けの使用量レポート インフラストラクチャ
 
@@ -45,7 +45,7 @@ Commerce で使用される Azure Stack メーターとその価格について�
 
 | 用語 | 定義 |
 | --- | --- |
-| 直接 CSP パートナー | 直接クラウド ソリューション プロバイダー (CSP) パートナーは、Azure と Azure Stack の使用量について Microsoft から直接請求書を受け取り、顧客に直接請求します。 |
+| 直接 CSP パートナー | 直接 CSP パートナーは、Azure と Azure Stack の使用量について Microsoft から直接請求書を受け取り、顧客に直接請求します。 |
 | 間接 CSP | 間接リセラーは、間接プロバイダー (ディストリビューターとも呼ばれます) と連携します。 リセラーはエンド カスタマーを募集します。間接プロバイダーは、Microsoft と請求関係を保持し、顧客への請求を管理し、製品サポートのような追加サービスを提供します。 |
 | エンド カスタマー | エンド カスタマーは、Azure Stack で実行されるアプリやその他のワークロードを所有する企業および政府機関です。 |
 

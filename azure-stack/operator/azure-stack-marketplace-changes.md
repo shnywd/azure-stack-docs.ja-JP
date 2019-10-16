@@ -15,12 +15,12 @@ ms.date: 08/09/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: c93b4535189830ee8e84acb882f85a9a51d5f443
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.openlocfilehash: c5b0472921c25379f894be5e0b799b7abcb8a43b
+ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342726"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71961812"
 ---
 # <a name="azure-stack-marketplace-changes"></a>Azure Stack Marketplace の変更
 
@@ -84,7 +84,7 @@ ms.locfileid: "71342726"
 - Bitnami SugarCRM
 - Bitnami Node.js の高可用性クラスター
 - A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
-- JsonADDomain 拡張機能
+
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
@@ -110,6 +110,7 @@ ms.locfileid: "71342726"
 - 2019/09/12:Service Fabric - バージョン 1.0.3
 - 2019/09/24:F5-Networks Big-IP Virtual Edition - バージョン 14.1.200000
 - 2019/09/25:Debian 8 - バージョン 8.0.20190806
+- 2019/10/01:Microsoft JsonADDomain 拡張機能 - バージョン 1.3.4
 
 
 ## <a name="next-steps"></a>次の手順
