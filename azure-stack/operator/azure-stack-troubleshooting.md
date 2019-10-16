@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 0fb46cd1b92c1b811ba1c72a91188201a7d2af96
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687966"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173118"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack のトラブルシューティング
 
@@ -82,9 +82,20 @@ Azure リソースの組み込みロールが組織の特定のニーズを満�
 
 Azure Stack で使用する共有サービス アカウントの種類を選択します。 マルチテナント Azure Stack の登録に使用できるサブスクリプションの種類は次のとおりです。
 
-* Cloud Service Provider
+* クラウド ソリューション プロバイダー
 * Partner Shared Services サブスクリプション
 
+## <a name="get-scale-unit-metrics"></a>スケール ユニットのメトリックを取得する
+
+PowerShell を使用して、CSS を利用せずに、スタンプ使用状況の情報を取得できます。 スタンプの使用状況を取得するには: 
+
+1. PEP セッションを作成します
+2. test-azurestack を実行します
+3. PEP セッションを終了します
+4. invoke-command 呼び出しを使用して、get-azurestacklog -filterbyrole seedring を実行します。
+5. Seedring の .zip を抽出し、test-azurestack を実行した ERCS フォルダーから検証レポートを取得できます。
+
+詳細については、「[Azure Stack の診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照してください。
 
 ## <a name="troubleshoot-deployment"></a>デプロイのトラブルシューティング 
 ### <a name="general-deployment-failure"></a>一般的なデプロイの失敗

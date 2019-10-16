@@ -12,24 +12,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9d8510c121c424c3c66fd179639256e8834e932e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: fd56e7aa7805614829985a2e083d228d1960b402
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829059"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173063"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack 診断ログを収集する
 
 *適用対象:Azure Stack 統合システム*
 
-トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack オペレーターは、**ヘルプとサポート**を使用して、オンデマンドの診断ログを Azure の BLOB コンテナーにアップロードできます。 ポータルが使用できない場合の別の方法として、オペレーターは特権エンドポイント (PEP) 経由で Get-AzureStackLog を使用してログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
+トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack オペレーターは、**ヘルプとサポート**を使用して、オンデマンドの診断ログを Azure の BLOB コンテナーにアップロードできます。 ポータルが使用できない場合は、オペレーターは特権エンドポイント (PEP) 経由で Get-AzureStackLog を使用して、ログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
 
-## <a name="use-help-and-support-to-collect-diagnostic-logs"></a>ヘルプとサポートを使用して診断ログを収集する
+>[!Note]
+>必要に応じたログ収集の代わりとして、[自動による診断ログの収集](azure-stack-configure-automatic-diagnostic-log-collection.md)を有効化することで、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、分析のために、CSS によってログが自動的にアップロードされます。 
+
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>ヘルプとサポートを使用して必要に応じて診断ログを収集する
 
 問題のトラブルシューティングを行うために、CSS は、Azure Stack オペレーターに、前週の特定の時間枠に対して、オンデマンドで診断ログを収集するように要求する場合があります。 その場合、CSS はオペレーターにコレクションをアップロードするための SAS URL を提供します。 CSS からの SAS URL を使用して、オンデマンドのログ収集を構成するには、次の手順に従います。
 

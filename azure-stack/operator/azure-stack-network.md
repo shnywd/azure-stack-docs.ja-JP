@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: b2b53edaba6a6cb180ae617740fd4695b1a86187
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: dca5d863a046ec225b4d34c8cf5917153a3a5785
+ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842732"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72037977"
 ---
 # <a name="network-connectivity"></a>ネットワーク接続
 この記事では、Azure Stack を既存のネットワーク環境に統合する最善の方法を決定するために役立つ Azure Stack ネットワーク インフラストラクチャの情報を提供します。 
@@ -55,7 +55,7 @@ Azure Stack のネットワーク インフラストラクチャは、スイッ�
 ![論理ネットワーク図とスイッチ接続](media/azure-stack-network/NetworkDiagram.png)
 
 ### <a name="bmc-network"></a>BMC ネットワーク
-このネットワークは、すべてのベースボード管理コントローラー (サービス プロセッサとも呼ばれます。iDRAC、iLO、iBMC など) の管理ネットワークへの接続専用です。 存在する場合は、ハードウェア ライフサイクル ホスト (HLH) がこのネットワーク上に配置され、ハードウェアのメンテナンスまたは監視のための OEM 固有のソフトウェアが提供される可能性があります。 
+このネットワークは、すべてのベースボード管理コントローラー (サービス プロセッサとも呼ばれます。iDRAC、iLO、iBMC など) の管理ネットワークへの接続専用です。 どの BMC ノードとの通信にも、1 つの BMC アカウントだけが使用されます。 存在する場合は、ハードウェア ライフサイクル ホスト (HLH) がこのネットワーク上に配置され、ハードウェアのメンテナンスまたは監視のための OEM 固有のソフトウェアが提供される可能性があります。 
 
 HLH では、デプロイメント仮想マシン (DVM) もホストされます。 DVM は Azure Stack のデプロイ中に使用され、デプロイが完了すると削除されます。 接続されたデプロイのシナリオでは、DVM には、複数のコンポーネントのテスト、検証、およびアクセスのためにインターネット アクセスが必要です。 これらのコンポーネントは、企業ネットワークの内外に配置できます (たとえば NTP、DNS、Azure)。 接続の要件について詳しくは、[「Azure Stack ファイアウォールの統合」の NAT に関するセクション](azure-stack-firewall.md#network-address-translation)をご覧ください。 
 

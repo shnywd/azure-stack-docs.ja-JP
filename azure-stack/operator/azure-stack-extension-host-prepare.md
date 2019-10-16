@@ -1,30 +1,30 @@
 ---
-title: Azure Stack の拡張機能ホストを準備する | Microsoft Docs
-description: 今後の Azure Stack 更新プログラム パッケージによって自動的に有効になる拡張機能ホストを準備する方法について説明します。
+title: Azure Stack での拡張機能ホストを準備する | Microsoft Docs
+description: Azure Stack 内で、拡張機能ホストの準備を行う方法について説明します。バージョン 1808 以降では、Azure Stack 更新プログラム パッケージを通じて自動的に有効化されます。
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 06/13/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: ab508956ddcc57baa04c74710ea485c07cc20416
-ms.sourcegitcommit: b79a6ec12641d258b9f199da0a35365898ae55ff
+ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67131157"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019275"
 ---
-# <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack の拡張機能ホストを準備する
+# <a name="prepare-for-extension-host-in-azure-stack"></a>Azure Stack での拡張機能ホストを準備する
 
-拡張機能ホストは、必要とされる TCP/IP ポートの数を減らすことで Azure Stack をセキュリティで保護します。 この記事では、Azure Stack で拡張機能ホストの準備を行う方法について説明します。この拡張機能ホストは、1808 更新プログラムより後の Azure Stack 更新プログラム パッケージを通じて自動的に有効になります。 この記事は、Azure Stack の更新プログラム、1808、1809 および 1811 に該当します。
+拡張機能ホストでは、必要とされる TCP/IP ポートの数を減らすことで Azure Stack をセキュリティ保護します。 この記事では、Azure Stack で拡張機能ホストの準備を行う方法について説明します。この拡張機能ホストは、1808 更新プログラムより後の Azure Stack 更新プログラム パッケージを通じて自動的に有効になります。 この記事は、Azure Stack の更新プログラム、1808、1809 および 1811 に該当します。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 
-拡張機能ホストでは、ポータル拡張機能ごとに一意のホスト エントリが保証されるよう、新しい 2 つのドメイン名前空間が実装されます。 安全な通信を確保するために、新しいドメイン名前空間には追加の 2 つのワイルドカード証明書が必要です。
+拡張機能ホストでは、ポータル拡張機能ごとに一意のホスト エントリが保証されるように、新しい 2 つのドメイン名前空間が実装されます。 安全な通信を確保するために、新しいドメイン名前空間には追加の 2 つのワイルドカード証明書が必要です。
 
 新しい名前空間と、関連する証明書を表に示します。
 
@@ -33,11 +33,11 @@ ms.locfileid: "67131157"
 | 管理者拡張機能ホスト | *.adminhosting.\<リージョン>.\<FQDN> (ワイルドカード SSL 証明書) | 管理者拡張機能ホスト | adminhosting.\<リージョン>.\<FQDN> |
 | パブリック拡張機能ホスト | *.hosting.\<リージョン>.\<FQDN> (ワイルドカード SSL 証明書) | パブリック拡張機能ホスト | hosting.\<リージョン>.\<FQDN> |
 
-証明書の詳細な要件については、記事「[Azure Stack 公開キー インフラストラクチャ証明書の要件](azure-stack-pki-certs.md)」を参照してください。
+証明書の詳細な要件については、「[Azure Stack 公開キー インフラストラクチャ証明書の要件](azure-stack-pki-certs.md)」を参照してください。
 
 ## <a name="create-certificate-signing-request"></a>証明書署名要求の作成
 
-Azure Stack 適合性チェッカー ツールを使用すると、必要とされる新しい 2 つの SSL 証明書の証明書署名要求を作成できます。 記事「[Azure Stack 証明書署名要求の生成](azure-stack-get-pki-certs.md)」の手順に従ってください。
+Azure Stack 適合性チェッカー ツールを使用すると、必要とされる新しい 2 つの SSL 証明書への証明書署名要求を作成できます。 記事「[Azure Stack 証明書署名要求の生成](azure-stack-get-pki-certs.md)」の手順に従ってください。
 
 > [!Note]  
 > この手順は、SSL 証明書の要求内容によっては省略できます。
@@ -66,7 +66,7 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
     > [!Note]  
     > Active Directory フェデレーション サービス (AD FS) を使用してデプロイする場合、スクリプトの **$directories** に `ADFS` および `Graph` というディレクトリを追加する必要があります。
 
-4. 現在 Azure Stack で使用している既存の証明書を適切なディレクトリに配置します。 たとえば、**管理者の ARM** 証明書を `Arm Admin` フォルダーに配置します。 その後、新しく作成されたホスティング証明書を `Admin extension host` と `Public extension host` ディレクトリに配置します。
+4. Azure Stack で現在使用している既存の証明書を適切なディレクトリに配置します。 たとえば、**管理者の ARM** 証明書を `Arm Admin` フォルダーに配置します。 その後、新しく作成されたホスティング証明書を `Admin extension host` と `Public extension host` ディレクトリに配置します。
 5. 次のコマンドレットを実行して、証明書の確認を開始します。
 
     ```powershell  
@@ -75,7 +75,7 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
 
-6. 出力を確認し、すべての証明書がすべてのテストに合格していることを確認します。
+6. 出力を確認し、すべての証明書がすべてのテストに合格しているかを確認します。
 
 
 ## <a name="import-extension-host-certificates"></a>拡張機能ホストの証明書のインポート
@@ -84,7 +84,7 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
 
 1. 次の手順では、Azure Stack 特権エンドポイントに接続できるコンピューターを使用します。 そのコンピューターで新しい証明書ファイルにアクセスできるようにしておいてください。
 2. PowerShell ISE を開いて、次のスクリプト ブロックを実行します
-3. 管理者ホスティング エンドポイントの証明書をインポートします。
+3. 管理者ホスティング エンドポイント用の証明書をインポートします。
 
     ```powershell  
 
@@ -127,7 +127,7 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
 > DNS 統合に DNS ゾーンの委任を使用した場合、この手順は必要ありません。
 Azure Stack エンドポイントを公開するよう個別のホスト A レコードが構成されている場合、追加のホスト A レコードを 2 つ作成する必要があります。
 
-| IP | ホスト名 | Type |
+| IP | ホスト名 | 種類 |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<リージョン>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<リージョン>.\<FQDN> | A |
@@ -136,7 +136,7 @@ Azure Stack エンドポイントを公開するよう個別のホスト A レ�
 
 ### <a name="ports-and-protocols"></a>ポートとプロトコル
 
-記事「[Azure Stack とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md)」では、拡張機能ホストのロールアウト前に Azure Stack を公開するために受信通信を必要とするポートとプロトコルについて説明されています。
+記事「[Azure Stack とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md)」では、拡張機能ホストのロールアウト前に Azure Stack を公開するために受信通信を必要とするポートとプロトコルについて説明しています。
 
 ### <a name="publish-new-endpoints"></a>新しいエンドポイントの公開
 
@@ -148,7 +148,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and Extension Host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -192,12 +192,12 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>既存の公開規則の更新 (拡張機能ホストの今後の有効化)
 
 > [!Note]  
-> 1808 Azure Stack 更新プログラム パッケージでは、まだ拡張機能ホストは有効化**されません**。 可能なのは、必須の証明書をインポートして拡張機能ホストの準備を行うことです。 1808 更新プログラムより後の Azure Stack 更新プログラム パッケージを通じて拡張機能ホストが自動的に有効になる前に、ポートを閉じないようにしてください。
+> 1808 Azure Stack 更新プログラム パッケージでは、まだ拡張機能ホストは有効化**されません**。 必須の証明書をインポートして、拡張機能ホストの準備を行うことができます。 1808 更新プログラム以降の Azure Stack 更新プログラム パッケージを通じて拡張機能ホストが自動的に有効になる前に、ポートを閉じないようにしてください。
 
 以下の既存のエンドポイント ポートは、既存のファイアウォール規則で閉じる必要があります。
 
 > [!Note]  
-> これらのポートは、検証が成功した後に閉じることをお勧めします。
+> それらのポートは、検証に成功した後に閉じることをお勧めします。
 
 | エンドポイント (VIP) | Protocol | Port |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|

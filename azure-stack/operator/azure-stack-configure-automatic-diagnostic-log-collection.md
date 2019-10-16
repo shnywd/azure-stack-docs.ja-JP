@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 4d6bc431b292fc7a124aa2b8051d0a927d736eee
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 10/08/2019
+ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
+ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224957"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173075"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>自動 Azure Stack 診断ログ収集の構成
 
@@ -118,7 +118,9 @@ Azure Stack から収集されたログの履歴は、[ヘルプとサポート]
 
 ## <a name="automatic-diagnostic-log-collection-alerts"></a>自動診断ログ収集アラート 
 
-有効にすると、必要な場合にのみ自動診断ログの収集が行われます。 次のアラートによってのみ、収集がトリガーされます。 
+有効にすると、必要な場合にのみ自動診断ログの収集が行われます。 次の表にあるアラートによってのみ、収集がトリガーされます。 
+
+たとえば、**更新失敗**は、自動による診断ログの収集をトリガーするアラートです。 自動収集が有効になっていると、CSS による問題のトラブルシューティングに役立つように、更新エラーの間に前もって診断ログがキャプチャされます。 診断ログは、**更新失敗**のアラートが発生した場合にだけ収集されます。 
 
 |アラートのタイトル  | FaultIdType|    
 |-------------|------------|

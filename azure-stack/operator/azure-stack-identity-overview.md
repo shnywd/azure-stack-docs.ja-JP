@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の ID の概要 | Microsoft Docs
-description: Azure Stack で使用できる ID システムについて説明します。
+title: Azure Stack の ID プロバイダーの概要 | Microsoft Docs
+description: Azure Stack に使用できる ID プロバイダーについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,14 +16,14 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f57ded9df4fe799a5795ee541f7a03e650202aab
-ms.sourcegitcommit: 80775f5c5235147ae730dfc7e896675a9a79cdbe
+ms.openlocfilehash: 8b05b2cc9fdde7987efd78c5beb0123b035e03ea
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2019
-ms.locfileid: "66459059"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019354"
 ---
-# <a name="overview-of-identity-for-azure-stack"></a>Azure Stack の ID の概要
+# <a name="overview-of-identity-providers-for-azure-stack"></a>Azure Stack の ID プロバイダーの概要
 
 Azure Stack には、Azure Active Directory (Azure AD)、または ID プロバイダーとして Active Directory を使用する Active Directory フェデレーション サービス (AD FS) が必要です。 プロバイダーの選択は、Azure Stack を初めてデプロイするときに、一度だけ行います。 この記事での概念と承認についての詳細情報は、ID プロバイダーの選択に役立ちます。
 
@@ -37,7 +37,7 @@ Azure Stack 環境に依存するオプションの詳細については、以�
 - Azure Stack デプロイ キット: [ID に関する考慮事項](azure-stack-datacenter-integration.md#identity-considerations)。
 - Azure Stack 統合システム: [Azure Stack 統合システムのデプロイ計画の決定](azure-stack-connection-models.md)。
 
-## <a name="common-concepts-for-identity"></a>ID に関する一般的な概念
+## <a name="common-concepts-for-identity-providers"></a>ID プロバイダーに関する一般的な概念
 
 以降のセクションでは、ID プロバイダーの一般的な概念と、Azure Stack での使用について説明します。
 
@@ -49,7 +49,7 @@ Azure Stack 環境に依存するオプションの詳細については、以�
 
 ディレクトリ テナントとは、Microsoft や自分の会社のような、"*組織*" のことです。
 
-- Azure AD では複数のテナントがサポートされており、複数の組織をそれぞれ独自のディレクトリでサポートすることができます。 Azure AD を使用し、複数のテナントがある場合、1 つのテナントのアプリケーションとユーザーに、同じディレクトリの他のテナントへのアクセス権を与えることができます。
+- Azure AD では複数のテナントがサポートされており、複数の組織をそれぞれ独自のディレクトリでサポートすることができます。 Azure AD を使用しており、複数のテナントがある場合、1 つのテナントのアプリとユーザーに、同じディレクトリの他のテナントへのアクセス権を付与できます。
 - AD FS では、単一のテナントのみがサポートされます。そのため、単一の組織のみがサポートされます。
 
 ### <a name="users-and-groups"></a>ユーザーとグループ
@@ -71,59 +71,59 @@ Azure Stack では、ユーザー アカウントに次のような特徴があ�
 
 ゲスト ユーザーとは、あるディレクトリ内のリソースへのアクセスを許可されている、他のディレクトリ テナントのユーザー アカウントのことです。 ゲスト ユーザーをサポートするには、Azure AD を使用し、マルチテナントのサポートを有効にします。 サポートが有効になると、自社のディレクトリ テナント内のリソースにアクセスするようにゲスト ユーザーを招待することができます。これにより、外部組織との共同作業が可能になります。
 
-ゲスト ユーザーを招待するには、クラウド オペレーターおよびユーザーが [Azure AD B2B コラボレーション](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)を使用できます。 招待されたユーザーは、ディレクトリのドキュメント、リソース、およびアプリケーションにアクセスできるようになりますが、リソースおよびデータに対する制御は元の管理者が保持し続けます。 
+ゲスト ユーザーを招待するには、クラウド オペレーターおよびユーザーが [Azure AD B2B コラボレーション](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)を使用できます。 招待されたユーザーは、ディレクトリのドキュメント、リソース、およびアプリにアクセスできるようになり、独自のリソースおよびデータに対する制御は元の管理者が保持し続けます。
 
 ゲスト ユーザーは、他の組織のディレクトリ テナントにサインインすることができます。 そうするには、その組織のディレクトリ名をポータル URL に追加します。 たとえば、Contoso という組織に属していて、Fabrikam ディレクトリにサインインする場合は、https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com を使用します。
 
-### <a name="applications"></a>[アプリケーション]
+### <a name="apps"></a>アプリケーション
 
-Azure AD または AD FS にアプリケーションを登録し、そのアプリケーションを組織内のユーザーに提供することができます。
+Azure AD または AD FS にアプリを登録し、組織内のユーザーにそのアプリを提供することができます。
 
-アプリケーションとして、次のものがあります。
+アプリには以下が含まれます。
 
-- **Web アプリケーション**: たとえば、Azure portal、Azure Resource Manager などです。 これらでは、Web API 呼び出しがサポートされています。
+- **Web アプリ**:たとえば、Azure portal、Azure Resource Manager などです。 これらでは、Web API 呼び出しがサポートされています。
 - **ネイティブ クライアント**: たとえば、Azure PowerShell、Visual Studio、Azure CLI などです。
 
-アプリケーションでは、次の 2 種類のテナントをサポートすることができます。
+アプリでは、次の 2 種類のテナントをサポートできます。
 
-- **シングルテナント**: アプリケーションが登録されているのと同じディレクトリのユーザーとサービスだけをサポートします。
+- **シングルテナント**: アプリが登録されている同じディレクトリのユーザーとサービスだけをサポートします。
 
   > [!NOTE]
-  > AD FS では単一のディレクトリしかサポートされないため、AD FS トポロジで作成するアプリケーションは、設計上、シングルテナント アプリケーションです。
+  > AD FS では単一のディレクトリしかサポートされないため、AD FS トポロジ内で作成するアプリは、設計上、シングルテナント アプリになります。
 
-- **マルチテナント**: アプリケーションが登録されているディレクトリと追加のテナント ディレクトリの両方のユーザーとサービスをサポートします。 マルチテナント アプリケーションでは、別のテナント ディレクトリ (別の Azure AD テナント) のユーザーがアプリケーションにサインインすることができます。 
+- **マルチテナント**: アプリが登録されているディレクトリと追加のテナント ディレクトリの両方のユーザーとサービスによって、使用をサポートします。 マルチテナント アプリでは、別のテナント ディレクトリ (別の Azure AD テナント) のユーザーがアプリにサインインすることができます。
 
   マルチテナントの詳細については、[マルチテナントの有効化](azure-stack-enable-multitenancy.md)に関するページを参照してください。
 
   マルチテナント アプリの開発の詳細については、[マルチテナント アプリ](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview)に関するページを参照してください。
 
-アプリケーションを登録するときに、次の 2 つのオブジェクトを作成します。
+アプリを登録するときに、次の 2 つのオブジェクトを作成します。
 
-- **アプリケーション オブジェクト**: すべてのテナントにわたる、アプリケーションのグローバルな表現です。 ソフトウェア アプリケーションと 1 対 1 の関係であり、アプリケーションが最初に登録されたディレクトリだけに存在します。
+- **アプリケーション オブジェクト**: すべてのテナントにわたる、アプリのグローバルな表現です。 この関係はソフトウェア アプリと 1 対 1 であり、アプリが最初に登録されたディレクトリだけに存在します。
 
-- **サービス プリンシパル オブジェクト**: アプリケーションが最初に登録されたディレクトリ内でそのアプリケーションのために作成される資格情報です。 また、サービス プリンシパルは、そのアプリケーションが使用される追加の各テナントのディレクトリにも作成されます。 ソフトウェア アプリケーションと 1 対多の関係にすることができます。
+- **サービス プリンシパル オブジェクト**: アプリが最初に登録されたディレクトリ内でそのアプリのために作成される資格情報です。 また、サービス プリンシパルは、そのアプリが使用される追加の各テナントのディレクトリにも作成されます。 この関係は、ソフトウェア アプリと 1 対多にすることができます。
 
-アプリケーション オブジェクトとサービス プリンシパル オブジェクトの詳細については、「[Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](/azure/active-directory/develop/active-directory-application-objects)」を参照してください。
+アプリとサービス プリンシパルのオブジェクトの詳細については、「[Azure Active Directory のアプリケーション オブジェクトとサービス プリンシパル オブジェクト](/azure/active-directory/develop/active-directory-application-objects)」を参照してください。
 
 ### <a name="service-principals"></a>サービス プリンシパル
 
-サービス プリンシパルは、Azure Stack 内のリソースへのアクセスを許可する、アプリケーションまたはサービスの*資格情報*のセットです。 サービス プリンシパルを使用すると、アプリケーションのアクセス許可と、アプリケーションのユーザーのアクセス許可が分離されます。
+サービス プリンシパルは、Azure Stack 内のリソースへのアクセスを許可する、アプリまたはサービスの*資格情報*のセットです。 サービス プリンシパルを使用すると、アプリのアクセス許可と、アプリのユーザーのアクセス許可が分離されます。
 
-サービス プリンシパルは、アプリケーションが使用される各テナントに作成されます。 そのテナントによって保護されているリソース (ユーザーなど) へのサインインとアクセスのために、サービス プリンシパルは ID を確立します。
+サービス プリンシパルは、アプリが使用される各テナントに作成されます。 そのテナントによって保護されているリソース (ユーザーなど) へのサインインとアクセスのために、サービス プリンシパルは ID を確立します。
 
-- シングルテナント アプリケーションには、サービス プリンシパルが、最初に作成されたディレクトリに 1 つしかありません。 このサービス プリンシパルは、アプリケーションの登録時に作成され、使用が承認されます。
-- マルチテナント Web アプリケーションまたは API には、アプリケーションの使用を承認されたユーザーの各テナントで作成されたサービス プリンシパルがあります。
+- シングルテナント アプリでは、最初に作成されたディレクトリ内に、サービス プリンシパルが 1 つだけ保持されます。 このサービス プリンシパルは、アプリの登録時に作成されて、使用が承認されます。
+- マルチテナント Web アプリまたは API には、該当のテナントのユーザーがアプリの使用に同意した各テナント内に、作成されたサービス プリンシパルがあります。
 
-サービス プリンシパルの資格情報は、Azure Portal を通じて生成されるキー、または証明書です。 証明書は、キーよりも安全であると考えられるため、自動化に適しています。 
+サービス プリンシパルの資格情報は、Azure Portal を通じて生成されるキー、または証明書です。 証明書は、キーよりも安全であると考えられるため、自動化に適しています。
 
 > [!NOTE]
-> Azure Stack で AD FS を使用する場合、管理者だけがサービス プリンシパルを作成できます。 AD FS では、サービス プリンシパルは証明書を必要とし、特権エンドポイント (PEP) を通じて作成されます。 詳細については、「[Azure Stack へのアクセスをアプリケーションに提供する](azure-stack-create-service-principals.md)」を参照してください。
+> Azure Stack で AD FS を使用する場合、管理者だけがサービス プリンシパルを作成できます。 AD FS では、サービス プリンシパルは証明書を必要とし、特権エンドポイント (PEP) を通じて作成されます。 詳細については、「[アプリ ID を使用してリソースにアクセスする](azure-stack-create-service-principals.md)」を参照してください。
 
 Azure Stack のサービス プリンシパルについては、[サービス プリンシパルの作成](azure-stack-create-service-principals.md)に関するページを参照してください。
 
 ### <a name="services"></a>サービス
 
-ID プロバイダーと対話する Azure Stack のサービスは、ID プロバイダーにアプリケーションとして登録されます。 アプリケーションと同様に、登録によってサービスは ID システムで認証できるようになります。
+ID プロバイダーとやり取りする Azure Stack 内のサービスは、ID プロバイダーにアプリケとして登録されます。 アプリと同様に、登録されることで、サービスは ID システムによって認証できるようになります。
 
 すべての Azure サービスは、[OpenID Connect](/azure/active-directory/develop/active-directory-protocols-openid-connect-code) プロトコルと [JSON Web トークン](/azure/active-directory/develop/active-directory-token-and-claims)を使用して ID を確立します。 Azure AD と AD FS はプロトコルを同じように使用するため、Azure [Active Directory Authentication Library](/azure/active-directory/develop/active-directory-authentication-libraries) (ADAL) を使用して、オンプレミスまたは Azure (接続シナリオの場合) で認証することができます。 ADAL では、クロスクラウドおよびオンプレミスのリソース管理に Azure PowerShell や Azure CLI などのツールを使用することもできます。
 
@@ -131,21 +131,21 @@ ID プロバイダーと対話する Azure Stack のサービスは、ID プロ�
 
 Azure Stack の ID には、ユーザー アカウント、グループ、およびサービス プリンシパルが含まれます。
 
-Azure Stack をインストールすると、いくつかの組み込みのアプリケーションとサービスが、ディレクトリ テナント内の ID プロバイダーに自動的に登録されます。 登録される一部のサービスは、管理用に使用されます。 その他のサービスは、ユーザーが使用できます。 既定の登録では、各コア サービスに ID が与えられます。この ID では、相互に対話することも、後で追加する ID と対話することもできます。
+Azure Stack をインストールすると、いくつかの組み込みのアプリとサービスが、ディレクトリ テナント内の ID プロバイダーに自動的に登録されます。 登録される一部のサービスは、管理用に使用されます。 その他のサービスは、ユーザーが使用できます。 既定の登録では、各コア サービスに ID が与えられます。この ID では、相互に対話することも、後で追加する ID と対話することもできます。
 
-Azure AD をマルチテナンシーでセットアップすると、一部のアプリケーションが新しいディレクトリにも登録されます。
+マルチテナントを利用して Azure AD をセットアップすると、一部のアプリは新しいディレクトリに反映されます。
 
 ## <a name="authentication-and-authorization"></a>認証と権限承認
 
-### <a name="authentication-by-applications-and-users"></a>アプリケーションとユーザーによる認証
+### <a name="authentication-by-apps-and-users"></a>アプリとユーザーによる認証
 
 ![Azure Stack のレイヤー間の ID](media/azure-stack-identity-overview/identity-layers.png)
 
-アプリケーションとユーザーにとって、Azure Stack のアーキテクチャは 4 つのレイヤーで表されます。 各レイヤー間の対話には、さまざまな種類の認証を使用できます。
+アプリとユーザーにとって、Azure Stack のアーキテクチャは 4 つのレイヤーで表されます。 各レイヤー間の対話には、さまざまな種類の認証を使用できます。
 
 |レイヤー    |レイヤー間の認証  |
 |---------|---------|
-|管理ポータルなどのツールとクライアント     | Azure Stack のリソースにアクセスしたりそれを変更したりするために、ツールとクライアントは [JSON Web トークン](/azure/active-directory/develop/active-directory-token-and-claims)を使用して Azure Resource Manager を呼び出します。 <br>Azure Resource Manager は JSON Web トークンを検証し、発行されたトークン内の "*要求*" を読み取って、ユーザーまたはサービス プリンシパルが Azure Stack で持つ承認のレベルを見積もります。 |
+|管理者ポータルなどのツールとクライアント     | Azure Stack のリソースにアクセスしたりそれを変更したりするために、ツールとクライアントは [JSON Web トークン](/azure/active-directory/develop/active-directory-token-and-claims)を使用して Azure Resource Manager を呼び出します。 <br>Azure Resource Manager は JSON Web トークンを検証し、発行されたトークン内の "*要求*" を読み取って、ユーザーまたはサービス プリンシパルが Azure Stack で持つ承認のレベルを見積もります。 |
 |Azure Resource Manager とそのコア サービス     |Azure Resource Manager は、リソース プロバイダーと通信して、ユーザーからの通信を転送します。 <br> 転送では、[Azure Resource Manager テンプレート](/azure-stack/user/azure-stack-arm-templates)を通じて、"*直接命令*" 呼び出しまたは "*宣言*" 呼び出しが使用されます。|
 |リソース プロバイダー     |リソース プロバイダーに渡された呼び出しは、証明書ベースの認証によって保護されます。 <br>Azure Resource Manager とリソース プロバイダーは、API を介した通信を継続します。 Azure Resource Manager から受信したすべての呼び出しを、リソース プロバイダーはその証明書で検証します。|
 |インフラストラクチャとビジネス ロジック     |リソース プロバイダーは、任意の認証モードを使用して、ビジネス ロジックおよびインフラストラクチャと通信します。 Azure Stack 付属の既定のリソース プロバイダーは、この通信を保護するために Windows 認証を使用します。|
@@ -157,22 +157,22 @@ Azure AD をマルチテナンシーでセットアップすると、一部の�
 ID プロバイダーで認証して JSON Web トークンを受け取るには、次の情報が必要です。
 
 1. **ID システム (機関) の URL**: ID プロバイダーに到達できる URL。 例: *https:\//login.windows.net*
-2. **Azure Resource Manager のアプリ ID URI**: ID プロバイダーに登録された、Azure Resource Manager の一意の識別子。 各 Azure Stack インストールに対しても固有です。
+2. **Azure Resource Manager のアプリ ID URI**: ID プロバイダーに登録された、Azure Resource Manager の一意の識別子。 各 Azure Stack インストールに対しても一意です。
 3. **資格情報**:ID プロバイダーでの認証に使用する資格情報。
 4. **Azure Resource Manager の URL**: Azure Resource Manager サービスの場所を示す URL。 例: *https:\//management.azure.com* または *https:\//management.local.azurestack.external*
 
-プリンシパル (クライアント、アプリケーション、またはユーザー) がリソースにアクセスするために認証要求を行う場合、その要求には以下のものが含まれている必要があります。
+プリンシパル (クライアント、アプリ、またはユーザー) がリソースにアクセスするために認証要求を行う場合、その要求には以下のものが含まれている必要があります。
 
 - プリンシパルの資格情報。
 - プリンシパルがアクセスするリソースのアプリ ID URI。
 
-資格情報は、ID プロバイダーによって検証されます。 ID プロバイダーは、アプリ ID URI が登録済みアプリケーションのものであることと、プリンシパルがそのリソースのトークンを取得するための正しい特権を持っていることも検証します。 要求が有効な場合は、JSON Web トークンが付与されます。
+資格情報は、ID プロバイダーによって検証されます。 ID プロバイダーでは、アプリ ID URI が登録済みアプリに対応していることと、プリンシパルがそのリソースのトークンを取得するための正しい特権を持っていることも検証します。 要求が有効な場合は、JSON Web トークンが付与されます。
 
 その後、トークンは要求のヘッダーで Azure Resource Manager に渡す必要があります。 Azure Resource Manager は、不特定の順序で以下の操作を行います。
 
 - トークンが正しい ID プロバイダーからのものであることを確認するために、*issuer* (iss) 要求を検証します。
 - トークンが Azure Resource Manager に発行されたことを確認するために、*audience* (aud) 要求を検証します。
-- JSON Web トークンが OpenID を通じて構成された証明書で署名されていることと、それが Azure Resource Manager に認識されていることを検証します。
+- JSON Web トークンが OpenID を通じて構成された証明書によって署名され、Azure Resource Manager に認識されていることを検証します。
 - トークンがアクティブであり、承認可能であることを確認するために、*issued at* (iat) および *expiration* (exp) 要求を見直します。
 
 すべての検証が完了すると、Azure Resource Manager は *objected* (oid) および *groups* 要求を使用して、プリンシパルがアクセスできるリソースの一覧を作成します。
@@ -180,12 +180,11 @@ ID プロバイダーで認証して JSON Web トークンを受け取るには�
 ![トークン交換プロトコルの図](media/azure-stack-identity-overview/token-exchange.png)
 
 > [!NOTE]
-> デプロイの後、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に再配置するか、*既定のプロバイダー サブスクリプション*の所有者である個別の全体管理者アカウントを使用するかのいずれかを行うことができます。
+> デプロイ後は、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります (たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能です)。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
 
 ### <a name="use-role-based-access-control"></a>ロールベースのアクセス制御を使用する
 
-Azure Stack のロールベースのアクセス制御 (RBAC) は、Microsoft Azure での実装と一貫しています。 適切な RBAC ロールをユーザー、グループ、およびアプリケーションに割り当てることによって、リソースへのアクセスを管理することができます。
-Azure Stack で RBAC を使用する方法については、以下の記事を参照してください。
+Azure Stack のロールベースのアクセス制御 (RBAC) は、Microsoft Azure での実装と一貫しています。 適切な RBAC ロールをユーザー、グループ、およびアプリに割り当てることによって、リソースへのアクセスを管理することができます。 Azure Stack で RBAC を使用する方法については、以下の記事を参照してください。
 
 - [Azure Portal でのロールベースの Access Control の基礎を確認する](/azure/role-based-access-control/overview)
 - [ロールベースのアクセス制御を使用して Azure サブスクリプション リソースへのアクセスを管理する](/azure/role-based-access-control/role-assignments-portal)

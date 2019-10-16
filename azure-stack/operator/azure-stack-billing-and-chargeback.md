@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: bcdf43f7be95c76cfd4fc454d85e08ad197551a6
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: d3eacfa8ab4b071d44ebd3bd2ad52351b72e7f00
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094336"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974035"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack での使用量と請求
 
@@ -44,14 +44,14 @@ Azure Stack 内の各リソース プロバイダーは、リソース使用率�
 
 コンピューティング、ストレージ、ネットワークなど、Azure Stack のリソース プロバイダーでは、サブスクリプションごとに 1 時間間隔で使用量データが生成されます。 使用量データには、リソース名、使用されたサブスクリプション、使用された量など、使用されたリソースに関する情報が含まれます。 測定 ID リソースについては、[Usage API の FAQ](azure-stack-usage-related-faq.md) に関するページをご覧ください。
 
-使用量データが収集されると、それが [Azure に報告され](azure-stack-usage-reporting.md)、請求書が生成されます。これは Azure Billing Portal から表示できます。
+使用量データが収集されると、そのデータが [Azure に報告され](azure-stack-usage-reporting.md)、請求書が生成されます。請求書は、Azure Billing Portal から表示できます。
 
 > [!NOTE]  
 > 使用量データのレポートは、Azure Stack Development Kit (ASDK) および容量モデルのライセンスを持つ Azure Stack 統合システムのユーザーにとっては必須ではありません。 Azure Stack のライセンスの詳細については、[パッケージと価格に関するデータ シート](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)をご覧ください。
 
 Azure 課金ポータルには、課金対象のリソースの使用量データが表示されます。 Azure Stack では、課金対象のリソースに加え、幅広い一連のリソースについて使用量情報が取得されます。この情報には、Azure Stack 環境で REST API または PowerShell コマンドレットを使ってアクセスできます。 Azure Stack のオペレーターは、すべてのユーザー サブスクリプションの使用量データを取得できます。 個々のユーザーは、自分自身の使用量の詳細のみを取得できます。
 
-## <a name="usage-reporting-for-multi-tenant-cloud-service-providers"></a>マルチテナント クラウド サービス プロバイダーの使用状況レポート
+## <a name="usage-reporting-for-multi-tenant-cloud-solution-providers"></a>マルチテナント クラウド ソリューション プロバイダーの使用状況レポート
 
 Azure Stack を使用しているマルチテナント クラウド サービス プロバイダー (CSP) は、各顧客の使用状況を個別に報告できるため、プロバイダーはさまざまな Azure サブスクリプションに使用料金を課金できます。
 

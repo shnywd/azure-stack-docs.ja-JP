@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/2/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 00f4a9c0aaaf52ed08706e9024059d7b24268290
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 1747be1c97a706aae5d49889949fd0b0f9a70da3
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829474"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72164958"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack での正常性およびアラートの監視
 
@@ -67,6 +67,9 @@ Azure Stack では、アラートは **Warning** (警告) または **Critical**
 **[Alerts]\(アラート\)** タイルの最上部を選択することで、リージョンのアクティブな全アラートのリストに移動します。 タイル内の **[Critical]** \(重大) または **[Warning]** \(警告) 行項目のいずれかを選択した場合、フィルター処理されたアラート リスト ([Critical] \(重大) または [Warning] \(警告)) に移動します。 
 
 **[Alerts]** \(アラート) ブレードは、状態 ([Active] \(アクティブ) または [Closed] \(終了)) と重大度 ([Critical] \(重大) または [Warning] \(警告)) の両方でフィルター処理する機能をサポートしています。 既定のビューには、すべてのアクティブなアラートが表示されます。 終了したアラートはすべて、7 日後にシステムから削除されます。
+
+>[!Note]
+>アラートはアクティブなままだが、1日の間に更新されていない場合は、問題が報告されていなければ、[Test-AzureStack](azure-stack-diagnostic-test.md)を実行してアラートを閉じることができます。
 
 ![重大または警告の状態に基づいてフィルター処理するフィルター ウィンドウ](media/azure-stack-monitor-health/alert-view.png)
 

@@ -7,22 +7,22 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: cd32288f6541dc4ba1ed16a24ff5fa802066af30
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.openlocfilehash: ed73441f1a8d3c1c722ce35d5deda9ab7387283b
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094422"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974092"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>仮想マシン スケール セットを Azure Stack で使用できるようにする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
   
-仮想マシン スケール セットは Azure Stack のコンピューティング リソースです。 これらを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されていると、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスを簡単に構築できます。
+仮想マシン スケール セットは Azure Stack のコンピューティング リソースです。 これらを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
 
 この記事では、Azure Stack Marketplace からスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
 
@@ -31,7 +31,7 @@ Azure Stack の仮想マシン スケール セットは、Azure の仮想マシ
 * [Mark Russinovich が語る Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [仮想マシン スケール セットを Guy Bowerman が解説](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Azure Stack の仮想マシン スケール セットでは、自動スケールはサポートされていません。 Resource Manager テンプレート、CLI、または PowerShell を使用して、スケール セットに複数のインスタンスを追加できます。
+Azure Stack 上の仮想マシン スケール セットでは、自動スケールはサポートされません。 Resource Manager テンプレート、CLI、または PowerShell を使用して、スケール セットに複数のインスタンスを追加できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -41,7 +41,7 @@ Azure Stack の仮想マシン スケール セットでは、自動スケール
 ## <a name="use-the-azure-stack-portal"></a>Azure Stack ポータルの使用
 
 >[!IMPORTANT]  
-> このセクションの情報は、1808 以降の Azure Stack バージョンを使用するときに適用されます。 ご利用のバージョンが 1807 以前であれば、「[仮想マシン スケール セットを追加する (バージョン 1808 より前)](#add-the-virtual-machine-scale-set-prior-to-version-1808)」を参照してください。
+> このセクションの情報は、1808 以降の Azure Stack バージョンを使用する場合に適用されます。 ご利用のバージョンが 1807 以前であれば、「[仮想マシン スケール セットを追加する (バージョン 1808 より前)](#add-the-virtual-machine-scale-set-prior-to-version-1808)」を参照してください。
 
 1. Azure Stack ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
    ![[仮想マシン スケール セット] を選択する](media/azure-stack-compute-add-scalesets/all-services.png)

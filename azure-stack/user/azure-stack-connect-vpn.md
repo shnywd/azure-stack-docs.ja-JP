@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: a0e1312beac5f0591658295ac3e48f122aceec4b
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316280"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974107"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>VPN を使用して Azure Stack を Azure に接続する
 
 *適用対象:Azure Stack 統合システム*
 
-この記事では、Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続するサイト間 VPN を作成する方法を示します。
+この記事では、Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続するサイト間 VPN を作成する方法について説明します。
 
 ## <a name="before-you-begin"></a>開始する前に
 

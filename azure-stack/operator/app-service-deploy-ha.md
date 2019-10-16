@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 10/07/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 77ec512f5e2996aaec53ef77c000d0334bda456a
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
+ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975221"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165020"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -236,7 +236,7 @@ App Service リソース プロバイダーをデプロイするには、次の�
 
 ## <a name="next-steps"></a>次の手順
 
-SQL Always On インスタンスで App Service リソース プロバイダーを提供した場合は、[appservice_hosting および appservice_metering データベースを可用性グループに追加します](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期します。
+SQL Always On インスタンスで App Service リソース プロバイダーを提供した場合は、[appservice_hosting および appservice_metering データベースを可用性グループに追加します](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期します。 また、[スクリプト](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/)を実行して、元のプライマリ サーバーからフェールオーバー サーバーへ AppServices ログインをインポートすることもできます。
 
 [App Service をスケールアウトします](azure-stack-app-service-add-worker-roles.md)。 ご使用の環境で予想されるアプリ需要を満たすために、App Service インフラストラクチャ ロール worker を追加する必要がある場合があります。 既定では、Azure Stack 上の App Service は無料の共有 worker 層をサポートしています。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
 

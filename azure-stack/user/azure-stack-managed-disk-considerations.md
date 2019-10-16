@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 69f427bd825bdc74501256d47e61bbae95f4d64b
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
+ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687996"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71974057"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack マネージド ディスク: 相違点と考慮事項
 
@@ -30,24 +30,24 @@ ms.locfileid: "71687996"
 マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS 仮想マシン (VM) のディスク管理が簡素化されます。
 
 > [!NOTE]  
-> Azure Stack のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack ポータルを使用して VM を作成すると、既定で有効になります。
+> Azure Stack のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack ポータルを使用して VM を作成する場合、機能は既定で有効になっています。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>チート シート: マネージド ディスクの相違点
 
 | 機能 | Azure (グローバル) | Azure Stack |
 | --- | --- | --- |
-|保存データの暗号化 |Azure Storage Service Encryption (SSE)、Azure Disk Encryption (ADE)     |BitLocker 128 ビット AES 暗号化      |
+|保存データの暗号化 |Azure Storage Service Encryption (SSE)、Azure Disk Encryption (ADE)。     |BitLocker 128 ビット AES 暗号化      |
 |Image          | マネージド カスタム イメージ |サポートされています|
 |バックアップ オプション | Azure Backup サービス |まだサポートされていません |
 |ディザスター リカバリーのオプション | Azure Site Recovery |まだサポートされていません|
-|ディスクの種類     |Premium SSD、Standard SSD、および Standard HDD |Premium SSD、Standard HDD |
-|Premium Disk  |完全にサポートされます |プロビジョニング可能ですがパフォーマンス制限や保証がありません  |
-|Premium Disk の IOP  |ディスク サイズによって異なります  |ディスクあたりの 2300 IOP |
-|Premium ディスクのスループット |ディスク サイズによって異なります |ディスクあたり 145 MB/秒 |
+|ディスクの種類     |Premium SSD、Standard SSD、および Standard HDD。 |Premium SSD、Standard HDD |
+|Premium Disk  |完全にサポートされます。 |プロビジョニング可能ですがパフォーマンス制限や保証がありません  |
+|Premium Disk の IOP  |ディスク サイズによって異なります。  |ディスクあたりの 2300 IOP |
+|Premium ディスクのスループット |ディスク サイズによって異なります。 |ディスクあたり 145 MB/秒 |
 |ディスク サイズ  |Azure Premium ディスク:P4 (32 GiB) ～ P80 (32 TiB)<br>Azure Standard SSD ディスク:E10 (128 GiB) ～ E80 (32 TiB)<br>Azure Standard HDD ディスク:S4 (32 GiB) ～ S80 (32 TiB) |M4:32 GiB<br>M6:64 GiB<br>M10:128 GiB<br>M15:256 GiB<br>M20:512 GiB<br>M30:1023 GiB |
-|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure のマネージド ディスクのスナップショットはサポートされています|まだサポートされていません |
-|ディスクのパフォーマンス分析 |サポートされる合計メトリックおよびディスクあたりのメトリック |まだサポートされていません |
-|移行      |VM を再作成せずに既存の非管理対象の Azure Resource Manager VM から移行するためのツールを提供します  |まだサポートされていません |
+|ディスクのスナップショット コピー|実行中の VM にアタッチされている Azure マネージド ディスクのスナップショットはサポートされています。|まだサポートされていません |
+|ディスクのパフォーマンス分析 |集計メトリックおよびディスクあたりのメトリックはサポートされています。 |まだサポートされていません |
+|移行      |VM を再作成せずに既存のアンマネージド Azure Resource Manager VM から移行するためのツールを提供します。  |まだサポートされていません |
 
 > [!NOTE]  
 > Azure Stack のマネージド ディスクの IOP とスループットは、プロビジョニングされた数値に代わりの上限数です。これは Azure Stack で実行されているハードウェアとワークロードによって影響を受ける可能性があります。
@@ -56,7 +56,7 @@ ms.locfileid: "71687996"
 
 ストレージ メトリックにも相違点があります。
 
-- Azure Stack では、ストレージ メトリックのトランザクション データは、内部と外部のネットワーク帯域幅を区別しません。
+- Azure Stack では、ストレージ メトリックのトランザクション データで、内部と外部のネットワーク帯域幅は区別されません。
 - ストレージ メトリックの Azure Stack トランザクション データには、マウントされたディスクへの仮想マシンのアクセスは含まれません。
 
 ## <a name="api-versions"></a>API のバージョン
@@ -228,7 +228,7 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 - 1808 更新プログラムの前にサブスクリプションが作成された場合は、次の手順に従ってサブスクリプションを更新します。 そうでないと、このサブスクリプションに VM をデプロイする操作がエラー メッセージ "ディスク マネージャーでの内部エラーです" で失敗することがあります。
    1. Azure Stack ユーザー ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** をクリックし、 **[Microsoft.Compute]** をクリックした後、 **[再登録]** をクリックします。
    2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、 **[Azure Stack - マネージド ディスク]** がリストに含まれていることを確認します。
-- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうでないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイする操作がエラー メッセージ "ディスク マネージャーでの内部エラーです" で失敗することがあります。
+- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうしないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイした場合に、"ディスク マネージャーでの内部エラーです" というエラー メッセージが表示され、失敗することがあります。
 
 ## <a name="next-steps"></a>次の手順
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 統合システム デプロイのための Azure Stack 公開キー インフラストラクチャ証明書を生成する | Microsoft Docs
-description: Azure Stack 統合システムの Azure Stack PKI 証明書のデプロイ プロセスについて説明します。
+title: Azure Stack への証明書署名要求を生成する | Microsoft Docs
+description: Azure Stack 統合システムにおいて Azure Stack PKI 証明書への証明書署名要求を生成する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,20 +14,20 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: c9f14e643f886fab0fae148c5af8643890866fd6
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902682"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019246"
 ---
-# <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 証明書署名要求の生成
+# <a name="generate-certificate-signing-requests-for-azure-stack"></a>Azure Stack への証明書署名要求を生成する
 
 Azure Stack 適合性チェッカー ツールを使用して、Azure Stack デプロイに適した証明書署名要求 (CSR) を作成できます。 証明書は、デプロイ前のテストに十分な時間を確保した上で、要求、生成、検証する必要があります。 このツールは [PowerShell ギャラリーから](https://aka.ms/AzsReadinessChecker)取得できます。
 
 Azure Stack 適合性チェッカー ツール (AzsReadinessChecker) を使用すると、次の証明書を要求できます。
 
-- [Azure Stack デプロイのための PKI 証明書の生成](azure-stack-get-pki-certs.md)に関する説明に従った**標準の証明書要求**。
+- [証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests)に関する説明に従った**標準の証明書要求**。
 - **サービスとしてのプラットフォーム**:「Azure Stack 公開キー インフラストラクチャ証明書の要件」の「[オプションの PaaS 証明書](azure-stack-pki-certs.md#optional-paas-certificates)」で指定されているように、証明書に対するサービスとしてのプラットフォーム (PaaS) 名を要求できます。
 
 ## <a name="prerequisites"></a>前提条件
@@ -61,7 +61,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     ```
 
     > [!note]  
-    > 共通名 (CN) が指定されている場合、証明書要求の最初の DNS 名によって上書きされます。
+    > 共通名 (CN) が指定されている場合、これは証明書要求の最初の DNS 名によって上書きされます。
 
 3. 既に存在する出力ディレクトリを宣言します。 例:
 
@@ -69,15 +69,15 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
-4. ID システムを宣言します
+4. ID システムを宣言します。
 
-    Azure Active Directory
+    Azure Active Directory (Azure AD):
 
     ```powershell
     $IdentitySystem = "AAD"
     ```
 
-    Active Directory フェデレーション サービス (AD FS)
+    Active Directory フェデレーション サービス (AD FS):
 
     ```powershell
     $IdentitySystem = "ADFS"
@@ -99,7 +99,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    PaaS サービスを含めるには、スイッチ ```-IncludePaaS``` を指定します
+    PaaS サービスを含めるには、スイッチ ```-IncludePaaS``` を指定します。
 
 7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨**されません**)。
 
@@ -124,7 +124,7 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. 生成された **.REQ** ファイルを CA (内部またはパブリック) に送信します。  **New-AzsCertificateSigningRequest** の出力ディレクトリには、証明機関への送信に必要な CSR が含まれています。  また、このディレクトリには、証明書要求の生成中に使用される INF ファイルが含まれる子ディレクトリも参照用として含まれています。 CA が生成された要求を使用して、[Azure Stack PKI の要件](azure-stack-pki-certs.md)を満たす証明書を生成することを確認してください。
+9. 生成された **.REQ** ファイルを CA (内部またはパブリック) に送信します。 **New-AzsCertificateSigningRequest** の出力ディレクトリには、証明機関への送信に必要な CSR が含まれています。 また、このディレクトリには、証明書要求の生成中に使用される INF ファイルが含まれる子ディレクトリも参照用として含まれています。 CA が生成された要求を使用して、[Azure Stack PKI の要件](azure-stack-pki-certs.md)を満たす証明書を生成することを確認してください。
 
 ## <a name="next-steps"></a>次の手順
 

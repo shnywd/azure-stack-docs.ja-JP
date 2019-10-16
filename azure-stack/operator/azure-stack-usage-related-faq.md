@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: d63d4876674c66fcccab942cd856dce958e62644
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269481"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019325"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-usage"></a>Azure Stack の使用量に関してよく寄せられる質問
 
@@ -322,7 +322,7 @@ ms.locfileid: "71269481"
 **測定 ID**:190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **測定名**:App Service  
 **単位**:仮想コア時間  
-**注**:App Service を実行するのに使用した仮想コア数。 注:マイクロソフトはこの測定を使用して、Azure Stack の App Service の料金を請求します。 クラウド サービス プロバイダーは、他の App Service の測定 (下記) を使用して、テナントの使用状況を計算できます。  
+**注**:App Service を実行するのに使用した仮想コア数。 注:マイクロソフトはこの測定を使用して、Azure Stack の App Service の料金を請求します。 クラウド ソリューション プロバイダーは、他の App Service の測定 (下記) を使用して、テナントの使用状況を計算できます。  
   
 **測定 ID**:67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **測定名**:関数の要求  

@@ -11,20 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2019
+ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 3548574ce8ece470c67101d42b115dbafe2c9a1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 265645b69e909c7c9762cd03e4f49035baa2872b
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829213"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019431"
 ---
 # <a name="usage-connectivity-errors"></a>使用量接続エラー
 
-Azure Stack の使用状況データは、Azure Stack 内の [*Azure Bridge* コンポーネント](azure-stack-usage-reporting.md)に送信されます。 Azure Stack 内のブリッジで、Azure 使用状況サービスに接続できない場合、次のエラーが表示されます。
+Azure Stack の使用状況データは、Azure Stack 内の [*Azure Bridge* コンポーネント](azure-stack-usage-reporting.md)に送信されます。 Azure Stack 内のブリッジでは、Azure 使用状況サービスに接続できない場合、次のエラーが表示されます。
 
 ![使用量ブリッジ エラー](media/azure-stack-usage-issues/usageerror2.png)
 
@@ -51,8 +51,8 @@ Azure Stack の使用状況データは、Azure Stack 内の [*Azure Bridge* コ
 | NetworkError               | Azure Stack のブリッジで Azure の使用状況サービス エンドポイントへの要求を送信することができません。                                                            | プロキシによって使用状況サービス エンドポイントへのアクセスがブロックまたは遮断されていないか確認します。                                                                                                                                                                                                             |
 | RequestTimedOut            | Azure Bridge から要求が送信されましたが、Azure の使用状況サービスがタイムアウト時間内に応答できませんでした。                             | プロキシによって使用状況サービス エンドポイントへのアクセスがブロックまたは遮断されていないか確認します。                                                                                                                                                                                                                        |
 | LoginError                 | Microsoft Azure Active Directory で認証できませんでした。                                                                                                             | Azure AD ログイン エンドポイントが Azure Stack のすべての XRP VM からアクセス可能であることを確認します。                                                                                                                                                                                                                     |
-| CertificateValidationError | Azure サービスで認証できないため、Azure Bridge で要求を送信できません。                                    | Azure Stack XRP マシンと使用状況ゲートウェイ エンドポイントとの間の HTTPS トラフィックを遮断しているプロキシがないか確認します。                                                                                                                                                                                      |
-| 権限がありません               | Azure サービスで Azure Stack のブリッジを認証できないため、Azure Bridge でデータを Azure の使用状況サービスにプッシュできません。 | 登録リソースが変更されていないか確認し、そうであれば Azure Stack を再登録します。 <br><br> 場合によっては、Azure Stack と Azure AD との間の時間同期の問題がこの失敗の原因となります。 この場合、Azure Stack の XRP VM の時間が Azure AD と同期していることを確認します。 |
+| CertificateValidationError | Azure サービスで認証できないため、Azure Bridge では要求を送信できません。                                    | Azure Stack XRP マシンと使用状況ゲートウェイ エンドポイントとの間の HTTPS トラフィックを遮断しているプロキシがないか確認します。                                                                                                                                                                                      |
+| 権限がありません               | Azure サービスでは Azure Stack のブリッジを認証できないため、Azure Bridge ではデータを Azure 内の使用状況サービスにプッシュできません。 | 登録リソースが変更されていないか確認し、そうであれば Azure Stack を再登録します。 <br><br> 場合によっては、Azure Stack と Azure AD との間の時間同期の問題がこの失敗の原因となります。 この場合、Azure Stack の XRP VM の時間が Azure AD と同期していることを確認します。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
 さらに、[これらの手順](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)に従って Azure Bridge、WAS、WASPublic コンポーネントのログ ファイルを提供することが求められる場合があります。
@@ -61,4 +61,4 @@ Azure Stack の使用状況データは、Azure Stack 内の [*Azure Bridge* コ
 
 - 詳しくは、「[Azure Stack 使用状況データの Azure への報告](azure-stack-usage-reporting.md)」をご覧ください。
 - 登録プロセス中にエラーが発生した場合にエラー メッセージを確認する方法については、[テナント登録時のエラー メッセージ](azure-stack-registration-errors.md)に関するページを参照してください。
-- 詳細については、「[クラウド サービス プロバイダー向けの使用量レポート インフラストラクチャ](azure-stack-csp-ref-infrastructure.md)」を参照してください。
+- 詳細については、「[クラウド ソリューション プロバイダー向けの使用量レポート インフラストラクチャ](azure-stack-csp-ref-infrastructure.md)」を参照してください。

@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 76b870d795b79cf966dcf6742ad08f739d24a42a
-ms.sourcegitcommit: 32609bdb04a07b063c8f20f892c30769ad6903dd
+ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
+ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269504"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72019290"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
 
@@ -41,7 +41,7 @@ ms.locfileid: "71269504"
 
 次の図に示すように、以下の手順を実行してエンド カスタマーを追加します。
 
-![使用量の追跡とエンド カスタマー アカウントの管理のためにクラウド サービス プロバイダーを設定する](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
+![使用状況の追跡とエンド カスタマー アカウントの管理のためにクラウド ソリューション プロバイダーを設定する](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ### <a name="create-a-new-customer-in-partner-center"></a>パートナー センターに新しい顧客を作成する
 
@@ -102,4 +102,4 @@ Azure Stack に新しいカスタマーを追加するか、エンド カスタ�
 
 - 登録プロセス中にエラーが発生した場合にエラー メッセージを確認する方法については、[テナント登録時のエラー メッセージ](azure-stack-registration-errors.md)に関するページを参照してください。
 - Azure Stack からリソース使用量情報を取得する方法ついて詳しくは、「[Azure Stack での使用量と請求](azure-stack-billing-and-chargeback.md)」をご覧ください。
-- エンド カスタマーが CSP を Azure Stack テナントの管理者として追加する方法については、「[クラウド サービス プロバイダーが Azure Stack サブスクリプションを管理できるようにする](../user/azure-stack-csp-enable-billing-usage-tracking.md)」を参照してください。
+- エンド カスタマーが CSP を Azure Stack テナントの管理者として追加する方法を確認するには、[クラウド ソリューション プロバイダーが Azure Stack サブスクリプションを管理できるようにする](../user/azure-stack-csp-enable-billing-usage-tracking.md)方法に関するページを参照してください。
