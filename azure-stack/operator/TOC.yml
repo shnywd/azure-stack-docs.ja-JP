@@ -42,13 +42,15 @@
     - name: データセンターの統合
       href: azure-stack-customer-journey.md
       items:
-        - name: Azure Stack の統合に関する一般的な考慮事項
+        - name: チュートリアル
+          href: azure-stack-customer-journey.md
+        - name: 一般的な考慮事項
           href: azure-stack-datacenter-integration.md
-        - name: Azure Stack デプロイの接続モデル
+        - name: 接続モデル
           href: azure-stack-connection-models.md
-        - name: 接続されたデプロイに関する考慮事項
+        - name: 接続されたデプロイ
           href: azure-stack-connected-deployment.md
-        - name: 切断されたデプロイに関する考慮事項
+        - name: 切断されたデプロイ
           href: azure-stack-disconnected-deployment.md
         - name: データセンターのネットワーク統合
           items:
@@ -119,8 +121,6 @@
       items:
         - name: 管理の基本
           href: azure-stack-manage-basics.md
-        - name: 操作のチェックリスト
-          href: azure-stack-operations-checklist.md
         - name: ポータルからユーザー データをクリアする
           href: azure-stack-portal-clear.md
         - name: テレメトリの収集の構成
