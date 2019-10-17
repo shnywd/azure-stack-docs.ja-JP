@@ -15,12 +15,12 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 6695af1e27a2182321a468b853a4650f42146a15
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037907"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283063"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Marketplace に追加する
 
@@ -38,7 +38,7 @@ ms.locfileid: "72037907"
 
 ユーザーには、十分な領域がある Azure Stack のプラン、オファー、およびサブスクリプションが必要です。 多くの場合、ユーザーは、3 つのマスター ノードと 3 つのワーカー ノードで構成される最大 6 台の仮想マシンによるクラスターをデプロイする必要があります。 ユーザーにとって十分なクォータがあることを確認する必要があります。
 
-サービス オファリングの計画と設定に関する詳細については、「[Azure Stack でのサービスの提供の概要](azure-stack-offer-services-overview.md)」を参照してください
+サービス オファリングの計画と設定に関する詳細については、「[Azure Stack でのサービスの提供の概要](service-plan-offer-subscription-overview.md)」を参照してください
 
 ## <a name="create-a-service-principal-and-credentials"></a>サービス プリンシパルと資格情報を作成する
 
@@ -101,4 +101,4 @@ Azure から項目を取得して、カスタム スクリプトを Marketplace 
 
 [Azure Stack の AKS エンジンとは](../user/azure-stack-kubernetes-aks-engine-overview.md)
 
-[Azure Stack でのサービスの提供の概要](azure-stack-offer-services-overview.md)
+[Azure Stack でのサービスの提供の概要](service-plan-offer-subscription-overview.md)

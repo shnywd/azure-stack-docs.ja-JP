@@ -15,12 +15,12 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 <!-- dev: viananth -->
-ms.openlocfilehash: bf44716c160948f3deafdc8afb87b9b6d49f9eb5
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: d0bec72b86fc2cfc729514343a3749a7907ae04c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814449"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282829"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure Stack での Python による API バージョンのプロファイルの使用
 
@@ -61,7 +61,7 @@ Azure Stack で Python Azure SDK を使用するには、次の値を指定し�
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
-| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
+| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
 | クライアント シークレット | `AZURE_CLIENT_SECRET` | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 |
 | Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Resource Manager エンドポイント](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」の記事を参照してください。 |
 | リソースの場所 | `AZURE_RESOURCE_LOCATION` | Azure Stack 環境のリソースの場所。

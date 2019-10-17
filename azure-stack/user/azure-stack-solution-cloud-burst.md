@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 64554d0bd2c9e9d8622b1fd48bb7d086cd0b4b76
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ca313e2e936f7bb006fdc1c15c49d271b1059a16
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603130"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283300"
 ---
 # <a name="create-cross-cloud-scaling-app-solutions-with-azure-and-azure-stack"></a>Azure と Azure Stack でクラウド間スケーリング アプリ ソリューションを作成する
 
@@ -56,7 +56,7 @@ Azure Stack でホストされる Web アプリから、Traffic Manager を介�
 
 -   [App Service](../operator/azure-stack-app-service-deploy.md) PaaS サービスを Azure Stack にデプロイします。
 
--   Azure Stack 環境内で[プラン/オファーを作成](../operator/azure-stack-plan-offer-quota-overview.md)します。
+-   Azure Stack 環境内で[プラン/オファーを作成](../operator/service-plan-offer-subscription-overview.md)します。
 
 -   Azure Stack 環境内で[テナント サブスクリプションを作成](../operator/azure-stack-subscribe-plan-provision-vm.md)します。
 
@@ -66,7 +66,7 @@ Azure Stack でホストされる Web アプリから、Traffic Manager を介�
 
 -   .NET 3.5 がインストールされた Windows Server 2016 VM が必要です。 この VM は、プライベート ビルド エージェントとして Azure Stack 上のテナント サブスクリプションに構築されます。
 
--   [Windows Server 2016 with SQL 2017 VM Image](../operator/azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) は、Azure Stack Marketplace で入手できます。 このイメージを入手できない場合は、Azure Stack のオペレーターと協力して、環境に追加されていることを確認してください。
+-   [Windows Server 2016 with SQL 2017 VM Image](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) は、Azure Stack Marketplace で入手できます。 このイメージを入手できない場合は、Azure Stack のオペレーターと協力して、環境に追加されていることを確認してください。
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 

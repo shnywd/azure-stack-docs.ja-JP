@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 35093371ede6e3f5f776b981eaaf8463df9e7f36
-ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
+ms.openlocfilehash: 7e2753ebb5bebad4f1ac2a7bbc17a27ccd87cbe9
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616839"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283045"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Azure Stack の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -95,7 +95,7 @@ Azure Stack で Node.js Azure SDK を使用するには、次の値を指定し�
 | --- | --- | --- |
 | テナント ID | TENANT\_ID | Azure Stack の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
 | クライアント ID | CLIENT\_ID | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。  |
-| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) は Azure Stack 内のオファーにアクセスする方法です。  |
+| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](https://docs.microsoft.com/azure/azure-stack/service-plan-offer-subscription-overview#subscriptions) は Azure Stack 内のオファーにアクセスする方法です。  |
 | クライアント シークレット | APPLICATION\_SECRET | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット 。 |
 | Resource Manager エンドポイント | ARM\_ENDPOINT | 「[Azure Stack Resource Manager エンドポイント](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
 

@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
-ms.reviewer: prchint
+ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: e9ee5d3b8ad67c7955fa4da7b64d2c0962f21a15
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.openlocfilehash: 087698b4f12c646422fda05cc4c707ad135b150a
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173075"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310606"
 ---
 # <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>自動 Azure Stack 診断ログ収集の構成
 

@@ -277,35 +277,53 @@
           href: azure-stack-quota-types.md
     - name: ネットワーク ソリューションの提供
       href: azure-stack-network-solutions-enable.md
-    - name: SQL を PaaS として提供する
+    - name: アドオン サービス リソース プロバイダーの管理
       items:
-        - name: Azure Stack で SQL データベースを提供する
+        - name: Azure Stack 上の App Service
           items:
             - name: 概要
-              href: azure-stack-sql-resource-provider.md
-            - name: SQL Server リソース プロバイダーのデプロイ
-              href: azure-stack-sql-resource-provider-deploy.md
-            - name: SQL ホスティング サーバーの追加
-              href: azure-stack-sql-resource-provider-hosting-servers.md
-            - name: SQL データベースの作成
-              href: azure-stack-sql-resource-provider-databases.md
-        - name: 高可用性 SQL データベースの提供
-          href: azure-stack-tutorial-sql.md
-        - name: SQL Server リソース プロバイダーの更新
-          href: azure-stack-sql-resource-provider-update.md
-        - name: SQL Server リソース プロバイダーの維持
-          href: azure-stack-sql-resource-provider-maintain.md
-        - name: SQL Server リソース プロバイダーの削除
-          href: azure-stack-sql-resource-provider-remove.md
-        - name: SQL リソース プロバイダーのリリース ノート
-          items:
-            - name: SQL リソース プロバイダー 1.1.30.0 のリリース ノート
-              href: azure-stack-sql-resource-provider-11300.md
-            - name: SQL リソース プロバイダー 1.1.33.0 のリリース ノート
-              href: azure-stack-sql-resource-provider-11330.md
-    - name: MySQL を PaaS として提供する
-      items:
-        - name: Azure Stack で MySQL データベースを提供する
+              href: azure-stack-app-service-overview.md
+            - name: App Service のキャパシティ プランニング
+              href: azure-stack-app-service-capacity-planning.md
+            - name: 開始する前に
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: App Service のデプロイ
+              href: azure-stack-app-service-deploy.md
+            - name: 高可用性のための App Service のデプロイ
+              href: app-service-deploy-ha.md
+            - name: App Service のオフライン デプロイ
+              href: azure-stack-app-service-deploy-offline.md
+            - name: App Service の更新
+              href: azure-stack-app-service-update.md
+            - name: App Service のオフライン更新
+              href: azure-stack-app-service-update-offline.md
+            - name: App Service のインフラストラクチャ ロールの追加
+              href: azure-stack-app-service-add-worker-roles.md
+            - name: デプロイ ソースを構成する
+              href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service のバックアップ
+              href: app-service-back-up.md
+            - name: App Service の復旧
+              href: app-service-recover.md
+            - name: App Service の課金に関する FAQ
+              href: app-service-billing-faq.md
+            - name: App Service on Azure Stack のリリース ノート
+              items:
+                - name: App Service on Azure Stack Update 1 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-one.md
+                - name: App Service on Azure Stack update 2 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service on Azure Stack update 3 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: App Service on Azure Stack update 4 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: App Service on Azure Stack update 5 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service on Azure Stack update 6 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service on Azure Stack update 7 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-seven.md
+        - name: Azure Stack 上の MySQL
           items:
             - name: 概要
               href: azure-stack-mysql-resource-provider.md
@@ -315,63 +333,44 @@
               href: azure-stack-mysql-resource-provider-hosting-servers.md
             - name: MySQL データベースの作成
               href: azure-stack-mysql-resource-provider-databases.md
-        - name: 高可用性 MySQL データベースの提供
-          href: azure-stack-tutorial-mysql.md
-        - name: MySQL Server リソース プロバイダーの更新
-          href: azure-stack-mysql-resource-provider-update.md
-        - name: MySQL Server リソース プロバイダーの維持
-          href: azure-stack-mysql-resource-provider-maintain.md
-        - name: MySQL Server リソース プロバイダーの削除
-          href: azure-stack-mysql-resource-provider-remove.md
-        - name: MySQL リソース プロバイダーのリリース ノート
+            - name: 高可用性 MySQL データベースのデプロイ
+              href: azure-stack-tutorial-mysql.md
+            - name: MySQL Server リソース プロバイダーの更新
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: MySQL Server リソース プロバイダーの維持
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: MySQL Server リソース プロバイダーの削除
+              href: azure-stack-mysql-resource-provider-remove.md
+            - name: MySQL リソース プロバイダーのリリース ノート
+              items:
+                - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
+                  href: azure-stack-mysql-resource-provider-11300.md
+                - name: MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
+                  href: azure-stack-mysql-resource-provider-11330.md
+        - name: Azure Stack 上の SQL
           items:
-            - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
-              href: azure-stack-mysql-resource-provider-11300.md
-            - name: MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
-              href: azure-stack-mysql-resource-provider-11330.md
-    - name: App Service を PaaS として提供する
-      href: azure-stack-app-service-overview.md
-      items:
-        - name: App Service のキャパシティ プランニング
-          href: azure-stack-app-service-capacity-planning.md
-        - name: App Service の課金に関する FAQ
-          href: app-service-billing-faq.md
-        - name: 開始する前に
-          href: azure-stack-app-service-before-you-get-started.md
-        - name: App Service のデプロイ
-          href: azure-stack-app-service-deploy.md
-        - name: 高可用性のための App Service のデプロイ
-          href: app-service-deploy-ha.md
-        - name: App Service のオフライン デプロイ
-          href: azure-stack-app-service-deploy-offline.md
-        - name: App Service の更新
-          href: azure-stack-app-service-update.md
-        - name: App Service のオフライン更新
-          href: azure-stack-app-service-update-offline.md
-        - name: App Service のインフラストラクチャ ロールの追加
-          href: azure-stack-app-service-add-worker-roles.md
-        - name: デプロイ ソースを構成する
-          href: azure-stack-app-service-configure-deployment-sources.md
-        - name: App Service のバックアップ
-          href: app-service-back-up.md
-        - name: App Service の復旧
-          href: app-service-recover.md
-        - name: App Service on Azure Stack のリリース ノート
-          items:
-            - name: App Service on Azure Stack Update 1 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-one.md
-            - name: App Service on Azure Stack update 2 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-two.md
-            - name: App Service on Azure Stack update 3 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-three.md
-            - name: App Service on Azure Stack update 4 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-four.md
-            - name: App Service on Azure Stack update 5 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-five.md
-            - name: App Service on Azure Stack update 6 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-six.md
-            - name: App Service on Azure Stack update 7 のリリース ノート
-              href: azure-stack-app-service-release-notes-update-seven.md
+            - name: 概要
+              href: azure-stack-sql-resource-provider.md
+            - name: SQL Server リソース プロバイダーのデプロイ
+              href: azure-stack-sql-resource-provider-deploy.md
+            - name: SQL ホスティング サーバーの追加
+              href: azure-stack-sql-resource-provider-hosting-servers.md
+            - name: SQL データベースの作成
+              href: azure-stack-sql-resource-provider-databases.md
+            - name: 高可用性 SQL データベースのデプロイ
+              href: azure-stack-tutorial-sql.md
+            - name: SQL Server リソース プロバイダーの更新
+              href: azure-stack-sql-resource-provider-update.md
+            - name: SQL Server リソース プロバイダーの維持
+              href: azure-stack-sql-resource-provider-maintain.md
+            - name: SQL Server リソース プロバイダーの削除
+              href: azure-stack-sql-resource-provider-remove.md
+            - name: SQL リソース プロバイダーのリリース ノート
+              items:
+                - name: SQL リソース プロバイダー 1.1.30.0 のリリース ノート
+                  href: azure-stack-sql-resource-provider-11300.md
+                - name: SQL リソース プロバイダー 1.1.33.0 のリリース ノート
+                  href: azure-stack-sql-resource-provider-11330.md
     - name: 使用量と課金
       href: azure-stack-billing-and-chargeback.md
       items:

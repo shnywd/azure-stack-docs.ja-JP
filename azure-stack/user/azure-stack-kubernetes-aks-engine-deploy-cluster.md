@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/27/2019
-ms.openlocfilehash: 0cccd93ca24f2e93717bfbbd6ec05137d91f5bd0
-ms.sourcegitcommit: 036d4b22a8076ca9ba5c667a451c544d88f8bb94
+ms.lastreviewed: 10/10/2019
+ms.openlocfilehash: 7ca248ace5020546fe9d25b9e1e731f7e70275d6
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71681828"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381393"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする
 
@@ -170,19 +170,14 @@ Azure Stack オペレーターに次のことを依頼します。
 
     ```bash
     sudo snap install helm –classic
+    kubectl -n kube-system create serviceaccount tiller
+    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+    helm init --service-account=tiller
     helm repo update
     helm install stable/mysql
     ```
 
-5. その後 `install stable/mysql` を実行しようとすると、`Error: incompatible versions client[v2.XX.X] server[v2.YY.Y]` のようなエラーが表示されます。 次のコマンドを実行します。
-
-    ```bash 
-    helm init --force-upgrade
-    and retry:
-    helm install stable/mysql
-    ```
-
-6.  テストをクリーン アップするには、MySQL のデプロイに使用した名前を見つけます。 次の例では、名前は `wintering-rodent` です。 次に、削除します。 
+5.  テストをクリーン アップするには、MySQL のデプロイに使用した名前を見つけます。 次の例では、名前は `wintering-rodent` です。 次に、削除します。 
 
     次のコマンドを実行します。
 

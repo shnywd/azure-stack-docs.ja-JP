@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 8d929a3b1fd67f3ec73137b2e1a87f594ea5b544
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 3823aa73d58af48c662690aa0d8e8a21180b4ed6
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417831"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283225"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書の検証
 
@@ -272,7 +272,7 @@ SQL/MySQL または App Services のデプロイを計画している場合は�
 
  - デプロイの場合、[Azure Stack PKI の要件ドキュメント](azure-stack-pki-certs.md)で指定されているように、デプロイメント エンジニアが証明書を配置ホストにコピーできるように、セキュリティを保護して証明書をデプロイメント エンジニアに送付します。
  - シークレット ローテーションの場合、[Azure Stack シークレット ローテーションのドキュメント](azure-stack-rotate-secrets.md)の説明に従い、この証明書を使用して、お使いの Azure Stack 環境のパブリック インフラストラクチャ エンドポイントの古い証明書を更新できます。
- - PaaS サービスの場合、「[Azure Stack でのサービスの提供の概要](azure-stack-offer-services-overview.md)」の説明に従い、この証明書を使用して、Azure Stack に SQL、MySQL、App Services リソース プロバイダーをインストールできます。
+ - PaaS サービスの場合、「[Azure Stack でのサービスの提供の概要](service-plan-offer-subscription-overview.md)」の説明に従い、この証明書を使用して、Azure Stack に SQL、MySQL、App Services リソース プロバイダーをインストールできます。
 
 ## <a name="next-steps"></a>次の手順
 

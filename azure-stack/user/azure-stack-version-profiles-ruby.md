@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d9ef8ab09031db59311317693f72433b63737c34
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: 32a81fc86399c44362d82f1dc602f87b16d16484
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814466"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282853"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure Stack での Ruby による API バージョンのプロファイルの使用
 
@@ -97,7 +97,7 @@ Azure Stack で Ruby Azure SDK を使用するには、次の値を指定した�
 | --- | --- | --- |
 | テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。  |
-| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
+| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
 | クライアント シークレット | `AZURE_CLIENT_SECRET` | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 |
 | Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Resource Manager エンドポイント](#the-azure-stack-resource-manager-endpoint)」を参照してください。  |
 

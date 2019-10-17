@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: f5cbf333494eb8d04ccbc974f95cda8be5d62284
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: 7d2a98656671a5e6f59d46054e074e45bb9d3c89
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814493"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282894"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Azure Stack での Java による API バージョンのプロファイルの使用
 
@@ -97,7 +97,7 @@ Azure Stack で Azure Java SDK を使用するには、次の値を指定した�
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | テナント ID                 | `AZURE_TENANT_ID`            | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md)。                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID`             | 前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。                                                                                              |
-| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID`      | [サブスクリプション ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。                |
+| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID`      | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。                |
 | クライアント シークレット             | `AZURE_CLIENT_SECRET`        | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。                                                                                                                                   |
 | Resource Manager エンドポイント | `ARM_ENDPOINT`              | 「[Azure Stack Resource Manager エンドポイント](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
 | Location                  | `RESOURCE_LOCATION`    | Azure Stack 用の**ローカル**。                                                                                                                                                                                                |

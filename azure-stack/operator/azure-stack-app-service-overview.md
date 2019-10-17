@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
-ms.author: mabrigg
+ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 698d38e971d37457d50637cb2e7e2ffe88890c20
-ms.sourcegitcommit: 7d7a4c8c46613b6104caf23763bfd2275f6a826b
+ms.openlocfilehash: 14c37e894d87d7a19ff6edc91b9c827ce53c08e8
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70808225"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282640"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 上の App Service の概要
 
@@ -70,4 +70,4 @@ Azure Stack 上の App Service では、Azure App Service で使用するのと�
 - [App Service on Azure Stack のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)
 - [App Service リソース プロバイダーのインストール](azure-stack-app-service-deploy.md)
 
-[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)や [MySQL リソース プロバイダー](azure-stack-mysql-resource-provider-deploy.md)など、他の[サービスとしてのプラットフォーム (PaaS) サービス](azure-stack-offer-services-overview.md)を試すこともできます。
+[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)や [MySQL リソース プロバイダー](azure-stack-mysql-resource-provider-deploy.md)など、他の[サービスとしてのプラットフォーム (PaaS) サービス](service-plan-offer-subscription-overview.md)を試すこともできます。

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a2311466bc6949bbc1ea372410373654352418fa
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: ae1aaa87ab2817ec696e488372bbc8f2cb6d119b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603023"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283702"
 ---
 # <a name="configure-hybrid-cloud-connectivity-with-azure-and-azure-stack"></a>Azure と Azure Stack でハイブリッド クラウド接続を構成する
 
@@ -70,7 +70,7 @@ Azure Stack オペレーターが、App Service のデプロイ、プランと�
    >ASDK のデプロイには最大 7 時間がかかることがあるため、適切に計画してください。
 
  - [App Service](../operator/azure-stack-app-service-deploy.md) PaaS サービスを Azure Stack にデプロイします。
- - Azure Stack 環境で [プランとオファーを作成](../operator/azure-stack-plan-offer-quota-overview.md)します。
+ - Azure Stack 環境で [プランとオファーを作成](../operator/service-plan-offer-subscription-overview.md)します。
  - Azure Stack 環境内で[テナント サブスクリプションを作成](../operator/azure-stack-subscribe-plan-provision-vm.md)します。
 
 ### <a name="before-you-begin"></a>開始する前に
@@ -97,7 +97,7 @@ Azure Stack オペレーターが、App Service のデプロイ、プランと�
 
 ネットワークとサブネットの IP アドレス:
 
-| Azure/Azure Stack 接続 | EnableAdfsAuthentication | Subnet | IP アドレス |
+| Azure/Azure Stack 接続 | 名前 | Subnet | IP アドレス |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

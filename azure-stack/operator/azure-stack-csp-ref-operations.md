@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: a9e0dd05195d7ece62689aa8b5971cf72a6e3713
-ms.sourcegitcommit: c2ea4ffb42563c26faaf2993ba7b484bcb6d5cb7
+ms.lastreviewed: 10/14/2019
+ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
+ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71342822"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72350176"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Azure Stack に使用状況追跡のためのテナントを登録する
 
@@ -61,15 +61,14 @@ Azure Stack と API プロファイルの詳細については、「[Azure Stack
 
 テナントを追加するには、**New-AzureRmResource** コマンドレットを使用します。 [Azure Stack に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを使用します。
 
-```powershell
-New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+```powershell  
+New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
 ```
 
 ### <a name="api-call"></a>API 呼び出し
 
 **Operation**:PUT  
-**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  /providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **応答**:201 Created  
 **応答本文**:Empty  
 
@@ -101,9 +100,7 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 GET 操作を使用して、すべてのテナント マッピングの一覧を取得できます。
 
 **Operation**:GET  
-**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?  
-api-version=2017-06-01 HTTP/1.1`  
+**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
 **応答**:200  
 **応答本文**:
 
@@ -152,9 +149,7 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 DELETE 操作を使用して、テナントのマッピングを削除することができます。
 
 **Operation**:DELETE  
-**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}  
-/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/  
-{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
+**要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
 **応答**:204 No Content  
 **応答本文**:Empty
 
