@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: dfa8e778b21826ff1f589efbf2b49097d5ee3685
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ceeca4f42f728bdcd9496b735704bfef6d98f25c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829341"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283379"
 ---
 # <a name="create-sql-databases"></a>SQL データベースの作成
 
@@ -79,4 +79,4 @@ AlwaysOn データベースは同期済みと表示され、すべての SQL イ
 
 ## <a name="next-steps"></a>次の手順
 
-[SQL Server リソース プロバイダーの維持](azure-stack-sql-resource-provider-maintain.md)
+[高可用性 SQL データベースの提供](azure-stack-tutorial-sql.md)方法を確認する

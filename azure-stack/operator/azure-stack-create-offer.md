@@ -15,12 +15,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 14f2300be0309cbd47b1481a4a52b02331f120a4
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 6ada971c092acbc1ebe8e83a784a5d1e392c4dea
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319197"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283582"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Azure Stack でのオファーの作成
 
@@ -43,7 +43,7 @@ ms.locfileid: "71319197"
 
    ![Azure Stack オファーに含めるプランを選択する](media/azure-stack-create-offer/select-plan.png)
 
-4. この時点で、アドオン プランを作成して基本プランを変更できますが、これはオプションです。 次の記事「[Azure Stack のアドオン プラン](create-add-on-plan.md)」では、アドオン プランを作成します。
+4. この時点で、アドオン プランを作成して基本プランを変更できますが、これはオプションです。 次の記事「[Azure Stack のアドオン プラン](create-add-on-plan.md)」では、アドオン プランを作成できます。
 
 5. **[確認および作成]** タブを選択します。オファーの概要に目を通し、値がすべて正しいことを確認します。 このインターフェイスでは、選択したプランのクォータを一度に 1 つずつ展開して、プランの各クォータの詳細を表示できます。 また、戻って必要な編集を加えることもできます。
 
@@ -111,5 +111,5 @@ ms.locfileid: "71319197"
 
 ## <a name="next-steps"></a>次の手順
 
-- [サブスクリプションを作成する](azure-stack-subscribe-plan-provision-vm.md)
-- [仮想マシンのプロビジョニング](../user/azure-stack-create-vm-template.md)
+- オファーを変更し、ユーザーにアドオン プランを提供する方法を確認するには、[アドオン プランの作成](create-add-on-plan.md)に関する記事に進みます (省略可能)
+- それ以外の場合は、[オファーのサブスクライブ](azure-stack-subscribe-plan-provision-vm.md)に関する記事に進みます

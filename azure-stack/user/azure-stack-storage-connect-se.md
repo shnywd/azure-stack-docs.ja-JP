@@ -14,12 +14,12 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: ebee962bbf53cad48df11bd21653830410f04d9d
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 454fe5b07dc5576cecdb11b59e5424e3c5ccbb72
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68417563"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445383"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Azure Stack サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -38,14 +38,14 @@ Azure Stack サブスクリプションまたはストレージ アカウント�
 
 Storage Explorer が Azure Stack サブスクリプションにアクセスするには、Azure Stack への直接アクセス、または VPN 接続が必要です。 Azure Stack への VPN 接続を設定する方法の詳細については、[VPN を使用した Azure Stack への接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)に関するページを参照してください。
 
-Azure Stack Development Kit (ASDK) 用に、Azure Stack の証明機関のルート証明書をエクスポートする必要があります。
-
 > [!Note]  
-> ASDK では、VPN 経由で ASDK に接続している場合、VPN 設定プロセス中に作成されたルート証明書 (CA.cer) を使用しないでください。  これは DER でエンコードされた証明書であり、Storage Explorer が Azure Stack サブスクリプションを取得することは許可されません。 以下の手順に従って、ストレージ エクスプローラーで使用するための Base-64 エンコード証明書をエクスポートしてください。
+> ASDK では、VPN 経由で ASDK に接続している場合、VPN 設定プロセス中に作成されたルート証明書 (CA.cer) を使用しないでください。  これは DER でエンコードされた証明書であり、Storage Explorer が Azure Stack サブスクリプションを取得することは許可されません。 以下の手順を使用して、Storage Explorer で使用するための Base-64 でエンコードされた証明書をエクスポートします。
+
+接続されていない統合システムおよび ASDK の場合は、内部エンタープライズ証明機関を使用して、Base-64 形式でルート証明書をエクスポートした後、Azure Storage Explorer にインポートすることをお勧めします。  
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Azure Stack の証明書をエクスポートしインポートする
 
-ASDK 用の Azure Stack 証明書をエクスポートしてからインポートします。 統合システムの場合、証明書は公的に署名されており、この手順は必要ありません。
+接続されていない統合システムおよび ASDK の場合は、Azure Stack 証明書をエクスポートしてインポートします。 接続されている統合システムの場合は、証明書はパブリック的に署名されており、この手順は必要ありません。
 
 1. Azure Stack に VPN 接続された、Azure Stack のホスト コンピューターまたはローカル コンピューターで `mmc.exe` を開きます。 
 

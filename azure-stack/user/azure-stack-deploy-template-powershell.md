@@ -3,7 +3,7 @@ title: Azure Stack で PowerShell を使用してテンプレートをデプロ�
 description: Azure Stack で PowerShell を使用してテンプレートをデプロイします。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: af4ac82e03b96b4fc3f6d728cbebf5a6fa9d6388
-ms.sourcegitcommit: e8aa26b078a9bab09c8fafd888a96785cc7abb4d
+ms.openlocfilehash: 38c3c428443afa251c8a6185929bfe0b80680b86
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71708959"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304068"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack"></a>Azure Stack で PowerShell を使用してテンプレートをデプロイする
 
@@ -35,7 +35,7 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
 >[!NOTE]
 > この例を試す前に、Azure Stack ユーザーに [PowerShell が構成されている](azure-stack-powershell-configure-user.md)ことを確認します。
 
-1. [AzureStackGitHub repo](https://aka.ms/AzureStackGitHub) を参照して、**101-simple-windows-vm** テンプレートを見つけます。 テンプレートを `C:\templates\azuredeploy-101-simple-windows-vm.json` に保存します。
+1. [AzureStack-QuickStart-Templates リポジトリ](https://aka.ms/AzureStackGitHub)を参照して、**101-simple-windows-vm** テンプレートを見つけます。 テンプレートを `C:\templates\azuredeploy-101-simple-windows-vm.json` に保存します。
 2. 管理者特権の PowerShell コマンド プロンプトを開きます。
 3. 次のスクリプト内の `username` と `password` を自分のユーザー名とパスワードに置き換えてから、スクリプトを実行します。
 

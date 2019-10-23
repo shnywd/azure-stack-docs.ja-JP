@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 10/11/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: ec07277043068835d1d1d5a41285ee5df5ee7691
-ms.sourcegitcommit: 701685f0b59e5a3d1a8d39fe477b8df701a51cd2
+ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165360"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72282602"
 ---
 # <a name="app-service-on-azure-stack-update-7-release-notes"></a>App Service on Azure Stack update 7 のリリース ノート
 
@@ -56,6 +56,8 @@ Azure App Service on Azure Stack の 1.7 へのアップグレードを開始す
 ### <a name="new-features-and-fixes"></a>新機能と修正
 
 Azure App Service on Azure Stack Update 7 には、次の機能強化と修正が含まれています。
+
+- [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) リモート コード実行の脆弱性の解決
 
 - **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一致しています。
 

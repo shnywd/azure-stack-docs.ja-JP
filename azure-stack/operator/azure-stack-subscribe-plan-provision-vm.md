@@ -1,26 +1,21 @@
 ---
-title: Azure Stack でのオファーのサブスクライブ | Microsoft Docs
+title: Azure Stack でのオファーのサブスクライブ
 description: Azure Stack でオファーのサブスクリプションを作成する
 services: azure-stack
 documentationcenter: ''
 author: bryanla
 manager: femila
-editor: ''
-ms.assetid: 7f3f8683-ef09-4838-92ed-41f2fddbbbed
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: a35f8fe34cedbeb1a2ef068c666bc6a75effe111
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: c69c8a4be93cc392ca1eaf4edb70fb7fb4fc8676
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319146"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283375"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack"></a>Azure Stack でオファーのサブスクリプションを作成する
 
@@ -33,11 +28,11 @@ ms.locfileid: "71319146"
 
 ## <a name="create-a-subscription-as-a-cloud-operator"></a>クラウド オペレーターとしてサブスクリプションを作成する
 
-クラウド オペレーターは、管理ポータルを使用して、ユーザー向けのオファーのサブスクリプションを作成できます。 サブスクリプションは、所有するディレクトリ テナントのメンバーに対して作成できます。 [マルチテナント](azure-stack-enable-multitenancy.md)が有効になっている場合は、追加のディレクトリ テナント内のユーザーに対してサブスクリプションを作成することもできます。
+クラウド オペレーターは、管理者ポータルを使用して、ユーザー向けのオファーのサブスクリプションを作成します。 サブスクリプションは、所有するディレクトリ テナントのメンバーに対して作成できます。 [マルチテナント](azure-stack-enable-multitenancy.md)が有効になっている場合は、追加のディレクトリ テナント内のユーザーに対してサブスクリプションを作成することもできます。
 
 テナントが独自のサブスクリプションを作成しないようにする場合は、すべてのオファーをプライベートにしてから、テナントのサブスクリプションを作成します。 この手法は、Azure Stack を外部の請求システムまたはサービス カタログ システムと統合する際に一般的です。
 
-ユーザー用のサブスクリプションを作成すると、そのユーザーはユーザー ポータルにサインインし、オファーをサブスクライブしていることを確認できます。  
+ユーザーのサブスクリプションを作成すると、そのユーザーはユーザー ポータルにサインインし、オファーをサブスクライブしていることを確認できます。  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>ユーザーのサブスクリプションを作成するには
 
@@ -88,11 +83,11 @@ ms.locfileid: "71319146"
 
 4. 作成したサブスクリプションを表示するには、 **[すべてのサービス]** を選択し、 **[全般]** カテゴリの **[サブスクリプション]** を選択します。 サブスクリプションを選択してそのサブスクリプションの詳細を表示します。  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>アドオン プランをサブスクライブするには
+### <a name="to-enable-an-add-on-plan-in-your-subscription"></a>サブスクリプション内でアドオン プランを有効にするには
 
-オファーにアドオン プランがある場合は、そのプランをいつでもサブスクリプションに追加できます。  
+サブスクライブするオファーにアドオン プランがある場合は、そのプランをいつでもサブスクリプションに追加できます。  
 
-1. ユーザー ポータルで **[すべてのサービス]** を選択します。 次に、 **[全般]** カテゴリの **[サブスクリプション]** を選択し、変更するサブスクリプションを選択します。 使用可能なアドオン プランがある場合は **+ [プランの追加]** がアクティブになり、 **[アドオン プラン]** のタイルが表示されます。
+1. ユーザー ポータルで **[すべてのサービス]** を選択します。 次に、 **[全般]** カテゴリの **[サブスクリプション]** を選択し、変更するサブスクリプションを選択します。 使用可能なアドオン プランがある場合は **[+ プランの追加]** がアクティブになり、 **[アドオン プラン]** のタイルが表示されます。
 
    **+ [プランの追加]** がアクティブでない場合は、そのサブスクリプションに関連付けられているオファーのアドオン プランがありません。
 
@@ -100,4 +95,6 @@ ms.locfileid: "71319146"
 
 ## <a name="next-steps"></a>次の手順
 
-- [仮想マシンのプロビジョニング](../user/azure-stack-create-vm-template.md)
+ユーザーがサブスクリプションにリソースをデプロイする方法の詳細を確認します。 
+  - [いくつかのユーザー クイックスタート](../user/azure-stack-quick-windows-portal.md)では、PowerShell、Azure CLI、ユーザー ポータルを使用して Windows および Linux の仮想マシンをプロビジョニングする方法を示しています。 
+  - [Azure Resource Manager テンプレートを使用するチュートリアル](../user/azure-stack-create-vm-template.md)では、Minikube を実行する Ubuntu 16.04 仮想マシンをデプロイして kubenetes クラスターを管理する方法を示しています。 

@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: ae603e1914b5a83f190eeafe7fa7d7e94e43a1aa
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714708"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283270"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
@@ -71,7 +71,7 @@ ms.locfileid: "71714708"
 
 - **OEM ハードウェア ベンダー提供の更新プログラム**
 
-    OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM の更新プログラムがあるときに気付くように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
+    OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM の更新プログラムがあるときに気付けるように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
 
 ## <a name="update-processes"></a>更新プロセス
 

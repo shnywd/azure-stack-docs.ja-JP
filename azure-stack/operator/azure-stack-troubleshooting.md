@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/16/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: b3540727b1868c700e43e2865848a71635e8003d
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
+ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173118"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72445273"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack のトラブルシューティング
 
@@ -85,7 +85,7 @@ Azure Stack で使用する共有サービス アカウントの種類を選択�
 * クラウド ソリューション プロバイダー
 * Partner Shared Services サブスクリプション
 
-## <a name="get-scale-unit-metrics"></a>スケール ユニットのメトリックを取得する
+### <a name="get-scale-unit-metrics"></a>スケール ユニットのメトリックを取得する
 
 PowerShell を使用して、CSS を利用せずに、スタンプ使用状況の情報を取得できます。 スタンプの使用状況を取得するには: 
 
@@ -151,6 +151,11 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 ## <a name="troubleshoot-storage"></a>ストレージのトラブルシューティング
 ### <a name="storage-reclamation"></a>記憶域の再利用
 ポータルに再利用された容量が表示されるまで、最大で 14 時間かかる場合があります。 領域の再利用は、ブロック BLOB ストア内の内部コンテナー ファイルの使用率をなど、さまざまな要因に依存します。 そのため、削除されるデータの量によって、ガベージ コレクターの実行時に再利用可能になる領域の量に対する保証はありません。
+
+### <a name="azure-storage-explorer-not-working-with-azure-stack"></a>Azure Stack で Azure Storage Explorer が動かない 
+ 
+切り離されたシナリオで統合システムを使用している場合は、エンタープライズ証明機関 (CA) を使用することをお勧めします。 ルート証明書を Base-64 形式でエクスポートしてから、Azure Storage Explorer にインポートします。 ARM エンドポイントから末尾のスラッシュ ("/") を削除してください。 詳細については、「[Azure Stack への接続を準備する](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se#prepare-for-connecting-to-azure-stack)」を参照してください。
+ 
 
 ## <a name="troubleshooting-app-service"></a>App Service のトラブルシューティング
 ### <a name="create-aadidentityappps1-script-fails"></a>Create-AADIdentityApp.ps1 スクリプトが失敗する

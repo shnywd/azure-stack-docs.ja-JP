@@ -11,44 +11,59 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2019
+ms.date: 10/15/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 07/15/2019
+ms.lastreviewed: 09/30/2019
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: b79e3def3444db2228992b423ca21945d7964f26
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: f32a25997e4336a24dfb9b673202882cff1845e9
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159619"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381452"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack でシークレットをローテーションする
 
 *この記事の説明は、Azure Stack 統合システム バージョン 1803 以降に対してのみ適用されます。1802 以前のバージョンの Azure Stack ではシークレットのローテーションを試みないでください。*
 
+シークレットは、Azure Stack インフラストラクチャのリソースとサービス間のセキュリティ保護された通信を維持するのに役立ちます。
+
+## <a name="overview-to-rotate-secrets"></a>シークレットのローテーションの概要
+
+1. シークレットのローテーションに使用される証明書を準備します。
+2. Azure Stack の[公開キー インフラストラクチャ証明書の要件](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)を確認します。
+3. [特権エンドポイントを使用し](azure-stack-privileged-endpoint.md)、**Test-azurestack** を実行して、すべてに問題がないことを確認します。  
+4. [シークレット ローテーションの事前手順](#pre-steps-for-secret-rotation)の詳細を参照してください。
+5. [Azure Stack PKI 証明書を検証](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs)します。 パスワードに `*` や `)` などの特殊文字が含まれないことを確認します。
+6. PFX 暗号化が **TripleDES-SHA1** であることを確認します。 問題がある場合は、「[Azure Stack PKI 証明書に関する一般的な問題を修復する](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption)」を参照してください。
+7. フォルダー構造を準備します。  例については、「[外部シークレットのローテーション](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets)」セクションを参照してください。
+8. [シークレットのローテーションを開始します](#use-powershell-to-rotate-secrets)。
+
+## <a name="rotate-secrets"></a>シークレットの切り替え
+
 Azure Stack は、さまざまなシークレットを使って、Azure Stack インフラストラクチャのリソースとサービス間のセキュリティ保護された通信を維持します。
 
 - **内部シークレット**
 
-Azure Stack オペレーターの介入なしに Azure Stack インフラストラクチャによって使われるすべての証明書、パスワード、セキュリティで保護された文字列、およびキー。
+    Azure Stack オペレーターの介入なしに Azure Stack インフラストラクチャによって使われるすべての証明書、パスワード、セキュリティで保護された文字列、およびキー。
 
 - **外部シークレット**
 
-Azure Stack オペレーターによって提供される、外部に接続されるサービス用のインフラストラクチャ サービス証明書。 外部シークレットには、次のサービスの証明書が含まれます。
+    Azure Stack オペレーターによって提供される、外部に接続されるサービス用のインフラストラクチャ サービス証明書。 外部シークレットには、次のサービスの証明書が含まれます。
 
-- 管理者ポータル
-- パブリック ポータル
-- 管理者の Azure Resource Manager
-- グローバルな Azure Resource Manager
-- 管理者 KeyVault
-- KeyVault
-- 管理者拡張機能ホスト
-- ACS (Blob、Table、Queue Storage を含みます)
-- ADFS *
-- Graph *
-
-\* 環境の ID プロバイダーが Active Directory フェデレーション サービス (AD FS) の場合にのみ適用されます。
+    - 管理者ポータル
+    - パブリック ポータル
+    - 管理者の Azure Resource Manager
+    - グローバルな Azure Resource Manager
+    - 管理者 KeyVault
+    - KeyVault
+    - 管理者拡張機能ホスト
+    - ACS (Blob、Table、Queue Storage を含みます)
+    - ADFS *
+    - Graph *
+    
+    \* 環境の ID プロバイダーが Active Directory フェデレーション サービス (AD FS) の場合にのみ適用されます。
 
 > [!Note]
 > BMC やスイッチ パスワードなどの他のすべてのセキュリティで保護されたキーと文字列、ユーザーおよび管理者アカウントのパスワードは、まだ管理者が手動で更新します。
@@ -217,7 +232,7 @@ Azure Stack では、次のようなコンテキストで、新しい証明書�
 
 6. シークレットのローテーションが正常に完了した後、事前手順で作成した共有から証明書を削除し、セキュリティで保護されたバックアップ場所に保存します。
 
-## <a name="walkthrough-of-secret-rotation"></a>シークレットのローテーションのチュートリアル
+## <a name="use-powershell-to-rotate-secrets"></a>PowerShell を使用してシークレットをローテーションする
 
 次の PowerShell の例では、シークレットのローテーションを行うために実行するコマンドレットとパラメーターを示します。
 
@@ -368,13 +383,12 @@ Remove-PSSession -Session $PEPSession
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>ベースボード管理コントローラー (BMC) の資格情報の更新
 
-ベースボード管理コントローラー (BMC) は、サーバーの物理的な状態を監視します。 BMC のユーザー アカウント名とパスワードの更新に関する仕様や手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 Azure Stack コンポーネントのパスワードを定期的に更新する必要があります。
+ベースボード管理コントローラー (BMC) は、サーバーの物理的な状態を監視します。 BMC のユーザー アカウント名とパスワードを更新する手順については、OEM (Original Equipment Manufacturer) ハードウェア ベンダーを参照してください。 
+
+>[!NOTE]
+> OEM から追加の管理アプリケーションが提供されている場合があります。 他の管理アプリケーションのユーザー名またはパスワードを更新しても、BMC のユーザー名またはパスワードには影響しません。   
 
 1. OEM の指示に従って、Azure Stack の物理サーバー上で BMC を更新します。 環境内の各 BMC のユーザー名とパスワードは同じである必要があります。 BMC のユーザー名は、16 文字を超えることはできません。
-
-    > [!Note]  
-    > まず、物理サーバーのベース ボード管理コントローラーで BMC の資格情報を更新してください。そうしないと、検証中に Azure Stack コマンドが失敗します。
-
 2. Azure Stack セッションで特権エンドポイントを開きます。 手順については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
 3. PowerShell プロンプトが **[IP アドレスまたは ERCS VM 名]:PS>** または **[azs-ercs01]:PS>** に環境に応じて変更されたら、`Set-BmcCredential` を `Invoke-Command` によって実行します。 パラメーターとして特権エンドポイントのセッション変数を渡します。 例:
 

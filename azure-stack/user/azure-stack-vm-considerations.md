@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 07/16/2019
-ms.openlocfilehash: b0ced01686247953e3cb1849305d664d844da949
-ms.sourcegitcommit: c2690b2dd36918ff3e47e359cac926128bb83101
+ms.lastreviewed: 10/09/2019
+ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68544108"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381442"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
 
@@ -41,7 +41,7 @@ Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブ�
 | 仮想マシン ディスクのパフォーマンス | ディスクの種類とサイズによって異なります。 | ディスクが接続されている VM の VM サイズによって異なります。 詳細については、「[Azure Stack でサポートされている VM のサイズ](azure-stack-vm-sizes.md)」の記事を参照してください。
 | API のバージョン | Azure では常に、すべての VM 機能について最新の API のバージョンが用意されます。 | Azure Stack では特定の Azure サービスがサポートされ、それらのサービスについて特定の API バージョンがサポートされます。 サポートされている API バージョンの一覧を参照するには、この記事の [API バージョン](#api-versions)についてのセクションを参照してください。 |
 | Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理とセットアップを行うことができます。  | Azure Stack では、Azure Instance Metadata Service がサポートされません。 |
-| 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>更新中のワークロードを保護するためのライブ マイグレーションによる単一の更新ドメイン。 テンプレート互換性のために、20 個の更新ドメインがサポートされています|
+| 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>更新中のワークロードを保護するためのライブ マイグレーションによる単一の更新ドメイン。 テンプレートの互換性のためにサポートされている 20 個の更新ドメイン。<br>VM と可用性セットは、同じ場所とリソース グループに存在する必要があります。|
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
 | クラウド監視 | Azure Stack で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
@@ -56,7 +56,7 @@ Azure Stack は、リソースの過剰消費を防ぐため、(サーバー ロ
 
 次の表は、Azure Stack でサポートされている VM とその構成の一覧です。
 
-| Type            | Size          | サポートされるサイズの範囲 |
+| 種類            | Size          | サポートされるサイズの範囲 |
 | ----------------| ------------- | ------------------------ |
 |汎用  |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |汎用  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
@@ -95,7 +95,7 @@ VM のデプロイで拡張機能のプロビジョニングに時間がかか�
 
 Azure Stack の VM 機能は、次の API バージョンをサポートしています。
 
-![VM リソースの種類](media/azure-stack-vm-considerations/vm-resoource-types.png)
+"2017-12-01"、"2017-03-30"、"2016-03-30"、"2015-06-15"
 
 次の PowerShell スクリプトを使用して、実際の Azure Stack 環境で利用できる VM 機能の API バージョンを取得することができます。
 

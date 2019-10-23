@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6a933f812edeede1802c35e3d25915ce09b6f01b
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909209"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283475"
 ---
 # <a name="create-mysql-databases"></a>MySQL データベースの作成
 MySQL データベース サービスを含むオファーにサブスクライブした Azure Stack ユーザーは、ユーザー ポータルで、セルフ サービスの MySQL データベースを作成し、管理することができます。
@@ -66,4 +66,4 @@ MySQL データベース サービスを含むオファーにサブスクライ�
 
 ## <a name="next-steps"></a>次の手順
 
-[MySQL リソースプロバイダーを更新する](azure-stack-mysql-resource-provider-update.md)
+[高可用性 MySQL データベースの提供](azure-stack-tutorial-mysql.md)方法を確認する

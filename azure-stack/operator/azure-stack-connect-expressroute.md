@@ -14,12 +14,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4d9331f5167a0ce9d305a76225987d8b1d3f3dcc
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 2fee81a79b58294a9c43f8d550f139157cb64a9b
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961554"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283569"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack を Azure に接続する
 
@@ -84,7 +84,7 @@ ExpressRoute を使用して Azure Stack と Azure を接続するには、次�
 Azure Stack の構成を始める前に、次のものが必要となります。
 
 * Azure Stack 統合システムのデプロイまたは Azure Stack Development Kit (ASDK) のデプロイ。 ASDK のデプロイについては、[Azure Stack Development Kit のデプロイに関するクイック スタート](../asdk/asdk-download.md)を参照してください。
-* ユーザーがサブスクライブできる Azure Stack 内のオファー。 詳細については、[プラン、オファー、サブスクリプション](azure-stack-plan-offer-quota-overview.md)に関するページを参照してください。
+* ユーザーがサブスクライブできる Azure Stack 内のオファー。 詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
 
 ### <a name="create-network-resources-in-azure-stack"></a>Azure Stack でネットワーク リソースを作成する
 
@@ -341,7 +341,7 @@ ExpressRoute ルーターは、次の ExpressRoute ルーターの構成図を�
 
 Azure Stack からサイト間 VPN 接続を終了するには、IKEv2 VPN と BGP をサポートする任意のルーターを使用できます。 ExpressRoute 回線を使用して Azure に接続する際は、同じルーターが使用されます。
 
-次の Cisco Site Recovery 1000 シリーズ アグリゲーション サービス ルータの構成例は、*ExpressRoute ルーターの構成*の図に示したネットワーク インフラストラクチャをサポートします。
+次の Cisco ASR 1000 Series Aggregation Services Router の構成例は、「*ExpressRoute ルーターの構成*」の図に示したネットワーク インフラストラクチャをサポートします。
 
 ```shell
 ip vrf Tenant 1

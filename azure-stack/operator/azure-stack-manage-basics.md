@@ -1,6 +1,6 @@
 ---
 title: Azure Stack の管理の基本 | Microsoft Docs
-description: Azure Stack を管理するために知っておく必要があることについて説明します。
+description: Azure Stack の管理の基本について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 3887712d2c7f14498536e5ad22494bedaa41197c
-ms.sourcegitcommit: 7f39bdc83717c27de54fe67eb23eb55dbab258a9
+ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66691675"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283487"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack の管理の基本
 
@@ -73,10 +73,10 @@ Azure Stack を管理する場合に注意するいくつかのアカウント�
 
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
-|ローカル管理者 (.\Administrator)|ASDK ホスト管理者|ASDK ホスト管理者|
-|AzureStack\AzureStackAdmin|ASDK ホスト管理者<br><br>Azure Stack 管理ポータルにサインインするために使用できます<br><br>Service Fabric リングを表示および管理するためのアクセス権|ASDK ホスト管理者<br><br>Azure Stack 管理者ポータルへのアクセス権なし<br><br>Service Fabric リングを表示および管理するためのアクセス権<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました|
-|AzureStack\CloudAdmin|特権エンドポイント内で許可されたコマンドにアクセス、実行できます|特権エンドポイント内で許可されたコマンドにアクセス、実行できます<br><br>ASDK ホストにサインインできません<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者|
-|Azure AD 全体管理者|インストール時に使用<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者|適用不可|
+|ローカル管理者 (.\Administrator)|ASDK ホスト管理者。|ASDK ホスト管理者。|
+|AzureStack\AzureStackAdmin|ASDK ホスト管理者。<br><br>Azure Stack 管理者ポータルにサインインするために使用できます。<br><br>Service Fabric リングを表示および管理するためのアクセス権。|ASDK ホスト管理者。<br><br>Azure Stack 管理者ポータルにはアクセスできません。<br><br>Service Fabric リングを表示および管理するためのアクセス権。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました。|
+|AzureStack\CloudAdmin|特権エンドポイント内で許可されたコマンドにアクセス、実行できます。|特権エンドポイント内で許可されたコマンドにアクセス、実行できます。<br><br>ASDK ホストにサインインできません。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者。|
+|Azure AD 全体管理者|インストール時に使用。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者。|適用不可。|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
@@ -87,24 +87,24 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 
 ## <a name="your-typical-responsibilities"></a>クラウド オペレーターの通常の担当範囲
 
-ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、「[Overview of offering services in Azure Stack (Azure の提供サービスの概要)](azure-stack-offer-services-overview.md)」をご覧ください。 
+ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、「[Overview of offering services in Azure Stack (Azure の提供サービスの概要)](service-plan-offer-subscription-overview.md)」をご覧ください。 
 
-仮想マシンのイメージなど、[マーケットプレース](azure-stack-marketplace.md)に項目を追加する必要もあります。 [マーケットプレースの項目を Azure から Azure Stack にダウンロードする](azure-stack-download-azure-marketplace-item.md)のが最も容易な方法です。
+[Azure Stack Marketplace ](azure-stack-marketplace.md) に項目を追加する必要もあります。 [マーケットプレースの項目を Azure から Azure Stack にダウンロードする](azure-stack-download-azure-marketplace-item.md)のが最も容易な方法です。
 
 > [!NOTE]
 > プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく、[ユーザー ポータル](azure-stack-manage-portals.md)を使用することができます。
 
-サービスを提供することに加えて、オペレーターとして Azure Stack を稼働させ続けるという通常の業務を行う必要があります。 これには以下のような業務が含まれます。
+サービスを提供することに加えて、オペレーターとして Azure Stack を稼働させ続けるという通常の業務を行う必要があります。 これらの業務には、次のタスクが含まれます。
 
-- ユーザー アカウントを追加する ([Azure Active Directory](azure-stack-add-new-user-aad.md) のデプロイや [Active Directory フェデレーション サービス (AD FS) ](azure-stack-add-users-adfs.md)のデプロイのため)
-- [ロールベースのアクセス制御 (RBAC) のロールを割り当てる](azure-stack-manage-permissions.md) (これは管理者に限られません)。
-- [インフラストラクチャの正常性を監視する](azure-stack-monitor-health.md)
-- [ネットワーク](azure-stack-viewing-public-ip-address-consumption.md)と[ストレージ](azure-stack-manage-storage-accounts.md)のリソースを管理する
-- 不具合のあるハードウェアを交換する、たとえば[障害が発生したディスクを交換する](azure-stack-replace-disk.md)。
+- ユーザー アカウント ([Azure AD](azure-stack-add-new-user-aad.md) のデプロイ用または [AD FS](azure-stack-add-users-adfs.md) のデプロイ用) を追加します。
+- [ロールベースのアクセス制御 (RBAC) のロールを割り当てます](azure-stack-manage-permissions.md) (このタスクは管理者に限られません)。
+- [インフラストラクチャの正常性を監視します](azure-stack-monitor-health.md)。
+- [ネットワーク](azure-stack-viewing-public-ip-address-consumption.md)と[ストレージ](azure-stack-manage-storage-accounts.md)のリソースを管理します。
+- ハードウェアを交換します。 たとえば、[障害が発生したディスクを交換](azure-stack-replace-disk.md)します。
 
 ## <a name="what-to-tell-your-users"></a>ユーザーに伝えること
 
-ユーザーには、Azure Stack 内のサービスを操作する方法、環境に接続する方法、オファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供するカスタム ドキュメントのほかに、ユーザーには Azure Stack ユーザー ドキュメント サイトを案内できます。
+ユーザーには、Azure Stack 内のサービスを操作する方法、環境に接続する方法、オファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供するカスタム ドキュメントのほかに、ユーザーには [Azure Stack ユーザー ドキュメント](https://docs.microsoft.com/en-us/azure-stack/user/)を案内できます。
 
 **Azure Stack 内のサービスを操作する方法について**
 
@@ -118,11 +118,11 @@ Azure Stack 内のサービスを使用してアプリを構築する前に、�
 
 **ユーザーとしての Azure Stack への接続**
 
-ASDK 環境で、ユーザーは、リモート デスクトップを使用して ASDK ホストに接続しない場合、仮想プライベートネットワーク (VPN) 接続を構成して Azure Stack に接続できます。 「[Azure Stack への接続](../asdk/asdk-connect.md)」を参照してください。 
+ASDK 環境で、ユーザーは、リモート デスクトップを使用して ASDK ホストに接続しない場合、仮想プライベートネットワーク (VPN) 接続を構成して Azure Stack に接続できます。 「[Azure Stack への接続](../asdk/asdk-connect.md)」を参照してください。
 
 ユーザーは、[ユーザー ポータルへのアクセス方法](../user/azure-stack-use-portal.md)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
 
-PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 (リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。)ユーザーは PowerShell を[インストール](azure-stack-powershell-install.md)し、追加のモジュールを[ダウンロード](azure-stack-powershell-download.md)して、PowerShell を[構成](../user/azure-stack-powershell-configure-user.md)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
+PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。 ユーザーは PowerShell を[インストール](azure-stack-powershell-install.md)し、追加のモジュールを[ダウンロード](azure-stack-powershell-download.md)して、PowerShell を[構成](../user/azure-stack-powershell-configure-user.md)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
 
 **オファーへのサブスクライブ**
 
@@ -135,17 +135,17 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 
 ### <a name="integrated-systems"></a>統合システム
 
-統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間で、統合されたエスカレーションと解決のプロセスをご用意しています。
+統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間に、統合されたエスカレーションと解決のプロセスがあります。
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供いたします。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択してから、 **[ヘルプとサポート]** を選び、 **[サポート]** セクションで **[新しいサポート リクエスト]** を選択する場合は、 サポート リクエストを開きます。
+クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供します。 サポート リクエストを開くには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[新しいサポート リクエスト]** を選択します。
 
 デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。
 
-デプロイ、パッチ、更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、はじめに OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
+その他の問題については、Microsoft CSS にお問い合わせください。
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択すると、  フォーラム サイトが開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 フォーラムにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択します。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
 ## <a name="next-steps"></a>次の手順
 

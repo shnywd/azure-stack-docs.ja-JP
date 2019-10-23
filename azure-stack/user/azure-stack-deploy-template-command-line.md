@@ -3,7 +3,7 @@ title: Azure Stack でコマンド ラインを使ってテンプレートをデ
 description: Azure クロスプラットフォームのコマンド ライン インターフェイス (CLI) を使用して、Azure Stack にテンプレートをデプロイする方法を説明します。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: mattbriggs
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,45 +11,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-ms.date: 08/13/2019
-ms.author: sethm
+ms.date: 10/07/2019
+ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: da17e80c802e210d53effbad8f264b1a4019e6e0
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 7b3daaefd8fa7e7bce9c6d5708e664911fc906fe
+ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991843"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72304093"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>Azure Stack でコマンド ラインを使ってテンプレートをデプロイする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure コマンド ライン インターフェイス (CLI) を使用して、Azure Resource Manager テンプレートを Azure Stack にデプロイできます。 Azure Resource Manager テンプレートは、お使いのアプリのリソースを、単一の連携した操作でデプロイしてプロビジョニングします。
-
-## <a name="before-you-begin"></a>開始する前に
-
-- Azure CLI で Azure Stack を[インストールして接続](azure-stack-version-profiles-azurecli2.md)します。
-- [ストレージ アカウントの作成例のテンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account)からファイル *azuredeploy.json* と *azuredeploy.parameters.json* をダウンロードします。
+Azure コマンド ライン インターフェイス (CLI) を使用して、Azure Resource Manager テンプレートを Azure Stack にデプロイできます。 Azure Resource Manager テンプレートでは、単一の調整されたアクションで、アプリのためのリソースがデプロイされて設定されます。
 
 ## <a name="deploy-template"></a>テンプレートのデプロイ
 
-これらのファイルをダウンロードしたフォルダーに移動し、次のコマンドを実行してテンプレートをデプロイします。
+1. [AzureStack-QuickStart-Templates リポジトリ](https://aka.ms/AzureStackGitHub)を参照して、**101-create-storage-account** テンプレートを見つけます。 テンプレート (`azuredeploy.json`) とパラメーター ファイル (`(azuredeploy.parameters.json`) を、ローカル ドライブ上の場所に保存します (`C:\templates\` など)
+2. ファイルをダウンロードしたフォルダーに移動します。 
+3. Azure CLI で Azure Stack を[インストールして接続](azure-stack-version-profiles-azurecli2.md)します。
+4. 次のコマンドで、リージョンと場所を更新します。 ASDK を使用している場合は、場所パラメーターに `local` を使用します。 テンプレートをデプロイするには、次の手順に従います。
+    ```azurecli
+    az group create --name testDeploy --location local
+    az group deployment create --resource-group testDeploy --template-file ./azuredeploy.json --parameters ./azuredeploy.parameters.json
+    ```
 
-```azurecli
-az group create "cliRG" "local" -f azuredeploy.json -d "testDeploy" -e azuredeploy.parameters.json
-```
-
-このコマンドで、テンプレートが Azure Stack POC の既定の場所のリソース グループ **cliRG** にデプロイされます。
+このコマンドでは、Azure Stack インスタンス内のリソース グループ **testDeploy** にテンプレートがデプロイされます。
 
 ## <a name="validate-template-deployment"></a>テンプレートのデプロイを検証する
 
-このリソース グループとストレージ アカウントを表示するには、次の CLI コマンドを使用します。
+リソース グループとストレージ アカウントを確認するには、次の CLI コマンドを実行します。
 
 ```azurecli
 az group list
-
 az storage account list
 ```
 

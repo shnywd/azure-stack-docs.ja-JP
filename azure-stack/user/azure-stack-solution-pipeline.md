@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/23/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 5357fcf548971e0962bec41ad9238bf88290531c
-ms.sourcegitcommit: 35b13ea6dc0221a15cd0840be796f4af5370ddaf
+ms.openlocfilehash: c821f35928df5da4c34455a0b541699b0a84d490
+ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68603112"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72310620"
 ---
 # <a name="deploy-apps-to-azure-and-azure-stack"></a>Azure と Azure Stack へのアプリのデプロイ
 
@@ -97,7 +97,7 @@ Microsoft Azure Stack は Azure を拡張したもので、クラウド コン�
      
   1. [Azure App Service](../operator/azure-stack-app-service-deploy.md) PaaS サービスを Azure Stack にデプロイします。
      
-  1. Azure Stack で[プランとオファー](../operator/azure-stack-plan-offer-quota-overview.md)を作成します。
+  1. Azure Stack で[プランとオファー](../operator/service-plan-offer-subscription-overview.md)を作成します。
      
   1. Azure Stack で、オファーの[テナント サブスクリプション](../operator/azure-stack-subscribe-plan-provision-vm.md)を作成します。 
      
@@ -342,20 +342,62 @@ Azure Pipelines が提供するパイプラインは自由に構成でき、管�
 1. Web ブラウザーで、対象の Azure DevOps 組織およびプロジェクトを開きます。
    
 1. 左側のナビゲーションで **[パイプライン]**  >  **[ビルド]** を選択し、 **[新しいパイプライン]** を選択します。 
+
+1. お使いのコード リポジトリを選択します。 Azure Pipelines でプロジェクトが分析されて ASP.NET Core として識別され、ASP.NET Core の既定の *azure-pipelines.yml* ビルド テンプレートが開かれます。 
    
-1. **[テンプレートの選択]** で、 **[ASP.NET Core]** テンプレートを選択し、 **[適用]** を選択します。 
+   ![ASP.NET Core の azure-pipelines.yml ファイル](media/azure-stack-solution-pipeline/buildargument.png)
    
-1. 構成ページの左側のウィンドウで **[Publish]\(発行\)** を選択します。
+1. パイプラインのコードを直接編集しても、 **[アシスタントを表示する]** を選択し、タスクとステップの追加に役立つ **[タスク]** ウィンドウを開いてもかまいません。 
    
-1. 右側のウィンドウの **[引数]** で、`-r win10-x64` を構成に追加します。 
+   **[アシスタントを表示する]** を選択する場合は、 **[タスク]** ウィンドウで **[.NET Core]** を選択します。 **[.NET Core]** フォームで次のようにします。
+   - **[コマンド]** ドロップダウンで、 **[発行]** を選択します。 
+   - **[引数]** に、「 *-r win10-x64*」と入力します。
+   - **[Web プロジェクトの発行]** が選択されていることを確認します。
+   - **[追加]** を選択します。
    
-   ![ビルド パイプラインの引数を追加する](media/azure-stack-solution-pipeline/buildargument.png)
+   アシスタントを使用する代わりに、*azure-pipelines.yml* ファイルを直接編集して、次のコードを追加することもできます。
    
-1. ページの最上部で **[保存してキューに登録]** を選択します。
+   - `pool` の下で、`vmImage` を `ubuntu-latest` から `vs2017-win2016` に変更します。
+     
+   - `steps` の下に、[DotNetCoreCLI](/azure/devops/pipelines/tasks/build/dotnet-core-cli) タスク、コマンド、および引数を追加します。 
+     
+     ```yaml
+     - task: DotNetCoreCLI@2
+       inputs:
+         command: 'publish'
+         publishWebProjects: true
+         arguments: '-r win10-x64'
+     ```
+   *azure-pipelines.yml* ファイルは、次のコードのようになります。 
    
-1. **[Run pipeline]\(パイプラインの実行\)** ダイアログで、 **[Save and run]\(保存および実行\)** を選択します。 
+   ```yaml
+   # ASP.NET Core
+   # Build and test ASP.NET Core projects targeting .NET Core.
+   # Add steps that run tests, create a NuGet package, deploy, and more:
+   # https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
    
-[自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)により、Azure と Azure Stack の両方で実行できる成果物が発行されます。
+   trigger:
+   - master
+   
+   pool:
+     vmImage: 'vs2017-win2016'
+   
+   variables:
+     buildConfiguration: 'Release'
+
+   steps:
+   - script: dotnet build --configuration $(buildConfiguration)
+     displayName: 'dotnet build $(buildConfiguration)'
+   
+   - task: DotNetCoreCLI@2
+     inputs:
+       command: 'publish'
+       publishWebProjects: true
+       arguments: '-r win10-x64'
+   ```
+1. **[保存して実行]** を選択し、コミット メッセージとオプションの説明を追加して、 **[保存して実行]** をもう一度選択します。 
+   
+[自己完結型のデプロイ ビルド](/dotnet/core/deploying/#self-contained-deployments-scd)により、Azure と Azure Stack の両方で実行できる成果物が発行されます。
 
 ### <a name="create-a-release-pipeline"></a>リリース パイプラインを作成する
 
@@ -363,7 +405,7 @@ Azure Pipelines が提供するパイプラインは自由に構成でき、管�
 
 1. 対象の Azure DevOps プロジェクトで、左側のナビゲーションから **[パイプライン]**  >  **[リリース]** を選択し、 **[新しいパイプライン]** を選択します。 
    
-1. **[テンプレートの選択]** ページで、 **[Azure App Service の配置]** を選んでから **[適用]** を選択します。
+1. **[テンプレートの選択]** ページで、 **[Azure App Service の配置]** を選択し、 **[適用]** を選択します。
    
    ![リリース テンプレートを選択する](media/azure-stack-solution-pipeline/releasetemplate.png)
    
@@ -381,25 +423,25 @@ Azure Pipelines が提供するパイプラインは自由に構成でき、管�
    
    ![サブスクリプションの選択と App Service の名前の入力](media/azure-stack-solution-pipeline/stage1.png)
    
-1. 左側のウィンドウで、 **[エージェントで実行]** を選択します。 右側のウィンドウで、 **[Hosted VS2017]\(ホストされた VS2017\)** がまだ **[エージェント プール]** ドロップダウン リストから選択されていない場合、選択します。
+1. 左側のウィンドウで、 **[エージェントで実行]** を選択します。 右側のウィンドウで、 **[エージェント プール]** ドロップダウン リストから **[Azure Pipelines]** を選択し、 **[エージェントの指定]** ドロップダウン リストから **[vs2017-win2016]** を選択します。
    
    ![ホストされたエージェントの選択](media/azure-stack-solution-pipeline/agentjob.png)
    
-1. 左側のウィンドウで **[Deploy Azure App Service]\(Azure App Service をデプロイする\)** を選択し、右側のウィンドウで、対象の Azure Web アプリ ビルドの**パッケージまたはフォルダー**を参照して指定します。
+1. 左側のウィンドウで、 **[Deploy Azure App Service]\(Azure App Service のデプロイ\)** を選択します。 右側のウィンドウで下にスクロールし、 **[パッケージまたはフォルダー]** の横の省略記号 **[...]** を選択します。
    
    ![パッケージまたはフォルダーを選択](media/azure-stack-solution-pipeline/packageorfolder.png)
    
-1. **[Select a file or folder]\(ファイルまたはフォルダーの選択\)** ダイアログで、 **[OK]** を選択します。
+1. **[ファイルまたはフォルダーを選択します]** ダイアログで、Azure Web アプリのビルドの場所を参照して、 **[OK]** を選択します。
    
-1. **[新しいリリース パイプライン]** ページの右上にある **[保存]** を選択します。
-   
-   ![変更を保存する](media/azure-stack-solution-pipeline/save-devops-icon.png)
+1. **[新しいリリース パイプライン]** ページの右上にある **[保存]** を選択します。 
    
 1. **[パイプライン]** タブで、 **[成果物の追加]** を選択します。 プロジェクトを選択し、対象の Azure Stack ビルドを **[ソース (ビルド パイプライン)]** ドロップダウン メニューから選択します。 **[追加]** を選択します。 
    
-1. **[パイプライン]** タブの **[ステージ]** で、 **[追加]** を選択します。
+1. **[ステージ]** で、 **[+]** が表示されるまで **[Azure]** をポイントしてから、 **[追加]** を選択します。
    
-1. 新しいステージで、ハイパーリンクを選択して**ステージ タスクを表示**します。 ステージ名を「*Azure Stack*」と入力します。 
+1. **[テンプレート]** で、 **[空のジョブ]** を選択します。 
+   
+1. **[ステージ]** ダイアログで、ステージ名として「*Azure Stack*」と入力します。 
    
    ![新しいステージの表示](media/azure-stack-solution-pipeline/newstage.png)
    
@@ -430,7 +472,7 @@ Azure Pipelines が提供するパイプラインは自由に構成でき、管�
 
 リリース パイプラインが用意できたので、それを使用してリリースを作成し、アプリをデプロイできます。 
 
-継続的デプロイのトリガーがリリース パイプラインで設定されているため、ソース コードに変更を加えると新しいビルドが始まり、新しいリリースが自動的に作成されます。 ただし、この新しいリリースは手動で作成して実行します。
+継続的デプロイのトリガーがリリース パイプラインで設定されているため、ソース コードに変更を加えると新しいビルドが始まり、新しいリリースが自動的に作成されます。 ただし、今度は新しいリリースを手動で作成して実行します。
 
 リリースを作成してデプロイするには、次のようにします。
 

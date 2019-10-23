@@ -1,33 +1,28 @@
 ---
-title: Azure Stack で高可用性 SQL データベースを提供する | Microsoft Docs
+title: Azure Stack で高可用性 SQL データベースを提供する
 description: Azure Stack で SQL Server リソース プロバイダーのホスト コンピューターと高可用性 SQL Always On データベースを作成する方法について説明します。
 services: azure-stack
-documentationcenter: ''
-author: justinha
+author: BryanLa
 manager: femila
 editor: ''
-ms.assetid: ''
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: tutorial
-ms.date: 02/25/2019
-ms.author: justinha
+ms.topic: article
+ms.date: 10/07/2019
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: fa9577bf0a620f8911ee6cf5238b55f460076883
-ms.sourcegitcommit: 3f52cf06fb5b3208057cfdc07616cd76f11cdb38
+ms.openlocfilehash: e5866a80367a826dd58aa39109ebbbbd9f2edce6
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67316320"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283309"
 ---
-# <a name="tutorial-offer-highly-available-sql-databases"></a>チュートリアル:高可用性 SQL データベースの提供
+# <a name="offer-highly-available-sql-databases"></a>高可用性 SQL データベースの提供
 
 Azure Stack オペレーターとして、SQL Server データベースをホストするようにサーバー VM を構成できます。 SQL ホスティング サーバーが正常に作成され、Azure Stack によって管理されていると、SQL サービスにサブスクライブしているユーザーは SQL データベースを簡単に作成できます。
 
-このチュートリアルでは、Azure Stack クイック スタート テンプレートを使用して [SQL Server AlwaysOn 可用性グループ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)を作成し、それを Azure Stack SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について説明します。
+この記事では、Azure Stackクイックスタート テンプレートを使用して [SQL Server AlwaysOn 可用性グループ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)を作成し、それを Azure Stack SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について説明します。
 
 学習内容
 
@@ -36,15 +31,15 @@ Azure Stack オペレーターとして、SQL Server データベースをホス
 > * Azure Stack SQL ホスティング サーバーを作成する
 > * 高可用性 SQL データベースを作成する
 
-このチュートリアルでは、入手できる Azure Stack マーケットプレース項目を使用して、2 つの VM SQL Server AlwaysOn 可用性グループを作成および構成します。 
+入手できる Azure Stack マーケットプレース項目を使用して、2 つの VM SQL Server AlwaysOn 可用性グループを作成および構成します。 
 
-このチュートリアルの手順を開始する前に、[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)が正常にインストールされ、Azure Stack マーケットプレースで次の項目を入手できることを確認してください。
+開始する前に、[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)が正常にインストールされ、Azure Stack マーケットプレースで次の項目を入手できることを確認してください。
 
 > [!IMPORTANT]
 > Azure Stack クイック スタート テンプレートを使用するには、以下のすべてが必要です。
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) マーケットプレース イメージ。
-- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) このチュートリアルでは、[Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) を使用します。
+- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) この記事では、[Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) を使用します。
 - [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) バージョン 1.2.30 以降 SQL IaaS 拡張機能を使用して、すべての Windows バージョンの Marketplace SQL Server 項目に必要なコンポーネントをインストールします。 SQL 仮想マシン上で SQL 固有の設定を構成することができます。 拡張機能がローカルの Marketplace にインストールされていない場合、SQL のプロビジョニングは失敗します。
 - [Windows バージョン 1.9.1 以降のカスタム スクリプト拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 カスタム スクリプト拡張機能は、デプロイ後の VM カスタマイズ タスクを自動的に起動するために使用できるツールです。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) バージョン 2.76.0.0 以降。 DSC は、Windows PowerShell の管理プラットフォームであり、ソフトウェア サービスの構成データのデプロイと管理、これらのサービスが実行される環境の管理を行うことができます。
@@ -144,7 +139,7 @@ SQL Server AlwayOn 可用性グループが作成され、適切に構成され�
 
 Azure Stack Operator は、SQL AlwaysOn 可用性グループのロード バランサー リスナーのパブリック IP と SQL 認証ログイン情報を使用し、[SQL AlwaysOn 可用性グループを使用して SQL ホスティング サーバーを作成](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups)できるようになりました。 
 
-また、SQL AlwaysOn データベースをユーザーが作成できるようにするプランとオファーが作成してあることも確認してください。 Operator は **Microsoft.SqlAdapter** サービスをプランに追加し、高可用性データベース専用の新しいクォータを作成する必要があります。 プランの作成の詳細については、「[プラン、オファー、クォータ、サブスクリプションの概要](azure-stack-plan-offer-quota-overview.md)」を参照してください。
+また、SQL AlwaysOn データベースをユーザーが作成できるようにするプランとオファーが作成してあることも確認してください。 Operator は **Microsoft.SqlAdapter** サービスをプランに追加し、高可用性データベース専用の新しいクォータを作成する必要があります。 プランの作成の詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
 
 > [!TIP]
 > **Microsoft.SqlAdapter** サービスは、[SQL Server リソース プロバイダーがデプロイされる](azure-stack-sql-resource-provider-deploy.md)までプランに追加することができません。
@@ -179,13 +174,4 @@ SQL AlwaysOn 可用性グループが Azure Stack Operator によって Azure St
 
 ## <a name="next-steps"></a>次の手順
 
-このチュートリアルで学習した内容は次のとおりです。
-
-> [!div class="checklist"]
-> * テンプレートから SQL Server AlwaysOn 可用性グループを作成する
-> * Azure Stack SQL ホスティング サーバーを作成する
-> * 高可用性 SQL データベースを作成する
-
-次のチュートリアルに進み、次の操作方法を確認してください。
-> [!div class="nextstepaction"]
-> [高可用性 MySQL データベースを作成する](azure-stack-tutorial-mysql.md)
+[SQL リソース プロバイダーを更新する](azure-stack-sql-resource-provider-update.md)

@@ -16,18 +16,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 48ad7808e550fb875c8ee13caa5a429e1d77aa98
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
+ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010795"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72283458"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-[クォータ](azure-stack-plan-offer-quota-overview.md#plans)は、ユーザー サブスクリプションがプロビジョニングまたは使用できるリソースの制限を定義します。 たとえば、1 つのクォータでユーザー 1 人に最大 5 つの仮想マシンの作成を許可できます。 各リソースは、独自のクォータの種類を持つことが可能です。
+[クォータ](service-plan-offer-subscription-overview.md#plans)は、ユーザー サブスクリプションがプロビジョニングまたは使用できるリソースの制限を定義します。 たとえば、1 つのクォータでユーザー 1 人に最大 5 つの仮想マシンの作成を許可できます。 各リソースは、独自のクォータの種類を持つことが可能です。
 
 > [!IMPORTANT]
 > ユーザー ポータルで新しいクォータが使用可能になるまで、または変更されたクォータが適用されるまでに最大で 2 時間かかることがあります。
@@ -117,5 +117,5 @@ ms.locfileid: "71010795"
 
 ## <a name="next-steps"></a>次の手順
 
-- [プラン、オファーおよびクォータについて](azure-stack-plan-offer-quota-overview.md)
+- [サービス、プラン、オファー、クォータの詳細を確認する。](service-plan-offer-subscription-overview.md)
 - [プランの作成時にクォータを作成する](azure-stack-create-plan.md)
