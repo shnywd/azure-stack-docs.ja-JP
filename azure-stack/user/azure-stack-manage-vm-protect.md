@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: f633f000968fcf4f373fc502898fa18084f93f80
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
+ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824298"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72257758"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Azure Stack にデプロイされた VM の保護
 
@@ -162,8 +162,16 @@ Azure Stack のデプロイに関する重要な考慮事項を次に示しま�
 
 この記事では、Azure Stack にデプロイされたユーザー VM を保護するための一般的なガイドラインについて説明しました。 Azure サービスを使用したユーザー VM の保護については、以下を参照してください。
 
+- [事業継続とディザスター リカバリーへの配慮](http://aka.ms/azurestackbcdrconsiderationswp)
+
+### <a name="azure-backup-server"></a>Azure Backup Server
  - [Azure Backup を使用してファイルやアプリを Azure Stack にバックアップする](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
  - [Azure Backup Server による Azure Stack のサポート](https://docs.microsoft.com/azure/backup/ ) 
+ 
+ ### <a name="azure-site-recovery"></a>Azure Site Recovery
  - [Azure Site Recovery による Azure Stack のサポート](https://docs.microsoft.com/azure/site-recovery/)  
+ 
+ ### <a name="partner-products"></a>パートナー製品
+ - [Azure Stack データセンター統合のパートナー エコシステムのデータシート](http://aka.ms/azurestackbcdrpartners)
 
 Azure Stack の VM を保護するパートナー製品の詳細については、「[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)」 (Azure Stack でのアプリケーションとデータの保護) をご覧ください。

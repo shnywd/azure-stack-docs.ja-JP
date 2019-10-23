@@ -1,6 +1,6 @@
 ---
-title: Azure Stack とデータセンターの統合 - ID
-description: Azure Stack の AD FS をデータセンターの AD FS と統合する方法について説明します。
+title: AD FS ID を Azure Stack データセンターと統合する | Microsoft Docs
+description: Azure Stack の AD FS ID プロバイダーをお使いのデータセンターと統合する方法について説明します。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -10,35 +10,35 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f51b0bdd4e433dd3083701e8cc967b3105d23ed6
-ms.sourcegitcommit: 820ec8d10ddab1fee136397d3aa609e676f8b39d
+ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71127513"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277187"
 ---
-# <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack とデータセンターの統合 - ID
+# <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>AD FS ID を Azure Stack データセンターに統合する
 
-Azure Stack は、ID プロバイダーとして Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) のいずれかを使用してデプロイできます。 Azure Stack を展開する前に、選択を行う必要があります。 接続されているシナリオでは、Azure AD または AD FS を選択できます。 切断されたシナリオでは、AD FS のみがサポートされます。
+ID プロバイダーとして Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) を使用して、Azure Stack をデプロイできます。 Azure Stack を展開する前に、選択を行う必要があります。 接続されているシナリオでは、Azure AD または AD FS を選択できます。 切断されたシナリオでは、AD FS のみがサポートされます。 この記事では、Azure Stack AD FS をデータセンターの AD FS と統合する方法を示します。
 
 > [!IMPORTANT]
-> Azure Stack ソリューション全体を再デプロイすることなく、ID プロバイダーを切り替えることはできません。
+> Azure Stack ソリューション全体を再デプロイせずに、ID プロバイダーを切り替えることはできません。
 
 ## <a name="active-directory-federation-services-and-graph"></a>Active Directory フェデレーション サービス (AD FS) と Graph
 
 AD FS を使用してデプロイすると、既存の Active Directory フォレスト内の ID を Azure Stack 内のリソースに対して認証できます。 この既存の Active Directory フォレストでは、AD FS フェデレーション信頼の作成を許可するために、AD FS のデプロイが必要です。
 
-認証は ID の一部です。 Azure Stack でロールベースのアクセス制御 (RBAC) を管理するには、Graph コンポーネントを構成する必要があります。 リソースへのアクセスが委任されると、Graph のコンポーネントは LDAP プロトコルを使用して、既存の Active Directory フォレストでユーザー アカウントを検索します。
+認証は ID の一部です。 Azure Stack 内でロールベースのアクセス制御 (RBAC) を管理するには、Graph コンポーネントを構成する必要があります。 リソースへのアクセスが委任されると、Graph のコンポーネントは LDAP プロトコルを使用して、既存の Active Directory フォレストでユーザー アカウントを検索します。
 
 ![Azure Stack AD FS のアーキテクチャ](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
 
 既存の AD FS はアカウント セキュリティ トークン サービス (STS) で、Azure Stack AD FS (リソース STS) に要求を送信します。 Azure Stack で、自動化によりクレーム プロバイダー信頼とメタデータ エンドポイントを、既存の AD FS に対して作成します。
 
-既存の AD FS で、証明書利用者信頼を構成する必要があります。 この手順は自動化によっては実行されず、オペレーターによって構成される必要があります。 AD FS 向けの Azure Stack VIP エンドポイントは、`https://adfs.<Region>.<ExternalFQDN>/` というパターンを使用して作成できます。
+既存の AD FS で、証明書利用者信頼を構成する必要があります。 この手順は、自動化によって実行されるわけではなく、オペレーターによって構成される必要があります。 AD FS 向けの Azure Stack VIP エンドポイントは、`https://adfs.<Region>.<ExternalFQDN>/` というパターンを使用して作成できます。
 
 また、証明書利用者信頼構成には、マイクロソフトが提供する要求変換ルールを構成する必要があります。
 
-Graph の構成には、既存の Active Directory に対する読み取りアクセス許可が付与されたサービス アカウントが提供されている必要があります。 このアカウントは RBAC シナリオを有効にする自動化の入力として必要です。
+Graph の構成には、既存の Active Directory での読み取りアクセス許可が付与されたサービス アカウントが提供されている必要があります。 このアカウントは RBAC シナリオを有効にする自動化の入力として必要です。
 
 最後の手順では、既定のプロバイダー サブスクリプションに対して新しい所有者を構成する必要があります。 このアカウントで Azure Stack 管理ポータルにサインインすると、すべてのリソースに対してフル アクセスが付与されます。
 
@@ -57,27 +57,27 @@ Graph は、単一の Active Directory フォレストとの統合のみをサ�
 
 |パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
-|`CustomADGlobalCatalog`|AD FS Forest FQDN|統合する対象の Active Directory<br>フォレストの FQDN|Contoso.com|
+|`CustomADGlobalCatalog`|AD FS Forest FQDN|統合先のターゲット Active Directory フォレストの FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |LDAP の読み取りアクセス許可を持つユーザー|YOURDOMAIN\graphservice|
 
 ### <a name="configure-active-directory-sites"></a>Active Directory サイトを構成する
 
 複数のサイトを持つ Active Directory の展開では、Azure Stack のデプロイに最も近い Active Directory サイトを構成します。 この構成により、Azure Stack Graph サービスで、リモート サイトからグローバル カタログ サーバーを使用してクエリが解決されなくなります。
 
-Azure Stack の[パブリック VIP ネットワーク](azure-stack-network.md#public-vip-network) サブネットを Azure Stack に最も近い Active Directory サイトに追加します。 たとえば、Active Directory にシアトルとレドモンドの 2 つのサイトがあり、シアトルのサイトに Azure Stack がデプロイされている場合、Azure Stack のパブリック VIP ネットワーク サブネットを Active Directory のシアトルのサイトに追加します。
+Azure Stack の[パブリック VIP ネットワーク](azure-stack-network.md#public-vip-network) サブネットを Azure Stack に最も近い Active Directory サイトに追加します。 たとえば、Active Directory に 2 つのサイトがあるとします。シアトルとレドモントです。 シアトルのサイトに Azure Stack がデプロイされている場合、Azure Stack のパブリック VIP ネットワーク サブネットを Active Directory のシアトルのサイトに追加します。
 
-Active Directory サイトについて詳しくは、「[サイト トポロジの設計](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)」をご覧ください。
+Active Directory サイトの詳細については、「[サイト トポロジの設計](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology)」を参照してください。
 
 > [!Note]  
 > Active Directory が単一サイトで構成されている場合、この手順はスキップできます。 包括的なサブネットが構成されている場合、Azure Stack のパブリック VIP ネットワーク サブネットがその一部ではないことを確認します。
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>既存の Active Directory でユーザー アカウントを作成する (省略可能)
 
-必要に応じて、既存の Active Directory で Graph サービスのアカウントを作成できます。 まだ使用するアカウントがない場合はこの手順を実行してください。
+必要に応じて、既存の Active Directory で Graph サービスのアカウントを作成できます。 まだ使用するアカウントがない場合は、この手順を実行します。
 
 1. 既存の Active Directory で、次のユーザー アカウントを作成します (推奨)。
    - **ユーザー名**: graphservice
-   - **パスワード**: 強力なパスワードを使用<br>パスワードを無期限に設定します。
+   - **Password**:強力なパスワードを使用し、パスワードを無期限に設定します。
 
    特殊なアクセス許可やメンバーシップは不要
 
@@ -101,9 +101,9 @@ Active Directory サイトについて詳しくは、「[サイト トポロジ�
    メッセージが表示されたら、Graph サービスに使用するユーザー アカウントの資格情報を指定します (graphservice など)。 Register-DirectoryService コマンドレットには、フォレスト内の他のドメインではなく、フォレスト内のフォレスト名/ルート ドメインを入力する必要があります。
 
    > [!IMPORTANT]
-   > 資格情報のポップアップ (Get-Credential は特権エンドポイントではサポートされていません)が表示されるのを待ち、Graph のサービス アカウントの資格情報を入力します。
+   > 資格情報のポップアップ表示を待機して (Get-Credential は特権エンドポイントではサポートされていません)、Graph サービス アカウントの資格情報を入力します。
 
-3. **Register-DirectoryService** コマンドレットには、既存の Active Directory の検証が失敗する特定のシナリオで使用できる省略可能なパラメーターがあります。 このコマンドレットを実行すると、指定されたドメインがルート ドメインであること、グローバル カタログ サーバーに到達可能であること、指定されたアカウントで読み取りアクセスが許可されていることが検証されます。
+3. **Register-DirectoryService** コマンドレットには、既存の Active Directory の検証が失敗する特定のシナリオで使用できる省略可能なパラメーターがあります。 このコマンドレットを実行すると、指定されたドメインがルート ドメインであること、グローバル カタログ サーバーに到達可能であること、指定されたアカウントでは読み取りアクセスが許可されていることが検証されます。
 
    |パラメーター|説明|
    |---------|---------|
@@ -130,15 +130,15 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 |パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS Provider Name|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|AD FS Metadata URI|フェデレーション メタデータのリンク| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
-|SigningCertificateRevocationCheck|NA|CRL チェックをスキップする、オプション パラメーター|なし|
+|CustomAD<br>FSFederationMetadataEndpointUri|AD FS Metadata URI|フェデレーション メタデータのリンク。| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|SigningCertificateRevocationCheck|NA|CRL チェックをスキップするオプション パラメーター。|なし|
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Azure Stack で自動化をトリガーしてクレーム プロバイダー信頼を構成する
 
-この手順では、Azure Stack の特権エンドポイントと通信できるコンピューターを使用します。 アカウント **STS AD FS** で使用される証明書が Azure Stack によって信頼されている必要があります。
+この手順では、Azure Stack の特権エンドポイントと通信できるコンピューターを使用します。 アカウント **STS AD FS** によって使用される証明書が Azure Stack によって信頼されている必要があります。
 
-1. Windows PowerShell セッションを管理者特権で開き、特権エンドポイントに接続します。
+1. 管理者特権の Windows PowerShell セッションを開き、特権エンドポイントに接続します。
 
    ```powershell  
    $creds = Get-Credential
@@ -151,7 +151,7 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
-3. お使いの環境に合わせてパラメーターを変更して次のコマンドを実行し、既定のプロバイダー サブスクリプションの所有者を更新します。
+3. お使いの環境に適したパラメーターを使用して、次のコマンドを実行して、既定のプロバイダー サブスクリプションの所有者を更新します。
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
@@ -170,13 +170,13 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 |パラメーター|説明|例|
 |---------|---------|---------|
 |CustomAdfsName|クレーム プロバイダーの名前。 AD FS のランディング ページにそのように表示されます。|Contoso|
-|CustomADFSFederationMetadataFileContent|メタデータの内容|$using:federationMetadataFileContent|
+|CustomADFSFederationMetadataFileContent|メタデータの内容。|$using:federationMetadataFileContent|
 
 ### <a name="create-federation-metadata-file"></a>フェデレーション メタデータ ファイルを作成する
 
 次の手順では、アカウント STS になる既存の AD FS デプロイとネットワークで接続されているコンピューターを使用する必要があります。 また、必要な証明書がインストールされている必要があります。
 
-1. Windows PowerShell セッションを管理者特権で開き、お使いの環境に合わせてパラメーターを変更し、次のコマンドを実行します。
+1. 管理者特権の Windows PowerShell セッションを開き、お使いの環境に適したパラメーターを使用して、次のコマンドを実行します。
 
    ```powershell  
     $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
@@ -192,7 +192,7 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 
 この手順では、Azure Stack で特権エンドポイントと通信可能で、前の手順で作成したメタデータ ファイルにアクセスできるコンピューターを使用します。
 
-1. Windows PowerShell セッションを管理者特権で開き、特権エンドポイントに接続します。
+1. 管理者特権の Windows PowerShell セッションを開き、特権エンドポイントに接続します。
 
    ```powershell  
    $federationMetadataFileContent = get-content c:\metadata.xml
@@ -206,14 +206,14 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
-3. お使いの環境に合わせてパラメーターを変更して次のコマンドを実行し、既定のプロバイダー サブスクリプションの所有者を更新します。
+3. 次のコマンドを実行して、既定のプロバイダー サブスクリプションの所有者を更新します。 お使いの環境に適したパラメータ―を使用します。
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
    > [!Note]  
-   > 既存の AD FS (アカウント STS) 上で証明書をローテーションする場合、AD FS 統合を再設定する必要があります メタデータ エンドポイントに到達できるか、メタデータ ファイルを指定することによって構成された場合でも、統合を設定する必要があります。
+   > 既存の AD FS (アカウント STS) 上で証明書をローテーションする場合、AD FS 統合を再設定する必要があります。 メタデータ エンドポイントに到達できるか、メタデータ ファイルを指定することによって構成された場合でも、統合を設定する必要があります。
 
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>既存の AD FS デプロイ (アカウント STS) の証明書利用者を構成する
 
@@ -256,16 +256,16 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
    => issue(claim = c);
    ```
 
-2. エクストラネットおよびイントラネット用に Windows フォーム ベース認証が有効になっていることを確認します。 次のコマンドレットを実行して、それが既に有効になっているかどうかをまず確認します。
+2. エクストラネットおよびイントラネット用に Windows フォーム ベース認証が有効になっていることを確認します。 次のコマンドレットを実行して、既に有効になっているかどうかを確認できます。
 
    ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
     > [!Note]  
-    > Windows 統合認証 (WIA) サポートのユーザー エージェント文字列が期限切れになっていると、最新のクライアントをサポートするために AD FS の展開を更新することが必要になる場合があります。 WIA サポート ユーザー エージェント文字列の更新の詳細については、「[WIA をサポートしないデバイスのイントラネット フォーム ベース認証の構成](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)」の記事をお読みください。<br>フォーム ベース認証ポリシーを有効にする手順は、「[認証ポリシーの構成](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)」の記事に記載されています。
+    > Windows 統合認証 (WIA) サポートのユーザー エージェント文字列が、AD FS 展開に対して期限切れになっている場合があり、最新のクライアントをサポートするための更新プログラムが必要になる場合があります。 WIA によってサポートされるユーザー エージェント文字列の更新に関する詳細については、「[WIA をサポートしていないデバイスのイントラネットフォームベース認証の構成](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia)」の記事をお読みください。<br><br>フォーム ベース認証ポリシーを有効にする手順については、「[認証ポリシーを構成する](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies)」を参照してください。
 
-3. 証明書利用者信頼を追加するには、AD FS インスタンスまたはファーム メンバーで、次の Windows PowerShell コマンドを実行します。 AD FS エンドポイントを更新し、手順 1 で作成されたファイルを指定します。
+3. 証明書利用者信頼を追加するには、AD FS インスタンスまたはファーム メンバーで、次の Windows PowerShell コマンドを実行します。 必ず AD FS エンドポイントを更新して、手順 1 で作成されたファイルを指定します。
 
    **AD FS 2016 の場合**
 
@@ -285,7 +285,7 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 4. Internet Explorer または Microsoft Edge ブラウザーを使用して Azure Stack にアクセスするには、トークンのバインドを無視する必要があります。 無視しないと、サインインの試行が失敗します。 AD FS インスタンスまたはファーム メンバーで、次のコマンドを実行します。
 
    > [!note]  
-   > Windows Server 2012 または 2012 R2 AD FS を使用するとき、この手順は該当しません。 このコマンドをスキップして統合を続けても問題ありません。
+   > Windows Server 2012 または 2012 R2 AD FS を使用する場合、この手順は該当しません。 その場合は、このコマンドをスキップして統合を続けてかまいません。
 
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
@@ -295,16 +295,16 @@ Azure Stack の Graph サービスは、次のプロトコルとポートを使�
 
 多くのシナリオで、認証にサービス プリンシパル名 (SPN) の使用が要求されます。 次はその例の一部です。
 
-- Azure Stack での AD FS デプロイにおける CLI の使用
-- AD FS でデプロイされるときの Azure Stack の System Center 管理パック
-- AD FS でデプロイされるときの Azure Stack のリソース プロバイダー
-- 各種アプリケーション
-- 非対話型サインインを要求する
+- Azure Stack の AD FS 展開における CLI の使用。
+- AD FS を利用してデプロイされる場合の Azure Stack 用の System Center 管理パック。
+- AD FS を利用してデプロイされる場合の Azure Stack でのリソース プロバイダー。
+- 各種のアプリ。
+- 非対話型サインインを要求する。
 
 > [!Important]  
-> AD FS は、対話型ログオン セッションにのみ対応しています。 自動化シナリオに対話型ではないログオンを必要とする場合、SPN を使用する必要があります。
+> AD FS は、対話型サインイン セッションのみをサポートしています。 自動化シナリオに非対話型サインインを必要とする場合は、SPN を使用する必要があります。
 
-SPN の作成について詳しくは、「[AD FS のサービス プリンシパルを作成する](azure-stack-create-service-principals.md)」をご覧ください。
+SPN の作成に関する詳細については、[AD FS でのサービス プリンシパルの作成](azure-stack-create-service-principals.md)に関するページを参照してください。
 
 
 ## <a name="troubleshooting"></a>トラブルシューティング
@@ -329,7 +329,7 @@ SPN の作成について詳しくは、「[AD FS のサービス プリンシ�
    ロールバック アクションを実行すると、すべての構成の変更がロールバックされます。 組み込みの **CloudAdmin** ユーザーによる認証のみが有効です。
 
    > [!IMPORTANT]
-   > 既定のプロバイダー サブスクリプションの元の所有者を構成する必要があります
+   > 既定のプロバイダー サブスクリプションの元の所有者を構成する必要があります。
 
    ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
@@ -352,5 +352,6 @@ SPN の作成について詳しくは、「[AD FS のサービス プリンシ�
    Get-AzureStackLog -OutputPath \\myworkstation\AzureStackLogs -FilterByRole ECE
    ```
 
+## <a name="next-steps"></a>次の手順
 
 [外部の監視ソリューションの統合](azure-stack-integrate-monitor.md)

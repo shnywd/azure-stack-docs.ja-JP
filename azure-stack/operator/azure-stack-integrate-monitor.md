@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 489859720df8a2d0c20bb476b285fe9cb65b797e
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159628"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277182"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack と外部の監視ソリューションとの統合
 
@@ -30,7 +30,7 @@ Azure Stack インフラストラクチャの外部の監視のためには、Az
 - 物理コンピューターでは、ベースボード管理コントローラー (BMC) を通して、正常性とアラートの情報を取得できます。
 - 物理ネットワーク デバイスでは、SNMP プロトコルを通して、正常性とアラートの情報を取得できます。
 
-各 Azure Stack ソリューションは、ハードウェア ライフサイクル ホストに含まれています。 このホストは、物理サーバーとネットワーク デバイス用に OEM (Original Equipment Manufacturer) ハードウェア ベンダーの監視ソフトウェアを実行します。 OEM プロバイダーに、そのプロバイダーの監視ソリューションをデータセンター内の既存の監視ソリューションと統合できるかどうかを確認してください。
+各 Azure Stack ソリューションは、ハードウェア ライフサイクル ホストに含まれています。 このホストは、物理サーバーとネットワーク デバイス用に相手先ブランド供給 (OEM) ハードウェア ベンダーの監視ソフトウェアを実行します。 取引している OEM プロバイダーに、その会社の監視ソリューションをデータセンター内の既存の監視ソリューションと統合できるかどうかを確認します。
 
 > [!IMPORTANT]
 > 使用する外部の監視ソリューションは、エージェントレスである必要があります。 Azure Stack コンポーネント内にサード パーティ製エージェントをインストールすることはできません。
@@ -40,28 +40,28 @@ Azure Stack インフラストラクチャの外部の監視のためには、Az
 ![Azure Stack 監視とチケット発行ソリューションとの間のトラフィックを示す図。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> 物理サーバーとの直接の外部監視統合は許可されておらず、アクセス制御リスト (ACL) によって積極的にブロックされています。  物理ネットワーク デバイスとの直接の外部監視統合はサポートされているので、この機能を有効にする方法については OEM プロバイダーに確認してください。
+> 物理サーバーとの直接の外部監視統合は許可されておらず、アクセス制御リスト (ACL) によって能動的にブロックされています。 物理ネットワーク デバイスとの直接の外部監視統合はサポートされています。 この機能を有効にする方法については、取引している OEM プロバイダーに確認してください。
 
 この記事では、Azure Stack を System Center Operations Manager や Nagios などの外部の監視ソリューションと統合する方法を説明します。 PowerShell を使用して、または REST API 呼び出しを介して、アラートをプログラムで操作する方法も説明します。
 
 ## <a name="integrate-with-operations-manager"></a>Operations Manager との統合
 
-Azure Stack の外部の監視に Operations Manager を使用できます。 Microsoft Azure Stack 用 System Center 管理パックを使用すれば、複数の Azure Stack デプロイを 1 つの Operations Manager インスタンスで監視できます。 この管理パックは、正常性リソースプロバイダーと更新リソースプロバイダーの REST API を使用して Azure Stack と通信します。 ハードウェア ライフサイクル ホストで実行されている OEM 監視ソフトウェアを使用しない場合は、ベンダー管理パックをインストールして物理サーバーを監視できます。 Operations Manager のネットワーク デバイス検出機能を使用して、ネットワーク スイッチを監視することもできます。
+Azure Stack の外部の監視に Operations Manager を使用できます。 Microsoft Azure Stack 用 System Center 管理パックを使用すれば、複数の Azure Stack デプロイを 1 つの Operations Manager インスタンスで監視できます。 管理パックでは、正常性リソース プロバイダーと更新リソース プロバイダーの REST API を使用して、Azure Stack と通信します。 ハードウェア ライフサイクル ホストで実行されている OEM 監視ソフトウェアを使用しない場合は、ベンダー管理パックをインストールして物理サーバーを監視できます。 Operations Manager のネットワーク デバイス検出機能を使用して、ネットワーク スイッチを監視することもできます。
 
 Azure Stack 用管理パックには、次の機能があります。
 
-- 複数の Azure Stack デプロイを監視できます
-- Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) をサポートしています
-- アラートを取得したり終了したりできます
-- 正常性と容量についてのダッシュボードがあります
-- パッチおよび更新プログラム (P&U) 進行時の自動メンテナンス モード検出機能を備えています
-- デプロイ用とリージョン用の強制更新タスクが含まれます
-- リージョンにカスタム情報を追加できます
-- 通知とレポートがサポートされています
+- 複数の Azure Stack デプロイを監視できます。
+- Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) をサポートしています。
+- アラートを取得したり終了したりできます。
+- 正常性と容量のダッシュボードがあります。
+- パッチおよび更新プログラム (P&U) 進行時の自動メンテナンス モード検出機能を備えています。
+- デプロイ用とリージョン用の強制更新タスクが含まれます。
+- リージョンにカスタム情報を追加できます。
+- 通知とレポートがサポートされています。
 
-Microsoft Azure Stack 用 System Center 管理パックと、関連するユーザー ガイドを[こちら](https://www.microsoft.com/en-us/download/details.aspx?id=55184)から、または Operations Manager から直接ダウンロードできます。
+System Center 管理パックと関連するユーザー ガイドをダウンロードするには、[Microsoft Azure Stack 用の System Center 管理パックのダウンロード](https://www.microsoft.com/en-us/download/details.aspx?id=55184)に関するページを参照してください。 また、Operations Manager から直接ダウンロードすることもできます。
 
-チケット発行ソリューションについては、System Center Service Manager と Operations Manager を統合できます。 統合された製品コネクタによって双方向通信が可能になり、それによって、Service Manager のサービス要求を解決したあとに Azure Stack と Operations Manager のアラートを終了できます。
+チケット発行ソリューションについては、System Center Service Manager と Operations Manager を統合できます。 統合された製品コネクタによって双方向通信が可能になり、それによって、Service Manager 上でサービス要求を解決した後、Azure Stack と Operations Manager でのアラートを終了できます。
 
 次の図は、既存の System Center デプロイと Azure Stack の統合を示しています。 System Center Orchestrator または Service Management Automation (SMA) を使用してさらに Service Manager を自動化し、Azure Stack 内で操作を実行できます。
 
@@ -71,19 +71,19 @@ Microsoft Azure Stack 用 System Center 管理パックと、関連するユー�
 
 Microsoft Azure Stack 用に Nagios プラグインを設定して構成することができます。
 
-Nagios 監視プラグインは、制約のない無料ソフトウェア ライセンスである MIT (Massachusetts Institute of Technology) ライセンスの下で使用できるパートナー クラウドベース ソリューションと合わせて開発されました。
+Nagios 監視プラグインは、制約のない無料ソフトウェア ライセンスである MIT (Massachusetts Institute of Technology) ライセンスの下で使用できるパートナー クラウドベース ソリューションと共に開発されました。
 
 このプラグインは Python で書かれており、正常性リソースプロバイダーの REST API を使用します。 また、Azure Stack でアラートを取得したり終了したりする基本的な機能を提供します。 System Center 管理パックと同じように、このプラグインで複数の Azure Stack デプロイを追加したり、通知を送信したりすることが可能になります。
 
-バージョン 1.2 の場合、Azure Stack - Nagios プラグインでは Microsoft ADAL ライブラリを活用し、シークレットまたは証明書を使用したサービス プリンシパルを利用する認証をサポートします。 また、構成は、新しいパラメーターを含む単一の構成ファイルを使用して簡略化されています。 現在、ID システムとして Azure AD と AD FS を使用した、Azure Stack のデプロイがサポートされています。
+バージョン 1.2 の場合、Azure Stack - Nagios プラグインでは、Microsoft ADAL ライブラリを活用し、シークレットまたは証明書と共にサービス プリンシパルを利用する認証をサポートします。 また、構成は、新しいパラメーターを含む単一の構成ファイルを使用して簡略化されています。 現在、ID システムとして Azure AD と AD FS を使用した Azure Stack のデプロイがサポートされています。
 
-プラグインは Nagios 4x および XI で動作します。 [こちら](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)からダウンロードできます。 このダウンロード サイトでインストールと詳細な構成も行えます。
+プラグインは Nagios 4x および XI で動作します。 プラグインをダウンロードするには、「[Monitoring Azure Stack Alerts (Azure Stack アラートを監視する)](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details)」を参照してください。 このダウンロード サイトでインストールと詳細な構成も行えます。
 
 ### <a name="requirements-for-nagios"></a>Nagios の要件
 
 1.  Nagios の最小バージョンは 4.x です
 
-2.  Microsoft Azure Active Directory Python ライブラリ。 これは、Python PIP を使用してインストールできます。
+2.  Microsoft Azure Active Directory Python ライブラリ。 このライブラリは、Python PIP を使用してインストールできます。
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -109,7 +109,7 @@ samples/etc/azurestack_services.cfg
 
 2.  ハンドラー `azurestack_handler.sh` をディレクトリ `/usr/local/nagios/libexec/eventhandlers` にコピーします。
 
-3.  プラグイン ファイルが実行可能ファイルとして設定されていることを確認します
+3.  プラグイン ファイルが実行可能ファイルとして設定されていることを確認します。
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -118,9 +118,9 @@ samples/etc/azurestack_services.cfg
 
 ### <a name="configure-plugin"></a>プラグインを構成する
 
-次のパラメーターは azurestack.cfg ファイルで構成できます。 太字のパラメーターは、選択した認証モデルとは別に構成する必要があります。
+次のパラメーターは、azurestack.cfg ファイル内で構成できます。 太字のパラメーターは、選択した認証モデルとは別に構成する必要があります。
 
-SPN の作成方法に関する詳細情報は、[ここ](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)に記載されています。
+SPN の作成方法に関する詳細については、「[アプリ ID を使用してリソースにアクセスする](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)」を参照してください。
 
 | パラメーター | 説明 | 認証 |
 | --- | --- | --- |
@@ -132,7 +132,7 @@ SPN の作成方法に関する詳細情報は、[ここ](https://docs.microsoft
 | client_cert\*\*: | 証明書へのパス | 証明書を使用する SPN |
 | client_cert_thumbprint\*\*: | 証明書のサムプリント | 証明書を使用する SPN |
 
-\*テナント ID は、ADFS を使用する Azure Stack デプロイでは必要ありません。
+\*テナント ID は、AD FS を使用する Azure Stack デプロイには必要ありません。
 
 \*\* クライアント シークレットとクライアント証明書は、相互に排他的です。
 
@@ -150,21 +150,21 @@ SPN の作成方法に関する詳細情報は、[ここ](https://docs.microsoft
 
 ### <a name="setup-steps"></a>セットアップの手順
 
-1.  構成ファイルを変更します
+1.  構成ファイルを変更します。
 
-2.  フォルダー `/usr/local/nagios/etc/objects` に変更された構成ファイルをコピーします。
+2.  変更した構成ファイルをフォルダー `/usr/local/nagios/etc/objects` にコピーします。
 
 ### <a name="update-nagios-configuration"></a>Nagios 構成を更新する
 
 Azure Stack – Nagios プラグインが確実に読み込まれるように、Nagios 構成を更新する必要があります。
 
-1.  次のファイルを開きます
+1.  次のファイルを開きます。
 
 ```bash  
 /usr/local/nagios/etc/nagios.cfg
 ```
 
-2.  次のエントリを追加します
+2.  次のエントリを追加します。
 
 ```bash  
 # Load the Azure Stack Plugin Configuration
@@ -174,7 +174,7 @@ cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
 cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
 ```
 
-3.  Nagios を再度読み込みます
+3.  Nagios を再度読み込みます。
 
 ```bash  
 sudo service nagios reload
@@ -196,7 +196,7 @@ sudo service nagios reload
 
 ### <a name="troubleshooting"></a>トラブルシューティング
 
-プラグインのトラブルシューティングは、ターミナルでプラグインを手動で呼び出して行うことができます。 次のメソッドを使用します。
+プラグインのトラブルシューティングは、ターミナル上でプラグインを手動で呼び出して行います。 次のメソッドを使用します。
 
 ```bash
 /usr/local/nagios/libexec/azurestack_plugin.py --config-file /usr/local/nagios/etc/objects/azurestack.cfg --action Monitor

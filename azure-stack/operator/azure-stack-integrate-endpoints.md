@@ -1,6 +1,6 @@
 ---
-title: Azure Stack とデータセンターの統合 - エンドポイントの公開 | Microsoft Docs
-description: データセンターで Azure Stack のエンドポイントを公開する方法を学習します
+title: データセンターに Azure Stack サービスを発行する |Microsoft Docs
+description: データセンターに Azure Stack サービスを発行する方法について説明します。
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,20 +10,20 @@ ms.date: 09/09/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: 9333cfde7985977607f7108fd90b62e376fa9462
-ms.sourcegitcommit: dc633e862d49412a963daee481226c1543287e5e
+ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70863001"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277435"
 ---
-# <a name="azure-stack-datacenter-integration---publish-azure-stack-services"></a>Azure Stack とデータセンターの統合 - Azure Stack サービスの公開
+# <a name="publish-azure-stack-services-in-your-datacenter"></a>データセンターに Azure Stack サービスを発行する 
 
-Azure Stack は、そのインフラストラクチャ ロールのために仮想 IP アドレス (VIP) を設定します。 この VIP はパブリック IP アドレス プールから割り当てられます。 各 VIP は、ソフトウェア定義のネットワーク レイヤーで、アクセス制御リスト (ACL) で保護されます。 ACL は、ソリューションをさらに強化するために、さまざまな物理スイッチ (TOR や BMC) でも使われます。 デプロイ時に指定された外部 DNS ゾーン内のエンドポイントごとに DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
+Azure Stack は、そのインフラストラクチャ ロールのために仮想 IP アドレス (VIP) を設定します。 この VIP はパブリック IP アドレス プールから割り当てられます。 各 VIP は、ソフトウェア定義のネットワーク レイヤーで、アクセス制御リスト (ACL) で保護されます。 ACL は、ソリューションをさらに強化するために、さまざまな物理スイッチ (TOR や BMC) でも使われます。 デプロイ時に指定された外部 DNS ゾーン内のエンドポイントごとに、DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
 
 次のアーキテクチャ図は、さまざまなネットワーク レイヤーと ACL を示しています。
 
-![構造の画像](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
+![さまざまなネットワーク レイヤーと ACL を示した図](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>ポートと URL
 Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークに対して使用可能にするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
@@ -32,12 +32,12 @@ Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) �
 
 ## <a name="ports-and-protocols-inbound"></a>ポートとプロトコル (受信)
 
-Azure Stack エンドポイントを外部ネットワークに公開するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)* " の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL のリソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーの展開に関するドキュメントを参照してください。
+Azure Stack エンドポイントを外部ネットワークに公開するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)* " の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL リソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーのデプロイに関するドキュメントを参照してください。
 
-社内インフラストラクチャの VIP は Azure Stack の発行には不要なため、記載されていません。 ユーザーの VIP は動的で、Azure Stack オペレーターによって管理されず、ユーザー自身が定義します。
+社内インフラストラクチャの VIP は Azure Stack の発行には不要なため、記載されていません。 ユーザーの VIP は動的であり、ユーザー自身によって定義され、Azure Stack オペレーターによって管理されるわけではありません。
 
 > [!Note]  
-> IKEv2 VPN は、標準ベースの IPsec VPN ソリューションであり、UDP ポート 500 と 4500、および TCP ポート 50 を使用します。 ファイアウォールではこれらのポートが必ずしも開いているとは限りません。そのため、IKEv2 VPN ではプロキシとファイアウォールを通過できないことがあります。
+> IKEv2 VPN は、標準ベースの IPsec VPN ソリューションであり、UDP ポート 500 と 4500、および TCP ポート 50 を使用します。 ファイアウォールでは、これらのポートが必ずしも開いているとは限りません。そのため、IKEv2 VPN ではプロキシとファイアウォールを通過できないことがあります。
 
 [拡張機能ホスト](azure-stack-extension-host-prepare.md)の追加により、12495 から 30015 の範囲のポートは必要ありません。
 
@@ -72,7 +72,7 @@ Azure Stack エンドポイントを外部ネットワークに公開するに�
 Azure Stack は、透過的なプロキシ サーバーのみをサポートします。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。
 
 > [!Note]  
-> Expressroute ではすべてのエンドポイントにトラフィックをルーティングできない場合があるため、Azure Stack では、ExpressRoute を使用して、次の表に示す Azure サービスに到達することはサポートされていません。
+> ExpressRoute ではすべてのエンドポイントにトラフィックをルーティングできない場合があるため、Azure Stack では、ExpressRoute を使用して、次の表に示す Azure サービスに到達することはサポートされていません。
 
 |目的|接続先 URL|Protocol|Port|ソース ネットワーク|
 |---------|---------|---------|---------|---------|
@@ -93,7 +93,7 @@ Azure Stack は、透過的なプロキシ サーバーのみをサポートし�
 |診断ログ収集サービス|Azure Storage により提供される BLOB SAS の URL|HTTPS|443|パブリック VIP - /27|
 |     |     |     |     |     |
 
-送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL に基づくフィルターをサポートするデバイスを使用する必要があります。
+送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL によるフィルター処理をサポートするデバイスを使用してください。
 
 送信 DNS は常に必要です。違っているのは、外部 DNS のクエリを実行しているソースと、選択された ID 統合の種類です。 接続されたシナリオの場合は、デプロイ時には BMC ネットワーク上に配置された DVM で送信アクセスが必要です。 しかし、デプロイ後は、DNS サービスはパブリック VIP を使用してクエリを送信する内部コンポーネントに移動します。 その時点で、BMC ネットワーク経由での送信 DNS アクセスは削除できますが、その DNS サーバーへのパブリック VIP アクセスは残しておく必要があり、そうしないと認証は失敗します。
 

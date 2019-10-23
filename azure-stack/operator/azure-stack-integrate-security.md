@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の Syslog 転送
-description: Syslog 転送を使用して、Azure Stack と監視ソリューションを統合する方法の詳細
+title: Syslog 転送を使用して Azure Stack と監視ソリューションを統合する | Microsoft Docs
+description: Syslog 転送を使用して、Azure Stack と監視ソリューションを統合する方法を説明します。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,21 +11,21 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: a045ed6b64b80c521e6930b651635591ec0e50d4
-ms.sourcegitcommit: 85c3acd316fd61b4e94c991a9cd68aa97702073b
+ms.openlocfilehash: bb5ece23c0e484dbc2fec7881ce3ef2e29ed2d4a
+ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2019
-ms.locfileid: "64985303"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381416"
 ---
-# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack データセンターの統合 - Syslog 転送
+# <a name="integrate-azure-stack-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack と監視ソリューションを統合する
 
 この記事では、Syslog を使用して Azure Stack インフラストラクチャを、データセンターに既にデプロイされている外部セキュリティ ソリューションと統合する方法を説明します。 たとえば、セキュリティ情報イベント管理 (SIEM) システムなどです。 Syslog チャネルは、Azure Stack インフラストラクチャのすべてのコンポーネントからの監査、アラート、セキュリティ ログを公開します。 セキュリティ監視ソリューションと統合するため、および保存して保持できるようすべての監査、アラート、セキュリティ ログを取得するため、Syslog 転送を使用します。
 
 1809 更新プログラム以降、Azure Stack には統合された Syslog クライアントが装備され、このクライアントを構成すると、共通イベント形式 (CEF) のペイロードによる Syslog メッセージが送信されます。
 
 次の図で、Azure Stack と外部の SIEM との統合について説明しています。 考慮する必要がある統合のパターンが 2 つあります。最初の 1 つ (青色のもの) は、インフラストラクチャの仮想マシンと HYPER-V ノードを含む Azure Stack インフラストラクチャです。 すべての監査、セキュリティ ログ、およびそれらのコンポーネントからのアラートは、一元的に収集されて、CEF ペイロードを持つ Syslog を介して公開されます。 この統合パターンについては、このドキュメントのページで説明します。
-2 つ目の統合パターンは、オレンジ色で示されているもので、その範囲には、ベースボード管理コント ローラー (BMC)、ハードウェア ライフサイクル ホスト (HLH)、仮想マシンやハードウェア パートナーの監視および管理ソフトウェアを実行する仮想アプライアンス、トップ オブ ラック (TOR) スイッチが含まれています。 これらのコンポーネントはハードウェア パートナー固有のものであるため、それらを外部 SIEM に統合する方法に関するドキュメントについては、ハードウェア パートナーにお問い合わせください。
+2 つ目の統合パターンは、オレンジ色で示されているもので、その範囲には、ベースボード管理コントローラー (BMC)、ハードウェア ライフサイクル ホスト (HLH)、仮想マシンやハードウェア パートナーの監視および管理ソフトウェアを実行する仮想アプライアンス、トップ オブ ラック (TOR) スイッチが含まれています。 これらのコンポーネントはハードウェア パートナー固有のものであるため、それらを外部 SIEM に統合する方法に関するドキュメントについては、ハードウェア パートナーにお問い合わせください。
 
 ![Syslog 転送の図](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -63,25 +63,25 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 | パラメーター | 説明 | データ型 | 必須 |
 |---------|---------|---------|---------|
-|*ServerName* | Syslog サーバーの FQDN または IP アドレス | String | はい|
-|*ServerPort* | Syslog サーバーがリッスンしているポート番号 | String | はい|
-|*NoEncryption*| クライアントに Syslog メッセージを強制的にクリア テキストで送信させます | フラグ | ×|
-|*SkipCertificateCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の検証をスキップします | フラグ | ×|
-|*SkipCNCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の共通名値の検証をスキップします | フラグ | ×|
-|*UseUDP*| トランスポート プロトコルとして UDP を使用して、Syslog を使用します |フラグ | ×|
-|*Remove*| クライアントからサーバーの構成を削除し、Syslog 転送を停止します| フラグ | ×|
+|*ServerName* | Syslog サーバーの FQDN または IP アドレス。 | string | はい|
+|*ServerPort* | Syslog サーバーがリッスンしているポート番号。 | string | はい|
+|*NoEncryption*| クライアントに Syslog メッセージを強制的にクリア テキストで送信させます。 | フラグ | ×|
+|*SkipCertificateCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の検証をスキップします。 | フラグ | ×|
+|*SkipCNCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の共通名値の検証をスキップします。 | フラグ | ×|
+|*UseUDP*| トランスポート プロトコルとして UDP を使用して、Syslog を使用します。 |フラグ | ×|
+|*Remove*| クライアントからサーバーの構成を削除し、Syslog 転送を停止します。| フラグ | ×|
 
 *Set-SyslogClient* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | Type |
+| パラメーター | 説明 | 種類 |
 |---------|---------| ---------|
-| *pfxBinary* | Syslog サーバーに対する認証のためにクライアントが ID として使用する証明書が入った pfx ファイル  | Byte[] |
-| *CertPassword* |  pfx ファイルに関連付けられている秘密キーをインポートするためのパスワード | SecureString |
-|*RemoveCertificate* | クライアントから証明書を削除します | フラグ|
-| *OutputSeverity* | 出力ログのレベル。 値は **[既定値]** または **[詳細]** です。 規定値には、重大度レベルの警告、クリティカル、またはエラーが含まれています。 詳細には、すべての重大度レベル (詳細、情報、警告、クリティカル、またはエラー) が含まれています  | String |
+| *pfxBinary* | Syslog サーバーに対する認証のためにクライアントが ID として使用する証明書が入った pfx ファイル。  | Byte[] |
+| *CertPassword* |  pfx ファイルに関連付けられている秘密キーをインポートするためのパスワード。 | SecureString |
+|*RemoveCertificate* | クライアントから証明書を削除します。 | フラグ|
+| *OutputSeverity* | 出力ログのレベル。 値は **[既定値]** または **[詳細]** です。 規定値には、重大度レベルの警告、クリティカル、またはエラーが含まれています。 詳細には、すべての重大度レベル (詳細、情報、警告、クリティカル、またはエラー) が含まれています。  | string |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>TCP、相互認証、TLS 1.2 暗号化を使用した Syslog 転送の構成
 
-この構成では、Azure Stack の Syslog クライアントから、TLS 1.2 暗号化を使用して TCP 経由で Syslog サーバーにメッセージが転送されます。 初期ハンドシェイク時には、有効で信頼されている証明書がサーバーから提供されていることが、クライアントにより確認されます。同様に、クライアントからも、自分の ID の証明となる証明書がサーバーに提供されます。 この構成は、クライアントとサーバーの ID がどちらも完全に検証され、メッセージが暗号化されたチャネルで送信されるため、最も安全です。 
+この構成では、Azure Stack の Syslog クライアントから、TLS 1.2 暗号化を使用して TCP 経由で Syslog サーバーにメッセージが転送されます。 初期ハンドシェイク時には、有効で信頼された証明書がサーバーから提供されていることが、クライアントによって確認されます。 また、クライアントでは、ID の証明としてサーバーに証明書も提供されます。 この構成は、クライアントとサーバーの ID がどちらも完全に検証され、メッセージが暗号化されたチャネルで送信されるため、最も安全です。
 
 > [!IMPORTANT]
 > Microsoft は、運用環境ではこの構成を使用するよう強くお勧めします。 
@@ -132,13 +132,13 @@ Invoke-Command @params -ScriptBlock {
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>TCP、サーバー認証、TLS 1.2 暗号化を使用した Syslog 転送の構成
 
 この構成では、Azure Stack の Syslog クライアントから、TLS 1.2 暗号化を使用して TCP 経由で Syslog サーバーにメッセージが転送されます。 初期ハンドシェイク時には、有効で信頼された証明書がサーバーから提供されていることも、クライアントによって確認されます。 この構成により、信頼されていない宛先にクライアントからメッセージを送信することができなくなります。
-認証と暗号化を使用する TCP は既定の構成であり、Microsoft が運用環境にお勧めする最小限のセキュリティのレベルです。 
+認証と暗号化を使用する TCP は既定の構成であり、Microsoft が運用環境にお勧めする最小限のセキュリティのレベルです。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on>
 ```
 
-Syslog サーバーと Azure Stack クライアントの統合をテストするときに、自己署名証明書や信頼されていない証明書を使用する場合は、次のフラグを使用して、初期ハンドシェイク時にクライアントによって実行されるサーバー検証をスキップできます。
+Syslog サーバーと Azure Stack クライアントの統合をテストするときに、自己署名証明書や信頼されていない証明書を使用する場合は、次のフラグを使用して、初期ハンドシェイク時にクライアントによって行われるサーバー検証をスキップできます。
 
 ```powershell
  #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
@@ -155,28 +155,28 @@ Syslog サーバーと Azure Stack クライアントの統合をテストする
 
 ### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>TCP を使用した暗号化なしの Syslog 転送の構成
 
-この構成では、Azure Stack の Syslog クライアントから、暗号化を使用せずに TCP 経由で Syslog サーバーにメッセージが転送されます。 クライアントによってサーバーの ID が確認されることはなく、クライアントから検証用に自分の ID がサーバーに提供されることもありません。 
+この構成では、Azure Stack の Syslog クライアントから、暗号化を使用せずに TCP 経由で Syslog サーバーにメッセージが転送されます。 クライアントによってサーバーの ID が確認されることはなく、クライアントから検証用に自分の ID がサーバーに提供されることもありません。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -NoEncryption
 ```
 
 > [!IMPORTANT]
-> Microsoft は、運用環境ではこの構成を使用しないようお勧めします。 
+> Microsoft は、運用環境ではこの構成を使用しないようお勧めします。
 
 
 ### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>UDP を使用した暗号化なしの Syslog 転送の構成
 
-この構成では、Azure Stack の Syslog クライアントから、暗号化を使用せずに UDP 経由で Syslog サーバーにメッセージが転送されます。 クライアントによってサーバーの ID が確認されることはなく、クライアントから検証用に自分の ID がサーバーに提供されることもありません。 
+この構成では、Azure Stack の Syslog クライアントから、暗号化を使用せずに UDP 経由で Syslog サーバーにメッセージが転送されます。 クライアントによってサーバーの ID が確認されることはなく、クライアントから検証用に自分の ID がサーバーに提供されることもありません。
 
 ```powershell
 Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <Port number on which the syslog server is listening on> -UseUDP
 ```
 
-暗号化を使用しない UDP は構成が最も簡単ですが、中間者攻撃やメッセージの傍受に対する保護機能はありません。 
+暗号化を使用しない UDP は構成が最も簡単ですが、中間者攻撃やメッセージの傍受に対する保護機能はありません。
 
 > [!IMPORTANT]
-> Microsoft は、運用環境ではこの構成を使用しないようお勧めします。 
+> Microsoft は、運用環境ではこの構成を使用しないようお勧めします。
 
 
 ## <a name="removing-syslog-forwarding-configuration"></a>Syslog 転送構成の削除
@@ -214,7 +214,7 @@ Get-SyslogClient
 ## <a name="syslog-message-schema"></a>Syslog メッセージ スキーマ
 
 Azure Stack インフラストラクチャの Syslog 転送では、共通イベント形式 (CEF) で書式設定されたメッセージが送信されます。
-各 Syslog メッセージの構造は、次のスキーマに基づいています。 
+各 Syslog メッセージの構造は、次のスキーマに基づいています。
 
 ```Syslog
 <Time> <Host> <CEF payload>
@@ -242,9 +242,9 @@ Prefix fields
 
 特権エンドポイントのイベントの表:
 
-| Event | PEP イベント ID | PEP タスク名 | Severity |
+| Event | PEP イベント ID | PEP タスク名 | 重大度 |
 |-------|--------------| --------------|----------|
-|PrivilegedEndpointAccessed|1,000|PrivilegedEndpointAccessedEvent|5|
+|PrivilegedEndpointAccessed|1000|PrivilegedEndpointAccessedEvent|5|
 |SupportSessionTokenRequested |1001|SupportSessionTokenRequestedEvent|5|
 |SupportSessionDevelopmentTokenRequested |1002|SupportSessionDevelopmentTokenRequestedEvent|5|
 |SupportSessionUnlocked |1003|SupportSessionUnlockedEvent|10|
@@ -255,16 +255,17 @@ Prefix fields
 |SetCloudAdminUserPassword |1008|SetCloudAdminUserPasswordEvent|5|
 |GetCloudAdminPasswordRecoveryToken |1009|GetCloudAdminPasswordRecoveryTokenEvent|10|
 |ResetCloudAdminPassword |1010|ResetCloudAdminPasswordEvent|10|
+|PrivilegedEndpointSessionTimedOut |1017|PrivilegedEndpointSessionTimedOutEvent|5|
 
 PEP 重大度の表:
 
-| Severity | Level | 数値 |
+| 重大度 | Level | 数値 |
 |----------|-------| ----------------|
 |0|Undefined|値:0. すべてのレベルのログを示します|
 |10|重大|値:1. 重大なアラートのログを示します|
 |8|Error| 値:2. エラーのログを示します|
 |5|警告|値:手順 3. 警告のログを示します|
-|2|情報|値:4. 情報メッセージのログを示します|
+|2|Information|値:4. 情報メッセージのログを示します|
 |0|詳細|値:5. すべてのレベルのログを示します|
 
 ### <a name="cef-mapping-for-recovery-endpoint-events"></a>復旧エンドポイント イベントの CEF マッピング
@@ -278,7 +279,7 @@ Prefix fields
 
 復旧エンドポイントのイベントの表:
 
-| Event | REP イベント ID | REP タスク名 | Severity |
+| Event | REP イベント ID | REP タスク名 | 重大度 |
 |-------|--------------| --------------|----------|
 |RecoveryEndpointAccessed |1011|RecoveryEndpointAccessedEvent|5|
 |RecoverySessionTokenRequested |1012|RecoverySessionTokenRequestedEvent |5|
@@ -289,13 +290,13 @@ Prefix fields
 
 REP 重大度の表:
 
-| Severity | Level | 数値 |
+| 重大度 | Level | 数値 |
 |----------|-------| ----------------|
 |0|Undefined|値:0. すべてのレベルのログを示します|
 |10|重大|値:1. 重大なアラートのログを示します|
 |8|Error| 値:2. エラーのログを示します|
 |5|警告|値:手順 3. 警告のログを示します|
-|2|情報|値:4. 情報メッセージのログを示します|
+|2|Information|値:4. 情報メッセージのログを示します|
 |0|詳細|値:5. すべてのレベルのログを示します|
 
 ### <a name="cef-mapping-for-windows-events"></a>Windows イベントの CEF マッピング
@@ -315,7 +316,7 @@ Windows イベントの重大度の表:
 |10|重大|値:1. 重大なアラートのログを示します|
 |8|Error| 値:2. エラーのログを示します|
 |5|警告|値:手順 3. 警告のログを示します|
-|2|情報|値:4. 情報メッセージのログを示します|
+|2|Information|値:4. 情報メッセージのログを示します|
 |0|詳細|値:5. すべてのレベルのログを示します|
 
 Azure Stack における Windows イベントのカスタム拡張機能の表:
@@ -357,7 +358,7 @@ Azure Stack における Windows イベントのカスタム拡張機能の表:
 
 アラートの重大度の表:
 
-| Severity | Level |
+| 重大度 | Level |
 |----------|-------|
 |0|Undefined|
 |10|重大|
@@ -367,7 +368,7 @@ Azure Stack における作成されたアラートのカスタム拡張機能�
 
 | カスタム拡張機能名 | 例 | 
 |-----------------------|---------|
-|MasEventDescription|説明: ユーザー アカウント \<TestUser\> が \<TestDomain\> に対して作成されました。 これは潜在的なセキュリティ リスクです。 -- 解決策:サポートにお問い合せください。 この問題を解決するにはカスタマー サポートが必要です。 サポートを受けずに、この問題を解決しようとしないでください。 サポート要求を開く前に、 https://aka.ms/azurestacklogfiles のガイダンスを使用してログ ファイルの収集プロセスを開始してください |
+|MasEventDescription|説明: ユーザー アカウント \<TestUser\> が \<TestDomain\> に対して作成されました。 これは潜在的なセキュリティ リスクです。 -- 解決策:サポートにお問い合せください。 この問題を解決するにはカスタマー サポートが必要です。 サポートを受けずに、この問題を解決しようとしないでください。 サポート リクエストを開く前に、 https://aka.ms/azurestacklogfiles のガイダンスを使用してログ ファイルの収集プロセスを開始してください。
 
 ### <a name="cef-mapping-for-alerts-closed"></a>解決されたアラートの CEF マッピング
 

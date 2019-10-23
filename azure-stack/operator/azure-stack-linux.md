@@ -1,6 +1,6 @@
 ---
-title: Azure Stack への Linux イメージの追加
-description: Azure Stack へ Linux イメージを追加する方法について説明します。
+title: Linux イメージを Azure Stack Marketplace に追加する | Microsoft Docs
+description: Azure Stack Marketplace へ Linux イメージを追加する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +15,22 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 309d3d7185bd225f58691d4996ba649e8df7b97a
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: d7723dcdd755a926990ee52e96c3b75694651520
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714619"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277213"
 ---
-# <a name="add-linux-images-to-azure-stack"></a>Azure Stack への Linux イメージの追加
+# <a name="add-linux-images-to-azure-stack-marketplace"></a>Linux イメージを Azure Stack Marketplace に追加する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack Marketplace に Linux ベースのイメージを追加することによって、Azure Stack に Linux 仮想マシン (VM) をデプロイできます。 最も容易に Linux イメージを Azure Stack に追加する方法は、Marketplace Management からです。 これらのイメージは、Azure Stack との互換性を確保できるよう、あらかじめ準備され、テストされています。
+Azure Stack Marketplace に Linux ベースのイメージを追加することによって、Azure Stack 上に Linux 仮想マシン (VM) をデプロイできます。 最も容易に Linux イメージを Azure Stack に追加する方法は、Marketplace Management からです。 これらのイメージは、Azure Stack との互換性を確保できるよう、あらかじめ準備され、テストされています。
 
 ## <a name="marketplace-management"></a>Marketplace Management
 
-Azure Marketplace から Linux イメージをダウンロードするには、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」に記載されている手順を使用します。 Azure Stack で、ユーザーに提供する Linux のイメージを選択します。
+Azure Marketplace から Linux イメージをダウンロードするには、[Azure から Azure Stack への Marketplace 項目のダウンロード](azure-stack-download-azure-marketplace-item.md)に関するページを参照してください。 Azure Stack で、ユーザーに提供する Linux のイメージを選択します。
 
 これらのイメージは頻繁に更新されるので、Marketplace Management をこまめに確認して最新の状態に保つようにしてください。
 
@@ -40,7 +40,7 @@ Azure Marketplace から Linux イメージをダウンロードするには、�
 
 ### <a name="azure-linux-agent"></a>Azure Linux エージェント
 
-Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxagent** と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2\.2.20 から 2.2.35 までのバージョンは、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 現在、[cloud-init](https://cloud-init.io/) は Azure Stack でサポートされていないことに注意してください。
+Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxagent** と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2\.2.20 から 2.2.35 までのバージョンは、Azure Stack 上ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 Azure Stack では、現時点で [cloud-init](https://cloud-init.io/) がサポートされていないことに注意してください。
 
 | Azure Stack のビルド | Azure Linux エージェントのビルド |
 | ------------- | ------------- |
@@ -60,11 +60,11 @@ Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxag
 * [SLES と openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## <a name="add-your-image-to-the-marketplace"></a>Marketplace にイメージを追加する
+## <a name="add-your-image-to-marketplace"></a>Marketplace にイメージを追加する
 
 [Marketplace へのイメージの追加](azure-stack-add-vm-image.md)に関するページに従ってください。 `OSType` パラメーターが `Linux` に設定されていることを確認してください。
 
-Marketplace にイメージを追加すると、Marketplace アイテムが作成され、ユーザーが Linux 仮想マシンをデプロイできます。
+Marketplace にイメージを追加した後は、Marketplace の項目が作成され、ユーザーが Linux VM をデプロイできます。
 
 ## <a name="next-steps"></a>次の手順
 

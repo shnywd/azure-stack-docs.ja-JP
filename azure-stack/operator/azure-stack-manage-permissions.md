@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でユーザーごとにリソースへのアクセス許可を管理する (サービス管理者およびテナント) | Microsoft Azure
-description: サービス管理者またはテナントとして、RBAC アクセス許可を管理する方法を説明します。
+title: ロールベースのアクセス制御を使用してアクセス許可を設定する |Microsoft Docs
+description: Azure Stack 上で、ロールベースのアクセス制御 (RBAC) を使用してアクセス許可を設定する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,14 +15,14 @@ ms.date: 05/16/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc4e6bb48c8cdd7508a1a85d193a22761c62e99
-ms.sourcegitcommit: 797dbacd1c6b8479d8c9189a939a13709228d816
+ms.openlocfilehash: fa4e836a2c7cd5b59a6234a05efcc1cface12620
+ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66268597"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72277055"
 ---
-# <a name="manage-role-based-access-control"></a>ロールベースのアクセス制御の管理
+# <a name="set-access-permissions-using-role-based-access-control"></a>ロールベースのアクセス制御を使用してアクセス許可を設定する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
