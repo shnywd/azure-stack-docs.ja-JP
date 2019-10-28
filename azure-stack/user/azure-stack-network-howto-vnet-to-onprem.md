@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 722cd99a53a0c08e7b981a571726b378e54cd288
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962677"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543806"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack の VPN ゲートウェイを設定する
 
@@ -221,7 +221,7 @@ IPSec VPN トンネルを作成するには、オンプレミスの VPN デバ�
 | IKE のバージョン | 1 |
 | IKE モード | メイン (ID 保護) |
 | フェーズ 1 の提案アルゴリズム | AES128-SHA256、AES256-SHA256、AES128-SHA1、AES256-SHA1 |
-| Diffie-Hellman グループ | 14、5 |
+| Diffie-hellman グループ | 14、5 |
 
 ## <a name="create-the-vpn-tunnel"></a>VPN トンネルを作成する
 

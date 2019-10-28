@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/17/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 60515f257dc8ab04e351d1353919a749e9cf4224
-ms.sourcegitcommit: 79ead51be63c372b23b7fca6ffeaf95fd44de786
+ms.openlocfilehash: 44eca76e3b9e969681f4540093088785ad06f97c
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687953"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534009"
 ---
 # <a name="plan-for-an-azure-stack-update"></a>Azure Stack の更新の計画
 
@@ -55,6 +55,8 @@ ms.locfileid: "71687953"
 6. OEM パッケージが、更新する Azure Stack バージョンと互換性があることを確認します。 OEM パッケージが更新先の Azure Stack バージョンと互換性がない場合は、Azure Stack 更新プログラムを実行する前に OEM パッケージの更新を実行する必要があります。 手順については、「Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する」を参照してください。 OEM パッケージ更新プログラムの適用後、手順 3 および 4 を繰り返します。
 
 7. 容量計画ツールを実行します。 ツールの使用の概要と手順については、「[Azure Stack のキャパシティ プランニングの概要](https://docs.microsoft.com/azure-stack/operator/azure-stack-capacity-planning-overview)」を参照してください。
+
+8. 必要に応じて、[自動診断ログ収集](azure-stack-configure-automatic-diagnostic-log-collection.md)を有効にして、**更新失敗**などのアラートが表示された場合に備えて、カスタマー サポート分析用のログを事前に収集できます。 
 
 8. 更新プログラム パッケージを確認します。 メンテナンス期間を計画するときは、リリース ノートに記載されているように、Microsoft からリリースされた特定の種類の更新プログラム パッケージを確認することが重要です。
 

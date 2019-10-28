@@ -14,18 +14,18 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 7cfbba830b91d5dba8935cce20a2cdc0e65e49de
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d99a49676f9ab684c5b83e8e68cf58f86efc948f
+ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909151"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72534052"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする
 
 *適用対象:Azure Stack 統合システム*
 
-[特権エンドポイント](azure-stack-privileged-endpoint.md)を使用すると、Azure Stack 更新プログラムの実行の進行状況を監視し、Azure Stack ポータルが使用できなくなった場合に、失敗した更新プログラムの実行を成功した最後の手順から再開することができます。  Azure Stack ポータルの使用は、Azure Stack で更新プログラムを管理するための推奨される方法です。
+[特権エンドポイント](azure-stack-privileged-endpoint.md)を使用して、Azure Stack 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 Azure Stack ポータルの使用は、Azure Stack で更新プログラムを管理するための推奨される方法です。
 
 更新管理用の次の新しい PowerShell コマンドレットは、Azure Stack 統合システムの 1710 更新プログラムに含まれています。
 
@@ -38,9 +38,9 @@ ms.locfileid: "71909151"
 ## <a name="verify-the-cmdlets-are-available"></a>コマンドレットが利用可能なことを確認する
 コマンドレットは、Azure Stack の 1710 更新プログラム パッケージの新機能であるため、モニター機能を使用する前に 1710 更新プロセスを特定の時点まで進める必要があります。 通常は、管理者ポータルの状態で、1710 更新が「**ストレージ ホストの再起動**」の手順に達していることが示された場合に、コマンドレットを使用できるようになります。 具体的には、コマンドレットの更新は、「**手順: 手順 2.6 の実行 - PrivilegedEndpoint ホワイトリストの更新**」の間に行われます。
 
-特権エンドポイントからのコマンドの一覧を照会することによって、コマンドレットが使用可能かどうかをプログラムによって判別することもできます。 これを行うには、ハードウェア ライフ サイクル ホストまたは特権アクセス ワークステーションから、次のコマンドを実行します。 さらに、特権エンドポイントが信頼されたホストであることを確認してください。 詳細については、「[特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)」の手順 1 を参照してください。 
+特権エンドポイントからコマンド一覧のクエリを実行することによって、コマンドレットが使用可能かどうかをプログラムによって判別することもできます。 このクエリを実行するには、ハードウェア ライフ サイクル ホストまたは特権アクセス ワークステーションから、次のコマンドを実行します。 さらに、特権エンドポイントが信頼されたホストであることを確認してください。 詳細については、「[特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)」の手順 1 を参照してください。
 
-1. Azure Stack 環境にあるいずれかの ERCS 仮想マシンで PowerShell セッションを作成します (*プレフィックス*-ERCS01、*プレフィックス*-ERCS02、または*プレフィックス*-ERCS03)。 *プレフィックス*を、ご使用の環境に固有の仮想マシンのプレフィックス文字列に置換します。
+1. Azure Stack 環境にあるいずれかの ERCS 仮想マシン (VM) で PowerShell セッションを作成します (*プレフィックス*-ERCS01、*プレフィックス*-ERCS02、または*プレフィックス*-ERCS03)。 *プレフィックス*を、ご使用の環境に固有の VM のプレフィックス文字列に置換します。
 
    ```powershell
    $cred = Get-Credential
@@ -49,7 +49,7 @@ ms.locfileid: "71909151"
    ```
    資格情報を要求するプロンプトが表示されたら、 &lt;*Azure Stack ドメイン*&gt;\cloudadmin アカウント、または CloudAdmins グループのメンバーであるアカウントを使用します。 CloudAdmin アカウントの場合、インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
-2. 特権エンドポイントで使用できるコマンドの完全な一覧を取得します。 
+2. 特権エンドポイントで使用できるコマンドの完全な一覧を取得します。
 
    ```powershell
    $commands = Invoke-Command -Session $pepSession -ScriptBlock { Get-Command } 
@@ -87,7 +87,7 @@ ms.locfileid: "71909151"
 
 ### <a name="connect-to-the-privileged-endpoint-and-assign-session-variable"></a>特権エンドポイントに接続し、セッション変数を割り当てる
 
-次のコマンドを実行して、Azure Stack 環境にあるいずれかの ERCS 仮想マシンで PowerShell セッションを作成し (*プレフィックス*-ERCS01、*プレフィックス*-ERCS02、または*プレフィックス*-ERCS03)、セッション変数を割り当てます。
+次のコマンドを実行して、Azure Stack 環境にあるいずれかの ERCS VM マシンで PowerShell セッションを作成し (*プレフィックス*-ERCS01、*プレフィックス*-ERCS02、または*プレフィックス*-ERCS03)、セッション変数を割り当てます。
 
 ```powershell
 $cred = Get-Credential
@@ -96,9 +96,9 @@ $pepSession = New-PSSession -ComputerName <Prefix>-ercs01 -Credential $cred -Con
 ```
  資格情報を要求するプロンプトが表示されたら、 &lt;*Azure Stack ドメイン*&gt;\cloudadmin アカウント、または CloudAdmins グループのメンバーであるアカウントを使用します。 CloudAdmin アカウントの場合、インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
-### <a name="get-high-level-status-of-the-current-update-run"></a>現在の更新実行の詳細な状態を取得する 
+### <a name="get-high-level-status-of-the-current-update-run"></a>現在の更新実行の詳細な状態を取得する
 
-現在の更新実行の詳細な状態を取得するには、次のコマンドを実行します。 
+現在の更新実行の詳細な状態を取得するには、次のコマンドを実行します。
 
 ```powershell
 $statusString = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus -StatusOnly }
@@ -115,9 +115,9 @@ $statusString.Value
 
 これらのコマンドを繰り返し実行することで、最新の状態を表示することができます。 チェックする接続を再確立する必要はありません。
 
-### <a name="get-the-full-update-run-status-with-details"></a>完全な更新実行の状態とその詳細を取得する 
+### <a name="get-the-full-update-run-status-with-details"></a>完全な更新実行の状態とその詳細を取得する
 
-完全な更新実行の概要は XML 文字列として取得できます。 この文字列は、調査用にファイルに書き込むか、XML ドキュメントに変換し、PowerShell を使用して解析することができます。 次のコマンドは、XML を解析して現在実行中の手順の階層リストを取得します。
+完全な更新実行の概要は XML 文字列として取得できます。 この文字列は、調査用にファイルに書き込むか、XML ドキュメントに変換し、PowerShell を使用して解析することができます。 次のコマンドでは、XML を解析して現在実行中の手順の階層リストが取得されます。
 
 ```powershell
 [xml]$updateStatus = Invoke-Command -Session $pepSession -ScriptBlock { Get-AzureStackUpdateStatus }
@@ -168,10 +168,10 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>トラブルシューティング
 
-特権エンドポイントは、Azure Stack 環境内のすべての ERCS 仮想マシンで使用できます。 高可用性エンドポイントへの接続は確立されないため、中断したり、警告またはエラー メッセージが表示されたりすることがあります。 これらのメッセージは、セッションが切断されたか、または ECE サービスとの通信エラーがあったことを示している場合があります。 これは期待される動作です。 しばらく待ってから操作を再試行するか、他の ERCS 仮想マシンのいずれかで新しい特権エンドポイント セッションを作成できます。 
+特権エンドポイントは、Azure Stack 環境内のすべての ERCS VM で使用できます。 高可用性エンドポイントへの接続は確立されないため、中断したり、警告またはエラー メッセージが表示されたりすることがあります。 これらのメッセージは、セッションが切断されたか、または ECE サービスとの通信エラーがあったことを示している場合があります。 これは正しい動作です。 しばらく待ってから操作を再試行するか、他の ERCS VM のいずれかで新しい特権エンドポイント セッションを作成できます。
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack で更新を管理する](azure-stack-updates.md) 
+- [Azure Stack で更新を管理する](azure-stack-updates.md)
 
 

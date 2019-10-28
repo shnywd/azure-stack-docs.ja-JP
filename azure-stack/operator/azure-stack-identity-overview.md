@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8b05b2cc9fdde7987efd78c5beb0123b035e03ea
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 94a7dc11c4711bcdf39215ccaab69e95ea5c57f3
+ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019354"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72543850"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack"></a>Azure Stack の ID プロバイダーの概要
 
@@ -175,7 +175,7 @@ ID プロバイダーで認証して JSON Web トークンを受け取るには�
 - JSON Web トークンが OpenID を通じて構成された証明書によって署名され、Azure Resource Manager に認識されていることを検証します。
 - トークンがアクティブであり、承認可能であることを確認するために、*issued at* (iat) および *expiration* (exp) 要求を見直します。
 
-すべての検証が完了すると、Azure Resource Manager は *objected* (oid) および *groups* 要求を使用して、プリンシパルがアクセスできるリソースの一覧を作成します。
+すべての検証が完了すると、Azure Resource Manager で *object id* (oid) および *groups* 要求を使用して、プリンシパルがアクセスできるリソースの一覧が作成されます。
 
 ![トークン交換プロトコルの図](media/azure-stack-identity-overview/token-exchange.png)
 
