@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 10/22/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 822055eecb59f9eceab75317aed5682c104fb616
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: c37da77ea5965bfaae3d9970fa47959ec42305b8
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310571"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780501"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack 診断ログを収集する
 
@@ -132,6 +132,18 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
 
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
+
+* Azure Stack で自己管理型の Azure Kubernetes Services (AKS) を実行しているテナントのデプロイからログを収集します。 AKS ログは、コレクションの時間範囲を適用できる形式でテナント ストレージのアカウントに格納する必要があります。 
+
+  ```powershell
+  Get-AzureStackLog -OutputPath <<Kubernetes Log Location>> -InputSasUri "<<SasURI>>" -FromDate "<<beginning of the time range>>" -ToDate "<<end of the time range>>" 
+  ```
+
+  例:
+
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://diagnostics.blob.redmond.ext-n26r1102.masd.stbtest.microsoft.com/kuberneteslogs?sv=2017-04-17=sco&sp=rl&se=2019-09-30T02:06:54Z&st=2019-08-22T18:06:54Z&spr=https&sig=EtmCy8Got4Ro8ZNCSKLuf4tgBcC%2BOYSDwNdfa8czhlE%3D" -FromDate "8/22/2019 06:00:00" -ToDate "8/22/2019 08:00:00" 
   ```
 
 * ログを収集して、指定された Azure Storage BLOB コンテナーに保存します。 この操作の一般的な構文は次のとおりです。

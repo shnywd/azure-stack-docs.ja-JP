@@ -1,6 +1,6 @@
 ---
-title: オペレーターとして PowerShell を使用して Azure Stack に接続する | Microsoft Docs
-description: オペレーターとして PowerShell を使用して Azure Stack に接続する方法について説明します。
+title: PowerShell を使用して Azure Stack に接続する | Microsoft Docs
+description: PowerShell を使用して Azure Stack に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,29 +15,29 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 84799fa50411b753ae5983efbc743f07282a512b
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: da07fc0fe67c00f017a547a861d8ea4eb856864b
+ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101144"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72814034"
 ---
-# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>オペレーターとして PowerShell を使用して Azure Stack に接続する
+# <a name="connect-to-azure-stack-with-powershell"></a>PowerShell を使用して Azure Stack に接続する
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 PowerShell を使用してオファー、プラン、クォータ、アラートの作成などのリソース管理を行うように、Azure Stack を構成できます。 このトピックは、オペレーター環境を構成するために役立ちます。
 
 ## <a name="prerequisites"></a>前提条件
 
-[開発キット](../asdk/asdk-connect.md#connect-with-rdp)から、または [VPN 経由で ASDK に接続](../asdk/asdk-connect.md#connect-with-vpn)している場合は Windows ベースの外部クライアントから、次の前提条件を実行します。 
+[Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) から、または [VPN 経由で ASDK に接続](../asdk/asdk-connect.md#connect-with-vpn)している場合は Windows ベースの外部クライアントから、次の前提条件を実行します。
 
- - [Azure Stack と互換性のある Azure PowerShell モジュール](azure-stack-powershell-install.md)をインストールします。  
- - [Azure Stack を操作するために必要なツール](azure-stack-powershell-download.md)をダウンロードします。  
+- [Azure Stack と互換性のある Azure PowerShell モジュール](azure-stack-powershell-install.md)をインストールします。  
+- [Azure Stack を操作するために必要なツール](azure-stack-powershell-download.md)をダウンロードします。  
 
 ## <a name="connect-with-azure-ad"></a>Azure AD との接続
 
-PowerShell を使用する Azure Stack オペレーター環境を構成します。 次のスクリプトのいずれかを実行します。Azure Active Directory (Azure AD) tenantName と Azure Resource Manager エンドポイント値を独自の環境構成で置き換えます。 
+PowerShell を使用する Azure Stack オペレーター環境を構成するには、次のいずれかのスクリプトを実行します。 Azure Active Directory (Azure AD) tenantName と Azure Resource Manager エンドポイント値を独自の環境構成で置き換えます。
 
 [!include[Remove Account](../../includes/remove-account.md)]
 
@@ -47,7 +47,7 @@ PowerShell を使用する Azure Stack オペレーター環境を構成しま�
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-    # Set your tenant name
+    # Set your tenant name.
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
@@ -59,8 +59,7 @@ PowerShell を使用する Azure Stack オペレーター環境を構成しま�
 
 ## <a name="connect-with-ad-fs"></a>AD FS を使用した接続
 
-Azure Stack オペレーター環境に Active Directory フェデレーション サービス (Azure AD FS) を使用した PowerShell で接続します。 Azure Stack Development Kit では、この Azure Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` に設定されています。 Azure Resource Manager エンドポイントを Azure Stack 統合システム用に取得するには、サービス プロバイダーに問い合わせてください。
-
+Azure Stack オペレーター環境に Active Directory フェデレーション サービス (Azure AD FS) を使用した PowerShell で接続します。 ASDK では、この Azure Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` に設定されています。 Azure Resource Manager エンドポイントを Azure Stack 統合システム用に取得するには、サービス プロバイダーに問い合わせてください。
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -68,7 +67,7 @@ Azure Stack オペレーター環境に Active Directory フェデレーショ�
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
-  # Sign in to your environment
+  # Sign in to your environment.
   Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
   ```
 
@@ -77,7 +76,7 @@ Azure Stack オペレーター環境に Active Directory フェデレーショ�
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
-必要な設定がすべて整ったら、PowerShell を使って Azure Stack にリソースを作成してみましょう。 たとえば、アプリケーションのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、**MyResourceGroup** という名前のリソース グループを作成します。
+必要な設定がすべて整ったら、PowerShell を使って Azure Stack にリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、**MyResourceGroup** という名前のリソース グループを作成します。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -85,6 +84,6 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack のテンプレートの開発](../user/azure-stack-develop-templates.md)
+- [Azure Stack のテンプレートの開発](../user/azure-stack-develop-templates.md)。
 - [PowerShell を使用したテンプレートのデプロイ](../user/azure-stack-deploy-template-powershell.md)
-  - [Azure Stack Module のリファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  
+  - [Azure Stack Module のリファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview)

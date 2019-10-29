@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a48ded6a9a21650bae488e0a858086a3575235e
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: a2b55707bc05aecf8681cb866c58b0ed34fb87cd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829404"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682174"
 ---
-# <a name="remove-the-mysql-resource-provider"></a>MySQL リソースプロバイダーを削除する
+# <a name="remove-the-mysql-resource-provider-in-azure-stack"></a>Azure Stack 上の MySQL リソース プロバイダーを削除する
 
 MySQL リソース プロバイダーを削除する前に、プロバイダーの依存関係をすべて削除する必要があります。 また、リソース プロバイダーのインストールに使用したデプロイ パッケージのコピーも必要になります。
 
@@ -50,12 +50,12 @@ DeployMySqlProvider.ps1 スクリプトを実行してリソース プロバイ�
 2. MySQL リソース プロバイダーのインストール パッケージのコピーを入手し、自己展開形式ファイルを実行してコンテンツを一時ディレクトリに展開します。
 3. 新しい管理者特権の PowerShell コンソール ウィンドウを開き、MySQL リソース プロバイダーのインストール ファイルを抽出したディレクトリに変更します。
 4. 次のパラメーターを使用して、DeployMySqlProvider.ps1 スクリプトを実行します。
-    - **Uninstall**。 リソース プロバイダーと関連付けられているすべてのリソースを削除します。
-    - **PrivilegedEndpoint**。 特権エンドポイントの IP アドレスまたは DNS 名。
-    - **AzureEnvironment**。 Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
-    - **CloudAdminCredential**。 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
+    - **Uninstall**:リソース プロバイダーと関連付けられているすべてのリソースを削除します。
+    - **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
+    - **AzureEnvironment**:Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
+    - **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
     - **DirectoryTenantID**
-    - **AzCredential**。 Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
+    - **AzCredential**:Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
 
 ## <a name="next-steps"></a>次の手順
 

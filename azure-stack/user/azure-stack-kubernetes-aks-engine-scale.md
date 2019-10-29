@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 70adb6abaefc81faf487bbae5c560cc67f705341
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.openlocfilehash: b7d20327410ace5b5ad12d34a24ff474c1a384b0
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279207"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780467"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをスケールする
 

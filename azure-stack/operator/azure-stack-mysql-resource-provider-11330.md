@@ -1,6 +1,6 @@
 ---
-title: Azure Stack MySQL リソース プロバイダー 1.1.30.0 のリリース ノート | Microsoft Docs
-description: 既知の問題やダウンロード場所など、Azure Stack MySQL リソース プロバイダーの最新の更新プログラムについて説明します。
+title: Azure Stack MySQL リソース プロバイダー 1.1.33.0 のリリース ノート | Microsoft Docs
+description: リリース ノートを参照して、Azure Stack MySQL リソース プロバイダー 1.1.33.0 更新プログラムの新機能を確認してください。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: fdac6c099980a1c2cedb3271123908539d18169d
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909172"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682147"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
 
@@ -44,21 +44,22 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
 このバージョンの Azure Stack MySQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
 
 ### <a name="fixes"></a>修正
-- **MySQL リソース プロバイダーのポータル拡張機能が誤ったサブスクリプションを選択する可能性があります**。 MySQL リソース プロバイダーは Azure Resource Manager の呼び出しを使用して、使用する最初のサービス管理者のサブスクリプションを判断しますが、これが*既定のプロバイダー サブスクリプション*でない場合があります。 その場合、MySQL リソース プロバイダーは正常に機能しません。 
 
-- **MySQL ホスティング サーバーがホストされたデータベースを一覧表示しません。** MySQL ホスティング サーバーのテナント リソースを表示するとき、ユーザーが作成したデータベースが表示されない場合があります。
+- **MySQL リソース プロバイダーのポータル拡張機能が誤ったサブスクリプションを選択する可能性があります**。 MySQL リソース プロバイダーは Azure Resource Manager の呼び出しを使用して、使用する最初のサービス管理者のサブスクリプションを判断しますが、これが*既定のプロバイダー サブスクリプション*でない場合があります。 その場合、MySQL リソース プロバイダーは正常に機能しません。
 
-- **TLS 1.2 が有効になっていない場合に、以前の MySQL リソース プロバイダー (1.1.30.0) のデプロイが失敗することがあります**。 リソース プロバイダーのデプロイ、リソース プロバイダーの更新、またはシークレットのローテーションを行うときに TLS 1.2 を有効にするために、MySQL リソース プロバイダー 1.1.33.0 を更新しました。 
+- **MySQL ホスティング サーバーにホストされたデータベースが一覧表示されません。** MySQL ホスティング サーバーのテナント リソースを表示するとき、ユーザーが作成したデータベースが表示されない場合があります。
 
-- **MySQL リソース プロバイダーのシークレットのローテーションに失敗します**。 シークレットをローテーションするときに次のエラー コードが出る問題を修正しました。 `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **TLS 1.2 が有効になっていない場合に、以前の MySQL リソース プロバイダー (1.1.30.0) のデプロイが失敗することがあります**。 リソース プロバイダーのデプロイ、リソース プロバイダーの更新、またはシークレットのローテーションを行うときに TLS 1.2 を有効にするために、MySQL リソース プロバイダー 1.1.33.0 を更新しました。
 
-## <a name="known-issues"></a>既知の問題 
+- **MySQL リソース プロバイダーのシークレットのローテーションに失敗します**。 シークレットをローテーションするときに次のエラー コードが出る問題を修正しました。`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+
+## <a name="known-issues"></a>既知の問題
 
 - **MySQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい MySQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。 
 
     **対処法**: なし。
 
-- **再利用された MySQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい MySQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。 
+- **再利用された MySQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい MySQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
     **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 

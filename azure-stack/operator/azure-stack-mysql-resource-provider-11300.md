@@ -1,6 +1,6 @@
 ---
 title: Azure Stack MySQL リソース プロバイダー 1.1.30.0 のリリース ノート | Microsoft Docs
-description: 既知の問題やダウンロード場所など、Azure Stack MySQL リソース プロバイダーの最新の更新プログラムについて説明します。
+description: リリース ノートを参照して、Azure Stack MySQL リソース プロバイダー 1.1.30.0 更新プログラムの新機能を確認してください。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,16 +16,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 7679589090022f6f07c5e1fddb9c768716628865
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: fa21bb641589bb6da143696e0c925a0bfe51c1d0
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829432"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682202"
 ---
-# <a name="mysql-resource-provider-11300--release-notes"></a>MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
+# <a name="mysql-resource-provider-11300-release-notes"></a>MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 これらのリリース ノートでは、MySQL リソース プロバイダー バージョン 1.1.30.0 の機能強化と既知の問題について説明します。
 
@@ -53,13 +53,13 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
 
 - **MySQL ログインの [パスワードの変更] ブレード**。 [パスワードの変更] ブレードでパスワードを変更できないという問題が修正されました。 パスワード変更通知からリンクを削除しました。
 
-## <a name="known-issues"></a>既知の問題 
+## <a name="known-issues"></a>既知の問題
 
-- **MySQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい MySQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。 
+- **MySQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい MySQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。
 
     **対処法**: なし。
 
-- **再利用された MySQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい MySQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。 
+- **再利用された MySQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい MySQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
     **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 
@@ -69,7 +69,7 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  **Tls12** がコマンドの出力に含まれていない場合、TLS 1.2 はそのコンピューターでは使用できません。
+  **Tls12** がコマンドの出力に含まれていない場合、TLS 1.2 はそのコンピューターでは有効ではありません。
 
     **対処法**: 次の PowerShell コマンドを実行して TLS 1.2 を有効にし、同じ PowerShell セッションからリソース プロバイダーのデプロイを開始するかまたはスクリプトを更新します。
 

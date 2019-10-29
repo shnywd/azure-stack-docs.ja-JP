@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 上の MySQL リソース プロバイダーのメンテナンス | Microsoft Docs
+title: Azure Stack 上の MySQL リソース プロバイダーのメンテナンス操作 | Microsoft Docs
 description: Azure Stack 上の MySQL リソース プロバイダー サービスのメンテナンス方法について説明します。
 services: azure-stack
 documentationCenter: ''
@@ -15,27 +15,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6667fd3db21cd6138e756c16eb8e68b8ecd1b3e9
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829428"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682192"
 ---
-# <a name="mysql-resource-provider-maintenance-operations"></a>MySQL リソース プロバイダーのメンテナンス操作
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack での MySQL リソース プロバイダーのメンテナンス操作
 
-MySQL リソース プロバイダーは、ロックダウンされた仮想マシン上で実行されます。 保守操作を有効にするには、仮想マシンのセキュリティを更新する必要があります。 最小権限の原則を使用してそれを行うには、PowerShell Just Enough Administration (JEA) エンドポイント DBAdapterMaintenance を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
+MySQL リソース プロバイダーは、ロックダウンされた仮想マシン (VM) 上で実行されます。 メンテナンス操作を有効にするには、VM のセキュリティを更新する必要があります。 最小限の特権の原則 (POLP) を使用してこれを行うには、PowerShell Just Enough Administration (JEA) エンドポイント DBAdapterMaintenance を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
 
-## <a name="update-the-virtual-machine-operating-system"></a>仮想マシンのオペレーティング システムの更新
+## <a name="update-the-vm-operating-system"></a>VM のオペレーティング システムを更新する
 
-リソース プロバイダーは "*ユーザー*" 仮想マシン上で実行されているので、必要な修正プログラムおよび更新プログラムがリリースされたら、それらを適用する必要があります。 修正プログラム適用と更新のサイクルの一環で提供される Windows 更新プログラム パッケージを使用して、VM に更新プログラムを適用できます。
+リソース プロバイダーは "*ユーザー*" VM 上で実行されているので、必要な修正プログラムと更新プログラムがリリースされたら、それらを適用する必要があります。 修正プログラム適用と更新のサイクルの一環で提供される Windows 更新プログラム パッケージを使用して、VM に更新プログラムを適用できます。
 
-次のいずれかの方法を使用して、プロバイダーの仮想マシンを更新します。
+次のいずれかの方法を使用して、プロバイダーの VM を更新します。
 
 - 現在パッチが適用されている Windows Server 2016 Core イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
 - リソース プロバイダーのインストールまたは更新中に Windows 更新プログラム パッケージをインストールする。
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>仮想マシンの Windows Defender の定義を更新する
+## <a name="update-the-vm-windows-defender-definitions"></a>VM の Windows Defender の定義を更新する
 
 Defender の定義を更新するには、次の手順に従います。
 
@@ -45,7 +45,7 @@ Defender の定義を更新するには、次の手順に従います。
 
     あるいは、[こちらのダイレクト リンク](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64)を使用して、fpam-fe.exe ファイルをダウンロードして実行します。
 
-2. MySQL リソース プロバイダー アダプター仮想マシンのメンテナンス エンドポイントへの PowerShell セッションを開きす。
+2. MySQL リソース プロバイダー アダプター VM のメンテナンス エンドポイントへの PowerShell セッションを開きす。
 
 3. メンテナンス エンドポイントのセッションを使用して、リソース プロバイダー アダプター VM に定義更新ファイルをコピーします。
 
@@ -76,7 +76,7 @@ Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64'
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
 
-# Copy the defender update file to the adapter virtual machine.
+# Copy the defender update file to the adapter VM.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
 
@@ -103,7 +103,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell のシークレットのローテーション例
 
-**すべてのシークレットを同時に変更する。**
+**すべてのシークレットを同時に変更する:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -117,7 +117,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ```
 
-**診断ユーザーのパスワードを変更する。**
+**診断ユーザーのパスワードを変更する:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -128,7 +128,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ```
 
-**VM ローカル管理者アカウントのパスワードを変更する。**
+**VM ローカル管理者アカウントのパスワードを変更する:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -139,7 +139,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ```
 
-**SSL 証明書のパスワードを変更する。**
+**SSL 証明書のパスワードを変更する:**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -174,7 +174,7 @@ Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存さ
 
 ## <a name="collect-diagnostic-logs"></a>診断ログの収集
 
-ロックダウンされた仮想マシンからログを収集するには、PowerShell Just Enough Administration (JEA) エンドポイント DBAdapterDiagnostics を使用します。 このエンドポイントでは、次のコマンドが提供されます。
+ロックダウンされた VM からログを収集するには、PowerShell Just Enough Administration (JEA) エンドポイント DBAdapterDiagnostics を使用します。 このエンドポイントでは、次のコマンドが提供されます。
 
 - **Get-AzsDBAdapterLog**。 このコマンドは、リソース プロバイダー診断ログの zip パッケージを作成し、そのファイルをセッションのユーザー ドライブ上に保存します。 このコマンドはパラメーターなしで実行することができ、過去 4 時間のログが収集されます。
 
@@ -185,16 +185,16 @@ Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存さ
 リソース プロバイダーをインストールまたは更新すると、dbadapterdiag ユーザー アカウントが作成されます。 このアカウントを使用することで、診断ログを収集できます。
 
 >[!NOTE]
->dbadapterdiag アカウント パスワードは、プロバイダーのデプロイ中または更新中に作成される仮想マシンのローカル管理者用に使用されるパスワードと同じです。
+>dbadapterdiag アカウント パスワードは、プロバイダーのデプロイ中または更新中に作成される VM のローカル管理者用に使用されるパスワードと同じです。
 
-_DBAdapterDiagnostics_ コマンドを使用するには、リソース プロバイダーの仮想マシンに対するリモート PowerShell セッションを作成し、**Get-AzsDBAdapterLog** コマンドを実行します。
+_DBAdapterDiagnostics_ コマンドを使用するには、リソース プロバイダー VM に対するリモート PowerShell セッションを作成し、**Get-AzsDBAdapterLog** コマンドを実行します。
 
 **FromDate** および **ToDate** パラメーターを使用して、ログ収集の期間を設定します。 これらのパラメーターの一方または両方を指定しない場合は、次の既定値が使用されます。
 
 * FromDate は現在の時刻の 4 時間前です。
 * ToDate は現在の時刻です。
 
-**ログを収集する PowerShell スクリプトの例**
+**ログを収集する PowerShell スクリプトの例:**
 
 次のスクリプトでは、リソース プロバイダー VM から診断ログを収集する方法を示します。
 

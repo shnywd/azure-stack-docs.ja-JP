@@ -11,12 +11,12 @@ ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 4949ed2533ed550f61efd2cc4e0dfed7de3a1d7e
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 1f84eeffffae3c103c33b366a5c503a907cf6715
+ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019239"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72780481"
 ---
 # <a name="azure-stack-datacenter-dns-integration"></a>Azure Stack データセンターの DNS の統合
 
@@ -32,7 +32,7 @@ Azure Stack をデプロイするときに、DNS に関するいくつかの重�
 |リージョン|Azure Stack のデプロイの地理的な場所。|`east`|
 |外部ドメイン名|Azure Stack のデプロイに使用したいゾーンの名前。|`cloud.fabrikam.com`|
 |内部ドメイン名|Azure Stack でのインフラストラクチャ サービスに使用される内部ゾーンの名前。 ディレクトリ サービスと統合されており、プライベートになっています (Azure Stack デプロイの外部からは到達できません)。|`azurestack.local`|
-|DNS フォワーダー|Azure Stack の外部 (企業イントラネットまたはパブリック インターネット上のどちらか) でホストされている DNS クエリ、DNS ゾーンおよびレコードを転送するために使用される DNS サーバー。 DNS フォワーダーを置き換える場合は、IP アドレスを更新する必要があります。 |`10.57.175.34`<br>`8.8.8.8`|
+|DNS フォワーダー|Azure Stack の外部 (企業イントラネットまたはパブリック インターネット上のどちらか) でホストされている DNS クエリ、DNS ゾーンおよびレコードを転送するために使用される DNS サーバー。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
 |名前付けのプレフィックス (省略可能)|Azure Stack インフラストラクチャ ロール インスタンス マシン名に使用する名前付けのプレフィックス。  指定されていない場合、既定値は`azs` です。|`azs`|
 
 Azure Stack のデプロイの完全修飾ドメイン名 (FQDN) とエンドポイントは、リージョン パラメーターと外部ドメイン名 パラメーターの組み合わせです。 前の表に示した例の値を使用すると、この Azure Stack のデプロイの FQDN は次の名前のようになります。
@@ -80,7 +80,9 @@ Azure Stack には、権限のある DNS サーバーと再帰 DNS サーバー�
 
 ## <a name="resolving-external-dns-names-from-azure-stack"></a>Azure Stack からの外部 DNS 名の解決
 
-Azure Stack 外部のエンドポイントの DNS 名 (たとえば www\.bing.com) を解決するには、Azure Stack が権限のない DNS 要求の転送に使用できる DNS サーバーを提供する必要があります。 デプロイでは、Azure Stack の要求の転送先となる DNS サーバーをデプロイ ワークシート ("DNS フォワーダー" フィールド) に入力する必要があります。 フォールト トレランスのために、このフィールドには 2 つ以上のサーバーを入力します。 これらの値が入力されない場合、Azure Stack のデプロイは失敗します。 DNS フォワーダーが置き換えられた場合、IP アドレスを更新します。
+Azure Stack 外部のエンドポイントの DNS 名 (たとえば www\.bing.com) を解決するには、Azure Stack が権限のない DNS 要求の転送に使用できる DNS サーバーを提供する必要があります。 デプロイでは、Azure Stack の要求の転送先となる DNS サーバーをデプロイ ワークシート ("DNS フォワーダー" フィールド) に入力する必要があります。 フォールト トレランスのために、このフィールドには 2 つ以上のサーバーを入力します。 これらの値が入力されない場合、Azure Stack のデプロイは失敗します。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
+
+
 
 ### <a name="configure-conditional-dns-forwarding"></a>条件付き DNS フォワーダーの構成
 
@@ -145,6 +147,10 @@ DNS で条件付き転送を行う方法がわからない場合は、次の Tec
 
 - 会社の DNS ドメイン名: `contoso.com`
 - Azure Stack 外部の DNS ドメイン名: `azurestack.contoso.com`
+
+## <a name="editing-dns-forwarder-ips"></a>DNS フォワーダー IP の編集
+
+DNS フォワーダー IP は Azure Stack のデプロイ中に設定されます。 ただし、フォワーダー IP を何らかの理由で更新する必要がある場合は、特権エンドポイントに接続し、PowerShell コマンドレットの `Get-AzSDnsForwarder` と `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` を実行することで、それらの値を編集できます。 詳細については、[特権エンドポイント](azure-stack-privileged-endpoint.md)に関するページを参照してください。
 
 ## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>外部 DNS ゾーンの Azure Stack への委任
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での MySQL データベースの使用 | Microsoft Docs
-description: MySQL データベースを Azure Stack にサービスとしてデプロイする方法と、MySQL Server リソース プロバイダー アダプターの簡単なデプロイ手順について説明します。
+title: Azure Stack 上に MySQL リソース プロバイダーをデプロイする | Microsoft Docs
+description: Azure Stack 上に MySQL リソース プロバイダー アダプターと MySQL データベースをサービスとしてデプロイする方法を説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 603a42fcd98872a59109a1c8f6806fba72e615e0
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: c3b3c30eb10e767cf20336af67bd094994def2f9
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71908994"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682114"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack への MySQL リソース プロバイダーのデプロイ
 
@@ -33,14 +33,14 @@ MySQL サーバー リソース プロバイダーを使用して、MySQL デー
 
 Azure Stack MySQL リソース プロバイダーをデプロイする前に、いくつかの前提条件が満たされている必要があります。 これらの要件を満たすには、特権エンドポイント VM にアクセスできるコンピューターでこの記事の手順を実行します。
 
-* まだ登録していない場合は、Azure Marketplace 項目をダウンロードできるよう、Azure に [Azure Stack を登録](./azure-stack-registration.md)します。
-* Azure モジュールと Azure Stack PowerShell モジュールは、このインストールを実行するシステムにインストールする必要があります。 そのシステムは、最新バージョンの .NET ランタイムを伴う Windows 10 または Windows Server 2016 のイメージである必要があります。 [PowerShell for Azure Stack をインストールする](./azure-stack-powershell-install.md)を参照してください。
+* まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack を登録](./azure-stack-registration.md)します。
+* このインストールを実行するシステムに Azure モジュールと Azure Stack PowerShell モジュールをインストールします。 そのシステムは、最新バージョンの .NET ランタイムを伴う Windows 10 または Windows Server 2016 のイメージである必要があります。 [PowerShell for Azure Stack をインストールする](./azure-stack-powershell-install.md)を参照してください。
 * **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Marketplace に追加します。
 
 * MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。
 
   >[!NOTE]
-  >インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカルパスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
+  >インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカル パスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
 
 * リソース プロバイダーには、対応する最低限の Azure Stack ビルドがあります。
 
@@ -98,7 +98,7 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 | **AzureEnvironment** | Azure Stack のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
 | **DependencyFilesLocalPath** | 統合システムの場合のみ、証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 切断された環境では、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) をこのディレクトリにダウンロードします。 必要に応じて、ここで 1 つの Windows Update MSU パッケージをコピーできます。 | _省略可能_ (統合システムまたは切断された環境には _必須_) |
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
-| **MaxRetryCount** | 障害がある場合に各操作を再試行する回数。| 2 |
+| **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
 | **RetryDuration** | 再試行間のタイムアウト間隔 (秒単位)。 | 120 |
 | **アンインストール** | リソース プロバイダーと関連付けられているすべてのリソースを削除します (以下のメモを参照してください)。 | いいえ |
 | **DebugMode** | 障害発生時に自動クリーンアップが行われないようにします。 | いいえ |
@@ -118,7 +118,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
-# For integrated systems, use the IP address of one of the ERCS virtual machines.
+# For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
 # Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
@@ -132,7 +132,7 @@ $serviceAdmin = "admin@mydomain.onmicrosoft.com"
 $AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-# Set the credentials for the new resource provider VM local administrator account
+# Set the credentials for the new resource provider VM local admin account
 $vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("mysqlrpadmin", $vmLocalAdminPass)
 
@@ -147,7 +147,7 @@ Clear-AzureRMContext -Scope Process -Force
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
-# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+# Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
     -VMLocalCredential $vmLocalAdminCreds `
@@ -165,10 +165,10 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Azure Stack ポータルを使用してデプロイを確認する
 
 1. 管理ポータルにサービス管理者としてサインインします。
-2. **[リソース グループ]** を選択します
+2. **[リソース グループ]** を選択します。
 3. **system.\<location\>.mysqladapter** リソース グループを選択します。
 4. リソース グループの概要の概要ページで、失敗したデプロイは表示されていないはずです。
-5. 最後に、管理者ポータルで**仮想マシン**を選択して、MySQL リソース プロバイダー VM が正常に作成され、実行されていることを確認します。
+5. 最後に、管理者ポータルで **[仮想マシン]** を選択して、MySQL リソース プロバイダー VM が正常に作成され、実行されていることを確認します。
 
 ## <a name="next-steps"></a>次の手順
 

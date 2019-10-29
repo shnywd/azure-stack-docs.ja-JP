@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上で MySQL アダプター RP によって指定されたデータベースを使用する | Microsoft Docs
-description: MySQL アダプター リソースプロバイダーを使用してプロビジョニングした MySQL データベースを作成し管理する方法
+title: Azure Stack で MySQL データベースを作成する | Microsoft Docs
+description: Azure Stack で MySQL アダプター リソース プロバイダーを使用してプロビジョニングされた MySQL データベースの作成と管理を行う方法について説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 594d1f45e19717bdbbc5f9fee56cf253c03b6efb
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9daaea395ee28da79da1d6fd553d2e0b30e28156
+ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283475"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72682230"
 ---
-# <a name="create-mysql-databases"></a>MySQL データベースの作成
+# <a name="create-mysql-databases-in-azure-stack"></a>Azure Stack で MySQL データベースを作成する
 MySQL データベース サービスを含むオファーにサブスクライブした Azure Stack ユーザーは、ユーザー ポータルで、セルフ サービスの MySQL データベースを作成し、管理することができます。
 
 ## <a name="create-a-mysql-database"></a>MySQL データベースを作成する
@@ -66,4 +66,4 @@ MySQL データベース サービスを含むオファーにサブスクライ�
 
 ## <a name="next-steps"></a>次の手順
 
-[高可用性 MySQL データベースの提供](azure-stack-tutorial-mysql.md)方法を確認する
+[高可用性 MySQL データベースの提供](azure-stack-tutorial-mysql.md)方法を確認します。
