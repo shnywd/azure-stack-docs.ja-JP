@@ -200,7 +200,7 @@
                     - name: Azure Stack 上の AKS Engine
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: サポート ポリシー
-                      href: azure-stack-kubernetes-ask-engine-support.md
+                      href: azure-stack-kubernetes-aks-engine-support.md
                     - name: 前提条件の設定
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Linux クライアントを作成する
@@ -275,6 +275,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: VNet ピアリング
           href: azure-stack-network-howto-vnet-to-vnet.md
+        - name: iSCSI ストレージに接続する
+          href: azure-stack-network-howto-iscsi-storage.md
 - name: 概念
   items:
     - name: ハイブリッド クラウド パターン
