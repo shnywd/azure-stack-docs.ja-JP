@@ -215,6 +215,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS Engine のトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: Marketplace アイテムから AKS Engine を移動する
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace の項目
                   items:
                     - name: Kubernetes クラスターのデプロイ
@@ -275,8 +277,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: VNet ピアリング
           href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: iSCSI ストレージに接続する
-          href: azure-stack-network-howto-iscsi-storage.md
+        - name: サブスクリプション リソースをコピーする
+          href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
     - name: ハイブリッド クラウド パターン
