@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: b68b0119e30d39b126aa43c2c8ed4c859073663e
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: cf9239f57423b54f6cd7f093779f5c7afa7745b1
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962575"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167245"
 ---
 # <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack に VNET 間接続を確立する方法
+
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事では、Fortinet FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、ある Azure Stack 内の VNET を別の Azure Stack 内の VNET に接続します。
 
@@ -246,7 +248,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 ## <a name="bring-up-all-phase-2-selectors"></a>すべてのフェーズ 2 セレクターを表示する 
 
-**両方**の NVA で上記が完了したら、次のようにします。
+"**両方**" の NVA で上記が完了したら、次のようにします。
 
 1.  forti2 の FortiGate Web コンソールで、 **[Monitor]\(モニター\)**  >  **[IPsec Monitor]\(IPsec モニター\)** を選択します。 
 
