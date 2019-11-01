@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b1a658b428d13cdd12c16b767430f87a80e89fdc
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: cc2299f32f02c4a825424309943d3f27d0fab6fb
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418370"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167180"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 
@@ -33,8 +33,8 @@ ms.locfileid: "68418370"
 
 ローカル エージェントをデプロイするには:
 
-1. ローカル エージェントをインストールします。
-2. サニティ チェックを実行します。
+1. ローカル エージェントをダウンロードしてインストールします。
+2. テストを開始する前にサニティ チェックを実行します。
 3. ローカル エージェントを実行します。
 
 ## <a name="download-and-start-the-local-agent"></a>ローカル エージェントのダウンロードと起動
@@ -52,46 +52,53 @@ ms.locfileid: "68418370"
 - 200 GB 以上のディスク領域
 - インターネットへの安定したネットワーク接続
 
-### <a name="download-and-install-the-agent"></a>エージェントのダウンロードとインストール
+### <a name="download-and-install-the-local-agent"></a>ローカル エージェントのダウンロードとインストール
 
 1. テストの実行に使用するマシンから、管理者特権でのコマンド プロンプトで Windows PowerShell を開きます。
-2. 次のコマンドを実行してローカル エージェントをダウンロードします。
+2. 次のコマンドを実行して、ローカル エージェントの依存関係をダウンロードしてインストールし、Azure Stack 環境にパブリック イメージ リポジトリ (PIR) イメージ (OS VHD) をコピーします。
 
     ```powershell
-    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
-    Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
-    Set-Location VaaSOnPremAgent\lib\net46
-    ```
+    # Review and update the following five parameters
+    $RootFolder = "c:\VaaS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $AadServiceAdminUserName = "<AAD service admin user name>"
+    $AadServiceAdminPassword = "<AAD service admin password>"
 
-3. 次のコマンドを実行して、ローカル エージェントの依存関係をインストールします。
+    if (-not(Test-Path($RootFolder))) {
+        mkdir $RootFolder
+    }
+    Set-Location $RootFolder
+    Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "$rootFolder\OnPremAgent.zip"
+    Expand-Archive -Path "$rootFolder\OnPremAgent.zip" -DestinationPath "$rootFolder\VaaSOnPremAgent" -Force
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
 
-    ```powershell
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
+    $cloudAdminCredential = New-Object System.Management.Automation.PSCredential($cloudAdmindUserName, (ConvertTo-SecureString $cloudAdminPassword -AsPlainText -Force))
+    $getStampInfoUri = "https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation" 
+    $stampInfo = Invoke-RestMethod -Method Get -Uri $getStampInfoUri -Credential $cloudAdminCredential -ErrorAction Stop
+    $serviceAdminCreds = New-Object System.Management.Automation.PSCredential $aadServiceAdminUserName, (ConvertTo-SecureString $aadServiceAdminPassword -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
-    Install-VaaSPrerequisites -AadTenantId $AadTenantId `
-                              -ServiceAdminCreds $ServiceAdminCreds `
-                              -ArmEndpoint https://adminmanagement.$ExternalFqdn `
-                              -Region $Region
+    Install-VaaSPrerequisites -AadTenantId $stampInfo.AADTenantID `
+                            -ServiceAdminCreds $serviceAdminCreds `
+                            -ArmEndpoint $stampInfo.AdminExternalEndpoints.AdminResourceManager `
+                            -Region $stampInfo.RegionName
     ```
 
-    **パラメーター**
+> [!Note]  
+> Install-VaaSPrerequisites コマンドレットは、大規模な VM イメージ ファイルをダウンロードします。 ネットワーク速度の低下が発生している場合は、ローカル ファイル サーバーにファイルをダウンロードし、テスト環境に VM イメージを手動で追加することができます。 詳細については、「[低速なネットワーク接続の処理](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)」を参照してください。
 
-    | パラメーター | 説明 |
-    | --- | --- |
-    | aadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
-    | aadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
-    | AadTenantId | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
-    | ExternalFqdn | 完全修飾ドメイン名は、構成ファイルから取得できます。 その手順については、「[Azure Stack のサービスとしての検証の一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください。 |
-    | リージョン | Azure AD テナントのリージョン。 |
+**パラメーター**
 
-このコマンドによって、PIR (Public Image Repository) イメージ (OS VHD) がダウンロードされて、Azure Blob Storage から Azure Stack Storage にコピーされます。
+| パラメーター | 説明 |
+| --- | --- |
+| AadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
+| AadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
+| CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
+| CloudAdminPassword | クラウド管理者アカウントのパスワード。|
 
-![前提条件のダウンロード](media/installingprereqs.png)
+![前提条件のダウンロード](media/installing-prereqs.png)
 
-> [!Note]
-> これらのイメージをダウンロードするときに、ネットワーク速度が遅い場合は、それらを 1 つずつローカル共有にダウンロードし、パラメーター **-LocalPackagePath** *FileShareOrLocalPath* を指定してください。 PIR のダウンロードに関する詳しいガイダンスについては、「[サービスとしての検証のトラブルシューティング](azure-stack-vaas-troubleshoot.md)」の「[低速なネットワーク接続の処理](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)」セクションを参照してください。
-
-## <a name="checks-before-starting-the-tests"></a>テスト開始前のチェック
+## <a name="perform-sanity-checks-before-starting-the-tests"></a>テストを開始する前のサニティ チェックを実行する
 
 テストではリモート操作が実行されます。 テストを実行するマシンは、Azure Stack エンドポイントにアクセスできる必要があります。そうでないと、テストは機能しません。 VaaS のローカル エージェントを使用する場合は、エージェントを実行するマシンを使用します。 次のチェックを実行すると、マシンが Azure Stack エンドポイントにアクセスできることを確認できます。
 
@@ -107,20 +114,30 @@ ms.locfileid: "68418370"
 
 4. 「[Azure Stack の検証テストを実行する](../operator/azure-stack-diagnostic-test.md)」の説明に従って、**Test-AzureStack** PowerShell コマンドレットを実行してシステムの正常性を確認します。 警告やエラーがあれば、テストを開始する前にすべて解消しておいてください。
 
-## <a name="run-the-agent"></a>エージェントの実行
+## <a name="run-the-local-agent"></a>ローカル エージェントを実行する
 
 1. 管理者特権のプロンプトで Windows PowerShell を開きます。
 
 2. 次のコマンドを実行します。
 
     ```powershell
-    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
+   # Review and update the following five parameters
+    $RootFolder = "c:\VAAS"
+    $CloudAdmindUserName = "<Cloud admin user name>"
+    $CloudAdminPassword = "<Cloud admin password>"
+    $VaaSUserId = "<VaaS user ID>"
+    $VaaSTenantId = "<VaaS tenant ID>"
+
+    Set-Location "$rootFolder\VaaSOnPremAgent\lib\net46"
+    .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u $VaaSUserId -t $VaaSTenantId -x $CloudAdmindUserName -y $CloudAdminPassword
     ```
 
       **パラメーター**  
 
     | パラメーター | 説明 |
     | --- | --- |
+    | CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
+    | CloudAdminPassword | クラウド管理者アカウントのパスワード。|
     | VaaSUserId | VaaS ポータルにサインインするためのユーザー ID (例: UserName\@Contoso.com) |
     | VaaSTenantId | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
 
@@ -129,9 +146,9 @@ ms.locfileid: "68418370"
 
 エラーが一切報告されなければ、ローカル エージェントは正常に実行されたことになります。 次の例に示すテキストがコンソール ウィンドウに表示されます。
 
-`Heartbeat Callback at 11/8/2016 4:45:38 PM`
+`Heartbeat was sent successfully.`
 
-![起動されたエージェント](media/startedagent.png)
+![起動されたエージェント](media/started-agent.png)
 
 エージェントは、その名前で一意に識別されます。 既定では、その起動元となったマシンの完全修飾ドメイン名 (FQDN) が使用されます。 うっかり選択してしまうことのないようウィンドウは最小化してください。フォーカスが変わると他のアクションがすべて一時停止されます。
 
