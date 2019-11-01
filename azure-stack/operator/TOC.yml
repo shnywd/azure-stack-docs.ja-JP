@@ -19,7 +19,7 @@
 - name: クイック スタート
   expanded: true
   items:
-    - name: 管理ポータルの使用
+    - name: 管理者ポータルを使用する
       href: azure-stack-manage-portals.md
 - name: チュートリアル
   items:
