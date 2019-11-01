@@ -215,8 +215,6 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS Engine のトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
-                    - name: Marketplace アイテムから AKS Engine を移動する
-                      href: azure-stack-kubernetes-aks-engine-dvm.md
                 - name: Marketplace の項目
                   items:
                     - name: Kubernetes クラスターのデプロイ
@@ -227,6 +225,8 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: Kubernetes ダッシュボードの有効化
                       href: azure-stack-solution-template-kubernetes-dashboard.md
+                    - name: Marketplace アイテムから AKS Engine を移動する
+                      href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: Kubernetes クラスターのトラブルシューティング
                       href: azure-stack-solution-template-kubernetes-trouble.md
             - name: Cognitive Services のデプロイ
@@ -271,14 +271,36 @@
           href: azure-stack-solution-sql-ha.md
     - name: 基本パターンのデプロイ
       items:
+        - name: VNet ピアリング
+          items:
+            - name: FortiGate を使用した VNet ピアリング
+              href: azure-stack-network-howto-vnet-to-vnet.md
+            - name: VM を使用した VNet ピアリング
+              href: azure-stack-network-howto-vnet-peering.md
         - name: オンプレミスへの VPN のセットアップ
           href: azure-stack-network-howto-vnet-to-onprem.md
         - name: VNet 間接続
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: VNet ピアリング
-          href: azure-stack-network-howto-vnet-to-vnet.md
-        - name: サブスクリプション リソースをコピーする
-          href: azure-stack-network-howto-backup-replicator.md
+        - name: データセンターを拡張する
+          href: azure-stack-network-howto-extend-datacenter.md
+        - name: iSCSI ストレージに接続する
+          href: azure-stack-network-howto-iscsi-storage.md
+        - name: トンネルを設定する
+          items:
+            - name: 複数サイト間 VPN を設定する
+              href: network-howto-vpn-tunnel.md
+            - name: VPN トンネル (GRE) を作成する
+              href: network-howto-vpn-tunnel-gre.md
+            - name: VPN トンネル (IPSEC) を作成する
+              href: network-howto-vpn-tunnel-ipsec.md
+        - name: バックアップと回復
+          items:
+            - name: Commvault を使用した Azure Stack での VM のバックアップ
+              href: azure-stack-network-howto-backup-commvault.md
+            - name: Azure Stack でストレージ アカウントをバックアップする
+              href: azure-stack-network-howto-backup-storage.md
+            - name: サブスクリプション リソースをコピーする
+              href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
     - name: ハイブリッド クラウド パターン
