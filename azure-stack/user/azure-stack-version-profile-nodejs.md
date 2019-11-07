@@ -14,12 +14,12 @@ ms.date: 07/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/30/2019
-ms.openlocfilehash: 7e2753ebb5bebad4f1ac2a7bbc17a27ccd87cbe9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 65ea0b4f6f7f7cb3769e83bf9052ac2953668e48
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283045"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618224"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Azure Stack の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -73,7 +73,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 2. [Node.js](https://nodejs.org/en/download/) の現在のバージョンをインストールまたはアップグレードします。 Node.js には、[npm](https://www.npmjs.com/) JavaScript パッケージ マネージャーも含まれています。
 
-3. [Visual Studio Code](https://code.visualstudio.com/) をインストールまたはアップグレードし、Visual Studio Code 用の [Node.js 拡張機能](https://code.visualstudio.com/docs/Node.js/nodejs-debugging)をインストールします。
+3. [Visual Studio Code](https://code.visualstudio.com/) をインストールまたはアップグレードし、Visual Studio Code 用の [Node.js 拡張機能](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)をインストールします。
 
 2.  Azure Stack Resource Manager のクライアントパッケージをインストールします。 詳細については、[クライアント ライブラリをインストールする方法](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)に関するページを参照してください。
 
@@ -95,7 +95,7 @@ Azure Stack で Node.js Azure SDK を使用するには、次の値を指定し�
 | --- | --- | --- |
 | テナント ID | TENANT\_ID | Azure Stack の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
 | クライアント ID | CLIENT\_ID | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。  |
-| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](https://docs.microsoft.com/azure/azure-stack/service-plan-offer-subscription-overview#subscriptions) は Azure Stack 内のオファーにアクセスする方法です。  |
+| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) は Azure Stack 内のオファーにアクセスする方法です。  |
 | クライアント シークレット | APPLICATION\_SECRET | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット 。 |
 | Resource Manager エンドポイント | ARM\_ENDPOINT | 「[Azure Stack Resource Manager エンドポイント](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
 

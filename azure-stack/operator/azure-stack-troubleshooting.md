@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3c0b1ce32399b4739796b2718e97c69d96291dc6
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 4c04eafab93da233859b5b67571b70899b081b95
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445273"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659230"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack のトラブルシューティング
 
@@ -96,42 +96,6 @@ PowerShell を使用して、CSS を利用せずに、スタンプ使用状況�
 5. Seedring の .zip を抽出し、test-azurestack を実行した ERCS フォルダーから検証レポートを取得できます。
 
 詳細については、「[Azure Stack の診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)」を参照してください。
-
-## <a name="troubleshoot-deployment"></a>デプロイのトラブルシューティング 
-### <a name="general-deployment-failure"></a>一般的なデプロイの失敗
-インストール時に障害が発生した場合、デプロイ スクリプトの -rerun オプションを使用して、失敗した手順からデプロイを再開できます。  
-
-### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>パラメーター osProfile が許可されないというテンプレート検証エラー
-
-テンプレートの検証時に、パラメーター "osProfile" が許可されないというエラー メッセージが表示される場合は、以下のコンポーネントの正しいバージョンが使用されていることを確認してください。
-
-- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [ネットワーク](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
-
-Azure から Azure Stack に VHD をコピーするには、[AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)を使用します。 イメージ自体の問題については、ベンダーと協力して解決してください。 Azure Stack の WALinuxAgent の要件の詳細については、「[Azure LinuX エージェント](azure-stack-linux.md#azure-linux-agent)」を参照してください。
-
-### <a name="deployment-fails-due-to-lack-of-external-access"></a>外部アクセスがないことが原因でデプロイが失敗する
-外部アクセスが必要な段階でデプロイが失敗する場合は、次の例のような例外が返されます。
-
-```
-An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
-   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
-```
-このエラーが発生する場合は、[デプロイ ネットワークのトラフィックに関するドキュメント](deployment-networking.md)を見直して、最小限のネットワーク要件がすべて満たされていることを確認してください。 パートナー ツールキットの一部として、ネットワーク チェッカー ツールも提供されています。
-
-その他のデプロイ エラーは、一般に、インターネット上でのリソースへの接続の問題が原因です。
-
-インターネット上でのリソースへの接続を確認するには、次の手順を実行します。
-
-1. PowerShell を開きます。
-2. WAS01 またはいずれかの ERCS VM に対して Enter-PSSession を実行します。
-3. 次のコマンドレットを実行します。 
-   ```powershell
-   Test-NetConnection login.windows.net -port 443
-   ```
-
-このコマンドが失敗する場合は、TOR スイッチおよびその他のネットワーク デバイスがすべて、[ネットワーク トラフィックを許可する](azure-stack-network.md)ように構成されていることを確認します。
 
 ## <a name="troubleshoot-virtual-machines"></a>仮想マシンのトラブルシューティング
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ab43d94c2e65032e5e525ec000e38cacb01b2980
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
+ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319102"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73659215"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK のトラブルシューティング
 この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 Azure Stack 統合システムに関するヘルプについては、「[Microsoft Azure Stack のトラブルシューティング](../operator/azure-stack-troubleshooting.md)」を参照してください。 
@@ -40,6 +40,39 @@ ASDK は評価環境であるため、Microsoft カスタマー サポート サ
 
 ### <a name="at-the-end-of-the-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>デプロイの最後に、PowerShell セッションがまだ開いており、出力が表示されません
 この動作は、PowerShell コマンド ウィンドウが選択されている場合の既定の動作の結果に過ぎない可能性があります。 ASDK のデプロイは成功しましたが、ウィンドウを選択したときに、スクリプトが一時停止しました。 設定が完了したことを確認するには、コマンド ウィンドウのタイトル バーで、"select" という単語を探します。 ESC キーを押してその選択を解除すると、その後に完了メッセージが表示されるはずです。
+
+### <a name="template-validation-error-parameter-osprofile-is-not-allowed"></a>パラメーター osProfile が許可されないというテンプレート検証エラー
+
+テンプレートの検証時に、パラメーター "osProfile" が許可されないというエラー メッセージが表示される場合は、以下のコンポーネントの正しいバージョンが使用されていることを確認してください。
+
+- [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
+- [ネットワーク](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+
+Azure から Azure Stack に VHD をコピーするには、[AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)を使用します。 イメージ自体の問題については、ベンダーと協力して解決してください。 Azure Stack の WALinuxAgent の要件の詳細については、「[Azure LinuX エージェント](../operator/azure-stack-linux.md#azure-linux-agent)」を参照してください。
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>外部アクセスがないことが原因でデプロイが失敗する
+外部アクセスが必要な段階でデプロイが失敗する場合は、次の例のような例外が返されます。
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+このエラーが発生する場合は、[デプロイ ネットワークのトラフィックに関するドキュメント](../operator/deployment-networking.md)を見直して、最小限のネットワーク要件がすべて満たされていることを確認してください。 パートナー ツールキットの一部として、ネットワーク チェッカー ツールも提供されています。
+
+その他のデプロイ エラーは、一般に、インターネット上でのリソースへの接続の問題が原因です。
+
+インターネット上でのリソースへの接続を確認するには、次の手順を実行します。
+
+1. PowerShell を開きます。
+2. WAS01 またはいずれかの ERCS VM に対して Enter-PSSession を実行します。
+3. 次のコマンドレットを実行します。 
+   ```powershell
+   Test-NetConnection login.windows.net -port 443
+   ```
+
+このコマンドが失敗する場合は、TOR スイッチおよびその他のネットワーク デバイスがすべて、[ネットワーク トラフィックを許可する](../operator/azure-stack-network.md)ように構成されていることを確認します。
+
 
 ## <a name="virtual-machines"></a>仮想マシン
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム

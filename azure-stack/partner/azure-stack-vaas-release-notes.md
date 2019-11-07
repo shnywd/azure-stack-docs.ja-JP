@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: d42b1f161d1b74633c4e9924e45677a57b3493e1
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277824"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167140"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>サービスとしての検証のリリース ノート
 
@@ -66,7 +66,7 @@ Azure Stack 月間更新検証ワークフローを実行しているとき、�
 
 - VaaS の前提条件
 
-    `Install-VaaSPrerequisites` に、クラウド管理者の資格情報は不要になりました。 このコマンドレットの最新バージョンを実行する場合、前提条件をインストールするための変更後のコマンドについては、「[Download and install the agent (エージェントのダウンロードとインストール)](azure-stack-vaas-local-agent.md#download-and-install-the-agent)」をご覧ください。 コマンドは次のとおりです。
+    `Install-VaaSPrerequisites` に、クラウド管理者の資格情報は不要になりました。 このコマンドレットの最新バージョンを実行する場合、前提条件をインストールするための変更後のコマンドについては、「[ローカル エージェントのダウンロードとインストール](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)」を参照してください。 コマンドは次のとおりです。
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -83,7 +83,7 @@ Azure Stack 月間更新検証ワークフローを実行しているとき、�
 
 - VaaS の前提条件と VHD の更新
 
-    パッケージ検証時の問題に対処するために、`Install-VaaSPrerequisites` に、クラウド管理者の資格情報が必要になりました。 「[Download and install the agent (エージェントのダウンロードとインストール)](azure-stack-vaas-local-agent.md#download-and-install-the-agent)」のドキュメントが次のように更新されました。
+    パッケージ検証時の問題に対処するために、`Install-VaaSPrerequisites` に、クラウド管理者の資格情報が必要になりました。 「[ローカル エージェントのダウンロードとインストール](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)」のドキュメントが次のように更新されました。
 
     ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -100,7 +100,7 @@ Azure Stack 月間更新検証ワークフローを実行しているとき、�
 
 - ローカル エージェントの更新
 
-    以前のバージョンのローカル エージェントは、現在の 4.0.0 リリースのサービスと互換性がありません。 すべてのユーザーが、ローカル エージェントを更新する必要があります。 最新のエージェントをインストールする手順については、「[Download and install the agent (エージェントのダウンロードとインストール)](azure-stack-vaas-local-agent.md#download-and-install-the-agent)」をご覧ください。
+    以前のバージョンのローカル エージェントは、現在の 4.0.0 リリースのサービスと互換性がありません。 すべてのユーザーが、ローカル エージェントを更新する必要があります。 最新のエージェントをインストールする手順については、「[ローカル エージェントのダウンロードとインストール](azure-stack-vaas-local-agent.md#download-and-install-the-local-agent)」を参照してください。
 
 - PowerShell オートメーションの更新
 

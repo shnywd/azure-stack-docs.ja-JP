@@ -16,18 +16,18 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a47bae619b2525534797158cf2660d5bc77192c9
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282616"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594764"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>高度な ASDK 評価タスク
 基本的な Azure Stack Development Kit (ASDK) サービスの機能について把握したら、より高度なシナリオをテストして Azure Stack の理解を深めることができます。 これらのより高度な評価タスクは、Azure Stack のオペレーター ドキュメントに詳しく記載されています。
 
 > [!NOTE]
-> 多くのオペレーター タスクは ASDK デプロイと運用環境のマルチノード Azure Stack デプロイの両方でサポートされますが、ASDK デプロイではすべての使用シナリオがサポートされるわけではありません。 詳しくは、「[ASDK とマルチノード Azure Stack の相違点](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences)」をご覧ください。
+> 多くのオペレーター タスクは ASDK デプロイと運用環境のマルチノード Azure Stack デプロイの両方でサポートされますが、ASDK デプロイではすべての使用シナリオがサポートされるわけではありません。 詳しくは、「[ASDK とマルチノード Azure Stack の相違点](asdk-what-is.md#asdk-and-multi-node-azure-stack-hub-differences)」をご覧ください。
 
 ## <a name="delegate-offers-in-azure-stack"></a>Azure Stack でのオファーの委任
 Azure Stack オペレーターとして、オファー作成とユーザー サインアップを他のユーザーに担当してもらいたいことがよくあります。 たとえば、あなたがサービス プロバイダーで、再販業者に顧客のサインアップと管理を担当してもらいたい場合があります。 あるいは、あなたが社内の中枢の IT グループにいて、子会社で直接、ユーザーのサインアップをして欲しい場合も同様です。

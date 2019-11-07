@@ -10,12 +10,12 @@ ms.date: 05/10/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: c7d0396f01970366696309445efb911e2e189162
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 4d4ece9946d257bce5cf19876b940cf4d828872d
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277187"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167170"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-datacenter"></a>AD FS ID を Azure Stack データセンターに統合する
 

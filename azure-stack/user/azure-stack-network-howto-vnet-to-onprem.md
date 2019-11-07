@@ -9,14 +9,16 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c11d5ad563ff673cfaf9e28cea7373bbc6e551aa
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
+ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543806"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73167297"
 ---
 # <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack の VPN ゲートウェイを設定する
+
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事では、Azure Stack に VPN 接続を作成する方法について説明します。 VPN ゲートウェイは、Azure Stack の仮想ネットワークとリモート VPN ゲートウェイの間で暗号化されたトラフィックを送信する、仮想ネットワーク ゲートウェイの一種です。 次の手順では、FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、リソース グループ内に 1 つの VNET をデプロイします。 また、FortiGate NVA で IPSec VPN を設定する手順も提供します。
 
@@ -88,7 +90,7 @@ ms.locfileid: "72543806"
 
 3. **[OK]** を選択します。
 
-4. Fortigate NVA のパブリック IP を次のように構成します。
+4. FortiGate NVA のパブリック IP を次のように構成します。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
 
