@@ -1,10 +1,10 @@
-- name: Azure Stack のパートナー向けドキュメント
+- name: Azure Stack Hub のパートナー向けドキュメント
   href: index.yml
 - name: 概要
   href: index.yml
   expanded: true
   items:
-    - name: Azure Stack のサービスとしての検証
+    - name: Azure Stack Hub のサービスとしての検証
       href: azure-stack-vaas-overview.md
     - name: リリース ノート
       href: azure-stack-vaas-release-notes.md
@@ -12,7 +12,7 @@
   items:
     - name: リソースをセットアップする
       href: azure-stack-vaas-set-up-resources.md
-    - name: PowerShell を使用した Azure Stack の検証の自動化
+    - name: PowerShell を使用した Azure Stack Hub の検証の自動化
       href: azure-stack-vaas-automate-with-powershell.md
 - name: ハウツー ガイド
   items:
@@ -24,7 +24,7 @@
       href: azure-stack-vaas-create-oem-package.md
     - name: OEM パッケージの検証
       href: azure-stack-vaas-validate-oem-package.md
-    - name: 新しい Azure Stack ソリューションの検証
+    - name: 新しい Azure Stack Hub ソリューションの検証
       href: azure-stack-vaas-validate-solution-new.md
     - name: Microsoft のソフトウェア更新プログラムの検証
       href: azure-stack-vaas-validate-microsoft-updates.md
@@ -44,7 +44,7 @@
       href: azure-stack-vaas-troubleshoot.md
 - name: 関連項目
   items:
-    - name: Azure Stack のドキュメント
+    - name: Azure Stack Hub のオペレーター ドキュメント
       href: /azure-stack/operator
     - name: Azure Active Directory
       href: /azure/active-directory/

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Stack のパートナー向けドキュメント
+title: Azure Stack Hub のパートナー向けドキュメント
 metadata:
   document_id: null
-  title: Azure Stack のパートナー向けドキュメント - チュートリアル、API リファレンス
-  description: Azure Stack をホストするためにハードウェアを検証する方法について説明します。 サービスとしての検証とは、Microsoft と共同で Azure Stack のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
+  title: Azure Stack Hub のパートナー向けドキュメント - チュートリアル、API リファレンス
+  description: Azure Stack をホストするためにハードウェアを検証する方法について説明します。 サービスとしての検証とは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -16,7 +16,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: サービスとしての検証を使用して、Azure Stack での使用についてハードウェアを検証できます。 このサービスは、Microsoft と共同で Azure Stack のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
+  description: サービスとしての検証を使用して、Azure Stack での使用についてハードウェアを検証できます。 このサービスは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
 sections:
   - title: 5 分間のクイック スタート
     items:
@@ -32,10 +32,10 @@ sections:
   - title: ステップバイステップのチュートリアル
     items:
       - type: paragraph
-        text: Azure Stack ハードウェアの検証方法を説明します。
+        text: Azure Stack Hub ハードウェアの検証方法を説明します。
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">新しい Azure Stack ソリューションの検証</a>
+          - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-solution-new">新しい Azure Stack Hub ソリューションの検証</a>
           - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM パッケージの検証</a>
           - html: <a href="/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Microsoft のソフトウェア更新プログラムの検証</a>

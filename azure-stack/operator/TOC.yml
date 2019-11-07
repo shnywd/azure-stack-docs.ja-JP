@@ -1,8 +1,8 @@
-- name: Azure Stack のオペレーター ドキュメント
+- name: Azure Stack Hub のオペレーター ドキュメント
   href: index.yml
 - name: 概要
   items:
-    - name: Azure Stack とは
+    - name: Azure Stack Hub とは
       href: azure-stack-overview.md
     - name: Azure Stack HCI とは
       href: azure-stack-hci-overview.md
@@ -448,7 +448,7 @@
       href: /powershell/azure/azure-stack/overview
 - name: 関連項目
   items:
-    - name: Azure Stack のユーザー ドキュメント
+    - name: Azure Stack Hub のユーザー ドキュメント
       href: /azure-stack/user/
     - name: ASDK のドキュメント
       href: /azure-stack/asdk/

@@ -1,4 +1,4 @@
-- name: Azure Stack Development Kit のドキュメント
+- name: Azure Stack Hub 開発キットのドキュメント
   href: index.yml
 - name: 概要
   expanded: true
@@ -35,11 +35,11 @@
           href: asdk-redeploy.md
     - name: ASDK の登録
       href: asdk-register.md
-    - name: Azure Stack のテレメトリ設定の構成
+    - name: Azure Stack Hub のテレメトリ設定の構成
       href: asdk-telemetry.md
     - name: ASDK を起動および停止する
       href: asdk-start-stop.md
-    - name: Azure Stack バックアップを検証する
+    - name: Azure Stack Hub バックアップを検証する
       href: asdk-validate-backup.md
     - name: ASDK に接続する
       href: asdk-connect.md
@@ -49,13 +49,13 @@
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack CLI
+    - name: CLI
       href: /cli/azure/?view=azure-cli-2017-03-09-profile
 - name: 関連項目
   items:
-    - name: Azure Stack のオペレーター ドキュメント
+    - name: Azure Stack Hub のオペレーター ドキュメント
       href: /azure-stack/operator
-    - name: Azure Stack のユーザー ドキュメント
+    - name: Azure Stack Hub のユーザー ドキュメント
       href: /azure-stack/user/
 - name: リソース
   items:
