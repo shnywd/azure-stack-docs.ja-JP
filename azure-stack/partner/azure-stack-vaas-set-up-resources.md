@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 33ead43fd8dbe77feae12db58ca7c689030c6f98
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829096"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618237"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>チュートリアル:サービスとしての検証のためのリソースを設定する
 
@@ -100,7 +100,7 @@ Azure ストレージ アカウントは、お客様の Azure Stack 環境では
 
 3. **[リソース グループ]** で、 **[新規作成]** を選択します。 新しいリソース グループの名前を入力します。
 
-4. Azure Storage アカウントの [[名前付け規則]](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage) をレビューします。 ストレージ アカウントの名前を入力します。
+4. Azure Storage アカウントの [[名前付け規則]](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage) をレビューします。 ストレージ アカウントの名前を入力します。
 
 5. ストレージ アカウントのリージョンとして **[米国西部]** を選択します。
 

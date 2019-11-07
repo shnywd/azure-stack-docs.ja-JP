@@ -16,12 +16,12 @@ ms.date: 10/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: 34422c5d868b26be599065c33ef0cfe20d790a2f
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 1e15358f88e7aece62425042536d775b707f567f
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682134"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047122"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack の更新プログラム: リリース ノート
 
@@ -119,7 +119,7 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 Azure Stack の 1908 リリースは、次の修正プログラムが適用された 1907 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.17.54](https://support.microsoft.com/help/4523826)
+- [Azure Stack 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
 
 Azure Stack 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
 
@@ -128,7 +128,7 @@ Azure Stack 1908 更新プログラムには、システムのハードウェア
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1908.6.37](https://support.microsoft.com/help/4527372)
+- [Azure Stack 修正プログラム 1.1908.8.41](https://support.microsoft.com/help/4528074)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -250,7 +250,7 @@ Azure Stack の 1907 リリースは、次の修正プログラムが適用さ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.17.54](https://support.microsoft.com/help/4523826)
+- [Azure Stack 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
 ::: moniker-end
 
 ::: moniker range="azs-1906"

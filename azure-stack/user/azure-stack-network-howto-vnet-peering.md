@@ -1,0 +1,62 @@
+---
+title: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法 | Microsoft Docs
+description: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法について説明します。
+services: azure-stack
+author: mattbriggs
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 10/03/2019
+ms.author: mabrigg
+ms.reviewer: sijuman
+ms.lastreviewed: 10/03/2019
+ms.openlocfilehash: 91a90146f1f62ebea980a785d8a8e347f04fe137
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.translationtype: HT
+ms.contentlocale: ja-JP
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064926"
+---
+# <a name="vnet-peering-in-azure-stack-with-vms"></a>Azure Stack での VM との VNET ピアリング
+
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+
+同じ Azure Stack 環境内で、2 つの Azure Stack VNet を相互に接続できます。 現時点では、組み込みの [Virtual Network ゲートウェイ](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)を使用して Azure Stack VNet に接続することはできません。 NVA アプライアンスを使用して、2 つの Azure Stack VNet 間に VPN トンネルを作成する必要があります。 この記事のテンプレート リファレンスでは、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされています。 2 つの RRAS サーバーは、2 つの VNET 間に S2SVPN IKEv2 トンネルを実装するように構成されています。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています。 
+
+このデプロイ パターンは、Azure Stack インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。 
+
+これらのテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns
+) リポジトリの **lucidqdreams** フォークにあります。 テンプレートは **S2SVPNTunnel** フォルダーにあります。
+
+![alt text](./media/azure-stack-network-howto-vnet-peering/overview.png)
+
+## <a name="requirements"></a>必要条件
+
+- 最新の更新プログラムが適用された ASDK または Azure Stack 統合システム。 
+- 必須の Azure Stack Marketplace 項目:
+    -  Windows Server 2016 Datacenter (最新ビルドを推奨)
+    -  カスタム スクリプト拡張機能
+
+## <a name="things-to-consider"></a>考慮事項
+
+- ネットワーク セキュリティ グループは、テンプレートのトンネル サブネットに適用されます。 追加の NSG を使用して、各 VNet の内部サブネットをセキュリティで保護することをお勧めします。
+- RDP 拒否規則はトンネル NSG に適用され、パブリック IP アドレスを使用して VM にアクセスする場合は許可に設定する必要があります。
+- このソリューションでは、DNS 解決を考慮していません。
+- VNet 名と vmName の組み合わせは 15 文字未満にする必要があります。
+- このテンプレートは、VNet1 および VNet2 用にカスタマイズされた VNet 名を使用するように設計されています。
+- このテンプレートは BYOL Windows を使用しています
+- 最新バージョンの (1907) では、リソース グループを削除する場合、リソース グループの削除を確実に完了するには、トンネル サブネットから NSG を手動でデタッチする必要があります
+- このテンプレートでは、DS3v2 VM を使用しています。 RRAS サービスにより、Windows 内部 SQL Server がインストールされ、実行されます。 VM のサイズが小さすぎると、メモリの問題が発生する可能性があります。 VM サイズを小さくする前にパフォーマンスを確認してください。
+- これは高可用なソリューションではありません。 さらに HA スタイルのソリューションが必要な場合は、2 つ目の VM を追加できます。また、ルート テーブルのルートをセカンダリ インターフェイスの内部 IP に手動で変更する必要があります。 また、複数のトンネルを相互接続するように構成する必要があります。
+
+## <a name="options"></a>オプション
+
+- _artifactsLocation および_artifactsLocationSasToken パラメーターを使用して、独自の BLOB ストレージ アカウントと SAS トークンを使用できます
+- このテンプレート INTERNALSUBNETREFVNET1 と INTERNALSUBNETREFVNET2 には 2 つの出力があります。これは、パイプライン スタイルのデプロイ パターンでこれを使用する場合、内部サブネットのリソース ID です。
+
+このテンプレートには、VNet の名前付けと IP アドレス指定の既定値が指定されています。 管理者 (rrasadmin) のパスワードが必要です。また、SAS トークンで独自のストレージ BLOB を使用することもできます。 デプロイが失敗する可能性があるため、これらの値を適切な範囲内に保つように注意します。 PowerShell RDS パッケージは各 RRAS VM で実行され、ルーティングと必要なすべての依存サービスと機能がインストールされます。 この DSC は、必要に応じてさらにカスタマイズできます。 カスタム スクリプト拡張機能では、次のスクリプトが実行され、`Add-Site2Site.ps1` によって 2 つの RRAS サーバー間の VPNS2S トンネルが共有キーを使用して構成されます。 カスタム スクリプト拡張機能からの詳細な出力を表示して、VPN トンネル構成の結果を確認できます。
+
+![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
+
+## <a name="next-steps"></a>次の手順
+
+[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

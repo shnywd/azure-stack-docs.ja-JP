@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 4a8f24c11f8e72c4b3e2b99ae6b2a417e3bd0cba
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
+ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310588"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73057777"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Azure Stack Marketplace のカスタム アイテムを作成して発行する
 
@@ -45,11 +45,11 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
 3. ギャラリー パッケージは、次のような構造になっている必要があります。
 
-   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png" alt-text="ギャラリー パッケージ":::
+   ![ギャラリー パッケージの構造のスクリーンショット](media/azure-stack-create-and-publish-marketplace-item/gallerypkg1.png)
 
    デプロイ テンプレート ファイルの構造は次のように表示されます。
 
-   :::image type="content" source="media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png" alt-text="ギャラリー パッケージ":::
+   ![デプロイ テンプレートの構造のスクリーンショット](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
 4. Manifest.json テンプレートで次の強調して示されている値 (番号が付いているもの) を、[カスタム イメージをアップロードする](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)ときに指定した値に置き換えます。
 
@@ -156,10 +156,10 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
 10. Manifest.json に対するその他の編集については、「[リファレンス: Marketplace アイテム manifest.json](#reference-marketplace-item-manifestjson)」を参照してください。
 
-11. ファイルの変更が終わったら、それを .azpkg ファイルに変換します。 変換は、**AzureGalleryPackager.exe** ツールと、前にダウンロードしたサンプル ギャラリー パッケージを使用して実行します。 次のコマンドを実行します。
+11. ファイルの変更が終わったら、それを .azpkg ファイルに変換します。 変換は、**AzureGallery.exe** ツールと、前にダウンロードしたサンプル ギャラリー パッケージを使用して実行します。 次のコマンドを実行します。
 
     ```shell
-    .\AzureGalleryPackager.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
     ```
 
     > [!NOTE]
@@ -192,7 +192,7 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
    ギャラリー パッケージが完成し、**Add-AzsGalleryItem** を使用してアップロードすると、カスタム VM が Marketplace と **[リソースの作成]** ビューに表示されるようになります。 **Marketplace の管理**にはカスタム ギャラリー パッケージが表示されないことに注意してください。
 
-   [![アップロードされたカスタム Marketplace アイテム](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "アップロードされたカスタム Marketplace アイテム")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+   [![アップロードされたカスタムのマーケットプレース項目](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "アップロードされたカスタムのマーケットプレース項目")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
 6. アイテムが Marketplace に正常に発行されたら、ストレージ アカウントからコンテンツを削除できます。
 

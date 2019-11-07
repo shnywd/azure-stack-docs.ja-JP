@@ -15,18 +15,18 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 2c1a762f002e5058e11857117b4210ad0b59e564
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: fdda72e215590c7bbd7d739e2eb46b085fc55405
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277549"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047186"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack で Kubernetes ダッシュボードにアクセスする 
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit* 
 > [!Note]   
-> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。 Marketplace 項目は、開発とテストのシナリオでのみ使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 Kubernetes には、基本的な管理操作に使用できる Web ダッシュボードが含まれています。 このダッシュボードでは、アプリケーションの基本的な正常性状態とメトリックの表示、サービスの作成とデプロイ、既存のアプリケーションの編集を行うことができます。 この記事では、Azure Stack 上で Kubernetes ダッシュボードを設定する方法について説明します。
 

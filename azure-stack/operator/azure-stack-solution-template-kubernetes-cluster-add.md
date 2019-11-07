@@ -11,23 +11,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 4fcfb0c8ef509ab827c15321cff5fc945230d69e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283436"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047178"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes を Azure Stack Marketplace に追加する
 
 *適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!note]  
-> Azure Stack 上の Kubernetes はプレビュー段階にあります。 Azure Stack の切断されたシナリオは、プレビューでは現在サポートされていません。 Marketplace 項目は、開発とテストのシナリオでのみ使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-aks-engine.md)を使用します。
+
 Kubernetes は、Marketplace 項目としてユーザーに提供できます。 ユーザーはその後、1 回の連携した操作で Kubernetes をデプロイできます。
 
 以降の記事では、Azure Resource Manager テンプレートを使用して、スタンドアロンの Kubernetes Cluster のためにリソースのデプロイとプロビジョニングを行う方法を示しています。 開始する前に、Azure Stack とグローバルな Azure テナントの設定を確認します。 必要な、Azure Stack に関する情報を収集します。 テナントと Azure Stack Marketplace に必要なリソースを追加します。 このクラスターは、Ubuntu サーバー、カスタム スクリプト、およびマーケットプレース内に置かれる Kubernetes Cluster Marketplace 項目に依存します。

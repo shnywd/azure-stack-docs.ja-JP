@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 39937882f8bf43b076a231d76440d401495daca1
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.openlocfilehash: 4894fb7184944095d968d08e2d668912a78119d4
+ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814087"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72888049"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -72,8 +72,7 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 - **内部仮想 IP ネットワーク**:ソフトウェア ロード バランサーのための内部のみの VIP 専用の /25 ネットワーク。
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack インフラストラクチャ ネットワーク
-
-この /24 ネットワークは、内部の Azure Stack コンポーネントが互いにデータを通信したり交換したりできるように、これらのコンポーネント専用です。 このサブネットはルーティング可能な IP アドレスを必要としますが、アクセス制御リスト (ACL) を使用してソリューションに対してプライベートに保持されます。 これらのサービスの一部が外部リソースやインターネットにアクセスする必要がある場合に利用する、/27 ネットワークと同等のサイズである小さな範囲を除き、境界スイッチを超えてルーティングされることは想定されていません。
+この /24 ネットワークは、内部の Azure Stack コンポーネントが互いにデータを通信したり交換したりできるように、これらのコンポーネント専用です。 このサブネットは、Azure Stack ソリューションの外部からデータセンターにルーティングできます。このサブネットでパブリックまたはインターネットのルーティング可能な IP アドレスを使用することはお勧めしません。 このネットワークは境界にアドバタイズされますが、そのほとんどの IP はアクセス制御リスト (ACL) によって保護されています。 アクセスが許可される IP は、/27 ネットワークや、[特権エンド ポイント (PEP)](azure-stack-privileged-endpoint.md)、[Azure Stack Backup](azure-stack-backup-reference.md) などのホスト サービスとサイズが同等の小さな範囲内です。
 
 ### <a name="public-vip-network"></a>パブリック VIP ネットワーク
 

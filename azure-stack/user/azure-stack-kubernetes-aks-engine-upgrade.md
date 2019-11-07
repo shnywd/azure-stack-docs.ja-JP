@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 377857019e6a4d55e6a9372296817e1776c081c9
-ms.sourcegitcommit: d967cf8cae320fa09f1e97eeb888e3db5b6e7972
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
+ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71279161"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "72999897"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをアップグレードする
 
@@ -30,7 +30,9 @@ ms.locfileid: "71279161"
 
 AKS エンジンでは、ツールを使用して最初にデプロイされたクラスターをアップグレードすることができます。 AKS エンジンを使用してクラスターを維持できます。 メンテナンス タスクは、任意の IaaS システムと同様です。 新しい更新プログラムが利用可能かどうかを認識し、AKS エンジンを使用してそれらを適用します。
 
-Microsoft ではお客様のクラスターを管理しません。
+アップグレード コマンドを実行すると、Kubernetes のバージョンと OS の基本イメージが更新されます。 アップグレード コマンドを実行するたびに、AKS エンジンでは、クラスターのすべてのノードに対して、使用中の **aks-engine** のバージョンに関連付けられた AKS 基本イメージを使用して新しい VM が作成されます。 `aks-engine upgrade` コマンドを使用すると、クラスター内のすべてのマスター ノードとエージェント ノードの現行の状態を維持できます。 
+
+Microsoft ではお客様のクラスターを管理しません。 ただし、Microsoft では、クラスターの管理に使用できるツールと VM イメージを用意しています。 
 
 デプロイされたクラスターのアップグレードでは、以下がカバーされます。
 
@@ -48,10 +50,14 @@ Microsoft ではお客様のクラスターを管理しません。
 -   システムの更新やスケジュールされたタスクは計画されていません。
 -   運用クラスターとまったく同じように構成されたクラスターで段階的なアップグレードをセットアップし、運用クラスターでアップグレードを実行する前に、そこでアップグレードをテストします。
 
-## <a name="steps-to-upgrade"></a>アップグレードの手順
+## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>新しい Kubernetes バージョンにアップグレードする手順
 
-1. 「[Kubernetes クラスターのアップグレード](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)」の記事の手順に従います。 
-2. まず、アップグレードの対象となるバージョンを特定する必要があります。 このバージョンは現在お持ちになっているバージョンによって異なります。そのバージョン値を使用してアップグレードを実行します。
+> [!Note]  
+> さらに新しいバージョンの aks-engine を使用していて、マーケットプレースでイメージを入手できる場合は、AKS 基本イメージもアップグレードされます。
+
+次の手順では、最小限の手順でアップグレードを実行します。 詳細については、「[Kubernetes クラスターのアップグレード](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)」の記事 を参照してください。
+
+1. まず、アップグレードの対象となるバージョンを特定する必要があります。 このバージョンは現在お持ちになっているバージョンによって異なります。そのバージョン値を使用してアップグレードを実行します。
 
     次のコマンドを実行します。
 
@@ -76,20 +82,20 @@ Microsoft ではお客様のクラスターを管理しません。
 
     たとえば、`get-versions` コマンドの出力によれば、現在の Kubernetes のバージョンが "1.13.5" の場合、"1.13.7, 1.14.1, 1.14.3" にアップグレードできます。
 
-3. `upgrade` コマンドを実行するために必要な情報を収集します。 アップグレードでは、次のパラメーターが使用されます。
+2. `upgrade` コマンドを実行するために必要な情報を収集します。 アップグレードでは、次のパラメーターが使用されます。
 
     | パラメーター | 例 | 説明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack であることを示すには、`AzureStackCloud` を使用します。 |
     | location | local | Azure Stack のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
     | resource-group | kube-rg | 新しいリソース グループの名前を入力するか、既存のリソース グループを選択します。 リソース名は、英数字かつ小文字にする必要があります。 |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」をご覧ください。 |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」を参照してください。 |
     | api-model | ./kubernetes-azurestack.json | クラスター構成ファイルまたは API モデルへのパス。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 これは、サービスの作成時に設定するクライアント シークレットです。 |
     | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
-4. 値を指定して、次のコマンドを実行します。
+3. 値を指定して、次のコマンドを実行します。
 
     ```bash  
     aks-engine upgrade \
@@ -104,24 +110,32 @@ Microsoft ではお客様のクラスターを管理しません。
     --identity-system adfs # required if using AD FS
     ```
 
-5.  何らかの理由でアップグレード操作でエラーが発生した場合は、問題に対処した後でアップグレード コマンドを再実行できます。 AKS エンジンにより、前の時点で失敗した操作が再開されます。
+4.  何らかの理由でアップグレード操作でエラーが発生した場合は、問題に対処した後でアップグレード コマンドを再実行できます。 AKS エンジンにより、前の時点で失敗した操作が再開されます。
+
+## <a name="steps-to-only-upgrade-the-os-image"></a>OS イメージのみをアップグレードする手順
+
+1. [サポートされている Kubernetes バージョン情報の一覧](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
+2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は対象のバージョン情報に置き換えます。
+3. 使用する予定の Azure Stack Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack オペレーターに依頼します。
+4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`--force` を追加して `aks-engine upgrade` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
+
 
 ## <a name="forcing-an-upgrade"></a>アップグレードの強制
 
 クラスターを強制的にアップグレードする必要がある場合があります。 たとえば、1 日目に最新の Kubernetes バージョンを使用して、切断された環境にクラスターをデプロイするとします。 次の日に、Ubuntu が、Microsoft の新しい **AKS 基本イメージ**によってもたらされる脆弱性に対する修正プログラムをリリースします。 既にデプロイしたのと同じ Kubernetes バージョンを使用してアップグレードを強制することで、この新しいイメージを適用できます。
 
-    ```bash  
-    aks-engine upgrade \
-    --azure-env AzureStackCloud   
-    --location <for an ASDK is local> \
-    --resource-group kube-rg \
-    --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --api-model kube-rg/apimodel.json \
-    --upgrade-version 1.13.5 \
-    --client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
-    --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    --force
-    ```
+```bash  
+aks-engine upgrade \
+--azure-env AzureStackCloud   
+--location <for an ASDK is local> \
+--resource-group kube-rg \
+--subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+--api-model kube-rg/apimodel.json \
+--upgrade-version 1.13.5 \
+--client-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+--client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
+--force
+```
 
 手順については、[アップグレードの強制](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade)に関するセクションを参照してください。
 

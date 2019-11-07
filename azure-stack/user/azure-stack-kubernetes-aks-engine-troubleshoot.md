@@ -1,26 +1,26 @@
 ---
 title: Azure Stack 上の AKS エンジンのトラブルシューティング | Microsoft Docs
-description: このトピックでは Azure Stack 上の AKS エンジンのトラブルシューティングの手順について説明します。
+description: この記事では Azure Stack 上の AKS エンジンのトラブルシューティングの手順について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: femila
+manager: femilav
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: eb8a46c5b226d1be40d922a78c6ecdcdda5e45ad
-ms.sourcegitcommit: 09d14eb77a43fd585e7e6be93c32fa427770adb6
+ms.lastreviewed: 10/28/2019
+ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
+ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71019385"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73047143"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンのトラブルシューティング
 
@@ -84,7 +84,7 @@ AKS エンジンを使用して Kubernetes クラスターをデプロイして�
 
 ## <a name="collect-aks-engine-logs"></a>AKS エンジン ログの収集
 
-AKS エンジンによって作成されたレビュー情報にアクセスできます。 AKS エンジンでは、アプリケーションの実行時の状態とエラーが報告されます。 出力をテキスト ファイルにパイプすることも、コマンドライン コンソールから直接コピーすることもできます。
+AKS エンジンによって作成されたレビュー情報にアクセスできます。 AKS エンジンでは、アプリケーションの実行時の状態とエラーが報告されます。 出力をテキスト ファイルにパイプすることも、コマンドライン コンソールから直接コピーすることもできます。 AKS エンジンによってトリガーされるエラー コードの一覧については、「[カスタム スクリプト拡張機能のエラー コードを確認する](#review-custom-script-extension-error-codes)」を参照してください。
 
 1.  AKS エンジンのコマンドライン ツールに表示される情報から標準出力とエラーを収集します。
 
@@ -157,6 +157,18 @@ AKS エンジンのログに加えて、Kubernetes コンポーネントでは�
 ## <a name="review-custom-script-extension-error-codes"></a>カスタム スクリプト拡張機能のエラー コードを確認する
 
 クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの多くの操作がサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)」を参照してください。
+
+### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Microsoft サポート エンジニアへの Kubernetes ログの提供
+
+ログの収集と調査を行っても問題が解決しない場合は、サポート チケットの作成プロセスを開始し、`--upload-logs` パラメーターを設定して `getkuberneteslogs.sh` を実行して収集したログを提供することができます。 
+
+お客様の Azure Stack オペレーターに依頼してください。 オペレーターは、ログの情報を使用してサポート ケースを作成します。
+
+サポートの問題に対処する過程で、Microsoft サポート エンジニアから Azure Stack オペレーターに対して、Azure Stack システム ログの収集が要請されることがあります。 必要に応じて、`getkuberneteslogs.sh` を実行して Kubernetes ログをアップロードしたストレージ アカウント情報をオペレーターに渡します。
+
+オペレーターは **Get-AzureStackLog** PowerShell コマンドレットを実行するこもできます。 このコマンドには、Kubernetes ログを保存したストレージ アカウントを指定するパラメーター (`-InputSaSUri`) が使用されます。
+
+オペレーターは、お客様が生成したログと、Microsoft サポートから要請される場合があるその他のシステム ログを組み合わせて Microsoft に渡すことができます。
 
 ## <a name="open-github-issues"></a>GitHub イシューを開く
 
