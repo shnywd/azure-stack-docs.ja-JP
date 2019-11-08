@@ -1,9 +1,7 @@
-- name: Azure Stack のユーザー ドキュメント
+- name: Azure Stack Hub のユーザー ドキュメント
   href: index.yml
 - name: 概要
   items:
-    - name: Azure Stack を使用したソリューションの構築
-      href: azure-stack-hybrid-cloud-patterns.md
     - name: 重要な考慮事項
       href: azure-stack-considerations.md
 - name: クイック スタート
@@ -33,29 +31,29 @@
           href: azure-stack-subscribe-services.md
         - name: クラウド ソリューション プロバイダーを有効にする
           href: azure-stack-csp-enable-billing-usage-tracking.md
-        - name: Azure Stack ポータルの使用
+        - name: Azure Stack Hub ポータルを使用する
           href: azure-stack-use-portal.md
         - name: クライアントの構成
           items:
             - name: 開発環境をセットアップする
               href: azure-stack-dev-start.md
-            - name: Azure Stack で PowerShell を使用する
+            - name: PowerShell と Azure Stack Hub の使用
               items:
-                - name: Azure Stack PowerShell の概要
+                - name: Azure Stack Hub PowerShell の概要
                   href: azure-stack-powershell-overview.md
                 - name: Azure Stack PowerShell のインストール
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: PowerShell で接続する
                   href: azure-stack-powershell-configure-user.md
-                - name: Azure Stack ツールのダウンロード
+                - name: Azure Stack Hub ツールのダウンロード
                   href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: Docker を使用して PowerShell を実行する
                   href: azure-stack-powershell-user-docker.md
-                - name: Azure Stack ポリシー モジュールの使用
+                - name: Azure Stack Hub ポリシー モジュールを使用する
                   href: azure-stack-policy-module.md
-            - name: Azure Stack で Azure CLI を使用する
+            - name: Azure CLI と Azure Stack Hub の使用
               href: azure-stack-version-profiles-azurecli2.md
             - name: Visual Studio Code を使用する
               href: azure-stack-dev-start-vscode-azure.md
@@ -65,7 +63,7 @@
               href: azure-stack-dev-start-howto-ssh-public-key.md
             - name: API と共に REST クライアントを使用する
               href: azure-stack-rest-api-use.md
-        - name: Azure Stack Resource Manager テンプレートを使用する
+        - name: Azure Stack Hub Resource Manager テンプレートを使用する
           items:
             - name: テンプレートの概要
               href: azure-stack-arm-templates.md
@@ -160,9 +158,9 @@
                       href: azure-stack-vpn-s2s.md
                     - name: VPN ゲートウェイの設定
                       href: azure-stack-vpn-gateway-settings.md
-                - name: Azure Stack 用の iDNS
+                - name: Azure Stack Hub 用の iDNS
                   href: azure-stack-understanding-dns.md
-                - name: Azure Stack の DNS
+                - name: Azure Stack Hub の DNS
                   href: azure-stack-dns.md
             - name: Key Vault
               items:
@@ -195,9 +193,9 @@
               href: azure-stack-solution-template-service-fabric-cluster.md
             - name: Kubernetes クラスターのデプロイ
               items:
-                - name: AKS Engine
+                - name: AKS エンジン
                   items:
-                    - name: Azure Stack 上の AKS Engine
+                    - name: Azure Stack Hub 上の AKS エンジン
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: サポート ポリシー
                       href: azure-stack-kubernetes-aks-engine-support.md
@@ -213,7 +211,7 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: クラスターをアップグレードする
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
-                    - name: AKS Engine のトラブルシューティング
+                    - name: AKS エンジンのトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                 - name: Marketplace の項目
                   items:
@@ -225,7 +223,7 @@
                       href: azure-stack-solution-template-kubernetes-adfs.md
                     - name: Kubernetes ダッシュボードの有効化
                       href: azure-stack-solution-template-kubernetes-dashboard.md
-                    - name: Marketplace アイテムから AKS Engine を移動する
+                    - name: Marketplace アイテムから AKS エンジンを移動する
                       href: azure-stack-kubernetes-aks-engine-dvm.md
                     - name: Kubernetes クラスターのトラブルシューティング
                       href: azure-stack-solution-template-kubernetes-trouble.md
@@ -249,26 +247,6 @@
               href: azure-stack-dev-start-howto-vm-python.md
             - name: NodeJS Web アプリをデプロイする
               href: azure-stack-dev-start-howto-vm-nodejs.md
-    - name: ハイブリッド クラウド パターンをデプロイする
-      items:
-        - name: Azure と Azure Stack へのアプリのデプロイ
-          href: azure-stack-solution-pipeline.md
-        - name: ハイブリッド クラウド ID の構成
-          href: azure-stack-solution-hybrid-identity.md
-        - name: ハイブリッド クラウド接続の構成
-          href: azure-stack-solution-hybrid-connectivity.md
-        - name: Azure でクラウドの間スケーリング ソリューションを作成する
-          href: azure-stack-solution-cloud-burst.md
-        - name: 地理的に分散されたアプリ ソリューションを作成する
-          href: azure-stack-solution-geo-distributed.md
-        - name: ハイブリッド クラウド ソリューションのデプロイ
-          href: azure-stack-solution-hybrid-cloud.md
-        - name: ステージング データ分析のデプロイ
-          href: azure-stack-solution-staged-data.md
-        - name: 高可用性 MongoDB のデプロイ
-          href: azure-stack-solution-mongodb-ha.md
-        - name: 高可用性 SQL Server 2016 のデプロイ
-          href: azure-stack-solution-sql-ha.md
     - name: 基本パターンのデプロイ
       items:
         - name: VNet ピアリング
@@ -303,29 +281,29 @@
               href: azure-stack-network-howto-backup-replicator.md
 - name: 概念
   items:
-    - name: ハイブリッド クラウド パターン
+    - name: IaaS アーキテクチャ
       items:
-        - name: ハイブリッド クラウド パターンの概要
-          href: azure-stack-edge-pattern-overview.md
-        - name: クロス クラウド スケーリング
-          href: azure-stack-edge-pattern-cross-cloud-scaling.md
-        - name: DevOps (ハイブリッド CI/CD)
-          href: azure-stack-edge-pattern-hybrid-ci-cd.md
-        - name: 足音検知
-          href: hybrid-solution-retail-footfall-detection.md
-        - name: 地理的に分散されたアプリケーション
-          href: azure-stack-edge-pattern-geo-distribution.md
+        - name: Linux VM
+          href: iaas-architecture-vm-linux.md
+        - name: Windows VM
+          href: iaas-architecture-vm-windows.md
+        - name: SQL を使用した N 層アプリ
+          href: iaas-architecture-windows-sql-n-tier.md
+        - name: 複数のリージョンでの N 層アプリ
+          href: iaas-architecture-sql-n-tier-multi-region.md
+        - name: ネットワーク仮想アプライアンス
+          href: iaas-architecture-nva-architecture.md
 - name: リファレンス
   items:
     - name: Azure Stack PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
-    - name: Azure Stack REST API ブラウザー
+    - name: Azure Stack Hub REST API ブラウザー
       href: /rest/api/
-    - name: Azure Stack CLI
+    - name: Azure CLI
       href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: 関連項目
   items:
-    - name: Azure Stack のオペレーター ドキュメント
+    - name: Azure Stack Hub のオペレーター ドキュメント
       href: /azure-stack/operator/
     - name: ASDK のドキュメント
       href: /azure-stack/asdk/
