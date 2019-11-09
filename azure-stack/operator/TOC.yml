@@ -40,7 +40,6 @@
         - name: Azure Stack のキャパシティ プランニング ツール
           href: azure-stack-capacity-planner.md
     - name: データセンターの統合
-      href: azure-stack-customer-journey.md
       items:
         - name: チュートリアル
           href: azure-stack-customer-journey.md
@@ -151,8 +150,6 @@
               href: azure-stack-servicing-policy.md
             - name: 更新プログラムを適用するためのチェックリスト
               href: release-notes-checklist.md
-            - name: 更新の計画
-              href: azure-stack-update-plan.md
             - name: 更新プログラム パッケージの準備
               href: azure-stack-update-prepare-package.md
             - name: 更新プログラムを適用する
