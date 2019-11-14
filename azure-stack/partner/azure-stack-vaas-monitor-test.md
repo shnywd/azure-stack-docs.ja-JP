@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 03/11/2019
+ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5d3d32df25aeba90ef065fc4363f0887dcbc36e5
-ms.sourcegitcommit: b95983e6e954e772ca5267304cfe6a0dab1cfcab
+ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68418361"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955907"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>VaaS ポータルでのテストの監視と管理
 
@@ -70,7 +70,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 | --- | --- |
 | テスト名 | テストの名前とバージョン。 |
 | Category | テストの目的。 |
-| 作成されました | テストがスケジュールされた時刻。 |
+| Created | テストがスケジュールされた時刻。 |
 | 開始済み | テストの実行が開始された時刻。 |
 | Duration | テストが実行された時間の長さ。 |
 | Status | テストの状態または結果。 実行前または進行中の状態は、`Pending`、`Running` です。 終了状態は、`Cancelled`、`Failed`、`Aborted`、`Succeeded` です。 |

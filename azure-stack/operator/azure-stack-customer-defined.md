@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/09/2019
-ms.openlocfilehash: 8ed7b3c71c1a9a2098fa125caeb03c949a332f50
-ms.sourcegitcommit: 54448d4518c7d9145b8755f51b18d554b3190810
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559649"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955330"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>Azure Stack スイッチ構成の特定の設定を変更する
 
@@ -47,7 +47,7 @@ Azure Stack ソリューションのデプロイ時に、OEM (相手先ブラン
 
 オペレーターは、ネットワーク デバイスを監視し、データセンターのネットワーク監視アプリケーションにトラップを送信するように簡易ネットワーク管理プロトコル (SNMP) v2 または v3 を構成できます。 セキュリティ上の理由から、v2 より安全であるため、SNMPv3 を使用してください。 必要な MIB と構成については、OEM ハードウェア プロバイダーに問い合わせてください。 スイッチ管理アクセスのアクセス許可を構成する方法の概要については、「[アクセス制御リストの更新](#access-control-list-updates)」セクションを参照してください。
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>認証
 
 オペレーターは、RADIUS または TACACS を構成して、ネットワークデバイスの認証を管理できます。 サポートされている方法と必要な構成については、OEM ハードウェア プロバイダーに問い合わせてください。  スイッチ管理アクセスのアクセス許可を構成する方法の概要については、「[アクセス制御リストの更新](#access-control-list-updates)」セクションを参照してください。
 
