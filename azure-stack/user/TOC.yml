@@ -261,6 +261,8 @@
           href: azure-stack-network-howto-vnet-to-vnet-stacks.md
         - name: データセンターを拡張する
           href: azure-stack-network-howto-extend-datacenter.md
+        - name: F5 ロード バランサー
+          href: network-howto-f5.md
         - name: iSCSI ストレージに接続する
           href: azure-stack-network-howto-iscsi-storage.md
         - name: トンネルを設定する
