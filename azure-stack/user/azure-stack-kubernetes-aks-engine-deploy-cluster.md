@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 933a2a0bc37be4c5a1b5c92fd334917668761879
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: e4f10cb3e5d96942e5fe32b0d8fe3a04cf921521
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780454"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595191"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする
 
@@ -30,7 +30,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
 
 ## <a name="define-a-cluster-specification"></a>クラスター仕様の定義
 
-[API モデル](https://github.com/Azure/aks-engine/blob/master/docs/topics/architecture.md#architecture-diagram)と呼ばれる JSON 形式を使用して、ドキュメント ファイルでクラスター仕様を指定できます。 AKS エンジンでは、API モデルのクラスター仕様の使用によりクラスターが作成されます。 
+[API モデル](https://github.com/Azure/aks-engine/blob/master/docs/topics/architecture.md#architecture-diagram)と呼ばれる JSON 形式を使用して、ドキュメント ファイルでクラスター仕様を指定できます。 AKS エンジンでは、API モデルのクラスター仕様を使用することでクラスターが作成されます。 
 
 ### <a name="update-the-api-model"></a>API モデルの更新
 
@@ -54,7 +54,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
     > [!Note]  
     > nano がインストールされていない場合は、Ubuntu で nano をインストールできます: `sudo apt-get install nano`。
 
-3.  kubernetes-azurestack.json ファイルで、`orchestratorRelease` を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、1.11、1.12、1.13、1.14 などです。 多くの場合、バージョンは更新プログラムです。 バージョンは、x. xx. x ではなく、x. xx として指定します。 現在のバージョンの一覧については、[サポートされている Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)に関する記事を参照してください。 次の AKS エンジン コマンドを実行すると、サポートされているバージョンを確認できます。
+3.  kubernetes-azurestack.json ファイルで、`orchestratorRelease` を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、1.14、1.15 などです。 多くの場合、バージョンは更新プログラムです。 バージョンは、x. xx. x ではなく、x. xx として指定します。 現在のバージョンの一覧については、[サポートされている Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)に関する記事を参照してください。 次の AKS エンジン コマンドを実行すると、サポートされているバージョンを確認できます。
 
     ```bash
     aks-engine get-versions
@@ -117,7 +117,7 @@ Azure Stack オペレーターに次のことを依頼します。
 
 クラスターのデプロイに進む:
 
-1.  Azure Stack の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で AKS エンジンの使用可能なパラメーターを確認します。
+1.  Azure Stack の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で、AKS エンジンで使用可能なパラメーターを確認します。
 
     | パラメーター | 例 | 説明 |
     | --- | --- | --- |
@@ -146,9 +146,9 @@ Azure Stack オペレーターに次のことを依頼します。
     --identity-system adfs # required if using AD FS
     ```
 
-2.  何らかの理由で出力ディレクトリの作成後に実行が失敗する場合は、問題を修正し、コマンドを再実行できます。 デプロイを再実行している場合、以前と同じ出力ディレクトリを使用していた場合は、ディレクトリが既に存在しているというエラーが AKS エンジンから返されます。 フラグ `--force-overwrite` を使用すると、既存のディレクトリを上書きできます。
+2.  何らかの理由で出力ディレクトリの作成後に実行が失敗する場合は、問題を修正し、コマンドを再実行できます。 デプロイを再実行しており、以前に同じ出力ディレクトリを使用していた場合は、ディレクトリが既に存在しているというエラーが AKS エンジンから返されます。 フラグ `--force-overwrite` を使用すると、既存のディレクトリを上書きできます。
 
-3.  AKS エンジン クラスター構成を安全で暗号化された場所に保存します。
+3.  AKS エンジン クラスター構成を、安全で暗号化された場所に保存します。
 
     `apimodel.json` ファイルを見つけます。 安全な場所に保存します。 このファイルは、他のすべての AKS エンジン操作で入力として使用されます。
 

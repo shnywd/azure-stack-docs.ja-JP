@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 91314fcd33d3b4171dc7e9a3e2d78cdf07e2f50e
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283556"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618277"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Azure から既存の Marketplace の項目をダウンロードして Azure Stack に発行する
 
@@ -101,7 +101,7 @@ Azure Stack が切断モードである場合は、PowerShell と "*マーケッ
 
 登録の完了後、[Marketplace management]\(Marketplace 管理\) ブレードに表示される次のメッセージは、切断されたユース ケースには関係ないため無視できます。
 
-[![登録されていないことを示すメッセージ](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "登録されていないことを示すメッセージ")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
+[![未登録メッセージ](media/azure-stack-download-azure-marketplace-item/toolsmsgsm.png "未登録メッセージ")](media/azure-stack-download-azure-marketplace-item/toolsmsg.png#lightbox)
 
 ### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>マーケットプレース シンジケーション ツールを使用して Marketplace 項目をダウンロードする
 
@@ -150,9 +150,9 @@ Azure Stack が切断モードである場合は、PowerShell と "*マーケッ
 
 6. ツールを実行すると、次の図のような画面が表示され、使用可能な Azure Marketplace 項目の一覧が示されます。
 
-   [![Azure Marketplace 項目のポップアップ](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace 項目")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace アイテムのポップアップ](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace の項目")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Azure Storage ツールがインストールされていない場合は、次のメッセージが表示されます。 これらのツールをインストールするには、[AzCopy ](/azure/storage/common/storage-use-azcopy#download-and-install-azcopy-on-windows) をダウンロードしてください。
+7. Azure Storage ツールがインストールされていない場合は、次のメッセージが表示されます。 これらのツールをインストールするには、[AzCopy ](/azure/storage/common/storage-use-azcopy#download-azcopy) をダウンロードしてください。
 
    ![Storage ツール](media/azure-stack-download-azure-marketplace-item/vmnew1.png)
 
@@ -178,7 +178,7 @@ Azure Stack が切断モードである場合は、PowerShell と "*マーケッ
 
    次の図に、フォルダー構造の例を示します。 ダウンロードしたマーケットプレースのすべての項目は `D:\downloadfolder` に含まれます。 各サブフォルダーは、製品 ID で指定された Marketplace 項目です (例: `microsoft.custom-script-linux-arm-2.0.3`)。 各サブ フォルダーの内容は、Marketplace 項目のダウンロードされたコンテンツです。
 
-   [![マーケットプレースのダウンロード ディレクトリ構造](media/azure-stack-download-azure-marketplace-item/mp1sm.png "マーケットプレースのダウンロード ディレクトリ構造")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
+   [![Marketplace ダウンロード ディレクトリ構造](media/azure-stack-download-azure-marketplace-item/mp1sm.png "Marketplace ダウンロード ディレクトリ構造")](media/azure-stack-download-azure-marketplace-item/mp1.png#lightbox)
 
 2. [こちらの記事](azure-stack-powershell-configure-admin.md)の指示に従って、Azure Stack Operator PowerShell セッションを構成します。
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 632528519bbca9286ab72fb806ee756ccdb6a166
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.lastreviewed: 11/06/2019
+ms.openlocfilehash: 509f6509b00a3bccd005fd93b69006ebbfd2f2f0
+ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682223"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73712725"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack"></a>Azure Stack に MySQL ホスティング サーバーを追加する
 
@@ -71,7 +71,7 @@ MySQL リソース プロバイダーが SQL インスタンスに接続でき�
 
 次の情報は、RP および MySQL ホスティング サーバーに適用されます。
 
-* すべてのホスティング サーバーが TLS 1.2 を使用した通信用に構成されていることを確認します。 [暗号化された接続を使用するための MySQL の構成](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)に関するページを参照してください。
+* すべてのホスティング サーバーが TLS 1.1 を使用した通信用に構成されていることを確認します。 [暗号化された接続を使用するための MySQL の構成](https://dev.mysql.com/doc/refman/5.7/en/using-encrypted-connections.html)に関するページを参照してください。
 * [Transparent Data Encryption](https://dev.mysql.com/doc/mysql-secure-deployment-guide/5.7/en/secure-deployment-data-encryption.html) を採用します。
 * MySQL RP では、caching_sha2_password 認証はサポートされていません。
 

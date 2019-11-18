@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3720781dc2545fefaff0b2cd703d7c3880c4b97b
-ms.sourcegitcommit: 83cef2c4ec6e1b2fd3f997c91675c1058a850e2f
+ms.openlocfilehash: 39eebfbc4d60d4cd68bb33d6efcf35cc12ffe313
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72999897"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594887"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをアップグレードする
 
@@ -43,7 +43,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 運用クラスターをアップグレードする場合は、次の点を考慮してください。
 
 -   ターゲット クラスターに正しいクラスター仕様 (`apimodel.json`) とリソース グループを使用していますか?
--   AKS エンジンを実行し、アップグレード操作を実行するクライアント マシンに信頼できるマシンを使用していますか?
+-   AKS エンジンを実行してアップグレード操作を実行するクライアント マシンとして、信頼できるマシンを使用していますか?
 -   バックアップ クラスターがあり、それが動作していることを確認します。
 -   可能であれば、Azure Stack 環境内の VM からコマンドを実行して、ネットワーク ホップと接続障害の可能性を減らします。
 -   サブスクリプションにプロセス全体のための十分な領域があることを確認します。 このプロセスでは、プロセス中に新しい VM が割り当てられます。
@@ -115,7 +115,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 ## <a name="steps-to-only-upgrade-the-os-image"></a>OS イメージのみをアップグレードする手順
 
 1. [サポートされている Kubernetes バージョン情報の一覧](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
-2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は対象のバージョン情報に置き換えます。
+2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は、対象のバージョン情報に置き換えます。
 3. 使用する予定の Azure Stack Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack オペレーターに依頼します。
 4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`--force` を追加して `aks-engine upgrade` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
 
@@ -141,5 +141,5 @@ aks-engine upgrade \
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください。
+- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
 - [Azure Stack で Kubernetes クラスターをスケールする](azure-stack-kubernetes-aks-engine-scale.md)

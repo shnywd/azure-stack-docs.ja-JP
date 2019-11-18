@@ -1,28 +1,28 @@
 ---
-title: Azure Stack サブスクリプション レプリケーターを使用してリソースをバックアップする方法 | Microsoft Docs
-description: Azure Stack サブスクリプション レプリケーターを使用してリソースをバックアップする方法について説明します。
+title: 複数の Azure Stack サブスクリプション間でリソースをレプリケートする方法 |Microsoft Docs
+description: Azure Stack サブスクリプション レプリケーターの一連のスクリプトを使用してリソースをレプリケートする方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 97d8b417869faa84423df78bde4029b8d18f0741
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
+ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168224"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73567776"
 ---
-# <a name="how-to-back-up-resources-using-the-azure-stack-subscription-replicator"></a>Azure Stack サブスクリプション レプリケーターを使用してリソースをバックアップする方法
+# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Azure Stack サブスクリプション レプリケーターを使用してリソースをレプリケートする方法
 
-Azure Stack サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack サブスクリプション間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作、スクリプトの使用方法、スクリプトの操作のリファレンスについて説明します。
+Azure Stack サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack サブスクリプション間、Azure Stack スタンプ間、または Azure Stack と Azure の間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作とスクリプトの使用方法について説明し、スクリプト操作の参照情報を示します。
 
 ## <a name="subscription-replicator-overview"></a>サブスクリプション レプリケーターの概要
 
-Azure サブスクリプション レプリケーター (v3) はモジュール式に設計されました。 このツールには、リソースのレプリケーションを調整するコアプロセッサが使用されます。 また、このツールは、さまざまな種類のリソースをコピーするためのテンプレートとして機能するカスタマイズ可能なプロセッサをサポートしています。 
+Azure サブスクリプション レプリケーターはモジュール式に設計されました。 このツールには、リソースのレプリケーションを調整するコアプロセッサが使用されます。 また、このツールは、さまざまな種類のリソースをコピーするためのテンプレートとして機能するカスタマイズ可能なプロセッサをサポートしています。 
 
 コア プロセッサは、次の 3 つのスクリプトで構成されています。
 
@@ -70,18 +70,18 @@ Replicator ファイル構造には、**Standardized_ARM_Templates** という�
 
 このツールには **parallel** という名前のパラメーターが必要です。 このパラメーターは、取得したリソースを並行してデプロイするかどうかを指定するブール値を受け取ります。 値が **true** に設定されている場合、**New-AzureRmResourceGroupDeployment** への各呼び出しには **-asJob** フラグが含まれ、リソースの種類に基づいて、並列ジョブが終了するまで待つコード ブロックがリソース デプロイのセットの間に追加されます。 これにより、次の種類のリソースがデプロイされる前に、ある種類のすべてのリソースが確実にデプロイされます。 **parallel** パラメーター値が **false** に設定されている場合は、すべてのリソースがシリアルでデプロイされます。
 
-## <a name="adding-additional-resource-types"></a>新しいリソースの種類の追加
+## <a name="add-additional-resource-types"></a>新しいリソースの種類の追加
 
 新しいリソースの種類の追加は簡単です。 開発者は、カスタマイズ済みプロセッサと、Azure Resource Manager テンプレートまたは Azure Resource Manager テンプレート ジェネレーターを作成する必要があります。 それが完了したら、開発者は **$resourceType** パラメーターと resource_retriever.ps1 の **$resourceTypes** 配列の ValidateSet にリソースの種類を追加する必要があります。 リソースの種類を **$resourceTypes** 配列に追加する場合は、正しい順序で追加する必要があります。 配列の順序によってリソースがデプロイされる順序が決まるため、依存関係を考慮してください。 最後に、カスタマイズ済みプロセッサで Azure Resource Manager テンプレート ジェネレーターを利用する場合、**post_process.ps1** の **$customTypes** 配列にリソースの種類名を追加する必要があります。
 
-## <a name="running-azure-subscription-replicator"></a>Azure サブスクリプション レプリケーターの実行
+## <a name="run-azure-subscription-replicator"></a>Azure サブスクリプション レプリケーターの実行
 
 Azure サブスクリプション レプリケーター (v3) ツールを実行するには、すべてのパラメーターを指定して resource_retriever.ps1 を開始する必要があります。 **resourceType** パラメーターには、1 つのリソースの種類ではなく **All** を選択するオプションがあります。 **All** が選択されている場合、resource_retriever.ps1 では、デプロイの実行時に依存するリソースが最初にデプロイされるように、すべてのリソースが順番に処理されます。 たとえば、仮想マシンを適切にデプロイするには VNet が必要であるため、VNet は仮想マシンの前にデプロイされます。
 
 スクリプトの実行が完了すると、3 つの新しいフォルダー **Deployment_Files**、**Parameter_Files**、および **Custom_ARM_Templates** が作成されます。
 
  > [!Note]  
- > 生成されたスクリプトを実行する前に、適切な環境を設定し、ターゲット サブスクリプション (新しい Azure Stack など) にログインし、作業ディレクトリを **Deployment_Files** フォルダーに設定する必要があります。
+ > 生成されたスクリプトを実行する前に、適切な環境を設定し、ターゲット サブスクリプション (新しい Azure Stack など) にログインして、作業ディレクトリを **Deployment_Files** フォルダーに設定する必要があります。
 
 Deployment_Files には、2 つのファイル **DeployResourceGroups.ps1** と **DeployResources.ps1** が保持されます。 DeployResourceGroups.ps1 を実行すると、リソース グループがデプロイされます。 DeployResources.ps1 を実行すると、処理されたすべてのリソースがデプロイされます。 リソースの種類として **All** または **Microsoft.Compute/virtualMachines** を指定してツールを実行した場合、DeployResources.ps1 では仮想マシンの管理者パスワードを入力するようにユーザーに求められます。これはすべての仮想マシンの作成に使用されます。
 
@@ -89,39 +89,22 @@ Deployment_Files には、2 つのファイル **DeployResourceGroups.ps1** と 
 
 1.  スクリプトを実行します。
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image2.png)
+    ![スクリプトを実行する](./media/azure-stack-network-howto-backup-replicator/image2.png)
 
-1.  スクリプトが実行されるのを待ちます。
+    > [!Note]  
+    > PS インスタンスのソース環境とサブスクリプション コンテキストを必ず構成してください。 
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image3.png)
+2.  新しく作成されたフォルダーを確認します。
 
-1.  新しく作成されたフォルダーを確認します。
+    ![フォルダーの確認](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image4.png)
+3.  コンテキストをターゲット サブスクリプションに設定し、フォルダーを **Deployment_Files** に変更して、リソース グループをデプロイしてから、リソースのデプロイを開始します。
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image5.png)
+    ![デプロイの構成と開始](./media/azure-stack-network-howto-backup-replicator/image6.png)
 
-1.  コンテキストをターゲット サブスクリプションに設定します。
+4.  `Get-Job` を実行して状態を確認します。 Get-Job | Receive-Job から結果が返されます。
 
-    ![](./media/azure-stack-network-howto-backup-replicator/image6.png)
-
-1.  「`cd`」と入力して **Deployment_Files** フォルダーに変更します。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image7.png)
-
-1.  `DeployResourceGroups.ps1` を実行してリソース グループをデプロイします。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image8.png)
-
-1.  `DeployResources.ps1` を実行してリソースをデプロイします。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image9.png)
-
-1.  `Get-Job` を実行して状態を確認します。 Get-Job | Receive-Job から結果が返されます。
-
-    ![](./media/azure-stack-network-howto-backup-replicator/image10.png)
-
-## <a name="clean-up"></a>クリーンアップする
+## <a name="clean-up"></a>クリーンアップ
 
 replicatorV3 フォルダー内には、**cleanup_generated_items.ps1** という名前のファイルがあります。これにより、**Deployment_Files**、**Parameter_Files**、および **Custom_ARM_Templates** フォルダーとそのすべての内容が削除されます。
 
@@ -187,8 +170,8 @@ replicatorV3 フォルダー内には、**cleanup_generated_items.ps1** とい�
             - ネットワーク セキュリティ グループの構成  
             - 可用性セットの構成  
 
-            > ![Note]  
-            > Only creates managed disks for OS disk and data disks, no support for using storage accounts currently
+> [!Note]  
+> OS ディスクとデータ ディスクのマネージド ディスクのみが作成されます。 現時点では、ストレージ アカウントの使用はサポートされていません。 
 
 ### <a name="limitations"></a>制限事項
 
@@ -197,6 +180,8 @@ replicatorV3 フォルダー内には、**cleanup_generated_items.ps1** とい�
 レプリケーションを正常に行うには、ターゲット サブスクリプションのリソース プロバイダーのバージョンがソース サブスクリプションのバージョンと一致していることを確認します。
 
 商用 Azure から商用 Azure にレプリケートする場合、または Azure Stack 内の 1 つのサブスクリプションから同じ Azure Stack 内の別のサブスクリプションにレプリケートする場合は、ストレージ アカウントをレプリケートするときに問題が発生します。 これは、すべてのストレージ アカウント名がすべての商用 Azure または Azure Stack リージョン/インスタンスのすべてのサブスクリプションで一意であるというストレージ アカウントの名前付け要件によるものです。 Stack は別々のリージョン/インスタンスであるため、異なる Azure Stack インスタンス間でストレージ アカウントをレプリケートできます。
+
+
 
 ## <a name="next-steps"></a>次の手順
 

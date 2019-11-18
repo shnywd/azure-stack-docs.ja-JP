@@ -1,6 +1,6 @@
 ---
 title: Azure Stack の Windows に AKS エンジンをデプロイする | Microsoft Docs
-description: Azure Stack の Windows マシンを使用して、Kubernetes クラスターをデプロイおよび管理するために AKS エンジンをホストする方法について説明します。
+description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: c646f8229b5360aed12c9cd8070a00bf38ca3e01
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: b9dd45b6ea7fdfaab1b1e7418800dcd2031dc151
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167310"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595182"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Azure Stack の Windows に AKS エンジンをインストールする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-Azure Stack の Windows マシンを使用して、Kubernetes クラスターをデプロイおよび管理するために AKS エンジンをホストできます。 この記事では、Azure Stack の接続されているインスタンスと接続されていないインスタンスの両方についてクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
+Kubernetes クラスターをデプロイおよび管理するには、Azure Stack の Windows マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
 
 ## <a name="prepare-the-client-vm"></a>クライアント VM の準備
 
@@ -46,11 +46,11 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 3. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
     Chocolaty の Web サイトによると:Chocolatey は、Windows のパッケージ マネージャーです。例えば、Windows 用の apt-get や yum などです。 必要なアプリケーションとツールを迅速にインストールするための分散型フレームワークとして設計されています。 現在 PowerShell を使用している NuGet インフラストラクチャ上に構築されており、ディストリビューションからドア、err、コンピューターへのパッケージの配信に重点を置いています。
-4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.41.2` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 > [!Note]  
@@ -62,7 +62,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1.  インターネットにアクセスできるマシンから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
 
-2.  Azure Stack インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
+2.  お使いの Azure Stack インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
 
 3. Azure Stack で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください。
 
@@ -75,7 +75,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 7.  管理者特権でのプロンプトで、次のコマンドを実行します。 適切なバージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version v0.41.2 -y
+        choco install aks-engine --version 0.43.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>インストールの確認

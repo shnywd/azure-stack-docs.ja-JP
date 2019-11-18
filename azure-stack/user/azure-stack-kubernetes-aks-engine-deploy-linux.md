@@ -1,6 +1,6 @@
 ---
 title: Azure Stack の Linux に AKS エンジンをインストールする | Microsoft Docs
-description: お使いの Azure Stack の Linux コンピューターを使用して、Kubernetes クラスターをデプロイおよび管理するために AKS エンジンをホストする方法について説明します。
+description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,18 @@ ms.date: 10/09/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 3debcd152a54fd3a0b940ad3dd4d379c6688faec
-ms.sourcegitcommit: 12034a1190d52ca2c7d3f05c8c096416120d8392
+ms.openlocfilehash: 3979dfdf6a229f1d81b6c5cc017d4d3f75a62e1a
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72037950"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595346"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Azure Stack の Linux に AKS エンジンをインストールする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-お使いの Azure Stack の Linux コンピューターを使用して、Kubernetes クラスターをデプロイおよび管理するために AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
+Kubernetes クラスターをデプロイおよび管理するには、Azure Stack の Linux マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
 
 ## <a name="prepare-the-client-vm"></a>クライアント VM の準備
 
@@ -43,13 +43,13 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Linux サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)」を参照してください。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.41.2` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.41.2
+        ./get-akse.sh --version v0.43.0
     ```
 
     > [!Note]  

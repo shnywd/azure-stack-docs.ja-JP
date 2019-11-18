@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: b7d20327410ace5b5ad12d34a24ff474c1a384b0
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 39c651649aea60ab12aae9daf35b0d07615bf697
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780467"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595294"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをスケールする
 
@@ -49,7 +49,7 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 | -master-FQDN |  | マスター FQDN。 スケールダウンするときに必要です。 |
 | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
-Azure Stack でクラスターをスケーリングする場合は、 **–azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale - パラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)を参照してください。
+Azure Stack でクラスターをスケーリングする場合は、 **–azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
 
 ### <a name="command-to-scale-your-cluster"></a>クラスターをスケールするコマンド
 
@@ -71,5 +71,5 @@ aks-engine scale \
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください。
+- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
 - [Azure Stack で Kubernetes クラスターをアップグレードする](azure-stack-kubernetes-aks-engine-upgrade.md)

@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/05/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 1e1e72cea27bf036f662cfaa64a84a57fe9bc964
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
+ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283063"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73636873"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Marketplace に追加する
 
@@ -54,7 +54,7 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 ## <a name="add-the-aks-base-image"></a>AKS 基本イメージを追加する
 
-Azure から項目を取得して、AKS 基本イメージを Marketplace に追加できます。 ただし、Azure Stack が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。 手順 5. で指定した項目を追加します。
+Azure から項目を取得して、AKS 基本イメージを Marketplace に追加できます。 ただし、Azure Stack が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。 手順 5 で指定した項目を追加します。
 
 次の項目を Marketplace に追加します。
 
@@ -64,20 +64,20 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
-1. 「 `AKS Base Image` 」を入力します。
+1. 「 `AKS Base` 」を入力します。
 
 1. AKS エンジンのバージョンと一致するイメージ バージョンを選択します。 AKS エンジンと AKS 基本イメージの対応一覧については、「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)」を参照してください。 
 
     一覧で、次のように選択します。
     - **[発行者]** : Azure Kubernetes Service
     - **オファー**: aks
-    - **バージョン**:AKS 基本イメージ 16.04-LTS のイメージ配布、2019 年 9 月 (2019.09.19 または AKS Engine にマップされているバージョン)
+    - **バージョン**:AKS 基本イメージ 16.04-LTS のイメージ配布、2019 年 10 月 (2019.10.24 または AKS Engine にマップされているバージョン)
 
 1. **[ダウンロード]** を選択します。
 
 ## <a name="add-a-custom-script-extension"></a>カスタム スクリプト拡張機能を追加する
 
-Azure から項目を取得して、カスタム スクリプトを Marketplace に追加できます。 ただし、Azure Stack が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。  手順 5. で指定した項目を追加します。
+Azure から項目を取得して、カスタム スクリプトを Marketplace に追加できます。 ただし、Azure Stack が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。  手順 5 で指定した項目を追加します。
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
 

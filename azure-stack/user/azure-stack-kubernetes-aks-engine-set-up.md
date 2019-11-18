@@ -15,12 +15,12 @@ ms.date: 09/14/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: b56c5a2be45e9f92630283a2b702f37471e80290
-ms.sourcegitcommit: 534117888d9b7d6d363ebe906a10dcf0acf8b685
+ms.openlocfilehash: 9a1f25873512da735df4e098804bb474d9ce75ea
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173090"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73594946"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack"></a>Azure Stack の AKS エンジンの前提条件を設定する
 
@@ -39,7 +39,7 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 | 前提条件 | 説明 | 必須 | Instructions |
 | --- | --- | --- | --- |
 | Linux カスタム スクリプト拡張機能 | Linux カスタム スクリプト拡張機能 2.0<br>オファー: Linux 2.0 用のカスタム スクリプト<br>バージョン:2.0.6 (または最新バージョン)<br>発行元: Microsoft Corp | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 |
-| AKS 基本 Ubuntu イメージ | AKS 基本イメージ<br>オファー: aks<br>バージョン:2019.09.19 (またはそれ以降のバージョン)<br>発行元: microsoft-aks<br>SKU: aks-ubuntu-1604-201909 | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
+| AKS 基本 Ubuntu イメージ | AKS 基本イメージ<br>オファー: aks<br> 2019.10.24 (またはそれ以降のバージョン)<br>発行元: microsoft-aks<br>SKU: aks-ubuntu-1604-201910 | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
 | Azure Stack サブスクリプション | サブスクリプションを使用して、Azure Stack 内のオファーにアクセスします。 オファーには、利用可能なサービスが含まれています。 | 必須 | Azure Stack でテナントのワークロードをデプロイするには、最初に [Azure Stack サブスクリプション](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)を取得する必要があります。 |
 | サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack オペレーターへの問い合わせが必要な場合があります。  手順については、「[アプリ ID を使用してリソースにアクセスする](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals)」を参照してください |
 | (SPN) 割り当て済み**共同作成者**ロール | 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定のリソースに対するロールに割り当てる必要があります。 | 必須 | 手順については、「[ロールの割り当て](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role)」を参照してください |
@@ -51,9 +51,9 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 
 ## <a name="matching-engine-to-base-image-version"></a>エンジンと基本イメージバージョンの照合
 
-AKS エンジンは、**AKS 基本イメージ**というビルドされたイメージを使用します。 すべての AKS エンジンのバージョンは、Azure Stack オペレーターが Azure Stack で使用できる特定のイメージ バージョンに依存しています。 AKS エンジンのバージョンと、それに対してサポートされている Kubernetes のバージョンが一覧表示された表は、「[Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)」(サポートされている Kubernetes バージョン) にあります。 たとえば、AKS Engine のバージョン `v0.41.2` は、AKS 基本イメージのバージョン `2019.09.19` に依存します。 Azure Stack のオペレーターに、Azure Marketplace から Azure Stack Marketplace に特定のイメージ バージョンをダウンロードするよう依頼してください。
+AKS エンジンは、**AKS 基本イメージ**というビルドされたイメージを使用します。 すべての AKS エンジンのバージョンは、Azure Stack オペレーターが Azure Stack で使用できる特定のイメージ バージョンに依存します。 AKS エンジンのバージョンと、それに対してサポートされている Kubernetes のバージョンが一覧表示された表は、「[Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)」 (サポートされている Kubernetes バージョン) に記載されています。 たとえば、AKS エンジンのバージョン `v0.43.0` は、AKS 基本イメージのバージョン `2019.10.24` に依存します。 Azure Stack のオペレーターに、Azure Marketplace から Azure Stack Marketplace に特定のイメージ バージョンをダウンロードするよう依頼してください。
 
-Azure Stack Marketplace にイメージがない場合は、エラーがトリガーされます。 たとえば、AKS エンジンのバージョン v0.41.2 を現在使用していて、AKS 基本イメージのバージョン `2019.09.19` が利用できない場合は、AKS エンジンの実行時に次のエラーが表示されます。 
+Azure Stack Marketplace にイメージがない場合は、エラーがトリガーされます。 たとえば、AKS エンジンのバージョン v0.43.0 を現在使用していて、AKS 基本イメージのバージョン `2019.10.24` が利用できない場合は、AKS エンジンの実行時に次のエラーが表示されます。 
 
 ```Text  
 The platform image 'microsoft-aks:aks:aks-ubuntu-1604-201908:2019.08.09' is not available. 
@@ -72,5 +72,5 @@ GitTreeState: clean
 ## <a name="next-steps"></a>次の手順
 
 > [!div class="nextstepaction"]
-> [Azure Stack で Windows 用の AKS エンジンをデプロイする](azure-stack-kubernetes-aks-engine-deploy-windows.md)  
-> [Azure Stack で Linux 用の AKS エンジンをデプロイする](azure-stack-kubernetes-aks-engine-deploy-linux.md)
+> [Azure Stack の Windows に AKS エンジンをデプロイする](azure-stack-kubernetes-aks-engine-deploy-windows.md)  
+> [Azure Stack の Linux に AKS エンジンをデプロイする](azure-stack-kubernetes-aks-engine-deploy-linux.md)

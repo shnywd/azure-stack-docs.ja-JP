@@ -15,12 +15,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 49684cb1821a5014e984a8e177f881be13123829
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 7c2dfd33db3847f386136922716b0ee35c61ce75
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047143"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595288"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンのトラブルシューティング
 
@@ -36,7 +36,7 @@ Azure Stack で AKS エンジンをデプロイまたは使用するときに問
 
 ### <a name="try-gofish"></a>GoFish を試す
 
-インストール手順が失敗した場合は、GoFish パッケージ マネージャーを使用してインストールを試します。 [GoFish](https://gofi.sh) では、自身がクロスプラットフォームの Homebrew として記述されます。
+以前のインストール手順が失敗した場合は、GoFish パッケージ マネージャーを使用して AKS エンジンをインストールできます。 [GoFish](https://gofi.sh) では、自身がクロスプラットフォームの Homebrew として記述されます。
 
 #### <a name="install-the-aks-engine-with-gofish-on-linux"></a>GoFish を使用して Linux に AKS エンジンをインストールする
 
@@ -48,7 +48,7 @@ Azure Stack で AKS エンジンをデプロイまたは使用するときに問
     curl -fsSL https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.sh | bash
     ```
 
-2.  次のコマンドを実行して、GoFish で AKS エンジンをインストールします。
+2.  次のコマンドを実行して、GoFish を使用して AKS エンジンをインストールします。
 
     ```bash
     Run "gofish install aks-engine"
@@ -62,10 +62,10 @@ Azure Stack で AKS エンジンをデプロイまたは使用するときに問
 
     ```PowerShell
     Set-ExecutionPolicy Bypass -Scope Process -Force
-iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
+    iex ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/fishworks/gofish/master/scripts/install.ps1'))
     ```
 
-2.  同じセッションで次のコマンドを実行して、GoFish で AKS エンジンをインストールします。
+2.  同じセッションで次のコマンドを実行して、GoFish を使用して AKS エンジンをインストールします。
 
     ```PowerShell
     gofish install aks-engine
@@ -86,7 +86,7 @@ AKS エンジンを使用して Kubernetes クラスターをデプロイして�
 
 AKS エンジンによって作成されたレビュー情報にアクセスできます。 AKS エンジンでは、アプリケーションの実行時の状態とエラーが報告されます。 出力をテキスト ファイルにパイプすることも、コマンドライン コンソールから直接コピーすることもできます。 AKS エンジンによってトリガーされるエラー コードの一覧については、「[カスタム スクリプト拡張機能のエラー コードを確認する](#review-custom-script-extension-error-codes)」を参照してください。
 
-1.  AKS エンジンのコマンドライン ツールに表示される情報から標準出力とエラーを収集します。
+1.  AKS エンジンのコマンドライン ツールに表示される情報から、標準出力とエラーを収集します。
 
 2. ローカル ファイルからログを取得します。 出力ディレクトリは、 **--output-directory** パラメーターを使用して設定できます。
 
@@ -98,7 +98,7 @@ AKS エンジンによって作成されたレビュー情報にアクセスで�
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes のログの収集
 
-AKS エンジンのログに加えて、Kubernetes コンポーネントではステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip) を使用して収集できます。
+AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip) を使用して収集できます。
 
 このスクリプトにより、次のログの収集プロセスが自動化されます。 
 
@@ -126,8 +126,8 @@ AKS エンジンのログに加えて、Kubernetes コンポーネントでは�
     ```bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
-    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.tar.gz
-    tar xvzf diagnosis.tar.gz -C ./
+    wget https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.1/diagnosis-v0.1.1.tar.gz
+    tar xvf diagnosis-v0.1.1.tar.gz -C ./
     ```
 
 2. `getkuberneteslogs.sh` スクリプトに必要なパラメーターを探します。 このスクリプトでは、次のパラメーターが使用されます。
@@ -156,7 +156,7 @@ AKS エンジンのログに加えて、Kubernetes コンポーネントでは�
 
 ## <a name="review-custom-script-extension-error-codes"></a>カスタム スクリプト拡張機能のエラー コードを確認する
 
-クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの多くの操作がサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)」を参照してください。
+クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの操作の多くがサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)」を参照してください。
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Microsoft サポート エンジニアへの Kubernetes ログの提供
 
@@ -184,4 +184,4 @@ AKS エンジンのログに加えて、Kubernetes コンポーネントでは�
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください。
+- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の AKS エンジンに Marketplace の項目クラスターを移動する | Microsoft Docs
-description: Azure Stack 上の AKS エンジンに Marketplace の項目クラスターを移動する方法について説明します。
+title: Azure Stack 上の AKS エンジンに Marketplace アイテムのクラスターを移動する | Microsoft Docs
+description: Azure Stack 上の AKS エンジンに Marketplace アイテムのクラスターを移動する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,32 +15,32 @@ ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/29/2019
-ms.openlocfilehash: 41ffa9d9d9f96506d30a6a3c69a557cdba034843
-ms.sourcegitcommit: 4d7611d81da6f2f8ef50adab3c09f9122a75bc9d
+ms.openlocfilehash: 4236f1dff939621aa391927341c0ee1136a64b58
+ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73145843"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73595324"
 ---
-# <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンに Marketplace の項目クラスターを移動する
+# <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンに Marketplace アイテムのクラスターを移動する
 
-Kubernetes Azure Stack Marketplace の項目では、Azure Resource Manager テンプレートを使用してデプロイ仮想マシン (VM) をデプロイし、AKS エンジンをダウンロードしてインストールし、クラスターの説明に使用する入力 API モデルを生成します。その後、AKS エンジンが VM で実行され、クラスターがデプロイされます。 この記事では、AKS エンジンとそれに対応するファイルにアクセスして、Kubernetes クラスターで更新およびスケール操作を実行できるようにする方法について説明します。
+Kubernetes Azure Stack Marketplace アイテムでは、Azure Resource Manager テンプレートを使用してデプロイ仮想マシン (VM) をデプロイし、AKS エンジンをダウンロードしてインストールし、クラスターの説明に使用する入力 API モデルを生成します。その後、AKS エンジンが VM で実行され、クラスターがデプロイされます。 この記事では、AKS エンジンとそれに対応するファイルにアクセスして、Kubernetes クラスターで更新およびスケール操作を実行できるようにする方法について説明します。
 
 ## <a name="access-aks-engine-in-the-dvm"></a>DVM の AKS エンジンへのアクセス
 
-Kubernetes Azure Stack Marketplace の項目によって開始されたデプロイが正常に終了すると、クラスター用に指定したリソース グループ内に作成されたデプロイ VM に、クラスターのデプロイに使用された AKS エンジンがインストールされていることを確認できます。この VM は Kubernetes クラスターの一部ではなく、独自の VNet に作成されます。 VM を見つけて、その中に AKS エンジンを配置する手順を次に示します。
+Kubernetes Azure Stack Marketplace アイテムによって開始されたデプロイが正常に終了すると、クラスター用に指定したリソース グループ内に作成されたデプロイ VM に、クラスターのデプロイに使用された AKS エンジンがインストールされていることを確認できます。この VM は Kubernetes クラスターの一部ではなく、独自の VNet に作成されます。 VM を見つけて、その中に AKS エンジンを配置する手順を次に示します。
 
 1.  Azure Stack ユーザー ポータルを開き、Kubernetes クラスター用に指定したリソース グループを探します。
 2.  リソース グループ内のデプロイ VM を見つけます。 名前は **vmd-** というプレフィックスで始まります。
 3.  デプロイ VM を選択します。 [概要] で、**パブリック IP アドレスを見つけます。 このアドレスと、Putty などのコンソール アプリを使用して、VM への SSH セッションを確立します。
-4.  デプロイ VM のセッションでは、AKS エンジンは次のパスにあります。`./var/lib/waagent/custom-script/download/0/bin/aks-engine`
+4.  デプロイ VM のセッションでは、AKS エンジンは、パス `./var/lib/waagent/custom-script/download/0/bin/aks-engine` にあります。
 5.  aks-engine に入力として使用したクラスターを記述した `.json` ファイルを見つけます。 ファイルは `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` にあります。 ファイルには、クラスターのデプロイに使用されるサービス プリンシパルの資格情報があることに注意してください。 ファイルを保存する場合は、ファイルを保護されたストアに転送してください。
 6.  `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` で AKS エンジンによって生成された出力ディレクトリを見つけます。 このディレクトリで、パス `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` の出力 `apimodel.json` を見つけます。 ディレクトリと `apimodel.json` ファイルには、Kubernetes クラスターのデプロイに必要なすべての証明書、キー、および資格情報が含まれています。 これらのリソースは安全な場所に保管してください。
 7.  Kubernetes 構成ファイル (多くの場合、**kubeconfig** ファイルという名前) をパスで探します。これは Azure Stack の場所の識別子に対応します。 このファイルは、Kubernetes クラスターにアクセスするように **kubectl** を設定する場合に役立ちます。
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>新しく作成したクラスターで AKS エンジンを使用する
 
-aks-engine、入力 apimodel.json ファイル、出力ディレクトリ、および出力 apimodel.json ファイルを見つけ、それらを安全な場所に保存したら、Linux VM で AKS エンジン バイナリと出力 `apimodel.json` を使用できます。
+aks-engine、入力 apimodel.json ファイル、出力ディレクトリ、および出力 apimodel.json ファイルを見つけ、それらを安全な場所に保存したら、任意の Linux VM で AKS エンジン バイナリと出力 `apimodel.json` を使用できます。
 
 1.  AKS エンジンを引き続き使用し、**アップグレード**や**スケール**などの操作を実行するには、**aks-engine** バイナリ ファイルをターゲット マシンにコピーします。 同じ **vmd-** マシンをディレクトリに使用している場合。
 
@@ -48,6 +48,6 @@ aks-engine、入力 apimodel.json ファイル、出力ディレクトリ、お�
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください。  
+- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む  
 - [Azure Stack 上の AKS エンジンのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)  
 

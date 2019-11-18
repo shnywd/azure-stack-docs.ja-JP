@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/19/2019
+ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 553b6af0e61067b4223baee100bd1a9b3079d1f1
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.lastreviewed: 10/30/2019
+ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
+ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168530"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73618299"
 ---
 # <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Commvault を使用して Azure Stack で VM をバックアップする
 
@@ -149,7 +149,7 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
 9. ストレージ アカウントのアクセス情報を入力します。 Azure Storage アカウントを設定する手順については、こちらを参照してください。 アクセス情報:
 
-    -  **サービス ホスト**: リソース内の BLOB コンテナーのプロパティから URL の名前を取得します。 たとえば、URL は https://backuptest.blob.westus.stackpoc.com/mybackups で、サービス ホストで BLOB.westus.stackpoc.com を使用したとします。
+    -  **サービス ホスト**: リソース内の BLOB コンテナーのプロパティから URL の名前を取得します。 たとえば、URL が https:\//backuptest.blob.westus.stackpoc.com/mybackups でした。サービス ホストで blob.westus.stackpoc.com を使用しました。
     
     -   **アカウント名**: ストレージ アカウント名を使用します。 これは、ストレージ リソースの [アクセス キー] ブレードで確認できます。
     
