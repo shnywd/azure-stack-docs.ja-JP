@@ -1,5 +1,6 @@
 ---
-title: Azure Stack で使用するための Red Hat Enterprise Linux VHD の作成とアップロード | Microsoft Docs
+title: Azure Stack 用の Red Hat ベースの仮想マシンを準備する | Microsoft Docs
+titleSuffix: Azure Stack
 description: Red Hat Linux オペレーティング システムを格納した Azure 仮想ハード ディスク (VHD) を作成してアップロードする方法について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -17,39 +18,39 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: 093caab420dea8b8cf3221855a3dc5f40e6f9ed3
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: d8b986dede7e55cb0418219fce6ac78673eeff60
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909349"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802286"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack 用の Red Hat ベースの仮想マシンの準備
 
-この記事では、Red Hat Enterprise Linux (RHEL) の仮想マシンを Azure Stack で使用できるように準備する方法について説明します。 この記事で取り上げる RHEL のバージョンは 7.1+ で、 準備対象のハイパーバイザーは Hyper-V、Kernel-based Virtual Machine (KVM)、VMware です。
+この記事では、Red Hat Enterprise Linux (RHEL) の仮想マシン (VM) を Azure Stack で使用できるように準備する方法について説明します。 この記事で取り上げる RHEL のバージョンは 7.1+ で、 準備対象のハイパーバイザーは Hyper-V、Kernel-based Virtual Machine (KVM)、VMware です。
 
 Red Hat Enterprise Linux のサポート情報については、「[Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531)」(Red Hat と Azure Stack: よく寄せられる質問) を参照してください。
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Hyper-V マネージャーからの Red Hat ベースの仮想マシンの準備
+## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Hyper-V マネージャーからの Red Hat ベースの VM の準備
 
-このセクションは、Red Hat の Web サイトから取得した ISO ファイルの RHEL イメージが仮想ハード ディスク (VHD) にインストール済みであることを前提としています。 Hyper-V マネージャーを使用してオペレーティング システム イメージをインストールする方法の詳細については、[Hyper-V の役割のインストールと仮想マシンの構成](https://technet.microsoft.com/library/hh846766.aspx)に関するページを参照してください。
+このセクションは、Red Hat の Web サイトから取得した ISO ファイルの RHEL イメージが仮想ハード ディスク (VHD) にインストール済みであることを前提としています。 Hyper-V マネージャーを使用してオペレーティング システム イメージをインストールする方法の詳細については、[Hyper-V ロールのインストールと VM の構成](https://technet.microsoft.com/library/hh846766.aspx)に関するページを参照してください。
 
 ### <a name="rhel-installation-notes"></a>RHEL のインストールに関する注記
 
-* Azure Stack では、VHDX 形式はサポートされません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、 **[容量固定]** を選択します。
-* Azure Stack でサポートされるのは、第 1 世代の仮想マシンのみです。 第 1 世代の仮想マシンを、VHDX ファイル形式から VHD ファイル形式に、容量可変から容量固定ディスクに変換できます。 ただし仮想マシンの世代を変更することはできません。 詳細については、「[Should I create a generation 1 or 2 virtual machine in Hyper-V? (Hyper-V で第 1 世代または第 2 世代の仮想マシンを作成する必要はありますか)](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)」を参照してください。
+* Azure Stack では、VHDX 形式はサポートされていません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、 **[容量固定]** を選択します。
+* Azure Stack でサポートされるのは、第 1 世代の VM のみです。 第 1 世代の VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、[Hyper-V で第 1 世代と第 2 世代のどちらの VM を作成する必要があるか](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)に関するページを参照してください。
 * VHD のサイズの上限は、1,023 GB です。
-* Linux オペレーティング システムをインストールする場合は、Logical Volume Manager (LVM) (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 特にオペレーティング システム ディスクをトラブルシューティングのために別の同じ仮想マシンに接続する必要がある場合、そうすることで、複製された仮想マシンとの LVM 名の競合を回避することができます。
-* ユニバーサル ディスク フォーマット (UDF) ファイル システムをマウントするためのカーネル サポートが必要です。 最初の起動時に、ゲストに接続されている UDF でフォーマットされたメディアを介して、プロビジョニング構成が Linux 仮想マシンに渡されます。 Azure Linux エージェントは、その構成を読み取り、仮想マシンをプロビジョニングする UDF ファイル システムをマウントする必要があります。
-* オペレーティング システム ディスクでスワップ パーティションを構成しないでください。 Linux エージェントは、一時的なリソース ディスク上にスワップ ファイルを作成するよう構成できます。 このことに関する詳細については、次の手順を参照してください。
+* Linux オペレーティング システムをインストールする場合は、Logical Volume Manager (LVM) (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 これにより、特にオペレーティング システム ディスクをトラブルシューティングのために別の同じ VM に接続する必要がある場合に、複製された VM との LVM 名の競合を回避することができます。
+* ユニバーサル ディスク フォーマット (UDF) ファイル システムをマウントするためのカーネル サポートが必要です。 最初の起動時に、ゲストに接続されている UDF 形式のメディアにより、プロビジョニング構成が Linux VM に渡されます。 Azure Linux エージェントは、その構成を読み取り、VM をプロビジョニングするために、UDF ファイル システムをマウントする必要があります。
+* オペレーティング システム ディスクにスワップ パーティションを構成しないでください。 Linux エージェントは、一時的なリソース ディスク上にスワップ ファイルを作成するよう構成できます。 このことに関する詳細については、次の手順を参照してください。
 * Azure の VHD の仮想サイズはすべて、1 MB にアラインメントさせる必要があります。 未フォーマット ディスクから VHD に変換するときに、変換する前の未フォーマット ディスクのサイズが 1 MB の倍数であることを確認する必要があります。 詳細については、後述の手順を参照してください。
 * Azure Stack では、cloud-init はサポートされません。 VM は、サポートされているバージョンの Windows Azure Linux エージェント (WALA) で構成する必要があります。
 
-### <a name="prepare-an-rhel-7-virtual-machine-from-hyper-v-manager"></a>Hyper-V マネージャーからの RHEL 7 仮想マシンの準備
+### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Hyper-V マネージャーからの RHEL 7 VM の準備
 
-1. Hyper-V マネージャーで仮想マシンを選択します。
+1. Hyper-V マネージャーで VM を選択します。
 
-1. **[接続]** をクリックすると、仮想マシンのコンソール ウィンドウが開きます。
+1. **[接続]** を選択すると、VM のコンソール ウィンドウが開きます。
 
 1. `/etc/sysconfig/network` ファイルを作成または編集して次のテキストを追加します。
 
@@ -83,21 +84,21 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例:
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   これにより、すべてのコンソール メッセージが最初のシリアル ポートに送信され、メッセージを Azure での問題のデバッグに利用できるようになります。 NIC の新しい RHEL 7 名前付け規則もオフになります。
+   この変更により、すべてのコンソール メッセージが最初のシリアル ポートに送信され、Azure サポートが問題をデバッグするのに役立ちます。 NIC の新しい RHEL 7 名前付け規則もオフになります。
 
-   クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、仮想マシン内の使用可能なメモリ量が 128 MB 以上減少します。仮想マシンのサイズが小さいと、このことが問題になる可能性があります。 次のパラメーターを削除することをお勧めします。
+   クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、VM 内の使用可能なメモリ量が 128 MB 以上減少します。VM のサイズが小さいと、このことが問題になる可能性があります。 次のパラメーターを削除することをお勧めします。
 
     ```sh
     rhgb quiet crashkernel=auto
     ```
 
-1. `/etc/default/grub`の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
+1. `/etc/default/grub` の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -131,7 +132,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
-    Azure Linux エージェントは、Azure で仮想マシンがプロビジョニングされた後に仮想マシンに接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、仮想マシンのプロビジョニングが解除されると空になります。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
+    Azure Linux エージェントは、VM が Azure にプロビジョニングされた後に VM に接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、VM のプロビジョニングが解除されると空になることがあります。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
 
     ```sh
     ResourceDisk.Format=y
@@ -147,9 +148,9 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL 仮想マシンは Azure Stack ルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 「[Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」(信頼できるルート証明書をサーバーに追加する) を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
-1. 次のコマンドを実行して仮想マシンをプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
+1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
     ```bash
     sudo waagent -force -deprovision
@@ -157,7 +158,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     logout
     ```
 
-1. Hyper-V マネージャーで **[アクション]**  >  **[シャットダウン]** の順にクリックします。
+1. Hyper-V マネージャーで **[アクション]**  >  **[シャットダウン]** の順に選択します。
 
 1. Hyper-V Manager の "ディスクの編集" 機能または Convert-VHD PowerShell コマンドを使用して、VHD を固定サイズの VHD に変換します。 これで、Linux VHD を Azure にアップロードする準備が整いました。
 
@@ -186,7 +187,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
    ルート ユーザーの 2 番目のフィールドを、"!!" から 暗号化されたパスワードに変更します。
 
-1. qcow2 イメージから KVM の仮想マシンを作成します。 ディスクの種類を **qcow2** に設定して、仮想ネットワーク インターフェイスのデバイス モデルを **virtio** に設定します。 その後、仮想マシンを起動し、root としてサインインします。
+1. qcow2 イメージから KVM に VM を作成します。 ディスクの種類を **qcow2** に設定して、仮想ネットワーク インターフェイスのデバイス モデルを **virtio** に設定します。 その後、VM を起動し、root としてサインインします。
 
 1. `/etc/sysconfig/network` ファイルを作成または編集して次のテキストを追加します。
 
@@ -228,13 +229,13 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
    このコマンドにより、すべてのコンソール メッセージが最初のシリアル ポートに送信され、メッセージを Azure での問題のデバッグに利用できるようになります。 NIC の新しい RHEL 7 名前付け規則も、このコマンドでオフになります。
 
-   クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、仮想マシン内の使用可能なメモリ量が 128 MB 以上減少します。仮想マシンのサイズが小さいと、このことが問題になる可能性があります。 次のパラメーターを削除することをお勧めします。
+   クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、VM 内の使用可能なメモリ量が 128 MB 以上減少します。VM のサイズが小さいと、このことが問題になる可能性があります。 次のパラメーターを削除することをお勧めします。
 
     ```sh
     rhgb quiet crashkernel=auto
     ```
 
-1. `/etc/default/grub`の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
+1. `/etc/default/grub` の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
 
     ```bash
     grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -274,39 +275,47 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際は、Azure Stack 環境ではバージョン 2.2.20 から 2.2.35 の WALinuxAgent (両バージョンを含む) が機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリースに更新するか、1901/1902 修正プログラムを適用します。 
+1. Azure Stack 用のカスタム vhd を作成する際、WALinuxAgent の 2.2.20 より大きく 2.2.35 未満のバージョン (両バージョンは除く) は Azure Stack 環境で機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリースに更新するか、1901/1902 修正プログラムを適用します。
 
-     次の手順に従って WALinuxAgent をダウンロードします。
-    
-   a.   setuptools をダウンロードします。
+    次の手順に従って WALinuxAgent をダウンロードします。
+
+    a. setuptools をダウンロードします。
+
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. 次の例では、GitHub リポジトリから "2.2.20" バージョンをダウンロードします。 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。 
+
+   b. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
+
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
     cd WALinuxAgent-2.2.20
     ```
-    c. setup.py をインストールします
+
+    c. setup.py をインストールします。
+
     ```bash
     sudo python setup.py install
     ```
-    d. waagent を再起動します
+
+    d. waagent を再起動します。
+
     ```bash
     sudo systemctl restart waagent
     ```
+
     e. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
-    
+
     ```bash
     waagent -version
     ```
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
-    Azure Linux エージェントは、Azure で仮想マシンがプロビジョニングされた後に仮想マシンに接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、仮想マシンのプロビジョニングが解除されると空になります。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
+    Azure Linux エージェントは、VM が Azure にプロビジョニングされた後に VM に接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、VM のプロビジョニングが解除されると空になることがあります。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
 
     ```sh
     ResourceDisk.Format=y
@@ -322,9 +331,9 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL 仮想マシンは Azure Stack ルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 「[Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」(信頼できるルート証明書をサーバーに追加する) を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
-1. 次のコマンドを実行して仮想マシンをプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
+1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
     ```bash
     sudo waagent -force -deprovision
@@ -332,7 +341,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     logout
     ```
 
-1. KVM で仮想マシンをシャットダウンします。
+1. KVM で VM をシャット ダウンします。
 
 1. qcow2 イメージを VHD 形式に変換します。
 
@@ -361,21 +370,21 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    または、qemu のバージョン **2.6 以降**を使用して `force_size` オプションを含めます。
+    または、qemu バージョン **2.6 以降**を使用して `force_size` オプションを含めます。
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>VMware からの Red Hat ベースの仮想マシンの準備
+## <a name="prepare-a-red-hat-based-vm-from-vmware"></a>VMware からの Red Hat ベース VM の準備
 
-このセクションでは、VMware に RHEL の仮想マシンが既にインストールされていると仮定します。 VMware にオペレーティング システムをインストールする方法の詳細については、[VMware のゲスト オペレーティング システムのインストール ガイド](https://partnerweb.vmware.com/GOSIG/home.html)を参照してください。
+このセクションは、VMware に RHEL VM が既にインストールされていることを前提としています。 VMware にオペレーティング システムをインストールする方法の詳細については、[VMware のゲスト オペレーティング システムのインストール ガイド](https://partnerweb.vmware.com/GOSIG/home.html)を参照してください。
 
-* Linux オペレーティング システムをインストールする場合は、LVM (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 特にオペレーティング システム ディスクをトラブルシューティングのために別の仮想マシンに接続する必要がある場合、そうすることで、複製された仮想マシンとの LVM 名の競合を回避することができます。 必要な場合は、LVM または RAID をデータ ディスク上で使用できます。
-* オペレーティング システム ディスクでスワップ パーティションを構成しないでください。 一時的なリソース ディスク上にスワップ ファイルを作成するよう Linux エージェントを構成できます。 この詳細については、次の手順を参照してください。
+* Linux オペレーティング システムをインストールする場合は、LVM (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 この方法により、特にオペレーティング システム ディスクをトラブルシューティングのために別の VM に接続する必要がある場合に、LVM 名と複製された VM の競合が回避されます。 必要な場合は、LVM または RAID をデータ ディスク上で使用できます。
+* オペレーティング システム ディスクにスワップ パーティションを構成しないでください。 一時的なリソース ディスク上にスワップ ファイルを作成するよう Linux エージェントを構成できます。 この構成の詳細については、次の手順を参照してください。
 * 仮想ハード ディスクを作成する場合は、 **[Store virtual disk as a single file (仮想ディスクを 1 つのファイルとして格納する)]** を選択します。
 
-### <a name="prepare-an-rhel-7-virtual-machine-from-vmware"></a>VMware からの RHEL 7 仮想マシンの準備
+### <a name="prepare-an-rhel-7-vm-from-vmware"></a>VMware からの RHEL 7 VM の準備
 
 1. `/etc/sysconfig/network` ファイルを作成または編集して次のテキストを追加します。
 
@@ -409,21 +418,21 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを編集します。 例:
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-    この構成により、すべてのコンソール メッセージが最初のシリアル ポートに送信され、メッセージを Azure での問題のデバッグに利用できるようになります。 NIC の新しい RHEL 7 名前付け規則もオフになります。 上記の他に、次のパラメーターを削除することをお勧めします。
+    この構成により、すべてのコンソール メッセージが最初のシリアル ポートに送信され、メッセージを Azure での問題のデバッグに利用できるようになります。 NIC の新しい RHEL 7 名前付け規則もオフになります。 次のパラメーターを削除することをお勧めします。
 
     ```sh
     rhgb quiet crashkernel=auto
     ```
 
-    クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、仮想マシン内の使用可能なメモリ量が 128 MB 以上減少します。仮想マシンのサイズが小さいと、このことが問題になる可能性があります。
+    クラウド環境では、すべてのログをシリアル ポートに送信するため、グラフィカル ブートおよびクワイエット ブートは役立ちません。 `crashkernel` オプションの構成は、必要であればそのままにしてかまいません。 ただし、このパラメーターにより、VM 内の使用可能なメモリ量が 128 MB 以上減少します。VM のサイズが小さいと、このことが問題になる可能性があります。
 
-1. `/etc/default/grub`の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
+1. `/etc/default/grub` の編集を終了したら、次のコマンドを実行して GRUB 構成を再構築します。
 
     ```bash
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -471,7 +480,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
-    Azure Linux エージェントは、Azure で仮想マシンがプロビジョニングされた後に仮想マシンに接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、仮想マシンのプロビジョニングが解除されると空になることに注意してください。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
+    Azure Linux エージェントは、VM が Azure にプロビジョニングされた後に VM に接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、VM のプロビジョニングが解除されると空になることに注意してください。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
 
     ```sh
     ResourceDisk.Format=y
@@ -487,9 +496,9 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL 仮想マシンは Azure Stack ルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 「[Adding trusted root certificates to the server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」(信頼できるルート証明書をサーバーに追加する) を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
-1. 次のコマンドを実行して仮想マシンをプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
+1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
     ```bash
     sudo waagent -force -deprovision
@@ -497,10 +506,10 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     logout
     ```
 
-1. 仮想マシンをシャットダウンし、VMDK ファイルを VHD 形式に変換します。
+1. VM をシャットダウンし、VMDK ファイルを VHD 形式に変換します。
 
     > [!NOTE]
-    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](<https://bugs.launchpad.net/qemu/+bug/1490611>) を参照してください。
+    > qemu-img のバージョン 2.2.1 以降には、VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](<https://bugs.launchpad.net/qemu/+bug/1490611>) を参照してください。
 
     まず、イメージを未加工の形式に変換します。
 
@@ -524,13 +533,13 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-    または、qemu のバージョン **2.6 以降**を使用して `force_size` オプションを含めます。
+    または、qemu バージョン **2.6 以降**を使用して `force_size` オプションを含めます。
 
     ```bash
     qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
-## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>kickstart ファイルを使用して ISO から Red Hat ベースの仮想マシンを自動的に準備する
+## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>kickstart ファイルを使用して ISO から Red Hat ベースの VM を自動的に準備する
 
 1. 次の内容を含んだ kickstart ファイルを作成し、そのファイルを保存します。 kickstart のインストールの詳細については、 [kickstart インストール ガイド](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)を参照してください。
 
@@ -661,27 +670,27 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 1. インストール システムからアクセスできる場所に kickstart ファイルを置きます。
 
-1. Hyper-V マネージャーで新しい仮想マシンを作成します。 **[仮想ハード ディスクの接続]** ページで、 **[後で仮想ハード ディスクを接続する]** を選択し、仮想マシンの新規作成ウィザードを完了します。
+1. Hyper-V マネージャーで新しい VM を作成します。 **[仮想ハード ディスクの接続]** ページで、 **[後で仮想ハード ディスクを接続する]** を選択し、仮想マシンの新規作成ウィザードを完了します。
 
-1. 仮想マシンの設定を開きます。
+1. VM 設定を開きます。
 
-    a. 新しい仮想ハード ディスクを仮想マシンに接続します。 **[VHD 形式]** と **[固定サイズ]** を選択します。
+    a. 新しい仮想ハード ディスクを VM に接続します。 **[VHD 形式]** と **[固定サイズ]** を選択します。
 
     b. インストール ISO を DVD ドライブに接続します。
 
     c. CD から起動するように BIOS を設定します。
 
-1. 仮想マシンを開始します。 インストール ガイドが表示されたら、 **Tab** キーを押してブート オプションを構成します。
+1. VM を起動します。 インストール ガイドが表示されたら、 **Tab** キーを押してブート オプションを構成します。
 
 1. ブート オプションの最後に `inst.ks=<the location of the kickstart file>` を入力し、 **Enter**キーを押します。
 
-1. インストールが完了するのを待ちます。 完了すると、仮想マシンが自動的にシャットダウンされます。 これで、Linux VHD を Azure にアップロードする準備が整いました。
+1. インストールが完了するのを待ちます。 完了すると、VM は自動的にシャットダウンされます。 これで、Linux VHD を Azure にアップロードする準備が整いました。
 
 ## <a name="known-issues"></a>既知の問題
 
-### <a name="the-hyper-v-driver-could-not-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>非 Hyper-V ハイパーバイザーの使用時に Hyper-V ドライバーを初期 RAM ディスクに含めることができない
+### <a name="the-hyper-v-driver-couldnt-be-included-in-the-initial-ram-disk-when-using-a-non-hyper-v-hypervisor"></a>非 Hyper-V ハイパーバイザーを使用しているとき、Hyper-V ドライバーを初期 RAM ディスクに含めることができない
 
-Hyper-V 環境で実行されていることを Linux が検出しなかった場合、Linux インストーラーは、初期 RAM ディスク (initrd または initramfs) に Hyper-V 用のドライバーを追加しないことがあります。
+一部のケースにおいて、Linux インストーラーは、Hyper-V 環境で実行されていることを Linux が検出しない限り、初期 RAM ディスク (initrd または initramfs) に Hyper-V 用のドライバーを含めないことがあります。
 
 別の仮想化システム (Oracle VM VirtualBox、Xen Project など) を使用して Linux イメージを準備する場合は、少なくとも hv_vmbus と hv_storvsc のカーネル モジュールを初期 RAM ディスクで使用できるように initrd の再構築が必要になる場合があります。 これは少なくとも、アップストリームの Red Hat ディストリビューションに基づくシステムの既知の問題です。
 
@@ -703,6 +712,6 @@ dracut -f -v
 
 ## <a name="next-steps"></a>次の手順
 
-これで、Red Hat Enterprise Linux 仮想ハード ディスクを使用して、Azure Stack に新しい仮想マシンを作成する準備が整いました。 初めて Azure Stack に VHD ファイルをアップロードする場合は、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
+これで、Red Hat Enterprise Linux 仮想ハード ディスクを使用して、Azure Stack に新しい VM を作成する準備が整いました。 初めて Azure Stack に VHD ファイルをアップロードする場合は、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
 
 Red Hat Enterprise Linux の実行が認定されているハイパーバイザーの詳細については、[Red Hat の Web サイト](https://access.redhat.com/certified-hypervisors)を参照してください。

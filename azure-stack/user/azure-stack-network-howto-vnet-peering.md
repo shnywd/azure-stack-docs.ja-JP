@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 91a90146f1f62ebea980a785d8a8e347f04fe137
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064926"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845833"
 ---
 # <a name="vnet-peering-in-azure-stack-with-vms"></a>Azure Stack での VM との VNET ピアリング
 
@@ -24,15 +24,15 @@ ms.locfileid: "73064926"
 
 このデプロイ パターンは、Azure Stack インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。 
 
-これらのテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns
-) リポジトリの **lucidqdreams** フォークにあります。 テンプレートは **S2SVPNTunnel** フォルダーにあります。
+テンプレートは [Azure Intelligent Edge Patterns GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
+) リポジトリにあります。 テンプレートは **S2SVPNTunnel** フォルダーにあります。
 
 ![alt text](./media/azure-stack-network-howto-vnet-peering/overview.png)
 
 ## <a name="requirements"></a>必要条件
 
 - 最新の更新プログラムが適用された ASDK または Azure Stack 統合システム。 
-- 必須の Azure Stack Marketplace 項目:
+- 必須の Azure Stack Marketplace アイテム
     -  Windows Server 2016 Datacenter (最新ビルドを推奨)
     -  カスタム スクリプト拡張機能
 

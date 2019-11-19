@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 0a784a80931113b7901a021a7c2ff707ce7df355
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 31436cbe92550044efe8b28a5063da61508e7304
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283270"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73845780"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack での更新プログラムの管理概要
 
@@ -81,7 +81,7 @@ ms.locfileid: "72283270"
 
 1. **更新を計画します**。
 
-    ユーザーへの影響が最小限になるように、可能な限りスムーズに更新プロセスを進めるために Azure Stack を準備します。 サービス停止の可能性についてユーザーに通知し、手順に従って、インスタンスの更新を準備します。 更新を計画するための詳細な手順については、「[Plan for an Azure Stack update](azure-stack-update-plan.md)」 (Azure Stack の更新の計画) を参照してください。
+    ユーザーへの影響が最小限になるように、可能な限りスムーズに更新プロセスを進めるために Azure Stack を準備します。 サービス停止の可能性についてユーザーに通知し、手順に従って、インスタンスの更新を準備します。 更新を計画するための詳細な手順については、「[Azure Stack 更新アクティビティのチェックリスト](release-notes-checklist.md)」を参照してください。
 
 2. **更新プログラム パッケージをアップロードして準備します**。
 
@@ -103,6 +103,6 @@ Azure Stack には、Microsoft ソフトウェア更新プログラムの適用�
 
 ## <a name="next-steps"></a>次の手順
 
-- 更新プロセスを開始するには、「[Plan for an Azure Stack update](azure-stack-update-plan.md)」 (Azure Stack の更新の計画) の手順に従います。
+- 更新プロセスを開始するには、「[Azure Stack 更新アクティビティのチェックリスト](release-notes-checklist.md)」の手順に従ってください。
 - サポートされている Azure Stack のバージョンについては、「[Azure Stack Servicing Policy](azure-stack-servicing-policy.md)」 (Azure Stack サービス ポリシー) を参照してください。  
 - 現在および最新の更新プログラムの詳細については、[Azure Stack のリリースノート](release-notes.md)のページを参照してください。

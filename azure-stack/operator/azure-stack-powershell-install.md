@@ -15,12 +15,12 @@ ms.date: 09/18/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 79d7a0adfc7d869f600e864264716b34d6452213
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101138"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802358"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
@@ -28,7 +28,7 @@ ms.locfileid: "71101138"
 
 Azure PowerShell には、Azure Stack リソースの管理に Azure Resource Manager モデルを使う一連のコマンドレットが用意されています。
 
-クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 Azure Stack では、グローバル Azure で使われている新しい **AzureAZ** モジュールではなく、**AzureRM** モジュールが使われます。 さらに、*API プロファイル*を使って、Azure Stack リソース プロバイダーと互換性のあるエンドポイントを指定する必要もあります。
+クラウドで動作させるには、Azure Stack と互換のある PowerShell モジュールをインストールする必要があります。 Azure Stack では、グローバル Azure で使われている新しい **AzureAZ** モジュールの代わりに、**AzureRM** モジュールが使われます。 さらに、*API プロファイル*を使って、Azure Stack リソース プロバイダーと互換性のあるエンドポイントを指定する必要もあります。
 
 API のプロファイルは、Azure と Azure Stack の間のバージョンの違いを管理するための方法を提供します。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack では**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
@@ -129,7 +129,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-インストールに成功した場合、出力に AzureRM および AzureStack モジュールが表示されます。
+インストールに成功すると、出力に `AzureRM` モジュールと `AzureStack` モジュールが表示されます。
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5.切断状態の場合: インターネット接続なしで PowerShell をインストールする
 
@@ -170,7 +170,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
-    > Azure Stack モジュール バージョン 1.7.1 は破壊的変更です。 AzureStack 1.6.0 から移行するには、[移行ガイド](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)を参照してください。
+    > Azure Stack モジュール バージョン 1.7.1 は破壊的変更です。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)を参照してください。
 
     > [!NOTE]
     > インターネット接続のないマシンでは、次のコマンドレットを実行して利用統計情報の収集を無効にすることをお勧めします。 利用統計情報の収集を無効にしないと、コマンドレットのパフォーマンスが低下することがあります。 これは、インターネット接続のないマシンのみ該当します。
@@ -186,7 +186,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
-4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM および AzureStack モジュールをインストールします。
+4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
 
    ```powershell
    # requires -Version 5

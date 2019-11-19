@@ -213,6 +213,8 @@
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
                     - name: AKS エンジンのトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
+                    - name: Azure Monitor for containers を使用する
+                      href: kubernetes-aks-engine-azure-monitor.md
                 - name: Marketplace の項目
                   items:
                     - name: Kubernetes クラスターのデプロイ

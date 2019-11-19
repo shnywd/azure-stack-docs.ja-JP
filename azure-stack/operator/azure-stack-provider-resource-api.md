@@ -1,6 +1,7 @@
 ---
 title: プロバイダー リソース使用量 API | Microsoft Docs
-description: Azure Stack の使用状況情報を取得するリソース使用量 API のリファレンス
+titleSuffix: Azure Stack
+description: Azure Stack の使用状況情報を取得するリソース使用量 API のリファレンス。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 631d6764ca7947ddafd70ec57b607df1ea5a4ab5
-ms.sourcegitcommit: 2a4cb9a21a6e0583aa8ade330dd849304df6ccb5
+ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68286699"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802397"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
@@ -36,7 +37,7 @@ ms.locfileid: "68286699"
 
 この使用状況 API はプロバイダー API であるため、呼び出し元に、プロバイダーのサブスクリプションの**所有者**、**共同作成者**、または**閲覧者**の役割が割り当てられている必要があります。
 
-| Method | 要求 URI |
+| 方法 | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
@@ -44,14 +45,14 @@ ms.locfileid: "68286699"
 
 | 引数 | 説明 |
 | --- | --- |
-| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack 規則は、Azure Resource Manager エンドポイントの名前が、`https://adminmanagement.{domain-name}` の形式であることです。 たとえば、開発キットでは、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
+| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack 規則は、Azure Resource Manager エンドポイントの名前が、`https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
 | `subId` |呼び出しを行っているユーザーのサブスクリプション ID。 |
 | `reportedStartTime` |クエリの開始時間。 `DateTime` の値は協定世界時 (UTC) で、13:00 など、毎時 0 分に設定する必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 (たとえば、`2015-06-16T18%3a53%3a11%2b00%3a00Z` など) です。URI に対応できるように、コロンは `%3a` に、プラスは `%2b` にエスケープされます。 |
-| `reportedEndTime` |クエリの終了時間。 `reportedStartTime` に適用される制約は、この引数にも適用されます。 `reportedEndTime` の値は将来または現在の日付にすることはできません。 そうすると、結果は "処理が未完了" に設定されます。 |
+| `reportedEndTime` |クエリの終了時間。 `reportedStartTime` に適用される制約は、この引数にも適用されます。 `reportedEndTime` の値は、将来、または現在の日付にすることはできません。 そうすると、結果は "処理が未完了" に設定されます。 |
 | `aggregationGranularity` |**daily** と **hourly** の 2 つの個別の指定可能な値を持つ省略可能なパラメーター。 値が示すように、一方は日単位の粒度でデータを返し、もう一方は時間単位の解像度です。 **daily** オプションが既定値です。 |
 | `subscriberId` |[サブスクリプション ID] が表示されます。 フィルター処理されたデータを取得するには、プロバイダーの直接のテナントのサブスクリプション ID が必要です。 サブスクリプション ID パラメーターが指定されていない場合、呼び出しは、すべてのプロバイダーの直接のテナントの使用状況データを返します。 |
 | `api-version` |この要求を行うために使用するプロトコルのバージョン。 この値は `2015-06-01-preview` に設定されます。 |
-| `continuationToken` |使用状況 API プロバイダーへの最後の呼び出しから取得されたトークン。 このトークンは、応答が 1,000 行より大きい場合に必要であり、 進行状況のブックマークとして機能します。 トークンが存在しない場合、渡された単位に基づいて、日または時間の開始点から、データが取得されます。 |
+| `continuationToken` |使用状況 API プロバイダーへの最後の呼び出しから取得されたトークン。 このトークンは、応答が 1,000 行より大きい場合に必要であり、 進行状況のブックマークとして機能します。 トークンが存在しない場合は、渡された細分性に基づいて、日または時間の開始点からのデータが取得されます。 |
 
 ### <a name="response"></a>Response
 
@@ -104,7 +105,7 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシンや、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Marketplace で実行されているリソースがあるかどうかが不明な場合は、仮想マシン (VM) をデプロイし、実行されているかどうか仮想マシン監視ブレードを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使います。
+使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシン (VM) や、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Marketplace で実行されているリソースがあるかどうかが不明な場合は、VM をデプロイし、実行されているかどうか VM 監視ブレードを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使います。
 
 1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
 2. [Azure Stack ユーザー](../user/azure-stack-powershell-configure-user.md)または [Azure Stack オペレーター](azure-stack-powershell-configure-admin.md)の PowerShell 環境を構成します。
@@ -120,13 +121,13 @@ Microsoft.Commerce.Admin サービスを呼び出すことで、削除された�
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>アクティブ ユーザーに対して削除されたすべてのテナントの使用状況を返す
 
-| Method | 要求 URI |
+| 方法 | 要求 URI |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>削除済みまたはアクティブなテナントの使用状況を返す
 
-| Method | 要求 URI |
+| 方法 | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 

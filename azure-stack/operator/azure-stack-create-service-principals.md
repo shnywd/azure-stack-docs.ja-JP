@@ -1,28 +1,22 @@
 ---
-title: アプリ ID を使用してリソースにアクセスする |Microsoft Docs
-description: サインインとリソースへのアクセスを目的としてロールベースのアクセス制御と共に使用できる、サービス プリンシパルを管理する方法について説明します。
-services: azure-stack
-documentationcenter: na
+title: アプリ ID を使用してリソースにアクセスする
+description: Azure Stack Hub のサービス プリンシパルを管理する方法について説明します。 サービス プリンシパルは、リソースへのサインインとアクセスを目的としてロールベースのアクセス制御と共に使用できます。
 author: BryanLa
-manager: femila
-ms.service: azure-stack
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2019
 ms.author: bryanla
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 7110febfa58fb1d31cde5f0ae1b4df659f567956
-ms.sourcegitcommit: 8203490cf3ab8a8e6d39b137c8c31e3baec52298
+ms.service: azure-stack
+ms.topic: how-to
+ms.date: 11/11/2019
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73712742"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955381"
 ---
-# <a name="use-an-app-identity-to-access-resources"></a>アプリ ID を使用してリソースにアクセスする
+# <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit (ASDK)*
+*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit (ASDK)*
 
 アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 ユーザーをユーザー プリンシパルで表すのと同様に、サービス プリンシパルはセキュリティ プリンシパルの一種であり、アプリを表します。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのサービス プリンシパルに委任することができます。  
 
@@ -41,16 +35,16 @@ ms.locfileid: "73712742"
  - サービス プリンシパルには、**より限定的なアクセス許可**を割り当てることができます。 一般的に、このアクセス許可はそのアプリでの実行に必要なものだけに限定され、このことを*最小限の特権の原則*といいます。
  - サービス プリンシパルの**資格情報とアクセス許可の変更の頻度は高くありませんが**、ユーザー プリンシパルでは頻繁に変更されます。 たとえば、ユーザーの責務が変わるときや、パスワードの要件で変更が要求されているときや、ユーザーが退職したときです。
 
-開発者は初めに、使用するディレクトリ内に新しいアプリ登録を作成します。これによって、対応する[サービス プリンシパル オブジェクト](/azure/active-directory/develop/developer-glossary#service-principal-object)が作成され、これがそのディレクトリの中でアプリの ID を表します。 このドキュメントでは、サービス プリンシパルの作成と管理について説明しますが、そのプロセスは Azure Stack インスタンス用に次のどのディレクトリを選択したかによって異なります。
+開発者は初めに、使用するディレクトリ内に新しいアプリ登録を作成します。これによって、対応する[サービス プリンシパル オブジェクト](/azure/active-directory/develop/developer-glossary#service-principal-object)が作成され、これがそのディレクトリの中でアプリの ID を表します。 このドキュメントでは、Azure Stack Hub インスタンス用に選択したディレクトリに応じて、サービス プリンシパルを作成および管理するプロセスについて説明します。
 
-- Azure Active Directory (Azure AD)。 Azure AD は、マルチテナントに対応したクラウドベースのディレクトリおよび ID の管理サービスです。 Azure AD は、接続された Azure Stack インスタンスとともに使用できます。
-- Active Directory フェデレーション サービス (AD FS)。 AD FS は、シンプルかつ安全な ID フェデレーション機能と Web シングル サインオン (SSO) 機能を実現します。 AD FS は、接続された Azure Stack インスタンスでも、切断された Azure Stack インスタンスでも使用できます。
+- Azure Active Directory (Azure AD)。 Azure AD は、マルチテナントに対応したクラウドベースのディレクトリおよび ID の管理サービスです。 Azure AD は、接続された Azure Stack Hub インスタンスで使用できます。
+- Active Directory フェデレーション サービス (AD FS)。 AD FS は、シンプルかつ安全な ID フェデレーション機能と Web シングル サインオン (SSO) 機能を実現します。 AD FS は、接続された Azure Stack Hub インスタンスでも、切断された Azure Stack Hub インスタンスでも使用できます。
 
 ここでは、初めにサービス プリンシパルを管理する方法を説明し、その後でそのサービス プリンシパルをロールに割り当ててリソースへのアクセスを制限する方法を説明します。
 
 ## <a name="manage-an-azure-ad-service-principal"></a>Azure AD サービス プリンシパルを管理する
 
-Azure Stack をデプロイするときに Azure AD を ID 管理サービスとして選択した場合は、サービス プリンシパルを Azure の場合と同様に作成できます。 このセクションでは、このことを Azure portal で行う手順を説明します。 始める前に、[Azure AD で必要なアクセス許可](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)があることを確認してください。
+Azure Stack Hub をデプロイするときに Azure AD を ID 管理サービスとして選択した場合は、サービス プリンシパルを Azure の場合と同様に作成できます。 このセクションでは、このことを Azure portal で行う手順を説明します。 始める前に、[Azure AD で必要なアクセス許可](/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)があることを確認してください。
 
 ### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>クライアント シークレット資格情報を使用するサービス プリンシパルを作成する
 
@@ -72,9 +66,9 @@ Azure Stack をデプロイするときに Azure AD を ID 管理サービスと
 
 ## <a name="manage-an-ad-fs-service-principal"></a>AD FS サービス プリンシパルを管理する
 
-Azure Stack をデプロイするときに AD FS を ID 管理サービスとして選択した場合は、サービス プリンシパルの管理には PowerShell を使用する必要があります。 次に示すサービス プリンシパル資格情報の管理の例では、X509 証明書とクライアント シークレットの両方について説明します。
+Azure Stack Hub をデプロイするときに AD FS を ID 管理サービスとして選択した場合は、サービス プリンシパルの管理には PowerShell を使用する必要があります。 次に示すサービス プリンシパル資格情報の管理の例では、X509 証明書とクライアント シークレットの両方について説明します。
 
-スクリプトは、管理者特権のある ("管理者として実行") PowerShell コンソールで実行する必要があります。このコンソールから、Azure Stack インスタンスの特権エンドポイントをホストする VM への別のセッションを開きます。 特権エンドポイント セッションが確立した後に、追加のコマンドレットを実行してサービス プリンシパルの管理を行います。 特権エンドポイントの詳細については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
+スクリプトは、管理者特権のある ("管理者として実行") PowerShell コンソールで実行する必要があります。これにより、Azure Stack Hub インスタンスの特権エンドポイントをホストする VM への別のセッションが開きます。 特権エンドポイント セッションが確立した後に、追加のコマンドレットを実行してサービス プリンシパルの管理を行います。 特権エンドポイントの詳細については、[Azure Stack Hub での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)に関する記事を参照してください。
 
 ### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>証明書資格情報を使用するサービス プリンシパルを作成する
 
@@ -83,13 +77,13 @@ Azure Stack をデプロイするときに AD FS を ID 管理サービスとし
  - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に関するページに完全な一覧があります。 "自己署名" テスト証明書の作成の例については、後で「[サービス プリンシパルの証明書資格情報を更新する](#update-a-service-principals-certificate-credential)」でも示しています。 
  - 暗号化プロバイダーを、Microsoft レガシ暗号化サービス プロバイダー (CSP) のキー プロバイダーとして指定する必要があります。
  - 公開キーと秘密キーの両方が必要なため、証明書は PFX ファイル形式である必要があります。 Windows サーバーでは、公開キー ファイル (SSL 証明書ファイル) と関連付けられている秘密キー ファイルが含まれている .pfx ファイルが使用されます。
- - お使いの Azure Stack インフラストラクチャは、証明書において公開されている証明機関の証明書失効リスト (CRL) の場所にネットワーク アクセスできる必要があります。 この CRL は、HTTP エンドポイントである必要があります。
+ - お使いの Azure Stack Hub インフラストラクチャは、証明書において公開されている証明機関の証明書失効リスト (CRL) の場所にネットワークでアクセスできる必要があります。 この CRL は、HTTP エンドポイントである必要があります。
 
 証明書を用意できたら、下記の PowerShell スクリプトを使用してアプリを登録し、サービス プリンシパルを作成します。 また、このサービス プリンシパルを使用して Azure にサインインします。 次のプレースホルダーを実際の値で置き換えてください。
 
 | プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
 
@@ -112,7 +106,7 @@ Azure Stack をデプロイするときに AD FS を ID 管理サービスとし
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
     # - AzureRM endpoint used for Azure Resource Manager operations 
     # - Audience for acquiring an OAuth token used to access Graph API 
     # - GUID of the directory tenant
@@ -120,7 +114,7 @@ Azure Stack をデプロイするときに AD FS を ID 管理サービスとし
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register and set an AzureRM environment that targets your Azure Stack instance
+    # Register and set an AzureRM environment that targets your Azure Stack Hub instance
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
     # Sign in using the new service principal identity
@@ -160,7 +154,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
 
 | プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
 | \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
@@ -205,7 +199,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
 
 | プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
 
 1. Windows PowerShell セッションを管理者特権で開き、次のコマンドレットを実行します。
@@ -222,7 +216,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # Using the stamp info for your Azure Stack Hub instance, populate the following variables:
      # - AzureRM endpoint used for Azure Resource Manager operations 
      # - Audience for acquiring an OAuth token used to access Graph API 
      # - GUID of the directory tenant
@@ -230,7 +224,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
      $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
      $TenantID = $AzureStackInfo.AADTenantID
 
-     # Register and set an AzureRM environment that targets your Azure Stack instance
+     # Register and set an AzureRM environment that targets your Azure Stack Hub instance
      Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
 
      # Sign in using the new service principal identity
@@ -262,7 +256,7 @@ PowerShell を使用してクライアント シークレット資格情報を�
 
 | プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 1. 管理者特権のある Windows PowerShell セッションを使用して、次のコマンドレットを実行します。
@@ -299,7 +293,7 @@ PowerShell を使用してクライアント シークレット資格情報を�
 
 | プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
-| \<PepVM\> | Azure Stack インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
+| \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
@@ -331,7 +325,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 選択したリソースの種類に応じて、サービス プリンシパルの*アクセス スコープ*も決まります。 アクセス スコープはサブスクリプション、リソース グループ、またはリソースのレベルで設定できます。 アクセス許可は、スコープの下位レベルに継承されます。 たとえば、アプリをリソース グループの "閲覧者" ロールに追加すると、そのリソース グループと、その中にあるすべてのリソースを読み取ることができることになります。
 
-1. Azure Stack のインストール時に指定したディレクトリに基づいて、適切なポータルにサインインします (たとえば、Azure AD の場合は Azure portal、AD FS の場合は Azure Stack ユーザー ポータル)。 この例では、ユーザーが Azure Stack ユーザー ポータルにサインインしたとします。
+1. Azure Stack Hub のインストール時に指定したディレクトリに基づいて、適切なポータルにサインインします (たとえば、Azure AD の場合は Azure portal、AD FS の場合は Azure Stack Hub ユーザー ポータル)。 この例では、ユーザーが Azure Stack Hub ユーザー ポータルにサインインしたとします。
 
    > [!NOTE]
    > リソースに対するロール割り当てを追加するには、この操作を行うユーザー アカウントが属しているロールで `Microsoft.Authorization/roleAssignments/write` の許可が宣言されている必要があります。 この条件を満たすのは、組み込みロールである[所有者](/azure/role-based-access-control/built-in-roles#owner)や[ユーザー アクセス管理者](/azure/role-based-access-control/built-in-roles#user-access-administrator)などです。  
@@ -352,7 +346,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
      [![割り当てられたロール](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
-サービス プリンシパルを作成してロールを割り当てたら、アプリ内でこのサービス プリンシパルを使用して、Azure Stack リソースにアクセスできます。  
+サービス プリンシパルを作成してロールを割り当てたので、アプリ内でこのサービス プリンシパルを使用して Azure Stack Hub リソースにアクセスできるようになりました。  
 
 ## <a name="next-steps"></a>次の手順
 

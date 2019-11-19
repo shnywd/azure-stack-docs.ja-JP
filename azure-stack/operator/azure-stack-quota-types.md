@@ -1,5 +1,6 @@
 ---
 title: Azure Stack のクォータの種類 | Microsoft Docs
+titleSuffix: Azure Stack
 description: Azure Stack のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
 services: azure-stack
 documentationcenter: ''
@@ -16,18 +17,18 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: e3e7ae6cc29756486ae5c292de6fea7e5259ecc1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283458"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955298"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-[クォータ](service-plan-offer-subscription-overview.md#plans)は、ユーザー サブスクリプションがプロビジョニングまたは使用できるリソースの制限を定義します。 たとえば、1 つのクォータでユーザー 1 人に最大 5 つの仮想マシンの作成を許可できます。 各リソースは、独自のクォータの種類を持つことが可能です。
+[クォータ](service-plan-offer-subscription-overview.md#plans)は、ユーザー サブスクリプションがプロビジョニングまたは使用できるリソースの制限を定義します。 たとえば、1 つのクォータでユーザー 1 人に最大 5 つの仮想マシン (VM) の作成を許可できます。 各リソースは、独自のクォータの種類を持つことが可能です。
 
 > [!IMPORTANT]
 > ユーザー ポータルで新しいクォータが使用可能になるまで、または変更されたクォータが適用されるまでに最大で 2 時間かかることがあります。
@@ -36,25 +37,25 @@ ms.locfileid: "72283458"
 
 | **Type** | **既定値** | **説明** |
 | --- | --- | --- |
-| [Maximum number of virtual machines]\(仮想マシンの最大数\) | 50 | 1 つのサブスクリプションでこの場所に作成できる仮想マシンの最大数です。 |
-| [Maximum number of virtual machine cores]\(仮想マシン コアの最大数\) | 100 | 1 つのサブスクリプションでこの場所に作成できるコアの最大数です (たとえば、A3 VM のコア数は 4 です)。 |
+| VM の最大数 | 50 | 1 つのサブスクリプションでこの場所に作成できる VM の最大数です。 |
+| VM コアの最大数 | 100 | 1 つのサブスクリプションでこの場所に作成できるコアの最大数です (たとえば、A3 VM のコア数は 4 です)。 |
 | [Maximum number of availability sets]\(可用性セットの最大数\) | 10 | この場所に作成できる可用性セットの最大数です。 |
-| [Maximum number of virtual machine scale sets]\(仮想マシン スケール セットの最大数\) | 100 | この場所に作成できる仮想マシン スケールセットの最大数です。 |
-| [Maximum capacity (in GB) of standard managed disk]\(Standard マネージド ディスクの最大容量 (GB)\) | 2048 | この場所に作成できる Standard マネージド ディスクの最大容量。 |
-| [Maximum capacity (in GB) of premium managed disk]\(Premium マネージド ディスクの最大容量 (GB)\) | 2048 | この場所に作成できる Premium マネージド ディスクの最大容量。 |
+| [Maximum number of virtual machine scale sets]\(仮想マシン スケール セットの最大数\) | 100 | この場所に作成できるスケール セットの最大数です。 |
+| [Maximum capacity (in GB) of standard managed disk]\(Standard マネージド ディスクの最大容量 (GB)\) | 2048 | この場所に作成できる Standard マネージド ディスクの最大容量。 この値は、すべての Standard マネージド ディスクの割り当てサイズと、すべての Standard スナップショットの使用サイズを合計したものです。 |
+| [Maximum capacity (in GB) of premium managed disk]\(Premium マネージド ディスクの最大容量 (GB)\) | 2048 | この場所に作成できる Premium マネージド ディスクの最大容量。 この値は、すべての Premium マネージド ディスクの割り当てサイズと、すべての Premium スナップショットの使用サイズを合計したものです。 |
 
-> [!NOTE]  
-> アンマネージド ディスク (ページ BLOB) の最大容量は、マネージド ディスクのクォータとは区別されます。 この値は**ストレージ クォータ**で設定できます。
+> [!NOTE]
+> アンマネージド ディスク (ページ BLOB) の最大容量は、マネージド ディスクのクォータとは区別されます。 この値は、 **[Storage quotas]\(ストレージ クォータ\)** の **[Maximum capacity (GB)]\(最大容量 (GB)\)** で設定できます。
 
 ## <a name="storage-quota-types"></a>Storage クォータの種類
 
 | **項目** | **既定値** | **説明** |
 | --- | --- | --- |
-| 最大容量 (GB) |2048 |1 つのサブスクリプションがこの場所で使用できるストレージの総容量です (BLOB と、関連付けられているすべてのスナップショット、テーブル、キューが含まれます)。 |
+| 最大容量 (GB) |2048 |1 つのサブスクリプションがこの場所で使用できる記憶域の最大容量です。 この値は、すべての BLOB (アンマネージド ディスクを含む) と、それに関連付けられているすべてのスナップショット、テーブル、キューの使用サイズの合計です。 |
 | [Total number of storage accounts]\(ストレージ アカウントの合計数\) |20 |1 つのサブスクリプションでこの場所に作成できるストレージ アカウントの最大数です。 |
 
-> [!NOTE]  
-> マネージド ディスクの最大容量は、ストレージ クォータの合計とは区別されます。 この値は**コンピューティング クォータ**で設定できます。
+> [!NOTE]
+> あるサブスクリプションで **[Maximum capacity (GB)]\(最大容量 (GB)\)** を超えた場合、このサブスクリプションで新しいストレージ リソースを作成することはできません。 ただし、このサブスクリプションで作成されたアンマネージド ディスクを VM で引き続き使用することができます。それにより、使用済み容量の合計がクォータ制限をはるかに超える可能性があります。<br>マネージド ディスクの最大容量は、ストレージ クォータの合計とは区別されます。 この値は**コンピューティング クォータ**で設定できます。
 
 ## <a name="network-quota-types"></a>Network クォータの種類
 
@@ -79,11 +80,11 @@ ms.locfileid: "72283458"
 3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 表示するクォータの **[名前]** 列をクリックして選択します。
 
-    [![クォータ](media/azure-stack-quota-types/quotas1sm.png "クォータの表示")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Azure Stack 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>リソース プロバイダー
 
-1. 管理ポータルの既定のダッシュボードで、 **[リソース プロバイダー]** タイルを見つけます。
+1. 管理者ポータルの既定のダッシュボードで、 **[リソース プロバイダー]** タイルを見つけます。
 2. **[コンピューティング]** 、 **[ネットワーク]** 、 **[ストレージ]** など、表示するクォータを含むサービスを選択します。
 3. **[クォータ]** を選択して、表示するクォータを選択します。
 
@@ -94,13 +95,15 @@ ms.locfileid: "72283458"
 ### <a name="edit-a-plan"></a>プランを編集する
 
 1. 管理者ポータルの左側のナビゲーション ウィンドウで、 **[プラン]** を選択します。
-2. 編集するプランの名前をクリックして選択します。
+2. クォータを編集するプランの名前をクリックして選択します。
 3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 編集するクォータの **[名前]** 列をクリックして選択します。
-    [![クォータ](media/azure-stack-quota-types/quotas1sm.png "クォータの表示")](media/azure-stack-quota-types/quotas1.png#lightbox)
+
+    [![Azure Stack 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. 表示されたブレードで、 **[Edit in Compute]\(コンピューティングで編集\)** 、 **[Edit in Network]\(ネットワークで編集\)** 、または **[Edit in Storage]\(\)** を選択します。
-    ![クォータ](media/azure-stack-quota-types/quotas3.png "クォータの表示")
+
+    ![Azure Stack 管理者ポータルでプランを編集する](media/azure-stack-quota-types/quotas3.png "Azure Stack 管理者ポータルでプランを編集する")
 
 または、次の手順に従ってクォータを編集できます。
 

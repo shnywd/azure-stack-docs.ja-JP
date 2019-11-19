@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 3fa6d124722d45d727525820b6a99d408f0d2350
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 11/11/2019
+ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
+ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975165"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73955942"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack"></a>Azure Stack での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
@@ -60,7 +60,7 @@ Azure Stack の VM に対して Azure Monitor for VMs、Inventory、Change Track
 
 5. 手順 2 ～ 4 を繰り返して、3 つのソリューションをすべて有効にします。 
 
-   [![](media/vm-update-management/1-sm.PNG "Azure Automation アカウントの機能を有効にする")](media/vm-update-management/1-lg.PNG#lightbox)
+   [![](media/vm-update-management/1-sm.PNG "Enable Azure Automation account features")](media/vm-update-management/1-lg.PNG#lightbox)
 
 ### <a name="enable-azure-monitor-for-vms"></a>Azure Monitor for VMs の有効化
 
@@ -92,15 +92,15 @@ Azure Monitor for VMs マップ ソリューションを有効にして、ネッ
 
 2. Azure Stack ユーザー ポータルで、ソリューションを有効にする VM の [拡張機能] ブレードに移動して、 **[+ 追加]** をクリックし、 **[Azure Update and Configuration Management]\(Azure 更新および構成管理\)** 拡張機能を選択して、 **[作成]** をクリックします。
 
-   [![](media/vm-update-management/3-sm.PNG "VM 拡張機能ブレード")](media/vm-update-management/3-lg.PNG#lightbox)
+   [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
 3. 前に作成したワークスペース ID とプライマリ キーを入力して、エージェントと Log Analytics ワークスペースをリンクします。 次に、 **[OK]** をクリックして拡張機能をデプロイします。
 
-   [![](media/vm-update-management/4-sm.PNG "ワークスペース ID とキーの指定")](media/vm-update-management/4-lg.PNG#lightbox) 
+   [![](media/vm-update-management/4-sm.PNG "Providing the WorkspaceID and Key")](media/vm-update-management/4-lg.PNG#lightbox) 
 
 4. [Update Management のドキュメント](https://docs.microsoft.com/azure/automation/automation-update-management)の説明に従って、管理する各 VM に対して Update Management ソリューションを有効にする必要があります。 ワークスペースに報告するすべての VM でソリューションを有効にするには、 **[更新の管理]** を選択し、 **[マシンの管理]** をクリックして、 **[使用可能なマシンと今後のマシンすべてで有効にします]** オプションを選択します。
 
-   [![](media/vm-update-management/5-sm.PNG "すべてのマシンで Update Management ソリューションを有効にする")](media/vm-update-management/5-lg.PNG#lightbox) 
+   [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
    > この手順を繰り返して、ワークスペースに報告する Azure Stack の VM で各ソリューションを有効にします。 
@@ -109,7 +109,7 @@ Azure Update and Configuration Management (Azure 更新および構成管理) �
 
 VM のスキャン後、それらは、Update Management ソリューションの Azure Automation アカウントに表示されます。 
 
-   [![](media/vm-update-management/6-sm.PNG "Update Management の Azure Automation アカウント")](media/vm-update-management/6-lg.PNG#lightbox) 
+   [![](media/vm-update-management/6-sm.PNG "Azure Automation account in Update Management")](media/vm-update-management/6-lg.PNG#lightbox) 
 
 > [!IMPORTANT]
 > 管理対象のコンピューターの更新されたデータがダッシュボードに表示されるまでに、30 分～ 6 時間かかる場合があります。

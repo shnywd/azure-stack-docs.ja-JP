@@ -14,18 +14,63 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0ac21cc388b55be6548f9fdba6c8985dd2316c4e
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
+ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167140"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846238"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>サービスとしての検証のリリース ノート
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 この記事には、Azure Stack のサービスとしての検証のリリース ノートが含まれています。
+
+## <a name="version-4353"></a>バージョン 4.3.5.3
+
+2019 月 11 月 7 日
+
+- テスト コンテンツの更新
+  - Monthly Azure Stack Update Verification (月次 Azure Stack 更新プログラムの検証) (バージョン 5.1.46.0 -> 5.1.49.0)
+  - OEM Extension Package Verification (OEM 拡張機能パッケージの検証) (バージョン 5.1.46.0 -> 5.1.49.0)
+  - 5\.1.46.0 の結果は保持されています。 5\.1.46.0 で正常に実行された場合は、結果を送信するときに vaashelp@microsoft.com に通知します。
+
+- バグの修正
+  - 更新プログラムの .zip に特殊文字が含まれていた場合に月次 Azure Stack 更新プログラムの検証が実行に失敗する問題を修正しました。
+
+- 既知の問題
+  - mstest.exe が検出されない場合、VaaS テストが失敗します。 対処法:
+    1. PowerShell ウィンドウでエージェントの CTRL + C を実行します。
+    1. 「mstest.exe」と入力して、mstest.exe が認識されるプログラムであることを確認します。
+    1. mstest.exe が認識されない場合は、現在の PowerShell ウィンドウを閉じます。
+    1. [スタート] (タスク バーの PowerShell ではない) をクリックし、PowerShell を見つけ、管理者として開きます。
+    1. 「mstest.exe」と入力し、それがコマンドとして使用可能なことを確認します。
+    1. エージェントを再起動し、テストを再実行します。
+  - 場合によって、クラウド シミュレーション エンジンが \*vm テストでエラーを報告することがあります。 再実行を試みる前に vaashelp@microsoft.com にお問い合わせください。 
+
+
+2019 年 10 月 29 日
+
+- 月次 Azure Stack 更新プログラム ワークフローと OEM パッケージの検証ワークフローのオンライン ドキュメントが更新されました。
+
+    更新されたドキュメント「OEM パッケージの検証」と「Microsoft のソフトウェア更新プログラムの検証」を確認してください
+- VaaS ワークフローの更新:月次 Azure Stack 更新プログラム (バージョン 5.1.30.0 -> 5.1.46.0) - 月次 Azure Stack 更新プログラムの検証テスト フローが更新されました。
+
+    ワークフローは手動での介入を必要とせず、シームレスに実行されるようにスケジュールできるようになりました。
+- VaaS ワークフローの更新:OEM パッケージの検証  (バージョン 5.1.30.0 -> 5.1.46.0)  –  OEM パッケージの検証ワークフローが更新されました。
+
+    ワークフローは手動での介入を必要とせず、シームレスに実行されるようにスケジュールできるようになりました。
+- OEM パッケージの検証ワークフロー (バージョン 5.1.30.0 -> 5.1.46.0) のクラウド シミュレーション エンジンが更新され、検証時間が短縮されました。実行時間が 1 時間に短縮されました。
+- OEM パッケージの検証ワークフローと Azure Stack 更新プログラム ワークフロー (バージョン 5.1.30.0 -> 5.1.46.0) のクラウド シミュレーション エンジンでは、検証対象の更新プログラムは、子フォルダーに他の更新プログラムが含まれていない 2 つの別々の親フォルダーに入っている必要があります。
+- OEM パッケージの検証ワークフローと Azure Stack 更新プログラム ワークフロー (バージョン 5.1.30.0 -> 5.1.46.0) のクラウド シミュレーション エンジンでは、テストは、月次の Azure Stack 更新プログラムの検証テスト、OEM 拡張機能パッケージの検証テスト、そして最後にクラウド シミュレーション エンジンの順序でスケジュールする必要があります。
+- VaaS エージェントの更新:更新された VaaS エージェントは、Azure Stack のクラウド管理者の資格情報を使ってスタンプのクエリを実行し、ワークフローに自動入力するためのスタンプ情報を取得するようになりました。 
+
+    この更新では、すべてのエージェントを更新して再起動する必要があります。 VaaS エージェントの更新方法に関する次の説明を参照してください: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+- VaaS ポータル UI の更新:テストを容易にするために、エージェント選択テーブルはテスト スケジュール ペインの上に移動されました。
+
+    VaaS エージェントが正しく更新されていれば、ジョブをスケジュールするときに、スタンプ情報を入力する必要はなくなりました。
+
 
 ## <a name="version-405"></a>バージョン 4.0.5
 

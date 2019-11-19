@@ -1,5 +1,6 @@
 ---
 title: Azure Stack でのリージョン管理 | Microsoft Docs
+titleSuffix: Azure Stack
 description: Azure Stack でのリージョン管理の概要。
 services: azure-stack
 documentationcenter: ''
@@ -16,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: da80b144987e1dd90e45e83bb7be4ed581db143e
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 38004b88f43ef59448ca99c3eb2762e5ca63e89c
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991756"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802274"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack でのリージョン管理
 
@@ -35,13 +36,13 @@ Azure Stack では、"*リージョン*" という概念が使用されていま
 
 Azure Stack には、 **[Region management]** (リージョン管理) タイルで使用できる一連のリージョン管理機能があります。 このタイルは、管理者ポータルの既定のダッシュボードで Azure Stack オペレーターが使用できます。 このタイルを使用して、Azure Stack リージョンと、リージョン固有のそのコンポーネントを監視および更新できます。
 
-![[Region Management] (リージョン管理) タイル](media/azure-stack-region-management/image1.png)
+![Azure Stack 管理者ポータルの [region management]\(リージョン管理\) タイル](media/azure-stack-region-management/image1.png)
 
 **[Region management]\(リージョン管理\)** タイル内のリージョンをクリックすると、次の情報にアクセスできます。
 
-[![リージョン管理 ブレードのウィンドウの説明](media/azure-stack-region-management/regionssm.png "リージョン管理ブレード")](media/azure-stack-region-management/regions.png#lightbox)
+[![Azure Stack 管理者ポータルの [Region management]\(リージョン管理\) ブレードにあるペインの説明](media/azure-stack-region-management/regionssm.png "Azure Stack 管理者ポータルの [Region management]\(リージョン管理\) ブレード")](media/azure-stack-region-management/regions.png#lightbox)
 
-1. **リソース メニュー**:特定のインフラストラクチャ管理領域にアクセスして、ストレージ アカウントや仮想ネットワークなどのユーザー リソースを表示および管理します。
+1. **リソース メニュー**:さまざまなインフラストラクチャ管理領域にアクセスして、ストレージ アカウントや仮想ネットワークなどのユーザー リソースを表示および管理します。
 
 2. **アラート**:システム全体のアラートの一覧と、各アラートの詳細が表示されます。
 
