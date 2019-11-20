@@ -5,20 +5,22 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: f468d28ae1642235735f4e1472a8aa84859dc6e6
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: e65943bd0b84d11e3696da206d360edc948c203f
+ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73567776"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802254"
 ---
 # <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Azure Stack サブスクリプション レプリケーターを使用してリソースをレプリケートする方法
 
 Azure Stack サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack サブスクリプション間、Azure Stack スタンプ間、または Azure Stack と Azure の間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作とスクリプトの使用方法について説明し、スクリプト操作の参照情報を示します。
+
+この記事で使用されるスクリプトは [Azure Intelligent Edge Patterns GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) リポジトリにあります。 スクリプトは **ssubscription replicator** フォルダーにあります。
 
 ## <a name="subscription-replicator-overview"></a>サブスクリプション レプリケーターの概要
 
