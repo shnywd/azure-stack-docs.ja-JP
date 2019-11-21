@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 98baf8217bc245f7aa6ac7bc0e2b8f8a5284c6d6
-ms.sourcegitcommit: 86e2b776383a9f761072199ec6b6b8a7d2e6b798
+ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69021844"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100020"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack でサポートされているゲスト オペレーティング システム
 
@@ -64,7 +64,7 @@ Marketplace で入手可能として示されている Linux ディストリビ�
 | CentOS-based 7.5 | 64 ビット | Rogue Wave | はい |
 | CentOS-based 7.3 | 64 ビット | Rogue Wave | はい |
 | ClearLinux | 64 ビット | ClearLinux.org | はい |
-| Container Linux |  64 ビット | CoreOS | 安定版 |
+| CoreOS Linux (Stable) |  64 ビット | CoreOS | はい |
 | Debian 8 "Jessie" | 64 ビット | credativ |  はい |
 | Debian 9 "Stretch" | 64 ビット | credativ | はい |
 | Oracle Linux | 64 ビット | Oracle | はい |
