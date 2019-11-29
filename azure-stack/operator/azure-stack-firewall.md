@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/15/2019
 ms.author: mabrigg
-ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: e50f2cf722dc4a5b66dbc68c769127e346386134
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.reviewer: thoroet
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: c2b6144311ce8f4309fdb968a500f6850080f309
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019300"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162968"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack ファイアウォールの統合
 Azure Stack は、ファイアウォール デバイスを使って保護することをお勧めします。 ファイアウォールは、分散型サービス拒否 (DDOS) 攻撃に対する防御、侵入検出、コンテンツ検査などに役立ちます。 ただし、これが BLOB、テーブル、キューなどの Azure ストレージ サービスのスループットのボトルネックになる場合もあります。
@@ -42,8 +42,8 @@ Azure Resource Manager (管理者)、管理者ポータル、Key Vault (管理�
 - NAT の使用によりユーザー エクスペリエンスは制限されますが、オペレーターは公開要求を完全に管理できます。
 - Azure でのハイブリッド クラウド シナリオの場合、NAT を使うエンドポイントへの VPN トンネルの設定が Azure ではサポートされていないことを考慮します。
 
-### <a name="ssl-decryption"></a>SSL 解読
-現時点では、すべての Azure Stack トラフィックに対して SSL 解読を無効にすることが推奨されています。 将来の更新でサポートされた場合は、Azure Stack に対して SSL 解読を有効にする方法のガイダンスが提供される予定です。
+### <a name="ssl-interception"></a>SSL インターセプト
+現在は、すべての Azure Stack トラフィックで SSL インターセプト (暗号化解除のオフロードなど) を無効にすることをお勧めします。 将来の更新でサポートされた場合は、Azure Stack に対して SSL インターセプトを有効にする方法のガイダンスが提供される予定です。
 
 ## <a name="edge-firewall-scenario"></a>エッジ ファイアウォール シナリオ
 エッジ デプロイでは、エッジ ルーターまたはファイアウォールのすぐ内側に Azure Stack がデプロイされます。 これらのシナリオでは、ファイアウォールは、アクティブ/アクティブとアクティブ/パッシブの両方のファイアウォール構成がサポートされる場合に、境界より上に配置されること (シナリオ 1)、あるいは、アクティブ/アクティブのファイアウォール構成だけがサポートされる場合に、フェールオーバーに BGP または静的ルーティングを使用する ECMP (Equal Cost Multi Path) に依存して境界デバイスとして機能すること (シナリオ2) が、サポートされています。

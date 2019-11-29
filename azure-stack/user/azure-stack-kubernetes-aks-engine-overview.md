@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 22779072b2dfed018a2ff6d5eac5bf2c294ccd31
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: cb531570191216ea13a0b1a7a6d36738c0765cd3
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595124"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310255"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack"></a>Azure Stack の AKS エンジンとは
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 AKS エンジンのコマンドライン ツールを使用して、Azure および Azure Stack 上で Kubernetes クラスターをデプロイおよび管理することができます。 AKS エンジンを使用して、Azure Resource Manager ネイティブ クラスターを作成、アップグレード、スケーリングします。 このエンジンを使用して、接続されている環境と接続されていない環境の両方でクラスターをデプロイできます。 この記事では、AKS エンジンの概要、Azure Stack でエンジンを使用する際にサポートされるシナリオ、デプロイ、アップグレード、スケーリングなどの操作の概要について説明します。
-
-> [!IMPORTANT]
-> AKS エンジンは、現在、パブリック プレビュー段階にあります。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 ## <a name="overview-of-the-aks-engine"></a>AKS エンジンの概要
 

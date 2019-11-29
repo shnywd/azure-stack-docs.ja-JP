@@ -15,12 +15,12 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3b728bb08d41c234ccffb94005be740bea0766b6
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019290"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310148"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
 
@@ -72,7 +72,7 @@ ms.locfileid: "72019290"
 3. PowerShell セッションで、次のコマンドを実行します。
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
+   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
 ### <a name="new-azurermresource-powershell-parameters"></a>PowerShell の New-AzureRmResource パラメーター
@@ -84,8 +84,7 @@ ms.locfileid: "72019290"
 |registrationSubscriptionID | Azure Stack の初期登録に使用された Azure サブスクリプション。|
 | customerSubscriptionID | 登録される顧客の Azure サブスクリプション (Azure Stack ではありません)。 CSP のオファー内で作成する必要があります。 実際には、パートナー センターを介することを意味します。 顧客が複数の Azure Active Directory テナントを持っている場合は、Azure Stack へのログインに使用されるテナントでこのサブスクリプションを作成する必要があります。 顧客サブスクリプション ID には、小文字を使用する必要があります。 |
 | resourceGroup | 登録が格納されている Azure 内のリソース グループ。 |
-| registrationName | Azure Stack の登録名。 Azure に格納されているオブジェクトです。 |
-| properties | リソースのプロパティを指定します。 このパラメーターを使用して、リソースの種類に固有のプロパティの値を指定します。
+| registrationName | Azure Stack の登録名。 Azure に格納されているオブジェクトです。 
 
 > [!NOTE]  
 > テナントには、使用する各 Azure Stack を登録する必要があります。 Azure Stack のデプロイが 2 つあり、テナントでその両方を使用する場合は、各デプロイの初期登録をテナントのサブスクリプションで更新する必要があります。

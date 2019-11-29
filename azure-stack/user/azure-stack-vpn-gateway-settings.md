@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 650257a0bfe94741d00345f98b40fddd8d00cb44
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e6d7f2d46a578bbbc8527a5e69f441ec12f38b01
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961456"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239323"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack"></a>Azure Stack の VPN ゲートウェイ設定の構成
 
@@ -171,9 +171,9 @@ Azure Stack で VPN 接続を設定する場合、両端で接続を構成する
 | プロパティ              | 値|
 |-|-|
 | IKE のバージョン           | IKEv2 |
-|Diffie-hellman グループ   | グループ 2 (1024 ビット) |
+|Diffie-hellman グループ   | ECP384 |
 | 認証方法 | 事前共有キー |
-|暗号化とハッシュ アルゴリズム | AES256、SHA256 |
+|暗号化とハッシュ アルゴリズム | AES256、SHA384 |
 |SA の有効期間 (時間)     | 28,800 秒|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE フェーズ 2 (クイック モード) のパラメーター
@@ -185,10 +185,8 @@ Azure Stack で VPN 接続を設定する場合、両端で接続を構成する
 |暗号化とハッシュ アルゴリズム (認証) | GCMAES256|
 |SA の有効期間 (時間)  | 27,000 秒  |
 |SA の有効期間 (キロバイト単位) | 33,553,408     |
-|Perfect Forward Secrecy (PFS) |なし (**注 1** を参照) |
+|Perfect Forward Secrecy (PFS) | ECP384 |
 |Dead Peer Detection | サポートされています|  
-
-"**注 1:** " 1807 より前のバージョンの Azure Stack では、Perfect Forward Secrecy (PFS) の値として PFS2048 を使用しています。
 
 ## <a name="next-steps"></a>次の手順
 

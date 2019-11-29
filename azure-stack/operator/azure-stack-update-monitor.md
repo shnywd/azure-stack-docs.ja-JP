@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a49f2f5c6b06f3362e4cb85553b765ea9fea1a72
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70010330"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540282"
 ---
 # <a name="monitor-updates-in-azure-stack-using-powershell"></a>PowerShell を使用した Azure Stack での更新の監視
 
@@ -32,11 +32,11 @@ Azure Stack 管理エンドポイントを使用して、更新の監視と管�
 
 | コマンドレット | 説明 |
 |------------------------------------------------------|-------------|
-| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.7.2) | 使用可能な更新プログラムの一覧を取得します。 |
-| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.7.2)| 更新プログラムの場所の一覧を取得します。 |
-| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.7.2) | 更新プログラムの実行の一覧を取得します。  |
-| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.7.2) | 更新プログラムの場所にある特定の更新プログラムを適用します。 |
-| [Resume-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.7.2) | 以前に開始され、失敗した更新実行を再開します。 |
+| [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | 使用可能な更新プログラムの一覧を取得します。 |
+| [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| 更新プログラムの場所の一覧を取得します。 |
+| [Get-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateRun?view=azurestackps-1.8.0) | 更新プログラムの実行の一覧を取得します。  |
+| [Install-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Install-AzsUpdate?view=azurestackps-1.8.0) | 更新プログラムの場所にある特定の更新プログラムを適用します。 |
+| [Resume-AzsUpdateRun](https://docs.microsoft.com/powershell/module/azs.update.admin/Resume-AzsUpdateRun?view=azurestackps-1.8.0) | 以前に開始され、失敗した更新実行を再開します。 |
 
 ## <a name="get-a-list-of-update-runs"></a>更新実行の一覧を取得する
 

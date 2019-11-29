@@ -346,10 +346,10 @@
               href: azure-stack-mysql-resource-provider-remove.md
             - name: MySQL リソース プロバイダーのリリース ノート
               items:
-                - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
-                  href: azure-stack-mysql-resource-provider-11300.md
                 - name: MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
                   href: azure-stack-mysql-resource-provider-11330.md
+                - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
+                  href: azure-stack-mysql-resource-provider-11300.md
         - name: Azure Stack 上の SQL
           items:
             - name: 概要
@@ -370,10 +370,10 @@
               href: azure-stack-sql-resource-provider-remove.md
             - name: SQL リソース プロバイダーのリリース ノート
               items:
-                - name: SQL リソース プロバイダー 1.1.30.0 のリリース ノート
-                  href: azure-stack-sql-resource-provider-11300.md
                 - name: SQL リソース プロバイダー 1.1.33.0 のリリース ノート
                   href: azure-stack-sql-resource-provider-11330.md
+                - name: SQL リソース プロバイダー 1.1.30.0 のリリース ノート
+                  href: azure-stack-sql-resource-provider-11300.md
     - name: 使用量と課金
       href: azure-stack-billing-and-chargeback.md
       items:

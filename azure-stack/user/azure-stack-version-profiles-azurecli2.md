@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/22/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a0218652e2dace72356a32fe99ac5f6ac450cc94
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/22/2019
+ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824790"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465490"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Azure CLI を使用した Azure Stack へのリソースの管理とデプロイ
 
@@ -163,13 +163,6 @@ Azure Stack の CA ルート証明書を信頼するには、そのルート証�
 
 1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。
 
-    一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
-
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
     | 値 | 例 | 説明 |
@@ -282,13 +275,6 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 ### <a name="connect-to-azure-stack"></a>Azure Stack への接続
 
 1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。
-
-    一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
-
-    ```shell  
-    set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-    set ADAL_PYTHON_SSL_NO_VERIFY=1
-    ```
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 

@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/15/2019
 ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 09/09/2019
-ms.openlocfilehash: cfd9434bc52684f89617eff3b62a7bf51fc68bcd
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: d165b2c2ae2293f8549cf1c0d2f482801f645312
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277435"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162898"
 ---
 # <a name="publish-azure-stack-services-in-your-datacenter"></a>データセンターに Azure Stack サービスを発行する 
 
@@ -26,9 +26,12 @@ Azure Stack は、そのインフラストラクチャ ロールのために仮�
 ![さまざまなネットワーク レイヤーと ACL を示した図](media/azure-stack-integrate-endpoints/Integrate-Endpoints-01.png)
 
 ### <a name="ports-and-urls"></a>ポートと URL
+
 Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークに対して使用可能にするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
  
 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するか、ファイアウォールでソリューションを保護しているデプロイでは、特定のポートと URL に[受信](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)および[送信](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)の両方の通信を許可する必要があります。 これには、ID、マーケットプレース、パッチと更新プログラム、登録、使用状況データに使用するポートと URL が該当します。
+
+SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 
 
 ## <a name="ports-and-protocols-inbound"></a>ポートとプロトコル (受信)
 
@@ -70,6 +73,8 @@ Azure Stack エンドポイントを外部ネットワークに公開するに�
 ## <a name="ports-and-urls-outbound"></a>ポートと URL (送信)
 
 Azure Stack は、透過的なプロキシ サーバーのみをサポートします。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。
+
+SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは、60 秒です。
 
 > [!Note]  
 > ExpressRoute ではすべてのエンドポイントにトラフィックをルーティングできない場合があるため、Azure Stack では、ExpressRoute を使用して、次の表に示す Azure サービスに到達することはサポートされていません。

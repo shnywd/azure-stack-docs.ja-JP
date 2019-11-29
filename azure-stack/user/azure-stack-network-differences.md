@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 09e75656fc6a00181ffb31087e19e80b92760ed2
-ms.sourcegitcommit: b72729305234e13c65de3771cb08678d46ba1348
+ms.openlocfilehash: 2ba1fc76b8b0ead1da543abb467d7a1613a5304c
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72543678"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239337"
 ---
 # <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack ネットワークの違いと考慮事項
 
@@ -62,6 +62,7 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | サービス エンドポイントの受信 NAT ルール サポート | Azure では、受信 NAT 規則のサービス エンドポイントの指定がサポートされています。 | Azure Stack でサービス エンドポイントはまだサポートされていないため、指定できません。 |
 |  | Protocol | Azure では、GRE または ESP の指定がサポートされています。 | Azure Stack では、プロトコル クラスはサポートされていません。 |
 | パブリック IP アドレス | パブリック IP アドレスのバージョン | Azure では、IPv6 と IPv4 の両方がサポートされています。 | IPv4 のみがサポートされています。 |
+| | SKU | Azure では、Basic と Standard がサポートされています。 | Basic のみがサポートされています。 |
 | ネットワーク インターフェイス | 有効なルート テーブルの取得 | サポートされています | まだサポートされていません。 |
 |  | 有効な ACL の取得 | サポートされています | まだサポートされていません。 |
 |  | Accelerated Networking の有効化 | サポートされています | まだサポートされていません。 |

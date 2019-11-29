@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 09/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/14/2019
-ms.openlocfilehash: 8c83e0b006904482634e50bdf217ec5d236e4e5c
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594951"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310165"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack"></a>Azure Stack の AKS エンジンのサポート ポリシー
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事では、Azure Stack の AKS エンジンのテクニカル サポート ポリシーおよび制限事項の詳細について説明します。 また、Kubernetes Marketplace の項目、サード パーティ製オープン ソース コンポーネント、およびセキュリティまたは修正プログラムの管理についても説明します。 
-
-> [!IMPORTANT]
-> AKS エンジンは、現在、パブリック プレビュー段階にあります。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 ## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>AKS エンジンを使用した Azure Stack の自己管理型 Kubernetes クラスター
 

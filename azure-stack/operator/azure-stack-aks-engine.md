@@ -11,28 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c21223ca8926a1e2b3ca1b06752a79a14adaeda1
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: ee19c6ee32960c52bcf7a4918c3d1e48406129c3
+ms.sourcegitcommit: 31e04af4d405215ef200aba0b40d601fc5ca7662
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636873"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74391540"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Marketplace に追加する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事で説明する項目を Azure Stack に追加することによって、ユーザーが Azure Kubernetes Services (AKS) エンジンを設定できるようになります。 ユーザーはその後、1 回の連携した操作で Kubernetes クラスターをデプロイできます。 この記事では、接続されている環境と接続されていない環境の両方で、ユーザーが AKS エンジンを使用できるようにするために必要な手順について説明します。 AKS エンジンは、サービス プリンシパル ID と、Marketplace のカスタム スクリプト拡張機能および AKS 基本イメージに依存します。
-
-[AKS エンジン](https://github.com/Azure/aks-engine)は、AKS 基本イメージというビルドされたイメージを使用します。 AKS エンジンのバージョンは、Azure Stack で使用可能にできる特定のイメージ バージョンによって異なります。 「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)」で、AKS エンジンのバージョンと、これに対応する Kubernetes のバージョンが記載された表をご確認ください。
-
-> [!IMPORTANT]
-> AKS エンジンは、現在、パブリック プレビュー段階にあります。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 ## <a name="check-your-users-service-offering"></a>ユーザーのサービス オファリングを確認する
 

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: d6e4aa25b558d12cfb437155c453d3d093ea7e00
-ms.sourcegitcommit: ef7efcde76d1d7875ca1c882afebfd6a27f1c686
+ms.lastreviewed: 11/15/2019
+ms.openlocfilehash: 20291fb211ebd19f36b6af03d85fa2017d85820c
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72888054"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162916"
 ---
 # <a name="border-connectivity"></a>境界接続 
 ネットワーク統合の計画は、Azure Stack 統合システムの展開、操作、および管理を正常に行うための重要な前提条件です。 境界接続の計画は、境界ゲートウェイ プロトコル (BGP) による動的ルーティングを使用するかどうかを選択することから始まります。 これを行うには、16 ビットの BGP 自律システム番号 (パブリックまたはプライベート) を割り当てるか、または既定の静的ルートが境界デバイスに割り当てられる静的ルーティングを使用する必要があります。
@@ -68,6 +68,8 @@ TOR デバイスには、すべてのトラフィックを境界デバイスに�
 透過プロキシ (インターセプト、インライン、または強制プロキシとも呼ばれます) は、特殊なクライアント構成を必要とすることなく、通常の通信をネットワーク レイヤーでインターセプトします。 クライアントがプロキシの存在を意識する必要はありません。
 
 ![透過プロキシ](media/azure-stack-border-connectivity/transparent-proxy.png)
+
+SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは 60 秒で、再試行は 3 回です。
 
 ## <a name="next-steps"></a>次の手順
 [DNS の統合](azure-stack-integrate-dns.md)

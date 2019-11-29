@@ -16,12 +16,12 @@ ms.date: 09/17/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: ba5b8358dced378f499c30f9b8d409497319fc86
-ms.sourcegitcommit: 2c37ac8e88de19430080128bac1b70e33557d354
+ms.openlocfilehash: 367a2cb5a07c0db2b272b8ffc951f51e5ed9cc0e
+ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71164248"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74100036"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack の既知の問題
 
@@ -94,6 +94,11 @@ ms.locfileid: "71164248"
 
 ## <a name="networking"></a>ネットワーク
 
+### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
+- 原因: 明示的な **DenyAllOutbound** 規則は、VM のデプロイを完了するために必要なインフラストラクチャへの内部通信がすべて妨げられるため、NSG に作成することはできません。
+- 発生頻度: 一般
+
 ### <a name="service-endpoints"></a>サービス エンドポイント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
@@ -105,6 +110,10 @@ ms.locfileid: "71164248"
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 新しいネットワーク インターフェイスを、**実行**状態にある VM に追加することはできません。
 - 修復: 仮想マシンを停止してから、ネットワーク インターフェイスを追加/削除します。
+- 発生頻度: 一般
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: VM のプライマリ NIC を変更することはできません。 プライマリ NIC を削除/デタッチすると、VM の起動で問題が発生します。
 - 発生頻度: 一般
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
@@ -397,7 +406,7 @@ ms.locfileid: "71164248"
 - 修復: SAS オプションを使用して BLOB をアップロードします。
 - 発生頻度: 一般
 
-### <a name="update"></a>アップデート
+### <a name="update"></a>更新
 
 - 適用先:この問題は、1906 リリースに適用されます。
 - 原因: オペレーター ポータルで、修正プログラムの更新状態が、更新プログラムに対して正しくない状態を示しています。 初期状態は、まだ進行中であっても、更新プログラムのインストールに失敗したことを示します。

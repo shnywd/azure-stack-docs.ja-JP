@@ -11,26 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: a847f04e3766e943aba78b567b0f21a99d0da860
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74162947"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310338"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンのトラブルシューティング
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 Azure Stack で AKS エンジンをデプロイまたは使用するときに問題が発生することがあります。 この記事では、AKS エンジンのデプロイのトラブルシューティング、ご使用の AKS エンジンに関する情報の収集、Kubernetes ログの収集、カスタム スクリプト拡張機能のエラー コードの確認、および AKS エンジンに関する GitHub イシューを開くための手順について説明します。
-
-> [!IMPORTANT]
-> AKS エンジンは、現在、パブリック プレビュー段階にあります。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>AKS エンジンのインストールのトラブルシューティング
 

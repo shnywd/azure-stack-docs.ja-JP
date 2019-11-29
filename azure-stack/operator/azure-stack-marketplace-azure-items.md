@@ -16,12 +16,12 @@ ms.date: 10/17/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: dac6b6dad423ab3d18e069a91d8bdd5a09498842
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 84c5512c26ffe36e9f24811c3fc241675ae22181
+ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534209"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74239365"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
@@ -33,7 +33,7 @@ ms.locfileid: "72534209"
 
 |  | 項目名 | 説明 | Publisher | [OS Type]\(OS の種類\) |
 | --- | --- | --- | --- | --- |
-|![SQL IaaS 拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
+|![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
 |![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
 |![PowerShell DSC 拡張機能](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **この更新プログラムは、PowerShell DSC 拡張機能のインボックス バージョンにダウンロードします。TLS v1.2 をサポートするために更新されます。** | Microsoft | Windows |
 | ![Microsoft マルウェア対策拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft マルウェア対策拡張機能](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure 向け Microsoft Antimalware は、アプリとテナント環境のための単一エージェント ソリューションであり、ユーザーの介入なしにバックグラウンドで実行するように設計されています。 **この更新プログラムは、マルウェア対策拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
@@ -85,7 +85,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 |  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Intel アーキテクチャ用に最適化された参照 Linux ディストリビューションです。 | Clear Linux Project |
-| ![CoreOS の Container Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS の Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux は、最新で最小の Linux ディストリビューションであり、コンテナーの実行、クラスターの管理、サーバーのシームレスな更新の簡単な方法を提供します。どのコンポーネントも、ウェアハウス規模のコンピューティングを可能にするものです。 | CoreOS |
+| ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS は、最新で最小の Linux ディストリビューションであり、コンテナーの実行、クラスターの管理、サーバーのシームレスな更新の簡単な方法を提供します。どのコンポーネントも、ウェアハウス規模のコンピューティングを可能にするものです。 | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server は、クラウド環境の世界で最も人気のある Linux です。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux は最も人気のある Linux ディストリビューションの 1 つです。 | credativ |
 | ![Oracle Linux](media/azure-stack-marketplace-azure-items/oracle.png) | [Oracle Linux](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.oracle-linux) | Oracle Linux オペレーティング システムは、オープン クラウド インフラストラクチャ向けに設計されています。 従来のエンタープライズ アプリに加えて、エンタープライズ SaaS および PaaS ワークロードに優れたパフォーマンス、スケーラビリティ、および信頼性を提供します。 | Oracle |

@@ -11,22 +11,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 10/10/2019
+ms.date: 11/14/2019
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 1070608db881426d6cb7ca78d0b19444bdba77ce
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: 89ed4549dc44eb433f8061aba9bcff9405d80699
+ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047221"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74162970"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes の Azure Stack へのデプロイのトラブルシューティング
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 この記事では、Kubernetes クラスターのトラブルシューティングを行う方法を確認します。 トラブルシューティングを開始するには、デプロイに必要な要素を確認します。 場合によっては、Azure Stack または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 管理エンドポイントからログを取得するには、Azure Stack 管理者にお問い合わせください。
 
@@ -85,17 +85,18 @@ ms.locfileid: "73047221"
 
 Kubernetes クラスターをサポートしている VM のデプロイ ログを収集して確認することができます。 Azure Stack 管理者に相談して、使用する必要がある Azure Stack のバージョンを確認し、デプロイに関連したログを Azure Stack から取得してください。
 
-1. Kubernetes クラスターで、[デプロイの状態](#review-deployment-status)を確認し、マスター ノードのログを取得します。
-2. Azure Stack の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack の管理者にお問い合わせください。
-3.  VM 作成ファイルを確認します。 次の問題が発生している可能性があります。  
+1. クラスターをデプロイしたリソース グループの **[デプロイ]** ウィンドウで、ARM デプロイによって返されたエラー コードを確認します。 エラー コードの説明は、AKS Engine GitHub リポジトリの[トラブルシューティング](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)に関する記事にあります。 エラーの説明で問題を解決できない場合は、次の手順を続行してください。
+2. Kubernetes クラスターで、[デプロイの状態](#review-deployment-status)を確認し、マスター ノードのログを取得します。
+3. Azure Stack の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack の管理者にお問い合わせください。
+4. VM 作成ファイルを確認します。 次の問題が発生している可能性があります。  
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
     - VM 作成によって内部エラーまたは作成エラーがトリガーされることがあります。 エラーは、Azure Stack サブスクリプションの容量制限など、さまざまな要因で起こることがあります。
     - VM の完全修飾ドメイン名 (FQDN) は重複するプレフィックスで始まっていることを確認してください。
-4.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
+5.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
 
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
     - Azure Stack 管理者に連絡して、特権付きエンド ポイントを使用して Azure Stack のログを取得してください。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)」を参照してください。
-5. デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
+6. デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 ## <a name="review-deployment-status"></a>デプロイの状態を確認する
 
