@@ -15,12 +15,12 @@ ms.date: 11/15/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 2d13b5d2296d8dc76a154e1f8edf1a0238d0226b
-ms.sourcegitcommit: f2a059f1be36f82adea8877f3f6e90d41ef3b161
+ms.openlocfilehash: a3941a3ada52a8588b504884a2d03cb00dd2c850
+ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74163718"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74310327"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Stack Hub で Azure Monitor for containers を使用する
 
@@ -29,7 +29,7 @@ ms.locfileid: "74163718"
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for containers を使用して、AKS エンジンによって Azure Stack Hub にデプロイされた Kubernetes クラスター内のコンテナーを監視できます。 
 
 > [!IMPORTANT]
-> AKS エンジンは、現在、パブリック プレビュー段階にあります。
+> Azure Stack Hub 上のコンテナー用 Azure Monitor は、現在パブリック プレビュー段階です。
 > このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 Azure Monitor では、Kubernetes で使用可能なコントローラー、ノード、コンテナーから Metrics API 経由でメモリやプロセッサのメトリックを収集することにより、コンテナーのパフォーマンスを確認できます。 また、サービスではコンテナーのログが収集されます。 これらのログを使用して、Azure からオンプレミス クラスターでの問題を診断できます。 Kubernetes クラスターからの監視を設定すると、これらのメトリックとログが自動的に収集されます。 Linux 用の Azure Monitor Log Analytics エージェントのコンテナー化されたバージョンにより、ログが収集されます。 Azure Monitor を使うと、Azure サブスクリプションでアクセスできる Log Analytics ワークスペースに、メトリックとログが格納されます。
@@ -50,21 +50,21 @@ AKS エンジン クラスター仕様の JSON ファイルで、**アドオン*
 
 Azure Stack Hub クラスターに対してサポートされる API 定義については、[kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json) の例をご覧ください。 具体的には、**kubernetesConfig** の **addons** プロパティを探します。
 
-    ```JSON  
-    "orchestratorType": "Kubernetes",
-          "kubernetesConfig": {
-            "addons": [
-              {
-                "name": "container-monitoring",
-                "enabled": true,
-                "config": {
-                  "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
-                  "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
-                }
-              }
-            ]
-          }
-    ```
+```JSON  
+ "orchestratorType": "Kubernetes",
+       "kubernetesConfig": {
+         "addons": [
+           {
+             "name": "container-monitoring",
+             "enabled": true,
+             "config": {
+               "workspaceGuid": "<Azure Log Analytics Workspace Guid in Base-64 encoded>",
+               "workspaceKey": "<Azure Log Analytics Workspace Key in Base-64 encoded>"
+             }
+           }
+         ]
+       }
+```
 
 ## <a name="next-steps"></a>次の手順
 
