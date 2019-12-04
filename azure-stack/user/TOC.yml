@@ -71,8 +71,9 @@
               href: azure-stack-develop-templates.md
             - name: Azure でのテンプレートの開発
               href: azure-stack-developer.md
-            - name: テンプレートのデプロイ
+            - name: テンプレートの確認
               href: azure-stack-validate-templates.md
+            - name: テンプレートのデプロイ
               items:
                 - name: ポータルでのデプロイ
                   href: azure-stack-deploy-template-portal.md
