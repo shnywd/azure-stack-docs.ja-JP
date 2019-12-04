@@ -17,12 +17,12 @@ ms.date: 08/13/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 29a154c5c446019e762b1312b9ef2f8a23cc4790
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955298"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557545"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
 
@@ -55,7 +55,7 @@ ms.locfileid: "73955298"
 | [Total number of storage accounts]\(ストレージ アカウントの合計数\) |20 |1 つのサブスクリプションでこの場所に作成できるストレージ アカウントの最大数です。 |
 
 > [!NOTE]
-> あるサブスクリプションで **[Maximum capacity (GB)]\(最大容量 (GB)\)** を超えた場合、このサブスクリプションで新しいストレージ リソースを作成することはできません。 ただし、このサブスクリプションで作成されたアンマネージド ディスクを VM で引き続き使用することができます。それにより、使用済み容量の合計がクォータ制限をはるかに超える可能性があります。<br>マネージド ディスクの最大容量は、ストレージ クォータの合計とは区別されます。 この値は**コンピューティング クォータ**で設定できます。
+> あるサブスクリプションで **[Maximum capacity (GB)]\(最大容量 (GB)\)** を超えた場合、このサブスクリプションで新しいストレージ リソースを作成することはできません。 ただし、このサブスクリプションで作成されたアンマネージド ディスクを VM で引き続き使用することができます。それにより、使用済み容量の合計がクォータ制限を超える可能性があります。<br>マネージド ディスクの最大容量は、ストレージ クォータの合計とは区別されます。 この値は**コンピューティング クォータ**で設定できます。
 
 ## <a name="network-quota-types"></a>Network クォータの種類
 

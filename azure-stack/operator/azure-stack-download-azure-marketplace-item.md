@@ -3,7 +3,7 @@ title: Azure から Marketplace の項目をダウンロードして Azure Stack
 description: Azure から Marketplace の項目をダウンロードして Azure Stack に発行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.date: 10/10/2019
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 095744322937a34dffd680b886fd4b06ca65d7d6
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: bc696d4b14aecd5890893f00b64cf2c4a3804173
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618277"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299207"
 ---
 # <a name="download-existing-marketplace-items-from-azure-and-publish-to-azure-stack"></a>Azure から既存の Marketplace の項目をダウンロードして Azure Stack に発行する
 
@@ -58,17 +58,21 @@ Azure Stack デプロイは、インターネットに接続し、[Azure に登�
 
     ![Azure から Marketplace の項目を追加する](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
-4. Azure Marketplace からダウンロードできる項目の一覧がポータルに表示されます。 名前、パブリッシャーおよび/または製品の種類で製品をフィルターできます。 各項目をクリックして、その説明と、ダウンロード サイズなどの追加情報を表示することもできます。
+4. Azure Marketplace からダウンロードできる項目の一覧がポータルに表示されます。 名前、パブリッシャーおよび/または製品の種類で製品をフィルターできます。 各行項目には、現在使用可能なバージョンも表示されます。 Marketplace 項目の複数のバージョンを使用できる場合、 **[バージョン]** 列には **[複数]** が表示されます。 各項目をクリックして、その説明と、ダウンロード サイズなどの追加情報を表示できます。
 
-    ![Azure Marketplace の項目のリスト ](media/azure-stack-download-azure-marketplace-item/image03.PNG)
+    [![Marketplace 項目の一覧](media/azure-stack-download-azure-marketplace-item/add-from-azure1sm.png "Marketplace 項目の一覧")](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png#lightbox)
 
-5. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロードの時間は項目によって異なります。
+5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。
+
+    [![バージョンを選択する](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "バージョンを選択する")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
+
+6. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロードの時間は項目によって異なります。
 
     ![Azure Marketplace 項目のダウンロード](media/azure-stack-download-azure-marketplace-item/image04.png)
 
     ダウンロードが完了したら、Azure Stack オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
 
-6. ダウンロードした項目をデプロイするには、 **[+ リソースの作成]** を選択し、カテゴリで新しいマーケットプレース項目を検索します。 次に、デプロイ処理を開始する項目を選択します。 処理は、Marketplace 項目ごとに異なります。
+7. ダウンロードした項目をデプロイするには、 **[+ リソースの作成]** を選択し、カテゴリで新しいマーケットプレース項目を検索します。 次に、デプロイ処理を開始する項目を選択します。 処理は、Marketplace 項目ごとに異なります。
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>接続されていないか、部分的に接続されているシナリオ
 
@@ -150,7 +154,11 @@ Azure Stack が切断モードである場合は、PowerShell と "*マーケッ
 
 6. ツールを実行すると、次の図のような画面が表示され、使用可能な Azure Marketplace 項目の一覧が示されます。
 
-   [![Azure Marketplace アイテムのポップアップ](media/azure-stack-download-azure-marketplace-item/image05.png "Azure Marketplace の項目")](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
+   [![Azure Marketplace アイテムのポップアップ](media/azure-stack-download-azure-marketplace-item/tool1sm.png "Azure Marketplace の項目")](media/azure-stack-download-azure-marketplace-item/tool1.png#lightbox)
+
+7. Marketplace 項目の複数のバージョンを使用できる場合、 **[バージョン]** 列には **[複数のバージョン]** が表示されます。 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択し、表示されるバージョン セレクターのウィンドウから特定のバージョンを選択できます。
+
+   [![バージョン セレクター](media/azure-stack-download-azure-marketplace-item/tool2sm.png "バージョンを選択する")](media/azure-stack-download-azure-marketplace-item/tool2.png#lightbox)
 
 7. Azure Storage ツールがインストールされていない場合は、次のメッセージが表示されます。 これらのツールをインストールするには、[AzCopy ](/azure/storage/common/storage-use-azcopy#download-azcopy) をダウンロードしてください。
 

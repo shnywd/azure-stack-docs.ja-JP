@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
+ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0c37b61cf56b1b730ce36e0574fea5cea6e2e7ec
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
+ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682094"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74557555"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Azure Stack 上の MySQL リソース プロバイダーを更新する
 
@@ -64,10 +64,11 @@ MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以�
 | **AcceptLicense** | GPL ライセンスに同意するためのプロンプトをスキップします。  (https://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
 
 ## <a name="update-script-example"></a>更新スクリプトの例
-管理者特権の PowerShell コンソールから実行できる *UpdateMySQLProvider.ps1* スクリプトを次に示します。 変数情報とパスワードは、必要に応じて変更してください。
 
 > [!NOTE] 
 > 更新プロセスは、統合システムにのみに適用されます。
+
+MySQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンを更新する場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack モジュールをインストールする必要があります。 MySQL リソース プロバイダーのバージョン1.1.47.0 を更新する場合は、この手順をスキップできます。
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -75,7 +76,11 @@ MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以�
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+管理者特権の PowerShell コンソールから実行できる *UpdateMySQLProvider.ps1* スクリプトを次に示します。 変数情報とパスワードは、必要に応じて変更してください。
+
+```powershell 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 

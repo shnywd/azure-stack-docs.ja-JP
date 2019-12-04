@@ -16,12 +16,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: d654608ca4f46e5947cacc55349f8be0a41548b1
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 077d50da935a3ee8de0967c51920ede69125c816
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845851"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299032"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新アクティビティのチェックリスト
 
@@ -53,7 +53,7 @@ Azure Stack の更新を準備するために、このチェックリストを�
 |  |  |
 | 更新プログラムの再開 | 失敗した更新プログラムを修正したら、[特権エンドポイントを使用して Azure Stack で更新プログラムを再開](azure-stack-monitor-update.md)します。 |
 
-> [!Important]  
+> [!IMPORTANT]  
 > 更新中 **Test-AzureStack** を実行しないでください。更新プロセスが停止することがあります。
 
 ## <a name="after-azure-stack-update"></a>Azure Stack の更新の後

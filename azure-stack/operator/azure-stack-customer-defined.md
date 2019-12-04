@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1bd138be243c2803b5a280de2a3a8625e84db998
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 99d52dc7165fdd37a614c1396d7e5c1f0165e235
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955330"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74299122"
 ---
 #  <a name="modify-specific-settings-on-your-azure-stack-switch-configuration"></a>Azure Stack スイッチ構成の特定の設定を変更する
 
@@ -53,7 +53,10 @@ Azure Stack ソリューションのデプロイ時に、OEM (相手先ブラン
 
 ## <a name="access-control-list-updates"></a>アクセス制御リストの更新
 
-オペレーターは、いくつかのアクセス制御リスト (ACL) を変更して、信頼されたデータセンター ネットワーク範囲から、ネットワークデバイス管理インターフェイスおよびハードウェア ライフサイクル ホスト (HLH) にアクセスできるようにすることができます。 オペレーターは、到達可能にするコンポーネントおよびどこから到達可能にするかを選択できます。 アクセス制御リストによって、オペレーターは、特定のネットワーク範囲内の管理ジャンプボックス VM に、スイッチ管理インターフェイス、HLH OS、HLH BMC へのアクセスを許可することができます。
+> [!NOTE]
+> 1910 以降、デプロイ ワークシートに、**許可されるネットワーク**用の新しいフィールドが追加されます。信頼されたデータセンター ネットワーク範囲からネットワーク デバイス管理インターフェイスとハードウェア ライフサイクル ホスト (HLH) へのアクセスを許可するために必要な主導の手順の代わりに、これが使用されます。 この新機能の詳細については、[Azure Stack のネットワーク統合計画](azure-stack-network.md#permitted-networks)をご確認ください。
+
+オペレーターは、いくつかのアクセス制御リスト (ACL) を変更して、信頼されたデータセンター ネットワーク範囲から、ネットワークデバイス管理インターフェイスおよびハードウェア ライフサイクル ホスト (HLH) にアクセスできるようにすることができます。 アクセス制御リストによって、オペレーターは、特定のネットワーク範囲内の管理ジャンプボックス VM に、スイッチ管理インターフェイス、HLH OS、および HLH BMC へのアクセスを許可することができます。
 
 ## <a name="next-steps"></a>次の手順
 

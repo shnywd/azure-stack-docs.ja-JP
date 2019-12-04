@@ -14,13 +14,13 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: mabrigg
-ms.reviewer: jiahan
-ms.openlocfilehash: fb2e5d33baf2dfd4a6cafd2567c2650e89ac8c38
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.reviewer: xiaofmao
+ms.openlocfilehash: 4eb2936afc271016974440f77690c804f0cbcb09
+ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909397"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74465308"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>SQL Server リソース プロバイダーを Azure Stack にデプロイする
 
@@ -40,10 +40,14 @@ Azure Stack SQL リソース プロバイダーをデプロイする前に、い
 
   |最小の Azure Stack バージョン|SQL RP バージョン|
   |-----|-----|
+  |バージョン 1910 (1.1910.0.58)|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)| 
   |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
   |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
   |バージョン 1804 (1.0.180513.1)|[SQL RP バージョン 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
   |     |     |
+
+> [!IMPORTANT]
+> SQL リソース プロバイダーのバージョン1.1.47.0 をデプロイする前に、Azure Stack システムを 1910 更新プログラム以降のバージョンにアップグレードしておく必要があります。 以前のサポートされていない Azure Stack バージョンでは、SQL リソース プロバイダーのバージョン1.1.47.0 は機能しません。
 
 - データセンターの統合の前提条件を満たしていることを確認します。
 
@@ -99,10 +103,7 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>カスタム スクリプトを使用して SQL リソース プロバイダーをデプロイする
 
-リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。  
-
-必要に応じて、Azure Stack のデプロイに適した既定のアカウント情報とパスワードを変更します。
-
+SQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンをデプロイする場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack モジュールをインストールする必要があります。 SQL リソース プロバイダーのバージョン1.1.47.0 をデプロイする場合は、この手順をスキップできます。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
@@ -110,7 +111,13 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 Install-Module -Name AzureRm.BootStrapper -RequiredVersion 0.5.0 -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
 
+リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。  
+
+必要に応じて、Azure Stack のデプロイに適した既定のアカウント情報とパスワードを変更します。
+
+```powershell
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"
 

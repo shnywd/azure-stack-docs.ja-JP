@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d7723dcdd755a926990ee52e96c3b75694651520
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 208e632634c59be0338c70020e7fc0fdae846797
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277213"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298999"
 ---
 # <a name="add-linux-images-to-azure-stack-marketplace"></a>Linux イメージを Azure Stack Marketplace に追加する
 
@@ -40,7 +40,7 @@ Azure Marketplace から Linux イメージをダウンロードするには、[
 
 ### <a name="azure-linux-agent"></a>Azure Linux エージェント
 
-Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxagent** と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2\.2.20 から 2.2.35 までのバージョンは、Azure Stack 上ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 Azure Stack では、現時点で [cloud-init](https://cloud-init.io/) がサポートされていないことに注意してください。
+Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxagent** と呼ばれる) が必要であり、エージェントのバージョンによっては Azure Stack 上で動作しないものがあります。 2\.2.21 から 2.2.34 までのバージョン (2.2.21 と 2.2.34を含みます) は、Azure Stack ではサポートされません。 バージョン 2.2.35 より後の最新のエージェントを使用する場合は、1901 または1902 の修正プログラムを適用するか、Azure Stack を 1903 リリース (またはそれ以降) に更新してください。 [cloud-init](https://cloud-init.io/) は、Azure Stack の 1910 以降のリリースでサポートされることに注意してください。
 
 | Azure Stack のビルド | Azure Linux エージェントのビルド |
 | ------------- | ------------- |
@@ -51,6 +51,7 @@ Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxag
 | 1.1903.0.35  | 2.2.35 以降 |
 | 1903 移行のビルド | 2.2.35 以降 |
 | サポートされていません | 2.2.21-2.2.34 |
+| 1910 移行のビルド | Azure WALA エージェントのすべてのバージョン|
 
 次の手順を使って、独自の Linux イメージを準備できます。
 
@@ -59,6 +60,70 @@ Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxag
 * [Red Hat Enterprise Linux](azure-stack-redhat-create-upload-vhd.md)
 * [SLES と openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## <a name="cloud-init"></a>cloud-init
+
+[cloud-init](https://cloud-init.io/) は、Azure Stack の 1910 以降のリリースでサポートされます。 cloud-init を使用して Linux VM をカスタマイズするには、次の PowerShell の手順に従います。 
+
+### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>手順 1:cloud-config を使用して cloud-init.txt ファイルを作成する
+
+cloud-init.txt というファイルを作成し、次の構成を貼り付けます。
+
+```yaml
+#cloud-config
+package_upgrade: true
+packages:
+  - nginx
+  - nodejs
+  - npm
+write_files:
+  - owner: www-data:www-data
+    path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        location / {
+          proxy_pass http://localhost:3000;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection keep-alive;
+          proxy_set_header Host $host;
+          proxy_cache_bypass $http_upgrade;
+        }
+      }
+  - owner: azureuser:azureuser
+    path: /home/azureuser/myapp/index.js
+    content: |
+      var express = require('express')
+      var app = express()
+      var os = require('os');
+      app.get('/', function (req, res) {
+        res.send('Hello World from host ' + os.hostname() + '!')
+      })
+      app.listen(3000, function () {
+        console.log('Hello world app listening on port 3000!')
+      })
+runcmd:
+  - service nginx restart
+  - cd "/home/azureuser/myapp"
+  - npm init
+  - npm install express -y
+  - nodejs index.js
+  ```
+  
+### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>手順 2:Linux VM のデプロイ中に cloud-init.txt を参照する
+
+Azure Stack Linux VM からアクセスできる Azure ストレージ アカウント、Azure Stack ストレージ アカウント、または GitHub リポジトリにファイルをアップロードします。
+現時点では、VM のデプロイでの cloud-init の使用は、REST、Powershell、CLI でのみサポートされており、Azure Stack に関連付けられたポータル UI はありません。
+
+[こちら](../user/azure-stack-quick-create-vm-linux-powershell.md)の手順に従って、Powershell を使用して Linux VM を作成できますが、`-CustomData` フラグの一部として cloud-init.txt を必ず参照してください。
+
+```powershell
+$VirtualMachine =Set-AzureRmVMOperatingSystem -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
+```
 
 ## <a name="add-your-image-to-marketplace"></a>Marketplace にイメージを追加する
 

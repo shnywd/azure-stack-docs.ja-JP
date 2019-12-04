@@ -16,12 +16,12 @@ ms.date: 08/14/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 25a32b1d73818e988a8bdf7fb565d06b06d53d68
-ms.sourcegitcommit: bb2bbfad8061f7677954f6ce5a435b4e6f9299b6
+ms.openlocfilehash: fc3eecb8f4e06ce02737e513c48d946f2a667c21
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74100020"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298758"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack でサポートされているゲスト オペレーティング システム
 
@@ -54,9 +54,9 @@ Datacenter エディションは、Marketplace でダウンロードできます
 Marketplace で入手可能として示されている Linux ディストリビューションには、必要な Windows Azure Linux エージェント (WALA) が含まれます。 Azure Stack に独自のイメージを持ち込む場合は、「[Azure Stack への Linux イメージの追加](azure-stack-linux.md)」のガイドラインに従ってください。
 
 > [!NOTE]
-> カスタム イメージは、最新のパブリック WALA バージョン (1903 Azure Stack ビルド以上で、または 1901/1902 修正プログラムを使用して)、またはバージョン 2.2.20 を使ってビルドする必要があります。 2\.2.20 より前のバージョンと、2.2.20 から 2.2.35 までのバージョン (これらのバージョンを除きます) は、Azure Stack 上で正しく機能しない可能性があります。
+> カスタム イメージは、最新のパブリック WALA バージョン (1903 Azure Stack ビルド以上で、または 1901/1902 修正プログラムを使用して)、またはバージョン 2.2.20 を使ってビルドする必要があります。 2\.2.20 以前のバージョンと、2.2.21 から 2.2.34 までのバージョン (これらのバージョンを含みます) は、Azure Stack 上で正しく機能しない可能性があります。 Azure Stack 1910 リリース以降では、Azure WALA エージェントのすべてのバージョンが Azure Stack で動作します。
 >
-> 現在、[cloud-init](https://cloud-init.io/) は Azure Stack ではサポートされていません。
+> 現時点では、Azure Stack 1910 リリース以降で [cloud-init](https://cloud-init.io/) がサポートされます。
 
 | ディストリビューション | 説明 | Publisher | マーケットプレース |
 | --- | --- | --- | --- |

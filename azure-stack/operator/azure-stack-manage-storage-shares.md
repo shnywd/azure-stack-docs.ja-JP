@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 73c4594672dea4a8bb8030a35c79f3d7e7cca04c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534181"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540313"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack のストレージ容量を管理する
 
@@ -28,7 +28,7 @@ ms.locfileid: "72534181"
 
 この記事の情報は、Azure Stack クラウド オペレーターが、Azure Stack 展開のストレージ容量を監視して管理するために役立ちます。 Azure Stack ストレージ インフラストラクチャでは、Azure Stack デプロイの合計ストレージ容量のサブセットが**ストレージ サービス**で使用されるストレージ容量として割り当てられます。 ストレージ サービスは、展開のノードに対応するボリューム上の共有にテナント データを格納します。
 
-クラウド オペレーターとして操作できるストレージの量には制限があります。 ストレージの量は、実装するソリューションによって定義されます。 ソリューションは、マルチノード ソリューションを使用する場合は OEM ベンダーによって提供され、Azure Stack Development Kit (ASKD) をインストールする場合はインストール先のハードウェアによって提供されます。
+クラウド オペレーターとして操作できるストレージの量には制限があります。 ストレージの量は、実装するソリューションによって定義されます。 ソリューションは、マルチノード ソリューションを使用する場合は OEM ベンダーによって提供され、Azure Stack Development Kit (ASDK) をインストールする場合はインストール先のハードウェアによって提供されます。
 
 Azure Stack ではストレージ容量の拡張はサポートされないため、使用可能なストレージを[監視](#monitor-shares)して、効率的な操作が維持されることを確認することが重要です。
 

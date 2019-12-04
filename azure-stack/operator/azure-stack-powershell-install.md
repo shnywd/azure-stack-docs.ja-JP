@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/18/2019
-ms.openlocfilehash: 53390633cf1abb1508a87a10e8672d7a23772207
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.lastreviewed: 09/19/2019
+ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
+ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802358"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74540296"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
@@ -94,7 +94,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 次の PowerShell スクリプトを実行して、これらのモジュールを開発用ワークステーションにインストールします。
 
-- Azure Stack 1904 以降の場合:
+- Azure Stack 1910 以降の場合:
+
+    ```powershell  
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+
+    # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.0
+    ```
+
+- Azure Stack 1908 または 1903 以降の場合:
 
     ```powershell  
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -115,7 +126,8 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```
 
     > [!Note]  
-    > - Azure Stack モジュール バージョン 1.7.1 は破壊的変更を伴うリリースです。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://aka.ms/azspshmigration171)を参照してください。
+    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md#changes)を参照してください。
+    > - Azure Stack モジュール バージョン 1.7.2 は破壊的変更を伴うリリースです。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://aka.ms/azspshmigration171)を参照してください。
     > - AzureRM モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に `-Force` パラメーターを指定する必要があります。
     > - Azure Stack バージョン 1901 以降のモジュールをインストールするために、**AzureRM.BootStrapper** をインストールする必要はありません。
     > - Azure Stack バージョン 1901 以降で上記の AzureRM モジュールの使用に加えて 2018-03-01-hybrid プロファイルをインストールしないでください。
@@ -147,7 +159,18 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ### <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell のインストール
 
-- Azure Stack 1904 以降。
+- Azure Stack 1910 以降。
+
+    ```powershell
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+    $Path = "<Path that is used to save the packages>"
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.0
+    ```
+
+- Azure Stack 1908 または 1903 以降の場合:
 
     ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
@@ -170,6 +193,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
+    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md#changes)を参照してください。
     > Azure Stack モジュール バージョン 1.7.1 は破壊的変更です。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)を参照してください。
 
     > [!NOTE]

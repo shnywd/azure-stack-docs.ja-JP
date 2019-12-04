@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 08/30/2019
-ms.openlocfilehash: e61c3dad2383f1b6471b784b303b9f22a7dfde51
-ms.sourcegitcommit: b28190b4e91cd0c045d019083e7e9203410d7c29
+ms.lastreviewed: 11/21/2019
+ms.openlocfilehash: f5955751df89262441b7afc2381d34b6cc74691c
+ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71354554"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74298733"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -28,7 +28,28 @@ ms.locfileid: "71354554"
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
 
+::: moniker range="azs-1910"
+## <a name="build-11910058"></a>ビルド 1.1910.0.58
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの修正された問題、変更点、および新機能の一覧については、[Azure Stack リリースノート](../operator/release-notes.md)の関連セクションを参照してください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- ログを収集して Azure Storage BLOB コンテナーに格納する際の問題が修正されました。 この操作の構文は次のとおりです。
+
+  ```powershell
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
+  ``` 
+
+- スプーラ サービスの読み込みに時間がかかることで一部の Windows 機能の削除が妨げられ、再起動が必要になるというデプロイの問題が修正されました。
+- このリリースでの Azure Stack の既知の問題の一覧については、[既知の問題](../operator/known-issues.md)に関する記事を参照してください。
+- 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
+::: moniker-end
+
 ::: moniker range="azs-1908"
+  
 ## <a name="build-11908020"></a>ビルド 1.1908.0.20
 
 ### <a name="new-features"></a>新機能
@@ -78,21 +99,4 @@ ms.locfileid: "71354554"
 - このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906)を参照してください。
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1906)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)が Azure Stack ASDK には適用できないことに注意してください。
-::: moniker-end
-
-::: moniker range="azs-1905"
-## <a name="build-11905040"></a>ビルド 1.1905.0.40
-
-<!-- ### Changes -->
-
-### <a name="new-features"></a>新機能
-
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1905#whats-in-this-update-1905)を参照してください。
-
-### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
-
-- [ASDK を正常に登録する](asdk-register.md)には、**RegisterWithAzure.psm1** PowerShell スクリプトを編集しなければならない問題を修正しました。
-- このリリースで修正されたその他の Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1905#fixes-1905)を参照してください。
-- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1905)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1905#hotfixes-1905)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end
