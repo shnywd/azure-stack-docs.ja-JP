@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: chengwei
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 31fa9bcdf60b27b2eb2e8396be1d2a0e89f31b70
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829182"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690190"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack のログおよび顧客データの処理 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
@@ -31,7 +31,7 @@ Microsoft は、Azure Stack に関係する個人データのプロセッサー�
 - [オンライン サービス使用条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の "データ保護条件" セクションの "個人データの処理: GDPR" 条項。
 - [オンライン サービス使用条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の特則 4 の EU 一般データ保護規則の条件。
 
-Azure Stack がお客様のデータセンター内に常駐している間、Microsoft は、[診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)、[テレメトリ](azure-stack-telemetry.md)、および[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
+Azure Stack がお客様のデータセンター内に常駐している間、Microsoft は、[診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)、[テレメトリ](azure-stack-telemetry.md)、および[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
 
 ## <a name="data-access-controls"></a>データ アクセスの制御 
 特定のサポート ケースを調査するために割り当てられた Microsoft の従業員には、暗号化されたデータを読み取り専用でアクセスする権限が付与されます。 また、Microsoft の従業員は、必要に応じてデータの削除に使用するツールにアクセスできます。 顧客データへのアクセスは、すべて監査および記録されます。  
@@ -51,7 +51,7 @@ Microsoft は、お客様の要求に応じたオンデマンドでのデータ�
 オンデマンドでのデータ削除アクションを実行する場合、Microsoft サポート エンジニアはオンデマンドでデータを削除できるようにするツールにアクセスできます。 完了したら、その旨を電話でお客様に確認します。
 
 ## <a name="diagnostic-data"></a>診断データ
-サポート プロセスの一環として、Azure Stack Operator は、トラブルシューティングに役立てるため、Azure Stack のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)できます。
+サポート プロセスの一環として、Azure Stack Operator は、トラブルシューティングに役立てるため、Azure Stack のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)できます。
 
 Microsoft は、お客様が、要求された診断ログ ファイルを収集してアップロードするためのツールおよびスクリプトを提供します。 収集されたログ ファイルは、HTTPS で保護された暗号化接続を通じて Microsoft に転送されます。 HTTPS では、ネットワーク データが暗号化されるため、転送時に暗号化のためのパスワードは不要です。 受信されたログは、サポート ケースが終了して 90 日後に自動削除されるまで、暗号化された状態で保管されます。
 

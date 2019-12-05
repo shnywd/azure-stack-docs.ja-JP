@@ -17,12 +17,12 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 3cff638fa242e4d70230062e7d54eef0c9c66802
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 449a734f2b98328d0a5ed046f0c387e6cfdf8a97
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465401"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780866"
 ---
 # <a name="fix-common-issues-with-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書に関する一般的な問題を修復する
 
@@ -108,7 +108,7 @@ ms.locfileid: "74465401"
 ツールが実行されるコンピューターで、次の前提条件を満たす必要があります。
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
-- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、*メジャー** バージョンと**マイナー** バージョンを調べます。
+- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、"**メジャー**" バージョンと "**マイナー**" バージョンを調べます。
 
    ```powershell
    $PSVersionTable.PSVersion

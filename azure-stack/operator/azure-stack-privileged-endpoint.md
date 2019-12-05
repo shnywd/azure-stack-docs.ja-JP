@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 52f61321980503667119c5cc45863e51fa0639ac
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955255"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689987"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Azure Stack で特権エンドポイントを使用する
 
@@ -30,7 +30,7 @@ Azure Stack オペレーターは、管理ポータル、PowerShell、または 
 
 PEP を使用すると、次のタスクを実行できます。
 
-- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)などの低レベル タスク。
+- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)などの低レベル タスク。
 - デプロイ後のドメイン ネーム システム (DNS) フォワーダーの追加や、Microsoft Graph 統合、Active Directory フェデレーション サービス (AD FS) 統合、証明書ローテーションの設定など、統合システムのための多くのデプロイ後データセンター統合タスク。
 - 統合システムの詳細なトラブルシューティングのために、サポート部門と連携して一時的な高レベル アクセスを取得。
 
@@ -191,4 +191,4 @@ PEP には、PEP をホストする仮想マシン (VM) 上のリモート Power
 
 ## <a name="next-steps"></a>次の手順
 
-[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs)
+[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

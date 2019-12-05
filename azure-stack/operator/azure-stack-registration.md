@@ -17,12 +17,12 @@ ms.date: 10/14/2019
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: d777827e6c700167dff6f203045277353837beef
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 1ab0e33d894b1856e1769a0f6780f5d0b9df3474
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465432"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780764"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure を使用した Azure Stack の登録
 
@@ -93,7 +93,7 @@ Azure Stack ツールの GitHub リポジトリには、Azure Stack 機能 (登�
 
 Azure Stack のデプロイは、"*接続*" デプロイまたは "*切断*" デプロイになります。
 
-- **接続**  
+- **接続中**  
  "接続" とは、インターネットと Azure に接続できるように Azure Stack をデプロイしたことを意味します。 ID ストアには、Azure AD または Active Directory フェデレーション サービス (AD FS) のどちらかを使用します。 接続されたデプロイの場合、従量課金制と容量ベースの 2 つの課金モデルから選択できます。
   - [**従量課金制**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-pay-as-you-go-billing)。
   - [**容量**課金モデルを使用して接続された Azure Stack を Azure に登録する](#register-connected-with-capacity-billing)。
@@ -272,11 +272,11 @@ Run: Get-AzureStackStampInformation
 
 2. その後、PowerShell コマンドレットを実行します。  
 
-  ```powershell  
-  $RegistrationToken = "<Your Registration Token>"
-  $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = "<Your Registration Token>"
+    $RegistrationName = "<unique-registration-name>"
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
 オプションで、Get-Content コマンドレットを使用して、登録トークンが含まれているファイルを示すことができます。
 
@@ -284,16 +284,16 @@ Run: Get-AzureStackStampInformation
 
 1. 管理者として PowerShell ISE を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 **RegisterWithAzure.psm1** モジュールをインポートします。  
 
-  ```powershell  
-  Import-Module .\RegisterWithAzure.psm1
-  ```
+    ```powershell  
+    Import-Module .\RegisterWithAzure.psm1
+    ```
 
 2. その後、PowerShell コマンドレットを実行します。  
 
-  ```powershell  
-  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
-  ```
+    ```powershell  
+    $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+    Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
+    ```
 
   > [!Note]  
   > 後で参照できるように登録リソース名および登録トークンを保存します。

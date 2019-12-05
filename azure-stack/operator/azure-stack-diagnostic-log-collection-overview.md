@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: cd65f51867a4626e8f9b288c5113909bfa32b1c2
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: 1d40c0c7884773cf1f10341a90c78531c07e13f8
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829206"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690000"
 ---
 # <a name="overview-of-azure-stack-diagnostic-log-collection"></a>Azure Stack 診断ログの収集の概要 
 
@@ -29,7 +29,7 @@ ms.locfileid: "71829206"
 
 Azure Stack は、相互に連携して作用する複数のコンポーネントによって構成された大規模なコレクションです。 これらすべてのコンポーネントでは、独自の一意のログが生成されます。 このため、問題を診断するのは困難な作業になります。相互に作用する複数の Azure Stack コンポーネントのエラーについては、特にそう言えます。 この課題に対処するために、診断ログの収集エクスペリエンスを設計しました。 
 
-1907 より前では、[Test-AzureStack](azure-stack-diagnostic-test.md) を使用して、システム正常性を検証し、[特権エンドポイント (PEP) ](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) を使用して、トラブルシューティングのログを収集する診断エクスペリエンスが含まれていました。 
+1907 より前では、[Test-AzureStack](azure-stack-diagnostic-test.md) を使用して、システム正常性を検証し、[特権エンドポイント (PEP) ](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) を使用して、トラブルシューティングのログを収集する診断エクスペリエンスが含まれていました。 
 
 1907 リリース以降、 **[ヘルプとサポート]** ページに、**診断ログの収集**を使用した簡単なエクスペリエンスが追加されています。 
 **診断ログ**の収集は、トラブルシューティング プロセスで Azure Stack オペレーターのエクスペリエンスを向上させるための継続的な投資の一部です。 これらの向上により、オペレーターは診断ログを迅速に収集し、Microsoft カスタマーサポートサービス (CSS) と共有することができます。 ログは、Azure の BLOB コンテナーに格納でき、そこで必要に応じてアクセスをカスタマイズできます。    
@@ -42,7 +42,7 @@ Azure Stack は、相互に連携して作用する複数のコンポーネン�
 ![診断ログ収集オプションのスクリーンショット](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **診断ログの収集**には簡単なユーザー インターフェイスがあり、PowerShell は必要ありません。 インフラストラクチャ サービスが停止している場合でも、ログは確実に収集されます。
-ポリシーで CSS との診断ログの共有が許されている場合、**診断ログの収集**は、1907 リリース以降の推奨される収集方法です。 ヘルプとサポートで**診断ログの収集**を使用できない場合にのみ、[PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#using-pep-to-collect-diagnostic-logs) を使用してログを収集する必要があります。
+ポリシーで CSS との診断ログの共有が許されている場合、**診断ログの収集**は、1907 リリース以降の推奨される収集方法です。 ヘルプとサポートで**診断ログの収集**を使用できない場合にのみ、[PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) を使用してログを収集する必要があります。
 
 ## <a name="automatic-diagnostic-log-collection"></a>自動診断ログ収集 
 
