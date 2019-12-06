@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/08/2019
+ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 2669c8e9a4d684fbbd9340c6dbae43191f0261dc
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 11/27/2019
+ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594902"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689824"
 ---
 # <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Azure Stack Hub Development Kit (ASDK) とは
 [Microsoft Azure Stack Hub 統合システム](../operator/azure-stack-overview.md)には 4 ノードから 16 ノードまでのサイズがあり、ハードウェア パートナーと Microsoft によって共同でサポートされます。 Azure Stack Hub 統合システムの使用により、運用ワークロード向けの新しいシナリオが可能になります。 統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack Hub オペレーターは、[オペレーター ドキュメント](/azure-stack/operator)を参照してください。
@@ -49,7 +49,7 @@ ASDK の詳細については、次の短い動画をご覧ください。
 |説明|ASDK|マルチノード Azure Stack Hub|
 |-----|-----|-----|
 |**スケール**|すべてのコンポーネントが、単一ノードのサーバー コンピューターにインストールされます。|サイズは 4 から 16 ノードの範囲で設定できます。|
-|**回復力**|単一ノードの構成では、高可用性は提供されません|[高可用性](../operator/azure-stack-overview.md#providing-high-availability)機能がサポートされています。|
+|**回復力**|単一ノードの構成では、高可用性は提供されません|高可用性機能がサポートされています。|
 |**ネットワーク**|ASDK ホストは、すべての ASDK ネットワーク トラフィックをルーティングします。 他のスイッチ要件はありません。|Top-Of-Rack (TOR)、ベースボード管理コントローラー (BMC)、境界 (データセンター ネットワーク) スイッチなど、より複雑な[ネットワーク ルーティング インフラストラクチャ](../operator/azure-stack-network.md#network-infrastructure)がマルチノード デプロイでは必要です。|
 |**修正プログラムと更新プログラムの処理**|ASDK の新しいバージョンに移行するには、ASDK のホスト コンピューターで ASDK を再デプロイする必要があります。|インストール済みの Azure Stack Hub バージョンを更新するために、[修正プログラムと更新プログラム](../operator/azure-stack-updates.md)のプロセスが使用されます。|
 |**サポート**|MSDN の Azure Stack フォーラム。 Microsoft カスタマー サービス & サポート (CSS) のサポートは、非運用環境では使用 "*できません*"。|[MSDN の Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)と完全な CSS サポート。|
