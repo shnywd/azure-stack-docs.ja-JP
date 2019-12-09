@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: b42f21a3225194cfe50b5ae7d39d8d1a7cffb6d0
-ms.sourcegitcommit: e6a738f674634e1d5dd4eb23b6c44b660ea2fe84
+ms.openlocfilehash: 049698c1b4e19dc3567c07bb8a433c0fcf9208d8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72891261"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780781"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack"></a>Azure Stack で VM ディスク ストレージを作成する
 
@@ -36,15 +36,17 @@ ms.locfileid: "72891261"
 
 アンマネージド ディスクについては、そのディスクを格納するストレージ アカウントを作成する必要があります。 作成したディスクは VM ディスクと呼ばれ、ストレージ アカウントのコンテナーに格納されます。
 
-### <a name="best-practice-guidelines"></a>ベスト プラクティス ガイドライン
+## <a name="best-practice-guidelines"></a>ベスト プラクティス ガイドライン
 
-パフォーマンスを改善し、全体的なコストを削減するために、個別のコンテナーに各 VM ディスクを配置することをお勧めします。 1 つのコンテナーには、OS ディスクまたはデータ ディスクのどちらかを保持し、同時に両方を保持しないでください。 ただし、同じコンテナーに両方の種類のディスクを入れることもできます。
+管理と容量のバランスを簡単に取れるように、VM にはマネージド ディスクを使用することをお勧めします。 マネージド ディスクを使用する前に、ストレージ アカウントとコンテナーを準備する必要はありません。 複数のマネージド ディスクを作成する場合、ディスクは複数のボリュームに分散されるため、ボリュームの容量のバランスを取ることができます。  
+
+アンマネージド ディスクの場合、パフォーマンスを改善し、全体的なコストを削減するために、各アンマネージド ディスクを個別のコンテナーに配置することをお勧めします。 OS ディスクとデータ ディスクの両方を同じコンテナーに配置することもできますが、ベスト プラクティスは 1 つのコンテナーに OS ディスクとデータ ディスクの両方を同時に保持するのではなく、どちらか一方を保持することです。
 
 VM に 1 つ以上のデータ ディスクを追加する場合は、追加コンテナーを、これらのディスクを格納する場所として使用してください。 追加 VM の OS ディスクも、独自のコンテナーに配置する必要があります。
 
 VM を作成するときは、新しい仮想マシンごとに同じストレージ アカウントを再利用できます。 作成するコンテナーのみを一意にする必要があります。
 
-### <a name="adding-new-disks"></a>新しいディスクを追加する
+## <a name="adding-new-disks"></a>新しいディスクを追加する
 
 次の表は、ポータルおよび PowerShell を使用してディスクを追加する方法をまとめたものです。
 

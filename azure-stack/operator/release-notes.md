@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2019
+ms.date: 12/04/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 75f1c4cae33987a7a2c662ced7806ed094c6ca82
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
+ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557703"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74830966"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack の更新プログラム: リリース ノート
 
@@ -109,6 +109,12 @@ Azure Stack 1910 更新プログラムのビルドの種類は**高速**です�
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
+- Azure Stack では、以前に更新の失敗を引き起こしたりオペレーターによる Azure Stack の更新開始を妨害したりしていた修正プログラムや更新プログラムの問題を自動修復する機能が向上しています。 その結果、**Test-AzureStack -UpdateReadiness** グループに含まれるテストの数が減っています。 詳細については、「[新しい Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md#groups)」を参照してください。 次の 3 つのテストは **UpdateReadiness** グループに残っています。
+
+  - **AzSInfraFileValidation**
+  - **AzSActionPlanStatus**
+  - **AzsStampBMCSummary**
+
 - 外部デバイス (USB キーなど) が Azure Stack インフラストラクチャのノードにマウントされたときにレポートする監査ルールが追加されました。 監査ログは syslog を介して出力され、"**Microsoft-Windows-Security-Auditing:6416|Plug and Play Events** (Microsoft-Windows-Security-Auditing: 6416|プラグ アンド プレイ イベント)" と表示されます。 syslog クライアントの構成方法の詳細については、[Syslog の転送](azure-stack-integrate-security.md)に関する記事を参照してください。
 
 - Azure Stack は、内部証明書用に 4096 ビット RSA キーに移行しています。 内部シークレット ローテーションを実行すると、以前の 2048 ビット証明書は 4096 ビット長の証明書に置き換えられます。 Azure Stack のシークレット ローテーションの詳細については、「[Azure Stack でシークレットをローテーションする](azure-stack-rotate-secrets.md)」を参照してください。
@@ -147,11 +153,11 @@ Azure Stack 1910 更新プログラムのビルドの種類は**高速**です�
 
 - Azure から Azure Stack にマーケットプレース アイテムをダウンロードするときに、複数のバージョンが存在する場合、アイテムのバージョンを指定できる新しいユーザー インターフェイスが追加されました。 新しい UI は、接続されたシナリオと切断されたシナリオの両方で使用できます。 詳細については、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。  
 
-- 1910 リリース以降、Azure Stack システムには追加で /20 プライベート内部 IP 空間が必要になりました。 このネットワークは Azure Stack システム専用であり、データセンター内の複数の Azure Stack システムで再利用できます。 このネットワークは Azure Stack 専用ですが、データセンター内のネットワークと重複することはできません。 /20 プライベート IP 空間は複数のネットワークに分割され、コンテナー上で Azure Stack インフラストラクチャを実行できるようになりました ([1905 リリース ノート](release-notes.md?view=azs-1905)にも記載されています)。 コンテナーで Azure Stack インフラストラクチャを実行する目的は、使用率を最適化し、パフォーマンスを向上させることです。 さらに、/20 プライベート IP 空間は、デプロイ前に必要なルーティング可能な IP 空間を減らす継続的な取り組みを可能にするためにも使用されます。
+- 1910 リリース以降、Azure Stack システムには追加で /20 プライベート内部 IP 空間が**必要**になりました。 このネットワークは Azure Stack システム専用であり、データセンター内の複数の Azure Stack システムで再利用できます。 このネットワークは Azure Stack 専用ですが、データセンター内のネットワークと重複することはできません。 /20 プライベート IP 空間は複数のネットワークに分割され、コンテナー上で Azure Stack インフラストラクチャを実行できるようになりました ([1905 リリース ノート](release-notes.md?view=azs-1905)にも記載されています)。 コンテナーで Azure Stack インフラストラクチャを実行する目的は、使用率を最適化し、パフォーマンスを向上させることです。 さらに、/20 プライベート IP 空間は、デプロイ前に必要なルーティング可能な IP 空間を減らす継続的な取り組みを可能にするためにも使用されます。
 
   - /20 の入力は、1910 の次の Azure Stack 更新プログラムの前提条件となることに注意してください。 1910 の次の Azure Stack 更新プログラムがリリースされ、それをインストールしようとすると、以下の修復手順で説明するように、/20 の入力を完了していない場合、更新は失敗します。 上記の修復手順が完了するまで、管理ポータルにアラートが表示されます。 この新しいプライベート空間の使用方法については、「[データセンターのネットワーク統合](azure-stack-network.md#private-network)」の記事を参照してください。 
 
-  - 修復手順:修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、PEP セッションで、次のコマンドレット (1910 以降でのみ使用可能) を次の形式を使用して実行します`Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理ポータルのアラートは閉じます。 Azure Stack システムは、次のバージョンに更新できるようになります。
+  - 修復手順:修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、次の例を使用して、PEP セッション内で次のコマンドレット (1910 以降でのみ使用可能) を実行します: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理ポータルのアラートは閉じます。 Azure Stack システムは、次のバージョンに更新できるようになります。
   
 - アップロード手順中に外部ストレージの場所の容量が不足すると、インフラストラクチャ バックアップ サービスによって、部分的にアップロードされたバックアップ データが削除されます。  
 

@@ -16,12 +16,12 @@ ms.date: 10/23/2019
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 76bc9b83bf97c7817ff5c9cbf8bc0a3275a04d72
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 87afcdb3508f66c69477f0109c2c86d03a6b04e0
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298847"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810172"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -75,7 +75,7 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 - **内部仮想 IP ネットワーク**:ソフトウェア ロード バランサーのための内部のみの VIP 専用の /25 ネットワーク。
 - **コンテナー ネットワーク**:インフラストラクチャ サービスを実行しているコンテナー間の内部トラフィックのみを対象とする専用 /23 (512 IP) ネットワーク。
 
-1910 以降、プライベート ネットワークのサイズがプライベート IP 空間の /20 (4096 IP) に変更されます。 このネットワークは Azure Stack リージョンに対してプライベートになり (Azure Stack システムの境界スイッチ デバイスを超えてルーティングされることはありません)、データセンター内の複数の Azure Stack システムで再利用できます。 ネットワークは Azure Stack に対してプライベートですが、データセンター内の他のネットワークと重複することはできません。 プライベート IP 空間のガイダンスについては、[RFC 1918](https://tools.ietf.org/html/rfc1918) に従うことをお勧めします。
+1910 以降、プライベート ネットワークのサイズがプライベート IP 空間の /20 (4096 IP) に変更されます。 このネットワークは Azure Stack リージョンに対してプライベートになり (Azure Stack システムの境界スイッチ デバイスを超えてルーティングされることはありません)、データセンター内の複数の Azure Stack システムで再利用できます。 ネットワークは Azure Stack に対してプライベートですが、データセンター内の他のネットワークと重複することはできません。 重複が発生した場合、Azure Stack によって企業ネットワーク トラフィックが外部にルーティングされない可能性があります。 プライベート IP 空間のガイダンスについては、[RFC 1918](https://tools.ietf.org/html/rfc1918) に従うことをお勧めします。
 
 この /20 プライベート IP 空間は、今後のリリースで Azure Stack システムの内部インフラストラクチャをコンテナー上で実行できるように、複数のネットワークに分割されます。 詳しくは、[1910 リリース ノート](release-notes.md)をご覧ください。 さらに、この新しいプライベート IP 空間によって、デプロイ前に必要となるルーティング可能な IP 空間を減少させるための継続的な作業が可能になります。
 

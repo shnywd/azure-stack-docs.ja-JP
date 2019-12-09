@@ -5,16 +5,16 @@ services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f3c16e202b43f9d672d9f3e385c3f14cf30935e7
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569314"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690224"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack"></a>Azure Stack で Windows 仮想マシンを実行する
 
@@ -68,7 +68,14 @@ VM も一時ディスク (Windows の D: ドライブ) を使用して作成さ�
 
 **診断** 基本的な正常性メトリック、診断インフラストラクチャ ログ、[ブート診断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)などの監視と診断を有効にします。 VM が起動不可能な状態になった場合は、起動エラーを診断するのにブート診断が役立ちます。 ログを格納するための Azure Storage アカウントを作成します。 診断ログには、標準的なローカル冗長ストレージ (LRS) アカウントがあれば十分です。 詳細については、「[監視と診断の有効化](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)」を参照してください。
 
-**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 可用性を高めるには、複数の VM を[可用性セット](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability)内にデプロイします。
+**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 Azure でのマルチ VM による実稼働システムの高可用性を実現するため、VM は、複数の障害ドメインと更新ドメインに分散される[可用性セット](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)に配置されます。 より小さいスケールの Azure Stack Hub では、可用性セット内の障害ドメインは、スケール ユニット内の 1 つのノードとして定義されます。  
+
+Azure Stack Hub のインフラストラクチャは既に障害に対する回復性を備えていますが、基盤となっているテクノロジ (フェールオーバー クラスタリング) では、ハードウェアが故障した場合にその影響を受ける物理サーバー上の VM に多少のダウンタイムが発生します。 Azure Stack Hub では、Azure との一貫性がある最大 3 つの障害ドメインを持つ可用性セットを用意することをサポートしています。
+
+|                   |             |
+|-------------------|-------------|
+| **障害ドメイン** | 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack Hub ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は、他の障害ドメインで再起動されます。 これらは、他の VM とは別の障害ドメインに、ただし可能な場合、同じ可用性セットに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。 |
+| **更新ドメイン**| 更新ドメインも、Azure によって可用性セットに高可用性が提供される方法です。 更新ドメインは、メンテナンスを同時に実行できる、基盤となるハードウェアの論理グループです。 同じ更新ドメイン内の VM は、計画済みメンテナンス中に同時に再起動されます。 テナントが可用性セット内に VM を作成すると、Azure プラットフォームは、これらの更新ドメインに VM を自動的に分散します。 <br>Azure Stack Hub では、VM のホストが更新される前に、クラスター内の他のオンライン ホストに VM がライブ マイグレーションされます。 ホスト更新の際にテナントのダウンタイムは発生しないため、Azure Stack Hub の更新ドメイン機能は、Azure とテンプレートの互換性を保つためにのみ存在します。 可用性セット内の VM では、ポータル上でその更新ドメイン番号として 0 が表示されます。 |
 
 **バックアップ**。Azure Stack IaaS VM の保護に関する推奨事項については、この記事を参照してください。
 
@@ -91,10 +98,10 @@ VM を [Azure Security Center](https://docs.microsoft.com/azure/security-center/
 
 **監査ログ**。 プロビジョニング操作や他の VM イベントを確認するには、[アクティビティ ログ](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)を使用します。
 
-**データの暗号化**。 Azure Stack は、ストレージ サブシステム レベルのユーザー データとインフラストラクチャ データを保存時の暗号化を使用して保護します。 Azure Stack のストレージ サブシステムは、128 ビット AES 暗号化による BitLocker を使用して暗号化されます。 詳細については、[この](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)記事を参照してください。
+**データの暗号化**。 Azure Stack では、BitLocker 128 ビット AES 暗号化を使用して、記憶域サブシステム内のユーザーとインフラストラクチャの保存データが保護されます。 詳細については、「[Azure Stack における保存データの暗号化](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)」を参照してください。
 
 
 ## <a name="next-steps"></a>次の手順
 
-- Azure Stack VM の詳細については、[Azure Stack VM の機能](azure-stack-vm-considerations.md)に関するページを参照してください。  
+- Azure Stack VM の詳細については、「[Azure Stack VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

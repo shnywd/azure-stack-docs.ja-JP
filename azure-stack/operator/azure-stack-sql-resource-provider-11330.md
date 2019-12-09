@@ -1,6 +1,7 @@
 ---
-title: Azure Stack SQL リソース プロバイダー 1.1.30.0 のリリース ノート | Microsoft Docs
-description: 既知の問題やダウンロード場所など、最新の Azure Stack SQL リソース プロバイダー更新プログラムについて説明します。
+title: Azure Stack SQL リソース プロバイダー 1.1.33.0 のリリース ノート
+titleSuffix: Azure Stack
+description: Azure Stack SQL リソース プロバイダー 1.1.33.0 更新プログラムのリリース ノートを表示します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 69ea42a9efbf57cfdeb589cc221eae8a9f21913c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829320"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780696"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL リソース プロバイダー 1.1.33.0 のリリース ノート
 
@@ -44,21 +45,22 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
 このバージョンの Azure Stack SQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
 
 ### <a name="fixes"></a>修正
-- **SQL リソース プロバイダーのポータル拡張機能が誤ったサブスクリプションを選択する可能性があります**。 SQL リソース プロバイダーは Azure Resource Manager の呼び出しを使用して、使用する最初のサービス管理者のサブスクリプションを判断しますが、これが*既定のプロバイダー サブスクリプション*でない場合があります。 その場合、SQL リソース プロバイダーは正常に機能しません。 
 
-- **SQL ホスティング サーバーがホストされたデータベースを一覧表示しません。** SQL ホスティング サーバーのテナント リソースを表示するとき、ユーザーが作成したデータベースが表示されない場合があります。
+- **SQL リソース プロバイダーのポータル拡張機能が誤ったサブスクリプションを選択する可能性があります**。 SQL リソース プロバイダーは Azure Resource Manager の呼び出しを使用して、使用する最初のサービス管理者のサブスクリプションを判断しますが、これが*既定のプロバイダー サブスクリプション*でない場合があります。 その場合、SQL リソース プロバイダーは正常に機能しません。
 
-- **TLS 1.2 が有効になっていない場合に、以前の SQL リソース プロバイダー (1.1.30.0) のデプロイが失敗することがあります**。 リソース プロバイダーのデプロイ、リソース プロバイダーの更新、またはシークレットのローテーションを行うときに TLS 1.2 を有効にするために、SQL リソース プロバイダー 1.1.33.0 を更新しました。 
+- **SQL ホスティング サーバーにホストされたデータベースが一覧表示されません。** SQL ホスティング サーバーのテナント リソースを表示するとき、ユーザーが作成したデータベースが表示されない場合があります。
+
+- **TLS 1.2 が有効になっていない場合に、以前の SQL リソース プロバイダー (1.1.30.0) のデプロイが失敗することがあります**。 リソース プロバイダーのデプロイ、リソース プロバイダーの更新、またはシークレットのローテーションを行うときに TLS 1.2 を有効にするために、SQL リソース プロバイダー 1.1.33.0 を更新しました。
 
 - **SQL リソース プロバイダーのシークレットのローテーションに失敗します**。 シークレットをローテーションするときに次のエラー コードが出る問題を修正しました。 `New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
-## <a name="known-issues"></a>既知の問題 
+## <a name="known-issues"></a>既知の問題
 
-- **SQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい SQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。 
+- **SQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい SQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。
 
     **対処法**: なし。
 
-- **再利用された SQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい SQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。 
+- **再利用された SQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい SQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
     **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 
@@ -78,4 +80,4 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
 
 [SQL リソースプロバイダーのデプロイを準備します](azure-stack-sql-resource-provider-deploy.md#prerequisites)。
 
-[SQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-sql-resource-provider-update.md)。 
+[SQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-sql-resource-provider-update.md)。

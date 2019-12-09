@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 830693989f213f509152499cc16fff086b90afaa
-ms.sourcegitcommit: cc5c965b13bc3dae9a4f46a899e602f41dc66f78
+ms.lastreviewed: 11/07/2019
+ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
+ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73236231"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74690015"
 ---
 # <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack 診断ログを収集する
 
 *適用対象:Azure Stack 統合システム*
 
-トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack オペレーターは、**ヘルプとサポート**を使用して、オンデマンドの診断ログを Azure の BLOB コンテナーにアップロードできます。 ポータルが使用できない場合は、オペレーターは特権エンドポイント (PEP) 経由で Get-AzureStackLog を使用して、ログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
+トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack オペレーターは、**ヘルプとサポート**を使用して、診断ログを Azure の BLOB コンテナーにアップロードできます。 PowerShell を使用する以前の方法よりも簡単であるため、**ヘルプとサポート**を使用することをお勧めします。 ただし、ポータルが使用できない場合、オペレーターは引き続き以前のリリースと同様に特権エンドポイント (PEP) 経由で **Get-AzureStackLog** を使用してログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
 
 >[!Note]
 >必要に応じたログ収集の代わりとして、[自動による診断ログの収集](azure-stack-configure-automatic-diagnostic-log-collection.md)を有効化することで、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、分析のために、CSS によってログが自動的にアップロードされます。 
@@ -46,37 +46,13 @@ ms.locfileid: "73236231"
 >[!NOTE]
 >自動診断ログ収集が有効になっている場合、 **[ヘルプとサポート]** に、ログ収集が進行中であるタイミングが表示されます。 自動ログ収集の進行中に、 **[Collect logs now]\(今すぐログを収集する\)** をクリックして特定の時間からログを収集した場合、自動ログ収集の完了後にオンデマンドの収集が開始されます。 
 
-## <a name="using-pep-to-collect-diagnostic-logs"></a>PEP を使用して診断ログを収集する
+## <a name="use-the-privileged-endpoint-pep-to-collect-diagnostic-logs"></a>特権エンドポイント (PEP) を使用して診断ログを収集する
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
 
-Azure Stack の診断ツールにより、ログ収集を簡単かつ効率的にすることができます。 次の図は、診断ツールの動作を示しています。
 
-![Azure Stack の診断ツールのワークフロー図](media/azure-stack-diagnostics/get-azslogs.png)
 
-### <a name="trace-collector"></a>トレース コレクター
-
-トレース コレクターは既定で有効になり、Azure Stack コンポーネント サービスからすべての Windows イベント トレーシング (ETW) ログを収集するためにバック グラウンドで継続的に実行されます。 ETW ログは、共通のローカル共有に 5 日間を上限として格納されます。 この制限に達した場合、新しいファイルが作成されると最も古いファイルは削除されます。 各ファイルで許容される既定の最大サイズは 200 MB です。 サイズ チェックは 2 分間隔で行われ、現在のファイルが 200 MB 以上であれば保存され、新しいファイルが生成されます。 また、イベント セッションごとに生成されるファイルの合計サイズには、8 GB の制限が設定されています。
-
-### <a name="get-azurestacklog"></a>Get-AzureStackLog
-
-PowerShell コマンドレット Get-AzureStackLog を使用して、Azure Stack 環境のすべてのコンポーネントからログを収集できます。 これらは、ユーザーの定義した場所に zip ファイルで保存されます。 Azure Stack テクニカル サポート チームが問題のトラブルシューティングを行うためにログを必要とする場合、Get-AzureStackLog を実行するようにお願いすることがあります。
-
-> [!CAUTION]
-> これらのログ ファイルには個人を特定できる情報 (PII) が含まれている可能性があります。 ログ ファイルを公開する前に、この点を考慮してください。
-
-以下に、収集されるログの種類をいくつか例示します。
-
-* **Azure Stack デプロイ ログ**
-* **Windows イベント ログ**
-* **Panther ログ**
-* **クラスター ログ**
-* **Storage 診断ログ**
-* **ETW ログ**
-
-これらのファイルは、トレース コレクターによって収集され、共有に保存されます。 必要に応じて、Get-AzureStackLog を使用して、それらを収集できます。
-
-#### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Azure Stack 統合システムで Get-AzureStackLog を実行するには
+### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Azure Stack 統合システムで Get-AzureStackLog を実行する
 
 統合システムで Get-AzureStackLog を実行するには、特権エンド ポイント (PEP) へのアクセス権が必要です。 PEP を使用して統合システムでログを収集するのに実行できるスクリプト例を次に示します。
 
@@ -100,7 +76,7 @@ if ($session) {
 }
 ```
 
-#### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する
+### <a name="run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する
 
 ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する際に使用する手順は次のとおりです。
 
@@ -275,4 +251,34 @@ if ($session) {
    Remove-PSSession -Session $session
 }
 ```
+
+### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>PEP を使用した診断ログ収集のしくみ
+
+Azure Stack の診断ツールにより、ログ収集を簡単かつ効率的にすることができます。 次の図は、診断ツールの動作を示しています。
+
+![Azure Stack の診断ツールのワークフロー図](media/azure-stack-diagnostics/get-azslogs.png)
+
+
+#### <a name="trace-collector"></a>トレース コレクター
+
+トレース コレクターは既定で有効になり、Azure Stack コンポーネント サービスからすべての Windows イベント トレーシング (ETW) ログを収集するためにバック グラウンドで継続的に実行されます。 ETW ログは、共通のローカル共有に 5 日間を上限として格納されます。 この制限に達した場合、新しいファイルが作成されると最も古いファイルは削除されます。 各ファイルで許容される既定の最大サイズは 200 MB です。 サイズ チェックは 2 分間隔で行われ、現在のファイルが 200 MB 以上であれば保存され、新しいファイルが生成されます。 また、イベント セッションごとに生成されるファイルの合計サイズには、8 GB の制限が設定されています。
+
+#### <a name="get-azurestacklog"></a>Get-AzureStackLog
+
+PowerShell コマンドレット Get-AzureStackLog を使用して、Azure Stack 環境のすべてのコンポーネントからログを収集できます。 これらは、ユーザーの定義した場所に zip ファイルで保存されます。 Azure Stack テクニカル サポート チームが問題のトラブルシューティングを行うためにログを必要とする場合、Get-AzureStackLog を実行するようにお願いすることがあります。
+
+> [!CAUTION]
+> これらのログ ファイルには個人を特定できる情報 (PII) が含まれている可能性があります。 ログ ファイルを公開する前に、この点を考慮してください。
+
+以下に、収集されるログの種類をいくつか例示します。
+
+* **Azure Stack デプロイ ログ**
+* **Windows イベント ログ**
+* **Panther ログ**
+* **クラスター ログ**
+* **Storage 診断ログ**
+* **ETW ログ**
+
+これらのファイルは、トレース コレクターによって収集され、共有に保存されます。 必要に応じて、Get-AzureStackLog を使用して、それらを収集できます。
+
 

@@ -1,5 +1,6 @@
 ---
-title: Kubernetes を Azure Stack Marketplace に追加する | Microsoft Docs
+title: Kubernetes を Azure Stack Marketplace に追加する
+titleSuffix: Azure Stack
 description: Kubernetes を Azure Stack Marketplace に追加する方法について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -15,29 +16,29 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: fc83c8c68402622d721864f24a3ef9c5bab10479
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 985d0e33fd5a15329a1a47bd2d6b11e50cd82a1c
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047178"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780815"
 ---
-# <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Kubernetes を Azure Stack Marketplace に追加する
+# <a name="add-kubernetes-to-azure-stack-marketplace"></a>Kubernetes を Azure Stack Marketplace に追加する
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 > [!note]  
 > Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-aks-engine.md)を使用します。
 
-Kubernetes は、Marketplace 項目としてユーザーに提供できます。 ユーザーはその後、1 回の連携した操作で Kubernetes をデプロイできます。
+Kubernetes は、マーケットプレース項目としてユーザーに提供できます。 ユーザーはその後、1 回の連携した操作で Kubernetes をデプロイできます。
 
-以降の記事では、Azure Resource Manager テンプレートを使用して、スタンドアロンの Kubernetes Cluster のためにリソースのデプロイとプロビジョニングを行う方法を示しています。 開始する前に、Azure Stack とグローバルな Azure テナントの設定を確認します。 必要な、Azure Stack に関する情報を収集します。 テナントと Azure Stack Marketplace に必要なリソースを追加します。 このクラスターは、Ubuntu サーバー、カスタム スクリプト、およびマーケットプレース内に置かれる Kubernetes Cluster Marketplace 項目に依存します。
+この記事では、Azure Resource Manager テンプレートを使用して、スタンドアロンの Kubernetes クラスターのためにリソースのデプロイとプロビジョニングを行う方法を示しています。 開始する前に、Azure Stack とグローバルな Azure テナントの設定を確認します。 必要な、Azure Stack に関する情報を収集します。 テナントと Azure Stack Marketplace に必要なリソースを追加します。 このクラスターは、Ubuntu サーバー、カスタム スクリプト、および Azure Stack Marketplace 内に置かれる Kubernetes Cluster マーケットプレース項目に依存します。
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>プラン、オファー、サブスクリプションを作成する
 
-Kubernetes の Marketplace 項目のプラン、オファー、サブスクリプションを作成します。 既存のプランとオファーを使うこともできます。
+Kubernetes のマーケットプレース項目のプラン、オファー、サブスクリプションを作成します。 既存のプランとオファーを使うこともできます。
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
 1. プランは基本プランとして作成します。 手順については、「[Azure Stack でのプランの作成](azure-stack-create-plan.md)」をご覧ください。
 
@@ -63,13 +64,13 @@ Kubernetes の Marketplace 項目のプラン、オファー、サブスクリ�
 
 ## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>AD FS でサービス プリンシパルと資格情報を作成する
 
-ID 管理サービスのために Active Directory Federated Services (AD FS) を使用する場合は、Kubernetes クラスターをデプロイするユーザーのサービス プリンシパルを作成する必要があります。 クライアント シークレットを使用してサービス プリンシパルを作成します。 手順については、[クライアント シークレットを使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)に関するセクションを参照してください。
+ID 管理サービスのために Active Directory Federated Services (AD FS) を使用する場合は、Kubernetes クラスターを展開するユーザーのサービス プリンシパルを作成する必要があります。 クライアント シークレットを使用してサービス プリンシパルを作成します。 手順については、[クライアント シークレットを使用したサービス プリンシパルの作成](azure-stack-create-service-principals.md#create-a-service-principal-that-uses-client-secret-credentials)に関するセクションを参照してください。
 
 ## <a name="add-an-ubuntu-server-image"></a>Ubuntu サーバーのイメージを追加する
 
-次の Ubuntu Server イメージを Marketplace に追加します。
+次の Ubuntu Server イメージを Azure Stack Marketplace に追加します。
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
 1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
@@ -87,9 +88,9 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux 用のカスタム スクリプトを追加する
 
-Marketplace から Kubernetes を追加します。
+Azure Stack Marketplace から Kubernetes を追加します。
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
+1. [管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
 
 1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
@@ -107,10 +108,9 @@ Marketplace から Kubernetes を追加します。
 
 1. **[ダウンロード]** を選択します。
 
-
 ## <a name="add-kubernetes-to-the-marketplace"></a>Kubernetes をマーケットプレースに追加する
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
+1. [管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
 
 1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
@@ -123,13 +123,13 @@ Marketplace から Kubernetes を追加します。
 1. **[ダウンロード]** を選択します。
 
     > [!note]  
-    > マーケットプレース項目が Marketplace に表示されるまで 5 分かかる場合があります。
+    > マーケットプレース項目が Azure Stack Marketplace に表示されるまで 5 分かかる場合があります。
 
-    ![Kubernetes](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Azure Stack Marketplace 内の Kubernetes 項目](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes"></a>Kubernetes を更新または削除する 
+## <a name="update-or-remove-the-kubernetes"></a>Kubernetes を更新または削除する
 
-Kubernetes 項目の更新時には、Marketplace で以前の項目を削除する必要があります。 この記事の指示に従って、Kubernetes の更新をマーケットプレースに追加します。
+Kubernetes 項目の更新時には、Azure Stack Marketplace 内の以前の項目を削除します。 以下の指示に従って、Kubernetes の更新を Azure Stack Marketplace に追加します。
 
 Kubernetes を削除するには:
 
@@ -141,7 +141,7 @@ Kubernetes を削除するには:
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 現在の項目の名前に注意してください。例: `Microsoft.AzureStackKubernetesCluster.0.3.0`
+3. `Microsoft.AzureStackKubernetesCluster.0.3.0` などの現在の項目の名前に注意してください。
 
 4. 次の PowerShell コマンドレットを使用して項目を削除します。
 

@@ -13,22 +13,25 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 12/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 2d4ebaf62a3a2e836df988ec510e21274040e68b
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/02/2019
+ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465478"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780849"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack の物理ディスクを交換する
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事では、Azure Stack で物理ディスクを交換する一般的な手順について説明します。 物理ディスクが正常に機能しなくなった場合、早急に交換する必要があります。
+
+> [!Note]  
+> 物理データ ドライブを交換するために、スケール ユニット ノードをメンテナンス モード (ドレイン) にする必要は**ありません**。 物理ドライブを交換した後で、Azure Stack Hub 管理者ポータルを使用してスケール ユニット ノードを修復する必要もありません。 修復が必要な場合、詳細については「[Azure Stack スケール ユニット ノードのハードウェア コンポーネントを交換する](azure-stack-replace-component.md)」を参照してください。
 
 この手順は、統合システムと、ホット スワップ可能なディスクを含む Azure Stack Development Kit (ASDK) のデプロイに使用できます。
 
@@ -71,20 +74,21 @@ ms.locfileid: "74465478"
 4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
 5. 必要に応じて、次のコマンドを実行して、交換した物理ディスクの状態を検証できます。
 
-```powershell  
-$scaleunit=Get-AzsScaleUnit
-$StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
+    ```powershell  
+    $scaleunit=Get-AzsScaleUnit
+    $StorageSubSystem=Get-AzsStorageSubSystem -ScaleUnit $scaleunit.Name
 
-Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
-```
+    Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
+    ```
 
-![Powershell を使用する Azure Stack 内の物理ディスクの交換](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![Powershell を使用する Azure Stack 内の物理ディスクの交換](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復状態の確認
 
 ディスクの交換後、特権エンドポイントを使用して、仮想ディスクの正常性状態と修復ジョブの進行を監視できます。 特権エンドポイントにネットワーク接続されている任意のコンピューターから、次の手順に従います。
 
 1. Windows PowerShell セッションを開き、特権エンドポイントに接続します。
+
     ```powershell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
@@ -92,6 +96,7 @@ Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name
     ```
   
 2. 仮想ディスクの正常性を表示するには、次のコマンドを実行します。
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster
     ```
@@ -99,16 +104,19 @@ Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name
    ![Get-VirtualDisk コマンドの Powershell 出力](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. 現在の記憶域ジョブの状態を表示するには、次のコマンドを実行します。
+
     ```powershell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ```
-      ![Get-StorageJob コマンドの Powershell 出力](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+
+    ![Get-StorageJob コマンドの Powershell 出力](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復のトラブルシューティング
 
 仮想ディスクの修復ジョブが進行しないようであれば、次のコマンドを実行してジョブを最初からやり直してください。
-  ```powershell
-        Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```
+
+```powershell
+Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
+```

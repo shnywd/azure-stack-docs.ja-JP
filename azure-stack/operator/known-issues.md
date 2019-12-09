@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0621ca19f96e1c33a85ea5308346fafa2e4545f8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
+ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465373"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74810228"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack の既知の問題
 
@@ -146,6 +146,12 @@ ms.locfileid: "74465373"
 - 原因: SQL リソース プロバイダーの現在のバージョンは、1910 更新プログラムに含まれる最新のポータル変更の一部と互換性がありません。
 - 修復: Azure Stack が 1910 更新プログラム ([SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)) にアップグレードされた後、リソース プロバイダーの更新プロセスに従って、SQL リソース プロバイダーの修正プログラム 1.1.47.0 を適用します。 MySQL リソース プロバイダーの場合、Azure Stack を 1910 更新プログラム ([MySQL RP バージョン 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)) にアップグレードした後、MySQL リソース プロバイダーの修正プログラム 1.1.47.0 を適用することもお勧めします。
 - 発生頻度: 一般
+
+### <a name="access-control-iam"></a>アクセス制御 (IAM)
+
+- 適用先:この問題は、1903 以降のリリースに適用されます
+- 原因: IAM 拡張機能が古すぎます。 Ibiza に付属の Azure Stack に導入されている新しい動作は、ユーザーがグローバル サブスクリプション ピッカーで選択されていないサブスクリプションから RBAC 拡張機能を開いている場合に、RBAC 拡張機能が中断する原因となります。
+- 修復: グローバル サブスクリプション ピッカー内でサブスクリプションがオンになっていることを確認します。 
 
 ## <a name="networking"></a>ネットワーク
 

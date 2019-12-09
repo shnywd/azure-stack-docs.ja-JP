@@ -1,5 +1,6 @@
 ---
-title: Azure Stack における保存データの暗号化
+title: 保存データの暗号化
+titleSuffix: Azure Stack
 description: Azure Stack が暗号化によって保存データをどのように保護するかを説明します。
 services: azure-stack
 author: PatAltimore
@@ -10,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
 keywords: ''
-ms.openlocfilehash: 0e21808ad82a61014b69cb26958a0c13518af13a
-ms.sourcegitcommit: 7fa9b64aeae2b22be7acfb5c4987d233303107c5
+ms.openlocfilehash: 13455668330571e9190d37ea0abb4de2a7b88a5d
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67166497"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780713"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Azure Stack における保存データの暗号化
 
@@ -44,7 +45,7 @@ Get-AzsRecoveryKeys
 
 | パラメーター | 説明 | データ型 | 必須 |
 |---------|---------|---------|---------|
-|*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるマッピングの生データを返します。  | スイッチ | × (サポート シナリオ用)|
+|*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるマッピングの生データを返します。  | Switch | × (サポート シナリオ用)|
 
 ## <a name="troubleshoot-issues"></a>問題のトラブルシューティング
 
@@ -53,9 +54,9 @@ Get-AzsRecoveryKeys
 > [!WARNING]
 > BitLocker 回復キーを取得して、Azure Stack の外の安全な場所に保管してください。 特定のサポート シナリオ時に回復キーがないと、データの損失につながったり、バックアップ イメージからのシステムの復元が必要になったりすることがあります。
 
-Azure Stack が起動に失敗するなど、BitLocker に関する問題がシステムに生じていると考えられる場合は、サポートに連絡してください。 サポートには、BitLocker 回復キーが必要です。 BitLocker に関連した問題の大半は、その特定の VM/ホスト/ボリュームに対する FRU 操作で解決できます。 その他のケースでは、BitLocker 回復キーを使用した手動でのロック解除手順を実施してください。 BitLocker 回復キーが利用できない場合、バックアップ イメージからの復元が唯一の選択肢となります。 最後に実施したバックアップの時期によっては、データの損失が生じます。
+Azure Stack が起動に失敗するなど、BitLocker に関する問題がシステムに生じていると考えられる場合は、サポートに連絡してください。 サポートには、BitLocker 回復キーが必要です。 BitLocker に関連した問題の大半は、その特定の VM/ホスト/ボリュームに対する FRU 操作で解決できます。 その他のケースでは、BitLocker 回復キーを使用した手動でのロック解除手順を実施できます。 BitLocker 回復キーが利用できない場合、バックアップ イメージからの復元が唯一の選択肢となります。 最後にバックアップを実施した時期によっては、データの損失が生じることがあります。
 
 ## <a name="next-steps"></a>次の手順
 
-- [Azure Stack のセキュリティについて詳しく学習する](azure-stack-security-foundations.md)
+- [Azure Stack のセキュリティについて詳しく学習します](azure-stack-security-foundations.md)。
 - BitLocker による CSV の保護の詳細については、[BitLocker を使用したクラスター共有ボリュームと記憶域ネットワークの保護](https://docs.microsoft.com/windows/security/information-protection/bitlocker/protecting-cluster-shared-volumes-and-storage-area-networks-with-bitlocker)に関するページを参照してください。

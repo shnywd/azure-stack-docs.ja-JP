@@ -1,6 +1,7 @@
 ---
-title: Azure Stack SQL リソース プロバイダー 1.1.30.0 のリリース ノート | Microsoft Docs
-description: 既知の問題やダウンロード場所など、最新の Azure Stack SQL リソース プロバイダー更新プログラムについて説明します。
+title: Azure Stack SQL リソース プロバイダー 1.1.30.0 のリリース ノート
+titleSuffix: Azure Stack
+description: Azure Stack SQL リソース プロバイダー 1.1.30.0 更新プログラムのリリース ノートを表示します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,12 +17,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: f17c2ba41097d5b9bda903ae5d95c62e0ac9f53a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c1c2b824b8cf44a983c851f20337658d020de4c8
+ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829353"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74780628"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL リソース プロバイダー 1.1.30.0 のリリース ノート
 
@@ -55,13 +56,13 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
 
 - **SQL ホスティング サーバーの [設定] ブレードの更新**。 [設定] ブレードのタイトルが間違って "パスワード" になっている問題を修正しました。
 
-## <a name="known-issues"></a>既知の問題 
+## <a name="known-issues"></a>既知の問題
 
-- **SQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい SQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。 
+- **SQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい SQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。
 
     **対処法**: なし。
 
-- **再利用された SQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい SQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。 
+- **再利用された SQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい SQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
     **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 
@@ -75,17 +76,18 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
   [System.Net.ServicePointManager]::SecurityProtocol
   ```
 
-  **Tls12** がコマンドの出力に含まれていない場合、TLS 1.2 はそのコンピューターでは使用できません。
+  **Tls12** がコマンドの出力に含まれていない場合、TLS 1.2 はそのコンピューターでは有効ではありません。
 
     **対処法**: 次の PowerShell コマンドを実行して TLS 1.2 を有効にし、同じ PowerShell セッションからリソース プロバイダーのデプロイを開始するかまたはスクリプトを更新します。
 
     ```powershell
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
     ```
+
 - **SQL リソース プロバイダーが SQL Server Always On リスナーの追加に失敗します**。 SQL リソース プロバイダー VM は、SQL Server Always On リスナーのリスナー IP アドレスを使用するとき、リスナーのホスト名を解決できません。
 
     **対処法**: リスナーのホスト名に対するリスナー IP を解決するには、DNS が正しく動作していることを確認します。
-    
+
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack を運用するクラウド管理者に関する既知の問題
 [Azure Stack リリース ノート](azure-stack-servicing-policy.md)内のドキュメントをご覧ください。
 
@@ -94,4 +96,4 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
 
 [SQL リソースプロバイダーのデプロイを準備します](azure-stack-sql-resource-provider-deploy.md#prerequisites)。
 
-[SQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-sql-resource-provider-update.md)。 
+[SQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-sql-resource-provider-update.md)。
