@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 1b6975490a876c0ff0b51fdf9f21ba010e14622d
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299114"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993845"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric クラスターを Azure Stack にデプロイする
 
@@ -28,7 +28,7 @@ ms.locfileid: "74299114"
 
 Service Fabric を使った作業の詳細については、Azure ドキュメントの「[Azure Service Fabric の概要](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)」および「[Service Fabric クラスターのセキュリティに関するシナリオ](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)」を参照してください。
 
-Azure Stack の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack では、Service Fabric クラスターは、[DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
+Azure Stack の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack では、Service Fabric クラスターは、[DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
 
 ## <a name="prerequisites"></a>前提条件
 
