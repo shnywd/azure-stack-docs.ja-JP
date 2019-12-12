@@ -15,12 +15,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: f5955751df89262441b7afc2381d34b6cc74691c
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 2323f13029d4d356ce54b825bab69da5ca21d6ab
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993570"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -54,13 +54,13 @@ ms.locfileid: "74298733"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1908)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1908) of the Azure Stack release notes. -->
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1) of the Azure Stack release notes. -->
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1908)を参照してください。
 - 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
 ::: moniker-end
@@ -70,16 +70,16 @@ ms.locfileid: "74298733"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update-1907)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-1907)を参照してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-2)を参照してください。
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1907)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-1907)が Azure Stack ASDK には適用できないことに注意してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end
 
 ::: moniker range="azs-1906"
@@ -87,7 +87,7 @@ ms.locfileid: "74298733"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1906)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1)を参照してください。
 
 ### <a name="changes"></a>変更点
 
@@ -96,7 +96,7 @@ ms.locfileid: "74298733"
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-1906)を参照してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-3)を参照してください。
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1906)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-1906)が Azure Stack ASDK には適用できないことに注意してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end

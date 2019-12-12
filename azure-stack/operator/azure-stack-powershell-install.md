@@ -15,12 +15,12 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ce827f900c6522d720f493c60495bd830cf328f4
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: e20012ce8ca397a9e74b97e380753b8f3ad33e45
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540296"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993839"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell for Azure Stack をインストールする
 
@@ -39,7 +39,7 @@ Azure Stack と互換のある PowerShell モジュールのインストール�
 Azure Stack と PowerShell を開始する前に、次の前提条件が必要です。
 
 - **PowerShell バージョン 5.0** <br>
-バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.0 を使用していない場合は、[Windows PowerShell のインストール](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)に関するページに従ってください。
+バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.0 を使用していない場合は、[Windows PowerShell のインストール](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)に関するページに従ってください。
 
   > [!Note]
   > PowerShell 5.0 には、Windows コンピューターが必要です。
@@ -126,7 +126,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
     ```
 
     > [!Note]  
-    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md#changes)を参照してください。
+    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md)を参照してください。
     > - Azure Stack モジュール バージョン 1.7.2 は破壊的変更を伴うリリースです。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://aka.ms/azspshmigration171)を参照してください。
     > - AzureRM モジュール バージョン 2.4.0 には、コマンドレット Remove-AzureRmStorageAccount について破壊的変更が存在します。 このコマンドレットでは、確認なしでストレージ アカウントを削除する際に `-Force` パラメーターを指定する必要があります。
     > - Azure Stack バージョン 1901 以降のモジュールをインストールするために、**AzureRM.BootStrapper** をインストールする必要はありません。
@@ -193,7 +193,7 @@ Get-Module -Name "Azs*" -ListAvailable
     ```
 
     > [!Note]  
-    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md#changes)を参照してください。
+    > - Azure Stack モジュール バージョン 1.8.0 は破壊的変更を伴うリリースです。 詳細については、[リリース ノート](release-notes.md)を参照してください。
     > Azure Stack モジュール バージョン 1.7.1 は破壊的変更です。 Azure Stack 1.6.0 から移行するには、[移行ガイド](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)を参照してください。
 
     > [!NOTE]
@@ -208,7 +208,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 2. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
 
-3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
+3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
 4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
 

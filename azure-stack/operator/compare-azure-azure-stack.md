@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 8badb1fbcabc6f1a3ffbef0b8489dea0f06e649c
-ms.sourcegitcommit: 07cc716d97bf484c7260eb165ae205ae25e09589
+ms.openlocfilehash: 1a847e842dff8b8b2b3032ded2466402897a3ae4
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66453422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995605"
 ---
 # <a name="differences-between-global-azure-azure-stack-and-azure-stack-hci"></a>グローバル Azure、Azure Stack、および Azure Stack HCI の違い
 
@@ -50,7 +50,6 @@ Azure Stack は Azure を拡張したもので、クラウド コンピューテ
 - Azure Resource Manager
 - Azure Marketplace
 - Containers
-- Azure IoT Hub と Event Hubs
 - 管理ツール (プラン、オファー、RBAC など)
 
 Azure Stack はマイクロソフトではなくお客様によって運用されるため、Azure Stack の PaaS 機能はオプションです。 つまり、基礎となるインフラストラクチャおよびプロセスをエンド ユーザーから離して抽象化する準備ができている場合は、必要な PaaS サービスをエンド ユーザーに提供できます。 ただし、Azure Stack には、App Service、SQL データベース、MySQL データベースなど、いくつかのオプションの PaaS サービス プロバイダーが含まれています。 これらはリソース プロバイダーとして提供されているため、マルチテナントに対応し、標準の Azure Stack 更新プログラムによって時間経過に応じて更新され、Azure Stack ポータルに表示され、Azure Stack と一体化しています。

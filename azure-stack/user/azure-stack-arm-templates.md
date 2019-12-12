@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: e2daa9416c966966b3c7cff240ddeb72ac227a8c
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304060"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993768"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack で Azure リソース マネージャー テンプレートを使用する
 
@@ -35,7 +35,7 @@ Azure Resource Manager テンプレートを使用して、お使いのアプリ
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>SharePoint サーバーのデプロイ (非高可用性デプロイ)
 
-PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) (DSC) 拡張機能を使用して、以下のリソースを含む [SharePoint Server 2013 ファームを作成](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)します。
+PowerShell [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) 拡張機能を使用して、以下のリソースを含む [SharePoint Server 2013 ファームを作成](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)します。
 
 * 仮想ネットワーク
 * 3 つのストレージ アカウント
@@ -77,7 +77,7 @@ PowerShell DSC 拡張機能を使用して、既存の仮想マシンのロー�
 
 ## <a name="cancel-a-running-template-deployment"></a>実行中のテンプレートのデプロイのキャンセル
 
-実行中のテンプレートのデプロイをキャンセルするには、[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [コマンドレット](/powershell/developer/cmdlet/cmdlet-overview)を使用します。
+実行中のテンプレートのデプロイをキャンセルするには、[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [コマンドレット](/powershell/scripting/developer/cmdlet/cmdlet-overview)を使用します。
 
 ## <a name="next-steps"></a>次の手順
 

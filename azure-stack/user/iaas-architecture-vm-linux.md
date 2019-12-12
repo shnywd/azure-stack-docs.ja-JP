@@ -9,12 +9,12 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e51f1bd10ad53671d4e3b60e448141207bf2f6e0
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569320"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993806"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Azure Stack で Linux 仮想マシンを実行する
 
@@ -78,13 +78,13 @@ VM は一時ディスクを使用して作成されます。 このディスク�
 
 すべての NSG に[既定の規則](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules) (すべての受信インターネット トラフィックをブロックする規則など) のセットが含まれています。 既定のルールを削除することはできませんが、他の規則でオーバーライドすることはできます。 インターネット トラフィックを有効にするには、特定のポート (HTTP のポート 80 など) への着信トラフィックを許可するルールを作成します。 SSH を有効にするには、TCP ポート 22 への受信トラフィックを許可する NSG 規則を追加します。
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>操作
 
 **SSH**。 Linux VM を作成する前に、2048 ビット RSA 公開/秘密キー ペアを生成します。 VM を作成する場合は、公開キー ファイルを使用します。 詳細については、「 [Azure 上の Linux における SSH の使用方法](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)」をご覧ください。
 
 **診断** 基本的な正常性メトリック、診断インフラストラクチャ ログ、[ブート診断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)などの監視と診断を有効にします。 VM が起動不可能な状態になった場合は、起動エラーを診断するのにブート診断が役立ちます。 ログを格納するための Azure Storage アカウントを作成します。 診断ログには、標準的なローカル冗長ストレージ (LRS) アカウントがあれば十分です。 詳細については、「[監視と診断の有効化](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)」を参照してください。
 
-**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 可用性を高めるには、複数の VM を[可用性セット](https://docs.microsoft.com/azure-stack/operator/azure-stack-overview#providing-high-availability)内にデプロイします。
+**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 可用性を高めるには、複数の VM を[可用性セット](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)内にデプロイします。
 
 **バックアップ**。Azure Stack IaaS VM の保護に関する推奨事項については、[この](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect)記事を参照してください。
 
@@ -111,5 +111,5 @@ VM を [Azure Security Center](https://docs.microsoft.com/azure/security-center/
 
 ## <a name="next-steps"></a>次の手順
 
-- Azure Stack VM の詳細については、[Azure Stack VM の機能](azure-stack-vm-considerations.md)に関するページを参照してください。  
+- Azure Stack VM の詳細については、「[Azure Stack VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: a5a6cf3ef5c2c03992647c207422eb266f171ac4
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: f8acc74aed978b3672dacd65524a8f1dbb5e6909
+ms.sourcegitcommit: 3c40e6df2447531a69e33b2fd0f2365b7dcf8892
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465490"
+ms.lasthandoff: 12/11/2019
+ms.locfileid: "75005376"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-with-azure-cli"></a>Azure CLI を使用した Azure Stack へのリソースの管理とデプロイ
 
@@ -362,7 +362,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用します。
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version
     ```
 
     証明書の場所を書き留めておきます。 たとえば、「 `~/lib/python3.5/site-packages/certifi/cacert.pem` 」のように入力します。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
@@ -385,12 +385,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 次の手順を使用して Azure Stack に接続します。
 
-1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。 一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
@@ -473,7 +468,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 1. マシンで証明書の場所を探します。 この場所は、Python をインストールした場所に応じて異なる場合があります。 pip と certifi モジュールをインストールしておく必要があります。 Bash プロンプトから次の Python コマンドを使用します。
 
     ```bash  
-    python3 -c "import certifi; print(certifi.where())"
+    az --version 
     ```
 
     証明書の場所を書き留めておきます。 たとえば、「 `~/lib/python3.5/site-packages/certifi/cacert.pem` 」のように入力します。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
@@ -496,12 +491,7 @@ Azure Stack の CA ルート証明書を Python の既存の証明書に追加�
 
 次の手順を使用して Azure Stack に接続します。
 
-1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。 一部のシナリオでは、インターネットへの直接送信接続がプロキシまたはファイアウォール経由でルーティングされ、SSL インターセプトが適用されます。 このような場合は、`az cloud register` コマンドが、"クラウドからエンドポイントを取得できない" といったエラーで失敗する可能性があります。 このエラーを回避するには、次の環境変数を設定します。
-
-   ```shell
-   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
-   export ADAL_PYTHON_SSL_NO_VERIFY=1
-   ```
+1. `az cloud register` コマンドを実行して、Azure Stack 環境を登録します。
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 

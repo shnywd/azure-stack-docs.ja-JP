@@ -17,12 +17,12 @@ ms.date: 10/30/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b874e81afc37684e15dd9cfe79adbf123f126f89
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: c9f9558d1885de28b1bf685d370e67951542a6ac
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780662"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993799"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack サービス ポリシー
 
@@ -70,9 +70,9 @@ Microsoft は、随時、Azure Stack に関する予防可能な、または緊�
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
 - [Azure Stack 1910 修正プログラム](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Azure Stack 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes)
-- [Azure Stack 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes)
-- [Azure Stack 1906 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes)
+- [Azure Stack 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
+- [Azure Stack 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
+- [Azure Stack 1906 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 
