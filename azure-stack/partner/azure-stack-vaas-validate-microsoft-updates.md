@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6fe2f8e7ab435cae3517890f79c26611a80c8a60
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167154"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954487"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft のソフトウェア更新プログラムの検証
 
@@ -35,15 +35,12 @@ Azure Stack を対象とした Microsoft のソフトウェア更新プログラ
 VaaS で月次更新プログラムのプロセスを実行する前に、以下の項目に理解しておく必要があります。
 
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)
-- [対話型機能検証テスト](azure-stack-vaas-interactive-feature-verification.md)
 
 ## <a name="required-tests"></a>必須のテスト
 
 月次ソフトウェア検証のためには、以下のテストを以下の順序で実行する必要があります。
 
-- 手順 1 - Monthly Azure Stack Update Verification (月次 Azure Stack 更新プログラムの検証)
-- 手順 2 - OEM Extension Package Verification (OEM 拡張機能パッケージの検証)
-- 手順 3 - OEM - Cloud Simulation Engine (クラウド シミュレーション エンジン)
+- OEM 検証ワークフロー
 
 ## <a name="validating-software-updates"></a>ソフトウェア更新プログラムの検証
 

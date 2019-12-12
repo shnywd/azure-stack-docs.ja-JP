@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dcfd50c533558bff0bdac75dfa3231d5196039cc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955816"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954555"
 ---
 # <a name="validate-oem-packages"></a>OEM パッケージの検証
 
@@ -148,30 +148,30 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
 5. Microsoft の署名が必要なテスト署名済み OEM パッケージに、Azure Storage BLOB URL を入力します。 手順については、「[VaaS のパッケージ BLOB の URL の生成](#generate-package-blob-url-for-vaas)」を参照してください。
 
-6. AzureStack 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新プログラム パッケージ フォルダーのパス\) の親ディレクトリ パスを入力してください
+6. AzureStack 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
 
-7. 上記で作成された OEM パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [OEM update package folder path]\(OEM 更新プログラム パッケージ フォルダーのパス\) の親ディレクトリ パスを入力してください
+7. 上記で作成された OEM パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [OEM update package folder path]\(OEM 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
 
     > [!NOTE]
-    > AzureStack 更新プログラムと OEM 更新プログラムは **2 つの別々の**親ディレクトリにコピーします。
+    > AzureStack 更新プログラムと OEM 更新プログラムは **2 つの別々の**ディレクトリにコピーします。
 
-8. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+8. 'RequireDigitalSignature' - パッケージを Microsoft 署名にする (OEM 検証ワークフローを実行する) 必要がある場合に **true** を指定します。 最新の AzureStack 更新プログラムで Microsoft 署名済みパッケージを検証する場合は、この値を false (毎月の AzureStack 更新検証を実行) として指定します。
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
     > [!NOTE]
     > 環境パラメーターは、ワークフローを作成した後は変更できません。
 
-9. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+10. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
 
-10. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+11. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
     テストの概要ページにリダイレクトされます。
 
 ## <a name="required-tests"></a>必須のテスト
 
-OEM パッケージの検証には、以下のテストを指定された順序で実行する必要があります。
+OEM パッケージの検証では、以下のテストを実行する必要があります。
 
-- 手順 1 - Monthly Azure Stack Update Verification (月次 Azure Stack 更新プログラムの検証)
-- 手順 2 - OEM Extension Package Verification (OEM 拡張機能パッケージの検証)
-- 手順 3 - OEM - Cloud Simulation Engine (クラウド シミュレーション エンジン)
+- OEM 検証ワークフロー
 
 ## <a name="run-package-validation-tests"></a>パッケージの検証テストの実行
 
@@ -183,20 +183,13 @@ OEM パッケージの検証には、以下のテストを指定された順序�
     > 既存のインスタンスに対して検証テストをスケジュール設定すると、ポータルの古いインスタンスに代わる新しいインスタンスが作成されます。 古いインスタンスのログは保持されますが、ポータルからアクセスできません。  
     > テストが正常に完了すると、 **[スケジュール]** アクションが無効になります。
 
-2. パッケージの検証では、**必要なテスト**をリストされている順序で実行します。
+2. テストを実行するエージェントを選択します。 ローカル テストの実行エージェントの追加については、「[ローカル エージェントをデプロイする](azure-stack-vaas-local-agent.md)」を参照してください。
 
-    > [!CAUTION]
-    > VaaS により、スケジュール設定された順序でテストが実行されます。 指定された順序でテストをスケジュール設定する必要があります。
+3. テストの実行をスケジュール設定するには、コンテキスト メニューの **[スケジュール]** を選択して、テスト インスタンスをスケジュール設定するためのプロンプトを開きます。
 
-3. テストを実行するエージェントを選択します。 ローカル テストの実行エージェントの追加については、「[ローカル エージェントをデプロイする](azure-stack-vaas-local-agent.md)」を参照してください。
+4. テスト パラメーターを確認し、 **[送信]** を選択してテストをスケジュール設定します。
 
-4. テストの実行をスケジュール設定するには、コンテキスト メニューの **[スケジュール]** を選択して、テスト インスタンスをスケジュール設定するためのプロンプトを開きます。
-
-5. テスト パラメーターを確認し、 **[送信]** を選択してテストをスケジュール設定します。
-
-6. 次のテストをスケジュール設定する前に、テストが完了するまで待つ必要はありません。 **必要な**すべてのテストを、上で指定された順序でスケジュール設定します。
-
-7. **必要な**テストの結果を確認します。
+5. **必要な**テストの結果を確認します。
 
 パッケージ署名要求を送信するには、この実行に関連付けられているソリューション名とパッケージ検証名を [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に送信します。
 
