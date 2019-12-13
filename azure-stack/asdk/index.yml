@@ -2,7 +2,6 @@
 documentType: LandingData
 title: Azure Stack Hub 開発キットのドキュメント
 metadata:
-  document_id: null
   title: Azure Stack Hub 開発キットのドキュメント - チュートリアル、API リファレンス
   description: Azure Stack Hub 開発キットをデプロイして使用する方法について説明します。
   services: azure-stack
