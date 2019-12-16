@@ -16,21 +16,21 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: eca886314388f404e7a26a22f7a3b03294ff0577
-ms.sourcegitcommit: 5e53eb5d43d28ab07b4f84891dd269bbfcf65622
+ms.openlocfilehash: 96dbca8c3b834565d2fafb73aa02b870cb2bc9a6
+ms.sourcegitcommit: 6bb20ed3dcbd64231331a8e807ba69eff8b7439b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71311304"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74946820"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Azure Stack におけるパフォーマンスを最適化するための SQL サーバーのベスト プラクティス
 
 この記事では、Microsoft Azure Stack 仮想マシン (VM) における SQL Server の最適化とパフォーマンス向上を行うための、SQL サーバーのベスト プラクティスを紹介します。 Azure Stack VM で SQL Server を実行するときは、オンプレミスのサーバー環境で SQL Server に適用されるデータベース パフォーマンス チューニング オプションと同じものを使用します。 Azure Stack クラウド内のリレーショナル データベースのパフォーマンスは、VM のファミリ サイズやデータ ディスクの構成などの多くの要因に左右されます。
 
-SQL Server イメージを作成するときは、[VM を Azure Stack ポータルにプロビジョニングすることを検討してください](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 Azure Stack 管理者ポータルの Marketplace Management から SQL IaaS 拡張機能をダウンロードし、任意の SQL VM の仮想ハード ドライブ (VHD) をダウンロードします。 これには、SQL2014SP2、SQL2016SP1、SQL2017 が含まれます。
+SQL Server イメージを作成するときは、[VM を Azure Stack ポータルにプロビジョニングすることを検討してください](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 Azure Stack 管理者ポータルの Marketplace 管理から SQL IaaS 拡張機能をダウンロードし、任意の SQL Server VM イメージをダウンロードします。 これには、SQL Server 2016 SP1、SQL Server 2016 SP2、SQL Server 2017 が含まれます。
 
 > [!NOTE]  
-> この記事では、グローバルな Azure portal を使用して SQL Server VM をプロビジョニングする方法について説明しますが、ガイダンスは次の点を除いて Azure Stack にも適用されます。オペレーティング システム ディスクで SSD は利用できません。マネージド ディスクは利用できません。さらに、ストレージ構成に若干の違いがあります。
+> この記事では、グローバルな Azure portal を使用して SQL Server VM をプロビジョニングする方法について説明しますが、ガイダンスは次の点を除いて Azure Stack にも適用されます。オペレーティング システム ディスクに SSD は利用できません。また、ストレージ構成に若干の違いがあります。
 
 この記事では、Azure Stack VM で SQL Server の "*最適な*" パフォーマンスを得ることに焦点を絞っています。 ワークロードの要求が厳しくない場合は、推奨される最適化がすべて必要になるわけではありません。 各推奨事項を評価するときに、パフォーマンスのニーズとワークロードのパターンを考慮してください。
 

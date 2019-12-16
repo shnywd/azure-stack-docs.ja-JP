@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/10/2019
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 077d50da935a3ee8de0967c51920ede69125c816
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.lastreviewed: 12/10/2019
+ms.openlocfilehash: a560b37051cf3b8b54e3cfec69dc6a9b28cc1cfb
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299032"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995571"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新アクティビティのチェックリスト
 
@@ -36,6 +36,7 @@ Azure Stack の更新を準備するために、このチェックリストを�
 | 既知の問題の確認     | [既知の問題の一覧](known-issues.md)                |
 | セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](release-notes-security-updates.md)      |
 | 最新の OEM パッケージの適用 | OEM に問い合わせて、ご利用のシステムのアップグレード先の Azure Stack バージョンの最小 OEM パッケージ要件を、システムが満たしていることを確認してください。 OEM パッケージが、更新する Azure Stack バージョンと互換性があることを確認します。 OEM パッケージが更新先の Azure Stack バージョンと互換性がない場合は、Azure Stack 更新プログラムを実行する前に OEM パッケージの更新を実行する必要があります。 手順については、「Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する」を参照してください。 |
+| 省略可能:自動ログ収集の構成 | サポート チケットを開く必要がある場合にシステム ログを収集するプロセスを効率化するため、Azure Stack Hub 環境で自動ログ収集を構成することをお勧めします。 自動ログ収集を構成するには、「[自動 Azure Stack 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください。 |
 | 最新の修正プログラムの適用 | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。 最新の修正プログラムの一覧については、リリース ノートの修正プログラムのセクションを参照してください。 |
 | 容量計画ツールの実行 | ワークロードの計画とサイズ設定を行うには、最新バージョンの [Azure Stack Capacity Planner ツール](azure-stack-capacity-planning-overview.md)を使用します。 最新バージョンではバグの修正が含まれ、Azure Stack の各更新プログラムでリリースされる新機能が提供されています。 |
 | Test-AzureStack を実行する | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。 コマンドレットには、特権エンドポイント セッション (PEP) を使用してアクセスできます。 詳細については、「[新しい Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。 |

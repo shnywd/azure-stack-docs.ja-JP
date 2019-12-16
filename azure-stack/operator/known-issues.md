@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 4b27d5195159b809c3ad439054c88d675ab99164
-ms.sourcegitcommit: 11e0c2d9abbc0a2506f992976b3c9f8ca4e746b9
+ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
+ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74810228"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995588"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack の既知の問題
 
@@ -43,6 +43,11 @@ ms.locfileid: "74810228"
 <!---------------------------------------------------------->
 
 ::: moniker range="azs-1910"
+## <a name="update"></a>更新
+
+Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-updates-troubleshoot.md)に関する記事を参照してください。
+
+
 ## <a name="portal"></a>ポータル
 
 ### <a name="administrative-subscriptions"></a>管理サブスクリプション

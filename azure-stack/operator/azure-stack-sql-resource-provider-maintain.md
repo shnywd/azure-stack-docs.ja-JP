@@ -1,6 +1,7 @@
 ---
-title: Azure Stack 上の SQL リソース プロバイダーの保守 | Microsoft Docs
-description: Azure Stack 上の SQL リソース プロバイダー サービスを保守する方法について説明します。
+title: SQL リソース プロバイダーの保守操作
+titleSuffix: Azure Stack
+description: Azure Stack での SQL リソース プロバイダーのメンテナンス操作について説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,24 +16,24 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: bf5bd23fc9d497034dfb51c76f28e5b17fbd8e33
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829301"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954504"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
-SQL リソース プロバイダーは、ロック ダウンされた仮想マシン上で実行されます。 保守操作を有効にするには、仮想マシンのセキュリティを更新する必要があります。 最小限の特権の原則を使用してそれを行うには、[PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイント *DBAdapterMaintenance* を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
+SQL リソース プロバイダーは、ロックダウンされた仮想マシン (VM) 上で実行されます。 メンテナンス操作を有効にするには、VM のセキュリティを更新する必要があります。 最小限の特権の原則を使用してそれを行うには、[PowerShell Just Enough Administration (JEA)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイント *DBAdapterMaintenance* を使用します。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
 
 ## <a name="patching-and-updating"></a>修正プログラム適用と更新
 
 SQL リソース プロバイダーはアドオン コンポーネントであるため、Azure Stack の一部としては提供されません。 必要に応じて、SQL リソース プロバイダーの更新プログラムが提供されます。 更新された SQL アダプターがリリースされると、更新プログラムを適用するためのスクリプトが提供されます。 このスクリプトによって新しいリソース プロバイダー VM が作成され、古い方のプロバイダーの状態が新しい方の VM に移行されます。 詳細については、「[SQL リソース プロバイダーの更新](azure-stack-sql-resource-provider-update.md)」を参照してください。
 
-### <a name="provider-virtual-machine"></a>プロバイダー仮想マシン
+### <a name="provider-vm"></a>プロバイダー VM
 
-リソース プロバイダーは "*ユーザー*" 仮想マシン上で実行されているので、必要な修正プログラムおよび更新プログラムがリリースされたら、それらを適用する必要があります。 修正プログラム適用と更新のサイクルの一環で提供される Windows 更新プログラム パッケージを使用して、VM に更新プログラムを適用できます。
+リソース プロバイダーは "*ユーザー*" VM 上で実行されているので、必要な修正プログラムと更新プログラムがリリースされたら、それらを適用する必要があります。 修正プログラム適用と更新のサイクルの一環で提供される Windows 更新プログラム パッケージを使用して、VM に更新プログラムを適用します。
 
 ## <a name="updating-sql-credentials"></a>SQL 資格情報の更新
 
@@ -40,7 +41,7 @@ SQL リソース プロバイダーはアドオン コンポーネントであ�
 
 設定を変更するには、 **[参照]** &gt; **[管理リソース]** &gt; **[SQL ホスティング サーバー]** &gt; **[SQL ログイン]** の順に選択し、ユーザー名を選択します。 変更は、最初に SQL インスタンス (および必要な場合はレプリカ) で行う必要があります。 **[設定]** で **[パスワード]** を選択します。
 
-![管理パスワードの更新](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![SQL 管理者パスワードの更新](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 
 ## <a name="secrets-rotation"></a>シークレットのローテーション
 
@@ -49,7 +50,7 @@ SQL リソース プロバイダーはアドオン コンポーネントであ�
 Azure Stack 統合システムで SQL および MySQL リソース プロバイダーを使用する場合、以下のリソース プロバイダーのインフラストラクチャ シークレットが期限切れにならないようにローテーションする責任は Azure Stack オペレーターにあります。
 
 - [デプロイ時に提供](azure-stack-pki-certs.md)された外部 SSL 証明書。
-- デプロイ時に提供されたリソース プロバイダー VM のローカル管理者アカウントのパスワード。
+- デプロイ時に提供された、リソース プロバイダー VM のローカル管理者アカウントのパスワード。
 - リソース プロバイダーの診断ユーザー (dbadapterdiag) のパスワード。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell のシークレットのローテーション例
@@ -106,43 +107,43 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 |CloudAdminCredential|Azure Stack クラウド管理者ドメイン アカウントの資格情報。|
 |PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|
 |DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|
-|VMLocalCredential|MySQLAdapter VM でのローカル管理者アカウント。|
-|DefaultSSLCertificatePassword|既定の SSL 証明書 (* pfx) のパスワード。|
+|VMLocalCredential|MySQLAdapter VM のローカル管理者アカウント。|
+|DefaultSSLCertificatePassword|既定の SSL 証明書 (*pfx) のパスワード。|
 |DependencyFilesLocalPath|依存関係ファイルのローカル パス。|
 |     |     |
 
 ### <a name="known-issues"></a>既知の問題
 
-**問題**:シークレット ローテーション ログ。<br>
-シークレット ローテーションのカスタム スクリプトが実行され、失敗した場合、シークレット ローテーションのログは自動的に収集されません。
+**問題**:<br>
+シークレット ローテーション ログ。 シークレット ローテーションのカスタム スクリプトが実行され、失敗した場合、シークレット ローテーションのログは自動的に収集されません。
 
 **対処法**:<br>
 Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存されているすべてのリソース プロバイダーのログ (AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log など) を収集します。
 
-## <a name="update-the-virtual-machine-operating-system"></a>仮想マシンのオペレーティング システムの更新
+## <a name="update-the-vm-operating-system"></a>VM のオペレーティング システムを更新する
 
-仮想マシンのオペレーティング システムを更新するには、次のいずれかの方法を使用します。
+VM のオペレーティング システムを更新するには、次のいずれかの方法を使用します。
 
 - 現在パッチが適用されている Windows Server 2016 Core イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
 - リソース プロバイダーのインストールまたは更新中に Windows 更新プログラム パッケージをインストールする。
 
-## <a name="update-the-virtual-machine-windows-defender-definitions"></a>仮想マシンの Windows Defender の定義を更新する
+## <a name="update-the-vm-windows-defender-definitions"></a>VM の Windows Defender の定義を更新する
 
 Windows Defender の定義を更新するには:
 
-1. [Windows Defender の定義](https://www.microsoft.com/en-us/wdsi/definitions)から Windows Defender 定義の更新をダウンロードします。
+1. [Windows Defender のセキュリティ インテリジェンスの更新](https://www.microsoft.com/wdsi/definitions)に関するページから Windows Defender 定義の更新プログラムをダウンロードします。
 
-   定義の更新に関するページ上で下方にスクロールして「Manually download and install the definitions」 (定義を手動でダウンロードしてインストールする) を見つけます。 "Windows Defender Antivirus for Windows 10 および Windows 8.1" 64 ビット ファイルをダウンロードします。
+   定義の更新に関するページ上で下方にスクロールして「Manually download the update」 (更新プログラムを手動でダウンロードする) を見つけます。 "Windows Defender Antivirus for Windows 10 および Windows 8.1" 64 ビット ファイルをダウンロードします。
 
-   あるいは、[こちらのダイレクト リンク](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64)を使用して、fpam-fe.exe ファイルをダウンロードして実行します。
+   または、[こちらのダイレクト リンク](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64)を使用して、fpam-fe.exe ファイルをダウンロードして実行することもできます。
 
-2. SQL リソース プロバイダー アダプター仮想マシンのメンテナンス エンドポイントに対し PowerShell セッションを作成します。
+2. SQL リソース プロバイダー アダプター VM のメンテナンス エンドポイントへの PowerShell セッションを作成します。
 
-3. メンテナンス エンドポイントのセッションを使用して仮想マシンに定義更新ファイルをコピーします。
+3. メンテナンス エンドポイントのセッションを使用して、VM に定義更新ファイルをコピーします。
 
 4. メンテナンス PowerShell セッションで *Update-DBAdapterWindowsDefenderDefinitions* コマンドを実行します。
 
-5. 定義をインストールしたら、*Remove-ItemOnUserDrive* コマンドを使用することにより、定義更新ファイルを削除することをお勧めします。
+5. 定義をインストールしたら、*Remove-ItemOnUserDrive* コマンドを使用して、定義更新ファイルを削除することをお勧めします。
 
 **定義を更新するための PowerShell スクリプトの例**
 
@@ -159,14 +160,14 @@ $vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential `
 $databaseRPMachine  = "<RP VM IP address>"
 $localPathToDefenderUpdate = "C:\DefenderUpdates\mpam-fe.exe"
 
-# Download the Windows Defender update definitions file from https://www.microsoft.com/en-us/wdsi/definitions.
+# Download the Windows Defender update definitions file from https://www.microsoft.com/wdsi/definitions.
 Invoke-WebRequest -Uri 'https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64' `
     -Outfile $localPathToDefenderUpdate
 
 # Create a session to the maintenance endpoint.
 $session = New-PSSession -ComputerName $databaseRPMachine `
     -Credential $vmLocalAdminCreds -ConfigurationName DBAdapterMaintenance
-# Copy the defender update file to the adapter virtual machine.
+# Copy the defender update file to the adapter VM.
 Copy-Item -ToSession $session -Path $localPathToDefenderUpdate `
      -Destination "User:\"
 # Install the update definitions.
@@ -180,7 +181,7 @@ $session | Remove-PSSession
 
 ## <a name="collect-diagnostic-logs"></a>診断ログの収集
 
-ロックダウンされた仮想マシンからログを収集するには、PowerShell Just Enough Administration (JEA) エンドポイント *DBAdapterDiagnostics* を使用します。 このエンドポイントでは、次のコマンドが提供されます。
+ロックダウンされた VM からログを収集するには、PowerShell Just Enough Administration (JEA) エンドポイント *DBAdapterDiagnostics* を使用します。 このエンドポイントでは、次のコマンドが提供されます。
 
 - **Get-AzsDBAdapterLog**。 このコマンドは、リソース プロバイダー診断ログの zip パッケージを作成し、そのファイルをセッションのユーザー ドライブ上に保存します。 このコマンドはパラメーターなしで実行することができ、過去 4 時間のログが収集されます。
 - **Remove-AzsDBAdapterLog**。 このコマンドは、リソース プロバイダー VM に対する既存のログ パッケージを削除します。
@@ -190,9 +191,9 @@ $session | Remove-PSSession
 リソース プロバイダーをインストールまたは更新すると、**dbadapterdiag** ユーザー アカウントが作成されます。 このアカウントを使用することで、診断ログを収集できます。
 
 >[!NOTE]
->dbadapterdiag アカウント パスワードは、プロバイダーのデプロイ中または更新中に作成される仮想マシンのローカル管理者用に使用されるパスワードと同じです。
+>dbadapterdiag アカウント パスワードは、プロバイダーのデプロイ中または更新中に作成される VM のローカル管理者用に使用されるパスワードと同じです。
 
-*DBAdapterDiagnostics* コマンドを使用するには、リソース プロバイダーの仮想マシンに対するリモート PowerShell セッションを作成し、**Get-AzsDBAdapterLog** コマンドを実行します。
+*DBAdapterDiagnostics* コマンドを使用するには、リソース プロバイダー VM に対するリモート PowerShell セッションを作成し、**Get-AzsDBAdapterLog** コマンドを実行します。
 
 **FromDate** および **ToDate** パラメーターを使用して、ログ収集の期間を設定します。 これらのパラメーターの一方または両方を指定しない場合は、次の既定値が使用されます。
 

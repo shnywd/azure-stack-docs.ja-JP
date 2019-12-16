@@ -8,12 +8,12 @@ ms.author: jgerend
 ms.localizationpriority: medium
 ms.prod: windows-server-threshold
 ms.date: 11/04/2019
-ms.openlocfilehash: f3e3e79f5c570127f1f7f39613cafca1bd869f36
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.openlocfilehash: 2179ce6c52ce121b6cbb0307f5fbae73126650bb
+ms.sourcegitcommit: 8e5a4659d8669ccfe6cd75d03200ae09a16b5f8a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73595458"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74898587"
 ---
 # <a name="azure-stack-hci-overview"></a>Azure Stack HCI の概要
 
@@ -43,7 +43,7 @@ Azure Stack HCI は、さまざまなハードウェア パートナーから提
 
 ## <a name="the-azure-stack-family"></a>Azure Stack ファミリ
 
-Azure Stack HCI は、Azure と Azure Stack ファミリの一員で、Azure Stack と同じ、ソフトウェアによるコンピューティング、ストレージ、およびネットワーク ソフトウェアを利用します。 さまざまなソリューションを簡単にまとめると次のようになります ([Azure Stack エコシステムの比較](compare-azure-azure-stack.md)ページを参照してください)。
+Azure Stack HCI は、Azure と Azure Stack ファミリの一員であり、Azure Stack Hub と同じ、ソフトウェアによるコンピューティング、ストレージ、およびネットワーク ソフトウェアを利用します。 さまざまなソリューションを簡単にまとめると次のようになります ([Azure Stack エコシステムの比較](compare-azure-azure-stack.md)ページを参照してください)。
 
 - [Azure](https://azure.microsoft.com) - オンデマンドのセルフサービス コンピューティング リソースのためのパブリック クラウド サービスを利用し、既存のアプリを移行および最新化し、クラウドネイティブのアプリを新規に作成します。
 - [Azure Stack Edge](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview) - 機械学習ワークロードを加速し、オンプレミスのコンテナー化されたアプリや仮想化されたワークロードをクラウド管理アプライアンスで実行します。
@@ -87,7 +87,7 @@ Microsoft クラウドの基盤となるハイパーバイザー テクノロジ
 
 ## <a name="management-tools-and-system-center"></a>管理ツールと System Center
 
-Azure Stack HCI では、Azure Stack と同じ仮想化、ソフトウェアによるストレージ、およびネットワーク ソフトウェアを使用します。 ただし、Azure Stack HCI では、お客様がクラスターに対する完全な管理者権限を持ち、そのテクノロジをすべて直接管理できます。
+Azure Stack HCI では、Azure Stack Hub と同じ仮想化、ソフトウェアによるストレージ、およびネットワーク ソフトウェアを使用します。 ただし、Azure Stack HCI では、お客様がクラスターに対する完全な管理者権限を持ち、そのテクノロジをすべて直接管理できます。
 
 - [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
 - [記憶域スペース ダイレクト](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
@@ -112,7 +112,7 @@ Windows Server 2019 を実行する検証済みの Azure Stack HCI ソリュー�
 
 ## <a name="faq"></a>FAQ
 
-### <a name="what-do-azure-stack-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack と Azure Stack HCI ソリューションはどのような点が共通していますか。
+### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack Hub と Azure Stack HCI ソリューションはどのような点が共通していますか。
 
 Azure Stack HCI ソリューションには、Azure Stack Hub と同じ、Hyper-V ベースのソフトウェアによるコンピューティング、ストレージ、ネットワーク テクノロジが搭載されています。 どちらのオファリングも、厳しいテストおよび検証基準を満たしており、信頼性および基盤となるハードウェア プラットフォームとの互換性が確保されています。
 
@@ -146,7 +146,7 @@ Azure Stack HCI を接続できる Azure サービスの最新一覧について
 
 ### <a name="how-does-the-cost-of-azure-stack-hci-compare-to-azure-stack-hub"></a>Azure Stack Hub と比較すると Azure Stack HCI のコストはどの程度になりますか。 
 
-Azure Stack Hub は、サービスとサポートを含む完全な統合システムとして販売されます。 お客様が管理するシステムとして Azure Stack を購入することも、フル マネージド サービスとして弊社のパートナーから購入することもできます。 ベース システムに加えて、Azure Stack または Azure 上で実行される Azure サービスは、従量課金制モデルで販売されます。
+Azure Stack Hub は、サービスとサポートを含む完全な統合システムとして販売されます。 お客様が管理するシステムとして Azure Stack Hub を購入することも、フル マネージド サービスとして弊社のパートナーから購入することもできます。 ベース システムに加えて、Azure Stack Hub または Azure 上で実行される Azure サービスは、従量課金制で販売されます。
 
 Azure Stack HCI ソリューションは従来の購入モデルに従います。 検証済みのハードウェアは Azure Stack HCI パートナーから、ソフトウェア (ソフトウェアによるデータセンター機能と Windows Admin Center付きの Windows Server 2019 Datacenter Edition) は既存のさまざまなチャネルから購入できます。 Windows Admin Center で使用できる Azure サービスについては、Azure サブスクリプションで支払います。
 

@@ -16,22 +16,27 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: d2ce6c0af2912a2658db80301c9a64c8e3d5c066
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
+ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780730"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74993893"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Azure Stack 上で SQL データベースを使用する
 
-SQL Server リソース プロバイダーを使用して、SQL データベースを [Azure Stack](azure-stack-overview.md) のサービスとして提供します。 リソースプロバイダーをインストールして 1 つまたは複数の SQL Server インスタンスに接続すると、御社および御社のユーザーは次のものを作成できます。
+SQL リソース プロバイダーを使用して、SQL データベースを [Azure Stack](azure-stack-overview.md) のサービスとして提供します。 リソースプロバイダーをインストールして 1 つまたは複数の SQL Server インスタンスに接続すると、御社および御社のユーザーは次のものを作成できます。
 
 - クラウドネイティブ アプリ向けデータベース。
 - SQL を使用する Websites。
 - SQL を使用するワークロード。
 
-リソース プロバイダーでは、[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) のすべてのデータベース管理機能が提供されているわけではありません。 たとえば、リソースを自動的に割り当てるエラスティック プールはサポートされていません。 ただし、リソース プロバイダーでは、SQL Server データベースに対して同様の作成、読み取り、更新、および削除 (CRUD) 操作がサポートされています。
+SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
+
+- ユーザーは、個々のデータベースの作成と管理のみを行うことができます。 エンド ユーザーはデータベース サーバー インスタンスにアクセスできません。 これにより、マスター、Temp DB にアクセスしたり、データベースを動的に管理したりすることが必要なオンプレミス データベース アプリケーションとの互換性が制限される可能性があります。
+- Azure Stack オペレーターは、SQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。 
+- 異なるサブスクリプションの異なるユーザーのデータベースは、同じデータベース サーバー インスタンスに配置できます。 RP は、データベースを別のホストまたはデータベース サーバー インスタンスで分離するためのメカニズムを備えていません。
+- RP では、データベースのテナント使用に関するレポートは提供されません。
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL リソースプロバイダー アダプターのアーキテクチャ
 

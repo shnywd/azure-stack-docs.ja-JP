@@ -1,5 +1,6 @@
 ---
-title: Azure Stack 上の SQL リソース プロバイダーを削除する | Microsoft Docs
+title: SQL リソース プロバイダーの削除
+titleSuffix: Azure Stack
 description: Azure Stack のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
 services: azure-stack
 documentationCenter: ''
@@ -15,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 3a1b3dc51bbbd48ebe27ce9cafd9617ba7a1d07a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909482"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954453"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL リソース プロバイダーの削除
 
@@ -53,11 +54,11 @@ DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダ
 
 4. 次のパラメーターを使用して、DeploySqlProvider.ps1 スクリプトを実行します。
 
-    * **Uninstall**。 リソース プロバイダーと関連付けられているすべてのリソースを削除します。
-    * **PrivilegedEndpoint**。 特権エンドポイントの IP アドレスまたは DNS 名。
-    * **AzureEnvironment**。 Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
-    * **CloudAdminCredential**。 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
-    * **AzCredential**。 Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
+    * **Uninstall**:リソース プロバイダーと関連付けられているすべてのリソースを削除します。
+    * **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
+    * **AzureEnvironment**:Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
+    * **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
+    * **AzCredential**:Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
 
 ## <a name="next-steps"></a>次の手順
 

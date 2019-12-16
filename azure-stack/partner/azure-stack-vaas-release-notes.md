@@ -14,18 +14,33 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: aa85310314a09db47f10424e84fe40e355bacb25
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: 963944f2ade4db168c1b7f9070e72fe503bdfcf9
+ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846238"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954470"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>サービスとしての検証のリリース ノート
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 この記事には、Azure Stack のサービスとしての検証のリリース ノートが含まれています。
+
+## <a name="version-4421"></a>バージョン 4.4.2.1
+
+2019 年 12 月 3 日
+
+- テスト コンテンツの更新
+  - 月次 Azure Stack 更新プログラム ワークフローと OEM パッケージの検証ワークフローのオンライン ドキュメントが更新されました。 更新されたドキュメント「OEM パッケージの検証」と「Microsoft のソフトウェア更新プログラムの検証」を確認してください
+  - VaaS パッケージ検証ワークフローの更新:月次 Azure Stack 更新プログラムの検証と OEM パッケージの検証に必要なテストは、OEM 検証ワークフローだけです。 このテストでは、指定された AzureStack/OEM パッケージでスタンプを更新し、クラウド シミュレーション エンジンの検証テストを実行します。
+  - VaaS PowerShell 拡張機能の更新:パッケージ検証ワークフローの自動化がサポートされるようになりました。 この拡張機能を使用する場所と具体的な手順について詳しくは、Powershell を使用した Azure Stack VaaS の自動化に関する記事を参照してください。
+
+- 既知の問題
+  - OEM 検証ワークフロー中に次のテスト ケースを実行できない場合は、vaashelp@microsoft.com にお問い合わせください。
+    - Test101LinuxEmptyAttachedDiskManagedDisk
+    - Test101WindowsEmptyAttachedDiskManagedDisk
+
 
 ## <a name="version-4353"></a>バージョン 4.3.5.3
 
@@ -66,7 +81,7 @@ ms.locfileid: "73846238"
 - OEM パッケージの検証ワークフローと Azure Stack 更新プログラム ワークフロー (バージョン 5.1.30.0 -> 5.1.46.0) のクラウド シミュレーション エンジンでは、テストは、月次の Azure Stack 更新プログラムの検証テスト、OEM 拡張機能パッケージの検証テスト、そして最後にクラウド シミュレーション エンジンの順序でスケジュールする必要があります。
 - VaaS エージェントの更新:更新された VaaS エージェントは、Azure Stack のクラウド管理者の資格情報を使ってスタンプのクエリを実行し、ワークフローに自動入力するためのスタンプ情報を取得するようになりました。 
 
-    この更新では、すべてのエージェントを更新して再起動する必要があります。 VaaS エージェントの更新方法に関する次の説明を参照してください: https://docs.microsoft.com/en-us/azure-stack/partner/azure-stack-vaas-local-agent
+    この更新では、すべてのエージェントを更新して再起動する必要があります。 VaaS エージェントの更新方法に関する次の説明を参照してください: https://docs.microsoft.com/azure-stack/partner/azure-stack-vaas-local-agent
 - VaaS ポータル UI の更新:テストを容易にするために、エージェント選択テーブルはテスト スケジュール ペインの上に移動されました。
 
     VaaS エージェントが正しく更新されていれば、ジョブをスケジュールするときに、スタンプ情報を入力する必要はなくなりました。
@@ -149,7 +164,7 @@ Azure Stack 月間更新検証ワークフローを実行しているとき、�
 
 - PowerShell オートメーションの更新
 
-    `LaunchVaaSTests` PowerShell スクリプトに、最新バージョンのスクリプト パッケージを必要とする変更が加えられました。 最新バージョンのスクリプト パッケージをインストールする手順については、「[テスト パス ワークフローの起動](azure-stack-vaas-automate-with-powershell.md#launch-the-test-pass-workflow)」をご覧ください。
+    `LaunchVaaSTests` PowerShell スクリプトに、最新バージョンのスクリプト パッケージを必要とする変更が加えられました。 最新バージョンのスクリプト パッケージをインストールする手順については、「[テスト パス ワークフローの起動](azure-stack-vaas-automate-with-powershell.md)」をご覧ください。
 
 - サービスとしての検証ポータル
 
