@@ -346,6 +346,8 @@
               href: azure-stack-mysql-resource-provider-remove.md
             - name: MySQL リソース プロバイダーのリリース ノート
               items:
+                - name: MySQL リソース プロバイダー 1.1.47.0 のリリース ノート
+                  href: azure-stack-mysql-resource-provider-11470.md
                 - name: MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
                   href: azure-stack-mysql-resource-provider-11330.md
                 - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
@@ -370,6 +372,8 @@
               href: azure-stack-sql-resource-provider-remove.md
             - name: SQL リソース プロバイダーのリリース ノート
               items:
+                - name: SQL リソース プロバイダー 1.1.47.0 のリリース ノート
+                  href: azure-stack-sql-resource-provider-11470.md
                 - name: SQL リソース プロバイダー 1.1.33.0 のリリース ノート
                   href: azure-stack-sql-resource-provider-11330.md
                 - name: SQL リソース プロバイダー 1.1.30.0 のリリース ノート
@@ -403,7 +407,6 @@
                 - name: 使用量登録エラー コード
                   href: azure-stack-registration-errors.md
     - name: Azure Stack のバックアップ
-      href: azure-stack-backup-infrastructure-backup.md
       items:
         - name: 管理コンソールから Azure Stack のバックアップを有効にする
           href: azure-stack-backup-enable-backup-console.md
@@ -411,6 +414,8 @@
           href: azure-stack-backup-enable-backup-powershell.md
         - name: Azure Stack のバックアップ
           href: azure-stack-backup-back-up-azure-stack.md
+        - name: バックアップ サービスを使用したデータの復旧
+          href: azure-stack-backup-infrastructure-backup.md
         - name: Azure Stack 上のファイルとアプリケーションのバックアップ
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: Azure Stack VM を Azure にレプリケートする

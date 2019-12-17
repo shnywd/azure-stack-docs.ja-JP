@@ -37,6 +37,8 @@
           items:
             - name: 開発環境をセットアップする
               href: azure-stack-dev-start.md
+            - name: 承認情報を取得する
+              href: authenticate-azure-stack-hub.md
             - name: PowerShell と Azure Stack Hub の使用
               items:
                 - name: Azure Stack Hub PowerShell の概要
