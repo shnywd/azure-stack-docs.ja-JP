@@ -254,30 +254,35 @@
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: 基本パターンのデプロイ
       items:
-        - name: VNet ピアリング
+        - name: ネットワークのパターン
           items:
-            - name: FortiGate を使用した VNet ピアリング
-              href: azure-stack-network-howto-vnet-to-vnet.md
             - name: VM を使用した VNet ピアリング
               href: azure-stack-network-howto-vnet-peering.md
-        - name: オンプレミスへの VPN のセットアップ
-          href: azure-stack-network-howto-vnet-to-onprem.md
-        - name: VNet 間接続
-          href: azure-stack-network-howto-vnet-to-vnet-stacks.md
-        - name: データセンターを拡張する
-          href: azure-stack-network-howto-extend-datacenter.md
+            - name: サード パーティの NVA を使用する (Fortinet Fortigate NVA)
+              items:
+                - name: FortiGate を使用した VNet ピアリング
+                  href: azure-stack-network-howto-vnet-to-vnet.md
+                - name: オンプレミスへの VPN のセットアップ
+                  href: azure-stack-network-howto-vnet-to-onprem.md
+                - name: VNet 間接続
+                  href: azure-stack-network-howto-vnet-to-vnet-stacks.md
+            - name: RRAS を使用する
+              items:
+                - name: 複数サイト間 VPN を設定する
+                  href: network-howto-vpn-tunnel.md
+                - name: VPN トンネル (GRE) を作成する
+                  href: network-howto-vpn-tunnel-gre.md
+                - name: VPN トンネル (IPSEC) を作成する
+                  href: network-howto-vpn-tunnel-ipsec.md
         - name: F5 ロード バランサー
           href: network-howto-f5.md
-        - name: iSCSI ストレージに接続する
-          href: azure-stack-network-howto-iscsi-storage.md
-        - name: トンネルを設定する
+        - name: 外部ストレージに接続する
           items:
-            - name: 複数サイト間 VPN を設定する
-              href: network-howto-vpn-tunnel.md
-            - name: VPN トンネル (GRE) を作成する
-              href: network-howto-vpn-tunnel-gre.md
-            - name: VPN トンネル (IPSEC) を作成する
-              href: network-howto-vpn-tunnel-ipsec.md
+            - name: iSCSI ストレージに接続する
+              href: azure-stack-network-howto-iscsi-storage.md
+            - name: データセンターを拡張する
+              href: azure-stack-network-howto-extend-datacenter.md
+        - name: VNet ピアリング
         - name: バックアップと回復
           items:
             - name: Commvault を使用した Azure Stack での VM のバックアップ
