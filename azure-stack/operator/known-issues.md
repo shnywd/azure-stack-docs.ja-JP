@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 12/13/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 684f6925c32eabca51fa89776ec95b57a852a987
-ms.sourcegitcommit: d9430072dd96ae305101da6d8a47d6c23a0a64c2
+ms.openlocfilehash: 755bd556d9e4643ff5e17d900cdf7e5245f1894e
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995588"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033947"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack の既知の問題
 
@@ -46,7 +46,6 @@ ms.locfileid: "74995588"
 ## <a name="update"></a>更新
 
 Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-updates-troubleshoot.md)に関する記事を参照してください。
-
 
 ## <a name="portal"></a>ポータル
 
@@ -154,9 +153,9 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ### <a name="access-control-iam"></a>アクセス制御 (IAM)
 
-- 適用先:この問題は、1903 以降のリリースに適用されます
-- 原因: IAM 拡張機能が古すぎます。 Ibiza に付属の Azure Stack に導入されている新しい動作は、ユーザーがグローバル サブスクリプション ピッカーで選択されていないサブスクリプションから RBAC 拡張機能を開いている場合に、RBAC 拡張機能が中断する原因となります。
-- 修復: グローバル サブスクリプション ピッカー内でサブスクリプションがオンになっていることを確認します。 
+- 適用先:この問題は、基本イメージ 1903 以前を使用してデプロイされたスタンプに適用されます。
+- 原因: IAM 拡張機能が古すぎます。 Azure Stack に付属している Ibiza ポータルで導入された新しい動作は、ユーザーがグローバル サブスクリプション セレクター (ユーザー ポータルの **[ディレクトリ + サブスクリプション]** ) 内で選択されていないサブスクリプションの **[アクセス制御 (IAM)]** ブレードを開いている場合に、RBAC 拡張機能が失敗する原因となります。 このブレードには **[読み込み中]** がループで表示され、ユーザーはサブスクリプションに新しいロールを追加できません。 **[追加]** ブレードにも、 **[読み込み中]** がループで表示されます。
+- 修復: **[ディレクトリ + サブスクリプション]** メニューでサブスクリプションがオンになっていることを確認します。 このメニューには、ポータルの上部から、または **[通知]** ボタンの近くからアクセスするか、 **[すべてのリソース]** ブレードのショートカット ( **[サブスクリプションが表示されていませんか?ディレクトリとサブスクリプションの設定を開きます]** と表示されている) を使用してアクセスします。 このメニューで、サブスクリプションを選択する必要があります。
 
 ## <a name="networking"></a>ネットワーク
 
@@ -178,7 +177,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
 - 発生頻度: 一般
 
-### <a name="network-interface"></a>Linux
+### <a name="network-interface"></a>ネットワーク インターフェイス
 
 #### <a name="addingremoving-network-interface"></a>ネットワーク インターフェイスの追加/削除
 
@@ -236,8 +235,15 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="consumed-compute-quota"></a>コンピューティング クォータの消費
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 新しい仮想マシンを作成すると、"**This subscription is at capacity for Total Regional vCPUs on this location.This subscription is using all 50 Total Regional vCPUs available.** " (このサブスクリプションはこの場所の [リージョンの vCPU の合計] の容量に達しています。このサブスクリプションは、[リージョンの vCPU の合計] の使用可能な 50 個をすべて使用しています。)" などのエラーを受け取ることがあります。 これは、使用可能な合計コア数のクォータに達したことを示します。
+- 原因: 新しい仮想マシンを作成すると、"**This subscription is at capacity for Total Regional vCPUs on this location.This subscription is using all 50 Total Regional vCPUs available.** " (このサブスクリプションはこの場所の [リージョンの vCPU の合計] の容量に達しています。このサブスクリプションは、[リージョンの vCPU の合計] の使用可能な 50 個をすべて使用しています。)" などのエラーを受け取ることがあります。 これは、使用可能な合計コア数のクォータに達したことを示します。
 - 修復: クォータを追加したアドオン プランをオペレーターに依頼してください。 現在のプランのクォータの編集では解決せず、クォータの増加は反映されません。
+- 発生頻度: 珍しい
+
+### <a name="privileged-endpoint"></a>特権エンドポイント
+
+- 適用先:この問題は、1910 以前のリリースに適用されます。
+- 原因: 英語以外のバージョンの Windows を実行しているコンピューターから特権エンドポイント (ERC VM) に接続できません。
+- 修復: これは、1910 より後のリリースで修正されている既知の問題です。 この回避策として、**en-us** カルチャを使用して、**New-PSSession** および **Enter-PSSession** の Powershell コマンドレットを実行できます。たとえば、このスクリプトを使用してカルチャを設定します: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
 - 発生頻度: 珍しい
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
@@ -326,7 +332,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
 - 発生頻度: 一般
 
-### <a name="network-interface"></a>Linux
+### <a name="network-interface"></a>ネットワーク インターフェイス
 
 #### <a name="addingremoving-network-interface"></a>ネットワーク インターフェイスの追加/削除
 
@@ -490,7 +496,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
 - 発生頻度: 一般
 
-### <a name="network-interface"></a>Linux
+### <a name="network-interface"></a>ネットワーク インターフェイス
 
 #### <a name="addingremoving-network-interface"></a>ネットワーク インターフェイスの追加/削除
 
@@ -661,7 +667,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
 - 発生頻度: 一般
 
-### <a name="network-interface"></a>Linux
+### <a name="network-interface"></a>ネットワーク インターフェイス
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 新しいネットワーク インターフェイスを、**実行**状態にある VM に追加することはできません。

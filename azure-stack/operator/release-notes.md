@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: db050565b7ef2b1b22192e7f39366ac1e341cd0f
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: 8c124f44ed938108a4b23cea44642b7e275eb04d
+ms.sourcegitcommit: c0fe1ac8c38d0475621ad8022db96983f9e5ae79
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830966"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75188387"
 ---
 # <a name="azure-stack-updates-release-notes"></a>Azure Stack の更新プログラム: リリース ノート
 
@@ -211,14 +211,14 @@ Azure Stack 修正プログラムを適用できるのは Azure Stack 統合シ�
 Azure Stack の 1910 リリースは、次の修正プログラムが適用された 1908 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack 修正プログラム 1.1908.11.47](https://support.microsoft.com/help/4535000)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>1910 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 1910 用の修正プログラムはありません。
+- [Azure Stack 修正プログラム 1.1910.8.76](https://support.microsoft.com/help/4534999)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -295,7 +295,7 @@ Azure Stack 1908 更新プログラムには、システムのハードウェア
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1908.9.43](https://support.microsoft.com/help/4531007)
+- [Azure Stack 修正プログラム 1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

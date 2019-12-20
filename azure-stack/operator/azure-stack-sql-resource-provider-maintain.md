@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 8d8464c35b2aaa48c5611f7eac84ed6f9d80e866
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954504"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183539"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -231,6 +231,27 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 # Close the session.
 $session | Remove-PSSession
 ```
+## <a name="configure-azure-diagnostics-extension-for-sql-resource-provider"></a>SQL リソース プロバイダーの Azure Diagnostics 拡張機能の構成
+Azure Diagnostics 拡張機能は、既定で SQL リソース プロバイダー アダプター VM にインストールされます。 次の手順では、トラブルシューティングと監査の目的で SQL リソース プロバイダーの操作イベント ログと IIS ログを収集するために拡張機能をカスタマイズする方法について説明します。
+
+1. Azure Stack Hub 管理者ポータルにサインインします。
+
+2. 左側のペインで **[仮想マシン]** を選択し、SQL リソース プロバイダー アダプター VM を検索して、その VM を選択します。
+
+3. VM の **[診断設定]** で、 **[ログ]** タブにアクセスし、 **[カスタム]** を選択して、収集するイベント ログをカスタマイズします。
+![診断設定への移動](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
+
+4. SQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
+![イベント ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
+
+5. IIS ログの収集を有効にするには、 **[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
+![IIS ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
+
+6. 最後に、 **[保存]** を選択して、すべての診断設定を保存します。
+
+イベント ログと IIS ログの収集が SQL リソース プロバイダーに対して構成されると、**sqladapterdiagaccount** という名前のシステム ストレージ アカウント内にログが見つかります。
+
+Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 

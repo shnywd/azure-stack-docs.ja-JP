@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: justinha
 ms.reviewer: ppacent
-ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f306391451c4d04af3b5a37645f145fb732714f0
-ms.sourcegitcommit: acebda8a42ac8ecdeba490fc1738e9041479dab0
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: e9276d67c767ec6a08549be830c52bbbe03230ec
+ms.sourcegitcommit: 50b7974454e008724817cbb4416ce40368b31ef4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72814003"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75035508"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開キー インフラストラクチャ証明書の要件
 
@@ -56,7 +56,8 @@ Azure Stack には、少数の Azure Stack サービスやテナント VM に割
 - サブジェクト名と、サブジェクトの別名の拡張子 (x509v3_config) のサブジェクトの別名が一致するようにします。 サブジェクトの別名フィールドでは、単一の SSL 証明書によって保護される追加のホスト名 (Web サイト、IP アドレス、共通名) を指定できます。
 
 > [!NOTE]  
-> 自己署名証明書はサポートされていません。
+> 自己署名証明書はサポートされていません。  
+> Azure Stack Hub を切断モードでデプロイする場合は、エンタープライズ証明機関によって発行された証明書を使用することをお勧めします。 Azure Stack エンドポイントにアクセスするクライアントは、証明書失効リスト (CRL) にアクセスできる必要があるため、これは重要です。
 
 > [!NOTE]  
 > 証明書の信頼チェーン内での中間証明機関の存在が*サポートされています*。

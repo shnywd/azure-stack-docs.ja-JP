@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: mabrigg
-ms.lastreviewed: 09/30/2019
+ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 14c1d6ba96cd8c9671b28f435db90b7b3ce3ad34
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 2d6329a150e4ab1a81e9c9d092101a085d00afd0
+ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007981"
+ms.lasthandoff: 12/16/2019
+ms.locfileid: "75033964"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Azure Stack でシークレットをローテーションする
 
@@ -386,6 +386,10 @@ Remove-PSSession -Session $PEPSession
 1. **1910 より前のバージョン**:OEM の指示に従って、Azure Stack の物理サーバー上で BMC を更新します。 環境内の各 BMC のユーザー名とパスワードは同じである必要があります。 BMC のユーザー名は、16 文字を超えることはできません。
 
    **バージョン 1910 以降**:もう OEM の指示に従って Azure Stack 物理サーバーの BMC 資格情報を最初に更新する必要はありません。 環境内の各 BMC のユーザー名とパスワードは同じである必要があります。 BMC のユーザー名は、16 文字を超えることはできません。
+
+    | パラメーター | 説明 | State |
+    | --- | --- | --- |
+    | BypassBMCUpdate | このパラメーターを使用すると、BMC の資格情報は更新されません。 更新されるのは、Azure Stack 内部データストアのみです。 | 省略可能 |
 
 2. Azure Stack セッションで特権エンドポイントを開きます。 手順については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
 

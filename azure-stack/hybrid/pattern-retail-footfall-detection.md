@@ -8,12 +8,12 @@ ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: a7a7563db3c315c4913287e8f286f07abd633602
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
+ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640000"
+ms.lasthandoff: 12/18/2019
+ms.locfileid: "75187285"
 ---
 # <a name="footfall-detection-pattern"></a>足取り検出パターン
 
@@ -37,8 +37,8 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 2. モデルが人を認識すると、写真が撮影され、Azure Stack Hub BLOB ストレージにアップロードされます。 
 3. Blob service によって Azure Stack Hub で Azure 関数がトリガーされます。 
 4. Azure 関数は、Face API を含むコンテナーを呼び出し、画像から人口統計データと感情データを取得します。
-5. このデータは匿名化され、Azure Event Hubs に送信されます。
-6. Event Hubs により、データは Stream Analytics にプッシュされます。
+5. このデータは匿名化され、Azure Event Hubs クラスターに送信されます。
+6. Event Hubs クラスターにより、データは Stream Analytics にプッシュされます。
 7. Stream Analytics によってデータが集計され、Power BI にプッシュされます。
 
 ## <a name="components"></a>コンポーネント
@@ -55,7 +55,7 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 | | [Azure Kubernetes Service (AKS) エンジン](https://github.com/Azure/aks-engine) クラスター | AKS RP では AKS エンジンが Azure Stack Hub にデプロイされているため、Face API コンテナーを実行するためのスケーラブルで回復力のあるエンジンが提供されます。 |
 | | Azure Cognitive Services の [Face API コンテナー](/azure/cognitive-services/face/face-how-to-install-containers)| Face API コンテナーを備えた Azure Cognitive Services RP により、Contoso のプライベート ネットワーク上で人口統計、感情、および買い物客の一意検出が実現します。 |
 | | Blob Storage | AI Dev Kit からキャプチャされた画像は、Azure Stack Hub の BLOB ストレージにアップロードされます。 |
-| | Azure Functions | Azure Stack Hub で実行されている Azure Functions は、BLOB ストレージからの入力を受け取り、Face API とのやり取りを管理します。 次に、匿名データを、Azure にある Event Hubs に出力します。<br><br>|
+| | Azure Functions | Azure Stack Hub で実行されている Azure Functions は、BLOB ストレージからの入力を受け取り、Face API とのやり取りを管理します。 次に、匿名データを、Azure にある Event Hubs クラスターに出力します。<br><br>|
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
@@ -67,7 +67,7 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 
 - Stream Analytics のストリーミング ユニット数を増やす
 - Face API デプロイをスケールアウトする
-- Event Hubs のスループットを増やす
+- Event Hubs クラスターのスループットを増やす
 - 極端なケースでは、Azure Functions から仮想マシンへの移行が必要になる場合があります。
 
 ### <a name="availability"></a>可用性

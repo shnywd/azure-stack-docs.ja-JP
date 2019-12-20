@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 9dc2de86828e188aa82b44d376e693be887717d8
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
+ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682192"
+ms.lasthandoff: 12/17/2019
+ms.locfileid: "75183451"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -225,6 +225,32 @@ $cleanup = Invoke-Command -Session $session -ScriptBlock {Remove-AzsDBAdapterLog
 $session | Remove-PSSession
 
 ```
+
+## <a name="configure-azure-diagnostics-extension-for-mysql-resource-provider"></a>MySQL リソース プロバイダーの Azure Diagnostics 拡張機能の構成
+
+Azure Diagnostics 拡張機能は、既定で MySQL リソース プロバイダー アダプター VM にインストールされます。 次の手順では、トラブルシューティングと監査の目的で MySQL リソース プロバイダーの操作イベント ログと IIS ログを収集するために拡張機能をカスタマイズする方法について説明します。
+
+1. Azure Stack Hub 管理者ポータルにサインインします。
+
+2. 左側のペインで **[仮想マシン]** を選択し、MySQL リソース プロバイダー アダプター VM を検索して、その VM を選択します。
+
+3. VM の **[診断設定]** で、 **[ログ]** タブにアクセスし、 **[カスタム]** を選択して、収集するイベント ログをカスタマイズします。
+   
+   ![診断設定への移動](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
+
+4. MySQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
+
+   ![イベント ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
+
+5. IIS ログの収集を有効にするには、 **[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
+
+   ![IIS ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
+
+6. 最後に、 **[保存]** を選択して、すべての診断設定を保存します。
+
+イベント ログと IIS ログの収集が MySQL リソース プロバイダーに対して構成されると、**mysqladapterdiagaccount** という名前のシステム ストレージ アカウント内にログが見つかります。
+
+Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
 
 ## <a name="next-steps"></a>次の手順
 
