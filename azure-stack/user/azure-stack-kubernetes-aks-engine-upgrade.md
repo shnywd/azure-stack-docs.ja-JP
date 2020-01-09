@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c7db293cb1a24079f66dcf0b047cf66218857003
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
+ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310138"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75605876"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをアップグレードする
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
-## <a name="upgrade-a-cluster"></a>クラスターをアップグレードする
+## <a name="upgrade-a-cluster"></a>クラスターのアップグレード
 
 AKS エンジンでは、ツールを使用して最初にデプロイされたクラスターをアップグレードすることができます。 AKS エンジンを使用してクラスターを維持できます。 メンテナンス タスクは、任意の IaaS システムと同様です。 新しい更新プログラムが利用可能かどうかを認識し、AKS エンジンを使用してそれらを適用します。
 
@@ -84,7 +84,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 
 2. `upgrade` コマンドを実行するために必要な情報を収集します。 アップグレードでは、次のパラメーターが使用されます。
 
-    | パラメーター | 例 | 説明 |
+    | パラメーター | 例 | [説明] |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack であることを示すには、`AzureStackCloud` を使用します。 |
     | location | local | Azure Stack のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
@@ -99,7 +99,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 
     ```bash  
     aks-engine upgrade \
-    --azure-env AzureStackCloud   
+    --azure-env AzureStackCloud \
     --location <for an ASDK is local> \
     --resource-group kube-rg \
     --subscription-id xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
@@ -139,7 +139,7 @@ aks-engine upgrade \
 
 手順については、[アップグレードの強制](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md#force-upgrade)に関するセクションを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
 - [Azure Stack で Kubernetes クラスターをスケールする](azure-stack-kubernetes-aks-engine-scale.md)

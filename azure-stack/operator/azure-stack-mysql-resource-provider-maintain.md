@@ -15,12 +15,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 75135801bf5762f597ae70d980588dedadf31b36
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: fea4d8abcb0b8bb4f541105d782d2adbdc1f0f4c
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183451"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756867"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -153,7 +153,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 パラメーター
 
-|パラメーター|説明|
+|パラメーター|[説明]|
 |-----|-----|
 |AzCredential|Azure Stack サービス管理者アカウントの資格情報。|
 |CloudAdminCredential|Azure Stack クラウド管理者ドメイン アカウントの資格情報。|
@@ -250,8 +250,8 @@ Azure Diagnostics 拡張機能は、既定で MySQL リソース プロバイダ
 
 イベント ログと IIS ログの収集が MySQL リソース プロバイダーに対して構成されると、**mysqladapterdiagaccount** という名前のシステム ストレージ アカウント内にログが見つかります。
 
-Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
+Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [MySQL リソース プロバイダーを削除する](azure-stack-mysql-resource-provider-remove.md)

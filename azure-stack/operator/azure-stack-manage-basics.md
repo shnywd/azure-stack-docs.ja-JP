@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: f9b9d6d1474c22c8e31d24ae08faf1aac6d5e9c1
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283487"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333038"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack の管理の基本
 
@@ -46,7 +46,7 @@ Azure のように、Microsoft は迅速にイノベーションを進めてい�
 Azure Stack をデプロイすると、Azure Stack には既定で以下の "基礎となるサービス" が含まれています。
 
 - Compute
-- Storage
+- ストレージ
 - ネットワーク
 - Key Vault
 
@@ -68,8 +68,8 @@ Azure Stack をデプロイすると、Azure Stack には既定で以下の "基
 Azure Stack には、引き続き Azure サービスのサポートが追加される予定です。 プロジェクトのロードマップについては、「[Azure Stack: Azure の拡張機能](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)」ホワイトペーパーを参照してください。 新しい発表については、[Azure Stack のブログ投稿](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)をチェックすることもできます。
 
 ## <a name="what-account-should-i-use"></a>使用するアカウントについて
-Azure Stack を管理する場合に注意するいくつかのアカウントに関する考慮事項があります。 特に、Azure Active Directory (Azure AD) ではなく ID プロバイダーとして Windows Server Active Directory Federation Services (AD FS) を使用する展開では注意が必要です。 次のアカウントに関する考慮事項は、Azure Stack 統合システムと ASDK 展開の両方に適用されます。
 
+Azure Stack を管理する場合に注意するいくつかのアカウントに関する考慮事項があります。 特に、Azure Active Directory (Azure AD) ではなく ID プロバイダーとして Windows Server Active Directory Federation Services (AD FS) を使用する展開では注意が必要です。 次のアカウントに関する考慮事項は、Azure Stack 統合システムと ASDK 展開の両方に適用されます。
 
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
@@ -104,7 +104,7 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 
 ## <a name="what-to-tell-your-users"></a>ユーザーに伝えること
 
-ユーザーには、Azure Stack 内のサービスを操作する方法、環境に接続する方法、オファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供するカスタム ドキュメントのほかに、ユーザーには [Azure Stack ユーザー ドキュメント](https://docs.microsoft.com/en-us/azure-stack/user/)を案内できます。
+ユーザーには、Azure Stack 内のサービスを操作する方法、環境に接続する方法、オファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供するカスタム ドキュメントのほかに、ユーザーには [Azure Stack ユーザー ドキュメント](/azure-stack/user/)を案内できます。
 
 **Azure Stack 内のサービスを操作する方法について**
 
@@ -147,6 +147,6 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 
 ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 フォーラムにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択します。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack でのリージョンの管理](azure-stack-region-management.md)

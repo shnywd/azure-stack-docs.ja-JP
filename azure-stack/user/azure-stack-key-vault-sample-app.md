@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: fa5a602fbdca32aed635f587fef248bcff0dae06
-ms.sourcegitcommit: 2063332b4d7f98ee944dd1f443847eea70eb5614
+ms.openlocfilehash: 97299ec47908325f7d3eddb7cf57ca891e145a8d
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68303157"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718489"
 ---
 # <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Azure Stack でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
 
@@ -159,7 +159,7 @@ Visual Studio で次の操作を行います。
 
 3. ソリューションをリビルドします。
 
-## <a name="run-the-app"></a>アプリの実行
+## <a name="run-the-app"></a>アプリを実行する
 
 **HelloKeyVault** を実行すると、このアプリは Azure AD にサインインし、`AuthClientSecret` トークンを使用して、Azure Stack の Key Vault に対する認証を行います。
 
@@ -168,7 +168,7 @@ Visual Studio で次の操作を行います。
 * キーおよびシークレットで作成、暗号化、ラップ、削除などの基本操作を行います。
 * `encrypt`、`decrypt` などのパラメーターを **HelloKeyVault** に渡して、指定した変更をキー コンテナーに適用します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Key Vault パスワードを使用して VM をデプロイする](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault 証明書を使って VM をデプロイする](azure-stack-key-vault-push-secret-into-vm.md)

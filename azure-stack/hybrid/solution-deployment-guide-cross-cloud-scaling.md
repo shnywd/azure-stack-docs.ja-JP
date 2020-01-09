@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 54d79742ab39a2732a774401a1765b7a264e1fab
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640054"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654918"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
 
@@ -59,7 +59,7 @@ Azure Stack Hub でホストされる Web アプリから、Traffic Manager を�
 
 -   .NET 3.5 がインストールされた Windows Server 2016 VM が必要です。 この VM は、プライベート ビルド エージェントとして Azure Stack Hub 上のテナント サブスクリプションに構築されます。
 
--   [Windows Server 2016 with SQL 2017 VM Image](../operator/azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal) は、Azure Stack Hub Marketplace で入手できます。 このイメージを入手できない場合は、Azure Stack Hub のオペレーターと協力して、環境に追加されていることを確認してください。
+-   [Windows Server 2016 with SQL 2017 VM Image](../operator/azure-stack-add-vm-image.md) は、Azure Stack Hub Marketplace で入手できます。 このイメージを入手できない場合は、Azure Stack Hub のオペレーターと協力して、環境に追加されていることを確認してください。
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
@@ -71,7 +71,7 @@ Azure Stack Hub でホストされる Web アプリから、Traffic Manager を�
 
 オンプレミス ハードウェア構成およびソフトウェア デプロイを通じて高可用性をもたらすように、ローカルでデプロイされたアプリが構成されていることを確認します。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 クラウド間ソリューションは、複数の環境にわたるシームレスな管理と使い慣れたインターフェイスを実現します。 クロスプラットフォームの管理には、PowerShell を使用することをお勧めします。
 
@@ -374,5 +374,5 @@ Azure Pipelines および Azure DevOps Services が提供するパイプライ�
 
 柔軟で堅牢なマルチ クラウド サービスは、データ セキュリティ、バックアップおよび冗長性、一貫性のある迅速な可用性、スケーラブルなストレージおよび分散、地理的準拠ルーティングを提供します。 この手動でトリガーされるプロセスにより、ホストされる Web アプリ間での、信頼性が高く、効率的な負荷の切り替えが実現し、重要なデータがすぐに使用できるようになります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

@@ -15,12 +15,12 @@ ms.date: 06/05/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: aa9b20b9ee80cfdb17dba3020c03718085d8b625
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 69522b0a32d2044ff334b91ea3142aadb11c89c8
+ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277182"
+ms.lasthandoff: 12/24/2019
+ms.locfileid: "75333086"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Azure Stack と外部の監視ソリューションとの統合
 
@@ -81,9 +81,9 @@ Nagios 監視プラグインは、制約のない無料ソフトウェア ライ
 
 ### <a name="requirements-for-nagios"></a>Nagios の要件
 
-1.  Nagios の最小バージョンは 4.x です
+1. Nagios の最小バージョンは 4.x です
 
-2.  Microsoft Azure Active Directory Python ライブラリ。 このライブラリは、Python PIP を使用してインストールできます。
+2. Microsoft Azure Active Directory Python ライブラリ。 このライブラリは、Python PIP を使用してインストールできます。
 
     ```bash  
     sudo pip install adal pyyaml six
@@ -105,11 +105,11 @@ samples/etc/azurestack_hosts.cfg
 samples/etc/azurestack_services.cfg
 ```
 
-1.  プラグイン `azurestack_plugin.py` をディレクトリ `/usr/local/nagios/libexec` にコピーします。
+1. プラグイン `azurestack_plugin.py` をディレクトリ `/usr/local/nagios/libexec` にコピーします。
 
-2.  ハンドラー `azurestack_handler.sh` をディレクトリ `/usr/local/nagios/libexec/eventhandlers` にコピーします。
+2. ハンドラー `azurestack_handler.sh` をディレクトリ `/usr/local/nagios/libexec/eventhandlers` にコピーします。
 
-3.  プラグイン ファイルが実行可能ファイルとして設定されていることを確認します。
+3. プラグイン ファイルが実行可能ファイルとして設定されていることを確認します。
 
     ```bash
     sudo cp azurestack_plugin.py <PLUGINS_DIR>
@@ -120,9 +120,9 @@ samples/etc/azurestack_services.cfg
 
 次のパラメーターは、azurestack.cfg ファイル内で構成できます。 太字のパラメーターは、選択した認証モデルとは別に構成する必要があります。
 
-SPN の作成方法に関する詳細については、「[アプリ ID を使用してリソースにアクセスする](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-service-principals)」を参照してください。
+SPN の作成方法に関する詳細については、「[アプリ ID を使用してリソースにアクセスする](azure-stack-create-service-principals.md)」を参照してください。
 
-| パラメーター | 説明 | 認証 |
+| パラメーター | [説明] | 認証 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部ドメイン FQDN |    |
 | **region: ** | リージョン名 |    |
@@ -141,7 +141,7 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 > [!Note]  
 > azurestack_hosts.cfg と azurestack_services.cfg で目的の場所を確認します。
 
-| 構成 | 説明 |
+| 構成 | [説明] |
 | --- | --- |
 | azurestack_commands.cfg | ハンドラー構成を変更する必要はありません |
 | azurestack_contacts.cfg | 通知設定 |
@@ -150,35 +150,35 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 
 ### <a name="setup-steps"></a>セットアップの手順
 
-1.  構成ファイルを変更します。
+1. 構成ファイルを変更します。
 
-2.  変更した構成ファイルをフォルダー `/usr/local/nagios/etc/objects` にコピーします。
+2. 変更した構成ファイルをフォルダー `/usr/local/nagios/etc/objects` にコピーします。
 
 ### <a name="update-nagios-configuration"></a>Nagios 構成を更新する
 
 Azure Stack – Nagios プラグインが確実に読み込まれるように、Nagios 構成を更新する必要があります。
 
-1.  次のファイルを開きます。
+1. 次のファイルを開きます。
 
-```bash  
-/usr/local/nagios/etc/nagios.cfg
-```
+   ```bash  
+   /usr/local/nagios/etc/nagios.cfg
+   ```
 
-2.  次のエントリを追加します。
+2. 次のエントリを追加します。
 
-```bash  
-# Load the Azure Stack Plugin Configuration
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
-cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
-```
+   ```bash  
+   # Load the Azure Stack Plugin Configuration
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_contacts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_commands.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_hosts.cfg
+   cfg_file=/usr/local/Nagios/etc/objects/azurestack_services.cfg
+   ```
 
-3.  Nagios を再度読み込みます。
+3. Nagios を再度読み込みます。
 
-```bash  
-sudo service nagios reload
-```
+   ```bash  
+   sudo service nagios reload
+   ```
 
 ### <a name="manually-close-active-alerts"></a>手動でアクティブなアラートを閉じる
 
@@ -244,6 +244,6 @@ Operations Manager、Nagios、または Nagios ベースのソリューション
 
 組み込みの正常性監視の詳細については、「[Azure Stack での正常性およびアラートの監視](azure-stack-monitor-health.md)」をご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [セキュリティの統合](azure-stack-integrate-security.md)

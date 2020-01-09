@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: b9a7416bc73c0e36ab9986b1a280597c2d6d93a9
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: cb08b9c2480ab3858147669a1208ca54bc43343f
+ms.sourcegitcommit: 4789cd5d6f1e35774a17a1ddfcdf3f548b18965c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257758"
+ms.lasthandoff: 12/23/2019
+ms.locfileid: "75329910"
 ---
 # <a name="protect-vms-deployed-on-azure-stack"></a>Azure Stack にデプロイされた VM の保護
 
@@ -98,7 +98,7 @@ Azure Stack の VM のバックアップに関する重要な考慮事項を次�
     - 多数の新しい VM をオンボードするときは、時間を少しずつずらしたバックアップを検討します (バックアップが必要な場合)。
     - ソリューションのリソース コンテンツを最小限にするために、バックアップ データを効率的に取り込んで送信できるバックアップ製品を評価します。
     - 環境内のすべての VM での完全バックアップの必要性を最小限に抑えるために、増分バックアップまたは差分バックアップを使用してバックアップ データを効率的に保存するバックアップ製品を評価します。
- - **Restore**
+ - **復元**
     - バックアップ製品では、仮想ディスク、既存の VM 内のアプリ データ、または VM リソース全体と関連する仮想ディスクを復元できます。 必要な復元スキームは、アプリの復元をどのように計画するかによって異なります。 たとえば、VM 全体または VM のセットを復元するのではなく、テンプレートから SQL Server を再デプロイし、データベースを復元する方が簡単な場合もあります。
 
 ### <a name="replicationmanual-failover"></a>レプリケーション/手動フェールオーバー
@@ -158,11 +158,11 @@ Azure Stack のデプロイに関する重要な考慮事項を次に示しま�
 | アプリ データがある同じ Azure Stack クラウドにバックアップ ターゲットをデプロイする | 推奨されません | 同じ Azure Stack クラウド内にバックアップを保存することは避けてください。 クラウドの計画外のダウンタイムによって、プライマリ データとバックアップ データにアクセスできなくなる可能性があります。 (バックアップと復元の最適化のために) バックアップ ターゲットを仮想アプライアンスとしてデプロイする場合は、すべてのデータが外部のバックアップの場所に継続的にコピーされていることを確認する必要があります。 |
 | Azure Stack ソリューションがインストールされているラックに物理バックアップ アプライアンスを配置する | サポートされていません | 現時点では、元のソリューションに含まれていない他のデバイスを、トップ オブ ラック スイッチに接続することはできません。 |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事では、Azure Stack にデプロイされたユーザー VM を保護するための一般的なガイドラインについて説明しました。 Azure サービスを使用したユーザー VM の保護については、以下を参照してください。
 
-- [事業継続とディザスター リカバリーへの配慮](http://aka.ms/azurestackbcdrconsiderationswp)
+- [事業継続とディザスター リカバリーへの配慮](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
  - [Azure Backup を使用してファイルやアプリを Azure Stack にバックアップする](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
@@ -172,6 +172,6 @@ Azure Stack のデプロイに関する重要な考慮事項を次に示しま�
  - [Azure Site Recovery による Azure Stack のサポート](https://docs.microsoft.com/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>パートナー製品
- - [Azure Stack データセンター統合のパートナー エコシステムのデータシート](http://aka.ms/azurestackbcdrpartners)
+ - [Azure Stack データセンター統合のパートナー エコシステムのデータシート](https://aka.ms/azurestackbcdrpartners)
 
 Azure Stack の VM を保護するパートナー製品の詳細については、「[Protecting applications and data on Azure Stack](https://azure.microsoft.com/blog/protecting-applications-and-data-on-azure-stack/)」 (Azure Stack でのアプリケーションとデータの保護) をご覧ください。

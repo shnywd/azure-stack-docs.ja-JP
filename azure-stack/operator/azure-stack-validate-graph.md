@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 75943b3259db736a3dfcd4b30b76f434eaf19111
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: ba5a70b1a13e232619a2a47d1192782cc35b10c6
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828430"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718523"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Azure Stack の Graph 統合を検証する
 
@@ -84,7 +84,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
     Details:
 
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Datacenter Integration.
 
     Additional help URL: https://aka.ms/AzsGraphIntegration
 
@@ -114,7 +114,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
 検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、*AzsGraphIntegration.log* にログ情報が記録されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [対応状況レポートを表示する](azure-stack-validation-report.md)  
 [Azure Stack の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)  

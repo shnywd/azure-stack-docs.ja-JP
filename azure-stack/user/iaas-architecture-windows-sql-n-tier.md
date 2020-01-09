@@ -9,18 +9,18 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: ced042ac48017a8191d02e48de12e107677051fc
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 65ec9942b765eddcfda42056b47da60481d38ff4
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569302"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756986"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-with-sql-server"></a>SQL Server を使用した Azure Stack の Windows N 層アプリケーション
 
 この参照アーキテクチャでは、Windows 上の SQL Server をデータ層に使用して、[N 層](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier)アプリケーション用に構成された仮想マシン (VM) と仮想ネットワークをデプロイする方法を示します。 
 
-## <a name="architecture"></a>アーキテクチャ
+## <a name="architecture"></a>Architecture
 
 このアーキテクチャには次のコンポーネントがあります。
 
@@ -36,11 +36,11 @@ ms.locfileid: "73569302"
 
 -   **仮想ネットワークとサブネット**。 すべての Azure VM が、サブネットにセグメント化できる仮想ネットワーク内にデプロイされます。 階層ごとに個別のサブネットを作成します。
 
--   **レイヤー 7 ロード バランサー。** Azure Stack では Application Gateway がまだ利用できないため、[Azure Stack Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) には次のような代替手段が用意されています。[KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1)
+-   **第 7 層のロード バランサー。** Azure Stack では Application Gateway がまだ利用できないため、[Azure Stack Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) には代替手段が用意されています ([KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) など)。
 
 -   **ロード バランサー**。 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) は、Web 層からビジネス層へ、ビジネス層から SQL Server へとネットワーク トラフィックを分散するために使用します。
 
--   **ネットワーク セキュリティ グループ** (NSG)。 NSG は、仮想ネットワーク内のネットワーク トラフィックを制限するために使用します。 たとえば、ここに示されている 3 層アーキテクチャでは、データベース層は Web フロントエンドからのトラフィックを受信せず、ビジネス層と管理サブネットからのトラフィックのみ受信します。
+-   **ネットワーク セキュリティ グループ** (NSG)。 NSG を使用して、仮想ネットワーク内のネットワーク トラフィックを制限します。 たとえば、ここに示されている 3 層アーキテクチャでは、データベース層は Web フロントエンドからのトラフィックを受信せず、ビジネス層と管理サブネットからのトラフィックのみ受信します。
 
 -   **DNS**。 Azure Stack では独自の DNS ホスティング サービスは提供されていないため、AD DS で DNS サーバーを使用してください。
 
@@ -60,7 +60,7 @@ ms.locfileid: "73569302"
 - Azure Stack の場合:  
   `https://mywitness.blob.<region>.<FQDN>`
 
--   **Jumpbox**。 [要塞ホスト](https://en.wikipedia.org/wiki/Bastion_host)とも呼ばれます。 管理者が他の VM に接続するために使用するネットワーク上のセキュアな VM です。 ジャンプボックスの NSG は、セーフ リストにあるパブリック IP アドレスからのリモート トラフィックのみを許可します。 NSG は、リモート デスクトップ (RDP) トラフィックを許可する必要があります。
+-   **Jumpbox**。 [要塞ホスト](https://en.wikipedia.org/wiki/Bastion_host)とも呼ばれます。 管理者が他の VM に接続するために使用するネットワーク上のセキュアな VM です。 jumpbox の NSG は、セーフ リストにあるパブリック IP アドレスからのリモート トラフィックのみを許可します。 NSG は、リモート デスクトップ (RDP) トラフィックを許可する必要があります。
 
 ## <a name="recommendations"></a>Recommendations
 
@@ -82,7 +82,7 @@ VM の構成に関する推奨事項については、[Azure Stack での Window
 
 VM は直接インターネットに公開せず、代わりに各 VM にプライベート IP アドレスを付与します。 クライアントでは、レイヤー 7 ロード バランサーに関連付けられているパブリック IP アドレスを使用して接続が行われます。
 
-ロード バランサー規則を定義して、ネットワーク トラフィックを VM に転送します。 たとえば、HTTP トラフィックを有効にするには、フロントエンド構成からのポート 80 をバックエンド アドレス プールのポート 80 にマップします。 クライアントがポート 80 に HTTP 要求を送信するときに、ロード バランサーは、発信元 IP アドレスを含む[ハッシュ アルゴリズム](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features)を使用して、バックエンド IP アドレスを選択します。 クライアント要求が、バックエンド アドレス プールのすべての VM に分散されます。
+ロード バランサー規則を定義して、ネットワーク トラフィックを VM に転送します。 たとえば、HTTP トラフィックを有効にするには、フロントエンド構成からのポート 80 をバックエンド アドレス プールのポート 80 にマップします。 クライアントがポート 80 に HTTP 要求を送信するときに、ロード バランサーは、発信元 IP アドレスを含む[ハッシュ アルゴリズム](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#load-balancer-concepts)を使用して、バックエンド IP アドレスを選択します。 クライアント要求が、バックエンド アドレス プールのすべての VM に分散されます。
 
 ### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
 
@@ -173,6 +173,6 @@ Web 層とビジネス層については、個別の VM をデプロイするの
 
 **暗号化**。 機密の保存データを暗号化し、[Azure Stack の Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) を使用してデータベース暗号化キーを管理します。 詳細については、 [Azure VM 上の SQL Server に関する Azure Key Vault 統合の構成](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault)に関するページを参照してください。 データベース接続文字列などのアプリケーション シークレットも Key Vault に格納することをお勧めします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

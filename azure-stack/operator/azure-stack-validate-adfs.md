@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: dcc473d270d0a72b2ebf5f31c67fffa6827c9ecc
-ms.sourcegitcommit: af63214919e798901399fdffef09650de4176956
+ms.openlocfilehash: 9945113e778f69000a720d5f5045f691f439d076
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66828421"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718540"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Azure Stack の AD FS 統合を検証する
 
@@ -54,7 +54,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
 少なくとも次のいずれかの形式のメタデータが必要です。
 
-* AD FS フェデレーション メタデータの URL。 例: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`。
+* AD FS フェデレーション メタデータの URL。 たとえば `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml` です。
 * フェデレーション メタデータ XML ファイル。 たとえば、FederationMetadata.xml です。
 
 ## <a name="validate-ad-fs-integration"></a>AD FS 統合の検証
@@ -81,7 +81,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
             Test Certificate Expiry:               OK
 
     Details:
-    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Data Center Integration.
+    [-] In standalone mode, some tests should not be considered fully indicative of connectivity or readiness the Azure Stack Stamp requires prior to Datacenter Integration.
     Additional help URL: https://aka.ms/AzsADFSIntegration
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
@@ -121,7 +121,7 @@ Azure Stack とデータ センターの統合の詳細については、「[Azu
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [対応状況レポートを表示する](azure-stack-validation-report.md)  
 [Azure Stack の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)  
