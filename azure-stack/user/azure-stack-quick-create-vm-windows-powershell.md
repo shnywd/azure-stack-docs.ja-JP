@@ -16,12 +16,12 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0b30f95b1158df7a20d4c03f26ce0b9ce034f6d6
-ms.sourcegitcommit: e509ae283c6c3c6a83143dbdc63d0b5556daf54a
+ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/13/2019
-ms.locfileid: "75031802"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677690"
 ---
 # <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Windows Server VM を作成する
 
@@ -44,7 +44,7 @@ Azure Stack PowerShell を使用して、Windows Server 2016 仮想マシン (VM
 
 * Azure Stack PowerShell の設定を使用して、ご自身の Azure Stack 環境に接続する必要があります。 手順については、[PowerShell を使用したユーザーとしての Azure Stack への接続](azure-stack-powershell-configure-user.md)に関するページをご覧ください。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループを作成する
 
 リソース グループとは、Azure Stack リソースのデプロイ先となって管理される論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 
 
@@ -63,7 +63,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>ストレージ リソースの作成
 
-ストレージ アカウントと、Windows Server 2016 のイメージを格納するためのストレージ コンテナーを作成します。
+ブート診断の出力を格納するためのストレージ アカウントを作成します。
 
 ```powershell
 # Create variables to store the storage account name and the storage account SKU information
@@ -246,6 +246,6 @@ Remove-AzureRmResourceGroup `
   -Name $ResourceGroupName
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このクイック スタートでは、単純な Windows VM をデプロイしました。 Azure Stack VM の詳細については、[Azure Stack VM 機能](azure-stack-vm-considerations.md)に関する記事をご覧ください。

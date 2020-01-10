@@ -43,7 +43,7 @@
               items:
                 - name: Azure Stack Hub PowerShell の概要
                   href: azure-stack-powershell-overview.md
-                - name: Azure Stack PowerShell のインストール
+                - name: Azure Stack Hub PowerShell のインストール
                   href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: PowerShell で接続する
@@ -285,9 +285,9 @@
         - name: VNet ピアリング
         - name: バックアップと回復
           items:
-            - name: Commvault を使用して Azure Stack で VM をバックアップする
+            - name: Commvault を使用して Azure Stack Hub で VM をバックアップする
               href: azure-stack-network-howto-backup-commvault.md
-            - name: Azure Stack でストレージ アカウントをバックアップする
+            - name: Azure Stack Hub でストレージ アカウントをバックアップする
               href: azure-stack-network-howto-backup-storage.md
             - name: サブスクリプション リソースをコピーする
               href: azure-stack-network-howto-backup-replicator.md
@@ -307,7 +307,7 @@
           href: iaas-architecture-nva-architecture.md
 - name: リファレンス
   items:
-    - name: Azure Stack PowerShell
+    - name: Azure Stack Hub PowerShell
       href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
     - name: Azure Stack Hub REST API ブラウザー
       href: /rest/api/
@@ -321,11 +321,11 @@
       href: /azure-stack/asdk/
 - name: リソース
   items:
-    - name: Azure Stack のロードマップ
+    - name: Azure Stack Hub のロードマップ
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack の MSDN フォーラム
+    - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure Stack のドキュメントのフィードバック
+    - name: Azure Stack Hub のドキュメントのフィードバック
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 料金情報
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

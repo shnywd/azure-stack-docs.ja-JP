@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/17/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: fc04032f7741c61a9b2b86e23a9173ca268a1e11
-ms.sourcegitcommit: b8260ef3e43f3703dd0df16fb752610ec8a86942
+ms.openlocfilehash: e6f20c1562606a6048bac63a943002b9aa73c1cc
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70008343"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718506"
 ---
 # <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack と Azure の違い
 
@@ -32,7 +32,7 @@ Azure Stack は、会社またはサービス プロバイダーのデータセ�
 
 Azure Stack オペレーターは、ユーザーに使用可能なサービスと、サポートを受ける方法を知らせます。 これらのサービスはカスタマイズされたプランやオファーを通じて提供されます。
 
-Azure に関する技術的なドキュメントの内容は、Azure Stack ではなく、Azure サービス用にアプリが開発されていることを前提としています。 アプリを作成して Azure Stack にデプロイする場合は、次のようないくつかの主な違いを理解する必要があります。
+[Azure に関する技術的なドキュメントの内容](/azure)は、Azure Stack ではなく、Azure サービス用にアプリが開発されていることを前提としています。 アプリを作成して Azure Stack にデプロイする場合は、次のようないくつかの主な違いを理解する必要があります。
 
 * Azure Stack では、Azure で利用可能なサービスと機能のサブセットが提供されます。
 * 会社またはサービス プロバイダーは、提供するサービスを選択できます。 使用可能なオプションには、カスタマイズされたサービスまたはアプリケーションが含まれる場合があります。 独自のカスタマイズされたドキュメントが提供される場合もあります。
@@ -52,7 +52,7 @@ Azure に関する技術的なドキュメントの内容は、Azure Stack で�
 | 利用可能なサービス | [Azuer 製品](https://azure.microsoft.com/services/?b=17.04b)の一覧を参照してください。 利用可能なサービスは Azure リージョンによって異なります。 | Azure Stack では Azure サービスのサブセットがサポートされます。 提供される実際のサービスは、組織またはサービス プロバイダーによる選択内容によって異なります。
 | Azure Resource Manager のエンドポイント* | https://management.azure.com | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、 https://management.local.azurestack.external を使用します。
 | ポータル URL* | [https://portal.azure.com](https://portal.azure.com) | Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供された URL を使用します。<br><br>開発キットの場合は、 https://portal.local.azurestack.external を使用します。
-| Region | デプロイ先のリージョンを選択することができます。 | Azure Stack 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>開発キットの場合、リージョンは常に**ローカル**になります。
+| リージョン | デプロイ先のリージョンを選択することができます。 | Azure Stack 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>Azure Stack Development Kit (ASDK) の場合、リージョンは常に**ローカル**になります。
 | リソース グループ | リソース グループは複数のリージョンにまたがることができます。 | 統合システムと開発キットのいずれも、リージョンは 1 つのみです。
 |サポートされている名前空間、リソースの種類、および API のバージョン | 最新 (またはまだ非推奨ではない以前のバージョン)。 | Azure Stack では特定のバージョンがサポートされます。 この記事の「[バージョンの要件](#version-requirements)」セクションを参照してください。
 | | |
@@ -63,10 +63,10 @@ Azure に関する技術的なドキュメントの内容は、Azure Stack で�
 
 Microsoft では、Azure Stack 向けの開発に役立つツールとガイダンスが提供されています。
 
-| 推奨 | 参照 |
+| 推奨 | References |
 | -------- | ------------- |
-| 開発者用ワークステーションに適切なツールをインストールします。 | - [PowerShell のインストール](../operator/azure-stack-powershell-install.md)<br>- [ツールのダウンロード](../operator/azure-stack-powershell-download.md)<br>- [PowerShell の構成](azure-stack-powershell-configure-user.md)<br>- [Visual Studio のインストール](azure-stack-install-visual-studio.md) 
-| 次の項目に関する情報を確認します。<br>- Azure Resource Manager テンプレートに関する考慮事項<br>- クイックスタート テンプレートを見つける方法<br>- Azure Stack 向けの開発で Azure を使用する場合に役立つポリシー モジュールの使用 | [Azure Stack 向けの開発](azure-stack-developer.md) | 
+| 開発者用ワークステーションに適切なツールをインストールします。 | - [PowerShell のインストール](../operator/azure-stack-powershell-install.md)<br>- [ツールのダウンロード](../operator/azure-stack-powershell-download.md)<br>- [PowerShell の構成](azure-stack-powershell-configure-user.md)<br>- [Visual Studio のインストール](azure-stack-install-visual-studio.md)
+| 次の項目に関する情報を確認します。<br>- Azure Resource Manager テンプレートに関する考慮事項。<br>- クイックスタート テンプレートを見つける方法。<br>- Azure Stack 向けの開発で Azure を使用する場合に役立つポリシー モジュールの使用。 | [Azure Stack 向けの開発](azure-stack-developer.md) |
 | テンプレートのベスト プラクティスを確認して、それに従います。 | [Resource Manager のクイックスタート テンプレート](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
 | | |
 
@@ -88,10 +88,10 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 出力例 (抜粋):![Get-AzureRmResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 サービス レベルでの違いの詳細については、以下を参照してください。
 
-* [Azure Stack の VMS に関する考慮事項](azure-stack-vm-considerations.md)
+* [Azure Stack の VM に関する考慮事項](azure-stack-vm-considerations.md)
 * [Azure Stack のストレージに関する考慮事項](azure-stack-acs-differences.md)
 * [Azure Stack ネットワークに関する考慮事項](azure-stack-network-differences.md)

@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 134171c85f91801f83965d376f79d09f6e8e3ac8
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 82f933babd0be4c001bd3001a631a4345bd0e488
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640840"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718064"
 ---
 # <a name="hybrid-patterns-and-solution-examples-for-azure-and-azure-stack"></a>Azure と Azure Stack 向けのハイブリッド パターンとソリューションの例
 
@@ -45,7 +45,7 @@ Azure Stack は、"*ハイブリッド クラウド*" を有効にすること�
 
 ステップバイステップのデプロイ ガイドにより、ソリューションの例をデプロイできます。 このガイドでは、GitHub の[ソリューション サンプル リポジトリ](https://github.com/Azure-Samples/azure-intelligent-edge-patterns)に格納されているコンパニオン コード サンプルを参照する場合もあります。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 - 目次の「パターン」セクションと「ソリューション デプロイ ガイド」セクションを探索し、それぞれの詳細を参照してください。

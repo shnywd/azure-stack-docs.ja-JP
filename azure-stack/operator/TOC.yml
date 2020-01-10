@@ -4,7 +4,7 @@
   items:
     - name: Azure Stack Hub とは
       href: azure-stack-overview.md
-    - name: Azure Stack HCI とは
+    - name: Azure Stack Hub HCI とは
       href: azure-stack-hci-overview.md
     - name: Azure エコシステムの比較
       href: compare-azure-azure-stack.md
@@ -37,7 +37,7 @@
           href: azure-stack-capacity-planning-compute.md
         - name: ストレージ
           href: azure-stack-capacity-planning-storage.md
-        - name: Azure Stack のキャパシティ プランニング ツール
+        - name: Azure Stack Hub キャパシティ プランニング ツール
           href: azure-stack-capacity-planner.md
     - name: データセンターの統合
       items:
@@ -86,12 +86,12 @@
               href: azure-stack-validate-adfs.md
             - name: Graph 統合の検証
               href: azure-stack-validate-graph.md
-        - name: Azure Stack のデプロイの PKI 要件
+        - name: Azure Stack Hub のデプロイの PKI 要件
           href: azure-stack-pki-certs.md
           items:
             - name: PKI 証明書の生成
               href: azure-stack-get-pki-certs.md
-            - name: Azure Stack PKI 証明書の準備
+            - name: Azure Stack Hub PKI 証明書の準備
               href: azure-stack-prepare-pki-certs.md
             - name: PKI 証明書の検証
               href: azure-stack-validate-pki-certs.md
@@ -118,7 +118,7 @@
               href: azure-stack-integrate-physical-device-auditing.md
 - name: 操作方法ガイド
   items:
-    - name: Azure Stack の管理
+    - name: Azure Stack Hub の管理
       items:
         - name: 管理の基本
           href: azure-stack-manage-basics.md
@@ -126,7 +126,7 @@
           href: azure-stack-portal-clear.md
         - name: テレメトリの収集の構成
           href: azure-stack-telemetry.md
-        - name: Azure Stack の登録
+        - name: Azure Stack Hub の登録
           href: azure-stack-registration.md
         - name: リージョンの管理
           href: azure-stack-region-management.md
@@ -136,7 +136,7 @@
           href: azure-stack-cli-admin.md
         - name: 管理環境の設定
           items:
-            - name: Azure Stack PowerShell のインストール
+            - name: Azure Stack Hub PowerShell のインストール
               href: azure-stack-powershell-install.md
             - name: ツールのダウンロード
               href: azure-stack-powershell-download.md
@@ -172,7 +172,7 @@
           href: azure-stack-viewing-public-ip-address-consumption.md
         - name: ユーザー サブスクリプションの所有者の変更
           href: azure-stack-change-subscription-owner.md
-        - name: Azure Stack の開始および停止
+        - name: Azure Stack Hub の開始と停止
           href: azure-stack-start-and-stop.md
         - name: キャパシティの管理
           items:
@@ -234,7 +234,7 @@
           href: azure-stack-marketplace.md
         - name: Marketplace の変更点
           href: azure-stack-marketplace-changes.md
-        - name: Azure Stack 用の Azure Marketplace アイテム
+        - name: Azure Stack Hub 用の Azure Marketplace アイテム
           href: azure-stack-marketplace-azure-items.md
         - name: Marketplace アイテムのダウンロード
           href: azure-stack-download-azure-marketplace-item.md
@@ -242,7 +242,7 @@
           href: azure-stack-add-vm-image.md
         - name: Marketplace アイテムの作成と発行
           href: azure-stack-create-and-publish-marketplace-item.md
-        - name: Azure Stack でサポートされているゲスト オペレーティング システム
+        - name: Azure Stack Hub でサポートされているゲスト オペレーティング システム
           href: azure-stack-supported-os.md
         - name: 仮想マシン スケール セットの提供
           href: azure-stack-compute-add-scalesets.md
@@ -274,7 +274,7 @@
           href: azure-stack-subscribe-plan-provision-vm.md
         - name: オファーの削除
           href: azure-stack-delete-offer.md
-        - name: Azure Stack でのオファーの委任
+        - name: Azure Stack Hub でのオファーの委任
           href: azure-stack-delegated-provider.md
         - name: クォータの種類
           href: azure-stack-quota-types.md
@@ -282,7 +282,7 @@
       href: azure-stack-network-solutions-enable.md
     - name: 付加価値リソース プロバイダーの管理
       items:
-        - name: Azure Stack 上の App Service
+        - name: Azure Stack Hub 上の App Service
           items:
             - name: 概要
               href: azure-stack-app-service-overview.md
@@ -310,23 +310,23 @@
               href: app-service-recover.md
             - name: App Service の課金に関する FAQ
               href: app-service-billing-faq.md
-            - name: App Service on Azure Stack のリリース ノート
+            - name: App Service on Azure Stack Hub のリリース ノート
               items:
-                - name: App Service on Azure Stack Update 1 のリリース ノート
+                - name: App Service on Azure Stack Hub update 1 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service on Azure Stack update 2 のリリース ノート
+                - name: App Service on Azure Stack Hub update 2 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service on Azure Stack update 3 のリリース ノート
+                - name: App Service on Azure Stack Hub update 3 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service on Azure Stack update 4 のリリース ノート
+                - name: App Service on Azure Stack Hub update 4 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-four.md
-                - name: App Service on Azure Stack update 5 のリリース ノート
+                - name: App Service on Azure Stack Hub update 5 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service on Azure Stack update 6 のリリース ノート
+                - name: App Service on Azure Stack Hub update 6 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service on Azure Stack update 7 のリリース ノート
+                - name: App Service on Azure Stack Hub update 7 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-seven.md
-        - name: Azure Stack 上の MySQL
+        - name: Azure Stack Hub 上の MySQL
           items:
             - name: 概要
               href: azure-stack-mysql-resource-provider.md
@@ -352,7 +352,7 @@
                   href: azure-stack-mysql-resource-provider-11330.md
                 - name: MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
                   href: azure-stack-mysql-resource-provider-11300.md
-        - name: Azure Stack 上の SQL
+        - name: Azure Stack Hub 上の SQL
           items:
             - name: 概要
               href: azure-stack-sql-resource-provider.md
@@ -406,19 +406,19 @@
                   href: azure-stack-usage-issues.md
                 - name: 使用量登録エラー コード
                   href: azure-stack-registration-errors.md
-    - name: Azure Stack のバックアップ
+    - name: Azure Stack Hub のバックアップ
       items:
-        - name: 管理コンソールから Azure Stack のバックアップを有効にする
+        - name: 管理コンソールから Azure Stack Hub のバックアップを有効にする
           href: azure-stack-backup-enable-backup-console.md
-        - name: PowerShell で Azure Stack のバックアップを有効にする
+        - name: PowerShell で Azure Stack Hub のバックアップを有効にする
           href: azure-stack-backup-enable-backup-powershell.md
-        - name: Azure Stack のバックアップ
+        - name: Azure Stack Hub のバックアップ
           href: azure-stack-backup-back-up-azure-stack.md
         - name: バックアップ サービスを使用したデータの復旧
           href: azure-stack-backup-infrastructure-backup.md
-        - name: Azure Stack 上のファイルとアプリケーションのバックアップ
+        - name: Azure Stack Hub 上のファイルとアプリケーションのバックアップ
           href: /azure/backup/backup-mabs-files-applications-azure-stack?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: Azure Stack VM を Azure にレプリケートする
+        - name: Azure Stack Hub VM を Azure にレプリケートする
           href: /azure/site-recovery/azure-stack-site-recovery?toc=/azure-stack/operator/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 致命的なデータ損失からの復旧
           href: azure-stack-backup-recover-data.md
@@ -444,13 +444,13 @@
                       href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
                 - name: オンデマンドでの収集
                   href: azure-stack-configure-on-demand-diagnostic-log-collection.md
-        - name: Azure Stack に対する検証
+        - name: Azure Stack Hub に対する検証
           href: azure-stack-diagnostic-test.md
         - name: トラブルシューティング
           href: azure-stack-troubleshooting.md
 - name: リファレンス
   items:
-    - name: Azure Stack PowerShell
+    - name: Azure Stack Hub PowerShell
       href: /powershell/azure/azure-stack/overview
 - name: 関連項目
   items:
@@ -462,11 +462,11 @@
   items:
     - name: トレーニングと認定
       href: azure-stack-train-and-cert.md
-    - name: Azure Stack のロードマップ
+    - name: Azure Stack Hub のロードマップ
       href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack の MSDN フォーラム
+    - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Azure Stack のドキュメントのフィードバック
+    - name: Azure Stack Hub のドキュメントのフィードバック
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 料金情報
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'

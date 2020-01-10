@@ -16,7 +16,7 @@ metadata:
   ms.date: 07/09/2019
   ms.author: justinha
 abstract:
-  description: Microsoft Azure Stack Hub は、データセンターからの Azure サービスの提供を可能にするハイブリッド クラウド プラットフォームです。 Microsoft が提供するクイック スタートとチュートリアルを使用して、Azure Stack Hub 統合システム インフラストラクチャを管理する方法とサービスを提供する方法を確認してください。<br/><br/>Azure Stack Hub でサービスを使用するかアプリを作成する Azure Stack Hub ユーザーは、<a href="/azure-stack/user">ユーザー ドキュメント</a>を参照してください。<br/><br/>Azure Stack Hub 開発キット (ASDK) は、Azure Stack Hub の単一ノード デプロイであり、無料でダウンロードして使用できます。この ASDK に興味をお持ちの Azure Stack Hub オペレーターの方は、<a href="/azure-stack/asdk">ASDK のドキュメント</a>をご覧ください。
+  description: Microsoft Azure Stack Hub は、データセンターからの Azure サービスの提供を可能にするハイブリッド クラウド プラットフォームです。 Microsoft が提供するクイック スタートとチュートリアルを使用して、Azure Stack Hub 統合システム インフラストラクチャを管理する方法とサービスを提供する方法を確認してください。<br/><br/>Azure Stack Hub でサービスを使用するかアプリを作成する Azure Stack Hub ユーザーは、<a href="/azure-stack/user">ユーザー ドキュメント</a>を参照してください。<br/><br/>Azure Stack Development Kit (ASDK) は、Azure Stack Hub の単一ノード デプロイであり、無料でダウンロードして使用できます。この ASDK に興味をお持ちの Azure Stack Hub オペレーターの方は、<a href="/azure-stack/asdk">ASDK のドキュメント</a>をご覧ください。
 sections:
   - title: Azure Stack Hub の概要
     items:
@@ -32,7 +32,7 @@ sections:
           - html: |-
               <a href="/azure-stack/operator/azure-stack-powershell-install">
               <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack PowerShell</b></a>
+              <br><b>Azure Stack Hub PowerShell</b></a>
               <p>PowerShell で Azure Stack Hub リソースを容易に管理できます。</p>
           - html: |-
               <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">

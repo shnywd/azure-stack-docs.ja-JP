@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 63c8e37c19b46f5cabe197dd55875e9bcbd5cb12
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286825"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727464"
 ---
 # <a name="tutorial-test-a-service-offering"></a>チュートリアル:サービス オファリングをテストする
 
@@ -131,7 +131,7 @@ ms.locfileid: "72286825"
 1. 新しい仮想マシンを表示するには、 **[すべてのリソース]** を選択します。 仮想マシンを検索し、検索結果からその名前を選択します。
 ::: moniker-end
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このチュートリアルで学習した内容は次のとおりです。
 
@@ -139,7 +139,7 @@ ms.locfileid: "72286825"
 > * サブスクリプションの作成
 > * リソースの作成とデプロイ 
 
-次に、アドオン サービスのリソース プロバイダーのデプロイについて学習します。 プランでユーザーにさらに多くのサービスを提供することができます。
+次に、付加価値サービスのリソース プロバイダーのデプロイについて学習します。 プランでユーザーにさらに多くのサービスを提供することができます。
 
 - [Azure Stack で SQL を提供する](azure-stack-sql-resource-provider.md)
 - [Azure Stack で MySQL を提供する](azure-stack-mysql-resource-provider.md)

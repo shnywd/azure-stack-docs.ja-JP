@@ -15,12 +15,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9d1c9f963433e0a41218bb1984d07f0b47d032eb
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
+ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955699"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75677673"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Linux サーバー VM を作成する
 
@@ -42,7 +42,7 @@ Azure Stack の PowerShell を使用して、Ubuntu Server 16.04 LTS 仮想マ�
 
 * Windows ユーザー プロファイルの *.ssh* ディレクトリに保存された *id_rsa.pub* という名前の Secure Shell (SSH) 公開キー。 SSH キーの作成の詳細については、「[SSH 公開キーの使用](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループを作成する
 
 リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 リソース グループを作成するには、Azure Stack Development Kit (ASDK) または Azure Stack 統合システムから次のコード ブロックを実行します。 
 
@@ -61,7 +61,7 @@ New-AzureRmResourceGroup `
 
 ## <a name="create-storage-resources"></a>ストレージ リソースの作成
 
-ストレージ アカウントを作成してから、Ubuntu Server 16.04 LTS イメージのストレージ コンテナーを作成します。
+ブート診断の出力を格納するために使用されるストレージ アカウントを作成します。
 
 ```powershell  
 # Create variables to store the storage account name and the storage account SKU information
@@ -408,7 +408,7 @@ NGINX Web サーバーがインストールされ、VM 上のポート 80 が開
 
 ![NGINX Web サーバーのようこそページ](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>リソースのクリーンアップ
+## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
 不要になったリソースは、[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) コマンドを使用してクリーンアップできます。 リソース グループとそのすべてのリソースを削除するには、次のコマンドを実行します。
 
@@ -416,6 +416,6 @@ NGINX Web サーバーがインストールされ、VM 上のポート 80 が開
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このクイック スタートでは、基本の Linux サーバー VM をデプロイしました。 Azure Stack VM の詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」に進んでください。

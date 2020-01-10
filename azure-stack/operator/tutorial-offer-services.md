@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 87542483f2a35fba315258e9ba66b1792739033b
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 03be52d653fe6340a88a9c466fef8c9b1ccc9256
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445343"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727430"
 ---
 # <a name="tutorial-offer-a-service-to-users"></a>チュートリアル:ユーザーにサービスを提供する
 
@@ -37,7 +37,7 @@ ms.locfileid: "72445343"
 
 リソース プロバイダーでは、サービスとしてのリソースの作成、デプロイ、管理がサポートされます。 一般的な例として、Microsoft.Compute リソース プロバイダーでは仮想マシン (VM) を作成してデプロイする機能が提供されます。 Azure のリソース管理モデルの概要については、[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) に関する記事を参照してください。
 
-Azure Stack では、リソース プロバイダーには 2 つの一般的なカテゴリがあります、リソースを基本サービスとしてデプロイするものと、アドオン サービスとしてデプロイするものです。
+Azure Stack では、リソース プロバイダーに 2 つの一般的なカテゴリがあります。リソースを基本サービスとしてデプロイするものと、付加価値サービスとしてデプロイするものです。
 
 ### <a name="foundational-services"></a>基礎となるサービス
 
@@ -53,12 +53,12 @@ Azure Stack では、リソース プロバイダーには 2 つの一般的な�
 | Microsoft.Network | 仮想ネットワーク、パブリック IP アドレス、ロード バランサー |
 | Microsoft.Storage | ストレージ アカウント、BLOB、キュー、テーブル |
 
-### <a name="add-on-services"></a>アドオン サービス
+### <a name="value-add-services"></a>付加価値サービス
 
 >[!NOTE]
-> アドオン サービスを提供するには、最初に対応するリソース プロバイダーを Azure Stack Marketplace にインストールする必要があります。 インストールが済むと、そのリソースが基本サービスと同じ方法でユーザーに提供されます。 アドオン サービス オファリングがサポートされているリソース プロバイダーの最新のセットについては、目次の「**ハウツー ガイド**」セクションを参照してください。
+> 付加価値サービスを提供するには、最初に、対応するリソース プロバイダーを Azure Stack Marketplace にインストールする必要があります。 インストールが済むと、そのリソースが基本サービスと同じ方法でユーザーに提供されます。 付加価値サービス オファリングがサポートされているリソース プロバイダーの最新のセットについては、目次の「**ハウツー ガイド**」セクションを参照してください。
 
-アドオン サービスは、Azure Stack がデプロイされた後でインストールされたリソース プロバイダーによってサポートされます。 たとえば、次のようになります。
+付加価値サービスは、Azure Stack がデプロイされた後でインストールされたリソース プロバイダーによってサポートされます。 たとえば、次のようになります。
 
 | リソース プロバイダー | リソースの例 |
 | ----------------- | ------------------------- |
@@ -76,7 +76,7 @@ Azure Stack では、リソース プロバイダーには 2 つの一般的な�
    - 統合システムの場合、URL はオペレーターのリージョンと外部ドメイン名によって異なり、 https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; の形式になります。
    - Azure Stack Development Kit を使用している場合は、URL は https://adminportal.local.azurestack.external です。
 
-   **[+ リソースの作成]** > **[オファー + プラン]** > **[オファー]** を選択します。
+   続いて、 **[+ リソースの作成]** > **[オファー + プラン]** > **[オファー]** を選択します。
 
    ![新しいプラン](media/tutorial-offer-services/1-create-resource-offer.png)
 
@@ -132,7 +132,7 @@ Azure Stack では、リソース プロバイダーには 2 つの一般的な�
    - 統合システムの場合、URL はオペレーターのリージョンと外部ドメイン名によって異なり、 https://adminportal.&lt;*region*&gt;.&lt;*FQDN*&gt; の形式になります。
    - Azure Stack Development Kit を使用している場合は、URL は https://adminportal.local.azurestack.external です。
    
-   **[+ リソースの作成]** > **[オファー + プラン]** > **[オファー]** を選択します。
+   続いて、 **[+ リソースの作成]** > **[オファー + プラン]** > **[オファー]** を選択します。
 
    ![新しいプラン](media/tutorial-offer-services/image01.png)
 
@@ -181,7 +181,7 @@ Azure Stack では、リソース プロバイダーには 2 つの一般的な�
     ![[パブリック] の状態](media/tutorial-offer-services/image09.png)
 ::: moniker-end
  
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 このチュートリアルで学習した内容は次のとおりです。
 
