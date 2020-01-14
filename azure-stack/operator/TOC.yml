@@ -304,6 +304,8 @@
               href: azure-stack-app-service-add-worker-roles.md
             - name: デプロイ ソースを構成する
               href: azure-stack-app-service-configure-deployment-sources.md
+            - name: App Service のシークレットと証明書のローテーション
+              href: app-service-rotate-certificates.md
             - name: App Service のバックアップ
               href: app-service-back-up.md
             - name: App Service の復旧
