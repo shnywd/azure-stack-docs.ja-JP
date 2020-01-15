@@ -15,20 +15,30 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: d5606e7904fe311a54d792a18e5d4029c709b33c
-ms.sourcegitcommit: 0866555e0ed240a65595052899ef1b836dd07fbc
+ms.openlocfilehash: b9e8012e71e5211921a35792cb3e2e1039e5d9e1
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72257742"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756806"
 ---
-# <a name="troubleshooting-patch-and-update-issues-for-azure-stack"></a>Azure Stack の修正プログラムと更新プログラムに関する問題のトラブルシューティング
+# <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス
 
-*適用対象:Azure Stack 統合システム*
+この記事では、Azure Stack Hub の修正プログラムと更新プログラムの問題に関するトラブルシューティングを行うためのベスト プラクティスの概要に加え、修正プログラムと更新プログラムのよくある問題の修復について説明します。
 
-この記事のガイダンスを使用することで、Azure Stack を更新するときに発生する問題を解決できます。
 
-## <a name="preparationfailed"></a>PreparationFailed
+Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムの問題中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
+
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[自動ログ収集を構成済み](azure-stack-configure-automatic-diagnostic-log-collection.md)であることを確認してください。
+1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
+2. [Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#common-azure-stack-hub-patch-and-update-issues)を確認し、起きた問題が示されている場合は推奨されている操作を行います。
+3. 上記の手順で問題を解決できない場合は、[Azure Stack のサポート チケット](azure-stack-help-and-support-overview.md)を作成します。 問題が発生した期間に[収集されたログ](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection)があることを確認してください。
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
+
+*適用対象:Azure Stack Hub 統合システム*
+
+### <a name="preparationfailed"></a>PreparationFailed
 
 **適用先**: この問題は、サポートされているすべてのリリースに適用されます。
 
@@ -36,9 +46,9 @@ ms.locfileid: "72257742"
 
 **対応策**: **[今すぐインストール]** をもう一度クリックすることで、この問題を回避できます。 問題が解決しない場合は、[更新プログラムのインストール](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)に関するセクションに従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 
-**発生頻度**: 一般
+**発生頻度**: 共通
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack を更新する](azure-stack-updates.md)  
-- [Microsoft Azure Stack のヘルプとサポート](azure-stack-help-and-support-overview.md)
+- [Azure Stack Hub の更新](azure-stack-updates.md)  
+- [Microsoft Azure Stack Hub のヘルプとサポート](azure-stack-help-and-support-overview.md)

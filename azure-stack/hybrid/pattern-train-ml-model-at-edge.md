@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f845aee01e4c87bc877eb77fb793b32472f9f222
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3f16b543751ac4bee94cc05045c03de7230f9a3c
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640468"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717979"
 ---
 # <a name="train-machine-learning-ml-model-at-the-edge-pattern"></a>エッジ パターンで Machine Learning (ML) モデルをトレーニングする
 
@@ -21,7 +21,7 @@ ms.locfileid: "73640468"
 
 ## <a name="context-and-problem"></a>コンテキストと問題
 
-データ サイエンティストが理解するツールを利用し、オンプレミスまたはレガシ データから分析情報を解き明かすことを望む組織はたくさん存在します。 [Azure Machine Learning サービス](/azure/machine-learning/) からは、ML とディープ ラーニング モデルをトレーニング、チューニング、デプロイするためのクラウドネイティブ ツールが提供されます。  
+データ サイエンティストが理解するツールを利用し、オンプレミスまたはレガシ データから分析情報を解き明かすことを望む組織はたくさん存在します。 [Azure Machine Learning](/azure/machine-learning/) では、ML とディープ ラーニング モデルをトレーニング、チューニング、デプロイするためのクラウドネイティブ ツールが提供されます。  
 
 しかしながら、一部のデータは大きすぎて、あるいは、規制上の理由から、クラウドに送信できません。 このパターンを使用すると、データ サイエンティストは Azure Machine Learning を利用し、オンプレミス データとコンピューティングでモデルをトレーニングできます。 
 
@@ -40,17 +40,17 @@ ms.locfileid: "73640468"
 3. トレーニングされたモデルは登録され、コンテナー化されます。
 4. これで、オンプレミスまたはクラウドにある場所にモデルをデプロイできます。
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | 説明 |
+| レイヤー | コンポーネント | [説明] |
 |----------|-----------|-------------|
 | Azure | Azure Machine Learning | [Azure Machine Learning](/azure/machine-learning/) により ML モデルのトレーニングが調整されます。 |
 | | Azure Container Registry | Azure ML によりモデルがパッケージ化され、コンテナーが作られ、デプロイのために [Azure Container Registry](/azure/container-registry/) に格納されます。|
 | Azure Stack Hub | App Service | [Azure Stack Hub と App Service](/azure-stack/operator/azure-stack-app-service-overview) は末端のコンポーネントの基礎となります。 |
 | | Compute | Ubuntu と Docker を実行する Azure Stack Hub VM は ML モデルのトレーニングに使用されます。 |
-| | Storage | 非公開データは Azure Stack Hub BLOB ストレージでホストできます。 |
+| | ストレージ | 非公開データは Azure Stack Hub BLOB ストレージでホストできます。 |
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
@@ -64,15 +64,15 @@ ms.locfileid: "73640468"
 
 トレーニング スクリプトと Azure Stack Hub VM でトレーニングに使用されるオンプレミス データにアクセスできることを確認します。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 モデル デプロイ中の混乱を避けるため、モデルと実験が正しく登録され、バージョン管理され、タグ付けされていることを確認します。 
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 このパターンにより、Azure ML では、オンプレミスの機密データにアクセスできるようになります。 Azure Stack Hub VM に SSH 接続するためのアカウントに強固なパスワードが与えられていることとトレーニング スクリプトではデータが保存されず、クラウドにアップロードされないことを確認します。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - ML と関連トピックの概要については、[Azure Machine Learning のドキュメント](/azure/machine-learning)を参照してください。

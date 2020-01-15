@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ddc8218aadbf3940ea18ce80012441c5e43c7472
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 3bd29e8625fac818d05954720d84d572b684c92e
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640240"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718013"
 ---
 # <a name="cross-cloud-scaling-pattern"></a>クラウド間スケーリング パターン
 
@@ -36,7 +36,7 @@ ms.locfileid: "73640240"
 > [!NOTE]
 > このパターンは、アプリのステートレス コンポーネントにのみ適用されます。
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 クラウド間スケーリング パターンは、次のコンポーネントで構成されています。
 
@@ -88,7 +88,7 @@ ms.locfileid: "73640240"
 
 オンプレミス ハードウェア構成およびソフトウェア デプロイを通じて高可用性をもたらすように、ローカルでデプロイされたアプリが構成されていることを確認します。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 クラウド間パターンは、複数の環境にわたるシームレスな管理と使い慣れたインターフェイスを実現します。
 
@@ -106,7 +106,7 @@ ms.locfileid: "73640240"
 - ネットワークで定期的なボトルネックが発生しており、これがスケーリングのパフォーマンスを制限している。
 - 環境がインターネットから切断されていて、パブリック クラウドに接続できない。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - この DNS ベースのトラフィック ロード バランサーの詳細なしくみについては、「[Traffic Manager について](/azure/traffic-manager/traffic-manager-overview)」を参照してください。

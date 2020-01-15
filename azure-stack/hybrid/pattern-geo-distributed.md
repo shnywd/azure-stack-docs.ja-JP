@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1afb19c1ff7c32bbc15e40ce4fbe898be01ca0e
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640138"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717996"
 ---
 # <a name="geo-distributed-pattern"></a>地理的に分散されたパターン
 
@@ -29,10 +29,10 @@ Azure Stack Hub の地理的トラフィック ルーティング パターン (
 
 ![地理的に分散されたパターン](media/pattern-geo-distributed/geo-distribution.png)
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 **Traffic Manager**  
-図では、Traffic Manager はパブリック クラウドの外側にありますが、ローカル データ センターとパブリック クラウドの両方でトラフィックを調整できる必要があります。 バランサーは地理的な場所にトラフィックをルーティングします。
+図では、Traffic Manager はパブリック クラウドの外側にありますが、ローカル データセンターとパブリック クラウドの両方でトラフィックを調整できる必要があります。 バランサーは地理的な場所にトラフィックをルーティングします。
 
 **ドメイン ネーム システム (DNS)**  
 ドメイン ネーム システム (DNS) は、Web サイトまたはサービスの名前をその IP アドレスに変換する (または解決する) 役割を担います。
@@ -59,7 +59,7 @@ Azure Stack Hub の地理的トラフィック ルーティング パターン (
 
 オンプレミス ハードウェア構成およびソフトウェア デプロイを通じて高可用性をもたらすように、ローカルでデプロイされたアプリが構成されていることを確認します。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 パターンは、複数の環境にわたるシームレスな管理と使い慣れたインターフェイスを実現します。
 
@@ -70,11 +70,11 @@ Azure Stack Hub の地理的トラフィック ルーティング パターン (
 - 高スケール要件を満たすには、極端に負荷の大きい要件に対応できるように、単一のリージョン内、または複数のリージョンにわたって、複数のアプリ デプロイメントを使用してアプリを水平方向に拡張する必要があります。
 - 1 つのリージョンで障害が発生した場合でも、アプリケーションは高可用性とクライアント要求への応答性を実現する必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - この DNS ベースのトラフィック ロード バランサーの詳細なしくみについては、「[Traffic Manager について](/azure/traffic-manager/traffic-manager-overview)」を参照してください。
 - ベスト プラクティスの詳細とその他の疑問の回答を確認するには、「[ハイブリッド アプリの設計上の考慮事項](overview-app-design-considerations.md)」を参照してください。
-- 製品とソリューションのポートフォリオ全体の詳細については、[Azure Stack ファミリの製品とソリューション](/azure-stack)に関するページを参照してください。
+- 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 
 ソリューションの例をテストする準備ができたら、[地理的に分散されたアプリのソリューション デプロイ ガイド](solution-deployment-guide-geo-distributed.md)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。 地理的に分散されたアプリ パターンを使用し、さまざまなメトリックに基づいて特定のエンドポイントにトラフィックを送信する方法を習得できます。 地理的ベースのルーティングとエンドポイント構成で Traffic Manager プロファイルを作成すると、リージョンの要件、企業および国際的な規制、およびデータ ニーズに基づいて、情報がエンドポイントにルーティングされます。

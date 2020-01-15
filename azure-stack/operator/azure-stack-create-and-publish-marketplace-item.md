@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: d03049fd6dea5f5d7a10a61a25639cb1de3d67ad
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73057777"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654884"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Azure Stack Marketplace のカスタム アイテムを作成して発行する
 
@@ -35,11 +35,11 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 ## <a name="create-a-marketplace-item"></a>Marketplace アイテムの作成
 
 > [!IMPORTANT]
-> VM Marketplace アイテムを作成する前に、「[VM イメージを Azure Stack に追加する](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)」の手順に従って、カスタム VM イメージを Azure Stack ポータルにアップロードします。 その後、この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Marketplace にアップロードします。
+> VM Marketplace アイテムを作成する前に、「[VM イメージを Azure Stack に追加する](azure-stack-add-vm-image.md)」の手順に従って、カスタム VM イメージを Azure Stack ポータルにアップロードします。 その後、この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Marketplace にアップロードします。
 
 カスタム Marketplace アイテムを作成するには、次の手順のようにします。
 
-1. [Azure Gallery Packager ツール](https://aka.ms/azsmarketplaceitem)とサンプルの Azure Stack ギャラリー パッケージをダウンロードします。 このダウンロードには、カスタム VM テンプレートが含まれます。 .zip ファイルを抽出し、**SimpleVMTemplate** フォルダーの名前を、Azure Stack ポータルに表示するアイテムの名前に変更します。
+1. [Azure Gallery Packager ツール](https://aka.ms/azsmarketplaceitem)とサンプルの Azure Stack ギャラリー パッケージをダウンロードします。 このダウンロードには、カスタム VM テンプレートが含まれます。 .zip ファイルを抽出し、 **[Custom VM]** フォルダーの下で、提供されている Linux テンプレートまたは Windows テンプレートのいずれかを使用できます。 事前に作成されたテンプレートを再利用し、Azure Stack ポータルに表示するアイテムの製品詳細を指定して対応するパラメーターを変更することができます。 または、提供されている .azpkg ファイルを再利用し、次の手順をスキップして独自のギャラリー パッケージをカスタマイズできます。
 
 2. Azure Resource Manager テンプレートを作成するか、Windows/Linux 用のサンプル テンプレートを使用します。 これらのサンプル テンプレートは、手順 1 でダウンロードした Packager ツールの .zip ファイルで提供されています。 テンプレートを使用してテキスト フィールドを変更するか、構成済みのテンプレートを GitHub からダウンロードすることができます。 Azure Resource Manager テンプレートの詳細については、[Azure Resource Manager テンプレート](/azure/azure-resource-manager/resource-group-authoring-templates)に関するページを参照してください。
 
@@ -51,7 +51,7 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
    ![デプロイ テンプレートの構造のスクリーンショット](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Manifest.json テンプレートで次の強調して示されている値 (番号が付いているもの) を、[カスタム イメージをアップロードする](azure-stack-add-vm-image.md#add-a-vm-image-as-an-azure-stack-operator-using-the-portal)ときに指定した値に置き換えます。
+4. Manifest.json テンプレートで次の強調して示されている値 (番号が付いているもの) を、[カスタム イメージをアップロードする](azure-stack-add-vm-image.md)ときに指定した値に置き換えます。
 
    > [!NOTE]  
    > プロダクト キー、パスワード、お客様を特定できる情報などの機密情報を Azure Resource Manager テンプレートにハード コーディングしないでください。 テンプレート JSON ファイルは、ギャラリーで公開されると、認証の必要なくアクセスできます。 機密情報はすべて [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) に格納し、テンプレート内から呼び出してください。
@@ -201,7 +201,7 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
    `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
    `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 
-6. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 例:
+6. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 次に例を示します。
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
@@ -216,28 +216,28 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
 ### <a name="identity-information"></a>ID 情報
 
-| 名前 | 必須 | 種類 | 制約 | Description |
+| Name | 必須 | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
-| 名前 |X |string |[A-Za-z0-9]+ | |
-| Publisher |X |string |[A-Za-z0-9]+ | |
-| Version |X |string |[SemVer v2](https://semver.org/) | |
+| Name |X |String |[A-Za-z0-9]+ | |
+| Publisher |X |String |[A-Za-z0-9]+ | |
+| Version |X |String |[SemVer v2](https://semver.org/) | |
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>メタデータ
 
-| 名前 | 必須 | 種類 | 制約 | Description |
+| Name | 必須 | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |string |推奨 80 文字 |項目名が 80 文字より長い場合、ポータルで適切に表示されないことがあります。 |
-| PublisherDisplayName |X |string |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
-| PublisherLegalName |X |string |最大 256 文字 | |
-| Summary |X |string |60 ～ 100 文字 | |
-| LongSummary |X |string |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
-| Description |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
+| DisplayName |X |String |推奨 80 文字 |項目名が 80 文字より長い場合、ポータルで適切に表示されないことがあります。 |
+| PublisherDisplayName |X |String |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
+| PublisherLegalName |X |String |最大 256 文字 | |
+| まとめ |X |String |60 ～ 100 文字 | |
+| LongSummary |X |String |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
+| [説明] |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
 
 ### <a name="images"></a>イメージ
 
 Marketplace では、次のアイコンを使用します。
 
-| 名前 | 幅 | 高さ | メモ |
+| Name | 幅 | [高さ] | メモ |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |常に必要 |
 | Large |115 px |115 px |常に必要 |
@@ -253,19 +253,19 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| 名前 | 必須 | 種類 | 制約 | Description |
+| Name | 必須 | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |string |最大 64 文字。 | |
+| DisplayName |X |String |最大 64 文字。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>追加のプロパティ
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| 名前 | 必須 | 種類 | 制約 | Description |
+| Name | 必須 | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |string |最大 25 文字。 | |
-| 値 |X |string |最大 30 文字。 | |
+| DisplayName |X |String |最大 25 文字。 | |
+| 値 |X |String |最大 30 文字。 | |
 
 ### <a name="html-sanitization"></a>HTML のサニタイズ
 
@@ -285,7 +285,7 @@ Azure Stack ポータルで表示される Marketplace アイテムのアイコ�
 
 ![Azure Stack の [Marketplace item details]\(Marketplace 項目の詳細\) ブレード](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Marketplace の概要](azure-stack-marketplace.md)
 - [Marketplace アイテムのダウンロード](azure-stack-download-azure-marketplace-item.md)

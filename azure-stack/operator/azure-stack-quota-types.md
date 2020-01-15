@@ -1,7 +1,6 @@
 ---
-title: Azure Stack のクォータの種類 | Microsoft Docs
-titleSuffix: Azure Stack
-description: Azure Stack のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
+title: Azure Stack Hub のクォータの種類 | Microsoft Docs
+description: Azure Stack Hub のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -13,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 049e4577541dea4f41a8ad18fc7f61875109153e
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: d6068ef98d4fe2d575f5501ad6760d4b408385cd
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557545"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718098"
 ---
-# <a name="quota-types-in-azure-stack"></a>Azure Stack のクォータの種類
+# <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub のクォータの種類
 
 *適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
@@ -80,7 +79,7 @@ ms.locfileid: "74557545"
 3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 表示するクォータの **[名前]** 列をクリックして選択します。
 
-    [![Azure Stack 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Azure Stack Hub 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 ### <a name="resource-providers"></a>リソース プロバイダー
 
@@ -99,11 +98,11 @@ ms.locfileid: "74557545"
 3. 表示されたブレードで、 **[サービスとクォータ]** を選択します。
 4. 編集するクォータの **[名前]** 列をクリックして選択します。
 
-    [![Azure Stack 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
+    [![Azure Stack Hub 管理者ポータルでのクォータ](media/azure-stack-quota-types/quotas1sm.png "管理者ポータルでクォータを表示する")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
 5. 表示されたブレードで、 **[Edit in Compute]\(コンピューティングで編集\)** 、 **[Edit in Network]\(ネットワークで編集\)** 、または **[Edit in Storage]\(\)** を選択します。
 
-    ![Azure Stack 管理者ポータルでプランを編集する](media/azure-stack-quota-types/quotas3.png "Azure Stack 管理者ポータルでプランを編集する")
+    ![Azure Stack Hub 管理者ポータルでプランを編集する](media/azure-stack-quota-types/quotas3.png "Azure Stack Hub 管理者ポータルでプランを編集する")
 
 または、次の手順に従ってクォータを編集できます。
 
@@ -118,7 +117,7 @@ ms.locfileid: "74557545"
 
 変更されたクォータを使うすべてのプランおよびそれらのプランを使う既存の全サブスクリプションに対して、クォータの新しい値がグローバルに適用されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービス、プラン、オファー、クォータの詳細を確認する。](service-plan-offer-subscription-overview.md)
 - [プランの作成時にクォータを作成する](azure-stack-create-plan.md)

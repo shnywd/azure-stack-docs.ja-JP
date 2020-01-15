@@ -1,6 +1,6 @@
 ---
 title: Start-AzsReadinessChecker コマンドレット リファレンス | Microsoft Docs
-description: PowerShell コマンドレットは、Azure Stack 適合性チェッカーモジュールに役立ちます。
+description: PowerShell コマンドレットは、Azure Stack Hub 適合性チェッカー モジュールを助けるものです。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f60ee96673b5574f0cd0393dc6a53a2d7937c04f
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159155"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727447"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
 モジュール:**Microsoft.AzureStack.ReadinessChecker**
 
-このモジュールには、1 つのコマンドレットのみが含まれます。 このコマンドレットは、Azure Stack に対して 1 つ以上の配置前またはサービス提供前の機能を実行します。
+このモジュールには、1 つのコマンドレットのみが含まれます。 このコマンドレットは、Azure Stack Hub に対して、デプロイ前またはサービス提供前の機能を 1 つ以上実行します。
 
 ## <a name="syntax"></a>構文
 
@@ -164,9 +164,9 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>説明
+## <a name="description"></a>[説明]
 
-**Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、Azure Active Directory (Azure AD) が検証されます。 Azure Stack の配置前、またはシークレット ローテーションなどの Azure Stack サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
+**Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、Azure Active Directory (Azure AD) が検証されます。 Azure Stack Hub のデプロイ前、またはシークレット ローテーションなどの Azure Stack Hub サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
 
 ## <a name="examples"></a>例
 
@@ -179,7 +179,7 @@ $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-この例では、`Start-AzsReadinessChecker` によって、リージョン名が **east**、外部 FQDN が **azurestack.contoso.com** の AD FS Azure Stack デプロイに適した証明書に対する複数の証明書署名要求 (CSR) が生成されます
+この例では、`Start-AzsReadinessChecker` によって、リージョン名が **east**、外部 FQDN が **azurestack.contoso.com** である AD FS Azure Stack Hub デプロイに適した証明書に対する複数の証明書署名要求 (CSR) が生成されます。
 
 ### <a name="example-validate-certificates"></a>例: 証明書を検証する
 
@@ -257,7 +257,7 @@ $subscriptionID = "<subscription ID"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-この例では、セキュリティのためにサブスクリプション所有者の資格情報が必要です。また、指定したアカウントとサブスクリプションを Azure Stack 登録で確実に使用できるように、`Start-AzsReadinessChecker` によって、そのアカウントとサブスクリプションに対する検証が実行されます。
+この例では、セキュリティのためにサブスクリプション所有者の資格情報が必要です。また、指定したアカウントとサブスクリプションを Azure Stack Hub の登録で確実に使用できるように、`Start-AzsReadinessChecker` によって、そのアカウントとサブスクリプションに対する検証が実行されます。
 
 ### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>例: デプロイ データで Azure 登録を検証する (デプロイ チーム)
 
@@ -267,7 +267,7 @@ $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-この例では、セキュリティのためにサブスクリプション所有者の資格情報が必要です。また、指定したアカウントとサブスクリプションを、デプロイについて生成されたデプロイ データ JSON ファイルから詳細情報が読み取られた Azure Stack 登録で確実に使用できるように、`Start-AzsReadinessChecker` によって、そのアカウントとサブスクリプションに対する検証が実行されます。
+この例では、セキュリティのためにサブスクリプション所有者の資格情報が必要です。また、指定したアカウントとサブスクリプションを、デプロイについて生成されたデプロイ データ JSON ファイルから詳細情報が読み取られた Azure Stack Hub の登録で確実に使用できるように、`Start-AzsReadinessChecker` によって、そのアカウントとサブスクリプションに対する検証が実行されます。
 
 ### <a name="example-importexport-pfx-package"></a>例: PFX パッケージをインポート/エクスポートする
 
@@ -298,7 +298,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ### <a name="-regionname"></a>-RegionName
 
-Azure Stack デプロイのリージョン名を指定します。
+Azure Stack Hub デプロイのリージョン名を指定します。
 
 |  |  |
 |----------------------------|--------------|
@@ -310,7 +310,7 @@ Azure Stack デプロイのリージョン名を指定します。
 
 ### <a name="-fqdn"></a>-FQDN
 
-Azure Stack デプロイの外部 FQDN (別名: **ExternalFQDN** および **ExternalDomainName**) を指定します。
+Azure Stack Hub デプロイの外部 FQDN (別名: **ExternalFQDN** および **ExternalDomainName**) を指定します。
 
 |  |  |
 |----------------------------|--------------|
@@ -322,7 +322,7 @@ Azure Stack デプロイの外部 FQDN (別名: **ExternalFQDN** および **Ext
 
 ### <a name="-identitysystem"></a>-IdentitySystem
 
-Azure Stack デプロイの ID システム有効値、AAD (Azure Active Directory) または Active Directory フェデレーション サービス (AD FS) を指定します。
+Azure Stack Hub デプロイの ID システムの有効な値として、AAD (Azure Active Directory) または ADFS (Active Directory フェデレーション サービス) を指定します。
 
 |  |  |
 |----------------------------|--------------|
@@ -339,7 +339,7 @@ PFX 証明書ファイルに関連付けられているパスワードを指定�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |SecureString |
+|型:                       |SecureString |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -359,11 +359,11 @@ PaaS 証明書に対するパスとパスワードを含むハッシュテーブ
 
 ### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
-Azure Stack デプロイ データ JSON 構成ファイルを指定します。 このファイルはデプロイについて生成されます。
+Azure Stack Hub デプロイのデータ JSON 構成ファイルを指定します。 このファイルはデプロイについて生成されます。
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -399,7 +399,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |OrderedDictionary   |
+|型:                       |OrderedDictionary   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |パイプライン入力を許可する:      |False    |
@@ -414,7 +414,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |有効な値:               |"MultipleCSR"、"SingleCSR" |
@@ -435,7 +435,7 @@ Azure Stack デプロイ データ JSON 構成ファイルを指定します。 
 
 ### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
-Azure Stack のデプロイに使用する Azure AD サービス管理者を指定します。
+Azure Stack Hub のデプロイに使用する Azure AD サービス管理者を指定します。
 
 |  |  |
 |----------------------------|---------|
@@ -447,7 +447,7 @@ Azure Stack のデプロイに使用する Azure AD サービス管理者を指�
 
 ### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
-Azure Stack のデプロイに使用する Azure AD 名を指定します。
+Azure Stack Hub のデプロイに使用する Azure AD 名を指定します。
 
 |  |  |
 |----------------------------|---------|
@@ -459,11 +459,11 @@ Azure Stack のデプロイに使用する Azure AD 名を指定します。
 
 ### <a name="-azureenvironment"></a>-AzureEnvironment
 
-Azure Stack のデプロイと登録に使用するアカウント、ディレクトリ、およびサブスクリプションを含む Azure サービスのインスタンスを指定します。
+Azure Stack Hub のデプロイと登録に使用するアカウント、ディレクトリ、およびサブスクリプションを含む Azure サービスのインスタンスを指定します。
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |なし     |
 |有効な値:               |"AzureCloud"、"AzureChinaCloud"、"AzureUSGovernment" |
@@ -472,7 +472,7 @@ Azure Stack のデプロイと登録に使用するアカウント、ディレ�
 
 ### <a name="-registrationaccount"></a>-RegistrationAccount
 
-Azure Stack の登録に使用する登録アカウントを指定します。
+Azure Stack Hub の登録に使用する登録アカウントを指定します。
 
 |  |  |
 |----------------------------|---------|
@@ -484,7 +484,7 @@ Azure Stack の登録に使用する登録アカウントを指定します。
 
 ### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
-Azure Stack の登録に使用する登録サブスクリプション ID を指定します。
+Azure Stack Hub の登録に使用する登録サブスクリプション ID を指定します。
 
 |  |  |
 |----------------------------|---------|
@@ -512,17 +512,17 @@ Azure Stack の登録に使用する登録サブスクリプション ID を指�
 
 証明書の必須証明書フォルダーのみが存在するパスを指定します。
 
-Azure AD ID システムを使用した Azure Stack デプロイの必須フォルダーは次のとおりです。
+Azure AD ID システムを使用した Azure Stack Hub デプロイの必須フォルダーは次のとおりです。
 
 - ACSBlob、ACSQueue、ACSTable、Admin Portal、ARM Admin、ARM Public、KeyVault、KeyVaultInternal、Public Portal
 
-Active Directory フェデレーション サービス (AD FS) ID システムを使用した Azure Stack デプロイの必須フォルダーは次のとおりです。
+Active Directory フェデレーション サービス (AD FS) ID システムを使用した Azure Stack Hub デプロイの必須フォルダーは次のとおりです。
 
 - ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、Graph、KeyVault、KeyVaultInternal、Public Portal
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |.\Certificates |
 |パイプライン入力を許可する:      |False    |
@@ -546,7 +546,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|---------|
-|次のコマンドを入力します:                       |String   |
+|型:                       |String   |
 |位置:                   |named    |
 |既定値:              |All      |
 |有効な値:               |"Certificate"、"AzureRegistration"、"AzureIdentity"、"Jobs"、"All" |
@@ -559,7 +559,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                       |SwitchParameter   |
+|型:                       |SwitchParameter   |
 |位置:                   |named             |
 |既定値:              |False             |
 |パイプライン入力を許可する:      |False             |
@@ -571,7 +571,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                       |SwitchParameter   |
+|型:                       |SwitchParameter   |
 |別名:                    |cf                |
 |位置:                   |named             |
 |既定値:              |False             |
@@ -596,7 +596,7 @@ PaaS サービス/ホスト名を証明書の要求に追加するかどうか�
 
 |  |  |
 |----------------------------|------------------|
-|次のコマンドを入力します:                       |SwitchParameter   |
+|型:                       |SwitchParameter   |
 |別名:                    |cf                |
 |位置:                   |named             |
 |既定値:              |False             |

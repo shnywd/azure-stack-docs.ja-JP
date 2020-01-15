@@ -15,23 +15,21 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: b66a72ce872d64f8fde3cb80ced5e6ad33d80b4d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
+ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993784"
+ms.lasthandoff: 12/19/2019
+ms.locfileid: "75190864"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack で MySQL データベースを使用する
 
-MySQL データベースは、Web サイトでよく使用されており、多くの Web サイト プラットフォームをサポートしています。 たとえば、App Services リソース プロバイダー (PaaS) アドオンを使用して WordPress Web サイトを作成できます。
-
-リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、次のことができます。
+MySQL リソース プロバイダーを使用して、[Azure Stack ](azure-stack-overview.md) で MySQL データベース サービスを提供します。 リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、次のことができます。
 
 * Azure Resource Manager デプロイ テンプレートを使用して、MySQL データベースを作成します。
 * MySQL データベースをサービスとして提供します。  
 
-MySQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
+SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
 
 - ユーザーは、個々のデータベースの作成と管理のみを行うことができます。 エンド ユーザーはデータベース サーバー インスタンスにアクセスできません。 これにより、マスター、Temp DB にアクセスしたり、データベースを動的に管理したりすることが必要なオンプレミス データベース アプリケーションとの互換性が制限される可能性があります。
 - Azure Stack オペレーターは、MySQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。 
@@ -59,6 +57,6 @@ MySQL リソース プロバイダーをインストールする前に、考慮�
 * **データベース:** 作成、ドロップ
 * **ログイン:** 作成、設定、ドロップ、許可、取り消し  
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [MySQL リソースプロバイダーをデプロイする](azure-stack-mysql-resource-provider-deploy.md)

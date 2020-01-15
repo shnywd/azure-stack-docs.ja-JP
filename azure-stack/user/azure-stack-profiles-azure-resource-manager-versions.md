@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のプロファイルでサポートされているリソース プロバイダー API バージョン | Microsoft Docs
-description: Azure Stack のプロファイルでサポートされる Azure Resource Manager API のバージョンについて説明します。
+title: Azure Stack Hub のプロファイルでサポートされているリソース プロバイダー API バージョン | Microsoft Docs
+description: Azure Stack Hub のプロファイルでサポートされている Azure Resource Manager API のバージョンについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -10,20 +10,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: f7d32fde9cba051297165e2e491f5c92115a8a0d
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: ca8b1dc5fd3b8f7f029498145a692b7a8414c053
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579046"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727498"
 ---
-# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack のプロファイルでサポートされているリソース プロバイダー API バージョン
+# <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub のプロファイルでサポートされているリソース プロバイダー API バージョン
 
-この記事では、Azure Stack で使用される API プロファイルごとにリソース プロバイダーおよびバージョン番号を確認することができます。 この記事の表には、各リソース プロバイダーでサポートされているバージョンと、プロファイルの API バージョンが一覧表示されています。 各リソース プロバイダーには、一連リソースの種類と特定のバージョン番号が含まれています。
+この記事では、Azure Stack Hub で使用される API プロファイルごとにリソース プロバイダーおよびバージョン番号を確認することができます。 この記事の表には、各リソース プロバイダーでサポートされているバージョンと、プロファイルの API バージョンが一覧表示されています。 各リソース プロバイダーには、一連リソースの種類と特定のバージョン番号が含まれています。
 
 API プロファイルでは、次の 3 つの名前付け規則を使用します。
 
@@ -31,7 +31,7 @@ API プロファイルでは、次の 3 つの名前付け規則を使用しま�
 - **yyyy-mm-dd-hybrid**
 - **yyyy-mm-dd-profile**
 
-Azure Stack の API プロファイルとバージョン リリース周期の詳細については、「[Azure Stack での API バージョン プロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
+Azure Stack Hub の API プロファイルとバージョン リリース周期の詳細については、「[Azure Stack Hub での API バージョン プロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
 
 > [!NOTE]
 > **最新**の API プロファイルには最新バージョンのリソース プロバイダーの API が含まれており、この記事には示されていません。
@@ -60,8 +60,8 @@ API プロファイルのプロバイダー用リソースの種類ごとのバ�
 
 | リソースの種類 | API のバージョン |
 |---------------------|--------------------|
-| ロック | 2016-09-01 |
-| Operations | 2015-07-01 |
+| Locks | 2016-09-01 |
+| 操作 | 2015-07-01 |
 | アクセス許可 | 2015-07-01 |
 | ポリシーの割り当て | 2016-12-01 |
 | ポリシーの定義 | 2016-12-01 |
@@ -76,7 +76,7 @@ API プロファイルのプロバイダー用リソースの種類ごとのバ�
 | 委任されたプロバイダー サブスクリプション | 2015-06-01 - プレビュー |
 | 委任された利用状況の集計 | 2015-06-01 - プレビュー |
 | リソース支出の見積もり | 2015-06-01 - プレビュー |
-| Operations | 2015-06-01 - プレビュー |
+| 操作 | 2015-06-01 - プレビュー |
 | サブスクライバーの利用状況の集計 | 2015-06-01 - プレビュー |
 | 利用状況の集計 | 2015-06-01 - プレビュー |
 
@@ -87,12 +87,12 @@ Azure コンピューティング API によって、仮想マシンおよび仮
 | リソースの種類 | API Version |
 |---------------------------------------------------------------|-------------|
 | 可用性セット | 2017-12-01 |
-| Locations | 2017-12-01 |
+| 場所 | 2017-12-01 |
 | 場所/操作 | 2017-12-01 |
 | 場所/パブリッシャー | 2017-12-01 |
 | 場所/使用法 | 2017-12-01 |
 | 場所/vm サイズ | 2017-12-01 |
-| Operations | 2017-12-01 |
+| 操作 | 2017-12-01 |
 | Virtual Machines | 2017-12-01 |
 | 仮想マシン/拡張機能 | 2017-12-01 |
 | Virtual Machine Scale Sets | 2017-12-01 |
@@ -109,16 +109,16 @@ Azure コンピューティング API によって、仮想マシンおよび仮
 | キュレーション コンテンツ | 2015-04-01 |
 | キュレーション抽出 | 2015-04-01 |
 | ギャラリー項目 | 2015-04-01 |
-| Operations | 2015-04-01 |
+| 操作 | 2015-04-01 |
 | ポータル | 2015-04-01 |
-| Search | 2015-04-01 |
+| 検索 | 2015-04-01 |
 | 候補 | 2015-04-01 |
 
 ### <a name="microsoftinsights"></a>Microsoft.Insights
 
 | リソースの種類 | API のバージョン |
 |--------------------|--------------------|
-| Operations | 2015-04-01 |
+| 操作 | 2015-04-01 |
 | イベントの種類 | 2015-04-01 |
 | イベント カテゴリ | 2015-04-01 |
 | メトリック定義 | 2018-01-01 |
@@ -132,7 +132,7 @@ Azure コンピューティング API によって、仮想マシンおよび仮
 
 | リソースの種類 | API のバージョン |
 |-------------------------|--------------|
-| Operations | 2016-10-01 |
+| 操作 | 2016-10-01 |
 | 資格情報コンテナー | 2016-10-01 |
 | コンテナー/アクセス ポリシー | 2016-10-01 |
 | コンテナー/シークレット | 2016-10-01 |
@@ -143,17 +143,17 @@ Azure コンピューティング API によって、仮想マシンおよび仮
 
 | リソースの種類 | API のバージョン |
 |---------------------------|--------------|
-| Connections | 2017-10-01 |
+| 接続 | 2017-10-01 |
 | DNS ゾーン数 | 2016-04-01 |
 | ロード バランサー | 2017-10-01 |
 | ローカル ネットワーク ゲートウェイ | 2017-10-01 |
-| Locations | 2017-10-01|
+| 場所 | 2017-10-01|
 | 場所/操作の結果 | 2017-10-01 |
 | 場所/操作 | 2017-10-01 |
 | 場所/使用法 |2017-10-01 |
 | ネットワーク インターフェイス | 2017-10-01 |
 | ネットワーク セキュリティ グループ | 2017-10-01 |
-| Operations | 2017-10-01 |
+| 操作 | 2017-10-01 |
 | パブリック IP アドレス | 2017-10-01 |
 | ルート テーブル | 2017-10-01 |
 | Virtual Network ゲートウェイ | 2017-10-01 |
@@ -168,12 +168,12 @@ Azure Resource Manager を使用して、Azure ソリューション用のイン
 | デプロイメント | 2018-05-01 |
 | デプロイ/操作 | 2018-05-01 |
 | リンク | 2018-05-01 |
-| Locations | 2018-05-01 |
-| Operations | 2018-05-01 |
+| 場所 | 2018-05-01 |
+| 操作 | 2018-05-01 |
 | プロバイダー | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
 | リソース | 2018-05-01/ |
-| Subscriptions | 2018-05-01 |
+| サブスクリプション | 2018-05-01 |
 | Subscriptions/locations | 2016-06-01 |
 | Subscriptions/operationresults | 2018-05-01 |
 | サブスクリプション/プロバイダー | 2018-05-01 |
@@ -191,13 +191,13 @@ Azure Resource Manager を使用して、Azure ソリューション用のイン
 | リソースの種類 | API のバージョン |
 |-------------------------|--------------|
 | CheckNameAvailability | 2017-10-01 |
-| Locations | 2017-10-01 |
+| 場所 | 2017-10-01 |
 | 場所/クォータ | 2017-10-01 |
-| Operations | 2017-10-01 |
+| 操作 | 2017-10-01 |
 | ストレージ アカウント | 2017-10-01 |
 | 使用法 | 2017-10-01 |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
-- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)  
+- [PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)
+- [Azure Stack Hub の PowerShell 環境を構成する](azure-stack-powershell-configure-user.md)  

@@ -11,12 +11,12 @@ ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: 97a9fe73eb83df07a9b24dc130c8295218cda7ad
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830997"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718132"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Azure Stack Hub 上で Windows Defender ウイルス対策を更新する
 
@@ -30,7 +30,7 @@ Azure Stack Hub の[更新リソース プロバイダー](azure-stack-updates.m
 
 ## <a name="disconnected-scenario"></a>切断されたシナリオ
 
-パブリック インターネットに接続されていない Azure Stack Hub (エアギャップのあるデータ センターなど) のデプロイでは、1910 リリース以降、マルウェア対策の定義とエンジン更新プログラムを発行時に適用することができます。 
+パブリック インターネットに接続されていない Azure Stack Hub のデプロイ (エアギャップのあるデータ センターなど) では、1910 リリース以降、マルウェア対策の定義とエンジン更新プログラムを発行時に適用することができます。 
 
 更新プログラムを Azure Stack Hub ソリューションに適用するには、最初に Microsoft サイト (以下のリンク) からそれらをダウンロードした後、*updateadminaccount* の下のストレージ BLOB コンテナーにインポートします。 スケジュールされたタスクにより、BLOB コンテナーが 30 分ごとにスキャンされます。新しい Defender の定義とエンジンの更新プログラムが見つかった場合は、それが Azure Stack Hub インフラストラクチャに適用されます。 
 
@@ -98,6 +98,6 @@ Get-AzsDefenderManualUpdate
 
 スケジュールされたタスクにより、BLOB コンテナーが 30 分おきにスキャンされ、新しい Windows Defender パッケージが適用されます。  
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack Hub のセキュリティについて詳しく学習する](azure-stack-security-foundations.md)

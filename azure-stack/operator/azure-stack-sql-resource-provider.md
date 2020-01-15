@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 438cf2d8a34046f29d156aadc1cc82571e4b8a12
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
+ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993893"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75492759"
 ---
 # <a name="use-sql-databases-on-azure-stack"></a>Azure Stack 上で SQL データベースを使用する
 
@@ -51,6 +51,6 @@ SQL リソース プロバイダーをインストールする前に、考慮す
 > [!NOTE]
 > Azure Stack 統合システムにインストールされたホスティング サーバーは、テナント サブスクリプションから作成する必要があります。 既定のプロバイダー サブスクリプションからは作成できません。 作成するには、適切なサインインで、テナント ポータルまたは PowerShell を使用する必要があります。 すべてのホスティング サーバーは課金対象の VM であり、ライセンスが必要です。 サービス管理者は、テナント サブスクリプションの所有者になることができます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [SQL Server リソース プロバイダーのデプロイ](azure-stack-sql-resource-provider-deploy.md)

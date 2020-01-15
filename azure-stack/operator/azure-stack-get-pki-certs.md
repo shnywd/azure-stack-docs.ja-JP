@@ -14,12 +14,12 @@ ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 365f727f7e07c697dc2fd3cfe2a5c1bea5b68409
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 9796bec883d69a910b25895b326ed66cb9e8522b
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019246"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727379"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack"></a>Azure Stack への証明書署名要求を生成する
 
@@ -54,16 +54,16 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. 順序指定されたディクショナリとして**サブジェクト**を宣言します。 例:
+2. **サブジェクト**を宣言します。 次に例を示します。
 
     ```powershell  
-    $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
+    $subject = "C=US,ST=Washington,L=Redmond,O=Microsoft,OU=Azure Stack"
     ```
 
-    > [!note]  
-    > 共通名 (CN) が指定されている場合、これは証明書要求の最初の DNS 名によって上書きされます。
+    > [!NOTE]  
+    > 共通名 (CN) を指定すると、すべての証明書要求で CN が構成されます。 CN を省略すると、証明書要求に対して Azure Stack サービスの最初の DNS 名が構成されます。
 
-3. 既に存在する出力ディレクトリを宣言します。 例:
+3. 既に存在する出力ディレクトリを宣言します。 次に例を示します。
 
     ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
@@ -82,6 +82,8 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     ```powershell
     $IdentitySystem = "ADFS"
     ```
+    > [!NOTE]  
+    > このパラメーターが必要なのは CertificateType が Deployment の場合のみです。
 
 5. Azure Stack デプロイのために**リージョン名**と**外部 FQDN** を宣言します。
 
@@ -90,42 +92,52 @@ Azure Stack デプロイのための PKI 証明書に対する CSR を生成す�
     $externalFQDN = 'azurestack.contoso.com'
     ```
 
-    > [!note]  
-    > `<regionName>.<externalFQDN>` は、Azure Stack のすべての外部 DNS が作成されるベースを形成します。この例では、ポータルは `portal.east.azurestack.contoso.com` となります。  
+    > [!NOTE]  
+    > `<regionName>.<externalFQDN>` は、Azure Stack のすべての外部 DNS 名が作成される基礎となります。 この例では、ポータルは `portal.east.azurestack.contoso.com` となります。  
 
-6. DNS 名ごとに証明書署名要求を生成する場合は、次のように実行します。
+6. デプロイ用に証明書署名要求を生成するため、次を実行します。
 
     ```powershell  
-    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    PaaS サービスを含めるには、スイッチ ```-IncludePaaS``` を指定します。
+    他の Azure Stack サービスの証明書要求を生成するには、`-CertificateType` の値を変更します。 次に例を示します。
+
+    ```powershell  
+    # App Services
+    New-AzsCertificateSigningRequest -certificateType AppServices -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # DBAdapter
+    New-AzsCertificateSigningRequest -certificateType DBAdapter -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # EventHub
+    New-AzsCertificateSigningRequest -certificateType EventHub -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+
+    # IoTHub
+    New-AzsCertificateSigningRequest -certificateType IoTHub -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
+    ```
 
 7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨**されません**)。
 
     ```powershell  
-    New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    New-AzsCertificateSigningRequest -certificateType Deployment -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
-    PaaS サービスを含めるには、スイッチ ```-IncludePaaS``` を指定します
-
-8. 出力を確認します。
+8.  出力を確認します。
 
     ```powershell  
-    New-AzsCertificateSigningRequest v1.1809.1005.1 started.
-
-    CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont
-    oso.com&dns=*.vault.east.azurestack.contoso.com&dns=*.adminvault.east.azurestack.contoso.com&dns=portal.east.azurestack.contoso.com&dns=adminportal.east.azurestack.contoso.com&dns=ma
-    nagement.east.azurestack.contoso.com&dns=adminmanagement.east.azurestack.contoso.com*dn2=*.adminhosting.east.azurestack.contoso.com@dns=*.hosting.east.azurestack.contoso.com
-    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\username\Documents\AzureStackCSR\wildcard_east_azurestack_contoso_com_CertRequest_20180405233530.req
+    New-AzsCertificateSigningRequest v1.1912.1082.37 started.
+    Starting Certificate Request Process for Deployment
+    CSR generating for following SAN(s): *.adminhosting.east.azurestack.contoso.com,*.adminvault.east.azurestack.contoso.com,*.blob.east.azurestack.contoso.com,*.hosting.east.azurestack.contoso.com,*.queue.east.azurestack.contoso.com,*.table.east.azurestack.contoso.com,*.vault.east.azurestack.contoso.com,adminmanagement.east.azurestack.contoso.com,adminportal.east.azurestack.contoso.com,management.east.azurestack.contoso.com,portal.east.azurestack.contoso.com
+    Present this CSR to your Certificate Authority for Certificate Generation: C:\Users\checker\Documents\AzureStackCSR\wildcard_adminhosting_east_azurestack_contoso_com_CertRequest_20191219140359.req
     Certreq.exe output: CertReq: Request Created
 
     Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
     New-AzsCertificateSigningRequest Completed
     ```
 
-9. 生成された **.REQ** ファイルを CA (内部またはパブリック) に送信します。 **New-AzsCertificateSigningRequest** の出力ディレクトリには、証明機関への送信に必要な CSR が含まれています。 また、このディレクトリには、証明書要求の生成中に使用される INF ファイルが含まれる子ディレクトリも参照用として含まれています。 CA が生成された要求を使用して、[Azure Stack PKI の要件](azure-stack-pki-certs.md)を満たす証明書を生成することを確認してください。
+9.  生成された **.REQ** ファイルを CA (内部またはパブリック) に送信します。 **New-AzsCertificateSigningRequest** の出力ディレクトリには、証明機関への送信に必要な CSR が含まれています。 また、このディレクトリには、証明書要求の生成中に使用される INF ファイルが含まれる子ディレクトリも参照用として含まれています。 CA が生成された要求を使用して、[Azure Stack PKI の要件](azure-stack-pki-certs.md)を満たす証明書を生成することを確認してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack PKI 証明書の準備](azure-stack-prepare-pki-certs.md)

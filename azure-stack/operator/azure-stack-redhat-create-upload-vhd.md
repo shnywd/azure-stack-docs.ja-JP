@@ -18,12 +18,12 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: deea66ed257ecab933c294022fbdd07d1ccb137b
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007964"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75654901"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack 用の Red Hat ベースの仮想マシンの準備
 
@@ -44,7 +44,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 * ユニバーサル ディスク フォーマット (UDF) ファイル システムをマウントするためのカーネル サポートが必要です。 最初の起動時に、ゲストに接続されている UDF 形式のメディアにより、プロビジョニング構成が Linux VM に渡されます。 Azure Linux エージェントは、その構成を読み取り、VM をプロビジョニングするために、UDF ファイル システムをマウントする必要があります。
 * オペレーティング システム ディスクにスワップ パーティションを構成しないでください。 Linux エージェントは、一時的なリソース ディスク上にスワップ ファイルを作成するよう構成できます。 このことに関する詳細については、次の手順を参照してください。
 * Azure の VHD の仮想サイズはすべて、1 MB にアラインメントさせる必要があります。 未フォーマット ディスクから VHD に変換するときに、変換する前の未フォーマット ディスクのサイズが 1 MB の倍数であることを確認する必要があります。 詳細については、後述の手順を参照してください。
-* Azure Stack では、cloud-init がサポートされています。 [cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) は、Linux VM を初回起動時にカスタマイズするために広く使用されているアプローチです。 cloud-init を使って、パッケージをインストールしてファイルを書き込んだり、ユーザーとセキュリティを構成したりすることができます。 cloud-init は初回起動プロセスの間に呼び出されるので、構成を適用するために追加の手順や必要なエージェントはありません。
+* Azure Stack では、cloud-init がサポートされています。 [cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) は、Linux VM を初回起動時にカスタマイズするために広く使用されているアプローチです。 cloud-init を使って、パッケージをインストールしてファイルを書き込んだり、ユーザーとセキュリティを構成したりすることができます。 cloud-init は初回起動プロセスの間に呼び出されるので、構成を適用するために追加の手順や必要なエージェントはありません。 イメージに cloud-init を追加する手順については、「[cloud-init で使用するための既存の Linux Azure VM イメージの準備](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)」を参照してください。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Hyper-V マネージャーからの RHEL 7 VM の準備
 
@@ -84,7 +84,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 次に例を示します。
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -104,7 +104,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-1. cloud-init を停止してアンインストールします。
+1. [1910 リリースより後のオプション] cloud-init を停止してアンインストールします。
 
     ```bash
     systemctl stop cloud-init
@@ -117,18 +117,59 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
+1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
+
+    [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+
+    1. setuptools をダウンロードします。
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. setup.py をインストールします。
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. waagent を再起動します。
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
+
+    ```bash
+    waagent -version
+    ```
+    
+    [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+    
+    1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
+    1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
     ```bash
     sudo yum install WALinuxAgent
     sudo systemctl enable waagent.service
     ```
+
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
@@ -221,7 +262,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この構成を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この構成を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 次に例を示します。
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -255,7 +296,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     dracut -f -v
     ```
 
-1. cloud-init を停止してアンインストールします。
+1. [1910 リリースより後のオプション] cloud-init を停止してアンインストールします。
 
     ```bash
     systemctl stop cloud-init
@@ -275,11 +316,11 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際、WALinuxAgent の 2.2.20 より大きく 2.2.35 未満のバージョン (両バージョンは除く) は Azure Stack 環境で機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリースに更新するか、1901/1902 修正プログラムを適用します。
+1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
 
-    次の手順に従って WALinuxAgent をダウンロードします。
+    [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
 
-    a. setuptools をダウンロードします。
+    1. setuptools をダウンロードします。
 
     ```bash
     wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
@@ -287,7 +328,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     cd setuptools-7.0
     ```
 
-   b. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
+    1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
@@ -295,22 +336,37 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     cd WALinuxAgent-2.2.20
     ```
 
-    c. setup.py をインストールします。
+    1. setup.py をインストールします。
 
     ```bash
     sudo python setup.py install
     ```
 
-    d. waagent を再起動します。
+    1. waagent を再起動します。
 
     ```bash
     sudo systemctl restart waagent
     ```
 
-    e. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
+    1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
 
     ```bash
     waagent -version
+    ```
+    
+    [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+    
+    1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
+
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```
+
+    1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
@@ -346,7 +402,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 1. qcow2 イメージを VHD 形式に変換します。
 
     > [!NOTE]
-    > qemu-img のバージョン 2.2.1 以降には VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](https://bugs.launchpad.net/qemu/+bug/1490611 ) を参照してください。
+    > qemu-img のバージョン 2.2.1 以降には、VHD が適切にフォーマットされないというバグがあることがわかっています。 この問題は QEMU 2.6 で修正されています。 qemu-img 2.2.0 以前を使用するか、2.6 以降に更新することをお勧めします。 [https://bugs.launchpad.net/qemu/+bug/1490611](https://bugs.launchpad.net/qemu/+bug/1490611 ) を参照してください。
 
     まず、イメージを未加工の形式に変換します。
 
@@ -418,7 +474,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 例:
+1. GRUB 構成でカーネルのブート行を変更して Azure の追加のカーネル パラメーターを含めます。 この変更を行うには、テキスト エディターで `/etc/default/grub` を開き、`GRUB_CMDLINE_LINUX` パラメーターを変更します。 次に例を示します。
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -452,7 +508,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     dracut -f -v
     ```
 
-1. cloud-init を停止してアンインストールします。
+1. [1910 リリースより後のオプション] cloud-init を停止してアンインストールします。
 
     ```bash
     systemctl stop cloud-init
@@ -465,13 +521,53 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
+1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
+
+    [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+
+    1. setuptools をダウンロードします。
+
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+
+    1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
+
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+    unzip v2.2.20.zip
+    cd WALinuxAgent-2.2.20
+    ```
+
+    1. setup.py をインストールします。
+
+    ```bash
+    sudo python setup.py install
+    ```
+
+    1. waagent を再起動します。
+
+    ```bash
+    sudo systemctl restart waagent
+    ```
+
+    1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
+
+    ```bash
+    waagent -version
+    ```
+    
+    [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+    
+    1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
+    1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
     ```bash
     sudo yum install WALinuxAgent
@@ -541,7 +637,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>kickstart ファイルを使用して ISO から Red Hat ベースの VM を自動的に準備する
 
-1. 次の内容を含んだ kickstart ファイルを作成し、そのファイルを保存します。 kickstart のインストールの詳細については、 [kickstart インストール ガイド](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)を参照してください。
+1. 次の内容を含んだ kickstart ファイルを作成し、そのファイルを保存します。 cloud init の停止とアンインストールは省略可能です (cloud init は Azure Stack 1910 リリースより後でサポートされています)。 1910 リリースより後の場合のみ、redhat リポジトリからエージェントをインストールします。 1910 より前では、前のセクションで行ったように Azure リポジトリを使用します。 kickstart のインストールの詳細については、 [kickstart インストール ガイド](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)を参照してください。
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -710,7 +806,7 @@ dracut -f -v
 
 詳細については、[initramfs の再構築](https://access.redhat.com/solutions/1958)に関するページを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 これで、Red Hat Enterprise Linux 仮想ハード ディスクを使用して、Azure Stack に新しい VM を作成する準備が整いました。 初めて Azure Stack に VHD ファイルをアップロードする場合は、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
 

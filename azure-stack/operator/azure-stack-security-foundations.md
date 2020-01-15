@@ -4,7 +4,7 @@ titleSuffix: Azure Stack
 description: Azure Stack に適用されるセキュリティの体制とコントロールについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: PatAltimore
+author: JustinHall
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
-ms.author: patricka
+ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 4050a33be2436b919ffe4b4668b38a595523bd0d
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.lastreviewed: 12/29/2019
+ms.openlocfilehash: f7fafa465971fcdd7670c8cc5ec046321c60d9bc
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780798"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718081"
 ---
 # <a name="azure-stack-infrastructure-security-controls"></a>Azure Stack インフラストラクチャのセキュリティ コントロール
 
@@ -54,6 +54,7 @@ Azure Stack インフラストラクチャのコンポーネントは、TLS 1.2 
 REST エンドポイントや Azure Stack ポータルなど、すべての外部インフラストラクチャ エンドポイントでは、セキュリティで保護された通信用の TLS 1.2 がサポートされます。 これらのエンドポイントには、サード パーティまたはエンタープライズ証明機関のいずれかが発行する暗号化証明書を指定する必要があります。
 
 自己署名証明書は、これらの外部エンドポイントに使用できますが、Microsoft では、自己署名証明書の使用を控えるよう強く推奨します。
+Azure Stack Hub の外部エンドポイントに対して TLS 1.2 を適用する方法の詳細については、「[Azure Stack セキュリティ コントロールを構成する](azure-stack-security-configuration.md)」を参照してください。
 
 ## <a name="secret-management"></a>シークレットの管理
 
@@ -61,23 +62,30 @@ Azure Stack インフラストラクチャは、パスワードなど、さま�
 
 gMSA ではない残りのシークレットは、特権エンドポイントでスクリプトを使用して手動で入れ換えることができます。
 
-## <a name="code-integrity"></a>コードの整合性
+Azure Stack Hub インフラストラクチャでは、すべての内部証明書に 4096 ビット RSA キーが使用されます。 外部エンドポイントに対しても、同じキー長の証明書を使用できます。 シークレットと証明書のローテーションの詳細については、「[Azure Stack でシークレットをローテーションする](azure-stack-rotate-secrets.md)」を参照してください。
 
-Azure Stack スタックは、最新の Windows Server 2016 セキュリティ機能を使用します。 これらの 1 つに Windows Defender Device Guard があります。この機能は、アプリ ホワイトリスト登録を提供し、Azure Stack インフラストラクチャ内では、承認済みのコードだけが確実に実行されるようにします。
+## <a name="windows-defender-application-control"></a>Windows Defender アプリケーション制御
 
-承認済みのコードは Microsoft または OEM パートナーのいずれかによって署名されます。 署名され認証されたコードは、Microsoft が定義したポリシーで指定されている認定ソフトウェアのリストに含まれています。 つまり、Azure Stack インフラストラクチャでの実行が承認されているソフトウェアのみを実行することができます。 未承認のコードを実行しようとしてもブロックされ、監査が生成されます。
+Azure Stack スタックは、最新の Windows Server セキュリティ機能を使用します。 これらの 1 つに Windows Defender アプリケーション制御があります (WDAC: 以前はコード整合性と呼ばれていました)。この機能は、実行可能ファイルのホワイトリスト登録を提供し、Azure Stack インフラストラクチャ内では承認済みのコードだけが実行されることを保証します。
 
-Device Guard ポリシーは、Azure Stack インフラストラクチャでサード パーティ製のエージェントまたはソフトウェアを実行することを禁止しています。
+承認済みのコードは Microsoft または OEM パートナーのいずれかによって署名されます。 署名され認証されたコードは、Microsoft が定義したポリシーで指定されている認定ソフトウェアのリストに含まれています。 つまり、Azure Stack Hub インフラストラクチャでの実行が承認されているソフトウェアのみを実行できます。 未承認のコードを実行しようとしてもブロックされ、アラートが生成されます。 Azure Stack Hub では、User Mode Code Integrity (UMCI) と Hypervisor Code Integrity (HVCI) の両方が適用されます。
+
+WDAC ポリシーによっても、Azure Stack インフラストラクチャでサード パーティ製のエージェントまたはソフトウェアを実行することが禁止されています。
+WDAC の詳細については、「[Windows Defender アプリケーション コントロールと仮想化ベースのコードの整合性の保護](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)」を参照してください。
 
 ## <a name="credential-guard"></a>資格情報の保護
 
-Azure Stack の別の Windows Server 2016 セキュリティ機能として Windows Defender Credential Guard があります。この機能は、Azure Stack インフラストラクチャの資格情報を Pass-the-Hash および Pass-the-Ticket 攻撃から防護するために使用されます。
+Azure Stack の別の Windows Server セキュリティ機能として Windows Defender Credential Guard があります。この機能は、Azure Stack インフラストラクチャの資格情報を Pass-the-Hash 攻撃や Pass-the-Ticket 攻撃から保護するために使用されます。
 
 ## <a name="antimalware"></a>マルウェア対策
 
 Azure Stack のすべてのコンポーネント (Hyper-V ホストと仮想マシンの両方) は、Windows Defender Antivirus によって保護されています。
 
-接続されているシナリオでは、ウイルス対策の定義とエンジンの更新プログラムが、1 日に複数回適用されます。 接続されていないシナリオでは、マルウェア対策の更新プログラムが、月次の Azure Stack 更新プログラムの一部として適用されます。 詳細については、「[Azure Stack 上で Windows Defender ウイルス対策を更新する](azure-stack-security-av.md)」を参照してください。
+接続されているシナリオでは、ウイルス対策の定義とエンジンの更新プログラムが、1 日に複数回適用されます。 接続されていないシナリオでは、マルウェア対策の更新プログラムが、月次の Azure Stack 更新プログラムの一部として適用されます。 切断されたシナリオで Windows Defender の定義をより頻繁に更新する必要がある場合、Azure Stack Hub では Windows Defender の更新プログラムをインポートすることもサポートされています。 詳細については、「[Azure Stack 上で Windows Defender ウイルス対策を更新する](azure-stack-security-av.md)」を参照してください。
+
+## <a name="secure-boot"></a>セキュア ブート
+
+Azure Stack Hub では、すべての Hyper-V ホストおよびインフラストラクチャの仮想マシンに対してセキュア ブートが適用されます。 
 
 ## <a name="constrained-administration-model"></a>制約付き管理モデル
 
@@ -109,7 +117,7 @@ Azure Stack はサード パーティの独立した監査法人による正式�
 
 このコンプライアンス ドキュメントは [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint) で確認できます。 コンプライアンス ガイドは、保護されたリソースであり、Azure クラウド サービスの資格情報でサインインする必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack セキュリティ コントロールを構成する](azure-stack-security-configuration.md)
 - [Azure Stack でシークレットをローテーションする方法を確認する](azure-stack-rotate-secrets.md)

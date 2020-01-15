@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f77a497960b49e3a212ea5cc2b63c18d8382a99c
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 1/8/2020
+ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689987"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727090"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack"></a>Azure Stack で特権エンドポイントを使用する
 
@@ -45,48 +45,56 @@ PEP には、PEP をホストする仮想マシン (VM) 上のリモート Power
 
 統合システムに対してこの手順を開始する前に、IP アドレスによって、または DNS を介して PEP にアクセスできることを確認してください。 Azure Stack の初期デプロイ後は、DNS 統合がまだセットアップされていないため、IP アドレスでしか PEP にアクセスできません。 PEP の IP アドレス を含む **AzureStackStampDeploymentInfo** という名前の JSON ファイルが、OEM ハードウェア ベンダーから提供されます。
 
+IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります。 `https://adminportal.local.azurestack.external` などのポータルを開きます。 **[リージョンの管理]**  >  **[プロパティ]** を選択します。
+
+特権エンドポイントの実行時には、現在のカルチャ設定を `en-US` に設定する必要があります。そうしないと、Test-AzureStack や Get-AzureStackLog などのコマンドレットが想定されているように機能しません。
 
 > [!NOTE]
 > セキュリティ上の理由から、PEP への接続は、ハードウェア ライフサイクル ホスト上で実行されているセキュリティ強化された VM から、または[特権アクセス ワークステーション](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)のような専用のセキュリティで保護されたコンピューターからに限定して行う必要があります。 ハードウェア ライフサイクル ホストは、元の構成から変更しないようにし (新しいソフトウェアのインストールするなど)、PEP への接続にも使わないようにする必要があります。
 
 1. 信頼関係を確立します。
 
-    - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
+      - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
 
-      ```powershell
+      ```powershell  
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
-    - ASDK を実行している場合、開発キットのホストにサインインします。
+
+      - ASDK を実行している場合、開発キットのホストにサインインします。
 
 2. ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM で、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする VM 上でリモート セッションを確立します。
  
-   - 統合システム上で:
-     ```powershell
-       $cred = Get-Credential
+  - 統合システム上で:
 
-       Enter-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
+    ```powershell  
+    $cred = Get-Credential
 
-     >[!NOTE]
-     >Azure Stack は、PEP 資格情報の検証時にリモート呼び出しを行いません。 ローカルに保存された RSA 公開キーに依存して、それを行います。
-     
+    $pep = New-PSSession -ComputerName <IP_address_of_ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+    Enter-PSSession $pep
+    ```
+    
+    `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
+
+    > [!NOTE]  
+    >Azure Stack は、PEP 資格情報の検証時にリモート呼び出しを行いません。 ローカルに保存された RSA 公開キーに依存して、それを行います。
+
    - ASDK を実行している場合:
-     
-     ```powershell
-       $cred = Get-Credential
 
-       Enter-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
-     入力を求められたら、次の資格情報を使用します。
+     ```powershell  
+      $cred = Get-Credential
+    
+      $pep = New-PSSession -ComputerName azs-ercs01 -ConfigurationName PrivilegedEndpoint -Credential $cred -SessionOption (New-PSSessionOption -Culture en-US -UICulture en-US)
+      Enter-PSSession $pep
+     ```
+    
+   - 入力を求められたら、次の資格情報を使用します。
+   
+       - **ユーザー名**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+  
+        - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
-     - **[ユーザー名]** : **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
-     - **Password**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
-
-     > [!NOTE]
-     > ERCS エンドポイントに接続できない場合は、別の ERCS VM の IP アドレスを使用して、手順 1 と手順 2 を再試行してください。
+      > [!NOTE]
+      > ERCS エンドポイントに接続できない場合は、別の ERCS VM の IP アドレスを使用して、手順 1 と手順 2 を再試行してください。
 
 3. 接続後、環境に応じて **[*IP アドレスまたは ERCS VM 名*]: PS>** または **[azs-ercs01]:PS>** プロンプトが変わります。 ここから `Get-Command` を実行して、利用可能なコマンドレットの一覧を表示します。
 
@@ -127,42 +135,48 @@ PEP には、PEP をホストする仮想マシン (VM) 上のリモート Power
 
 1. 信頼関係を確立します。
 
-    統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
+    - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
 
-      ```powershell
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ```
+    ```powershell
+    winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    ```
+
     - ASDK を実行している場合、開発キットのホストにサインインします。
 
 2. ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM で、Windows PowerShell セッションを開きます。 次のコマンドを実行して、PEP をホストする仮想マシン上でリモート セッションを確立します。
- 
-   - 統合システム上で:
-     ```powershell
-       $cred = Get-Credential
 
-       $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ```
-     `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
-   - ASDK を実行している場合:
+    - 統合システム上で:
+    
+      ```powershell  
+        $cred = Get-Credential
+      
+        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
+          -ConfigurationName PrivilegedEndpoint -Credential $cred
+      ```
+    
+      `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
+
+    - ASDK を実行している場合:
      
-     ```powershell
-      $cred = Get-Credential
+        ```powershell  
+          $cred = Get-Credential
+    
+          $session = New-PSSession -ComputerName azs-ercs01 `
+             -ConfigurationName PrivilegedEndpoint -Credential $cred
+        ```
 
-      $session = New-PSSession -ComputerName azs-ercs01 `
-         -ConfigurationName PrivilegedEndpoint -Credential $cred
-     ``` 
      入力を求められたら、次の資格情報を使用します。
 
-     - **[ユーザー名]** : **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
-     - **Password**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
+     - **ユーザー名**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+     - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
-3. ローカル コンピューターに PEP セッションをインポートします
-     ```powershell 
-        Import-PSSession $session
-   ```
+3. ローカル コンピューターに PEP セッションをインポートします。
+
+    ```powershell 
+      Import-PSSession $session
+    ```
+
 4. これで、Azure Stack のセキュリティ対策を損なうことなく、PEP のすべての関数およびコマンドレットと共に、ローカルの PowerShell セッションで通常どおりにタブ補完を使用し、スクリプトを実行できるようになりました。 機能を有効にご活用ください。
-
 
 ## <a name="close-the-privileged-endpoint-session"></a>特権エンドポイント セッションを閉じる
 
@@ -172,14 +186,16 @@ PEP には、PEP をホストする仮想マシン (VM) 上のリモート Power
 
 1. PEP からアクセス可能な外部ファイル共有を作成します。 開発キット環境では、開発キットのホスト上にファイル共有を作成することができます。
 2. 次のコマンドレットを実行します。
-     ```powershell
+
+  ```powershell  
      Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
-     ```
+  ```
+
    このコマンドレットでは次の表のパラメーターを使用します。
 
-   | パラメーター | 説明 | データ型 | 必須 |
+   | パラメーター | [説明] | 種類 | 必須 |
    |---------|---------|---------|---------|
-   | *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | string | はい|
+   | *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | String | はい|
    | *資格情報* | ファイル共有にアクセスするための資格情報 | SecureString |   はい |
 
 
@@ -189,6 +205,6 @@ PEP には、PEP をホストする仮想マシン (VM) 上のリモート Power
 > コマンドレット `Exit-PSSession` または `Exit` を使用して PEP セッションを閉じた、または単に PowerShell コンソールを閉じた場合、トランスクリプト ログはファイル共有に転送されません。 それらは PEP に残ります。 次に `Close-PrivilegedEndpoint` を実行してファイル共有をインクルードしたときに、以前のセッションのトランスクリプト ログも併せて転送されます。 `Exit-PSSession` または `Exit` を使って PEP セッションを閉じないでください。代わりに、`Close-PrivilegedEndpoint` を使ってください。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

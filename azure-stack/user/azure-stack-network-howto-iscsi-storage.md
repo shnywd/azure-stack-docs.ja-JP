@@ -9,12 +9,12 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bed928bdd8ed7c521bd95ec005baafd42eb93047
-ms.sourcegitcommit: 58e1911a54ba249a82fa048c7798dadedb95462b
+ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73064974"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718455"
 ---
 # <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Azure Stack を使用して iSCSI ストレージに接続する方法
 
@@ -65,10 +65,10 @@ ms.locfileid: "73064974"
 
 ### <a name="the-deployment-process"></a>デプロイ プロセス
 
-リソース グループ テンプレートによって出力が生成されます。出力は次の手順の入力となります。 主な焦点は、iSCSI トラフィックの発信元のサーバー名と Azure Stack パブリック IP アドレスです。 例:
+リソース グループ テンプレートによって出力が生成されます。出力は次の手順の入力となります。 主な焦点は、iSCSI トラフィックの発信元のサーバー名と Azure Stack パブリック IP アドレスです。 この例の場合は次のとおりです。
 
 1. インフラストラクチャ テンプレートをデプロイします。
-2. データ センター内の他の場所でホストされている VM に Azure Stack VM をデプロイします。 
+2. データセンター内の他の場所でホストされている VM に Azure Stack VM をデプロイします。 
 3. テンプレートからの IP アドレスとサーバー名の出力を、iSCSI ターゲット (仮想マシンまたは物理サーバー) のスクリプトの入出力パラメーターとして使用して、`Create-iSCSITarget.ps1` を実行します。
 4. `Connect-toiSCSITarget.ps1` スクリプトを実行するための入力として、iSCSI ターゲット サーバーの外部 IP アドレスを使用します。 
 
@@ -83,7 +83,7 @@ ms.locfileid: "73064974"
 |VMName                  |FileServer        |VM 名
 |adminUsername           |storageadmin      |新しい VM の管理者の名前
 |adminPassword           |                  |新しい VM の管理者アカウントのパスワード。 既定値はサブスクリプション ID です
-|VNetName                |Storage           |VNet の名前。 これはリソースのラベル付けに使用されます
+|VNetName                |ストレージ           |VNet の名前。 これはリソースのラベル付けに使用されます
 |VNetAddressSpace        |10.10.0.0/23      |VNet のアドレス空間
 |VNetInternalSubnetName  |内部          |VNet の内部サブネット名
 |VNetInternalSubnetRange |10.10.1.0/24      |VNet の内部サブネットのアドレス範囲
@@ -118,7 +118,7 @@ ms.locfileid: "73064974"
 
 `Create-iSCSITarget.ps1 ` スクリプトは、ストレージを提供しているシステム上で実行されます。 イニシエーターによって制限される複数のディスクとターゲットを作成できます。 このスクリプトを複数回実行して多数の仮想ディスクを作成し、さまざまなターゲットにアタッチすることができます。 複数のディスクを 1 つのターゲットに接続できます。 
 
-|**Input (入力)**|**既定値**|**description**|
+|**入力**|**既定値**|**description**|
 |------------------|---------------|------------------------------|
 |RemoteServer         |FileServer               |iSCSI ターゲットに接続しているサーバーの名前
 |RemoteServerIPs      |1.1.1.1                  |iSCSI トラフィックの発信元の IP アドレス
@@ -133,7 +133,7 @@ ms.locfileid: "73064974"
 
 `Connect-toiSCSITarget.ps1` は最終的なスクリプトです。iSCSI クライアント上で実行され、iSCSI ターゲットによって提示されたディスクが iSCSI クライアントにマウントされます。
 
-|**Input (入力)**|**既定値**|**description**|
+|**入力**|**既定値**|**description**|
 |------------------|---------------|------------------------------|
 |TargetiSCSIAddresses   |"2.2.2.2"、"2.2.2.3"    |iSCSI ターゲットの IP アドレス
 |LocalIPAddresses       |"10.10.1.4"            |これは iSCSI トラフィックが発信される内部 IP アドレスです。
@@ -141,6 +141,6 @@ ms.locfileid: "73064974"
 |ChapUsername           |username               |Chap 認証のユーザー名
 |ChapPassword           |userP@ssw0rd!          |Chap 認証のパスワード名。 12 から 16 文字にする必要があります
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

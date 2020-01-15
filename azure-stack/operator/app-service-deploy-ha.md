@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 0bf89b0f80557f99c83fb5ad6afd0c4a5dcd3849
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
+ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165020"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75655060"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -56,7 +56,7 @@ ms.locfileid: "72165020"
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. **\+[** **リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
+2. **\+** **[リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
 
    ![カスタム テンプレートのデプロイ](media/app-service-deploy-ha/1.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "72165020"
    > [!NOTE]
    > テンプレートのデプロイが完了するまでに約 1 時間かかります。
 
-   [![](media/app-service-deploy-ha/5-sm.png "テンプレートのデプロイの状態を確認する")](media/app-service-deploy-ha/5-lg.png#lightbox)
+   [![](media/app-service-deploy-ha/5-sm.png "Review template deployment status")](media/app-service-deploy-ha/5-lg.png#lightbox)
 
 
 ### <a name="record-template-outputs"></a>テンプレートの出力を記録する
@@ -210,13 +210,13 @@ App Service リソース プロバイダーをデプロイするには、次の�
     |管理ロール|1|3|
     |パブリッシャー ロール|1|3|
     |FrontEnd ロール|1|3|
-    |共有 worker ロール|1|10|
+    |共有 worker ロール|1|2|
     |     |     |     |
 
     ![App Service でのインフラストラクチャ ロール インスタンスの値](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > 既定値からこのチュートリアルで推奨されている値に変更すると、App Service をインストールするためのハードウェア要件が増加します。 15 VM 用に既定の 18 コアおよび 32,256 MB の RAM をサポートする代わりに、推奨される 21 VM をサポートするには、合計 26 コアおよび 46,592 MB のRAM が必要です。
+    > 既定値からこのチュートリアルで推奨されている値に変更すると、App Service をインストールするためのハードウェア要件が増加します。 6 VM 用に既定の 9 コアおよび 16,128 MB の RAM をサポートする代わりに、推奨される 13 VM をサポートするには、合計 18 コアおよび 32,256 MB のRAM が必要です。
 
 15. App Service インフラストラクチャ VM のインストールに使用するプラットフォーム イメージを選択して、 **[次へ]** をクリックします。
 
@@ -234,7 +234,7 @@ App Service リソース プロバイダーをデプロイするには、次の�
 
     ![App Service のセットアップの完了](media/app-service-deploy-ha/16.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 SQL Always On インスタンスで App Service リソース プロバイダーを提供した場合は、[appservice_hosting および appservice_metering データベースを可用性グループに追加します](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期します。 また、[スクリプト](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/)を実行して、元のプライマリ サーバーからフェールオーバー サーバーへ AppServices ログインをインポートすることもできます。
 

@@ -1,32 +1,31 @@
 ---
-title: PowerShell を使用した Azure Stack での Key Vault の管理 | Microsoft Docs
-description: PowerShell を使用して Azure Stack で Key Vault を管理する方法について説明します。
+title: PowerShell を使用した Azure Stack Hub での Key Vault の管理 | Microsoft Docs
+description: PowerShell を使用して Azure Stack Hub で Key Vault を管理する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: ''
-ms.assetid: 22B62A3B-B5A9-4B8C-81C9-DA461838FAE5
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f3f2b715206c834d2c24685b57c068b53cc7020a
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
+ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991688"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75727600"
 ---
-# <a name="manage-key-vault-in-azure-stack-using-powershell"></a>PowerShell を使用した Azure Stack での Key Vault の管理
+# <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での Key Vault の管理
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack Hub 統合システムと Azure Stack Development Kit*
 
-この記事では、Azure Stack で PowerShell を使用してキー コンテナーを作成および管理する方法について説明します。 Key Vault の PowerShell コマンドレットを使用して以下を行う方法について説明します。
+この記事では、Azure Stack Hub で PowerShell を使用してキー コンテナーを作成および管理する方法について説明します。 Key Vault の PowerShell コマンドレットを使用して以下を行う方法について説明します。
 
 * Key Vault を作成します。
 * 暗号化キーとシークレットを格納および管理する。
@@ -38,8 +37,8 @@ ms.locfileid: "68991688"
 ## <a name="prerequisites"></a>前提条件
 
 * Azure Key Vault サービスを含むプランをサブスクライブする必要があります。
-* [PowerShell for Azure Stack をインストールします](../operator/azure-stack-powershell-install.md)。
-* [Azure Stack ユーザーの PowerShell 環境を構成します](azure-stack-powershell-configure-user.md)。
+* [PowerShell for Azure Stack Hub をインストールします](../operator/azure-stack-powershell-install.md)。
+* [Azure Stack Hub の PowerShell 環境を構成します](azure-stack-powershell-configure-user.md)。
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Key Vault 操作のためのテナント サブスクリプションの有効化
 
@@ -89,7 +88,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory フェデレーション サービス (AD FS) のデプロイ
 
-AD FS のデプロイでは、"アクセス ポリシーが設定されていません。 ユーザーまたはアプリケーションに、このコンテナーを使用するアクセス許可がありません" という警告が表示される場合があります。 この問題を解決するには、[Set-AzureRmKeyVaultAccessPolicy](#authorize-an-app-to-use-a-key-or-secret) コマンドを使用して、コンテナーのアクセス ポリシーを設定します。
+AD FS のデプロイでは、"アクセス ポリシーが設定されていません。 ユーザーまたはアプリケーションに、このコンテナーを使用するアクセス許可がありません" という警告が表示される場合があります。 この問題を解決するには、[**Set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) コマンドを使用して、コンテナーのアクセス ポリシーを設定します。
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -106,24 +105,24 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName
 
 ### <a name="create-a-key"></a>キーの作成
 
-**Add-AzureKeyVaultKey** コマンドを使用して、キー コンテナーで、ソフトウェアで保護されたキーを作成またはインポートします。
+**Add-AzureKeyVaultKey** コマンドレットを使用して、キー コンテナーにソフトウェアで保護されたキーを作成またはインポートします。
 
 ```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
-**Destination** パラメーターは、キーをソフトウェアで保護するよう指定するために使用します。 キーが正常に作成されると、作成されたキーの詳細が出力されます。
+`-Destination` パラメーターは、そのキーがソフトウェアで保護されることを指定するために使用されます。 キーが正常に作成されると、作成されたキーの詳細が出力されます。
 
 ![PowerShell で生成された新しいキー コンテナー キー](media/azure-stack-key-vault-manage-powershell/image5.png)
 
-これで、作成されたキーの URI を使用してそのキーを参照できます。 既存のキーと同じ名前のキーを作成またはインポートした場合、元のキーは、新しいキーで指定される値で更新されます。 前のバージョンにアクセスするには、キーのバージョン固有の URI を使用します。 例:
+これで、作成されたキーの URI を使用してそのキーを参照できます。 既存のキーと同じ名前のキーを作成またはインポートした場合、元のキーは、新しいキーで指定される値で更新されます。 前のバージョンにアクセスするには、キーのバージョン固有の URI を使用します。 次に例を示します。
 
 * `https://vault10.vault.local.azurestack.external:443/keys/key01` を使用して、常に現在のバージョンを取得します。
 * `https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a` を使用して、この特定のバージョンを取得します。
 
 ### <a name="get-a-key"></a>キーの取得
 
-**Get-AzureKeyVaultKey** コマンドを使用して、キーとその詳細を読み取ります。
+**Get-AzureKeyVaultKey** コマンドレットを使用して、キーとその詳細を読み取ります。
 
 ```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
@@ -131,7 +130,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 ### <a name="create-a-secret"></a>シークレットの作成
 
-**Set-AzureKeyVaultSecret** コマンドを使用して、コンテナーでシークレットを作成または更新します。 まだシークレットが存在していない場合は、作成されます。 既に存在する場合は、新しいバージョンのシークレットが作成されます。
+**Set-AzureKeyVaultSecret** コマンドレットを使用して、コンテナー内のシークレットを作成または更新します。 シークレットがまだ存在しない場合は、作成されます。 既に存在する場合は、新しいバージョンのシークレットが作成されます。
 
 ```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
@@ -142,7 +141,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 ### <a name="get-a-secret"></a>シークレットの取得
 
-**Get-AzureKeyVaultSecret** コマンドを使用して、キー コンテナーのシークレットを読み取ります。 このコマンドでは、シークレットのすべてのバージョンまたは特定のバージョンを返すことができます。
+**Get-AzureKeyVaultSecret** コマンドレットを使用して、キー コンテナー内のシークレットを読み取ります。 このコマンドでは、シークレットのすべてのバージョンまたは特定のバージョンを返すことができます。
 
 ```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
@@ -152,7 +151,7 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>アプリに対してキーまたはシークレットの使用を許可する
 
-**Set-AzureRmKeyVaultAccessPolicy** コマンドを使用して、キー コンテナーのキーまたはシークレットへの、アプリによるアクセスを承認します。
+**Set-AzureRmKeyVaultAccessPolicy** コマンドレットを使用して、キー コンテナーのキーまたはシークレットへの、アプリによるアクセスを承認します。
 
 次の例では、コンテナー名が **ContosoKeyVault** で、承認するアプリのクライアント ID が **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed** です。 アプリを承認するには、次のコマンドを実行します。 また、**PermissionsToKeys** パラメーターを指定し、ユーザー、アプリ、またはセキュリティ グループに対してアクセス許可を設定することもできます。
 
@@ -166,7 +165,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Key Vault に格納されているパスワードを使用して VM をデプロイする](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [Key Vault に格納されている証明書を使用して VM をデプロイする](azure-stack-key-vault-push-secret-into-vm.md)

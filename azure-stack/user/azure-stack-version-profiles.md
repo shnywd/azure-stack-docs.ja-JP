@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2019
+ms.date: 01/06/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2d57c0ff71cd0aa4280e6a21df4727ee4bbe7fb6
-ms.sourcegitcommit: 7961fda0bfcdd3db8cf94a8c405b5c23a23643af
+ms.openlocfilehash: 49cc9447ee077b49dc08bee1497497ef94a9e109
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616485"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718370"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Azure Stack での API バージョンのプロファイルの管理
 
@@ -31,9 +31,9 @@ API プロファイルでは、Azure リソース プロバイダーと Azure RE
 
 このトピックは、以下に役立ちます。
 
- - Azure Stack の API プロファイルの理解
- - API プロファイルを使用してソリューションを開発する方法
- - コード固有のガイダンスが提供されている場所
+- Azure Stack の API プロファイルの理解
+- API プロファイルを使用してソリューションを開発する方法
+- コード固有のガイダンスが提供されている場所
 
 ## <a name="summary-of-api-profiles"></a>API プロファイルの概要
 
@@ -41,35 +41,35 @@ API プロファイルでは、Azure リソース プロバイダーと Azure RE
 - API プロファイルは、複数の Azure クラウド間でテンプレートを作成するユーザー向けに作成されました。 プロファイルは、互換性のある安定したインターフェイスを提供します。
 - プロファイルは、1 年に 4 回リリースされます。
 - 次の 3 つのプロファイル名前付け規則が使用されます。
-    - **latest**  
+  - **latest**  
         グローバル Azure でリリースされた最新の API バージョンを含みます。
-    - **yyyy-mm-dd-hybrid**  
+  - **yyyy-mm-dd-hybrid**  
     年に 2 回リリースされます。このリリースでは、複数のクラウド間での一貫性と安定性に重点が置かれています。 このプロファイルは Azure Stack との最適な互換性を目指しています｡
-    - **yyyy-mm-dd-profile** <br>
+  - **yyyy-mm-dd-profile** <br>
     最適な安定性と最新の機能のバランスを取ります。
 
 ## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API プロファイルと Azure Stack の互換性
 
-最新の API プロファイルは Azure Stack との互換性がありません。 次の名前付け規則を使用して、Azure Stack ソリューションにどのプロファイルを使用するか識別します。
+最新の API プロファイルは Azure Stack との互換性がありません｡ 次の名前付け規則を使用して、Azure Stack ソリューションにどのプロファイルを使用するか識別します。
 
 **最新**  
-このプロファイルはグローバル Azure にある最新の API バージョンであり､Azure Stack では機能しません。 **最新** このプロファイルには､最も多くの重大な変更が含まれています｡ このプロファイルでは､安定性および他のクラウドとの互換性は配慮されていません｡ 最新の API バージョンを使用する場合は､**最新**プロファイルを使用してください。
+このプロファイルはグローバル Azure にある最新の API バージョンであり､Azure Stack では機能しません｡ **最新** このプロファイルには､最も多くの重大な変更が含まれています｡ このプロファイルでは､安定性および他のクラウドとの互換性は配慮されていません｡ 最新の API バージョンを使用する場合は､**最新**プロファイルを使用してください。
 
 **yyyy-mm-dd-hybrid**  
-このプロファイルは､毎年 3月と 9 月にリリースされます｡ 最適な安定性と各種クラウドとの互換性があります｡ **Yyyy-mm-dd-hybrid** プロファイルは､グローバル Azure と Microsoft Azure Stack の両方を対象に設計されています｡ このプロファイルに記載されている Azure API バージョンは､Azure Stack に記載されているものと同じです。 このプロファイルを利用して､ハイブリッド クラウド ソリューション向けのコードを開発します。
+このプロファイルは､毎年 3月と 9 月にリリースされます｡ 最適な安定性と、さまざまなクラウドとの互換性があり、グローバル Azure と Azure Stack を対象に設計されています。 このプロファイルに記載されている Azure API バージョンは､Azure Stack に記載されているものと同じです。 このプロファイルを利用して､ハイブリッド クラウド ソリューション向けのコードを開発します。
 
 **yyyy-mm-dd-profile**  
-このプロファイルは､グローバル Azure 向けに 6 月と 12 月にリリースされます｡ Azure Stack では機能せず、多くの重大な変更があるのが一般的です。 最適な安定性と最新の機能のバランスを取っていますが、**最新**プロファイルとこのプロファイルの違いは､API のリリース時期に関係なく、**最新**のプロファイルは常に最新の API バージョンで構成されることです。 たとえば､Compute API 用に新しい API バージョンが明日作成されるとすると､**最新**プロファイルには､その API バージョンが記載されますが､このプロファイルはすでに存在するため、**yyyy-mm-dd-profile** プロファイルには記載されません｡ **yyyy-mm-dd-profile** は、6 月または 12 月の前にリリースされた最新のバージョンが対応します｡
+このプロファイルは､グローバル Azure 向けに 6 月と 12 月にリリースされます｡ Azure Stack では機能せず、一般的に、重大な変更が多数含まれています｡ 最適な安定性と最新の機能のバランスを取っていますが、**最新**プロファイルとこのプロファイルの違いは､API のリリース時期に関係なく、**最新**のプロファイルは常に最新の API バージョンで構成されることです。 たとえば､Compute API 用に新しい API バージョンが明日作成されるとすると､**最新**プロファイルには､その API バージョンが記載されますが､このプロファイルはすでに存在するため、**yyyy-mm-dd-profile** プロファイルには記載されません｡ **yyyy-mm-dd-profile** は、6 月または 12 月の前にリリースされた最新のバージョンが対応します｡
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager API プロファイル
 
-Azure Stack は､グローバル Azure にある API バージョンのうちの最新バージョンを使用しません。 ソリューションを作成する場合は、Azure Stack と互換性のある Azure の各リソース プロバイダーの API バージョンを特定する必要があります。
+Azure Stack は､グローバル Azure にある API バージョンのうちの最新バージョンを使用しません｡ ソリューションを作成する場合は、Azure Stack と互換性のある Azure の各リソース プロバイダーの API バージョンを特定する必要があります。
 
 すべてのリソース プロバイダーや Azure Stack でサポートされている特定のバージョンを調査する代わりに、API プロファイルを使用できます。 プロファイルは、リソース プロバイダーと API バージョンのセットを指定します。 SDK、または SDK でビルドされたツールによって、プロファイル内で指定されたターゲット `api-version` に戻されます。 API プロファイルでは、テンプレート全体に適用されるプロファイル バージョンを指定できます。 実行時に、Azure Resource Manager によってリソースの適切なバージョンが選択されます。
 
 API プロファイルは、Azure Resource Manager を使用するツール (PowerShell、Azure CLI、SDK で提供されるコード、Microsoft Visual Studio など) と連携します。 ツールや SDK はプロファイルを使用して、アプリのビルド時にインクルードするモジュールやライブラリのバージョンを読み取ります。
 
-たとえば、PowerShell を使用して **Microsoft.Storage** リソース プロバイダーを使ってストレージ アカウントを作成する場合 (ここでは **api-version** 2016-03-30 と、**Microsoft.Compute** リソース プロバイダーと **api-version** 2015-12-01 を使用した VM がサポートされます)、ストレージ用にどの PowerShell モジュールが 2016-03-30 をサポートしているか、コンピューティング用にどのモジュールが 2015-02-01 をサポートしているか調べてからインストールする必要があります。 その代わりに、プロファイルを使用することができます。 コマンドレット `Install-Profile <profilename>` を使用すると、PowerShell によってモジュールの適切なバージョンが読み込まれます。
+たとえば、PowerShell を使用して **Microsoft.Storage** リソース プロバイダーを使ってストレージ アカウントを作成する場合 (ここでは **api-version** 2016-03-30 と、**Microsoft.Compute** リソース プロバイダーと **api-version** 2015-12-01 を使用した VM がサポートされます)、ストレージ用にどの PowerShell モジュールが 2016-03-30 をサポートしているか、コンピューティング用にどのモジュールが 2015-02-01 をサポートしているか調べてからインストールする必要があります。 その代わりに、プロファイルを使用することができます。 コマンドレット `Install-Profile <profilename>` を使用すると、PowerShell によって適切なバージョンのモジュールが読み込まれます。
 
 同様に、Python SDK を使用して Python ベースのアプリをビルドする場合、プロファイルを指定できます。 SDK によって、スクリプトで指定済みのリソース プロバイダーの適切なモジュールが読み込まれます。
 
@@ -91,11 +91,11 @@ GO SDK では、プロファイルはさまざまな種類のリソースと多�
 Azure Stack Resource Manager 向けの Ruby SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 SDK のリソース プロバイダーには､Ruby 言語を使用したコンピュートや仮想ネットワーク､ストレージがあります。 詳しくは、[Ruby による API バージョンのプロファイルの使用](azure-stack-version-profiles-ruby.md)に関する記事をご覧ください。
 - **Python**  
 Python SDK では、Azure Stack とグローバル Azure などの異なるクラウド プラットフォームをターゲットとする API バージョン プロファイルをサポートします。 ハイブリッド クラウド向けのソリューションを作成するには、API プロファイルを使用します。 詳しくは、[Python による API バージョンのプロファイルの使用](azure-stack-version-profiles-python.md)に関する記事をご覧ください。
-- **Node.JS**  
+- **Node.js**  
 Azure Stack Resource Manager 向けの Node.js SDK には､インフラストラクチャの構築と管理に役立つツールが用意されています。 詳細については、[Node.js での API バージョンのプロファイルの使用](azure-stack-version-profile-nodejs.md)に関するページを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-* [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
-* [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)
-* [プロファイルでサポートされているリソース プロバイダーの API バージョンの詳細を確認します](azure-stack-profiles-azure-resource-manager-versions.md)。
+- [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
+- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)
+- [プロファイルでサポートされているリソース プロバイダーの API バージョンの詳細を確認します](azure-stack-profiles-azure-resource-manager-versions.md)。

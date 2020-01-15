@@ -1,7 +1,6 @@
 ---
-title: プロバイダー リソース使用量 API | Microsoft Docs
-titleSuffix: Azure Stack
-description: Azure Stack の使用状況情報を取得するリソース使用量 API のリファレンス。
+title: Azure Stack Hub のプロバイダー リソース使用量 API | Microsoft Docs
+description: Azure Stack Hub の使用状況情報を取得するリソース使用量 API のリファレンス。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 75a4adca6d9265314c74cdebe642d43b8c2f11ef
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802397"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718115"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
-*プロバイダー*という用語は、サービス管理者と委任されたすべてのプロバイダーに適用されます。 Azure Stack オペレーターおよび委任されたプロバイダーは、プロバイダー使用量 API を使用して、直接のテナントの使用状況を表示できます。 たとえば、次の図に示すように、P0 はプロバイダー API を呼び出して、P1 と P2 の直接の使用状況情報を取得でき、P1 は P3 と P4 の使用状況情報を呼び出すことができます。
+*プロバイダー*という用語は、サービス管理者と委任されたすべてのプロバイダーに適用されます。 Azure Stack Hub オペレーターおよび委任されたプロバイダーは、プロバイダーの使用量 API を使用して、直接的に関係するテナントの使用状況を表示できます。 たとえば、次の図に示すように、P0 はプロバイダー API を呼び出して、P1 と P2 の直接の使用状況情報を取得でき、P1 は P3 と P4 の使用状況情報を呼び出すことができます。
 
 ![プロバイダー階層の概念モデル](media/azure-stack-provider-resource-api/image1.png)
 
@@ -43,9 +42,9 @@ ms.locfileid: "73802397"
 
 ### <a name="arguments"></a>引数
 
-| 引数 | 説明 |
+| 引数 | [説明] |
 | --- | --- |
-| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack 規則は、Azure Resource Manager エンドポイントの名前が、`https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
+| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
 | `subId` |呼び出しを行っているユーザーのサブスクリプション ID。 |
 | `reportedStartTime` |クエリの開始時間。 `DateTime` の値は協定世界時 (UTC) で、13:00 など、毎時 0 分に設定する必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 (たとえば、`2015-06-16T18%3a53%3a11%2b00%3a00Z` など) です。URI に対応できるように、コロンは `%3a` に、プラスは `%2b` にエスケープされます。 |
 | `reportedEndTime` |クエリの終了時間。 `reportedStartTime` に適用される制約は、この引数にも適用されます。 `reportedEndTime` の値は、将来、または現在の日付にすることはできません。 そうすると、結果は "処理が未完了" に設定されます。 |
@@ -89,12 +88,12 @@ meterID1",
 
 ### <a name="response-details"></a>応答の詳細
 
-| 引数 | 説明 |
+| 引数 | [説明] |
 | --- | --- |
 |`id` |使用状況集計の一意の ID |
 |`name` |使用状況集計の名前 |
 |`type` |リソース定義 |
-|`subscriptionId` |Azure Stack ユーザーのサブスクリプション識別子 |
+|`subscriptionId` |Azure Stack Hub ユーザーのサブスクリプション識別子。 |
 |`usageStartTime`|この使用状況集計が属する使用状況バケットの UTC 開始時間|
 |`usageEndTime`|この使用状況集計が属する使用状況バケットの UTC 終了時間 |
 |`instanceData` |インスタンスの詳細のキーと値のペア (新しい形式)。<br> `resourceUri`:完全修飾リソース ID。リソース グループとインスタンス名が含まれます。 <br> `location`:このサービスが実行されたリージョン。 <br> `tags`:ユーザーによって指定されたリソース タグ。 <br> `additionalInfo`:OS のバージョンやイメージの種類など、使用されたリソースの詳細。 |
@@ -105,10 +104,10 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシン (VM) や、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Marketplace で実行されているリソースがあるかどうかが不明な場合は、VM をデプロイし、実行されているかどうか VM 監視ブレードを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使います。
+使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシン (VM) や、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Hub Marketplace で実行されているリソースがあるかどうかが不明な場合は、VM をデプロイし、VM 監視ブレードを調べて、リソースが実行されていることを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使います。
 
-1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
-2. [Azure Stack ユーザー](../user/azure-stack-powershell-configure-user.md)または [Azure Stack オペレーター](azure-stack-powershell-configure-admin.md)の PowerShell 環境を構成します。
+1. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。
+2. [Azure Stack Hub ユーザー](../user/azure-stack-powershell-configure-user.md)または [Azure Stack Hub オペレーター](azure-stack-powershell-configure-admin.md)の PowerShell 環境を構成します。
 3. 使用状況データを取得するには、[Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell コマンドレットを呼び出します。
 
    ```powershell
@@ -117,7 +116,7 @@ meterID1",
 
 ### <a name="rest-api"></a>REST API
 
-Microsoft.Commerce.Admin サービスを呼び出すことで、削除されたサブスクリプションの利用状況情報を収集できます。
+**Microsoft.Commerce.Admin** サービスを呼び出すことで、削除されたサブスクリプションの利用状況情報を収集できます。
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>アクティブ ユーザーに対して削除されたすべてのテナントの使用状況を返す
 
@@ -131,7 +130,7 @@ Microsoft.Commerce.Admin サービスを呼び出すことで、削除された�
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [テナント リソース使用量 API リファレンス](azure-stack-tenant-resource-usage-api.md)
 - [使用量に関するよくあるご質問 (FAQ)](azure-stack-usage-related-faq.md)

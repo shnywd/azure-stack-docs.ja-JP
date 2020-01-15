@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/17/2019
-ms.openlocfilehash: 7d884919b19901512661f005b9128715b6e6ede1
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.lastreviewed: 01/02/2020
+ms.openlocfilehash: a84844d398d8e0b6b076c762ebdc0112713f19cc
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993943"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75757020"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 ## <a name="virtual-machine-extensions"></a>仮想マシン拡張機能
 
 ご使用の仮想マシン (VM) の拡張機能の更新プログラムがあるときは、必ずダウンロードする必要があります。 製品に付属している拡張機能は、通常の修正プログラムや更新プロセスでは更新されません。更新プログラムは頻繁に確認するようにしてください。 他の拡張機能は、Marketplace Management からのみ入手できます。
 
-|  | 項目名 | 説明 | Publisher | [OS Type]\(OS の種類\) |
+|  | 項目名 | [説明] | Publisher | OS の種類 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
 |![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
@@ -52,7 +52,7 @@ ms.locfileid: "74993943"
 
 Microsoft Azure Stack では、次の Azure Marketplace VM およびソリューション テンプレートがサポートされています。 依存関係がある場合は、前述のように、それらすべてを個別にダウンロードします。 SQL Server や Machine Learning Server などのアプリには、適切なライセンスが必要です (無償または試用版としてマークされている場合を除く)。
 
-|  | 項目名 | 説明 | Publisher |
+|  | 項目名 | [説明] | Publisher |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | アプリに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
 | ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
@@ -82,7 +82,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 
 ## <a name="linux-distributions"></a>Linux ディストリビューション
 
-|  | 項目名 | 説明 | Publisher |
+|  | 項目名 | [説明] | Publisher |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Intel アーキテクチャ用に最適化された参照 Linux ディストリビューションです。 | Clear Linux Project |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS は、最新で最小の Linux ディストリビューションであり、コンテナーの実行、クラスターの管理、サーバーのシームレスな更新の簡単な方法を提供します。どのコンポーネントも、ウェアハウス規模のコンピューティングを可能にするものです。 | CoreOS |
@@ -100,15 +100,15 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>サードパーティの BYOL、無料、試用版のイメージ、ソリューション テンプレート
 
-|  | 項目名 | 説明 | Publisher |
+|  | 項目名 | [説明] | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 Networks vThunder ADC (Application Delivery Controller) for Microsoft Azure は、ハイパフォーマンス、柔軟性、デプロイの容易性を備えたアプリの配信とサーバー負荷分散を意図して専用設計されており、Azure クラウド内でネイティブに動作するよう最適化されています。 | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS ルーターはマルチクラウド対応かつマルチ ハイパーバイザー対応の機能豊富な仮想ルーターで、企業やクラウド プロバイダーが一貫性のある安全性が高くスケーラブルなハイブリッド ネットワークを構築するために役立ちます。 | Arista Networks |
 | ![Barracuda Application Security Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Security Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | 複数の Barracuda Web Application Firewalls (WAF) を一元管理します。 | Barracuda Networks, Inc. |
 | ![Barracuda Email Security Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Email Security Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | 受信電子メールによる脅威から保護する電子メール セキュリティ ゲートウェイです。 | Barracuda Networks, Inc. |
 | ![Barracuda Web Application Firewall (WAF)](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Web Application Firewall (WAF)](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf) | 自動化されたターゲット攻撃に対するセキュリティと DDoS 保護。 | Barracuda Networks, Inc. |
-| ![Barracuda CloudGen Firewall Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-cc) | 場所やフォーム ファクターに関係なく、数百の Barracuda CloudGen ファイアウォールを一元的に管理します。 | Barracuda Networks, Inc. |
-| ![Barracuda CloudGen Firewall for Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ng-firewall) | 接続の末端だけではなく、アプリとデータが存在する場所にファイアウォールによる保護を提供します。 | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall Control Center](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall Control Center](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-cc) | 場所やフォーム ファクターに関係なく、数百の Barracuda CloudGen ファイアウォールを一元的に管理します。 | Barracuda Networks, Inc. |
+| ![Barracuda CloudGen Firewall for Azure](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda CloudGen Firewall for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-ngf) | 接続の末端だけではなく、アプリとデータが存在する場所にファイアウォールによる保護を提供します。 | Barracuda Networks, Inc. |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | オープン ソースの e コマース ショッピング カート。 | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Java のオープン ソースのメッセージ ブローカー。 | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | 管理プロセスを簡略化するために設計された強力な PIM。 | Bitnami |
@@ -237,7 +237,9 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | CMS および動的な Web サイトを作成する Web ポータル プログラム。 | Bitnami |
 | ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | オープン ソースの CRM システム: モバイル、ソーシャル、および Gamified。 | Bitnami |
 | ![ZooKeeper](media/azure-stack-marketplace-azure-items/zookeeper.png) | [ZooKeeper](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zookeeper) | ZooKeeper では、分散アプリの構成データとサービスを、信頼性が高く一元的な方法で登録できます。 | Bitnami |
-| ![Check Point vSEC セキュリティ管理](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point vSEC セキュリティ管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | Check Point vSEC は、Azure 内の顧客の資産をマルウェアや高度な脅威から保護する高性能の多層脅威防止機能を提供します。 **両方の Check Point vSEC Marketplace アイテムをダウンロードしてください。** | Check Point |
+| ![Check Point CloudGuard IaaS High Availability](media/azure-stack-marketplace-azure-items/checkpoint.png) | [CloudGuard IaaS High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | このソリューションでは、メンバーが 2 つの Check Point CloudGuard IaaS クラスターをデプロイします。 各メンバーが 2 つのネットワーク インターフェイスを備えています。 | Check Point |
+| ![Check Point CloudGuard IaaS Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | このソリューションでは、単一のネットワーク インターフェイスを備えた Check Point Security Management Server を 1 つデプロイします。 | Check Point |
+| ![Check Point CloudGuard IaaS Single Gateway](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS Single Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | このソリューションでは、2 つのネットワーク インターフェイスを備えた Check Point CloudGuard IaaS セキュリティ ゲートウェイを 1 つデプロイします。 デプロイ後は、このゲートウェイ経由でトラフィックをルーティングするようにユーザー定義ルート (UDR) を設定する必要があります。 | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Chef Automate を使用して Continuous Automation Platform をビルド、デプロイ、管理します。 **両方の Chef Marketplace アイテムをダウンロードしてください**。 | Chef Software, Inc |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Azure Stack 環境のディザスター リカバリー、バックアップと復旧、Azure Stack へのアプリと VM の移行を 1 つのソリューションにまとめた包括的なソリューションです。 | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 簡単かつ確実に VM を制御、監視、および暗号化します。 **すべての CloudLink SecureVM 項目をダウンロードします。** | Dell EMC |
@@ -248,7 +250,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![Hortonworks Data Platform (HDP) サンドボックス](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) サンドボックス](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | HDP 2.5 を使用した、100% オープン ソースのプラットフォーム (Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari に対応)。 | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security は、シームレスに調整され、アダプティブなサイバーセキュリティ エコシステムを可能にします。 | Kaspersky Lab |
 | ![KEMP LoadMaster ロード バランサー ADC コンテンツ スイッチ](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster ロード バランサー ADC コンテンツ スイッチ](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | レイヤー 4 ～ 7 のアプリケーション配信コントローラー (ADC) ロード バランサー、コンテンツ スイッチ、および Traffic Manager。 | KEMP Technologies Inc. |
-| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md) | このソリューションは、AKS エンジンを使用して生成されたテンプレートを使用して、スタンドアロン クラスターとして実行される Kubernetes クラスターをデプロイします。<br>**このソリューション テンプレートには、Ubuntu Server 16.04 LTS と Custom Script for Linux 2.0 も必要です。**| Microsoft |
+| ![Kubernetes](media/azure-stack-marketplace-azure-items/kubernetes.png) | [Kubernetes](azure-stack-aks-engine.md) | このソリューションは、AKS エンジンを使用して生成されたテンプレートを使用して、スタンドアロン クラスターとして実行される Kubernetes クラスターをデプロイします。<br>**このソリューション テンプレートには、Ubuntu Server 16.04 LTS と Custom Script for Linux 2.0 も必要です。**| Microsoft |
 | ![Service Fabric クラスター](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | このソリューションは、仮想マシン スケール セットでスタンドアロンのクラスターとして実行される Service Fabric をデプロイします。 <br>**このソリューション テンプレートでは、Windows Server 2016 Datacenter をダウンロードする必要もあります**| Microsoft |
 | ![NRI mPLAT スイート - マルチクラウド Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT スイート - マルチクラウド Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | ワークロードやクラウドの監視、構成、プロビジョニング、自動化、構成のプロビジョニング、自動化、および制御を行うための一枚のガラス。 | NRI |
 | ![NooBaa Hybrid AWS S3 互換性 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 互換性 - Community Edition](https://www.noobaa.io/hybrid-cloud) | パブリックとオンプレミスのキャパシティ リソースに対応した、S3 互換のストレージ サービス。 | NooBaa |

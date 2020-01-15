@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: f3bd1fc6d1f53ee56a8b1ff1741861a7f505b5b6
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 4ad58f0cce253aebb7e506f3bf0907b0bc170055
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909376"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718404"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 統合システムのデータセンター統合計画に関する考慮事項
 
@@ -85,7 +85,7 @@ Azure Stack の名前空間 (特にリージョン名と外部のドメイン名
 
 次の表は、これらのドメイン名前付けの決定事項をまとめたものです。
 
-| 名前 | 説明 | 
+| Name | [説明] | 
 | -------- | ------------- | 
 |リージョン名 | 最初の Azure Stack リージョンの名前。 この名前は、Azure Stack によって管理されるパブリック仮想 IP アドレス (VIP) の FQDN の一部として使用されます。 通常、リージョン名は、データセンターの場所などの物理的な場所の識別子になります。<br><br>リージョン名は文字と 0 から 9 までの数字で作成する必要があります。 特殊文字 (`-`、`#` など) は使用できません。| 
 | 外部ドメイン名 | 外部接続 VIP を持つエンドポイントのドメイン ネーム システム (DNS) ゾーンの名前。 パブリック VIP の FQDN に使用します。 | 
@@ -197,7 +197,7 @@ Azure Stack ソリューションに含まれているハードウェア ライ�
 
 Azure Stack でテナント アプリとデータはバックアップされません。 Azure Stack の外部にあるターゲットに対するバックアップとディザスター リカバリーの保護を計画する必要があります。 テナントの保護は、テナント ドリブン アクティビティです。 IaaS VM に対しては、テナントはゲスト内テクノロジを使用して、ファイル フォルダー、アプリ データ、システム状態を保護できます。 ただし、エンタープライズまたはサービス プロバイダーの場合は、同じデータセンター内または外部のクラウドでバックアップと復元のソリューションを提供することができます。
 
-Linux または Windows の IaaS VM をバックアップするには、ゲスト オペレーティング システムへのアクセス権を持つバックアップ製品を使用して、ファイル、フォルダー、オペレーティング システムの状態、アプリ データを保護する必要があります。 Azure Backup、System Center Data Center Protection Manager、またはサポートされているサード パーティ製品を使用できます。
+Linux または Windows の IaaS VM をバックアップするには、ゲスト オペレーティング システムへのアクセス権を持つバックアップ製品を使用して、ファイル、フォルダー、オペレーティング システムの状態、アプリ データを保護する必要があります。 Azure Backup、System Center Datacenter Protection Manager、またはサポートされているサード パーティ製品を使用できます。
 
 セカンダリ ロケーションにデータをレプリケートし、障害発生時のアプリケーションのフェールオーバーを調整するには、Azure Site Recovery またはサポートされているサード パーティの製品を使用することができます。 また、ネイティブ レプリケーション (Microsoft SQL Server など) をサポートするアプリは、アプリが実行されている別の場所にデータをレプリケートできます。
 
@@ -206,5 +206,5 @@ Linux または Windows の IaaS VM をバックアップするには、ゲス�
 - ユース ケース、購入、パートナー、OEM ハードウェア ベンダーの詳細については、[Azure Stack](https://azure.microsoft.com/overview/azure-stack/) の製品ページを参照してください。
 - Azure Stack 統合システムのロードマップと地理的な可用性については、ホワイト ペーパー「[Azure Stack: An extension of Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)」 (Azure Stack: Azure の拡張機能) を参照してください。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [Azure Stack デプロイの接続モデル](azure-stack-connection-models.md)

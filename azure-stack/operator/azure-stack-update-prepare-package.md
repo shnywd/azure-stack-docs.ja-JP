@@ -15,37 +15,37 @@ ms.date: 09/10/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 515195e30aed9944b8e0cc0e371d08b54ea75189
-ms.sourcegitcommit: 38f21e0bcf7b593242ad615c9d8ef8a1ac19c734
+ms.openlocfilehash: 1984aa10a0dd53cb66ae21895af7f153bedbc6a6
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70902668"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756901"
 ---
-# <a name="prepare-an-azure-stack-update-package"></a>Azure Stack 更新プログラム パッケージを準備する
+# <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack Hub 更新プログラム パッケージを準備する
 
-*適用対象:Azure Stack 統合システム*
+*適用対象:Azure Stack Hub 統合システム*
 
-この記事では、Azure Stack 環境を更新するために使用できるように Azure Stack 更新パッケージを準備する概要について説明します。 このプロセスは次のもので構成されます。
+この記事では、Azure Stack Hub 環境を更新するために使用できるように Azure Stack Hub 更新パッケージを準備することの概要を説明します。 このプロセスは次のもので構成されます。
 
 - [更新プログラム パッケージのダウンロード](#download-the-update-package)
-- [Azure Stack 管理者ポータルを使用した、Azure Stack 環境への更新プログラム パッケージのインポート](#import-and-install-updates)
+- [Azure Stack Hub 管理者ポータルを使用した、Azure Stack 環境への更新プログラム パッケージのインポート](#import-and-install-updates)
 
-Azure Stack 自動更新エンドポイントに接続できるシステムでは、Azure Stack ソフトウェア更新プログラムと修正プログラムが自動的にダウンロードされ準備されます。 接続できないシステムと OEM からの更新プログラムの場合は、このトピックの説明に従って更新プログラム パッケージを準備する必要があります。  
+自動更新エンドポイントに接続できるシステムでは、Azure Stack Hub のソフトウェア更新プログラムと修正プログラムが自動的にダウンロードされ、準備されます。 接続できないシステムと OEM からの更新プログラムの場合は、このトピックの説明に従って更新プログラム パッケージを準備する必要があります。  
 
 次の表は、更新プログラム パッケージが手動による準備を必要とするタイミングと、それらが自動的に準備されるタイミングを示しています。
 
 | 更新の種類 | 接続 | 必要な操作 |
 | --- | --- | --- |
-| Azure Stack ソフトウェア更新 | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
-| Azure Stack 修正プログラム | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
+| Azure Stack Hub ソフトウェア更新プログラム | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
+| Azure Stack Hub 修正プログラム | 接続中 | 更新が適用されると、更新プログラムが自動的にダウンロードされ、準備されます。 |
 | OEM パッケージの更新プログラム | 接続中 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
-| Azure Stack ソフトウェア更新 | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
-| Azure Stack 修正プログラム | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
+| Azure Stack Hub ソフトウェア更新プログラム | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
+| Azure Stack Hub 修正プログラム | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
 | OEM パッケージの更新プログラム | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
 
 ## <a name="download-the-update-package"></a>更新プログラム パッケージをダウンロードする
-Azure Stack 更新プログラムと修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、Azure Stack インスタンスにアクセスできる場所にパッケージを移動する必要があります。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
+Azure Stack Hub の更新プログラムおよび修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、Azure Stack インスタンスにアクセスできる場所にパッケージを移動する必要があります。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
 
 パッケージの内容を確認します。 通常、更新プログラム パッケージは、次のファイルで構成されます。
 
@@ -53,11 +53,11 @@ Azure Stack 更新プログラムと修正プログラムの更新プログラ�
 - **Metadata.xml ファイル**。 このファイルには、更新プログラムに関する重要な情報 (発行元、名前、前提条件、サイズ、サポート パス URL など) が含まれます。
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>更新プログラム パッケージの自動ダウンロードと準備
-Azure Stack ソフトウェア更新プログラムと修正プログラムは、**Azure Stack 自動更新エンドポイント** (https://*.azureedge.net および https://aka.ms/azurestackautomaticupdate ) に接続しているシステムに対して自動的に準備されます。 **Azure Stack 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack ファイアウォール統合](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)に関するページに記載されている**修正プログラムと更新**エンドポイントを参照してください
+Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント** (https://*.azureedge.net および https://aka.ms/azurestackautomaticupdate ) に接続するシステムに対して自動的に準備されます。 **Azure Stack 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack ファイアウォール統合](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)に関するページに記載されている**修正プログラムと更新**エンドポイントを参照してください
 
-### <a name="where-to-download-azure-stack-update-packages"></a>Azure Stack 更新プログラム パッケージをダウンロードする場所
+### <a name="where-to-download-azure-stack-hub-update-packages"></a>Azure Stack Hub 更新プログラム パッケージをダウンロードする場所
 
-[フル更新と高速更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)用の Azure Stack 更新プログラムは、セキュリティで保護された Azure エンドポイントでホストされます。 インスタンスが接続されている Azure Stack オペレーターに対しては、[Azure Stack の更新が管理者ポータルに自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 インターネットに接続されていないシステム、またはインターネット接続が弱いシステムの場合は、[Azure Stack 更新プログラム ダウンローダー ツール](https://aka.ms/azurestackupdatedownload)を使用して更新プログラム パッケージをダウンロードできます。 Azure Stack ソフトウェアの更新プログラム パッケージには、Azure Stack サービスの更新プログラムのほか、Azure Stack のスケール ユニットのオペレーティング システムの更新プログラムが含まれている場合があります。
+[フル更新と高速更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)用の Azure Stack Hub 更新プログラムは、セキュリティで保護された Azure エンドポイントでホストされます。 接続されたインスタンスを担当する Azure Stack オペレーターには、[管理者ポータルで、Azure Stack Hub の更新プログラムが自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 インターネットに接続されていないシステム、またはインターネット接続が弱いシステムの場合は、[Azure Stack Hub 更新プログラムのダウンローダー ツール](https://aka.ms/azurestackupdatedownload)を使用して更新プログラム パッケージをダウンロードできます。 Azure Stack Hub ソフトウェアの更新プログラム パッケージには、Azure Stack サービスの更新プログラムのほか、Azure Stack Hub のスケール ユニットのオペレーティング システムに対する更新プログラムが含まれている場合があります。
 
 >[!NOTE]
 >更新プログラム パッケージとそのコンテンツ (バイナリ、PowerShell スクリプトなど) は、Microsoft が所有する証明書で署名されています。 パッケージを改ざんすると、この署名は無効になります。
@@ -65,7 +65,7 @@ Azure Stack ソフトウェア更新プログラムと修正プログラムは�
 
 ### <a name="where-to-download-azure-stack-hotfix-packages"></a>Azure Stack 修正プログラム パッケージをダウンロードする場所
 
-[Azure Stack 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)のパッケージは、Azure Stack 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 インスタンスが接続されている Azure Stack オペレーターに対しては、[Azure Stack の更新が管理者ポータルに自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 各修正プログラムの KB 記事 ([Azure Stack 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650) など) の埋め込みリンクを使用して、それらをダウンロードできます。 修正プログラムは、お使いの Azure Stack バージョンに対応するリリースノートに記載されています。
+[Azure Stack Hub 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)のパッケージは、Azure Stack Hub 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 接続されたインスタンスを担当する Azure Stack オペレーターには、[管理者ポータルで、Azure Stack Hub の更新プログラムが自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 それらは、各修正プログラムの KB 記事 ([Azure Stack Hub 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650) など) の埋め込みリンクを使用してダウンロードできます。 修正プログラムは、お使いの Azure Stack バージョンに対応するリリースノートに記載されています。
 
 ### <a name="where-to-download-oem-update-packages"></a>OEM 更新プログラム パッケージをダウンロードする場所
 また、OEM ベンダーがドライバーやファームウェアの更新プログラムなど、更新プログラムをリリースします。 これらの更新プログラムは、ハードウェア ベンダーから個別の [OEM パッケージ更新プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)として提供されますが、それらは引き続き、Microsoft の更新プログラム パッケージと同じようにインポート、インストール、および管理されます。 ベンダーの連絡先リンクの一覧については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)」を参照してください。
@@ -115,6 +115,6 @@ Azure Stack ソフトウェア更新プログラムと修正プログラムは�
 
 更新プログラムが Azure Stack にインストールされた後、手動でストレージ アカウントから更新プログラムを削除することができます。 Azure Stack は古い更新プログラム パッケージを定期的にチェックし、ストレージから削除します。 Azure Stack で古いパッケージが削除されるまでに 2 週間ほどかかる場合があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [更新プログラムを適用する](azure-stack-apply-updates.md)

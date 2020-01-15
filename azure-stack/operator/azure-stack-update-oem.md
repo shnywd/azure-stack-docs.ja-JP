@@ -15,24 +15,24 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: efa10feb63f01166cf93b1835d8e38f99b9191db
-ms.sourcegitcommit: df20662e77a6ed0a7eba03f79eb53e8cd4471206
+ms.openlocfilehash: 7c2ddd8c692efa423083b95eb7fb107dd763bab6
+ms.sourcegitcommit: 1cb84d8417367b553194614d53a477a94a8e9be9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72445165"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75755155"
 ---
-# <a name="apply-azure-stack-original-equipment-manufacturer-oem-updates"></a>Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する
+# <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する
 
-*適用対象:Azure Stack 統合システム*
+*適用対象:Azure Stack Hub 統合システム*
 
-OEM (相手先ブランド供給) 更新プログラムを Azure Stack ハードウェア コンポーネントに適用すると、ユーザーへの影響を最小限に抑えながら、ドライバーとファームウェアの機能強化、およびセキュリティ更新プログラムを受け取ることができます。 この記事では、OEM 更新プログラムについて、OEM 連絡先情報、および OEM 更新プログラムの適用方法について説明します。
+OEM (相手先ブランド供給) 更新プログラムを Azure Stack Hub ハードウェア コンポーネントに適用すると、ユーザーへの影響を最小限に抑えながら、ドライバーとファームウェアの機能強化、およびセキュリティ更新プログラムを受け取ることができます。 この記事では、OEM 更新プログラムについて、OEM 連絡先情報、および OEM 更新プログラムの適用方法について説明します。
 
 ## <a name="overview-of-oem-updates"></a>OEM 更新プログラムの概要
 
 Microsoft Azure Stack 更新プログラムに加えて、多くの OEM が、ドライバーやファームウェアの更新など、Azure Stack ハードウェアの通常の更新プログラムもリリースしています。 これらは **OEM パッケージ更新プログラム**と呼ばれます。 OEM が OEM パッケージ更新プログラムをリリースしているかどうかを知るには、[OEM の Azure Stack ドキュメント](#oem-contact-information)を確認してください。
 
-これらの OEM パッケージ更新プログラムは、**updateadminaccount** ストレージ アカウントにアップロードされ、Azure Stack 管理者ポータル経由で適用されます。 詳しくは、[OEM 更新プログラムの適用](#apply-oem-updates)に関するページをご覧ください。
+これらの OEM パッケージ更新プログラムは、**updateadminaccount** ストレージ アカウントにアップロードされ、Azure Stack Hub 管理者ポータル経由で適用されます。 詳しくは、[OEM 更新プログラムの適用](#apply-oem-updates)に関するページをご覧ください。
 
 OEM (相手先ブランド供給) パッケージの更新通知が確実に組織に届くようにする具体的な通知プロセスについては、ご利用の OEM にお問い合わせください。
 
@@ -59,9 +59,9 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 1. 次の場合に、OEM に問い合わせる必要があります。
       - OEM パッケージの現在のバージョンを確認する。  
       - OEM パッケージをダウンロードするための最適な方法を見つける。  
-2. OEM パッケージ更新プログラムを適用する前に、常にシステムの現在の Azure Stack バージョンで利用可能な最新の Azure Stack 修正プログラムを適用する必要があります。 修正プログラムの詳細については、[Azure Stack 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)に関するページを参照してください。
+2. OEM パッケージ更新プログラムを適用する前に、常にシステムの現在の Azure Stack Hub バージョンで利用可能な最新の Azure Stack 修正プログラムを適用する必要があります。 修正プログラムの詳細については、[Azure Stack Hub 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)に関するページを参照してください。
 3. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md)」に記載されている手順で、OEM パッケージを準備します。
-4. 「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」に記載されている手順で更新プログラムを適用します。
+4. [Azure Stack Hub で更新を適用する](azure-stack-apply-updates.md)ことに関するページに記載されている手順で、更新プログラムを適用します。
 
 ## <a name="configure-hardware-vendor-vm"></a>ハードウェアベンダー VM を構成する
 
@@ -77,7 +77,7 @@ Azure Stack 上の特権エンドポイントの詳細については、「[Azur
     -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```
 
-2. **Set-OEMExternalVM** コマンドレットを使用して、ハードウェア ベンダー VM を構成します。 このコマンドレットは、 **-VMType** `ProxyVM` の IP アドレスと資格情報を検証します。 **-VMType** `HardwareManager` の場合、コマンドレットによって入力が検証されません。 **Set-OEMExternalVM** に指定される **-Credential** パラメーターは、ハードウェアベンダーのドキュメントで明確に文書化されるものです。  これは、特権エンドポイントやその他の既存の Azure Stack 資格情報で使用される CloudAdmin 資格情報ではありません。
+2. **Set-OEMExternalVM** コマンドレットを使用して、ハードウェア ベンダー VM を構成します。 このコマンドレットは、 **-VMType** `ProxyVM` の IP アドレスと資格情報を検証します。 **-VMType** `HardwareManager` の場合、コマンドレットによる入力の検証は行われません。 **Set-OEMExternalVM** に指定される **-Credential** パラメーターは、ハードウェアベンダーのドキュメントで明確に文書化されるものです。  これは、特権エンドポイントやその他の既存の Azure Stack 資格情報で使用される CloudAdmin 資格情報ではありません。
 
     ```powershell  
     $VmCred = Get-Credential
@@ -88,6 +88,6 @@ Azure Stack 上の特権エンドポイントの詳細については、「[Azur
         }
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack の更新プログラム](azure-stack-updates.md)
+[Azure Stack Hub の更新プログラム](azure-stack-updates.md)

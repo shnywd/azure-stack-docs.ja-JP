@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 用検証レポート | Microsoft Docs
+title: Azure Stack Hub 用検証レポート | Microsoft Docs
 description: Azure Stack 適合性チェッカー レポートを使用して、検証結果を確認します。
 services: azure-stack
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: c00ce005ac72fcde34b58a1afe7e134c27274247
-ms.sourcegitcommit: aefcf9c61bd8089a0aaa569af7643e5e15f4947c
+ms.openlocfilehash: e699ab75225e0590d287ddadd8b35b67bfac8479
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991719"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718387"
 ---
-# <a name="azure-stack-validation-report"></a>Azure Stack 検証レポート
+# <a name="azure-stack-hub-validation-report"></a>Azure Stack Hub 検証レポート
 
-"*Azure Stack 適合性チェッカー*" ツールを使用して、Azure Stack 環境のデプロイとサービスをサポートする検証を実行します。 このツールでは、結果が .json レポート ファイルに書き込まれます。 レポートには、Azure Stack デプロイの前提条件の状態に関する詳細データと概要データが表示されます。 また、既存の Azure Stack デプロイのシークレット ローテーションについての情報も表示されます。  
+*Azure Stack 適合性チェッカー* ツールを使用して、Azure Stack Hub 環境のデプロイとサービスをサポートする検証を実行します。 このツールでは、結果が .json レポート ファイルに書き込まれます。 レポートには、Azure Stack Hub デプロイの前提条件の状態に関する詳細データと概要データが表示されます。 また、既存の Azure Stack Hub デプロイのシークレット ローテーションについての情報も表示されます。  
 
 ## <a name="where-to-find-the-report"></a>レポートの場所
 
@@ -96,7 +96,7 @@ PSBoundParameters :
 
 ## <a name="view-the-report-summary"></a>レポートの概要を表示する
 
-レポートの概要を表示するには、PowerShell コマンドの末尾に `-summary` パラメーターを追加します。 例:
+レポートの概要を表示するには、PowerShell コマンドの末尾に `-summary` パラメーターを追加します。 次に例を示します。
 
 ```powershell
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
@@ -132,12 +132,12 @@ Azure Stack ADFS Validation results not available.
 
 1 種類の検証でフィルター処理されたレポートを表示するには、 **-ReportSections** パラメーターを使用して、次のいずれかの値を指定します。
 
-- 証明書
+- Certificate
 - AzureRegistration
 - AzureIdentity
-- Graph
+- グラフ
 - ADFS
-- [ジョブ]
+- ジョブ
 - All  
 
 たとえば、証明書のレポート概要のみを表示するには、次の PowerShell コマンド ラインを使用します。

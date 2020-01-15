@@ -9,12 +9,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 949736f091b02ce3118725b9fd3cf6f34c1fc402
-ms.sourcegitcommit: 708c2eb0af3779517cebe8e3b1dc533c5d26561a
+ms.openlocfilehash: b0c676033a5690025fb2d8f5c3aa203766ae67fd
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75184215"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718472"
 ---
 # <a name="extending-storage-to-azure-stack"></a>ストレージを Azure Stack に拡張する
 
@@ -367,6 +367,6 @@ iSCSI イニシエーターを設定するには、まず、**Azure Stack** シ�
 
 このシナリオは、Azure Stack で実行されているワークロードと外部ストレージ アレイ (この場合、Windows Server ベースの iSCSI ターゲット) との間の接続に焦点を当てるように設計されました。 これは、パフォーマンス テストとして使用するように設計されたものではなく、また別の iSCSI ベースのアプライアンスを使用している場合に実行する必要がある手順も反映していません。これは、Azure Stack にワークロードをデプロイする際や Azure Stack 環境の外のストレージ システムに接続する際のいくつかの主な考慮事項に焦点を当てています。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)

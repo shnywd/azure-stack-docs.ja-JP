@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 5841509f9c5c9aef20dd2687adb0e54856fa5d3e
-ms.sourcegitcommit: de577d821d3b93ab524fee9e7a18a07c0ecc243c
+ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2019
-ms.locfileid: "75183539"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756884"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -101,7 +101,7 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 のパラメーター
 
-|パラメーター|説明|
+|パラメーター|[説明]|
 |-----|-----|
 |AzCredential|Azure Stack サービス管理者アカウントの資格情報。|
 |CloudAdminCredential|Azure Stack クラウド管理者ドメイン アカウントの資格情報。|
@@ -114,10 +114,10 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ### <a name="known-issues"></a>既知の問題
 
-**問題**:<br>
+**問題点**:<br>
 シークレット ローテーション ログ。 シークレット ローテーションのカスタム スクリプトが実行され、失敗した場合、シークレット ローテーションのログは自動的に収集されません。
 
-**対処法**:<br>
+**回避策**:<br>
 Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存されているすべてのリソース プロバイダーのログ (AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log など) を収集します。
 
 ## <a name="update-the-vm-operating-system"></a>VM のオペレーティング システムを更新する
@@ -251,8 +251,8 @@ Azure Diagnostics 拡張機能は、既定で SQL リソース プロバイダ�
 
 イベント ログと IIS ログの収集が SQL リソース プロバイダーに対して構成されると、**sqladapterdiagaccount** という名前のシステム ストレージ アカウント内にログが見つかります。
 
-Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
+Azure Diagnostics 拡張機能の詳細については、「[Azure Diagnostics 拡張機能とは何か](/azure/azure-monitor/platform/diagnostics-extension-overview)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [サーバーをホストする SQL Server を追加する](azure-stack-sql-resource-provider-hosting-servers.md)

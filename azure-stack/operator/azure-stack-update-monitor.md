@@ -15,22 +15,22 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a724320bd066e6d46e33e6bdc9c80687cfb97736
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: f14b4180e567df13e576b520cdac01a676c101ea
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540282"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75717945"
 ---
-# <a name="monitor-updates-in-azure-stack-using-powershell"></a>PowerShell を使用した Azure Stack での更新の監視
+# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での更新の監視
 
-*適用対象:Azure Stack 統合システム*
+*適用対象:Azure Stack Hub 統合システム*
 
-Azure Stack 管理エンドポイントを使用して、更新の監視と管理を行うことができます。 それらには、PowerShell でアクセスできます。 Azure Stack で PowerShell を使用してセットアップする手順については、「[PowerShell for Azure Stack をインストールする](azure-stack-powershell-install.md)」をご覧ください。
+Azure Stack Hub 管理エンドポイントを使用して、更新の監視と管理を行うことができます。 それらには、PowerShell でアクセスできます。 Azure Stack Hub で PowerShell を使用してセットアップする手順については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
 
 次の PowerShell コマンドレットを使用して更新を管理することもできます。
 
-| コマンドレット | 説明 |
+| コマンドレット | [説明] |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | 使用可能な更新プログラムの一覧を取得します。 |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| 更新プログラムの場所の一覧を取得します。 |
@@ -54,6 +54,6 @@ Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 -   [Azure Stack で更新を管理する](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

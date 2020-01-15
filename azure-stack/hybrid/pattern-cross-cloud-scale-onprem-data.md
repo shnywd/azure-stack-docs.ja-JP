@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 75a72deac409013b3fcd77693c3a7ceb2d2497cc
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640180"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718285"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>クラウド間スケーリング (オンプレミスのデータ) パターン
 
@@ -31,11 +31,11 @@ Azure と Azure Stack Hub にまたがるハイブリッド アプリケーシ�
 
 [![オンプレミスのデータを使用したクラウド間スケーリング パターン](media/pattern-cross-cloud-scale-onprem-data/solution-architecture.png)](media/pattern-cross-cloud-scale-onprem-data/solution-architecture.png)
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | 説明 |
+| レイヤー | コンポーネント | [説明] |
 |----------|-----------|-------------|
 | Azure | Azure App Service | [Azure App Service](/azure/app-service/) を使用すると、Web アプリ、RESTful API アプリ、および Azure Functions を構築してホストすることができます。 すべて任意のプログラミング言語で行うことができ、インフラストラクチャを管理する必要はありません。 |
 | | Azure Virtual Network| [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) は、Azure 内のプライベート ネットワークの基本的な構成ブロックです。 VNet により、Virtual Machines (VM) などのさまざまな種類の Azure リソースは、他の Azure リソース、インターネット、およびオンプレミスのネットワークと安全に通信することができます。 また、このソリューションでは、追加のネットワーク コンポーネントの使用方法も示します。<br>- アプリケーションとゲートウェイ サブネット<br>- ローカルのオンプレミス ネットワーク ゲートウェイ<br>- サイト間 VPN ゲートウェイ接続として機能する仮想ネットワーク ゲートウェイ<br>- パブリック IP アドレス<br>- ポイント対サイト VPN 接続<br>- DNS ドメインをホストし、名前解決を提供するための Azure DNS |
@@ -82,7 +82,7 @@ Microsoft は、オンプレミスの資産と Azure Stack Hub および Azure �
 
 グローバルなデプロイには特有の課題があります。たとえば、接続の変動が大きいこと、政府の規制が地域によって異なることなどがあります。 開発者は、1 つのアプリだけを開発し、要件が異なるさまざまな理由でデプロイすることができます。  アプリケーションを Azure パブリック クラウドにデプロイし、追加のインスタンスまたはコンポーネントをローカルにデプロイします。 Azure を使用すると、すべてのインスタンス間のトラフィックを管理できます。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 **単一の一貫した開発アプローチ**
 
@@ -97,11 +97,11 @@ Azure と Azure Stack Hub を使用すると、組織全体で一貫した一連
 
 Azure Stack Hub は、Azure Active Directory および Active Directory フェデレーション サービス (AD FS) の両方と連携します。 Azure Stack Hub では、接続されたシナリオで Azure Active Directory と連携します。 接続されていない環境では、ADFS を、切断されたソリューションとして使用できます。 サービス プリンシパルを使用してアプリケーションにアクセスできることにより、Azure Resource Manager を介してリソースをデプロイまたは構成することができます。 
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 **コンプライアンスの確保とデータの主権**
 
-Azure Stack Hub により、パブリック クラウドを使用する場合と同様、複数の国で同じサービスを実行できます。 各国のデータセンターに同じアプリケーションをデプロイすることにより、データの主権要件を満たすことができます。 この機能により、個人データを各国の境界内で保持することができます。
+Azure Stack Hub により、パブリック クラウドを使用する場合と同様、複数の国で同じサービスを実行できます。 各国のデータセンターに同じアプリケーションをデプロイすることで、データの主権要件を満たすことができます。 この機能により、個人データを各国の境界内で保持することができます。
 
 **Azure Stack Hub - セキュリティ体制**
 
@@ -130,10 +130,10 @@ Azure Stack Hub OEM パートナーとのパートナーシップにより、Mic
 - オンプレミスのコンポーネントがあり、クラウドを使用してそれらをシームレスにスケーリングしたいと考えています。
 - クラウドのスケーラビリティが必要ですが、可能な限り多くのアプリケーションをオンプレミスで実行したいと考えています。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
-- このパターンの使用方法の概要については、「[Dynamically scale apps between data centers and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0)」 (データセンターとパブリック クラウド間でアプリを動的にスケーリングする) を参照してください。
+- このパターンの使用方法の概要については、「[Dynamically scale apps between datacenters and public cloud](https://www.youtube.com/watch?v=2lw8zOpJTn0)」(データセンターとパブリック クラウド間でアプリを動的にスケーリングする) を参照してください。
 - ベスト プラクティスの詳細とその他の疑問の回答を確認するには、「[ハイブリッド アプリの設計上の考慮事項](overview-app-design-considerations.md)」を参照してください。
 - このパターンでは、Azure Stack Hub を含む Azure Stack 製品ファミリを使用します。 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 

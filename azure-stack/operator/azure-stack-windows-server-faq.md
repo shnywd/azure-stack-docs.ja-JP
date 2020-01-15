@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: b71065d4a5af880fe5fb9a48d78a0e2821822b56
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
+ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143979"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75503608"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
 
@@ -56,7 +56,7 @@ Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポート
 次のスクリプトを実行して、ライセンス モデル属性を変更して、ライセンス持ち込み (BYOL) から従量課金制 (PAYG) モデルに切り替えることができます。
 
 ```powershell
-vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 ```
@@ -81,6 +81,8 @@ Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
 
 これらのイメージは、**licenseType** パラメーターが適用されるため、従量課金制となります。 このパラメーターは自分で設定することができます (前出の FAQ の回答を参照)。 これが適用されるのは、Windows Server ソフトウェアだけです。自分のライセンスの持ち込みが必要となる階層化された製品 (SQL など) には適用されません。 従量課金制ライセンスは、階層化されたソフトウェア製品には適用されません。
 
+Marketplace から SQL Server イメージの **licenseType** プロパティを変更できるのは、バージョンが XX.X.20190410 以降の場合のみであることに注意してください。 Marketplace から古いバージョンの SQL Server イメージを実行している場合は、**licenseType** 属性を変更することはできず、Marketplace から最新の SQL Server イメージを使用して再デプロイする必要があります。
+
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>私はマイクロソフト エンタープライズ契約 (EA) を所有しており、EA Windows Server ライセンスを使う予定です。イメージに対して正しく課金されるようにするには、どうすればよいですか?
 
 **licenseType: Windows_Server** を Azure Resource Manager テンプレートに追加してください。 この設定は、個々の仮想マシンのリソース ブロックに追加する必要があります。
@@ -100,7 +102,7 @@ Azure Stack で Windows Server 仮想マシンのライセンス認証を行う�
 slmgr /dlv
 ```
 
-正しくライセンス認証されていれば、`slmgr` の出力にその旨が明記され、ホスト名が表示されます。 ディスプレイ上の透かしに頼らないようにしてください。これらは最新ではない可能性があるほか、ご利用のものとは異なる仮想マシンからの表示である可能性もあります。
+正しくライセンス認証されていれば、`slmgr` の出力にその旨が明記され、ホスト名が表示されます。 ディスプレイ上の透かしに頼らないようにしてください。これらは最新情報でなかったり、ご利用のマシンの背後にある異なる仮想マシンの表示であったりすることもあります。
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>私の VM は AVMA を使用するように設定されていません。解決方法を教えてください。
 
@@ -128,7 +130,7 @@ slmgr /ipk <AVMA key>
 
 以前のバージョンの Windows Server では、[仮想マシンの自動ライセンス認証](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))はサポートされていません。 VM を手動でアクティブにする必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 詳細については、次の記事を参照してください。
 

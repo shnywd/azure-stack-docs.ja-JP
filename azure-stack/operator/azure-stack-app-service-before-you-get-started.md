@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 0fbb57771976b896f8f6b37b62780e34d6635d78
-ms.sourcegitcommit: e2aec63cacfdc830a20a02ee40e715e3c5dfdf22
+ms.lastreviewed: 01/08/2020
+ms.openlocfilehash: 759e25155abcc65bd2d671b310d6b93900b832db
+ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70386232"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75756969"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>App Service on Azure Stack のデプロイの前提条件
 
@@ -70,7 +70,7 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 スクリプトのパラメーター
 
-| パラメーター | 必須または省略可能 | 既定値 | 説明 |
+| パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | 必須 | AzS-ERCS01 | 特権エンドポイント |
 | CloudAdminCredential | 必須 | AzureStack\CloudAdmin | Azure Stack クラウド管理者のドメイン アカウントの資格情報 |
@@ -95,9 +95,9 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 スクリプトのパラメーター
 
-| パラメーター | 必須または省略可能 | 既定値 | 説明 |
+| パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
-| pfxPassword | 必須 | Null | 証明書の秘密キーを保護するのに役立つパスワード |
+| pfxPassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード |
 | DomainName | 必須 | local.azurestack.external | Azure Stack のリージョンとドメイン サフィックス |
 
 ### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Azure App Service の Azure Stack の運用環境デプロイに必要な証明書
@@ -115,7 +115,7 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 
 この証明書は .pfx 形式の、3 つのサブジェクトのワイルドカード証明書である必要があります。 この要件により、1 つの証明書で、既定のドメインとソース管理操作の SCM エンドポイントの両方に対応できます。
 
-| 形式 | 例 |
+| Format | 例 |
 | --- | --- |
 | `*.appservice.<region>.<DomainName>.<extension>` | `*.appservice.redmond.azurestack.external` |
 | `*.scm.appservice.<region>.<DomainName>.<extension>` | `*.scm.appservice.redmond.azurestack.external` |
@@ -125,7 +125,7 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 
 API 証明書は、管理ロールに配置されます。 リソース プロバイダーは、これを使用して API 呼び出しをセキュリティ保護しやすくします。 公開用の証明書には、API の DNS エントリと一致するサブジェクトが含まれている必要があります。
 
-| 形式 | 例 |
+| Format | 例 |
 | --- | --- |
 | api.appservice.\<region\>.\<DomainName\>.\<extension\> | api.appservice.redmond.azurestack.external |
 
@@ -133,7 +133,7 @@ API 証明書は、管理ロールに配置されます。 リソース プロ�
 
 パブリッシャー ロール用の証明書は、コンテンツ アップロード時に、アプリ所有者の FTPS トラフィックを保護します。 公開用の証明書には、FTPS の DNS エントリと一致するサブジェクトが含まれている必要があります。
 
-| 形式 | 例 |
+| Format | 例 |
 | --- | --- |
 | ftp.appservice.\<region\>.\<DomainName\>.\<extension\> | ftp.appservice.redmond.azurestack.external |
 
@@ -146,13 +146,13 @@ ID アプリ用の証明書は以下が可能です。
 
 ID 用の証明書には、次の形式に一致するサブジェクトが含まれている必要があります。
 
-| 形式 | 例 |
+| Format | 例 |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
 ### <a name="validate-certificates"></a>証明書を検証する
 
-App Service リソース プロバイダーをデプロイする前に、[PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)の Azure Stack 適合性チェッカー ツールを使用して、[使用する証明書を検証](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)する必要があります。 Azure Stack 適合性チェッカー ツールは、生成された PKI 証明書が App Service のデプロイに適しているかを検証します。
+App Service リソース プロバイダーをデプロイする前に、[PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)の Azure Stack 適合性チェッカー ツールを使用して、[使用する証明書を検証](azure-stack-validate-pki-certs.md#using-validated-certificates)する必要があります。 Azure Stack 適合性チェッカー ツールは、生成された PKI 証明書が App Service のデプロイに適しているかを検証します。
 
 ベスト プラクティスとして、必要ないずれかの [Azure Stack PKI 証明書](azure-stack-pki-certs.md)を使用する場合には、証明書をテストして必要な場合には再発行するための十分な時間を予定することです。
 
@@ -333,7 +333,7 @@ GO
 
 ## <a name="create-an-azure-active-directory-app"></a>Azure Active Directory アプリを作成する
 
-Azure AD サービス プリンシパルで以下の操作をサポートするように構成します。
+以下の操作をサポートするように Azure AD サービス プリンシパルを構成します。
 
 - worker 層での仮想マシン スケール セットの統合。
 - Azure Functions ポータルと高度な開発者ツールのための SSO。
@@ -345,7 +345,7 @@ Azure AD サービス プリンシパルで以下の操作をサポートする�
 - App Service 内の高度な開発者ツール (Kudu) を有効にする。
 - Azure Functions ポータルのエクスペリエンスを有効にする。
 
-次の手順に従います。
+以下の手順に従って、Azure AD テナント内にサービス プリンシパルを作成します。
 
 1. azurestack\AzureStackAdmin として PowerShell インスタンスを開きます。
 2. [前提条件の手順](azure-stack-app-service-before-you-get-started.md)でダウンロードして展開したスクリプトの場所に移動します。
@@ -353,27 +353,27 @@ Azure AD サービス プリンシパルで以下の操作をサポートする�
 4. **Create-AADIdentityApp.ps1** スクリプトを実行します。 メッセージが表示されたら、Azure Stack デプロイのために使用している Azure AD テナント ID を入力します。 たとえば、「**myazurestack.onmicrosoft.com**」と入力します。
 5. **[資格情報]** ウィンドウで、Azure AD サービスの管理者アカウントとパスワードを入力します。 **[OK]** を選択します。
 6. [先ほど作った証明書](azure-stack-app-service-before-you-get-started.md)について、証明書ファイル パスと証明書パスワードを入力します。 既定でこの手順のために作られる証明書は、**sso.appservice.local.azurestack.external.pfx** です。
-7. このスクリプトは、テナント Azure AD インスタンス内に新しいアプリを作成します。 PowerShell の出力で返されるアプリケーション ID を書き留めておきます。 インストール時にこの情報が必要になります。
+7. PowerShell の出力で返されるアプリケーション ID を書き留めておきます。 この ID は、アプリケーションのアクセス許可に同意するための次の手順と、インストール中に使用します。 
 8. 新しいブラウザー ウィンドウを開き、Azure Active Directory サービス管理者として [Azure Portal](https://portal.azure.com) にサインインします。
-9. Azure AD リソース プロバイダーを開きます。
-10. **[アプリの登録]** を選択します。
-11. 手順 7 の一部として返されたアプリケーション ID を検索します。 一覧に App Service アプリケーションが表示されます。
-12. 一覧で **[アプリケーション]** を選択します。
-13. **[設定]** を選択します。
-14. **[必要なアクセス許可]**  >  **[アクセス許可の付与]**  >  **[はい]** の順に選択します。
+9. Azure Active Directory サービスを開きます。
+10. 左ウィンドウで **[アプリの登録]** を選択します。
+11. 手順 7 で書き留めたアプリケーション ID を検索します。 
+12. 一覧から App Service アプリケーションの登録を選択します。
+13. 左ウィンドウで **[API のアクセス許可]** を選択します。
+14. **[\<テナント\> に管理者の同意を与えます]** を選択します。ここで \<テナント\> は、お使いの Azure AD テナントの名前です。 **[はい]** を選択して、同意したことを確認します。
 
 ```powershell
     Create-AADIdentityApp.ps1
 ```
 
-| パラメーター | 必須または省略可能 | 既定値 | 説明 |
+| パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 必須 | Null | Azure AD テナント ID。 GUID または文字列を指定します。 例として、myazureaaddirectory.onmicrosoft.com があります。 |
-| AdminArmEndpoint | 必須 | Null | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
-| TenantARMEndpoint | 必須 | Null | テナントの Azure Resource Manager エンドポイント。 例として、management.local.azurestack.external があります。 |
-| AzureStackAdminCredential | 必須 | Null | Azure AD サービス管理者の資格情報。 |
-| CertificateFilePath | 必須 | Null | 先ほど生成された ID アプリケーション証明書ファイルへの**完全なパス**。 |
-| CertificatePassword | 必須 | Null | 証明書の秘密キーを保護するのに役立つパスワード。 |
+| DirectoryTenantName | 必須 | [Null] | Azure AD テナント ID。 GUID または文字列を指定します。 例として、myazureaaddirectory.onmicrosoft.com があります。 |
+| AdminArmEndpoint | 必須 | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
+| TenantARMEndpoint | 必須 | [Null] | テナントの Azure Resource Manager エンドポイント。 例として、management.local.azurestack.external があります。 |
+| AzureStackAdminCredential | 必須 | [Null] | Azure AD サービス管理者の資格情報。 |
+| CertificateFilePath | 必須 | [Null] | 先ほど生成された ID アプリケーション証明書ファイルへの**完全なパス**。 |
+| CertificatePassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
 | 環境 | 省略可能 | AzureCloud | 対象の Azure Active Directory Graph サービスが利用可能な、サポートされているクラウド環境の名前。  使用できる値は以下の通りです。'AzureCloud'、'AzureChinaCloud'、'AzureUSGovernment'、'AzureGermanCloud'。|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Active Directory フェデレーション サービス アプリを作成する
@@ -402,14 +402,14 @@ AD FS によって保護されている Azure Stack 環境の場合、 AD FS サ
     Create-ADFSIdentityApp.ps1
 ```
 
-| パラメーター | 必須または省略可能 | 既定値 | 説明 |
+| パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | 必須 | Null | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
-| PrivilegedEndpoint | 必須 | Null | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |
-| CloudAdminCredential | 必須 | Null | Azure Stack クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
-| CertificateFilePath | 必須 | Null | ID アプリケーションの証明書 PFX ファイルへの**完全なパス**。 |
-| CertificatePassword | 必須 | Null | 証明書の秘密キーを保護するのに役立つパスワード。 |
+| AdminArmEndpoint | 必須 | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
+| PrivilegedEndpoint | 必須 | [Null] | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |
+| CloudAdminCredential | 必須 | [Null] | Azure Stack クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
+| CertificateFilePath | 必須 | [Null] | ID アプリケーションの証明書 PFX ファイルへの**完全なパス**。 |
+| CertificatePassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [App Service リソース プロバイダーのインストール](azure-stack-app-service-deploy.md)

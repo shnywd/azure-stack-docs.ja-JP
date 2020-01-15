@@ -1,6 +1,6 @@
 ---
-title: Azure Stack リリース ノート - 1910 のセキュリティ更新プログラム | Microsoft Docs
-description: Azure Stack の 1909 セキュリティ更新プログラムについて説明します。
+title: Azure Stack Hub リリース ノート - 1910 のセキュリティ更新プログラム | Microsoft Docs
+description: Azure Stack Hub の 1910 セキュリティ更新プログラムについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9294e0fad863345758527fb622fd5f3e753a29d1
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
+ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74299081"
+ms.lasthandoff: 12/20/2019
+ms.locfileid: "75303676"
 ---
-# <a name="azure-stack-security-updates"></a>Azure Stack のセキュリティ更新プログラム
+# <a name="azure-stack-hub-security-updates"></a>Azure Stack Hub セキュリティ更新プログラム
 
-この記事では、Azure Stack の最新の 4 つの更新プログラムにおけるすべてのセキュリティ更新プログラムを一覧で示します。 この情報は参照用にのみ提供されています。
+この記事では、Azure Stack Hub の最新の 4 つの更新プログラムにおけるすべてのセキュリティ更新プログラムを一覧で示します。 この情報は参照用にのみ提供されています。
 
 ::: moniker range="azs-1910"
 ## <a name="1910-update"></a>1910 更新プログラム
 
-Azure Stack のこの更新プログラムには、Azure Stack をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。 この更新プログラムには、Azure Stack インフラストラクチャのコンポーネントに対するキュリティ更新プログラムが含まれています。
+Azure Stack Hub のこの更新プログラムには、Azure Stack Hub をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。 この更新プログラムには、Azure Stack Hub インフラストラクチャのコンポーネントに対するセキュリティ更新プログラムが含まれています。
 
 - [CVE-2019-1234](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1234)
 
@@ -252,7 +252,7 @@ Azure Stack のこの更新プログラムには、Azure Stack をホストす�
 Azure Stack のこの更新プログラムには、Azure Stack をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。
 ::: moniker-end
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [更新アクティビティのチェック リストを確認する](release-notes-checklist.md)
 - [既知の問題の一覧を確認する](known-issues.md)

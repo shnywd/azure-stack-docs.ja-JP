@@ -9,12 +9,12 @@ ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: c1166b1755b33687757b4587942c5472413e2b3e
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 60e6330aa492539a3b4e89a390ddcad5650cac92
+ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780883"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75718421"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法
 
@@ -24,7 +24,7 @@ Azure Resource Manager テンプレートは、[f5-azurestack-gslb](https://gith
 
 ## <a name="overview-of-load-balancing-with-f5"></a>F5 を使用した負荷分散の概要
 
-F5 ハードウェア (ロード バランサー) は、Azure Stack の外部でも、Azure Stack がホストされるデータ センターの内部でもかまいません。 Azure Stack には、2 つの異なる Azure Stack デプロイ間でワークロードを負荷分散するためのネイティブな機能はありません。 F5 の BIG-IP 仮想エディション (VE) は、両方のプラットフォーム上で実行されます。 このセットアップにより、サポートするアプリケーション サービスのレプリケーションによって、Azure アーキテクチャと Azure Stack アーキテクチャの間のパリティがサポートされます。 1 つの環境でアプリを開発し、別の環境に移動することができます。 また、同じ BIG-IP 構成、ポリシー、アプリケーション サービスを含む、運用対応の Azure Stack 全体をミラー化することもできます。 このアプローチにより、アプリケーションのリファクタリングとテストに何時間もかかることがなくなり、コードの作成を進めることができます。
+F5 ハードウェア (ロード バランサー) は、Azure Stack の外部にあっても、Azure Stack がホストされるデータセンターの内部にあってもかまいません。 Azure Stack には、2 つの異なる Azure Stack デプロイ間でワークロードを負荷分散するためのネイティブな機能はありません。 F5 の BIG-IP 仮想エディション (VE) は、両方のプラットフォーム上で実行されます。 このセットアップにより、サポートするアプリケーション サービスのレプリケーションによって、Azure アーキテクチャと Azure Stack アーキテクチャの間のパリティがサポートされます。 1 つの環境でアプリを開発し、別の環境に移動することができます。 また、同じ BIG-IP 構成、ポリシー、アプリケーション サービスを含む、運用対応の Azure Stack 全体をミラー化することもできます。 このアプローチにより、アプリケーションのリファクタリングとテストに何時間もかかることがなくなり、コードの作成を進めることができます。
 
 アプリケーションとそのデータをセキュリティで保護することは、多くの場合、アプリをパブリック クラウドに移動する開発者にとって重要なことです。 これを問題にする必要はありません。 開発者が Azure Stack 環境でアプリを構築する一方で、セキュリティ アーキテクトは F5 の Web アプリケーション ファイアウォール (WAF) で必要な設定を構成します。 アプリケーションが業界をリードする同じ WAF によって保護されることはわかっており、スタック全体を Azure Stack にレプリケートすることができます。 ポリシーとルールセットは同じであり、異なる WAF を採用すると発生する可能性がある、セキュリティの抜け道や脆弱性が発生することはありません。
 
@@ -142,7 +142,7 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
     
     | Key | 値 |
     | --- | --- |
-    | 名前 | NGINX_Pool |
+    | Name | NGINX_Pool |
     | Health Monitor (正常性モニター) | HTTPS |
     | Node Name (ノード名) | NGINX |
     | Address | \<お使いの NGINX プライベート IP アドレス> |
@@ -162,7 +162,7 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
 
     | Key | 値 |
     | --- | --- |
-    |名前 | NGINX |
+    |Name | NGINX |
     |Destination Address (宛先アドレス) | \<BIG-IP のセルフ IP アドレス> |
     |Service Port (サービス ポート) | 443 |
     |SSL Profile (Client) (SSL プロファイル (クライアント)) | clientssl |
@@ -185,14 +185,14 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
     ![](./media/network-howto-f5/image17.png)
 
 
-## <a name="for-more-information"></a>BLOB の詳細
+## <a name="for-more-information"></a>詳細情報
 
 F5 の使用に関するリファレンス記事がいくつかあります。
 
-- [BIG-IP DNS を使用したデータ センターの可用性サービス](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
+- [BIG-IP DNS を使用したデータセンターの可用性サービス](https://clouddocs.f5.com/training/community/dns/html/class3/class3.html)
 - [HTTP アプリケーションを使用した BIG-IP システムの展開](https://www.f5.com/content/dam/f5/corp/global/pdf/deployment-guides/iapp-http-dg.pdf)
 - [GSLB 用のワイド IP の作成](https://clouddocs.f5.com/training/community/big-iq-cloud-edition/html/class10/module2/lab1.html)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md) 
