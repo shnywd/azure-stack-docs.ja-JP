@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d74d2f70ec172ecc2dc640958cb01143ec80af31
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 1b21766561c39cf795665e8229eb1763acb89465
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640504"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881792"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 このソリューション ガイドでは、Azure と Azure Stack Hub の両方にまたがり、1 つのオンプレミス データ ソースを使用するハイブリッド アプリケーションをデプロイする方法について説明します。
 
@@ -304,7 +302,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
 
 1. Azure で、スケールアウトしたいサイトの App Service プランを見つけて、 **[スケールアウト (App Service プラン)]** を選択します。
 
-    ![スケールアウト](media/solution-deployment-guide-hybrid/image16.png)
+    ![スケール アウト](media/solution-deployment-guide-hybrid/image16.png)
 
 2. **[自動スケールの有効化]** を選択します。
 
@@ -329,7 +327,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
    - **[しきい値]** を **50** に設定します。
    - **[期間]** を **10** に設定します。
 
-**アクション**
+**操作**
 
 1. **[操作]** で **[カウントを増やす量]** を選択します。
 
@@ -363,7 +361,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
    - **[しきい値]** を **30** に設定します。
    - **[期間]** を **10** に設定します。
 
-**アクション**
+**操作**
 
 1. **[操作]** で **[カウントを減らす量]** を選択します。
 
@@ -543,6 +541,6 @@ Azure Functions によって実現される[サーバーレス](https://azure.mi
 5. 作成したコードを保存し、Application Insights のアラート ルール設定の **Webhook** セクションに、適切なパラメーターと共に関数アプリの URL を追加します。
 6. Application Insights のアラートが発生すると、トラフィックが自動的にリダイレクトされます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。
