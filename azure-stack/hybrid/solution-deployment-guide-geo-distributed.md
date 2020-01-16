@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 11da2f86bcfce1473e5fabe3712281fa3e9e68b2
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c18e510d32773905b59cd756ed49daf59a0d03e9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640426"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881860"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 地理的分散アプリ パターンを使用して、さまざまなメトリックに基づき、特定のエンドポイントにトラフィックを送信する方法について説明します。 地理的ベースのルーティングとエンドポイント構成で Traffic Manager プロファイルを作成すると、リージョンの要件、企業および国際的な規制、およびデータ ニーズに基づいて、情報がエンドポイントにルーティングされます。
 
@@ -69,7 +67,7 @@ ms.locfileid: "73640426"
 > 
 > [ハイブリッド アプリケーションのための設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
-## <a name="part-1-create-a-geo-distributed-app"></a>パート 1:地理的分散アプリを作成する
+## <a name="part-1-create-a-geo-distributed-app"></a>パート 1: 地理的分散アプリを作成する
 
 このパートでは、Web アプリを作成します。
 
@@ -234,7 +232,7 @@ Azure DevOps Services が提供するパイプラインは自由に構成でき�
 > [!Note]  
 > タスクの一部の設定は、テンプレートからリリース定義を作成したときに、[環境変数](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables)として自動的に定義されている可能性があります。 こうした設定は、タスクの設定では変更できません。これらの設定を編集するには、親環境項目を選択する必要があります。
 
-## <a name="part-2-update-web-app-options"></a>パート 2:Web アプリ オプションを更新する
+## <a name="part-2-update-web-app-options"></a>パート 2: Web アプリ オプションを更新する
 
 [Azure App Service](https://docs.microsoft.com/azure/app-service/overview) では、高度にスケーラブルな自己適用型の Web ホスティング サービスを提供しています。 
 
@@ -350,7 +348,7 @@ CNAME を追加した後の DNS レコード ページは次の例のように�
 
 先ほど構成した DNS 名 (たとえば、`northwindcloud.com` や www.northwindcloud.com) を参照します。
 
-## <a name="part-3-bind-a-custom-ssl-cert"></a>パート 3:カスタム SSL 証明書をバインドする
+## <a name="part-3-bind-a-custom-ssl-cert"></a>パート 3: カスタム SSL 証明書をバインドする
 
 このパートでの作業:
 
@@ -538,7 +536,7 @@ Web アプリページで、 **[SSL 設定]** を選択します。 その後、
 
 ![HTTPS の適用](media/solution-deployment-guide-geo-distributed/image43.png)
 
-操作が完了すると、アプリを指定する HTTP URL のいずれかに移動します。 例:
+操作が完了すると、アプリを指定する HTTP URL のいずれかに移動します。 次に例を示します。
 
 -   https://<app_name>.azurewebsites.net
 -   https://northwindcloud.com
@@ -629,6 +627,6 @@ Web アプリページで、 **[SSL 設定]** を選択します。 その後、
 
 Azure Traffic Manager と地域固有のエンドポイントを利用してデータ トラフィックを転送することで、グローバル企業は地域の規制に準拠し、現地/遠隔地を問わず、ビジネスの成功に不可欠であるデータ コンプライアンスとデータ セキュリティを維持できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。
