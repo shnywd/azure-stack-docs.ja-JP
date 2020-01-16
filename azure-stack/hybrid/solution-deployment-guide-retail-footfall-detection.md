@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 41166490ef2a79bc61375479d8c83e0205ab44a6
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: c2e043630e601098e0b2abbb1bacbffe44808495
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73639988"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881452"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用して AI ベースの足取り検出ソリューションをデプロイする
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 この記事では、Azure、Azure Stack Hub、Custom Vision AI Dev Kit を使用して、実際のアクションから分析情報を生成するソリューションをデプロイする方法について説明します。
 
@@ -194,7 +192,7 @@ porter uninstall footfall-cloud –tag intelligentedge/footfall-cloud-deployment
 
 porter uninstall footfall-camera –tag intelligentedge/footfall-camera-deployment:0.1.0 –creds footfall-camera-deployment –param-file "path-to-camera-parameters-file.txt"
 ```
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [ハイブリッド クラウド アプリの設計上の考慮事項](overview-app-design-considerations.md)の詳細について学習する
 - [GitHub でこのサンプルのコード](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/footfall-analysis)を確認し、改善点を提案する

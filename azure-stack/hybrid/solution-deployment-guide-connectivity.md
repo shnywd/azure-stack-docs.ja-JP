@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88355951ea5cffc147ef9644a6e35b78bb80a02c
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 26895aeaf55c466d5800e52c7c482d4516f3f244
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640048"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881639"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してハイブリッド クラウド接続を構成する
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 ハイブリッド接続パターンを使用して、グローバル Azure および Azure Stack Hub 内のリソースに安全な方法でアクセスできます。
 
@@ -90,7 +88,7 @@ Azure Stack Hub オペレーターが、App Service のデプロイ、プラン�
 
 ネットワークとサブネットの IP アドレス:
 
-| Azure/Azure Stack Hub 接続 | 名前 | Subnet | IP アドレス |
+| Azure/Azure Stack Hub 接続 | Name | Subnet | IP アドレス |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |
@@ -216,6 +214,6 @@ Azure に仮想ネットワーク ゲートウェイを作成するには、次�
 
 仮想ネットワーク ゲートウェイの **[接続]** ページで接続を確認できます。 状態は、 *[不明]* から *[接続中]* に変わり、その後 *[成功]* に変わります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

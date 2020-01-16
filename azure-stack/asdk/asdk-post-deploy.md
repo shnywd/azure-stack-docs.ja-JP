@@ -16,12 +16,12 @@ ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 88b92ce80475ba48b2570dc58082fa75983fdd9b
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 9408fb5ba7ffa181acc28e78576c9eda2262dc81
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540265"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75804556"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 
@@ -42,7 +42,7 @@ API バージョン プロファイルを使用して、Azure Stack と互換性
 ASDK ホスト コンピューターへのインターネット接続の有無にかかわらず、最新の Azure Stack PowerShell モジュールをインストールすることができます。
 
 > [!IMPORTANT]
-> 必要なバージョンをインストールする前に、必ず[既存の Azure PowerShell モジュールをアンインストールしてください](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
+> 必要なバージョンをインストールする前に、必ず[既存の Azure PowerShell モジュールをアンインストールしてください](../operator/azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。
 
 - ASDK ホスト コンピューターからの**インターネット接続がある場合**:次の PowerShell スクリプトを実行して、これらのモジュールを ASDK インストールにインストールします。
 
@@ -113,8 +113,8 @@ ASDK のデプロイが成功したことを確認するには、次の手順に
 
 1. ASDK ホスト コンピューターで AzureStack\AzureStackAdmin としてサインインします。
 2. PowerShell を (PowerShell ISE ではなく) 管理者として開きます。
-3. 次のコマンドを実行します: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
-4. 次のコマンドを実行します: `Test-AzureStack`
+3. `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint` を実行します。
+4. `Test-AzureStack` を実行します。
 
 テストが完了するまでに数分かかります。 インストールが成功した場合、出力は次のようになります。
 
@@ -129,6 +129,6 @@ Azure AD を使用したデプロイでは、ASDK のインストール用に[�
 > [!NOTE]
 > Azure Stack の登録に使用したドメイン以外のドメインからの管理者またはユーザー アカウントを使用して Azure Stack ポータルにログインする場合は、Azure Stack の登録に使用したドメイン名をポータルの URL に追加する必要があります。 たとえば、Azure Stack が fabrikam.onmicrosoft.com に登録されていて、ログインするユーザー アカウントが admin@contoso.com である場合、ユーザー ポータルへのログインに使用する URL は https\://portal.local.azurestack.external/fabrikam.onmicrosoft.com になります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [ASDK の Azure への登録](asdk-register.md)

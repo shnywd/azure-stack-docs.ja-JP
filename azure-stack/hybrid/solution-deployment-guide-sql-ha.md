@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e0fe07495017d6bd56beab78a37f5e0708197087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7c530d537bb5c102091a9f4c68b35dd5a0a91275
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640342"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881418"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub に SQL Server 2016 可用性グループをデプロイする
-
-*適用対象:Azure Stack Hub 統合システム*:
 
 この記事では、2 つの Azure Stack Hub 環境にわたって、非同期 DR (ディザスター リカバリー) サイトと共に、基本的な高可用性 (HA) SQL Server 2016 Enterprise クラスターを自動デプロイする方法を段階的に説明します。 SQL Server 2016 と高可用性の詳細については、「[AlwaysOn 可用性グループ: 高可用性とディザスター リカバリーのソリューション](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2016)」を参照してください。
 
@@ -106,7 +104,7 @@ ms.locfileid: "73640342"
 
 ![SQL Server 2016 SQL HA](media/solution-deployment-guide-sql-ha/image2.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
   - SQL Server Management Studio を使用し、手動でクラスターをフェールオーバーします。「[AlwaysOn 可用性グループの強制手動フェールオーバーの実行 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)」を参照してください。
   - ハイブリッド クラウド アプリケーションの詳細については、[ハイブリッド クラウド ソリューション](https://aka.ms/azsdevtutorials)に関するページを参照してください。

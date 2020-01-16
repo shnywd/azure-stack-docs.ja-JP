@@ -8,16 +8,14 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d6adbc374cbd2472ceed1895fe7efb34ab5b9d64
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 3a8edb749ba995636f8e2fe626063ff4c495bb7b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654918"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881758"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 Azure Stack Hub でホストされる Web アプリから、Traffic Manager を介した自動スケーリングを備える Azure でホストされる Web アプリに切り替えて、手動トリガー プロセスを提供するクラウド間ソリューションを作成する方法について説明します。 このプロセスにより、負荷時に柔軟でスケーラブルなクラウド ユーティリティが実現します。
 

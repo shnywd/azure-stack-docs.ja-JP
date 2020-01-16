@@ -16,16 +16,14 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e7254f5fb6a44a268c73ea988d2ba9ecd236d7f0
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 62b3091ec0ebd2415b7de2be8c04af82d27ccd8d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727583"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879140"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Visual Studio をインストールして Azure Stack Hub に接続する
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Development Kit*
 
 Visual Studio を使用して Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)を作成し、Azure Stack Hub にデプロイできます。 この記事では、Visual Studio を [Azure Stack Hub](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) または外部コンピューター ([VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) を介して Azure Stack Hub を使用する予定の場合) にインストールする手順について説明します。
 

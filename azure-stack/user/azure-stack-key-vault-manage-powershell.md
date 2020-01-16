@@ -14,16 +14,14 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 4762cb77583d0a8e026528c47ffce6bc93c7b005
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 64ff69f87daa2451ab61fd2e950c5688903a955e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727600"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883679"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での Key Vault の管理
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Development Kit*
 
 この記事では、Azure Stack Hub で PowerShell を使用してキー コンテナーを作成および管理する方法について説明します。 Key Vault の PowerShell コマンドレットを使用して以下を行う方法について説明します。
 

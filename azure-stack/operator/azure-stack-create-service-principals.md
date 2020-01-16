@@ -7,16 +7,14 @@ ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff36a5c280df7ecb68d0d181438489ce696ed4fc
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 73eec3724aa37976809af6d1a4aa1b4b4c7baef5
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955381"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883101"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit (ASDK)*
 
 アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 ユーザーをユーザー プリンシパルで表すのと同様に、サービス プリンシパルはセキュリティ プリンシパルの一種であり、アプリを表します。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのサービス プリンシパルに委任することができます。  
 
@@ -81,7 +79,7 @@ Azure Stack Hub をデプロイするときに AD FS を ID 管理サービス�
 
 証明書を用意できたら、下記の PowerShell スクリプトを使用してアプリを登録し、サービス プリンシパルを作成します。 また、このサービス プリンシパルを使用して Azure にサインインします。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | 説明 | 例 |
+| プレースホルダー | [説明] | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
@@ -152,7 +150,7 @@ PowerShell コンソール セッションは開いたままにします。`Appl
 
 PowerShell を使用して証明書資格情報を更新します。次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | 説明 | 例 |
+| プレースホルダー | [説明] | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
@@ -197,7 +195,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
 
 別のアプリ登録を作成しますが、今回はクライアント シークレット資格情報を指定します。 証明書資格情報とは異なり、クライアント シークレット資格情報はディレクトリが生成することができます。 開発者はクライアント シークレットを指定する代わりに、`-GenerateClientSecret` スイッチを使用してシークレットの生成を要求できます。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | 説明 | 例 |
+| プレースホルダー | [説明] | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
@@ -254,7 +252,7 @@ PowerShell コンソール セッションは開いたままにします。`Appl
 
 PowerShell を使用してクライアント シークレット資格情報を更新します。**ResetClientSecret** パラメーターを使用するので、クライアント シークレットが即座に変更されます。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | 説明 | 例 |
+| プレースホルダー | [説明] | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
@@ -291,7 +289,7 @@ PowerShell を使用してクライアント シークレット資格情報を�
 
 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | 説明 | 例 |
+| プレースホルダー | [説明] | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
@@ -348,7 +346,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 
 サービス プリンシパルを作成してロールを割り当てたので、アプリ内でこのサービス プリンシパルを使用して Azure Stack Hub リソースにアクセスできるようになりました。  
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [AD FS のユーザーの追加](azure-stack-add-users-adfs.md)  
 [ユーザー アクセス許可の管理](azure-stack-manage-permissions.md)  

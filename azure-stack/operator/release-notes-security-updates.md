@@ -16,12 +16,12 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 9766c1fb0c5186f33038716f0d56d1ccac9d90cb
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.openlocfilehash: 6487f3380f39d6e321771a23714e99d8f65dd836
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303676"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75821020"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack Hub セキュリティ更新プログラム
 
@@ -243,13 +243,13 @@ Windows 更新プログラムの累積的な性質のため、この更新プロ
 ::: moniker range="azs-1907"
 ## <a name="1907-update"></a>1907 更新プログラム
 
-Azure Stack のこの更新プログラムには、Azure Stack をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。
+Azure Stack Hub のこの更新プログラムには、Azure Stack Hub をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。
 ::: moniker-end
 
 ::: moniker range="azs-1906"
 ## <a name="1906-update"></a>1906 更新プログラム
 
-Azure Stack のこの更新プログラムには、Azure Stack をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。
+Azure Stack Hub のこの更新プログラムには、Azure Stack Hub をホストする、基になるオペレーティング システムに対するセキュリティ更新プログラムは含まれていません。
 ::: moniker-end
 
 ## <a name="next-steps"></a>次のステップ
