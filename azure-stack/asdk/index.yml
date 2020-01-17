@@ -16,7 +16,7 @@ metadata:
 abstract:
   description: Azure Stack Hub 開発キット (ASDK) は、Azure Stack の単一ノード デプロイであり、無料でダウンロードして使用できます。 ASDK の目的は、非運用環境で Azure と一貫性のある API とツールを使用して、Azure Stack の評価と最新アプリケーションの開発を行える環境を提供することです。 <br/><br/>統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack オペレーターは、<a href="/azure-stack/operator">オペレーター ドキュメント</a>を参照してください。<br/><br/>Azure Stack でサービスを使用するかアプリを作成する Azure Stack ユーザーは、<a href="/azure-stack/user">ユーザー ドキュメント</a>を参照してください。
 sections:
-  - title: ステップバイステップのチュートリアル
+  - title: ステップバイステップ チュートリアル
     items:
       - type: paragraph
         text: ASDK デプロイにサービスを追加する方法について説明します。
@@ -24,7 +24,7 @@ sections:
         style: ordered
         items:
           - html: <a href="/azure-stack/asdk/asdk-install">ASDK をデプロイする</a>
-          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Azure Stack マーケットプレース項目を追加する</a>
+          - html: <a href="/azure-stack/operator/azure-stack-create-and-publish-marketplace-item">Azure Stack Hub マーケットプレース項目を追加する</a>
           - html: <a href="/azure-stack/operator/azure-stack-tutorial-tenant-vm">IaaS サービスを提供する</a>
           - html: <a href="/azure-stack/user/azure-stack-subscribe-services">オファーへのサブスクライブ</a>
           - html: <a href="/azure-stack/operator/create-add-on-plan">オファーとプランを更新する</a>
