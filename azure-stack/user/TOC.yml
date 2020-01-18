@@ -21,14 +21,14 @@
       href: azure-stack-quick-create-vm-linux-cli.md
 - name: チュートリアル
   items:
+    - name: プランへのサブスクライブ
+      href: azure-stack-subscribe-services.md
     - name: テンプレートからの VM の作成
       href: azure-stack-create-vm-template.md
 - name: 操作方法ガイド
   items:
     - name: ハイブリッド クラウド用のソリューションの構築を開始する
       items:
-        - name: プランへのサブスクライブ
-          href: azure-stack-subscribe-services.md
         - name: クラウド ソリューション プロバイダーを有効にする
           href: azure-stack-csp-enable-billing-usage-tracking.md
         - name: Azure Stack Hub ポータルを使用する
