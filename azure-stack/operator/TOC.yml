@@ -161,7 +161,11 @@
                 - name: OEM の更新プログラムを適用する
                   href: azure-stack-update-oem.md
             - name: 更新プログラムのステータスの監視
-              href: azure-stack-update-monitor.md
+              items:
+                - name: PowerShell の使用
+                  href: azure-stack-update-monitor.md
+                - name: 特権エンドポイントの使用
+                  href: azure-stack-monitor-update.md
             - name: 更新プログラムのトラブルシューティング
               href: azure-stack-updates-troubleshoot.md
         - name: 正常性とアラートの監視
