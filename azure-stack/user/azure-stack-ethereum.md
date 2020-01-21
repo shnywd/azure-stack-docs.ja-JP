@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上に Ethereum ブロックチェーン ネットワークをデプロイする | Microsoft Docs
-description: カスタム ソリューション テンプレートを使用して、Azure Stack 上にコンソーシアム Ethereum ブロックチェーン ネットワークをデプロイして構成するチュートリアル。
+title: Azure Stack Hub 上に Ethereum ブロックチェーン ネットワークをデプロイする | Microsoft Docs
+description: カスタム ソリューション テンプレートを使用して、Azure Stack Hub 上にコンソーシアム Ethereum ブロックチェーン ネットワークをデプロイして構成するチュートリアル。
 services: azure-stack
 keywords: ''
 author: PatAltimore
@@ -12,18 +12,18 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: b68a6df35b5345d3e1f00be126cdae24e87d3d0b
-ms.sourcegitcommit: 637018771ac016b7d428174e88d4dcb131b54959
+ms.openlocfilehash: 86e9f6fb78275678f8072573f83696d3ea79184f
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68842976"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924146"
 ---
-# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>Azure Stack 上に Ethereum ブロックチェーン ネットワークをデプロイする
+# <a name="deploy-an-ethereum-blockchain-network-on-azure-stack-hub"></a>Azure Stack Hub 上に Ethereum ブロックチェーン ネットワークをデプロイする
 
 Ethereum ソリューション テンプレートは、Azure と Ethereum の最小限の知識で、マルチメンバー コンソーシアム Ethereum ブロックチェーン ネットワークを簡単かつ短時間でデプロイおよび構成できるように設計されています。
 
-Azure Stack テナント ポータルでわずかなユーザー入力とワンクリック デプロイを行うことで、各メンバーはネットワーク フットプリントをプロビジョニングできます。 各メンバーのネットワーク フットプリントは、次の 3 つの要素で構成されています。
+Azure Stack Hub テナント ポータルでわずかなユーザー入力とワンクリック デプロイを行うことで、各メンバーはネットワーク フットプリントをプロビジョニングできます。 各メンバーのネットワーク フットプリントは、次の 3 つの要素で構成されています。
 
 1. アプリまたはユーザーがトランザクションを送信するために操作できる、一連の負荷分散されたトランザクション ノード。
 2. トランザクションを記録するための一連のマイニング ノード。
@@ -55,15 +55,15 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 
 このテンプレートでは、リーダーとメンバー向けの Ethereum コンソーシアムをさまざまな方法でデプロイすることができます。 テスト済みのものを次に示します。
 
-- Azure AD または AD FS を使用したマルチノードの Azure Stack では、同じサブスクリプションまたは異なるサブスクリプションを使用してリードとメンバーをデプロイします。
-- (Azure AD を使用した) 単一ノードの Azure Stack では、同じサブスクリプションを使用してリードとメンバーをデプロイします。
+- Azure AD または AD FS を使用したマルチノードの Azure Stack Hub では、同じサブスクリプションまたは異なるサブスクリプションを使用してリードとメンバーをデプロイします。
+- (Azure AD を使用した) 単一ノードの Azure Stack Hub では、同じサブスクリプションを使用してリードとメンバーをデプロイします。
 
 ### <a name="standalone-and-consortium-leader-deployment"></a>スタンドアロンとコンソーシアム リーダーのデプロイ
 
 コンソーシアム リーダー テンプレートは、ネットワーク内の最初のメンバーのフットプリントを構成します。 
 
-1. [GitHub からリーダー テンプレート](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)をダウンロードします。
-2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+1. [GitHub からリーダー テンプレート](https://aka.ms/aa6z619)をダウンロードします。
+2. Azure Stack Hub テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
     
@@ -74,10 +74,10 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     
     ![リーダー テンプレートのパラメーターを編集する](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | デプロイされたリソースの命名規則の基礎として使用される文字列。 | 長さ 1 から 6 文字の英数字。 | eth
-    AUTHTYPE | VM に対する認証方法。 | パスワードまたは SSH 公開キー。 | パスワード
+    AUTHTYPE | VM に対する認証方法。 | パスワードまたは SSH 公開キー。 | Password
     ADMINUSERNAME | デプロイされた各 VM の管理者ユーザー名。 | 1 から 64 文字。 | gethadmin
     ADMINPASSWORD ([認証の種類] = [パスワード])| デプロイされた各 VM の管理者アカウントのパスワード。 パスワードには、小文字、大文字、数字、特殊文字の 4 種類のうち 3 種類を使用する必要があります。 <br />VM にはすべて、最初の段階で同じパスワードが与えられます。プロビジョニング後にそのパスワードを変更できます。|12 から 72 文字。 |
     ADMINSSHKEY ([認証の種類] = [sshPublicKey]) | リモート ログインに使用される Secure Shell キー。 | |
@@ -99,9 +99,9 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     
     ![リーダーのデプロイ パラメーター](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
-    Subscription | コンソーシアム ネットワークのデプロイ先となるサブスクリプション。 | | 消費サブスクリプション
+    サブスクリプション | コンソーシアム ネットワークのデプロイ先となるサブスクリプション。 | | 消費サブスクリプション
     リソース グループ | コンソーシアム ネットワークをデプロイするリソース グループ | | EthereumResources
     Location | リソース グループの Azure リージョン。 | | local
 
@@ -117,17 +117,17 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 
 ### <a name="joining-consortium-member-deployment"></a>コンソーシアム メンバー参加デプロイ
 
-1. [GitHub からコンソーシアム メンバー テンプレート](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)をダウンロードします。
-2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+1. [GitHub からコンソーシアム メンバー テンプレート](https://aka.ms/aa6zkua)をダウンロードします。
+2. Azure Stack Hub テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
 5. **[保存]** を選択します。
 6. **[パラメーターの編集]** を選択し、デプロイに合わせてテンプレート パラメーターを入力します。
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
     NAMEPREFIX | デプロイされたリソースの命名規則の基礎として使用される文字列。 | 長さ 1 から 6 文字の英数字。 | eth
-    AUTHTYPE | VM に対する認証方法。 | パスワードまたは SSH 公開キー。 | パスワード
+    AUTHTYPE | VM に対する認証方法。 | パスワードまたは SSH 公開キー。 | Password
     ADMINUSERNAME | デプロイされた各 VM の管理者ユーザー名。 | 1 から 64 文字。 | gethadmin
     ADMINPASSWORD ([認証の種類] = [パスワード])| デプロイされた各 VM の管理者アカウントのパスワード。 パスワードには、小文字、大文字、数字、特殊文字の 4 種類のうち 3 種類を使用する必要があります。 <br />VM にはすべて、最初の段階で同じパスワードが与えられます。プロビジョニング後にそのパスワードを変更できます。|12 から 72 文字。 |
     ADMINSSHKEY ([認証の種類] = [sshPublicKey]) | リモート ログインに使用される Secure Shell キー。 | |
@@ -147,9 +147,9 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 7. **[OK]** を選択します。
 8. **[カスタム デプロイ]** で、 **[サブスクリプション]** 、 **[リソース グループ]** 、および **[リソース グループの場所]** を指定します。
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
-    Subscription | コンソーシアム ネットワークのデプロイ先となるサブスクリプション。 | | 消費サブスクリプション
+    サブスクリプション | コンソーシアム ネットワークのデプロイ先となるサブスクリプション。 | | 消費サブスクリプション
     リソース グループ | コンソーシアム ネットワークをデプロイするリソース グループ | | MemberResources
     Location | リソース グループの Azure リージョン。 | | local
 
@@ -169,8 +169,8 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 
 このテンプレートは、リーダーからリモート メンバーへの接続を作成します。 
 
-1. [GitHub からメンバーとリーダーの接続テンプレート](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)をダウンロードします。
-2. Azure Stack テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
+1. [GitHub からメンバーとリーダーの接続テンプレート](https://aka.ms/aa6zdyt)をダウンロードします。
+2. Azure Stack Hub テナント ポータルで、 **[+ リソースの作成] > [テンプレートのデプロイ]** を選択して、カスタム テンプレートからデプロイします。
 3. **[テンプレートの編集]** を選択して、新しいカスタム テンプレートを編集します。
 4. 右側の編集ウィンドウで、前の手順でダウンロードしたリーダー テンプレート JSON をコピーして貼り付けます。
     
@@ -181,7 +181,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     
     ![接続テンプレートのパラメーターを編集する](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
     MEMBERNAMEPREFIX | リーダーの名前のプレフィックス。 この値は、リーダーのデプロイの出力で確認できます。  | 長さ 1 から 6 文字の英数字。 | |
     MEMBERROUTETABLENAME | リーダーのルート テーブルの名前。 この値は、リーダーのデプロイの出力で確認できます。 |  | 
@@ -189,7 +189,7 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     CONNECTIONSHAREDKEY | 接続を確立しているコンソーシアム ネットワークのメンバー間で事前に確立されたシークレット。  | |
     REMOTEMEMBERNVAPUBLICIP | メンバーの NVA IP アドレス。 この値は、メンバーのデプロイの出力で確認できます。 | |
     MEMBERNVAPRIVATEIP | リーダーのプライベート NVA IP アドレス。 この値は、リーダーのデプロイの出力で確認できます。 | |
-    LOCATION | Azure Stack 環境の場所。 | | local
+    LOCATION | Azure Stack Hub 環境の場所。 | | local
     BASEURL | テンプレートのベース URL。 | デプロイ テンプレートをカスタマイズする場合を除き、既定値を使用します。 | 
 
 7. **[OK]** を選択します。
@@ -197,9 +197,9 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
     
     ![デプロイの接続パラメーター](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
-    パラメーター名 | 説明 | 使用できる値 | 値の例
+    パラメーター名 | [説明] | 使用できる値 | 値の例
     ---------------|-------------|----------------|-------------
-    Subscription | リーダーのサブスクリプション。 | | 消費サブスクリプション
+    サブスクリプション | リーダーのサブスクリプション。 | | 消費サブスクリプション
     リソース グループ | リーダーのリソース グループ。 | | EthereumResources
     Location | リソース グループの Azure リージョン。 | | local
 
@@ -209,6 +209,6 @@ Azure Stack テナント ポータルでわずかなユーザー入力とワン�
 
 ![デプロイを検証する](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 Ethereum と Azure の詳細については、「[ブロックチェーン テクノロジとアプリケーション](https://azure.microsoft.com/solutions/blockchain/)」を参照してください。

@@ -1,72 +1,72 @@
 ---
-title: Azure Stack ポータルを使用して Windows VM を作成する | Microsoft Docs
-description: Azure Stack ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
+title: Azure Stack Hub ポータルを使用して Windows VM を作成する | Microsoft Docs
+description: Azure Stack Hub ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/10/2020
 ms.author: mabrigg
-ms.custom: mvc
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 95fef782ca7efe09f7c93fbf0e28e81ed34d8166
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 1/10/2020
+ms.openlocfilehash: 1b7ea35da7234fde1517b59101205a92075b9016
+ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71823920"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75914888"
 ---
-# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>クイック スタート:Azure Stack ポータルを使用して Windows サーバー VM を作成する
+# <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
+Azure Stack Hub ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
 
 > [!NOTE]  
-> この記事のスクリーンショットは、Azure Stack バージョン 1808 で導入されたユーザー インターフェイスに合わせて更新されます。 1808 では、アンマネージド ディスクに加え、"*マネージド ディスク*" の使用のサポートが追加されています。 以前のバージョンを使用する場合は、ディスクの選択など、一部の画像が、この記事に示されているものとは異なります。  
+> この記事のスクリーンショットは、Azure Stack Hub バージョン 1808 で導入されたユーザー インターフェイスに合わせて更新されます。 1808 では、アンマネージド ディスクに加え、"*マネージド ディスク*" の使用のサポートが追加されています。 以前のバージョンを使用する場合は、ディスクの選択など、一部の画像が、この記事に示されているものとは異なります。  
 
 
-## <a name="sign-in-to-the-azure-stack-portal"></a>Azure Stack ポータルへのサインイン
+## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルにサインインする
 
-Azure Stack ポータルにサインインします。 Azure Stack ポータルのアドレスは、接続している Azure Stack 製品によって異なります。
+Azure Stack Hub ポータルにサインインします。 Azure Stack Hub ポータルのアドレスは、接続している Azure Stack Hub 製品によって異なります。
 
 * Azure Stack Development Kit (ASDK) の場合は、 https://portal.local.azurestack.external にアクセスします。
-* Azure Stack 統合システムの場合は、Azure Stack オペレーターによって提供された URL にアクセスします。
+* Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供された URL に移動します。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. **[+ リソースの作成]**  >  **[Compute]**  >  **[Windows Server 2016 Datacenter - 従量課金]**  >  **[作成]** の順にクリックします。 <br> **[Windows Server 2016 Datacenter - 従量課金]** エントリが表示されない場合は、Azure Stack オペレーターに問い合わせて、「[Windows Server 2016 VM イメージの Azure Stack Marketplace への追加](../operator/azure-stack-create-and-publish-marketplace-item.md)」の記事で説明されているように、それをマーケットプレースに追加するようオペレーターに依頼してください。
+1. **[リソースの作成]**  >  **[Compute]** の順に選択します。 ` Windows Server 2016 Datacenter – Pay as you use` を検索します。
+    **[Windows Server 2016 Datacenter - Pay-as-you-use]** エントリが表示されない場合は、Azure Stack Hub クラウド オペレーターに問い合わせて、Azure Stack Hub Marketplace に追加されるイメージを要求してください。 クラウド オペレータは、手順について、「[Azure Stack Hub Marketplace のカスタム アイテムを作成して発行する](../operator/azure-stack-create-and-publish-marketplace-item.md)」を参照できます。
 
-    ![ポータルで Windows VM を作成する手順](media/azure-stack-quick-windows-portal/image01.png)
+    ![Windows Server 2016 Datacenter - Pay as you use](./media/azure-stack-quick-windows-portal/image1.png)
 
-2. **[基本]** で、 **[名前]** 、 **[ユーザー名]** 、 **[パスワード]** を入力します。 **[サブスクリプション]** を選択します。 **リソース グループ**を作成するか、既存のリソース グループを選択し、 **[場所]** を選択して、 **[OK]** をクリックします。
+1. **作成** を選択します。
 
-    ![基本設定を構成する](media/azure-stack-quick-windows-portal/image02.png)
+    ![リソースの作成](./media/azure-stack-quick-windows-portal/image2.png)
 
-3. **[サイズ]** で **[D1 Standard]\(D1 Standard\)** を選択して、 **[選択]** をクリックします。  
+1. **[基本]** で、 **[名前]** 、 **[ディスクの種類]** 、 **[ユーザー名]** 、および **[パスワード]** を入力します。 **[サブスクリプション]** を選択します。 **リソース グループ**を作成するか、既存のリソース グループを選択し、 **[場所]** を選択して、 **[OK]** を選択します。
 
-    ![VM のサイズを選択する](media/azure-stack-quick-windows-portal/image03.png)
+    ![VM の作成 - 基本](./media/azure-stack-quick-windows-portal/image3.png)
 
-4. **[設定]** ページで、必要に応じて既定値を変更します。
-   - Azure Stack バージョン 1808 以降では、**ストレージ**を構成できます。ここで "*マネージド ディスク*" の使用を選択できます。 1808 より前のバージョンでは、アンマネージド ディスクのみを使用できます。  
+1. **[サイズ]** で **[D1_v2]** を選択し、 **[選択]** で選択します。
 
-   ![VM 設定を構成する](media/azure-stack-quick-windows-portal/image04.png)  
+    ![VM の作成 - サイズ](./media/azure-stack-quick-windows-portal/image4.png)
 
-   お使いの構成の準備が整ったら、 **[OK]** を選択して続行します。
+1. **[設定]** ページで、必要に応じて既定値を変更します。 関連するドロップダウンから、必要なパブリック受信ポートを構成する必要があります。 操作が完了したら、 **[OK]** をクリックします。
 
-5. **[概要]** で、 **[OK]** をクリックして VM を作成します。
-    ![概要の表示と VM の作成](media/azure-stack-quick-windows-portal/image05.png)
+    ![VM の作成 - 設定](./media/azure-stack-quick-windows-portal/image5.png)
 
-6. 新しい VM を表示するには、 **[すべてのリソース]** をクリックし、VM 名を検索して、検索結果でそれを選択します。
+1. **[概要]** で **[OK]** を選択して VM を作成します。
 
-    ![VM の参照](media/azure-stack-quick-windows-portal/image06.png)
+    ![VM の作成 - 概要](./media/azure-stack-quick-windows-portal/image6.png)
 
-## <a name="clean-up-resources"></a>リソースのクリーンアップ
+1. **[仮想マシン]** を選択して、新しい VM を確認します。 VM 名を検索し、検索結果で VM を選択します。
 
-VM の使用が完了したら、VM とそのリソースを削除します。 そのためには、VM ページでリソース グループを選択し、 **[削除]** をクリックします。
+![VM の作成 - VM の検索](./media/azure-stack-quick-windows-portal/image7.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
-このクイック スタートでは、基本の Windows Server VM をデプロイしました。 Azure Stack VM の詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」に進んでください。
+VM の使用が完了したら、VM とそのリソースを削除します。 そのためには、VM ページでリソース グループを選択し、 **[削除]** を選択します。
+
+## <a name="next-steps"></a>次のステップ
+
+このクイック スタートでは、基本の Windows Server VM をデプロイしました。 Azure Stack Hub VM の詳細については、[Azure Stack Hub の VM の考慮事項](azure-stack-vm-considerations.md)に関する記事に進んでください。

@@ -17,12 +17,12 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dee0d3164f0c521b657f9b8f26377e062ee1e536
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 1d4b3a3dc094adaac0bc7cfc48d3a7aa54166dc6
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690030"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882149"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub の概要
 
@@ -50,13 +50,11 @@ Azure Stack Hub アーキテクチャを使うと、インターネットから�
 
 ## <a name="deployment-options"></a>デプロイ オプション
 
-<!---At deployment, move out asdk, break into connected/disc…then explain  roles operator vs user < replace how is azure stack managed with role description, rbac, reporting, high availability take out.--->
-
 Azure Stack Hub 統合システムはマイクロソフトとハードウェア パートナーのパートナーシップによって提供され、クラウドと歩調を合わせた革新と、コンピューティングの管理のしやすさを両立させたソリューションを実現します。 Azure Stack Hub は統合されたハードウェアおよび ソフトウェア システムとして提供されているため、必要な柔軟性やコントロールが得られるほか、クラウドから革新を図ることができます。 
 
 Azure Stack Hub 統合システムのサイズは 4 から 16 サーバーの範囲で指定できます (通称 "*スケール ユニット*")。 統合システムは、ハードウェア パートナーと Microsoft によって共同でサポートされます。 次の図は、スケール ユニットの一例を示しています。 
 
-![Azure Stack 統合システムを示す図](./media/azure-stack-overview/azure-stack-integrated-system.png)。 
+![Azure Stack Hub 統合システムを示す図](./media/azure-stack-overview/azure-stack-integrated-system.png)。 
 
 <!---add info and image on regions, etc--->
 
@@ -75,9 +73,9 @@ Azure Stack Hub の切断されたデプロイの場合は、AD FS を使用す�
 
 ## <a name="how-is-azure-stack-hub-managed"></a>Azure Stack Hub の管理方法
 
-Azure Stack では、Azure と同じ操作モデルが使用されます。 Azure Stack Hub オペレーターは、Microsoft がテナント ユーザーに Azure サービスを提供するのと同様の方法で、さまざまなサービスやアプリをテナント ユーザーに提供できます。 
+Azure Stack Hub では、Azure と同じ操作モデルが使用されます。 Azure Stack Hub オペレーターは、Microsoft がテナント ユーザーに Azure サービスを提供するのと同様の方法で、さまざまなサービスやアプリをテナント ユーザーに提供できます。 
 
-![Azure Stack ジョブの役割示す図](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Azure Stack Hub ジョブの役割を示す図](./media/azure-stack-overview/azure-stack-job-roles.png)
 
 Azure Stack Hub は、管理者ポータル、ユーザー ポータル、または [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) で管理することができます。 Azure Stack Hub のポータルは、それぞれが Azure Resource Manager の個別のインスタンスでサポートされています。 **Azure Stack Hub オペレーター**は、管理者ポータルを使用して Azure Stack Hub を管理し、テナント オファリングの作成などの操作を行い、統合システムの正常性の維持や状態の監視を行います。 ユーザー ポータルでは、仮想マシン (VM) やストレージ アカウント、Web アプリなどのクラウド リソースを消費するためのセルフサービス エクスペリエンスが提供されます。
 
@@ -111,9 +109,9 @@ Azure Stack Hub に展開して使用できるオプションの PaaS リソー�
 - **SQL Server**:[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider.md)を使用して、SQL データベースを Azure Stack Hub のサービスとして提供します。 リソース プロバイダーをインストールし、それを 1 つ以上の SQL Server インスタンスに接続した後で、クラウドネイティブ アプリ、SQL を使用する Web サイト、SQL を使用する他のワークロードのためにデータベースを作成できます。
 - **MySQL サーバー**:[MySQL サーバー リソース プロバイダー](azure-stack-mysql-resource-provider-deploy.md)を使用して、MySQL データベースを Azure Stack Hub サービスとして公開します。 MySQL リソース プロバイダーは、Windows Server 2019 Server Core VM 上でサービスとして実行されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ポートフォリオを比較する](compare-azure-azure-stack.md)
+[Azure Stack Hub ポートフォリオを比較する](compare-azure-azure-stack.md)
 
 [管理の基本](azure-stack-manage-basics.md)
 

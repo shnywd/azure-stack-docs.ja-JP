@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でオファーを使用してサブスクリプションを作成する | Microsoft Docs
-description: Azure Stack でオファーを使用して新しいサブスクリプションを作成し、テスト VM でオファーをテストする方法について説明します。
+title: Azure Stack Hub でオファーを使用してサブスクリプションを作成する | Microsoft Docs
+description: Azure Stack Hub でオファーを使用して新しいサブスクリプションを作成し、テスト VM でオファーをテストする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,21 +17,21 @@ ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: e6e09dffa6682a615c01e6fee841a5d736054546
-ms.sourcegitcommit: dfaf0126bc9975ca1643d55f06c71df9e32ea976
+ms.openlocfilehash: 216fe342bcda090d69452e8623f34f6c43cf70b9
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72164991"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023188"
 ---
-# <a name="tutorial-create-and-test-a-subscription-in-azure-stack"></a>チュートリアル:Azure Stack でサブスクリプションを作成してテストする
+# <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>チュートリアル:Azure Stack Hub でサブスクリプションを作成してテストする
 
-このチュートリアルでは、オファーが含まれているサブスクリプションを作成する方法とそのテスト方法を示します。 テストの場合は、クラウド管理者として Azure Stack ユーザー ポータルにサインインし、オファーにサブスクライブしてから、仮想マシン (VM) を作成します。
+このチュートリアルでは、オファーが含まれているサブスクリプションを作成する方法とそのテスト方法を示します。 テストの場合は、クラウド管理者として Azure Stack Hub ユーザー ポータルにサインインし、オファーにサブスクライブしてから、仮想マシン (VM) を作成します。
 
 > [!TIP]
 > より高度な評価エクスペリエンスを使用するには、[特定のユーザーのサブスクリプションを作成](../operator/azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)し、ユーザー ポータルでそのユーザーとしてサインインします。
 
-このチュートリアルでは、Azure Stack のオファーにサブスクライブする方法について説明します。
+このチュートリアルでは、Azure Stack Hub のオファーにサブスクライブする方法について説明します。
 
 ここでは、次の内容について学習します。
 
@@ -41,7 +41,7 @@ ms.locfileid: "72164991"
 
 ## <a name="subscribe-to-an-offer"></a>プランへのサブスクライブ
 
-ユーザーとしてオファーにサブスクライブするには、Azure Stack ユーザー ポータルにサインインして、Azure Stack オペレーターから提供される利用可能なサービスを確認します。
+ユーザーとしてオファーにサブスクライブするには、Azure Stack Hub ユーザー ポータルにサインインして、Azure Stack Hub オペレーターから提供される利用可能なサービスを確認します。
 
 1. ユーザー ポータルにサインインし、 **[サブスクリプションの取得]** を選択します。
 
@@ -63,7 +63,7 @@ ms.locfileid: "72164991"
 ユーザー ポータルにサインインしている間に、新しいサブスクリプション機能を使用して VM をプロビジョニングすることで、オファーをテストします。
 
 > [!NOTE]
-> このテストでは、まず Windows Server 2016 Datacenter VM を Azure Stack マーケットプレースに追加する必要があります。
+> このテストでは、まず Windows Server 2016 Datacenter VM を Azure Stack Hub Marketplace に追加する必要があります。
 
 1. ユーザー ポータルにサインインします。
 
@@ -84,7 +84,7 @@ ms.locfileid: "72164991"
 > [!NOTE]
 > VM のデプロイが完了するまでに数分かかる場合があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 > [!div class="nextstepaction"]
 > [コミュニティ テンプレートからの VM の作成](azure-stack-create-vm-template.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack サービス オファリングをテストする
+title: Azure Stack Hub サービス オファリングをテストする
 description: サブスクリプションを作成してリソースをデプロイすることで、サービス オファリングをテストする方法について説明します。
 author: BryanLa
 ms.author: bryanla
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: fd14a6099c9906a0b37c8227164b213235dcfee3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727464"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820935"
 ---
 # <a name="tutorial-test-a-service-offering"></a>チュートリアル:サービス オファリングをテストする
 
@@ -31,7 +31,7 @@ ms.locfileid: "75727464"
 
 - 「[ユーザーにサービスを提供する](tutorial-offer-services.md)」チュートリアルを完了します。 その中で、このチュートリアルで使用するオファーを作成する方法を学習します。
 
-- このチュートリアルでサブスクライブするオファーでは、仮想マシン (VM) リソースをデプロイできます。 VM のデプロイをテストする場合は、最初に、Azure Marketplace から VM イメージをダウンロードして、Azure Stack Marketplace で使用できるようにする必要があります。 方法については、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。 
+- このチュートリアルでサブスクライブするオファーでは、仮想マシン (VM) リソースをデプロイできます。 VM のデプロイをテストする場合は、最初に、Azure Marketplace から VM イメージをダウンロードして、Azure Stack Hub Marketplace で使用できるようにする必要があります。 方法については、[Azure から Azure Stack Hub への Marketplace の項目のダウンロード](azure-stack-download-azure-marketplace-item.md)に関する記事を参照してください。 
 
 ## <a name="subscribe-to-the-offer"></a>オファーへのサブスクライブ
 
@@ -141,6 +141,6 @@ ms.locfileid: "75727464"
 
 次に、付加価値サービスのリソース プロバイダーのデプロイについて学習します。 プランでユーザーにさらに多くのサービスを提供することができます。
 
-- [Azure Stack で SQL を提供する](azure-stack-sql-resource-provider.md)
-- [Azure Stack で MySQL を提供する](azure-stack-mysql-resource-provider.md)
-- [Azure Stack で App Service を提供する](azure-stack-app-service-overview.md)
+- [Azure Stack Hub で SQL を提供する](azure-stack-sql-resource-provider.md)
+- [Azure Stack Hub で MySQL を提供する](azure-stack-mysql-resource-provider.md)
+- [Azure Stack Hub で App Service を提供する](azure-stack-app-service-overview.md)

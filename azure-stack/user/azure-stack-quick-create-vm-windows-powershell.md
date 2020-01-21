@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 内で PowerShell を使用して Windows Server VM を作成する | Microsoft Docs
-description: Azure Stack 内で PowerShell を使用して Windows Server VM を作成します。
+title: Azure Stack Hub 内で PowerShell を使用して Windows Server VM を作成する | Microsoft Docs
+description: Azure Stack Hub 内で PowerShell を使用して Windows Server VM を作成します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,18 +16,16 @@ ms.author: mabrigg
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e31edd266c16fa51855efa3259c86ecf9b53660b
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: a6b051245821f3def20c20af41301d584b10eb0d
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677690"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023178"
 ---
-# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Windows Server VM を作成する
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack-hub"></a>クイック スタート:Azure Stack Hub 内で PowerShell を使用して Windows Server VM を作成する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack PowerShell を使用して、Windows Server 2016 仮想マシン (VM) を作成できます。 この記事の手順に従って、VM を作成し、使用します。 この記事では、以下のことを実行する手順も示します。
+Azure Stack Hub PowerShell を使用して、Windows Server 2016 仮想マシン (VM) を作成できます。 この記事の手順に従って、VM を作成し、使用します。 この記事では、以下のことを実行する手順も示します。
 
 * リモート クライアントを使用して VM に接続する。
 * IIS Web サーバーをインストールし、既定のホーム ページを表示する。
@@ -38,15 +36,15 @@ Azure Stack PowerShell を使用して、Windows Server 2016 仮想マシン (VM
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM の前提条件
 
-* Azure Stack オペレーターが Azure Stack Marketplace に **Windows Server 2016** のイメージを追加していることを確認します。
+* Azure Stack Hub オペレーターが Azure Stack Hub Marketplace に **Windows Server 2016** のイメージを追加済みであることを確認します。
 
-* リソースを作成して管理するため、Azure Stack には Azure PowerShell の特定のバージョンが必要です。 Azure Stack 用に構成された PowerShell がない場合は、PowerShell を[インストール](../operator/azure-stack-powershell-install.md)する手順に従います。
+* リソースを作成して管理するため、Azure Stack Hub には Azure PowerShell の特定のバージョンが必要です。 Azure Stack Hub 用に構成された PowerShell がない場合は、PowerShell を[インストール](../operator/azure-stack-powershell-install.md)する手順に従います。
 
-* Azure Stack PowerShell の設定を使用して、ご自身の Azure Stack 環境に接続する必要があります。 手順については、[PowerShell を使用したユーザーとしての Azure Stack への接続](azure-stack-powershell-configure-user.md)に関するページをご覧ください。
+* Azure Stack Hub PowerShell の設定を使用して、ご自身の Azure Stack Hub 環境に接続する必要があります。 手順については、「[PowerShell を使用してユーザーとして Azure Stack Hub に接続する](azure-stack-powershell-configure-user.md)」をご覧ください。
 
 ## <a name="create-a-resource-group"></a>リソース グループを作成する
 
-リソース グループとは、Azure Stack リソースのデプロイ先となって管理される論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 
+リソース グループとは、Azure Stack Hub リソースのデプロイ先となって管理される論理コンテナーです。 開発キットまたは Azure Stack Hub 統合システムから、次のコード ブロックを実行してリソース グループを作成します。 
 
 > [!NOTE]
 > 値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
@@ -248,4 +246,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>次のステップ
 
-このクイック スタートでは、単純な Windows VM をデプロイしました。 Azure Stack VM の詳細については、[Azure Stack VM 機能](azure-stack-vm-considerations.md)に関する記事をご覧ください。
+このクイック スタートでは、単純な Windows VM をデプロイしました。 Azure Stack Hub VM の詳細については、「[Azure Stack Hub VM の機能](azure-stack-vm-considerations.md)」をご覧ください。

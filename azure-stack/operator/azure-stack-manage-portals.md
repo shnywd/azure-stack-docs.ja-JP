@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で管理者ポータルを使用する | Microsoft Docs
-description: Azure Stack での管理者ポータルの使用方法を説明します。
+title: Azure Stack Hub で管理者ポータルを使用する | Microsoft Docs
+description: Azure Stack Hub での管理者ポータルの使用方法を説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,22 +16,20 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: a5a2c86d4680d38b3923eea4a04cacbf61fff108
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: cb4db9d5034aead74a92b8d6d4b896f54460701b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283503"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882387"
 ---
-# <a name="use-the-administrator-portal-in-azure-stack"></a>Azure Stack で管理者ポータルを使用する
+# <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Azure Stack Hub で管理者ポータルを使用する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack には、管理者ポータルとユーザー ポータルの 2 つのポータルがあります。 Azure Stack オペレーターは、管理者ポータルを使用して Azure Stack の日常的な管理と操作を行います。
+Azure Stack Hub には、管理者ポータルとユーザー ポータルの 2 つのポータルがあります。 Azure Stack Hub オペレーターは、管理者ポータルを使用して Azure Stack Hub の日常的な管理と操作を行います。
 
 ## <a name="access-the-administrator-portal"></a>管理者ポータルへのアクセス
 
-管理者ポータルにアクセスするには、ポータルの URL に移動し、Azure Stack オペレーターの資格情報を使用してサインインします。 統合システムの場合は、ポータルの URL は Azure Stack のデプロイのリージョン名と外部 FQDN (完全修飾ドメイン名) によって異なります。 管理者ポータルの URL は、常に Azure Stack Development Kit (ASDK) のデプロイと同じです。
+管理者ポータルにアクセスするには、ポータルの URL に移動し、Azure Stack Hub オペレーターの資格情報を使用してサインインします。 統合システムの場合は、ポータルの URL は Azure Stack Hub のデプロイのリージョン名と外部 FQDN (完全修飾ドメイン名) によって異なります。 管理者ポータルの URL は、常に Azure Stack Development Kit (ASDK) のデプロイと同じです。
 
 | 環境 | 管理者ポータルの URL |   
 | -- | -- | 
@@ -42,24 +40,24 @@ Azure Stack には、管理者ポータルとユーザー ポータルの 2 つ�
 > [!TIP]
 > ASDK 環境の場合は、最初に、リモート デスクトップ接続または仮想プライベート ネットワーク (VPN) を使用して[開発キットのホストに接続](../asdk/asdk-connect.md)できることを確認する必要があります。
 
- ![Azure Stack 管理者ポータル](media/azure-stack-manage-portals/admin-portal.png)
+ ![Azure Stack Hub 管理者ポータル](media/azure-stack-manage-portals/admin-portal.png)
 
-すべての Azure Stack デプロイの既定のタイム ゾーンは、協定世界時 (UTC) に設定されます。
+すべての Azure Stack Hub デプロイの既定のタイム ゾーンは、協定世界時 (UTC) に設定されます。
 
 管理者ポータルでは、次のような操作を行うことができます。
 
-* [Azure Stack を Azure に登録する](azure-stack-registration.md)
+* [Azure Stack Hub を Azure に登録する](azure-stack-registration.md)
 * [マーケットプレースを設定する](azure-stack-download-azure-marketplace-item.md)
 * [ユーザーのためのプラン、オファー、およびサブスクリプションを作成する](service-plan-offer-subscription-overview.md)
 * [正常性とアラートの監視](azure-stack-monitor-health.md)
-* [Azure Stack の更新プログラムを管理する](azure-stack-updates.md)
+* [Azure Stack Hub の更新プログラムを管理する](azure-stack-updates.md)
 
 **[クイック スタートのチュートリアル]** タイルに、最も一般的なタスクのオンライン ドキュメントへのリンクがあります。
 
 オペレーターは、管理者ポータルで仮想マシン (VM)、仮想ネットワーク、ストレージ アカウントなどのリソースを作成することができますが、リソースを作成してテストするためには、[ユーザー ポータルにサインインする](../user/azure-stack-use-portal.md)必要があります。
 
 >[!NOTE]
->管理者ポータルのクイックスタート チュートリアルのタイルにある **[仮想マシンの作成]** リンクから VM を作成できますが、これは Azure Stack が正常にデプロイされたことを検証するときにのみ使用します。
+>管理者ポータルのクイックスタート チュートリアルのタイルにある **[仮想マシンの作成]** リンクから VM を作成できますが、これは Azure Stack Hub が正常にデプロイされたことを検証するときにのみ使用します。
 
 ## <a name="understand-subscription-behavior"></a>サブスクリプション操作の概要
 
@@ -67,10 +65,10 @@ Azure Stack には、管理者ポータルとユーザー ポータルの 2 つ�
 
 その他のサブスクリプションは、管理者がユーザー用に作成するプランとオファーに基づいて、ユーザー ポータルでユーザーによって作成されます。 ただし、ユーザー ポータルでは、管理者ポータルの管理機能または運用機能のいずれにもアクセスできません。
 
-管理者ポータルとユーザー ポータルは、Azure Resource Manager の個別のインスタンスでサポートされます。 この Azure Resource Manager による分離のため、ポータルをまたいでサブスクリプションを使用することはできません。 たとえば、Azure Stack オペレーターとしてユーザー ポータルにサインインした場合は、*既定プロバイダー サブスクリプション*にアクセスすることはできません。 管理機能にアクセスすることはできませんが、利用できる公開オファーから自分でサブスクリプションを作成することはできます。 ユーザー ポータルにサインインしている限り、テナント ユーザーと見なされます。
+管理者ポータルとユーザー ポータルは、Azure Resource Manager の個別のインスタンスでサポートされます。 この Azure Resource Manager による分離のため、ポータルをまたいでサブスクリプションを使用することはできません。 たとえば、Azure Stack Hub オペレーターとしてユーザー ポータルにサインインした場合は、*既定プロバイダー サブスクリプション*にアクセスすることはできません。 管理機能にアクセスすることはできませんが、利用できる公開オファーから自分でサブスクリプションを作成することはできます。 ユーザー ポータルにサインインしている限り、テナント ユーザーと見なされます。
 
   >[!NOTE]
-  >ASDK 環境では、ユーザーが Azure Stack オペレーターと同じテナント ディレクトリに属している場合、ユーザーは管理者ポータルへのサインインをブロックされません。 ただし、ユーザーは管理機能にはアクセスできず、サブスクリプションを追加して、ユーザー ポータルで利用できるオファーにアクセスすることもできません。
+  >ASDK 環境では、ユーザーが Azure Stack Hub オペレーターと同じテナント ディレクトリに属している場合、ユーザーは管理者ポータルへのサインインをブロックされません。 ただし、ユーザーは管理機能にはアクセスできず、サブスクリプションを追加して、ユーザー ポータルで利用できるオファーにアクセスすることもできません。
 
 ## <a name="administrator-portal-tips"></a>管理者ポータルに関するヒント
 
@@ -82,19 +80,19 @@ Azure Stack には、管理者ポータルとユーザー ポータルの 2 つ�
 
 ### <a name="quick-access-to-online-documentation"></a>オンライン ドキュメントへのクイック アクセス
 
-Azure Stack オペレーター向けドキュメントにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を使用します。 カーソルをアイコンに移動し、 **[ヘルプとサポート]** を選択します。
+Azure Stack Hub オペレーター向けドキュメントにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を使用します。 カーソルをアイコンに移動し、 **[ヘルプとサポート]** を選択します。
 
 ### <a name="quick-access-to-help-and-support"></a>ヘルプとサポートへのクイック アクセス
 
 管理者ポータルの右上隅にあるヘルプ アイコン (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックしてから、 **[サポート]** で **[新しいサポート リクエスト]** をクリックすると、次のいずれかの結果になります。
 
 - 統合システムを使用している場合は、Microsoft カスタマー サポート サービス (CSS) のサポート チケットを直接開くことができるサイトが開きます。 Microsoft サポートと OEM (Original Equipment Manufacturer) ハードウェア ベンダーのサポートのどちらに連絡するかについては、「[サポートが受けられる場所](azure-stack-manage-basics.md#where-to-get-support)」を参照してください。
-- ASDK を使用している場合は、[Azure Stack フォーラムのサイト](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)が直接開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+- ASDK を使用している場合は、[Azure Stack Hub フォーラムのサイト](https://social.msdn.microsoft.com/Forums/home?forum=AzureStack)が直接開きます。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Azure ロードマップへのクイック アクセス
 
-管理者ポータルの右上隅にある**ヘルプとサポート** (疑問符) を選択し、 **[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに **Azure Stack** と入力すると、すべての Azure Stack ロードマップの更新プログラムを確認できます。
+管理者ポータルの右上隅にある**ヘルプとサポート** (疑問符) を選択し、 **[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに「**Azure Stack Hub**」と入力すると、すべての Azure Stack Hub ロードマップの更新プログラムを確認できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack を Azure に登録](azure-stack-registration.md)し、ユーザーに提供する項目を [Azure Stack Marketplace](azure-stack-marketplace.md) に設定します。
+[Azure Stack Hub を Azure に登録](azure-stack-registration.md)し、ユーザーに提供する項目を [Azure Stack Hub Marketplace](azure-stack-marketplace.md) に設定します。

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 内で Azure CLI を使用して Linux 仮想マシンを作成する | Microsoft Docs
-description: Azure Stack 内で Azure CLI を使用して Linux 仮想マシンを作成します。
+title: Azure Stack Hub 内で Azure CLI を使用して Linux 仮想マシンを作成する | Microsoft Docs
+description: Azure Stack Hub 内で Azure CLI を使用して Linux 仮想マシンを作成します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 84689e45bff8150616f37205eaa4a9bd9b25ff04
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c82dc8dce4f2d72ee5d30379c554c495cfdec28f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824246"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883475"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack"></a>クイック スタート:Azure Stack 内で Azure CLI を使用して Linux サーバー VM を作成する
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-cli-in-azure-stack-hub"></a>クイック スタート:Azure Stack Hub 内で Azure CLI を使用して Linux サーバー VM を作成する
 
 Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシン (VM) を作成できます。 この記事では、仮想マシンを作成し、使用します。 この記事では、次の方法についても説明します。
 
@@ -34,17 +32,17 @@ Azure CLI を使用して、Ubuntu Server 16.04 LTS 仮想マシン (VM) を作�
 
 ## <a name="prerequisites"></a>前提条件
 
-* Azure Stack Marketplace 内の Linux イメージ
+* Azure Stack Hub Marketplace 内の Linux イメージ
 
-   Azure Stack Marketplace には、既定では Linux イメージが含まれていません。 必要な Ubuntu Server 16.04 LTS イメージを Azure Stack オペレーターに提供してもらってください。 オペレーターは、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](../operator/azure-stack-download-azure-marketplace-item.md)」の手順を使用できます。
+   Azure Stack Hub Marketplace には、既定では Linux イメージが含まれていません。 必要な Ubuntu Server 16.04 LTS イメージを Azure Stack Hub オペレーターに提供してもらってください。 オペレーターは、「[Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](../operator/azure-stack-download-azure-marketplace-item.md)」の手順を使用できます。
 
-* Azure Stack には、そのリソースを作成して管理するために、Azure CLI の特定のバージョンが必要です。 Azure Stack 用に構成された Azure CLI がない場合は、[Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (または [VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は、Windows ベースの外部クライアント) にサインインし、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
+* Azure Stack Hub には、そのリソースを作成して管理するために、Azure CLI の特定のバージョンが必要です。 Azure Stack Hub 用に構成された Azure CLI がない場合は、[Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) (または [VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は、Windows ベースの外部クライアント) にサインインし、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
 
 * Windows ユーザー プロファイルの *.ssh* ディレクトリに保存された *id_rsa.pub* という名前の Secure Shell (SSH) 公開キー。 SSH キーの作成の詳細については、「[SSH 公開キーの使用](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループを作成する
 
-リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 開発キットまたは Azure Stack 統合システムから、[az group create](/cli/azure/group#az-group-create) コマンドを実行してリソース グループを作成します。
+リソース グループは、Azure Stack Hub リソースのデプロイと管理を行うことができる論理コンテナーです。 開発キットまたは Azure Stack Hub 統合システムから、[az group create](/cli/azure/group#az-group-create) コマンドを実行してリソース グループを作成します。
 
 > [!NOTE]
 > 次のコード例では、すべての変数に値が割り当てられています。 しかし、独自の値を割り当てることができます。
@@ -107,7 +105,7 @@ NGINX Web サーバーがインストールされ、仮想マシン上のポー�
 
 ![NGINX Web サーバーのようこそページ](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>リソースのクリーンアップ
+## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
 不要になったリソースをクリーンアップします。 [az group delete](/cli/azure/group#az-group-delete) コマンドを使用して、それらを削除できます。 次のコマンドを実行します。
 
@@ -115,6 +113,6 @@ NGINX Web サーバーがインストールされ、仮想マシン上のポー�
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このクイック スタートでは、Web サーバーがインストールされた基本の Linux サーバー仮想マシンをデプロイしました。 Azure Stack 仮想マシンの詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」を参照してください。
+このクイック スタートでは、Web サーバーがインストールされた基本の Linux サーバー仮想マシンをデプロイしました。 Azure Stack Hub 仮想マシンの詳細については、[Azure Stack Hub の仮想マシンの考慮事項](azure-stack-vm-considerations.md)に関するページを参照してください。

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack で SSH 公開キーを使用する方法 | Microsoft Docs
+title: Azure Stack Hub で SSH 公開キーを使用する方法 | Microsoft Docs
 description: SSH 公開キーの使用方法
 services: azure-stack
 author: mattbriggs
@@ -9,22 +9,22 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3d2854511415421b69a6972cd807132639300f96
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: b40fb92eefa696369ed57aabefb4e8298dad3eea
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824502"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820697"
 ---
 # <a name="use-an-ssh-public-key"></a>SSH 公開キーの使用
 
-開発用マシンから、ご自分の Web アプリをホストする Azure Stack インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要がある場合があります。 
+開発用マシンから、ご自分の Web アプリをホストする Azure Stack Hub インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要がある場合があります。 
 
 この記事では、キーを作成してから、それらを使用してサーバーに接続します。 SSH クライアントを使用して Linux サーバー上の bash プロンプトを取得したり、SFTP (Secure FTP) クライアントを使用してサーバーとの間でファイルを移動したりすることができます。
 
 ## <a name="create-an-ssh-public-key-on-windows"></a>Windows 上で SSH 公開キーを作成する
 
-このセクションでは、ご使用の Azure Stack インスタンスで Linux マシンへのセキュリティで保護された接続を作成するときに使用する SSH 公開キーと秘密キーのペアを、PuTTY Key Generator を使って作成します。 PuTTY は、SSH や Telnet 経由でサーバーに接続できるようにする、無料のターミナル エミュレーターです。
+このセクションでは、ご使用の Azure Stack Hub インスタンスで Linux マシンへのセキュリティで保護された接続を作成するときに使用する SSH 公開キーと秘密キーのペアを、PuTTY Key Generator を使って作成します。 PuTTY は、SSH や Telnet 経由でサーバーに接続できるようにする、無料のターミナル エミュレーターです。
 
 1. [ご使用のマシン用の PuTTY をダウンロードしてインストールします。](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 
@@ -66,14 +66,14 @@ BvpmONCSR3YnyUtgWV27N6zC7U1OBdmv7TN6M7g01uOYQKI/GQ==
 
 ## <a name="connect-with-ssh-by-using-putty"></a>PuTTY を使用して SSH で接続する
 
-PuTTY をインストールした場合は、PuTTY Key Generator と SSH クライアントの両方があります。 このセクションでは、SSH クライアントである PuTTY を開き、接続値と SSH キーを構成します。 Azure Stack インスタンスと同じネットワークで作業している場合は、ご利用の VM に接続します。
+PuTTY をインストールした場合は、PuTTY Key Generator と SSH クライアントの両方があります。 このセクションでは、SSH クライアントである PuTTY を開き、接続値と SSH キーを構成します。 Azure Stack Hub インスタンスと同じネットワークで作業している場合は、ご利用の VM に接続します。
 
 接続する前に、次が必要となります。
 - PuTTY
-- 認証の種類として SSH 公開キーを使用する、Azure Stack インスタンス内の Linux マシンの IP アドレスとユーザー名。
+- 認証の種類として SSH 公開キーを使用する、Azure Stack Hub インスタンス内の Linux マシンの IP アドレスとユーザー名。
 - マシン用に開かれるポート 22。
 - マシンの作成時に使用した公開 SSH キー。
-- ご使用の Azure Stack インスタンスと同じネットワーク上にある、PuTTY を実行しているクライアント マシン。
+- ご使用の Azure Stack Hub インスタンスと同じネットワーク上にある、PuTTY を実行しているクライアント マシン。
 
 1. PuTTY を開きます。
 
@@ -125,6 +125,6 @@ PuTTY をインストールした場合は、PuTTY Key Generator と SSH クラ�
 1. **[File]\(ファイル\)**  >  **[Site Manager]\(サイト マネージャー\)** の順に選択します。
 1. ご自分のサイトの名前を選択してから、 **[接続]** を選びます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack 内で開発環境を設定する](azure-stack-dev-start.md)方法について学習する。
+[Azure Stack Hub 内で開発環境を設定する](azure-stack-dev-start.md)方法について学習する。
