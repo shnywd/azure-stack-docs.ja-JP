@@ -1,6 +1,6 @@
 ---
-title: セキュリティで保護された Service Fabric クラスターを Azure Stack にデプロイする | Microsoft Docs
-description: セキュリティで保護された Service Fabric クラスターを Azure Stack にデプロイする方法について説明します
+title: セキュリティで保護された Service Fabric クラスターを Azure Stack Hub にデプロイする | Microsoft Docs
+description: セキュリティで保護された Service Fabric クラスターを Azure Stack Hub にデプロイする方法について説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,20 +15,20 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: e8b7809908bf09cdc60017c8944e26461aa6f07d
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: bb0e9fdb3e1ce1c3778d1167ca76cddae3d67aa7
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993845"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819201"
 ---
-# <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Service Fabric クラスターを Azure Stack にデプロイする
+# <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric クラスターを Azure Stack Hub にデプロイする
 
-セキュリティで保護された Service Fabric クラスターを Azure Stack にデプロイするには、Azure Marketplace の **[Service Fabric クラスター]** 項目を使用します。 
+セキュリティで保護された Service Fabric クラスターを Azure Stack Hub にデプロイするには、Azure Marketplace の **[Service Fabric クラスター]** 項目を使用します。 
 
 Service Fabric を使った作業の詳細については、Azure ドキュメントの「[Azure Service Fabric の概要](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)」および「[Service Fabric クラスターのセキュリティに関するシナリオ](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)」を参照してください。
 
-Azure Stack の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack では、Service Fabric クラスターは、[DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
+Azure Stack Hub の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack Hub では、Service Fabric クラスターは、[DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -45,7 +45,7 @@ Service Fabric クラスターをデプロイするには、次のものが必�
 1. **管理用クライアント証明書**  
    これは、クライアントで Service Fabric クラスターに対して認証を行う場合に使用される証明書であり、自己署名されたものでもかまいません。 このクライアント証明書の作成に関する[要件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)を参照してください。
 
-1. **Azure Stack Marketplace に次の項目が用意されている必要があります。**
+1. **Azure Stack Hub Marketplace に次の項目が用意されている必要があります。**
     - **Windows Server 2016** - このテンプレートでは、Windows Server 2016 イメージを使用してクラスターを作成します。  
     - **カスタム スクリプト拡張機能** - Microsoft の仮想マシン拡張機能。  
     - **PowerShell Desired State Configuration** - Microsoft の仮想マシン拡張機能。
@@ -120,7 +120,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
    ``` 
 
 
-詳細については、[PowerShell を使用した Azure Stack での Key Vault の管理](azure-stack-key-vault-manage-powershell.md)に関するページを参照してください。
+詳細については、[PowerShell を使用した Azure Stack Hub での Key Vault の管理](azure-stack-key-vault-manage-powershell.md)に関するページを参照してください。
 
 ## <a name="deploy-the-marketplace-item"></a>Marketplace 項目のデプロイ
 
@@ -130,13 +130,13 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
 2. *[基本]* をはじめとする各ページのデプロイ フォームに必要事項を入力します。 指定すべき値がわからない場合は、既定値を使用してください。
 
-    切断された Azure Stack へのデプロイ、または別のバージョンの Service Fabric のデプロイについては、Service Fabric 展開パッケージとそれに対応するランタイム パッケージをダウンロードし、Azure Stack BLOB でホストします。 これらの値を **[Service Fabric deployment package URL]\(Service Fabric 展開パッケージの URL\)** フィールドと **[Service Fabric runtime package URL]\(Service Fabric ランタイム パッケージの URL\)** フィールドに指定します。
+    切断された Azure Stack Hub へのデプロイ、または別のバージョンの Service Fabric のデプロイについては、Service Fabric 展開パッケージとそれに対応するランタイム パッケージをダウンロードし、Azure Stack Hub BLOB でホストします。 これらの値を **[Service Fabric deployment package URL]\(Service Fabric 展開パッケージの URL\)** フィールドと **[Service Fabric runtime package URL]\(Service Fabric ランタイム パッケージの URL\)** フィールドに指定します。
     > [!NOTE]  
     > Service Fabric の最新リリースとそれに対応する SDK との間に互換性の問題があります。 その問題が解決されるまで、展開パッケージの URL とランタイム パッケージの URL には次のパラメーターを指定してください。 そうしないと、デプロイは失敗します。
     > - [Service Fabric deployment package URL]\(Service Fabric 展開パッケージの URL\): <https://download.microsoft.com/download/8/3/6/836E3E99-A300-4714-8278-96BC3E8B5528/6.5.641.9590/Microsoft.Azure.ServiceFabric.WindowsServer.6.5.641.9590.zip>
     > - [Service Fabric runtime package URL]\(Service Fabric ランタイム パッケージの URL\): <https://download.microsoft.com/download/B/0/B/B0BCCAC5-65AA-4BE3-AB13-D5FF5890F4B5/6.5.641.9590/MicrosoftAzureServiceFabric.6.5.641.9590.cab>
     >
-    > 切断されたデプロイについては、これらのパッケージを指定された場所からダウンロードし、Azure Stack BLOB でローカルにホストします。
+    > 切断されたデプロイについては、これらのパッケージを指定された場所からダウンロードし、Azure Stack Hub BLOB でローカルにホストします。
 
    ![基本](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
@@ -158,7 +158,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
    ![スクリプト出力](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
-   ![セキュリティ](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
+   ![Security](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
 5. ウィザードを完了し、 **[作成]** を選択して Service Fabric クラスターをデプロイします。
 
@@ -201,7 +201,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 1. サイトに対する認証を行うには、使用する証明書を選択する必要があります。 **[More choices]\(その他の選択肢\)** を選択して適切な証明書を選び、 **[OK]** をクリックして Service Fabric Explorer に接続します。 
 
-   ![認証](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
+   ![Authenticate](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
 
 
@@ -239,6 +239,6 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
    > [!NOTE]  
    > スクリプトでは、クラスター名の前に *https://* を付けません。 ポート 19000 は必須です。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)
+[Kubernetes を Azure Stack Hub にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)
