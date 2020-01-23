@@ -17,18 +17,18 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: a3930a0259ba71d4fabce99a3cc1168d44d139bd
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 2d350bedd88ba5c3d04b29f833a17bdd19705f05
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812605"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145854"
 ---
-# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hub-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack Hub HCI の違い
+# <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い
 
 Microsoft では 1 つの Azure エコシステムで Azure と Azure Stack Hub サービス ファミリを提供しています。 業務でグローバル Azure とオンプレミス リソースのどちらを使用しているかに関係なく、Azure Resource Manager で同じアプリケーション モデル、セルフサービス ポータル、API を使用して、クラウドベースの機能を提供します。
 
-この記事では、グローバル Azure、Azure Stack Hub、および Azure Stack Hub HCI の機能について説明し、組織で Microsoft クラウドベースのサービスを実現するための最適な選択を行うときに役立つ一般的なシナリオの推奨事項を示します。
+この記事では、グローバル Azure、Azure Stack Hub、および Azure Stack HCI の機能について説明し、組織で Microsoft クラウドベースのサービスを実現するための最適な選択を行うときに役立つ一般的なシナリオの推奨事項を示します。
 
 ![Azure エコシステムの概要](./media/compare-azure-azure-stack/azure-family.png)
 
@@ -75,19 +75,19 @@ Azure Stack Hub は Microsoft ではなくお客様によって運用される�
 
 Azure Stack Hub についての詳細は、「[Azure Stack Hub とは](azure-stack-overview.md)」で確認してください。
 
-## <a name="azure-stack-hub-hci"></a>Azure Stack Hub HCI
+## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-[Azure Stack Hub HCI](azure-stack-hci-overview.md) ソリューションでは、ハイパーコンバージド インフラストラクチャ (HCI) ソリューションを使用して、仮想マシンをオンプレミスで実行し、Azure に簡単に接続できます。 規制要件または技術要件を満たすために、一貫性のあるオンプレミスの Azure サービスを使用してクラウド アプリケーションをビルドおよび実行します。 仮想化されたアプリケーションをオンプレミスで実行するだけでなく、Azure Stack Hub HCI では、経年劣化したサーバー インフラストラクチャを交換および整理し、クラウド サービスを利用するために Windows Admin Center を使用して Azure に接続できます。
+[Azure Stack HCI](azure-stack-hci-overview.md) ソリューションでは、ハイパーコンバージド インフラストラクチャ (HCI) ソリューションを使用して、仮想マシンをオンプレミスで実行し、Azure に簡単に接続できます。 規制要件または技術要件を満たすために、一貫性のあるオンプレミスの Azure サービスを使用してクラウド アプリケーションをビルドおよび実行します。 仮想化されたアプリケーションをオンプレミスで実行するだけでなく、Azure Stack HCI では、経年劣化したサーバー インフラストラクチャを交換および整理し、クラウド サービスを利用するために Windows Admin Center を使用して Azure に接続できます。
 
-Azure Stack Hub HCI では、Hyper-V および Windows Server 2019 Software-Defined Datacenter (SDDC) の記憶域スペース ダイレクトによって強化された検証済みの HCI ソリューションが提供されます。 Windows Admin Center は、次のような Azure サービスの管理と統合アクセスのために使用されます。
+Azure Stack HCI では、Hyper-V および Windows Server 2019 Software-Defined Datacenter (SDDC) の記憶域スペース ダイレクトによって強化された検証済みの HCI ソリューションが提供されます。 Windows Admin Center は、次のような Azure サービスの管理と統合アクセスのために使用されます。
 
 - Azure Backup
 - Azure Site Recovery
 - Azure Monitor および更新プログラム
 
-Azure Stack Hub HCI を接続できる Azure サービスの最新一覧については、「[Azure ハイブリッド サービスへの Windows Server の接続](https://docs.microsoft.com/windows-server/azure-hybrid-services/index)」をご覧ください。
+Azure Stack HCI を接続できる Azure サービスの最新一覧については、「[Connecting Windows Server to Azure hybrid services (Windows Server と Azure ハイブリッド サービスの接続)](https://docs.microsoft.com/windows-server/azure-hybrid-services/index)」をご覧ください。
 
-### <a name="example-use-cases-for-azure-stack-hub-hci"></a>Azure Stack Hub HCI のユース ケース例
+### <a name="example-use-cases-for-azure-stack-hci"></a>Azure Stack HCI のユース ケース例
 - リモート オフィスまたはブランチ オフィスのシステム
 - データセンターの統合
 - 仮想デスクトップ インフラストラクチャ
@@ -96,7 +96,7 @@ Azure Stack Hub HCI を接続できる Azure サービスの最新一覧につ�
 - クラウドの高可用性と障害復旧
 - SQL Server などのエンタープライズ アプリ
 
-[Azure Stack Hub HCI Web サイト](https://azure.microsoft.com/overview/azure-stack/hci/)にアクセスして、現在 Microsoft パートナーから提供されている 70 を超える Azure Stack Hub HCI ソリューションを確認してください。
+[Azure Stack HCI Web サイト](https://azure.microsoft.com/overview/azure-stack/hci/)にアクセスして、現在 Microsoft パートナーから提供されている 70 を超える Azure Stack HCI ソリューションを確認してください。
 
 ## <a name="next-steps"></a>次のステップ
 
