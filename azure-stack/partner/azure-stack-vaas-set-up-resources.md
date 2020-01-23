@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e36235af4dea72ae6d8016085ee18aec819ae4dd
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b187194dd63e95fa922000b68dbb701914d10465
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618237"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535911"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>チュートリアル:サービスとしての検証のためのリソースを設定する
 
@@ -36,7 +36,7 @@ ms.locfileid: "73618237"
 
 ## <a name="configure-an-azure-ad-tenant"></a>Azure AD テナントの構成
 
-Azure AD テナントは、組織を登録し、VaaS を使用してユーザーを認証します。 パートナーは、テナントのロールベースのアクセス制御 (RBAC) 機能を使って、パートナーの組織内でだれが VaaS を使用できるかを管理します。 詳細については、「[Azure Active Directory とは](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)」を参照してください。
+Azure AD テナントは、組織を登録し、VaaS を使用するユーザーを認証します。 パートナーは、テナントのロールベースのアクセス制御 (RBAC) 機能を使って、パートナーの組織内でだれが VaaS を使用できるかを管理します。 詳細については、「[Azure Active Directory とは](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)」を参照してください。
 
 ### <a name="create-a-tenant"></a>テナントの作成
 
@@ -48,15 +48,15 @@ Azure AD テナントは、組織を登録し、VaaS を使用してユーザー
 
     次のいずれかのロールを割り当てることで、VaaS でアクションを実行する権限をテナント内のユーザーに付与します。
 
-    | ロール名 | 説明 |
+    | ロール名 | [説明] |
     |---------------------|------------------------------------------|
-    | Owner | すべてのリソースへのフル アクセス権が与えられます。 |
+    | 所有者 | すべてのリソースへのフル アクセス権が与えられます。 |
     | Reader | すべてのリソースを表示できますが、作成または管理することはできません。 |
     | Test Contributor | テスト リソースを作成および管理できます。 |
 
     **Azure Stack Validation Service** アプリケーションでロールを割り当てるには:
 
-   1. [Azure Portal](https://portal.azure.com) にサインインします。
+   1. [Azure portal](https://portal.azure.com) にサインインします。
    2. **[すべてのサービス]**  >  **[ID]** セクションの下の **[Azure Active Directory]** を選択します。
    3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Validation Service]** アプリケーションを選択します。
    4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Validation Service - Users and group]\(Azure Stack Validation Service - ユーザーとグループ\)** ブレードに、アプリケーションの使用を許可されたユーザーが一覧表示されます。
@@ -70,7 +70,7 @@ Azure AD テナントは、組織を登録し、VaaS を使用してユーザー
 
 1. テナントについて次の情報を Microsoft ([vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)) に送信します。
 
-    | Data | 説明 |
+    | Data | [説明] |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | 組織名 | 組織の正式名称。 |
     | Azure AD テナント ディレクトリ名 | 登録する Azure AD テナント ディレクトリ名。 |
@@ -116,7 +116,7 @@ Azure ストレージ アカウントは、お客様の Azure Stack 環境では
 
 7. **[確認および作成]** を選択して、ストレージ アカウントの設定を確認し、アカウントを作成します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 お客様の環境で受信接続が許可されていない場合は、ローカル エージェントのデプロイに関するチュートリアルに従ってご使用のハードウェアでテストを実行します。
 

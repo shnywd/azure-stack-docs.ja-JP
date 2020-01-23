@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: e7df32ea390c236e10d64e7575dcfdd45f01ea3a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 567b6a98c6ee407871b53fe6ecb8ddb3762c2119
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955875"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535844"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Azure Stack のサービスとしての検証のワークフロー共通パラメーター
 
@@ -59,7 +59,7 @@ ms.locfileid: "73955875"
 
 共通のテスト パラメーターには、構成ファイルに格納できない機密情報が含まれます。 これらは手動で指定する必要があります。
 
-パラメーター    | 説明
+パラメーター    | [説明]
 -------------|-----------------
 テナント管理者ユーザー                            | AAD ディレクトリのサービス管理者によってプロビジョニングされた Azure Active Directory テナント管理者。 このユーザーは、リソース (VM、ストレージ アカウントなど) を設定したり、ワークロードを実行したりするためのテンプレートのデプロイなどのテナント レベルのアクションを実行します。 テナント アカウントのプロビジョニングの詳細については、[新しい Azure Stack テナントの追加](../operator/azure-stack-add-new-user-aad.md)に関する記事をご覧ください。
 サービス管理者ユーザー             | Azure Stack のデプロイ時に指定された Azure AD ディレクトリ テナントの Azure Active Directory 管理者。 ECE 構成ファイルで `AADTenant` を検索し、`UniqueName` 要素の値を選択します。
@@ -89,6 +89,6 @@ ms.locfileid: "73955875"
 > SAS URL の生成時に指定した終了時刻になると、URL の有効期限が切れます。  
 テストをスケジュールするときは、URL の有効期間が 30 日以上であり、なおかつテストの実行に必要な期間有効であることを確認してください (3 か月を推奨)。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)を確認する

@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.author: justinha
 ms.reviewer: avishwan
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3099befe9327a6d06c7012ac0df44faf44ae0520
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: 4278193251cd986401ca68172aae895043b178d3
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070140"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158969"
 ---
 >[!Note]
->セッションの期限が切れたり、パスワードが変更になった場合や、単純にアカウントを切り替えたい場合は、Add-AzureRmAccount を使用してサインインする前に、次のコマンドレット `Remove-AzureRmAccount-Scope Process` を実行します。
+>ご自分のセッションの期限が切れたり、ご自分のパスワードが変更になったり、または単純にアカウントを切り替えたい場合は、サインイン前に次のコマンドレットを Add-AzureRmAccount: `Remove-AzureRmAccount -Scope Process` を使用して実行します。
