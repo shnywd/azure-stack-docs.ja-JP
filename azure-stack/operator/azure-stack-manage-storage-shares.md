@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のストレージ容量を管理する | Microsoft Docs
-description: Azure Stack のストレージ容量と可用性を監視および管理する方法について説明します。
+title: Azure Stack Hub のストレージ容量を管理する | Microsoft Docs
+description: Azure Stack Hub のストレージ容量と可用性を監視および管理する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,26 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: f569d5dbffaec772657a6fc67b82c9be78f35800
-ms.sourcegitcommit: 55ec59f831a98c42a4e9ff0dd954bf10adb98ff1
+ms.openlocfilehash: 56c6ee17ed569689267bffc79aadece0e451897c
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74540313"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535248"
 ---
-# <a name="manage-storage-capacity-for-azure-stack"></a>Azure Stack のストレージ容量を管理する
+# <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事の情報は、Azure Stack クラウド オペレーターが、Azure Stack 展開のストレージ容量を監視して管理するために役立ちます。 Azure Stack ストレージ インフラストラクチャでは、Azure Stack デプロイの合計ストレージ容量のサブセットが**ストレージ サービス**で使用されるストレージ容量として割り当てられます。 ストレージ サービスは、展開のノードに対応するボリューム上の共有にテナント データを格納します。
+この記事の情報は、Azure Stack Hub クラウド オペレーターが、Azure Stack Hub のデプロイのストレージ容量を監視および管理するのに役立ちます。 Azure Stack Hub ストレージ インフラストラクチャでは、Azure Stack Hub のデプロイの合計ストレージ容量のサブセットが**ストレージ サービス**で使用されるものとして割り当てられます。 ストレージ サービスは、展開のノードに対応するボリューム上の共有にテナント データを格納します。
 
 クラウド オペレーターとして操作できるストレージの量には制限があります。 ストレージの量は、実装するソリューションによって定義されます。 ソリューションは、マルチノード ソリューションを使用する場合は OEM ベンダーによって提供され、Azure Stack Development Kit (ASDK) をインストールする場合はインストール先のハードウェアによって提供されます。
 
-Azure Stack ではストレージ容量の拡張はサポートされないため、使用可能なストレージを[監視](#monitor-shares)して、効率的な操作が維持されることを確認することが重要です。
+Azure Stack Hub ではストレージ容量の拡張はサポートされないため、使用可能なストレージを[監視](#monitor-shares)して、効率的な操作が維持されることを確認することが重要です。
 
 共有の残りの空き容量が少なくなった場合は、共有が容量不足になることを防ぐために[領域の管理](#manage-available-space)を計画します。
 
@@ -42,7 +40,7 @@ Azure Stack ではストレージ容量の拡張はサポートされないた�
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>ボリュームと共有、コンテナー、およびディスクを理解する
 ### <a name="volumes-and-shares"></a>ボリュームと共有
-*ストレージ サービス*は、使用可能なストレージを、テナント データを保持するための複数の同量のボリュームにパーティション分割します。 ボリュームの数は、Azure Stack のデプロイ内のノードの数と同じになります。
+*ストレージ サービス*は、使用可能なストレージを、テナント データを保持するための複数の同量のボリュームにパーティション分割します。 ボリュームの数は、Azure Stack Hub のデプロイのノード数と同じになります。
 
 - 4 ノード展開では、4 つのボリュームがあります。 各ボリュームには、1 つの共有があります。 マルチノード デプロイでは、ノードが削除されたり正常に機能しなくなったりした場合でも、共有の数が減ることはありません。
 - ASDK を使用する場合は、単一の共有を持つ単一のボリュームがあります。
@@ -51,9 +49,9 @@ Azure Stack ではストレージ容量の拡張はサポートされないた�
 
 ボリューム上の共有がテナント データを保持します。 テナント データには、ページ BLOB、ブロック BLOB、追加 BLOB、テーブル、キュー、データベース、および関連するメタデータ ストアが含まれます。 ストレージ オブジェクト (BLOB など) は、単一の共有内に個別に格納されるため、各オブジェクトの最大サイズは、共有のサイズを超えることはできません。 新しいオブジェクトの最大サイズは、新しいオブジェクトの作成時に共有内に未使用の領域として残っている容量によって決まります。
 
-共有の空き領域が少ないときに、領域を[回収](#reclaim-capacity)するためのアクションが成功しないか使用できない場合、Azure Stack クラウド オペレーターは、ある共有から別の共有に BLOB コンテナーを移行できます。
+共有の空き領域が少ないときに、領域を[回収](#reclaim-capacity)するためのアクションが成功しないか使用できない場合、Azure Stack Hub クラウド オペレーターは、ある共有から別の共有に BLOB コンテナーを移行できます。
 
-- テナント ユーザーによる Azure Stack 内での BLOB ストレージの操作方法については、「[Azure Stack Storage サービス](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)」を参照してください。
+- テナント ユーザーによる Azure Stack Hub での BLOB ストレージの操作方法については、[Azure Stack Hub ストレージ サービス](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)に関する記事を参照してください。
 
 
 ### <a name="containers"></a>Containers
@@ -63,7 +61,7 @@ Azure Stack ではストレージ容量の拡張はサポートされないた�
 
 コンテナーは、単一の共有に限定されません。 コンテナー内の結合された BLOB データが増加して使用可能な領域の 80% 以上を使用すると、コンテナーは "*オーバーフロー*" モードに入ります。 オーバーフロー モードに入ると、そのコンテナー内に作成される新しい BLOB は、十分な領域がある別のボリュームに割り当てられます。 時間の経過と共に、オーバーフロー モードのコンテナーは、複数のボリュームに分散された BLOB を持つ可能性があります。
 
-ボリュームの空き領域の 80% が使用された時点、および 90% が使用された時点で、システムによって Azure Stack 管理者ポータルにアラートが生成されます。 クラウド オペレーターは、使用可能なストレージ容量を確認し、コンテンツを再バランス調整することを計画する必要があります。 ディスクが 100% 使用されると、ストレージ サービスは動作を停止しますが、この時点で他のアラートが生成されることはありません。
+ボリュームの空き領域の 80%、その後 90% が使用された時点で、システムによって Azure Stack Hub 管理者ポータルにアラートが生成されます。 クラウド オペレーターは、使用可能なストレージ容量を確認し、コンテンツを再バランス調整することを計画する必要があります。 ディスクが 100% 使用されると、ストレージ サービスは動作を停止しますが、この時点で他のアラートが生成されることはありません。
 
 ### <a name="disks"></a>ディスク
 VM ディスクは、テナントによってコンテナーに追加され、オペレーティング システム ディスクが含まれます。 VM は、1 つ以上のデータ ディスクも保持できます。 どちらの種類のディスクも、ページ BLOB として格納されます。 テナントへのガイダンスは、VM のパフォーマンスを向上させるために各ディスクを別のコンテナーに配置することです。
@@ -93,7 +91,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 2. **[すべてのサービス]**  >  **[ストレージ]**  >  **[ファイル共有]** を選択してファイル共有の一覧を開きます。そこで使用状況情報を確認できます。
 
-    ![例:Azure Stack 管理者ポータルでのストレージ ファイル共有](media/azure-stack-manage-storage-shares/storage-file-shares.png)
+    ![例:Azure Stack Hub 管理者ポータルでのストレージ ファイル共有](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
    - **[合計]** は、共有で使用できるバイト単位の合計領域です。 この領域は、ストレージ サービスによって保持されるデータとメタデータ用に使用されます。
    - **[使用済み]** は、テナント データとそれに関連付けられているメタデータを格納するファイルのすべてのエクステントで使用されるバイト単位のデータの量です。
@@ -106,13 +104,13 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 
 **警告**:ファイル共有の使用率が 80% を超えると、管理者ポータルで "*警告*" アラートを受信します。
 
-![例:Azure Stack 管理者ポータルの [警告] アラート](media/azure-stack-manage-storage-shares/alert-warning.png)
+![例:Azure Stack Hub 管理者ポータルの [警告] アラート](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 **[高]** :ファイル共有の使用率が 90% を超えると、管理者ポータルで "*重大*" アラートを受信します。
 
-![例:Azure Stack 管理者ポータルの [重大] アラート](media/azure-stack-manage-storage-shares/alert-critical.png)
+![例:Azure Stack Hub 管理者ポータルの [重大] アラート](media/azure-stack-manage-storage-shares/alert-critical.png)
 
-**詳細の表示**: 管理者ポータルでアラートの詳細を開いて、軽減策を確認できます。![例: Azure Stack 管理者ポータルのアラートの詳細の表示](media/azure-stack-manage-storage-shares/alert-details.png)
+**詳細の表示**: 管理者ポータルでアラートの詳細を開いて、軽減策を確認できます。![例: Azure Stack Hub 管理者ポータルのアラートの詳細の表示](media/azure-stack-manage-storage-shares/alert-details.png)
 
 ## <a name="manage-available-space"></a>使用可能な領域を管理する
 共有の領域を開放する必要がある場合は、最も影響が少ない方法を先に使用してください。 たとえば、コンテナーを移行する前に領域の回収を試してください。  
@@ -125,7 +123,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 詳細については、ストレージ リソースの管理に関する記事の「[容量の回収](azure-stack-manage-storage-accounts.md#reclaim)」を参照してください。
 
 ### <a name="migrate-a-container-between-volumes"></a>ボリューム間でコンテナーを移行する
-*このオプションは、Azure Stack 統合システムにのみ適用されます。*
+"*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "
 
 テナントの使用パターンによっては、一部のテナントの共有が他の共有よりも多くの領域を使用することがあります。 その結果、比較的使用されていない共有よりも前に領域が不足する可能性があります。
 
@@ -140,7 +138,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
 - リソース グループへのアクセス許可がないために、PowerShell を使用してオーバーフロー データが配置されている別のボリュームのクエリを実行できない場合は、それらのリソース グループとコンテナーの所有者と協力して、移行するデータの合計サイズを把握したうえでデータを移行します。  
 
 > [!IMPORTANT]
-> コンテナーの BLOB の移行は、PowerShell の使用を要求するオフライン操作です。 移行が完了するまで、移行中のコンテナーのすべての BLOB はオフラインのままであり、使用することはできません。 また、進行中の移行作業がすべて完了するまで、Azure Stack をアップグレードすることは避けてください。
+> コンテナーの BLOB の移行は、PowerShell の使用を要求するオフライン操作です。 移行が完了するまで、移行中のコンテナーのすべての BLOB はオフラインのままであり、使用することはできません。 また、進行中の移行作業がすべて完了するまで、Azure Stack Hub をアップグレードすることは避けてください。
 
 #### <a name="to-migrate-containers-using-powershell"></a>PowerShell を使用してコンテナーを移行するには
 1. [Azure PowerShell のインストールと構成](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)が行われていることを確認します。 詳細については、 [リソース マネージャーでの Azure PowerShell の使用](https://go.microsoft.com/fwlink/?LinkId=394767)をご覧ください。
@@ -207,7 +205,7 @@ PowerShell または管理者ポータルを使用して共有を監視するこ
     ![例:取り消し済みの状態](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM ディスクを移動する
-*このオプションは、Azure Stack 統合システムにのみ適用されます。*
+"*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "
 
 領域を管理する最も極端な方法には、VM ディスクの移動が伴います。 接続されているコンテナー (VM ディスクを含むコンテナー) の移動は複雑であるため、この操作を実行する場合は Microsoft サポートに問い合わせてください。
 

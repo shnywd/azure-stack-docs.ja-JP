@@ -1,6 +1,6 @@
 ---
-title: Fortinet FortiGate NVA を使用して Azure Stack に VNET 間接続を確立する方法 | Microsoft Docs
-description: Fortinet FortiGate NVA を使用して Azure Stack に VNET 間接続を確立する方法について説明します。
+title: Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する方法 | Microsoft Docs
+description: Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する方法
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,33 +9,31 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: cf9239f57423b54f6cd7f093779f5c7afa7745b1
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 27feb4689380d0e1c70f66e38d144056d4c72d13
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167245"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883424"
 ---
-# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack に VNET 間接続を確立する方法
+# <a name="how-to-establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する方法
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+この記事では、Fortinet FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、ある Azure Stack Hub 内の VNET を別の Azure Stack Hub 内の VNET に接続します。
 
-この記事では、Fortinet FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、ある Azure Stack 内の VNET を別の Azure Stack 内の VNET に接続します。
-
-この記事では、現在の Azure Stack に適用されている、テナントで 2 つの環境にわたって 1 つの VPN 接続しか設定できない制限事項に対処します。 ユーザーは、異なる Azure Stack 間で複数の VPN 接続を許可するカスタム ゲートウェイを Linux 仮想マシンに設定する方法について学びます。 この記事の手順では、各 VNET に 1 つの FortiGate NVA を含む 2 つの VNET をデプロイします。Azure Stack 環境ごとに 1 つデプロイされます。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 この記事の手順は、各 Azure Stack 内の各 VNET に対して繰り返してください。 
+この記事では、現在の Azure Stack Hub に適用されている、テナントで 2 つの環境にわたって 1 つの VPN 接続しか設定できない制限事項に対処します。 ユーザーは、異なる Azure Stack Hub 間で複数の VPN 接続を許可するカスタム ゲートウェイを Linux 仮想マシンに設定する方法について学びます。 この記事の手順では、各 VNET に 1 つの FortiGate NVA を含む 2 つの VNET をデプロイします。Azure Stack Hub 環境ごとに 1 つデプロイされます。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 この記事の手順は、各 Azure Stack Hub 内の各 VNET に対して繰り返してください。 
 
 ## <a name="prerequisites"></a>前提条件
 
--  Azure Stack 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
+-  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
     > [!Note]  
     > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations)」を参照してください。
 
--  ネットワーク仮想アプライアンス (NVA) ソリューションがダウンロードされ、Azure Stack Marketplace に発行されていること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
+-  ネットワーク仮想アプライアンス (NVA) ソリューションがダウンロードされ、Azure Stack Hub Marketplace に発行されていること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
 
 -  FortiGate NVA をアクティブにするための、2 つ以上の有効な FortiGate ライセンス ファイル。 これらのライセンスを取得する方法については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
-    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
+    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack Hub VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
 
     アクティブ/パッシブ (HA) 設定で FortiGate ソリューションをデプロイする方法については、Fortinet ドキュメント ライブラリの「[Azure 上の FortiGate-VM の HA](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure)」の記事を参照してください。
 
@@ -78,13 +76,13 @@ ms.locfileid: "73167245"
 | パブリック IP アドレスの種類 | 静的 |
 
 > [!Note]
-> \* 上記が何らかの形 (いずれかの Azure Stack の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。**
+> \* 上記が何らかの形 (いずれかの Azure Stack Hub の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。**
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>FortiGate NGFW Marketplace 項目をデプロイする
 
-両方の Azure Stack 環境に対して、この手順を繰り返します。 
+両方の Azure Stack Hub 環境に対して、この手順を繰り返します。 
 
-1. Azure Stack ユーザー ポータルを開きます。 少なくともサブスクリプションに対する共同作成者権限を持つ資格情報を使用してください。
+1. Azure Stack Hub ユーザー ポータルを開きます。 少なくともサブスクリプションに対する共同作成者権限を持つ資格情報を使用してください。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image5.png)
 
@@ -104,7 +102,7 @@ ms.locfileid: "73167245"
 
 5. 「[デプロイで使用されるパラメーター](#deployment-parameters)」を使用して、仮想ネットワーク、サブネット、VM サイズの詳細を指定します。
 
-    別の名前や範囲を使用する場合は、他の Azure Stack 環境内の他の VNET や FortiGate のリソースと競合するパラメーターは使用しないよう注意してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは特に気を付けてください。 作成した他の VNET の IP 範囲と重複していないことを確認します。
+    別の名前や範囲を使用する場合は、他の Azure Stack Hub 環境内の他の VNET や FortiGate のリソースと競合するパラメーターは使用しないよう注意してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは特に気を付けてください。 作成した他の VNET の IP 範囲と重複していないことを確認します。
 
 6. **[OK]** を選択します。
 
@@ -116,13 +114,13 @@ ms.locfileid: "73167245"
 
 9. **作成** を選択します。
 
-デプロイには約 10 分かかります。 これでその手順を繰り返して、他の Azure Stack 環境で他の FortiGate NVA と VNET のデプロイを作成できるようになりました。
+デプロイには約 10 分かかります。 これでその手順を繰り返して、他の Azure Stack Hub 環境で他の FortiGate NVA と VNET のデプロイを作成できるようになりました。
 
 ## <a name="configure-routes-udrs-for-each-vnet"></a>各 VNET のルート (UDR) を構成する
 
 forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行します。
 
-1. Azure Stack ポータルで、forti1-rg1 リソース グループに移動します。
+1. Azure Stack Hub ポータルで、forti1-rg1 リソース グループに移動します。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet-stacks/image9.png)
 
@@ -140,7 +138,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 6. **[追加]** を選択します。
 
-7. **[Route]\(ルート\)** に `to-forti1` または `to-forti2` という名前を付けます。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
+7. **[ルート]** に `to-forti1` または `to-forti2` という名前を付けます。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
 
 8. 次のように入力します。
     - forti1: `172.17.0.0/16`  
@@ -261,15 +259,15 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 ## <a name="test-and-validate-connectivity"></a>接続のテストと検証
 
-これで、FortiGate NVA を介して各 VNET 間をルーティングできるようになりました。 接続を検証するには、各 VNET の InsideSubnet に Azure Stack VM を作成します。 Azure Stack VM の作成は、ポータル、CLI、または PowerShell を使用して行うことができます。 VM を作成する際は、次の手順に従います。
+これで、FortiGate NVA を介して各 VNET 間をルーティングできるようになりました。 接続を検証するには、各 VNET の InsideSubnet に Azure Stack Hub VM を作成します。 Azure Stack Hub VM の作成は、ポータル、CLI、または PowerShell を使用して行うことができます。 VM を作成する際は、次の手順に従います。
 
--   Azure Stack VM は、各 VNET の **InsideSubnet** に配置されます。
+-   Azure Stack Hub VM は、各 VNET の **InsideSubnet** に配置されます。
 
 -   VM の作成時には、NSG は適用**しません** (ポータルから VM を作成している場合は、既定で追加される NSG を削除してください)。
 
 -   接続をテストするために使用する通信が VM のファイアウォール規則によって許可されていることを確認します。 テスト目的の場合は、可能な限り、OS 内でファイアウォールを完全に無効にすることをお勧めします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
-[Fortinet FortiGate を使用して Azure Stack にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Fortinet FortiGate を使用して Azure Stack Hub にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  

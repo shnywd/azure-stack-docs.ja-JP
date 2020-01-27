@@ -1,6 +1,6 @@
 ---
-title: Azure Stack マネージド ディスクの違いと考慮事項 | Microsoft Docs
-description: Azure Stack でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
+title: Azure Stack Hub マネージド ディスクの相違点と考慮事項 | Microsoft Docs
+description: Azure Stack Hub でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,25 +16,25 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 97684f2a0ef9960854b192ca15f972bc15ff5b62
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974057"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75819881"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack マネージド ディスク: 相違点と考慮事項
+# <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub マネージド ディスク: 相違点と考慮事項
 
-この記事は、[Azure Stack のマネージド ディスク](azure-stack-manage-vm-disks.md)と [Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の相違点をまとめたものです。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+この記事は、[Azure Stack Hub のマネージド ディスク](azure-stack-manage-vm-disks.md)と [Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の相違点をまとめたものです。 Azure Stack Hub と Azure の相違点の概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
 マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS 仮想マシン (VM) のディスク管理が簡素化されます。
 
 > [!NOTE]  
-> Azure Stack のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack ポータルを使用して VM を作成する場合、機能は既定で有効になっています。
+> Azure Stack Hub のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack Hub ポータルを使用して VM を作成する場合、機能は既定で有効になっています。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>チート シート: マネージド ディスクの相違点
 
-| 機能 | Azure (グローバル) | Azure Stack |
+| 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 |保存データの暗号化 |Azure Storage Service Encryption (SSE)、Azure Disk Encryption (ADE)。     |BitLocker 128 ビット AES 暗号化      |
 |Image          | マネージド カスタム イメージ |サポートされています|
@@ -50,18 +50,18 @@ ms.locfileid: "71974057"
 |移行      |VM を再作成せずに既存のアンマネージド Azure Resource Manager VM から移行するためのツールを提供します。  |まだサポートされていません |
 
 > [!NOTE]  
-> Azure Stack のマネージド ディスクの IOP とスループットは、プロビジョニングされた数値に代わりの上限数です。これは Azure Stack で実行されているハードウェアとワークロードによって影響を受ける可能性があります。
+> Azure Stack Hub のマネージド ディスクの IOP とスループットは、プロビジョニングされた数値ではなく上限数です。これは Azure Stack Hub で実行されているハードウェアとワークロードによって影響を受ける可能性があります。
 
 ## <a name="metrics"></a>メトリック
 
 ストレージ メトリックにも相違点があります。
 
-- Azure Stack では、ストレージ メトリックのトランザクション データで、内部と外部のネットワーク帯域幅は区別されません。
-- ストレージ メトリックの Azure Stack トランザクション データには、マウントされたディスクへの仮想マシンのアクセスは含まれません。
+- Azure Stack Hub では、ストレージ メトリックのトランザクション データで、内部と外部のネットワーク帯域幅は区別されません。
+- ストレージ メトリックの Azure Stack Hub トランザクション データには、マウントされたディスクへの仮想マシンのアクセスは含まれません。
 
 ## <a name="api-versions"></a>API のバージョン
 
-Azure Stack のマネージド ディスクは次の API バージョンをサポートしています。
+Azure Stack Hub のマネージド ディスクでは、次の API バージョンがサポートされています。
 
 - 2017-03-30
 - 2017-12-01
@@ -69,7 +69,7 @@ Azure Stack のマネージド ディスクは次の API バージョンをサ�
 ## <a name="convert-to-managed-disks"></a>マネージド ディスクへの変換
 
 > [!NOTE]  
-> Azure Stack でアンマネージド ディスクをマネージド ディスクに変更する場合に、Azure PowerShell コマンドレット **ConvertTo-AzureRmVMManagedDisk** は使用できません。 Azure Stack は現在、このコマンドレットをサポートしていません。
+> Azure Stack Hub でアンマネージド ディスクをマネージド ディスクに変更する場合に、Azure PowerShell コマンドレット **ConvertTo-AzureRmVMManagedDisk** は使用できません。 Azure Stack Hub では現在、このコマンドレットはサポートされていません。
 
 次のスクリプトを使用して、現在プロビジョニングされている VM をアンマネージド ディスクからマネージド ディスクに変換できます。 プレースホルダーを実際の値に置き換えてください。
 
@@ -92,7 +92,7 @@ $VhdUri = "https://rgmgddisks347.blob.local.azurestack.external/vhds/unmngdvm201
 # The storage type for the managed disk: PremiumLRS or StandardLRS.
 $AccountType = "StandardLRS"
 
-# The Azure Stack location where the managed disk will be located.
+# The Azure Stack Hub location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
 # Configure the new managed VM point to the old unmanaged VM configuration (network config, VM name, location).
 $Location = "local"
@@ -137,7 +137,7 @@ New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Locatio
 
 ## <a name="managed-images"></a>マネージド イメージ
 
-Azure Stack では*マネージド イメージ*がサポートされています。これにより、汎用化された VM (アンマネージドとマネージドの両方) でマネージド イメージ オブジェクトを作成できます。以降、このオブジェクトではマネージド ディスク VM のみを作成できます。 マネージド イメージにより、次の 2 つのシナリオが可能になります。
+Azure Stack Hub では "*マネージド イメージ*" がサポートされています。これにより、汎用化された VM (アンマネージドとマネージドの両方) でマネージド イメージ オブジェクトを作成できます。以降、このオブジェクトではマネージド ディスク VM のみを作成できます。 マネージド イメージにより、次の 2 つのシナリオが可能になります。
 
 - 汎用化されたアンマネージド VM があり、今後はマネージド ディスクを使用する。
 - 汎用化されたマネージド VM があり、同様のマネージド VM を複数作成する。
@@ -155,19 +155,19 @@ Windows の場合は、「[Sysprep を使用して Windows VM を一般化する
 
 ### <a name="step-3-choose-the-use-case"></a>手順 3:ユース ケースを選択する
 
-#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>ケース 1:アンマネージド VM をマネージド ディスクに移行する
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>ケース 1: アンマネージド VM をマネージド ディスクに移行する
 
 この手順を実行する前に、VM を適切に一般化してください。 一般化の後ではその VM を使用できなくなります。 適切に一般化されていないイメージから VM を作成すると、**VMProvisioningTimeout** エラーが発生します。
 
 「[ストレージ アカウントを使用する VM からイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vm-that-uses-a-storage-account)」の手順に従って、ストレージ アカウント内の一般化された VHD からマネージド イメージを作成します。 このイメージは、後でマネージド VM を作成するために使用できます。
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>ケース 2:Powershell を使用してマネージド イメージからマネージド VM を作成する
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>ケース 2: Powershell を使用してマネージド イメージからマネージド VM を作成する
 
 「[PowerShell を使ってマネージド ディスクからイメージを作成する](/azure/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)」のスクリプトを使って既存のマネージド ディスク VM からイメージを作成した後、次のサンプル スクリプトを使って、既存のイメージ オブジェクトから類似の Linux VM を作成します。
 
-Azure Stack PowerShell モジュール 1.7.0 以上:[マネージド イメージから VM を作成する](/azure/virtual-machines/windows/create-vm-generalized-managed)の手順に従います。
+Azure Stack Hub PowerShell モジュール 1.7.0 以上: [マネージド イメージから VM を作成する](/azure/virtual-machines/windows/create-vm-generalized-managed)の手順に従います。
 
-Azure Stack PowerShell モジュール 1.6.0 以前:
+Azure Stack Hub PowerShell モジュール 1.6.0 以前:
 
 ```powershell
 # Variables for common values
@@ -226,10 +226,10 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 1808 以降の更新プログラムを適用した後、マネージド ディスクを使用する前に次の構成変更を行う必要があります。
 
 - 1808 更新プログラムの前にサブスクリプションが作成された場合は、次の手順に従ってサブスクリプションを更新します。 そうでないと、このサブスクリプションに VM をデプロイする操作がエラー メッセージ "ディスク マネージャーでの内部エラーです" で失敗することがあります。
-   1. Azure Stack ユーザー ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** をクリックし、 **[Microsoft.Compute]** をクリックした後、 **[再登録]** をクリックします。
-   2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、 **[Azure Stack - マネージド ディスク]** がリストに含まれていることを確認します。
-- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうしないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイした場合に、"ディスク マネージャーでの内部エラーです" というエラー メッセージが表示され、失敗することがあります。
+   1. Azure Stack Hub ユーザー ポータルで、 **[サブスクリプション]** に移動して、サブスクリプションを検索します。 **[リソース プロバイダー]** をクリックし、 **[Microsoft.Compute]** をクリックした後、 **[再登録]** をクリックします。
+   2. 同じサブスクリプションで、 **[アクセス制御 (IAM)]** に移動し、 **[Azure Stack Hub - マネージド ディスク]** がリストに含まれていることを確認します。
+- マルチテナント環境を使用している場合は、[この記事](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-hub-with-the-guest-directory)の次の手順に従って、各ゲスト ディレクトリを再構成するように (お客様の組織内またはサービス プロバイダーからの) クラウド オペレーターに依頼してください。 そうしないと、そのゲスト ディレクトリに関連付けられているサブスクリプションに VM をデプロイした場合に、"ディスク マネージャーでの内部エラーです" というエラー メッセージが表示され、失敗することがあります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 仮想マシンについての詳細](azure-stack-compute-overview.md)
+- [Azure Stack Hub 仮想マシンについての詳細](azure-stack-compute-overview.md)

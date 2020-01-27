@@ -1,6 +1,6 @@
 ---
 title: Usage API のよくあるご質問 (FAQ) | Microsoft Docs
-description: Azure Stack の測定、Azure Usage API との比較、使用時間と報告時間、エラー コードの一覧。
+description: Azure Stack Hub の測定、Azure Usage API との比較、使用時間と報告時間、エラー コードの一覧。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: b4780077f015c060c63abc3abd33bd3e71c63e15
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019325"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75813064"
 ---
-# <a name="frequently-asked-questions-about-azure-stack-usage"></a>Azure Stack の使用量に関してよく寄せられる質問
+# <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
-この記事では、Azure Stack の使用量と Azure Stack 使用量 API についてよく寄せられるいくつかの質問に回答します。
+この記事では、Azure Stack Hub の使用量と Azure Stack Hub 使用量 API についてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="what-meter-ids-can-i-see"></a>どのような測定 ID を表示できますか。
 
@@ -42,7 +42,7 @@ ms.locfileid: "72019325"
 **単位**:IP アドレス  
 **注**:使用中の IP アドレス数。 使用状況 API を日単位の細分性で呼び出した場合、メーターは IP アドレスに時間数を乗算して返します。  
   
-### <a name="storage"></a>Storage
+### <a name="storage"></a>ストレージ
   
 **測定 ID**:B4438D5D-453B-4EE1-B42A-DC72E377F1E4  
 **測定名**:TableCapacity  
@@ -322,7 +322,7 @@ ms.locfileid: "72019325"
 **測定 ID**:190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **測定名**:App Service  
 **単位**:仮想コア時間  
-**注**:App Service を実行するのに使用した仮想コア数。 注:マイクロソフトはこの測定を使用して、Azure Stack の App Service の料金を請求します。 クラウド ソリューション プロバイダーは、他の App Service の測定 (下記) を使用して、テナントの使用状況を計算できます。  
+**注**:App Service を実行するのに使用した仮想コア数。 注:マイクロソフトはこの測定を使用して、Azure Stack Hub の App Service の料金を請求します。 クラウド ソリューション プロバイダーは、他の App Service の測定 (下記) を使用して、テナントの使用状況を計算できます。  
   
 **測定 ID**:67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **測定名**:関数の要求  
@@ -386,18 +386,18 @@ ms.locfileid: "72019325"
 **単位**:GB  
 **注**:受信要求応答の合計バイト数 + 送信要求応答の合計バイト数 + 受信 FTP 要求応答の合計バイト数 + 受信 Web デプロイ要求応答の合計バイト数。  
   
-## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack Hub Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
 
-* テナント使用量 API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack では *showDetails* フラグがサポートされていません。
-* プロバイダー使用量 API は、Azure Stack にのみ適用されます。
-* 現在、Azure で使用可能な [RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) は Azure Stack で使用できません。
+* テナント使用量 API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack Hub では *showDetails* フラグがサポートされていません。
+* プロバイダー使用量 API は、Azure Stack Hub にのみ適用されます。
+* 現在、Azure で使用可能な [RateCard API](/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview) は Azure Stack Hub で使用できません。
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用時間と報告時間の違いは何ですか。
 
 使用状況データ レポートには、2 つの主要な時間値があります。
 
 * **報告時間**。 使用状況システムに使用状況イベントが入力された時間
-* **使用時間**。 Azure Stack リソースが使用された時間
+* **使用時間**。 Azure Stack Hub リソースが使用された時間
 
 特定の使用状況イベントに対して、使用時間とレポート時間の値に不一致が見られることがあります。 遅延はすべての環境で数時間に達することもあります。
 
@@ -419,18 +419,18 @@ ms.locfileid: "72019325"
 
 実行中および停止中の VM は使用状況データを生成します。 Azure と一貫性があり、使用状況データの生成を停止するには割り当てを解除する必要があります。 ポータルが使用できなくても、コンピューティング リソース プロバイダーがまだ実行中の場合、使用状況が生成されます。
 
-## <a name="how-do-i-extract-usage-data-from-the-azure-stack-usage-apis"></a>Azure Stack 使用量 API から使用量データを抽出するにはどのようにすればよいですか。
+## <a name="how-do-i-extract-usage-data-from-the-azure-stack-hub-usage-apis"></a>Azure Stack Hub 使用量 API から使用量データを抽出するにはどのようにすればよいですか。
 
-Azure Stack でローカルの使用量 API から使用量データを抽出する最も簡単な方法は、[GitHub の使用量の概要スクリプト](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)を使用することです。 このスクリプトでは、入力パラメーターとして開始日と終了日が必要です。
+Azure Stack Hub でローカルの使用量 API から使用量データを抽出する最も簡単な方法は、[GitHub の使用量の概要スクリプト](https://github.com/Azure/AzureStack-Tools/blob/master/Usage/Usagesummary.ps1)を使用することです。 このスクリプトでは、入力パラメーターとして開始日と終了日が必要です。
 
 または、「[プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)」と「[テナント リソース使用量 API](azure-stack-tenant-resource-usage-api.md)」の記事で説明されているように、REST API を使用することもできます。
 
-## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-user-subscription"></a>Azure 使用量 API から抽出された使用量を特定の Azure Stack ユーザー サブスクリプションに関連付けるには、どのようにすればよいですか。
+## <a name="how-can-i-associate-usage-extracted-from-azure-usage-apis-to-a-specific-azure-stack-hub-user-subscription"></a>Azure 使用量 API から抽出された使用量を特定の Azure Stack Hub ユーザー サブスクリプションに関連付けるには、どのようにすればよいですか。
 
-使用量レコードには **additionalinfo** という名前のプロパティ バッグが含まれています。これには、Azure Stack サブスクリプション ID が含まれます。 これは、対応する使用量レコードを生成するユーザー サブスクリプションです。
+使用量レコードには **additionalinfo** という名前のプロパティ バッグが含まれています。これには、Azure Stack Hub サブスクリプション ID が含まれます。 これは、対応する使用量レコードを生成するユーザー サブスクリプションです。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-* [Azure Stack でのお客様への請求と配賦](azure-stack-billing-and-chargeback.md)
-* [プロバイダー リソース使用量 API](azure-stack-provider-resource-api.md)
+* [Azure Stack Hub でのお客様への請求と配賦](azure-stack-billing-and-chargeback.md)
+* [プロバイダーリソース使用量 API](azure-stack-provider-resource-api.md)
 * [テナント リソース使用量 API](azure-stack-tenant-resource-usage-api.md)

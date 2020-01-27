@@ -1,6 +1,6 @@
 ---
-title: この記事では、Azure Stack のオファーとプランを更新する方法について説明します | Microsoft Docs
-description: この記事では、既存の Azure Stack のオファーとプランを表示および変更する方法について説明します。
+title: この記事では、Azure Stack Hub のオファーとプランを更新する方法について説明します | Microsoft Docs
+description: この記事では、既存の Azure Stack Hub のオファーとプランを表示および変更する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -17,16 +17,16 @@ ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 4b3fed8ee02739cf82b1446cc8c0a9b807763d49
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 4a215edbd9c7b2feed7e82331ae6a0287e35d54d
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283277"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812486"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure Stack のアドオン プラン
+# <a name="azure-stack-hub-add-on-plans"></a>Azure Stack Hub のアドオン プラン
 
-基本プランの初期オファーを超えて、"*コンピューター*"、"*ストレージ*"、"*ネットワーク*" のクォータを拡張したり、追加のサービスを提供したりするには、Azure Stack のオペレーターがアドオン プランを作成して[基本プラン](azure-stack-create-plan.md)に変更を加えます。 アドオン プランは、基本プランに変更を加えるものであり、ユーザーが各自のサブスクリプションで任意に有効にできる拡張機能です。
+基本プランの初期オファーを超えて、"*コンピューター*"、"*ストレージ*"、"*ネットワーク*" のクォータを拡張したり、追加のサービスを提供したりするには、Azure Stack Hub のオペレーターがアドオン プランを作成して[基本プラン](azure-stack-create-plan.md)に変更を加えます。 アドオン プランは、基本プランに変更を加えるものであり、ユーザーが各自のサブスクリプションで任意に有効にできる拡張機能です。
 
 1 つのプランにすべてをまとめることが最適な場合もありますが、 基本プランを用意し、追加のサービスはアドオン プランを使用して提供する方がよい場合もあります。 たとえば、IaaS サービスを基本プランの一部として提供し、すべての PaaS サービスをアドオン プランとして扱うことができます。
 
@@ -40,7 +40,7 @@ ms.locfileid: "72283277"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-add-on-plan-1902-and-later"></a>アドオン プランを作成する (1902 以降)
 
-1. Azure Stack 管理者ポータルにクラウド管理者としてサインインします。
+1. Azure Stack Hub 管理者ポータルにクラウド管理者としてサインインします。
 2. [新しい基本プランを作成](azure-stack-create-plan.md)したときと同じ手順で、これまでは提供されていなかったサービスを提供する新しいプランを作成します。
 3. 管理者ポータルで **[オファー]** をクリックし、アドオン プランで更新するオファーを選択します。
 
@@ -62,7 +62,7 @@ ms.locfileid: "72283277"
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>アドオン プランを作成する (1901 以前)
 
-1. Azure Stack 管理者ポータルにクラウド管理者としてサインインします。
+1. Azure Stack Hub 管理者ポータルにクラウド管理者としてサインインします。
 2. [新しい基本プランを作成](azure-stack-create-plan.md)したときと同じ手順で、これまでは提供されていなかったサービスを提供する新しいプランを作成します。 この例では、Key Vault (**Microsoft.KeyVault**) サービスが新しいプランに含められます。
 3. 管理者ポータルで **[オファー]** をクリックし、アドオン プランで更新するオファーを選択します。
 
@@ -81,6 +81,6 @@ ms.locfileid: "72283277"
     ![アドオン プランを作成する](media/create-add-on-plan/4.PNG)
 ::: moniker-end
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [オファーの作成](azure-stack-create-offer.md)

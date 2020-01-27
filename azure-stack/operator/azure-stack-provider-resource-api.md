@@ -15,12 +15,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718115"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023258"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
@@ -44,7 +44,7 @@ ms.locfileid: "75718115"
 
 | 引数 | [説明] |
 | --- | --- |
-| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
+| `armendpoint` |Azure Stack Hub 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
 | `subId` |呼び出しを行っているユーザーのサブスクリプション ID。 |
 | `reportedStartTime` |クエリの開始時間。 `DateTime` の値は協定世界時 (UTC) で、13:00 など、毎時 0 分に設定する必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 (たとえば、`2015-06-16T18%3a53%3a11%2b00%3a00Z` など) です。URI に対応できるように、コロンは `%3a` に、プラスは `%2b` にエスケープされます。 |
 | `reportedEndTime` |クエリの終了時間。 `reportedStartTime` に適用される制約は、この引数にも適用されます。 `reportedEndTime` の値は、将来、または現在の日付にすることはできません。 そうすると、結果は "処理が未完了" に設定されます。 |

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack サービス、プラン、オファー、サブスクリプションの概要 | Microsoft Docs
-description: Azure Stack サービス、プラン、オファー、およびサブスクリプション。
+title: Azure Stack Hub サービス、プラン、オファー、サブスクリプションの概要 | Microsoft Docs
+description: Azure Stack Hub サービス、プラン、オファー、およびサブスクリプション。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,22 +12,20 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: c1311836487dc11e1e95307181cb02fafa511a6b
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 4f7cb6bf451ad04a8c6365e5c39a714902f3d0b4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727413"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880007"
 ---
-# <a name="azure-stack-services-plans-offers-subscriptions-overview"></a>Azure Stack サービス、プラン、オファー、サブスクリプションの概要
+# <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub サービス、プラン、オファー、サブスクリプションの概要
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-[Microsoft Azure Stack](azure-stack-overview.md) は、データセンターからのサービスの提供を可能にするハイブリッド クラウド プラットフォームです。 サービスには、仮想マシン (VM)、SQL Server データベース、SharePoint、Exchange に加えて、[Azure Marketplace アイテム](azure-stack-marketplace-azure-items.md)も含まれています。 サービス プロバイダーの場合は、テナントにサービスを提供できます。 企業や政府機関では、従業員にオンプレミスのサービスを提供できます。
+[Microsoft Azure Stack Hub](azure-stack-overview.md) は、データセンターからのサービスの提供を可能にするハイブリッド クラウド プラットフォームです。 サービスには、仮想マシン (VM)、SQL Server データベース、SharePoint、Exchange に加えて、[Azure Marketplace アイテム](azure-stack-marketplace-azure-items.md)も含まれています。 サービス プロバイダーの場合は、テナントにサービスを提供できます。 企業や政府機関では、従業員にオンプレミスのサービスを提供できます。
 
 ## <a name="overview"></a>概要
 
-Azure Stack オペレーターは、オファー、プラン、サブスクリプションを使用して、サービスを構成して提供します。 オファーには 1 つ以上のプランが含まれ、各プランには 1 つ以上のサービスが含まれ、それぞれがクオータを利用して構成されます。 プランを作成して別のオファーに組み合わせることによって、ユーザーはオファーをサブスクライブして、リソースをデプロイできます。 この構造によって、以下を管理できます。
+Azure Stack Hub オペレーターは、オファー、プラン、サブスクリプションを使用して、サービスを構成して提供します。 オファーには 1 つ以上のプランが含まれ、各プランには 1 つ以上のサービスが含まれ、それぞれがクオータを利用して構成されます。 プランを作成して別のオファーに組み合わせることによって、ユーザーはオファーをサブスクライブして、リソースをデプロイできます。 この構造によって、以下を管理できます。
 
 - ユーザーがアクセスできるサービスとリソース。
 - ユーザーが使用できるリソースの量。
@@ -49,9 +47,9 @@ Azure Stack オペレーターは、オファー、プラン、サブスクリ�
 
 ## <a name="services"></a>サービス
 
-[サービスとしてのインフラストラクチャ](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) サービスを提供し、ユーザーが、Azure Stack ユーザー ポータルからプロビジョニングおよび管理されるオンデマンドのコンピューティング インフラストラクチャを構築できるようにすることができます。
+[サービスとしてのインフラストラクチャ](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) サービスを提供し、ユーザーが、Azure Stack Hub ユーザー ポータルからプロビジョニングおよび管理されるオンデマンドのコンピューティング インフラストラクチャを構築できるようにすることができます。
 
-また、Microsoft およびその他サード パーティ プロバイダーの Azure Stack 用の[サービスとしてのプラットフォーム](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) サービスをデプロイすることもできます。 提供できる PaaS サービスの一部として、次のようなものが挙げられます。
+また、Microsoft およびその他サード パーティ プロバイダーの Azure Stack Hub 用の[サービスとしてのプラットフォーム](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) サービスをデプロイすることもできます。 提供できる PaaS サービスの一部として、次のようなものが挙げられます。
 
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
@@ -71,11 +69,11 @@ Azure Stack オペレーターは、オファー、プラン、サブスクリ�
 >[!NOTE]
 >Azure Stack Development Kit (ASDK) では、("*ローカル*" という名前の) 1 つのリージョンだけを使用できます。
 
-[Azure Stack のクォータの種類](azure-stack-quota-types.md)に関する詳細を参照してください。
+[Azure Stack Hub のクォータの種類](azure-stack-quota-types.md)に関する詳細を参照してください。
 
 ## <a name="plans"></a>プラン
 
-プランは、1 つまたは複数のサービスをグループ化したものです。 Azure Stack オペレーターは、ユーザーに提供する[プランを作成](azure-stack-create-plan.md)します。 そして、ユーザーがオファーをサブスクライブして、それに含まれるプランとサービスを使用します。 プランを作成するときに、基本プランを定義するクォータを設定していることを確認し、オプションのアドオン プランを含めることを検討してください。
+プランは、1 つまたは複数のサービスをグループ化したものです。 Azure Stack Hub オペレーターは、ユーザーに提供する[プランを作成](azure-stack-create-plan.md)します。 そして、ユーザーがオファーをサブスクライブして、それに含まれるプランとサービスを使用します。 プランを作成するときに、基本プランを定義するクォータを設定していることを確認し、オプションのアドオン プランを含めることを検討してください。
 
 ### <a name="base-plan"></a>基本プラン
 
@@ -101,13 +99,13 @@ Azure Stack オペレーターは、オファー、プラン、サブスクリ�
 
 ## <a name="subscriptions"></a>サブスクリプション
 
-ユーザーは、サブスクリプションを使用してオファーにアクセスできます。 サービス プロバイダーの Azure Stack オペレーターの場合、ユーザー (テナント) は、オファーをサブスクライブすることでサービスを購入します。 組織の Azure Stack オペレーターの場合、提供するサービスをユーザー (従業員) が無料でサブスクライブできます。
+ユーザーは、サブスクリプションを使用してオファーにアクセスできます。 サービス プロバイダーの Azure Stack Hub オペレーターの場合、ユーザー (テナント) は、オファーをサブスクライブすることでサービスを購入します。 組織の Azure Stack Hub オペレーターの場合、提供するサービスをユーザー (従業員) が無料でサブスクライブできます。
 
-ユーザーは、Azure Stack にサインインして、新しいサブスクリプションを作成し、既存のサブスクリプションへのアクセスを取得します。 各サブスクリプションは、単一のオファーとの関連付けを表します。 1 つのサブスクリプションに割り当てられたオファー (およびそのプランとクォータ) を、他のサブスクリプションと共有することはできません。 ユーザーが作成する各リソースは、1 つのサブスクリプションに関連付けられます。
+ユーザーは、Azure Stack Hub にサインインして、新しいサブスクリプションを作成し、既存のサブスクリプションへのアクセスを取得します。 各サブスクリプションは、単一のオファーとの関連付けを表します。 1 つのサブスクリプションに割り当てられたオファー (およびそのプランとクォータ) を、他のサブスクリプションと共有することはできません。 ユーザーが作成する各リソースは、1 つのサブスクリプションに関連付けられます。
 
 ### <a name="default-provider-subscription"></a>既定のプロバイダー サブスクリプション
 
-既定のプロバイダー サブスクリプションは、ASDK をデプロイするときに自動的に作成されます。 このサブスクリプションは、Azure Stack の管理、追加のリソース プロバイダーのデプロイ、およびユーザーのためのプランおよびオファーの作成に使用できます。 セキュリティとライセンス上の理由から、顧客のワークロードとアプリの実行には使用しないでください。 既定のプロバイダー サブスクリプションのクォータは変更できません。
+既定のプロバイダー サブスクリプションは、ASDK をデプロイするときに自動的に作成されます。 このサブスクリプションは、Azure Stack Hub の管理、追加のリソース プロバイダーのデプロイ、およびユーザーのためのプランおよびオファーの作成に使用できます。 セキュリティとライセンス上の理由から、顧客のワークロードとアプリの実行には使用しないでください。 既定のプロバイダー サブスクリプションのクォータは変更できません。
 
 ## <a name="next-steps"></a>次のステップ
 

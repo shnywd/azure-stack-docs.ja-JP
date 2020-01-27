@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の Azure 登録を検証する | Microsoft Docs
-description: Azure Stack 適合性チェッカーを使用して、Azure 登録を検証します。
+title: Azure Stack Hub の Azure 登録を検証する | Microsoft Docs
+description: Azure Stack Hub 適合性チェッカーを使用して、Azure 登録を検証します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,21 +16,21 @@ ms.date: 10/03/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: a1ac34b39bc1628314c1ba2f05202c4a1454c189
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961858"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812843"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
-Azure Stack のデプロイを開始する前に、Azure Stack 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure サブスクリプションを Azure Stack で使用する準備が整っていることを検証します。 適合性チェッカーは以下を検証します。
+Azure Stack Hub のデプロイを開始する前に、Azure Stack Hub 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、Azure Stack Hub で Azure サブスクリプションをすぐに使用できることを検証します。 適合性チェッカーは以下を検証します。
 
 - 使用する Azure サブスクリプションの種類がサポート対象であること。 サブスクリプションは、クラウド ソリューション プロバイダー (CSP) またはマイクロソフトエンタープライズ契約 (EA) である必要があります。
 - ご自身のサブスクリプションの登録に使用するアカウントが Azure にサインインでき、サブスクリプション所有者であること。
 
-Azure Stack 登録の詳細については、「[Azure を使用した Azure Stack の登録](azure-stack-registration.md)」を参照してください。
+Azure Stack Hub 登録の詳細については、「[Azure を使用した Azure Stack Hub の登録](azure-stack-registration.md)」を参照してください。
 
 ## <a name="get-the-readiness-checker-tool"></a>適合性チェッカー ツールを取得する
 
@@ -49,12 +49,12 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
   $PSVersionTable.PSVersion
   ```
 
-- [Azure Stack 用に構成された PowerShell](azure-stack-powershell-install.md)。
-- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。  
+- [Azure Stack Hub 用に構成された PowerShell](azure-stack-powershell-install.md)。
+- 最新バージョンの [Microsoft Azure Stack Hub 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。  
 
 ### <a name="azure-active-directory-environment"></a>Azure Active Directory の環境
 
-- Azure Stack で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを特定します。  
+- Azure Stack Hub で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを特定します。  
 - 使用する Azure サブスクリプションのサブスクリプション ID を特定します。
 - 使用する **AzureEnvironment** を特定します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** です。使用している Azure サブスクリプションに応じて異なります。
 
@@ -104,14 +104,14 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 検証を実行するたびに、結果のログが **AzsReadinessChecker.log** と **AzsReadinessCheckerReport.json** に出力されます。 これらのファイルの場所は、PowerShell に検証結果と共に表示されます。
 
-これらのファイルは、Azure Stack をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
+これらのファイルは、Azure Stack Hub をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
 
 既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
 
 - 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
 - ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
 
-詳細については、「[Azure Stack 検証レポート](azure-stack-validation-report.md)」を参照してください。
+詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
 ## <a name="validation-failures"></a>検証エラー
 
@@ -135,7 +135,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **原因** - アカウントが Azure サブスクリプションの管理者ではありません。
 
-**解決策** - Azure サブスクリプション管理者であるアカウントを使用します。これは、Azure Stack デプロイから使用の請求対象となります。
+**解決策** - Azure サブスクリプション管理者であるアカウントを使用します。これは、Azure Stack Hub デプロイから使用の請求対象となります。
 
 ### <a name="expired-or-temporary-password"></a>期限切れまたは一時パスワード
 
@@ -188,4 +188,4 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 - [Azure ID の検証](azure-stack-validate-identity.md)
 - [対応状況レポートを表示する](azure-stack-validation-report.md)
-- [Azure Stack の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)
+- [Azure Stack Hub の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)

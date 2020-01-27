@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の Marketplace アイテムの作成と発行 | Microsoft Docs
-description: Azure Stack の Marketplace 項目を作成して発行する方法について説明します。
+title: Azure Stack Hub での Marketplace アイテムの作成と発行 | Microsoft Docs
+description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,18 +15,16 @@ ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 5740ff6bc550aa27f15761e6be2c69247eecaf03
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654884"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882761"
 ---
-# <a name="create-and-publish-a-custom-azure-stack-marketplace-item"></a>Azure Stack Marketplace のカスタム アイテムを作成して発行する
+# <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure ギャラリー パッケージ (.azpkg) 形式を使用します。 *Azure Gallery Packager* ツールを使用すると、Azure Stack Marketplace にアップロードできるカスタム Azure ギャラリー パッケージを作成できます。ユーザーはこのパッケージをダウンロードできます。 デプロイ プロセスでは、Azure Resource Manager テンプレートを使用します。
+Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、Azure ギャラリー パッケージ (.azpkg) 形式を使用します。 *Azure Gallery Packager* ツールを使用すると、Azure Stack Hub の Marketplace にアップロードしてユーザーが後からダウンロードできる、カスタム Azure ギャラリー パッケージを作成できます。 デプロイ プロセスでは、Azure Resource Manager テンプレートを使用します。
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
 
@@ -35,11 +33,11 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 ## <a name="create-a-marketplace-item"></a>Marketplace アイテムの作成
 
 > [!IMPORTANT]
-> VM Marketplace アイテムを作成する前に、「[VM イメージを Azure Stack に追加する](azure-stack-add-vm-image.md)」の手順に従って、カスタム VM イメージを Azure Stack ポータルにアップロードします。 その後、この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Marketplace にアップロードします。
+> VM Marketplace アイテムを作成する前に、[VM イメージの Azure Stack Hub への追加](azure-stack-add-vm-image.md)に関するページの手順に従って、カスタム VM イメージを Azure Stack Hub ポータルにアップロードします。 その後、この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Hub の Marketplace にアップロードします。
 
 カスタム Marketplace アイテムを作成するには、次の手順のようにします。
 
-1. [Azure Gallery Packager ツール](https://aka.ms/azsmarketplaceitem)とサンプルの Azure Stack ギャラリー パッケージをダウンロードします。 このダウンロードには、カスタム VM テンプレートが含まれます。 .zip ファイルを抽出し、 **[Custom VM]** フォルダーの下で、提供されている Linux テンプレートまたは Windows テンプレートのいずれかを使用できます。 事前に作成されたテンプレートを再利用し、Azure Stack ポータルに表示するアイテムの製品詳細を指定して対応するパラメーターを変更することができます。 または、提供されている .azpkg ファイルを再利用し、次の手順をスキップして独自のギャラリー パッケージをカスタマイズできます。
+1. [Azure Gallery Packager ツール](https://aka.ms/azsmarketplaceitem)とサンプルの Azure Stack Hub ギャラリー パッケージをダウンロードします。 このダウンロードには、カスタム VM テンプレートが含まれます。 .zip ファイルを抽出し、 **[Custom VM]** フォルダーの下で、提供されている Linux テンプレートまたは Windows テンプレートのいずれかを使用できます。 事前に作成されているテンプレートを再利用して、対応するパラメーターを、ご自分の Azure Stack Hub ポータルに表示するアイテムの製品詳細に指定して変更することができます。 または、提供されている .azpkg ファイルを再利用し、次の手順をスキップして独自のギャラリー パッケージをカスタマイズできます。
 
 2. Azure Resource Manager テンプレートを作成するか、Windows/Linux 用のサンプル テンプレートを使用します。 これらのサンプル テンプレートは、手順 1 でダウンロードした Packager ツールの .zip ファイルで提供されています。 テンプレートを使用してテキスト フィールドを変更するか、構成済みのテンプレートを GitHub からダウンロードすることができます。 Azure Resource Manager テンプレートの詳細については、[Azure Resource Manager テンプレート](/azure/azure-resource-manager/resource-group-authoring-templates)に関するページを参照してください。
 
@@ -143,9 +141,9 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
     ![パッケージの表示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![パッケージの表示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
-6. リソースを正常にデプロイできるようにするには、[Azure Stack API](../user/azure-stack-profiles-azure-resource-manager-versions.md) を使用してテンプレートをテストします。
+6. リソースを正常にデプロイできるようにするには、[Azure Stack Hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md) を使用してテンプレートをテストします。
 
-7. テンプレートが仮想マシン (VM) イメージに依存する場合、指示に従って [Azure Stack に VM イメージを追加](azure-stack-add-vm-image.md)します。
+7. お使いのテンプレートが仮想マシン (VM) のイメージに依存する場合、指示に従って [Azure Stack Hub に VM イメージを追加](azure-stack-add-vm-image.md)します。
 
 8. Azure Resource Manager テンプレートを **/Contoso.TodoList/DeploymentTemplates/** フォルダーに保存します。
 
@@ -169,9 +167,9 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 
 ## <a name="publish-a-marketplace-item"></a>Marketplace アイテムの発行
 
-1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack ストレージにアップロードすることも、パッケージの一時的な場所である Azure Storage にアップロードするこもできます。 BLOB がパブリックにアクセスできることを確認します。
+1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack Hub ストレージにアップロードすることも、パッケージの一時的な場所である Azure Storage にアップロードすることもできます。 BLOB がパブリックにアクセスできることを確認します。
 
-2. ギャラリー パッケージを Azure Stack にインポートするには、最初に、作成したばかりのファイルを Azure Stack にコピーするため、クライアント VM にリモート接続 (RDP) します。
+2. ギャラリー パッケージを Azure Stack Hub にインポートするには、まずクライアント VM にリモート接続 (RDP) して、お使いの Azure Stack Hub に作成したばかりのファイルをコピーします。
 
 3. コンテキストを追加します。
 
@@ -188,7 +186,7 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
     https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
     ```
 
-5. アイテムの格納に使用できる有効なストレージ アカウントがあることを確認します。 `GalleryItemURI` の値は、Azure Stack 管理者ポータルから取得できます。 **[ストレージ アカウント] > [BLOB のプロパティ] > [URL]** の順に選択し、拡張子を .azpkg にします。 ストレージ アカウントは、Marketplace に発行するために一時的に使用するためのものです。
+5. アイテムの格納に使用できる有効なストレージ アカウントがあることを確認します。 `GalleryItemURI` の値は、Azure Stack Hub 管理者ポータルから取得できます。 **[ストレージ アカウント] > [BLOB のプロパティ] > [URL]** の順に選択し、拡張子を .azpkg にします。 ストレージ アカウントは、Marketplace に発行するために一時的に使用するためのものです。
 
    ギャラリー パッケージが完成し、**Add-AzsGalleryItem** を使用してアップロードすると、カスタム VM が Marketplace と **[リソースの作成]** ビューに表示されるようになります。 **Marketplace の管理**にはカスタム ギャラリー パッケージが表示されないことに注意してください。
 
@@ -230,7 +228,7 @@ Azure Stack Marketplace に発行されるすべてのアイテムでは、Azure
 | PublisherDisplayName |X |String |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
 | PublisherLegalName |X |String |最大 256 文字 | |
 | まとめ |X |String |60 ～ 100 文字 | |
-| LongSummary |X |String |140 ～ 256 文字 |Azure Stack ではまだ適用なし。 |
+| LongSummary |X |String |140 ～ 256 文字 |現在はまだ Azure Stack Hub には該当しません。 |
 | [説明] |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
 
 ### <a name="images"></a>イメージ
@@ -247,7 +245,7 @@ Marketplace では、次のアイコンを使用します。
 
 ### <a name="categories"></a>Categories
 
-Marketplace の各アイテムは、そのアイテムのポータル UI における表示場所を識別するカテゴリでタグ付けする必要があります。 Azure Stack 内の既存のカテゴリのいずれか ( **[コンピューティング]** 、 **[データ + ストレージ]** など) を選択するか、新しいものを選択します。
+Marketplace の各アイテムは、そのアイテムのポータル UI における表示場所を識別するカテゴリでタグ付けする必要があります。 Azure Stack Hub 内の既存のカテゴリのいずれか ( **[コンピューティング]** 、 **[データ + ストレージ]** など) を選択するか、新しいものを選択します。
 
 ### <a name="links"></a>リンク
 
@@ -275,18 +273,18 @@ HTML を許可するフィールドでは、次の[要素と属性を使用で�
 
 ## <a name="reference-marketplace-item-ui"></a>リファレンス: Marketplace アイテムの UI
 
-Azure Stack ポータルで表示される Marketplace アイテムのアイコンとテキストは、次のとおりです。
+Azure Stack Hub ポータルに表示される Marketplace アイテムのアイコンとテキストは、次のとおりです。
 
 ### <a name="create-blade"></a>[作成] ブレード
 
-![[作成] ブレード - Azure Stack の Marketplace 項目](media/azure-stack-create-and-publish-marketplace-item/image1.png)
+![作成ブレード - Azure Stack Hub の Marketplace アイテム](media/azure-stack-create-and-publish-marketplace-item/image1.png)
 
 ### <a name="marketplace-item-details-blade"></a>[Marketplace item details (Marketplace アイテムの詳細)] ブレード
 
-![Azure Stack の [Marketplace item details]\(Marketplace 項目の詳細\) ブレード](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+![Azure Stack Hub の [Marketplace item details (Marketplace アイテムの詳細)] ブレード](media/azure-stack-create-and-publish-marketplace-item/image3.png)
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack Marketplace の概要](azure-stack-marketplace.md)
+- [Azure Stack Hub Marketplace の概要](azure-stack-marketplace.md)
 - [Marketplace アイテムのダウンロード](azure-stack-download-azure-marketplace-item.md)
 - [Azure Resource Manager テンプレートのフォーマットと構造](/azure/azure-resource-manager/resource-group-authoring-templates)

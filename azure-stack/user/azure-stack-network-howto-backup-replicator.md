@@ -1,6 +1,6 @@
 ---
-title: 複数の Azure Stack サブスクリプション間でリソースをレプリケートする方法 |Microsoft Docs
-description: Azure Stack サブスクリプション レプリケーターの一連のスクリプトを使用してリソースをレプリケートする方法について説明します。
+title: 複数の Azure Stack Hub サブスクリプション間でリソースをレプリケートする方法 | Microsoft Docs
+description: Azure Stack Hub サブスクリプション レプリケーターの一連のスクリプトを使用してリソースをレプリケートする方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,16 +9,16 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 03388b08e6cc258437656f2e580b75de14b8cee5
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557678"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816124"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-subscription-replicator"></a>Azure Stack サブスクリプション レプリケーターを使用してリソースをレプリケートする方法
+# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>複数の Azure Stack Hub サブスクリプション間でリソースをレプリケートする方法
 
-Azure Stack サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack サブスクリプション間、Azure Stack スタンプ間、または Azure Stack と Azure の間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作とスクリプトの使用方法について説明し、スクリプト操作の参照情報を示します。
+Azure Stack Hub サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack Hub サブスクリプション間、Azure Stack Hub スタンプ間、または Azure Stack Hub と Azure の間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack Hub サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作とスクリプトの使用方法について説明し、スクリプト操作の参照情報を示します。
 
 この記事で使用されるスクリプトは [Azure Intelligent Edge Patterns GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) リポジトリにあります。 スクリプトは [ssubscription replicator](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/subscription%20replicator) フォルダーにあります。
 
@@ -83,7 +83,7 @@ Azure サブスクリプション レプリケーター (v3) ツールを実行�
 スクリプトの実行が完了すると、3 つの新しいフォルダー **Deployment_Files**、**Parameter_Files**、および **Custom_ARM_Templates** が作成されます。
 
  > [!Note]  
- > 生成されたスクリプトを実行する前に、適切な環境を設定し、ターゲット サブスクリプション (新しい Azure Stack など) にログインして、作業ディレクトリを **Deployment_Files** フォルダーに設定する必要があります。
+ > 生成されたスクリプトを実行する前に、適切な環境を設定し、ターゲット サブスクリプション (新しい Azure Stack Hub など) にログインして、作業ディレクトリを **Deployment_Files** フォルダーに設定する必要があります。
 
 Deployment_Files には、2 つのファイル **DeployResourceGroups.ps1** と **DeployResources.ps1** が保持されます。 DeployResourceGroups.ps1 を実行すると、リソース グループがデプロイされます。 DeployResources.ps1 を実行すると、処理されたすべてのリソースがデプロイされます。 リソースの種類として **All** または **Microsoft.Compute/virtualMachines** を指定してツールを実行した場合、DeployResources.ps1 では仮想マシンの管理者パスワードを入力するようにユーザーに求められます。これはすべての仮想マシンの作成に使用されます。
 
@@ -181,10 +181,10 @@ replicatorV3 フォルダー内には、**cleanup_generated_items.ps1** とい�
 
 レプリケーションを正常に行うには、ターゲット サブスクリプションのリソース プロバイダーのバージョンがソース サブスクリプションのバージョンと一致していることを確認します。
 
-商用 Azure から商用 Azure にレプリケートする場合、または Azure Stack 内の 1 つのサブスクリプションから同じ Azure Stack 内の別のサブスクリプションにレプリケートする場合は、ストレージ アカウントをレプリケートするときに問題が発生します。 これは、すべてのストレージ アカウント名がすべての商用 Azure または Azure Stack リージョン/インスタンスのすべてのサブスクリプションで一意であるというストレージ アカウントの名前付け要件によるものです。 Stack は別々のリージョン/インスタンスであるため、異なる Azure Stack インスタンス間でストレージ アカウントをレプリケートできます。
+商用 Azure から商用 Azure にレプリケートする場合、または Azure Stack Hub 内の 1 つのサブスクリプションから同じ Azure Stack Hub 内の別のサブスクリプションにレプリケートする場合は、ストレージ アカウントをレプリケートするときに問題が発生します。 これは、すべてのストレージ アカウント名がすべての商用 Azure または Azure Stack Hub リージョンまたはインスタンスのすべてのサブスクリプションで一意であるというストレージ アカウントの名前付け要件によるものです。 Stack は別々のリージョンまたはインスタンスであるため、異なる Azure Stack Hub インスタンス間でストレージ アカウントをレプリケートできます。
 
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

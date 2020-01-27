@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での更新の管理 | Microsoft Docs
-description: Azure Stack での更新の管理について説明します
+title: Azure Stack Hub での更新の管理 | Microsoft Docs
+description: Azure Stack Hub での更新の管理について説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 10/01/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f84a781979deaa8f3879abc2d964599e6f1087ae
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: e7f1b45a561d49ffbefd9376308473b225b99fad
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756850"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022480"
 ---
 # <a name="manage-updates-in-azure-stack-hub-overview"></a>Azure Stack Hub での更新プログラム管理の概要
-
-*適用対象:Azure Stack Hub 統合システム*
 
 フルおよび高速更新プログラム、修正プログラム、および OEM (相手先ブランド供給) のドライバーおよびファームウェアの更新プログラムはすべて、Azure Stack Hub を最新の状態に保つのに役立ちます。 この記事では、さまざまな種類の更新プログラム、それらのリリースが予想されるタイミング、および現在のリリースの詳細を確認できる場所について説明します。
 
@@ -35,7 +33,7 @@ ms.locfileid: "75756850"
 
 統合システムの更新プログラム パッケージには、次の 3 つの種類があります。
 
--   **Azure Stack Hub ソフトウェア更新プログラム**。 Microsoft には、Microsoft ソフトウェア更新プログラム パッケージについて、エンド ツー エンドでサービスを提供し続ける責任があります。 これらのパッケージには、最新の Windows Server のセキュリティ更新プログラム、セキュリティ以外の更新プログラム、Azure Stack の機能の更新プログラムを含めることができます。 これらの更新プログラム パッケージは Microsoft から直接ダウンロードします。
+-   **Azure Stack Hub ソフトウェア更新プログラム**。 Microsoft には、Microsoft ソフトウェア更新プログラム パッケージについて、エンド ツー エンドでサービスを提供し続ける責任があります。 これらのパッケージには、最新の Windows Server のセキュリティ更新プログラム、セキュリティ以外の更新プログラム、Azure Stack Hub の機能更新プログラムが含まれています。 これらの更新プログラム パッケージは Microsoft から直接ダウンロードします。
 
     各更新プログラム パッケージには、**フル**または**高速**の対応する種類があります。 
  
@@ -43,7 +41,7 @@ ms.locfileid: "75756850"
 
     **高速**更新プログラム パッケージは範囲が限定されており、基となる物理ホスト オペレーティング システムは更新されません。
 
--   **Azure Stack Hub 修正プログラム**。 Microsoft では、Azure Stack に関して、多くの場合に予防的または緊急の特定の問題に対応するため、修正プログラムを提供しています。 各修正プログラムは、問題、原因、および解決方法の詳細が記載された Microsoft のナレッジ ベースの記事に対応してリリースされます。 修正プログラムは、Azure Stack の通常のフル更新プログラム パッケージとまったく同じように、ダウンロードしてインストールします。 修正プログラムは累積的であるため、数分でインストールできます。
+-   **Azure Stack Hub 修正プログラム**。 Microsoft では、Azure Stack Hub に関して、多くの場合に予防的または緊急の特定の問題に対応するため、修正プログラムを提供しています。 各修正プログラムは、問題、原因、および解決方法の詳細が記載された Microsoft のナレッジ ベースの記事に対応してリリースされます。 修正プログラムは、Azure Stack Hub の通常のフル更新プログラム パッケージとまったく同じように、ダウンロードしてインストールします。 修正プログラムは累積的であるため、数分でインストールできます。
 
 -   **OEM ハードウェア ベンダー提供の更新プログラム**。 Azure Stack Hub ハードウェア パートナーには、ハードウェアに関連するファームウェアおよびドライバーの更新プログラム パッケージについて、ガイドを含めエンド ツー エンドでサービスを提供し続ける責任があります。 また、Azure Stack Hub ハードウェア パートナーは、すべてのソフトウェアとハードウェアのハードウェア ライフサイクル ホストに関するガイドを所有して管理します。 OEM ハードウェア ベンダーは、自社のダウンロード サイトでこれらの更新プログラム パッケージを管理します。
 
@@ -57,7 +55,7 @@ ms.locfileid: "75756850"
 
 -   **OEM ハードウェア ベンダー提供の更新プログラム**。 OEM ハードウェア ベンダーは、必要に応じて随時更新プログラムをリリースします。
 
-サポートを継続して受けるには、Azure Stack Hub 環境を、サポートされる Azure Stack ソフトウェア バージョンで維持する必要があります。 詳細については「[Azure Stack Hub サービス ポリシー](azure-stack-update-servicing-policy.md)」を参照してください。
+サポートを継続して受けるには、Azure Stack Hub 環境を、サポートされる Azure Stack Hub ソフトウェア バージョンで維持する必要があります。 詳細については「[Azure Stack Hub サービス ポリシー](azure-stack-update-servicing-policy.md)」を参照してください。
 
 ## <a name="where-to-get-notice-of-an-update"></a>更新の通知を受け取る場所
 
@@ -65,13 +63,13 @@ ms.locfileid: "75756850"
 
 - **Microsoft ソフトウェア更新プログラムおよび修正プログラム** 
 
-    Microsoft ソフトウェア更新プログラムおよび修正プログラムの更新アラートは、インターネットに接続されている Azure Stack インスタンスの [更新] ブレードに表示されます。 [更新] ブレードが表示されない場合は、インフラストラクチャ管理コントローラー VM を再起動します。
+    Microsoft ソフトウェア更新プログラムと修正プログラムの更新アラートは、インターネットに接続されている Azure Stack Hub インスタンスの [更新] ブレードに表示されます。 [更新] ブレードが表示されない場合は、インフラストラクチャ管理コントローラー VM を再起動します。
 
     インスタンスが接続されておらず、各修正プログラムのリリースについて通知を受け取ることを希望する場合は、[RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
 
 - **OEM ハードウェア ベンダー提供の更新プログラム**
 
-    OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM の更新プログラムがあるときに気付けるように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
+    OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM の更新プログラムがあるときに気付けるように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
 
 ## <a name="update-processes"></a>更新プロセス
 
@@ -81,13 +79,13 @@ ms.locfileid: "75756850"
 
 1. **更新を計画します**。
 
-    ユーザーへの影響が最小限になるように、可能な限りスムーズに更新プロセスを進めるために Azure Stack Hub を準備します。 サービス停止の可能性についてユーザーに通知し、手順に従って、インスタンスの更新を準備します。 更新を計画するための詳細な手順については、「[Azure Stack Hub 更新アクティビティのチェックリスト](release-notes-checklist.md)」を参照してください。
+    ユーザーへの影響が最小限になるように、可能な限りスムーズに更新プロセスを進めるために Azure Stack Hub を準備します。 サービス停止の可能性についてユーザーに通知し、手順に従って、インスタンスの更新を準備します。 [Azure Stack Hub の更新前チェックリスト](release-notes-checklist.md)の**すべて**の手順に従って、更新プログラムを適用するために必要な前提条件を完了し、適用される更新プログラムの種類に適したメンテナンス期間をスケジュールしていることを確認します。
 
 2. **更新プログラム パッケージをアップロードして準備します**。
 
     インターネットに接続された Azure Stack Hub 環境では、Azure Stack Hub ソフトウェア更新プログラムおよび修正プログラムが自動的にシステムにインポートされ、更新用に準備されます。
 
-    インターネットに接続されていない Azure Stack Hub 環境やインターネット接続が弱いか途切れがちの環境の場合、Azure Stack 管理者ポータル経由で、更新プログラム パッケージを Azure Stack Hub ストレージにインポートします。 更新プログラム パッケージをアップロードして準備する詳細な手順については、[Azure Stack Hub 更新プログラム パッケージのアップロードと準備](azure-stack-update-prepare-package.md)に関するページを参照してください。
+    インターネットに接続されていない Azure Stack Hub 環境やインターネット接続が弱いか途切れがちの環境の場合、Azure Stack Hub 管理者ポータル経由で、更新プログラム パッケージを Azure Stack Hub ストレージにインポートします。 更新プログラム パッケージをアップロードして準備する詳細な手順については、[Azure Stack Hub 更新プログラム パッケージのアップロードと準備](azure-stack-update-prepare-package.md)に関するページを参照してください。
 
     すべての OEM 更新プログラム パッケージは、Azure Stack Hub システムのインターネット接続に関係なく、手動で環境にインポートします。 更新プログラム パッケージをインポートして準備する詳細な手順については、[Azure Stack Hub 更新プログラム パッケージのアップロードと準備](azure-stack-update-prepare-package.md)に関するページを参照してください。
 
@@ -99,10 +97,10 @@ ms.locfileid: "75756850"
 
 Azure Stack Hub には、Microsoft ソフトウェア更新プログラムの適用を処理する更新リソース プロバイダーが含まれています。 このプロバイダーによって、すべての物理ホスト、Service Fabric アプリケーションとランタイム、すべてのインフラストラクチャ仮想マシンとその関連サービスに更新プログラムが適用されていることが確認されます。
 
-更新プログラムをインストールすると、更新プロセスが Azure Stack 内のさまざまなサブシステム (例: 物理ホスト、インフラストラクチャ仮想マシン) をターゲットとしていく状況の概要を確認できます。
+更新プログラムをインストールすると、更新プロセスが Azure Stack Hub 内のさまざまなサブシステム (例: 物理ホスト、インフラストラクチャ仮想マシン) をターゲットとしていく状況の概要を確認できます。
 
 ## <a name="next-steps"></a>次のステップ
 
 - 更新プロセスを開始するには、「[Azure Stack Hub 更新アクティビティのチェックリスト](release-notes-checklist.md)」の手順に従ってください。
-- サポートされている Azure Stack のバージョンについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。  
+- サポートされている Azure Stack Hub のバージョンについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。  
 - 現在および最新の更新プログラムの詳細については、[Azure Stack Hub のリリースノート](release-notes.md)を参照してください。

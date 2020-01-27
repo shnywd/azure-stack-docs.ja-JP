@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の DNS フォワーダーを更新する | Microsoft Docs
-description: Azure Stack の DNS フォワーダーを更新する方法について説明します。
+title: Azure Stack Hub の DNS フォワーダーを更新する | Microsoft Docs
+description: Azure Stack Hub の DNS フォワーダーを更新する方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,20 +14,20 @@ ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 22e49f28dee6b4aa97b9e84cf52950dd678450e4
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.openlocfilehash: b16eade221c51664205e865d1680e7f048fbfc7a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74308244"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817586"
 ---
-# <a name="update-the-dns-forwarder-in-azure-stack"></a>Azure Stack の DNS フォワーダーを更新する
+# <a name="update-the-dns-forwarder-in-azure-stack-hub"></a>Azure Stack Hub の DNS フォワーダーを更新する
 
-Azure Stack インフラストラクチャで外部名を解決するには、少なくとも 1 つの到達可能な DNS フォワーダーが必要です。 Azure Stack のデプロイには、DNS フォワーダーを用意する必要があります。 その入力が Azure Stack の内部 DNS サーバーでフォワーダーとして使用され、認証、Marketplace 管理、使用などのサービスの外部名の解決が可能になります。
+Azure Stack Hub インフラストラクチャで外部名を解決するには、少なくとも 1 つの到達可能な DNS フォワーダーが必要です。 Azure Stack Hub のデプロイには、DNS フォワーダーを用意する必要があります。 その入力が Azure Stack Hub の内部 DNS サーバーでフォワーダーとして使用され、認証、Marketplace 管理、使用などのサービスの外部名の解決が可能になります。
 
-DNS は、変更可能な重要なデータセンター インフラストラクチャ サービスであり、変更した場合は Azure Stack を更新する必要があります。
+DNS は、変更可能な重要なデータセンター インフラストラクチャ サービスであり、変更した場合は Azure Stack Hub を更新する必要があります。
 
-この記事では、特権エンドポイント (PEP) を使用して Azure Stack の DNS フォワーダーを更新する方法について説明します。 2 つの信頼できる DNS フォワーダー IP アドレスを使用することをお勧めします。
+この記事では、特権エンドポイント (PEP) を使用して Azure Stack Hub の DNS フォワーダーを更新する方法について説明します。 2 つの信頼できる DNS フォワーダー IP アドレスを使用することをお勧めします。
 
 1. [特権エンドポイント](azure-stack-privileged-endpoint.md)にアクセスします。 サポート チケットを開いて特権エンドポイントのロックを解除する必要はないことに注意してください。
 
@@ -37,7 +37,7 @@ DNS は、変更可能な重要なデータセンター インフラストラク
    Get-AzsDnsForwarder
    ```
 
-3. 次のコマンドを実行して、新しい DNS フォワーダーを使用するように Azure Stack を更新します。
+3. 次のコマンドを実行して、新しい DNS フォワーダーを使用するように Azure Stack Hub を更新します。
 
    ```powershell
     Set-AzsDnsForwarder -IPAddress "IPAddress 1","IPAddress 2"
@@ -45,6 +45,6 @@ DNS は、変更可能な重要なデータセンター インフラストラク
 
 4. エラーが発生した場合は、コマンドの出力を確認してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [ファイアウォールの統合](azure-stack-firewall.md)

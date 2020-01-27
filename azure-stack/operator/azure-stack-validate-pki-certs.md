@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 統合システム デプロイのための Azure Stack 公開キー インフラストラクチャ証明書を検証する | Microsoft Docs
-description: Azure Stack 統合システムの Azure Stack PKI 証明書を検証する方法について説明します。 Azure Stack 証明書チェッカー ツールの使用方法について説明します。
+title: Azure Stack Hub 統合システム デプロイのための Azure Stack Hub 公開キー インフラストラクチャ証明書を検証する | Microsoft Docs
+description: Azure Stack Hub 統合システムの Azure Stack Hub PKI 証明書を検証する方法について説明します。 Azure Stack Hub 証明書チェッカー ツールの使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,16 @@ ms.date: 07/23/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 61e79fb581b18825d2bde1e2838d8b653ad00da6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 23225b21d1dc3074c69cefa2af23a99b634a7a73
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727532"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812860"
 ---
-# <a name="validate-azure-stack-pki-certificates"></a>Azure Stack PKI 証明書の検証
+# <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 
-この記事で説明されている Azure Stack 適合性チェッカー ツールは、[PowerShell ギャラリーから](https://aka.ms/AzsReadinessChecker)入手可能です。 デプロイ前にこのツールを使用して、[生成された PKI 証明書](azure-stack-get-pki-certs.md)が適切であるかどうかを検証できます。 十分な時間をかけて証明書を検証し、必要であれば証明書をテストして再発行します。
+この記事で説明されている Azure Stack Hub 適合性チェッカー ツールは、[PowerShell ギャラリーから](https://aka.ms/AzsReadinessChecker)入手可能です。 デプロイ前にこのツールを使用して、[生成された PKI 証明書](azure-stack-get-pki-certs.md)が適切であるかどうかを検証できます。 十分な時間をかけて証明書を検証し、必要であれば証明書をテストして再発行します。
 
 適合性チェッカー ツールでは、次の証明書の検証を実行します。
 
@@ -54,16 +54,16 @@ ms.locfileid: "75727532"
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack のデプロイに対して PKI 証明書を検証する前に、システムは次の前提条件を満たしている必要があります。
+Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に、システムは次の前提条件を満たしている必要があります。
 
-- Microsoft Azure Stack 適合性チェッカー
+- Microsoft Azure Stack Hub 適合性チェッカー
 - [準備手順](azure-stack-prepare-pki-certs.md)に従ってエクスポートされた SSL 証明書
 - DeploymentData.json
 - Windows 10 または Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>コア サービス証明書の検証を実行する
 
-次の手順を使って、デプロイとシークレット ローテーションに使用する Azure Stack PKI 証明書を準備し、検証します。
+次の手順を使って、デプロイとシークレット ローテーションに使用する Azure Stack Hub PKI 証明書を準備し、検証します。
 
 1. 次のコマンドレットを実行して、PowerShell プロンプト (5.1 以上) から **AzsReadinessChecker** をインストールします。
 
@@ -94,7 +94,7 @@ Azure Stack のデプロイに対して PKI 証明書を検証する前に、シ
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. PowerShell ウィンドウで、Azure Stack 環境に合わせて **RegionName** および **FQDN** の値を変更し、次を実行します。
+3. PowerShell ウィンドウで、Azure Stack Hub 環境に合わせて **RegionName** および **FQDN** の値を変更し、次を実行します。
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -148,7 +148,7 @@ Azure Stack のデプロイに対して PKI 証明書を検証する前に、シ
     Invoke-AzsCertificateValidation Completed
     ```
 
-    他の Azure Stack サービスの証明書を検証するには、```-CertificateType``` の値を変更します。 次に例を示します。
+    他の Azure Stack Hub サービスの証明書を検証するには、```-CertificateType``` の値を変更します。 次に例を示します。
 
     ```powershell  
     # App Services
@@ -257,11 +257,11 @@ Azure Stack のデプロイに対して PKI 証明書を検証する前に、シ
 
 ## <a name="using-validated-certificates"></a>検証済み証明書の使用
 
-証明書が AzsReadinessChecker によって検証されたら、Azure Stack デプロイまたは Azure Stack シークレット ローテーションで使用できます。 
+証明書が AzsReadinessChecker によって検証されたら、Azure Stack Hub デプロイまたは Azure Stack Hub シークレット ローテーションで使用できます。 
 
- - デプロイの場合、[Azure Stack PKI の要件ドキュメント](azure-stack-pki-certs.md)で指定されているように、デプロイメント エンジニアが証明書を配置ホストにコピーできるように、セキュリティを保護して証明書をデプロイメント エンジニアに送付します。
- - シークレット ローテーションの場合、[Azure Stack シークレット ローテーションのドキュメント](azure-stack-rotate-secrets.md)の説明に従い、この証明書を使用して、お使いの Azure Stack 環境のパブリック インフラストラクチャ エンドポイントの古い証明書を更新できます。
- - PaaS サービスの場合、「[Azure Stack でのサービスの提供の概要](service-plan-offer-subscription-overview.md)」の説明に従い、この証明書を使用して、Azure Stack に SQL、MySQL、App Services リソース プロバイダーをインストールできます。
+ - デプロイの場合、[Azure Stack Hub PKI の要件ドキュメント](azure-stack-pki-certs.md)で指定されているように、デプロイ エンジニアが証明書を配置ホストにコピーできるように、セキュリティを保護して証明書をデプロイ エンジニアに送付します。
+ - シークレット ローテーションの場合、[Azure Stack Hub シークレット ローテーションのドキュメント](azure-stack-rotate-secrets.md)の説明に従い、この証明書を使用して、お使いの Azure Stack Hub 環境のパブリック インフラストラクチャ エンドポイントの古い証明書を更新できます。
+ - PaaS サービスの場合、「[Azure Stack Hub でのサービスの提供の概要](service-plan-offer-subscription-overview.md)」の説明に従い、証明書を使用して、Azure Stack Hub に SQL、MySQL、App Services リソース プロバイダーをインストールできます。
 
 ## <a name="next-steps"></a>次のステップ
 

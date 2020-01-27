@@ -1,6 +1,6 @@
 ---
-title: Azure Stack を使用して iSCSI ストレージに接続する方法 | Microsoft Docs
-description: Azure Stack を使用して iSCSI ストレージに接続する方法について説明します。
+title: Azure Stack Hub を使用して iSCSI ストレージに接続する方法 | Microsoft Docs
+description: Azure Stack Hub を使用して iSCSI ストレージに接続する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,31 +9,29 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0fe542cf17ce5b47436c8838c8d7c61b22e2fda8
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718455"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879039"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack"></a>Azure Stack を使用して iSCSI ストレージに接続する方法
+# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する方法
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+この記事のテンプレートを使用すると、Azure Stack Hub 仮想マシン (VM) をオンプレミスの iSCSI ターゲットに接続し、Azure Stack Hub の外部やデータセンターの他の場所でホストされるストレージを使用するように VM を設定できます。 この記事では、Windows マシンを iSCSI ターゲットとして使用する方法について説明します。
 
-この記事のテンプレートを使用すると、Azure Stack 仮想マシン (VM) をオンプレミスの iSCSI ターゲットに接続し、Azure Stack の外部やデータセンターの他の場所でホストされるストレージを使用するように VM を設定できます。 この記事では、Windows マシンを iSCSI ターゲットとして使用する方法について説明します。
-
-このテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) リポジトリの **lucidqdreams** フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack VM に追加されます。 
+このテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) リポジトリの **lucidqdreams** フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack Hub 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack Hub VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack Hub VM に追加されます。 
 
 ## <a name="overview"></a>概要
 
-この図は、オンプレミスの Windows マシン (物理または仮想) から iSCSI マウント ディスクを使用して Azure Stack でホストされている VM を示しています。これにより、Azure Stack の外部ストレージを iSCSI プロトコルで Azure Stack ホスト VM 内にマウントすることができます。
+この図は、オンプレミスの Windows マシン (物理または仮想) から iSCSI マウント ディスクを使用して Azure Stack Hub でホストされている VM を示しています。これにより、Azure Stack Hub の外部ストレージを iSCSI プロトコルで Azure Stack Hub ホスト VM 内にマウントすることができます。
 
 ![alt text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
 
 ### <a name="requirements"></a>必要条件
 
 - Windows Server 2016 Datacenter または Windows Server 2019 Datacenter を実行するオンプレミスのマシン (物理または仮想)。
-- 必須の Azure Stack Marketplace アイテム
+- 次の Azure Stack Hub Marketplace 必須項目。
     -  Windows Server 2016 Datacenter または Windows Server 2019 Datacenter (最新のビルドを推奨)。
     -  PowerShell DSC 拡張機能。
     -  カスタム スクリプト拡張機能。
@@ -65,10 +63,10 @@ ms.locfileid: "75718455"
 
 ### <a name="the-deployment-process"></a>デプロイ プロセス
 
-リソース グループ テンプレートによって出力が生成されます。出力は次の手順の入力となります。 主な焦点は、iSCSI トラフィックの発信元のサーバー名と Azure Stack パブリック IP アドレスです。 この例の場合は次のとおりです。
+リソース グループ テンプレートによって出力が生成されます。出力は次の手順の入力となります。 主な焦点は、iSCSI トラフィックの発信元のサーバー名と Azure Stack Hub パブリック IP アドレスです。 この例の場合は次のとおりです。
 
 1. インフラストラクチャ テンプレートをデプロイします。
-2. データセンター内の他の場所でホストされている VM に Azure Stack VM をデプロイします。 
+2. データセンター内の他の場所でホストされている VM に Azure Stack Hub VM をデプロイします。 
 3. テンプレートからの IP アドレスとサーバー名の出力を、iSCSI ターゲット (仮想マシンまたは物理サーバー) のスクリプトの入出力パラメーターとして使用して、`Create-iSCSITarget.ps1` を実行します。
 4. `Connect-toiSCSITarget.ps1` スクリプトを実行するための入力として、iSCSI ターゲット サーバーの外部 IP アドレスを使用します。 
 
@@ -143,4 +141,4 @@ ms.locfileid: "75718455"
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

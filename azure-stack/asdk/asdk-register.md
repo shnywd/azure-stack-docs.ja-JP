@@ -15,12 +15,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2dea14ab5d43aab8deab2632b07277d7094e33c4
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: c12882ea5f26589c18abaf016ba09b17d02bdcab
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974620"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022942"
 ---
 # <a name="register-the-asdk-with-azure"></a>ASDK の Azure への登録
 
@@ -221,7 +221,7 @@ Azure Stack の登録に成功したことは、 **[Region management]\(リー�
 
 2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 
-    [![Azure Stack 管理者ポータルの [Region management]\(リージョン管理\) タイル](media/asdk-register/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/asdk-register/admin1.png#lightbox)
+    [![Azure Stack 管理者ポータルの [region management]\(リージョン管理\) タイル](media/asdk-register/admin1sm.png "[Region management]\(リージョン管理\) タイル")](media/asdk-register/admin1.png#lightbox)
 
 3. **[プロパティ]** を選択します。 このブレードには、環境の状態と詳細が表示されます。 **[登録済み]** 状態と **[未登録]** 状態とがあります。 登録済みである場合は、Azure Stack の登録に使用した Azure サブスクリプション ID が、登録のリソース グループおよび名前と共に表示されます。
 
@@ -229,6 +229,6 @@ Azure Stack の登録に成功したことは、 **[Region management]\(リー�
 同じサブスクリプションのリソース グループ間で登録リソースを移動する操作は、**サポートされています**。 新しいリソース グループへのリソースの移動については、「[リソースを新しいリソース グループまたはサブスクリプションに移動する](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack マーケットプレース項目を追加する](../operator/azure-stack-marketplace.md)
+- [Azure Stack Hub Marketplace 項目を追加する](../operator/azure-stack-marketplace.md)

@@ -1,6 +1,6 @@
 ---
-title: Commvault を使用して Azure Stack で VM をバックアップする方法 | Microsoft Docs
-description: Commvault を使用して Azure Stack で VM をバックアップする方法について説明します。
+title: Commvault を使用して Azure Stack Hub で VM をバックアップする方法 | Microsoft Docs
+description: Commvault を使用して Azure Stack Hub で VM をバックアップする方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,18 @@ ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 4294f7f1d53f77c55532645de428678cf42be531
-ms.sourcegitcommit: 20d1c0ab3892e9c4c71d5b039457f1e15b1c84c7
+ms.openlocfilehash: b2e9871d48352d2e6a5f6d312a4d98cc3ace37ce
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878698"
 ---
-# <a name="back-up-your-vm-on-azure-stack-with-commvault"></a>Commvault を使用して Azure Stack で VM をバックアップする
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 
 ## <a name="overview-of-backing-up-a-vm-with-commvault"></a>Commvault を使用した VM のバックアップの概要
 
-この記事では、別の Azure Stack スケール ユニットにある復旧 VM を更新する Commvault Live Sync の構成について説明します。 この記事では、Azure Stack にデプロイされた仮想マシンのデータとシステム状態を保護および復旧する一般的なパートナー ソリューションの構成方法について詳しく説明します。
+この記事では、別の Azure Stack Hub スケール ユニットにある復旧 VM を更新する Commvault Live Sync の構成について説明します。 この記事では、Azure Stack Hub にデプロイされた仮想マシンのデータとシステム状態を保護および復旧する一般的なパートナー ソリューションの構成方法について詳しく説明します。
 
 次の図は、Commvault を使用して VM をバックアップする場合の全体的なソリューションを示しています。
 
@@ -30,15 +28,15 @@ ms.locfileid: "73618299"
 
 この記事では、次のことについて説明します。
 
-1. ソース Azure Stack インスタンスで Commvault ソフトウェアを実行する VM を作成します。
+1. ソース Azure Stack Hub インスタンスで Commvault ソフトウェアを実行する VM を作成します。
 
-2. セカンダリ ロケーションにストレージ アカウントを作成します。 この記事では、Azure Stack インスタンス (ターゲット) のストレージ アカウントに BLOB コンテナーを作成すること、およびソース Azure Stack からターゲット Azure Stack に到達できることを前提としています。
+2. セカンダリ ロケーションにストレージ アカウントを作成します。 この記事では、別の Azure Stack Hub インスタンス (ターゲット) のストレージ アカウントに BLOB コンテナーを作成すること、およびソース Azure Stack Hub からターゲット Azure Stack Hub に到達できることを前提としています。
 
-3. ソース Azure Stack インスタンスで Commvault を構成し、ソース Azure Stack の VM を VM グループに追加します。
+3. ソース Azure Stack Hub インスタンスで Commvault を構成し、ソース Azure Stack Hub の VM を VM グループに追加します。
 
 4. Commvault の LifeSync を構成します。
 
-また、互換性のあるパートナー VM イメージをダウンロードして提供し、Azure クラウドまたは別の Azure Stack から Azure StackVM を保護することもできます。 この記事では、Commvault Live Sync を使用した VM の保護について説明します。
+また、互換性のあるパートナー VM イメージを、Azure クラウドまたは別の Azure Stack Hub にダウンロードして提供し、Azure Stack Hub VM を保護することもできます。 この記事では、Commvault Live Sync を使用した VM の保護について説明します。
 
 このアプローチのトポロジは、次の図のようになります。
 
@@ -46,7 +44,7 @@ ms.locfileid: "73618299"
 
 ## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Commvault Marketplace の項目から Commvault VM を作成する
 
-1. Azure Stack ユーザー ポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 
 2. **[リソースの作成]**  >  **[Compute]**  >  **[Commvault]** の順に選択します。
 
@@ -71,7 +69,7 @@ ms.locfileid: "73618299"
     
     g. **リソース グループ**を選択します。
     
-    h. Azure Stack の **[場所]** を選択します。 ASDK を使用する場合は、 **[ローカル]** を選択します。
+    h. Azure Stack Hub の **[場所]** を選択します。 ASDK を使用する場合は、 **[ローカル]** を選択します。
     
     i. **[OK]** を選択します。
 
@@ -79,7 +77,7 @@ ms.locfileid: "73618299"
 
 4. Commvault VM のサイズを選択します。 バックアップ用の VM サイズは、少なくとも 10 GB の RAM と 100 GB のストレージにする必要があります。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png)
+    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
 
 5. Commvault VM の設定を選択します。
 
@@ -111,31 +109,31 @@ ms.locfileid: "73618299"
 
 ## <a name="get-your-service-principal"></a>サービス プリンシパルを取得する
 
-ID マネージャーが Azure AD か AD DFS かを把握する必要があります。 次の表には、Azure Stack で Commvault を設定するために必要な情報がまとめられています。
+ID マネージャーが Azure AD か AD DFS かを把握する必要があります。 次の表には、Azure Stack Hub で Commvault を設定するために必要な情報がまとめられています。
 
-| 要素 | 説明 | source |
+| 要素 | [説明] | source |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Resource Manager URL | Azure Stack Resource Manager エンドポイント。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-resource-manager-endpoint |
+| Azure Resource Manager URL | Azure Stack Hub Resource Manager エンドポイント。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | アプリケーション名 |  |  |
 | アプリケーション ID | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
-| サブスクリプション ID | サブスクリプション ID は Azure Stack 内のオファーにアクセスするために使用します。 | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
-| テナント ID (ディレクトリ ID) | Azure Stack のテナント ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
+| サブスクリプション ID | サブスクリプション ID は、Azure Stack Hub 内のオファーにアクセスするために使用します。 | https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-1908#subscriptions |
+| テナント ID (ディレクトリ ID) | Azure Stack Hub のテナント ID。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-identity-overview?view=azs-1908 |
 | アプリケーションのパスワード | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 | https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals?view=azs-1908 |
 
 ## <a name="configure-backup-using-the-commvault-console"></a>Commvault Console を使用してバックアップを構成する
 
-1. RDP クライアントを開き、Azure Stack の Commavult VM に接続します。 資格情報を入力します。
+1. RDP クライアントを開き、Azure Stack Hub の Commavult VM に接続します。 資格情報を入力します。
 
-2. Commvault VM に Azure Stack PowerShell と Azure Stack ツールをインストールします。
+2. Commvault VM に Azure Stack Hub PowerShell と Azure Stack Hub ツールをインストールします。
 
-    a. Azure Stack PowerShell のインストール手順については、「[PowerShell for Azure Stack をインストールする](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
-    b. Azure Stack ツールのインストール手順については、「[GitHub からの Azure Stack ツールのダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)」を参照してください。
+    a. Azure Stack Hub PowerShell のインストール手順については、「[PowerShell for Azure Stack Hub をインストールする](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
+    b. Azure Stack Hub ツールのインストール手順については、「[GitHub からの Azure Stack Hub ツールのダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)」を参照してください。
 
 3. Commvault VM に Commvault がインストールされたら、Commcell Console を開きます。 [スタート] から **[Commvault]**  >  **[Commvault Commcell Console]** の順に選択します。
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-console.png)
 
-4. Commvault Commcell Console で Azure Stack の外部ストレージを使用するようにバックアップ リポジトリを構成します。 CommCell Browser で、[Storage Resources]\(ストレージ リソース\) > [Storage Pools]\(記憶域プール\) の順に選択します。 右クリックして **[Add Storage Pool]\(記憶域プールの追加\)** を選択します。 **[クラウド]** を選択します
+4. Commvault Commcell Console で Azure Stack Hub の外部ストレージを使用するように、バックアップ リポジトリを構成します。 CommCell Browser で、[Storage Resources]\(ストレージ リソース\) > [Storage Pools]\(記憶域プール\) の順に選択します。 右クリックして **[Add Storage Pool]\(記憶域プールの追加\)** を選択します。 **[クラウド]** を選択します
 
 5. 記憶域プールの名前を追加します。 **[次へ]** を選択します。
 
@@ -143,7 +141,7 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-storage-add-storage-device.png)
 
-7. クラウド サービス プロバイダーを選択します。 この手順では、別の場所にある 2 つ目の Azure Stack を使用します。 Microsoft Azure Storage を選択します。
+7. クラウド サービス プロバイダーを選択します。 この手順では、別の場所にある 2 つ目の Azure Stack Hub を使用します。 Microsoft Azure Storage を選択します。
 
 8. Commvault VM を MediaAgent として選択します。
 
@@ -159,7 +157,7 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
     
     -   **ストレージ クラス**:ユーザー コンテナーの既定のストレージ クラスのままにします。
 
-10. 「[Creating a Microsoft Azure Stack Client (Microsoft Azure Stack クライアントの作成)](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)」の手順に従って Microsoft Azure Stack クライアントを作成します。
+10. [Microsoft Azure Stack Hub クライアントの作成](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)に関するページの手順に従って、Microsoft Azure Stack Hub クライアントを作成します。
 
     ![](./media/azure-stack-network-howto-backup-commvault/commcell-ceate-client.png)
 
@@ -173,13 +171,13 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
 2 つのオプションを使用できます。 バックアップのプライマリ コピーから変更をレプリケートするか、セカンダリ コピーから復旧 VM に変更をレプリケートするかを選択できます。 バックアップ セットからレプリケーションを行うと、ソース マシンに対する読み取り IO の影響がなくなります。
 
-1. Live Sync の構成時に、ソース Azure Stack (Virtual Server Agent) とターゲット Azure Stack の詳細を指定する必要があります。
+1. Live Sync の構成時に、ソース Azure Stack Hub (仮想サーバー エージェント) とターゲット Azure Stack Hub の詳細を指定する必要があります。
 
-2. Commvault Live Sync を構成する手順については、「[Live Sync Replication for Microsoft Azure Stack (Microsoft Azure Stack のライブ同期レプリケーション)](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm)」を参照してください。
+2. Commvault Live Sync を構成する手順については、[Microsoft Azure Stack Hub のライブ同期レプリケーション](https://documentation.commvault.com/commvault/v11_sp13/article?p=94386.htm)に関するページを参照してください。
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-1.png)
  
-3. Live Sync の構成時に、ターゲット Azure Stack と Virtual Server エージェントの詳細を指定する必要があります。
+3. Live Sync の構成時に、ターゲット Azure Stack Hub と仮想サーバー エージェントの詳細を指定する必要があります。
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-2.png)
 
@@ -189,7 +187,7 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
 5. また、各 VM の横にある **[構成]** を選択して、VM サイズを変更し、ネットワーク設定を構成することもできます。
 
-6. レプリケーションの頻度をターゲット Azure Stack に設定します
+6. レプリケーションの頻度を、ターゲット Azure Stack Hub に設定します
 
     ![](./media/azure-stack-network-howto-backup-commvault/live-sync-5.png)
 
@@ -198,11 +196,11 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
 ## <a name="set-up-failover-behavior-using-live-sync"></a>Live Sync を使用してフェールオーバー動作を設定する
 
-Commvault Live Sync を使用すると、ある Azure Stack から別の Azure Stack にマシンをフェールオーバーし、フェールバックして元の Azure Stack で操作を再開できます。 ワークフローは自動化され、ログに記録されます。
+Commvault Live Sync を使用すると、ある Azure Stack Hub から別の Azure Stack Hub にマシンをフェールオーバーしてフェールバックし、元の Azure Stack Hub で操作を再開できます。 ワークフローは自動化され、ログに記録されます。
 
 ![](./media/azure-stack-network-howto-backup-commvault/back-up-live-sync-panel.png)
 
-復旧 Azure Stack にフェールオーバーする VM を選択し、計画的または計画外のフェールオーバーを選択します。 計画的なフェールオーバーは、復旧サイトで操作を再開する前に運用環境を適切にシャットダウンする時間がある場合に適しています。 計画的なフェールオーバーでは、運用 VM をシャットダウンし、最終変更を復旧サイトにレプリケートし、最新のデータで復旧 VM をオンラインにし、Live Sync 構成時に指定した VM サイズとネットワーク構成を適用します。 計画外のフェールオーバーでは、運用 VM のシャットダウンを試みますが、運用環境が使用不能な場合は次に進み、VM に適用された最後に受信したレプリケーション データ セットと以前に選択したサイズとネットワーク構成を使用して、復旧 VM をオンラインにします。 次の画像は、復旧 VM が Commvault Live Sync によってオンラインにされた計画外のフェールオーバーを示しています。
+復旧 Azure Stack Hub にフェールオーバーする VM を選択し、計画的な、または計画外のフェールオーバーを選択します。 計画的なフェールオーバーは、復旧サイトで操作を再開する前に運用環境を適切にシャットダウンする時間がある場合に適しています。 計画的なフェールオーバーでは、運用 VM をシャットダウンし、最終変更を復旧サイトにレプリケートし、最新のデータで復旧 VM をオンラインにし、Live Sync 構成時に指定した VM サイズとネットワーク構成を適用します。 計画外のフェールオーバーでは、運用 VM のシャットダウンを試みますが、運用環境が使用不能な場合は次に進み、VM に適用された最後に受信したレプリケーション データ セットと以前に選択したサイズとネットワーク構成を使用して、復旧 VM をオンラインにします。 次の画像は、復旧 VM が Commvault Live Sync によってオンラインにされた計画外のフェールオーバーを示しています。
 
 ![](./media/azure-stack-network-howto-backup-commvault/unplanned-failover.png)
 
@@ -210,6 +208,6 @@ Commvault Live Sync を使用すると、ある Azure Stack から別の Azure S
 
 ![](./media/azure-stack-network-howto-backup-commvault/fail-over-3.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

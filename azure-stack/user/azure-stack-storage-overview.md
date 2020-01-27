@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Storage の概要 | Microsoft Docs
-description: Azure Stack Storage のサービスについて説明します。
+title: Azure Stack Hub Storage の概要 | Microsoft Docs
+description: Azure Stack Hub Storage のサービスについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,27 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dfa9666387093f60dfd41e371707dff23119dc9a
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: cb58b2edc8a7a9ec96317a902ad79b8bacce89ec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909587"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536421"
 ---
-# <a name="introduction-to-azure-stack-storage"></a>Azure Stack Storage の概要
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack Hub ストレージの概要
 
 ## <a name="overview"></a>概要
 
-Azure Stack Storage は、Azure Storage によって提供されるサービスと整合性のあるクラウド ストレージ サービスのセットです。 これらのサービスには BLOB、テーブル、およびキューが含まれます。
+Azure Stack Hub Storage は、Azure Storage によって提供されるサービスと整合性のあるクラウド ストレージ サービスのセットです。 これらのサービスには BLOB、テーブル、およびキューが含まれます。
 
-## <a name="azure-stack-storage-services"></a>Azure Stack Storage サービス
+## <a name="azure-stack-hub-storage-services"></a>Azure Stack Hub Storage サービス
 
-Azure Stack Storage は次の 3 つのサービスを提供します。
+Azure Stack Hub Storage は次の 3 つのサービスを提供します。
 
 - **Blob Storage**
 
@@ -45,9 +43,9 @@ Azure Stack Storage は次の 3 つのサービスを提供します。
 
     キュー ストレージは、ワークフロー処理およびクラウド サービスのコンポーネント間通信のための、信頼性の高いメッセージング機能を提供します。
 
-Azure Stack Storage アカウントは、Azure Stack Storage のサービスにアクセスできる安全なアカウントです。 ストレージ アカウントは、ストレージ リソースに対して一意の名前空間を提供します。 以下の図は、ストレージ アカウントにおける Azure Stack Storage のリソース間の関係を示したものです。
+Azure Stack Hub Storage アカウントは、Azure Stack Hub Storage のサービスにアクセスできる安全なアカウントです。 ストレージ アカウントは、ストレージ リソースに対して一意の名前空間を提供します。 以下の図は、ストレージ アカウントにおける Azure Stack Hub Storage のリソース間の関係を示したものです。
 
-![Azure Stack Storage の概要](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack Hub Storage の概要](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
 
 ### <a name="blob-storage"></a>BLOB ストレージ
 
@@ -74,7 +72,7 @@ BLOB ストレージには、3 つの種類の BLOB が用意されています�
 
 - **ページ BLOB**
 
-    ページ BLOB は、IaaS のディスクとして使用でき、ランダムな書き込みをサポートするように最適化され、最大 1 TB (テラバイト) までサイズを拡大できます。 Azure Stack 仮想マシンに設置された IaaS ディスクは、ページ BLOB として格納される VHD です。
+    ページ BLOB は、IaaS のディスクとして使用でき、ランダムな書き込みをサポートするように最適化され、最大 1 TB (テラバイト) までサイズを拡大できます。 Azure Stack Hub 仮想マシンに設置された IaaS ディスクは、ページ BLOB として格納される VHD です。
 
 ### <a name="table-storage"></a>テーブル ストレージ
 
@@ -92,8 +90,8 @@ BLOB ストレージには、3 つの種類の BLOB が用意されています�
 
 (ストレージ アカウントの容量の上限を超えない限り) ストレージ アカウントには任意の数のキューを含めることができ、キューには任意の数のメッセージを保存できます。 1 つのメッセージは、最大 64 KB のサイズにすることができます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure 互換ストレージ: 違いと考慮事項](azure-stack-acs-differences.md)
 
-- Azure Storage の詳細については、「[Introduction to Microsoft Azure Storage](/azure/storage/common/storage-introduction)」(Microsoft Azure Storage の概要) を参照してください。
+- Azure Storage の詳細については、「[Microsoft Azure Storage の概要](/azure/storage/common/storage-introduction)」を参照してください。

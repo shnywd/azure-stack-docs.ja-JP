@@ -12,37 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 01/14/2020
 ms.author: sethm
 ms.reviewer: ppacent
-ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: a626b50a742d3219d7934e4cc3f77cd890ea1b93
-ms.sourcegitcommit: c3be6b2e962c5905eb3c54f9555e13095f6b4d40
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 1cd38ece03a83fa029944ed5457f721c57aae444
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/20/2019
-ms.locfileid: "75303733"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023212"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新アクティビティのチェックリスト
-
-*適用対象:Azure Stack Hub 統合システム*
 
 Azure Stack Hub の更新を準備するために、このチェックリストを確認します。 この記事には、Azure Stack Hub オペレーターに向けた、更新関連のアクティビティのチェックリストが掲載されています。
 
 ## <a name="prepare-for-azure-stack-hub-update"></a>Azure Stack Hub の更新を準備する
 
-| アクティビティ                     | 詳細                                                   |
+| &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; アクティビティ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;                   | 詳細                                                   |
 |------------------------------|-----------------------------------------------------------|
 | 既知の問題の確認     | [既知の問題の一覧](known-issues.md)                |
 | セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](release-notes-security-updates.md)      |
 | 最新の OEM パッケージの適用 | お使いのシステムがアップグレードされる予定の Azure Stack Hub バージョンに関して OEM に問い合わせて、システムが最小 OEM パッケージ要件を満たしていることを確認してください。 OEM パッケージが、更新する Azure Stack Hub バージョンと互換性があることを確認します。 OEM パッケージが更新後の Azure Stack Hub バージョンと互換性がない場合は、Azure Stack Hub 更新プログラムを実行する前に OEM パッケージの更新を実行する必要があります。 手順については、「Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する」を参照してください。 |
 | 省略可能:自動ログ収集の構成 | サポート チケットを開く必要がある場合にシステム ログを収集するプロセスを効率化するため、Azure Stack Hub 環境で自動ログ収集を構成することをお勧めします。 自動ログ収集を構成するには、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください。 |
-| 最新の修正プログラムの適用 | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。 最新の修正プログラムの一覧については、リリース ノートの修正プログラムのセクションを参照してください。 |
+| 最新の修正プログラムの適用 | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。 最新の修正プログラムの一覧については、[リリース ノートの修正プログラム](release-notes.md#hotfixes)のセクションを参照してください。 |
 | 容量計画ツールの実行 | ワークロードの計画とサイズ設定を行うには、最新バージョンの [Azure Stack Hub キャパシティ プランニング ツール](azure-stack-capacity-planning-overview.md)を使用します。 最新バージョンにはバグの修正プログラムが含まれていて、Azure Stack Hub の各更新プログラムでリリースされる新機能が提供されます。 |
-| Test-AzureStack を実行する | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。 コマンドレットには、特権エンドポイント セッション (PEP) を使用してアクセスできます。 詳細については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。 |
+| **Test-AzureStack** の実行 | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。 コマンドレットには、特権エンドポイント セッション (PEP) を使用してアクセスできます。 詳細については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。 |
 | 問題の解決 | `Test-AzureStack` によって特定された操作上の問題を解決します。 |
 | 更新プログラムが利用可能 | Azure Stack Hub デプロイでは、接続されたシナリオでのみ、セキュリティで保護されたエンドポイントが定期的にチェックされ、お客様のクラウド用の更新プログラムが入手可能かどうかが自動的に通知されます。 接続していないお客様は、[ここで説明されているプロセス](azure-stack-apply-updates.md)を使用して、新しいパッケージをダウンロードしてインポートできます。 |
-| ユーザーへの通知 | メンテナンス操作についてユーザーに通知し、通常のメンテナンス期間をできるだけ勤務時間外にスケジュールする必要があります。 メンテナンス操作は、テナントのワークロードとポータル操作の両方に影響を及ぼす可能性があります。 |
+| メンテナンス期間の日程計画とユーザーへの通知 | メンテナンス作業についてユーザーに通知し、通常のメンテナンス期間を可能であれば勤務時間外にスケジュールする必要があります。 メンテナンス作業をポータルから開始するか、Azure Resource Manager API からプログラミングによって開始するかに関係なく、作業によって既存のテナント ワークロードに影響が出たり、新しいテナント作業 (VM の作成、再設定、または削除) が失敗したりすることがあります。 Azure Stack Hub の Express 更新や完全更新については、[こちら](release-notes.md)のリリース ノートでご確認いただけます。ご利用のバージョンでは、更新にどのくらいの時間がかかるか予想されています。 |
 
 ## <a name="during-azure-stack-hub-update"></a>Azure Stack Hub の更新中
 

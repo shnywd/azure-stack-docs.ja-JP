@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で Linux 仮想マシンを実行する | Microsoft Docs
-description: Azure Stack で Linux 仮想マシンを実行する方法について説明します。
+title: Azure Stack Hub で Linux 仮想マシンを実行する | Microsoft Docs
+description: Azure Stack Hub で Linux 仮想マシンを実行する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,42 +9,42 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6797f95b672b12bfe08fd4070bef2501367fc389
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 8667274e6684af407ca503c25b2e2348a7649134
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993806"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023158"
 ---
-# <a name="run-a-linux-virtual-machine-on-azure-stack"></a>Azure Stack で Linux 仮想マシンを実行する
+# <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Linux 仮想マシンを実行する
 
-Azure のように、Azure Stack での仮想マシン (VM) のプロビジョニングには、VM 自体の他に、ネットワーク リソースやストレージ リソースなどの追加コンポーネントがいくつか必要です。 この記事では、Azure Stack 上で Linux VM を実行するためのベスト プラクティスを示します。
+Azure のように、Azure Stack Hub での仮想マシン (VM) のプロビジョニングには、VM 自体の他に、ネットワーク リソースやストレージ リソースなどの追加コンポーネントがいくつか必要です。 この記事では、Azure Stack Hub 上で Linux VM を実行するためのベスト プラクティスを示します。
 
-![Azure Stack の Linux VM のアーキテクチャ](./media/iaas-architecture-vm-linux/image1.png)
+![Azure Stack Hub の Linux VM のアーキテクチャ](./media/iaas-architecture-vm-linux/image1.png)
 
 ## <a name="resource-group"></a>Resource group
 
-[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)は、関連する Azure Stack リソースを保持する論理コンテナーです。 一般には、リソースの有効期間や管理者に基づいて、リソースをグループ化します。
+[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)は、関連する Azure Stack Hub リソースを保持する論理コンテナーです。 一般には、リソースの有効期間や管理者に基づいて、リソースをグループ化します。
 
 同じライフサイクルを共有する密接に関連付けられたリソースを同じ[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)に配置します。 リソース グループを使用すると、リソースをグループとしてデプロイおよび監視したり、リソース グループ別に課金コストを追跡したりできます。 セットとしてリソースを削除することもできます。これはテスト デプロイの場合に便利です。 特定のリソースの検索やその役割の理解を簡略化するために、意味のあるリソース名を割り当ててください。 詳細については、「[Azure リソースの推奨される名前付け規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)」をご覧ください。
 
 ## <a name="virtual-machine"></a>仮想マシン
 
-VM は、発行されたイメージの一覧や、Azure Stack Blob Storage にアップロードされたカスタム管理されたイメージまたは仮想ハード ディスク (VHD) ファイルからプロビジョニングできます。 Azure Stack は、CentOS、Debian、Red Hat Enterprise、Ubuntu、SUSE など、現在普及しているさまざまな Linux ディストリビューションに対応します。 詳細については、[Azure Stack 上の Linux](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux) に関するページを参照してください。 また、Azure Stack Marketplace で公開されている Linux イメージの 1 つを配信することもできます。
+VM は、発行されたイメージの一覧や、Azure Stack Hub BLOB ストレージにアップロードされたカスタムのマネージド イメージまたは仮想ハード ディスク (VHD) ファイルからプロビジョニングできます。 Azure Stack Hub は、CentOS、Debian、Red Hat Enterprise、Ubuntu、SUSE など、現在普及しているさまざまな Linux ディストリビューションに対応します。 詳細については、[Azure Stack Hub 上の Linux](https://docs.microsoft.com/azure-stack/operator/azure-stack-linux) に関するページを参照してください。 また、Azure Stack Hub Marketplace で公開されている Linux イメージの 1 つを配信することもできます。
 
-Azure Stack には、Azure とは異なる仮想マシン サイズが用意されています。 詳細については、[Azure の仮想マシンのサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)に関するページを参照してください。 既存のワークロードを Azure Stack に移動する場合は、オンプレミスのサーバー/Azure に最も適合性が高い VM サイズから開始します。 次に、CPU、メモリ、およびディスクの 1 秒あたりの入出力操作 (IOPS) について、実際のワークロードのパフォーマンスを測定し、必要に応じてサイズを調整します。
+Azure Stack Hub には、Azure とは異なる仮想マシン サイズが用意されています。 詳細については、[Azure Stack Hub の仮想マシンのサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)に関するページを参照してください。 既存のワークロードを Azure Stack Hub に移動する場合は、オンプレミスのサーバーまたは Azure に最も適合性が高い VM サイズから開始します。 次に、CPU、メモリ、およびディスクの 1 秒あたりの入出力操作 (IOPS) について、実際のワークロードのパフォーマンスを測定し、必要に応じてサイズを調整します。
 
 ## <a name="disks"></a>ディスク
 
 コストは、プロビジョニングされたディスクの容量に基づきます。 IOPS とスループット (つまり、データ転送速度) は VM サイズによって異なるため、ディスクをプロビジョニングする場合は、3 つの要素 (容量、IOPS、スループット) すべてを考慮してください。
 
-Azure Stack のディスク IOPS (Input/Output Operations Per Second) は、ディスクの種類ではなく [VM サイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)の関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
+Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は、ディスクの種類ではなく [VM サイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)の関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
 
 [Managed Disks](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations) を使用することもお勧めします。 マネージド ディスクでは、ストレージが自動的に処理されることでディスク管理が簡素化されます。 マネージド ディスクでは、ストレージ アカウントは必要ありません。 単にディスクのサイズと種類を指定するだけで、可用性の高いリソースとしてデプロイされます。
 
-OS ディスクは [Azure Stack Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview) に格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 Linux VM の場合、OS ディスクは /dev/sda1 です。 また、[データ ディスク](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。
+OS ディスクは [Azure Stack Hub Storage](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-overview) に格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 Linux VM の場合、OS ディスクは /dev/sda1 です。 また、[データ ディスク](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。
 
-作成した VHD は、フォーマットされていません。 その VM にログインしてディスクをフォーマットしてください。 Linux のシェルでは、データ ディスクは /dev/sdc、/dev/sdd などのように表示されます。 lsblk を実行すると、ディスクなどのブロック デバイスの一覧を表示できます。 データ ディスクを使用するには、パーティションとファイル システムを作成し、ディスクをマウントします。 例:
+作成した VHD は、フォーマットされていません。 その VM にログインしてディスクをフォーマットしてください。 Linux のシェルでは、データ ディスクは /dev/sdc、/dev/sdd などのように表示されます。 lsblk を実行すると、ディスクなどのブロック デバイスの一覧を表示できます。 データ ディスクを使用するには、パーティションとファイル システムを作成し、ディスクをマウントします。 次に例を示します。
 
 ```bash
 # Create a partition.
@@ -60,7 +60,7 @@ sudo mount /dev/sdc1 /data1
 
 データ ディスクを追加すると、ディスクに論理ユニット番号 (LUN) の ID が割り当てられます。 LUN ID は必要に応じて指定できます。たとえば、ディスクを交換する際に同じ LUN ID を保持したい場合や、特定の LUN ID を検索するアプリケーションがある場合などに指定します。 ただし、ディスクごとに一意な LUN ID である必要があります。
 
-VM は一時ディスクを使用して作成されます。 このディスクは、Azure Stack Storage インフラストラクチャの一時ボリュームに格納されます。 再起動やその他の VM ライフサイクル イベント中に削除される可能性があります。 ページ ファイルやスワップ ファイルなどの一時的なデータにのみ、このディスクを使用してください。 Linux VM の場合、一時ディスクは /dev/sdb1 であり、/mnt/resource または /mnt でマウントされます。
+VM は一時ディスクを使用して作成されます。 このディスクは、Azure Stack Hub ストレージ インフラストラクチャの一時ボリュームに格納されます。 再起動やその他の VM ライフサイクル イベント中に削除される可能性があります。 ページ ファイルやスワップ ファイルなどの一時的なデータにのみ、このディスクを使用してください。 Linux VM の場合、一時ディスクは /dev/sdb1 であり、/mnt/resource または /mnt でマウントされます。
 
 ## <a name="network"></a>ネットワーク
 
@@ -84,11 +84,11 @@ VM は一時ディスクを使用して作成されます。 このディスク�
 
 **診断** 基本的な正常性メトリック、診断インフラストラクチャ ログ、[ブート診断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)などの監視と診断を有効にします。 VM が起動不可能な状態になった場合は、起動エラーを診断するのにブート診断が役立ちます。 ログを格納するための Azure Storage アカウントを作成します。 診断ログには、標準的なローカル冗長ストレージ (LRS) アカウントがあれば十分です。 詳細については、「[監視と診断の有効化](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)」を参照してください。
 
-**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 可用性を高めるには、複数の VM を[可用性セット](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)内にデプロイします。
+**可用性**。 Azure Stack Hub オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 可用性を高めるには、複数の VM を[可用性セット](https://docs.microsoft.com/azure-stack/operator/app-service-deploy-ha)内にデプロイします。
 
-**バックアップ**。Azure Stack IaaS VM の保護に関する推奨事項については、[この](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect)記事を参照してください。
+**バックアップ**。Azure Stack Hub IaaS VM の保護に関する推奨事項については、[こちらの](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-protect)記事を参照してください。
 
-**VM の停止**。 Azure では、"停止" 状態と "割り当て解除済み" 状態が区別されます。 VM が割り当て解除されたときではなく、VM が停止状態のときに課金されます。 Azure Stack ポータルの **[停止]** ボタンを使用すると、VM の割り当てが解除されます。 ログイン中に OS からシャットダウンした場合、VM は停止しますが割り当ては "**解除されない**" ため、引き続き課金されます。
+**VM の停止**。 Azure では、"停止" 状態と "割り当て解除済み" 状態が区別されます。 VM が割り当て解除されたときではなく、VM が停止状態のときに課金されます。 Azure Stack Hub ポータルの **[停止]** ボタンを使用すると、VM の割り当てが解除されます。 ログイン中に OS からシャットダウンした場合、VM は停止しますが割り当ては "**解除されない**" ため、引き続き課金されます。
 
 **VM の削除**。 VM を削除しても VM ディスクは削除されません。 つまり、データを失うことなく安全に VM を削除できます。 ただし、Storage に対して引き続き課金されます。 VM ディスクを削除するには、マネージド ディスク オブジェクトを削除します。 誤って削除されないようにするために、[リソース ロック](https://docs.microsoft.com/azure/resource-group-lock-resources)を使用してリソース グループ全体をロックするか、または個別のリソース (VM など) をロックします。
 
@@ -107,9 +107,9 @@ VM を [Azure Security Center](https://docs.microsoft.com/azure/security-center/
 
 **監査ログ**。 プロビジョニング操作や他の VM イベントを確認するには、[アクティビティ ログ](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)を使用します。
 
-**データの暗号化**。 Azure Stack は、ストレージ サブシステム レベルのユーザー データとインフラストラクチャ データを保存時の暗号化を使用して保護します。 Azure Stack のストレージ サブシステムは、128 ビット AES 暗号化による BitLocker を使用して暗号化されます。 詳細については、[この](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)記事を参照してください。
+**データの暗号化**。 Azure Stack Hub は、保存時の暗号化を使用して、ストレージ サブシステム レベルのユーザー データとインフラストラクチャ データを保護します。 Azure Stack Hub のストレージ サブシステムは、128 ビット AES 暗号化による BitLocker を使用して暗号化されます。 詳細については、[この](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)記事を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- Azure Stack VM の詳細については、「[Azure Stack VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
+- Azure Stack Hub VM の詳細については、「[Azure Stack Hub VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

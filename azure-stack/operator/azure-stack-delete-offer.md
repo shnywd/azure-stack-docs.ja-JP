@@ -1,6 +1,6 @@
 ---
 title: クォータ、プラン、オファーおよびサブスクリプションの削除 |Microsoft Docs
-description: Azure Stack のクォータ、プラン、オファーおよびサブスクリプションを削除する方法について説明します。
+description: Azure Stack Hub のクォータ、プラン、オファー、サブスクリプションを削除する方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -15,16 +15,14 @@ ms.date: 08/13/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 04/25/2019
-ms.openlocfilehash: e89fcb3c218ab8b7228b63211b9f94c7e03d9865
-ms.sourcegitcommit: 1bae55e754d7be75e03af7a4db3ec43fd7ff3e9c
+ms.openlocfilehash: 7184972e6b486ee696b4edb621046d1b41f677a9
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71319125"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882540"
 ---
 # <a name="delete-quotas-plans-offers-and-subscriptions"></a>クォータ、プラン、オファーおよびサブスクリプションの削除
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 この記事では、もう必要ではなくなったクォータ、プラン、オファーおよびサブスクリプションを削除する方法について説明します。 一般原則として、削除できるのは使用されていないものだけです。 たとえば、オファーを削除できるのは、そのオファーに属するサブスクリプションがない場合のみです。
 
@@ -70,13 +68,13 @@ ms.locfileid: "71319125"
 あるいは、次の REST API を使用して、特定のクォータを削除できます。
 
 - [Compute](/rest/api/azurestack/quotas%20(compute)/delete)
-- [ネットワーク](/rest/api/azurestack/quotas%20(network)/delete)
+- [Network](/rest/api/azurestack/quotas%20(network)/delete)
 - [Storage](/rest/api/azurestack/storagequotas/delete)
 
 > [!NOTE]
 > クォータを使用する現在のプランがある場合、そのクォータは削除できません。 まず、クォータを参照しているプランを削除する必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サブスクリプションを作成する](azure-stack-subscribe-plan-provision-vm.md)
 - [仮想マシンのプロビジョニング](../user/azure-stack-create-vm-template.md)

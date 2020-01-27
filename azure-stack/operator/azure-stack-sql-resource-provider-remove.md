@@ -1,7 +1,7 @@
 ---
 title: SQL リソース プロバイダーの削除
-titleSuffix: Azure Stack
-description: Azure Stack のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,12 +16,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 15178627cbc58cd466a09f7ef534e7ec115d9c1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954453"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75814407"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL リソース プロバイダーの削除
 
@@ -36,7 +36,7 @@ SQL リソース プロバイダーを削除しても、ホスティング サ�
 
 DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダーを削除する前に、いくつかのクリーンアップ タスクを実行する必要があります。
 
-次のクリーンアップ タスクは、Azure Stack オペレーターが担当します。
+次のクリーンアップ タスクは、Azure Stack Hub オペレーターが担当します。
 
 * SQL アダプターを参照しているすべてのプランを削除する。
 * SQL アダプターに関連付けられているすべてのクォータを削除する。
@@ -56,10 +56,10 @@ DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダ
 
     * **Uninstall**:リソース プロバイダーと関連付けられているすべてのリソースを削除します。
     * **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
-    * **AzureEnvironment**:Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
+    * **AzureEnvironment**:Azure Stack Hub のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
     * **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
-    * **AzCredential**:Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
+    * **AzCredential**:Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [App Services を PaaS として提供する](azure-stack-app-service-overview.md)

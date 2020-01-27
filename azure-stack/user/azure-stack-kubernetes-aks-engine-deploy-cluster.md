@@ -1,6 +1,6 @@
 ---
-title: AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする | Microsoft Docs
-description: AKS エンジンを実行しているクライアント VM から Azure Stack に Kubernetes クラスターをデプロイする方法。
+title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする | Microsoft Docs
+description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,20 @@ ms.workload: na
 pms.tgt_pltfrm: na (Kubernetes)
 ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8018b4637dadfbca948b2caa0528b113755dc6dd
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310302"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883570"
 ---
-# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack"></a>AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする
+# <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-AKS エンジンを実行しているクライアント VM から Azure Stack に Kubernetes クラスターをデプロイできます。 この記事では、クラスター仕様の記述、`apimodel.json` ファイルを使用したクラスターのデプロイ、Helm を使用した MySQL のデプロイによるクラスターの確認について説明します。
+AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイできます。 この記事では、クラスター仕様の記述、`apimodel.json` ファイルを使用したクラスターのデプロイ、Helm を使用した MySQL のデプロイによるクラスターの確認について説明します。
 
 ## <a name="define-a-cluster-specification"></a>クラスター仕様の定義
 
@@ -36,7 +34,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
 
 このセクションでは、クラスターの API モデルの作成について説明します。
 
-1.  まず、Azure Stack の[サンプル](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API モデル ファイルを使用し、デプロイ用のローカル コピーを作成します。 AKS エンジンをインストールしたマシンから、次を実行します。
+1.  まず、Azure Stack Hub の[サンプル](https://github.com/Azure/aks-engine/tree/master/examples/azure-stack) API モデル ファイルを使用し、デプロイ用のローカル コピーを作成します。 AKS エンジンをインストールしたマシンから、次を実行します。
 
     ```bash
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
@@ -78,38 +76,40 @@ AKS エンジンを実行しているクライアント VM から Azure Stack �
 
 7.  配列 `masterProfile` で、次のフィールドを設定します。
 
-    | フィールド | 説明 |
+    | フィールド | [説明] |
     | --- | --- |
     | dnsPrefix | VM のホスト名を識別するために使用される一意の文字列を入力します。 たとえば、リソース グループ名に基づいて名前を指定します。 |
     | count |  デプロイに必要なマスターの数を入力します。 HA デプロイの最小値は 3 ですが、非 HA デプロイでは 1 が許可されます。 |
-    | vmSize |  [Azure Stack でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
-    | ディストリビューション | 「 `aks-ubuntu-16.04` 」を入力します。 |
+    | vmSize |  [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
+    | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
 8.  配列 `agentPoolProfiles` の更新では、次のようにします。
 
-    | フィールド | 説明 |
+    | フィールド | [説明] |
     | --- | --- |
     | count | デプロイに必要なエージェントの数を入力します。 |
-    | vmSize | [Azure Stack でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
-    | ディストリビューション | 「 `aks-ubuntu-16.04` 」を入力します。 |
+    | vmSize | [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
+    | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
 9.  配列 `linuxProfile` の更新では、次のようにします。
 
-    | フィールド | 説明 |
+    | フィールド | [説明] |
     | --- | --- |
     | adminUsername | VM の管理者ユーザー名を入力します。 |
-    | ssh | VM での SSH 認証に使用される公開キーを入力します。 |
+    | ssh | VM での SSH 認証に使用される公開キーを入力します。 Putty を使用している場合、PuTTY key generator を起動し、Putty 秘密キーと、次の例にあるように ssh-rsa から始まっている公開キーを読み込みます。 Linux の作成時に生成されたキーを使用できますが、**例に示すように単一行のテキストになるように公開キーをコピーする必要があります**。|
+
+    ![PuTTY key generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報
 
 - API モデルで使用可能なすべてのオプションの完全なリファレンスについては、[クラスターの定義](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md)に関する記事を参照してください。  
-- Azure Stack の特定のオプションに関する詳細については、[Azure Stack クラスター定義の詳細](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model)に関する記事を参照してください。  
+- Azure Stack Hub の特定のオプションに関する詳細については、[Azure Stack Hub クラスター定義の詳細](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cluster-definition-aka-api-model)に関する記事を参照してください。  
 
 ## <a name="deploy-a-kubernetes-cluster"></a>Kubernetes クラスターのデプロイ
 
 API モデルで必要なすべての値を収集したら、クラスターを作成できます。 この時点で、次のことを行う必要があります。
 
-Azure Stack オペレーターに次のことを依頼します。
+Azure Stack Hub オペレーターに次のことを依頼します。
 
 - システムの正常性を確認し、`Test-AzureStack` および OEM ベンダーのハードウェア監視ツールの実行を提案します。
 - メモリ、ストレージ、パブリック IP などのリソースを含むシステム容量を確認します。
@@ -117,17 +117,17 @@ Azure Stack オペレーターに次のことを依頼します。
 
 クラスターのデプロイに進む:
 
-1.  Azure Stack の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で、AKS エンジンで使用可能なパラメーターを確認します。
+1.  Azure Stack Hub の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で、AKS エンジンで使用可能なパラメーターを確認します。
 
-    | パラメーター | 例 | 説明 |
+    | パラメーター | 例 | [説明] |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack であることを示すには、`AzureStackCloud` を使用します。 |
+    | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack Hub であることを示すには、`AzureStackCloud` を使用します。 |
     | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
-    | location | local | Azure Stack のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
+    | location | local | Azure Stack Hub のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
     | resource-group | kube-rg | 新しいリソース グループの名前を入力するか、既存のリソース グループを選択します。 リソース名は、英数字かつ小文字にする必要があります。 |
     | api-model | ./kubernetes-azurestack.json | クラスター構成ファイルまたは API モデルへのパス。 |
     | output-directory | kube-rg | 出力ファイル `apimodel.json` とその他の生成されたファイルを格納するディレクトリの名前を入力します。 |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 これは、サービスの作成時に設定するクライアント シークレットです。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」をご覧ください。 |
 
@@ -160,9 +160,9 @@ Azure Stack オペレーターに次のことを依頼します。
 
 クラスターを確認するために Helm を使用して MySQL をデプロイし、クラスターを確認します。
 
-1. Azure Stack ポータルを使用して、いずれかのマスター ノードのパブリック IP アドレスを取得します。
+1. Azure Stack Hub ポータルを使用して、いずれかのマスター ノードのパブリック IP アドレスを取得します。
 
-2. Azure Stack インスタンスにアクセスできるマシンから、PuTTY や MobaXterm などのクライアントを使用して、SSH 経由で新しいマスターノードに接続します。 
+2. Azure Stack Hub インスタンスにアクセスできるマシンから、PuTTY や MobaXterm などのクライアントを使用して、SSH 経由で新しいマスター ノードに接続します。 
 
 3. SSH ユーザー名には、"azureuser" と、クラスターのデプロイ用に指定したキー ペアの秘密キー ファイルを使用します。
 
@@ -193,7 +193,7 @@ Azure Stack オペレーターに次のことを依頼します。
     release "wintering-rodent" deleted
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 > [!div class="nextstepaction"]
-> [Azure Stack 上の AKS エンジンのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)
+> [Azure Stack Hub 上の AKS エンジンのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)

@@ -1,28 +1,26 @@
 ---
-title: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法 | Microsoft Docs
-description: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法について説明します。
+title: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法 | Microsoft Docs
+description: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9eb4780a80e5cedd595950813d5cb5029e1b1857
-ms.sourcegitcommit: ed44d477b9fd11573d1e0d1ed3a3c0ef4512df53
+ms.openlocfilehash: bf855be0ec6fc63be4ab816dac4dde170b24fdad
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73845833"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536081"
 ---
-# <a name="vnet-peering-in-azure-stack-with-vms"></a>Azure Stack での VM との VNET ピアリング
+# <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>Azure Stack Hub での VM との VNET ピアリング
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+同じ Azure Stack Hub 環境内で、2 つの Azure Stack Hub VNet を相互に接続できます。 現時点では、組み込みの [Virtual Network ゲートウェイ](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)を使用して Azure Stack Hub VNet に接続することはできません。 NVA アプライアンスを使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 この記事のテンプレート リファレンスでは、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされています。 2 つの RRAS サーバーは、2 つの VNET 間に S2SVPN IKEv2 トンネルを実装するように構成されています。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています。 
 
-同じ Azure Stack 環境内で、2 つの Azure Stack VNet を相互に接続できます。 現時点では、組み込みの [Virtual Network ゲートウェイ](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)を使用して Azure Stack VNet に接続することはできません。 NVA アプライアンスを使用して、2 つの Azure Stack VNet 間に VPN トンネルを作成する必要があります。 この記事のテンプレート リファレンスでは、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされています。 2 つの RRAS サーバーは、2 つの VNET 間に S2SVPN IKEv2 トンネルを実装するように構成されています。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています。 
-
-このデプロイ パターンは、Azure Stack インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。 
+このデプロイ パターンは、Azure Stack Hub インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack Hub インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。 
 
 テンプレートは [Azure Intelligent Edge Patterns GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) リポジトリにあります。 テンプレートは **S2SVPNTunnel** フォルダーにあります。
@@ -31,8 +29,8 @@ ms.locfileid: "73845833"
 
 ## <a name="requirements"></a>必要条件
 
-- 最新の更新プログラムが適用された ASDK または Azure Stack 統合システム。 
-- 必須の Azure Stack Marketplace アイテム
+- 最新の更新プログラムが適用されたデプロイ。 
+- 必要な Azure Stack Hub Marketplace 項目:
     -  Windows Server 2016 Datacenter (最新ビルドを推奨)
     -  カスタム スクリプト拡張機能
 
@@ -57,6 +55,6 @@ ms.locfileid: "73845833"
 
 ![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  

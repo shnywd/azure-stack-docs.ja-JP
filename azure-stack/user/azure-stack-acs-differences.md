@@ -1,6 +1,6 @@
 ---
-title: Azure Stack ストレージの違いと考慮事項 | Microsoft Docs
-description: Azure Stack のデプロイに関する考慮事項と一緒に、Azure Stack ストレージと Azure ストレージの相違点について説明します。
+title: Azure Stack Hub ストレージの違いと考慮事項 | Microsoft Docs
+description: Azure Stack Hub のデプロイに関する考慮事項と併せて、Azure Stack Hub ストレージと Azure ストレージの相違点について理解します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,24 +15,22 @@ ms.date: 10/2/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 9b945f4cbb5e955c38b18c4bacd18726bbcb5e89
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824723"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883866"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack ストレージ:相違点と考慮事項
+# <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレージ クラウド サービスのセットです。 Azure Stack Hub ストレージでは、BLOB、テーブル、キュー、アカウント管理機能に Azure と整合性のあるセマンティクスを提供します。
 
-Azure Stack ストレージは、Microsoft Azure Stack 内のストレージ クラウド サービスのセットです。 Azure Stack ストレージでは、Azure と整合性のあるセマンティクスによって BLOB、テーブル、キュー、アカウント管理機能が提供されます。
-
-この記事では、Azure Stack Storage サービスと Azure Storage サービスとの間で確認されている相違点をまとめています。 Azure Stack をデプロイするときに考慮すべき事柄も取り上げています。 グローバル Azure と Azure Stack との違いの概要については、[主な考慮事項](azure-stack-considerations.md)の記事をご覧ください。
+この記事では、Azure Stack Hub ストレージと Azure Storage サービス間における既知の違いをまとめています。 Azure Stack Hub をデプロイするときに考慮すべき事柄も一覧しています。 グローバル Azure と Azure Stack Hub との違いの概要については、[主な考慮事項](azure-stack-considerations.md)に関する記事をご覧ください。
 
 ## <a name="cheat-sheet-storage-differences"></a>チート シート:ストレージの相違点
 
-| 機能 | Azure (グローバル) | Azure Stack |
+| 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|クラウド ベースの SMB ファイル共有のサポート|まだサポートされていません
 |Azure Storage Service Encryption for Data at Rest|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
@@ -62,7 +60,7 @@ Azure Stack ストレージは、Microsoft Azure Stack 内のストレージ ク
 
 ## <a name="api-version"></a>API バージョン
 
-Azure Stack Storage では以下のバージョンがサポートされます。
+Azure Stack Hub ストレージでは、以下のバージョンがサポートされます。
 
 Azure Storage サービスの API:
 
@@ -102,10 +100,20 @@ Azure Storage サービスの Management API:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Azure Stack でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
+## <a name="powershell-version"></a>PowerShell バージョン
 
-## <a name="next-steps"></a>次の手順
+ストレージ モジュールの PowerShell については、REST API と互換性のあるバージョンを把握しておいてください。 
 
-* [Azure Stack Storage の開発ツールの概要](azure-stack-storage-dev.md)
-* [Azure Stack ストレージのデータ転送ツールの使用](azure-stack-storage-transfer.md)
-* [Azure Stack Storage の概要](azure-stack-storage-overview.md)
+| [Module] | サポートされているバージョン | 使用法 |
+|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Azure Stack Hub ストレージ アカウントの BLOB、キュー、テーブルを管理する |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理する |
+
+
+Azure Stack Hub でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
+
+## <a name="next-steps"></a>次のステップ
+
+* [Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)
+* [Azure Stack Hub ストレージでのデータ転送ツールの使用](azure-stack-storage-transfer.md)
+* [Azure Stack Hub ストレージの概要](azure-stack-storage-overview.md)

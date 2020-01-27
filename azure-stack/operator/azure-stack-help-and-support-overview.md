@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack のヘルプとサポートの概要 | Microsoft Docs
-description: Microsoft Azure Stack のサポートを利用します。
+title: Microsoft Azure Stack Hub のヘルプとサポートの概要 | Microsoft Docs
+description: Microsoft Azure Stack Hub のサポートを受けます。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,20 +16,20 @@ ms.date: 07/24/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: ff7911f64cf7c1413e623cd84cebe3d26585a3e5
-ms.sourcegitcommit: f6ea6daddb92cbf458f9824cd2f8e7e1bda9688e
+ms.openlocfilehash: 65e4879be05141540e8f2e20e2a5a156f6368629
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68493857"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818164"
 ---
-# <a name="microsoft-azure-stack-help-and-support"></a>Microsoft Azure Stack のヘルプとサポート
+# <a name="microsoft-azure-stack-hub-help-and-support"></a>Microsoft Azure Stack Hub のヘルプとサポート
 
-Azure Stack ポータルの**ヘルプとサポート**には、オペレーターが Azure Stack の詳細を参照し、サポート オプションを確認し、専門家の支援を得るためのリソースが用意されています。 1907 リリース以降、オペレーターはヘルプとサポートを使用して、トラブルシューティングのための診断ログを収集することもできます。  
+Azure Stack Hub ポータルの **[ヘルプとサポート]** には、オペレーターが Azure Stack Hub の詳細を参照し、サポート オプションを確認し、専門家の支援を得るためのリソースが用意されています。 1907 リリース以降、オペレーターはヘルプとサポートを使用して、トラブルシューティングのための診断ログを収集することもできます。  
 
 ## <a name="help-resources"></a>ヘルプ リソース 
 
-オペレーターは、**ヘルプとサポート**を使用して、Azure Stack の詳細を参照し、サポート オプションを確認し、専門家の支援を得ることもできます。 
+オペレーターは、 **[ヘルプとサポート]** を使用して、Azure Stack Hub の詳細を参照し、サポート オプションを確認し、専門家の支援を得ることもできます。 
 
 ### <a name="things-to-try-first"></a>最初に試すべきこと
 
@@ -37,23 +37,23 @@ Azure Stack ポータルの**ヘルプとサポート**には、オペレータ�
 
 ![セルフサービスのサポート](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **ドキュメント**。 [Azure Stack Operator ドキュメント](index.yml)には、仮想マシン、SQL データベース、Web アプリなどの Azure Stack サービスを提供する方法を説明する概念、ハウツー トピック、およびチュートリアルが含まれています。 
+- **ドキュメント**。 [Azure Stack Hub のオペレーター ドキュメント](index.yml)には、仮想マシン、SQL データベース、Web アプリなどの Azure Stack Hub サービスを提供する方法を示す概念、ハウツー トピック、およびチュートリアルが含まれています。 
 
 - **課金の詳細についてはこちらを参照してください**。 [使用量と課金](azure-stack-billing-and-chargeback.md)についてのヒントを得ます。
 
-- **サポート オプション**。 Azure Stack オペレーターは、あらゆる企業のニーズに対応できる幅広い [Azure サポート オプション](https://aka.ms/azstacksupport)から選択できます。 
+- **サポート オプション**。 Azure Stack Hub オペレーターは、あらゆる企業のニーズに対応できる幅広い [Azure サポート オプション](https://aka.ms/azstacksupport)から選択できます。 
 
 ### <a name="get-expert-help"></a>専門家のサポートを受ける 
 
 統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間で、統合されたエスカレーションと解決のプロセスをご用意しています。
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供いたします。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックすると、 **[ヘルプとサポートの概要]** が開き、新しいサポート リクエストを送信できます。 サポート リクエストを作成するときは、Azure Stack サービスが事前に選択されます。 お客様には、パブリック Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することを強くお勧めします。 
+クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供いたします。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックすると、 **[ヘルプとサポートの概要]** が開き、新しいサポート リクエストを送信できます。 サポート要求を作成するときに、Azure Stack Hub サービスが事前に選択されます。 お客様には、パブリック Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することを強くお勧めします。 
 
 デプロイ、パッチ、更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、はじめに OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
 
 ![統合システムの専門家のサポートを受ける](media/azure-stack-help-and-support/get-support-integrated.png)
 
-ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 
+ASDK については、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 
 
 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[ヘルプとサポート]** をクリックすると、フォーラムへのリンクが含まれるヘルプとサポートの**概要**が開きます。 MSDN フォーラムは定期的にチェックされています。  
 開発キットは評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
@@ -64,7 +64,7 @@ ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.mi
 
 ![専門家のサポートを受ける](media/azure-stack-help-and-support/get-support-cards.png)
 
-### <a name="get-up-to-speed-with-azure-stack"></a>Azure Stack をすぐに理解する
+### <a name="get-up-to-speed-with-azure-stack-hub"></a>Azure Stack Hub をすぐに理解する
 
 この一連のチュートリアルは、ASDK と統合システムのどちらを実行しているかに応じてカスタマイズされているので、自分の環境をすぐに理解することができます。 
 
@@ -79,13 +79,13 @@ ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.mi
 
 ![診断ログ収集オプションのスクリーンショット](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-統合システムでは、Microsoft カスタマー サポート サービス (CSS) と診断ログを共有できます。 Azure Stack Development Kit (ASDK) は評価環境であるため、CSS ではサポートされません。 詳細については、[Azure Stack 診断ログの収集の概要](azure-stack-diagnostic-log-collection-overview.md)に関するページを参照してください。
+統合システムでは、Microsoft カスタマー サポート サービス (CSS) と診断ログを共有できます。 Azure Stack Development Kit (ASDK) は評価環境であるため、CSS ではサポートされません。 詳細については、[Azure Stack Hub 診断ログの収集の概要](azure-stack-diagnostic-log-collection-overview.md)に関するページを参照してください。
 
 
 
-## <a name="help-and-support-for-earlier-releases-azure-stack-pre-1905"></a>以前のリリースの Azure Stack (1905 より前) に関するヘルプとサポート
+## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>以前のリリースの Azure Stack Hub (1905 より前) に関するヘルプとサポート
 
-前の Azure Stack のリリースにも、[Azure Stack のオペレーター ドキュメント](https://aka.ms/adminportaldocs)にリダイレクトされる **[ヘルプとサポート]** へのリンクがあります。
+前の Azure Stack Hub のリリースにも、[Azure Stack Hub のオペレーター ドキュメント](https://aka.ms/adminportaldocs)にリダイレクトされる **[ヘルプとサポート]** へのリンクがあります。
 
 ![サポート利用のチュートリアル](media/azure-stack-help-and-support/get-support-previous.png)
 
@@ -95,9 +95,9 @@ ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.mi
 
 デプロイ、パッチ、更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、はじめに OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
 
-開発キットについては、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[新しいサポート リクエスト]** をクリックして、Azure Stack コミュニティのエキスパートからのヘルプを得られます。
+開発キットについては、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックし、 **[新しいサポート要求]** をクリックして、Azure Stack Hub コミュニティの専門家からのヘルプを得られます。
 開発キットは評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)について学習します
+- [Azure Stack Hub のトラブルシューティング](azure-stack-troubleshooting.md)を学習する

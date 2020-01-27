@@ -1,41 +1,31 @@
 ---
-title: 新しい Azure Stack テナント アカウントを Azure Active Directory に追加する | Microsoft Docs
-description: テナントポータルを調べることができるように、ASDK でテナント アカウントを作成する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: 新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する
+description: ユーザー ポータルを調べることができるように、Azure Active Directory でユーザー アカウントを作成する方法について説明します。
 author: PatAltimore
 manager: femila
-editor: ''
-ms.assetid: a75d5c88-5b9e-4e9a-a6e3-48bbfa7069a7
 ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b9b18b62786c0720b531d0f74ed68c629034b8d7
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: 3f0ef1b6a61d271541ee894f854639b13e24d699
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144008"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880993"
 ---
-# <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>新しい Azure Stack テナント アカウントをAzure Active Directory に追加する
+# <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する (Azure AD)
 
+オファーやプランのテスト、およびリソースの作成を行う前に、ユーザーアカウントが必要です。 Azure portal または PowerShell を使用して、Azure AD テナントにユーザー アカウントを作成します。
 
-[Azure Stack Development Kit をデプロイ](../asdk/asdk-install.md)した後は、テナント ポータルを操作し、オファーとプランをテストするためにテナント ユーザー アカウントが必要になります。 テナント アカウントを作成するには、Azure portal または PowerShell を使用します。
-
-
-
-## <a name="create-an-azure-stack-tenant-account-by-using-the-azure-portal"></a>Azure portal を使用して Azure Stack テナント アカウントを作成する
+## <a name="create-user-account-using-the-azure-portal"></a>Azure portal を使用してユーザー アカウントを作成する
 
 Azure ポータルを使用するには Azure サブスクリプションが必要です。
 
 1. [Azure](https://portal.azure.com) にサインインします。
-2. 左側のナビゲーション バーで **Active Directory** を選択し、Azure Stack で使用するディレクトリに切り替えます (または新しいディレクトリを作成します)。
+2. 左側のナビゲーション バーで **[Active Directory]** を選択し、Azure Stack Hub で使用するディレクトリに切り替えます (または新しいディレクトリを作成します)。
 3. **[Azure Active Directory]**  >  **[ユーザー]**  >  **[新しいユーザー]** を選択します。
 
     ![[ユーザー] - [すべてのユーザー] ページ ([新しいユーザー] が強調表示されている)](media/azure-stack-add-new-user-aad/new-user-all-users.png)
@@ -57,9 +47,9 @@ Azure ポータルを使用するには Azure サブスクリプションが必�
     ユーザーが作成され、Azure AD テナントに追加されます。
 
 7. 新しいアカウントで Azure portal にサインインします。 パスワードの変更を求められたら、変更します。
-8. `https://portal.local.azurestack.external` に新しいアカウントでサインインして、テナント ポータルを表示します。
+8. `https://portal.local.azurestack.external` に新しいアカウントでサインインして、ユーザー ポータルを表示します。
 
-## <a name="create-an-azure-stack-user-account-using-powershell"></a>PowerShell を使用して Azure Stack ユーザー アカウントを作成する
+## <a name="create-a-user-account-using-powershell"></a>PowerShell を使用してユーザー アカウントを作成する
 
 Azure サブスクリプションがない場合は、Azure Portal を使用してテナント ユーザー アカウントを追加できません。 この場合は、代わりに Windows PowerShell 用 Azure AD モジュールを利用できます。
 
@@ -82,7 +72,7 @@ Azure サブスクリプションがない場合は、Azure Portal を使用し�
 
             $msolcred = get-credential
 
-    # Add a tenant account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
+    # Add a user account "Tenant Admin <username>@<yourdomainname>" with the initial password "<password>".
 
             connect-msolservice -credential $msolcred
             $user = new-msoluser -DisplayName "Tenant Admin" -UserPrincipalName <username>@<yourdomainname> -Password <password>
@@ -91,8 +81,8 @@ Azure サブスクリプションがない場合は、Azure Portal を使用し�
     ```
 
 1. 新しいアカウントで Azure にサインインします。 パスワードの変更を求められたら、変更します。
-2. `https://portal.local.azurestack.external` に新しいアカウントでサインインして、テナント ポータルを表示します。
+2. `https://portal.local.azurestack.external` に新しいアカウントでサインインして、ユーザー ポータルを表示します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[AD FS の Azure Stack ユーザーを追加する](azure-stack-add-users-adfs.md)
+[AD FS に Azure Stack Hub ユーザーを追加する](azure-stack-add-users-adfs.md)

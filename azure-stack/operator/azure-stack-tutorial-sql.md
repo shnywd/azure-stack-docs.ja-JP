@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で高可用性 SQL データベースを提供する
-description: Azure Stack で SQL Server リソース プロバイダーのホスト コンピューターと高可用性 SQL Always On データベースを作成する方法について説明します。
+title: Azure Stack Hub での高可用性 SQL データベースの提供
+description: Azure Stack Hub で SQL Server リソース プロバイダーのホスト コンピューターと高可用性 SQL Always On データベースを作成する方法について学習します。
 services: azure-stack
 author: BryanLa
 manager: femila
@@ -11,32 +11,32 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: e5866a80367a826dd58aa39109ebbbbd9f2edce6
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.openlocfilehash: 408508119a7535467756b0b45fbfeb59fba7fbf1
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283309"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023009"
 ---
 # <a name="offer-highly-available-sql-databases"></a>高可用性 SQL データベースの提供
 
-Azure Stack オペレーターとして、SQL Server データベースをホストするようにサーバー VM を構成できます。 SQL ホスティング サーバーが正常に作成され、Azure Stack によって管理されていると、SQL サービスにサブスクライブしているユーザーは SQL データベースを簡単に作成できます。
+Azure Stack Hub オペレーターとして、SQL Server データベースをホストするようにサーバー VM を構成できます。 SQL ホスティング サーバーが正常に作成され、Azure Stack Hub によって管理されていると、SQL サービスにサブスクライブしているユーザーは SQL データベースを簡単に作成できます。
 
-この記事では、Azure Stackクイックスタート テンプレートを使用して [SQL Server AlwaysOn 可用性グループ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)を作成し、それを Azure Stack SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について説明します。
+この記事では、Azure Stack Hub クイックスタート テンプレートを使用して [SQL Server Always On 可用性グループ](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)を作成し、それを Azure Stack Hub SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について示します。
 
 学習内容
 
 > [!div class="checklist"]
 > * テンプレートから SQL Server AlwaysOn 可用性グループを作成する
-> * Azure Stack SQL ホスティング サーバーを作成する
+> * Azure Stack Hub SQL ホスティング サーバーを作成する
 > * 高可用性 SQL データベースを作成する
 
-入手できる Azure Stack マーケットプレース項目を使用して、2 つの VM SQL Server AlwaysOn 可用性グループを作成および構成します。 
+利用可能な Azure Stack Hub Marketplace 項目を使用して、2 つの VM SQL Server Always On 可用性グループを作成および構成します。 
 
-開始する前に、[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)が正常にインストールされ、Azure Stack マーケットプレースで次の項目を入手できることを確認してください。
+開始する前に、[SQL Server リソース プロバイダー](azure-stack-sql-resource-provider-deploy.md)が正常にインストールされ、Azure Stack Hub Marketplace で次の項目を確実に利用できるようにしてください。
 
 > [!IMPORTANT]
-> Azure Stack クイック スタート テンプレートを使用するには、以下のすべてが必要です。
+> Azure Stack Hub クイックスタート テンプレートを使用するには、以下のすべてが必要です。
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) マーケットプレース イメージ。
 - Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) この記事では、[Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) を使用します。
@@ -44,10 +44,10 @@ Azure Stack オペレーターとして、SQL Server データベースをホス
 - [Windows バージョン 1.9.1 以降のカスタム スクリプト拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 カスタム スクリプト拡張機能は、デプロイ後の VM カスタマイズ タスクを自動的に起動するために使用できるツールです。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) バージョン 2.76.0.0 以降。 DSC は、Windows PowerShell の管理プラットフォームであり、ソフトウェア サービスの構成データのデプロイと管理、これらのサービスが実行される環境の管理を行うことができます。
 
-Azure Stack マーケットプレースに項目を追加する方法については、「[Azure Stack Marketplace の概要](azure-stack-marketplace.md)」を参照してください。
+Azure Stack Hub Marketplace に項目を追加する方法の詳細については、「[Azure Stack Hub Marketplace の概要](azure-stack-marketplace.md)」を参照してください。
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>SQL Server AlwaysOn 可用性グループを作成する
-このセクションの手順を使用して、[sql-2016-Always On Azure Stack クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)を使用して SQL Server AlwaysOn 可用性グループをデプロイします。 このテンプレートでは、Always On 可用性グループに 2 つの SQL Server Enterprise、Standard、または Developer インスタンスをデプロイします。 このテンプレートは次のリソースを作成します。
+このセクションの手順を使用し、[sql-2016-Always On Azure Stack Hub クイックスタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)を使用して SQL Server Always On 可用性グループをデプロイします。 このテンプレートでは、Always On 可用性グループに 2 つの SQL Server Enterprise、Standard、または Developer インスタンスをデプロイします。 このテンプレートは次のリソースを作成します。
 
 - ネットワーク セキュリティ グループ
 - 仮想ネットワーク
@@ -62,28 +62,28 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
 1. 
    [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
-2. **\+[** **リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
+2. **\+** **[リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
 
    ![カスタム テンプレートのデプロイ](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. **[カスタム デプロイ]** ブレードで **[テンプレートの編集]**  >  **[クイック スタート テンプレート]** を選択し、使用できるカスタム テンプレートのドロップダウン リストを使用して **sql-2016-AlwaysOn** テンプレートを選択し、 **[OK]** 、 **[保存]** の順にクリックします。
 
-   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "クイック スタート テンプレートを選択する")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Select quickstart template")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. **[カスタム デプロイ]** ブレードで、 **[パラメーターの編集]** を選択し、既定値を確認します。 必要に応じて値を変更して、必要なすべてのパラメーター情報を入力し、 **[OK]** をクリックします。<br><br> 少なくとも以下を実行します。
 
     - ADMINPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD、および SQLAUTHPASSWORD パラメーターに複雑なパスワードを指定します。
     - DNSSUFFIX パラメーターの場合、すべての小文字で逆引き参照の DNS サフィックスを入力します (ASDK インストールの場合は、**azurestack.external**)。
     
-   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "カスタム デプロイ パラメーターを編集する")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Edit custom deployment parameters")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションを選択し、カスタム デプロイ用に新しいデプロイ グループを作成するか、既存のリソース グループを選択します。<br><br> 次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、 **[作成]** をクリックします。 カスタムのデプロイ設定が検証され、デプロイが開始されます。
 
-    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "カスタム デプロイを作成する")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Create custom deployment")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
-6. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。<br><br>次に、リソース グループ項目を確認し、**SQLPIPsql\<リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、この情報を Azure Stack Operator に渡す必要があります。
+6. 管理ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では **resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。<br><br>次に、リソース グループ項目を確認し、**SQLPIPsql\<リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL Always On 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、これを Azure Stack Hub オペレーターに提供する必要があります。
 
    > [!NOTE]
    > テンプレートのデプロイには数時間かかる場合があります。
@@ -129,15 +129,15 @@ Azure Stack マーケットプレースに項目を追加する方法につい�
   ```
 >  ![包含データベースの認証を設定する](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-sql-hosting-server"></a>Azure Stack SQL ホスティング サーバーを作成する
-SQL Server AlwayOn 可用性グループが作成され、適切に構成された後、Azure Stack Operator は Azure Stack SQL ホスティング サーバーを作成して、ユーザーがデータベースを作成できるように追加容量を作成する必要があります。 
+## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Azure Stack Hub SQL ホスティング サーバーを作成する
+SQL Server Alway On 可用性グループが作成され、適切に構成された後、Azure Stack Hub オペレーターは Azure Stack Hub SQL ホスティング サーバーを作成して、ユーザーがデータベースを作成できるように追加容量を利用可能にする必要があります。 
 
 以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<リソース グループ名\>** )。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
 
 > [!NOTE]
-> この手順は、Azure Stack Operator が Azure Stack 管理ポータルから実行する必要があります。
+> この手順は、Azure Stack Hub オペレーターが Azure Stack Hub 管理ポータルから実行する必要があります。
 
-Azure Stack Operator は、SQL AlwaysOn 可用性グループのロード バランサー リスナーのパブリック IP と SQL 認証ログイン情報を使用し、[SQL AlwaysOn 可用性グループを使用して SQL ホスティング サーバーを作成](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups)できるようになりました。 
+Azure Stack Hub オペレーターは、SQL Always On 可用性グループのロード バランサー リスナーのパブリック IP と SQL 認証ログイン情報を使用し、[SQL Always On 可用性グループを使用して SQL ホスティング サーバーを作成](azure-stack-sql-resource-provider-hosting-servers.md#provide-high-availability-using-sql-always-on-availability-groups)できるようになりました。 
 
 また、SQL AlwaysOn データベースをユーザーが作成できるようにするプランとオファーが作成してあることも確認してください。 Operator は **Microsoft.SqlAdapter** サービスをプランに追加し、高可用性データベース専用の新しいクォータを作成する必要があります。 プランの作成の詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
 
@@ -145,19 +145,19 @@ Azure Stack Operator は、SQL AlwaysOn 可用性グループのロード バラ
 > **Microsoft.SqlAdapter** サービスは、[SQL Server リソース プロバイダーがデプロイされる](azure-stack-sql-resource-provider-deploy.md)までプランに追加することができません。
 
 ## <a name="create-a-highly-available-sql-database"></a>高可用性 SQL データベースを作成する
-SQL AlwaysOn 可用性グループが Azure Stack Operator によって Azure StackSQL ホスティング サーバーとして作成、構成、および追加された後、SQL Server データベース機能を含むサブスクリプションを持つテナント ユーザーは、このセクションの次の手順に従って、Always On 機能をサポートする SQL データベースを作成できます。 
+SQL Always On 可用性グループが Azure Stack Hub オペレーターによって Azure Stack Hub SQL ホスティング サーバーとして作成、構成、追加された後、SQL Server データベース機能を含むサブスクリプションを持つテナント ユーザーは、このセクションの次の手順に従って、Always On 機能をサポートする SQL データベースを作成できます。 
 
 > [!NOTE]
-> これらの手順は、SQL Server 機能 (Microsoft.SQLAdapter サービス) を提供するサブスクリプションを持つテナント ユーザーとして、Azure Stack ユーザー ポータルから実行します。
+> これらの手順は、SQL Server 機能 (Microsoft.SQLAdapter サービス) を提供するサブスクリプションを持つテナント ユーザーとして、Azure Stack Hub ユーザー ポータルから実行します。
 
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. **\+[** **リソースの作成]**  >  **[データ \+ ストレージ]** の順に選択し、 **[SQL Database]** を選択します。<br><br>名前、照合順序、最大サイズ、サブスクリプションなどの必須のデータベースのプロパティと、リソース グループ、およびデプロイに使用する場所を指定します。 
+2. **[\+** **リソースの作成]**  >  **[データ \+ ストレージ]** の順に選択し、 **[SQL Database]** を選択します。<br><br>名前、照合順序、最大サイズ、サブスクリプションなどの必須のデータベースのプロパティと、リソース グループ、およびデプロイに使用する場所を指定します。 
 
    ![SQL データベースを作成する](./media/azure-stack-tutorial-sqlrp/createdb1.png)
 
-3. **[SKU]** を選択し、使用する適切な SQL ホスティング サーバー SKU を選択します。 この例で、Azure Stack Operator は、SQL AlwaysOn 可用性グループの高可用性をサポートするために、**Enterprise HA** SKU を作成しました。
+3. **[SKU]** を選択し、使用する適切な SQL ホスティング サーバー SKU を選択します。 この例では、Azure Stack Hub オペレーターは、SQL Always On 可用性グループの高可用性をサポートするために、**Enterprise HA** SKU を作成しました。
 
    ![SKU を選択する](./media/azure-stack-tutorial-sqlrp/createdb2.png)
 
@@ -172,6 +172,6 @@ SQL AlwaysOn 可用性グループが Azure Stack Operator によって Azure St
 
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [SQL リソース プロバイダーを更新する](azure-stack-sql-resource-provider-update.md)

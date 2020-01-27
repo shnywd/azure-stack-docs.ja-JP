@@ -1,6 +1,6 @@
 ---
-title: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack に Kubernetes をデプロイする | Microsoft Docs
-description: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack に Kubernetes をデプロイする方法について説明します。
+title: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする | Microsoft Docs
+description: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,20 +11,18 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: nav
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: a57d1d1520eb09e52e651d65c92314723c3aee4f
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: b02f4f0deddd7a7eae493d4af02315f636e594c9
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047235"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535962"
 ---
-# <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack に Kubernetes をデプロイする
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack Hub に Kubernetes をデプロイする
 
 > [!Note]  
 > Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
@@ -33,23 +31,23 @@ ms.locfileid: "73047235"
 
 ## <a name="prerequisites"></a>前提条件 
 
-使用を開始するには、次の手順に従って、適切なアクセス許可を保持し、Azure Stack の準備が整っていることを確認します。
+使用を開始するには、次の手順に従って、適切なアクセス許可を保持し、Azure Stack Hub の準備が整っていることを確認します。
 
-1. SSH 公開および秘密キー ペアを生成して Azure Stack 上の Linux VM にサインインします。 クラスターを作成するときは、公開キーが必要です。
+1. SSH 公開および秘密キー ペアを生成して Azure Stack Hub 上の Linux VM にサインインします。 クラスターを作成するときは、公開キーが必要です。
 
     キーを生成する手順については、[SSH キーの生成](azure-stack-dev-start-howto-ssh-public-key.md)に関するページを参照してください。
 
-1. Azure Stack テナント ポータルに有効なサブスクリプションがあること、また、新しいアプリケーションの追加に使用できる十分なパブリック IP アドレスがあることを確認します。
+1. Azure Stack Hub テナント ポータル内で有効なサブスクリプションがあり、新しいアプリケーションの追加に十分使用できるパブリック IP アドレスがあることを確認します。
 
-    Azure Stack **Administrator** サブスクリプションにクラスターを展開することはできません。 **User** サブスクリプションを使用する必要があります。 
+    クラスターを Azure Stack Hub **管理者**サブスクリプションにデプロイすることはできません。 **User** サブスクリプションを使用する必要があります。 
 
-1. マーケットプレースに Kubernetes クラスターがない場合は、Azure Stack 管理者に連絡してください。
+1. マーケットプレースに Kubernetes クラスターがない場合は、Azure Stack Hub 管理者に連絡してください。
 
 ## <a name="create-a-service-principal"></a>サービス プリンシパルの作成
 
-AD FS を ID ソリューションとして使用する場合は、Azure Stack 管理者と協力してサービス プリンシパルを設定する必要があります。 サービス プリンシパルは、アプリケーションに Azure Stack リソースへのアクセス権を付与します。
+AD FS を ID ソリューションとして使用する場合は、Azure Stack Hub 管理者と協力してサービス プリンシパルを設定する必要があります。 サービス プリンシパルは、アプリケーションに Azure Stack Hub リソースへのアクセス権を付与します。
 
-1. Azure Stack の管理者から、サービス プリンシパルの情報が提供されます。 サービス プリンシパルの情報は次のようになります。
+1. Azure Stack Hub の管理者から、サービス プリンシパルの情報が提供されます。 サービス プリンシパルの情報は次のようになります。
 
      ```Text  
        ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
@@ -65,7 +63,7 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack �
 
 ## <a name="deploy-kubernetes"></a>Kubernetes のデプロイ
 
-1. [Azure Stack ポータル](https://portal.local.azurestack.external)を開きます。
+1. [Azure Stack Hub ポータル](https://portal.local.azurestack.external)を開きます。
 
 1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **作成** を選択します。
 
@@ -81,7 +79,7 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack �
 
 1. 新しいリソース グループの名前を入力するか、既存のリソース グループを選択します。 リソース名は、英数字かつ小文字にする必要があります。
 
-1. リソース グループの **[場所]** を選択します。 これは、Azure Stack のインストールに対して選択するリージョンです。
+1. リソース グループの **[場所]** を選択します。 これは、Azure Stack Hub のインストールに向けて選択するリージョンです。
 
 ### <a name="2-kubernetes-cluster-settings"></a>2.Kubernetes クラスターの設定
 
@@ -106,15 +104,15 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack �
 
 1. **[VMSize of the Kubernetes node VMs]\(Kubernetes ノード VM の VM サイズ\)** を選択します。 これにより、Kubernetes ノード VM の VM サイズを指定します。 
 
-1. Azure Stack のインストールに対して、**Azure Stack の ID システム**用の **ADFS** を選択します。
+1. Azure Stack Hub のインストールに対して、**Azure Stack Hub の ID システム**用の **ADFS** を選択します。
 
-1. **[Service principal clientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 Azure Stack 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。
+1. **[Service principal clientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときに、アプリケーション ID として識別されたクライアント ID。
 
-1. **[Service principal client secret]\(サービス プリンシパルのクライアント シークレット\)** を入力します。 これは、Azure Stack 管理者から付与された、AD FS サービス プリンシパルのクライアント シークレットです。
+1. **[Service principal client secret]\(サービス プリンシパルのクライアント シークレット\)** を入力します。 これは、Azure Stack Hub 管理者から付与された、AD FS サービス プリンシパルのクライアント シークレットです。
 
-1. **[Kubernetes バージョン]** を入力します。 これは、Kubernetes Azure プロバイダーのバージョンです。 Azure Stack は、各 Azure Stack バージョンに対してカスタムの Kubernetes ビルドをリリースします。
+1. **[Kubernetes バージョン]** を入力します。 これは、Kubernetes Azure プロバイダーのバージョンです。 Azure Stack Hub では、各 Azure Stack Hub バージョンに対して、カスタムの Kubernetes ビルドがリリースされます。
 
-### <a name="3-summary"></a>手順 3.まとめ
+### <a name="3-summary"></a>3.まとめ
 
 1. [Summary] (概要) を選択します。 ブレードには、Kubernetes クラスターの構成設定の検証メッセージが表示されます。
 
@@ -125,9 +123,9 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack �
 3. **[OK]** を選択してクラスターをデプロイします。
 
 > [!TIP]  
->  デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
+>  デプロイに関してご質問がある場合は、[Azure Stack Hub フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないかどうかを確認することができます。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [クラスターへの接続](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
 

@@ -1,6 +1,6 @@
 ---
-title: 高可用性構成で Azure Stack App Service をデプロイする | Microsoft Docs
-description: 高可用性構成を使用して Azure Stack に App Service をデプロイする方法について説明します。
+title: 高可用性構成で Azure Stack Hub App Service をデプロイする | Microsoft Docs
+description: 高可用性構成を使用して Azure Stack Hub に App Service をデプロイする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -16,21 +16,21 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 9e5b99a5787e6472b2e9d25a509f615a1b02a732
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 0d1912a753ae29eb7a4c0ee8b583c34821962f60
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75655060"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023035"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
-この記事では、Azure Stack Marketplace アイテムを使用して、高可用性構成で Azure Stack 用に App Service をデプロイする方法について説明します。 このソリューションは、利用可能な Marketplace アイテムに加えて、[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack クイックスタート テンプレートも使用します。 このテンプレートによって、App Service リソース プロバイダーをホストするための高可用性インフラストラクチャの作成が自動化されます。 その後、この高可用性 VM インフラストラクチャに App Service がインストールされます。 
+この記事では、Azure Stack Hub Marketplace 項目を使用して、高可用性構成で Azure Stack Hub 用に App Service をデプロイする方法について示します。 このソリューションでは、利用可能な Marketplace 項目に加えて、[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Hub クイックスタート テンプレートも使用します。 このテンプレートによって、App Service リソース プロバイダーをホストするための高可用性インフラストラクチャの作成が自動化されます。 その後、この高可用性 VM インフラストラクチャに App Service がインストールされます。 
 
 ## <a name="deploy-the-highly-available-app-service-infrastructure-vms"></a>高可用性 App Service インフラストラクチャ VM をデプロイする
-[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack クイックスタート テンプレートを使用すると、高可用性構成で App Service を簡単にデプロイできます。 これは [Default Provider Subscription]\(既定のプロバイダー サブスクリプション\) にデプロイする必要があります。 
+[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Hub クイックスタート テンプレートを使用すると、高可用性構成で App Service を簡単にデプロイできます。 これは [Default Provider Subscription]\(既定のプロバイダー サブスクリプション\) にデプロイする必要があります。 
 
-このテンプレートを使用して Azure Stack でカスタム リソースを作成すると、このテンプレートによって次のものが作成されます。
+Azure Stack Hub でのカスタム リソースの作成にこのテンプレートを使用すると、次のものが作成されます。
 - 仮想ネットワークと必要なサブネット。
 - ファイル サーバー、SQL Server、および Active Directory Domain Services (AD DS) サブネットのネットワーク セキュリティ グループ。
 - VM ディスクとクラスター クラウド監視のストレージ アカウント。
@@ -40,8 +40,8 @@ ms.locfileid: "75655060"
 - 2 ノード ファイル サーバー クラスター。
 - 2 台のドメイン コントローラー。
 
-### <a name="required-azure-stack-marketplace-items"></a>必須の Azure Stack Marketplace アイテム
-このテンプレートを使用する前に、次の [ Azure Stack Marketplace アイテム](azure-stack-marketplace-azure-items.md)が Azure Stack インスタンスで利用可能であることを確認してください。
+### <a name="required-azure-stack-hub-marketplace-items"></a>必須の Azure Stack Hub Marketplace 項目
+このテンプレートを使用する前に、次の [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)が Azure Stack Hub インスタンスで利用できることを確実にします。
 
 - Windows Server 2016 Datacenter Core イメージ (AD DS とファイルサーバー VM 用)
 - Windows Server 2016 (Enterprise) の SQL Server 2016 SP2
@@ -52,7 +52,7 @@ ms.locfileid: "75655060"
 > テンプレートの要件と既定値について詳しくは、GitHub の[テンプレートの README ファイル](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha)を確認してください。 
 
 ### <a name="deploy-the-app-service-infrastructure"></a>App Service インフラストラクチャをデプロイする
-このセクションの手順に従い、**appservice-fileshare-sqlserver-ha** Azure Stack クイックスタート テンプレートを使用してカスタム デプロイを作成します。
+このセクションの手順を使用し、**appservice-fileshare-sqlserver-ha** Azure Stack Hub クイックスタート テンプレートを使用してカスタム デプロイを作成します。
 
 1. [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
 
@@ -107,7 +107,7 @@ ms.locfileid: "75655060"
 
 
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
-このセクションの手順に従って、[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack クイックスタート テンプレートに基づき、高可用性構成で Azure Stack 用の App Service をデプロイします。 
+このセクションの手順に従って、[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Hub クイックスタート テンプレートに基づき、高可用性構成で Azure Stack Hub 用に App Service をデプロイします。 
 
 App Service リソース プロバイダーをインストールした後で、オファーやプランに含めることができます。 ユーザーはサブスクライブしてサービスを取得し、アプリケーションの作成を開始できます。
 
@@ -115,28 +115,28 @@ App Service リソース プロバイダーをインストールした後で、�
 > リソース プロバイダーのインストーラーを実行する前に、App Service の各リリースに付属しているリリース ノートを読んで、新しい機能、修正点、およびデプロイに影響を与える可能性のある既知の問題を把握していることを確認してください。
 
 ### <a name="prerequisites"></a>前提条件
-App Service インストーラーを実行する前に、「[App Service on Azure Stack を開始する前に](azure-stack-app-service-before-you-get-started.md)」の記事で説明されている手順をいくつか実行する必要があります。
+App Service インストーラーを実行する前に、[App Service on Azure Stack Hub を開始する前に](azure-stack-app-service-before-you-get-started.md)に関する記事で説明されている手順をいくつか実行する必要があります。
 
 > [!TIP]
 > テンプレートのデプロイによってインフラストラクチャ VM が自動的に構成されるため、[App Service を開始する前に関する記事](azure-stack-app-service-before-you-get-started.md)で説明されているすべての手順が必ずしも必要というわけではありません。
 
 - [App Service インストーラーおよびヘルパー スクリプトをダウンロードする](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
-- [Azure Stack Marketplace から項目をダウンロードする](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
+- [Azure Stack Hub Marketplace から項目をダウンロードする](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
 - [必要な証明書を生成する](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- Azure Stack 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
-- Windows Server 2016 Datacenter イメージを Azure Stack Marketplace に追加したことを確認してください。 このイメージは App Service のインストールに必要です。
+- Azure Stack Hub 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
+- Windows Server 2016 Datacenter イメージを Azure Stack Hub Marketplace に確実に追加してください。 このイメージは App Service のインストールに必要です。
 
 ### <a name="steps-for-app-service-deployment"></a>App Service のデプロイの手順
 App Service リソース プロバイダーのインストールには少なくとも 1 時間かかります。 必要な時間の長さは、デプロイするロール インスタンスの数によって異なります。 デプロイ中に、インストーラーは次のタスクを実行します。
 
-- 指定された Azure Stack ストレージ アカウントに BLOB コンテナーを作成します。
+- 指定した Azure Stack Hub ストレージ アカウントに BLOB コンテナーを作成します。
 - App Service の DNS ゾーンとエントリを作成します。
 - App Service リソース プロバイダーを登録します。
 - App Service のギャラリー アイテムを登録します。
 
 App Service リソース プロバイダーをデプロイするには、次の手順を実行します。
 
-1. Azure Stack 管理の Azure Resource Management エンドポイントにアクセスできるコンピューターから、以前にダウンロードした App Service インストーラー (**appservice.exe**) を管理者として実行します。
+1. Azure Stack Hub の管理者の Azure Resource Management エンドポイントにアクセスできるコンピューターから、以前にダウンロードした App Service インストーラー (**appservice.exe**) を管理者として実行します。
 
 2. **[Deploy App Service or upgrade to the latest version]\(App Service をデプロイするか、または最新バージョンにアップグレードする\)** を選択します。
 
@@ -150,13 +150,13 @@ App Service リソース プロバイダーをデプロイするには、次の�
 
     ![App Service の Microsoft 以外のライセンス条項](media/app-service-deploy-ha/03.png)
 
-5. Azure Stack 環境に App Service クラウド エンドポイント構成を指定します。
+5. Azure Stack Hub 環境に App Service クラウド エンドポイント構成を指定します。
 
     ![App Service のクラウド エンドポイント構成](media/app-service-deploy-ha/04.png)
 
-6. インストールに使用する Azure Stack サブスクリプションに**接続**し、場所を選択します。 
+6. インストールに使用する Azure Stack Hub サブスクリプションに**接続**し、場所を選択します。 
 
-    ![App Service で Azure Stack サブスクリプションに接続する](media/app-service-deploy-ha/05.png)
+    ![App Service で Azure Stack Hub サブスクリプションに接続する](media/app-service-deploy-ha/05.png)
 
 7. 高可用性テンプレートのデプロイに使用されるリソース グループに **[既存の VNet とサブネットを使用する]** と **[リソース グループ名]** を選択します。<br><br>次に、テンプレートのデプロイの一環として作成された仮想ネットワークを選択してから、ドロップダウン リスト オプションから適切なロールのサブネットを選択します。 
 
@@ -188,7 +188,7 @@ App Service リソース プロバイダーをデプロイするには、次の�
     ![App Service での ID Application 証明書とルート証明書](media/app-service-deploy-ha/008.png)
 
 11. 次に、以下の証明書に必要な残りの情報を入力して、 **[次へ]** をクリックします。
-    - 既定の Azure Stack SSL 証明書 ( **_.appservice.local.azurestack.external.pfx** の形式)
+    - 既定の Azure Stack Hub SSL 証明書 ( **_.appservice.local.azurestack.external.pfx** の形式)
     - API SSL 証明書 (**api.appservice.local.azurestack.external.pfx** の形式)
     - パブリッシャー証明書 (**ftp.appservice.local.azurestack.external.pfx** の形式) 
 
@@ -238,7 +238,7 @@ App Service リソース プロバイダーをデプロイするには、次の�
 
 SQL Always On インスタンスで App Service リソース プロバイダーを提供した場合は、[appservice_hosting および appservice_metering データベースを可用性グループに追加します](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期します。 また、[スクリプト](https://blog.sqlauthority.com/2017/11/30/sql-server-alwayson-availability-groups-script-sync-logins-replicas/)を実行して、元のプライマリ サーバーからフェールオーバー サーバーへ AppServices ログインをインポートすることもできます。
 
-[App Service をスケールアウトします](azure-stack-app-service-add-worker-roles.md)。 ご使用の環境で予想されるアプリ需要を満たすために、App Service インフラストラクチャ ロール worker を追加する必要がある場合があります。 既定では、Azure Stack 上の App Service は無料の共有 worker 層をサポートしています。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
+[App Service をスケールアウトします](azure-stack-app-service-add-worker-roles.md)。 ご使用の環境で予想されるアプリ需要を満たすために、App Service インフラストラクチャ ロール worker を追加する必要がある場合があります。 既定では、App Service on Azure Stack Hub は無料の共有 worker 層をサポートしています。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
 
 [デプロイ ソースを構成します](azure-stack-app-service-configure-deployment-sources.md)。 GitHub、BitBucket、OneDrive、DropBox などの複数のソース管理プロバイダーからのオンデマンド デプロイをサポートするには、追加の構成が必要です。
 

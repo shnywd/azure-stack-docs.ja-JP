@@ -1,7 +1,7 @@
 ---
-title: Kubernetes を Azure Stack Marketplace に追加する
-titleSuffix: Azure Stack
-description: Kubernetes を Azure Stack Marketplace に追加する方法について説明します。
+title: Kubernetes を Azure Stack Hub Marketplace に追加する
+titleSuffix: Azure Stack Hub
+description: Kubernetes を Azure Stack Hub Marketplace に追加する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,23 +16,21 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 985d0e33fd5a15329a1a47bd2d6b11e50cd82a1c
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 98fb42ba785469482a34a40867b4060769cfd24b
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780815"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881945"
 ---
-# <a name="add-kubernetes-to-azure-stack-marketplace"></a>Kubernetes を Azure Stack Marketplace に追加する
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes を Azure Stack Hub Marketplace に追加する
 
 > [!note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-aks-engine.md)を使用します。
+> Kubernetes Azure Stack Hub Marketplace 項目のみを使用して、クラスターを概念実証としてデプロイします。 Azure Stack Hub でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-aks-engine.md)を使用します。
 
 Kubernetes は、マーケットプレース項目としてユーザーに提供できます。 ユーザーはその後、1 回の連携した操作で Kubernetes をデプロイできます。
 
-この記事では、Azure Resource Manager テンプレートを使用して、スタンドアロンの Kubernetes クラスターのためにリソースのデプロイとプロビジョニングを行う方法を示しています。 開始する前に、Azure Stack とグローバルな Azure テナントの設定を確認します。 必要な、Azure Stack に関する情報を収集します。 テナントと Azure Stack Marketplace に必要なリソースを追加します。 このクラスターは、Ubuntu サーバー、カスタム スクリプト、および Azure Stack Marketplace 内に置かれる Kubernetes Cluster マーケットプレース項目に依存します。
+この記事では、Azure Resource Manager テンプレートを使用して、スタンドアロンの Kubernetes クラスターのためにリソースのデプロイとプロビジョニングを行う方法を示しています。 開始する前に、Azure Stack Hub とグローバル Azure テナントの設定を確認します。 Azure Stack Hub ついて必要な情報を収集します。 テナントと Azure Stack Hub Marketplace に必要なリソースを追加します。 このクラスターは、Ubuntu サーバー、カスタム スクリプト、および Azure Stack Hub Marketplace 内に置かれる Kubernetes Cluster マーケットプレース項目に依存します。
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>プラン、オファー、サブスクリプションを作成する
 
@@ -40,9 +38,9 @@ Kubernetes のマーケットプレース項目のプラン、オファー、サ
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
-1. プランは基本プランとして作成します。 手順については、「[Azure Stack でのプランの作成](azure-stack-create-plan.md)」をご覧ください。
+1. プランは基本プランとして作成します。 手順については、「[Azure Stack Hub でのプランの作成](azure-stack-create-plan.md)」をご覧ください。
 
-1. オファーを作成します。 手順については、「[Azure Stack でのオファーの作成](azure-stack-create-offer.md)」をご覧ください。
+1. オファーを作成します。 手順については、「[Azure Stack Hub でのオファーの作成](azure-stack-create-offer.md)」をご覧ください。
 
 1. **[オファー]** を選択し、作成したプランを見つけます。
 
@@ -58,7 +56,7 @@ Kubernetes のマーケットプレース項目のプラン、オファー、サ
 
     c. **[プロバイダーの説明]**
 
-    d. **[Directory tenant]** を Azure Stack の Azure AD テナントに設定します。 
+    d. **[ディレクトリ テナント]** を Azure Stack Hub の Azure AD テナントに設定します。 
 
     e. **[オファー]** を選択します。 作成したオファーの名前を選択します。 サブスクリプション ID をメモします。
 
@@ -68,7 +66,7 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 ## <a name="add-an-ubuntu-server-image"></a>Ubuntu サーバーのイメージを追加する
 
-次の Ubuntu Server イメージを Azure Stack Marketplace に追加します。
+次の Ubuntu Server イメージを Azure Stack Hub Marketplace に追加します。
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
@@ -76,11 +74,11 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
-1. 「 `Ubuntu Server` 」を入力します。
+1. 「`Ubuntu Server`」と入力します。
 
 1. サーバーの最新バージョンを選択します。 通常版を確認して、最新バージョンがインストールされていることを確認してください。
-    - **発行元**: Canonical
-    - **プラン**: UbuntuServer
+    - **[発行者]** : Canonical
+    - **[プラン]** : UbuntuServer
     - **バージョン**:16.04.201806120 (または最新バージョン)
     - **SKU**:16.04 LTS
 
@@ -88,7 +86,7 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 ## <a name="add-a-custom-script-for-linux"></a>Linux 用のカスタム スクリプトを追加する
 
-Azure Stack Marketplace から Kubernetes を追加します。
+Azure Stack Hub Marketplace から Kubernetes を追加します。
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
 
@@ -96,10 +94,10 @@ Azure Stack Marketplace から Kubernetes を追加します。
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
-1. 「 `Custom Script for Linux` 」を入力します。
+1. 「`Custom Script for Linux`」と入力します。
 
 1. 次のプロファイルを持つスクリプトを選択します。
-   - **プラン**: Linux 2.0 用のカスタム スクリプト
+   - **[プラン]** : Linux 2.0 用のカスタム スクリプト
    - **バージョン**:2.0.6 (または最新バージョン)
    - **[発行者]** : Microsoft Corp
 
@@ -116,24 +114,24 @@ Azure Stack Marketplace から Kubernetes を追加します。
 
 1. **+ Add from Azure**(+ Azure から追加) を選択します。
 
-1. 「 `Kubernetes` 」を入力します。
+1. 「`Kubernetes`」と入力します。
 
 1. [`Kubernetes Cluster`] を選択します。
 
 1. **[ダウンロード]** を選択します。
 
     > [!note]  
-    > マーケットプレース項目が Azure Stack Marketplace に表示されるまで 5 分かかる場合があります。
+    > マーケットプレース項目が Azure Stack Hub Marketplace に表示されるまで 5 分かかる場合があります。
 
-    ![Azure Stack Marketplace 内の Kubernetes 項目](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
+    ![Azure Stack Hub Marketplace 内の Kubernetes 項目](../user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>Kubernetes を更新または削除する
 
-Kubernetes 項目の更新時には、Azure Stack Marketplace 内の以前の項目を削除します。 以下の指示に従って、Kubernetes の更新を Azure Stack Marketplace に追加します。
+Kubernetes 項目を更新する際、Azure Stack Hub Marketplace 内の以前の項目を削除します。 以下の指示に従って、Kubernetes 更新プログラムを Azure Stack Hub Marketplace に追加します。
 
 Kubernetes を削除するには:
 
-1. オペレーターとして PowerShell を使用して Azure Stack に接続します。 手順については、「[Azure Stack の PowerShell 環境を構成する](azure-stack-powershell-configure-admin.md)」を参照してください。
+1. オペレーターとして、PowerShell を使用して Azure Stack Hub に接続します。 手順については、[オペレーターとして PowerShell を使用した Azure Stack Hub への接続](azure-stack-powershell-configure-admin.md)に関する記事を参照してください。
 
 2. ギャラリーで、Kubernetes クラスターの現在の項目を検索します。
 
@@ -151,8 +149,8 @@ Kubernetes を削除するには:
     Remove-AzsGalleryItem -Name $Itemname
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Kubernetes を Azure Stack にデプロイする](../user/azure-stack-solution-template-kubernetes-deploy.md)
+[Kubernetes を Azure Stack Hub にデプロイする](../user/azure-stack-solution-template-kubernetes-deploy.md)
 
-[Azure Stack でのサービスの提供の概要](service-plan-offer-subscription-overview.md)
+[Azure Stack Hub でのサービスの提供の概要](service-plan-offer-subscription-overview.md)

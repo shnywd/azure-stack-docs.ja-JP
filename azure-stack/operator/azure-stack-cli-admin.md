@@ -1,6 +1,6 @@
 ---
-title: Azure Stack ユーザーに対する Azure CLI の有効化 | Microsoft Docs
-description: クロスプラットフォーム コマンド ライン インターフェイス (CLI) を使用して、Azure Stack でリソースの管理およびデプロイを行えるようにする方法について学習します。
+title: Azure Stack Hub ユーザーに対する Azure CLI の有効化 | Microsoft Docs
+description: Azure Stack Hub でクロスプラットフォーム コマンド ライン インターフェイス (CLI) を使用してリソースの管理およびデプロイを行えるようにする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,26 +14,24 @@ ms.topic: article
 ms.date: 10/02/2019
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: eed0626458d6186b651801d5bda29c4cf77cef9a
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c4bec9ed2984154d2dde6880f0bf56629aff3070
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71829047"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882999"
 ---
-# <a name="enable-azure-cli-for-azure-stack-users"></a>Azure Stack ユーザーに対する Azure CLI の有効化
+# <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Azure Stack Hub ユーザーに対して Azure CLI を有効にする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub のユーザーに CA ルート証明書を提供することで、Azure Stack Hub のユーザーは自分の開発マシン上で Azure CLI を有効にすることができます。 ユーザーが CLI を使用してリソースを管理するには証明書が必要です。
 
-Azure Stack のユーザーに CA ルート証明書を提供して、開発マシンで Azure CLI を有効にすることができます。 ユーザーが CLI を使用してリソースを管理するには証明書が必要です。
-
- - ユーザーが Azure Stack Development Kit (ASDK) の外部のワークステーションから CLI を使用する場合は、**Azure Stack の CA ルート証明書**が必要です。  
+ - ユーザーが Azure Stack Development Kit (ASDK) の外部のワークステーションから CLI を使用する場合は、**Azure Stack Hub の CA ルート証明書**が必要です。  
 
  - **仮想マシン (VM) のエイリアス エンドポイント**では、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、バージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
 
 これらの値の取得方法については、以下のセクションで説明します。
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書をエクスポートする
+## <a name="export-the-azure-stack-hub-ca-root-certificate"></a>Azure Stack Hub の CA ルート証明書をエクスポートする
 
 統合システムを使用している場合は、CA ルート証明書をエクスポートする必要はありません。 ASDK で CA ルート証明書をエクスポートする必要があります。
 
@@ -58,17 +56,17 @@ certutil -encode root.cer root.pem
 
 ## <a name="set-up-the-vm-aliases-endpoint"></a>VM のエイリアス エンドポイントを設定する
 
-Azure Stack オペレーターは、VM のエイリアス ファイルをホストする、公開されているエンドポイントを設定する必要があります。 VM のエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。  
+Azure Stack Hub オペレーターは、VM のエイリアス ファイルをホストする、公開されているエンドポイントを設定する必要があります。 VM のエイリアス ファイルは、イメージの共通名が指定された JSON ファイルです。 この名前は、Azure CLI パラメーターとして VM をデプロイするときに使用します。  
 
 エイリアス ファイルにエントリを追加する前に、[Azure Marketplace からイメージをダウンロード](azure-stack-download-azure-marketplace-item.md)するか、[独自のカスタム イメージを発行](azure-stack-add-vm-image.md)してください。 カスタム イメージを発行する場合は、発行時に指定した発行者、オファー、SKU、バージョン情報をメモしておいてください。 マーケットプレースのイメージである場合は、`Get-AzureVMImage` コマンドレットを使用して情報を表示できます。  
 
 多くの一般的なイメージの別名を含む[サンプル エイリアス ファイル](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)が使用できます。 それを出発点として使用できます。 このファイルを CLI クライアントがアクセスできる場所にホストします。 そのためには、BLOB ストレージ アカウント内でファイルをホストし、ユーザーと URL を共有する方法があります。
 
 1. GitHub から[サンプル ファイル](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)をダウンロードします。
-2. Azure Stack にストレージ アカウントを作成します。 完了したら、BLOB コンテナーを作成します。 アクセス ポリシーを [パブリック] に設定します。  
+2. Azure Stack Hub にストレージ アカウントを作成します。 完了したら、BLOB コンテナーを作成します。 アクセス ポリシーを [パブリック] に設定します。  
 3. その新しいコンテナーに JSON ファイルをアップロードします。 完了すると、BLOB の URL を表示できるようになります。 BLOB 名を選択してから、BLOB プロパティから URL を選択します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure CLI を使用したテンプレートのデプロイ](../user/azure-stack-deploy-template-command-line.md )
 - [PowerShell で接続する](azure-stack-powershell-install.md)

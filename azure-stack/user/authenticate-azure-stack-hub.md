@@ -9,16 +9,16 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 624f0fb87b84ee06284185a521a68bebeb695362
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: d10fbc7ad009456459a8719fbc6e6c8ce51529f1
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75034008"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816481"
 ---
 # <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する方法
 
-Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
+Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
 
 ## <a name="values-needed-to-authenticate"></a>認証に必要な値
 
@@ -26,7 +26,7 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
 -   **サブスクリプション ID**  
 
-    サブスクリプション ID は Azure Stack 内のオファーにアクセスするために使用します。
+    サブスクリプション ID は Azure Stack Hub 内のオファーにアクセスするために使用します。
 
 -   **テナント ID**
 
@@ -74,6 +74,6 @@ Azure Resource Manager エンドポイントは、Azure Stack Hub のデプロ�
 
 ギャラリー エンドポイント、グラフ エンドポイント、ポータル エンドポイント、サインイン エンドポイント、および対象ユーザーなどのプロパティを指すメタデータ エンドポイントを取得するには、URL は次のようになります。`<ResourceManager>/metadata/endpoints?api-version=1.0`
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-Azure Stack Hub での [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) の使用について詳しく確認します。
+Azure Stack Hub での [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) の使用について詳細に説明します。

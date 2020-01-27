@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で IPSEC を使用して VPN トンネルを作成する方法 | Microsoft Docs
-description: Azure Stack で IPSEC を使用して VPN トンネルを作成する方法について説明します。
+title: Azure Stack Hub で IPSEC を使用して VPN トンネルを作成する方法 | Microsoft Docs
+description: Azure Stack Hub で IPSEC を使用して VPN トンネルを作成する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,20 +9,18 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 762d3f631823d1acb8445148a164a18605fa3762
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: a0716d4997a49c2146d64c23defdd6b2f36c0b95
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168230"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878460"
 ---
-# <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack"></a>Azure Stack で IPSEC を使用して VPN トンネルを作成する方法
+# <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Azure Stack Hub で IPSEC を使用して VPN トンネルを作成する方法
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+このソリューションの Azure Stack Hub Resource Manager テンプレートを使用して、同じ Azure Stack Hub 環境内の 2 つの Azure Stack Hub VNet を接続できます。 組み込みの仮想ネットワーク ゲートウェイを使用して、[Azure Stack Hub VNet に接続することはできません](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)。 現時点では、ネットワーク仮想アプライアンス (NVA) を使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 ソリューション テンプレートにより、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされます。 このソリューションでは、2 つの VNET 間に S2SVPN IKEv2 トンネルを使用するように 2 つの RRAS サーバーを構成します。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています 
 
-このソリューションの Azure Stack Resource Manager テンプレートを使用して、同じ Azure Stack 環境内の 2 つの Azure Stack VNet を接続できます。 組み込みの仮想ネットワーク ゲートウェイを使用して [Azure Stack VNets](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences) に接続することはできません。 現在のところ、ネットワーク仮想アプライアンス (NVA) を使用して 2 つの Azure Stack VNet 間に VPN トンネルを作成する必要があります。 ソリューション テンプレートにより、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされます。 このソリューションでは、2 つの VNET 間に S2SVPN IKEv2 トンネルを使用するように 2 つの RRAS サーバーを構成します。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています 
-
-このソリューションは、Azure Stack インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。
+このソリューションは、Azure Stack Hub インスタンス内だけではなく、Windows RRAS S2S VPN トンネルを使用して、Azure Stack Hub インスタンス間や他のリソース (オンプレミス ネットワークなど) にも VPN トンネルを作成できるようにする基盤です。
 
 テンプレートは [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub リポジトリにあります。 このテンプレートは、**rras-gre-vnet-vnet** フォルダーにあります。 
 
@@ -30,8 +28,8 @@ ms.locfileid: "73168230"
 
 ## <a name="requirements"></a>必要条件
 
-- 最新の更新プログラムが適用された ASDK または Azure Stack 統合システム。 
-- 必須の Azure Stack Marketplace アイテム
+- 最新の更新プログラムが適用された状態でデプロイされたシステム。 
+- 次の Azure Stack Hub Marketplace 必須項目。
     -  Windows Server 2016 Datacenter または Windows Server 2019 Datacenter (最新のビルドを推奨)
     -  カスタム スクリプト拡張機能
 
@@ -56,8 +54,8 @@ ms.locfileid: "73168230"
 
 ![alt text](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
 [複数サイト間 VPN トンネルを設定する方法](network-howto-vpn-tunnel.md)  
 [GRE を使用して VPN トンネルを作成する方法](network-howto-vpn-tunnel-gre.md)

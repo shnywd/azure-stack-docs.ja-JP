@@ -1,6 +1,6 @@
 ---
-title: 物理デバイスの監査を Azure Stack データセンターと統合する | Microsoft Docs
-description: 物理デバイスのアクセス監査をお使いの Azure Stack データセンターと統合する方法について説明します。
+title: 物理デバイスの監査を Azure Stack Hub データセンターと統合する | Microsoft Docs
+description: 物理デバイスのアクセス監査を、ご利用の Azure Stack Hub データセンターと統合する方法を学習します。
 services: azure-stack
 author: PatAltimore
 manager: femila
@@ -11,31 +11,31 @@ ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
 keywords: ''
-ms.openlocfilehash: b5fa17b3913db7ebec210fc3bf986bac6414368e
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 48d81975457587bd9c18122d891f8e9e08fbc6eb
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277223"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817892"
 ---
-# <a name="integrate-physical-device-auditing-with-your-azure-stack-datacenter"></a>物理デバイスの監査を Azure Stack データセンターと統合する
+# <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>物理デバイスの監査を Azure Stack Hub データセンターと統合する
 
-ベースボード管理コントローラー (BMC) やネットワーク スイッチなど、Azure Stack 内のすべての物理デバイスは監査ログを出力します。 監査ログは、全体的な監査ソリューションに統合できまます。 デバイスには Azure Stack の OEM ハードウェア ベンダーごとの違いがあるため、監査の統合に関するドキュメントについては、ご利用のベンダーに問い合わせてください。 以降の各セクションに記載したのは、Azure Stack の物理デバイスの監査に関する一般的な情報です。  
+ベースボード管理コントローラー (BMC) やネットワーク スイッチなど、Azure Stack Hub 内のすべての物理デバイスで監査ログを出力します。 監査ログは、全体的な監査ソリューションに統合できまます。 デバイスは Azure Stack Hub の OEM ハードウェア ベンダーによって異なるため、監査の統合に関するドキュメントについては、ご利用のベンダーにお問い合わせください。 以下のセクションでは、Azure Stack Hub での物理デバイスの監査に関する一般的な情報が提供されます。  
 
 ## <a name="physical-device-access-auditing"></a>物理デバイスのアクセスの監査
 
-Azure Stack 内のすべての物理デバイスは、TACACS または RADIUS の使用をサポートします。 サポート対象には、ベースボード管理コント ローラー (BMC) およびネットワーク スイッチへのアクセスが含まれます。
+Azure Stack Hub 内のすべての物理デバイスで、TACACS または RADIUS の使用がサポートされます。 サポート対象には、ベースボード管理コント ローラー (BMC) およびネットワーク スイッチへのアクセスが含まれます。
 
-Azure Stack ソリューションには、RADIUS と TACACS のどちらも組み込まれていません。 ただしこのソリューションは、市場で入手可能な既存の RADIUS または TACACS ソリューションの使用をサポートすることが検証済みです。
+Azure Stack Hub ソリューションには、RADIUS と TACACS のどちらも組み込まれていません。 ただしこのソリューションは、市場で入手可能な既存の RADIUS または TACACS ソリューションの使用をサポートすることが検証済みです。
 
-RADIUS に対してのみ、MSCHAPv2 が検証されました。 これは、RADIUS を使用する最も安全な実装です。 Azure Stack ソリューションに含まれているデバイスで TACAS または RADIUS を有効にするには、OEM ハードウェア ベンダーに問い合わせてください。
+RADIUS に対してのみ、MSCHAPv2 が検証されました。 これは、RADIUS を使用する最も安全な実装です。 Azure Stack Hub ソリューションに含まれているデバイスで TACACS または RADIUS を有効にする場合は、OEM ハードウェア ベンダーにお問い合わせください。
 
 ## <a name="syslog-forwarding-for-network-devices"></a>ネットワーク デバイスの Syslog 転送
 
-Azure Stack 内のすべての物理ネットワーク デバイスは、Syslog メッセージをサポートしています。 Azure Stack ソリューションには、syslog サーバーは組み込まれていません。 ただしデバイスは、市場で入手可能な既存の Syslog ソリューションへのメッセージ送信をサポートすることが検証済みです。
+Azure Stack Hub 内のすべての物理ネットワーク デバイスで、syslog メッセージがサポートされます。 Azure Stack Hub ソリューションには、syslog サーバーは含まれていません。 ただしデバイスは、市場で入手可能な既存の Syslog ソリューションへのメッセージ送信をサポートすることが検証済みです。
 
 Syslog の送信先アドレスは、デプロイ時に収集される省略可能なパラメーターですが、デプロイ後に追加することもできます。 お使いのネットワーク デバイスで Syslog 転送を構成するにあたっては、ご利用の OEM ハードウェア ベンダーに相談してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [サービス ポリシー](azure-stack-servicing-policy.md)

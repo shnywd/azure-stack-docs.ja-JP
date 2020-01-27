@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack のデプロイの前提条件 | Microsoft Docs
-description: App Service on Azure Stack をデプロイする前に済ましておく必要がある前提条件の手順について説明します。
+title: Azure App Service on Azure Stack Hub のデプロイの前提条件 | Microsoft Docs
+description: Azure App Service on Azure Stack Hub をデプロイするための前提となる手順について説明します。これらは、デプロイする前に完了しておく必要があります。
 services: azure-stack
 documentationcenter: ''
 author: BryanLa
@@ -12,30 +12,30 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/08/2020
-ms.openlocfilehash: 759e25155abcc65bd2d671b310d6b93900b832db
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: e5dffbfd82ab8c23aa3862763f02ae759cf4de08
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756969"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924227"
 ---
-# <a name="prerequisites-for-deploying-app-service-on-azure-stack"></a>App Service on Azure Stack のデプロイの前提条件
+# <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub のデプロイの前提条件
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
-Azure App Service on Azure Stack をデプロイする前に、この記事にある前提条件ステップを完了する必要があります。
+Azure App Service on Azure Stack Hub をデプロイする前に、この記事にある、前提となる手順を完了する必要があります。
 
 > [!IMPORTANT]
-> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub 開発キット (ASDK) をデプロイします。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>インストーラーおよびヘルパー スクリプトをダウンロードする
 
-1. [App Service on Azure Stack 展開ヘルパー スクリプト](https://aka.ms/appsvconmashelpers)をダウンロードします。
-2. [App Service on Azure Stack インストーラー](https://aka.ms/appsvconmasinstaller)をダウンロードします。
+1. [Azure App Service on Azure Stack Hub デプロイ ヘルパー スクリプト](https://aka.ms/appsvconmashelpers)をダウンロードします。
+2. [Azure App Service on Azure Stack Hub インストーラー](https://aka.ms/appsvconmasinstaller)をダウンロードします。
 3. ヘルパー スクリプトの .zip ファイルからファイルを展開します。 次のファイルとフォルダーが展開されます。
 
    - Common.ps1
@@ -49,16 +49,16 @@ Azure App Service on Azure Stack をデプロイする前に、この記事に�
 
 ## <a name="download-items-from-the-azure-marketplace"></a>Azure Marketplace からの項目のダウンロード
 
-Azure App Service on Azure Stack では、[Azure Marketplace から項目をダウンロード](azure-stack-download-azure-marketplace-item.md)し、Azure Stack Marketplace でそれらを使用できるようにする必要があります。 Azure App Service on Azure Stack のデプロイまたはアップグレードを開始する前に、これらの項目をダウンロードする必要があります。
+Azure App Service on Azure Stack Hub では、項目を [Azure Marketplace からダウンロード](azure-stack-download-azure-marketplace-item.md)し、それらを Azure Stack Hub Marketplace で使用できるようにする必要があります。 App Service on Azure Stack Hub のデプロイまたはアップグレードを開始する前に、これらの項目をダウンロードする必要があります。
 
 1. Windows Server 2016 Datacenter Edition 仮想マシン イメージの最新バージョン。
 2. カスタム スクリプト拡張機能 v1.9.1 以上。 これは仮想マシンの拡張機能です。
 
 ## <a name="get-certificates"></a>証明書を取得する
 
-### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure Stack 用の Azure Resource Manager ルート証明書
+### <a name="azure-resource-manager-root-certificate-for-azure-stack-hub"></a>Azure Stack Hub 用の Azure Resource Manager ルート証明書
 
-Azure Stack 統合システムまたは ASDK のホストで特権エンドポイントにアクセスできるコンピューター上で、管理者特権の PowerShell セッションを開きます。
+Azure Stack Hub 統合システムまたは ASDK ホストで特権エンドポイントにアクセスできるコンピューター上で、管理者特権の PowerShell セッションを開きます。
 
 ヘルパー スクリプトを展開したフォルダーから *Get-AzureStackRootCert.ps1* スクリプトを実行します。 このスクリプトは、証明書を作成するために App Service で必要となるスクリプトと同じフォルダーにルート証明書を作成します。
 
@@ -73,11 +73,11 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 | パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | 必須 | AzS-ERCS01 | 特権エンドポイント |
-| CloudAdminCredential | 必須 | AzureStack\CloudAdmin | Azure Stack クラウド管理者のドメイン アカウントの資格情報 |
+| CloudAdminCredential | 必須 | AzureStack\CloudAdmin | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報 |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure での Azure App Service のデプロイメントに必要な証明書
 
-*Create-AppServiceCerts.ps1* スクリプトは、Azure Stack 証明機関と連携して、App Service で必要となる次の 4 つの証明書を作成します。
+*Create-AppServiceCerts.ps1* スクリプトは、Azure Stack Hub 証明機関と連携して、App Service で必要となる次の 4 つの証明書を作成します。
 
 | ファイル名 | 用途 |
 | --- | --- |
@@ -91,16 +91,16 @@ Azure Stack 統合システムまたは ASDK のホストで特権エンドポ�
 1. AzureStack\AzureStackAdmin アカウントを使用して ASDK ホストにサインインします。
 2. 管理者特権の PowerShell セッションを開きます。
 3. ヘルパー スクリプトを展開したフォルダーから *Create-AppServiceCerts.ps1* スクリプトを実行します。 このスクリプトは、証明書を作成するために App Service で必要となるスクリプトと同じフォルダーに 4 つの証明書を作成します。
-4. .pfx ファイルを保護するためのパスワードを入力し、そのパスワードを書き留めておきます。 それを App Service on Azure Stack インストーラーに入力する必要があります。
+4. .pfx ファイルを保護するためのパスワードを入力し、そのパスワードを書き留めておきます。 それを App Service on Azure Stack Hub インストーラーに入力する必要があります。
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 スクリプトのパラメーター
 
 | パラメーター | 必須または省略可能 | 既定値 | [説明] |
 | --- | --- | --- | --- |
 | pfxPassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード |
-| DomainName | 必須 | local.azurestack.external | Azure Stack のリージョンとドメイン サフィックス |
+| DomainName | 必須 | local.azurestack.external | Azure Stack Hub のリージョンとドメイン サフィックス |
 
-### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Azure App Service の Azure Stack の運用環境デプロイに必要な証明書
+### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Azure App Service を Azure Stack Hub の運用環境にデプロイするために必要な証明書
 
 運用環境でリソース プロバイダーを実行するには、次の証明書を提供する必要があります。
 
@@ -141,8 +141,8 @@ API 証明書は、管理ロールに配置されます。 リソース プロ�
 
 ID アプリ用の証明書は以下が可能です。
 
-- コンピューティング リソース プロバイダーとの統合をサポートするための Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) ディレクトリ、Azure Stack、および App Service の間の統合。
-- Azure App Service on Azure Stack 内の複数の高度な開発者ツールでのシングル サインオン シナリオ。
+- コンピューティング リソース プロバイダーとの統合をサポートするための Azure Active Directory (Azure AD) または Active Directory フェデレーション サービス (AD FS) ディレクトリ、Azure Stack Hub、App Service の間の統合。
+- Azure App Service on Azure Stack Hub 内の複数の高度な開発者ツールでのシングル サインオン シナリオ。
 
 ID 用の証明書には、次の形式に一致するサブジェクトが含まれている必要があります。
 
@@ -152,16 +152,16 @@ ID 用の証明書には、次の形式に一致するサブジェクトが含�
 
 ### <a name="validate-certificates"></a>証明書を検証する
 
-App Service リソース プロバイダーをデプロイする前に、[PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)の Azure Stack 適合性チェッカー ツールを使用して、[使用する証明書を検証](azure-stack-validate-pki-certs.md#using-validated-certificates)する必要があります。 Azure Stack 適合性チェッカー ツールは、生成された PKI 証明書が App Service のデプロイに適しているかを検証します。
+App Service リソース プロバイダーをデプロイする前に、[PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)の Azure Stack Hub 適合性チェッカー ツールを使用して、[使用する証明書を検証](azure-stack-validate-pki-certs.md)する必要があります。 Azure Stack Hub 適合性チェッカー ツールは、生成された PKI 証明書が App Service のデプロイに適しているかを検証します。
 
-ベスト プラクティスとして、必要ないずれかの [Azure Stack PKI 証明書](azure-stack-pki-certs.md)を使用する場合には、証明書をテストして必要な場合には再発行するための十分な時間を予定することです。
+ベスト プラクティスとして、必要ないずれかの [Azure Stack Hub PKI 証明書](azure-stack-pki-certs.md)を使用する場合には、証明書をテストして必要な場合には再発行するための十分な時間を予定することです。
 
 ## <a name="virtual-network"></a>仮想ネットワーク
 
 > [!NOTE]
-> カスタム仮想ネットワークの事前作成を省略できるのは、Azure App Service on Azure Stack では必須の仮想ネットワークを作成できるためです。ただし、その後、パブリック IP アドレス経由で SQL Server およびファイル サーバーと通信する必要があります。
+> カスタム仮想ネットワークの事前作成を省略できるのは、Azure App Service on Azure Stack Hub では必須の仮想ネットワークを作成できるためです。ただし、その後、パブリック IP アドレス経由で SQL Server およびファイル サーバーと通信する必要があります。
 
-Azure App Service on Azure Stack を使用すると、リソース プロバイダーを既存の仮想ネットワークにデプロイできます。あるいは、デプロイメントの一部として仮想ネットワークを作成できます。 既存の仮想ネットワークを使用すると、内部 IP を使用して、Azure App Service on Azure Stack で必要なファイル サーバーと SQL Server に接続できます。 Azure App Service on Azure Stack をインストールする前に、仮想ネットワークを次のアドレス範囲とサブネットで構成する必要があります。
+Azure App Service on Azure Stack Hub を使用すると、リソース プロバイダーを既存の仮想ネットワークにデプロイできます。または、デプロイの一部として仮想ネットワークを作成できます。 既存の仮想ネットワークを使用すると、内部 IP を使用して、Azure App Service on Azure Stack Hub で必要なファイル サーバーと SQL Server に接続できます。 Azure App Service on Azure Stack Hub をインストールする前に、仮想ネットワークを次のアドレス範囲とサブネットで構成する必要があります。
 
 仮想ネットワーク - /16
 
@@ -175,12 +175,12 @@ Azure App Service on Azure Stack を使用すると、リソース プロバイ�
 
 ## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>必要なファイル サーバーと SQL Server のライセンスの問題
 
-Azure App Service on Azure Stack では、ファイル サーバーと SQL Server が稼働している必要があります。  お客様の Azure Stack デプロイの外部にある既存のリソースを使用しても、Azure Stack の既定のプロバイダー サブスクリプション内のリソースをデプロイしてもかまいません。
+Azure App Service on Azure Stack Hub では、ファイル サーバーと SQL Server が稼働している必要があります。  お客様の Azure Stack Hub デプロイの外部にある既存のリソースを使用しても、Azure Stack Hub の既定のプロバイダー サブスクリプション内のリソースをデプロイしてもかまいません。
 
-Azure Stack の既定のプロバイダー サブスクリプション内のリソースをデプロイする場合は、それらのリソースのライセンス (Windows Server のライセンスと SQL Server のライセンス) が Azure App Service on Azure Stack のコストに含まれます。また、次の制約が適用されます。
+Azure Stack Hub の既定のプロバイダー サブスクリプション内のリソースをデプロイする場合は、それらのリソースのライセンス (Windows Server のライセンスと SQL Server のライセンス) が Azure App Service on Azure Stack Hub のコストに含まれます。また、次の制約が適用されます。
 
 - インフラストラクチャは、**既定のプロバイダー サブスクリプション**にデプロイされます。
-- インフラストラクチャは、Azure App Service on Azure Stack リソース プロバイダーによって排他的に使用されます。  他のワークロード (管理 (SQL RP などの他のリソース プロバイダー) またはテナント (データベースを必要とするテナント アプリなど)) には、このインフラストラクチャの使用が許可されません。
+- インフラストラクチャは、Azure App Service on Azure Stack Hub リソース プロバイダーによって排他的に使用されます。  他のワークロード (管理 (SQL RP などの他のリソース プロバイダー) またはテナント (データベースを必要とするテナント アプリなど)) には、このインフラストラクチャの使用が許可されません。
 
 ## <a name="prepare-the-file-server"></a>ファイル サーバーを準備する
 
@@ -192,7 +192,7 @@ ASDK のデプロイのみの場合は、[Azure Resource Manager デプロイ �
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性ファイル サーバーと SQL Server のクイック スタート テンプレート
 
-[参照アーキテクチャ クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)が現在使用可能です。これはファイル サーバーと SQL Server をデプロイします。 このテンプレートは、Azure App Service on Azure Stack の高可用性デプロイをサポートするように構成された仮想ネットワークの Active Directory インフラストラクチャをサポートします。
+[参照アーキテクチャ クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)が現在使用可能です。これはファイル サーバーと SQL Server をデプロイします。 このテンプレートは、Azure App Service on Azure Stack Hub の高可用性デプロイをサポートするように構成された仮想ネットワークの Active Directory インフラストラクチャをサポートします。
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>カスタム ファイル サーバーをデプロイする手順
 
@@ -305,13 +305,13 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 >[!NOTE]
 > 高可用性ファイル サーバーおよび SQL Server 用のクイック スタート テンプレートをデプロイすることを選択した場合は、テンプレートによって HA 構成で SQL Server がデプロイおよび構成されるため、このセクションをスキップできます。
 
-Azure App Service on Azure Stack のホスティングおよび計測データベースの場合は、App Service データベースを保持するための SQL Server インスタンスを準備する必要があります。
+Azure App Service on Azure Stack Hub のホスティングおよび計測データベースの場合は、App Service データベースを保持するための SQL Server インスタンスを準備する必要があります。
 
-ASDK のデプロイの場合は、SQL Server Express 2014 SP2 以降を使用できます。 App Service on Azure Stack は Windows 認証を**サポートしていない**ため、SQL Server は**混合モード**認証をサポートするように構成する必要があります。
+ASDK のデプロイの場合は、SQL Server Express 2014 SP2 以降を使用できます。 App Service on Azure Stack Hub は Windows 認証を**サポートしていない**ため、SQL Server は**混合モード**認証をサポートするように構成する必要があります。
 
 運用と高可用性を目的とする場合は、SQL Server 2014 SP2 以降の完全バージョンを使用し、混合モード認証を有効にして、[高可用性構成](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)でデプロイする必要があります。
 
-Azure App Service on Azure Stack の SQL Server インスタンスは、すべての App Service ロールからアクセスできる必要があります。 SQL Server は、Azure Stack の既定のプロバイダー サブスクリプション内でデプロイできます。 あるいは、組織内の既存のインフラストラクチャを利用できます (Azure Stack に接続されている場合)。 Azure Marketplace イメージを使用している場合は、それに応じてファイアウォールを構成することを忘れないでください。
+Azure App Service on Azure Stack Hub の SQL Server インスタンスは、すべての App Service ロールからアクセスできる必要があります。 SQL Server は、Azure Stack Hub の既定のプロバイダー サブスクリプション内でデプロイできます。 または、組織内の既存のインフラストラクチャを利用できます (Azure Stack Hub に接続されている場合)。 Azure Marketplace イメージを使用している場合は、それに応じてファイアウォールを構成することを忘れないでください。
 
 > [!NOTE]
 > Marketplace 管理機能により、多数の SQL IaaS 仮想マシン イメージを使用できます。 Marketplace 項目を使用して VM をデプロイする前に、必ず SQL IaaS 拡張機能の最新バージョンをダウンロードしてください。 これらの SQL イメージは、Azure で使用できる SQL VM と同じです。 これらのイメージから作成された SQL VM の場合、IaaS 拡張機能や対応するポータル拡張機能により、修正プログラムの自動適用やバックアップなどの機能が提供されます。
@@ -338,7 +338,7 @@ GO
 - worker 層での仮想マシン スケール セットの統合。
 - Azure Functions ポータルと高度な開発者ツールのための SSO。
 
-次の手順は、Azure AD で保護されている Azure Stack 環境のみに適用されます。
+次の手順は、Azure AD で保護されている Azure Stack Hub 環境のみに適用されます。
 
 管理者は、SSO を次のように構成する必要があります。
 
@@ -349,8 +349,8 @@ GO
 
 1. azurestack\AzureStackAdmin として PowerShell インスタンスを開きます。
 2. [前提条件の手順](azure-stack-app-service-before-you-get-started.md)でダウンロードして展開したスクリプトの場所に移動します。
-3. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
-4. **Create-AADIdentityApp.ps1** スクリプトを実行します。 メッセージが表示されたら、Azure Stack デプロイのために使用している Azure AD テナント ID を入力します。 たとえば、「**myazurestack.onmicrosoft.com**」と入力します。
+3. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。
+4. **Create-AADIdentityApp.ps1** スクリプトを実行します。 メッセージが表示されたら、Azure Stack Hub デプロイのために使用している Azure AD テナント ID を入力します。 たとえば、「**myazurestack.onmicrosoft.com**」と入力します。
 5. **[資格情報]** ウィンドウで、Azure AD サービスの管理者アカウントとパスワードを入力します。 **[OK]** を選択します。
 6. [先ほど作った証明書](azure-stack-app-service-before-you-get-started.md)について、証明書ファイル パスと証明書パスワードを入力します。 既定でこの手順のために作られる証明書は、**sso.appservice.local.azurestack.external.pfx** です。
 7. PowerShell の出力で返されるアプリケーション ID を書き留めておきます。 この ID は、アプリケーションのアクセス許可に同意するための次の手順と、インストール中に使用します。 
@@ -378,7 +378,7 @@ GO
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Active Directory フェデレーション サービス アプリを作成する
 
-AD FS によって保護されている Azure Stack 環境の場合、 AD FS サービス プリンシパルで以下の操作をサポートするように構成する必要があります。
+AD FS によって保護されている Azure Stack Hub 環境の場合、AD FS サービス プリンシパルで以下の操作をサポートするように構成する必要があります。
 
 - worker 層での仮想マシン スケール セットの統合。
 - Azure Functions ポータルと高度な開発者ツールのための SSO。
@@ -393,7 +393,7 @@ AD FS によって保護されている Azure Stack 環境の場合、 AD FS サ
 
 1. azurestack\AzureStackAdmin として PowerShell インスタンスを開きます。
 2. [前提条件の手順](azure-stack-app-service-before-you-get-started.md)でダウンロードして展開したスクリプトの場所に移動します。
-3. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
+3. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。
 4. **Create-ADFSIdentityApp.ps1** スクリプトを実行します。
 5. **[資格情報]** ウィンドウで、AD FS クラウドの管理者アカウントとパスワードを入力します。 **[OK]** を選択します。
 6. [先ほど作った証明書](azure-stack-app-service-before-you-get-started.md)について、証明書ファイル パスと証明書パスワードを入力します。 既定でこの手順のために作られる証明書は、**sso.appservice.local.azurestack.external.pfx** です。
@@ -406,7 +406,7 @@ AD FS によって保護されている Azure Stack 環境の場合、 AD FS サ
 | --- | --- | --- | --- |
 | AdminArmEndpoint | 必須 | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
 | PrivilegedEndpoint | 必須 | [Null] | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |
-| CloudAdminCredential | 必須 | [Null] | Azure Stack クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
+| CloudAdminCredential | 必須 | [Null] | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
 | CertificateFilePath | 必須 | [Null] | ID アプリケーションの証明書 PFX ファイルへの**完全なパス**。 |
 | CertificatePassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
 

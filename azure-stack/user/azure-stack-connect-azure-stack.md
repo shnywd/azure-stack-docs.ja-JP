@@ -1,6 +1,6 @@
 ---
-title: Azure Stack への接続 | Microsoft Docs
-description: Azure Stack に接続する方法について説明します。
+title: Azure Stack Hub への接続 | Microsoft Docs
+description: Azure Stack Hub に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,41 +15,41 @@ ms.date: 10/10/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 6ccb86bd3ef0ded9126e68f53d87282e505b416e
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: bd93eed23d00edd772a1bbfc2d88cad03ce83dd9
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277044"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75816447"
 ---
-# <a name="connect-to-azure-stack"></a>Azure Stack への接続
+# <a name="connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する
 
 リソースを管理するには、Azure Stack Development Kit に接続する必要があります。 この記事では、Development Kit に接続するために必要な手順について詳しく説明します。 次の接続方法のうちどちらかを使用できます。
 
 * リモート デスクトップ: Development Kit から、1 人の同時実行ユーザーのみがすばやく接続できます。
-* 仮想プライベート ネットワーク (VPN): Azure Stack インフラストラクチャ以外のクライアントから、複数の同時実行ユーザーが接続できます (構成が必要です)。
+* 仮想プライベート ネットワーク (VPN): Azure Stack Hub インフラストラクチャ外のクライアントから複数のユーザーが同時接続できます (構成が必要です)。
 
-## <a name="connect-to-azure-stack-with-remote-desktop"></a>リモート デスクトップを使用して Azure Stack に接続する
+## <a name="connect-to-azure-stack-hub-with-remote-desktop"></a>リモート デスクトップを使用して Azure Stack Hub に接続する
 リモート デスクトップ接続では、1 人の同時実行ユーザーがポータルを使用してリソースを管理できます。
 
-1. リモート デスクトップ接続を開き、Development Kit に接続します。 「**AzureStack\AzureStackAdmin**」というユーザー名と、Azure Stack セットアップ時に指定した管理者パスワードを入力します。  
+1. リモート デスクトップ接続を開き、Development Kit に接続します。 「**AzureStack\AzureStackAdmin**」というユーザー名と、Azure Stack Hub セットアップ時に指定した管理者パスワードを入力します。  
 
 2. Development Kit コンピューターからサーバー マネージャーを開き、 **[ローカル サーバー]** をクリックし、Internet Explorer セキュリティ強化を無効にして、サーバー マネージャーを閉じます。
 
 3. ポータルを開くには、(https://portal.local.azurestack.external/) に移動し、ユーザーの資格情報を使用してサインインします。
 
 
-## <a name="connect-to-azure-stack-with-vpn"></a>VPN を使用して Azure Stack に接続する
+## <a name="connect-to-azure-stack-hub-with-vpn"></a>VPN を使用して Azure Stack Hub に接続する
 
-Azure Stack Development Kit に対して、分割トンネルの VPN 接続を確立することができます。 VPN 接続を介して、管理者ポータル、ユーザー ポータル、およびローカルにインストールされているツール (Visual Studio、PowerShell など) にアクセスして、Azure Stack リソースを管理できます。 VPN 接続は、Azure Active Directory (Azure AD) ベースおよび Active Directory フェデレーション サービス (AD FS) ベースのデプロイの両方でサポートされています。 VPN 接続を使用すると、同時に複数のクライアントが Azure Stack に接続できます。 
+Azure Stack Development Kit に対して、分割トンネルの VPN 接続を確立することができます。 VPN 接続を介して、管理者ポータル、ユーザー ポータル、ローカルにインストールされているツール (Visual Studio、PowerShell など) にアクセスして、Azure Stack Hub リソースを管理できます。 VPN 接続は、Azure Active Directory (Azure AD) ベースおよび Active Directory フェデレーション サービス (AD FS) ベースのデプロイの両方でサポートされています。 VPN 接続を使用すると、同時に複数のクライアントが Azure Stack Hub に接続できます。 
 
 > [!NOTE] 
-> この VPN 接続では、Azure Stack インフラストラクチャ VM には接続できません。 
+> この VPN 接続では、Azure Stack Hub インフラストラクチャ VM には接続できません。 
 
 ### <a name="prerequisites"></a>前提条件
 
-* [Azure Stack 互換の Azure PowerShell](../operator/azure-stack-powershell-install.md) をローカル コンピューターにインストールします。  
-* [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。 
+* [Azure Stack Hub 互換の Azure PowerShell](../operator/azure-stack-powershell-install.md) をローカル コンピューターにインストールします。  
+* [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。 
 
 ### <a name="configure-vpn-connectivity"></a>VPN 接続の構成
 
@@ -66,10 +66,10 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Add the development kit computer's host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
-$hostIP = "<Azure Stack host IP address>"
+$hostIP = "<Azure Stack Hub host IP address>"
 
 $Password = ConvertTo-SecureString `
-  "<Administrator password provided when deploying Azure Stack>" `
+  "<Administrator password provided when deploying Azure Stack Hub>" `
   -AsPlainText `
   -Force
 
@@ -88,9 +88,9 @@ Add-AzsVpnConnection `
 
 ![ネットワーク接続](media/azure-stack-connect-azure-stack/image3.png)  
 
-### <a name="connect-to-azure-stack"></a>Azure Stack への接続
+### <a name="connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する
 
-次の 2 つの方法のいずれかを使用して、Azure Stack インスタンスに接続します。  
+次の 2 つの方法のいずれかを使用して、Azure Stack Hub インスタンスに接続します。  
 
 * `Connect-AzsVpn` コマンドを使用する: 
     
@@ -99,7 +99,7 @@ Add-AzsVpnConnection `
     -Password $Password
   ```
 
-  プロンプトに従って Azure Stack ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
+  プロンプトに従って Azure Stack Hub ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
 
 * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]** に移動し、[`azurestack`] >  **[接続]** を選択します。 サインイン プロンプトで、ユーザー名 (AzureStack\AzureStackAdmin) とパスワードを入力します。
 
@@ -107,7 +107,7 @@ Add-AzsVpnConnection `
 
 ポータル接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) に移動し、サインインしてリソースを作成します。  
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 
 

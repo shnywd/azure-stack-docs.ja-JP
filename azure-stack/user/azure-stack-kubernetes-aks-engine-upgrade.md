@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で Kubernetes クラスターをアップグレードする | Microsoft Docs
-description: Azure Stack で Kubernetes クラスターをアップグレードする方法を学習します。
+title: Azure Stack Hub で Kubernetes クラスターをアップグレードする | Microsoft Docs
+description: Azure Stack Hub で Kubernetes クラスターをアップグレードする方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 01/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: fb51e49f449896fde6262790972c958b230d3175
-ms.sourcegitcommit: a37d3d78ed683e783681c567c989cb2b9ad0de0c
+ms.openlocfilehash: de2774a9cdbdbc8461b05db5dbf1f80b0854fbc7
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75605876"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883611"
 ---
-# <a name="upgrade-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをアップグレードする
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
 
 ## <a name="upgrade-a-cluster"></a>クラスターのアップグレード
 
@@ -37,7 +35,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 デプロイされたクラスターのアップグレードでは、以下がカバーされます。
 
 -   Kubernetes
--   Azure Stack Kubernetes プロバイダー
+-   Azure Stack Hub Kubernetes プロバイダー
 -   基本 OS
 
 運用クラスターをアップグレードする場合は、次の点を考慮してください。
@@ -45,7 +43,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 -   ターゲット クラスターに正しいクラスター仕様 (`apimodel.json`) とリソース グループを使用していますか?
 -   AKS エンジンを実行してアップグレード操作を実行するクライアント マシンとして、信頼できるマシンを使用していますか?
 -   バックアップ クラスターがあり、それが動作していることを確認します。
--   可能であれば、Azure Stack 環境内の VM からコマンドを実行して、ネットワーク ホップと接続障害の可能性を減らします。
+-   可能であれば、Azure Stack Hub 環境内の VM からコマンドを実行して、ネットワーク ホップと接続障害の可能性を減らします。
 -   サブスクリプションにプロセス全体のための十分な領域があることを確認します。 このプロセスでは、プロセス中に新しい VM が割り当てられます。
 -   システムの更新やスケジュールされたタスクは計画されていません。
 -   運用クラスターとまったく同じように構成されたクラスターで段階的なアップグレードをセットアップし、運用クラスターでアップグレードを実行する前に、そこでアップグレードをテストします。
@@ -86,12 +84,12 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 
     | パラメーター | 例 | [説明] |
     | --- | --- | --- |
-    | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack であることを示すには、`AzureStackCloud` を使用します。 |
-    | location | local | Azure Stack のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
+    | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack Hub であることを示すには、`AzureStackCloud` を使用します。 |
+    | location | local | Azure Stack Hub のリージョン名。 ASDK の場合、リージョンは `local` に設定されます。 |
     | resource-group | kube-rg | 新しいリソース グループの名前を入力するか、既存のリソース グループを選択します。 リソース名は、英数字かつ小文字にする必要があります。 |
     | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」を参照してください。 |
     | api-model | ./kubernetes-azurestack.json | クラスター構成ファイルまたは API モデルへのパス。 |
-    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
+    | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 これは、サービスの作成時に設定するクライアント シークレットです。 |
     | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
@@ -116,7 +114,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 
 1. [サポートされている Kubernetes バージョン情報の一覧](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
 2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は、対象のバージョン情報に置き換えます。
-3. 使用する予定の Azure Stack Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack オペレーターに依頼します。
+3. 使用する予定の Azure Stack Hub Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack Hub オペレーターに依頼します。
 4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`--force` を追加して `aks-engine upgrade` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
 
 
@@ -141,5 +139,5 @@ aks-engine upgrade \
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
-- [Azure Stack で Kubernetes クラスターをスケールする](azure-stack-kubernetes-aks-engine-scale.md)
+- [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください
+- [Azure Stack Hub で Kubernetes クラスターをスケールする](azure-stack-kubernetes-aks-engine-scale.md)

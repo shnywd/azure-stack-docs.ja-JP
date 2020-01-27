@@ -1,6 +1,6 @@
 ---
-title: AAzure Stack で Kubernetes クラスターをスケールする | Microsoft Docs
-description: Azure Stack で Kubernetes クラスターをスケールする方法を学習します。
+title: Azure Stack Hub で Kubernetes クラスターをスケーリングする | Microsoft Docs
+description: Azure Stack Hub で Kubernetes クラスターをスケーリングする方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 078cacad88a0a7d055baef799c5785d5a06ce922
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 0fd294e0c7379bed75a0eb753678810d06888106
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310092"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878936"
 ---
-# <a name="scale-a-kubernetes-cluster-on-azure-stack"></a>Azure Stack で Kubernetes クラスターをスケールする
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをスケーリングする
 
 AKS エンジンで **scale** コマンドを使用して、クラスターをスケールできます。 **scale** コマンドでは、出力ディレクトリ内のクラスター構成ファイル (`apimodel.json`) を新しい Azure Resource Manager デプロイの入力として再利用します。 エンジンにより、指定されたエージェント プールに対してスケーリング操作が実行されます。 スケーリング操作が完了すると、更新された現在のクラスター構成を反映するために、エンジンにより同じ `apimodel.json` ファイル内のクラスター定義が新しいノード数を反映するように更新されます。
 
@@ -36,10 +34,10 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 
 次のパラメーターは、クラスター定義ファイルを検索してクラスターを更新するために、scale コマンドによって使用されます。
 
-| パラメーター | 例 | 説明 |
+| パラメーター | 例 | [説明] |
 | --- | --- | --- | 
-| azure-env | AzureStackCloud | Azure Stack を使用する場合は、環境名を `AzureStackCloud` に設定する必要があります。 | 
-| location | local | これは、ご使用の Azure Stack インストールのリージョンです。 ASDK の場合、リージョンは `local` に設定されます。  | 
+| azure-env | AzureStackCloud | Azure Stack Hub を使用する場合は、環境名を `AzureStackCloud` に設定する必要があります。 | 
+| location | local | これは、ご使用の Azure Stack Hub インストールのリージョンです。 ASDK の場合、リージョンは `local` に設定されます。  | 
 | resource-group | kube-rg | ご使用のクラスターを含むリソース グループの名前。 | 
 | subscription-id |  | ご使用のクラスターによって使用されるリソースを含むサブスクリプションの GUID。 スケールするサブスクリプションに十分なクォータがあることを確認します。 | 
 | client-id |  | AKS エンジンからクラスターを作成するときに使用されるサービス プリンシパルのクライアント ID。 | 
@@ -49,7 +47,7 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 | -master-FQDN |  | マスター FQDN。 スケールダウンするときに必要です。 |
 | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
-Azure Stack でクラスターをスケーリングする場合は、 **–azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
+Azure Stack Hub でクラスターをスケーリングする場合は、 **--azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
 
 ### <a name="command-to-scale-your-cluster"></a>クラスターをスケールするコマンド
 
@@ -69,7 +67,7 @@ aks-engine scale \
     --identity-system adfs # required if using AD FS
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
-- [Azure Stack で Kubernetes クラスターをアップグレードする](azure-stack-kubernetes-aks-engine-upgrade.md)
+- [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください
+- [Azure Stack Hub で Kubernetes クラスターをアップグレードする](azure-stack-kubernetes-aks-engine-upgrade.md)

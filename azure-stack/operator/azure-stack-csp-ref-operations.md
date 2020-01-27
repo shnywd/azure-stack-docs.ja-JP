@@ -1,6 +1,6 @@
 ---
-title: Azure Stack に使用状況追跡のためのテナントを登録する | Microsoft Docs
-description: Azure Stack でのテナントの登録方法とテナントの使用状況の追跡方法について説明します。
+title: Azure Stack Hub に使用状況の追跡のためのテナントを登録する | Microsoft Docs
+description: Azure Stack Hub でのテナントの登録方法とテナントの使用状況の追跡方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,14 @@ ms.date: 10/14/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72310e813d0dd0a64575f1b2452bf4a5191638ef
-ms.sourcegitcommit: 97d41b3ebed07aa85a50087b6076671fd37e08c5
+ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72350176"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882574"
 ---
-# <a name="register-tenants-for-usage-tracking-in-azure-stack"></a>Azure Stack に使用状況追跡のためのテナントを登録する
-
-*適用対象:Azure Stack 統合システム*
+# <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
 この記事では、登録操作について詳しく説明します。 これらの操作を使用して次のことができます。
 
@@ -41,25 +39,25 @@ ms.locfileid: "72350176"
 
 ### <a name="use-api-profiles"></a>API プロファイルの使用
 
-次の登録コマンドレットでは、PowerShell を実行するときに API プロファイルを指定する必要があります。 API プロファイルは、一連の Azure リソース プロバイダーとその API バージョンを表します。 これにより、複数の Azure クラウドを対話操作するときに、適切なバージョンの API を使用できます。 たとえば、グローバルな Azure と Azure Stack を操作するときに複数のクラウドを操作する場合、API プロファイルでは、そのリリース日と一致する名前が指定されます。 **2017-09-03** プロファイルを使用します。
+次の登録コマンドレットでは、PowerShell を実行するときに API プロファイルを指定する必要があります。 API プロファイルは、一連の Azure リソース プロバイダーとその API バージョンを表します。 これにより、複数の Azure クラウドを対話操作するときに、適切なバージョンの API を使用できます。 たとえば、グローバルな Azure と Azure Stack Hub を操作するときに複数のクラウドを操作する場合、API プロファイルでは、そのリリース日と一致する名前が指定されます。 **2017-09-03** プロファイルを使用します。
 
-Azure Stack と API プロファイルの詳細については、「[Azure Stack での API バージョンのプロファイルの管理](../user/azure-stack-version-profiles.md)」を参照してください。
+Azure Stack Hub と API プロファイルの詳細については、「[Azure Stack Hub での API バージョンのプロファイルの管理](../user/azure-stack-version-profiles.md)」を参照してください。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | 説明 |
+| パラメーター                  | [説明] |
 |---                         | --- |
 | registrationSubscriptionID | 初期登録に使用された Azure サブスクリプション。 |
-| customerSubscriptionID     | 登録される顧客の Azure サブスクリプション (Azure Stack ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack にサインインするためのサブスクリプションを作成します。 |
+| customerSubscriptionID     | 登録される顧客に属する Azure サブスクリプション (Azure Stack Hub ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack Hub にサインインするためのサブスクリプションを作成します。 |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。 |
-| registrationName           | Azure Stack の登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。 |
+| registrationName           | お使いの Azure Stack Hub の登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack Hub デプロイのクラウド ID です。 |
 
 > [!NOTE]  
-> テナントは、それが使用する各 Azure Stack デプロイに登録されている必要があります。 テナントで複数の Azure Stack を使用する場合は、各デプロイの初期登録をテナントのサブスクリプションで更新する必要があります。
+> テナントは、それが使用する各 Azure Stack Hub デプロイに登録されている必要があります。 テナントで複数の Azure Stack Hub を使用する場合は、各デプロイの初期登録をテナントのサブスクリプションで更新します。
 
 ### <a name="powershell"></a>PowerShell
 
-テナントを追加するには、**New-AzureRmResource** コマンドレットを使用します。 [Azure Stack に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを使用します。
+テナントを追加するには、**New-AzureRmResource** コマンドレットを使用します。 [Azure Stack Hub に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを使用します。
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -79,17 +77,17 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
  > [!NOTE]  
  > テナントが登録されていない場合は、応答を受信しません。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | 説明          |
+| パラメーター                  | [説明]          |
 |---                         | ---                  |
 | registrationSubscriptionId | 初期登録に使用された Azure サブスクリプション。   |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。    |
-| registrationName           | お使いの Azure Stack デプロイの登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack デプロイのクラウド ID です。   |
+| registrationName           | お使いの Azure Stack Hub デプロイの登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack Hub デプロイのクラウド ID です。   |
 
 ### <a name="powershell"></a>PowerShell
 
-登録されているすべてのテナントを一覧表示するには、**Get-AzureRmResource** コマンドレットを使用します。 [Azure Stack に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを実行します。
+登録されているすべてのテナントを一覧表示するには、**Get-AzureRmResource** コマンドレットを使用します。 [Azure Stack Hub に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを実行します。
 
 ```powershell
 Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions" -ApiVersion 2017-06-01
@@ -125,11 +123,11 @@ GET 操作を使用して、すべてのテナント マッピングの一覧を
 
 ## <a name="remove-a-tenant-mapping"></a>テナント マッピングの削除
 
-登録に追加されているテナントを削除することができます。 そのテナントがまだ Azure Stack のリソースを使用している場合、その使用は Azure Stack の初期登録に使用されたサブスクリプションに課金されます。
+登録に追加されているテナントを削除することができます。 そのテナントがまだ Azure Stack Hub のリソースを使用している場合、その使用は Azure Stack Hub の初期登録に使用されたサブスクリプションに課金されます。
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | 説明          |
+| パラメーター                  | [説明]          |
 |---                         | ---                  |
 | registrationSubscriptionId | 登録用のサブスクリプション ID です。   |
 | resourceGroup              | 登録のリソース グループです。   |
@@ -138,7 +136,7 @@ GET 操作を使用して、すべてのテナント マッピングの一覧を
 
 ### <a name="powershell"></a>PowerShell
 
-テナントを削除するには、**Remove-AzureRmResource** コマンドレットを使用します。 [Azure Stack に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを実行します。
+テナントを削除するには、**Remove-AzureRmResource** コマンドレットを使用します。 [Azure Stack Hub に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを実行します。
 
 ```powershell
 Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
@@ -153,6 +151,6 @@ DELETE 操作を使用して、テナントのマッピングを削除するこ�
 **応答**:204 No Content  
 **応答本文**:Empty
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack からのリソースの使用量の取得方法](azure-stack-billing-and-chargeback.md)
+- [Azure Stack Hub からのリソースの使用量の取得方法](azure-stack-billing-and-chargeback.md)

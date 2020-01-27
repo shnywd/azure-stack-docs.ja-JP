@@ -1,6 +1,6 @@
 ---
-title: 自動 Azure Stack ログ収集の構成 | Microsoft Docs
-description: Azure Stack のヘルプとサポートで自動ログ収集を構成する方法。
+title: 自動 Azure Stack Hub ログ収集の構成 | Microsoft Docs
+description: Azure Stack Hub のヘルプとサポートで自動ログ収集を構成する方法。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,32 +16,30 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 087698b4f12c646422fda05cc4c707ad135b150a
-ms.sourcegitcommit: 5eae057cb815f151e6b8af07e3ccaca4d8e4490e
+ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72310606"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882591"
 ---
-# <a name="configure-automatic-azure-stack-diagnostic-log-collection"></a>自動 Azure Stack 診断ログ収集の構成
-
-*適用対象:Azure Stack 統合システム*
+# <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>自動 Azure Stack Hub 診断ログ収集の構成
 
 ログ収集とカスタマー サポート エクスペリエンスを効率化するために、自動診断ログ収集機能を構成することをお勧めします。 システム正常性状態を調査する必要がある場合、Microsoft カスタマー サポートサービス (CSS) による分析のためにログを自動的にアップロードすることができます。 
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Azure BLOB コンテナー SAS URL の作成 
 
-自動ログ収集を構成する前に、BLOB コンテナーの Shared Access Signature (SAS) を取得する必要があります。 SAS により、アカウント キーを共有することなく、ストレージ アカウントのリソースへのアクセス権を付与できます。 Azure Stack ログファイルを Azure の BLOB コンテナーに保存し、CSS がログを収集できる SAS URL を提供することができます。 
+自動ログ収集を構成する前に、BLOB コンテナーの Shared Access Signature (SAS) を取得する必要があります。 SAS により、アカウント キーを共有することなく、ストレージ アカウントのリソースへのアクセス権を付与できます。 Azure Stack Hub ログ ファイルを Azure の BLOB コンテナーに保存し、CSS がログを収集できる SAS URL を提供することができます。 
 
 ### <a name="prerequisites"></a>前提条件
 
 Azure で新規または既存の BLOB コンテナーを使用できます。 Azure で BLOB コンテナーを作成するには、少なくとも[ストレージ BLOB 共同作成者ロール](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)または[特定のアクセス許可](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)が必要です。 グローバル管理者にも、必要な権限があります。 
 
-自動ログ収集ストレージ アカウントのパラメーターの選択に関するベスト プラクティスについては、「[Best practices for automatic Azure Stack log collection](azure-stack-best-practices-automatic-diagnostic-log-collection.md)」 (自動 Azure Stack ログ収集のベストプラクティス) を参照してください。 ストレージ アカウントの種類について詳しくは、「[Azure ストレージ アカウントの概要](https://docs.microsoft.com/azure/storage/common/storage-account-overview)」をご覧ください
+自動ログ収集ストレージ アカウントのパラメーターの選択に関するベスト プラクティスについては、「[自動 Azure Stack Hub ログ収集のベスト プラクティス](azure-stack-best-practices-automatic-diagnostic-log-collection.md)」を参照してください。 ストレージ アカウントの種類について詳しくは、「[Azure ストレージ アカウントの概要](https://docs.microsoft.com/azure/storage/common/storage-account-overview)」をご覧ください
 
 ### <a name="create-a-blob-storage-account"></a>BLOB ストレージ アカウントの作成
  
-1. [Azure Portal](https://portal.azure.com) にサインインします。
+1. [Azure portal](https://portal.azure.com) にサインインする
 1. **[ストレージ アカウント]**  >  **[追加]** をクリックします。 
 1. 次の設定を使用して BLOB コンテナーを作成します。
    - **サブスクリプション**:Azure サブスクリプションを選びます
@@ -73,7 +71,7 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
    - 開始時刻:必要に応じて、開始時刻を戻すことができます 
    - 有効期限:2 年間
    - タイム ゾーン:UTC
-   - アクセス許可:読み取り、書き込み、および一覧表示
+   - 権限:読み取り、書き込み、および一覧表示
 
    ![Shared Access Signature のプロパティを示すスクリーンショット](media/azure-stack-automatic-log-collection/sas-properties.png) 
 
@@ -86,7 +84,7 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 
 次の手順に従って、SAS URL をログ収集 UI に追加します。 
 
-1. Azure Stack 管理者ポータルにサインインします。
+1. Azure Stack Hub 管理者ポータルにサインインします。
 1. **[Help and support Overview]\(ヘルプとサポートの概要\)** を開きます。
 1. **[Automatic collection settings]\(自動収集の設定\)** をクリックします。
 
@@ -102,7 +100,7 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 
 ## <a name="view-log-collection"></a>ログ収集の表示
 
-Azure Stack から収集されたログの履歴は、[ヘルプとサポート] の **[ログ収集]** ページに次の日付と時刻と共に表示されます。
+Azure Stack Hub から収集されたログの履歴は、[ヘルプとサポート] の**ログ収集**ページに次の日付と時刻と共に表示されます。
 
 - **収集時刻**:ログ収集操作が開始されたとき 
 - **開始日**:収集する期間の開始
@@ -149,13 +147,13 @@ Azure Stack から収集されたログの履歴は、[ヘルプとサポート]
 |失敗した操作と競合するため、スケジュールされたバックアップがスキップされた  | AzureStack.BackupController.BackupSkippedWithFailedOperationFault |   
 
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
-[Azure Stack のログおよび顧客データの処理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
+[Azure Stack Hub でのログおよび顧客データの処理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 
 [Shared Access Signatures (SAS) の使用](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 
-[自動 Azure Stack ログ収集のベストプラクティス](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
+[自動 Azure Stack Hub ログ収集のベスト プラクティス](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 
 
 

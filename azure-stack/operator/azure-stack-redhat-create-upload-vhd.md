@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 用の Red Hat ベースの仮想マシンを準備する | Microsoft Docs
-titleSuffix: Azure Stack
+title: Azure Stack Hub 用の Red Hat ベースの仮想マシンを準備する | Microsoft Docs
+titleSuffix: Azure Stack Hub
 description: Red Hat Linux オペレーティング システムを格納した Azure 仮想ハード ディスク (VHD) を作成してアップロードする方法について説明します。
 services: azure-stack
 documentationcenter: ''
@@ -18,18 +18,18 @@ ms.date: 12/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: be51964d4416e632f5ef3462c3c42861a82e47d5
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 2ac894211b1ccd8d1537453100879ad695507268
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654901"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145820"
 ---
-# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack 用の Red Hat ベースの仮想マシンの準備
+# <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Azure Stack Hub 用の Red Hat ベースの仮想マシンの準備
 
-この記事では、Red Hat Enterprise Linux (RHEL) の仮想マシン (VM) を Azure Stack で使用できるように準備する方法について説明します。 この記事で取り上げる RHEL のバージョンは 7.1+ で、 準備対象のハイパーバイザーは Hyper-V、Kernel-based Virtual Machine (KVM)、VMware です。
+この記事では、Red Hat Enterprise Linux (RHEL) の仮想マシン (VM) を Azure Stack Hub で使用できるように準備する方法について説明します。 この記事で取り上げる RHEL のバージョンは 7.1+ で、 準備対象のハイパーバイザーは Hyper-V、Kernel-based Virtual Machine (KVM)、VMware です。
 
-Red Hat Enterprise Linux のサポート情報については、「[Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531)」(Red Hat と Azure Stack: よく寄せられる質問) を参照してください。
+Red Hat Enterprise Linux のサポート情報については、「[Red Hat and Azure Stack Hub: Frequently Asked Questions](https://access.redhat.com/articles/3413531)」(Red Hat と Azure Stack: よく寄せられる質問) を参照してください。
 
 ## <a name="prepare-a-red-hat-based-vm-from-hyper-v-manager"></a>Hyper-V マネージャーからの Red Hat ベースの VM の準備
 
@@ -37,14 +37,14 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 ### <a name="rhel-installation-notes"></a>RHEL のインストールに関する注記
 
-* Azure Stack では、VHDX 形式はサポートされていません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、 **[容量固定]** を選択します。
-* Azure Stack でサポートされるのは、第 1 世代の VM のみです。 第 1 世代の VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、[Hyper-V で第 1 世代と第 2 世代のどちらの VM を作成する必要があるか](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)に関するページを参照してください。
+* Azure Stack Hub では、VHDX 形式はサポートされていません。 Azure でサポートされるのは、容量固定の VHD のみです。 Hyper-V マネージャーを使ってディスクの形式を VHD に変換するか、または convert-vhd コマンドレットを使用してください。 VirtualBox を使用する場合は、ディスクの作成時に、既定の動的割り当てオプションではなく、 **[容量固定]** を選択します。
+* Azure Stack Hub でサポートされるのは、第 1 世代の VM のみです。 第 1 世代の VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、[Hyper-V で第 1 世代と第 2 世代のどちらの VM を作成する必要があるか](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)に関するページを参照してください。
 * VHD のサイズの上限は、1,023 GB です。
 * Linux オペレーティング システムをインストールする場合は、Logical Volume Manager (LVM) (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 これにより、特にオペレーティング システム ディスクをトラブルシューティングのために別の同じ VM に接続する必要がある場合に、複製された VM との LVM 名の競合を回避することができます。
 * ユニバーサル ディスク フォーマット (UDF) ファイル システムをマウントするためのカーネル サポートが必要です。 最初の起動時に、ゲストに接続されている UDF 形式のメディアにより、プロビジョニング構成が Linux VM に渡されます。 Azure Linux エージェントは、その構成を読み取り、VM をプロビジョニングするために、UDF ファイル システムをマウントする必要があります。
 * オペレーティング システム ディスクにスワップ パーティションを構成しないでください。 Linux エージェントは、一時的なリソース ディスク上にスワップ ファイルを作成するよう構成できます。 このことに関する詳細については、次の手順を参照してください。
 * Azure の VHD の仮想サイズはすべて、1 MB にアラインメントさせる必要があります。 未フォーマット ディスクから VHD に変換するときに、変換する前の未フォーマット ディスクのサイズが 1 MB の倍数であることを確認する必要があります。 詳細については、後述の手順を参照してください。
-* Azure Stack では、cloud-init がサポートされています。 [cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) は、Linux VM を初回起動時にカスタマイズするために広く使用されているアプローチです。 cloud-init を使って、パッケージをインストールしてファイルを書き込んだり、ユーザーとセキュリティを構成したりすることができます。 cloud-init は初回起動プロセスの間に呼び出されるので、構成を適用するために追加の手順や必要なエージェントはありません。 イメージに cloud-init を追加する手順については、「[cloud-init で使用するための既存の Linux Azure VM イメージの準備](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)」を参照してください。
+* Azure Stack Hub では、cloud-init がサポートされています。 [cloud-Init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) は、Linux VM を初回起動時にカスタマイズするために広く使用されているアプローチです。 cloud-init を使って、パッケージをインストールしてファイルを書き込んだり、ユーザーとセキュリティを構成したりすることができます。 cloud-init は初回起動プロセスの間に呼び出されるので、構成を適用するために追加の手順や必要なエージェントはありません。 イメージに cloud-init を追加する手順については、「[cloud-init で使用するための既存の Linux Azure VM イメージの準備](https://docs.microsoft.com/azure/virtual-machines/linux/cloudinit-prepare-custom-image)」を参照してください。
 
 ### <a name="prepare-an-rhel-7-vm-from-hyper-v-manager"></a>Hyper-V マネージャーからの RHEL 7 VM の準備
 
@@ -117,59 +117,59 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
-
+1. Azure Stack Hub 用のカスタム vhd を作成する際には、バージョンが 2.2.20 と 2.2.35 の間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack Hub 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack Hub を 1903 リリース以降に更新するか、1901 および 1902 修正プログラムを適用します。
+    
     [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
-
+    
     1. setuptools をダウンロードします。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+    
     1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
 
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
 
     1. setup.py をインストールします。
 
-    ```bash
-    sudo python setup.py install
-    ```
+        ```bash
+        sudo python setup.py install
+        ```
 
     1. waagent を再起動します。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
+    
+        ```bash
+        sudo systemctl restart waagent
+        ```
 
     1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
 
-    ```bash
-    waagent -version
-    ```
-    
+        ```bash
+        waagent -version
+        ```
+
     [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
     
     1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
     1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+    
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
@@ -189,7 +189,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack Hub のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
 1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
@@ -316,58 +316,58 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
+1. Azure Stack Hub 用のカスタム vhd を作成する際には、バージョンが 2.2.20 と 2.2.35 の間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack Hub 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack Hub を 1903 リリース以降に更新するか、1901 および 1902 修正プログラムを適用します。
 
     [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
 
     1. setuptools をダウンロードします。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
+        
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
     1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
     1. setup.py をインストールします。
-
-    ```bash
-    sudo python setup.py install
-    ```
-
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
     1. waagent を再起動します。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
     1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
-
-    ```bash
-    waagent -version
-    ```
-    
+        
+        ```bash
+        waagent -version
+        ```
+        
     [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
     
     1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
-    1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
+        1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
+            ```bash
+            sudo yum install WALinuxAgent
+            sudo systemctl enable waagent.service
+            ```
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
@@ -387,7 +387,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack Hub のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
 1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
@@ -434,7 +434,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 ## <a name="prepare-a-red-hat-based-vm-from-vmware"></a>VMware からの Red Hat ベース VM の準備
 
-このセクションは、VMware に RHEL VM が既にインストールされていることを前提としています。 VMware にオペレーティング システムをインストールする方法の詳細については、[VMware のゲスト オペレーティング システムのインストール ガイド](https://partnerweb.vmware.com/GOSIG/home.html)を参照してください。
+このセクションは、VMware に RHEL VM が既にインストールされていることを前提としています。 VMware にオペレーティング システムをインストールする方法の詳細については、[VMware のゲスト オペレーティング システムのインストール ガイド](https://aka.ms/aa6z600)を参照してください。
 
 * Linux オペレーティング システムをインストールする場合は、LVM (通常、多くのインストールで既定) ではなく標準パーティションを使用することをお勧めします。 この方法により、特にオペレーティング システム ディスクをトラブルシューティングのために別の VM に接続する必要がある場合に、LVM 名と複製された VM の競合が回避されます。 必要な場合は、LVM または RAID をデータ ディスク上で使用できます。
 * オペレーティング システム ディスクにスワップ パーティションを構成しないでください。 一時的なリソース ディスク上にスワップ ファイルを作成するよう Linux エージェントを構成できます。 この構成の詳細については、次の手順を参照してください。
@@ -521,44 +521,44 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ClientAliveInterval 180
     ```
 
-1. Azure Stack 用のカスタム vhd を作成する際には、バージョンが 2.2.20 ～ 2.2.35 間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack を 1903 リリース以降に更新するか、1901/1902 修正プログラムを適用します。
+1. Azure Stack Hub 用のカスタム vhd を作成する際には、バージョンが 2.2.20 と 2.2.35 の間 (両バージョンは除く) の WALinuxAgent は、1910 リリースより前の Azure Stack Hub 環境では機能しないことに留意してください。 バージョン 2.2.20/2.2.35 を使用してイメージを準備できます。 2\.2.35 より後のバージョンを使用してカスタム イメージを準備するには、Azure Stack Hub を 1903 リリース以降に更新するか、1901 および 1902 修正プログラムを適用します。
 
     [1910 リリースより前] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
 
     1. setuptools をダウンロードします。
-
-    ```bash
-    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
-    tar xzf setuptools-7.0.tar.gz
-    cd setuptools-7.0
-    ```
-
-    1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
-
-    ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
-    unzip v2.2.20.zip
-    cd WALinuxAgent-2.2.20
-    ```
-
-    1. setup.py をインストールします。
-
-    ```bash
-    sudo python setup.py install
-    ```
-
-    1. waagent を再起動します。
-
-    ```bash
-    sudo systemctl restart waagent
-    ```
-
-    1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
-
-    ```bash
-    waagent -version
-    ```
     
+        ```bash
+        wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+        tar xzf setuptools-7.0.tar.gz
+        cd setuptools-7.0
+        ```
+        
+    1. 2\.2.20 バージョンのエージェントを GitHub からダウンロードして解凍します。
+        
+        ```bash
+        wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
+        unzip v2.2.20.zip
+        cd WALinuxAgent-2.2.20
+        ```
+        
+    1. setup.py をインストールします。
+        
+        ```bash
+        sudo python setup.py install
+        ```
+        
+    1. waagent を再起動します。
+        
+        ```bash
+        sudo systemctl restart waagent
+        ```
+        
+    1. エージェントのバージョンがダウンロードしたものと一致するかどうかをテストします。 この例では、2.2.20 となります。
+        
+        ```bash
+        waagent -version
+        ```
+        
     [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
     
     1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
@@ -568,12 +568,12 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ```
 
     1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-
+        
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+        
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
     Azure Linux エージェントは、VM が Azure にプロビジョニングされた後に VM に接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、VM のプロビジョニングが解除されると空になることに注意してください。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。
@@ -592,7 +592,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     sudo subscription-manager unregister
     ```
 
-1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
+1. エンタープライズ証明機関を使用してデプロイされたシステムを使用している場合、RHEL VM は Azure Stack Hub のルート証明書を信頼しません。 この証明書は、信頼できるルート ストアに配置する必要があります。 詳細については、「[信頼できるルート証明書のサーバーへの追加](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)」を参照してください。
 
 1. 次のコマンドを実行して VM をプロビジョニング解除し、Azure でのプロビジョニング用に準備します。
 
@@ -637,7 +637,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
 ## <a name="prepare-a-red-hat-based-vm-from-an-iso-by-using-a-kickstart-file-automatically"></a>kickstart ファイルを使用して ISO から Red Hat ベースの VM を自動的に準備する
 
-1. 次の内容を含んだ kickstart ファイルを作成し、そのファイルを保存します。 cloud init の停止とアンインストールは省略可能です (cloud init は Azure Stack 1910 リリースより後でサポートされています)。 1910 リリースより後の場合のみ、redhat リポジトリからエージェントをインストールします。 1910 より前では、前のセクションで行ったように Azure リポジトリを使用します。 kickstart のインストールの詳細については、 [kickstart インストール ガイド](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)を参照してください。
+1. 次の内容を含んだ kickstart ファイルを作成し、そのファイルを保存します。 cloud init の停止とアンインストールは省略可能です (cloud init は Azure Stack Hub 1910 リリースより後でサポートされています)。 1910 リリースより後の場合のみ、redhat リポジトリからエージェントをインストールします。 1910 より前では、前のセクションで行ったように Azure リポジトリを使用します。 kickstart のインストールの詳細については、 [kickstart インストール ガイド](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html)を参照してください。
 
     ```sh
     Kickstart for provisioning a RHEL 7 Azure VM
@@ -808,6 +808,6 @@ dracut -f -v
 
 ## <a name="next-steps"></a>次のステップ
 
-これで、Red Hat Enterprise Linux 仮想ハード ディスクを使用して、Azure Stack に新しい VM を作成する準備が整いました。 初めて Azure Stack に VHD ファイルをアップロードする場合は、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
+これで、Red Hat Enterprise Linux 仮想ハード ディスクを使用して、Azure Stack Hub に新しい VM を作成する準備が整いました。 初めて Azure Stack Hub に VHD ファイルをアップロードする場合は、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
 
 Red Hat Enterprise Linux の実行が認定されているハイパーバイザーの詳細については、[Red Hat の Web サイト](https://access.redhat.com/certified-hypervisors)を参照してください。

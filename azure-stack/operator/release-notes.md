@@ -16,16 +16,14 @@ ms.date: 12/18/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: fab9904ca598ff1306d4ad0277aabcf0ab073845
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: da89dbe1cfb03e7e1970852b5742c4d9290ba93c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727481"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75879973"
 ---
 # <a name="azure-stack-hub-updates-release-notes"></a>Azure Stack Hub の更新プログラム: リリース ノート
-
-*適用対象:Azure Stack Hub 統合システム*
 
 この記事では、Azure Stack Hub 更新プログラム パッケージの内容について説明します。 この更新プログラムには、このリリースの Azure Stack Hub に対する新機能、機能強化、および修正が含まれています。
 
@@ -76,7 +74,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 管理者ポータルでは、リージョンのプロパティ メニューに特権エンドポイントの IP アドレスが表示され、簡単に見つけられるようになりました。 さらに、現在構成されているタイム サーバーと DNS フォワーダーも表示されます。 詳細については、「[Azure Stack での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
+- 管理者ポータルでは、リージョンのプロパティ メニューに特権エンドポイントの IP アドレスが表示され、簡単に見つけられるようになりました。 さらに、現在構成されているタイム サーバーと DNS フォワーダーも表示されます。 詳細については、「[Azure Stack Hub で特権エンドポイントを使用する](azure-stack-privileged-endpoint.md)」を参照してください。
 
 - Azure Stack Hub の正常性および監視システムでは、エラーが発生した場合、さまざまなハードウェア コンポーネントに対してアラートを生成できるようになりました。 これには追加の構成が必要です。 詳細については、「[Azure Stack Hub のハードウェア コンポーネントを監視する](azure-stack-hardware-monitoring.md)」を参照してください。
 
@@ -96,7 +94,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 - [AKS エンジン](../user/azure-stack-kubernetes-aks-engine-overview.md)を使用する **Kubernetes クラスター**の管理のサポートを追加しました。 この更新プログラムから、運用環境の Kubernetes クラスターをデプロイできるようになりました。 AKS エンジンによって、以下のことが可能になっています。
   - Kubernetes クラスターのライフサイクルを管理できます。 クラスターの作成、更新、およびスケールを行うことができます。
-  - AKS チームおよび Azure Stack チームによって作成されたマネージド イメージを使用して、クラスターを維持できます。
+  - AKS チームおよび Azure Stack Hub チームによって作成されたマネージド イメージを使用して、クラスターを維持できます。
   - Azure Resource Manager に統合された Kubernetes クラウド プロバイダーを利用し、ネイティブの Azure リソースを使用してクラスターを構築できます。
   - 接続または切断された Azure Stack Hub スタンプでクラスターをデプロイおよび管理できます。
   - Azure ハイブリッド機能を使用します。
@@ -163,7 +161,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 - インフラストラクチャ バックアップ サービスでは、AAD デプロイのためのバックアップ ペイロードに ID サービスが追加されました。  
 
-- 1910 リリースでは、Azure Stack PowerShell モジュールがバージョン 1.8.0 に更新されました。<br>変更内容:
+- 1910 リリースでは、Azure Stack Hub PowerShell モジュールがバージョン 1.8.0 に更新されました。<br>変更内容:
    - **新しい DRP 管理モジュール**:デプロイ リソース プロバイダー (DRP) を使用すると、Azure Stack Hub に対するリソース プロバイダーの調整されたデプロイが可能になります。 これらのコマンドを使うと、DRP とやり取りする Azure Resource Manager レイヤーとやり取りできます。
    - **BRP**: <br />
            - Azure Stack インフラストラクチャ バックアップの 1 つのロールの復元をサポートします。 <br />
@@ -224,19 +222,19 @@ Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適�
 ::: moniker range="azs-1908"
 ## <a name="1908-build-reference"></a>1908 ビルドのリファレンス
 
-Azure Stack 1908 更新プログラムのビルド番号は **1.1908.4.33** です。
+Azure Stack Hub 1908 更新プログラムのビルド番号は **1.1908.4.33** です。
 
 ### <a name="update-type"></a>更新の種類
 
-1908 では、Azure Stack が実行される基になるオペレーティング システムが Windows Server 2019 に更新されています。 これにより、核となる基本的な機能強化だけでなく、近い将来に Azure Stack に機能を追加する機能も使用可能になります。
+1908 では、Azure Stack Hub が実行される基になるオペレーティング システムが Windows Server 2019 に更新されています。 これにより、核となる基本的な機能強化だけでなく、近い将来に Azure Stack Hub に機能を追加する機能も使用可能になります。
 
-Azure Stack 1908 更新プログラムのビルドの種類は**完全**です。 そのため、1908 更新プログラムは、1906 や 1907 のような高速更新プログラムよりもランタイムが長くなります。 完全な更新プログラムの正確なランタイムは、Azure Stack インスタンスに含まれているノード数、テナントのワークロードごとにシステムで使用される容量、システムのネットワーク接続 (インターネットに接続されている場合)、システムのハードウェア構成によって異なります。 内部テストでは、1908 更新プログラムのランタイムが次のように予測されました。4 ノード - 42 時間、8 ノード - 50 時間、12 ノード - 60 時間、16 ノード - 70 時間。 更新プログラムのランタイムがこの予測値よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack オペレーターによるアクションは不要です。
+Azure Stack Hub 1908 更新プログラムのビルドの種類は**完全**です。 そのため、1908 更新プログラムは、1906 や 1907 のような高速更新プログラムよりもランタイムが長くなります。 完全な更新プログラムの正確なランタイムは、Azure Stack Hub インスタンスに含まれているノード数、テナントのワークロードごとにシステムで使用される容量、システムのネットワーク接続 (インターネットに接続されている場合)、システムのハードウェア構成によって異なります。 内部テストでは、1908 更新プログラムのランタイムが次のように予測されました。4 ノード - 42 時間、8 ノード - 50 時間、12 ノード - 60 時間、16 ノード - 70 時間。 更新プログラムのランタイムがこの予測値よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。
 
-更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。
+更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラム管理の概要](azure-stack-updates.md)」を参照してください。
 
 - 更新プログラムの正確な実行時間は一般に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの構成に左右されます。
-- 実行時間が予測よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack オペレーターによるアクションは不要です。
-- このおおよその実行時間は、1908 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
+- 実行時間が予測よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。
+- このおおよその実行時間は、1908 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
 
 <!-- ## What's in this update -->
 
@@ -246,22 +244,22 @@ Azure Stack 1908 更新プログラムのビルドの種類は**完全**です�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 1908 では、Azure Stack が実行される基になるオペレーティング システムが Windows Server 2019 に更新されていることに注意してください。 これにより、核となる基本的な機能強化だけでなく、近い将来に Azure Stack に機能を追加する機能も使用可能になります。
-- Azure Stack インフラストラクチャのすべてのコンポーネントが FIPS 140-2 モードで動作するようになりました。
-- Azure Stack オペレーターは、ポータル ユーザー データを削除できるようになりました。 詳細については、「[Clear portal user data from Azure Stack](azure-stack-portal-clear.md)」 (Azure Stack からポータル ユーザー データをクリアする) を参照してください。
+- 1908 では、Azure Stack Hub が実行される基になるオペレーティング システムが Windows Server 2019 に更新されていることに注意してください。 これにより、核となる基本的な機能強化だけでなく、近い将来に Azure Stack Hub に機能を追加する機能も使用可能になります。
+- Azure Stack Hub インフラストラクチャのすべてのコンポーネントが FIPS 140-2 モードで動作するようになりました。
+- Azure Stack Hub オペレーターは、ポータル ユーザー データを削除できるようになりました。 詳細については、「[Azure Stack Hub からポータル ユーザー データをクリアする](azure-stack-portal-clear.md)」を参照してください。
 
 ### <a name="improvements"></a>機能強化
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-- 物理ノードのハードウェアのトラステッド プラットフォーム モジュール (TPM) にシークレットを保持するために、Azure Stack の保存データの暗号化が向上しました。
+- 物理ノードのハードウェアのトラステッド プラットフォーム モジュール (TPM) にシークレットを保持するために、Azure Stack Hub の保存データの暗号化が向上しました。
 
 ### <a name="changes"></a>[変更点]
 
-- ハードウェア プロバイダーは Azure Stack バージョン 1908 と同時に OEM 拡張機能パッケージ 2.1 以降をリリースします。 Azure Stack バージョン 1908 には OEM 拡張機能パッケージ 2.1 以降が前提条件です。 OEM 拡張機能パッケージ 2.1 以降をダウンロードする方法の詳細については、システムのハードウェア プロバイダーに問い合わせてください。また、[OEM 更新プログラム](azure-stack-update-oem.md#oem-contact-information)の記事を参照してください。  
+- ハードウェア プロバイダーは Azure Stack Hub バージョン 1908 と同時に OEM 拡張機能パッケージ 2.1 以降をリリースします。 Azure Stack Hub バージョン 1908 には OEM 拡張機能パッケージ 2.1 以降が前提条件です。 OEM 拡張機能パッケージ 2.1 以降をダウンロードする方法の詳細については、システムのハードウェア プロバイダーに問い合わせてください。また、[OEM 更新プログラム](azure-stack-update-oem.md#oem-contact-information)の記事を参照してください。  
 
 ### <a name="fixes"></a>修正
 
-- 今後の Azure Stack OEM 更新プログラムとの互換性、およびユーザーのユーザー イメージを使用した VM デプロイに関する問題が修正されました。 この問題は 1907 で見つかり、修正プログラム [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44) で修正されました  
+- 今後の Azure Stack Hub OEM 更新プログラムとの互換性、およびユーザーのユーザー イメージを使用した VM デプロイに関する問題が修正されました。 この問題は 1907 で見つかり、修正プログラム [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44) で修正されました  
 - OEM ファームウェア更新プログラムに関する問題が修正され、Fabric リングの正常性についての Test-AzureStack での誤診断に関する問題が修正されました。 この問題は 1907 で見つかり、修正プログラム [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35) で修正されました
 - OEM ファームウェア更新プロセスに関する問題を修正しました。 この問題は 1907 で見つかり、修正プログラム [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37) で修正されました
 
@@ -269,47 +267,47 @@ Azure Stack 1908 更新プログラムのビルドの種類は**完全**です�
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
-Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
+Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
 
 ## <a name="download-the-update-1908"></a>更新プログラムのダウンロード
 
-Azure Stack 1908 更新プログラム パッケージは、[Azure Stack ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
+Azure Stack Hub 1908 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Azure Stack では、修正プログラムが定期的にリリースされます。 Azure Stack を 1908 に更新する前に、必ず 1907 用の最新の Azure Stack 修正プログラムをインストールしてください。
+Azure Stack Hub では、修正プログラムが定期的にリリースされます。 Azure Stack Hub を 1908 に更新する前に、必ず 1907 用の最新の Azure Stack Hub 修正プログラムをインストールしてください。
 
-Azure Stack 修正プログラムを適用できるのは Azure Stack 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
+Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
 ### <a name="prerequisites-before-applying-the-1908-update"></a>前提条件:1908 更新プログラムを適用する前
 
-Azure Stack の 1908 リリースは、次の修正プログラムが適用された 1907 リリースに適用する必要があります。
+Azure Stack Hub の 1908 リリースは、以下の修正プログラムが適用された 1907 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack Hub 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
 
-Azure Stack 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
+Azure Stack Hub 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack Hub OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack Hub システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
 
 ### <a name="after-successfully-applying-the-1908-update"></a>1908 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1908.11.47](https://support.microsoft.com/help/4535000)
+- [Azure Stack Hub 修正プログラム 1.1908.11.47](https://support.microsoft.com/help/4535000)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
 ## <a name="1907-build-reference"></a>1907 ビルドのリファレンス
 
-Azure Stack 1907 更新プログラムのビルド番号は **1.1907.0.20** です。
+Azure Stack Hub 1907 更新プログラムのビルド番号は **1.1907.0.20** です。
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack 1907 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。 内部テストに基づいて、1907 更新プログラムが完了するまでの予測所要時間は約 13 時間です。
+Azure Stack Hub 1907 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。 内部テストに基づいて、1907 更新プログラムが完了するまでの予測所要時間は約 13 時間です。
 
 - 更新プログラムの正確な実行時間は一般に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの構成に左右されます。
-- 実行時間が予測よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack オペレーターによるアクションは不要です。
-- このおおよその実行時間は、1907 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
+- 実行時間が予測よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。
+- このおおよその実行時間は、1907 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
 
 ## <a name="whats-in-this-update"></a>この更新プログラムの新機能
 
@@ -319,9 +317,9 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 診断ログの収集を容易にし、改善するための Azure Stack 診断ログ収集サービスの一般公開リリース。 Azure Stack 診断ログ収集サービスは、診断ログを収集して、Microsoft カスタマー サポート サービス (CSS) と共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定したり、オンデマンドで同じ操作を実行したりすることができます。 詳細については、[診断ログの収集](azure-stack-diagnostic-log-collection-overview.md)に関する記事を参照してください。
+- 診断ログの収集を容易にし、改善するための Azure Stack Hub 診断ログ収集サービスの一般公開リリース。 Azure Stack Hub 診断ログ収集サービスは、診断ログを収集して、Microsoft カスタマー サポート サービス (CSS) と共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack Hub 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定したり、オンデマンドで同じ操作を実行したりすることができます。 詳細については、[診断ログの収集](azure-stack-diagnostic-log-collection-overview.md)に関する記事を参照してください。
 
-- Azure Stack 検証ツール **Test-AzureStack** の一部としての Azure Stack ネットワーク インフラストラクチャ検証の一般公開リリース。 Azure Stack ネットワーク インフラストラクチャは、**Test-AzureStack** の一部になり、Azure Stack のネットワーク インフラストラクチャで障害が発生したかどうかを特定します。 テストでは、Azure Stack ソフトウェアで定義されたネットワークをバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および ID エンドポイントへの接続が示されます。 さらに、ID プロバイダーとして Azure AD を使用する場合に Azure への、または ADFS を使用する場合にフェデレーション サーバーへの接続が確認されます。 詳細については、[Azure Stack 検証ツール](azure-stack-diagnostic-test.md)に関する記事を参照してください。
+- Azure Stack Hub 検証ツール **Test-AzureStack** の一部としての Azure Stack Hub ネットワーク インフラストラクチャ検証の一般公開リリース。 Azure Stack Hub ネットワーク インフラストラクチャは、**Test-AzureStack** の一部になり、Azure Stack Hub のネットワーク インフラストラクチャで障害が発生したかどうかを特定します。 テストでは、Azure Stack Hub ソフトウェアで定義されたネットワークをバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および ID エンドポイントへの接続が示されます。 さらに、ID プロバイダーとして Azure AD を使用する場合に Azure への、または ADFS を使用する場合にフェデレーション サーバーへの接続が確認されます。 詳細については、[Azure Stack Hub 検証ツール](azure-stack-diagnostic-test.md)に関する記事を参照してください。
 
 - システムの更新中に、必要に応じて、内部の SQL TLS 証明書をローテーションする、内部シークレットのローテーション プロシージャが追加されました。
 
@@ -329,9 +327,9 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Azure Stack の更新ブレードに、アクティブな更新の**最後のステップが完了した**時刻が表示されるようになりました。 これは、更新ブレードに移動し、実行中の更新をクリックすると表示されます。 **[Last Step Completed]\(最後のステップの完了\)** は、 **[Update run details]\(更新実行の詳細\)** セクションにあります。
+- Azure Stack Hub の更新ブレードに、アクティブな更新の**最後のステップが完了した**時刻が表示されるようになりました。 これは、更新ブレードに移動し、実行中の更新をクリックすると表示されます。 **[Last Step Completed]\(最後のステップの完了\)** は、 **[Update run details]\(更新実行の詳細\)** セクションにあります。
 
-- **Start-AzureStack** と **Stop-AzureStack** オペレーター アクションの改善。 Azure Stack を起動する時間が、平均で 50% 短縮されました。 Azure Stack をシャットダウンする時間が、平均で 30% 短縮されました。 平均の起動とシャットダウンの時間は、スケールユニットのノード数が増加しても変わりません。
+- **Start-AzureStack** と **Stop-AzureStack** オペレーター アクションの改善。 Azure Stack Hub を起動する時間が、平均で 50% 短縮されました。 Azure Stack Hub をシャットダウンする時間が、平均で 30% 短縮されました。 平均の起動とシャットダウンの時間は、スケールユニットのノード数が増加しても変わりません。
 
 - 切断された Marketplace ツールのエラー処理が改善されました。 **Export-AzSOfflineMarketplaceItem** を使用した場合に、ダウンロードが失敗するか、部分的に成功した場合、エラーと軽減手順 (存在する場合) に関する詳細を示す詳細なエラーメッセージが表示されます。
 
@@ -344,9 +342,9 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 ### <a name="changes"></a>[変更点]
 
-- Azure Stack バージョン 1907 には、バージョン 1908 に更新する前に、システムの OEM パッケージをバージョン 2.1 以降に更新するようにオペレーターに指示する警告アラートが含まれています。 Azure Stack の OEM 更新プログラムの適用方法の詳細については、「[Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
+- Azure Stack Hub バージョン 1907 には、バージョン 1908 に更新する前に、システムの OEM パッケージをバージョン 2.1 以降に更新するようにオペレーターに指示する警告アラートが含まれています。 Azure Stack Hub の OEM 更新プログラムの適用方法の詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
 
-- Azure Stack 診断ログ収集サービスの通信を有効にするための新しいアウトバウンド規則 (HTTPS) が追加されました。 詳細については、[Azure Stack データセンター統合 - エンドポイントの発行](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページをご覧ください。
+- Azure Stack Hub 診断ログ収集サービスの通信を有効にするための新しいアウトバウンド規則 (HTTPS) が追加されました。 詳細については、[Azure Stack Hub データセンター統合 - エンドポイントの発行](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページを参照してください。
 
 - 外部ストレージの場所の容量が不足している場合、インフラストラクチャ バックアップ サービスによって、部分的にアップロードされたバックアップが削除されるようになりました。
 
@@ -387,7 +385,7 @@ Azure Stack 1907 更新プログラムのビルドの種類は**高速**です�
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
-Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
+Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
 
 ## <a name="update-planning"></a>計画の更新
 
@@ -399,37 +397,37 @@ Azure Stack のこの更新でのセキュリティ更新プログラムにつ�
 
 ## <a name="download-the-update"></a>更新プログラムをダウンロードする
 
-Azure Stack 1907 更新プログラム パッケージは、[Azure Stack ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
+Azure Stack Hub 1907 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Azure Stack では、修正プログラムが定期的にリリースされます。 Azure Stack を 1907 に更新する前に、必ず 1906 用の最新の Azure Stack 修正プログラムをインストールしてください。
+Azure Stack Hub では、修正プログラムが定期的にリリースされます。 Azure Stack Hub を 1907 に更新する前に、必ず 1906 用の最新の Azure Stack Hub 修正プログラムをインストールしてください。
 
-Azure Stack 修正プログラムを適用できるのは Azure Stack 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
+Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
 ### <a name="before-applying-the-1907-update"></a>1907 更新プログラムを適用する前
 
-Azure Stack の 1907 リリースは、次の修正プログラムが適用された 1906 リリースに適用する必要があります。
+Azure Stack Hub の 1907 リリースは、以下の修正プログラムが適用された 1906 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.15.60](https://support.microsoft.com/help/4524559)
+- [Azure Stack Hub 修正プログラム 1.1906.15.60](https://support.microsoft.com/help/4524559)
 
 ### <a name="after-successfully-applying-the-1907-update"></a>1907 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack Hub 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
 ::: moniker-end
 
 ::: moniker range="azs-1906"
 ## <a name="1906-build-reference"></a>1906 ビルドのリファレンス
 
-Azure Stack 1906 更新プログラムのビルド番号は **1.1906.0.30** です。
+Azure Stack Hub 1906 更新プログラムのビルド番号は **1.1906.0.30** です。
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack 1906 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。 1906 更新プログラムが完了するまでの予測所要時間は、ご使用の Azure Stack 環境内の物理ノード数に関係なく、約 10 時間です。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 ランタイムがこの予測値よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack オペレーターによるアクションは不要です。 このおおよその実行時間は、1906 更新プログラムに固有であり、他の Azure Stack 更新プログラムと比較することはできません。
+Azure Stack Hub 1906 更新プログラムのビルドの種類は**高速**です。 更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。 1906 更新プログラムが完了するまでの予測所要時間は、ご使用の Azure Stack Hub 環境内の物理ノード数に関係なく、約 10 時間です。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 ランタイムがこの予測値よりも長くなることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。 このおおよその実行時間は、1906 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
 
 ## <a name="whats-in-this-update"></a>この更新プログラムの新機能
 
@@ -437,21 +435,21 @@ Azure Stack 1906 更新プログラムのビルドの種類は**高速**です�
 
 <!-- What's new, also net new experiences and features. -->
 
-- すべてのエンドポイントで TLS 1.2 を強制するため、特権エンドポイント (PEP) に **Set-TLSPolicy** コマンドレットが追加されました。 詳しくは、[Azure Stack のセキュリティ コントロール](azure-stack-security-configuration.md)に関するページを参照してください。
+- すべてのエンドポイントで TLS 1.2 を強制するため、特権エンドポイント (PEP) に **Set-TLSPolicy** コマンドレットが追加されました。 詳しくは、[Azure Stack Hub のセキュリティ コントロール](azure-stack-security-configuration.md)に関するページを参照してください。
 
-- 適用されている TLS ポリシーを取得するため、特権エンドポイント (PEP) に **Get-TLSPolicy** コマンドレットが追加されました。 詳しくは、[Azure Stack のセキュリティ コントロール](azure-stack-security-configuration.md)に関するページを参照してください。
+- 適用されている TLS ポリシーを取得するため、特権エンドポイント (PEP) に **Get-TLSPolicy** コマンドレットが追加されました。 詳しくは、[Azure Stack Hub のセキュリティ コントロール](azure-stack-security-configuration.md)に関するページを参照してください。
 
 - システムの更新中に、必要に応じて、内部の TLS 証明書をローテーションする、内部シークレットのローテーション プロシージャが追加されました。
 
-- 期限切れ間近のシークレットに関する重大なアラートが無視された場合に、内部シークレットのローテーションを強制することで、内部シークレットの有効期限切れを回避するための保護が追加されました。 これを通常の運用手順として依存しないでください。 シークレットのローテーションは、メンテナンス期間中に計画する必要があります。 詳しくは、[Azure Stack シークレットのローテーション](azure-stack-rotate-secrets.md)に関するページを参照してください。
+- 期限切れ間近のシークレットに関する重大なアラートが無視された場合に、内部シークレットのローテーションを強制することで、内部シークレットの有効期限切れを回避するための保護が追加されました。 これを通常の運用手順として依存しないでください。 シークレットのローテーションは、メンテナンス期間中に計画する必要があります。 詳しくは、[Azure Stack Hub シークレットのローテーション](azure-stack-rotate-secrets.md)に関するページを参照してください。
 
-- AD FS を使用した Azure Stack のデプロイで Visual Studio Code がサポートされるようになりました。
+- AD FS を使用した Azure Stack Hub のデプロイで Visual Studio Code がサポートされるようになりました。
 
 ### <a name="improvements"></a>機能強化
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- 特権エンドポイントの **Get-GraphApplication** コマンドレットで、現在使用されている証明書の拇印が表示されるようになりました。 これにより、AD FS で Azure Stack がデプロイされるときのサービス プリンシパルの証明書の管理が改善されます。
+- 特権エンドポイントの **Get-GraphApplication** コマンドレットで、現在使用されている証明書の拇印が表示されるようになりました。 これにより、AD FS で Azure Stack Hub がデプロイされるときのサービス プリンシパルの証明書の管理が改善されます。
 
 - AD Graph と AD FS の可用性を検証するため、アラートを生成する機能を含む、新しい正常性の監視ルールが追加されました。
 
@@ -497,17 +495,17 @@ Azure Stack 1906 更新プログラムのビルドの種類は**高速**です�
 
 - **[更新]** ブレードに、失敗した更新プログラムの **[再開]** オプションが含まれるようになりました。
 
-- 管理者ポータルとユーザー ポータルで、検索で Docker 拡張機能が不正に返されるが、Azure Stack では使用できないため、それ以上の操作を実行できないマーケットプレースでの問題を修正しました。
+- 管理者ポータルとユーザー ポータルで、検索で Docker 拡張機能が不正に返されるが、Azure Stack Hub では使用できないため、それ以上の操作を実行できないマーケットプレースでの問題を修正しました。
 
 - テンプレートの名前がアンダー スコア ('_') で始まる場合、テンプレートのデプロイ UI でパラメーターが設定されない問題を修正しました。
 
-- 仮想マシン スケール セットの作成エクスペリエンスで、デプロイのオプションとして CentOS-based 7.2 が提供される問題を修正しました。 CentOS 7.2 は Azure Stack では利用できません。 Centos 7.5 をデプロイのオプションとして提供するようになりました
+- 仮想マシン スケール セットの作成エクスペリエンスで、デプロイのオプションとして CentOS-based 7.2 が提供される問題を修正しました。 CentOS 7.2 は Azure Stack Hub では利用できません。 Centos 7.5 をデプロイのオプションとして提供するようになりました
 
 - **[仮想マシン スケール セット]** ブレードからスケール セットを削除できるようになりました。
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
-Azure Stack のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack security updates](release-notes-security-updates.md)」 (Azure Stack のセキュリティ更新プログラム) をご覧ください。
+Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
 
 ## <a name="update-planning"></a>計画の更新
 
@@ -519,27 +517,27 @@ Azure Stack のこの更新でのセキュリティ更新プログラムにつ�
 
 ## <a name="download-the-update"></a>更新プログラムをダウンロードする
 
-Azure Stack 1906 更新プログラム パッケージは、[Azure Stack ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
+Azure Stack Hub 1906 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Azure Stack では、修正プログラムが定期的にリリースされます。 Azure Stack を 1906 に更新する前に、必ず 1905 用の最新の Azure Stack 修正プログラムをインストールしてください。 更新後、[1906 に対して利用可能な修正プログラム](#after-successfully-applying-the-1906-update)があればインストールします。
+Azure Stack Hub では、修正プログラムが定期的にリリースされます。 Azure Stack Hub を 1906 に更新する前に、必ず 1905 用の最新の Azure Stack Hub 修正プログラムをインストールしてください。 更新後、[1906 に対して利用可能な修正プログラム](#after-successfully-applying-the-1906-update)があればインストールします。
 
-Azure Stack 修正プログラムを適用できるのは Azure Stack 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
+Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
 ### <a name="before-applying-the-1906-update"></a>1906 更新プログラムを適用する前
 
-Azure Stack の 1906 リリースは、次の修正プログラムが適用された 1905 リリースに適用する必要があります。
+Azure Stack Hub の 1906 リリースは、以下の修正プログラムが適用された 1905 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1905.3.48](https://support.microsoft.com/help/4510078)
+- [Azure Stack Hub 修正プログラム 1.1905.3.48](https://support.microsoft.com/help/4510078)
 
 ### <a name="after-successfully-applying-the-1906-update"></a>1906 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack 修正プログラム 1.1906.15.60](https://support.microsoft.com/help/4524559)
+- [Azure Stack Hub 修正プログラム 1.1906.15.60](https://support.microsoft.com/help/4524559)
 ::: moniker-end
 
 ::: moniker range=">=azs-1906"
@@ -548,7 +546,7 @@ Azure Stack の 1906 リリースは、次の修正プログラムが適用さ�
 インフラストラクチャ ネットワークからインターネットにアクセスできるシステムでは、オペレーター ポータルに "**利用可能な更新プログラムがあります**" というメッセージが表示されます。 インターネットにアクセスできないシステムでは、対応する .xml を含む .zip ファイルをダウンロードしてインポートできます。
 
 > [!TIP]  
-> 以下の *RSS* または *Atom* フィードに登録して、Azure Stack 修正プログラムの最新情報を入手してください。
+> 以下の *RSS* または *Atom* フィードに登録して、Azure Stack Hub 修正プログラムの最新情報を入手してください。
 >
 > - [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss)
 > - [Atom](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom)
@@ -559,10 +557,10 @@ Azure Stack の 1906 リリースは、次の修正プログラムが適用さ�
 
 ## <a name="next-steps"></a>次のステップ
 
-- Azure Stack での更新プログラム管理の概要については、「[Azure Stack での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。  
-- Azure Stack に更新プログラムを適用する方法については、「[Azure Stack で更新を適用する](azure-stack-apply-updates.md)」を参照してください。
-- Azure Stack 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。  
-- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack での更新プログラムをモニターする](azure-stack-monitor-update.md)」をご覧ください。
+- Azure Stack Hub での更新プログラム管理の概要については、「[Azure Stack Hub での更新プログラムの管理概要](azure-stack-updates.md)」を参照してください。  
+- Azure Stack Hub に更新プログラムを適用する方法については、「[Azure Stack Hub で更新を適用する](azure-stack-apply-updates.md)」を参照してください。
+- Azure Stack Hub 統合システムのサービス ポリシーについて、およびサポートを受けられる状態にシステムを維持するために必要な作業について確認するには、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。  
+- 特権エンドポイント (PEP) を使用して更新プログラムを監視および再開するには、「[特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする](azure-stack-monitor-update.md)」を参照してください。
 ::: moniker-end
 
 <!------------------------------------------------------------>
@@ -609,7 +607,7 @@ Azure Stack の 1906 リリースは、次の修正プログラムが適用さ�
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-[以前のバージョンの Azure Stack のリリース ノートは TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack サービス ポリシー](azure-stack-servicing-policy.md)」をご覧ください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
+[以前のバージョンの Azure Stack Hub のリリース ノートは TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end
 
 

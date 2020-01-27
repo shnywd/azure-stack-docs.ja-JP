@@ -1,6 +1,6 @@
 ---
-title: Azure Stack ユーザー ポータルの使用 | Microsoft Docs
-description: Azure Stack でユーザー ポータルにアクセスして使用する方法を説明します。
+title: Azure Stack Hub ユーザー ポータルの使用 | Microsoft Docs
+description: Azure Stack Hub でユーザー ポータルにアクセスして使用する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,36 +10,34 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 392d850e5d74a1bd069653aae3b9def6438c5288
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: e51e5e67a95af5aeee8c35ebbefceb0790ae6aec
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909573"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536404"
 ---
-# <a name="use-the-azure-stack-user-portal"></a>Azure Stack ユーザー ポータルの使用
+# <a name="use-the-azure-stack-hub-user-portal"></a>Azure Stack Hub ユーザー ポータルの使用
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack ポータルを使用して、パブリック オファーをサブスクライブしたり、これらのオファーで提供されるサービスを使用したりします。 グローバル Azure portal を使用したことがあれば、サイトのしくみには既になじみがあります。
+Azure Stack Hub ポータルを使用して、パブリック オファーをサブスクライブしたり、これらのオファーで提供されるサービスを使用したりします。 グローバル Azure portal を使用したことがあれば、サイトのしくみには既になじみがあります。
 
 ## <a name="access-the-portal"></a>ポータルへのアクセス
 
-Azure Stack オペレーター (サービス プロバイダーまたは組織内の管理者のどちらか) から、ポータルにアクセスするための正しい URL が通知されます。
+Azure Stack Hub オペレーター (サービス プロバイダーまたは組織内の管理者のいずれか) から、ポータルにアクセスするための正しい URL が通知されます。
 
 - 統合システムの場合、URL はオペレーターのリージョンと外部ドメイン名によって異なり、 https://portal.&lt;*リージョン*&gt;.&lt;*FQDN*&gt; の形式になります。
 - Azure Stack Development Kit (ASDK) を使用している場合、ポータル アドレスは https://portal.local.azurestack.external です。
-- すべての Azure Stack デプロイの既定のタイム ゾーンは、協定世界時 (UTC) に設定されます。 Azure Stack のインストール時にタイム ゾーンを選択できますが、インストール中に自動的に既定として UTC に戻されます。
+- すべての Azure Stack Hub デプロイの既定のタイム ゾーンは、協定世界時 (UTC) に設定されています。 Azure Stack Hub のインストール時にタイム ゾーンを選択できますが、インストール中に既定として UTC に自動的に戻ります。
 
 ## <a name="customize-the-dashboard"></a>ダッシュボードのカスタマイズ
 
 ダッシュボードには、タイルの既定のセットが含まれています。 **[ダッシュボードの編集]** を選択して既定のダッシュボードを変更するか、 **[新しいダッシュボード]** を選択してカスタムのダッシュボードを作成します。 タイルを追加または削除して、ダッシュボードを簡単にカスタマイズすることができます。 たとえば、[コンピューティング] タイルを追加するには、 **[+ リソースの作成]** を選択します。 **[コンピューティング]** を右クリックし、 **[ダッシュボードにピン留め]** を選択します。
 
-![Azure Stack ユーザー ポータルの画面キャプチャ](media/azure-stack-use-portal/userportal.png)
+![Azure Stack Hub ユーザー ポータルの画面キャプチャ](media/azure-stack-use-portal/userportal.png)
 
 ダッシュボードを元の設定に復元するには:
 1.  **[ダッシュボードの編集]** を選択します。 
@@ -59,14 +57,14 @@ Azure Stack オペレーター (サービス プロバイダーまたは組織�
 
 - 組織またはサービス プロバイダーによって独自のドキュメントが提供されることがあります。これは通常、カスタマイズされたサービスまたはアプリが提供される場合です。
 - サード パーティのアプリには、独自のドキュメントがあります。
-- Azure 互換サービスについては、まず Azure Stack のドキュメントを確認することを強くお勧めします。 Azure Stack ユーザー ドキュメントにアクセスするには、ヘルプ アイコン ( **?** )、 **[ヘルプとサポート]** の順に選択します。
+- Azure 互換サービスについては、まず Azure Stack Hub のドキュメントを確認することを強くお勧めします。 Azure Stack Hub ユーザー ドキュメントにアクセスするには、ヘルプ アイコン ( **?** )、 **[ヘルプとサポート]** の順に選択します。
 
     ![UI の [ヘルプとサポート] オプション](media/azure-stack-use-portal/HelpAndSupport.png)
 
     特に、作業を開始するにあたって次の記事を確認することをお勧めします。
 
-    - [重要な考慮事項: Azure Stack でのサービスの使用またはアプリの作成](azure-stack-considerations.md)。
-    - ドキュメントの**サービスの使用**に関するセクションには、サービスごとの考慮事項の記事があります。 考慮事項に関するページでは、Azure で提供されるサービスと Azure Stack で提供される同じサービス間の相違点を説明しています。 例については、「[VM に関する考慮事項](azure-stack-vm-considerations.md)」を参照してください。 **サービスの使用**に関するセクションには、Azure Stack に固有であるその他の情報が含まれている場合があります。
+    - [重要な考慮事項: Azure Stack Hub でのサービスの使用またはアプリの作成](azure-stack-considerations.md)。
+    - ドキュメントの**サービスの使用**に関するセクションには、サービスごとの考慮事項の記事があります。 考慮事項に関するページでは、Azure で提供されるサービスと Azure Stack Hub で提供される同じサービスとの相違点を説明しています。 例については、「[VM に関する考慮事項](azure-stack-vm-considerations.md)」を参照してください。 「**サービスの使用**」セクションには、Azure Stack Hub に固有なその他の情報が含まれている場合があります。
 
       サービスの一般的なリファレンスとして Azure のドキュメントを使用できますが、これらの相違点を把握しておく必要があります。 **[Quickstart tutorials] (クイックスタート チュートリアル)** タイル上のドキュメント リンクが Azure のドキュメントを指していることを理解します。
 
@@ -74,8 +72,8 @@ Azure Stack オペレーター (サービス プロバイダーまたは組織�
 
 サポートが必要な場合は、所属組織またはサービス プロバイダーにお問い合わせください。
 
-Azure Stack Development Kit (ASDK) を使用している場合、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)が唯一のサポート情報源です。
+Azure Stack Development Kit (ASDK) を使用している場合は、[Azure Stack Hub フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)が唯一のサポート情報源です。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[重要な考慮事項: Azure Stack でのサービスの使用またはアプリの作成](azure-stack-considerations.md)
+[重要な考慮事項: Azure Stack Hub でのサービスの使用またはアプリの作成](azure-stack-considerations.md)

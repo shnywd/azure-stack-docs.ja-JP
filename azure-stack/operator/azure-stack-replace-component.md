@@ -1,7 +1,7 @@
 ---
-title: Azure Stack スケール ユニット ノードのハードウェア コンポーネントを交換する
-titleSuffix: Azure Stack
-description: Azure Stack 統合システムのハードウェア コンポーネントの交換方法について説明します。
+title: Azure Stack Hub スケール ユニット ノードのハードウェア コンポーネントを交換する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 統合システムのハードウェア コンポーネントの交換方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,32 +15,30 @@ ms.topic: article
 ms.date: 07/18/2019
 ms.author: thoroet
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: ff78409ecdbdec8b7a6860db18244a4835351ed8
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 715bd2b3bb5797ff43272a7b721edd03bb2c1b4c
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465281"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924391"
 ---
-# <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Azure Stack スケール ユニット ノードのハードウェア コンポーネントを交換する
+# <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Azure Stack Hub スケール ユニット ノードのハードウェア コンポーネントを交換する
 
-*適用対象:Azure Stack 統合システム*
-
-この記事では、ホットスワップが可能でないハードウェア コンポーネントを交換するための一般的なプロセスについて説明します。 実際の交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 Azure Stack 統合システムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントをご覧ください。
+この記事では、ホットスワップが可能でないハードウェア コンポーネントを交換するための一般的なプロセスについて説明します。 実際の交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 Azure Stack Hub 統合システムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントを参照してください。
 
 > [!CAUTION]  
-> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムが不安定になったり、パフォーマンスが低下したり、セキュリティ スレッドが発生したり、Azure Stack の自動化でオペレーティング システムのデプロイが妨げられたりする可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。
+> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムの不安定化、パフォーマンスの低下、セキュリティ スレッドの発生、または Azure Stack Hub オートメーションによるオペレーティング システムのデプロイに対する妨害を引き起こす可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack Hub 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。
 
 | ハードウェア パートナー | リージョン | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb) (運用ガイド)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
-| Dell EMC | All | [Cloud for Microsoft Azure Stack 14G (アカウントとサインインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (アカウントとサインインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Hub Operations Guide (Cisco Integrated System for Microsoft Azure Stack Hub 運用ガイド)](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack Hub (Cisco Integrated System for Microsoft Azure Stack Hub のリリース ノート)](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [Cloud for Microsoft Azure Stack Hub 14G (アカウントとサインインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack Hub 13G (アカウントとサインインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [富士通マネージド サービス サポート デスク (アカウントとサインインが必要)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | ヨーロッパ、中東およびアフリカ | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
 |  | EU | [Fujitsu MySupport (アカウントとサインインが必要)](https://support.ts.fujitsu.com/IndexMySupport.asp) |
-| HPE | All | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| HPE | All | [HPE ProLiant for Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122)
-| Wortmann |  | [OEM/ファームウェア パッケージ](https://drive.terracloud.de/dl/fiTdTb66mwDAJWgUXUW8KNsd/OEM)<br>[terra Azure Stack ドキュメント (FRU を含む)](https://drive.terracloud.de/dl/fiWGZwCySZSQyNdykXCFiVCR/TerraAzSDokumentation)
+| Wortmann |  | [OEM/ファームウェア パッケージ](https://aka.ms/AA6z600)<br>[terra Azure Stack Hub ドキュメント (FRU を含む)](https://aka.ms/aa6zktc)
 
 ホットスワップが可能でないコンポーネントには、次の項目が含まれます。
 
@@ -64,7 +62,7 @@ ms.locfileid: "74465281"
 
 ## <a name="review-alert-information"></a>アラート情報を見直す
 
-Azure Stack の正常性および監視システムによって、記憶域スペース ダイレクトで制御されているネットワーク アダプターとデータ ドライブの正常性が追跡されます。 その他のハードウェア コンポーネントは追跡されません。 その他のすべてのハードウェア コンポーネントでは、ハードウェア ライフサイクル ホスト上で実行されているベンダー固有のハードウェア監視ソリューションでアラートが発生します。  
+Azure Stack Hub の正常性および監視システムによって、記憶域スペース ダイレクトで制御されているネットワーク アダプターとデータ ドライブの正常性が追跡されます。 その他のハードウェア コンポーネントは追跡されません。 その他のすべてのハードウェア コンポーネントでは、ハードウェア ライフサイクル ホスト上で実行されているベンダー固有のハードウェア監視ソリューションでアラートが発生します。  
 
 ## <a name="component-replacement-process"></a>コンポーネント交換プロセス
 
@@ -88,7 +86,7 @@ Azure Stack の正常性および監視システムによって、記憶域ス�
 7. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
 8. 修復アクションが完了したら、すべてのアクティブなアラートが自動的に閉じていることを確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - ホットスワップ可能物理ディスクの交換については、[ディスクの交換](azure-stack-replace-disk.md)に関する記事を参照してください。
 - 物理ノードを交換する方法については、[スケール ユニット ノードの交換](azure-stack-replace-node.md)に関する記事を参照してください。

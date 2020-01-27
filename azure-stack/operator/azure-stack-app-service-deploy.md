@@ -1,6 +1,6 @@
 ---
-title: Azure Stack に App Services にデプロイする | Microsoft Docs
-description: Azure Stack に App Service をデプロイする方法について説明します。
+title: Azure Stack Hub に App Services をデプロイする | Microsoft Docs
+description: Azure Stack Hub に App Service をデプロイする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,46 +12,46 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 219d8bcf884945353b08186324edc23feb028964
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: eb38d3f237b872e552bd135cbe6b93c905115e30
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974956"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924246"
 ---
-# <a name="deploy-app-service-in-azure-stack"></a>Azure Stack に App Service をデプロイする
+# <a name="deploy-app-service-in-azure-stack-hub"></a>Azure Stack Hub に App Service をデプロイする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
-この記事では、Azure Stack に App Service をデプロイする方法について説明します。
+この記事では、Azure Stack Hub に App Service をデプロイする方法について説明します。
 
 > [!IMPORTANT]
-> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1907 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイしてください。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub 開発キット (ASDK) をデプロイします。
 
 Web および API アプリケーションを作成する機能をユーザーに提供できます。 これらのアプリをユーザーが作成できるようにするには、次のことを行う必要があります。
 
-- この記事で説明する手順を使用して、Azure Stack デプロイに [App Service リソース プロバイダー](azure-stack-app-service-overview.md)を追加します。
+- この記事で説明する手順を使用して、Azure Stack Hub デプロイに [App Service リソース プロバイダー](azure-stack-app-service-overview.md)を追加します。
 - App Service リソース プロバイダーをインストールした後で、オファーやプランに含めることができます。 ユーザーはサブスクライブしてサービスを取得し、アプリケーションの作成を開始できます。
 
 > [!IMPORTANT]
-> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.7 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-seven.md)を読んでいることを確認してください。 このコンテンツを読むと、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認することができます。
+> リソース プロバイダーのインストーラーを実行する前に、[開始前](azure-stack-app-service-before-you-get-started.md)のガイダンスに従っていて、1.8 リリースに付属している[リリース ノート](azure-stack-app-service-release-notes-update-eight.md)を読んでいることを確認してください。 このコンテンツを読むと、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認することができます。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service リソースプロバイダーのインストーラーを実行する
 
 App Service リソース プロバイダーのインストールには少なくとも 1 時間かかります。 必要な時間の長さは、デプロイするロール インスタンスの数によって異なります。 デプロイ中に、インストーラーは次のタスクを実行します。
 
-- 指定された Azure Stack ストレージ アカウントに BLOB コンテナーを作成します。
+- 指定した Azure Stack Hub ストレージ アカウントに BLOB コンテナーを作成します。
 - App Service の DNS ゾーンとエントリを作成します。
 - App Service リソース プロバイダーを登録します。
 - App Service のギャラリー アイテムを登録します。
 
 App Service リソースプロバイダーをデプロイするには、次の手順を実行します。
 
-1. Azure Stack 管理の Azure Resource Management エンドポイントにアクセスできるコンピューターから、appservice.exe を管理者として実行します。
+1. Azure Stack Hub 管理の Azure Resource Management エンドポイントにアクセスできるコンピューターから、appservice.exe を管理者として実行します。
 
 2. **[Deploy App Service or upgrade to the latest version]\(App Service をデプロイするか、または最新バージョンにアップグレードする\)** を選択します。
 
@@ -61,25 +61,27 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 4. サード パーティのライセンス条項を確認して同意し、 **[次へ]** を選択します。
 
-5. App Service クラウド構成情報が正しいことを確認します。 ASDK のデプロイ中に既定の設定を使用した場合は、既定値をそのまま使用することもできます。 しかし、ASDK のデプロイ時にオプションをカスタマイズした場合、または Azure Stack 統合システムにデプロイしている場合は、その差異を反映するように、このウィンドウで値を編集する必要があります。
+5. App Service クラウド構成情報が正しいことを確認します。 ASDK のデプロイ中に既定の設定を使用した場合は、既定値をそのまま使用することもできます。 しかし、ASDK のデプロイ時にオプションをカスタマイズした場合、または Azure Stack Hub 統合システムにデプロイしている場合は、その差異を反映するように、このウィンドウで値を編集する必要があります。
 
-   たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、 **[次へ]** を選択して設定を保存します。
+   たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack Hub テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、 **[次へ]** を選択して設定を保存します。
 
    ![App Service インストーラー][2]
 
-6. 次の App Service インストーラー ページで、次の手順に従います。
+6. App Service インストーラーの次のページで、Azure Stack Hub に接続します。
 
-    a. **[Azure Stack Subscriptions]\(Azure Stack サブスクリプション\)** の横にある **[接続]** を選択します。
+    1. 使用する接続方法 ( **[資格情報]** または **[サービス プリンシパル]** ) を選択します。
+ 
+        - **資格情報**
+            - Azure Active Directory (Azure AD) を使用している場合は、Azure Stack Hub のデプロイ時に指定した、Azure AD の管理者アカウントとパスワードを入力します。 **[接続]** を選択します。
+            - Active Directory フェデレーション サービス (AD FS) を使用している場合は、ご自分の管理者アカウントを指定します。 たとえば、「 cloudadmin@azurestack.local 」のように入力します。 パスワードを入力し、 **[接続]** を選択します。
 
-   - Azure Active Directory (Azure AD) を使っている場合は、Azure Stack のデプロイ時に指定した、Azure AD の管理者アカウントとパスワードを入力します。 **[サインイン]** を選択します。
-   - Active Directory フェデレーション サービス (AD FS) を使用している場合は、ご自分の管理者アカウントを指定します。 たとえば、「 cloudadmin@azurestack.local 」のように入力します。 パスワードを入力し、 **[サインイン]** を選択します。
+        - **サービス プリンシパル**
+            - 使用するサービス プリンシパルには、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** に対する **[所有者]** 権限が**必要です**
+            - **[サービス プリンシパル ID]** 、 **[証明書ファイル]** 、および **[パスワード]** を指定し、 **[接続]** を選択します。
 
-   b. **[Azure Stack Subscriptions]\(Azure Stack サブスクリプション\)** で、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** を選択します。
+    1. **[Azure Stack Hub Subscriptions]\(Azure Stack Hub サブスクリプション\)** で、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** を選択します。  Azure App Service on Azure Stack Hub は、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** にデプロイする**必要**があります。
 
-     > [!IMPORTANT]
-     > App Service は、 **[Default Provider Subscription]\(既定のプロバイダー サブスクリプション\)** にデプロイする**必要があります**。
-
-   c. **[Azure Stack Locations]\(Azure Stack の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、ASDK にデプロイしている場合は、 **[ローカル]** を選びます。
+    1. **[Azure Stack Hub Locations]\(Azure Stack Hub の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、ASDK にデプロイしている場合は、 **[ローカル]** を選びます。
 
     ![App Service インストーラー][3]
 
@@ -119,7 +121,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 10. 3 つの証明書ファイルの各ボックスで、 **[参照]** を選択し、適切な証明書ファイルに移動します。 各証明書のパスワードを入力する必要があります。 これらの証明書は、[必要な証明書の作成の手順](azure-stack-app-service-before-you-get-started.md#get-certificates)で作成したものです。 すべての情報を入力したら、 **[次へ]** を選択します。
 
-    | Box | 証明書ファイル名の例 |
+    | ボックス | 証明書ファイル名の例 |
     | --- | --- |
     | **App Service の既定の SSL 証明書ファイル** | \_.appservice.local.AzureStack.external.pfx |
     | **App Service API の SSL 証明書ファイル** | api.appservice.local.AzureStack.external.pfx |
@@ -136,7 +138,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 12. ロール インスタンスと SKU のオプションを確認します。 ASDK デプロイの各ロールに対するインスタンスの最小数および SKU の最小値には、既定値が入力されています。 デプロイの計画に役立つ vCPU 要件とメモリ要件の概要が表示されています。 必要な項目を選択したら、 **[次へ]** を選択します。
 
     >[!NOTE]
-    >運用環境デプロイの場合は、「[Azure Stack での Azure App Service サーバー ロールの容量計画](azure-stack-app-service-capacity-planning.md)」のガイダンスに従ってください。
+    >運用環境デプロイの場合は、「[Azure Stack Hub での Azure App Service サーバー ロールのキャパシティ プランニング](azure-stack-app-service-capacity-planning.md)」のガイダンスに従ってください。
 
     | Role | インスタンスの最小値 | SKU の最小値 | メモ |
     | --- | --- | --- | --- |
@@ -149,7 +151,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
     ![App Service インストーラー][13]
 
     >[!NOTE]
-    >**Windows Server 2016 Core は、Azure Stack 上で Azure App Service と共に使用するためにサポートされているプラットフォーム イメージではありません。運用環境デプロイには評価版イメージを使用しないでください。**
+    >**Windows Server 2016 Core は、Azure Stack Hub 上で Azure App Service と共に使用するためにサポートされているプラットフォーム イメージではありません。運用環境デプロイには評価版イメージを使用しないでください。**
 
 13. **[プラットフォーム イメージの選択]** ボックスで、App Service クラウド用のコンピューティング リソース プロバイダーで選択可能なイメージの中から、ご自分のデプロイの Windows Server 2016 仮想マシン (VM) イメージを選びます。 **[次へ]** を選択します。
 
@@ -175,7 +177,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 16. 次の App Service インストーラー ページで、次の手順に従います。
 
-    a. インストールの進行状況を追跡します。 App Service on Azure Stack を既定の選択内容に基づいてデプロイするには、60 分ほどかかります。
+    a. インストールの進行状況を追跡します。 既定の選択内容と Windows 2016 Datacenter の基本イメージの有効期間に基づいて App Service on Azure Stack Hub をデプロイするには、最長 240 分かかる場合があります。
 
     b. インストーラーが正常に完了したら、 **[終了]** を選択します。
 
@@ -198,29 +200,29 @@ App Service リソースプロバイダーをデプロイするには、次の�
 - 優先順位:700
 - 名前:Outbound_Allow_SMB445
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>App Service on Azure Stack インストールを検証する
+## <a name="validate-the-app-service-on-azure-stack-hub-installation"></a>App Service on Azure Stack Hub インストールを検証する
 
-1. Azure Stack 管理者ポータルで、 **[Administration - App Service]\(管理 - App Service\)** に移動します。
+1. Azure Stack Hub 管理者ポータルで、 **[管理 - App Service]** に移動します。
 
 2. 概要の状態で、 **[状態]** に **[ロールはいずれも準備ができています]** と表示されていることを確認します。
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 
-## <a name="test-drive-app-service-on-azure-stack"></a>App Service on Azure Stack を試してみる
+## <a name="test-drive-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub を試してみる
 
 App Service リソースプロバイダーをデプロイして登録したら、テストしてユーザーが Web アプリと API アプリをデプロイできることを確認します。
 
 >[!NOTE]
 >プラン内に Microsoft.Web 名前空間があるオファーを作成する必要があります。 また、このオファーにサブスクライブするテナント サブスクリプションも必要です。 詳細については、[オファーの作成](azure-stack-create-offer.md)と[プランの作成](azure-stack-create-plan.md)に関するページをご覧ください。
 >
->App Service on Azure Stack を使うアプリを作るには、テナント サブスクリプションが*必要です*。 管理者ポータル内でサービス管理者が実行できるタスクは、App Service のリソース プロバイダー管理に関連するものだけです。 これには、容量の追加、デプロイ ソースの構成、worker 層と SKU の追加などが含まれます。
+>App Service on Azure Stack Hub を使うアプリを作るには、テナント サブスクリプションが*必要です*。 管理者ポータル内でサービス管理者が実行できるタスクは、App Service のリソース プロバイダー管理に関連するものだけです。 これには、容量の追加、デプロイ ソースの構成、worker 層と SKU の追加などが含まれます。
 >
->Web アプリ、API アプリ、Azure Functions アプリを作るには、テナント ポータルを使う必要があり、テナント サブスクリプションがある必要があります。
+>Web アプリ、API アプリ、Azure Functions アプリを作るには、ユーザー ポータルを使う必要があり、テナント サブスクリプションがある必要があります。
 >
 
 テスト Web アプリを作成するには、次の手順に従います。
 
-1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]**  >  **[Web + モバイル]**  >  **[Web アプリ]** を選択します。
+1. Azure Stack Hub ユーザー ポータルで、 **[+ リソースの作成]**  >  **[Web + モバイル]**  >  **[Web アプリ]** の順に選択します。
 
 2. **[Web アプリ]** で、 **[Web アプリ]** に名前を入力します。
 
@@ -238,15 +240,15 @@ App Service リソースプロバイダーをデプロイして登録したら�
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>WordPress、DNN、Django の Web サイトを展開する (省略可能)
 
-1. Azure Stack テナント ポータルで、 **+** を選択して Azure Marketplace にアクセスし、Django Web サイトをデプロイして、デプロイが完了するまで待ちます。 Django Web プラットフォームでは、ファイル システム ベースのデータベースが使われます。 SQL や MySQL など、追加のリソース プロバイダーは必要ありません。
+1. Azure Stack Hub ユーザー ポータルで、 **[+]** を選択して Azure Marketplace にアクセスし、Django Web サイトをデプロイして、デプロイが完了するまで待ちます。 Django Web プラットフォームでは、ファイル システム ベースのデータベースが使われます。 SQL や MySQL など、追加のリソース プロバイダーは必要ありません。
 
 2. MySQL リソースプロバイダーも展開した場合は、Marketplace から WordPress Web サイトを展開できます。 データベース パラメーターを求められたら、お好きなユーザー名とサーバー名を使用して、ユーザー名を *User1\@Server1* として入力します。
 
 3. SQL Server リソースプロバイダーも展開した場合は、Marketplace から DNN Web サイトを展開できます。 データベース パラメーターを求められたら、使用しているリソース プロバイダーに接続された SQL Server を実行しているコンピューター内のデータベースを選びます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-App Service on Azure Stack のための追加の管理者操作を準備します。
+App Service on Azure Stack Hub のための追加の管理者操作を準備します。
 
 - [容量計画](azure-stack-app-service-capacity-planning.md)
 - [デプロイ ソースを構成する](azure-stack-app-service-configure-deployment-sources.md)

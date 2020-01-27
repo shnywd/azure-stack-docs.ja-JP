@@ -1,6 +1,6 @@
 ---
-title: Kubernetes の Azure Stack へのデプロイのトラブルシューティング | Microsoft Docs
-description: Kubernetes の Azure Stack へのデプロイのトラブルシューティング方法について説明します。
+title: Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング | Microsoft Docs
+description: Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,25 +14,23 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 900ff88136d75759fdc3bc05bf351968f9c13654
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689928"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883339"
 ---
-# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Kubernetes の Azure Stack へのデプロイのトラブルシューティング
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
 > [!Note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Hub Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack Hub でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
-この記事では、Kubernetes クラスターのトラブルシューティングを行う方法を確認します。 トラブルシューティングを開始するには、デプロイに必要な要素を確認します。 場合によっては、Azure Stack または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 管理エンドポイントからログを取得するには、Azure Stack 管理者にお問い合わせください。
+この記事では、Kubernetes クラスターのトラブルシューティングを行う方法を確認します。 トラブルシューティングを開始するには、デプロイに必要な要素を確認します。 場合によっては、Azure Stack Hub または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 管理エンドポイントからログを取得するには、Azure Stack Hub 管理者にお問い合わせください。
 
 ## <a name="overview-of-kubernetes-deployment"></a>Kubernetes のデプロイの概要
 
-クラスターのトラブルシューティングを行う前に、Azure Stack Kubernetes クラスターのデプロイ プロセスを確認してください。 デプロイは、Azure Resource Manager ソリューション テンプレートを使用して VM を作成し、クラスター用の AKS エンジンをインストールします。
+クラスターのトラブルシューティングを行う前に、Azure Stack Hub Kubernetes クラスターのデプロイ プロセスを確認してください。 デプロイは、Azure Resource Manager ソリューション テンプレートを使用して VM を作成し、クラスター用の AKS エンジンをインストールします。
 
 ### <a name="kubernetes-deployment-workflow"></a>Kubernetes のデプロイ ワークフロー
 
@@ -45,7 +43,7 @@ ms.locfileid: "74689928"
 1. マーケットプレース項目から入力パラメーターを収集します。
 
     次のような Kubernetes クラスターの設定に必要な値を入力します。
-    -  **[ユーザー名]** : Kubernetes クラスターと DVM の一部である Linux 仮想マシン (VM) のユーザー名。
+    -  **ユーザー名**:Kubernetes クラスターと DVM の一部である Linux 仮想マシン (VM) のユーザー名。
     -  **[SSH 公開キー]** : Kubernetes クラスターと DVM の一部として作成されたすべての Linux マシンの承認に使用されるキー。
     -  **サービス プリンシパル**: Kubernetes Azure クラウド プロバイダーによって使用される ID。 サービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 
     -  **クライアント シークレット**: サービス プリンシパルを作成するときに作成したキー。
@@ -57,7 +55,7 @@ ms.locfileid: "74689928"
         1. Azure Resource Manager メタデータ エンドポイントからギャラリー エンドポイントを取得します。
         2. Azure Resource Manager メタデータ エンドポイントからアクティブなディレクトリ リソース ID を取得します。
         3. AKS エンジン用の API モデルを読み込みます。
-        4. Kubernetes クラスターに AKS エンジンをデプロイし、Azure Stack クラウド プロファイルを `/etc/kubernetes/azurestackcloud.json` に保存します。
+        4. Kubernetes クラスターに AKS エンジンをデプロイし、Azure Stack Hub クラウド プロファイルを `/etc/kubernetes/azurestackcloud.json` に保存します。
 3. マスター VM を作成します。
 
 4. カスタム スクリプト拡張機能をダウンロードして実行します。
@@ -83,26 +81,26 @@ ms.locfileid: "74689928"
 
 ## <a name="steps-to-troubleshoot-kubernetes"></a>Kubernetes のトラブルシューティング手順
 
-Kubernetes クラスターをサポートしている VM のデプロイ ログを収集して確認することができます。 Azure Stack 管理者に相談して、使用する必要がある Azure Stack のバージョンを確認し、デプロイに関連したログを Azure Stack から取得してください。
+Kubernetes クラスターをサポートしている VM のデプロイ ログを収集して確認することができます。 Azure Stack Hub 管理者に相談して、使用する必要がある Azure Stack Hub のバージョンを確認し、デプロイに関連したログを Azure Stack Hub から取得してください。
 
 1. クラスターをデプロイしたリソース グループの **[デプロイ]** ウィンドウで、ARM デプロイによって返されたエラー コードを確認します。 エラー コードの説明は、AKS Engine GitHub リポジトリの[トラブルシューティング](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)に関する記事にあります。 エラーの説明で問題を解決できない場合は、次の手順を続行してください。
 2. Kubernetes クラスターで、[デプロイの状態](#review-deployment-status)を確認し、マスター ノードのログを取得します。
-3. Azure Stack の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack の管理者にお問い合わせください。
+3. Azure Stack Hub の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack Hub の管理者にお問い合わせください。
 4. VM 作成ファイルを確認します。 次の問題が発生している可能性があります。  
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - VM 作成によって内部エラーまたは作成エラーがトリガーされることがあります。 エラーは、Azure Stack サブスクリプションの容量制限など、さまざまな要因で起こることがあります。
+    - VM 作成によって内部エラーまたは作成エラーがトリガーされることがあります。 エラーは、Azure Stack Hub サブスクリプションの容量制限など、さまざまな要因で起こることがあります。
     - VM の完全修飾ドメイン名 (FQDN) は重複するプレフィックスで始まっていることを確認してください。
 5.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - Azure Stack 管理者に連絡して、特権付きエンド ポイントを使用して Azure Stack のログを取得してください。 詳細については、「[Azure Stack の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)」を参照してください。
-5. デプロイに関して質問がある場合は、[Azure Stack フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
+    - Azure Stack Hub 管理者に連絡して、特権付きエンドポイントを使用して Azure Stack Hub のログを取得してください。 詳細については、[Azure Stack Hub の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関するページを参照してください。
+5. デプロイに関して質問がある場合は、[Azure Stack Hub フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 
 ## <a name="review-deployment-status"></a>デプロイの状態を確認する
 
 Kubernetes クラスターをデプロイする際には、デプロイの状態を確認して、問題をチェックすることができます。
 
-1. [Azure Stack ポータル](https://portal.local.azurestack.external)を開きます。
+1. [Azure Stack Hub ポータル](https://portal.local.azurestack.external)を開きます。
 2. **[リソース グループ]** を選択し、Kubernetes クラスターのデプロイ時に使用したリソース グループの名前を選択します。
 3. **[デプロイ]** を選択し、 **[デプロイ名]** を選択します。
 
@@ -110,7 +108,7 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 4.  トラブルシューティングのウィンドウを確認します。 デプロイ済みの各リソースから、次の情報が提供されます。
     
-    | プロパティ | 説明 |
+    | プロパティ | [説明] |
     | ----     | ----        |
     | リソース | リソースの名前。 |
     | 種類 | リソース プロバイダーとリソースの種類。 |
@@ -122,11 +120,11 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 ## <a name="review-deployment-logs"></a>デプロイ ログを確認する
 
-Azure Stack ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合は、次の手順として、クラスター ログで詳細を確認します。 デプロイ ログを手動で取得するには、通常、クラスターのマスター VM のいずれかに接続する必要があります。 より簡単な方法として、Azure Stack チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの VM に接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
+Azure Stack Hub ポータルに、デプロイ エラーのトラブルシューティングや対処を行うための十分な情報がない場合は、次の手順として、クラスター ログで詳細を確認します。 デプロイ ログを手動で取得するには、通常、クラスターのマスター VM のいずれかに接続する必要があります。 より簡単な方法として、Azure Stack Hub チームが提供する以下の [Bash スクリプト](https://aka.ms/AzsK8sLogCollectorScript)をダウンロードして実行することもできます。 このスクリプトは、DVM およびクラスターの VM に接続し、関連するシステム ログとクラスター ログを収集して、ワークステーションにそれらのログをダウンロードして戻します。
 
 ### <a name="prerequisites"></a>前提条件
 
-Azure Stack の管理に使用するマシンには Bash プロンプトが必要です。 Windows マシンでは、[Git for Windows](https://git-scm.com/downloads) をインストールすることで Bash プロンプトを取得できます。 インストールされたら、[スタート] メニューで _Git Bash_ を探します。
+Azure Stack Hub の管理に使用するマシンには Bash プロンプトが必要です。 Windows マシンでは、[Git for Windows](https://git-scm.com/downloads) をインストールすることで Bash プロンプトを取得できます。 インストールされたら、[スタート] メニューで _Git Bash_ を探します。
 
 ### <a name="retrieving-the-logs"></a>ログを取得する
 
@@ -145,7 +143,7 @@ Azure Stack の管理に使用するマシンには Bash プロンプトが必�
 
 3. スクリプトに必要な情報を探して、実行します。
 
-    | パラメーター           | 説明                                                                                                      | 例                                                                       |
+    | パラメーター           | [説明]                                                                                                      | 例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d、--vmd-host      | DVM のパブリック IP または完全修飾ドメイン名 (FQDN)。 VM 名は `vmd-` で始まります。 | IP:192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Print コマンドの使用方法。 | |
@@ -167,10 +165,10 @@ Azure Stack の管理に使用するマシンには Bash プロンプトが必�
 > [!Note]  
 > ログ コレクター スクリプトの詳細を確認するには、 こちらの GitHub [リポジトリ](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)
+[Kubernetes を Azure Stack Hub にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)
 
-[Kubernetes クラスターを Marketplace に追加する (Azure Stack のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
+[Kubernetes クラスターを Marketplace に追加する (Azure Stack Hub のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure における Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

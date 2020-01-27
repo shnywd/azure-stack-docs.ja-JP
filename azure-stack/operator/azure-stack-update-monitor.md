@@ -1,6 +1,6 @@
 ---
-title: PowerShell を使用した Azure Stack での更新の監視 | Microsoft Docs
-description: PowerShell を使用して Azure Stack で更新を監視する方法を説明します
+title: PowerShell を使用した Azure Stack Hub での更新の監視 | Microsoft Docs
+description: PowerShell を使用して Azure Stack Hub で更新を監視する方法を説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 08/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f14b4180e567df13e576b520cdac01a676c101ea
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 5f4f469c6652bdb492d9c7365fb128b0461093a4
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717945"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882846"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での更新の監視
-
-*適用対象:Azure Stack Hub 統合システム*
 
 Azure Stack Hub 管理エンドポイントを使用して、更新の監視と管理を行うことができます。 それらには、PowerShell でアクセスできます。 Azure Stack Hub で PowerShell を使用してセットアップする手順については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
 
@@ -56,4 +54,4 @@ Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsof
 
 ## <a name="next-steps"></a>次のステップ
 
--   [Azure Stack で更新を管理する](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+-   [Azure Stack Hub での更新プログラム管理](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)

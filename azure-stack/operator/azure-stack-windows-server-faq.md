@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の Windows Server に関する FAQ | Microsoft Docs
-description: Azure Stack Marketplace の Windows Server に関する FAQ 一覧
+title: Azure Stack Hub の Windows Server に関する FAQ | Microsoft Docs
+description: Azure Stack Hub Marketplace の Windows Server に関する FAQ 一覧
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 8110f48ef9e42ef2ee89b4766164b5005c7d51fa
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503608"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023227"
 ---
-# <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 内の Windows Server に関する FAQ
+# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace 内の Windows Server に関する FAQ
 
-この記事では、[Azure Stack Marketplace](azure-stack-marketplace.md) 内の Windows Server イメージについてよく寄せられるいくつかの質問に回答します。
+この記事では、[Azure Stack Hub Marketplace](azure-stack-marketplace.md) 内の Windows Server イメージについてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
 
@@ -34,16 +34,16 @@ ms.locfileid: "75503608"
 
 次に、仮想マシン スケール セットが特定のバージョンを参照している場合、これらを後でスケーリングするかどうかを検討し、さらに以前のバージョンを維持するかどうかを決める必要があります。 どの条件も該当しない場合は、新しいイメージをダウンロードする前に、Marketplace 内の以前のイメージを削除してください。 元のイメージのダウンロードに Marketplace 管理を使用した場合は、それを使って行ってください。 そのうえで、新しいバージョンをダウンロードします。
 
-### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack における Windows Server Marketplace イメージのライセンス オプションを教えてください。
+### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack-hub"></a>Azure Stack Hub における Windows Server Marketplace イメージのライセンス オプションを教えてください。
 
-Microsoft は、2 つのバージョンの Windows Server イメージを Azure Stack Marketplace で提供しています。 Azure Stack 環境で使用できるのは、このイメージの 1 バージョンのみです。  
+Microsoft は、2 つのバージョンの Windows Server イメージを Azure Stack Hub Marketplace で提供しています。 Azure Stack Hub 環境で使用できるのは、このイメージの 1 バージョンのみです。  
 
 - **従量課金制**: これらのイメージでは、正規の価格の Windows メーターが実行されます。
    対象ユーザーとしては、"*使用量課金モデル*" を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
 - **ライセンス持ち込み (BYOL)** : これらのイメージでは、基本メーターが実行されます。
    対象ユーザーとしては、Windows Server ライセンスを所有する EA のお客様や、SPLA ライセンスを使用する CSP にお勧めします。
 
-Azure Stack では、Azure ハイブリッド使用特典 (AHUB) はサポートされません。 "容量" モデルを通じてライセンスを受けるお客様は、BYOL イメージを使用する必要があります。 Azure Stack Development Kit (ASDK) を使ってテストを行う場合は、どちらのオプションを使用してもかまいません。
+Azure Stack Hub では、Azure ハイブリッド使用特典 (AHUB) はサポートされません。 "容量" モデルを通じてライセンスを受けるお客様は、BYOL イメージを使用する必要があります。 Azure Stack Development Kit (ASDK) を使ってテストを行う場合は、どちらのオプションを使用してもかまいません。
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>テナント/ユーザーに提供する場合に間違ったバージョンをダウンロードした場合はどうすればよいですか?
 
@@ -89,10 +89,10 @@ Marketplace から SQL Server イメージの **licenseType** プロパティを
 
 ## <a name="activation"></a>アクティブ化
 
-Azure Stack で Windows Server 仮想マシンのライセンス認証を行うには、次の条件が満たされている必要があります。
+Azure Stack Hub で Windows Server 仮想マシンのライセンス認証を行うには、次の条件が満たされている必要があります。
 
-- Azure Stack のすべてのホスト システムに対し、OEM によって適切な BIOS マーカーが設定されていること。
-- Windows Server 2012 R2 および Windows Server 2016 で[仮想マシンの自動ライセンス認証](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))が使用されていること。 キー管理サービス (KMS) などのライセンス認証サービスは、Azure Stack ではサポートされていません。
+- Azure Stack Hub のすべてのホスト システムに対し、OEM によって適切な BIOS マーカーが設定されていること。
+- Windows Server 2012 R2 および Windows Server 2016 で[仮想マシンの自動ライセンス認証](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11))が使用されていること。 キー管理サービス (KMS) などのライセンス認証サービスは、Azure Stack Hub ではサポートされていません。
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>自分の仮想マシンがライセンス認証されたことは、どのようにして確認できますか?
 
@@ -134,5 +134,5 @@ slmgr /ipk <AVMA key>
 
 詳細については、次の記事を参照してください。
 
-- [Azure Stack Marketplace の概要](azure-stack-marketplace.md)
-- [Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)
+- [Azure Stack Hub Marketplace の概要](azure-stack-marketplace.md)
+- [Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)

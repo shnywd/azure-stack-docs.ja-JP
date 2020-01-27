@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の App Service をバックアップする | Microsoft Docs
-description: Azure Stack 上の App Services をバックアップする方法について説明します。
+title: Azure Stack Hub 上の App Service をバックアップする | Microsoft Docs
+description: Azure Stack Hub 上の App Services をバックアップする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,23 +16,21 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: a41943a598545b1a4c5dbe6325307a8fa3594cd5
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: ba9bff9b63454be8e9f1222d8b63425ad3192724
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975033"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881367"
 ---
-# <a name="back-up-app-service-on-azure-stack"></a>Azure Stack 上の App Service をバックアップする
+# <a name="back-up-app-service-on-azure-stack-hub"></a>Azure Stack Hub 上の App Service をバックアップする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
-
-このドキュメントでは、Azure Stack 上の App Service をバックアップする方法の手順を説明します。
+このドキュメントでは、Azure Stack Hub 上の App Service をバックアップする方法の手順を説明します。
 
 > [!IMPORTANT]
-> Azure Stack 上の App Service は、[Azure Stack のインフラストラクチャのバックアップ](azure-stack-backup-infrastructure-backup.md)の一部としてバックアップされません。 Azure Stack のオペレーターとして、必要な場合に App Service を正常に復元できるように確実に手順を行う必要があります。
+> Azure Stack Hub 上の App Service は、[Azure Stack Hub のインフラストラクチャ バックアップ](azure-stack-backup-infrastructure-backup.md)の一部としてはバックアップされません。 Azure Stack Hub のオペレーターとして、必要に応じて、App Service を確実に正常な復元ができるようにするための手順を実行する必要があります。
 
-Azure Stack 上の Azure App Service のディザスター リカバリーを計画する場合、
+Azure Stack Hub 上の Azure App Service でディザスター リカバリーを計画する場合は、次の 4 つの考慮すべき主要なコンポーネントがあります。
 1. リソース プロバイダーのインフラストラクチャ、サーバー ロール、worker 階層などの 4 つの主な要素を考慮する必要があります。 
 2. App Service のシークレット。
 3. App Service SQL Server ホスティングおよびメータリング データベース。
@@ -43,17 +41,17 @@ App Service をバックアップから不kky空する場合、初期デプロ�
 
 次の手順に従って、管理ポータルからアプリ サービスのシークレットをバックアップします。 
 
-1. サービス管理者として Azure Stack 管理者ポータルにサインインします。
+1. サービス管理者として Azure Stack Hub 管理者ポータルにサインインします。
 
 2. **[App Service]**  ->  **[シークレット]** に移動します。 
 
 3. **[シークレットのダウンロード]** を選択します。
 
-   ![Azure Stack 管理者ポータルでシークレットをダウンロードする](./media/app-service-back-up/download-secrets.png)
+   ![Azure Stack Hub 管理者ポータルでシークレットをダウンロードする](./media/app-service-back-up/download-secrets.png)
 
 4. シークレットのダウンロードの準備が整ったら、 **[保存]** をクリックして安全な場所に App Service のシークレット (**SystemSecrets.JSON**) ファイルを保存します。 
 
-   ![Azure Stack 管理者ポータルでシークレットを保存する](./media/app-service-back-up/save-secrets.png)
+   ![Azure Stack Hub 管理者ポータルでシークレットを保存する](./media/app-service-back-up/save-secrets.png)
 
 > [!NOTE]
 > これらの手順は、App Service のシークレットを更新するたびに繰り返します。
@@ -91,5 +89,5 @@ robocopy $source $destination
 net use $destination /delete
 ```
 
-## <a name="next-steps"></a>次の手順
-[Azure Stack 上の App Service の復元](app-service-recover.md)
+## <a name="next-steps"></a>次のステップ
+[Azure Stack Hub 上の App Service の復元](app-service-recover.md)

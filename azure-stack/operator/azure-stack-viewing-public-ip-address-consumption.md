@@ -1,5 +1,5 @@
 ---
-title: Azure Stack でのネットワーク リソースの管理 | Microsoft Docs
+title: Azure Stack Hub でのネットワーク リソースの管理 | Microsoft Docs
 description: 管理者は、MAC アドレス プールや、リージョン内のパブリック IP アドレスの使用など、ネットワーク リソースを管理できます。
 services: azure-stack
 documentationcenter: ''
@@ -15,33 +15,31 @@ ms.date: 09/17/2019
 ms.author: mabrigg
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 6abf8480528aad0bff121d553172bdc8d0446e11
-ms.sourcegitcommit: 95f30e32e5441599790d39542ff02ba90e70f9d6
+ms.openlocfilehash: d651405fad55501bf655b8b38970a882a8e5dc91
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71070184"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881673"
 ---
 # <a name="manage-network-resources"></a>ネットワーク リソースの管理
 
 ## <a name="mac-address-pool"></a>MAC アドレス プール
 
-Azure Stack では、MAC アドレスを自動的に生成して仮想マシンに割り当てるために、静的 MAC アドレス プールが使用されます。
+Azure Stack Hub では、MAC アドレスを自動的に生成して仮想マシンに割り当てるために、静的 MAC アドレス プールが使用されます。
 この MAC アドレス プールは、デプロイ時に自動的に生成され、次の範囲を使用します。
 
 - StartMacAddress:00-1D-D8-B7-00-00
 - EndMacAddress:00-1D-D8-F4-FF-FF
 
 > [!Note]  
-> この MAC アドレス プールは、各 Azure Stack システムで同じで、構成することはできません。
+> この MAC アドレス プールは、各 Azure Stack Hub システムで同じで、構成することはできません。
 
 仮想ネットワークと既存の企業ネットワークとの接続方法によっては、仮想マシンの MAC アドレスが重複することがあります。
 
-MAC アドレス プールの使用率に関する詳細情報は、Azure Stack Administrator の PowerShell モジュール内のコマンドレット [Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) を使用して確認できます。
+MAC アドレス プールの使用率の詳細については、Azure Stack Hub 管理者の PowerShell モジュール内にあるコマンドレット [Get AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) を使用して確認できます。
 
-## <a name="view-public-ip-address-consumption-in-azure-stack"></a>Azure Stack でパブリック IP アドレスの使用量を表示する
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+## <a name="view-public-ip-address-consumption-in-azure-stack-hub"></a>Azure Stack Hub でパブリック IP アドレスの使用量を表示する
 
 クラウド管理者は、以下を表示できます。
  - テナントに割り当てられたパブリック IP アドレスの数。
@@ -50,7 +48,7 @@ MAC アドレス プールの使用率に関する詳細情報は、Azure Stack 
 
 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルには、パブリック IP アドレス プール全体で使用されているパブリック IP アドレスの数が表示されます。 各 IP アドレスについて、テナント IaaS VM インスタンス、ファブリック インフラストラクチャ サービス、テナントによって明示的に作成されたパブリック IP アドレス リソースの使用量がタイルに表示されます。
 
-タイルの目的は、その場所で使用されているパブリック IP アドレスの数を Azure Stack オペレーターに直観的に理解させることです。 数を理解することで、管理者はこのリソースをローコストで運用しているかどうかを判断できます。
+タイルの目的は、その場所で使用されているパブリック IP アドレスの数を Azure Stack Hub オペレーターに直観的に理解してもらうことです。 数を理解することで、管理者はこのリソースをローコストで運用しているかどうかを判断できます。
 
 **[テナント リソース]** の下にある **[パブリック IP アドレス]** メニュー項目は、"*テナントによって明示的に作成されている*" パブリック IP アドレスのみを表示します。 メニュー項目は、 **[リソース プロバイダー]** の **[ネットワーク]** ウィンドウで簡単に見つかります。 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルの **[使用済み]** パブリック IP アドレスの数は、 **[テナント リソース]** の **[パブリック IP アドレス]** タイルの数と一致することはなく、常にその数よりも大きくなります。
 
@@ -58,7 +56,7 @@ MAC アドレス プールの使用率に関する詳細情報は、Azure Stack 
 
 リージョンで使用されているパブリック IP アドレスの合計数を表示するには:
 
-1. Azure Stack 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[管理]** カテゴリで **[ネットワーク]** を選択します。
+1. Azure Stack Hub 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[管理]** カテゴリで **[ネットワーク]** を選択します。
 1. **[ネットワーク]** ウィンドウの **[概要]** セクションに、 **[Public IP pools usage]\(パブリック IP プールの使用量\)** タイルが表示されます。
 
     ![ネットワーク リソース プロバイダーのウィンドウ](media/azure-stack-viewing-public-ip-address-consumption/ip-address-consumption-01.png)
@@ -87,6 +85,6 @@ MAC アドレス プールの使用率に関する詳細情報は、Azure Stack 
 | ファブリック インフラストラクチャ サービス エンドポイントに割り当て済みの静的パブリック IP アドレス |はい |いいえ |
 | IaaS VM インスタンス用に暗黙的に作成され、仮想ネットワークのアウトバウンド NAT で使用されるパブリック IP アドレス。 これらは、テナントが VM インスタンスを作成するたびにバック グラウンドで作成され、VM が情報をインターネットに送信できるようにします。 |はい |いいえ |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack でストレージ アカウントを管理する](azure-stack-manage-storage-accounts.md)
+[Azure Stack Hub でストレージ アカウントを管理する](azure-stack-manage-storage-accounts.md)

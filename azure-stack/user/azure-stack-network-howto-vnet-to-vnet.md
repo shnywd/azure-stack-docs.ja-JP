@@ -1,6 +1,6 @@
 ---
-title: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法 | Microsoft Docs
-description: VNET ピアリングを通じて 2 つの Azure Stack を接続する方法について説明します。
+title: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法 | Microsoft Docs
+description: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,26 +9,26 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 7a9f293c35856a9d1e29652a097d789f86b7b03c
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: e692d44f94aefdb28c447c9cff15f88af0d1827a
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71962473"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878779"
 ---
 # <a name="how-to-connect-two-vnets-through-peering"></a>ピアリングを通じて 2 つの VNET を接続する方法
 
-この記事では、同じ環境内の 2 つの仮想ネットワーク間の接続を作成する方法について説明します。 接続を設定しながら Azure Stack での VPN ゲートウェイのしくみを学習します。 Fortinet FortiGate を使用して、同じ Azure Stack 環境内で 2 つの VNET を接続します。 この手順では、各 VNET で FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、2 つの VNET をそれぞれ別個のリソース グループ内にデプロイします。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 VNET のデプロイごとに、この記事の手順を繰り返します。
+この記事では、同じ環境内の 2 つの仮想ネットワーク間の接続を作成する方法について説明します。 接続を設定しながら、Azure Stack Hub での VPN ゲートウェイのしくみを学習します。 Fortinet FortiGate を使用して、同じ Azure Stack Hub 環境内で 2 つの VNET を接続します。 この手順では、各 VNET で FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、2 つの VNET をそれぞれ別個のリソース グループ内にデプロイします。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 VNET のデプロイごとに、この記事の手順を繰り返します。
 
 ## <a name="prerequisites"></a>前提条件
 
--   Azure Stack 統合システムまたは ASDK へのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。
+-   このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量を持つシステムへのアクセス。
 
--  ネットワーク仮想アプライアンス (NVA) ソリューションがダウンロードされ、Azure Stack Marketplace に発行されていること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
+-  Azure Stack Hub Marketplace にダウンロードされ、発行されているネットワーク仮想アプライアンス (NVA) ソリューション。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
 
 -  FortiGate NVA をアクティブにするための、2 つ以上の有効な FortiGate ライセンス ファイル。 これらのライセンスを取得する方法については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
-    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
+    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack Hub VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
 
     アクティブ/パッシブ (HA) 設定で FortiGate ソリューションをデプロイする方法の詳細については、Fortinet ドキュメント ライブラリの「[Azure 上の FortiGate-VM の HA](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure)」の記事を参照してください。
 
@@ -71,11 +71,11 @@ ms.locfileid: "71962473"
 | パブリック IP アドレスの種類 | 静的 |
 
 > [!Note]
-> \* 上記が何らかの形 (いずれかの Azure Stack の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。
+> \* 上記が何らかの形 (いずれかの Azure Stack Hub の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。
 
 ## <a name="deploy-the-fortigate-ngfw"></a>FortiGate NGFW をデプロイする
 
-1.  Azure Stack ユーザー ポータルを開きます。
+1.  Azure Stack Hub ユーザー ポータルを開きます。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
@@ -112,7 +112,7 @@ ms.locfileid: "71962473"
 
 forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行します。
 
-1. Azure Stack ユーザー ポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 
 2. リソース グループを選択します。 フィルターに「`forti1-rg1`」と入力し、forti1-rg1 リソース グループをダブルクリックします。
 
@@ -122,7 +122,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 3. **[設定]** で、 **[ルート]** を選択します。
 
-    ![Routes](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![ルート](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
 
 4. **[to-Internet]\(インターネットへ\)** ルートを削除します。
 
@@ -138,7 +138,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 9. **[次ホップの種類]** として **[仮想アプライアンス]** を選択し、`172.16.1.4` とします。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
 
-    ![次ホップの種類](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![ネクストホップの種類](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
 
 10. **[保存]** を選択します。
 
@@ -239,15 +239,15 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 ## <a name="test-and-validate-connectivity"></a>接続のテストと検証
 
-これで、FortiGate NVA 介して各 VNET 間をルーティングできるようになりました。 接続を検証するには、各 VNET の InsideSubnet に Azure Stack VM を作成します。 Azure Stack VM の作成は、ポータル、CLI、または PowerShell を使用して行うことができます。 VM を作成する際は、次の手順に従います。
+これで、FortiGate NVA を介して各 VNET 間をルーティングできるようになりました。 接続を検証するには、各 VNET の InsideSubnet に Azure Stack Hub VM を作成します。 Azure Stack Hub VM の作成は、ポータル、CLI、または PowerShell を使用して行うことができます。 VM を作成する際は、次の手順に従います。
 
--   Azure Stack VM は、各 VNET の **InsideSubnet** に配置されます。
+-   Azure Stack Hub VM は、各 VNET の **InsideSubnet** に配置されます。
 
 -   VM の作成時には、NSG は適用**しません** (ポータルから VM を作成する場合は、既定で追加される NSG を削除してください)。
 
 -   接続をテストするために使用する通信が VM のファイアウォール規則によって許可されていることを確認します。 テスト目的の場合は、可能な限り、OS 内でファイアウォールを完全に無効にすることをお勧めします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
-[Fortinet FortiGate を使用して Azure Stack にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Fortinet FortiGate を使用して Azure Stack Hub にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  

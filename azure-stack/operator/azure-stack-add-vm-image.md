@@ -1,6 +1,6 @@
 ---
-title: カスタム VM イメージを Azure Stack に追加する | Microsoft Docs
-description: Azure Stack にカスタム VM イメージを追加または削除する方法について説明します。
+title: カスタム VM イメージを Azure Stack Hub に追加する | Microsoft Docs
+description: Azure Stack Hub にカスタム VM イメージを追加または削除する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,18 +15,16 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 44bb9701e27bc98abbc1a353c8ada9fafddf0bbe
-ms.sourcegitcommit: a6c02421069ab9e72728aa9b915a52ab1dd1dbe2
+ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75654827"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880891"
 ---
-# <a name="add-a-custom-vm-image-to-azure-stack"></a>Azure Stack にカスタム VM イメージを追加する
+# <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Azure Stack Hub にカスタム VM イメージを追加する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack では、カスタム仮想マシン (VM) のイメージをマーケットプレースに追加してご自分のユーザーに提供することができます。 VM イメージは、管理者ポータルまたは Windows PowerShell を介して Azure Stack Hub Marketplace に追加できます。 グローバル Azure Marketplace のイメージをカスタム イメージのベースとして使用するか、Hyper-V を使用して独自のイメージを作成します。
+Azure Stack Hub では、カスタム仮想マシン (VM) のイメージをマーケットプレースに追加してご自分のユーザーに提供することができます。 VM イメージは、管理者ポータルまたは Windows PowerShell を介して Azure Stack Hub Marketplace に追加できます。 グローバル Azure Marketplace のイメージをカスタム イメージのベースとして使用するか、Hyper-V を使用して独自のイメージを作成します。
 
 ## <a name="step-1-create-the-custom-vm-image"></a>手順 1:カスタム VM イメージを作成する
 
@@ -34,7 +32,7 @@ Azure Stack では、カスタム仮想マシン (VM) のイメージをマー�
 
 汎用化したカスタム VHD を作成します。 VHD が Azure の外部からのものである場合は、「[汎用化した VHD をアップロードして Azure で新しい VM を作成する](/azure/virtual-machines/windows/upload-generalized-managed)」の手順に従い、VHD に対して **Sysprep** を正しく実行して汎用化します。
 
-VHD が Azure からのものである場合は、それを Azure Stack に移植する前に、[このドキュメント](/azure/virtual-machines/windows/download-vhd)の手順に従って VHD を正しく汎用化してダウンロードします。
+VHD が Azure からのものである場合は、それを Azure Stack Hub に移植する前に、[このドキュメント](/azure/virtual-machines/windows/download-vhd)の手順に従って VHD を正しく汎用化してダウンロードします。
 
 ### <a name="linux"></a>Linux
 
@@ -56,7 +54,7 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
    logout
    ```
 
-   Azure Stack で動作する Azure Linux エージェントのバージョンに注意してください ([こちらに記載されています](azure-stack-linux.md#azure-linux-agent))。 sysprep されたイメージに、Azure Stack と互換性のある Azure Linux エージェントのバージョンが含まれていることを確認してください。
+   Azure Stack Hub で動作する Azure Linux エージェントのバージョンに注意してください ([こちらに記載されています](azure-stack-linux.md#azure-linux-agent))。 sysprep されたイメージに、Azure Stack Hub と互換性のある Azure Linux エージェントのバージョンが含まれていることを確認してください。
 
 2. VM を停止 - 割り当て解除します。
 
@@ -82,21 +80,21 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
 
 イメージをアップロードする前に、以下を考慮する必要があります。
 
-- Azure Stack は、VHD フォーマットの固定ディスクで第 1 世代の VM のみサポートします。 固定フォーマットの場合、ファイル内で論理ディスクが線形に構成されるため、ディスク オフセット *X* は BLOB オフセット *X* に格納されます。BLOB 末尾の小さなフッターに、VHD のプロパティが記述されます。 ディスクが固定フォーマットであるかどうかを確認するには、**Get-VHD** PowerShell コマンドレットを使用します。
+- Azure Stack Hub では、VHD フォーマットの固定ディスク内で第 1 世代の VM のみサポートされます。 固定フォーマットの場合、ファイル内で論理ディスクが線形に構成されるため、ディスク オフセット *X* は BLOB オフセット *X* に格納されます。BLOB 末尾の小さなフッターに、VHD のプロパティが記述されます。 ディスクが固定フォーマットであるかどうかを確認するには、**Get-VHD** PowerShell コマンドレットを使用します。
 
-- Azure Stack では、ダイナミック ディスク VHD はサポートされていません。 
+- Azure Stack Hub では、ダイナミック ディスク VHD はサポートされていません。 
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>手順 2:ストレージ アカウントに VM イメージをアップロードする
 
-1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。  
+1. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。  
 
-2. Azure Stack にオペレーターとしてサインインします。 手順については、[オペレーターとしての Azure Stack へのサインイン](azure-stack-powershell-configure-admin.md)に関するページをご覧ください。
+2. Azure Stack Hub にオペレーターとしてサインインします。 手順については、[オペレーターとしての Azure Stack Hub へのサインイン](azure-stack-powershell-configure-admin.md)に関するページをご覧ください。
 
-3. イメージは、Blob Storage URI で参照できなければなりません。 Windows または Linux オペレーティング システムのイメージを (VHDX ではなく) VHD 形式で準備してから、そのイメージを Azure Stack のストレージ アカウントにアップロードします。
+3. イメージは、Blob Storage URI で参照できなければなりません。 Windows または Linux オペレーティング システムのイメージを (VHDX ではなく) VHD 形式で準備してから、そのイメージを Azure Stack Hub のストレージ アカウントにアップロードします。
 
-   - VHD が Azure 内にある場合、接続された Azure Stack 上で実行していれば、[Azcopy](/azure/storage/common/storage-use-azcopy) などのツールを使用して、Azure と自分の Azure Stack ストレージ アカウントの間で VHD を直接転送できます。
+   - VHD が Azure 内にある場合、接続された Azure Stack Hub 上で実行していれば、[Azcopy](/azure/storage/common/storage-use-azcopy) などのツールを使用して、Azure と自分の Azure Stack Hub ストレージ アカウントの間で VHD を直接転送できます。
 
-   - 切断された Azure Stack 上で、VHD が Azure 内にある場合は、Azure と Azure Stack の両方に接続されているマシンに VHD をダウンロードする必要があります。 その後、VHD を Azure からこのマシンにコピーしてから、Azure と Azure Stack 間で使用できる一般的な[ストレージ データ転送ツール](../user/azure-stack-storage-transfer.md)を使用して Azure Stack に VHD を転送します。
+   - 切断された Azure Stack Hub 上で、VHD が Azure 内にある場合は、Azure と Azure Stack Hub の両方に接続されているマシンに VHD をダウンロードする必要があります。 その後、VHD を Azure からこのマシンにコピーしてから、Azure と Azure Stack Hub 間で使用できる一般的な[ストレージ データ転送ツール](../user/azure-stack-storage-transfer.md)を使用して Azure Stack Hub に VHD を転送します。
 
      この例で使用するそうしたツールの 1 つは、Azure Stack Hub 管理者ポータルのストレージ アカウントに VHD をアップロードする Add-AzureRmVHD コマンドです。  
 
@@ -115,9 +113,9 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
    ![BLOB のアクセスを公開に設定](./media/azure-stack-add-vm-image/tca3.png)
    
 
-## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>手順 3、オプション 1:Azure Stack オペレーターとしてポータルを使用して VM イメージを追加する
+## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>手順 3、オプション 1:Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを追加する
 
-1. Azure Stack にオペレーターとしてサインインします。 メニューで、 **[VM イメージ]**  >  **[追加]** の下の **[すべてのサービス]**  >  **[コンピューティング]** を選択します。
+1. Azure Stack Hub にオペレーターとしてサインインします。 メニューで、 **[VM イメージ]**  >  **[追加]** の下の **[すべてのサービス]**  >  **[コンピューティング]** を選択します。
 
    ![カスタム イメージ サイドローディング UI](./media/azure-stack-add-vm-image/tca4.png)
 
@@ -129,11 +127,11 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
    
 3. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタム .azpkg 内の Resource Manager テンプレートと Manifest.json を編集するときに必要になります。
 
-## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>手順 3、オプション 2:PowerShell を使用して VM イメージを Azure Stack オペレーターとして追加する
+## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>手順 3、オプション 2:Azure Stack Hub オペレーターとして PowerShell を使用して VM イメージを追加する
 
-1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。  
+1. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。  
 
-2. Azure Stack にオペレーターとしてサインインします。 手順については、[オペレーターとしての Azure Stack へのサインイン](azure-stack-powershell-configure-admin.md)に関するページをご覧ください。
+2. Azure Stack Hub にオペレーターとしてサインインします。 手順については、[オペレーターとしての Azure Stack Hub へのサインイン](azure-stack-powershell-configure-admin.md)に関するページをご覧ください。
 
 3. 管理者特権のプロンプトで PowerShell を開き、次を実行します。
 
@@ -170,9 +168,9 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
      
 4. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタムの .azpkg でリソース マネージャー テンプレートと Manifest.json を編集するときに必要になります。
 
-## <a name="remove-the-vm-image-as-an-azure-stack-operator-using-the-portal"></a>ポータルを使用して VM イメージを Azure Stack オペレーターとして削除する
+## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを削除する
 
-1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
+1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
 
 2. VM イメージに Marketplace 項目が関連付けられている場合は、 **[Marketplace management]\(Marketplace 管理\)** を選択し、削除する VM Marketplace 項目を選択します。
 
@@ -180,13 +178,13 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
 
 4. **[削除]** を選択します。
 
-## <a name="remove-a-vm-image-as-an-azure-stack-operator-using-powershell"></a>PowerShell を使用して VM イメージを Azure Stack オペレーターとして削除する
+## <a name="remove-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>Azure Stack Hub オペレーターとして PowerShell を使用して VM イメージを削除する
 
 過去にアップロードした VM イメージが必要なくなった場合は、次のコマンドレットを使用して Marketplace から削除できます。
 
-1. [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
+1. [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。
 
-2. Azure Stack にオペレーターとしてサインインします。
+2. Azure Stack Hub にオペレーターとしてサインインします。
 
 3. 管理者特権のプロンプトで PowerShell を開き、次を実行します。
 
@@ -212,9 +210,9 @@ VHD が Azure からのものである場合は、次の手順に従って VHD �
      例: `1.0.0`  
      VM イメージをデプロイするときにユーザーが使用する VM イメージのバージョン。 このバージョンの形式は *\#.\#.\#* です。 このフィールドではスペースや他の特殊文字は使用できません。  
 
-     **Remove-AzsPlatformImage** コマンドレットの詳細については、Microsoft PowerShell の [Azure Stack オペレーター モジュールのドキュメント](/powershell/module/)を参照してください。
+     **Remove-AzsPlatformImage** コマンドレットの詳細については、Microsoft PowerShell の [Azure Stack Hub オペレーター モジュールのドキュメント](/powershell/module/)を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 
-- [カスタム Azure Stack Marketplace 項目の作成と発行](azure-stack-create-and-publish-marketplace-item.md)
+- [Azure Stack Hub Marketplace のカスタム アイテムを作成して発行する](azure-stack-create-and-publish-marketplace-item.md)
 - [仮想マシンのプロビジョニング](../user/azure-stack-create-vm-template.md)

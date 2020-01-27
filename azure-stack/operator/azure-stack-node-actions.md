@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でのスケール ユニットのノード操作 | Microsoft Docs
-description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションと、Azure Stack 統合システムでノードの状態を表示する方法について説明します。
+title: Azure Stack Hub でのスケール ユニットのノード操作 | Microsoft Docs
+description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションと、Azure Stack Hub 統合システムでノードの状態を表示する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,16 +15,14 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5bc65418c1dd098dc8784cb9bf306676a1cd79ed
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: de0ec0d68b3d63cc0661fe7c4684304d83878a45
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955286"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882353"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack でのスケール ユニット ノードの操作
-
-*適用対象: Azure Stack 統合システム*
+# <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 
 この記事では、スケール ユニットの状態を確認する方法について説明します。 ユニットのノードは、表示することができます。 電源オン、電源オフ、シャットダウン、ドレイン、再開、修復などのノード アクションを実行できます。 通常、これらのノード アクションは、パーツのフィールド交換時に使用されるほか、ノードの復旧の手段として使用されます。
 
@@ -56,7 +54,7 @@ ms.locfileid: "73955286"
 
 ### <a name="node-operational-states"></a>ノードの動作状態
 
-| Status | 説明 |
+| Status | [説明] |
 |----------------------|-------------------------------------------------------------------|
 | 実行中 | ノードは、アクティブにスケール ユニットに参加しています。 |
 | 停止済み | ノードは利用不可です。 |
@@ -76,7 +74,7 @@ ms.locfileid: "73955286"
 
 ノードの操作状態によって、使用可能なオプションが決まります。
 
-Azure Stack PowerShell モジュールをインストールする必要があります。 これらのコマンドレットは **Azs.Fabric.Admin** モジュールに存在します。 PowerShell for Azure Stack のインストールまたはインストールの確認については、「[PowerShell for Azure Stack をインストールする](azure-stack-powershell-install.md)」を参照してください。
+Azure Stack Hub PowerShell モジュールをインストールする必要があります。 これらのコマンドレットは **Azs.Fabric.Admin** モジュールに存在します。 PowerShell for Azure Stack Hub のインストールまたはインストールの確認については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
 
 ## <a name="stop"></a>Stop
 
@@ -94,7 +92,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 詳細については、「[Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)」を参照してください。
 
-## <a name="start"></a>start
+## <a name="start"></a>[開始]
 
 **開始**操作は、ノードをオンにします。 これは、電源ボタンを押した場合と同じです。
 
@@ -127,7 +125,7 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 
 ## <a name="resume"></a>Resume
 
-**再開**アクションは、無効化されたノードを再開し、ワークロードのアクティブな配置対象としてマークします。 ノードで実行されていた以前のワークロードはフェールバックされません (ノードのドレイン操作を使用する場合は、必ず電源をオフにしてください。 ノードは、電源をオンに戻しても、ワークロードのアクティブな配置対象としてマークされることはありません。 準備ができたら、再開操作を使用しノードをアクティブとしてマークする必要があります。)
+**再開**アクションは、無効化されたノードを再開し、ワークロードのアクティブな配置対象としてマークします。 ノードで実行されていた以前のワークロードはフェールバックされません。 (ノードのドレイン操作を使用する場合は、必ず電源をオフにしてください。 ノードは、電源をオンに戻しても、ワークロードのアクティブな配置対象としてマークされることはありません。 準備ができたら、再開操作を使用しノードをアクティブとしてマークする必要があります。)
 
 再開アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
@@ -140,17 +138,17 @@ Azure Stack PowerShell モジュールをインストールする必要があり
 ## <a name="repair"></a>修復
 
 > [!CAUTION]  
-> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムの不安定化、パフォーマンスの低下、セキュリティ スレッドの発生、または Azure Stack オートメーションによるオペレーティング システムのデプロイの失敗を引き起こす可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。<br><br>
+> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムの不安定化、パフォーマンスの低下、セキュリティ スレッドの発生、または Azure Stack Hub オートメーションによるオペレーティング システムのデプロイ時に失敗を引き起こす可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack Hub 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。<br><br>
 詳細およびパートナー ドキュメントへのリンクについては、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関する記事を参照してください。
 
 | ハードウェア パートナー | リージョン | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Operations Guide](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb) (運用ガイド)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) (リリース ノート) |
-| Dell EMC | All | [Cloud for Microsoft Azure Stack 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
+| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Hub Operations Guide (Cisco Integrated System for Microsoft Azure Stack Hub 運用ガイド)](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_00.html#concept_wks_t1q_wbb)<br><br>[Release Notes for Cisco Integrated System for Microsoft Azure Stack Hub (Cisco Integrated System for Microsoft Azure Stack Hub のリリース ノート)](https://www.cisco.com/c/en/us/support/servers-unified-computing/ucs-c-series-rack-mount-ucs-managed-server-software/products-release-notes-list.html) |
+| Dell EMC | All | [Cloud for Microsoft Azure Stack Hub 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack Hub 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [富士通マネージド サービス サポート デスク (アカウントとログインが必要)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | ヨーロッパ、中東およびアフリカ | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
 |  |  | [Fujitsu MySupport (アカウントとログインが必要)](https://support.ts.fujitsu.com/IndexMySupport.asp) (英語) |
-| HPE | All | [HPE ProLiant for Microsoft Azure Stack](http://www.hpe.com/info/MASupdates) |
+| HPE | All | [HPE ProLiant for Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
 **修復**アクションは、ノードを修復します。 次のシナリオのいずれかに対してのみ使用します。
@@ -183,6 +181,6 @@ Azure Stack PowerShell モジュールをインストールする必要があり
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Fabric オペレーター モジュールについて確認します](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+[Azure Stack Hub Fabric オペレーター モジュールについて](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上に MySQL リソース プロバイダーをデプロイする | Microsoft Docs
-description: Azure Stack 上に MySQL リソース プロバイダー アダプターと MySQL データベースをサービスとしてデプロイする方法を説明します。
+title: Azure Stack Hub への MySQL リソース プロバイダーのデプロイ | Microsoft Docs
+description: Azure Stack Hub に MySQL リソース プロバイダー アダプターと MySQL データベースをサービスとしてデプロイする方法を説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,36 +15,36 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 4b2cbde2222e13b148072149d461ff4636b77d59
-ms.sourcegitcommit: 4cd33bcb1bb761a424afd51f511b093543786d76
+ms.openlocfilehash: 84c9854276fbffdcdc4b9c893aacc248780f4d2e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/21/2019
-ms.locfileid: "75325112"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882251"
 ---
-# <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack への MySQL リソース プロバイダーのデプロイ
+# <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
-MySQL サーバー リソース プロバイダーを使用して、MySQL データベースを Azure Stack サービスとして公開します。 MySQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (VM) 上でサービスとして実行されます。
+MySQL サーバー リソース プロバイダーを使用して、MySQL データベースを Azure Stack Hub サービスとして公開します。 MySQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (VM) 上でサービスとして実行されます。
 
 > [!IMPORTANT]
 > SQL または MySQL をホストするサーバー上に項目を作成できるのは、リソース プロバイダーのみです。 リソース プロバイダー以外がホスト サーバー上に項目を作成すると、不一致状態になる可能性があります。
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack MySQL リソース プロバイダーをデプロイする前に、いくつかの前提条件が満たされている必要があります。 これらの要件を満たすには、特権エンドポイント VM にアクセスできるコンピューターでこの記事の手順を実行します。
+Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に、いくつかの前提条件を満たす必要があります。 これらの要件を満たすには、特権エンドポイント VM にアクセスできるコンピューターでこの記事の手順を実行します。
 
-* まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack を登録](./azure-stack-registration.md)します。
-* このインストールを実行するシステムに Azure モジュールと Azure Stack PowerShell モジュールをインストールします。 そのシステムは、最新バージョンの .NET ランタイムを伴う Windows 10 または Windows Server 2016 のイメージである必要があります。 [PowerShell for Azure Stack をインストールする](./azure-stack-powershell-install.md)を参照してください。
-* **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Marketplace に追加します。
+* まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack Hub を登録](./azure-stack-registration.md)します。
+
+* **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Hub Marketplace に追加します。
 
 * MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。
 
   >[!NOTE]
   >インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカル パスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
 
-* リソース プロバイダーには、対応する最低限の Azure Stack ビルドがあります。
+* リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。
 
-  |最小の Azure Stack バージョン|MySQL RP バージョン|
+  |Azure Stack Hub の最小バージョン|MySQL RP バージョン|
   |-----|-----|
   |バージョン 1910 (1.1910.0.58)|[MySQL RP バージョン 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
   |バージョン 1808 (1.1808.0.97)|[MySQL RP バージョン 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
@@ -53,24 +53,58 @@ Azure Stack MySQL リソース プロバイダーをデプロイする前に、�
   |     |     |
   
 > [!IMPORTANT]
-> MySQL リソース プロバイダーのバージョン1.1.47.0 をデプロイする前に、Azure Stack システムを 1910 更新プログラム以降のバージョンにアップグレードしておく必要があります。 以前のサポートされていない Azure Stack バージョンでは、MySQL リソース プロバイダーのバージョン1.1.47.0 は機能しません。
+> MySQL リソース プロバイダーのバージョン 1.1.47.0 をデプロイする前に、Azure Stack Hub システムを 1910 更新プログラム以降のバージョンにアップグレードしておく必要があります。 サポートされていない以前の Azure Stack Hub バージョンでは、MySQL リソース プロバイダーのバージョン 1.1.47.0 は機能しません。
 
 * データセンターの統合の前提条件を満たしていることを確認します。
 
     |前提条件|リファレンス|
     |-----|-----|
-    |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)|
-    |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack デプロイの必須 PKI 前提条件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack デプロイの PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack Hub データセンターの統合 - DNS](azure-stack-integrate-dns.md)|
+    |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack Hub データセンターの統合 - エンドポイントの発行](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack Hub のデプロイに対する PKI の必須前提条件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack Hub のデプロイに対する PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
+
+接続が切断された場合のシナリオでは、次の手順を実行して、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録を行います。
+
+1. インターネット接続が確立されたコンピューターにサインインし、次のスクリプトを使用して、PowerShell モジュールをダウンロードします。
+
+```powershell
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop
+
+# path to save the packages, c:\temp\azs1.6.0 as an example here
+$Path = "c:\temp\azs1.6.0"
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
+
+2. その後、ダウンロードしたパッケージを USB デバイスにコピーします。
+
+3. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
+
+4. この場所をローカル リポジトリとして登録します。
+
+```powershell
+# requires -Version 5
+# requires -RunAsAdministrator
+# requires -Module PowerShellGet
+# requires -Module PackageManagement
+
+$SourceLocation = "C:\temp\azs1.6.0"
+$RepoName = "azs1.6.0"
+
+Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory" 
+```
 
 ### <a name="certificates"></a>証明書
 
-_統合システムのインストールのみを対象_。 [Azure Stack のデプロイの PKI 要件](./azure-stack-pki-certs.md#optional-paas-certificates)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
+_統合システムのインストールのみを対象_。 [Azure Stack Hub のデプロイに対する PKI の要件](./azure-stack-pki-certs.md#optional-paas-certificates)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
 
 ## <a name="deploy-the-resource-provider"></a>リソース プロバイダーのデプロイ
 
-前提条件がすべてインストールされたら、**DeployMySqlProvider.ps1** スクリプトを実行して MySQL リソース プロバイダーをデプロイできます。 DeployMySqlProvider.ps1 スクリプトは、Azure Stack のバージョンに応じてダウンロードした MySQL リソース プロバイダー インストール ファイルの一部として展開されます。
+前提条件がすべてインストールされたら、**DeployMySqlProvider.ps1** スクリプトを実行して MySQL リソース プロバイダーをデプロイできます。 DeployMySqlProvider.ps1 スクリプトは、ご利用の Azure Stack Hub のバージョンに応じてダウンロードした、MySQL リソース プロバイダー インストール ファイルの一部として抽出されます。
 
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
@@ -79,7 +113,7 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 
 **DeployMySqlProvider.ps1** スクリプトを実行して次のタスクを完了します。
 
-* Azure Stack 上のストレージ アカウントに証明書とその他のアーティファクトをアップロードします。
+* Azure Stack Hub のストレージ アカウントに、証明書とその他のアーティファクトをアップロードします。
 * ギャラリー パッケージを公開して、ギャラリーを使用して MySQL データベースをデプロイできるようにします。
 * ホスティング サーバーをデプロイするためのギャラリー パッケージを発行します。
 * ダウンロードした Windows Server 2016 Core イメージを使用して VM をデプロイした後、MySQL リソース プロバイダーをインストールします。
@@ -96,10 +130,10 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 | パラメーター名 | [説明] | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
-| **AzCredential** | Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |
+| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用した資格情報と同じものを使用します。 | _必須_ |
 | **VMLocalCredential** | MySQL リソースプロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
-| **AzureEnvironment** | Azure Stack のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
+| **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
 | **DependencyFilesLocalPath** | 統合システムの場合のみ、証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 切断された環境では、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) をこのディレクトリにダウンロードします。 必要に応じて、ここで 1 つの Windows Update MSU パッケージをコピーできます。 | _省略可能_ (統合システムまたは切断された環境には _必須_) |
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
@@ -110,26 +144,29 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 
 ## <a name="deploy-the-mysql-resource-provider-using-a-custom-script"></a>カスタム スクリプトを使用して MySQL リソース プロバイダーをデプロイする
 
-MySQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンをデプロイする場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack モジュールをインストールする必要があります。 MySQL リソース プロバイダーのバージョン1.1.47.0 をデプロイする場合は、この手順をスキップできます。
+MySQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンをデプロイする場合は、特定バージョンの AzureRm.BootStrapper と Azure Stack Hub モジュールを PowerShell にインストールする必要があります。 MySQL リソース プロバイダーのバージョン 1.1.47.0 をデプロイする場合は、デプロイ スクリプトが自動的にダウンロードされ、C:\Program Files\SqlMySqlPsh へのパスに必要な PowerShell モジュールがインストールされます。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
-リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。 必要に応じて、Azure Stack のデプロイに適した既定のアカウント情報とパスワードを変更します。
+> [!NOTE]
+> 接続が切断された場合のシナリオでは、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録が前提条件として必要です。
+
+リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。 必要に応じて、Azure Stack Hub のデプロイ用の既定のアカウント情報とパスワードを変更します。
 
 ```powershell
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
@@ -151,6 +188,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh,
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change to the directory folder where you extracted the installation files. Don't provide a certificate on ASDK!
 . $tempDir\DeployMySQLProvider.ps1 `
     -AzCredential $AdminCreds `
@@ -164,9 +206,9 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ```
 
-リソース プロバイダーのインストール スクリプトが終了したら、最新の更新プログラムが表示されるようにブラウザーを最新の情報に更新します。
+リソース プロバイダーのインストール スクリプトが終了したら、ブラウザーを最新の情報に更新します。これによって、最新の更新プログラムが表示され、現在の PowerShell セッションを終了できることを確認します。
 
-## <a name="verify-the-deployment-by-using-the-azure-stack-portal"></a>Azure Stack ポータルを使用してデプロイを確認する
+## <a name="verify-the-deployment-by-using-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用してデプロイを確認する
 
 1. 管理ポータルにサービス管理者としてサインインします。
 2. **[リソース グループ]** を選択します。

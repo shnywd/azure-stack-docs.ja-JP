@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 用の Azure Marketplace アイテム | Microsoft Docs
-description: Azure Stack で使用できる Azure Marektplace アイテムについて説明します。
+title: Azure Stack Hub で使用できる Azure Marketplace 項目 | Microsoft Docs
+description: Azure Stack Hub で使用できる Azure Marektplace アイテムについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -16,16 +16,14 @@ ms.date: 01/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: a84844d398d8e0b6b076c762ebdc0112713f19cc
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75757020"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882727"
 ---
-# <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 用の Azure Marketplace アイテム
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
 ## <a name="virtual-machine-extensions"></a>仮想マシン拡張機能
 
@@ -50,7 +48,7 @@ ms.locfileid: "75757020"
 
 ## <a name="microsoft-vm-images-and-solution-templates"></a>Microsoft VM イメージおよびソリューション テンプレート
 
-Microsoft Azure Stack では、次の Azure Marketplace VM およびソリューション テンプレートがサポートされています。 依存関係がある場合は、前述のように、それらすべてを個別にダウンロードします。 SQL Server や Machine Learning Server などのアプリには、適切なライセンスが必要です (無償または試用版としてマークされている場合を除く)。
+Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリューション テンプレートをサポートしています。 依存関係がある場合は、前述のように、それらすべてを個別にダウンロードします。 SQL Server や Machine Learning Server などのアプリには、適切なライセンスが必要です (無償または試用版としてマークされている場合を除く)。
 
 |  | 項目名 | [説明] | Publisher |
 | --- | --- | --- | --- |
@@ -167,7 +165,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![Memcached の複数のインスタンス](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached の複数のインスタンス](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached は、高パフォーマンスの分散型メモリ オブジェクト キャッシュ システムです。 このソリューションは、複数の Memcached ノードをプロビジョニングして、ハイ パフォーマンスの障害耐性があるアプリ用の分散キャッシュを作成します。 **このソリューション テンプレートでは、Debian 8 と Custom Script for Linux 2.0 Extension も必要です。** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | 直感的な Web CMS。 | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | C++ で記述された高パフォーマンスのオープン ソースの NoSQL データベース。 | Bitnami |
-| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C++ で記述された高パフォーマンスのオープン ソースの NoSQL データベース。 **このソリューション テンプレートには、バージョン 1807 以降の Azure Stack が必要で、Linux 2.0 の拡張機能の Debian 8 とカスタム スクリプトも必要です。** | Bitnami |
+| ![MongoDB with Replication](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB with Replication](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | C++ で記述された高パフォーマンスのオープン ソースの NoSQL データベース。 **このソリューション テンプレートでは、お使いの Azure Stack Hub がバージョン 1807 以降である必要があります。また、Linux 2.0 の拡張機能に Debian 8 とカスタム スクリプトも必要です。** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | オンライン学習コミュニティ用に設計された有効な CMS。 | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | 無料のオープン ソースのフォーラム ソフトウェア。 | Bitnami |
 | ![MySQL](media/azure-stack-marketplace-azure-items/mysql.png) | [MySQL](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mysql) | 最もよく使用されているデータベース システム。 | Bitnami |
@@ -207,7 +205,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![RabbitMQ クラスター](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ クラスター](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ は、メッセージを送信するための共通するプラットフォームをアプリに提供するメッセージング ブローカーであり、メッセージは受信されるまで安全に維持されます。 このソリューションは、複数の VM を使用して、RabbitMQ クラスター内に複数のノードをプロビジョニングして単一の論理ブローカーを形成します。 **このソリューション テンプレートでは、Debian 8 と Custom Script for Linux 2.0 Extension も必要です。** | Bitnami |
 | ![Re:dash](media/azure-stack-marketplace-azure-items/redash.png) | [Re:dash](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | オープン ソースのデータ可視化およびコラボレーション プラットフォーム。 | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | 強力なオープン ソースのキー値ストア。 | Bitnami |
-| ![Redis High Availability](media/azure-stack-marketplace-azure-items/redis.png) | [Redis High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 強力なオープン ソースのキー値ストア。 **このソリューション テンプレートには、バージョン 1807 以降の Azure Stack が必要で、Linux 2.0 の拡張機能の Debian 8 とカスタム スクリプトも必要です。** | Bitnami |
+| ![Redis High Availability](media/azure-stack-marketplace-azure-items/redis.png) | [Redis High Availability](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis-cluster) | 強力なオープン ソースのキー値ストア。 **このソリューション テンプレートでは、お使いの Azure Stack Hub がバージョン 1807 以降である必要があります。また、Linux 2.0 の拡張機能に Debian 8 とカスタム スクリプトも必要です。** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | 強力なプロジェクト管理 Web アプリ。 | Bitnami |
 | ![Redmine+Agile](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | アジャイル プラグインで事前に構成済みのプロジェクト管理アプリ。 | Bitnami |
 | ![ReportServer Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | オープン ソースのビジネス インテリジェンス プラットフォーム。 | Bitnami |
@@ -241,7 +239,7 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![Check Point CloudGuard IaaS Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS Security Management](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | このソリューションでは、単一のネットワーク インターフェイスを備えた Check Point Security Management Server を 1 つデプロイします。 | Check Point |
 | ![Check Point CloudGuard IaaS Single Gateway](media/azure-stack-marketplace-azure-items/checkpoint.png) | [Check Point CloudGuard IaaS Single Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | このソリューションでは、2 つのネットワーク インターフェイスを備えた Check Point CloudGuard IaaS セキュリティ ゲートウェイを 1 つデプロイします。 デプロイ後は、このゲートウェイ経由でトラフィックをルーティングするようにユーザー定義ルート (UDR) を設定する必要があります。 | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | Chef Automate を使用して Continuous Automation Platform をビルド、デプロイ、管理します。 **両方の Chef Marketplace アイテムをダウンロードしてください**。 | Chef Software, Inc |
-| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | Azure Stack 環境のディザスター リカバリー、バックアップと復旧、Azure Stack へのアプリと VM の移行を 1 つのソリューションにまとめた包括的なソリューションです。 | Commvault |
+| ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | バックアップと復旧、Azure Stack Hub へのアプリと VM の移行、Azure Stack Hub 環境のディザスター リカバリーを 1 つのソリューションにまとめた包括的なソリューションです。 | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 簡単かつ確実に VM を制御、監視、および暗号化します。 **すべての CloudLink SecureVM 項目をダウンロードします。** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM は、監査可能なコンプライアンス機能を備えた高度なセキュリティ ツールを提供する、包括的なセキュリティ プラットフォームです。 | EventTracker |
 | ![Exivity - ハイブリッド クラウド課金ソリューション](media/azure-stack-marketplace-azure-items/exivity.png) | [Exivity - ハイブリッド クラウド課金ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/exivity.exivity-vm)  | オンプレミス、パブリック クラウド、ハイブリッド環境のいずれにデプロイされていても、事実上あらゆる IT サービス デリバリー モデルの要件を満たすことができる課金ツール。 | Exivity |
@@ -254,12 +252,12 @@ Microsoft Azure Stack では、次の Azure Marketplace VM およびソリュー
 | ![Service Fabric クラスター](media/azure-stack-marketplace-azure-items/servicefrabric.png) | [Service Fabric Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceFabricCluster?tab=Overview) | このソリューションは、仮想マシン スケール セットでスタンドアロンのクラスターとして実行される Service Fabric をデプロイします。 <br>**このソリューション テンプレートでは、Windows Server 2016 Datacenter をダウンロードする必要もあります**| Microsoft |
 | ![NRI mPLAT スイート - マルチクラウド Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT スイート - マルチクラウド Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | ワークロードやクラウドの監視、構成、プロビジョニング、自動化、構成のプロビジョニング、自動化、および制御を行うための一枚のガラス。 | NRI |
 | ![NooBaa Hybrid AWS S3 互換性 - Community Edition](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybrid AWS S3 互換性 - Community Edition](https://www.noobaa.io/hybrid-cloud) | パブリックとオンプレミスのキャパシティ リソースに対応した、S3 互換のストレージ サービス。 | NooBaa |
-| ![NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint, Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Azure Stack と任意の場所の間に、どんなネットワーク接続を介してであろうと、ソフトウェアのみによるマルチポイント接続を提供します。業界をリードするゼロ トラスト セキュリティを装備し、VPN の 5 倍のスループットを実現する、並列ユーザー無制限の接続です。 | NetFoundry |
-| ![Palo Alto VM-Series 次世代ファイアウォール](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series 次世代ファイアウォール](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series の次世代ファイアウォールにより、お客様はアプリやデータを Azure Stack に安全に移行させ、アプリケーションのホワイトリスト登録や脅威防止ポリシーによって既知および未知の脅威から保護することができます。 **このイメージにはデプロイするためのテンプレートが必要です。重要な情報については、こちらの[記事](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)を参照してください。**| Palo Alto Networks, Inc. |
+| ![マルチポイント、ゼロ トラストの Azure Stack Hub 接続向け NetFoundry ゲートウェイ](media/azure-stack-marketplace-azure-items/netfoundry.png) | [マルチポイント、ゼロ トラストの Azure Stack Hub 接続向け NetFoundry ゲートウェイ](https://azuremarketplace.microsoft.com/marketplace/apps/netfoundryinc.centos) | Azure Stack Hub と任意の場所との間に、ソフトウェアのみのマルチポイント接続を提供します。これでは、ネットワーク接続の種類は問われず、業界をリードするゼロ トラスト セキュリティが使用され、VPN の 5 倍のスループットが実現され、並列ユーザーが無制限に接続できます。 | NetFoundry |
+| ![Palo Alto VM-Series 次世代ファイアウォール](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series 次世代ファイアウォール](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | お客様は VM-Series の次世代ファイアウォールを使用して、アプリやデータを Azure Stack Hub に安全に移行し、アプリケーションのホワイトリスト登録や脅威防止ポリシーによる既知および未知の脅威からそれらを保護することができます。 **このイメージにはデプロイするためのテンプレートが必要です。重要な情報については、こちらの[記事](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)を参照してください。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall は既知の脆弱性および不明な脆弱性を検出し、Web アプリに対する攻撃を防止します。 **両方の PT Marketplace アイテムをダウンロードします。** | Positive Technologies |
-| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise では、Azure Stack インフラストラクチャのライフ サイクル全体を自動化することができます。 **両方の Puppet Marketplace アイテムをダウンロードしてください。** | Puppet |
+| ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise では、お使いの Azure Stack Hub インフラストラクチャのライフ サイクル全体を自動化することができます。 **両方の Puppet Marketplace アイテムをダウンロードしてください。** | Puppet |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery による高度なデータ保護は、バックアップ、レプリケーション、復旧を 1 つの使いやすいソフトウェア ソリューションに統合します。 | Quest Software |
-| ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper は、Azure Stack での高可用性 (HA) とディザスター リカバリー (DR) を提供します。 Azure Stack デプロイの Windows Server フェールオーバー クラスタリング (WSFC) 環境に SIOS DataKeeper ソフトウェアを構成要素として追加するだけで、共有ストレージが不要になります。 | SIOS Technology Corp。 |
+| ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper は、Azure Stack Hub での高可用性 (HA) とディザスター リカバリー (DR) を提供します。 Azure Stack Hub デプロイ内のお使いの Windows Server フェールオーバー クラスタリング (WSFC) 環境に SIOS DataKeeper ソフトウェアを構成要素として単純に追加するだけで、共有ストレージが不要になります。 | SIOS Technology Corp。 |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | クラス最高のオープン ソースのインフラストラクチャ管理。 | SUSE |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | CipherTrust Cloud Key Manager では、Microsoft Azure およびその他のクラウド プロバイダーの Bring Your Own Key (BYOK) API を活用して、一元化された管理と可視性によって暗号化キーのマルチクラウド ライフサイクル制御を実現することで、キー管理の複雑さと運用コストを軽減します。 | Thales eSecurity |
 | ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & Replication™ は、企業がすべてのワークロード、つまり、仮想、物理、クラウドベースの包括的なデータ保護を実現するのに役立ちます。 単一のコンソールで、すべてのアプリとデータの高速かつ柔軟で、信頼性の高いバックアップ、復旧、レプリケーションを実現できます。 | Veeam Software |

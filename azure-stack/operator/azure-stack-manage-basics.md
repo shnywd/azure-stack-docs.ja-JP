@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の管理の基本 | Microsoft Docs
-description: Azure Stack の管理の基本について説明します。
+title: Azure Stack Hub の管理の基本 | Microsoft Docs
+description: Azure Stack Hub の管理の基本について学習します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -14,36 +14,36 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: justinha
 ms.lastreviewed: 05/29/2019
-ms.openlocfilehash: 32f82a832b150c4512c854d2ddbfc24941bf7228
-ms.sourcegitcommit: 7626143e5d2a5e32a43162692f59306182fec854
+ms.openlocfilehash: 0954a318092e075e621c76ba4219030bc37e7ca3
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/24/2019
-ms.locfileid: "75333038"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817331"
 ---
-# <a name="azure-stack-administration-basics"></a>Azure Stack の管理の基本
+# <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub の管理の基本
 
-Azure Stack の管理経験がない場合は、知っておく必要があることがいくつかあります。 この記事では、Azure Stack オペレーターとしての役割の概要と、ユーザーが生産的になるのに役立つように、ユーザーに伝える必要がある内容について説明します。
+Azure Stack Hub の管理が初めての場合は、知っておく必要があることがいくつかあります。 この記事では、Azure Stack Hub オペレーターとしての役割の概要と、ユーザーにその生産性を高めるのに役立つように伝える必要がある内容について説明します。
 
 ## <a name="understand-the-builds"></a>ビルドを理解する
 
 ### <a name="integrated-systems"></a>統合システム
 
-Azure Stack 統合システムを使用している場合、更新プログラム パッケージにより更新バージョンの Azure Stack が配布されます。 これらのパッケージをインポートし、管理者ポータルの **[更新]** タイルを使用して、これらを適用できます。
+Azure Stack Hub 統合システムを使用している場合は、更新プログラム パッケージで更新バージョンの Azure Stack Hub が配布されます。 これらのパッケージをインポートし、管理者ポータルの **[更新]** タイルを使用して、これらを適用できます。
  
 ### <a name="development-kit"></a>開発キット
 
-Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は "*サンドボックス*" として使用できます。そこで Azure Stack を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
+Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack Hub の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は "*サンドボックス*" として使用することができます。そこで Azure Stack Hub を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
 
-Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 ASDK を実行しており、最新のビルドに移行する場合は、[Azure Stack を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Web サイトの ASDK ドキュメントには、最新のリリース ビルドが反映されています。
+Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 ASDK を実行しており、最新のビルドに移行する場合は、[Azure Stack Hub を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Web サイトの ASDK ドキュメントには、最新のリリース ビルドが反映されています。
 
 ## <a name="learn-about-available-services"></a>利用できるサービスの詳細
 
-ユーザーにどのようなサービスを提供できるかを認識しておく必要があります。 Azure Stack では Azure サービスのサブセットがサポートされます。 サポートされるサービスは引き続き増加してゆきます。
+ユーザーにどのようなサービスを提供できるかを認識しておく必要があります。 Azure Stack Hub では Azure サービスのサブセットがサポートされます。 サポートされるサービスは引き続き増加してゆきます。
 
 **基礎となるサービス**
 
-Azure Stack をデプロイすると、Azure Stack には既定で以下の "基礎となるサービス" が含まれています。
+Azure Stack Hub をデプロイすると、Azure Stack Hub に既定で次の "基礎となるサービス" が含まれます。
 
 - Compute
 - ストレージ
@@ -61,40 +61,40 @@ Azure Stack をデプロイすると、Azure Stack には既定で以下の "基
 - SQL および MySQL データベース
 - Kubernetes (プレビュー段階)
 
-これらのサービスをユーザーに提供する前には、追加の構成が必要です。 詳細については、Azure Stack オペレーター ドキュメントの "チュートリアル" や "ハウツー ガイド\サービスの提供" に関するセクションをご覧ください。
+これらのサービスをユーザーに提供する前には、追加の構成が必要です。 詳細については、Azure Stack Hub オペレーター ドキュメントの「チュートリアル」と、「操作方法ガイド」の「サービスの提供」セクションを参照してください。
 
 **サービスのロードマップ**
 
-Azure Stack には、引き続き Azure サービスのサポートが追加される予定です。 プロジェクトのロードマップについては、「[Azure Stack: Azure の拡張機能](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)」ホワイトペーパーを参照してください。 新しい発表については、[Azure Stack のブログ投稿](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)をチェックすることもできます。
+Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 予想されるロードマップについては、「[Azure Stack Hub: Azure の拡張機能](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)」ホワイトペーパーを参照してください。 新しい発表については、[Azure Stack Hub のブログ投稿](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)を確認することもできます。
 
 ## <a name="what-account-should-i-use"></a>使用するアカウントについて
 
-Azure Stack を管理する場合に注意するいくつかのアカウントに関する考慮事項があります。 特に、Azure Active Directory (Azure AD) ではなく ID プロバイダーとして Windows Server Active Directory Federation Services (AD FS) を使用する展開では注意が必要です。 次のアカウントに関する考慮事項は、Azure Stack 統合システムと ASDK 展開の両方に適用されます。
+Azure Stack Hub を管理する場合に注意するいくつかのアカウントに関する考慮事項があります。 特に、Azure Active Directory (Azure AD) ではなく ID プロバイダーとして Windows Server Active Directory Federation Services (AD FS) を使用する展開では注意が必要です。 次のアカウントに関する考慮事項は、Azure Stack Hub 統合システムと ASDK デプロイの両方に適用されます。
 
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
 |ローカル管理者 (.\Administrator)|ASDK ホスト管理者。|ASDK ホスト管理者。|
-|AzureStack\AzureStackAdmin|ASDK ホスト管理者。<br><br>Azure Stack 管理者ポータルにサインインするために使用できます。<br><br>Service Fabric リングを表示および管理するためのアクセス権。|ASDK ホスト管理者。<br><br>Azure Stack 管理者ポータルにはアクセスできません。<br><br>Service Fabric リングを表示および管理するためのアクセス権。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました。|
+|AzureStack\AzureStackAdmin|ASDK ホスト管理者。<br><br>Azure Stack Hub 管理者ポータルにサインインするために使用できます。<br><br>Service Fabric リングを表示および管理するためのアクセス権。|ASDK ホスト管理者。<br><br>Azure Stack Hub 管理者ポータルにはアクセスできません。<br><br>Service Fabric リングを表示および管理するためのアクセス権。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者ではなくなりました。|
 |AzureStack\CloudAdmin|特権エンドポイント内で許可されたコマンドにアクセス、実行できます。|特権エンドポイント内で許可されたコマンドにアクセス、実行できます。<br><br>ASDK ホストにサインインできません。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者。|
 |Azure AD 全体管理者|インストール時に使用。<br><br>既定のプロバイダー サブスクリプション (DPS) の所有者。|適用不可。|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
  
-[管理者ポータル](azure-stack-manage-portals.md)または PowerShell を使用して Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 開始する前に、Azure Stack での PowerShell の使用方法についてよく理解する必要がある場合があります。 詳細については、「[Azure Stack 内の PowerShell の概要](../user/azure-stack-powershell-overview.md)」を参照してください。
+[管理者ポータル](azure-stack-manage-portals.md)または PowerShell を使用して、Azure Stack Hub を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 開始する前に、Azure Stack Hub での PowerShell の使用方法についてよく理解する必要がある場合があります。 詳細については、[Azure Stack Hub 上の PowerShell の概要](../user/azure-stack-powershell-overview.md)に関するページを参照してください。
 
-Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定の場合は、Resource Manager について学習できます。 「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
+Azure Stack Hub ではデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack Hub の管理とユーザーのサポートを行う予定の場合は、Resource Manager について学習できます。 「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
 
 ## <a name="your-typical-responsibilities"></a>クラウド オペレーターの通常の担当範囲
 
-ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、「[Overview of offering services in Azure Stack (Azure の提供サービスの概要)](service-plan-offer-subscription-overview.md)」をご覧ください。 
+ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、[Azure Stack Hub でのサービス提供の概要](service-plan-offer-subscription-overview.md)に関するページを参照してください。 
 
-[Azure Stack Marketplace ](azure-stack-marketplace.md) に項目を追加する必要もあります。 [マーケットプレースの項目を Azure から Azure Stack にダウンロードする](azure-stack-download-azure-marketplace-item.md)のが最も容易な方法です。
+[Azure Stack Hub Marketplace](azure-stack-marketplace.md) に項目を追加する必要もあります。 [Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)のが最も簡単な方法です。
 
 > [!NOTE]
 > プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく、[ユーザー ポータル](azure-stack-manage-portals.md)を使用することができます。
 
-サービスを提供することに加えて、オペレーターとして Azure Stack を稼働させ続けるという通常の業務を行う必要があります。 これらの業務には、次のタスクが含まれます。
+サービスを提供することに加えて、オペレーターとして Azure Stack Hub を稼働させ続けるという通常の業務を行う必要があります。 これらの業務には、次のタスクが含まれます。
 
 - ユーザー アカウント ([Azure AD](azure-stack-add-new-user-aad.md) のデプロイ用または [AD FS](azure-stack-add-users-adfs.md) のデプロイ用) を追加します。
 - [ロールベースのアクセス制御 (RBAC) のロールを割り当てます](azure-stack-manage-permissions.md) (このタスクは管理者に限られません)。
@@ -104,21 +104,21 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 
 ## <a name="what-to-tell-your-users"></a>ユーザーに伝えること
 
-ユーザーには、Azure Stack 内のサービスを操作する方法、環境に接続する方法、オファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供するカスタム ドキュメントのほかに、ユーザーには [Azure Stack ユーザー ドキュメント](/azure-stack/user/)を案内できます。
+ユーザーには、Azure Stack Hub 内のサービスを操作する方法、環境に接続する方法、およびオファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供できるカスタム ドキュメントのほかに、ユーザーには [Azure Stack Hub ユーザー ドキュメント](/azure-stack/user/)を案内できます。
 
-**Azure Stack 内のサービスを操作する方法について**
+**Azure Stack Hub 内のサービスを操作する方法について**
 
-Azure Stack 内のサービスを使用してアプリを構築する前に、ユーザーが理解しておく必要のある情報があります。 たとえば、PowerShell と API については、特定のバージョン要件があります。 また、Azure のサービスと Azure Stack の同等のサービスに備わる機能には、一部違いがあります。 ユーザーには、以下の記事に必ず目を通してもらってください。
+Azure Stack Hub 内のサービスを使用してアプリを構築する前に、ユーザーが理解しておく必要のある情報があります。 たとえば、PowerShell と API については、特定のバージョン要件があります。 また、Azure のサービスと Azure Stack Hub の同等のサービスの機能には、いくつかの違いがあります。 ユーザーには、以下の記事に必ず目を通してもらってください。
 
-- [重要な考慮事項: Azure Stack でのサービスの使用またはアプリの作成](../user/azure-stack-considerations.md)
-- [Azure Stack の仮想マシンに関する考慮事項](../user/azure-stack-vm-considerations.md)
+- [重要な考慮事項: Azure Stack Hub でのサービスの使用またはアプリの作成](../user/azure-stack-considerations.md)
+- [Azure Stack Hub の仮想マシンに関する考慮事項](../user/azure-stack-vm-considerations.md)
 - [ストレージ: 相違点と考慮事項](../user/azure-stack-acs-differences.md)
 
-これらの記事には、Azure と Azure Stack でのサービスの相違点に関する情報がまとめられています。 これらは、グローバルな Azure ドキュメントで Azure サービスについて提供されている情報を補完するものです。
+これらの記事には、Azure と Azure Stack Hub でのサービスの相違点に関する情報がまとめられています。 これらは、グローバルな Azure ドキュメントで Azure サービスについて提供されている情報を補完するものです。
 
-**ユーザーとしての Azure Stack への接続**
+**ユーザーとして Azure Stack Hub に接続する**
 
-ASDK 環境で、ユーザーは、リモート デスクトップを使用して ASDK ホストに接続しない場合、仮想プライベートネットワーク (VPN) 接続を構成して Azure Stack に接続できます。 「[Azure Stack への接続](../asdk/asdk-connect.md)」を参照してください。
+ASDK 環境で、ユーザーは、リモート デスクトップを使用して ASDK ホストに接続しない場合、仮想プライベート ネットワーク (VPN) 接続を構成して Azure Stack Hub に接続できます。 [Azure Stack Hub への接続](../asdk/asdk-connect.md)に関するページを参照してください。
 
 ユーザーは、[ユーザー ポータルへのアクセス方法](../user/azure-stack-use-portal.md)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
 
@@ -131,7 +131,7 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 ## <a name="where-to-get-support"></a>サポートが受けられる場所
 
 > [!Note]  
-> 以前のリリースの Azure Stack (1905 より前) に関するサポート情報を見つける場合は、[以前のリリースの Azure Stack (1905 より前) のヘルプとサポート](azure-stack-servicing-policy.md)に関するページを参照してください。
+> 以前のリリースの Azure Stack Hub (1905 より前) に関するサポート情報を見つける場合は、[以前のリリースの Azure Stack Hub (1905 より前) のヘルプとサポート](azure-stack-servicing-policy.md)に関するページを参照してください。
 
 ### <a name="integrated-systems"></a>統合システム
 
@@ -149,4 +149,4 @@ ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack でのリージョンの管理](azure-stack-region-management.md)
+[Azure Stack Hub でのリージョンの管理](azure-stack-region-management.md)

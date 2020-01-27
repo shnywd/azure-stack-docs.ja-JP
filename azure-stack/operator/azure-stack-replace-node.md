@@ -1,7 +1,7 @@
 ---
-title: Azure Stack 統合システムのスケール ユニット ノードを交換する
-titleSuffix: Azure Stack
-description: Azure Stack 統合システムの物理的なスケール ユニット ノードを交換する方法を説明します。
+title: Azure Stack Hub 統合システムのスケール ユニット ノードを交換する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 統合システムの物理スケール ユニット ノードを交換する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,21 +16,19 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 255802151183cc2b832aaa64f2110b9c9052a0ba
-ms.sourcegitcommit: 284f5316677c9a7f4c300177d0e2a905df8cb478
+ms.openlocfilehash: 9e289420d10cace3c466c0b1ff18c4d84cf97800
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74465464"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881979"
 ---
-# <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Azure Stack 統合システムのスケール ユニット ノードを交換する
+# <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Azure Stack Hub 統合システムのスケール ユニット ノードを交換する
 
-*適用対象:Azure Stack 統合システム*
-
-この記事では、Azure Stack 統合システムの物理コンピューター ("スケール ユニット ノード" とも呼ばれます) を交換するための一般的なプロセスについて説明します。 実際のスケール ユニット ノード交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 お使いのシステムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントをご覧ください。
+この記事では、Azure Stack Hub 統合システム上の物理コンピューター ("スケール ユニット ノード" とも呼ばれます) を交換するための一般的なプロセスについて説明します。 実際のスケール ユニット ノード交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 お使いのシステムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントをご覧ください。
 
 > [!CAUTION]  
-> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムが不安定になったり、パフォーマンスが低下したり、セキュリティ スレッドが発生したり、Azure Stack の自動化でオペレーティング システムのデプロイが妨げられたりする可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。 詳細およびパートナー ドキュメントへのリンクについては、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関する記事を参照してください。
+> この記事で説明している操作を成功させるには、ファームウェアの平準化が重要です。 この手順を実行しないと、システムの不安定化、パフォーマンスの低下、セキュリティ スレッドの発生、または Azure Stack Hub オートメーションによるオペレーティング システムのデプロイに対する妨害を引き起こす可能性があります。 ハードウェアを交換する場合は、ハードウェア パートナーのドキュメントを必ず参照して、適用されるファームウェアが、[Azure Stack Hub 管理者ポータル](azure-stack-updates.md)に表示されている OEM バージョンと一致していることを確認してください。 詳細およびパートナー ドキュメントへのリンクについては、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関する記事を参照してください。
 
 次のフロー図は、スケール ユニット ノード全体を交換するための一般的な FRU プロセスを示しています。
 
@@ -39,7 +37,7 @@ ms.locfileid: "74465464"
 \* このアクションは、ハードウェアの物理的な状態によっては必須でありません。
 
 > [!Note]  
-> シャットダウン操作に失敗した場合は、ドレイン操作に続けて停止操作を実行することをお勧めします。 詳細については、「[Azure Stack でのスケール ユニット ノードの操作](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions)」を参照してください。
+> シャットダウン操作に失敗した場合は、ドレイン操作に続けて停止操作を実行することをお勧めします。 詳細については、「[Azure Stack Hub でのスケール ユニット ノードの操作](https://docs.microsoft.com/azure-stack/operator/azure-stack-node-actions)」を参照してください。
 
 ## <a name="review-alert-information"></a>アラート情報を見直す
 
@@ -76,7 +74,7 @@ ms.locfileid: "74465464"
 6. 特権エンドポイントを使用して、[仮想ディスクの修復の状態を確認します](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 新しいデータ ドライブを使用するストレージ修復ジョブ全体は、システムの負荷と消費される領域に応じて、数時間かかる可能性があります。
 7. 修復アクションが完了したら、すべてのアクティブなアラートが自動的に閉じていることを確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - システムの電源が入った状態での物理ディスクの交換については、[ディスクの交換](azure-stack-replace-disk.md)に関するページを参照してください。 
 - システムの電源をオフにする必要があるハードウェア コンポーネントの交換については、[ハードウェア コンポーネントの交換](azure-stack-replace-component.md)に関するページを参照してください。

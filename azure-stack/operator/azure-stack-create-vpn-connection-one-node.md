@@ -17,20 +17,20 @@ ms.author: justinha
 ms.reviewer: tbd
 ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef0fd3aef095dc0ee2865e7f1fb2a8821d378e70
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780520"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75817909"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>異なる ASDK 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する
 
 ## <a name="overview"></a>概要
 
-この記事では、2 つの独立した Azure Stack Development Kit (ASDK) 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する方法を説明します。 接続を構成しながら Azure Stack での VPN ゲートウェイのしくみを学習します。
+この記事では、2 つの独立した Azure Stack Development Kit (ASDK) 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する方法を説明します。 接続を構成しながら、Azure Stack Hub での VPN ゲートウェイのしくみを学習します。
 
-### <a name="connection"></a>接続
+### <a name="connection"></a>Connection
 
 次の図は、作業完了後の接続構成を表しています。
 
@@ -52,7 +52,7 @@ ms.locfileid: "72780520"
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>POC1 と POC2 でプランを用意する
 
-POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブし、仮想マシン (VM) をデプロイできるようにオファーを用意します。 オファーの作成方法については、「[Azure Stack ユーザーが VM を使えるようにする](azure-stack-tutorial-tenant-vm.md)」 を参照してください。
+POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブし、仮想マシン (VM) をデプロイできるようにオファーを用意します。 オファーの作成方法については、[Azure Stack Hub ユーザーが VM を使用できるようにする](azure-stack-tutorial-tenant-vm.md)方法に関するページを参照してください。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>ネットワーク構成表を確認し、完成する
 
@@ -74,7 +74,7 @@ POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブ
 
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>NAT VM の外部アダプターの IP アドレスを取得する
 
-1. POC1 の Azure Stack 物理マシンにサインインします。
+1. POC1 の Azure Stack Hub 物理マシンにサインインします。
 2. 次の PowerShell コードを編集して管理者パスワードを追加し、POC ホストでコードを実行します。
 
    ```powershell
@@ -94,7 +94,7 @@ POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブ
 
 ## <a name="create-the-network-resources-in-poc1"></a>POC 1 でネットワーク リソースを作成する
 
-これで、ゲートウェイを設定する POC1 ネットワーク リソースを作成することができます。 次の手順で、Azure Stack ユーザー ポータルを利用してリソースを作成する方法を説明します。 PowerShell コードでリソースを作成することもできます。
+これで、ゲートウェイを設定する POC1 ネットワーク リソースを作成することができます。 次の手順で、Azure Stack Hub ユーザー ポータルを使用して、リソースを作成する方法を説明します。 PowerShell コードでリソースを作成することもできます。
 
 ![リソースを作成するためのワークフロー](media/azure-stack-create-vpn-connection-one-node-tp2/image2.png)
 
@@ -141,15 +141,15 @@ POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブ
 
 ### <a name="create-the-local-network-gateway"></a>ローカル ネットワーク ゲートウェイを作成する
 
-この Azure Stack 評価デプロイでの "*ローカル ネットワーク ゲートウェイ*" の実装は、実際の Azure デプロイとは若干異なります。
+この Azure Stack Hub 評価デプロイでの "*ローカル ネットワーク ゲートウェイ*" の実装は、実際の Azure デプロイとは若干異なります。
 
-Azure デプロイでは、ローカル ネットワーク ゲートウェイは、Azure の仮想ネットワーク ゲートウェイへの接続に使用するオンプレミスの (テナントの) 物理デバイスを表します。 この Azure Stack 評価デプロイでは、接続の両端が仮想ネットワーク ゲートウェイになります。
+Azure デプロイでは、ローカル ネットワーク ゲートウェイは、Azure の仮想ネットワーク ゲートウェイへの接続に使用するオンプレミスの (テナントの) 物理デバイスを表します。 この Azure Stack Hub 評価デプロイでは、接続の両端が仮想ネットワーク ゲートウェイになります。
 
 これをより一般化すると、ローカル ネットワーク ゲートウェイ リソースは、常に接続の反対側の端にあるリモート ゲートウェイを示します。 ASDK の設計上、ローカル ネットワーク ゲートウェイのパブリック IP アドレスとして、他の ASDK のネットワーク アドレス変換 (NAT) VM で外部ネットワーク アダプターの IP アドレスを指定する必要があります。 その後、NAT VM で NAT マッピングを作成し、両端が正しく接続されるようにします。
 
 ### <a name="create-the-local-network-gateway-resource"></a>ローカル ネットワーク ゲートウェイ リソースを作成する
 
-1. POC1 の Azure Stack 物理マシンにサインインします。
+1. POC1 の Azure Stack Hub 物理マシンにサインインします。
 2. ユーザー ポータルで **[+ リソースの作成]** を選択します。
 3. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 4. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
@@ -284,7 +284,7 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
    ![内部 IP アドレス](media/azure-stack-create-vpn-connection-one-node-tp2/InternalIP.PNG)
 
-2. POC1 の Azure Stack 物理マシンにサインインします。
+2. POC1 の Azure Stack Hub 物理マシンにサインインします。
 3. 次の PowerShell スクリプトをコピーし、編集します。 各 ASDK で NAT を構成するには、管理者特権の Windows PowerShell ISE でこのスクリプトを実行します。 このスクリプトでは、値が `External BGPNAT address` と `Internal IP address` プレースホルダーに追加されます。
 
    ```powershell
@@ -337,7 +337,7 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc1"></a>POC1 のテナント VM にサインインする
 
-1. POC1 の Azure Stack 物理マシンにサインインし、テナント アカウントを使用してユーザー ポータルにサインインします。
+1. POC1 の Azure Stack Hub 物理マシンにサインインし、テナント アカウントを使用してユーザー ポータルにサインインします。
 2. 左側のナビゲーション バーで、 **[計算]** を選択します。
 3. VM の一覧で、先ほど作成した **VM01** を探して選択します。
 4. 仮想マシンのブレードで、 **[接続]** をクリックし、VM01.rdp ファイルを開きます。
@@ -358,7 +358,7 @@ VPN 接続を構成するには、静的 NAT マップ ルートを作成する�
 
 ### <a name="sign-in-to-the-tenant-vm-in-poc2"></a>POC2 のテナント VM にサインインする
 
-1. POC2 の Azure Stack 物理マシンにサインインし、テナント アカウントを使用してユーザー ポータルにサインインします。
+1. POC2 の Azure Stack Hub 物理マシンにサインインし、テナント アカウントを使用してユーザー ポータルにサインインします。
 2. 左側のナビゲーション バーで、 **[計算]** をクリックします。
 3. VM の一覧で、先ほど作成した **VM02** を探して選択します。
 4. VM のブレードで、 **[接続]** をクリックします。

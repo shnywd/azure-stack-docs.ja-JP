@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の AKS エンジンのトラブルシューティング | Microsoft Docs
-description: この記事では Azure Stack 上の AKS エンジンのトラブルシューティングの手順について説明します。
+title: Azure Stack Hub 上の AKS エンジンのトラブルシューティング | Microsoft Docs
+description: この記事では Azure Stack Hub 上の AKS エンジンのトラブルシューティングの手順について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: aed53295b7c1748abd8ab3bd2862043d7d69e4b8
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310338"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75923938"
 ---
-# <a name="troubleshoot-the-aks-engine-on-azure-stack"></a>Azure Stack 上の AKS エンジンのトラブルシューティング
+# <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack で AKS エンジンをデプロイまたは使用するときに問題が発生することがあります。 この記事では、AKS エンジンのデプロイのトラブルシューティング、ご使用の AKS エンジンに関する情報の収集、Kubernetes ログの収集、カスタム スクリプト拡張機能のエラー コードの確認、および AKS エンジンに関する GitHub イシューを開くための手順について説明します。
+Azure Stack Hub で AKS エンジンをデプロイまたは使用するときに問題が発生することがあります。 この記事では、AKS エンジンのデプロイのトラブルシューティング、ご使用の AKS エンジンに関する情報の収集、Kubernetes ログの収集、カスタム スクリプト拡張機能のエラー コードの確認、および AKS エンジンに関する GitHub イシューを開くための手順について説明します。
 
 ## <a name="troubleshoot-the-aks-engine-install"></a>AKS エンジンのインストールのトラブルシューティング
 
@@ -72,9 +70,9 @@ Azure Stack で AKS エンジンをデプロイまたは使用するときに問
 AKS エンジンを使用して Kubernetes クラスターをデプロイしているときにエラーが発生した場合は、次のことを確認します。
 
 1.  正しいサービス プリンシパル資格情報 (SPN) を使用していますか?
-2.  SPN には Azure Stack サブスクリプションに対する "共同作成者" ロールがありますか?
-3. Azure Stack プランに十分な大きさのクォータがありますか?
-4.  Azure Stack インスタンスには、適用される修正プログラムまたはアップグレードがありますが?
+2.  SPN には Azure Stack Hub サブスクリプションに対する "共同作成者" ロールがありますか?
+3. Azure Stack Hub プランに十分な大きさのクォータがありますか?
+4.  Azure Stack Hub インスタンスには、適用される修正プログラムまたはアップグレードがありますが?
 
 詳細については、**Azure/aks-engine GitHub** リポジトリにある「[トラブルシューティング](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md)」を参照してください。
 
@@ -94,7 +92,7 @@ AKS エンジンによって作成されたレビュー情報にアクセスで�
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes のログの収集
 
-AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/download/diagnosis-v0.1.0/diagnosis.zip) を使用して収集できます。
+AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://aka.ms/aa6z613) を使用して収集できます。
 
 このスクリプトにより、次のログの収集プロセスが自動化されます。 
 
@@ -113,7 +111,7 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
  - Linux VM、Git Bash、または Bash on Windows。
  - [Azure CLI](azure-stack-version-profiles-azurecli2.md) がスクリプトを実行するマシンにインストールされていること。
- - Azure Stack への Azure CLI セッションにサインインしたサービス プリンシパル ID。 このスクリプトは、作業を行うために ARM リソースを検出して作成することができるため、Azure CLI とサービス プリンシパル ID が必要です。
+ - Azure Stack Hub への Azure CLI セッションにサインインしたサービス プリンシパル ID。 このスクリプトは、作業を行うために ARM リソースを検出して作成することができるため、Azure CLI とサービス プリンシパル ID が必要です。
  - 環境で Kubernetes クラスターが既に選択されているユーザー アカウント (サブスクリプション)。 
 1. スクリプト tar ファイルの最新リリースをご自分のクライアント VM、Kubernetes クラスターにアクセスできるマシン、または AKS エンジンを使用してクラスターをデプロイするために使用したものと同じマシンにダウンロードします。
 
@@ -128,17 +126,17 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 2. `getkuberneteslogs.sh` スクリプトに必要なパラメーターを探します。 このスクリプトでは、次のパラメーターが使用されます。
 
-    | パラメーター | 説明 | 必須 | 例 |
+    | パラメーター | [説明] | 必須 | 例 |
     | --- | --- | --- | --- |
-    | -h, --help | Print コマンドの使用方法。 | × | 
+    | -h, --help | Print コマンドの使用方法。 | いいえ | 
     -u,--user | クラスター VM の管理者ユーザー名 | はい | azureuser<br>(既定値) |
     | -i、--identity-file | Kubernetes クラスターの作成に使用される公開キーに関連付けられた RSA 秘密キー (' id_rsa ' と呼ばれることもあります)  | はい | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g, --resource-group    | Kubernetes クラスター リソース グループ | はい | k8sresourcegroup |
-    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | × |   monitoring |
-    |       --api-model                    | Azure Stack ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | × | `./apimodel.json` |
-    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | × | |
-    | --upload-logs                  | Azure Stack ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | × | |
-    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | × | |
+    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | いいえ |   monitoring |
+    |       --api-model                    | Azure Stack Hub ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | いいえ | `./apimodel.json` |
+    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | いいえ | |
+    | --upload-logs                  | Azure Stack Hub ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | いいえ | |
+    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | いいえ | |
 
 3. ご自分の情報を使用して、次のサンプル コマンドのいずれかを実行します。
 
@@ -158,9 +156,9 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 ログの収集と調査を行っても問題が解決しない場合は、サポート チケットの作成プロセスを開始し、`--upload-logs` パラメーターを設定して `getkuberneteslogs.sh` を実行して収集したログを提供することができます。 
 
-お客様の Azure Stack オペレーターに依頼してください。 オペレーターは、ログの情報を使用してサポート ケースを作成します。
+お客様の Azure Stack Hub オペレーターに依頼してください。 オペレーターは、ログの情報を使用してサポート ケースを作成します。
 
-サポートの問題に対処する過程で、Microsoft サポート エンジニアから Azure Stack オペレーターに対して、Azure Stack システム ログの収集が要請されることがあります。 必要に応じて、`getkuberneteslogs.sh` を実行して Kubernetes ログをアップロードしたストレージ アカウント情報をオペレーターに渡します。
+サポートの問題に対処する過程で、Microsoft サポート エンジニアから Azure Stack Hub オペレーターに対して、Azure Stack Hub システム ログの収集が要請されることがあります。 必要に応じて、`getkuberneteslogs.sh` を実行して Kubernetes ログをアップロードしたストレージ アカウント情報をオペレーターに渡します。
 
 オペレーターは **Get-AzureStackLog** PowerShell コマンドレットを実行するこもできます。 このコマンドには、Kubernetes ログを保存したストレージ アカウントを指定するパラメーター (`-InputSaSUri`) が使用されます。
 
@@ -178,6 +176,6 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
      - 次の **kubectl** コマンド `get nodes` の出力。  
      - `/var/log/azure/cluster-provision.log` と `/var/log/cloud-init-output.log` の内容
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
+- [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください

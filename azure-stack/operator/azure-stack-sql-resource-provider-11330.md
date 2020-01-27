@@ -1,7 +1,7 @@
 ---
-title: Azure Stack SQL リソース プロバイダー 1.1.33.0 のリリース ノート
-titleSuffix: Azure Stack
-description: Azure Stack SQL リソース プロバイダー 1.1.33.0 更新プログラムのリリース ノートを表示します。
+title: Azure Stack Hub SQL リソース プロバイダー 1.1.33.0 のリリース ノート
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub SQL リソース プロバイダー 1.1.33.0 更新プログラムのリリース ノートを確認します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -17,32 +17,30 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 03a2ec5a0485f184e34c2837d8bc55edaed39f1d
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: 2ef79d69c12a846e017f064463dc933b86dc8b72
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780696"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881894"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL リソース プロバイダー 1.1.33.0 のリリース ノート
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 これらのリリース ノートでは、SQL リソース プロバイダー バージョン 1.1.33.0 の機能強化と既知の問題について説明します。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
-SQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに抽出します。 リソース プロバイダーには、対応する最低限の Azure Stack ビルドがあります。 SQL リソース プロバイダーのこのバージョンをインストールするために必要な Azure Stack の最小リリース バージョンを次に示します。
+SQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに抽出します。 リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。 SQL リソース プロバイダーのこのバージョンをインストールするために必要な Azure Stack Hub の最小リリース バージョンを次に示します。
 
-> |最小の Azure Stack バージョン|SQL リソース プロバイダーのバージョン|
+> |Azure Stack Hub の最小バージョン|SQL リソース プロバイダーのバージョン|
 > |-----|-----|
 > |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> SQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack 更新プログラムを Azure Stack 統合システムに適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
+> SQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack Hub 更新プログラムを Azure Stack Hub 統合システムに適用します。
 
 ## <a name="new-features-and-fixes"></a>新機能と修正
-このバージョンの Azure Stack SQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
+このバージョンの Azure Stack Hub SQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
 
 ### <a name="fixes"></a>修正
 
@@ -58,24 +56,24 @@ SQL リソース プロバイダー バイナリをダウンロードした後�
 
 - **SQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい SQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。
 
-    **対処法**: なし。
+    **回避策**:[なし] :
 
 - **再利用された SQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい SQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
-    **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
+    **回避策**:同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 
 - **データの不整合の原因となる共有 SQL ログイン**。 SQL ログインが同じサブスクリプション下で複数の SQL データベースに対して共有されている場合、ログイン パスワードを変更するとデータの不整合が発生します。
 
-    **対処法**: 同じサブスクリプション下の異なるデータベースには常に異なるログインを使用します。
+    **回避策**:同じサブスクリプション下の異なるデータベースには常に異なるログインを使用します。
 
 - **SQL リソース プロバイダーが SQL Server Always On リスナーの追加に失敗します**。 SQL リソース プロバイダー VM は、SQL Server Always On リスナーのリスナー IP アドレスを使用するとき、リスナーのホスト名を解決できません。
 
-    **対処法**: リスナーのホスト名に対するリスナー IP を解決するには、DNS が正しく動作していることを確認します。
+    **回避策**:リスナーのホスト名に対するリスナー IP を解決するには、DNS が正しく動作していることを確認します。
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack を運用するクラウド管理者に関する既知の問題
-[Azure Stack リリース ノート](azure-stack-servicing-policy.md)内のドキュメントをご覧ください。
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Azure Stack Hub を運用するクラウド管理者に関する既知の問題
+[Azure Stack Hub リリース ノート](azure-stack-servicing-policy.md)内のドキュメントを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [SQL リソース プロバイダーの詳細を確認します](azure-stack-sql-resource-provider.md)。
 
 [SQL リソースプロバイダーのデプロイを準備します](azure-stack-sql-resource-provider-deploy.md#prerequisites)。

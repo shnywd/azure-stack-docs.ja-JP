@@ -1,6 +1,7 @@
 ---
-title: Azure Stack Hub でサポートされているゲスト オペレーティング システム | Microsoft Docs
-description: これらのゲスト オペレーティング システムを Azure Stack Hub で使用できます。
+title: Azure Stack Hub でサポートされているゲスト オペレーティング システム
+titleSuffix: Azure Stack
+description: Azure Stack Hub で使用できるゲスト オペレーティング システムについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,22 +16,20 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 431af9688eb4f97e3c5400e9fe2b00c0ff18ec11
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 8d437425db15fa078c00c973fe50824d0ada58bd
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727515"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023304"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub でサポートされているゲスト オペレーティング システム
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Development Kit*
 
 ## <a name="windows"></a>Windows
 
 Azure Stack Hub では、次の表に示す Windows ゲスト オペレーティング システムがサポートされています。
 
-| オペレーティング システム | [説明] | Marketplace で利用可能 |
+| オペレーティング システム | [説明] | Azure Stack Hub Marketplace で使用可能 |
 | --- | --- | --- |
 | Windows Server、バージョン 1709 | 64 ビット | コンテナー付き Core |
 | Windows Server 2019 | 64 ビット |  データセンター、Datacenter Core、コンテナー付きデータセンター |
@@ -42,22 +41,22 @@ Azure Stack Hub では、次の表に示す Windows ゲスト オペレーティ
 | Windows 10 *(注 1 をご覧ください)* | 64 ビット、Pro、および Enterprise | Bring your own image |
 
 > [!NOTE]
-> Azure Stack Hub で Windows 10 クライアント オペレーティング システムをデプロイするには、[Windows のユーザーごとのライセンス](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)を持っているか、Qualified Multitenant Hoster [(QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) から購入する必要があります。
+> Azure Stack Hub で Windows 10 クライアント オペレーティング システムをデプロイするには、[Windows のユーザーごとのライセンス](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)を持っているか、Qualified Multitenant Hoster [(QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)) から購入する必要があります。
 
 Marketplace イメージは従量課金制または BYOL (EA/SPLA) ライセンスで利用できます。 1 つの Azure Stack Hub インスタンスで両方を使うことはサポートされていません。 デプロイ時に Azure Stack Hub によって、適切なバージョンのゲスト エージェントがイメージに挿入されます。
 
-Datacenter エディションは、Marketplace でダウンロードできます。お客様は、他のエディションを含む独自のサーバー イメージを使用できます。 Marketplace では、Windows クライアント イメージを利用できません。
+Datacenter エディションは、Azure Stack Hub Marketplace でダウンロードできます。お客様は、他のエディションを含む独自のサーバー イメージを使用できます。 Azure Stack Hub Marketplace では、Windows クライアント イメージを利用できません。
 
 ## <a name="linux"></a>Linux
 
-Marketplace で入手可能として示されている Linux ディストリビューションには、必要な Windows Azure Linux エージェント (WALA) が含まれます。 Azure Stack Hub に独自のイメージを持ち込む場合は、[Linux イメージを Azure Stack Hub に追加する](azure-stack-linux.md)ことに関するページのガイドラインに従ってください。
+Azure Stack Hub Marketplace で入手可能として示されている Linux ディストリビューションには、必要な Windows Azure Linux エージェント (WALA) が含まれます。 Azure Stack に独自のイメージを持ち込む場合は、「[Azure Stack への Linux イメージの追加](azure-stack-linux.md)」のガイドラインに従ってください。
 
 > [!NOTE]
-> カスタム イメージは、最新のパブリック WALA バージョン (Azure Stack Hub ビルド 1903 以降、または 1901/1902 修正プログラムを適用した環境のもの) で、またはバージョン 2.2.20 を使ってビルドする必要があります。 2\.2.20 より前のバージョンや、2.2.21 から 2.2.34 までのバージョン (これらのバージョンを含みます) は、Azure Stack Hub で正しく機能しない可能性があります。 Azure Stack Hub 1910 リリース以降では、すべてのバージョンの Azure WALA エージェントが Azure Stack で動作します。
+> カスタム イメージは、最新のパブリック WALA バージョン (Azure Stack Hub ビルド 1903 以降、または 1901/1902 修正プログラムを適用した環境のもの) で、またはバージョン 2.2.20 を使ってビルドする必要があります。 2\.2.20 より前のバージョンや、2.2.21 から 2.2.34 までのバージョン (これらのバージョンを含みます) は、Azure Stack Hub で正しく機能しない可能性があります。 Azure Stack Hub 1910 リリース以降では、すべてのバージョンの Azure WALA エージェントが Azure Stack Hub で動作します。
 >
-> [cloud-init](https://cloud-init.io/) は、Azure Stack 1910 以降でサポートされます。
+> [cloud-init](https://cloud-init.io/) は、Azure Stack Hub 1910 以降でサポートされます。
 
-| Distribution | [説明] | Publisher | マーケットプレース |
+| Distribution | [説明] | Publisher | Azure Stack Hub Marketplace |
 | --- | --- | --- | --- |
 | CentOS-based 6.9 | 64 ビット | Rogue Wave | はい |
 | CentOS-based 7.5 | 64 ビット | Rogue Wave | はい |
@@ -74,7 +73,7 @@ Marketplace で入手可能として示されている Linux ディストリビ�
 | Ubuntu 16.04-LTS | 64 ビット | Canonical | はい |
 | Ubuntu 18.04-LTS | 64 ビット | Canonical | はい |
 
-Red Hat Enterprise Linux のサポート情報については、「[Red Hat and Azure Stack: Frequently Asked Questions](https://access.redhat.com/articles/3413531)」(Red Hat と Azure Stack: よく寄せられる質問) を参照してください。
+Red Hat Enterprise Linux のサポート情報については、「[Red Hat and Azure Stack Hub: Frequently Asked Questions](https://access.redhat.com/articles/3413531)」(Red Hat と Azure Stack: よく寄せられる質問) を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

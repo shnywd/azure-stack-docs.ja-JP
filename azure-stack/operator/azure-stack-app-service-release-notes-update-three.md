@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack Update 3 のリリース ノート | Microsoft Docs
-description: App Service on Azure Stack Update 3 の機能強化、修正、既知の問題の詳細を説明します。
+title: App Service on Azure Stack Hub Update 3 のリリース ノート | Microsoft Docs
+description: App Service on Azure Stack Hub Update 3 の機能強化、修正、既知の問題の詳細を説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,43 +16,41 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: d226be9bad3bd6ddf775d8415329ea1fa8099eb0
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: b8c888ba0c4821cfd6ff621d565c61359edc757f
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159559"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880160"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack Update 3 のリリース ノート
+# <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service on Azure Stack Hub Update 3 のリリース ノート
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-これらのリリース ノートでは、Azure App Service on Azure Stack Update 3 における機能強化、修正点、および既知の問題について説明します。 既知の問題は、デプロイに直接関係する問題、更新プロセスの問題、ビルド (インストール後) の問題の 3 つのセクションに分けられています。
+これらのリリース ノートでは、Azure App Service on Azure Stack Hub Update 3 における機能強化、修正点、および既知の問題について説明します。 既知の問題は、デプロイに直接関係する問題、更新プロセスの問題、ビルド (インストール後) の問題の 3 つのセクションに分けられています。
 
 > [!IMPORTANT]
-> Azure App Service 1.3 をデプロイする前に、Azure Stack 統合システムに 1807 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
+> Azure App Service 1.3 をデプロイする前に、Azure Stack Hub 統合システムに 1807 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
-App Service on Azure Stack Update 3 のビルド番号は **74.0.13698.31** です。
+App Service on Azure Stack Hub Update 3 のビルド番号は **74.0.13698.31** です。
 
 ### <a name="prerequisites"></a>前提条件
 
-デプロイを開始する前に、[App Service on Azure Stack の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
+デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
-Azure App Service on Azure Stack を 1.3 にアップグレードする前に、Azure Stack 管理者ポータルの Azure App Service の管理ですべてのロールの準備ができていることを確実にしてください。
+Azure App Service on Azure Stack Hub を 1.3 にアップグレードする前に、Azure Stack Hub 管理者ポータルの Azure App Service の管理で確実にすべてのロールの準備ができているようにします。
 
 ![App Service のロールの状態](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
 ### <a name="new-features-and-fixes"></a>新機能と修正
 
-Azure App Service on Azure Stack Update 3 には、次の機能強化と修正が含まれています。
+Azure App Service on Azure Stack Hub Update 3 には、次の機能強化と修正が含まれています。
 
 - Azure App Service リソース プロバイダー データベースで SQL Server Always On の使用がサポートされます。
 
 - さまざまな Azure AD リージョンを対象にできるように、Create-AADIdentityApp ヘルパー スクリプトに新しい環境パラメーターを追加しました。
 
-- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一貫性があります。
+- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Hub Portal SDK バージョンと一貫性があります。
 
 - **Azure Functions ランタイム**が **v1.0.11820** に更新されました。
 
@@ -78,10 +76,10 @@ Azure App Service on Azure Stack Update 3 には、次の機能強化と修正�
 
 ### <a name="post-update-steps-optional"></a>更新後の手順 (省略可)
 
-既存の Azure App Service on Azure Stack デプロイに関して包含データベースへの移行を検討している場合は、Azure App Service on Azure Stack 1.3 への更新が完了した後で、以下の手順を実行してください。
+既存の Azure App Service on Azure Stack Hub デプロイに関して包含データベースへの移行を検討している場合は、Azure App Service on Azure Stack Hub 1.3 への更新が完了した後で、以下の手順を実行してください。
 
 > [!IMPORTANT]
-> この手順の所要時間は 5 分から 10 分程度です。 この手順には、既存のデータベース ログイン セッションを中止する作業が伴います。 Azure App Service on Azure Stack の移行とその後の検証に伴うダウンタイムを考慮してください。
+> この手順の所要時間は 5 分から 10 分程度です。 この手順には、既存のデータベース ログイン セッションを中止する作業が伴います。 Azure App Service on Azure Stack Hub の移行とその後の検証に伴うダウンタイムを考慮してください。
 >
 >
 
@@ -182,7 +180,7 @@ Azure App Service on Azure Stack Update 3 には、次の機能強化と修正�
 
 ### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
-- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。 この問題は Azure Stack 上の Azure App Service のデプロイに関するドキュメントで言及されています。
+- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。 この問題は Azure Stack Hub 上の Azure App Service のデプロイに関するドキュメントで言及されています。
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする送信セキュリティ規則を追加する必要があります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
 
@@ -196,11 +194,11 @@ Azure App Service on Azure Stack Update 3 には、次の機能強化と修正�
  * 優先順位:700
  * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に対する既知の問題
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
-Azure Stack 1807 リリース ノート内のドキュメントを参照してください。
+Azure Stack Hub 1807 リリース ノート内のドキュメントを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- Azure App Service の概要については、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
-- App Service on Azure Stack のデプロイを準備する方法の詳細については、「[App Service on Azure Stack のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。
+- Azure App Service の概要については、「[Azure Stack Hub 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
+- App Service on Azure Stack Hub のデプロイを準備する方法の詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。

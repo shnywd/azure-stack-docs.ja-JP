@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での特権エンドポイントの使用 | Microsoft Docs
-description: オペレーターが Azure Stack で特権エンドポイント (PEP) を使用する方法を説明します。
+title: Azure Stack Hub での特権エンドポイントの使用 | Microsoft Docs
+description: オペレーターとして Azure Stack Hub 内で特権エンドポイント (PEP) を使用する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 19783172dd402d7ea80dcbfc226aefb44846182f
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727090"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882132"
 ---
-# <a name="use-the-privileged-endpoint-in-azure-stack"></a>Azure Stack で特権エンドポイントを使用する
+# <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack オペレーターは、管理ポータル、PowerShell、または Azure Resource Manager API を使用して、ほとんどの日常的な管理タスクを実行します。 ただし、あまり一般的でない一部の操作については、*特権エンドポイント* (PEP) を使用する必要があります。 この PEP は、あらかじめ構成されたリモート PowerShell コンソールであり、必要なタスクを実行するために十分な機能だけを提供します。 エンドポイントは [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) を使用して、コマンドレットの限定的なセットのみを公開します。 PEP にアクセスしてコマンドレットの限定的なセットを起動するために、低権限のアカウントが使用されます。 管理者アカウントは必要ありません。 セキュリティ強化のため、スクリプトは許可されません。
+Azure Stack Hub オペレーターは、管理ポータル、PowerShell、または Azure Resource Manager API を使用して、ほとんどの日常的な管理タスクを実行します。 ただし、あまり一般的でない一部の操作については、*特権エンドポイント* (PEP) を使用する必要があります。 この PEP は、あらかじめ構成されたリモート PowerShell コンソールであり、必要なタスクを実行するために十分な機能だけを提供します。 エンドポイントは [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) を使用して、コマンドレットの限定的なセットのみを公開します。 PEP にアクセスしてコマンドレットの限定的なセットを起動するために、低権限のアカウントが使用されます。 管理者アカウントは必要ありません。 セキュリティ強化のため、スクリプトは許可されません。
 
 PEP を使用すると、次のタスクを実行できます。
 
@@ -43,7 +41,7 @@ PEP では、PowerShell セッションで実行するすべてのアクショ�
 
 PEP には、PEP をホストする仮想マシン (VM) 上のリモート PowerShell セッションを介してアクセスします。 ASDK では、この VM の名前は **AzS-ERCS01** です。 統合システムを使用している場合、PEP の 3 つのインスタンスがあり、それぞれ異なるホスト上の VM (*Prefix*-ERCS01、*Prefix*-ERCS02、または *Prefix*-ERCS03) 内で動作することで、回復性を確保しています。
 
-統合システムに対してこの手順を開始する前に、IP アドレスによって、または DNS を介して PEP にアクセスできることを確認してください。 Azure Stack の初期デプロイ後は、DNS 統合がまだセットアップされていないため、IP アドレスでしか PEP にアクセスできません。 PEP の IP アドレス を含む **AzureStackStampDeploymentInfo** という名前の JSON ファイルが、OEM ハードウェア ベンダーから提供されます。
+統合システムに対してこの手順を開始する前に、IP アドレスによって、または DNS を介して PEP にアクセスできることを確認してください。 Azure Stack Hub の初期デプロイ後は、DNS 統合がまだセットアップされていないため、IP アドレスでしか PEP にアクセスできません。 PEP の IP アドレス を含む **AzureStackStampDeploymentInfo** という名前の JSON ファイルが、OEM ハードウェア ベンダーから提供されます。
 
 IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります。 `https://adminportal.local.azurestack.external` などのポータルを開きます。 **[リージョンの管理]**  >  **[プロパティ]** を選択します。
 
@@ -76,7 +74,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
     `ComputerName` パラメーターには、PEP をホストする 1 つの VM の IP アドレスまたは DNS 名を指定できます。
 
     > [!NOTE]  
-    >Azure Stack は、PEP 資格情報の検証時にリモート呼び出しを行いません。 ローカルに保存された RSA 公開キーに依存して、それを行います。
+    >Azure Stack Hub は、PEP 資格情報の検証時にリモート呼び出しを行いません。 ローカルに保存された RSA 公開キーに依存して、それを行います。
 
    - ASDK を実行している場合:
 
@@ -89,7 +87,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
     
    - 入力を求められたら、次の資格情報を使用します。
    
-       - **ユーザー名**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+       - **ユーザー名**: **&lt;"*Azure Stack Hub ドメイン*"&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
   
         - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
@@ -167,7 +165,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
      入力を求められたら、次の資格情報を使用します。
 
-     - **ユーザー名**: **&lt;*Azure Stack ドメイン*&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+     - **ユーザー名**: **&lt;"*Azure Stack Hub ドメイン*"&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
      - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
 3. ローカル コンピューターに PEP セッションをインポートします。
@@ -176,7 +174,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
       Import-PSSession $session
     ```
 
-4. これで、Azure Stack のセキュリティ対策を損なうことなく、PEP のすべての関数およびコマンドレットと共に、ローカルの PowerShell セッションで通常どおりにタブ補完を使用し、スクリプトを実行できるようになりました。 機能を有効にご活用ください。
+4. これで、Azure Stack Hub のセキュリティの状態を低下させることなく、PEP のすべての関数およびコマンドレットと共に、ローカルの PowerShell セッションで通常どおりにタブ補完を使用し、スクリプトを実行できるようになりました。 機能を有効にご活用ください。
 
 ## <a name="close-the-privileged-endpoint-session"></a>特権エンドポイント セッションを閉じる
 
@@ -207,4 +205,4 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack Hub の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)

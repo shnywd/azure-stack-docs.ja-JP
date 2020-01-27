@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 更新プログラムのインストール | Microsoft Docs
-description: Azure Stack 更新プログラムをインストールする方法について説明します。
+title: Azure Stack Hub の更新プログラムをインストールする | Microsoft Docs
+description: Azure Stack Hub の更新プログラムをインストールする方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a3864bc7233edd5b6b81a19a467ad1dca63fd3fa
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 540eded35338d07403577d826fc9c817021b7cac
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277616"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534293"
 ---
-# <a name="install-azure-stack-updates"></a>Azure Stack 更新プログラムのインストール
+# <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
 
-*適用対象:Azure Stack 統合システム*
-
-更新プログラム パッケージをインストールするには、Azure Stack の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、および現在の Azure Stack と OEM パッケージ バージョンの表示を行います。
+更新プログラム パッケージをインストールするには、Azure Stack Hub の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、現在の Azure Stack Hub と OEM パッケージ バージョンの表示を行います。
 
 管理者ポータルから更新プログラムを管理したり、ダッシュボードの **[更新プログラム]** セクションを使用して次のことを行ったりすることができます。
 
@@ -37,9 +35,9 @@ ms.locfileid: "72277616"
 
 ## <a name="determine-the-current-version"></a>現在のバージョンの判断
 
-現在のバージョンの Azure Stack は **[更新]** ブレードで表示できます。 開くには:
+現在のバージョンの Azure Stack Hub は **[更新]** ブレードで表示できます。 開くには:
 
-1.  Azure Stack 管理者ポータルを開きます。
+1.  Azure Stack Hub 管理者ポータルを開きます。
 
 2.  **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。
 
@@ -49,7 +47,10 @@ ms.locfileid: "72277616"
 
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
-1. Azure Stack 管理者ポータルを開きます。
+> [!Important]
+> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+
+1. Azure Stack Hub 管理者ポータルを開きます。
 
 2. **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 
@@ -57,21 +58,21 @@ ms.locfileid: "72277616"
 
 4. **[今すぐ更新]** を選択します。
 
-    ![Azure Stack 更新実行の詳細](./media/azure-stack-update-apply/image2.png)
+    ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-update-apply/image2.png)
 
-5. Azure Stack のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新に関するその他の詳細 (成功した手順数、進行中の数など) が報告されます。
+5. Azure Stack Hub のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新に関するその他の詳細 (成功した手順数、進行中の数など) が報告されます。
 
 6. 更新実行の詳細ブレードから **[ダウンロードの概要]** を選択して、詳細ログをダウンロードします。
 
-    更新プログラムの実行中に問題が発生した場合は、[特権エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)を使用して、Azure Stack 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 手順については、「[Monitor updates in Azure Stack using PowerShell](azure-stack-update-monitor.md)」 (PowerShell を使用して Azure Stack の更新を監視する) を参照してください。
+    更新プログラムの監視中に問題が発生した場合は、[特権エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)を使用して、Azure Stack Hub 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack Hub ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 手順については、「[PowerShell を使用した Azure Stack Hub での更新の監視](azure-stack-update-monitor.md)」を参照してください。
 
-    ![Azure Stack 更新実行の詳細](./media/azure-stack-update-apply/image3.png)
+    ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-update-apply/image3.png)
 
 7. 完了したら、更新リソース プロバイダーにより、**成功**の確認が提供され、更新プロセスが終了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
 
     ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
-    更新が失敗した場合、 **[更新]** ブレードで **[要注意]** と報告されます。 **[詳細ログのダウンロード]** オプションを使用して、更新失敗時の大まかな状態を取得します。 Azure Stack のログ収集は、診断とトラブルシューティングで役立ちます。
+    更新が失敗した場合、 **[更新]** ブレードで **[要注意]** と報告されます。 **[詳細ログのダウンロード]** オプションを使用して、更新失敗時の大まかな状態を取得します。 Azure Stack Hub のログ収集は、診断とトラブルシューティングで役立ちます。
 
 ## <a name="review-update-history"></a>更新履歴を確認する
 
@@ -81,9 +82,9 @@ ms.locfileid: "72277616"
 
 3. **[更新の履歴]** を選択します。
 
-    ![Azure Stack の更新履歴](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack Hub の更新の履歴](./media/azure-stack-update-apply/image7.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
--   [Azure Stack での更新プログラムの管理概要](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Azure Stack サービス ポリシー](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+-   [Azure Stack Hub での更新プログラム管理の概要](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
+-   [Azure Stack Hub サービス ポリシー](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  

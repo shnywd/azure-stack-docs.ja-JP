@@ -1,7 +1,7 @@
 ---
-title: Azure Stack SQL リソース プロバイダーの更新
-titleSuffix: Azure Stack
-description: Azure Stack SQL リソース プロバイダーの更新方法について説明します。
+title: Azure Stack Hub SQL リソース プロバイダーの更新
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub SQL リソース プロバイダーの更新方法について説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -16,25 +16,23 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2669ed87e46307bb84aa9639d42b100cdc0cfd46
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5ae8a125521689a1e07e1207e03df4d981b74704
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954436"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75881809"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
 
-*適用対象: Azure Stack 統合システム*
+Azure Stack Hub が新しいビルドに更新される際に、新しい SQL リソース プロバイダーがリリースされることがあります。 既存のリソース プロバイダーが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
 
-Azure Stack が新しいビルドに更新される際に、新しい SQL リソース プロバイダーがリリースされることがあります。 既存のリソース プロバイダーが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
-
-SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の SQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それらがサポートされる Azure Stack のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)に関する記事で、バージョンの一覧を参照してください。
+SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の SQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それらがサポートされる Azure Stack Hub のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)に関する記事で、バージョンの一覧を参照してください。
 
 リソース プロバイダーの更新には *UpdateSQLProvider.ps1* スクリプトを使用します。 このスクリプトは、新しい SQL リソース プロバイダーのダウンロードに含まれています。 更新プロセスは、[リソース プロバイダーを展開する](./azure-stack-sql-resource-provider-deploy.md)ために使用されるプロセスに似ています。 更新スクリプトは DeploySqlProvider.ps1 スクリプトと同じ引数を使用し、証明書情報を提供する必要があります。
 
  > [!IMPORTANT]
- > リソース プロバイダーをアップグレードする前に、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題に関する詳細についてリリース ノートを確認してください。
+ > リソース プロバイダーをアップグレードする前に、リリース ノートを確認し、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。
 
 ## <a name="update-script-processes"></a>更新スクリプトのプロセス
 
@@ -53,13 +51,13 @@ SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降�
 
 **UpdateSQLProvider.ps1** PowerShell スクリプトを実行するときに、コマンド ラインから以下のパラメーターを指定できます。 必須パラメーターの指定がない場合、またはいずれかのパラメーターの検証が失敗した場合は、指定することを求められます。
 
-| パラメーター名 | 説明 | コメントまたは既定値 |
+| パラメーター名 | [説明] | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
-| **AzCredential** | Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |
+| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |
 | **VMLocalCredential** | SQL リソース プロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
-| **AzureEnvironment** | Azure Stack のデプロイに使用したサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
+| **AzureEnvironment** | Azure Stack Hub のデプロイに使用したサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
 | **DependencyFilesLocalPath** | このディレクトリには、証明書 .pfx ファイルも配置する必要があります。 | "_1 つのノードの場合は省略可能。複数のノードの場合は必須_" |
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
@@ -69,28 +67,31 @@ SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降�
 
 ## <a name="update-script-powershell-example"></a>PowerShell 更新スクリプトの例
 > [!NOTE]
-> この更新プロセスは、Azure Stack 統合システムにのみ適用されます。
+> この更新プロセスは、Azure Stack Hub 統合システムにのみ適用されます。
 
-SQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンを更新する場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack モジュールをインストールする必要があります。 SQL リソース プロバイダーのバージョン1.1.47.0 を更新する場合は、この手順をスキップできます。
+SQL リソース プロバイダーのバージョンを 1.1.33.0 以前のバージョンに更新する場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack Hub モジュールをインストールする必要があります。 SQL リソース プロバイダーのバージョン 1.1.47.0 に更新する場合は、デプロイ スクリプトが自動的にダウンロードされ、C:\Program Files\SqlMySqlPsh へのパスに必要な PowerShell モジュールがインストールされます。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module.
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
+> [!NOTE]
+> 接続が切断された場合のシナリオでは、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録が前提条件として必要です。 詳細については、[SQL リソース プロバイダーのデプロイ](azure-stack-sql-resource-provider-deploy.md)に関する記事を参照してください。
+
 次に、管理者特権の PowerShell コンソールから実行できる *UpdateSQLProvider.ps1* スクリプトの使用例を示します。 変数情報とパスワードは、必要に応じて変更してください。  
 
 ```powershell
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but this might have been changed at installation.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but this might have been changed at installation.
 $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
@@ -112,6 +113,11 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 . $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
@@ -124,6 +130,8 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
  ```
 
-## <a name="next-steps"></a>次の手順
+リソース プロバイダーの更新スクリプトが終了したら、現在の PowerShell セッションを終了します。
+
+## <a name="next-steps"></a>次のステップ
 
 [SQL リソース プロバイダーの維持](azure-stack-sql-resource-provider-maintain.md)

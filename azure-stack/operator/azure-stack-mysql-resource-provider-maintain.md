@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の MySQL リソース プロバイダーのメンテナンス操作 | Microsoft Docs
-description: Azure Stack 上の MySQL リソース プロバイダー サービスのメンテナンス方法について説明します。
+title: Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作 | Microsoft Docs
+description: Azure Stack Hub での MySQL リソース プロバイダー サービスのメンテナンス方法について説明します。
 services: azure-stack
 documentationCenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: fea4d8abcb0b8bb4f541105d782d2adbdc1f0f4c
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: aaa352dedeed36335302a990b6a3bc3f37851f47
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756867"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75811093"
 ---
-# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack"></a>Azure Stack での MySQL リソース プロバイダーのメンテナンス操作
+# <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 
 MySQL リソース プロバイダーは、ロックダウンされた仮想マシン (VM) 上で実行されます。 メンテナンス操作を有効にするには、VM のセキュリティを更新する必要があります。 最小限の特権の原則 (POLP) を使用してこれを行うには、PowerShell Just Enough Administration (JEA) エンドポイント DBAdapterMaintenance を使用できます。 リソース プロバイダーのインストール パッケージには、この操作のためのスクリプトが含まれています。
 
@@ -93,9 +93,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>シークレットのローテーション
 
-*この説明は、Azure Stack 統合システムに対してのみ適用されます。*
+"*この説明は、Azure Stack Hub 統合システムに対してのみ適用されます。* "
 
-Azure Stack 統合システムで SQL および MySQL リソース プロバイダーを使用する場合、以下のリソース プロバイダーのインフラストラクチャ シークレットが期限切れにならないようにローテーションする責任は Azure Stack オペレーターにあります。
+Azure Stack Hub 統合システムで SQL および MySQL リソース プロバイダーを使用する場合、以下のリソース プロバイダーのインフラストラクチャ シークレットが確実に期限切れにならないようにローテーションする責任は Azure Stack Hub オペレーターにあります。
 
 - [デプロイ時に提供](azure-stack-pki-certs.md)された外部 SSL 証明書。
 - デプロイ時に提供されたリソース プロバイダー VM のローカル管理者アカウントのパスワード。
@@ -155,8 +155,8 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 |パラメーター|[説明]|
 |-----|-----|
-|AzCredential|Azure Stack サービス管理者アカウントの資格情報。|
-|CloudAdminCredential|Azure Stack クラウド管理者ドメイン アカウントの資格情報。|
+|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|
+|CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|
 |PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|
 |DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|
 |VMLocalCredential|MySQLAdapter VM でのローカル管理者アカウント。|

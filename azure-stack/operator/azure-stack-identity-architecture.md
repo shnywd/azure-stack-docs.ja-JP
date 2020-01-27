@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の ID アーキテクチャ | Microsoft Docs
-description: Azure Stack での ID アーキテクチャについてと、Azure AD と AD FS の違いについて説明します。
+title: Azure Stack Hub の ID アーキテクチャ | Microsoft Docs
+description: Azure Stack Hub の ID アーキテクチャと、Azure AD と AD FS の違いについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -16,16 +16,16 @@ ms.date: 05/09/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 364028183445df7e74828605439bfd7b3784f01f
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 952dd9d6333b917a986ce444355f3b9b694976ef
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019412"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818079"
 ---
-# <a name="identity-architecture-for-azure-stack"></a>Azure Stack の ID アーキテクチャ
+# <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub の ID アーキテクチャ
 
-Azure Stack で使用する ID プロバイダーを選択する場合は、Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) のオプションの重要な違いを理解する必要があります。
+Azure Stack Hub で使用する ID プロバイダーを選択する場合は、Azure Active Directory (Azure AD) と Active Directory フェデレーション サービス (AD FS) のオプションの重要な違いを理解する必要があります。
 
 ## <a name="capabilities-and-limitations"></a>機能と制限
 
@@ -50,30 +50,30 @@ Azure Stack で使用する ID プロバイダーを選択する場合は、Azur
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: シングルテナント トポロジ
 
-既定では、Azure Stack をインストールして Azure AD を使用すると、Azure Stack はシングルテナント トポロジを使用します。
+既定では、Azure Stack Hub をインストールして Azure AD を使用すると、Azure Stack Hub でシングルテナント トポロジが使用されます。
 
 シングルテナント トポロジは、次のような場合に便利です。
 - すべてのユーザーが、同じテナントに属している。
-- サービス プロバイダーが、組織の Azure Stack インスタンスをホストする。
+- サービス プロバイダーが、組織の Azure Stack Hub インスタンスをホストする。
 
-![Azure AD による Azure Stack のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure AD による Azure Stack Hub のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.png)
 
 このトポロジには次の特徴があります。
 
-- Azure Stack では、すべてのアプリとサービスが同一の Azure AD テナント ディレクトリに登録されます。
-- Azure Stack では、トークンを含めて、そのディレクトリのユーザーとアプリのみが認証されます。
+- Azure Stack Hub では、すべてのアプリとサービスが同一の Azure AD テナント ディレクトリに登録されます。
+- Azure Stack Hub では、トークンを含む、そのディレクトリのユーザーとアプリのみが認証されます。
 - 管理者 (クラウド オペレーター) とテナント ユーザーの ID が、同じディレクトリ テナントにあります。
-- 別のディレクトリのユーザーがこの Azure Stack 環境にアクセスできるようにするには、テナント ディレクトリに[ユーザーをゲストとして招待](azure-stack-identity-overview.md#guest-users)する必要があります。
+- 別のディレクトリのユーザーがこの Azure Stack Hub 環境にアクセスできるようにするには、テナント ディレクトリに[ユーザーをゲストとして招待](azure-stack-identity-overview.md#guest-users)する必要があります。
 
 ### <a name="azure-ad-multi-tenant-topology"></a>Azure AD: マルチテナント トポロジ
 
-クラウド オペレーターでは、1 つまたは複数の組織のテナントからアプリにアクセスすることを許可するように、Azure Stack を構成できます。 ユーザーは、Azure Stack ユーザー ポータルから、アプリにアクセスします。 この構成では、管理者ポータル (クラウド オペレーターによって使用されます) は、単一のディレクトリのユーザーに限定されます。
+クラウド オペレーターは、1 つまたは複数の組織のテナントからアプリにアクセスすることを許可するように、Azure Stack Hub を構成できます。 ユーザーは、Azure Stack Hub ユーザー ポータルからアプリにアクセスします。 この構成では、管理者ポータル (クラウド オペレーターによって使用されます) は、単一のディレクトリのユーザーに限定されます。
 
 マルチテナント トポロジは、次のような場合に便利です。
 
-- サービス プロバイダーが、複数の組織のユーザーに Azure Stack へのアクセスを許可しようとしている。
+- サービス プロバイダーが、複数の組織のユーザーに Azure Stack Hub へのアクセスを許可しようとしている。
 
-![Azure AD による Azure Stack のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure AD による Azure Stack Hub のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.png)
 
 このトポロジには次の特徴があります。
 
@@ -85,15 +85,15 @@ Azure Stack で使用する ID プロバイダーを選択する場合は、Azur
 
 AD FS トポロジは、次のいずれかの条件に該当する場合に必要です。
 
-- Azure Stack がインターネットに接続されない。
-- Azure Stack がインターネットに接続できるが、ID プロバイダーのために AD FS を使用することを選択する。
+- Azure Stack Hub がインターネットに接続されない。
+- Azure Stack Hub はインターネットに接続できるが、ID プロバイダーのために AD FS を使用することを選択する。
   
-![AD FS を使用する Azure Stack トポロジ](media/azure-stack-identity-architecture/adfs.png)
+![AD FS を使用する Azure Stack Hub トポロジ](media/azure-stack-identity-architecture/adfs.png)
 
 このトポロジには次の特徴があります。
 
-- 運用環境でのこのトポロジの使用をサポートするには、フェデレーションの信頼を介して、組み込みの Azure Stack AD FS インスタンスを、Active Directory で支援されている既存の AD FS インスタンスに統合する必要があります。
-- Azure Stack の Graph サービスを既存の Active Directory インスタンスと統合することができます。 また、Azure AD Graph API との一貫性がある API をサポートしている OData ベースの Graph API サービスを使用することもできます。
+- 運用環境でのこのトポロジの使用をサポートするには、フェデレーションの信頼を介して、組み込みの Azure Stack Hub AD FS インスタンスを、Active Directory で支援されている既存の AD FS インスタンスに統合する必要があります。
+- Azure Stack Hub の Graph サービスを、既存の Active Directory インスタンスと統合することができます。 また、Azure AD Graph API との一貫性がある API をサポートしている OData ベースの Graph API サービスを使用することもできます。
 
   Graph API が Active Directory インスタンスと対話するためには、その Active Directory インスタンスに、読み取り専用アクセス許可を持つユーザーの資格情報が必要となります。
   - 組み込みの AD FS インスタンスは、Windows Server 2016 がベースになっています。
@@ -103,7 +103,7 @@ AD FS トポロジは、次のいずれかの条件に該当する場合に必�
   - ユーザー アカウントは、オンプレミスの Active Directory インスタンスで作成され、管理されます。
   - アプリのサービス プリンシパルと登録は、組み込みの Active Directory インスタンス内で管理されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [ID の概要](azure-stack-identity-overview.md)
 - [データセンターの統合 - ID](azure-stack-integrate-identity.md)

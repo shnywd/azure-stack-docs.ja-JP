@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 11dcd7288f629282c1f69d12c33e9bd1a8e440b6
-ms.sourcegitcommit: df8de80b8c295495edc091e0a12012ccc7a96594
+ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75503625"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75812401"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -278,7 +278,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ## <a name="1908-update-process"></a>1908 の更新処理
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
+- 原因: Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
 - 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインストールのセクション](azure-stack-apply-updates.md#install-updates-and-monitor-progress)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 - 発生頻度: 共通
 
@@ -307,14 +307,14 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack ポータルを使用して、サブスクリプションへのアクセス許可を表示することはできません。
+- 原因: Azure Stack Hub ポータルを使用して、サブスクリプションに対するアクセス許可を表示することはできません。
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
 - 発生頻度: 共通
 
 ### <a name="storage-account-settings"></a>Storage アカウントの設定
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 この機能は現在、Azure Stack Hub でサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="upload-blob"></a>BLOB のアップロード
@@ -347,7 +347,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="service-endpoints"></a>サービス エンドポイント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -371,29 +371,29 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 #### <a name="alerts"></a>警告
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="active-active"></a>アクティブ/アクティブ
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="documentation"></a>ドキュメント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack のドキュメントについては、次のリンクを使用してください。
+- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack Hub ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack Hub のドキュメントについては、次のリンクを使用してください。
 
   - [ゲートウェイ SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用性接続](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Azure Stack での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Azure Stack Hub での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -408,11 +408,11 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>4 ノードの Azure Stack Hub 環境では修正プログラムや更新プログラムの適用中に作成が失敗する
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
-- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+- 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
+- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
 
@@ -424,21 +424,21 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack ではスケール セットでのパスワードのリセットがまだサポートされていません。
+- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack Hub ではスケール セットでのパスワードのリセットがまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack ビルドでサポートされている機能ではありません。
+- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack Hub ビルドでサポートされている機能ではありません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。    
-- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack ではまだサポートされていません。
+- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack Hub ではまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
@@ -454,7 +454,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ## <a name="1907-update-process"></a>1907 の更新処理
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 1907 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
+- 原因: 1907 Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
 - 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 - 発生頻度: 共通
 
@@ -477,14 +477,14 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack ポータルを使用して、サブスクリプションへのアクセス許可を表示することはできません。
+- 原因: Azure Stack Hub ポータルを使用して、サブスクリプションに対するアクセス許可を表示することはできません。
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
 - 発生頻度: 共通
 
 ### <a name="storage-account-settings"></a>Storage アカウントの設定
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 この機能は現在、Azure Stack Hub でサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="upload-blob"></a>BLOB のアップロード
@@ -511,7 +511,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="service-endpoints"></a>サービス エンドポイント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -535,35 +535,35 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 #### <a name="alerts"></a>警告
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="active-active"></a>アクティブ/アクティブ
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="network-connection-type"></a>ネットワーク接続の種類
 
 - 適用先:この問題は、すべての 1906 または 1907 環境に適用されます。 
-- 原因: ユーザーポータルの **[AddConnection]** ブレードに、**VNet 間**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。 
+- 原因: ユーザーポータルの **[AddConnection]** ブレードに、**VNet 間**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。 
 - 発生頻度: 共通 
 
 #### <a name="documentation"></a>ドキュメント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack のドキュメントについては、次のリンクを使用してください。
+- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack Hub ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack Hub のドキュメントについては、次のリンクを使用してください。
 
   - [ゲートウェイ SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用性接続](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Azure Stack での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Azure Stack Hub での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -578,11 +578,11 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>4 ノードの Azure Stack Hub 環境では修正プログラムや更新プログラムの適用中に作成が失敗する
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
-- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+- 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
+- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
 
@@ -594,21 +594,21 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
 
 - 適用先:この問題は、1906 および 1907 リリースに適用されます。
-- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack ではスケール セットでのパスワードのリセットがまだサポートされていません。
+- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack Hub ではスケール セットでのパスワードのリセットがまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
 
 - 適用先:この問題は、1906 および 1907 リリースに適用されます。
-- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack ビルドでサポートされている機能ではありません。
+- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack Hub ビルドでサポートされている機能ではありません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
 
 - 適用先:この問題は、1906 および 1907 リリースに適用されます。    
-- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack ではまだサポートされていません。
+- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack Hub ではまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
@@ -624,7 +624,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ## <a name="1906-update-process"></a>1906 の更新処理
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 1906 Azure Stack の更新プログラムをインストールしようとしたときに、更新の状況が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 
+- 原因: 1906 Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。 
 - 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインポートとインストールのセクション](azure-stack-apply-updates.md)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 - 発生頻度: 共通
 
@@ -647,7 +647,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack ポータルを使用して、サブスクリプションへのアクセス許可を表示することはできません。
+- 原因: Azure Stack Hub ポータルを使用して、サブスクリプションに対するアクセス許可を表示することはできません。
 - 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
 - 発生頻度: 共通
 
@@ -660,7 +660,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="storage-account-settings"></a>Storage アカウントの設定
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 この機能は現在、Azure Stack Hub でサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="upload-blob"></a>BLOB のアップロード
@@ -682,7 +682,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="service-endpoints"></a>サービス エンドポイント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -697,29 +697,29 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 #### <a name="alerts"></a>警告
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="active-active"></a>アクティブ/アクティブ
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在 Azure Stack でサポートされていません。
+- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="documentation"></a>ドキュメント
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack のドキュメントについては、次のリンクを使用してください。
+- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack Hub ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack Hub のドキュメントについては、次のリンクを使用してください。
 
   - [ゲートウェイ SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
   - [高可用性接続](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Azure Stack での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
+  - [Azure Stack Hub での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
   - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
@@ -751,11 +751,11 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
 
 
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-environments"></a>4 ノードの Azure Stack 環境でのパッチと更新プログラムの適用中に作成が失敗します
+#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>4 ノードの Azure Stack Hub 環境では修正プログラムや更新プログラムの適用中に作成が失敗する
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 4 ノードの Azure Stack 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
-- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+- 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
+- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
 ### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
 
@@ -767,21 +767,21 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
 
 - 適用先:この問題は、1906 リリースに適用されます。
-- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack ではスケール セットでのパスワードのリセットがまだサポートされていません。
+- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack Hub ではスケール セットでのパスワードのリセットがまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
 
 - 適用先:この問題は、1906 リリースに適用されます。
-- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack ビルドでサポートされている機能ではありません。
+- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack Hub ビルドでサポートされている機能ではありません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
 
 - 適用先:この問題は、1906 リリースに適用されます。
-- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack ではまだサポートされていません。
+- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack Hub ではまだサポートされていません。
 - 修復: [なし] :
 - 発生頻度: 共通
 
@@ -848,5 +848,5 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ::: moniker-end
 
 ::: moniker range="<azs-1906"
-[以前のバージョンの Azure Stack の既知の問題は TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack サービス ポリシー](azure-stack-servicing-policy.md)」をご覧ください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
+[以前のバージョンの Azure Stack Hub の既知の問題は TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end

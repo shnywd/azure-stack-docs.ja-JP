@@ -1,6 +1,6 @@
 ---
-title: Azure Stack に使用量と課金のためのテナントを追加する | Microsoft Docs
-description: Azure Stack に使用量と課金のためのテナントを追加する方法について説明します。
+title: Azure Stack Hub に使用量と課金用のテナントを追加する | Microsoft Docs
+description: Azure Stack Hub に使用量と課金用のテナントを追加する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,24 +15,22 @@ ms.date: 09/25/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: a146a99476912e97c72e7a37ffc5224158feaffc
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310148"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882608"
 ---
-# <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Azure Stack に使用量と課金のためのテナントを追加する
+# <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
 
-*適用対象: Azure Stack 統合システム*
+この記事では、クラウド ソリューション プロバイダー (CSP) が管理する Azure Stack Hub デプロイにテナントを追加する方法について説明します。 新しいテナントがリソースを使用すると、Azure Stack Hub から CSP サブスクリプションに使用量が報告されます。
 
-この記事では、クラウド ソリューション プロバイダー (CSP) によって管理される Azure Stack デプロイにテナントを追加する方法について説明します。 新しいテナントによってリソースが使用されると、Azure Stack から CSP サブスクリプションに使用量が報告されます。
+多くの場合、CSP は Azure Stack Hub デプロイで複数のエンド カスタマー (テナント) にサービスを提供しています。 Azure Stack Hub の登録にテナントを追加すると、各テナントの使用量が報告され、対応する CSP サブスクリプションが課金されます。 この記事の手順を完了しない場合、テナントの使用量は Azure Stack Hub の初期登録で使用したサブスクリプションに課金されます。 使用量の追跡とそのテナントの管理のために Azure Stack Hub にエンド カスタマーを追加する前に、Azure Stack Hub を CSP として構成する必要があります。 手順とリソースについては、「[クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する](azure-stack-add-manage-billing-as-a-csp.md)」を参照してください。
 
-多くの場合、CSP は Azure Stack デプロイ上で複数のエンド カスタマー (テナント) にサービスを提供します。 Azure Stack の登録にテナントを追加すると、各テナントの使用量が報告され、対応する CSP サブスクリプションに課金されます。 この記事の手順を完了しなかった場合、テナントの使用量は、Azure Stack の初期登録で使用したサブスクリプションに課金されます。 使用量の追跡とテナントの管理のために Azure Stack にエンド カスタマーを追加する前に、Azure Stack を CSP として構成する必要があります。 手順とリソースについては、「[クラウド ソリューション プロバイダーとして Azure Stack の使用状況と課金を管理する](azure-stack-add-manage-billing-as-a-csp.md)」を参照してください。
+次の図では、CSP が設定する必要のある、新しいエンド カスタマーの Azure Stack Hub の使用手順、およびそのカスタマーの使用量の追跡手順を示しています。 エンド カスタマーを追加すると、Azure Stack Hub 内のリソースも管理できるようになります。 リソースの管理には 2 つのオプションがあります。
 
-次の図は、新しいエンド カスタマーが Azure Stack を使用できるようにし、また、そのカスタマーの使用量の追跡を設定するために、CSP が従う必要がある手順を示しています。 エンド カスタマーを追加すると、Azure Stack 内のリソースも管理できるようになります。 リソースの管理には 2 つのオプションがあります。
-
-- エンド カスタマーを管理し、ローカルの Azure Stack サブスクリプション用の資格情報をエンド カスタマーに提供できます。  
+- エンド カスタマーを管理し、ローカルの Azure Stack Hub サブスクリプション用の資格情報をそのエンド カスタマーに提供できます。  
 - エンド カスタマーが自身のサブスクリプションをローカルで管理し、所有者アクセス許可を持つゲストとして CSP を追加できます。
 
 ## <a name="add-an-end-customer"></a>エンド カスタマーを追加する
@@ -53,11 +51,11 @@ ms.locfileid: "74310148"
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>エンド カスタマー ディレクトリにゲスト ユーザーを作成する
 
-既定では、CSP (あなた) はエンド カスタマーの Azure Stack サブスクリプションにアクセスできません。 ただし、顧客があなたにリソースの管理を望む場合、顧客はあなたのアカウントを所有者/共同作成者として自分の Azure Stack サブスクリプションに追加できます。 これを行うには、Azure AD テナントにゲスト ユーザーとしてご自身のアカウントを追加する必要があります。 Azure CSP アカウントとは別のアカウントを使用して顧客の Azure Stack サブスクリプションを管理し、顧客の Azure サブスクリプションへのアクセスが失われないようにすることをお勧めします。
+既定では、CSP (あなた) はエンド カスタマーの Azure Stack Hub サブスクリプションにアクセスできません。 ただし、顧客があなたにリソースの管理を望む場合、顧客があなたのアカウントを所有者/共同作成者として自分の Azure Stack Hub サブスクリプションに追加できます。 これを行うには、Azure AD テナントにゲスト ユーザーとしてご自身のアカウントを追加する必要があります。 ご自分の顧客の Azure サブスクリプションに引き続きアクセスできるよう、ご自分の Azure CSP アカウントとは別のアカウントを使用してご自分の顧客の Azure Stack Hub サブスクリプションを管理することをお勧めします。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>エンド カスタマーのサブスクリプションで登録を更新する
 
-エンド カスタマーの新しいサブスクリプションで登録を更新します。 Azure は、パートナー センターの顧客 ID を使用して顧客の使用量をレポートします。 この手順により、各顧客の使用量が、その顧客それぞれの CSP サブスクリプションごとに報告されるようになります。 これで、使用量の追跡と課金が簡単になります。 この手順を実行するためには、まず [Azure Stack に登録する](azure-stack-registration.md)必要があります。
+エンド カスタマーの新しいサブスクリプションで登録を更新します。 Azure は、パートナー センターの顧客 ID を使用して顧客の使用量をレポートします。 この手順により、各顧客の使用量が、その顧客それぞれの CSP サブスクリプションごとに報告されるようになります。 これで、使用量の追跡と課金が簡単になります。 この手順を実行するためには、まず [Azure Stack Hub に登録する](azure-stack-registration.md)必要があります。
 
 1. 管理者特権のプロンプトで Windows PowerShell を開き、次のコマンドを実行します。  
 
@@ -79,26 +77,26 @@ ms.locfileid: "74310148"
 
 次のセクションでは、**New-AzureRmResource** コマンドレットのパラメーターについて説明します。
 
-| パラメーター | 説明 |
+| パラメーター | [説明] |
 | --- | --- |
-|registrationSubscriptionID | Azure Stack の初期登録に使用された Azure サブスクリプション。|
-| customerSubscriptionID | 登録される顧客の Azure サブスクリプション (Azure Stack ではありません)。 CSP のオファー内で作成する必要があります。 実際には、パートナー センターを介することを意味します。 顧客が複数の Azure Active Directory テナントを持っている場合は、Azure Stack へのログインに使用されるテナントでこのサブスクリプションを作成する必要があります。 顧客サブスクリプション ID には、小文字を使用する必要があります。 |
+|registrationSubscriptionID | Azure Stack Hub の初期登録に使用された Azure サブスクリプション。|
+| customerSubscriptionID | 登録する顧客が所有する (Azure Stack Hub ではない) Azure サブスクリプション。 CSP のオファー内で作成する必要があります。 実際には、パートナー センターを介することを意味します。 顧客が複数の Azure Active Directory テナントを持っている場合は、Azure Stack Hub へのログインに使用するテナントでこのサブスクリプションを作成する必要があります。 顧客サブスクリプション ID には、小文字を使用する必要があります。 |
 | resourceGroup | 登録が格納されている Azure 内のリソース グループ。 |
-| registrationName | Azure Stack の登録名。 Azure に格納されているオブジェクトです。 
+| registrationName | お使いの Azure Stack Hub の登録名。 Azure に格納されているオブジェクトです。 
 
 > [!NOTE]  
-> テナントには、使用する各 Azure Stack を登録する必要があります。 Azure Stack のデプロイが 2 つあり、テナントでその両方を使用する場合は、各デプロイの初期登録をテナントのサブスクリプションで更新する必要があります。
+> テナントは、使用する各 Azure Stack Hub に登録されている必要があります。 Azure Stack Hub のデプロイが 2 つあり、テナントがその両方を使用している場合は、各デプロイの初期登録をそのテナントのサブスクリプションで更新する必要があります。
 
-### <a name="onboard-tenant-to-azure-stack"></a>Azure Stack でテナントの利用を開始する
+### <a name="onboard-tenant-to-azure-stack-hub"></a>Azure Stack Hub にテナントをオンボードする
 
-複数の Azure AD テナントのユーザーが Azure Stack のサービスを使用できるように Azure Stack を構成します。 手順については、「[Azure Stack でのマルチテナントの有効化](azure-stack-enable-multitenancy.md)」を参照してください。
+Azure Stack Hub を構成して、複数の Azure AD テナントのユーザーが Azure Stack Hub のサービスを使用できるようにできます。 手順については、[Azure Stack Hub でのマルチテナントの有効化](azure-stack-enable-multitenancy.md)に関するページを参照してください。
 
-### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>Azure Stack 内のエンド カスタマーのテナントにローカル リソースを作成する
+### <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack-hub"></a>Azure Stack Hub のエンド カスタマーのテナントにローカル リソースを作成する
 
-Azure Stack に新しいカスタマーを追加するか、エンド カスタマーのテナントで所有者特権を持つゲスト アカウントを有効化したら、そのテナントにリソースを作成できることを確認します。 たとえば、[Azure Stack ポータルで Windows 仮想マシンを作成する](../user/azure-stack-quick-windows-portal.md)ことができます。
+Azure Stack Hub に新しいカスタマーを追加するか、お使いのゲスト アカウントがエンド カスタマーのテナントで所有者特権で有効にされたら、彼らがそのテナントにリソースを作成できることを確認してください。 たとえば、それらは [Azure Stack Hub ポータルで Windows 仮想マシンを作成する](../user/azure-stack-quick-windows-portal.md)ことができます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - 登録プロセス中にエラーが発生した場合にエラー メッセージを確認する方法については、[テナント登録時のエラー メッセージ](azure-stack-registration-errors.md)に関するページを参照してください。
-- Azure Stack からリソース使用量情報を取得する方法ついて詳しくは、「[Azure Stack での使用量と請求](azure-stack-billing-and-chargeback.md)」をご覧ください。
-- エンド カスタマーが CSP を Azure Stack テナントの管理者として追加する方法を確認するには、[クラウド ソリューション プロバイダーが Azure Stack サブスクリプションを管理できるようにする](../user/azure-stack-csp-enable-billing-usage-tracking.md)方法に関するページを参照してください。
+- Azure Stack Hub からリソース使用量情報を取得する方法の詳細については、「[Azure Stack Hub での使用量と請求](azure-stack-billing-and-chargeback.md)」を参照してください。
+- エンド カスタマーが CSP を Azure Stack Hub テナントの管理者として追加する方法を確認するには、[クラウド ソリューション プロバイダーがお使いの Azure Stack Hub サブスクリプションを管理する](../user/azure-stack-csp-enable-billing-usage-tracking.md)方法に関するページを参照してください。

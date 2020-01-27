@@ -1,6 +1,6 @@
 ---
-title: SQL Server を使用した Azure Stack の Windows N 層アプリケーション | Microsoft Docs
-description: SQL Server を使用して Azure Stack で Windows N 層アプリケーションを実行する方法について説明します。
+title: SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション | Microsoft Docs
+description: SQL Server を使用して Azure Stack Hub で Windows N 層アプリケーションを実行する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,14 +9,14 @@ ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 65ec9942b765eddcfda42056b47da60481d38ff4
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.openlocfilehash: 2c8eb46ecf53ba0bcab5d38ebe6a7e9aac79708e
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756986"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75815444"
 ---
-# <a name="windows-n-tier-application-on-azure-stack-with-sql-server"></a>SQL Server を使用した Azure Stack の Windows N 層アプリケーション
+# <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 
 この参照アーキテクチャでは、Windows 上の SQL Server をデータ層に使用して、[N 層](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/n-tier)アプリケーション用に構成された仮想マシン (VM) と仮想ネットワークをデプロイする方法を示します。 
 
@@ -30,19 +30,19 @@ ms.locfileid: "75756986"
 
 -   **リソース グループ**。 [リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)は、Azure リソースをグループ化して、有効期間、所有者、またはその他の条件別に管理できるようにするために使用されます。
 
--   **可用性セット。** 可用性セットは、VM の冗長性と可用性を提供するデータセンター構成です。 Azure Stack 内のこのような構成により、計画的または計画外メンテナンス イベント中に、少なくとも 1 つの仮想マシンが利用可能となります。 VM は、複数の障害ドメイン (Azure Stack ホスト) に VM が分散される可用性セットに配置されます。
+-   **可用性セット。** 可用性セットは、VM の冗長性と可用性を提供するデータセンター構成です。 Azure Stack Hub 内のこのような構成により、計画的または計画外メンテナンス イベント中に、少なくとも 1 個の仮想マシンが確実に利用可能になります。 VM は、複数の障害ドメイン (Azure Stack Hub ホスト) に VM が分散される可用性セットに配置されます。
 
 ## <a name="networking-and-load-balancing"></a>ネットワークと負荷分散
 
 -   **仮想ネットワークとサブネット**。 すべての Azure VM が、サブネットにセグメント化できる仮想ネットワーク内にデプロイされます。 階層ごとに個別のサブネットを作成します。
 
--   **第 7 層のロード バランサー。** Azure Stack では Application Gateway がまだ利用できないため、[Azure Stack Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) には代替手段が用意されています ([KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) など)。
+-   **第 7 層のロード バランサー。** Azure Stack Hub では Application Gateway がまだ利用できないため、[Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items?view=azs-1908) には代替手段が用意されています ([KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) など)。
 
 -   **ロード バランサー**。 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) は、Web 層からビジネス層へ、ビジネス層から SQL Server へとネットワーク トラフィックを分散するために使用します。
 
 -   **ネットワーク セキュリティ グループ** (NSG)。 NSG を使用して、仮想ネットワーク内のネットワーク トラフィックを制限します。 たとえば、ここに示されている 3 層アーキテクチャでは、データベース層は Web フロントエンドからのトラフィックを受信せず、ビジネス層と管理サブネットからのトラフィックのみ受信します。
 
--   **DNS**。 Azure Stack では独自の DNS ホスティング サービスは提供されていないため、AD DS で DNS サーバーを使用してください。
+-   **DNS**。 Azure Stack Hub では独自の DNS ホスティング サービスが提供されていないため、AD DS で DNS サーバーを使用してください。
 
 **仮想マシン**
 
@@ -50,14 +50,14 @@ ms.locfileid: "75756986"
 
 -   **Active Directory Domain Services (AD DS) サーバー。** フェールオーバー クラスターと、これに関連するクラスター化されたロールを表すコンピューター オブジェクトは、Active Directory Domain Services (AD DS) に作成されます。 他の VM を AD DS に参加させるには、同じ仮想ネットワーク内にある VM 内の AD DS サーバーをセットアップすることをお勧めします。 また、VPN 接続を使用して仮想ネットワークをエンタープライズ ネットワークに接続することで、VM を既存のエンタープライズ AD DS に参加させることもできます。 どちらの方法でも、仮想ネットワーク DNS を AD DS DNS サーバー (仮想ネットワークまたは既存のエンタープライズ ネットワーク内) に変更して、AD DS ドメインの FQDN を解決する必要があります。
 
--   **クラウド監視**。 フェールオーバー クラスターでは、そのノードの半数以上が実行されている必要があり、"クォーラムに達している" と呼びます。 クラスターにノードが 2 つしかない場合は、ネットワークのパーティションにより、各ノードは自身がマスター ノードであると認識する可能性があります。 この場合、"*監視*" によって優先順位を決定し、クォーラムを確立する必要があります。 監視は、クォーラムを確立する際の優先順位決定者として動作可能な、共有ディスクなどのリソースです。 クラウド監視は、Azure Blob Storage を使用する一種の監視です。 クォーラムの概念の詳細については、「[Understanding cluster and pool quorum (クラスターとプール クォーラムについて)](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)」を参照してください。 クラウド監視の詳細については、「[Deploy a cloud witness for a Failover Cluster (フェールオーバー クラスター用にクラウド監視をデプロイする)](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)」を参照してください。 Azure Stack では、クラウド監視エンドポイントはグローバル Azure とは異なります。 
+-   **クラウド監視**。 フェールオーバー クラスターでは、そのノードの半数以上が実行されている必要があり、"クォーラムに達している" と呼びます。 クラスターにノードが 2 つしかない場合は、ネットワークのパーティションにより、各ノードは自身がマスター ノードであると認識する可能性があります。 この場合、"*監視*" によって優先順位を決定し、クォーラムを確立する必要があります。 監視は、クォーラムを確立する際の優先順位決定者として動作可能な、共有ディスクなどのリソースです。 クラウド監視は、Azure Blob Storage を使用する一種の監視です。 クォーラムの概念の詳細については、「[Understanding cluster and pool quorum (クラスターとプール クォーラムについて)](https://docs.microsoft.com/windows-server/storage/storage-spaces/understand-quorum)」を参照してください。 クラウド監視の詳細については、「[Deploy a cloud witness for a Failover Cluster (フェールオーバー クラスター用にクラウド監視をデプロイする)](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)」を参照してください。 Azure Stack Hub では、クラウド監視エンドポイントはグローバル Azure とは異なります。 
 
 次のようになります。
 
 - グローバル Azure の場合:  
   `https://mywitness.blob.core.windows.net/`
 
-- Azure Stack の場合:  
+- Azure Stack Hub の場合:  
   `https://mywitness.blob.<region>.<FQDN>`
 
 -   **Jumpbox**。 [要塞ホスト](https://en.wikipedia.org/wiki/Bastion_host)とも呼ばれます。 管理者が他の VM に接続するために使用するネットワーク上のセキュアな VM です。 jumpbox の NSG は、セーフ リストにあるパブリック IP アドレスからのリモート トラフィックのみを許可します。 NSG は、リモート デスクトップ (RDP) トラフィックを許可する必要があります。
@@ -68,7 +68,7 @@ ms.locfileid: "75756986"
 
 ### <a name="virtual-machines"></a>仮想マシン
 
-VM の構成に関する推奨事項については、[Azure Stack での Windows VM の実行](iaas-architecture-vm-windows.md)に関するページを参照してください。
+VM の構成に関する推奨事項については、「[Azure Stack Hub で Windows 仮想マシンを実行する](iaas-architecture-vm-windows.md)」を参照してください。
 
 ### <a name="virtual-network"></a>仮想ネットワーク
 
@@ -127,7 +127,7 @@ SQL クライアントが接続を試みると、ロード バランサーがプ
 
 可用性グループの[手動フェールオーバーの強制](https://msdn.microsoft.com/library/ff877957.aspx)によってデプロイをテストします。
 
-SQL パフォーマンスの最適化については、「[SQL server best practices to optimize performance in Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-sql-server-vm-considerations)」(Azure Stack のパフォーマンスを最適化するための SQL server のベスト プラクティス) の記事も参照できます。
+SQL パフォーマンスの最適化については、記事「[Azure Stack Hub におけるパフォーマンスを最適化するための SQL サーバーのベスト プラクティス](https://docs.microsoft.com/azure-stack/user/azure-stack-sql-server-vm-considerations)」も参照できます。
 
 **ジャンプボックス**
 
@@ -149,19 +149,19 @@ Web 層とビジネス層については、個別の VM をデプロイするの
 
 -   カスタム ディスク イメージと共に[マネージド ディスク](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations)をデプロイします。 このオプションの方が早くデプロイできる場合があります。 ただし、イメージを最新の状態に保つ必要があります。
 
-詳細については、「[スケール セットの設計上の考慮事項](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview)」を参照してください。 この設計上の考慮事項はほぼ Azure Stack に当てはまりますが、次のいくつか注意点があります。
+詳細については、「[スケール セットの設計上の考慮事項](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview)」を参照してください。 この設計上の考慮事項はほぼ Azure Stack Hub に当てはまりますが、次の点に注意する必要があります。
 
--   Azure Stack の仮想マシン スケール セットでは、オーバープロビジョニングまたはローリング アップグレードはサポートされていません。
+-   Azure Stack Hub の仮想マシン スケール セットでは、オーバープロビジョニングまたはローリング アップグレードはサポートされていません。
 
--   Azure Stack の仮想マシン スケール セットは自動スケールできません。
+-   Azure Stack Hub の仮想マシン スケール セットを自動スケールすることはできません。
 
--   仮想マシン スケール セットのアンマネージド ディスクではなく、Azure Stack のマネージド ディスクを使用することを強くお勧めします。
+-   仮想マシン スケール セットのアンマネージド ディスクではなく、Azure Stack Hub のマネージド ディスクを使用することを強くお勧めします。
 
--   現時点では、Azure Stack には 700 個という VM の制限があり、これにはすべての Azure Stack インフラストラクチャの VM、個々の VM、およびスケール セット インスタンスが含まれます。
+-   現在、Azure Stack Hub では VM の数に 700 個という制限があり、これにはすべての Azure Stack Hub インフラストラクチャの VM、個々の VM、スケール セット インスタンスが含まれます。
 
 ## <a name="subscription-limits"></a>サブスクリプションの制限
 
-各 Azure Stack テナント サブスクリプションには、Azure Stack オペレーターによって構成されたリージョンごとの VM の最大数など、既定の制限があります。 詳細については、「[Azure Stack services, plans, offers, subscriptions overview](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview)」(Azure Stack サービス、プラン、オファー、サブスクリプションの概要) を参照してください。 「[Quota types in Azure Stack](https://docs.microsoft.com/azure-stack/operator/azure-stack-quota-types)」(Azure Stack のクォータの種類) も参照してください。
+各 Azure Stack Hub テナント サブスクリプションには、Azure Stack Hub オペレーターによって構成されたリージョンごとの VM の最大数など、既定の制限があります。 詳細については、「[Azure Stack Hub サービス、プラン、オファー、サブスクリプションの概要](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview)」を参照してください。 「[Azure Stack Hub のクォータの種類](https://docs.microsoft.com/azure-stack/operator/azure-stack-quota-types)」も参照してください。
 
 ## <a name="security-considerations"></a>セキュリティに関する考慮事項
 
@@ -171,7 +171,7 @@ Web 層とビジネス層については、個別の VM をデプロイするの
 
 **DMZ**。 ネットワーク仮想アプライアンス (NVA) を追加してインターネットと Azure Virtual Network の間の DMZ を作成することを検討してください。 NVA とは、ネットワーク関連のタスク (ファイアウォール、パケット インスペクション、監査、カスタム ルーティングなど) を実行できる仮想アプライアンスの総称です。
 
-**暗号化**。 機密の保存データを暗号化し、[Azure Stack の Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) を使用してデータベース暗号化キーを管理します。 詳細については、 [Azure VM 上の SQL Server に関する Azure Key Vault 統合の構成](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault)に関するページを参照してください。 データベース接続文字列などのアプリケーション シークレットも Key Vault に格納することをお勧めします。
+**暗号化**。 機密の保存データを暗号化し、[Azure Stack Hub の Key Vault](https://docs.microsoft.com/azure-stack/user/azure-stack-key-vault-manage-portal) を使用してデータベース暗号化キーを管理します。 詳細については、 [Azure VM 上の SQL Server に関する Azure Key Vault 統合の構成](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault)に関するページを参照してください。 データベース接続文字列などのアプリケーション シークレットも Key Vault に格納することをお勧めします。
 
 ## <a name="next-steps"></a>次のステップ
 

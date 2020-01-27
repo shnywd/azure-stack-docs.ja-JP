@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で複数サイト間 VPN トンネルを設定する方法 | Microsoft Docs
-description: Azure Stack で複数サイト間 VPN トンネルを設定する方法について説明します。
+title: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法 | Microsoft Docs
+description: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法について説明します。
 services: azure-stack
 author: mattbriggs
 ms.service: azure-stack
@@ -9,18 +9,16 @@ ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: d85de1892e2e6620249ff3a95ee2debb01b81981
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73168284"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883050"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack"></a>Azure Stack で複数サイト間 VPN トンネルを設定する方法
+# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、Azure Stack Resource Manager テンプレートを使用してソリューションをデプロイする方法について説明します。 このソリューションでは、仮想ネットワークに関連付けられた複数のリソース グループと、これらのシステムの接続方法を作成します。
+この記事では、Azure Stack Hub Resource Manager テンプレートを使用してソリューションをデプロイする方法について説明します。 このソリューションでは、仮想ネットワークに関連付けられた複数のリソース グループと、これらのシステムの接続方法を作成します。
 
 テンプレートは [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub リポジトリにあります。 このテンプレートは、**rras-gre-vnet-vnet** フォルダーにあります。 
 
@@ -34,7 +32,7 @@ ms.locfileid: "73168284"
 
 -  3 層アプリケーション (Web、アプリ、および DB) をデプロイします。
 
--  最初の 2 つのテンプレートを別の Azure Stack インスタンスに配置します。
+-  最初の 2 つのテンプレートを別の Azure Stack Hub インスタンスにデプロイします。
 
 -  **WebTier** は PPE1 にデプロイされ、**AppTier** は PPE2 にデプロイされます。
 
@@ -44,15 +42,15 @@ ms.locfileid: "73168284"
 
 ## <a name="steps-to-deploy-multiple-vpns"></a>複数の VPN をデプロイする手順
 
-これは複数の手順があるプロセスです。 このソリューションでは、Azure Stack ポータルを使用します。 ただし、PowerShell、Azure CLI、またはその他のコードとしてのインフラストラクチャ ツール チェーンを使用して出力をキャプチャし、入力として使用することができます。
+これは複数の手順があるプロセスです。 このソリューションでは、Azure Stack Hub ポータルを使用します。 ただし、PowerShell、Azure CLI、またはその他のコードとしてのインフラストラクチャ ツール チェーンを使用して出力をキャプチャし、入力として使用することができます。
 
 ![alt text](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
 
 ## <a name="walkthrough"></a>チュートリアル
 
-### <a name="deploy-web-tier-to-azure-stack-instances-ppe1"></a>Web 層を Azure Stack インスタンス PPE1 にデプロイする
+### <a name="deploy-web-tier-to-azure-stack-hub-instances-ppe1"></a>Web 層を Azure Stack Hub インスタンス PPE1 にデプロイする
 
-1.  Azure Stack ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
+1.  Azure Stack Hub ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
 
 2.  **[テンプレートのデプロイ]** を選択します。
 
@@ -69,7 +67,7 @@ ms.locfileid: "73168284"
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image5.png)
 
-### <a name="deploy-app-tier-to-the-second-azure-stack-instances"></a>2 つ目の Azure Stack インスタンスにアプリ層をデプロイする
+### <a name="deploy-app-tier-to-the-second-azure-stack-hub-instances"></a>2 つ目の Azure Stack Hub インスタンスにアプリ層をデプロイする
 
 次に示すように、**WebTier** と同じプロセスを使用できますが、パラメーターは異なります。
 
@@ -96,7 +94,7 @@ ms.locfileid: "73168284"
 
 ### <a name="create-tunnel-from-web-tier-to-app-tier"></a>Web 層からアプリ層へのトンネルを作成する
 
-1.  Azure Stack ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
+1.  Azure Stack Hub ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
 
 2.  **[テンプレートのデプロイ]** を選択します。
 
@@ -108,7 +106,7 @@ ms.locfileid: "73168284"
 
 ### <a name="create-tunnel-from-app-tier-to-web-tier"></a>アプリ層から web 層へのトンネルを作成する
 
-1.  Azure Stack ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
+1.  Azure Stack Hub ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
 
 2.  **[テンプレートのデプロイ]** を選択します。
 
@@ -163,7 +161,7 @@ ms.locfileid: "73168284"
 
 ### <a name="configure-app-tier-to-db-tier"></a>アプリ層から DB 層を構成する
 
-1.  Azure Stack ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
+1.  Azure Stack Hub ユーザー ポータルを開き、 **[リソースの作成]** を選択します。
 
 2.  **[テンプレートのデプロイ]** を選択します。
 
@@ -201,7 +199,7 @@ ms.locfileid: "73168284"
     > 1 台目のマシンから 2 台目へ、および 2 台目から 1 台目の両方で RDP をテストできます。
 
     > [!Note]  
-    > このソリューションをオンプレミスで実装するには、Azure Stack リモート ネットワークへのルートをスイッチング インフラストラクチャに、または少なくとも特定の VM にデプロイする必要があります。
+    > このソリューションをオンプレミスで実装するには、Azure Stack Hub リモート ネットワークへのルートをスイッチング インフラストラクチャに、または少なくとも特定の VM にデプロイする必要があります。
 
 ### <a name="deploying-a-gre-tunnel"></a>GRE トンネルのデプロイ
 
@@ -211,8 +209,8 @@ ms.locfileid: "73168284"
 
 ![](./media/azure-stack-network-howto-vpn-tunnel/image24.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
 [GRE を使用して VPN トンネルを作成する方法](network-howto-vpn-tunnel-gre.md)  
 [IPSEC を使用して VPN トンネルを作成する方法](network-howto-vpn-tunnel-ipsec.md)

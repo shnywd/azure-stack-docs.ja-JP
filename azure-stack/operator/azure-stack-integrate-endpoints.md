@@ -1,6 +1,6 @@
 ---
-title: データセンターに Azure Stack サービスを発行する |Microsoft Docs
-description: データセンターに Azure Stack サービスを発行する方法について説明します。
+title: データセンターに Azure Stack Hub サービスを発行する |Microsoft Docs
+description: データセンターに Azure Stack Hub サービスを発行する方法を学習します。
 services: azure-stack
 author: mattbriggs
 manager: femila
@@ -10,16 +10,16 @@ ms.date: 12/11/2019
 ms.author: justinha
 ms.reviewer: wamota
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 2da6bb4fb70a3d8e816870c8569f8f3e3aa7d678
-ms.sourcegitcommit: ae9d29c6a158948a7dbc4fd53082984eba890c59
+ms.openlocfilehash: 5ed74e225df2e2667acc536e0b8dbd901a086b9a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2019
-ms.locfileid: "75007998"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75818011"
 ---
-# <a name="publish-azure-stack-services-in-your-datacenter"></a>データセンターに Azure Stack サービスを発行する 
+# <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>データセンターに Azure Stack Hub サービスを発行する 
 
-Azure Stack は、そのインフラストラクチャ ロールのために仮想 IP アドレス (VIP) を設定します。 この VIP はパブリック IP アドレス プールから割り当てられます。 各 VIP は、ソフトウェア定義のネットワーク レイヤーで、アクセス制御リスト (ACL) で保護されます。 ACL は、ソリューションをさらに強化するために、さまざまな物理スイッチ (TOR や BMC) でも使われます。 デプロイ時に指定された外部 DNS ゾーン内のエンドポイントごとに、DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
+Azure Stack Hub では、そのインフラストラクチャ ロールのために仮想 IP アドレス (VIP) を設定します。 この VIP はパブリック IP アドレス プールから割り当てられます。 各 VIP は、ソフトウェア定義のネットワーク レイヤーで、アクセス制御リスト (ACL) で保護されます。 ACL は、ソリューションをさらに強化するために、さまざまな物理スイッチ (TOR や BMC) でも使われます。 デプロイ時に指定された外部 DNS ゾーン内のエンドポイントごとに、DNS エントリが作成されます。 たとえば、ユーザー ポータルに portal. *&lt;region>.&lt;fqdn>* の DNS ホスト エントリが割り当てられます。
 
 次のアーキテクチャ図は、さまざまなネットワーク レイヤーと ACL を示しています。
 
@@ -27,7 +27,7 @@ Azure Stack は、そのインフラストラクチャ ロールのために仮�
 
 ### <a name="ports-and-urls"></a>ポートと URL
 
-Azure Stack サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークに対して使用可能にするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
+Azure Stack Hub サービス (ポータル、Azure Resource Manager、DNS など) を外部ネットワークで使用できるようにするには、特定の URL、ポート、プロトコルに対して、これらのエンドポイントへの受信トラフィックを許可する必要があります。
  
 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するか、ファイアウォールでソリューションを保護しているデプロイでは、特定のポートと URL に[受信](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)および[送信](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)の両方の通信を許可する必要があります。 これには、ID、マーケットプレース、パッチと更新プログラム、登録、使用状況データに使用するポートと URL が該当します。
 
@@ -35,9 +35,9 @@ SSL トラフィックのインターセプトは[サポートされておらず
 
 ## <a name="ports-and-protocols-inbound"></a>ポートとプロトコル (受信)
 
-Azure Stack エンドポイントを外部ネットワークに公開するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)* " の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL リソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーのデプロイに関するドキュメントを参照してください。
+Azure Stack Hub エンドポイントを外部ネットワークに発行するには、一連のインフラストラクチャ VIP が必要です。 "*エンドポイント (VIP)* " の表は、各エンドポイント、必要なポート、およびプロトコルを示しています。 SQL リソース プロバイダーなど、追加のリソース プロバイダーを必要とするエンドポイントについては、特定のリソース プロバイダーのデプロイに関するドキュメントを参照してください。
 
-社内インフラストラクチャの VIP は Azure Stack の発行には不要なため、記載されていません。 ユーザーの VIP は動的であり、ユーザー自身によって定義され、Azure Stack オペレーターによって管理されるわけではありません。
+内部インフラストラクチャの VIP は Azure Stack Hub の発行には必要ないため、リストされていません。 ユーザーの VIP は動的であり、ユーザー自身によって定義され、Azure Stack Hub オペレーターによって制御されません。
 
 > [!Note]  
 > IKEv2 VPN は、標準ベースの IPsec VPN ソリューションであり、UDP ポート 500 と 4500、および TCP ポート 50 を使用します。 ファイアウォールでは、これらのポートが必ずしも開いているとは限りません。そのため、IKEv2 VPN ではプロキシとファイアウォールを通過できないことがあります。
@@ -52,7 +52,7 @@ Azure Stack エンドポイントを外部ネットワークに公開するに�
 |Azure Resource Manager (管理者)|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |ポータル (ユーザー)|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Azure Resource Manager (ユーザー)|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|グラフ|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |証明書の失効リスト|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP と UDP|53|
 |Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
@@ -72,12 +72,12 @@ Azure Stack エンドポイントを外部ネットワークに公開するに�
 
 ## <a name="ports-and-urls-outbound"></a>ポートと URL (送信)
 
-Azure Stack は、透過的なプロキシ サーバーのみをサポートします。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。
+Azure Stack Hub では、透過プロキシ サーバーのみがサポートされます。 透過プロキシから従来のプロキシ サーバーへのアップリンクが存在するデプロイ環境では、次の表のポートと URL に外部への通信を許可する必要があります。
 
 SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは、60 秒です。
 
 > [!Note]  
-> ExpressRoute ではすべてのエンドポイントにトラフィックをルーティングできない場合があるため、Azure Stack では、ExpressRoute を使用して、次の表に示す Azure サービスに到達することはサポートされていません。
+> ExpressRoute ではすべてのエンドポイントにトラフィックをルーティングできない場合があるため、Azure Stack Hub では、ExpressRoute を使用して、次の表にリストされている Azure サービスに到達することはサポートされていません。
 
 |目的|接続先 URL|Protocol|Port|ソース ネットワーク|
 |---------|---------|---------|---------|---------|
@@ -102,6 +102,6 @@ SSL トラフィックのインターセプトは[サポートされておらず
 
 送信 DNS は常に必要です。違っているのは、外部 DNS のクエリを実行しているソースと、選択された ID 統合の種類です。 接続されたシナリオの場合は、デプロイ時には BMC ネットワーク上に配置された DVM で送信アクセスが必要です。 しかし、デプロイ後は、DNS サービスはパブリック VIP を使用してクエリを送信する内部コンポーネントに移動します。 その時点で、BMC ネットワーク経由での送信 DNS アクセスは削除できますが、その DNS サーバーへのパブリック VIP アクセスは残しておく必要があり、そうしないと認証は失敗します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack PKI の要件](azure-stack-pki-certs.md)
+[Azure Stack Hub PKI の要件](azure-stack-pki-certs.md)

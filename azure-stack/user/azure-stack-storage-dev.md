@@ -1,41 +1,39 @@
 ---
-title: Azure Stack ストレージの開発ツールの概要 | Microsoft Docs
-description: Azure Stack ストレージの開発ツールの使用方法の概要
+title: Azure Stack Hub ストレージの開発ツールの概要 | Microsoft Docs
+description: Azure Stack Hub ストレージの開発ツールの使用方法の概要
 services: azure-stack
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.topic: conceptual
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 407d8167fcc359531496397dda00e51d59f49d7c
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.openlocfilehash: 043b3ca7105b526e2c0c79ca7573375b2a8cfcae
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909603"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535928"
 ---
-# <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack ストレージの開発ツールの概要
+# <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack Hub ストレージの開発ツールの概要
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Microsoft Azure Stack Hub には、Blob Storage、Table Storage、Queue Storage など一連のストレージ サービスがあります。
 
-Microsoft Azure Stack には、Blob Storage、Table Storage、Queue Storage など一連のストレージ サービスがあります。
-
-この記事は、Azure Stack ストレージの開発ツールを初めて使うときのガイドとしてご利用ください。 より詳細な情報とサンプル コードについては、該当する Azure ストレージのチュートリアルでご覧いただけます。
+この記事は、Azure Stack Hub ストレージの開発ツールを初めて使うときのガイドとしてご利用ください。 より詳細な情報とサンプル コードについては、該当する Azure ストレージのチュートリアルでご覧いただけます。
 
 > [!NOTE]  
-> Azure Stack ストレージと Azure ストレージには、プラットフォームごとの固有の要件などの違いがあります。 たとえば、Azure Stack には、クライアント ライブラリとエンドポイント サフィックスの特定の要件があります。 詳しくは、「[Azure Stack Storage:違いと考慮事項](azure-stack-acs-differences.md)」をご覧ください。
+> Azure Stack Hub ストレージと Azure ストレージには、プラットフォームごとの固有の要件などの違いがあります。 たとえば、Azure Stack Hub には、クライアント ライブラリとエンドポイント サフィックスの特定の要件があります。 詳しくは、「[Azure Stack Hub ストレージ:違いと考慮事項](azure-stack-acs-differences.md)」をご覧ください。
 
 ## <a name="azure-client-libraries"></a>Azure のクライアント ライブラリ
 
-したがって、ストレージのクライアント ライブラリについて、REST API と互換性のあるバージョンを把握しておいてください。 また、コード内で Azure Stack エンドポイントも指定する必要があります。
+したがって、ストレージのクライアント ライブラリについて、REST API と互換性のあるバージョンを把握しておいてください。 また、コード内で Azure Stack Hub エンドポイントも指定する必要があります。
 
 ::: moniker range=">=azs-1811"
 ### <a name="1811-update-or-newer-versions"></a>更新プログラム 1811 以降のバージョン
 
-| クライアント ライブラリ | Azure Stack でサポートされるバージョン | Link | エンドポイントの指定 |
+| クライアント ライブラリ | Azure Stack Hub でサポートされるバージョン | Link | エンドポイントの指定 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 9.2.0 | NuGet パッケージ:<br><https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0><br> <br>GitHub リリース:<br><https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0> | app.config ファイル |
 | Java | 7.0.0 | Maven パッケージ:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/7.0.0><br> <br>GitHub リリース:<br><https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0> | 接続文字列の設定 |
@@ -66,7 +64,7 @@ Composer 経由でインストールするには (BLOB の例):
 ::: moniker range=">=azs-1802 <=azs-1809"
 ### <a name="previous-versions-1802-to-1809-update"></a>以前のバージョン (1802 から 1809 までの更新プログラム)
 
-| クライアント ライブラリ | Azure Stack でサポートされるバージョン | Link | エンドポイントの指定 |
+| クライアント ライブラリ | Azure Stack Hub でサポートされるバージョン | Link | エンドポイントの指定 |
 |----------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
 | .NET | 8.7.0 | NuGet パッケージ:<br><https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0><br> <br>GitHub リリース:<br><https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0> | app.config ファイル |
 | Java | 6.1.0 | Maven パッケージ:<br><https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0><br> <br>GitHub リリース:<br><https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0> | 接続文字列の設定 |
@@ -96,7 +94,7 @@ Composer 経由でインストールするには (BLOB の例):
 
 ## <a name="endpoint-declaration"></a>エンドポイントの宣言
 
-Azure Stack のエンドポイントには、リージョン名と Azure Stack ドメインの 2 つの部分があります。
+Azure Stack Hub のエンドポイントには、リージョン名と Azure Stack Hub ドメインの 2 つの部分があります。
 Azure Stack Development Kit の既定のエンドポイントは **local.azurestack.external** です。
 エンドポイントが不明の場合は、クラウド管理者に問い合わせてください。
 
@@ -104,7 +102,7 @@ Azure Stack Development Kit の既定のエンドポイントは **local.azurest
 
 ### <a name="net"></a>.NET
 
-Azure Stack のエンドポイントのサフィックスは、app.config ファイルに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、app.config ファイルに指定されています。
 
 ```xml
 <add key="StorageConnectionString"
@@ -114,7 +112,7 @@ EndpointSuffix=local.azurestack.external;" />
 
 ### <a name="java"></a>Java
 
-Azure Stack のエンドポイントのサフィックスは、接続文字列のセットアップに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、接続文字列の設定に指定されています。
 
 ```java
 public static final String storageConnectionString =
@@ -126,7 +124,7 @@ public static final String storageConnectionString =
 
 ### <a name="nodejs"></a>Node.js
 
-Azure Stack のエンドポイントのサフィックスは、宣言のインスタンスに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、宣言のインスタンスに指定されています。
 
 ```nodejs
 var blobSvc = azure.createBlobService('myaccount', 'mykey',
@@ -135,7 +133,7 @@ var blobSvc = azure.createBlobService('myaccount', 'mykey',
 
 ### <a name="c"></a>C++
 
-Azure Stack のエンドポイントのサフィックスは、接続文字列のセットアップに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、接続文字列の設定に指定されています。
 
 ```cpp
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;
@@ -146,7 +144,7 @@ EndpointSuffix=local.azurestack.external"));
 
 ### <a name="php"></a>PHP
 
-Azure Stack のエンドポイントのサフィックスは、接続文字列のセットアップに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、接続文字列の設定に指定されています。
 
 ```php
 $connectionString = 'BlobEndpoint=https://<storage account name>.blob.local.azurestack.external/;
@@ -157,7 +155,7 @@ AccountName=<storage account name>;AccountKey=<storage account key>'
 
 ### <a name="python"></a>Python
 
-Azure Stack のエンドポイントのサフィックスは、宣言のインスタンスに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、宣言のインスタンスに指定されています。
 
 ```python
 block_blob_service = BlockBlobService(account_name='myaccount',
@@ -167,7 +165,7 @@ endpoint_suffix='local.azurestack.external')
 
 ### <a name="ruby"></a>Ruby
 
-Azure Stack のエンドポイントのサフィックスは、接続文字列のセットアップに指定されています。
+Azure Stack Hub のエンドポイントのサフィックスは、接続文字列の設定に指定されています。
 
 ```ruby
 set
@@ -179,7 +177,7 @@ EndpointSuffix=local.azurestack.external
 
 ## <a name="blob-storage"></a>BLOB ストレージ
 
-Azure Stack に、次の Azure Blob ストレージのチュートリアルを応用できます。 Azure Stack のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
+Azure Stack Hub に、次の Azure Blob ストレージのチュートリアルを応用できます。 Azure Stack Hub のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
 
 * [.NET を使用して Azure Blob Storage を使用する](/azure/storage/blobs/storage-dotnet-how-to-use-blobs)
 * [Java から BLOB ストレージを使用する方法](/azure/storage/blobs/storage-java-how-to-use-blob-storage)
@@ -191,7 +189,7 @@ Azure Stack に、次の Azure Blob ストレージのチュートリアルを�
 
 ## <a name="queue-storage"></a>ストレージ
 
-Azure Stack に、次の Azure キュー ストレージのチュートリアルを応用できます Azure Stack のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
+Azure Stack Hub に、次の Azure Queue storage のチュートリアルを応用できます。 Azure Stack Hub のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
 
 * [.NET を使用して Azure Queue Storage を使用する](/azure/storage/queues/storage-dotnet-how-to-use-queues)
 * [Java から Queue ストレージを使用する方法](/azure/storage/queues/storage-java-how-to-use-queue-storage)
@@ -203,7 +201,7 @@ Azure Stack に、次の Azure キュー ストレージのチュートリアル
 
 ## <a name="table-storage"></a>テーブル ストレージ
 
-Azure Stack に、次の Azure Table Storage のチュートリアルを応用できます Azure Stack のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
+Azure Stack Hub に、次の Azure Table storage のチュートリアルを応用できます Azure Stack Hub のエンドポイントのサフィックスの具体的な要件については、前の[例](#examples)のセクションを参照してください。
 
 * [.NET を使用して Azure Table Storage を使用する](/azure/cosmos-db/table-storage-how-to-use-dotnet)
 * [Java からテーブル ストレージを使用する方法](/azure/cosmos-db/table-storage-how-to-use-java)
@@ -213,6 +211,6 @@ Azure Stack に、次の Azure Table Storage のチュートリアルを応用�
 * [Python で Table Storage を使用する方法](/azure/cosmos-db/table-storage-how-to-use-python)
 * [Ruby から Table ストレージを使用する方法](/azure/cosmos-db/table-storage-how-to-use-ruby)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Microsoft Azure ストレージの概要](/azure/storage/common/storage-introduction)

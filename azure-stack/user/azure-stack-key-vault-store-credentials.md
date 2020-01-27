@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でサービス プリンシパルの資格情報を Key Vault に格納する | Microsoft Docs
-description: Azure Stack でサービス プリンシパルの資格情報が Key Vault にどのように格納されるかについて説明します
+title: Azure Stack Hub でサービス プリンシパルの資格情報を Key Vault に格納する | Microsoft Docs
+description: Azure Stack Hub でサービス プリンシパルの資格情報が Key Vault にどのように格納されるかについて説明します
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -14,31 +14,31 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 9d86f7e68b2e96eb4a22f9896ff65a4ed6b96f92
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: a953666396b89706b935b73abea0b4d42c1dcc1a
+ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714747"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75820272"
 ---
-# <a name="store-service-principal-credentials-in-azure-stack-key-vault"></a>Azure Stack でサービス プリンシパルの資格情報を Key Vault に格納する
+# <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Azure Stack Hub でサービス プリンシパルの資格情報を Key Vault に格納する
 
-通常、Azure Stack におけるアプリの開発では、デプロイ前にサービス プリンシパルを作成し、その資格情報を使用して認証を行う必要があります。 しかし、保存したサービス プリンシパルの資格情報を失ってしまう場合があります。 この記事では、サービス プリンシパルを作成し、その値を後で取り出せるよう Azure Key Vault に格納する方法について説明します。
+通常、Azure Stack Hub におけるアプリの開発では、デプロイ前にサービス プリンシパルを作成し、その資格情報を使用して認証を行う必要があります。 しかし、保存したサービス プリンシパルの資格情報を失ってしまう場合があります。 この記事では、サービス プリンシパルを作成し、その値を後で取り出せるよう Azure Key Vault に格納する方法について説明します。
 
-Key Vault の詳細については、「[Azure Stack での Key Vault の概要](azure-stack-key-vault-intro.md)」を参照してください。
+Key Vault の詳細については、「[Azure Stack Hub での Key Vault の概要](azure-stack-key-vault-intro.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
 - Azure Key Vault サービスを含むオファーをサブスクライブします。
-- PowerShell をインストールし、Azure Stack で使うように構成します。
+- PowerShell をインストールし、Azure Stack Hub で使うように構成します。
 
-## <a name="key-vault-in-azure-stack"></a>Azure Stack の Key Vault
+## <a name="key-vault-in-azure-stack-hub"></a>Azure Stack Hub の Key Vault
 
-Azure Stack の Key Vault には、クラウド アプリやクラウド サービスで使用される暗号化キーとシークレットを保護する機能があります。 Key Vault を使用することにより、キーとシークレットを暗号化することができます。
+Azure Stack Hub の Key Vault は、クラウド アプリやクラウド サービスで使用される暗号化キーとシークレットを保護するのに役立ちます。 Key Vault を使用することにより、キーとシークレットを暗号化することができます。
 
 キー コンテナーを作成するには、次の手順に従います。
 
-1. Azure Stack ポータルにサインインします。
+1. Azure Stack Hub ポータルにサインインします。
 
 2. ダッシュボードから、 **[+ リソースの作成]** 、 **[セキュリティ + ID]** 、 **[Key Vault]** の順に選択します。
 
@@ -80,7 +80,7 @@ Azure Stack の Key Vault には、クラウド アプリやクラウド サー�
 
 ## <a name="store-the-service-principal-inside-key-vault"></a>Key Vault 内にサービス プリンシパルを格納する
 
-1. Azure Stack のユーザー ポータルにサインインした後、先ほど作成したキー コンテナーを選択し、 **[シークレット]** タイルを選択します。
+1. Azure Stack Hub のユーザー ポータルにサインインした後、先ほど作成したキー コンテナーを選択して、 **[シークレット]** タイルを選択します。
 
 2. **[シークレット]** ウィンドウで **[生成/インポート]** を選択します。
 
@@ -98,8 +98,8 @@ Azure Stack の Key Vault には、クラウド アプリやクラウド サー�
 
 シークレットが正常に作成された後、そこにサービス プリンシパルの情報が格納されます。 いつでも **[シークレット]** からそれを選択し、そのプロパティを表示したり変更を加えたりすることができます。 **[プロパティ]** セクションにはシークレット識別子が含まれます。これは、外部アプリがこのシークレットにアクセスするために使う Uniform Resource Identifier (URI) です。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービス プリンシパルの使用](azure-stack-create-service-principals.md)
-- [ポータルを使って Azure Stack の Key Vault を管理する](azure-stack-key-vault-manage-portal.md)  
-- [PowerShell を使用した Azure Stack での Key Vault の管理](azure-stack-key-vault-manage-powershell.md)
+- [ポータルを使用して Azure Stack Hub の Key Vault を管理する](azure-stack-key-vault-manage-portal.md)  
+- [PowerShell を使用して Azure Stack Hub の Key Vault を管理する](azure-stack-key-vault-manage-powershell.md)

@@ -1,6 +1,6 @@
 ---
-title: オンデマンドで Azure Stack 診断ログを収集する |Microsoft Docs
-description: ヘルプとサポート、または特権エンドポイント (PEP) を使用して Azure Stack 内で診断ログをオンデマンドで収集する方法について説明します。
+title: オンデマンドで Azure Stack Hub 診断ログを収集する | Microsoft Docs
+description: ヘルプとサポート、または特権エンドポイント (PEP) を使用して Azure Stack Hub 内で診断ログをオンデマンドで収集する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,25 +16,23 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ccc552e6daee4f1492d1070a08f5be19e41217dd
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: f30791ec7514a68a6137d2b5d2db3441cf217f58
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690015"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883084"
 ---
-# <a name="collect-azure-stack-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack 診断ログを収集する
+# <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack Hub 診断ログを収集する
 
-*適用対象:Azure Stack 統合システム*
-
-トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack オペレーターは、**ヘルプとサポート**を使用して、診断ログを Azure の BLOB コンテナーにアップロードできます。 PowerShell を使用する以前の方法よりも簡単であるため、**ヘルプとサポート**を使用することをお勧めします。 ただし、ポータルが使用できない場合、オペレーターは引き続き以前のリリースと同様に特権エンドポイント (PEP) 経由で **Get-AzureStackLog** を使用してログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
+トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack Hub オペレーターは、**ヘルプとサポート**を使用して、診断ログを Azure の BLOB コンテナーにアップロードできます。 PowerShell を使用する以前の方法よりも簡単であるため、**ヘルプとサポート**を使用することをお勧めします。 ただし、ポータルが使用できない場合、オペレーターは引き続き以前のリリースと同様に特権エンドポイント (PEP) 経由で **Get-AzureStackLog** を使用してログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
 
 >[!Note]
 >必要に応じたログ収集の代わりとして、[自動による診断ログの収集](azure-stack-configure-automatic-diagnostic-log-collection.md)を有効化することで、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、分析のために、CSS によってログが自動的にアップロードされます。 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>ヘルプとサポートを使用して必要に応じて診断ログを収集する
 
-問題のトラブルシューティングを行うために、CSS は、Azure Stack オペレーターに、前週の特定の時間枠に対して、オンデマンドで診断ログを収集するように要求する場合があります。 その場合、CSS はオペレーターにコレクションをアップロードするための SAS URL を提供します。 CSS からの SAS URL を使用して、オンデマンドのログ収集を構成するには、次の手順に従います。
+問題のトラブルシューティングを行うために、CSS は、Azure Stack Hub オペレーターに、前週の特定の時間枠に対して、オンデマンドで診断ログを収集するように要求する場合があります。 その場合、CSS はオペレーターにコレクションをアップロードするための SAS URL を提供します。 CSS からの SAS URL を使用して、オンデマンドのログ収集を構成するには、次の手順に従います。
 
 1. **[Help and Support Overview]\(ヘルプとサポートの概要\)** を開き、 **[Collect logs now]\(今すぐログを収集する\)** をクリックします。 
 1. 過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択します。 
@@ -52,7 +50,7 @@ ms.locfileid: "74690015"
 
 
 
-### <a name="run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Azure Stack 統合システムで Get-AzureStackLog を実行する
+### <a name="run-get-azurestacklog-on-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムで Get-AzureStackLog を実行するには
 
 統合システムで Get-AzureStackLog を実行するには、特権エンド ポイント (PEP) へのアクセス権が必要です。 PEP を使用して統合システムでログを収集するのに実行できるスクリプト例を次に示します。
 
@@ -110,13 +108,13 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-* Azure Stack で自己管理型の Azure Kubernetes Services (AKS) を実行しているテナントのデプロイからログを収集します。 AKS ログは、コレクションの時間範囲を適用できる形式でテナント ストレージのアカウントに格納する必要があります。 
+* Azure Stack Hub で自己管理型の Azure Kubernetes Services (AKS) を実行しているテナントのデプロイからログを収集します。 AKS ログは、コレクションの時間範囲を適用できる形式でテナント ストレージのアカウントに格納する必要があります。 
 
   ```powershell
   Get-AzureStackLog -OutputPath <Path> -InputSasUri "<Blob Service Sas URI>" -FromDate "<Beginning of the time range>" -ToDate "<End of the time range>"
   ```
 
-  例:
+  次に例を示します。
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\KubernetesLogs -InputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>" -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2) 
@@ -128,14 +126,14 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
   Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
-  例:
+  次に例を示します。
 
   ```powershell
   Get-AzureStackLog -OutputSasUri "https://<storageAccountName>.blob.core.windows.net/<ContainerName><SAS token>"
   ```
 
   > [!NOTE]
-  > この手順は、ログをアップロードする場合に役立ちます。 アクセス可能な SMB 共有やインターネット アクセスがない場合でも、Azure Stack で BLOB ストレージ アカウントを作成してログを転送し、クライアントを使用してそれらのログを取得することができます。  
+  > この手順は、ログをアップロードする場合に役立ちます。 アクセス可能な SMB 共有やインターネット アクセスがない場合でも、Azure Stack Hub で BLOB ストレージ アカウントを作成してログを転送し、クライアントを使用してそれらのログを取得することができます。  
 
   ストレージ アカウントの SAS トークンを生成するには、次のアクセス許可が必要です。
 
@@ -161,13 +159,13 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
 
 * **FromDate** パラメーターと **ToDate** パラメーターを使用して、特定の期間のログを収集できます。 これらのパラメーターが指定されない場合、既定では過去 4 時間のログが収集されます。
 
-* コンピューター名でログをフィルター処理するには、**FilterByNode** パラメーターを使用します。 例:
+* コンピューター名でログをフィルター処理するには、**FilterByNode** パラメーターを使用します。 次に例を示します。
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByNode azs-xrp01
     ```
 
-* 種類でログをフィルター処理するには、**FilterByLogType** パラメーターを使用します。 File、Share、または WindowsEvent を選択してフィルター処理できます。 例:
+* 種類でログをフィルター処理するには、**FilterByLogType** パラメーターを使用します。 File、Share、または WindowsEvent を選択してフィルター処理できます。 次に例を示します。
 
     ```powershell
     Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByLogType File
@@ -190,7 +188,7 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
   |ACSSettingsService    |ECE                            |KeyVaultNamingService          |SLB                       |         |
   |ACSTableMaster        |EventAdminRP                   |MDM                            |SQL                       |         |
   |ACSFabric        |EventRP                        |MetricsAdminRP                 |SRP                       |         |
-  |ACSWac                |ExternalDNS                    |MetricsRP                      |Storage                   |         |
+  |ACSWac                |ExternalDNS                    |MetricsRP                      |ストレージ                   |         |
   |ADFS                  |FabricRing                     |MetricsServer                  |StorageController         |         |
   |ApplicationController |FabricRingServices             |MetricsStoreService            |URP                       |         |
   |ASAppGateway          |FirstTierAggregationService    |MonAdminRP                     |SupportBridgeController   |         |
@@ -202,7 +200,7 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
 
 ### <a name="additional-considerations-on-diagnostic-logs"></a>診断ログに関するその他の考慮事項
 
-* このコマンドは、どのロールに基づいてログが収集されるかによって、実行にいくらかの時間がかかります。 また、関連する要素には、ログ収集に指定した期間と、Azure Stack 環境のノード数が含まれます。
+* このコマンドは、どのロールに基づいてログが収集されるかによって、実行にいくらかの時間がかかります。 また、関連する要素には、ログ収集に指定した期間と、Azure Stack Hub 環境のノード数が含まれます。
 * ログの収集と同時に、コマンドで指定した **OutputSharePath** パラメーターに作成された新しいフォルダーを確認します。
 * ロールごとに、個別の zip ファイル内にログがあります。 収集されたログのサイズによっては、1 つのロールのログが複数の zip ファイルに分割されることがあります。 そのようなロールのすべてのログ ファイルを単一のフォルダーに解凍したい場合は、一括で解凍できるツールを使用します。 そのロールのすべての圧縮済みファイルを選択し、 **[extract here]\(ここに展開\)** を選択します。 そのロールのすべてのログ ファイルが 1 つのマージされたフォルダーに解凍されます。
 * また、**Get-AzureStackLog_Output.log** と呼ばれるファイルが、圧縮済みログ ファイルを含むフォルダーに作成されます。 このファイルはコマンド出力のログで、ログ収集中の問題のトラブルシューティングに使用できます。 ログ収集の実行後に予期したログ ファイルがない場合を除き、無視してかまわない `PS>TerminatingError` エントリがログ ファイルに含まれることがあります。
@@ -254,25 +252,25 @@ if ($session) {
 
 ### <a name="how-diagnostic-log-collection-using-the-pep-works"></a>PEP を使用した診断ログ収集のしくみ
 
-Azure Stack の診断ツールにより、ログ収集を簡単かつ効率的にすることができます。 次の図は、診断ツールの動作を示しています。
+Azure Stack Hub の診断ツールにより、ログ収集を簡単かつ効率的にすることができます。 次の図は、診断ツールの動作を示しています。
 
-![Azure Stack の診断ツールのワークフロー図](media/azure-stack-diagnostics/get-azslogs.png)
+![Azure Stack Hub の診断ツールのワークフロー図](media/azure-stack-diagnostics/get-azslogs.png)
 
 
 #### <a name="trace-collector"></a>トレース コレクター
 
-トレース コレクターは既定で有効になり、Azure Stack コンポーネント サービスからすべての Windows イベント トレーシング (ETW) ログを収集するためにバック グラウンドで継続的に実行されます。 ETW ログは、共通のローカル共有に 5 日間を上限として格納されます。 この制限に達した場合、新しいファイルが作成されると最も古いファイルは削除されます。 各ファイルで許容される既定の最大サイズは 200 MB です。 サイズ チェックは 2 分間隔で行われ、現在のファイルが 200 MB 以上であれば保存され、新しいファイルが生成されます。 また、イベント セッションごとに生成されるファイルの合計サイズには、8 GB の制限が設定されています。
+トレース コレクターは既定で有効になり、Azure Stack Hub コンポーネント サービスからすべての Windows イベント トレーシング (ETW) ログを収集するためにバック グラウンドで継続的に実行されます。 ETW ログは、共通のローカル共有に 5 日間を上限として格納されます。 この制限に達した場合、新しいファイルが作成されると最も古いファイルは削除されます。 各ファイルで許容される既定の最大サイズは 200 MB です。 サイズ チェックは 2 分間隔で行われ、現在のファイルが 200 MB 以上であれば保存され、新しいファイルが生成されます。 また、イベント セッションごとに生成されるファイルの合計サイズには、8 GB の制限が設定されています。
 
 #### <a name="get-azurestacklog"></a>Get-AzureStackLog
 
-PowerShell コマンドレット Get-AzureStackLog を使用して、Azure Stack 環境のすべてのコンポーネントからログを収集できます。 これらは、ユーザーの定義した場所に zip ファイルで保存されます。 Azure Stack テクニカル サポート チームが問題のトラブルシューティングを行うためにログを必要とする場合、Get-AzureStackLog を実行するようにお願いすることがあります。
+PowerShell コマンドレット Get-AzureStackLog を使用して、Azure Stack Hub 環境のすべてのコンポーネントからログを収集できます。 これらは、ユーザーの定義した場所に zip ファイルで保存されます。 Azure Stack Hub テクニカル サポート チームが問題のトラブルシューティングを行うためにログを必要とする場合、Get-AzureStackLog を実行するようにお願いすることがあります。
 
 > [!CAUTION]
 > これらのログ ファイルには個人を特定できる情報 (PII) が含まれている可能性があります。 ログ ファイルを公開する前に、この点を考慮してください。
 
 以下に、収集されるログの種類をいくつか例示します。
 
-* **Azure Stack デプロイ ログ**
+* **Azure Stack Hub のデプロイ ログ**
 * **Windows イベント ログ**
 * **Panther ログ**
 * **クラスター ログ**

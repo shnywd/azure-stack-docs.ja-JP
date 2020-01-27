@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での VM の更新と管理の自動化 | Microsoft Docs
-description: Azure Automation の Azure Monitor for VMs、Update Management、Change Tracking、および Inventory ソリューションを使用して、Azure Stack にデプロイされている Windows および Linux の VM を管理する方法について説明します。
+title: Azure Stack Hub での VM の更新と管理の自動化 | Microsoft Docs
+description: Azure Automation の Azure Monitor for VMs、Update Management、Change Tracking、Inventory ソリューションを使用して、Azure Stack Hub にデプロイされている Windows および Linux の VM を管理する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,35 +16,35 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 87549d27418f787b0e173cfda1ca835dc1c181e4
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955942"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76023129"
 ---
-# <a name="vm-update-and-management-automation-in-azure-stack"></a>Azure Stack での VM の更新と管理の自動化
-以下の Azure Automation ソリューション機能を使用して、Azure Stack を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
+# <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
+以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
 
 - **[Update Management](https://docs.microsoft.com/azure/automation/automation-update-management)** :Update Management ソリューションでは、すべてのエージェント コンピューターで利用可能な更新プログラムの状態をすばやく評価し、Windows および Linux の VM に必要な更新プログラムをインストールするプロセスを管理できます。
 
 - **[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking)** :監視対象サーバーにインストールされているソフトウェア、Windows サービス、Windows レジストリとファイル、および Linux デーモンの変更が、クラウドの Azure Monitor サービスに送信され、処理されます。 受信したデータにロジックが適用され、クラウド サービスによってそのデータが記録されます。 [変更の追跡] ダッシュボードの情報を使用して、サーバー インフラストラクチャで行われた変更を簡単に確認できます。
 
-- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Azure Stack VM のインベントリ追跡では、インベントリ コレクションを設定して構成するためのブラウザー ベースのユーザー インターフェイスが提供されます。
+- **[Inventory](https://docs.microsoft.com/azure/automation/automation-vm-inventory)** . Azure Stack Hub VM のインベントリ追跡では、インベントリ コレクションを設定して構成するためのブラウザー ベースのユーザー インターフェイスが提供されます。
 
-- **[Azure Monitor for VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** :Azure Monitor for VMs では、Azure と Azure Stack の VM および仮想マシン スケール セットの大規模な監視が行われます。 これにより、ご利用の Windows VM および Linux VM のパフォーマンスおよび正常性が分析され、それらのプロセスとその他のリソースおよび外部プロセスとの依存関係も監視されます。
+- **[Azure Monitor for VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)** :Azure Monitor for VMs では、Azure と Azure Stack Hub の VM および仮想マシン スケール セットの大規模な監視が行われます。 これにより、ご利用の Windows VM および Linux VM のパフォーマンスおよび正常性が分析され、それらのプロセスとその他のリソースおよび外部プロセスとの依存関係も監視されます。
 
 > [!IMPORTANT]
-> これらのソリューションは、Azure VM の管理に使用されるものと同じです。 Azure と Azure Stack の VM はどちらも、同じインターフェイスから同じツールを使用して同じ方法で管理されます。 また、Azure Stack で Update Management、Change Tracking、Inventory、Azure Monitor for VMs ソリューションを使用した場合、Azure Stack VM も Azure VM と同じように課金されます。
+> これらのソリューションは、Azure VM の管理に使用されるものと同じです。 Azure と Azure Stack Hub の VM はどちらも、同じインターフェイスから同じツールを使用して同じ方法で管理されます。 また、Azure Stack で Update Management、Change Tracking、Inventory、Azure Monitor for VMs ソリューションを使用した場合、Azure Stack Hub VM も Azure VM と同じように課金されます。
 
 ## <a name="prerequisites"></a>前提条件
-これらの機能を使用して Azure Stack の VM を更新および管理するには、事前にいくつかの前提条件を満たす必要があります。 これらには、Azure portal および Azure Stack 管理ポータルで実行する必要のある手順が含まれます。
+これらの機能を使用して Azure Stack Hub の VM を更新および管理するには、事前にいくつかの前提条件を満たす必要があります。 これらには、Azure portal および Azure Stack Hub 管理ポータルで実行する必要のある手順が含まれます。
 
 ### <a name="in-the-azure-portal"></a>Azure ポータルで次の操作を行います。
-Azure Stack の VM に対して Azure Monitor for VMs、Inventory、Change Tracking、Update Management の Azure Automation 機能を使用するには、まず、Azure でこれらのソリューションを有効にする必要があります。
+Azure Stack Hub の VM に対して Azure Monitor for VMs、Inventory、Change Tracking、Update Management の Azure Automation 機能を使用するには、まず、Azure でこれらのソリューションを有効にする必要があります。
 
 > [!TIP]
-> Azure VM に対してこれらの機能をすでに有効にしてある場合は、Log Analytics ワークスペースの既存の資格情報を使用できます。 使用する Log Analytics のワークスペース ID とプライマリ キーが既にある場合は、[次のセクション](./vm-update-management.md#in-the-azure-stack-administrator-portal)に進んでください。 それ以外の場合は、引き続きこのセクションで新しい Log Analytics ワークスペースと Automation アカウントを作成します。
+> Azure VM に対してこれらの機能をすでに有効にしてある場合は、Log Analytics ワークスペースの既存の資格情報を使用できます。 使用する Log Analytics のワークスペース ID とプライマリ キーが既にある場合は、[次のセクション](./vm-update-management.md#in-the-azure-stack-hub-administrator-portal)に進んでください。 それ以外の場合は、引き続きこのセクションで新しい Log Analytics ワークスペースと Automation アカウントを作成します。
 
 これらのソリューションを有効にする最初のステップは、Azure サブスクリプションで [Log Analytics ワークスペースを作成する](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)ことです。 Log Analytics ワークスペースは、独自のデータ リポジトリ、データ ソース、ソリューションを備えた固有の Azure Monitor ログ環境です。 ワークスペースを作成した後、ワークスペース ID とキーを書き留めておいてください。 この情報は、ワークスペース ブレードに移動し、 **[詳細設定]** をクリックして、 **[ワークスペース ID]** と **[プライマリ キー]** で確認できます。 
 
@@ -76,8 +76,8 @@ Azure Monitor for VMs では、ご利用の Azure VM および仮想マシン �
 
 Log Analytics ワークスペースが作成されたら、Linux および Windows VM 上のコレクションに対し、ワークスペースのパフォーマンス カウンターを有効にします。 次に、ワークスペースに ServiceMap および InfrastructureInsights ソリューションをインストールして有効にします。 このプロセスについて詳しくは、「[Azure Monitor for VMs をデプロイする](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview)」をご覧ください。
 
-### <a name="in-the-azure-stack-administrator-portal"></a>Azure Stack 管理者ポータルで
-Azure portal で Azure Automation のソリューションを有効にしたら、次に、クラウド管理者として Azure Stack 管理者ポータルにサインインし、Azure Stack マーケットプレースの **Azure Monitor、更新および構成管理**および **Linux 用 Azure Monitor、更新および構成管理**という拡張機能をダウンロードします。
+### <a name="in-the-azure-stack-hub-administrator-portal"></a>Azure Stack Hub 管理者ポータルで
+Azure portal で Azure Automation のソリューションを有効にしたら、次に、クラウド管理者として Azure Stack Hub 管理者ポータルにサインインし、Azure Stack Hub Marketplace の **Azure Monitor、更新および構成管理**および **Linux 用 Azure Monitor、更新および構成管理**という拡張機能をダウンロードします。
 
    ![[Azure Monitor, Update and Configuration Management]\(Azure Monitor、更新および構成管理\) 拡張機能マーケットプレース項目](media/vm-update-management/2.PNG) 
 
@@ -85,12 +85,12 @@ Azure Monitor for VMs マップ ソリューションを有効にして、ネッ
 
    ![Azure Monitor Dependency Agent](media/vm-update-management/2-dependency.PNG) 
 
-## <a name="enable-update-management-for-azure-stack-vms"></a>Update Management を Azure Stack VM に対して有効にする
-以下の手順のようにして、Azure Stack VM の更新管理を有効にします。
+## <a name="enable-update-management-for-azure-stack-hub-vms"></a>Update Management を Azure Stack Hub VM に対して有効にする
+以下の手順のようにして、Azure Stack Hub VM の更新管理を有効にします。
 
-1. Azure Stack ユーザー ポータルにサインインします。
+1. Azure Stack Hub のユーザー ポータルにサインインします。
 
-2. Azure Stack ユーザー ポータルで、ソリューションを有効にする VM の [拡張機能] ブレードに移動して、 **[+ 追加]** をクリックし、 **[Azure Update and Configuration Management]\(Azure 更新および構成管理\)** 拡張機能を選択して、 **[作成]** をクリックします。
+2. Azure Stack Hub ユーザー ポータルで、ソリューションを有効にする VM の [拡張機能] ブレードに移動して、 **[+ 追加]** をクリックし、 **[Azure Update and Configuration Management]\(Azure 更新および構成管理\)** 拡張機能を選択して、 **[作成]** をクリックします。
 
    [![](media/vm-update-management/3-sm.PNG "VM extension blade")](media/vm-update-management/3-lg.PNG#lightbox)
 
@@ -103,7 +103,7 @@ Azure Monitor for VMs マップ ソリューションを有効にして、ネッ
    [![](media/vm-update-management/5-sm.PNG "Enable Update Management solution on all machines")](media/vm-update-management/5-lg.PNG#lightbox) 
 
    > [!TIP]
-   > この手順を繰り返して、ワークスペースに報告する Azure Stack の VM で各ソリューションを有効にします。 
+   > この手順を繰り返して、ワークスペースに報告する Azure Stack Hub の VM で各ソリューションを有効にします。 
   
 Azure Update and Configuration Management (Azure 更新および構成管理) 拡張機能が有効になると、管理対象の各 VM で 1 日に 2 回スキャンが実行されます。 15 分ごとに API が呼び出され、最後の更新時間を照会することで、状態が変化したかどうかが確認されます。 状態が変更された場合、コンプライアンス スキャンが開始されます。
 
@@ -114,9 +114,9 @@ VM のスキャン後、それらは、Update Management ソリューション�
 > [!IMPORTANT]
 > 管理対象のコンピューターの更新されたデータがダッシュボードに表示されるまでに、30 分～ 6 時間かかる場合があります。
 
-Azure Stack の VM は、Azure VM と共に、スケジュールされた更新プログラムのデプロイに含めることができるようになります。
+Azure Stack Hub の VM は、Azure VM と共に、スケジュールされた更新プログラムのデプロイに含めることができるようになります。
 
-## <a name="enable-azure-monitor-for-vms-running-on-azure-stack"></a>Azure Stack で実行している Azure Monitor for VMs を有効化する
+## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Azure Stack Hub で実行している Azure Monitor for VMs を有効化する
 **Azure Monitor、更新、および構成管理**および **Azure Monitor Dependency Agent** の拡張機能が VM にインストールされると、[Azure Monitor for VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) ソリューション内のデータのレポートが開始されます。 
 
 > [!TIP]
@@ -126,7 +126,7 @@ Azure Monitor for VMs には、VM がどの程度効果的に実行されてい�
 
    ![Azure Monitor VM [パフォーマンス] タブ](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-Azure Stack で実行されている Windows および Linux VM で検出されたアプリ コンポーネントの表示は、Azure Monitor for VMs による 2 つの方法で観察できます。 1 つ目は VM から直接、2 つ目は Azure Monitor から VM のグループ全体に対するものです。
+Azure Stack Hub で実行されている Windows および Linux VM で検出されたアプリ コンポーネントの表示は、Azure Monitor for VMs による 2 つの方法で観察できます。 1 つ目は VM から直接、2 つ目は Azure Monitor から VM のグループ全体に対するものです。
 「[Azure Monitor for VMs のマップ機能を使用してアプリケーション コンポーネントを把握する](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-maps)」の記事は、2 つの観点のエクスペリエンスとマップ機能の使用方法を理解するために役立ちます。
 
    ![Azure Monitor VMs [マップ] タブ](https://docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
@@ -134,7 +134,7 @@ Azure Stack で実行されている Windows および Linux VM で検出され�
 [Azure Monitor for VMs](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) にパフォーマンス データが表示されない場合は、[LogAnalytics Workspace](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters) の [詳細設定] で Windows および Linux のパフォーマンス データの収集を有効にする必要があります。
 
 ## <a name="enable-update-management-using-a-resource-manager-template"></a>Resource Manager テンプレートを使用して Update Management を有効にする
-Azure Stack の VM の数が多い場合は、[この Azure Resource Manager テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win)を使用して、さらに簡単に VM にソリューションをデプロイできます。 このテンプレートは、Microsoft Monitoring Agent 拡張機能を既存の VM にデプロイし、既存の Azure LogAnalytics ワークスペースにそれを追加します。
+Azure Stack Hub の VM の数が多い場合は、[この Azure Resource Manager テンプレート](https://aka.ms/aa6zdzy)を使用して、さらに簡単に VM にソリューションをデプロイできます。 このテンプレートでは、Microsoft Monitoring Agent 拡張機能が既存の Azure Stack Hub VM にデプロイされ、その VM が既存の Azure LogAnalytics ワークスペースに追加されます。
  
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [SQL Server VM のパフォーマンスを最適化する](azure-stack-sql-server-vm-considerations.md)

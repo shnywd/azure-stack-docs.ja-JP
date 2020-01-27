@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での iDNS の使用 | Microsoft Docs
-description: Azure Stack での iDNS 機能の使用方法について説明します。
+title: Azure Stack Hub での iDNS の使用 | Microsoft Docs
+description: Azure Stack Hub での iDNS 機能の使用方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: Justinha
@@ -15,22 +15,20 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 24dc5fc3ea57e1a849442fb02c118615bc8b60fa
-ms.sourcegitcommit: ca5025fb04250271fe0b2b2df8ad0b3b9ed3e604
+ms.openlocfilehash: 8bdadb4e0cd36c6e650b001585aa3519293a9247
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71020829"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883254"
 ---
-# <a name="use-idns-in-azure-stack"></a>Azure Stack での iDNS の使用 
+# <a name="use-idns-in-azure-stack-hub"></a>Azure Stack Hub での iDNS の使用 
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-iDNS は、外部 DNS 名 (例: http:\//www.bing.com) を解決することができる、Azure Stack のネットワーク機能です。内部仮想ネットワーク名を登録することもできます。 これを行うことで、同じ仮想ネットワーク内の仮想マシン (VM) を IP アドレスではなく名前で解決することができます。 このアプローチでは、カスタム DNS サーバー エントリを用意する必要がありません。 DNS の詳細については、[Azure DNS の概要](https://docs.microsoft.com/azure/dns/dns-overview)に関するページを参照してください。
+iDNS は、外部 DNS 名 (例: http:\//www.bing.com) を解決することができる、Azure Stack Hub のネットワーク機能です。内部仮想ネットワーク名を登録することもできます。 これを行うことで、同じ仮想ネットワーク内の仮想マシン (VM) を IP アドレスではなく名前で解決することができます。 このアプローチでは、カスタム DNS サーバー エントリを用意する必要がありません。 DNS の詳細については、[Azure DNS の概要](https://docs.microsoft.com/azure/dns/dns-overview)に関するページを参照してください。
 
 ## <a name="what-does-idns-do"></a>iDNS が実行すること
 
-Azure Stack の iDNS を使用して、カスタム DNS サーバー エントリの指定なしで次の機能を取得できます。
+Azure Stack Hub の iDNS を使用して、カスタム DNS サーバー エントリの指定なしで次の機能を取得できます。
 
 - テナントのワークロードに対する共有 DNS 名前解決サービス。
 - テナントの仮想ネットワーク内で名前解決と DNS 登録を行う権限がある DNS サービス。
@@ -48,7 +46,7 @@ Azure には、パブリック IP アドレスに関連付けられる DNS 名�
 
 前の画像が示すように、Azure は、指定された DNS の名前ラベルを持つ **westus.cloudapp.azure.com** ゾーンの DNS に "A" レコードを作成します。 プレフィックスとサフィックスが組み合わされて、パブリック インターネットの任意の場所で解決できる[完全修飾ドメイン名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN) を構成します。
 
-Azure Stack では、内部名の登録でのみ iDNS をサポートするため、以下を行うことはできません。
+Azure Stack Hub では、内部名の登録でのみ iDNS をサポートするため、以下を行うことはできません。
 
 - 既存のホストされている DNS ゾーン (例: local.azurestack.external) に DNS レコードを作成する。
 - DNS ゾーン (Contoso.com など) を作成する。
@@ -190,6 +188,6 @@ Address:  172.31.12.76
  
 ラボの結果からわかるように、どの IP が使用されるか制御できます。 VM 名を使用すると、プライベート IP アドレスが取得され、DNS ラベルを使用すると、パブリック IP アドレスを取得できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack の DNS](azure-stack-dns.md)
+[Azure Stack Hub での DNS の使用](azure-stack-dns.md)

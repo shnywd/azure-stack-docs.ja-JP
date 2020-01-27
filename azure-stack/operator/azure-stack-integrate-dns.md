@@ -1,41 +1,41 @@
 ---
-title: Azure Stack データセンターの DNS の統合 |Microsoft Docs
-description: Azure Stack の DNS をデータセンターの DNS と統合する方法について説明します。
+title: Azure Stack Hub データセンターの DNS の統合 |Microsoft Docs
+description: Azure Stack Hub の DNS をデータセンターの DNS と統合する方法を学習します。
 services: azure-stack
 author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
 keywords: ''
-ms.openlocfilehash: 1f84eeffffae3c103c33b366a5c503a907cf6715
-ms.sourcegitcommit: 4a2318ad395b2a931833ccba4430d8d04cdd8819
+ms.openlocfilehash: 3ef8bb7595711c5df991956d6cbde8d4e379ec47
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72780481"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535282"
 ---
-# <a name="azure-stack-datacenter-dns-integration"></a>Azure Stack データセンターの DNS の統合
+# <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub データセンターの DNS の統合
 
-Azure Stack の外部から、**portal**、**adminportal**、**management**、**adminmanagement** などの Azure Stack エンドポイントにアクセスできるようにするには、Azure Stack DNS サービスを、Azure Stack で使用したい DNS ゾーンをホストする DNS サーバーと統合する必要があります。
+Azure Stack Hub の外部から、**portal**、**adminportal**、**management**、**adminmanagement** などの Azure Stack Hub エンドポイントにアクセスできるようにするには、Azure Stack Hub DNS サービスを、Azure Stack Hub で使用したい DNS ゾーンをホストする DNS サーバーと統合する必要があります。
 
-## <a name="azure-stack-dns-namespace"></a>Azure Stack の DNS 名前空間
+## <a name="azure-stack-hub-dns-namespace"></a>Azure Stack Hub の DNS 名前空間
 
-Azure Stack をデプロイするときに、DNS に関するいくつかの重要な情報を指定する必要があります。
+Azure Stack Hub をデプロイするときに、DNS に関するいくつかの重要な情報を指定する必要があります。
 
 
-|フィールド  |説明  |例|
+|フィールド  |[説明]  |例|
 |---------|---------|---------|
-|リージョン|Azure Stack のデプロイの地理的な場所。|`east`|
-|外部ドメイン名|Azure Stack のデプロイに使用したいゾーンの名前。|`cloud.fabrikam.com`|
-|内部ドメイン名|Azure Stack でのインフラストラクチャ サービスに使用される内部ゾーンの名前。 ディレクトリ サービスと統合されており、プライベートになっています (Azure Stack デプロイの外部からは到達できません)。|`azurestack.local`|
-|DNS フォワーダー|Azure Stack の外部 (企業イントラネットまたはパブリック インターネット上のどちらか) でホストされている DNS クエリ、DNS ゾーンおよびレコードを転送するために使用される DNS サーバー。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
-|名前付けのプレフィックス (省略可能)|Azure Stack インフラストラクチャ ロール インスタンス マシン名に使用する名前付けのプレフィックス。  指定されていない場合、既定値は`azs` です。|`azs`|
+|リージョン|Azure Stack Hub のデプロイの地理的な場所。|`east`|
+|外部ドメイン名|Azure Stack Hub のデプロイに使用したいゾーンの名前。|`cloud.fabrikam.com`|
+|内部ドメイン名|Azure Stack Hub でのインフラストラクチャ サービスに使用される内部ゾーンの名前。 ディレクトリ サービスと統合されており、プライベートになっています (Azure Stack Hub デプロイの外部からは到達できません)。|`azurestack.local`|
+|DNS フォワーダー|Azure Stack Hub の外部 (企業イントラネットまたはパブリック インターネット上のどちらか) でホストされている DNS クエリ、DNS ゾーンおよびレコードを転送するために使用される DNS サーバー。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
+|名前付けのプレフィックス (省略可能)|Azure Stack Hub インフラストラクチャ ロール インスタンス マシン名に使用する、名前付けのプレフィックス。  指定されていない場合、既定値は`azs` です。|`azs`|
 
-Azure Stack のデプロイの完全修飾ドメイン名 (FQDN) とエンドポイントは、リージョン パラメーターと外部ドメイン名 パラメーターの組み合わせです。 前の表に示した例の値を使用すると、この Azure Stack のデプロイの FQDN は次の名前のようになります。
+Azure Stack Hub のデプロイの完全修飾ドメイン名 (FQDN) とエンドポイントは、リージョン パラメーターと外部ドメイン名パラメーターの組み合わせです。 前の表に示した例の値を使用すると、この Azure Stack Hub のデプロイの FQDN は次の名前のようになります。
 
 `east.cloud.fabrikam.com`
 
@@ -45,27 +45,27 @@ Azure Stack のデプロイの完全修飾ドメイン名 (FQDN) とエンドポ
 
 `https://adminportal.east.cloud.fabrikam.com`
 
-この例の DNS 名前空間を Azure Stack のデプロイに使用するには、次の条件を満たしている必要があります。
+この例の DNS 名前空間を Azure Stack Hub のデプロイに使用するには、次の条件が必要です。
 
 - 使用している名前解決の要件に応じて、ゾーン `fabrikam.com` がドメイン レジストラーまたは社内の DNS サーバー (あるいはその両方) に登録されている。
 - 子ドメイン `cloud.fabrikam.com` がゾーン`fabrikam.com` の下に存在する。
-- ゾーン `fabrikam.com` および `cloud.fabrikam.com` をホストする DNS サーバーに Azure Stack のデプロイから到達できる。
+- ゾーン `fabrikam.com` および `cloud.fabrikam.com` をホストする DNS サーバーに、Azure Stack Hub のデプロイから到達できる。
 
-Azure Stack の外部から Azure Stack エンドポイントおよびインスタンスの DNS 名を解決できるようにするには、Azure Stack の外部 DNS ゾーンをホストする DNS サーバーと、使用したい親ゾーンをホストする DNS サーバーを統合する必要があります。
+Azure Stack Hub の外部から Azure Stack Hub エンドポイントおよびインスタンスの DNS 名を解決できるようにするには、Azure Stack Hub の外部 DNS ゾーンをホストする DNS サーバーと、使用したい親ゾーンをホストする DNS サーバーを統合する必要があります。
 
 ### <a name="dns-name-labels"></a>DNS 名ラベル
 
-Azure Stack では、パブリック IP アドレスへの DNS 名ラベルの追加がサポートされており、パブリック IP アドレスの名前解決が可能です。 DNS ラベルは、Azure Stack にホストされたアプリとサービスにユーザーが名前でアクセスできる便利な方法です。 DNS 名ラベルでは、インフラストラクチャ エンドポイントとはわずかに異なる名前空間が使用されます。 前のサンプル名前空間に続いて、DNS 名ラベルの名前空間が次のように表示されます。
+Azure Stack Hub では、パブリック IP アドレスへの DNS 名ラベルの追加がサポートされており、パブリック IP アドレスの名前解決が可能です。 DNS ラベルは、Azure Stack Hub でホストされているアプリとサービスにユーザーが名前でアクセスできる便利な方法です。 DNS 名ラベルでは、インフラストラクチャ エンドポイントとはわずかに異なる名前空間が使用されます。 前のサンプル名前空間に続いて、DNS 名ラベルの名前空間が次のように表示されます。
 
 `*.east.cloudapp.cloud.fabrikam.com`
 
-そのため、テナントがパブリック IP アドレス リソースの DNS 名ラベル フィールドで値 **Myapp** を示す場合、Azure Stack の外部 DNS サーバー上にあるゾーン **east.cloudapp.cloud.fabrikam.com** で **myapp** の A レコードが作成されます。 結果として得られる完全修飾ドメイン名は次のようになります。
+そのため、テナントがパブリック IP アドレス リソースの DNS 名ラベル フィールドで値 **Myapp** を示す場合、Azure Stack Hub の外部 DNS サーバー上にあるゾーン **east.cloudapp.cloud.fabrikam.com** で **myapp** の A レコードが作成されます。 結果として得られる完全修飾ドメイン名は次のようになります。
 
 `myapp.east.cloudapp.cloud.fabrikam.com`
 
-この機能を利用してこの名前空間を使用したい場合、Azure Stack 用の外部 DNS ゾーンをホストする DNS サーバーに、使用したい親ゾーンをホストする DNS サーバーも統合する必要があります。 これは、Azure Stack サービス エンドポイント用の名前空間とは別の名前空間です。そのため、追加の委任または条件付き転送ルールを作成する必要があります。
+この機能を利用し、この名前空間を使用したい場合は、Azure Stack Hub 用の外部 DNS ゾーンをホストする DNS サーバーに、使用したい親ゾーンをホストする DNS サーバーも統合する必要があります。 これは、Azure Stack Hub サービス エンドポイント用の名前空間とは別の名前空間です。そのため、追加の委任または条件付き転送ルールを作成する必要があります。
 
-DNS 名ラベルのしくみの詳細については、「[Azure Stack での DNS の使用](../user/azure-stack-dns.md)」を参照してください。
+DNS 名ラベルのしくみの詳細については、「[Azure Stack Hub での DNS の使用](../user/azure-stack-dns.md)」を参照してください。
 
 ## <a name="resolution-and-delegation"></a>解決と委任
 
@@ -74,13 +74,13 @@ DNS サーバーには次の 2 種類があります。
 - 権限のある DNS サーバーは、DNS ゾーンをホストします。 このサーバーは、これらのゾーン内のレコードに対する DNS クエリのみに応答します。
 - 再帰 DNS サーバーでは、DNS ゾーンはホストされません。 このサーバーは、権限のある DNS サーバーを呼び出して必要なデータを収集することで、すべての DNS クエリに応答します。
 
-Azure Stack には、権限のある DNS サーバーと再帰 DNS サーバーの両方が含まれます。 再帰サーバーは、その Azure Stack のデプロイの内部プライベート ゾーンと外部パブリック DNS ゾーンを除くすべての名前の解決に使用されます。
+Azure Stack Hub には、権限のある DNS サーバーと再帰 DNS サーバーの両方が含まれます。 再帰サーバーは、その Azure Stack Hub のデプロイの内部プライベート ゾーンと外部パブリック DNS ゾーンを除くすべての名前の解決に使用されます。
 
-![Azure Stack DNS のアーキテクチャ](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Azure Stack Hub DNS のアーキテクチャ](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
-## <a name="resolving-external-dns-names-from-azure-stack"></a>Azure Stack からの外部 DNS 名の解決
+## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>Azure Stack Hub からの外部 DNS 名の解決
 
-Azure Stack 外部のエンドポイントの DNS 名 (たとえば www\.bing.com) を解決するには、Azure Stack が権限のない DNS 要求の転送に使用できる DNS サーバーを提供する必要があります。 デプロイでは、Azure Stack の要求の転送先となる DNS サーバーをデプロイ ワークシート ("DNS フォワーダー" フィールド) に入力する必要があります。 フォールト トレランスのために、このフィールドには 2 つ以上のサーバーを入力します。 これらの値が入力されない場合、Azure Stack のデプロイは失敗します。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
+Azure Stack Hub 外部のエンドポイントの DNS 名 (たとえば、www\.bing.com) を解決するには、Azure Stack Hub に権限のない DNS 要求を転送するために、その Azure Stack Hub で使用できる DNS サーバーを提供する必要があります。 デプロイでは、Azure Stack Hub の要求の転送先となる DNS サーバーをデプロイ ワークシート ([DNS フォワーダー] フィールド) に入力する必要があります。 フォールト トレランスのために、このフィールドには 2 つ以上のサーバーを入力します。 これらの値がない場合、Azure Stack Hub のデプロイは失敗します。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
 
 
 
@@ -93,7 +93,7 @@ Azure Stack 外部のエンドポイントの DNS 名 (たとえば www\.bing.co
 
 条件付きフォワーダーを追加するには、特権エンドポイントを使用する必要が あります。
 
-この手順では、データセンター ネットワーク内の、Azure Stack の特権エンドポイントと通信できるコンピューターを使用します。
+この手順では、データセンター ネットワーク内の、Azure Stack Hub の特権エンドポイントと通信できるコンピューターを使用します。
 
 1. 管理者特権での Windows PowerShell セッション (管理者として実行) を開き、特権エンドポイントの IP アドレスに接続します。 CloudAdmin 認証の資格情報を使用します。
 
@@ -108,17 +108,17 @@ Azure Stack 外部のエンドポイントの DNS 名 (たとえば www\.bing.co
    Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 
-## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Azure Stack 外部からの DNS 名の解決
-権限のあるサーバーは、外部の DNS ゾーンとユーザーが作成したゾーンの情報を保持しています。 このサーバーと統合することで、ゾーンの委任または条件付き転送を使用して Azure Stack 外部からの Azure Stack DNS 名を解決できるようになります。
+## <a name="resolving-azure-stack-hub-dns-names-from-outside-azure-stack-hub"></a>Azure Stack Hub の外部からの DNS 名の解決
+権限のあるサーバーは、外部の DNS ゾーンとユーザーが作成したゾーンの情報を保持しています。 これらのサーバーと統合することで、ゾーンの委任または条件付き転送で、Azure Stack Hub の外部から Azure Stack Hub DNS 名を解決できるようになります。
 
 ## <a name="get-dns-server-external-endpoint-information"></a>DNS サーバーの外部エンドポイント情報の取得
 
-Azure Stack のデプロイを DNS インフラストラクチャと統合するには、次の情報が必要です。
+Azure Stack Hub のデプロイを DNS インフラストラクチャと統合するには、次の情報が必要です。
 
 - DNS サーバーの FQDN
 - DNS サーバーの IP アドレス
 
-Azure Stack DNS サーバーの FQDN は次のような形式をとります。
+Azure Stack Hub DNS サーバーの FQDN は、次の形式になります。
 
 `<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>`
 
@@ -131,35 +131,35 @@ Azure Stack DNS サーバーの FQDN は次のような形式をとります。
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-この情報は、すべての Azure Stack のデプロイの `AzureStackStampInformation.json` という名前のファイルの末尾にも作成されます。 このファイルは、デプロイ仮想マシンの `C:\CloudDeployment\logs` フォルダー内にあります。 Azure Stack のデプロイに使用された値がわからない場合は、ここから取得できます。
+この情報は、すべての Azure Stack Hub のデプロイの最後に `AzureStackStampInformation.json` という名前のファイルにも作成されます。 このファイルは、デプロイ仮想マシンの `C:\CloudDeployment\logs` フォルダー内にあります。 Azure Stack Hub のデプロイに使用された値がわからない場合は、ここからその値を取得できます。
 
 デプロイ仮想マシンが使用不可またはアクセス不可になっている場合は、特権エンドポイントに接続して `Get-AzureStackStampInformation` PowerShell コマンドレットを実行することで値を取得できます。 詳細については、[特権エンドポイント](azure-stack-privileged-endpoint.md)に関するページを参照してください。
 
-## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Azure Stack への条件付き転送の設定
+## <a name="setting-up-conditional-forwarding-to-azure-stack-hub"></a>Azure Stack Hub への条件付き転送の設定
 
-Azure Stack と DNS インフラストラクチャを統合する最も簡単で安全な方法は、親ゾーンをホストするサーバーから、ゾーンの条件付き転送を行うことです。 Azure Stack の外部 DNS 名前空間の親ゾーンをホストする DNS サーバーを直接制御できる場合は、この方法をお勧めします。
+Azure Stack Hub と DNS インフラストラクチャを統合する最も簡単で安全な方法は、親ゾーンをホストするサーバーから、ゾーンの条件付き転送を行うことです。 Azure Stack Hub の外部 DNS 名前空間の親ゾーンをホストする DNS サーバーを直接制御できる場合は、この方法をお勧めします。
 
 DNS で条件付き転送を行う方法がわからない場合は、次の TechNet の記事を参照してください。[ドメイン名の条件付きフォワーダーの割り当て](https://technet.microsoft.com/library/cc794735)に関する記事、またはお使いの DNS ソリューションに固有のドキュメントをご覧ください。
 
-会社のドメイン名の子ドメインのように見える Azure Stack 外部の DNS ゾーンを指定しているシナリオでは、条件付き転送は使用できません。 DNS 委任を構成する必要があります。
+会社のドメイン名の子ドメインのように見える Azure Stack Hub の外部 DNS ゾーンを指定しているシナリオでは、条件付き転送は使用できません。 DNS 委任を構成する必要があります。
 
 例:
 
 - 会社の DNS ドメイン名: `contoso.com`
-- Azure Stack 外部の DNS ドメイン名: `azurestack.contoso.com`
+- Azure Stack Hub の外部 DNS ドメイン名: `azurestack.contoso.com`
 
 ## <a name="editing-dns-forwarder-ips"></a>DNS フォワーダー IP の編集
 
-DNS フォワーダー IP は Azure Stack のデプロイ中に設定されます。 ただし、フォワーダー IP を何らかの理由で更新する必要がある場合は、特権エンドポイントに接続し、PowerShell コマンドレットの `Get-AzSDnsForwarder` と `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` を実行することで、それらの値を編集できます。 詳細については、[特権エンドポイント](azure-stack-privileged-endpoint.md)に関するページを参照してください。
+DNS フォワーダー IP は、Azure Stack Hub のデプロイ中に設定されます。 ただし、フォワーダー IP を何らかの理由で更新する必要がある場合は、特権エンドポイントに接続し、PowerShell コマンドレットの `Get-AzSDnsForwarder` と `Set-AzSDnsForwarder [[-IPAddress] <IPAddress[]>]` を実行することで、それらの値を編集できます。 詳細については、[特権エンドポイント](azure-stack-privileged-endpoint.md)に関するページを参照してください。
 
-## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>外部 DNS ゾーンの Azure Stack への委任
+## <a name="delegating-the-external-dns-zone-to-azure-stack-hub"></a>Azure Stack Hub への外部 DNS ゾーンの委任
 
-DNS 名を Azure Stack デプロイの外部から解決できるようにするには、DNS 委任を設定する必要があります。
+DNS 名を Azure Stack Hub デプロイの外部から解決できるようにするには、DNS 委任を設定する必要があります。
 
-各レジストラーは独自の DNS 管理ツールを所有していて、ドメインのネーム サーバー レコードを変更します。 レジストラーの DNS 管理ページで、NS レコードを編集し、ゾーンの NS レコードを、Azure Stack の NS レコードに置き換えます。
+各レジストラーは独自の DNS 管理ツールを所有していて、ドメインのネーム サーバー レコードを変更します。 レジストラーの DNS 管理ページで、NS レコードを編集し、ゾーンの NS レコードを、Azure Stack Hub のものに置き換えます。
 
 ほとんどの DNS レジストラーでは、委任を実行するために 2 つ以上の DNS サーバーを指定する必要があります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [ファイアウォールの統合](azure-stack-firewall.md)

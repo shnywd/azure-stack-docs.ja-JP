@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack Update 1 のリリース ノート | Microsoft Docs
-description: App Service on Azure Stack Update 1 の機能強化、修正、既知の問題の詳細を説明します。
+title: App Service on Azure Stack Hub Update 1 のリリース ノート | Microsoft Docs
+description: App Service on Azure Stack Hub Update 1 の機能強化、修正、既知の問題の詳細を説明します。
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -16,42 +16,40 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 7be74701b3e25658258abc7102668346e584ab39
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: f36a94bbc442913826571fdacd1303b010212d4c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974822"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880364"
 ---
-# <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack update 1 のリリース ノート
+# <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service on Azure Stack Hub Update 1 のリリース ノート
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-これらのリリース ノートでは、Azure App Service on Azure Stack Update 1 における機能強化、修正点、および既知の問題について説明します。 既知の問題は、デプロイに直接関係する問題、更新プロセスの問題、ビルド (インストール後) の問題の 3 つのセクションに分けられています。
+これらのリリース ノートでは、Azure App Service on Azure Stack Hub Update 1 における機能強化、修正点、および既知の問題について説明します。 既知の問題は、デプロイに直接関係する問題、更新プロセスの問題、ビルド (インストール後) の問題の 3 つのセクションに分けられています。
 
 > [!IMPORTANT]
-> Azure App Service をデプロイする前に、Azure Stack 統合システムに 1802 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
+> Azure App Service をデプロイする前に、Azure Stack Hub 統合システムに 1802 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
-App Service on Azure Stack Update 1 のビルド番号は **69.0.13698.9** です。
+App Service on Azure Stack Hub Update 1 のビルド番号は **69.0.13698.9** です。
 
 ### <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack の新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
+> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack Hub の新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
 
-デプロイを開始する前に、[App Service on Azure Stack の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
+デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
 ### <a name="new-features-and-fixes"></a>新機能と修正
 
-Azure App Service on Azure Stack Update 1 には、次の機能強化と修正が含まれています。
+Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修正が含まれています。
 
-- **Azure App Service の高可用性** - Azure Stack 1802 更新プログラムにより、ワークロードを複数の障害ドメインにデプロイできるようになったため、App Service インフラストラクチャは、複数の障害ドメインへのデプロイによってフォールト トレランスを実現できます。 既定では、Azure App Service のすべての新しいデプロイにこの機能が含まれます。 ただし、Azure Stack 1802 更新プログラムを適用する前に完了したデプロイについては、[App Service の障害ドメインに関するドキュメント](azure-stack-app-service-before-you-get-started.md)を参照してください。
+- **Azure App Service の高可用性** - Azure Stack Hub 1802 更新プログラムにより、ワークロードを複数の障害ドメインにデプロイできるようになったため、App Service インフラストラクチャは、複数の障害ドメインへのデプロイによってフォールト トレランスを実現できます。 既定では、Azure App Service のすべての新しいデプロイにこの機能が含まれます。 ただし、Azure Stack Hub 1802 更新プログラムを適用する前に完了したデプロイについては、[App Service の障害ドメインに関するドキュメント](azure-stack-app-service-before-you-get-started.md)を参照してください。
 
-- **既存の仮想ネットワークへのデプロイ** - App Service on Azure Stack を既存の仮想ネットワーク内にデプロイできるようになりました。 既存の仮想ネットワークにデプロイすると、Azure App Service に必要な SQL Server とファイル サーバーにプライベート ポート経由で接続できます。 デプロイ時に既存の仮想ネットワークへのデプロイを選択できますが、デプロイ前に、[App Service が使用するサブネットを作成する必要があります](azure-stack-app-service-before-you-get-started.md#virtual-network)。
+- **既存の仮想ネットワークへのデプロイ** - App Service on Azure Stack Hub を既存の仮想ネットワーク内にデプロイできるようになりました。 既存の仮想ネットワークにデプロイすると、Azure App Service に必要な SQL Server とファイル サーバーにプライベート ポート経由で接続できます。 デプロイ時に既存の仮想ネットワークへのデプロイを選択できますが、デプロイ前に、[App Service が使用するサブネットを作成する必要があります](azure-stack-app-service-before-you-get-started.md#virtual-network)。
 
-- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一貫性があります。
+- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Hub Portal SDK バージョンと一貫性があります。
 
 - **Azure Functions ランタイム**が **v1.0.11388** に更新されました。
 
@@ -83,7 +81,7 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
     - **Git for Windows** が v 2.14.1 に更新されました。
     - **Mercurial** が v4.5.0 に更新されました。
 
-  - App Service テナント ポータルの [カスタム ドメイン] 機能内で **[HTTPS のみ]** 機能のサポートが追加されました。
+  - App Service ユーザー ポータルの [カスタム ドメイン] 機能内で **[HTTPS のみ]** 機能のサポートが追加されました。
 
   - Azure Functions のカスタム ストレージ ピッカーにストレージ接続の検証が追加されました。
 
@@ -91,13 +89,13 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
 
 - オフライン展開パッケージの作成時に、App Service インストーラーからフォルダーを開くときに、アクセス拒否エラー メッセージが表示されることはなくなります。
 
-- App Service テナント ポータルのカスタム ドメイン機能の使用時の問題が解決されました。
+- App Service ユーザー ポータルのカスタム ドメイン機能の使用時の問題が解決されました。
 
 - セットアップ中に予約済みの管理者名を使用できなくなります。
 
 - **ドメイン参加済み**ファイル サーバーで App Service デプロイが有効になりました。
 
-- スクリプトでの Azure Stack のルート証明書の取得が改善され、App Service インストーラーでルート証明書を検証する機能が追加されました。
+- スクリプトでの Azure Stack Hub のルート証明書の取得が改善され、App Service インストーラーでルート証明書を検証する機能が追加されました。
 
 - Microsoft.Web 名前空間のリソースを含むサブスクリプションが削除されたときに、Azure Resource Manager に正しくない状態が返される問題が修正されました。
 
@@ -107,13 +105,13 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
 
     インストーラーの検証が過度に制限されているため、統合システムにデプロイするときに App Service インストーラーに証明書を指定しようとして問題が発生することがあります。 App Service インストーラーが再リリースされため、ユーザーは[更新されたインストーラーをダウンロードする](https://aka.ms/appsvconmasinstaller)必要があります。 更新されたインストーラーでも証明書の検証の問題が発生する場合は、サポートにお問い合わせください。
 
-- 統合システムから Azure Stack ルート証明書を取得するときの問題。
+- 統合システムから Azure Stack Hub ルート証明書を取得するときの問題。
 
-    ルート証明書がインストールされていないマシンでスクリプトを実行すると、Get-AzureStackRootCert.ps1 のエラーにより Azure Stack ルート証明書の取得に失敗する問題がありました。 問題を解決するスクリプトも再リリースされました。 [ここから更新されたヘルパー スクリプトをダウンロード](https://aka.ms/appsvconmashelpers)してください。 更新されたスクリプトを使用してもルート証明書の取得時に問題が発生する場合は、サポートにお問い合わせください。
+    ルート証明書がインストールされていないマシンでスクリプトを実行すると、Get-AzureStackRootCert.ps1 のエラーにより Azure Stack Hub ルート証明書の取得に失敗する問題がありました。 問題を解決するスクリプトも再リリースされました。 [ここから更新されたヘルパー スクリプトをダウンロード](https://aka.ms/appsvconmashelpers)してください。 更新されたスクリプトを使用してもルート証明書の取得時に問題が発生する場合は、サポートにお問い合わせください。
 
 ### <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
 
-- Azure App Service on Azure Stack Update 1 の更新に関する既知の問題はありません。
+- Azure App Service on Azure Stack Hub Update 1 の更新に関する既知の問題はありません。
 
 ### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
@@ -146,7 +144,7 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
 
-2. Azure Stack 管理者ポータルの [Virtual Machines] で **CN0-VM** を参照し、 **[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
+2. Azure Stack Hub 管理者ポータルの [Virtual Machines] で **CN0-VM** を参照し、 **[接続] をクリックして**コントローラー インスタンスとのリモート デスクトップ セッションを開きます。 App Service のデプロイ時に指定した資格情報を使用します。
 3. **管理者権限で PowerShell** を起動し、次のスクリプトを実行します。
 
     ```powershell
@@ -211,11 +209,11 @@ Azure App Service on Azure Stack Update 1 には、次の機能強化と修正�
 - 優先順位:700
 - 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に対する既知の問題
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
-[Azure Stack 1802 リリース ノート](azure-stack-update-1903.md)内のドキュメントをご覧ください。
+[Azure Stack Hub 1802 リリース ノート](azure-stack-update-1903.md)内のドキュメントを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- Azure App Service の概要については、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
-- App Service on Azure Stack のデプロイを準備する方法の詳細については、「[App Service on Azure Stack のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。
+- Azure App Service の概要については、「[Azure Stack Hub 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
+- App Service on Azure Stack Hub のデプロイを準備する方法の詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。

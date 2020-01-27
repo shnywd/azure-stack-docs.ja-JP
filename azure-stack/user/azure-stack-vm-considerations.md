@@ -1,6 +1,6 @@
 ---
-title: Azure Stack VM の機能 | Microsoft Docs
-description: Azure Stack で VM を操作する際のさまざまな機能と考慮事項について説明します。
+title: Azure Stack Hub VM の機能 | Microsoft Docs
+description: Azure Stack Hub で VM を操作する際のさまざまな機能と考慮事項について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,50 +11,48 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: e3601f4489a0a80881cccd2ba64f98b61e14683a
-ms.sourcegitcommit: 70147e858956443bc66b3541ec278c102bb45c07
+ms.openlocfilehash: d336593dccdc4686f52ab17dbc568b62c5569a0e
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72381442"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536370"
 ---
-# <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
+# <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブルなコンピューティング リソースが提供されます。 VM を展開する前に、Azure Stack と Microsoft Azure で使用できる VM の機能の相違点について学ぶ必要があります。 この記事では、これらの相違点について説明し、VM の展開を計画する際の重要な考慮事項を特定します。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラブルなコンピューティング リソースが提供されます。 VM を展開する前に、Azure Stack Hub と Microsoft Azure で使用できる VM の機能の相違点について学ぶ必要があります。 この記事では、これらの相違点について説明し、VM の展開を計画する際の重要な考慮事項を特定します。 Azure Stack Hub と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
 ## <a name="vm-differences"></a>VM の相違点
 
-| 機能 | Azure (グローバル) | Azure Stack |
+| 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
-| 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Marketplace に使用可能なイメージはありません。 Azure Stack のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
-| 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
-| 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
-| 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
-| 仮想マシンのネットワーク | テナントの VM に割り当てられたパブリック IP アドレスは、インターネット経由でアクセスできます。<br><br><br>Azure VM には固定の DNS 名があります。 | テナントの VM に割り当てられたパブリック IP アドレスにアクセスできるのは、Azure Stack Development Kit 環境内のみです。 ユーザーは、Azure Stack で作成される VM に接続するためには、[RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) または [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 経由で Azure Stack Development Kit にアクセスできる必要があります。<br><br>特定の Azure Stack インスタンス内に作成された VM には、クラウド管理者が構成した値に基づく DNS 名があります。 |
-| 仮想マシンのストレージ | [マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)をサポートしています。 | マネージド ディスクは、バージョン 1808 以降の Azure Stack でサポートされています。 |
-| 仮想マシン ディスクのパフォーマンス | ディスクの種類とサイズによって異なります。 | ディスクが接続されている VM の VM サイズによって異なります。 詳細については、「[Azure Stack でサポートされている VM のサイズ](azure-stack-vm-sizes.md)」の記事を参照してください。
-| API のバージョン | Azure では常に、すべての VM 機能について最新の API のバージョンが用意されます。 | Azure Stack では特定の Azure サービスがサポートされ、それらのサービスについて特定の API バージョンがサポートされます。 サポートされている API バージョンの一覧を参照するには、この記事の [API バージョン](#api-versions)についてのセクションを参照してください。 |
-| Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理とセットアップを行うことができます。  | Azure Stack では、Azure Instance Metadata Service がサポートされません。 |
+| 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Hub Marketplace に使用可能なイメージはありません。 Azure Stack Hub のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Hub Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
+| 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack Hub は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
+| 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack Hub のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
+| 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack Hub は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack Hub のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
+| 仮想マシンのネットワーク | テナントの VM に割り当てられたパブリック IP アドレスは、インターネット経由でアクセスできます。<br><br><br>Azure VM には固定の DNS 名があります。 | テナントの VM に割り当てられたパブリック IP アドレスにアクセスできるのは、Azure Stack Development Kit 環境内のみです。 ユーザーは、Azure Stack Hub で作成される VM に接続するためには、[RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) または [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 経由で Azure Stack Development Kit にアクセスできる必要があります。<br><br>特定の Azure Stack Hub インスタンス内に作成された VM には、クラウド管理者が構成した値に基づく DNS 名があります。 |
+| 仮想マシンのストレージ | [マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)をサポートしています。 | マネージド ディスクは、バージョン 1808 以降の Azure Stack Hub でサポートされています。 |
+| 仮想マシン ディスクのパフォーマンス | ディスクの種類とサイズによって異なります。 | ディスクが接続されている VM の VM サイズによって異なります。 詳細については、[Azure Stack Hub でサポートされている VM のサイズ](azure-stack-vm-sizes.md)に関する記事を参照してください。
+| API のバージョン | Azure では常に、すべての VM 機能について最新の API のバージョンが用意されます。 | Azure Stack Hub では特定の Azure サービスがサポートされ、それらのサービスについて特定の API バージョンがサポートされます。 サポートされている API バージョンの一覧を参照するには、この記事の [API バージョン](#api-versions)についてのセクションを参照してください。 |
+| Azure Instance Metadata Service | Azure Instance Metadata Service は、実行中の VM インスタンスに関する情報を提供します。これらの情報を使用して VM の管理とセットアップを行うことができます。  | Azure Stack Hub では、Azure Instance Metadata Service がサポートされません。 |
 | 仮想マシン可用性セット|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>複数の更新ドメイン。|複数の障害ドメイン (リージョンあたり 2 または 3)。<br>更新中のワークロードを保護するためのライブ マイグレーションによる単一の更新ドメイン。 テンプレートの互換性のためにサポートされている 20 個の更新ドメイン。<br>VM と可用性セットは、同じ場所とリソース グループに存在する必要があります。|
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
-| クラウド監視 | Azure Stack で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
-| 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
+| クラウド監視 | Azure Stack Hub で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack Hub の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack Hub の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
+| 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack Hub でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
 
 ## <a name="vm-sizes"></a>VM サイズ
 
-Azure Stack は、リソースの過剰消費を防ぐため、(サーバー ローカルおよびサービス レベルで) リソースの制限を適用します。これらの制限は、他のテナントによるリソース消費の影響を軽減してテナントのエクスペリエンスを改善します。
+Azure Stack Hub は、リソースの過剰消費を防ぐため、(サーバー ローカルおよびサービス レベルで) リソースの制限を適用します。これらの制限は、他のテナントによるリソース消費の影響を軽減してテナントのエクスペリエンスを改善します。
 
-- VM からのネットワーク送信には、帯域幅の上限が設けられます。 Azure Stack での上限は、Azure での上限と同様です。
-- ストレージ リソースの場合、テナントによるストレージ使用のためのリソースの基本的な過剰消費を防ぐため、Azure Stack によってストレージ IOPS (1 秒あたりの入力/出力操作) 制限が実装されます。
-- VM ディスクの場合、Azure Stack 上のディスクの IOPS はディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、2 番目のデータ ディスクの IOPS 制限は 2,300 IOPS です。
+- VM からのネットワーク送信には、帯域幅の上限が設けられます。 Azure Stack Hub での上限は、Azure での上限と同様です。
+- ストレージ リソースの場合、テナントによるストレージ使用のためのリソースの基本的な過剰消費を防ぐため、Azure Stack Hub によってストレージ IOPS (1 秒あたりの入力/出力操作) 制限が実装されます。
+- VM ディスクの場合、Azure Stack Hub 上のディスクの IOPS はディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、2 番目のデータ ディスクの IOPS 制限は 2,300 IOPS です。
 
-次の表は、Azure Stack でサポートされている VM とその構成の一覧です。
+次の表は、Azure Stack Hub でサポートされている VM とその構成の一覧です。
 
 | 種類            | Size          | サポートされるサイズの範囲 |
 | ----------------| ------------- | ------------------------ |
@@ -73,13 +71,13 @@ Azure Stack は、リソースの過剰消費を防ぐため、(サーバー ロ
 |コンピューティング最適化|Fs シリーズ      |[F1s - F16s](azure-stack-vm-sizes.md#fs-series)    |
 |コンピューティング最適化|Fsv2 シリーズ    |[F2s_v2 - F64s_v2](azure-stack-vm-sizes.md#fsv2-series)    |
 
-VM のサイズと、それに関連付けられるリソースの量は、Azure Stack と Azure の間で一貫しています。 この一貫性には、作成できるメモリの量、コアの数、データ ディスクの数やサイズが含まれます。 ただし、同じサイズの VM のパフォーマンスは、基になっている特定の Azure Stack 環境の特性によって異なります。
+VM のサイズと、それに関連付けられるリソースの量は、Azure Stack Hub と Azure の間で一貫しています。 この一貫性には、作成できるメモリの量、コアの数、データ ディスクの数やサイズが含まれます。 ただし、同じサイズの VM のパフォーマンスは、基になっている特定の Azure Stack Hub 環境の特性によって異なります。
 
 ## <a name="vm-extensions"></a>VM 拡張機能
 
-Azure Stack には、拡張機能の小規模なセットが含まれています。 更新プログラムおよび追加の拡張機能は、Marketplace シンジケーションを通じて入手できます。
+Azure Stack Hub には、拡張機能の小規模なセットが含まれています。 更新プログラムおよび追加の拡張機能は、Marketplace シンジケーションを通じて入手できます。
 
-実際の Azure Stack 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
+実際の Azure Stack Hub 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location local | `
@@ -93,11 +91,11 @@ VM のデプロイで拡張機能のプロビジョニングに時間がかか�
 
 ## <a name="api-versions"></a>API のバージョン
 
-Azure Stack の VM 機能は、次の API バージョンをサポートしています。
+Azure Stack Hub の VM 機能は、次の API バージョンをサポートしています。
 
 "2017-12-01"、"2017-03-30"、"2016-03-30"、"2015-06-15"
 
-次の PowerShell スクリプトを使用して、実際の Azure Stack 環境で利用できる VM 機能の API バージョンを取得することができます。
+次の PowerShell スクリプトを使用して、実際の Azure Stack Hub 環境で利用できる VM 機能の API バージョンを取得することができます。
 
 ```powershell
 Get-AzureRmResourceProvider | `
@@ -107,17 +105,17 @@ Get-AzureRmResourceProvider | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
 
-サポートされるリソースの種類と API バージョンの一覧は、クラウド オペレーターが Azure Stack 環境を新しいバージョンに更新した場合は異なっている可能性があります。
+サポートされるリソースの種類と API バージョンの一覧は、クラウド オペレーターが Azure Stack Hub 環境を新しいバージョンに更新した場合は異なっている可能性があります。
 
 ## <a name="windows-activation"></a>Windows のライセンス認証
 
-Windows の製品は、製品使用権利およびマイクロソフのライセンス条項に従って使用する必要があります。 Azure Stack は [VM の自動ライセンス認証](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) を使用して Windows Server VM をアクティブ化します。
+Windows の製品は、製品使用権利およびマイクロソフのライセンス条項に従って使用する必要があります。 Azure Stack Hub は [VM の自動ライセンス認証](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) を使用して Windows Server VM をアクティブ化します。
 
-- Azure Stack のホストは、Windows Server 2016 の AVMA キーを使用して Windows をアクティブ化します。 Windows Server 2012 R2 またはそれ以降を実行する VM はすべて、自動的にアクティブ化されます。
+- Azure Stack Hub のホストは、Windows Server 2016 の AVMA キーを使用して Windows をアクティブ化します。 Windows Server 2012 R2 またはそれ以降を実行する VM はすべて、自動的にアクティブ化されます。
 - Windows Server 2012 以前を実行する VM は、自動的にアクティブ化されないので、[MAK ライセンス認証](https://technet.microsoft.com/library/ff793438.aspx)を使用してアクティブ化する必要があります。 MAK ライセンス認証を使用するには、自分のプロダクト キーを指定する必要があります。
 
-Microsoft Azure では、KMS ライセンス認証を使用して、Windows VM をアクティブ化します。 Azure Stack から Azure に VM を移行して、アクティブ化の問題があった場合は、[Azure Windows VM のライセンス認証に関する問題のトラブルシューティング](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)を参照してください。 追加の情報については、Azure サポート チームのブログ記事「[Troubleshooting Windows activation failures on Azure VMs (Azure VM での Windows のライセンス認証の失敗をトラブルシューティングする)](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)」を参照してください。
+Microsoft Azure では、KMS ライセンス認証を使用して、Windows VM をアクティブ化します。 Azure Stack Hub から Azure に VM を移行して、アクティブ化の問題があった場合は、[Azure Windows VM のライセンス認証に関する問題のトラブルシューティング](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)を参照してください。 追加の情報については、Azure サポート チームのブログ記事「[Troubleshooting Windows activation failures on Azure VMs (Azure VM での Windows のライセンス認証の失敗をトラブルシューティングする)](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack 内で PowerShell を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-powershell.md)
+[Azure Stack Hub 内で PowerShell を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-powershell.md)

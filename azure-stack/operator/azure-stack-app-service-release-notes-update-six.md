@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack Update 6 のリリース ノート | Microsoft Docs
-description: App Service on Azure Stack Update 6 の内容、既知の問題、更新プログラムをダウンロードする場所について説明します。
+title: App Service on Azure Stack Hub Update 6 のリリース ノート | Microsoft Docs
+description: App Service on Azure Stack Hub Update 6 の内容、既知の問題、更新プログラムをダウンロードする場所について説明します。
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -15,34 +15,32 @@ ms.topic: article
 ms.date: 06/24/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 93ec7faec82fad101c7bab2d2cec2783c8a060da
-ms.sourcegitcommit: c46d913ebfa4cb6c775c5117ac5c9e87d032a271
+ms.openlocfilehash: 2c96d45aa433fdbae490ed5c1c304b1c000e8c02
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101016"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75880109"
 ---
-# <a name="app-service-on-azure-stack-update-6-release-notes"></a>App Service on Azure Stack update 6 のリリース ノート
+# <a name="app-service-on-azure-stack-hub-update-6-release-notes"></a>App Service on Azure Stack Hub update 6 のリリース ノート
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-これらのリリース ノートでは、Azure App Service on Azure Stack Update 6 における機能強化と修正点、および既知の問題について説明します。 既知の問題は、デプロイおよび更新プロセスに直接関係する問題と、ビルド (インストール後) に関する問題に分けられています。
+これらのリリース ノートでは、Azure App Service on Azure Stack Hub Update 6 における機能強化と修正点、および既知の問題について説明します。 既知の問題は、デプロイおよび更新プロセスに直接関係する問題と、ビルド (インストール後) に関する問題に分けられています。
 
 > [!IMPORTANT]
-> Azure App Service 1.6 をデプロイする前に、Azure Stack 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
+> Azure App Service 1.6 をデプロイする前に、Azure Stack Hub 統合システムに 1904 更新プログラムを適用するか、最新の Azure Stack Hub Development Kit をデプロイします。
 
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
-App Service on Azure Stack Update 6 のビルド番号は **82.0.1.50** です
+App Service on Azure Stack Hub Update 6 のビルド番号は **82.0.1.50** です。
 
 ### <a name="prerequisites"></a>前提条件
 
 デプロイを開始する前に、[前提条件に関するドキュメント](azure-stack-app-service-before-you-get-started.md)をご覧ください。
 
-Azure App Service on Azure Stack の 1.6 へのアップグレードを開始する前に:
+Azure App Service on Azure Stack Hub の 1.6 へのアップグレードを開始する前に:
 
-- Azure Stack 管理ポータルにおいて Azure App Service の [管理] ですべてのロールが [準備完了] になっていることを確認します。
+- Azure Stack Hub 管理ポータルの Azure App Service の管理で確実にすべてのロールの準備ができているようにします。
 
 - App Service とマスター データベースをバックアップします。
   - AppService_Hosting
@@ -55,9 +53,9 @@ Azure App Service on Azure Stack の 1.6 へのアップグレードを開始す
 
 ### <a name="new-features-and-fixes"></a>新機能と修正
 
-Azure App Service on Azure Stack Update 6 には、次の機能強化と修正が含まれています。
+Azure App Service on Azure Stack Hub Update 6 には、次の機能強化と修正が含まれています。
 
-- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一致しています。
+- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Hub Portal SDK バージョンと一貫性があります。
 
 - **Azure Functions ランタイム**が **v1.0.12299** に更新されました。
 
@@ -86,7 +84,7 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
 
 ### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
-- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。Azure App Service on Azure Stack のデプロイ ドキュメントで説明されているとおりです。
+- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。Azure App Service on Azure Stack Hub のデプロイ ドキュメントで説明されているとおりです。
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする必要があります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
  * ソース:Any
@@ -99,11 +97,11 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
  * 優先順位:700
  * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に関する既知の問題
+### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
-[Azure Stack 1908 リリース ノート](/azure-stack/operator/release-notes?view=azs-1908)内のドキュメントを参照してください
+[Azure Stack Hub 1908 リリース ノート](/azure-stack/operator/release-notes?view=azs-1908)内のドキュメントを参照してください。
 
-### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack にアプリケーションをデプロイするテナントに関する既知の問題
+### <a name="known-issues-for-tenants-deploying-applications-on-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub にアプリケーションをデプロイするテナントに関する既知の問題
 
 - デプロイ センターが淡色表示される
 
@@ -111,13 +109,13 @@ Azure App Service on Azure Stack Update 6 には、次の機能強化と修正�
 
 - デプロイ オプション (クラシック) UX およびデプロイ資格情報ポータルのオプションを使用できない
 
-Azure Stack のデプロイでデプロイ オプションおよびデプロイ資格情報ユーザー エクスペリエンスを使用するには、テナントで https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true という URL 形式を使ってポータルにアクセスし (ASDK の場合は [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true))、その後で普通にアプリケーションに移動する必要があります。
+Azure Stack Hub のデプロイでデプロイ オプションおよびデプロイ資格情報ユーザー エクスペリエンスを使用するには、テナントで https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; /?websitesExtension_oldvsts=true という URL 形式を使ってポータルにアクセスし (ASDK の場合は [https://portal.local.azurestack.external/?websitesExtension_oldvsts=true](https://portal.local.azurestack.external/?websitesExtension_oldvsts=true))、その後で普通にアプリケーションに移動する必要があります。
 
 - ポータルで Azure Function の監視が継続して "読み込み中" と表示される
 
-個々の関数を監視しようとしても、テナント ポータルに呼び出しのログ、成功数、エラー数が表示されません。  この機能を再度有効にするには、 **[関数アプリ]** 、 **[プラットフォーム機能]** 、 **[アプリケーション設定]** の順に移動します。  **AzureWebJobsDashboard** という名前の新しいアプリの設定を追加し、AzureWebJobsStorage と同じ値を設定します。  それから、関数の監視ビューに移動すると、監視情報が表示されます。
+個々の関数を監視しようとしても、ユーザー ポータルに呼び出しのログ、成功数、エラー数が表示されません。  この機能を再度有効にするには、 **[関数アプリ]** 、 **[プラットフォーム機能]** 、 **[アプリケーション設定]** の順に移動します。  **AzureWebJobsDashboard** という名前の新しいアプリの設定を追加し、AzureWebJobsStorage と同じ値を設定します。  それから、関数の監視ビューに移動すると、監視情報が表示されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- Azure App Service の概要については、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
-- App Service on Azure Stack のデプロイの準備をする方法の詳細については、「[App Service on Azure Stack を開始する前に](azure-stack-app-service-before-you-get-started.md)」をご覧ください。
+- Azure App Service の概要については、「[Azure Stack Hub 上の App Service の概要](azure-stack-app-service-overview.md)」を参照してください。
+- App Service on Azure Stack Hub のデプロイの準備をする方法の詳細については、「[App Service on Azure Stack Hub を開始する前に](azure-stack-app-service-before-you-get-started.md)」を参照してください。

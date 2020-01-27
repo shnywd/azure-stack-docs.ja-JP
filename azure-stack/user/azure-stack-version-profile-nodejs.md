@@ -1,6 +1,6 @@
 ---
-title: Azure Stack での Node.js による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での Node.js による API バージョンのプロファイルの使用について説明します。
+title: Azure Stack Hub での Node.js による API バージョンのプロファイルの使用 | Microsoft Docs
+description: Azure Stack Hub での Node.js による API バージョンのプロファイルの使用について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,32 +14,30 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8fa2b3524b7d61f27ae30f22133047e8223f2ce3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955212"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75878307"
 ---
-# <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack"></a>Azure Stack の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
 ## <a name="nodejs-and-api-version-profiles"></a>Node.js と API バージョンのプロファイル
 
-Node.js SDK を使用して、アプリのインフラストラクチャのビルドと管理を行うことができます。 Node.js SDK の API プロファイルは、グローバルな Azure リソースと Azure Stack リソースを切り替えできることによって、ハイブリッド クラウド ソリューションに役立ちます。 コードを 1 回記述すれば、グローバル Azure と Azure Stack の両方をターゲットにすることができます。 
+Node.js SDK を使用して、アプリのインフラストラクチャのビルドと管理を行うことができます。 Node.js SDK の API プロファイルは、グローバルな Azure リソースと Azure Stack Hub リソースを切り替えできることによって、ハイブリッド クラウド ソリューションに役立ちます。 コードを 1 回記述すれば、グローバル Azure と Azure Stack Hub の両方をターゲットにすることができます。 
 
-この記事では、開発ツールとして [Visual Studio Code](https://code.visualstudio.com/) を使用できます。 Visual Studio Code では、Node.js SDK をデバッグし、アプリを実行して Azure Stack インスタンスにアプリをプッシュできます。 Visual Studio Code またはコマンド `node <nodefile.js>` を実行してターミナル ウィンドウからデバッグできます。
+この記事では、開発ツールとして [Visual Studio Code](https://code.visualstudio.com/) を使用できます。 Visual Studio Code では、Node.js SDK をデバッグし、アプリを実行して Azure Stack Hub インスタンスにアプリをプッシュできます。 Visual Studio Code またはコマンド `node <nodefile.js>` を実行してターミナル ウィンドウからデバッグできます。
 
 ## <a name="the-nodejs-sdk"></a>Node.js SDK
 
-Node.js SDK には、Azure Stack Resource Manager ツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および KeyVault が含まれます。 Node.js アプリケーションにインストールできる 10 個のリソース プロバイダー クライアント ライブラリがあります。 アプリケーションのメモリを最適化するために、**2018-03-01-hybrid** または **2019-03-01-profile** に使用するリソース プロバイダーを指定してダウンロードすることができます。 各モジュールは、リソース プロバイダー、それぞれの API バージョン、API プロファイルで構成されます。 
+Node.js SDK には、Azure Stack Hub Resource Manager ツールが用意されています。 SDK のリソース プロバイダーには、コンピューティング、ネットワーク、ストレージ、アプリ サービス、および KeyVault が含まれます。 Node.js アプリケーションにインストールできる 10 個のリソース プロバイダー クライアント ライブラリがあります。 アプリケーションのメモリを最適化するために、**2018-03-01-hybrid** または **2019-03-01-profile** に使用するリソース プロバイダーを指定してダウンロードすることができます。 各モジュールは、リソース プロバイダー、それぞれの API バージョン、API プロファイルで構成されます。 
 
 API プロファイルは、リソース プロバイダーと API バージョンを組み合わせたものです。 API プロファイルを使用すると、リソース プロバイダーのパッケージに含まれる各リソースの種類の、最も安定した最新バージョンを取得できます。
 
   -   すべてのサービスの最新バージョンを使用するには、パッケージの **latest** プロファイルを使用します。
 
-  -   Azure Stack と互換性のあるサービスを使用するには、 **\@azure/arm-resources-profile-hybrid-2019-03-01** または **\@azure/arm-storage-profile-2019-03-01-hybrid** を使用します
+  -   Azure Stack Hub と互換性のあるサービスを使用するには、 **\@azure/arm-resources-profile-hybrid-2019-03-01** または **\@azure/arm-storage-profile-2019-03-01-hybrid** を使用します
 
 ### <a name="packages-in-npm"></a>npm のパッケージ
 
@@ -56,7 +54,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 | [承認](https://www.npmjs.com/package/@azure/arm-authorization-profile-2019-03-01-hybrid) | @azure/arm-authorization-profile-2019-03-01-hybrid  |
 | [Compute](https://www.npmjs.com/package/@azure/arm-compute-profile-2019-03-01-hybrid) | @azure/arm-compute-profile-2019-03-01-hybrid |
 | [Storage](https://www.npmjs.com/package/@azure/arm-storage-profile-2019-03-01-hybrid) | @azure/arm-storage-profile-2019-03-01-hybrid |
-| [ネットワーク](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
+| [Network](https://www.npmjs.com/package/@azure/arm-network-profile-2019-03-01-hybrid) | @azure/arm-network-profile-2019-03-01-hybrid |
 | [リソース](https://www.npmjs.com/package/@azure/arm-resources-profile-hybrid-2019-03-01) | @azure/arm-resources-profile-hybrid-2019-03-01 |
  | [Keyvault](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid) | @azure/arm-keyvault-profile-2019-03-01-hybrid |
 
@@ -75,29 +73,29 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 3. [Visual Studio Code](https://code.visualstudio.com/) をインストールまたはアップグレードし、Visual Studio Code 用の [Node.js 拡張機能](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)をインストールします。
 
-2.  Azure Stack Resource Manager のクライアントパッケージをインストールします。 詳細については、[クライアント ライブラリをインストールする方法](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)に関するページを参照してください。
+2.  Azure Stack Hub Resource Manager のクライアントパッケージをインストールします。 詳細については、[クライアント ライブラリをインストールする方法](https://www.npmjs.com/package/@azure/arm-keyvault-profile-2019-03-01-hybrid)に関するページを参照してください。
 
 3.  インストールする必要があるパッケージは、使用したいプロファイル バージョンによって異なります。 リソース プロバイダーの一覧については、「 [npm のパッケージ](#packages-in-npm)」セクションを参照してください。
 
 4. npm を使用してリソース プロバイダー クライアント ライブラリをインストールします。 コマンド ラインから `npm install <package-name>` を実行します。 たとえば、`npm install @azure/arm-authorization-profile-2019-03-01-hybrid` を実行して、承認リソース プロバイダー ライブラリをインストールできます。
 
-5.  SDK を使用する場合は、サブスクリプションを作成し、サブスクリプション ID をメモしておきます。 手順については、「[Azure Stack でオファーのサブスクリプションを作成する](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)」を参照してください。
+5.  SDK を使用する場合は、サブスクリプションを作成し、サブスクリプション ID をメモしておきます。 手順については、[Azure Stack Hub でオファーのサブスクリプションを作成する](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)方法に関するページを参照してください。
 
-6.  サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。 手順については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
+6.  サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。 手順については、「[Azure Stack Hub へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
 
-7.  サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
+7.  サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、「[Azure Stack Hub へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
 
 ### <a name="nodejs-prerequisites"></a>Node.js の前提条件 
 
-Azure Stack で Node.js Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用しているオペレーティング システムの表の後にある手順を参照してください。
+Azure Stack Hub で Node.js Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用しているオペレーティング システムの表の後にある手順を参照してください。
 
-| 値 | 環境変数 | 説明 |
+| 値 | 環境変数 | [説明] |
 | --- | --- | --- |
-| テナント ID | TENANT\_ID | Azure Stack の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
+| テナント ID | TENANT\_ID | Azure Stack Hub の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
 | クライアント ID | CLIENT\_ID | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。  |
-| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) は Azure Stack 内のオファーにアクセスする方法です。  |
+| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) は Azure Stack Hub 内のオファーにアクセスする方法です。  |
 | クライアント シークレット | APPLICATION\_SECRET | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット 。 |
-| Resource Manager エンドポイント | ARM\_ENDPOINT | 「[Azure Stack Resource Manager エンドポイント](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-resource-manager-endpoint)」を参照してください。 |
+| Resource Manager エンドポイント | ARM\_ENDPOINT | [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint) に関する記事を参照してください。 |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Node.js の環境変数を設定する
 
@@ -115,7 +113,7 @@ Azure Stack で Node.js Azure SDK を使用するには、次の値を指定し�
 
     `export Azure_Tenant_ID=<Your_Tenant_ID>`
 
-**Azure Stack Resource Manager エンドポイント**
+**Azure Stack Hub Resource Manager エンドポイント**
 
 Microsoft Azure Resource Manager は、管理者が Azure リソースのデプロイ、管理、監視を行えるようにするための管理フレームワークです。 Azure Resource Manager では、これらのタスクを個別に処理するのではなく、グループとして単一の操作で処理することができます。
 
@@ -149,17 +147,17 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 -  **\@azure/arm-resourceprovider-profile-2019-03-01-hybrid**
 
-    Azure Stack 用に作成された最新のプロファイル。 1808 以降のスタンプを使用している限り、Azure Stack との互換性に優れたサービスには、このプロファイルを使用します。
+    Azure Stack Hub 用に作成された最新のプロファイル。 1808 以降のスタンプを使用している限り、Azure Stack Hub との互換性に優れたサービスには、このプロファイルを使用します。
 
 -  **\@azure-arm-resource**
 
     このプロファイルは、すべてのサービスの最新バージョンで構成されます。 Azure ですべてのサービスの最新バージョンを使用してください。
 
-Azure Stack および API プロファイルについて詳しくは、「[API プロファイルの概要](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles)」をご覧ください。
+Azure Stack Hub および API プロファイルについて詳しくは、「[API プロファイルの概要](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles)」をご覧ください。
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Azure Node.js SDK API プロファイルの使用
 
-プロファイル クライアントをインスタンス化するには、次のコードを使用します。 このパラメーターは、Azure Stack またはまたはその他のプライベート クラウドにのみ必要です。 グローバル Azure では、@azure-arm-resource または @azure-arm-storage によって、既定ですでにこれらの設定が使用されます。
+プロファイル クライアントをインスタンス化するには、次のコードを使用します。 このパラメーターは、Azure Stack Hub またはまたはその他のプライベート クラウドにのみ必要です。 グローバル Azure では、@azure-arm-resource または @azure-arm-storage によって、既定ですでにこれらの設定が使用されます。
 
 ```Node.js  
 var ResourceManagementClient = require('@azure/arm-resources-profile-hybrid-2019-03-01').ResourceManagementClient;
@@ -167,7 +165,7 @@ var ResourceManagementClient = require('@azure/arm-resources-profile-hybrid-2019
 var StorageManagementClient = require('@azure/arm-storage-profile-2019-03-01-hybrid').StorageManagementClient;
 ````
 
-Azure Stack でサービス プリンシパルを認証するには、次のコードが必要です。 これにより、テナント ID と、Azure Stack に固有の認証基準によって、トークンが作成されます。
+Azure Stack Hub でサービス プリンシパルを認証するには、次のコードが必要です。 これにより、テナント ID と、Azure Stack Hub に固有の認証基準によって、トークンが作成されます。
 
 ```Node.js  
 var clientId = process.env['AZURE_CLIENT_ID'];
@@ -178,9 +176,9 @@ var base_url = process.env['ARM_ENDPOINT'];
 var resourceClient, storageClient;
 ```
 
-これにより、API プロファイル クライアント ライブラリを使用して、アプリケーションを Azure Stack に正常にデプロイすることができます。
+これにより、API プロファイル クライアント ライブラリを使用して、アプリケーションを Azure Stack Hub に正常にデプロイすることができます。
 
-次のコード スニペットでは、Azure Stack インスタンスに指定した Azure Resource Manager エンドポイントを使用して、ギャラリー エンドポイント、グラフ エンドポイント、対象ユーザー、ポータル エンドポイントなどの上記のデータを収集します。
+次のコード スニペットでは、Azure Stack Hub インスタンスに指定した Azure Resource Manager エンドポイントを使用して、ギャラリー エンドポイント、グラフ エンドポイント、対象ユーザー、ポータル エンドポイントなどの上記のデータを収集します。
 
 ```Node.js  
 var map = {};
@@ -189,7 +187,7 @@ const fetchUrl = base_url + 'metadata/endpoints?api-version=1.0'
 
 ## <a name="environment-settings"></a>環境設定
 
-サービス プリンシパルを Azure Stack 環境に対して認証するには、次のコードを使用します。コマンド プロンプトでこのコードを使用し、環境変数を設定すると、開発者に対してこのマッピングが自動的に生成されます。
+サービス プリンシパルを Azure Stack Hub 環境に対して認証するには、次のコードを使用します。コマンド プロンプトでこのコードを使用し、環境変数を設定すると、開発者に対してこのマッピングが自動的に生成されます。
 
 ```Node.js  
 function main() {
@@ -215,7 +213,7 @@ function main() {
 
 ## <a name="samples-using-api-profiles"></a>API プロファイルを使用したサンプル
 
-次のサンプルは、Node.js と Azure Stack API のプロファイルを使用してソリューションを作成するための参考資料として使用できます。 GitHub から、次のリポジトリでサンプルを取得できます。
+次のサンプルは、Node.js と Azure Stack Hub API のプロファイルを使用してソリューションを作成するための参考資料として使用できます。 GitHub から、次のリポジトリでサンプルを取得できます。
 
 - [ストレージ ノード リソース プロバイダーの概要](https://github.com/sijuman/storage-node-resource-provider-getting-started)
 - [コンピューティング ノードの管理](https://github.com/sijuman/compute-node-manage-vm)
@@ -236,7 +234,7 @@ function main() {
     - クライアント ID
     - クライアント シークレット
     - Azure サブスクリプション ID
-    - Azure Stack Resource Manager エンドポイント
+    - Azure Stack Hub Resource Manager エンドポイント
 
 4.  コマンド プロンプトを使用して作成したサービス プリンシパルから取得した情報を使用して、次の環境変数を設定します。
 
@@ -245,7 +243,7 @@ function main() {
     export CLIENT_ID=<your client id>
     export APPLICATION_SECRET=<your client secret>K
     export AZURE_SUBSCRIPTION_ID=<your subscription id>
-    export ARM_ENDPOINT=<your Azure Stack Resource manager URL>
+    export ARM_ENDPOINT=<your Azure Stack Hub Resource manager URL>
     ```
 
     > [!Note]  
@@ -253,9 +251,9 @@ function main() {
 
 5.  サンプル アプリケーションの `index.js` ファイルを開きます。
 
-6.  location 変数を Azure Stack の場所に設定します。 たとえば、「 `LOCAL = "local"` 」のように入力します。
+6.  location 変数を Azure Stack Hub の場所に設定します。 たとえば、「 `LOCAL = "local"` 」のように入力します。
 
-7.  Azure Stack に対して認証できるようにする資格情報を設定します。 コードのこの部分は、index.js ファイルのこのサンプルに含まれています。
+7.  Azure Stack Hub に対して認証できるようにする資格情報を設定します。 コードのこの部分は、index.js ファイルのこのサンプルに含まれています。
 
     ```Node.js  
     var clientId = process.env['CLIENT_ID'];
@@ -405,9 +403,9 @@ console.log('\\nDeleting resource group: ' + resourceGroupName);
 return resourceClient.resourceGroups.deleteMethod(resourceGroupName, callback);
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 API プロファイルの詳細については、以下を参照してください。
 
-- [Azure Stack での API バージョン プロファイルの管理](azure-stack-version-profiles.md)
+- [Azure Stack Hub での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)
 - [プロファイルでサポートされているリソース プロバイダー API バージョン](azure-stack-profiles-azure-resource-manager-versions.md)

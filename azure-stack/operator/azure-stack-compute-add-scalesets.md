@@ -1,6 +1,6 @@
 ---
-title: 仮想マシン スケール セットを Azure Stack で使用できるようにする | Microsoft Docs
-description: クラウド オペレーターが Azure Stack Marketplace に仮想マシン スケール セットを追加する方法について学習します。
+title: 仮想マシン スケール セットを Azure Stack Hub で使用できるようにする | Microsoft Docs
+description: クラウド オペレーターが Azure Stack Hub Marketplace に仮想マシン スケール セットを追加する方法について学習します。
 services: azure-stack
 author: sethmanheim
 manager: femila
@@ -11,39 +11,38 @@ ms.date: 10/04/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: ed73441f1a8d3c1c722ce35d5deda9ab7387283b
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.openlocfilehash: 4794704678d5b344ea9d0bae9bf89f134e6bff52
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974092"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883016"
 ---
-# <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>仮想マシン スケール セットを Azure Stack で使用できるようにする
+# <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-  
-仮想マシン スケール セットは Azure Stack のコンピューティング リソースです。 これらを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
+ 
+仮想マシン スケール セットは Azure Stack Hub のコンピューティング リソースです。 これらを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
 
-この記事では、Azure Stack Marketplace からスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
+この記事では、Azure Stack Hub Marketplace からスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
 
-Azure Stack の仮想マシン スケール セットは、Azure の仮想マシン スケール セットと同様です。 詳細については、次のビデオをご覧ください。
+Azure Stack Hub の仮想マシン スケール セットは、Azure の仮想マシン スケール セットと同様です。 詳細については、次のビデオをご覧ください。
 
 * [Mark Russinovich が語る Azure Scale Sets](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [仮想マシン スケール セットを Guy Bowerman が解説](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
-Azure Stack 上の仮想マシン スケール セットでは、自動スケールはサポートされません。 Resource Manager テンプレート、CLI、または PowerShell を使用して、スケール セットに複数のインスタンスを追加できます。
+Azure Stack Hub 上の仮想マシン スケール セットでは、自動スケールはサポートされません。 Resource Manager テンプレート、CLI、または PowerShell を使用して、スケール セットに複数のインスタンスを追加できます。
 
 ## <a name="prerequisites"></a>前提条件
 
-* **Azure Stack Marketplace:** Azure Stack Marketplace で項目の可用性を有効にするには、Azure Stack をグローバル Azure に登録します。 [Azure Stack の Azure への登録](azure-stack-registration.md)に関する記事の手順に従います。
-* **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md) からスケール セットで使用する VM イメージをダウンロードする必要があります。 ユーザーが新しいスケール セットを作成する前に、イメージが既に存在している必要があります。
+* **Azure Stack Hub Marketplace:** Azure Stack Hub Marketplace で項目を利用できるようにするには、Azure Stack Hub をグローバル Azure に登録します。 [Azure Stack Hub の Azure への登録](azure-stack-registration.md)の手順に従います。
+* **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Hub Marketplace](azure-stack-download-azure-marketplace-item.md) からスケール セットで使用する VM イメージをダウンロードする必要があります。 ユーザーが新しいスケール セットを作成する前に、イメージが既に存在している必要があります。
 
-## <a name="use-the-azure-stack-portal"></a>Azure Stack ポータルの使用
+## <a name="use-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用する
 
 >[!IMPORTANT]  
-> このセクションの情報は、1808 以降の Azure Stack バージョンを使用する場合に適用されます。 ご利用のバージョンが 1807 以前であれば、「[仮想マシン スケール セットを追加する (バージョン 1808 より前)](#add-the-virtual-machine-scale-set-prior-to-version-1808)」を参照してください。
+> このセクションの情報は、1808 以降の Azure Stack Hub バージョンを使用する場合に適用されます。 
 
-1. Azure Stack ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
+1. Azure Stack Hub ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
    ![[仮想マシン スケール セット] を選択する](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. ***[仮想マシン スケール セットの作成]*** を選択します。
@@ -54,19 +53,6 @@ Azure Stack 上の仮想マシン スケール セットでは、自動スケー
 
 4. 新しい仮想マシン スケール セットを表示するには、 **[すべてのリソース]** に進んで仮想マシン スケール セット名を検索し、検索でその名前を選択します。
    ![仮想マシン スケール セットの表示](media/azure-stack-compute-add-scalesets/search.png)
-
-## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>仮想マシン スケール セットを追加する (バージョン 1808 より前)
-
->[!IMPORTANT]  
-> このセクションの情報は、1808 より前の Azure Stack バージョンを使用するときに適用されます。 1808 以降のバージョンを使用している場合は、[Azure Stack ポータルを使用する](#use-the-azure-stack-portal)を参照してください。
-
-1. Azure Stack Marketplace を開き、Azure に接続します。 **[Marketplace Management]** を選択し、 **[+ Azure から追加]** をクリックします。
-
-    ![Azure Stack Marketplace の管理](media/azure-stack-compute-add-scalesets/image01.png)
-
-2. 仮想マシン スケール セット マーケットプレース項目を追加してダウンロードします。
-
-    ![仮想マシン スケール セット マーケットプレース項目](media/azure-stack-compute-add-scalesets/image02.png)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>仮想マシン スケール セットのイメージを更新する
 
@@ -87,17 +73,9 @@ Azure Stack 上の仮想マシン スケール セットでは、自動スケー
         }
     ```
 
-   スケールアップで新しいイメージを使用するには、そのイメージをダウンロードしておく必要があります。  
-
-   * Azure Stack Marketplace 上のイメージがスケール セット内のイメージよりも新しいバージョンの場合、古いイメージを置き換える新しいイメージをダウンロードします。 イメージが置き換えられると、スケールアップに進むことができます。
-
-   * Azure Stack Marketplace 上のイメージのバージョンがスケール セット内のイメージと同じ場合、スケール セット内で使用されているイメージを削除し、新しいイメージをダウンロードします。 元のイメージを削除してから新しいイメージをダウンロードするまでの間に、スケールアップすることはできません。
-
-   このプロセスは、バージョン 1803 で導入されたスパース ファイル形式を利用するイメージを再配布するために必要です。
-
 2. 仮想マシン スケール セット デプロイ テンプレートで **version** に **latest を指定せず**、代わりにバージョン番号を指定します。  
 
-    (使用可能なバージョンを変更する) 新しいバージョンを含むイメージをダウンロードした場合、スケール セットはスケールアップできません。 スケール セット テンプレートに指定されたイメージのバージョンを使用できる必要があるため、これは仕様です。  
+    Azure Stack オペレーターが新しいバージョンのイメージをダウンロード (および古いバージョンを削除) すると、スケール セットのスケールアップはできません。 スケール セット テンプレートに指定されたイメージのバージョンを使用できる必要があるため、これは仕様です。  
 
 詳細は、[オペレーティング システムのディスクとイメージ](../user/azure-stack-compute-overview.md#operating-system-disks-and-images)に関するページを参照してください。  
 
@@ -111,17 +89,6 @@ Azure Stack 上の仮想マシン スケール セットでは、自動スケー
 
      ![仮想マシン セットのスケーリング](media/azure-stack-compute-add-scalesets/scale.png)
 
-## <a name="remove-a-virtual-machine-scale-set"></a>仮想マシン スケール セットの削除
+## <a name="next-steps"></a>次のステップ
 
-仮想マシン スケール セットのギャラリー アイテムを削除するには、次の PowerShell コマンドを実行します。
-
-```powershell  
-Remove-AzsGalleryItem
-```
-
-> [!NOTE]
-> ギャラリー アイテムはすぐに削除されない場合があります。 Azure Stack Marketplace からアイテムが削除済みとして表示されるまで、ポータルを最新の情報に数回更新する必要がある場合があります。
-
-## <a name="next-steps"></a>次の手順
-
-* [Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)
+* [Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)

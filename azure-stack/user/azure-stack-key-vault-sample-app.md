@@ -1,6 +1,6 @@
 ---
-title: Azure Stack でアプリに Key Vault に格納されているシークレットへのアクセスを許可する | Microsoft Docs
-description: Azure Stack で Key Vault からキーとシークレットを取得するサンプル アプリを実行する方法を説明します。
+title: Azure Stack Hub でアプリに Key Vault に格納されているシークレットへのアクセスを許可する | Microsoft Docs
+description: Azure Stack Hub で Key Vault からキーとシークレットを取得するサンプル アプリを実行する方法を説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,31 +15,29 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 97299ec47908325f7d3eddb7cf57ca891e145a8d
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: f73af34f3069b0fe550c8266253dce32efcb6b90
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718489"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883628"
 ---
-# <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Azure Stack でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
+# <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack Hub でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事の手順に従って、Azure Stack のキー コンテナーからキーとシークレットを取得するサンプル アプリ **HelloKeyVault** を実行します。
+この記事の手順に従って、Azure Stack Hub のキー コンテナーからキーとシークレットを取得するサンプル アプリ **HelloKeyVault** を実行します。
 
 ## <a name="prerequisites"></a>前提条件
 
 [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) から、または [VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は Windows ベースの外部クライアントから、次の前提条件をインストールできます。
 
-* [Azure Stack と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
-* [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
+* [Azure Stack Hub と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
+* [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Key Vault の作成とアプリの登録
 
 サンプル アプリケーションを準備するには:
 
-* Azure Stack でキー コンテナーを作成します。
+* Azure Stack Hub でキー コンテナーを作成します。
 * Azure Active Directory (Azure AD) でアプリを登録します。
 
 Azure portal または PowerShell を使用して、サンプル アプリを準備します。
@@ -67,12 +65,12 @@ Function GenerateSymmetricKey()
     return [System.Convert]::ToBase64String($key)
 }
 
-Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
+Write-Host 'Please log into your Azure Stack Hub user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
-# Configure the Azure Stack operator's PowerShell environment.
+# Configure the Azure Stack Hub operator's PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
@@ -161,7 +159,7 @@ Visual Studio で次の操作を行います。
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-**HelloKeyVault** を実行すると、このアプリは Azure AD にサインインし、`AuthClientSecret` トークンを使用して、Azure Stack の Key Vault に対する認証を行います。
+**HelloKeyVault** を実行すると、このアプリは Azure AD にサインインし、`AuthClientSecret` トークンを使用して、Azure Stack Hub の Key Vault に対する認証を行います。
 
 **HelloKeyVault** サンプルを使用して、以下の操作を行います。
 

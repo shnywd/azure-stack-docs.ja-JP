@@ -1,6 +1,6 @@
 ---
-title: Azure Stack からオンデマンドでポータル ユーザー データをクリアする | Microsoft Docs
-description: Azure Stack オペレーターとして、Azure Stack ユーザーからの要求時に、ポータル ユーザー データをクリアする方法を確認します。
+title: Azure Stack Hub からオンデマンドでポータル ユーザー データをクリアする | Microsoft Docs
+description: Azure Stack Hub オペレーターとして、Azure Stack Hub ユーザーからの要求時に、ポータル ユーザー データをクリアする方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -17,18 +17,18 @@ ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: 2dd88656491a474e4082ff4e8321af836776b1f0
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
+ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019119"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76022758"
 ---
-# <a name="clear-portal-user-data-from-azure-stack"></a>Azure Stack からポータル ユーザー データをクリアする
+# <a name="clear-portal-user-data-from-azure-stack-hub"></a>Azure Stack Hub からポータル ユーザー データをクリアする
 
-Azure Stack オペレーターは、Azure Stack ユーザーが要求したときに、オンデマンドでポータル ユーザー データをクリアできます。 Azure Stack ユーザーは、タイルをピン留めし、ダッシュボードのレイアウトを変更することによって、ポータルをカスタマイズできます。 また、ユーザーは個人の好みに合わせてテーマを変更し、既定の言語を調整することもできます。 
+Azure Stack Hub オペレーターは、Azure Stack Hub ユーザーが要求したときに、オンデマンドでポータル ユーザー データをクリアできます。 Azure Stack Hub ユーザーは、タイルをピン留めし、ダッシュボードのレイアウトを変更することによって、ポータルをカスタマイズできます。 また、ユーザーは個人の好みに合わせてテーマを変更し、既定の言語を調整することもできます。 
 
-ポータル ユーザー データには、Azure Stack ユーザー ポータルでのお気に入りおよび最近アクセスしたリソースが含まれます。 この記事では、ポータル ユーザー データをクリアする方法について説明します。
+ポータル ユーザー データには、Azure Stack Hub ユーザー ポータルでのお気に入りや最近アクセスしたリソースが含まれます。 この記事では、ポータル ユーザー データをクリアする方法について説明します。
 
 ポータル ユーザー設定の削除は、ユーザー サブスクリプションを削除した後にのみ行う必要があります。
 
@@ -37,10 +37,10 @@ Azure Stack オペレーターは、Azure Stack ユーザーが要求したと�
 
 ## <a name="requirements"></a>必要条件
 
-- [PowerShell for Azure Stack をインストールします](azure-stack-powershell-install.md)。
-- GitHub から[最新の Azure Stack ツールをダウンロード](azure-stack-powershell-download.md)します。
+- [PowerShell for Azure Stack Hub をインストールします](azure-stack-powershell-install.md)。
+- GitHub から[最新の Azure Stack Hub ツールをダウンロード](azure-stack-powershell-download.md)します。
 - ユーザー アカウントが、ディレクトリ内にまだ存在している必要があります。
-- 管理者の Resource Manager エンドポイントにアクセスするための Azure Stack 管理者資格情報。
+- 管理者の Resource Manager エンドポイントにアクセスするための Azure Stack Hub 管理者資格情報。
 
 > [!NOTE]
 > ゲスト ディレクトリ (マルチテナント) から招待されたユーザーからポータル ユーザー情報を削除しようとする場合、そのディレクトリの読み取りアクセス許可が必要です。 詳細については、[この記事で後述する CSP のシナリオ](#clear-portal-user-data-in-guest-directory)を参照してください。
@@ -49,9 +49,9 @@ Azure Stack オペレーターは、Azure Stack ユーザーが要求したと�
 
 このシナリオでは、既定のプロバイダー サブスクリプションとユーザーが同じディレクトリに属しているか、またはユーザーが存在するディレクトリに対する読み取りアクセス権を持っていることを前提としています。
 
-続行する前に、GitHub から[最新バージョンの Azure Stack ツールをダウンロード](azure-stack-powershell-download.md)してください。
+続行する前に、GitHub から[最新バージョンの Azure Stack Hub ツールをダウンロード](azure-stack-powershell-download.md)してください。
 
-この手順では、Azure Stack の管理者 Resource Manager エンドポイントと通信できるコンピューターを使用します。
+この手順では、Azure Stack Hub の管理者 Resource Manager エンドポイントと通信できるコンピューターを使用します。
 
 1. 管理者特権で Windows PowerShell セッションを開き (管理者として実行)、**AzureStack-Tools-master** ディレクトリ内のルート フォルダーに移動して、必要な PowerShell モジュールをインポートします。
 
@@ -66,7 +66,7 @@ Azure Stack オペレーターは、Azure Stack ユーザーが要求したと�
 
    $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $azureStackDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
 
    ## Replace the following value with the user directory tenant ID.
@@ -82,15 +82,15 @@ Azure Stack オペレーターは、Azure Stack ユーザーが要求したと�
    ```
 
    > [!NOTE]
-   > `azureStackDirectoryTenantId` はオプションです。 この値を指定しない場合、スクリプトによって、Azure Stack に登録されているすべてのテナント ディレクトリでユーザー プリンシパル名が検索され、一致したすべてのユーザーのポータル データがクリアされます。
+   > `azureStackDirectoryTenantId` はオプションです。 この値を指定しない場合、スクリプトによって、Azure Stack Hub に登録されているすべてのテナント ディレクトリでユーザー プリンシパル名が検索され、一致したすべてのユーザーのポータル データがクリアされます。
 
 ## <a name="clear-portal-user-data-in-guest-directory"></a>ゲスト ディレクトリ内のポータル ユーザー データをクリアする
 
-このシナリオでは、Azure Stack オペレーターは、ユーザーが存在するディレクトリへのアクセス権を持っていません。 これは、クラウド ソリューション プロバイダー (CSP) である場合の一般的なシナリオです。
+このシナリオでは、Azure Stack Hub オペレーターは、ユーザーが存在するゲスト ディレクトリへのアクセス権を持っていません。 これは、クラウド ソリューション プロバイダー (CSP) である場合の一般的なシナリオです。
 
-Azure Stack オペレーターがポータル ユーザー データを削除するには、少なくともユーザーオブジェクト ID が必要です。
+Azure Stack Hub オペレーターがポータル ユーザー データを削除するには、少なくともユーザーオブジェクト ID が必要です。
 
-ユーザーは、オブジェクト ID をクエリし、それを Azure Stack オペレーターに渡す必要があります。 オペレーターは、ユーザーが存在するディレクトリへのアクセス権を持っていません。
+ユーザーは、オブジェクト ID のクエリを実行し、それを Azure Stack Hub オペレーターに提供する必要があります。 オペレーターは、ユーザーが存在するディレクトリへのアクセス権を持っていません。
 
 ### <a name="user-retrieves-the-user-object-id"></a>ユーザーがユーザー オブジェクト ID を取得する
 
@@ -118,11 +118,11 @@ Azure Stack オペレーターがポータル ユーザー データを削除す
    ```
 
    > [!NOTE]
-   > ユーザーは、前のスクリプトの出力であるユーザー オブジェクト ID を Azure Stack オペレーターに提供する必要があります。
+   > ユーザーは、前のスクリプトの出力であるユーザー オブジェクト ID を Azure Stack Hub オペレーターに提供する必要があります。
 
-## <a name="azure-stack-operator-removes-the-portal-user-data"></a>Azure Stack オペレーターがポータル ユーザー データを削除する
+## <a name="azure-stack-hub-operator-removes-the-portal-user-data"></a>Azure Stack Hub オペレーターがポータル ユーザー データを削除する
 
-Azure Stack オペレーターは、ユーザー オブジェクト ID を受け取ったら、次のコマンドを実行してポータル ユーザー データを削除します。
+Azure Stack Hub オペレーターは、ユーザー オブジェクト ID を受け取ったら、次のコマンドを実行してポータル ユーザー データを削除します。
 
 1. 管理者特権で Windows PowerShell セッションを開き (管理者として実行)、**AzureStack-Tools-master** ディレクトリ内のルート フォルダーに移動して、必要な PowerShell モジュールをインポートします。
 
@@ -136,7 +136,7 @@ Azure Stack オペレーターは、ユーザー オブジェクト ID を受け
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
    $AzsAdminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
-   ## Replace the following value with the Azure Stack directory tenant ID.
+   ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
    
    ## Replace the following value with the directory tenant ID of the user to clear.
@@ -150,6 +150,6 @@ Azure Stack オペレーターは、ユーザー オブジェクト ID を受け
     -UserObjectID $userObjectID `
    ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack を Azure に登録](azure-stack-registration.md)し、ユーザーに提供する項目を [Azure Stack マーケットプレース](azure-stack-marketplace.md)に設定します。
+- [Azure Stack Hub を Azure に登録](azure-stack-registration.md)し、ユーザーに提供する項目を [Azure Stack Hub Marketplace](azure-stack-marketplace.md) に設定します。

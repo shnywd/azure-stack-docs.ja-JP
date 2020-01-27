@@ -1,6 +1,6 @@
 ---
-title: Azure Stack の Windows に AKS エンジンをデプロイする | Microsoft Docs
-description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
+title: Azure Stack Hub の Windows に AKS エンジンをデプロイする | Microsoft Docs
+description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,22 +15,20 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1a4e11996b3dc1f86e8dd337c3243c210c68b33e
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.openlocfilehash: 280ecbe7c02d3eb9bdc14ba29cfb0b6642a7144c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310281"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883526"
 ---
-# <a name="install-the-aks-engine-on-windows-in-azure-stack"></a>Azure Stack の Windows に AKS エンジンをインストールする
+# <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Kubernetes クラスターをデプロイおよび管理するには、Azure Stack の Windows マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
+Kubernetes クラスターをデプロイおよび管理するには、Azure Stack Hub の Windows マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack Hub インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
 
 ## <a name="prepare-the-client-vm"></a>クライアント VM の準備
 
-AKS エンジンとは、お使いの Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、お使いの Azure Stack のコンピューターで実行できます。 このコンピューターから AKS エンジンを実行して、お使いのクラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているコンピューターを使用して、お使いのクラスターで管理タスクを実行できます。
+AKS エンジンとは、お使いの Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、お使いの Azure Stack Hub のコンピューターで実行できます。 このコンピューターから AKS エンジンを実行して、お使いのクラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているコンピューターを使用して、お使いのクラスターで管理タスクを実行できます。
 
 お使いのクライアント コンピューターを選択する場合には、次の点を考慮してください。
 
@@ -39,14 +37,14 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 ## <a name="install-in-a-connected-environment"></a>接続されている環境へのインストール
 
-クライアント VM をインストールし、インターネットに接続されている Azure Stack 上の Kubernetes クラスターを管理できます。
+クライアント VM をインストールし、インターネットに接続されている Azure Stack Hub 上のお使いの Kubernetes クラスターを管理できます。
 
-1. Azure Stack で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください。
-2. VM に接続します。
+1. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください。
+2. お使いの VM に接続します。
 3. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
     Chocolaty の Web サイトによると:Chocolatey は、Windows のパッケージ マネージャーです。例えば、Windows 用の apt-get や yum などです。 必要なアプリケーションとツールを迅速にインストールするための分散型フレームワークとして設計されています。 現在 PowerShell を使用している NuGet インフラストラクチャ上に構築されており、ディストリビューションからドア、err、コンピューターへのパッケージの配信に重点を置いています。
-4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+4. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
@@ -58,17 +56,17 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 ## <a name="install-in-a-disconnected-environment"></a>切断されている環境へのインストール
 
-インターネットから切断されている Azure Stack 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
+インターネットから切断されている Azure Stack Hub 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
 
-1.  インターネットにアクセスできるマシンから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
+1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
 
-2.  お使いの Azure Stack インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
+2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
 
-3. Azure Stack で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください。
+3. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください
 
-4.  アーカイブ ファイル (* tar.gz) をアップロードした Azure Stack ストレージ アカウントの blob URL から、お使いの管理 VM にファイルをダウンロードします。 コマンド プロンプトから、アクセス権のあるディレクトリにアーカイブを抽出します。
+4.  アーカイブ ファイル (* tar.gz) をアップロードした Azure Stack Hub ストレージ アカウントの BLOB URL から、お使いの管理 VM にファイルをダウンロードします。 コマンド プロンプトから、アクセス権のあるディレクトリにアーカイブを抽出します。
 
-5. VM に接続します。
+5. お使いの VM に接続します。
 
 6. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
@@ -96,12 +94,12 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 ASDK の外部のマシン上の ASDK で AKS エンジン用のクライアント VM を実行する場合には、証明書を追加する必要があります。 ASDK 環境内で Windows VM を使用している場合、マシンでは既に ASDK 証明書が信頼されています。 クライアント マシンが ASDK の外部にある場合は、ASDK から証明書を抽出し、Windows マシンに追加する必要があります。
 
-ASDK を使用している場合、Azure Resource Manager エンドポイントで自己署名証明書が使用されているため、この証明書をマシンの信頼された証明書ストアに明示的に追加する必要があります。 ASDK のルート証明書は、ASDK にデプロイするすべての VM にあります。
+ご自分の Azure Resource Manager エンドポイントが自己署名証明書を使用する ASDK を使用している場合、コンピューターの信頼された証明書ストアにこの証明書を明示的に追加する必要があります。 ASDK のルート証明書は、ASDK にデプロイするすべての VM にあります。
 
-1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack の CA ルート証明書をエクスポートする](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-ca-root-certificate)」を参照してください。
-2. Azure Stack の CA ルート証明書を信頼します。 手順については、「[Azure Stack の CA ルート証明書を信頼する](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-ca-root-certificate)」を参照してください。
+1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack Hub の CA ルート証明書をエクスポートする](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate)」を参照してください。
+2. Azure Stack Hub の CA ルート証明書を信頼します。 手順については、「[Azure Stack Hub の CA ルート証明書を信頼する](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 > [!div class="nextstepaction"]
-> [AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+> [AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

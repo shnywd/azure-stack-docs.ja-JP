@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 検証ツールを使用してシステム状態を検証する |Microsoft Docs
-description: Azure Stack 検証ツールを使用してシステム状態を検証する方法について説明します。
+title: Azure Stack Hub 検証ツールを使用してシステムの状態を検証する | Microsoft Docs
+description: Azure Stack Hub 検証ツールを使用してシステムの状態を検証する方法について説明します。
 services: azure-stack
 author: justinha
 manager: femila
@@ -10,26 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 98732c3eb5933e1fd6d7ce42d726d3f5019c97eb
-ms.sourcegitcommit: 53f7daf295783a30feb284d4c48c30c6936557c5
+ms.lastreviewed: 01/10/2020
+ms.openlocfilehash: 778f38f0ed3d1b1801b162624daa365ed6d1f09c
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74830954"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75882506"
 ---
-# <a name="validate-azure-stack-system-state"></a>Azure Stack システムの状態を検証する
+# <a name="validate-azure-stack-hub-system-state"></a>Azure Stack Hub システムの状態を検証する
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack オペレーターは、システムの正常性と状態をオンデマンドで判断できることが不可欠です。 Azure Stack の検証ツール (**Test-azurestack**) は PowerShell コマンドレットであり、システム上で一連のテストを実行して、障害があればそれを特定できます。 通常このツールは、問題について Microsoft カスタマー サービス サポート (CSS) に問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行するよう求められます。 手元にシステム全体の正常性および状態情報があれば、CSS は詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を修正できます。
+Azure Stack Hub のオペレーターは、使用しているシステムの正常性と状態をオンデマンドで判断できる必要があります。 Azure Stack Hub の検証ツール (**Test-AzureStack**) は、お使いのシステムで実行した一連のテストから、存在する場合に障害を特定する PowerShell コマンドレットです。 通常このツールは、問題について Microsoft カスタマー サービス サポート (CSS) に問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行するよう求められます。 手元にシステム全体の正常性および状態情報があれば、CSS は詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を修正できます。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>検証ツールを実行して結果にアクセスする
 
 前述のとおり、この検証ツールは PEP 経由で実行されます。 各テストは、PowerShell ウィンドウで**合格/不合格**のいずれかの状態を返します。 次に示すのは、エンド ツー エンド検証テスト プロセスの概要です。
+
+1. 信頼関係を確立します。 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
+
+   ```powershell
+   winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+   ```
+
+   Azure Stack Development Kit (ASDK) を実行している場合、開発キットのホストにサインインします。
 
 1. PEP にアクセスします。 PEP セッションを確立するために、次のコマンドを実行します。
 
@@ -40,7 +46,7 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
    > [!TIP]
    > Azure Stack Development Kit (ASDK) ホスト コンピューターで PEP にアクセスするには、-ComputerName に対して AzS-ERCS01 を使用します。
 
-2. PEP にアクセスしたら、次を実行します。
+1. PEP にアクセスしたら、次を実行します。
 
    ```powershell
    Test-AzureStack
@@ -48,11 +54,11 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
    詳細については、「[パラメーターに関する考慮事項](azure-stack-diagnostic-test.md#parameter-considerations)」と「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」を参照してください。
 
-3. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については、「[Azure Stack 統合システムで Get-AzureStackLog を実行するには](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)」を参照し、ASDK での手順については、「[ASDK システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
+1. いずれかのテストで **FAIL** が報告された場合は、`Get-AzureStackLog` を実行します。 統合システムでの手順については、「[Azure Stack Hub 統合システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)」を参照し、ASDK での手順については、「[Azure Stack Development Kit (ASDK) システムで Get-AzureStackLog を実行する](azure-stack-configure-on-demand-diagnostic-log-collection.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)」をご覧ください。
 
    このコマンドレットは、Test-azurestack によって生成されたログを収集します。 テストで **WARN** が報告される場合は、ログを収集せずに CSS に連絡することをお勧めします。
 
-4. CSS により検証ツールを実行するように指示された場合、CSS の担当者から、問題のトラブルシューティングを続行するために、お客様が収集したログの提出が求められます。
+1. CSS により検証ツールを実行するように指示された場合、CSS の担当者から、問題のトラブルシューティングを続行するために、お客様が収集したログの提出が求められます。
 
 ## <a name="tests-available"></a>利用可能なテスト
 
@@ -64,32 +70,32 @@ Azure Stack オペレーターは、システムの正常性と状態をオン�
 
 | テスト カテゴリ                                        | -Include および -Ignore の引数 |
 | :--------------------------------------------------- | :-------------------------------- |
-| Azure Stack の ACS の概要                              | AzsAcsSummary                     |
-| Azure Stack Active Directory の概要                 | AzsAdSummary                      |
-| Azure Stack のアラートの概要                            | AzsAlertSummary                   |
-| Azure Stack アプリケーションのクラッシュの概要                | AzsApplicationCrashSummary        |
-| Azure Stack バックアップ共有のアクセシビリティの概要       | AzsBackupShareAccessibility       |
-| Azure Stack の BMC の概要                              | AzsStampBMCSummary                |
-| Azure Stack クラウド ホスティング インフラストラクチャの概要     | AzsHostingInfraSummary            |
-| Azure Stack クラウド ホスティング インフラストラクチャの利用 | AzsHostingInfraUtilization        |
-| Azure Stack のコントロール プレーンの概要                    | AzsControlPlane                   |
-| Azure Stack Defender の概要                         | AzsDefenderSummary                |
-| Azure Stack のホスティング インフラストラクチャ ファームウェアの概要  | AzsHostingInfraFWSummary          |
-| Azure Stack インフラストラクチャの容量                  | AzsInfraCapacity                  |
-| Azure Stack インフラストラクチャのパフォーマンス               | AzsInfraPerformance               |
-| Azure Stack インフラストラクチャ ロールの概要              | AzsInfraRoleSummary               |
-| Azure Stack ネットワーク インフラストラクチャ                            | AzsNetworkInfra                   |
-| Azure Stack ポータルおよび API の概要                   | AzsPortalAPISummary               |
-| Azure Stack スケール ユニットの VM イベント                     | AzsScaleUnitEvents                |
-| Azure Stack スケール ユニットの VM リソース                  | AzsScaleUnitResources             |
-| Azure Stack シナリオ                                | AzsScenarios                      |
-| Azure Stack SDN 検証の概要                   | AzsSDNValidation                  |
-| Azure Stack サービス ファブリック ロールの概要              | AzsSFRoleSummary                  |
-| Azure Stack Storage のデータ プレーン                       | AzsStorageDataPlane               |
-| Azure Stack ストレージ サービスの概要                 | AzsStorageSvcsSummary             |
-| Azure Stack SQL ストアの概要                        | AzsStoreSummary                   |
-| Azure Stack 更新プログラムの概要                           | AzsInfraUpdateSummary             |
-| Azure Stack の VM 配置の概要                     | AzsVmPlacement                    |
+| Azure Stack Hub ACS の概要                              | AzsAcsSummary                     |
+| Azure Stack Hub Active Directory の概要                 | AzsAdSummary                      |
+| Azure Stack Hub のアラートの概要                            | AzsAlertSummary                   |
+| Azure Stack Hub アプリケーションのクラッシュの概要                | AzsApplicationCrashSummary        |
+| Azure Stack Hub バックアップ共有のアクセシビリティの概要       | AzsBackupShareAccessibility       |
+| Azure Stack Hub BMC の概要                              | AzsStampBMCSummary                |
+| Azure Stack Hub クラウド ホスティング インフラストラクチャの概要     | AzsHostingInfraSummary            |
+| Azure Stack Hub クラウド ホスティング インフラストラクチャの利用 | AzsHostingInfraUtilization        |
+| Azure Stack Hub コントロール プレーンの概要                    | AzsControlPlane                   |
+| Azure Stack Hub Defender の概要                         | AzsDefenderSummary                |
+| Azure Stack Hub のホスティング インフラストラクチャ ファームウェアの概要  | AzsHostingInfraFWSummary          |
+| Azure Stack Hub インフラストラクチャの容量                  | AzsInfraCapacity                  |
+| Azure Stack Hub インフラストラクチャのパフォーマンス               | AzsInfraPerformance               |
+| Azure Stack Hub インフラストラクチャ ロールの概要              | AzsInfraRoleSummary               |
+| Azure Stack Hub ネットワーク インフラストラクチャ                            | AzsNetworkInfra                   |
+| Azure Stack Hub ポータルおよび API の概要                   | AzsPortalAPISummary               |
+| Azure Stack Hub スケール ユニットの VM イベント                     | AzsScaleUnitEvents                |
+| Azure Stack Hub スケール ユニットの VM リソース                  | AzsScaleUnitResources             |
+| Azure Stack Hub のシナリオ                                | AzsScenarios                      |
+| Azure Stack Hub SDN 検証の概要                   | AzsSDNValidation                  |
+| Azure Stack Hub サービス ファブリック ロールの概要              | AzsSFRoleSummary                  |
+| Azure Stack Hub ストレージのデータ プレーン                       | AzsStorageDataPlane               |
+| Azure Stack Hub のストレージ サービスの概要                 | AzsStorageSvcsSummary             |
+| Azure Stack Hub SQL ストアの概要                        | AzsStoreSummary                   |
+| Azure Stack Hub 更新プログラムの概要                           | AzsInfraUpdateSummary             |
+| Azure Stack Hub の VM 配置の概要                     | AzsVmPlacement                    |
 
 ### <a name="cloud-scenario-tests"></a>クラウド シナリオのテスト
 
@@ -167,13 +173,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 オペレーターの操作性を向上させるため、複数のテスト カテゴリを同時に実行できるように **Group** パラメーターが有効になっています。 現時点では、次の 3 つのグループが定義されています。**既定**、**UpdateReadiness**、および **SecretRotationReadiness**。
 
 - **既定**:**Test-AzureStack** の標準実行と見なされます。 他のグループが選択されていない場合、このグループが既定で実行されます。
-- **UpdateReadiness**:Azure Stack インスタンスが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 Azure Stack Version 1910 の時点では、次のカテゴリは、**UpdateReadiness** グループの一部です。
+- **UpdateReadiness**:Azure Stack Hub インスタンスが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 Azure Stack Hub バージョン 1910 の時点では、次のカテゴリは、**UpdateReadiness** グループの一部です。
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness**:Azure Stack インスタンスが、シークレット ローテーションを実行できる状態にあるかどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
+- **SecretRotationReadiness**:Azure Stack Hub のインスタンスが、シークレット ローテーションを実行できる状態にあるかどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -187,13 +193,13 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 #### <a name="group-parameter-example"></a>Group パラメーターの例
 
-次の例では、**Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、**Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、**Test-AzureStack** を実行して Azure Stack の状態を確認します。
+次の例では、**Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、**Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、**Test-AzureStack** を実行してお使いの Azure Stack Hub の状態を確認します。
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
 ```
 
-お使いの Azure Stack で 1811 より前のバージョンが実行されている場合、次の PowerShell コマンドを使用して **Test-AzureStack** を実行してください。
+お使いの Azure Stack Hub で 1811 より前のバージョンを実行している場合、次の PowerShell コマンドを使用して **Test-AzureStack** を実行してください。
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -225,7 +231,7 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-network-infrastructure"></a>検証ツールを実行してネットワーク インフラストラクチャをテストする
 
-このテストでは、Azure Stack ソフトウェア定義ネットワーク (SDN) をバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および認証エンドポイントへの接続が示されます。 これには、ID プロバイダーとして Azure AD を使用する場合の Azure への接続、または ID プロバイダーとして AD FS を使用する場合のフェデレーション サーバーへの接続が含まれます。
+このテストでは、Azure Stack Hub ソフトウェア定義ネットワーク (SDN) をバイパスするネットワーク インフラストラクチャの接続を確認します。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および認証エンドポイントへの接続が示されます。 これには、ID プロバイダーとして Azure AD を使用する場合の Azure への接続、または ID プロバイダーとして AD FS を使用する場合のフェデレーション サーバーへの接続が含まれます。
 
 コマンドの詳細な出力を取得するには、debug パラメーターを含めます。
 
@@ -233,8 +239,8 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 Test-AzureStack -Include AzsNetworkInfra -Debug
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-Azure Stack 診断ツールと問題のログ記録の詳細については、「[Azure Stack の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)」を参照してください。
+Azure Stack Hub 診断ツールと問題のログ記録の詳細については、[Azure Stack Hub の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関する記事を参照してください。
 
-トラブルシューティングの詳細については、「[Microsoft Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)」を参照してください。
+トラブルシューティングの詳細については、[Microsoft Azure Stack Hub でのトラブルシューティング](azure-stack-troubleshooting.md)に関する記事を参照してください。

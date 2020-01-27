@@ -1,6 +1,6 @@
 ---
-title: ユーザーとして PowerShell を使用して Azure Stack に接続する | Microsoft Docs
-description: PowerShell を使用して Azure Stack に接続する方法について説明します。
+title: ユーザーとして PowerShell を使用して Azure Stack Hub に接続する | Microsoft Docs
+description: PowerShell を使用して Azure Stack Hub に接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,18 +15,16 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 6a75eb788afd84b6619326293ae2399d8ed5b0e1
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 8a2687a628180564cf7f71042fd50129da23c610
+ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824222"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75883441"
 ---
-# <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>ユーザーとして PowerShell を使用して Azure Stack に接続する
+# <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>ユーザーとして PowerShell を使用して Azure Stack Hub に接続する
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
-
-PowerShell を使用して Azure Stack に接続し、Azure Stack リソースを管理することができます。 たとえば、PowerShell を使用し、オファーをサブスクライブしたり、仮想マシン (VM) を作成したり、Azure Resource Manager テンプレートをデプロイしたりできます。
+PowerShell を使用して Azure Stack Hub に接続し、Azure Stack Hub リソースを管理することができます。 たとえば、PowerShell を使用し、オファーをサブスクライブしたり、仮想マシン (VM) を作成したり、Azure Resource Manager テンプレートをデプロイしたりできます。
 
 セットアップするには:
   - 要件を満たしていることをご確認ください。
@@ -38,17 +36,17 @@ PowerShell を使用して Azure Stack に接続し、Azure Stack リソース�
 
 次の前提条件は[開発キット](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)から構成するか、[VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は Windows ベースの外部クライアントから構成します。
 
-* [Azure Stack と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
-* [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
+* [Azure Stack Hub と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
+* [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
 
-次のスクリプト変数を自分の Azure Stack 構成の値に必ず変更してください。
+次のスクリプト変数を自分の Azure Stack Hub 構成の値に必ず変更してください。
 
 - **Azure AD テナントの名前**  
-  Azure Stack の管理に使用される Azure AD テナントの名前。 たとえば、yourdirectory.onmicrosoft.com です。
+  Azure Stack Hub の管理に使用される Azure AD テナントの名前。 たとえば、yourdirectory.onmicrosoft.com です。
 - **Azure Resource Manager エンドポイント**  
-  Azure Stack 開発キットの場合、この値は https://management.local.azurestack.external に設定されます。 Azure Stack 統合システムのこの値を取得するには、サービス プロバイダーにお問い合わせください。
+  Azure Stack 開発キットの場合、この値は https://management.local.azurestack.external に設定されます。 Azure Stack Hub 統合システムのこの値を取得するには、サービス プロバイダーにお問い合わせください。
 
-## <a name="connect-to-azure-stack-with-azure-ad"></a>Azure AD を使用して Azure Stack に接続する
+## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Azure AD を使用して Azure Stack Hub に接続する
 
 ```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
@@ -57,15 +55,15 @@ PowerShell を使用して Azure Stack に接続し、Azure Stack リソース�
     $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
 
-    # After signing in to your environment, Azure Stack cmdlets
-    # can be easily targeted at your Azure Stack instance.
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
     Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId $TenantId
 ```
 
-## <a name="connect-to-azure-stack-with-ad-fs"></a>AD FS を使用して Azure Stack に接続する
+## <a name="connect-to-azure-stack-hub-with-ad-fs"></a>AD FS を使用して Azure Stack Hub に接続する
 
   ```powershell  
-  # Register an Azure Resource Manager environment that targets your Azure Stack instance
+  # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
   # Sign in to your environment
@@ -86,15 +84,15 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
-すべてのセットアップが完了したら、PowerShell を使って接続をテストし、Azure Stack でリソースを作成します。 テストとして、アプリケーションのリソース グループを作成し、VM を追加します。 次のコマンドを実行し、"MyResourceGroup" という名前のリソース グループを作成します。
+すべての設定が完了したら、PowerShell を使って接続をテストし、Azure Stack Hub でリソースを作成します。 テストとして、アプリケーションのリソース グループを作成し、VM を追加します。 次のコマンドを実行し、"MyResourceGroup" という名前のリソース グループを作成します。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack のテンプレートの開発](azure-stack-develop-templates.md)
+- [Azure Stack Hub のテンプレートの開発](azure-stack-develop-templates.md)
 - [PowerShell を使用したテンプレートのデプロイ](azure-stack-deploy-template-powershell.md)
-- [Azure Stack PowerShell Module リファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
-- クラウド オペレーター環境用に PowerShell を設定する場合、[Azure Stack オペレーターの PowerShell 環境の構成](../operator/azure-stack-powershell-configure-admin.md)に関する記事をご覧ください。
+- [Azure Stack Hub PowerShell Module リファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- クラウド オペレーター環境用に PowerShell を設定する場合、[Azure Stack Hub オペレーターの PowerShell 環境の構成](../operator/azure-stack-powershell-configure-admin.md)に関する記事をご覧ください。

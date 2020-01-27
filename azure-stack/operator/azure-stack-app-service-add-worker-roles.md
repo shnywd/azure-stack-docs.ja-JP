@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 上の App Service で worker とインフラストラクチャを追加する | Microsoft Docs
-description: Azure Stack App Services の詳細なガイダンス
+title: App Service on Azure Stack Hub で worker とインフラストラクチャを追加する | Microsoft Docs
+description: App Service on Azure Stack Hub をスケーリングするための詳細なガイダンス
 services: azure-stack
 documentationcenter: ''
 author: bryanla
@@ -12,35 +12,35 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: b01199bfe96c39fe79aac65eca219a065f39375c
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 01/13/2020
+ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
+ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975005"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75924199"
 ---
-# <a name="add-workers-and-infrastructure-in-app-service-on-azure-stack"></a>Azure Stack 上の App Service で worker とインフラストラクチャを追加する
+# <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub で worker とインフラストラクチャを追加する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
+*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*  
 
-ここでは、Azure Stack 上の App Service でインフラストラクチャおよび worker ロールを拡大縮小する手順について説明します。 任意のサイズのアプリをサポートする追加の worker ロールを作成するのに必要なすべての手順について説明します。
+このドキュメントでは、App Service on Azure Stack Hub でインフラストラクチャおよび worker ロールをスケーリングする手順について説明します。 任意のサイズのアプリをサポートする追加の worker ロールを作成するのに必要なすべての手順について説明します。
 
 > [!NOTE]
-> Azure Stack 環境の RAM が 96 GB 以下の場合、容量の追加が困難な可能性があります。
+> Azure Stack Hub 環境の RAM が 96 GB 以下の場合、容量の追加が困難な可能性があります。
 
-既定では、Azure Stack 上の App Service は無料の共有 worker 層をサポートしています。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
+App Service on Azure Stack Hub は、既定で、無料の共有 worker 階層をサポートします。 他の worker 階層を追加するには、worker ロールを追加する必要があります。
 
-既定の Azure Stack 上の App Service インストールでデプロイされる内容がわからない場合は、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」を参照してください。
+既定の Azure Stack Hub インストール上の既定の Azure App Service でデプロイされる内容がわからない場合は、「[Azure Stack Hub 上の Azure App Service の概要](azure-stack-app-service-overview.md)」を参照してください。
 
-Azure Stack 上の Azure App Service では、仮想マシン スケール セットを使用するすべてのロールをデプロイします。そのため、このワークロードの拡張機能を活用します。 したがって、worker 階層のすべてのスケーリングは、App Service 管理者を通して行われます。
+App Service on Azure Stack Hub では、仮想マシン スケール セットを使用するすべてのロールをデプロイします。そのため、このワークロードのスケーリング機能を活用します。 したがって、worker 階層のすべてのスケーリングは、App Service 管理者を通して行われます。
 
 ## <a name="add-additional-workers-with-powershell"></a>PowerShell を使用した他の worker の追加
 
-1. [PowerShell で Azure Stack 管理環境をセットアップします](azure-stack-powershell-configure-admin.md)
+1. [PowerShell で Azure Stack Hub 管理環境をセットアップします。](azure-stack-powershell-configure-admin.md)
 
 2. この例を使用して、スケール セットをスケールアウトします。
    ```powershell
@@ -77,23 +77,23 @@ Azure Stack 上の Azure App Service では、仮想マシン スケール セ�
 
 ## <a name="add-additional-workers-using-the-administrator-portal"></a>管理者ポータルを使用した他の worker の追加
 
-1. サービス管理者として Azure Stack 管理者ポータルにサインインします。
+1. サービス管理者として Azure Stack Hub 管理者ポータルにサインインします。
 
 2. **[App Services]** を参照します。
 
-    ![Azure Stack 管理者ポータルの App Service](media/azure-stack-app-service-add-worker-roles/image01.png)
+    ![Azure Stack Hub 管理者ポータルの App Service](media/azure-stack-app-service-add-worker-roles/image01.png)
 
 3. **[ロール]** をクリックします。 デプロイされているすべての App Service ロールの内訳が表示されます。
 
 4. 拡大縮小する種類の行を右クリックし、 **[ScaleSet]** をクリックします。
 
-    ![Azure Stack 管理者ポータルの ScaleSet App Service ロール](media/azure-stack-app-service-add-worker-roles/image02.png)
+    ![Azure Stack Hub 管理者ポータルの ScaleSet App Service ロール](media/azure-stack-app-service-add-worker-roles/image02.png)
 
 5. **[拡大縮小]** をクリックし、拡大縮小するインスタンス数を選択し、 **[保存]** をクリックします。
 
-    ![Azure Stack 管理者ポータルの App Service ロールで拡大縮小するためにインスタンスを設定する](media/azure-stack-app-service-add-worker-roles/image03.png)
+    ![Azure Stack Hub 管理者ポータルの App Service ロールでスケーリングするためにインスタンスを設定する](media/azure-stack-app-service-add-worker-roles/image03.png)
 
-6. Azure Stack 上の App Service によって、VM が追加および構成され、必要なすべてのソフトウェアがインストールされ、プロセスの完了時には準備完了とマークされます。 このプロセスには約 80 分かかる可能性があります。
+6. App Service on Azure Stack Hub によって、VM が追加および構成され、必要なすべてのソフトウェアがインストールされ、このプロセスの完了時には準備完了とマークされます。 このプロセスには約 80 分かかる可能性があります。
 
 7. **[ロール]** ブレードで worker を表示することで、新しいロールの準備状況を監視できます。
 
@@ -101,11 +101,11 @@ Azure Stack 上の Azure App Service では、仮想マシン スケール セ�
 
 完全にデプロイされ、準備ができると、worker をユーザーが利用できるようになり、それらにワークロードを展開できます。 既定で使用できる複数の価格レベルの例を次のスクリーンショットに示します。 特定の worker 階層に使用できる worker がない場合、対応する価格レベルを選択するオプションは使用できません。
 
-![Azure Stack 管理者ポータルの新しい App Service プランの価格レベル](media/azure-stack-app-service-add-worker-roles/image04.png)
+![Azure Stack Hub 管理者ポータルの新しい App Service プランの価格レベル](media/azure-stack-app-service-add-worker-roles/image04.png)
 
 >[!NOTE]
 > 管理、フロントエンド、またはパブリッシャー ロールをスケール アウトするには、適切なロールの種類を選択して同じ手順を実行してください。 コントローラーはスケール セットとしてデプロイされていないため、すべての運用デプロイでインストール時に 2 つをデプロイする必要があります。
 
-### <a name="next-steps"></a>次の手順
+### <a name="next-steps"></a>次のステップ
 
 [デプロイ ソースを構成する](azure-stack-app-service-configure-deployment-sources.md)

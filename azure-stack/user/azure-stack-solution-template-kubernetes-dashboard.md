@@ -1,6 +1,6 @@
 ---
-title: Azure Stack で Kubernetes ダッシュボードにアクセスする |Microsoft Docs
-description: Azure Stack で Kubernetes ダッシュボードにアクセスする方法について説明します
+title: Azure Stack Hub で Kubernetes ダッシュボードにアクセスする | Microsoft Docs
+description: Azure Stack Hub で Kubernetes ダッシュボードにアクセスする方法について説明します
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,30 +11,29 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: fdda72e215590c7bbd7d739e2eb46b085fc55405
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 3a101150ee8dd931a4c13ba68225cfc3785352f4
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047186"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535945"
 ---
-# <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Azure Stack で Kubernetes ダッシュボードにアクセスする 
+# <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit* 
 > [!Note]   
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
-Kubernetes には、基本的な管理操作に使用できる Web ダッシュボードが含まれています。 このダッシュボードでは、アプリケーションの基本的な正常性状態とメトリックの表示、サービスの作成とデプロイ、既存のアプリケーションの編集を行うことができます。 この記事では、Azure Stack 上で Kubernetes ダッシュボードを設定する方法について説明します。
+Kubernetes には、基本的な管理操作に使用できる Web ダッシュボードが含まれています。 このダッシュボードでは、アプリケーションの基本的な正常性状態とメトリックの表示、サービスの作成とデプロイ、既存のアプリケーションの編集を行うことができます。 この記事では、Azure Stack Hub 上で Kubernetes ダッシュボードを設定する方法について説明します。
 
 ## <a name="prerequisites-for-kubernetes-dashboard"></a>Kubernetes ダッシュボードの前提条件
 
-* Azure Stack Kubernetes クラスター
+* Azure Stack Hub Kubernetes クラスター
 
-    Kubernetes クラスターが Azure Stack にデプロイされている必要があります。 詳細については、「[Kubernetes のデプロイ](azure-stack-solution-template-kubernetes-deploy.md)」を参照してください。
+    Kubernetes クラスターが Azure Stack Hub にデプロイされている必要があります。 詳細については、「[Kubernetes のデプロイ](azure-stack-solution-template-kubernetes-deploy.md)」を参照してください。
 
 * SSH クライアント
 
@@ -42,21 +41,21 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 * FTP (PSCP)
 
-    証明書をマスター ノードから Azure Stack 管理マシンに転送するには、SSH と SSH ファイル転送プロトコルをサポートする FTP クライアントも必要になる場合があります。 [FileZilla](https://filezilla-project.org/download.php?type=client) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
+    証明書をマスター ノードから Azure Stack Hub 管理マシンに転送するには、SSH と SSH ファイル転送プロトコルをサポートする FTP クライアントも必要になる場合があります。 [FileZilla](https://filezilla-project.org/download.php?type=client) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
 
 ## <a name="overview-of-steps-to-enable-dashboard"></a>ダッシュボードを有効にする手順の概要
 
 1.  クラスター内のマスター ノードから、Kubernetes の証明書をエクスポートします。 
-2.  証明書を Azure Stack 管理マシンにインポートします。
+2.  証明書を Azure Stack Hub 管理マシンにインポートします。
 2.  Kubernetes Web ダッシュボードを開きます。 
 
 ## <a name="export-certificate-from-the-master"></a>マスターからの証明書のエクスポート 
 
 クラスター内のマスター ノードから、ダッシュボードの URL を取得できます。
 
-1. Azure Stack のダッシュボードから、クラスターのマスターのパブリック IP アドレスとユーザー名を取得します。 情報の取得方法は以下のとおりです。
+1. Azure Stack Hub のダッシュボードから、クラスターのマスターのパブリック IP アドレスとユーザー名を取得します。 情報の取得方法は以下のとおりです。
 
-    - [Azure Stack ポータル](https://portal.local.azurestack.external/)にサインインします。
+    - [Azure Stack Hub ポータル](https://portal.local.azurestack.external/)にサインインする
     - **[すべてのサービス]**  >  **[すべてのリソース]** の順に選択します。 クラスター リソース グループで、マスターを見つけます。 マスターの名前は `k8s-master-<sequence-of-numbers>` です。 
 
 2. ポータルで、マスター ノードを開きます。 **パブリック IP** アドレスをコピーします。 **[接続]** をクリックして、 **[VM ローカル アカウントを使用してログインする]** ボックスのユーザー名を取得します。 これは、クラスターを作成するときに設定したのと同じユーザー名です。 [接続] ブレードの一覧に表示されたプライベート IP アドレスではなく、パブリック IP アドレスを使用します。
@@ -102,7 +101,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
     - プライベート シークレット
     - **SFTP - SSH ファイル転送プロトコル**を使用
 
-2. `/etc/kubernetes/certs/client.pfx` と `/etc/kubernetes/certs/ca.crt` を Azure Stack 管理マシンにコピーします。
+2. `/etc/kubernetes/certs/client.pfx` と `/etc/kubernetes/certs/ca.crt` を Azure Stack Hub 管理マシンにコピーします。
 
 3. ファイルの場所を書き留めておきます。 その場所でスクリプトを更新してから、管理者特権のプロンプトで PowerShell を開きます。 更新されたスクリプトを実行します。  
 
@@ -129,12 +128,12 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 ダッシュボードを使用できます。 Kubernetes ダッシュボードの詳細については、[Kubernetes の Web UI ダッシュボード](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)に関するページを参照してください。 
 
-![Azure Stack Kubernetes ダッシュボード](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+![Azure Stack Hub Kubernetes ダッシュボード](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
 
-## <a name="next-steps"></a>次の手順 
+## <a name="next-steps"></a>次のステップ 
 
-[Kubernetes を Azure Stack にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)  
+[Kubernetes を Azure Stack Hub にデプロイする](azure-stack-solution-template-kubernetes-deploy.md)  
 
-[Kubernetes クラスターを Marketplace に追加する (Azure Stack のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
+[Kubernetes クラスターを Marketplace に追加する (Azure Stack Hub のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
 [Azure における Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
