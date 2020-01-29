@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 59a998fbbd209402f03a532f3ce421ed3df53408
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 21fdc832203e276960168e2ac15b4e552439090a
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882438"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535010"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
 
@@ -43,7 +43,7 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
 
 - **MySQL リソース プロバイダーのデプロイに対して有効になっているテレメトリ**。 MySQL リソース プロバイダーのデプロイに対してテレメトリ収集が有効になっています。 収集されるテレメトリには、リソース プロバイダーのデプロイ、開始時刻と終了時刻、終了状態、終了メッセージ、エラーの詳細 (該当する場合) が含まれています。
 
-- **TLS 1.2 暗号化の更新**。 リソース プロバイダーと Azure Stack Hub の内部コンポーネントの通信には TLS 1.2 のみのサポートが有効になっています。 
+- **TLS 1.2 暗号化の更新**。 リソース プロバイダーと Azure Stack Hub の内部コンポーネントとの通信には、TLS 1.2 のみへのサポートが有効になっています。 
 
 ### <a name="fixes"></a>修正
 

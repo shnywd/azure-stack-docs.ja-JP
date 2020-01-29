@@ -16,16 +16,14 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: b07d90f17d1c4380f65c43029215bf8946d209e2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: cb46029fabb81c224716e5e1c5eb8f65cd0cd34e
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924199"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124788"
 ---
 # <a name="add-workers-and-infrastructure-in-azure-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub で worker とインフラストラクチャを追加する
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*  
 
 このドキュメントでは、App Service on Azure Stack Hub でインフラストラクチャおよび worker ロールをスケーリングする手順について説明します。 任意のサイズのアプリをサポートする追加の worker ロールを作成するのに必要なすべての手順について説明します。
 

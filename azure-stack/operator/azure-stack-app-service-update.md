@@ -15,16 +15,14 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: cf161a3c756042d60a112a7ca2c794e3bb72b297
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 4289009ee20f5e031ae1104b0507faa189e4d1aa
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924338"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124805"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を更新する
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 > [!IMPORTANT]
 > Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub Development Kit (ASDK) をデプロイします。

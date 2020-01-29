@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 37481cee1e7bc5b9bee0e68878077e084369ca39
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 06def59e2ec66f8a3260aaeb008eb05cabb6781e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883186"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256259"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Azure Stack Hub での Java による API バージョンのプロファイルの使用
 
@@ -144,7 +144,7 @@ Resource Manager エンドポイントからメタデータ情報を取得でき
 
 - ASDK の **ResourceManagerUrl** は `https://management.local.azurestack.external/` です。
 
-- 統合されたシステムの **ResourceManagerUrl** は `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` です。
+- 統合システムの **ResourceManagerUrl** は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。
 
 必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。
 

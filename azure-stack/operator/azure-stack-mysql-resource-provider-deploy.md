@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 84c9854276fbffdcdc4b9c893aacc248780f4d2e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: aecc96bc9e96c39ad1df1111b57bf17ca0d9b59a
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882251"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76534959"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -100,7 +100,7 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>証明書
 
-_統合システムのインストールのみを対象_。 [Azure Stack Hub のデプロイに対する PKI の要件](./azure-stack-pki-certs.md#optional-paas-certificates)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
+_統合システムのインストールのみを対象_。 [Azure Stack Hub のデプロイの PKI の要件](./azure-stack-pki-certs.md#optional-paas-certificates)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
 
 ## <a name="deploy-the-resource-provider"></a>リソース プロバイダーのデプロイ
 
@@ -130,7 +130,7 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 | パラメーター名 | [説明] | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
-| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用した資格情報と同じものを使用します。 | _必須_ |
+| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |
 | **VMLocalCredential** | MySQL リソースプロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
 | **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
@@ -157,7 +157,7 @@ Install-Module -Name AzureStack -RequiredVersion 1.6.0
 > [!NOTE]
 > 接続が切断された場合のシナリオでは、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録が前提条件として必要です。
 
-リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。 必要に応じて、Azure Stack Hub のデプロイ用の既定のアカウント情報とパスワードを変更します。
+リソース プロバイダーをデプロイする際の手動による構成を除外するには、次のスクリプトをカスタマイズできます。 必要に応じて、Azure Stack Hub のデプロイ用の既定のアカウントの情報とパスワードを変更します。
 
 ```powershell
 # Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.

@@ -9,12 +9,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 1898b4415519dd8b1e6bf901c69cf67d6a607308
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 5ef1fe95f91c0ceb343bb796c4c31cdefad65e36
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923856"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256225"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
@@ -65,7 +65,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
     
     Microsoft Azure Resource Manager は、Azure リソースのデプロイ、管理、監視を行うことができる管理フレームワークです。
     - Azure Stack Development Kit (ASDK) の Resource Manager URL: `https://management.local.azurestack.external/` 
-    - 統合システムの Resource Manager URL: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - 統合システムの Resource Manager URL は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。
     - メタデータにアクセスするために、次のテキストを実際の URL に追加します。`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
     たとえば、お使いの Azure Resource Manager エンドポイントのメタデータを取得する URL は次のようになります。`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`

@@ -16,12 +16,12 @@ ms.date: 06/10/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6c409577c73389bb53008ae03cbaf938c61d363f
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: f45cda455f0c13fd2e6c5cb431fb3c60d54dce03
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924128"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256327"
 ---
 # <a name="azure-app-service-on-azure-stack-hub-billing-overview-and-faq"></a>Azure App Service on Azure Stack Hub の課金の概要と FAQ
 
@@ -38,7 +38,7 @@ Azure Stack Hub クラウド オペレーターは、Azure App Service on Azure 
 - [ディストリビューターのプロパティ]
 - フロント エンド
 
-worker 層は、共有と専用という 2 つの主要な種類で構成されます。 worker の使用量には、次の基準に従ってクラウド オペレーターに課金されます。
+worker 層は、共有と専用という 2 つの主要な種類で構成されます。 worker の使用量には、次の基準に従ってクラウド オペレーターの既定のプロバイダー サブスクリプションに課金されます。
 
 ## <a name="shared-workers"></a>共有 worker
 

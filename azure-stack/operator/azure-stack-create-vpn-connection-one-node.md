@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 01/22/2020
 ms.author: justinha
-ms.reviewer: tbd
-ms.lastreviewed: 09/12/2018
+ms.reviewer: misainat
+ms.lastreviewed: 01/22/2020
 ROBOTS: NOINDEX
-ms.openlocfilehash: 81e6e51c602909421e40b4c1e1d5e6ec796f7839
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 0dc4786e575fac736ec4664d2b8fdd3dcc467466
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75817909"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516727"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>異なる ASDK 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する
 
@@ -75,21 +75,13 @@ POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブ
 ### <a name="get-the-ip-address-of-the-external-adapter-of-the-nat-vm"></a>NAT VM の外部アダプターの IP アドレスを取得する
 
 1. POC1 の Azure Stack Hub 物理マシンにサインインします。
-2. 次の PowerShell コードを編集して管理者パスワードを追加し、POC ホストでコードを実行します。
+2. 管理者として PowerShell 開き、次のコマンドレットを実行します。
 
    ```powershell
-   cd \AzureStack-Tools-master\connect
-   Import-Module .\AzureStack.Connect.psm1
-   $Password = ConvertTo-SecureString "<your administrator password>" `
-    -AsPlainText `
-    -Force
-   Get-AzureStackNatServerAddress `
-    -HostComputer "AzS-bgpnat01" `
-    -Password $Password
+   Get-NetNatExternalAddress
    ```
 
 3. 先のセクションのネットワーク構成表に IP アドレスを追加します。
-
 4. POC2 でこの手順を繰り返します。
 
 ## <a name="create-the-network-resources-in-poc1"></a>POC 1 でネットワーク リソースを作成する

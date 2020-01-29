@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e6e65ebf39ae08b56f02fca437369f4861613ade
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: d235a128e9fc7bb0bdabec58f33ff6de76c50a5e
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878307"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256276"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -120,7 +120,8 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 メタデータ情報は、Resource Manager エンドポイントから取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
 > [!Note]  
-> Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external` になります。統合システムの **ResourceManagerUrl** は`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com` になります。必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。
+> Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external` です。統合システムの **ResourceManagerUrl** は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。
+必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。
 
 サンプルの JSON ファイルは、次のようになります。
 

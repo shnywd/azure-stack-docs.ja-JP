@@ -9,14 +9,14 @@ ms.date: 11/07/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: ef492c0e5bf63e73e3b8f59befa642d6d6b854bf
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 411dafa86d0ec61ff431cfea217f3721862b69f4
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75816124"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259802"
 ---
-# <a name="how-to-replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>複数の Azure Stack Hub サブスクリプション間でリソースをレプリケートする方法
+# <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Azure Stack Hub サブスクリプション レプリケーターを使用してリソースをレプリケートする
 
 Azure Stack Hub サブスクリプション レプリケーターの PowerShell スクリプトを使用して、Azure Stack Hub サブスクリプション間、Azure Stack Hub スタンプ間、または Azure Stack Hub と Azure の間でリソースをコピーできます。 レプリケーター スクリプトでは、さまざまな Azure および Azure Stack Hub サブスクリプションから Azure Resource Manager リソースを読み取り、再構築します。 この記事では、スクリプトの動作とスクリプトの使用方法について説明し、スクリプト操作の参照情報を示します。
 

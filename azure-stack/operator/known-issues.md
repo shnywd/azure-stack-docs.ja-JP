@@ -16,12 +16,12 @@ ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0b150f97adf3e456b41dc3af9ac92e0a281b793a
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 951840c6382506404e514bfd27d69af399b5a120
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812401"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516744"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -776,6 +776,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、1906 リリースに適用されます。
 - 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack Hub ビルドでサポートされている機能ではありません。
 - 修復: [なし] :
+- 発生頻度: 共通
+
+### <a name="issues-creating-resources"></a>リソースの作成に関する問題
+
+- 適用先:この問題は、1906 リリースに適用されます。
+- 原因: 1906 には、リソース作成のためのカスタム ロールやアクセス許可の割り当てに関する既知の問題があります。 適切なアクセス許可がある場合でも、リソース作成中に問題が発生することがあります。
+- 修復: この問題を軽減するには、ビルド 1907 に更新してください。
 - 発生頻度: 共通
 
 ### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード

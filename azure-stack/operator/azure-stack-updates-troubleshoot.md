@@ -15,19 +15,19 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: f2bbcf10feb47ba42bb6133bd4ab4320e120b283
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 94c6b6882c3b2f88c9815ab535fbef8b23811007
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813319"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145769"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス
 
 この記事では、Azure Stack Hub の修正プログラムと更新プログラムの問題に関するトラブルシューティングを行うためのベスト プラクティスの概要に加え、修正プログラムと更新プログラムのよくある問題の修復について説明します。
 
 
-Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムの問題中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
+Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
 
 0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[自動ログ収集を構成済み](azure-stack-configure-automatic-diagnostic-log-collection.md)であることを確認してください。
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。

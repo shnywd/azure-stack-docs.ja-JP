@@ -12,20 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 508036c399b44fc6de50c11955417c5a0732d8bc
-ms.sourcegitcommit: c4368652f0dd68c432aa1dabddbabf161a4a6399
+ms.openlocfilehash: dfc073c87b1e6c8b1696b4d052e89c4ef786bc4d
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75914993"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76535741"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack Hub 用のストレージ インフラストラクチャを管理する
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Development Kit*
 
 この記事では、Azure Stack Hub のストレージ インフラストラクチャ リソースの正常性状態と操作状態について説明します。 この種のリソースには、ストレージ ドライブとストレージ ボリュームがあります。 このトピックの情報は、プールにドライブを追加できないなど、さまざまな問題のトラブルシューティングを行うときに役に立ちます。
 

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 12/29/2019
-ms.openlocfilehash: 0d136fdb1a72a6c52a3e441470713b77974d1fa3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 1/16/2020
+ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
+ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882880"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76145803"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 
@@ -105,7 +105,7 @@ Azure Stack Hub インフラストラクチャには、ネットワーク アク
 
 ## <a name="regulatory-compliance"></a>規制に対するコンプライアンス
 
-Azure Stack Hub はサード パーティの独立した監査法人による正式な評価を受けています。 その結果、Azure Stack Hub インフラストラクチャが、いくつかの主要なコンプライアンス標準の該当するコントロールをどのように満たしているかについてのドキュメントを入手できます。 標準には、複数の担当者に関連する、およびプロセスに関連するコントロールが複数含まれるため、このドキュメントは Azure Stack Hub の認定資格ではありません。 代わりに、お客様は、このドキュメントを利用して、認定プロセスをすぐに開始できます。
+Azure Stack Hub はサード パーティの独立した監査法人による正式な機能評価を受けています。 その結果、Azure Stack Hub インフラストラクチャが、いくつかの主要なコンプライアンス標準の該当するコントロールをどのように満たしているかについてのドキュメントを入手できます。 標準には、複数の担当者に関連する、およびプロセスに関連するコントロールが複数含まれるため、このドキュメントは Azure Stack Hub の認定資格ではありません。 代わりに、お客様は、このドキュメントを利用して、認定プロセスをすぐに開始できます。
 
 評価は次のような標準が含まれます。
 

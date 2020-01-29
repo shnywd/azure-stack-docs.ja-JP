@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 9fe2d71d72f4075dd22658d2a769b3558e9ab7ce
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 12f7b1f0dad8e1d7b452fcfe0e1785fcd851b04b
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819320"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536455"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Visual Studio Code を使用して Azure Stack Hub にデプロイする
 

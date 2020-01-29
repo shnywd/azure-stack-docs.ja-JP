@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: 6cb2421deef1ea0b3c741c1c068e9452bfb2af5f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/21/2020
+ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
+ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882727"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76516770"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
@@ -259,6 +259,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery による高度なデータ保護は、バックアップ、レプリケーション、復旧を 1 つの使いやすいソフトウェア ソリューションに統合します。 | Quest Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper は、Azure Stack Hub での高可用性 (HA) とディザスター リカバリー (DR) を提供します。 Azure Stack Hub デプロイ内のお使いの Windows Server フェールオーバー クラスタリング (WSFC) 環境に SIOS DataKeeper ソフトウェアを構成要素として単純に追加するだけで、共有ストレージが不要になります。 | SIOS Technology Corp。 |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | クラス最高のオープン ソースのインフラストラクチャ管理。 | SUSE |
+| ![Teradici Cloud Access Software](media/azure-stack-marketplace-azure-items/teradici.png) | [Teradici Cloud Access Software](https://azuremarketplace.microsoft.com/marketplace/apps/teradici.teradici_cas_azure_stack) | PCoIP® テクノロジを利用した Cloud Access Software では、リモート デスクトップおよびワークステーションを Azure Stack からどのデバイスにも、またどこにでも配信します。 データ ストレージを統合する、コラボレーションを強化する、データをセキュリティで保護する、デスクトップ管理を効率化するなどの機能があります。 | Teradici |
 | ![CipherTrust Cloud Key Manager](media/azure-stack-marketplace-azure-items/cckm.png) | [CipherTrust Cloud Key Manager](https://azuremarketplace.microsoft.com/marketplace/apps/thales-vormetric.ciphertrust-ckm) | CipherTrust Cloud Key Manager では、Microsoft Azure およびその他のクラウド プロバイダーの Bring Your Own Key (BYOK) API を活用して、一元化された管理と可視性によって暗号化キーのマルチクラウド ライフサイクル制御を実現することで、キー管理の複雑さと運用コストを軽減します。 | Thales eSecurity |
 | ![Veeam Backup & Replication](media/azure-stack-marketplace-azure-items/veeam.png) | [Veeam Backup & Replication](https://azuremarketplace.microsoft.com/marketplace/apps/veeam.veeam-backup-replication?tab=Overview) | Veeam® Backup & Replication™ は、企業がすべてのワークロード、つまり、仮想、物理、クラウドベースの包括的なデータ保護を実現するのに役立ちます。 単一のコンソールで、すべてのアプリとデータの高速かつ柔軟で、信頼性の高いバックアップ、復旧、レプリケーションを実現できます。 | Veeam Software |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [ZeroDown Software Business Continuity as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown® Software のテクノロジは、Business Continuity as a Service (BCaaS、サービスとしてのビジネス継続性)™ アーキテクチャを介して、自らの会社データへの継続的なアクセスを事業者に提供し、通常なら企業を麻痺させるネットワークの中断が発生した場合でも、アプリおよびトランザクションを保護します。 | ZeroDown Software |

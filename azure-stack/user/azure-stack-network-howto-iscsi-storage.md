@@ -9,14 +9,14 @@ ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 5616284e7632f89ba31c89febb5a26158ad81bd7
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 909c138e17a25b06f7ed135c74aefaf63ce69aff
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879039"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259785"
 ---
-# <a name="how-to-connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する方法
+# <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する
 
 この記事のテンプレートを使用すると、Azure Stack Hub 仮想マシン (VM) をオンプレミスの iSCSI ターゲットに接続し、Azure Stack Hub の外部やデータセンターの他の場所でホストされるストレージを使用するように VM を設定できます。 この記事では、Windows マシンを iSCSI ターゲットとして使用する方法について説明します。
 

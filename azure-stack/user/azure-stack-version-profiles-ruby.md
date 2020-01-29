@@ -16,12 +16,12 @@ ms.date: 10/01/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d1109d2b0e8e8cffc1bf03c2e897c6c0230084c4
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878342"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256293"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
 
@@ -106,7 +106,7 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 Resource Manager エンドポイントからメタデータ情報を取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
  > [!NOTE]  
- > Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` になります。  
+ > Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external/` です。統合システムの **ResourceManagerUrl** は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。  
  > 必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。
   
  サンプルの JSON ファイルは、次のようになります。

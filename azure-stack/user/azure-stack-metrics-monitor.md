@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 066a179df94d9a61b89e5f6679968db7e4dea314
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e7b7b26afa4cb9a367ea48ef50308568a61db320
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883543"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259751"
 ---
-# <a name="how-to-consume-monitoring-data-from-azure-stack-hub"></a>Azure Stack Hub の監視データの使用方法
+# <a name="consume-monitoring-data-from-azure-stack-hub"></a>Azure Stack Hub の監視データの使用
 
 グローバル Azure の Azure Monitor と同様に、Azure Monitor パイプラインを使用して、監視データを 1 か所で確認します。 ただし、グローバル Azure で使用できるすべての監視データを Azure Stack Hub で使用できるわけではありません。 この記事では、Azure Stack Hub で監視データを使用するさまざまな方法の概要について説明します。
  
@@ -38,4 +38,4 @@ ms.locfileid: "75883543"
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Hub 上の Azure Monitor](azure-stack-metrics-azure-data.md) について学習します。
+[Azure Stack Hub 上の Azure Monitor](azure-stack-metrics-azure-data.md) に関する詳細情報。

@@ -15,16 +15,14 @@ ms.date: 01/13/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: bb34fc2322294f9829a8dea02f0812a6503c0197
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: 2b39b4e7bf8f4b7d3e24d2547e187b7e5d81c728
+ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924237"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76124754"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>App Service on Azure Stack Hub と Azure Functions の概要
-
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
 
 Azure App Service on Azure Stack Hub は、Azure Stack Hub で利用できる Microsoft Azure の、サービスとしてのプラットフォーム (PaaS) サービスです。 このサービスにより、内部または外部の顧客はあらゆるプラットフォームやデバイス用の Web、API、Azure Functions アプリを作成できるようになります。 お客様のアプリとオンプレミスのアプリを統合し、ビジネス プロセスを自動化できます。 Azure Stack Hub クラウドの運用者は、指定した共有仮想マシン (VM) リソースまたは専用 VM を使用して、フル マネージドの VM 上でユーザーのアプリを実行できます。
 

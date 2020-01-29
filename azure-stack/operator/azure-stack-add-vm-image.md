@@ -15,12 +15,12 @@ ms.date: 10/16/2019
 ms.author: Justinha
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 738c9aad910e558f883e3474b248a8271beb30a3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f0d0b268445d3de95e8f4dcaa0d44cb8d553111c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880891"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259819"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Azure Stack Hub にカスタム VM イメージを追加する
 
@@ -30,13 +30,22 @@ Azure Stack Hub では、カスタム仮想マシン (VM) のイメージをマ�
 
 ### <a name="windows"></a>Windows
 
-汎用化したカスタム VHD を作成します。 VHD が Azure の外部からのものである場合は、「[汎用化した VHD をアップロードして Azure で新しい VM を作成する](/azure/virtual-machines/windows/upload-generalized-managed)」の手順に従い、VHD に対して **Sysprep** を正しく実行して汎用化します。
+汎用化したカスタム VHD を作成します。 
 
-VHD が Azure からのものである場合は、それを Azure Stack Hub に移植する前に、[このドキュメント](/azure/virtual-machines/windows/download-vhd)の手順に従って VHD を正しく汎用化してダウンロードします。
+**VHD が Azure の外部からのものである場合は**、「[汎用化した VHD をアップロードして Azure で新しい VM を作成する](/azure/virtual-machines/windows/upload-generalized-managed)」の手順に従って VHD に対して **Sysprep** を正しく実行し、その VHD を汎用化します。
+
+**VHD が Azure からのものである場合は**、VM を汎用化する前に、次のことを確認してください。
+1) Azure 上で VM をプロビジョニングする場合は、PowerShell を使用し、`-ProvisionVMAgent` フラグなしでそれをプロビジョニングします。 
+2) Azure で VM を汎用化する前に、VM から **Remove-AzureRmVMExtension** コマンドレットを使用してすべての VM 拡張機能を削除します。 Windows (C:) > WindowsAzure > Logs > Plugins に移動することにより、どの VM 拡張機能がインストールされているかを見つけることができます。
+
+```Powershell
+Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```                       
+VHD を Azure Stack Hub に移植する前に、上記をポストし、[このドキュメント](/azure/virtual-machines/windows/download-vhd)の手順に従ってその VHD を正しく汎用化してダウンロードします。
 
 ### <a name="linux"></a>Linux
 
-VHD が Azure の外部からのものである場合は、適切な手順に従って VHD を汎用化します。
+**VHD が Azure の外部からのものである場合は**、適切な手順に従って VHD を汎用化します。
 
 - [CentOS ベースのディストリビューション](/azure/virtual-machines/linux/create-upload-centos?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Debian Linux](/azure/virtual-machines/linux/debian-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -44,7 +53,7 @@ VHD が Azure の外部からのものである場合は、適切な手順に従
 - [SLES または openSUSE](/azure/virtual-machines/linux/suse-create-upload-vhd?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Ubuntu Server](/azure/virtual-machines/linux/create-upload-ubuntu?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-VHD が Azure からのものである場合は、次の手順に従って VHD を汎用化し、ダウンロードします。
+**VHD が Azure からのものである場合は**、次の手順に従って VHD を汎用化し、ダウンロードします。
 
 1. **waagent** サービスを停止します。
 

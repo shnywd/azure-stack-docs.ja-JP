@@ -11,21 +11,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: c19cf8a97fa92e0084a5b494fe79a7e45a519cad
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 17d9c16a6ee95672450dcfed1dee66e21390e022
+ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878392"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76536438"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Azure Stack Hub でコンテナーを使用するための Kubernetes をデプロイする
 
 > [!Note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 この記事の手順に従えば、1 回の連携した操作で Kubernetes のリソースをデプロイおよび設定することができます。 この手順では、Azure Resource Manager ソリューション テンプレートを使用します。 Azure Stack Hub のインストールに関する必要な情報を収集し、テンプレートを生成してから、クラウドにデプロイする必要があります。 Azure Stack Hub テンプレートでは、グローバルな Azure で提供されているのと同じマネージド型の AKS サービスは使用されません。
 

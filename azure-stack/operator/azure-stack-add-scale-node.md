@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 7f9ab8b1ee8988689d2ac52dc355b85bfe9bfae6
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 50ff1bf63cbd7aaa36bb16e84f4c57db9c5a607d
+ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75805066"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76256378"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
@@ -34,7 +34,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 ![スケール ユニットの追加フロー](media/azure-stack-add-scale-node/add-node-flow.png)
 <br> *OEM ハードウェア ベンダーが物理サーバー ラックの配置とファームウェアの更新を行うかどうかは、サポート契約により異なります。*
 
-新しいノードを追加する作業は、完了までに数時間から数日かかることがあります。
+新しいノードを追加する作業は、完了までに数時間から数日かかることがあります。 他のスケール ユニット ノードが追加されている間、システム上の実行中のワークロードに影響はありません。
 
 > [!Note]  
 > スケール ユニット ノードの追加の操作が既に進行中の場合、次の操作は行わないでください。

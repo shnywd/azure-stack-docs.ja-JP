@@ -15,12 +15,12 @@ ms.date: 10/15/2019
 ms.author: mabrigg
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ca1d375e5d819e93813c9f6d0fa9baf5619f563
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c21e2a1335b76da2bcd1f4ce88274685d962a299
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75924373"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259921"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する
 
@@ -42,7 +42,7 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 
 | ハードウェア パートナー | リージョン | URL |
 |------------------|--------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Hub Operations Guide (Cisco Integrated System for Microsoft Azure Stack Hub 運用ガイド)](https://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_01000.html)<br><br>[UCS C シリーズ ラックマウント UCS 管理サーバー ソフトウェア](https://software.cisco.com/download/home/283862063/type/286320368/release/2.0(0)) |
+| Cisco | All | [Cisco Integrated System for Microsoft Azure Stack Hub Operations Guide (Cisco Integrated System for Microsoft Azure Stack Hub 運用ガイド)](https://aka.ms/aa708e2)<br><br>[UCS C シリーズ ラックマウント UCS 管理サーバー ソフトウェア](https://aka.ms/aa700rq) |
 | Dell EMC | All | [Cloud for Microsoft Azure Stack Hub 14G (アカウントとログインが必要)](https://support.emc.com/downloads/44615_Cloud-for-Microsoft-Azure-Stack-14G)<br><br>[Cloud for Microsoft Azure Stack Hub 13G (アカウントとログインが必要)](https://support.emc.com/downloads/42238_Cloud-for-Microsoft-Azure-Stack-13G) |
 | Fujitsu | 日本 | [富士通マネージド サービス サポート デスク (アカウントとログインが必要)](https://eservice.fujitsu.com/supportdesk-web/) |
 |  | ヨーロッパ、中東、アフリカ、および米国 | [Fujitsu サポート: IT 製品およびシステム](https://support.ts.fujitsu.com/IndexContact.asp?lng=COM&ln=no&LC=del) (英語) |
@@ -54,10 +54,13 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 
 次の手順で OEM パッケージを適用します。
 
+> [!IMPORTANT]
+> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+
 1. 次の場合に、OEM に問い合わせる必要があります。
       - OEM パッケージの現在のバージョンを確認する。  
       - OEM パッケージをダウンロードするための最適な方法を見つける。  
-2. OEM パッケージ更新プログラムを適用する前に、常にシステムの現在の Azure Stack Hub バージョンで利用可能な最新の Azure Stack Hub 修正プログラムを適用する必要があります。 修正プログラムの詳細については、[Azure Stack Hub 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)に関するページを参照してください。
+2. OEM パッケージ更新プログラムを適用する前に、常にシステムの現在の Azure Stack Hub バージョンで利用可能な最新の Azure Stack Hub 修正プログラムを適用する必要があります。 修正プログラムの詳細については、[Azure Stack Hub 修正プログラム](azure-stack-servicing-policy.md)に関するページを参照してください。
 3. 「[統合システムの更新プログラム パッケージをダウンロードする](azure-stack-servicing-policy.md)」に記載されている手順で、OEM パッケージを準備します。
 4. [Azure Stack Hub で更新を適用する](azure-stack-apply-updates.md)ことに関するページに記載されている手順で、更新プログラムを適用します。
 

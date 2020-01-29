@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e970dc46a4afdcc67e16c0239dc712da111c47a6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8b15be476153f2cc3fa01788814801bb751c9a9c
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879123"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259861"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
+# <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
 この記事では、Azure Stack Hub に VPN 接続を作成する方法について説明します。 VPN ゲートウェイは、Azure Stack Hub の仮想ネットワークとリモート VPN ゲートウェイの間で暗号化されたトラフィックを送信する、仮想ネットワーク ゲートウェイの一種です。 次の手順では、FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、リソース グループ内に 1 つの VNET をデプロイします。 また、FortiGate NVA で IPSec VPN を設定する手順も提供します。
 

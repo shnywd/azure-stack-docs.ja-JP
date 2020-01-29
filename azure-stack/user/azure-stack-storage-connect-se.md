@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する | Microsoft Docs
-description: Azure Stack Hub サブスクリプションにストレージ エクスプローラーを接続する方法について学習します
+description: Azure Stack Hub サブスクリプションにストレージ エクスプローラーを接続する方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,12 +14,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 010722e7152af7e51747870ae5bf26229ad339d6
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c01e509dc77e2a036ad640ee5376ffda37f903f
+ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878409"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76259836"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -65,7 +65,7 @@ Storage Explorer で Azure Stack Hub サブスクリプションにアクセス�
 
     証明書のインポート後は、Storage Explorer の再起動を求めるメッセージが表示されます。
 
-    ![ストレージ エクスプローラーに証明書をインポートする](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
+    ![Storage Explorer に証明書をインポートする](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
 8. Storage Explorer が再起動したら、 **[編集]** メニューを選択し、 **[Target Azure Stack Hub APIs]\(Azure Stack Hub API を対象にする\)** が選択されているかどうかを確認します。 **[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\)** が選択されていない場合は、選択してから Storage Explorer を再起動して、この変更を反映させます。 この構成は、Azure Stack Hub 環境との互換性を確保するために必要です。
 
@@ -159,6 +159,6 @@ AD FS アカウントに属している Azure Stack Hub サブスクリプショ
 
 ## <a name="next-steps"></a>次のステップ
 
-* [ストレージ エクスプローラーの概要](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [Storage Explorer の概要](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack Hub ストレージ: 違いと考慮事項](azure-stack-acs-differences.md)
 * Azure Storage の詳細については、「[Microsoft Azure Storage の概要](/azure/storage/common/storage-introduction)」を参照してください。
