@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub 内の仮想マシンに Go Web アプリをデプロイする | Microsoft Docs
+title: Azure Stack Hub 内の仮想マシンに Go Web アプリをデプロイする
 description: Azure Stack Hub 内の VM に Go Web アプリをデプロイする方法
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a06fa482914a45ea53cb88ac09dae54f26bb7558
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: e57de0bbcb51b4e1bf2d3d4501b57cbc5115927e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536234"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883766"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Go Web アプリをデプロイする
 

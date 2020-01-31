@@ -1,26 +1,19 @@
 ---
-title: Azure Stack VaaS ポータルでのテストの監視と管理 | Microsoft Docs
+title: Azure Stack VaaS ポータルでテストを監視および管理する
 description: Azure Stack VaaS ポータルでテストを監視および管理します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87ba89298c0a5a134cb0b3b1a2b7e771151e46d9
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955907"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885081"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>VaaS ポータルでのテストの監視と管理
 
@@ -66,12 +59,12 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 スケジュールされた各テスト インスタンスには、次の情報が示されます。
 
-| 列 | 説明 |
+| 列 | [説明] |
 | --- | --- |
 | テスト名 | テストの名前とバージョン。 |
-| Category | テストの目的。 |
-| Created | テストがスケジュールされた時刻。 |
-| 開始済み | テストの実行が開始された時刻。 |
+| カテゴリ | テストの目的。 |
+| 作成済み | テストがスケジュールされた時刻。 |
+| Started | テストの実行が開始された時刻。 |
 | Duration | テストが実行された時間の長さ。 |
 | Status | テストの状態または結果。 実行前または進行中の状態は、`Pending`、`Running` です。 終了状態は、`Cancelled`、`Failed`、`Aborted`、`Succeeded` です。 |
 | エージェント名 | テストを実行したエージェントの名前。 |
@@ -87,14 +80,14 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 テストの定義に関する全般的な情報を表示するには、コンテキスト メニューの **[情報の表示]** を選択します。 これは、名前とバージョンが同じ各テスト インスタンスに共有されます。
 
-| テストのプロパティ | 説明 |
+| テストのプロパティ | [説明] |
 | -- | -- |
 | テスト名 | テストの名前。 |
 | テスト バージョン | テストのバージョン。 |
 | Publisher | テストの発行元。 |
-| Category |  テストの目的。 |
+| カテゴリ |  テストの目的。 |
 | Target services (ターゲット サービス) | テストされている Azure Stack サービス。 |
-| 説明 | テストの説明。 |
+| [説明] | テストの説明。 |
 | Estimated duration (minutes) (見積もり期間 (分)) | テストの予期される実行時間。 |
 | リンク | テストの関連情報や連絡先。 |
 
@@ -104,7 +97,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 このウィンドウには、すべてのテスト インスタンスの次のメタデータが含まれています。
 
-| テスト インスタンスのプロパティ | 説明 |
+| テスト インスタンスのプロパティ | [説明] |
 | -- | -- |
 | テスト名 | テストの名前。 |
 | テスト バージョン | テストのバージョン。 |
@@ -146,6 +139,6 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 1. テスト インスタンスを取り消すには、 **[送信]** を選択します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証のトラブルシューティング](azure-stack-vaas-troubleshoot.md)

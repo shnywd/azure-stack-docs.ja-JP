@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub で仮想マシンに Node.js アプリをデプロイする | Microsoft Docs
+title: Azure Stack Hub 内の仮想マシンに Node.js アプリをデプロイする
 description: Azure Stack Hub に Node.js アプリをデプロイします。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: c5d254351fab0bb89023dad8928ac32958f63404
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536217"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883763"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub で VM に Node.js Web アプリをデプロイする
 
@@ -47,7 +45,7 @@ Azure Stack Hub で Node.js Web アプリをホストする仮想マシン (VM) 
 2. [NPM をインストール](https://www.npmjs.com/)します。これは、Node.js パッケージ、つまり、モジュール用のパッケージ マネージャーです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [Git をインストール](https://git-scm.com) します。これは、広域分散型のバージョン管理およびソース コード管理 (SCM) システムです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。

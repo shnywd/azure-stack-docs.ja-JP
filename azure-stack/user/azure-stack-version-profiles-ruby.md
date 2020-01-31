@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub での Ruby による API バージョンのプロファイルの使用 | Microsoft Docs
+title: Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
 description: Azure Stack Hub での Ruby による API バージョンのプロファイルの使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: B82E4979-FB78-4522-B9A1-84222D4F854B
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: ec8c03536cb005de84f35ae7dc534d33f7223354
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 1236e501ce09b5e81124f8bc87821d1b5f11cfaa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256293"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883102"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
 
@@ -91,7 +82,7 @@ gem install 'azure_sdk'
 
 Azure Stack Hub で Ruby Azure SDK を使用するには、次の値を指定した後、環境変数で値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
-| 値 | 環境変数 | [説明] |
+| Value | 環境変数 | [説明] |
 | --- | --- | --- |
 | テナント ID | `AZURE_TENANT_ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。  |

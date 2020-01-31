@@ -1,30 +1,20 @@
 ---
-title: Azure Stack Hub Development Kit (ASDK) とは | Microsoft Docs
-description: Azure Stack Hub Development Kit (ASDK) と、それを使用して Azure Stack Hub を評価する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack 開発キット (ASDK) とは | Microsoft Docs
+description: Azure Stack 開発キットと、それを使用して Azure Stack Hub を評価する方法について説明します。
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
 ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: fb9dab302e20d436be7f3cf9a76de913bbfe22e3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689824"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873296"
 ---
-# <a name="what-is-the-azure-stack-hub-development-kit-asdk"></a>Azure Stack Hub Development Kit (ASDK) とは
+# <a name="what-is-the-azure-stack-development-kit-asdk"></a>Azure Stack 開発キット (ASDK) とは
 [Microsoft Azure Stack Hub 統合システム](../operator/azure-stack-overview.md)には 4 ノードから 16 ノードまでのサイズがあり、ハードウェア パートナーと Microsoft によって共同でサポートされます。 Azure Stack Hub 統合システムの使用により、運用ワークロード向けの新しいシナリオが可能になります。 統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack Hub オペレーターは、[オペレーター ドキュメント](/azure-stack/operator)を参照してください。
 
 ASDK は、Azure Stack Hub の単一ノード デプロイであり、**無料**でダウンロードして使用できます。 すべての ASDK コンポーネントは、単一のホスト コンピューター上で実行される仮想マシン (VM) にインストールされます。そのコンピューターは、[最低限のハードウェア要件](asdk-deploy-considerations.md#hardware)を満たす必要があります。 ASDK の目的は、"*非運用*" 環境で Azure と一貫性のある API とツールを使用して、Azure Stack Hub の評価と最新アプリの開発ができる環境を提供することです。 
@@ -46,7 +36,7 @@ ASDK の詳細については、次の短い動画をご覧ください。
 ## <a name="asdk-and-multi-node-azure-stack-hub-differences"></a>ASDK とマルチノード Azure Stack Hub の相違点
 単一ノードの ASDK デプロイは、マルチノードの Azure Stack Hub デプロイとはいくつかの重要な点で異なります。
 
-|説明|ASDK|マルチノード Azure Stack Hub|
+|[説明]|ASDK|マルチノード Azure Stack Hub|
 |-----|-----|-----|
 |**スケール**|すべてのコンポーネントが、単一ノードのサーバー コンピューターにインストールされます。|サイズは 4 から 16 ノードの範囲で設定できます。|
 |**回復力**|単一ノードの構成では、高可用性は提供されません|高可用性機能がサポートされています。|
@@ -61,7 +51,7 @@ Azure Stack Hub オペレーターは、ユーザーにどのサービスを提�
 ### <a name="foundational-services"></a>基礎となるサービス
 ASDK をデプロイすると、Azure Stack Hub には既定で以下の "基礎となるサービス" が含まれています。
 - Compute
-- Storage
+- ストレージ
 - ネットワーク
 - Key Vault
 
@@ -80,5 +70,5 @@ ASDK をデプロイすると、Azure Stack Hub には既定で以下の "基礎
 Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 Azure Stack Hub の今後の予定については、[Azure Stack ロードマップ](https://azure.microsoft.com/roadmap/?tag=azure-stack)を参照してください。 
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 Azure Stack Hub の評価を開始するには、最初に[最新の ASDK](asdk-download.md) をダウンロードし、ASDK ホスト コンピューターを準備する必要があります。 その後、ASDK をインストールして管理者ポータルとユーザー ポータルにサインインし、Azure Stack Hub の使用を開始することができます。

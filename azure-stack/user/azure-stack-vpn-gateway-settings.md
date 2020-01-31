@@ -1,26 +1,17 @@
 ---
-title: Azure Stack Hub の VPN ゲートウェイ設定の構成 | Microsoft Docs
+title: Azure Stack Hub の VPN ゲートウェイ設定の構成
 description: Azure Stack Hub の VPN ゲートウェイ設定についてと、その構成について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ff7667c94b345cbb666232e869ab8871bd081f5c
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883135"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884124"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイ設定の構成
 
@@ -32,7 +23,7 @@ VPN Gateway の接続は複数のリソースの構成に依存し、それぞ�
 
 ### <a name="gateway-types"></a>ゲートウェイの種類
 
-各 Azure Stack Hub 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、**Vpn** である必要があります。  このサポートは Azure とは異なります。Azure では、その他の種類もサポートされています。
+各 Azure Stack Hub 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、**Vpn** である必要があります。 このサポートは Azure とは異なります。Azure では、その他の種類もサポートされています。
 
 仮想ネットワーク ゲートウェイを作成するときは、ゲートウェイの種類が構成に対して適切であることを確認する必要があります。 VPN ゲートウェイでは、次の例のように `-GatewayType Vpn` フラグが必要です。
 
@@ -166,7 +157,7 @@ Azure Stack Hub で VPN 接続を設定する場合、両端で接続を構成�
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE フェーズ 1 (メイン モード) のパラメーター
 
-| プロパティ              | 値|
+| プロパティ              | Value|
 |-|-|
 | IKE のバージョン           | IKEv2 |
 |Diffie-hellman グループ   | ECP384 |
@@ -176,7 +167,7 @@ Azure Stack Hub で VPN 接続を設定する場合、両端で接続を構成�
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE フェーズ 2 (クイック モード) のパラメーター
 
-| プロパティ| 値|
+| プロパティ| Value|
 |-|-|
 |IKE のバージョン |IKEv2 |
 |暗号化とハッシュ アルゴリズム (暗号化)     | GCMAES256|

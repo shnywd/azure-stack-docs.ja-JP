@@ -1,26 +1,19 @@
 ---
-title: Azure Stack のサービスとしての検証で Microsoft のソフトウェア更新プログラムを検証する | Microsoft Docs
+title: Azure Stack のサービスとしての検証で Microsoft のソフトウェア更新プログラムを検証する
 description: Microsoft のソフトウェア更新プログラムをサービスとしての検証で検証する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3399288b801114f076afe3b68d3f9790bfe2af29
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 5e4438f0c3a95b2254422a428741a28b685cb9f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884012"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft のソフトウェア更新プログラムの検証
 
@@ -49,6 +42,6 @@ VaaS で月次更新プログラムのプロセスを実行する前に、以下
 
 質問や懸念事項がある場合は、[VaaS ヘルプ](mailto:vaashelp@microsoft.com)にお問い合わせください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

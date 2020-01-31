@@ -1,26 +1,19 @@
 ---
-title: Azure Stack のサービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する | Microsoft Docs
+title: Azure Stack のサービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する
 description: サービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954555"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885103"
 ---
 # <a name="validate-oem-packages"></a>OEM パッケージの検証
 
@@ -68,7 +61,7 @@ VaaS ポータルで**パッケージの検証**ワークフローを作成す�
 
 VaaS に必要な最低限のアクセス レベルは、パッケージの検証ワークフローを作成するか、*対話型*テストをスケジュール設定するかによって異なります。
 
-**プライベート**と **Blob** アクセス レベルの場合、[Shared Access Signature (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) を VaaS に設定することによって、パッケージ blob へのアクセス権を一時的に付与する必要があります。 **コンテナー** アクセス レベルでは SAS URL を生成する必要はありませんが、コンテナーとその BLOB への非認証アクセスを許可します。
+**プライベート**と **Blob** アクセス レベルの場合、[Shared Access Signature (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) を VaaS に設定することによって、パッケージ BLOB へのアクセス権を一時的に付与する必要があります。 **コンテナー** アクセス レベルでは SAS URL を生成する必要はありませんが、コンテナーとその BLOB への非認証アクセスを許可します。
 
 |アクセス レベル | ワークフローの要件 | テストの要件 |
 |---|---------|---------|
@@ -78,7 +71,7 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
 パッケージへのアクセス権を付与するオプションでは、アクセス権は最小から最大に順序指定されています。
 
-#### <a name="option-1-generate-a-blob-sas-url"></a>オプション 1:BLOB の SAS URL を生成する
+#### <a name="option-1-generate-a-blob-sas-url"></a>オプション 1: BLOB の SAS URL を生成する
 
 ストレージ コンテナーのアクセス レベルが**プライベート**に設定されている場合は、このオプションを使用します。この場合、コンテナーまたはその BLOB へのパブリック読み取りアクセスを有効にしません。
 
@@ -118,7 +111,7 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
     ポータルでパッケージ BLOB URL を指定する場合は、この値を使用してください。
 
-#### <a name="option-3-grant-public-read-access"></a>オプション 3: パブリック読み取りアクセスを許可する
+#### <a name="option-3-grant-public-read-access"></a>オプション 3:パブリック読み取りアクセスを許可する
 
 認証されていないクライアントから個々の BLOB へのアクセス、またはコンテナーへのアクセス (*対話型*テストの場合) を許可することが許容される場合は、このオプションを使用します。
 
@@ -193,6 +186,6 @@ OEM パッケージの検証では、以下のテストを実行する必要が�
 
 パッケージ署名要求を送信するには、この実行に関連付けられているソリューション名とパッケージ検証名を [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に送信します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

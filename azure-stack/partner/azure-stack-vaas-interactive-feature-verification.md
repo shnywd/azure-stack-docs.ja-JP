@@ -1,26 +1,19 @@
 ---
-title: Azure Stack のサービスとしての検証における対話型機能検証テスト | Microsoft Docs
+title: Azure Stack のサービスとしての検証における対話型機能検証テスト
 description: サービスとしての検証を使用して Azure Stack 用の対話型機能検証テストを作成する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167254"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884143"
 ---
 # <a name="interactive-feature-verification-testing"></a>対話型機能検証テスト  
 
@@ -112,6 +105,6 @@ ms.locfileid: "73167254"
 
 1. **[送信]** を選択して、結果を Microsoft に送信します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

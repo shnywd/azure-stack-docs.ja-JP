@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub で Kubernetes クラスターをスケーリングする | Microsoft Docs
+title: Azure Stack Hub で Kubernetes クラスターをスケーリングする
 description: Azure Stack Hub で Kubernetes クラスターをスケーリングする方法を学習します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 0fd294e0c7379bed75a0eb753678810d06888106
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 8956fd60436281c4bb3362b82df38f23d6278425
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878936"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883487"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをスケーリングする
 

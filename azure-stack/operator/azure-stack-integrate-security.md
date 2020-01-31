@@ -1,22 +1,18 @@
 ---
-title: Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する | Microsoft Docs
+title: Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 description: Syslog 転送を使用して、Azure Stack Hub と監視ソリューションを統合する方法を説明します。
-services: azure-stack
-author: justinha
-manager: femila
-ms.service: azure-stack
+author: ihenkel
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-keywords: ''
-ms.openlocfilehash: bc484919227fe08293db9ac987bee4d18313d802
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882421"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882085"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 
@@ -61,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* コマンドレットのパラメーター:
 
-| パラメーター | [説明] | 種類 | 必須 |
+| パラメーター | [説明] | 種類 | Required |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog サーバーの FQDN または IP アドレス。 | String | はい|
 |*ServerPort* | Syslog サーバーがリッスンしているポート番号。 | UInt16 | はい|
