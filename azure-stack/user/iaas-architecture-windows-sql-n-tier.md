@@ -1,20 +1,18 @@
 ---
-title: SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション | Microsoft Docs
+title: SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 description: SQL Server を使用して Azure Stack Hub で Windows N 層アプリケーションを実行する方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 11/01/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 2c8eb46ecf53ba0bcab5d38ebe6a7e9aac79708e
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: f2a981b3eb7b9d233d656daea4d0bcb4bbd21039
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815444"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885285"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 

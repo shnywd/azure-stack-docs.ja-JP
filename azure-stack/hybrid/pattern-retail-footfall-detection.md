@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Hub を使用して AI ベースの足取り検出を実装するためのハイブリッド パターン。
 description: Azure および Azure Stack Hub サービスを使用して AI ベースの足取り検出ソリューションを実装し、小売店内のトラフィックを分析する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: 27fb31a29313543c3eec2b973cdf8e8ce32940fd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187285"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877325"
 ---
 # <a name="footfall-detection-pattern"></a>足取り検出パターン
 
@@ -41,11 +40,11 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 6. Event Hubs クラスターにより、データは Stream Analytics にプッシュされます。
 7. Stream Analytics によってデータが集計され、Power BI にプッシュされます。
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | 説明 |
+| レイヤー | コンポーネント | [説明] |
 |----------|-----------|-------------|
 | 店舗内のハードウェア | [Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) | 分析用に人の画像のみをキャプチャするローカル ML モデルを使用して、ストア内でフィルター処理を行います。 IoT Hub によって安全にプロビジョニングと更新が行われます。<br><br>|
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Azure Event Hubs は、Azure Stream Analytics と密接に統合された、匿名データを取り込むためのスケーラブルなプラットフォームを提供します。 |
@@ -74,18 +73,18 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 
 このソリューションは階層化されているため、ネットワークや電源の障害に対処する方法を検討しておく必要があります。 ビジネス ニーズに応じて、画像をローカルにキャッシュし、接続が回復したときに Azure Stack Hub に転送するメカニズムを実装することが適切な場合があります。 場所に余裕がある場合は、Face API コンテナーを備えた Data Box Edge をその場所に配置する方が適切である可能性もあります。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 このソリューションは多数のデバイスと場所にまたがることがあるため、扱いにくくなる可能性があります。 [Azure の IoT サービス](/azure/iot-fundamentals/)を使用することで、新しい場所とデバイスを自動的にオンラインにし、最新の状態に保つことができます。 
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 このソリューションでは顧客の画像をキャプチャするため、セキュリティが最も重要な考慮事項となります。 すべてのストレージ アカウントが適切なアクセス ポリシーで保護されていること、またキーが定期的にローテーションされていることを確認します。 ストレージ アカウントと Event Hubs に、企業および政府のプライバシー規制に準拠したアイテム保持ポリシーが備わっていることを確認します。 また、ユーザー アクセス レベルは必ず階層化してください。 階層化により、ユーザーは各自のロールに必要なデータにだけアクセスできるようになります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - 足取り検出パターンによって利用される、[階層化データ パターン](https://aka.ms/tiereddatadeploy)に関するページをご覧ください。
 - Custom Vision の使用に関する詳細については、[Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) に関するページをご覧ください。 
 
-ソリューションの例をテストする準備ができたら、[足取り検出のデプロイ ガイド](solution-deployment-guide-retail-footfall-detection.md)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明されています。
+ソリューションの例をテストする準備ができたら、[足取り検出のデプロイ ガイド](solution-deployment-guide-retail-footfall-detection.md)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。

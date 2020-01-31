@@ -1,27 +1,19 @@
 ---
-title: App Service on Azure Stack Hub Update 2 のリリース ノート | Microsoft Docs
+title: App Service on Azure Stack Hub Update 2 のリリース ノート
 description: App Service on Azure Stack Hub Update 2 の機能強化、修正、既知の問題の詳細を説明します。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: b21ff443ff9f5cea95ea772e201f1e9804798024
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 029601b9bac3bc3b14d2ab4202df072b6d9063de
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880041"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875795"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service on Azure Stack Hub Update 2 のリリース ノート
 
@@ -98,4 +90,4 @@ Azure App Service on Azure Stack Hub Update 2 には、次の機能強化と修�
 ## <a name="next-steps"></a>次のステップ
 
 - Azure App Service の概要については、「[Azure Stack Hub 上の App Service の概要](azure-stack-app-service-overview.md)」を参照してください。
-- App Service on Azure Stack Hub のデプロイを準備する方法の詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」を参照してください。
+- App Service on Azure Stack Hub のデプロイを準備する方法の詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。

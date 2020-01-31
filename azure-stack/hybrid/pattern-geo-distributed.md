@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Hub を使用した、インテリジェント エッジの地理的に分散されたアプリ パターン。
 description: Azure と Azure Stack Hub を使用した、インテリジェント エッジの地理的に分散されたアプリ パターンについて説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 46044559e400e77098bdae038c87df88f1866127
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 37d4b517eec69ebab72aa3d82733829466b44fda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75717996"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875676"
 ---
 # <a name="geo-distributed-pattern"></a>地理的に分散されたパターン
 

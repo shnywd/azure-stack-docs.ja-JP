@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法 | Microsoft Docs
+title: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 description: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 09/19/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4593898a1ea70b2001c252f885b12db2f16e922e
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 42ed5facf2b88aee8eb5fefd514ee31df8722ecc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883050"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883021"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 

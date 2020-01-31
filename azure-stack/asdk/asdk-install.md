@@ -1,27 +1,18 @@
 ---
-title: ASDK のインストール | Microsoft Docs
+title: ASDK のインストール
 description: Azure Stack Development Kit (ASDK) をインストールする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: 732eef83c6a973a6afbe260e5cca8134dda46504
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159433"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873789"
 ---
 # <a name="install-the-asdk"></a>ASDK のインストール
 [ASDK ホスト コンピューターの準備](asdk-prepare-host.md)ができたら、この記事の次の手順に従って、Azure Stack Development Kit (ASDK) を CloudBuilder.vhdx イメージにデプロイできます。
@@ -92,5 +83,5 @@ ms.locfileid: "71159433"
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [デプロイ後の構成](asdk-post-deploy.md)

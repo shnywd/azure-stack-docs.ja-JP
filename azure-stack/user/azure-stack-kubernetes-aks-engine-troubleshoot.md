@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub 上の AKS エンジンのトラブルシューティング | Microsoft Docs
+title: Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 description: この記事では Azure Stack Hub 上の AKS エンジンのトラブルシューティングの手順について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femilav
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 3b87f5cf7273afdabd6ee7da672d06712607e126
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923938"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884739"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -126,7 +118,7 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 2. `getkuberneteslogs.sh` スクリプトに必要なパラメーターを探します。 このスクリプトでは、次のパラメーターが使用されます。
 
-    | パラメーター | [説明] | 必須 | 例 |
+    | パラメーター | [説明] | Required | 例 |
     | --- | --- | --- | --- |
     | -h, --help | Print コマンドの使用方法。 | いいえ | 
     -u,--user | クラスター VM の管理者ユーザー名 | はい | azureuser<br>(既定値) |

@@ -1,21 +1,18 @@
 ---
-title: Azure Stack Hub VM の概要 | Microsoft Docs
+title: Azure Stack Hub VM の概要
 description: Azure Stack Hub VM について説明します。
-services: azure-stack
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 7a7da17dd3b9be99c797b2241ae38bd2d4e6c0d2
-ms.sourcegitcommit: ce01b2cd114ca8ab5b70c6311b66c58ceb054469
+ms.openlocfilehash: c961716a64d3ccc4efcbf2eb36091e611db39be9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75923980"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883929"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM の概要
 
@@ -64,7 +61,7 @@ VM は、仮想ハード ディスク (VHD) を使用して、オペレーティ
 
 次の表に、イメージに関する情報を見つける方法を示します。
 
-|方法|[説明]|
+|Method|[説明]|
 |---------|---------|
 |Azure Stack Hub ポータル|値は、使用するイメージを選択する際に自動的に指定されます。|
 |Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
@@ -87,7 +84,7 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 
 次の表のリソースは VM によって使用されるため、VM の作成時に存在するか、作成する必要があります。
 
-|リソース|必須|[説明]|
+|リソース|Required|[説明]|
 |---------|---------|---------|
 |Resource group|はい|VM は、リソース グループに含まれる必要があります。|
 |ストレージ アカウント|いいえ|マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
@@ -100,7 +97,7 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 
 VM の作成方法にはいくつかの選択肢があります。 どれを選ぶかは環境によって異なります。 次の表は、VM の作成を開始するのに役立つ情報を提供します。
 
-|方法|[アーティクル]|
+|Method|[アーティクル]|
 |---------|---------|
 |Azure Stack Hub ポータル|Azure Stack Hub ポータルを使用して Windows VM を作成する<br>[Azure Stack Hub ポータルを使用して Linux VM を作成する](azure-stack-quick-linux-portal.md)|
 |テンプレート|Azure Stack Hub のクイックスタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
@@ -120,7 +117,7 @@ VM は、ブラウザーベースのポータル、スクリプトがサポー�
 
 次の表に、VM に関する情報の取得方法の一部を示します。
 
-|方法|[説明]|
+|Method|[説明]|
 |---------|---------|
 |Azure Stack Hub ポータル|ハブ メニューの **[仮想マシン]** をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
 |Azure PowerShell|VM の管理は、Azure と Azure Stack Hub とで似ています。 PowerShell の使用について詳しくは、次の Azure トピックをご覧ください。<br>[Azure PowerShell モジュールを使用して Windows VM を作成および管理する](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|

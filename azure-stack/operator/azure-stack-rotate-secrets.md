@@ -2,27 +2,19 @@
 title: シークレットの切り替え
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でシークレットをローテーションする方法について説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: da9ed84f325612aa9b6261daed63a3eba7684f73
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75815104"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881341"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -309,7 +301,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター | 種類 | 必須 | [位置] | Default | [説明] |
+| パラメーター | 種類 | Required | [位置] | Default | [説明] |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |

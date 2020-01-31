@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Edge を使用して、エッジで在庫切れの検出を実装するためのパターン。
 description: Azure と Azure Stack Edge サービスを使用して、在庫切れの検出を実装する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fb4eb410eefb8a34bd869543a191a1b044a42f72
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 2fac02fc6bae0d8bfedebcbb059e376d616a5b87
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640096"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875540"
 ---
 # <a name="out-of-stock-detection-at-the-edge-pattern"></a>エッジ パターンでの在庫切れ検出
 
@@ -40,11 +39,11 @@ ms.locfileid: "73640096"
 8. Power BI には、Time Series Insights のデータと共に、長期間にわたる在庫切れ商品の対話型レポートが表示されます。
 
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | 説明 |
+| レイヤー | コンポーネント | [説明] |
 |----------|-----------|-------------|
 | オンプレミスのハードウェア | ネットワーク カメラ | ネットワーク カメラは、推論用の画像を提供するため、HTTP または RTSP フィードで必要です。 |
 | Azure | Azure IoT Hub | [Azure IoT Hub](/azure/iot-hub/) では、デバイス プロビジョニング、およびエッジ デバイスのメッセージングが処理されます。 |
@@ -65,20 +64,20 @@ ms.locfileid: "73640096"
 
 エッジ デバイスで接続が失われた場合に発生する可能性があることを考慮することが重要です。 Time Series Insights と Power BI ダッシュボードから失われる可能性があるデータについて考慮してください。 提供されているソリューションの例は、高可用性を実現するように設計されていません。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 このソリューションは多数のデバイスと場所にまたがることがあるため、扱いにくくなる可能性があります。 Azure の IoT サービスにより、新しい場所とデバイスを自動的にオンラインにし、最新の状態に保つことができます。 適切なデータ ガバナンス手順にも従う必要があります。
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 このパターンでは、潜在的に敏感なデータが処理されます。 キーが定期的にローテーションされており、Azure Storage アカウントとローカル共有のアクセス許可が正しく設定されていることを確認します。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - このパターンでは、[Azure IoT Edge](/azure/iot-edge/)、[Azure IoT Hub](/azure/iot-hub/)、[Azure Time Series Insights](/azure/time-series-insights/) など、複数の IoT 関連サービスが使用されます。
 - Microsoft Project Brainwave の詳細については、[ブログの発表](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)を参照してください。また、[Azure Accelerated Machine Learning with Project Brainwave (Project Brainwave による Azure Machine Learning の高速化) のビデオ](https://www.youtube.com/watch?v=DJfMobMjCX0)をご覧ください。
-- ベスト プラクティスの詳細を確認し、その他の質問に回答するには、「[ハイブリッド アプリケーションの設計の考慮事項](overview-app-design-considerations.md)」を参照してください。
-- 製品とソリューションのポートフォリオ全体の詳細については、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
+- ベスト プラクティスの詳細とその他の疑問の回答を確認するには、「[ハイブリッド アプリの設計上の考慮事項](overview-app-design-considerations.md)」を参照してください。
+- 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 
-ソリューションの例をテストする準備ができたら、[分析ソリューションの階層化データのデプロイ ガイド](https://aka.ms/edgeinferencingdeploy)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明されています。
+ソリューションの例をテストする準備ができたら、[分析ソリューションの階層化データのデプロイ ガイド](https://aka.ms/edgeinferencingdeploy)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。

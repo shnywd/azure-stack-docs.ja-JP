@@ -1,28 +1,18 @@
 ---
-title: Powershell を使用してコマンド ラインから ASDK をデプロイする | Microsoft Docs
+title: PowerShell を使用してコマンド ラインから ASDK をデプロイする
 description: PowerShell を使用してコマンド ラインから ASDK デプロイする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0bced4d75b70b05eea42de763066f1d5b05e1976
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: b31792ce210cfc7fc5c2d1ee4ba1b496b2d340f6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022916"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873806"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
@@ -143,9 +133,9 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 
 |パラメーター|必須/省略可能|[説明]|
 |-----|-----|-----|
-|AdminPassword|必須|ASDK のデプロイの一環として作成されたすべての仮想マシンのローカル管理者アカウントと他のすべてのユーザー アカウントを設定します。 このパスワードは、ホスト上の現在のローカル管理者パスワードと一致する必要があります。|
-|InfraAzureDirectoryTenantName|必須|テナント ディレクトリを設定します。 このパラメーターを使用して、Azure AD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 Azure AD テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
-|TimeServer|必須|このパラメーターを使用して、特定のタイム サーバーを指定します。 このパラメーターは、有効なタイム サーバーの IP アドレスとして指定する必要があります。 サーバー名はサポートされていません。|
+|AdminPassword|Required|ASDK のデプロイの一環として作成されたすべての仮想マシンのローカル管理者アカウントと他のすべてのユーザー アカウントを設定します。 このパスワードは、ホスト上の現在のローカル管理者パスワードと一致する必要があります。|
+|InfraAzureDirectoryTenantName|Required|テナント ディレクトリを設定します。 このパラメーターを使用して、Azure AD アカウントに複数のディレクトリを管理するアクセス許可がある特定のディレクトリを指定します。 Azure AD テナントのフル ネーム (.onmicrosoft.com 形式) または Azure AD 確認済みカスタム ドメイン名。|
+|TimeServer|Required|このパラメーターを使用して、特定のタイム サーバーを指定します。 このパラメーターは、有効なタイム サーバーの IP アドレスとして指定する必要があります。 サーバー名はサポートされていません。|
 |InfraAzureDirectoryTenantAdminCredential|省略可能|Azure Active Directory のユーザー名とパスワードを設定します。 これらの Azure 資格情報は、組織 ID である必要があります。|
 |InfraAzureEnvironment|省略可能|この Azure Stack デプロイを登録する Azure 環境を選択します。 オプションには、グローバル Azure、Azure China、Azure US Government などがあります。|
 |DNSForwarder|省略可能|DNS サーバーが Azure Stack のデプロイの一部として作成されます。 ソリューション内のコンピューターにスタンプ外の名前解決を許可するには、既存のインフラストラクチャの DNS サーバーを提供します。 スタンプ内の DNS サーバーが、このサーバーに不明な名前解決の要求を送信します。|
