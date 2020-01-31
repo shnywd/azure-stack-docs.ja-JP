@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub で Azure Resource Manager テンプレートを使用する | Microsoft Docs
+title: Azure Stack Hub で Azure Resource Manager テンプレートを使用する
 description: Azure Stack Hub で Azure Resource Manager テンプレートを使用してリソースをプロビジョニングする方法を説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 86981e41495e628571977c3b438a3b57eb0b3c2c
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 48e418c3fa8dd761282f67f59b1cf1ebfc18610b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76535877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883961"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Stack Hub で Azure Resource Manager テンプレートを使用する
 

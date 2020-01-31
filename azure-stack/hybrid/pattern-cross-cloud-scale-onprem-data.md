@@ -2,18 +2,17 @@
 title: Azure および Azure Stack Hub で、オンプレミスのデータを使用してクラウド間でスケーリングするアプリを構築するためのパターン。
 description: オンプレミスのデータを使用するスケーラブルなクラウド間アプリを構築するために Azure および Azure Stack Hub を使用する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: fbf25d49539ebe244b44681ca3207badf744b99b
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718285"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875778"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>クラウド間スケーリング (オンプレミスのデータ) パターン
 

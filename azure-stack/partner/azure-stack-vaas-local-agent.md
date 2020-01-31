@@ -1,26 +1,19 @@
 ---
-title: ローカル エージェントをデプロイする | Microsoft Docs
+title: ローカル エージェントをデプロイする
 description: Azure Stack のサービスとしての検証に使用するローカル エージェントをデプロイします。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cd13f16df804c674c2901ae0e167e47294f176a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955898"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884093"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 
@@ -89,11 +82,11 @@ ms.locfileid: "73955898"
 
 **パラメーター**
 
-| パラメーター | 説明 |
+| パラメーター | [説明] |
 | --- | --- |
 | AadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
 | AadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
-| CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
+| CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、 [こちら](azure-stack-vaas-parameters.md) をご覧ください。 |
 | CloudAdminPassword | クラウド管理者アカウントのパスワード。|
 
 ![前提条件のダウンロード](media/installing-prereqs.png)
@@ -134,9 +127,9 @@ ms.locfileid: "73955898"
 
       **パラメーター**  
 
-    | パラメーター | 説明 |
+    | パラメーター | [説明] |
     | --- | --- |
-    | CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
+    | CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、 [こちら](azure-stack-vaas-parameters.md) をご覧ください。 |
     | CloudAdminPassword | クラウド管理者アカウントのパスワード。|
     | VaaSUserId | VaaS ポータルにサインインするためのユーザー ID (例: UserName\@Contoso.com) |
     | VaaSTenantId | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
@@ -152,8 +145,8 @@ ms.locfileid: "73955898"
 
 エージェントは、その名前で一意に識別されます。 既定では、その起動元となったマシンの完全修飾ドメイン名 (FQDN) が使用されます。 うっかり選択してしまうことのないようウィンドウは最小化してください。フォーカスが変わると他のアクションがすべて一時停止されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証のトラブルシューティング](azure-stack-vaas-troubleshoot.md)
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)
-- [クイック スタート:サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
+- [クイック スタート: サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)

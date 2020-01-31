@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
 description: Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3a8edb749ba995636f8e2fe626063ff4c495bb7b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881758"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875625"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
 

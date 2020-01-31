@@ -1,27 +1,18 @@
 ---
-title: VPN を使用して Azure Stack Hub を Azure に接続する | Microsoft Docs
+title: VPN を使用して Azure Stack Hub を Azure に接続する
 description: VPN を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 210890ce5ae82142906fb8f98d874c2f90ea3713
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883832"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883922"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 

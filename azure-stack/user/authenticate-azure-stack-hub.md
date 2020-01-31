@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub の認証情報を取得する方法 |Microsoft Docs
+title: Azure Stack Hub の認証情報を取得する方法
 description: Azure Stack Hub の認証情報を取得する方法について説明します
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: d04fcc37df7b610c85a2ba27a90f288bce5feae3
-ms.sourcegitcommit: 7dd685fddf2f5d7a0c0a20fb8830ca5a061ed031
+ms.openlocfilehash: 18e0f405cbe4107fee320b9ffa1bff8711439bfd
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76259904"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883992"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 

@@ -1,27 +1,19 @@
 ---
-title: App Service on Azure Stack Hub Update 4 のリリース ノート | Microsoft Docs
+title: App Service on Azure Stack Hub Update 4 のリリース ノート
 description: App Service on Azure Stack Hub Update 4 の機能強化、修正、既知の問題の詳細を説明します。
-services: azure-stack
-documentationcenter: ''
 author: bryanla
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 761d9ca8268664786fadc8c47c7269a346954d8f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 54eae566f2171c471f91e3aaeaf242b90998e962
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75880466"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76874418"
 ---
 # <a name="app-service-on-azure-stack-hub-update-4-release-notes"></a>App Service on Azure Stack Hub Update 4 のリリース ノート
 

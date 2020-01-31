@@ -1,27 +1,18 @@
 ---
-title: ASDK のダウンロードと抽出 | Microsoft Docs
+title: ASDK のダウンロードと抽出
 description: Azure Stack Development Kit (ASDK) をダウンロードおよび抽出する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: a4d0258d2a7a5168c94159d9eae13605b1269b86
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: 99c43848af1d140c6698e1f4d1ae992665c0389a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579128"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873840"
 ---
 # <a name="download-and-extract-the-asdk"></a>ASDK のダウンロードと抽出
 開発キットのホスト コンピューターが Azure Stack Development Kit (ASDK) の基本的なインストール要件を満たしていることを確認した後、次の手順は ASDK デプロイ パッケージをダウンロードおよび抽出して Cloudbuilder.vhdx を取得することです。
@@ -51,5 +42,5 @@ ms.locfileid: "69579128"
 > ファイルの展開後は、ハード ディスクの空き領域を増やすために、.EXE および .BIN ファイルを削除してかまいません。 または、ASDK を再デプロイする必要がある場合にファイルをもう一度ダウンロードしなくて済むように、これらのファイルをバックアップすることもできます。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [ASDK ホスト コンピューターの準備](asdk-prepare-host.md)

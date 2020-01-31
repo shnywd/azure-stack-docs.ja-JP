@@ -1,25 +1,17 @@
 ---
-title: Azure Stack Hub の DNS | Microsoft Docs
+title: Azure Stack Hub の DNS
 description: Azure Stack Hub の DNS についてと DNS ゾーンを作成および管理する方法を説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: caf251ad55e10ac1e763c75d61c52de4353eaf9f
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: dd2b00ced084f4a069626f56d37eec1cdae238d6
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879208"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884839"
 ---
 # <a name="use-dns-in-azure-stack-hub"></a>Azure Stack Hub での DNS の使用
 
@@ -71,7 +63,7 @@ Azure DNS の詳細については、[DNS のゾーンとレコード](/azure/dn
 
 Azure Stack Hub DNS では、DNS ゾーン リソースに対して Azure Resource Manager のタグを使用できます。 DNS レコード セットへのタグ設定はサポートされていません。 その代わりとして、DNS レコード セットでは、次のセクションで説明するように**メタデータ**がサポートされます。
 
-### <a name="metadata"></a>メタデータ
+### <a name="metadata"></a>Metadata
 
 レコード セットのタグの代わりに、Azure Stack Hub DNS では "*メタデータ*" を使用してレコード セットに注釈を付けることができます。 メタデータを使用すると、タグと同じように、各レコード セットに名前と値のペアを関連付けることができます。 たとえば、メタデータは、各レコード セットの用途を記録する場合に便利です。 タグと異なる点として、メタデータは、Azure の課金内容に関するフィルター ビューを提供するためには使用できず、Azure Resource Manager のポリシーで指定することもできません。
 

@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub での .NET による API バージョンのプロファイルの使用 | Microsoft Docs
+title: Azure Stack Hub での .NET による API バージョンのプロファイルの使用
 description: Azure Stack Hub での .NET SDK による API バージョンのプロファイルの使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 3af8a06f10322df67d80c489e1d19a7805dd8b2c
-ms.sourcegitcommit: ba2fd47e74adebe1fcbb489d059a2c27d59b179c
+ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76256395"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883092"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Azure Stack Hub での .NET による API バージョンのプロファイルの使用
 
@@ -34,7 +25,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 - すべてのサービスの最新バージョンを使用するには、パッケージの **latest** プロファイルを使用します。 このプロファイルは、**Microsoft.Azure.Management** NuGet パッケージの一部です。
 
 - Azure Stack Hub と互換性のあるサービスを使用するには、次のいずれかのパッケージを使用します。
-  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg** 
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
   上記の NuGet パッケージの **ResourceProvider** 部分が適切なプロバイダーに変更されていることを確認します。
@@ -53,9 +44,9 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 - インストールする必要があるパッケージは、使用するプロファイル バージョンによって異なります。 プロファイル バージョンのパッケージ名は次のとおりです。
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2019\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
-   - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
+  - **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.<*ResourceProvider*>.0.9.0-preview.nupkg**
 
 - Visual Studio Code 用の適切な NuGet パッケージをインストールするには、次のリンクを参照して [NuGet パッケージ マネージャーについての指示][]をダウンロードしてください。
 
@@ -69,7 +60,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 Azure Stack Hub で .NET Azure SDK を使用するには、次の値を指定した後、環境変数を使用して値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
-| 値                     | 環境変数   | [説明]                                                                                                             |
+| Value                     | 環境変数   | [説明]                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack Hub の ["*テナント ID*"][] の値。                                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID `      | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
@@ -85,7 +76,7 @@ Azure Stack Hub のテナント ID を確認するには、[この記事](../ope
 環境変数を設定するには、Windows コマンド プロンプトで次の形式を使用します。
 
 ```shell
-Set Azure_Tenant_ID=Your_Tenant_ID
+set Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>macOS、Linux、および Unix ベースのシステム
@@ -93,7 +84,7 @@ Set Azure_Tenant_ID=Your_Tenant_ID
 Unix ベースのシステムでは、次のコマンドを使用します。
 
 ```shell
-Export Azure_Tenant_ID=Your_Tenant_ID
+export Azure_Tenant_ID=Your_Tenant_ID
 ```
 
 ### <a name="the-azure-stack-hub-resource-manager-endpoint"></a>Azure Stack Hub Resource Manager エンドポイント

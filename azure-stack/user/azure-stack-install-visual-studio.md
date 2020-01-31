@@ -1,27 +1,18 @@
 ---
-title: Visual Studio をインストールして Azure Stack Hub に接続する | Microsoft Docs
+title: Visual Studio をインストールして Azure Stack Hub に接続する
 description: Visual Studio をインストールして Azure Stack Hub に接続する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.custom: vs-azure
-ms.workload: azure-vs
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 62b3091ec0ebd2415b7de2be8c04af82d27ccd8d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7c5183c88a973756685c5831d10d4f5c6aeb2ce0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75879140"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883657"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Visual Studio をインストールして Azure Stack Hub に接続する
 

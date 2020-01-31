@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub での VM の更新と管理の自動化 | Microsoft Docs
+title: Azure Stack Hub での VM の更新と管理の自動化
 description: Azure Automation の Azure Monitor for VMs、Update Management、Change Tracking、Inventory ソリューションを使用して、Azure Stack Hub にデプロイされている Windows および Linux の VM を管理する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 580e1e724a1d03183091ce4e59b779fc30cfb92c
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023129"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885236"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。

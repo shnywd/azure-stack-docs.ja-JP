@@ -1,27 +1,18 @@
 ---
-title: 自動 Azure Stack Hub ログ収集のベスト プラクティス | Microsoft Docs
+title: 自動 Azure Stack Hub ログ収集のベスト プラクティス
 description: Azure Stack Hub のヘルプとサポートの自動ログ収集のベスト プラクティス
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 7baa7440fec1c29ee43c5d3f80282bd6a58a3242
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883033"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878430"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自動 Azure Stack Hub ログ収集のベスト プラクティス 
 

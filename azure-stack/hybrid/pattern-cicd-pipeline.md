@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Hub を使用した、インテリジェント エッジの DevOps パターン。
 description: Azure と Azure Stack Hub を使用した、インテリジェント エッジの DevOps パターンについて説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f774fb0382409d5674c622f289767ca8ae81effb
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: bf1ae2d8c404f8cc52ab32b22c883ee15934c3b1
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640174"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877478"
 ---
 # <a name="devops-pattern"></a>DevOps パターン
 
@@ -68,7 +67,7 @@ DevPattern のコンテキストにおける可用性とは、ワークフロー
 
 デプロイの自動化に使用されるシステムを設計する際のもう 1 つの重要な考慮事項は、アクセス制御と、クラウド環境へのサービスのデプロイに必要な権限の適切な管理です。 デプロイを作成、削除、または変更するには、どのような権限が必要ですか? たとえば、通常、Azure でリソース グループを作成するために必要な権限のセットと、リソース グループにサービスをデプロイするために必要な権限のセットは別のものです。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 DevOps パターンに基づいたシステムの設計では、各サービスの自動化、ログ記録、アラートをポートフォリオ全体で考慮する必要があります。 共有サービス、アプリケーション チーム、またはその両方を使用します。また、セキュリティ ポリシーとガバナンスも追跡します。
 
@@ -86,10 +85,10 @@ DevOps パターンに基づいたシステムの設計では、各サービス�
 - インフラストラクチャ、リソースのプロビジョニング、構成、ID、およびセキュリティ タスクを自動化できない場合。
 - チームで継続的インテグレーション/継続的開発 (CI/CD) アプローチを実装するためにハイブリッド クラウド リソースにアクセスできない場合。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - Azure DevOps と関連ツール (Azure Repos、Azure Pipelines など) の詳細については、[Azure DevOps のドキュメント](/azure/devops)を参照してください。
-- 製品とソリューションのポートフォリオ全体の詳細については、[Azure Stack ファミリの製品とソリューション](/azure-stack)に関するページを参照してください。
+- 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 
 ソリューションの例をテストする準備ができたら、[DevOps ハイブリッド CI/CD のソリューション デプロイ ガイド](https://aka.ms/hybriddevopsdeploy)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。 ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して Azure と Azure Stack Hub にアプリケーションをデプロイする方法を習得できます。

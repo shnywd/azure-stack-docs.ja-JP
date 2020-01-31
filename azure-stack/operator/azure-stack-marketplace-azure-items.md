@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub で使用できる Azure Marketplace 項目 | Microsoft Docs
+title: Azure Stack Hub で使用できる Azure Marketplace 項目
 description: Azure Stack Hub で使用できる Azure Marektplace アイテムについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2020
-ms.openlocfilehash: 7a8fb4c500f749bfe58e1adcb7e5a9ce854bb9d0
-ms.sourcegitcommit: 10520f4481c0e3891c9dcd46fb21249ad2a33717
+ms.openlocfilehash: 64618cb3f1840db5472023902c58fc3fa771e6a5
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76516770"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890393"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 

@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub に MySQL ホスティング サーバーを追加する | Microsoft Docs
+title: Azure Stack Hub に MySQL ホスティング サーバーを追加する
 description: MySQL アダプター リソース プロバイダーを使用したプロビジョニングのために MySQL ホスティング サーバーを追加する方法について説明します。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: cf721c98b957d95e945d4979865c7d7b5aa169af
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 6cd5d09dcfc2467bd596b94597d001c4803e1655
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75811211"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881812"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Azure Stack Hub に MySQL ホスティング サーバーを追加する
 

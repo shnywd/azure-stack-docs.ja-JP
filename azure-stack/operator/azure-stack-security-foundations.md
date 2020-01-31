@@ -2,26 +2,18 @@
 title: Azure Stack Hub のセキュリティ コントロール
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub に適用されるセキュリティの体制とコントロールについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: JustinHall
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: f61e7340c766f50f71bc41db7afa5bc079c53c7d
-ms.sourcegitcommit: 320eddb281a36d066ec80d67b103efad7d4f33c8
+ms.openlocfilehash: 396db14d269ee9443d38f8220e5dd0384d04a479
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76145803"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881300"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 

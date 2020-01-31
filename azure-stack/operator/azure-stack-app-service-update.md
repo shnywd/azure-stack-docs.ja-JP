@@ -1,26 +1,18 @@
 ---
-title: Azure App Service on Azure Stack Hub を更新する | Microsoft Docs
+title: Azure App Service on Azure Stack Hub を更新する
 description: Azure App Service on Azure Stack Hub を更新する方法を説明します。
-services: azure-stack
-documentationcenter: ''
 author: BryanLa
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: 4289009ee20f5e031ae1104b0507faa189e4d1aa
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: ec0b241fd1568fb6851e3ae4fad6c79a8dfeb201
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124805"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76877597"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を更新する
 

@@ -1,26 +1,19 @@
 ---
-title: PowerShell を使用した Azure Stack の検証の自動化 | Microsoft Docs
+title: PowerShell を使用した Azure Stack の検証の自動化
 description: Azure Stack の検証は、PowerShell を使って自動化することができます。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/26/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2f048ea1feb7a707c3c52b83fcf7c9e65a1ea58a
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954419"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884997"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell を使用した Azure Stack の検証の自動化
 
@@ -260,7 +253,7 @@ $scriptParameters = @{
 
 詳細については、「[一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください。
 
-| パラメーター | 説明 |
+| パラメーター | [説明] |
 | --- | --- |
 | VaaSAccountUserName | VaaS ポータルの VaaS ユーザー名。 |
 | VaaSAccountPassword | VaaS ポータルの VaaS パスワード。 |
@@ -281,7 +274,7 @@ $scriptParameters = @{
 
 他のオプションについては、「[VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)」を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 Azure Stack での PowerShell の詳細については、最新のモジュールを参照してください。
 

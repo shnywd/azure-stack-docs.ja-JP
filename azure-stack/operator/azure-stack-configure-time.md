@@ -1,25 +1,18 @@
 ---
-title: Azure Stack Hub のタイム サーバーを構成する | Microsoft Docs
+title: Azure Stack Hub のタイム サーバーを構成する
 description: Azure Stack Hub のタイム サーバーを構成する方法について学習します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: 2a473ab2b44362b7fc93cdd1879b1869f469ddfa
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: d2dbc9ea7968ed3ad1911dd908966b6ac1e2a9c9
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534058"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879195"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Azure Stack Hub のタイム サーバーを構成する
 

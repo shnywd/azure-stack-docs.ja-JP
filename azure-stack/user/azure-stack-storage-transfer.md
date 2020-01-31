@@ -1,25 +1,18 @@
 ---
-title: Azure Stack Hub Storage でのデータ転送ツールの使用 | Microsoft Docs
+title: Azure Stack Hub Storage でのデータ転送ツールの使用
 description: Azure Stack Hub Storage のデータ転送ツールについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 90d57d01ec718772af45c0de3a15bac5995f5051
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b1a69cb2029a278ecec992abbca00dc3b80b1211
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883237"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883132"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Azure Stack Hub Storage でのデータ転送ツールの使用
 
