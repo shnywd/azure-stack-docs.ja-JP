@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub に使用状況の追跡のためのテナントを登録する | Microsoft Docs
+title: Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 description: Azure Stack Hub でのテナントの登録方法とテナントの使用状況の追跡方法について学習します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/14/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 981a80692e087cfcb733e73ec43d70fe67516e69
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882574"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882489"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
@@ -33,7 +25,7 @@ ms.locfileid: "75882574"
 
 この操作は、ご自分の登録に新しいテナントを追加するときに使用します。 テナントの使用状況は、Azure Active Directory (Azure AD) テナントに接続されている Azure サブスクリプションの下で報告されます。
 
-この操作は、テナントに関連付けられているサブスクリプションを変更する場合にも使用できます。 以前のマッピングを上書きするには、PUT または **New-AzureRMResource** を呼び出します。
+この操作は、テナントに関連付けられているサブスクリプションを変更する場合にも使用できます。 以前のマッピングを上書きするには、PUT または **New-AzureRMResource** PowerShell コマンドレットを呼び出します。
 
 テナントと関連付けることができる Azure サブスクリプションは 1 つだけです。 既存のテナントに第 2 のサブスクリプションを追加すると、最初のサブスクリプションは上書きされます。
 

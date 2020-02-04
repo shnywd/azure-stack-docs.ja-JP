@@ -1,33 +1,25 @@
 ---
-title: Azure Stack Hub で MySQL データベースを PaaS として使用する | Microsoft Docs
+title: Azure Stack Hub で MySQL データベースを PaaS として使用する
 description: Azure Stack Hub で、MySQL リソース プロバイダーをデプロイし、MySQL データベースをサービスとして提供する方法を説明します。
-services: azure-stack
-documentationCenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9351ce5b2dde1fc7e2dfeddc2d3520a4f5d1fe2b
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: f7ff0e3b3ea21dc6545a6c69b1a9cdbf8dbed607
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534619"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881747"
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Microsoft Azure Stack Hub で MySQL データベースを使用する
 
-MySQL リソース プロバイダーを使用して、[Azure Stack Hub](azure-stack-overview.md) で MySQL データベース サービスを提供します。 リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、次のことができます。
+MySQL リソース プロバイダーを使用して、[Azure Stack Hub](azure-stack-overview.md) 上で MySQL データベースを提供します。 リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、以下を作成できます。
 
-* Azure Resource Manager デプロイ テンプレートを使用して、MySQL データベースを作成します。
-* MySQL データベースをサービスとして提供します。  
+* クラウドネイティブ アプリ向けの MySQL データベース。
+* Web アプリケーション向けの MySQL データベース。  
 
 SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
 

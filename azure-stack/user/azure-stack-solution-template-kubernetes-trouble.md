@@ -1,25 +1,18 @@
 ---
-title: Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング | Microsoft Docs
+title: Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 description: Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 93c7972cef394ad86f2619f1ac06781c2dedb3e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883339"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889543"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
@@ -83,7 +76,7 @@ ms.locfileid: "75883339"
 
 Kubernetes クラスターをサポートしている VM のデプロイ ログを収集して確認することができます。 Azure Stack Hub 管理者に相談して、使用する必要がある Azure Stack Hub のバージョンを確認し、デプロイに関連したログを Azure Stack Hub から取得してください。
 
-1. クラスターをデプロイしたリソース グループの **[デプロイ]** ウィンドウで、ARM デプロイによって返されたエラー コードを確認します。 エラー コードの説明は、AKS Engine GitHub リポジトリの[トラブルシューティング](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)に関する記事にあります。 エラーの説明で問題を解決できない場合は、次の手順を続行してください。
+1. クラスターをデプロイしたリソース グループの **[デプロイ]** ウィンドウで、ARM デプロイによって返されたエラー コードを確認します。 エラー コードについては、AKS エンジンの GitHub リポジトリにある「[トラブルシューティング](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md)」の記事で説明されています。 エラーの説明で問題を解決できない場合は、次の手順を続行してください。
 2. Kubernetes クラスターで、[デプロイの状態](#review-deployment-status)を確認し、マスター ノードのログを取得します。
 3. Azure Stack Hub の最新バージョンを使用していることを確認します。 使用しているバージョンがわからない場合は、Azure Stack Hub の管理者にお問い合わせください。
 4. VM 作成ファイルを確認します。 次の問題が発生している可能性があります。  

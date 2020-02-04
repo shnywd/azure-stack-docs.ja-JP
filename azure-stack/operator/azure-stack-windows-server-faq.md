@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub の Windows Server に関する FAQ | Microsoft Docs
+title: Azure Stack Hub の Windows Server に関する FAQ
 description: Azure Stack Hub Marketplace の Windows Server に関する FAQ 一覧
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/27/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: ae3a1d602347a4cb4dcb6199075cd1e3dce9cb29
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 5a0c02737610a663448286b16afbf1504102a8a6
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023227"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890138"
 ---
 # <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace 内の Windows Server に関する FAQ
 

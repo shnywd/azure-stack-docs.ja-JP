@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub 統合システムの Azure に接続されたデプロイの決定 | Microsoft Docs
+title: Azure Stack Hub 統合システムの Azure に接続されたデプロイの決定
 description: 課金や ID など、Azure Stack Hub 統合システムの Azure に接続されたデプロイに対するデプロイ計画を決定します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c5889e9382f41f03d06d30faf056599f8f07e69a
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 82fad799b4c2b24ac3899c376e53bfd07c6d3d07
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76534024"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879331"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack Hub をご利用のハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定した後、Azure Stack Hub デプロイの決定を完了することができます。

@@ -1,25 +1,17 @@
 ---
-title: Azure Stack Hub ポリシー モジュールを使用する | Microsoft Docs
+title: Azure Stack Hub ポリシー モジュールを使用する
 description: Azure Stack Hub サブスクリプションと同様の動作をするように、Azure サブスクリプションを制限する方法を説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: aedc2915f3e2be473b74766c4274197112ecf6fe
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 880d7eb5732a7ac28a08cfacf1108387a1f9c62e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878749"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883340"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Azure Stack Hub ポリシー モジュールを使用して Azure ポリシーを管理する
 

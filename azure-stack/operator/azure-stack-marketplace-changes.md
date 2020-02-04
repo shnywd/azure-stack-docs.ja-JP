@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub Marketplace の新機能 | Microsoft Docs
+title: Azure Stack Hub Marketplace の新機能
 description: Azure Stack Hub Marketplace の変更と更新。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3dbd177f080067283ba22d661e08d54c23e642ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: b398c1dde1f9d7b6033ab4aed115ae45546190c1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022790"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890172"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -30,52 +22,34 @@ ms.locfileid: "76022790"
 
 ## <a name="new-marketplace-items"></a>新しい Marketplace 項目
 
-- 2019/06/27: SIOS Datakeeper Cluster Edition
-
-- 2019/06/27: Veeam Backup & Replication
-
+- 2019/06/27:SIOS Datakeeper Cluster Edition
+- 2019/06/27:Veeam Backup & Replication
 - 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers Pay-as-you-use
-
 - 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers BYOL
-
-- 2019/06/27: Windows Server 2019 Datacenter Pay-as-you-use
-
-- 2019/06/27: Windows Server 2019 Datacenter BYOL
-
+- 2019/06/27:Windows Server 2019 Datacenter Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter BYOL
 - 2019/06/27:Windows Server 2019 Datacenter Server Core Pay-as-you-use
-
 - 2019/06/27:Windows Server 2019 Datacenter Server Core BYOL
-
-- 2019/06/27: Windows Server 2019 Datacenter With Containers Pay-as-you-use
-
-- 2019/06/27: Windows Server 2019 Datacenter With Containers BYOL
-
+- 2019/06/27:Windows Server 2019 Datacenter With Containers Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter With Containers BYOL
 - 2019/08/05:Bitnami Drupal
-
 - 2019/08/05:Bitnami etcd
-
 - 2019/08/05:Bitnami Grafana
-
 - 2019/08/05:Bitnami Neo4j
-
 - 2019/08/05:Bitnami Parse Server
-
 - 2019/08/05:Bitnami WordPress Multisite
-
 - 2019/08/05:Bitnami ZooKeeper
-
 - 2019/08/05:Bitnami TensorFlow Serving
-
 - 2019/08/05:Bitnami NATS
-
 - 2019/08/05:Bitnami Review Board
-
 - 2019/08/05:Bitnami Composr
-
 - 2019/08/09:Oracle Linux
-
 - 2019/08/19:Iguazio Data Science Platform
-
+- 2019/10/16: SIOS DataKeeper Cluster Edition
+- 2019/12/26:CloudGuard IaaS High Availability
+- 2019/12/26:Check Point CloudGuard IaaS Security Management
+- 2019/12/26:Check Point CloudGuard IaaS Single Gateway
+- 2020/01/21:Teradici Cloud Access Software
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 
@@ -84,7 +58,7 @@ ms.locfileid: "76022790"
 - Bitnami SugarCRM
 - Bitnami Node.js の高可用性クラスター
 - A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
-
+- Check Point vSEC セキュリティ管理
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 

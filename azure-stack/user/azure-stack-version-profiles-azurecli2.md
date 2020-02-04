@@ -1,25 +1,18 @@
 ---
-title: Azure CLI を使用して Azure Stack Hub を管理する | Microsoft Docs
+title: Azure CLI を使用して Azure Stack Hub を管理する
 description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack Hub でリソースを管理およびデプロイする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: d35e254a17c1b79347e7d13f866e1163bf049a08
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 72f0e04d03a4304c4ed74f54dcd96f16e247f2a3
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883373"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884268"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Azure CLI を使用した Azure Stack Hub へのリソースの管理とデプロイ
 
@@ -163,7 +156,7 @@ Azure Stack Hub の CA ルート証明書を信頼するには、そのルート
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | 値 | 例 | [説明] |
+    | Value | 例 | [説明] |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -276,7 +269,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | 値 | 例 | [説明] |
+    | Value | 例 | [説明] |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -387,7 +380,7 @@ Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | 値 | 例 | [説明] |
+    | Value | 例 | [説明] |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -493,7 +486,7 @@ Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | 値 | 例 | [説明] |
+    | Value | 例 | [説明] |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |

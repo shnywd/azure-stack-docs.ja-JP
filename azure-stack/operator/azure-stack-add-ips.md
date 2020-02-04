@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub でパブリック IP アドレスを追加する | Microsoft Docs
+title: Azure Stack Hub にパブリック IP アドレスを追加する
 description: Azure Stack Hub にパブリック IP アドレスを追加する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 214fed4c87c6c36b5e290c084efe43032b1407e0
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e047f50dbdb9e7c645351fd83f9f1551f75c157e
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881146"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76875167"
 ---
 # <a name="add-public-ip-addresses"></a>パブリック IP アドレスの追加
 

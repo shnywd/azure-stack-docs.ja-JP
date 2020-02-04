@@ -1,29 +1,24 @@
 ---
-title: 仮想マシン スケール セットを Azure Stack Hub で使用できるようにする | Microsoft Docs
+title: 仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 description: クラウド オペレーターが Azure Stack Hub Marketplace に仮想マシン スケール セットを追加する方法について学習します。
-services: azure-stack
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 4794704678d5b344ea9d0bae9bf89f134e6bff52
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883016"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76889747"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 
- 
-仮想マシン スケール セットは Azure Stack Hub のコンピューティング リソースです。 これらを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
+仮想マシン スケール セットは Azure Stack Hub のコンピューティング リソースです。 スケール セットを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
 
-この記事では、Azure Stack Hub Marketplace からスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
+この記事では、Azure Stack Hub Marketplace 上でスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
 
 Azure Stack Hub の仮想マシン スケール セットは、Azure の仮想マシン スケール セットと同様です。 詳細については、次のビデオをご覧ください。
 
@@ -34,13 +29,13 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 
 ## <a name="prerequisites"></a>前提条件
 
-* **Azure Stack Hub Marketplace:** Azure Stack Hub Marketplace で項目を利用できるようにするには、Azure Stack Hub をグローバル Azure に登録します。 [Azure Stack Hub の Azure への登録](azure-stack-registration.md)の手順に従います。
+* **Azure Stack Hub Marketplace:** Azure Stack Hub Marketplace 上で項目を入手できるようにするには、Azure Stack Hub をグローバル Azure に登録します。 [Azure Stack Hub の Azure への登録](azure-stack-registration.md)の手順に従います。
 * **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Hub Marketplace](azure-stack-download-azure-marketplace-item.md) からスケール セットで使用する VM イメージをダウンロードする必要があります。 ユーザーが新しいスケール セットを作成する前に、イメージが既に存在している必要があります。
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用する
 
 >[!IMPORTANT]  
-> このセクションの情報は、1808 以降の Azure Stack Hub バージョンを使用する場合に適用されます。 
+> このセクションの情報は、1808 以降の Azure Stack Hub バージョンを使用する場合に適用されます。
 
 1. Azure Stack Hub ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
    ![[仮想マシン スケール セット] を選択する](media/azure-stack-compute-add-scalesets/all-services.png)
@@ -75,7 +70,7 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 
 2. 仮想マシン スケール セット デプロイ テンプレートで **version** に **latest を指定せず**、代わりにバージョン番号を指定します。  
 
-    Azure Stack オペレーターが新しいバージョンのイメージをダウンロード (および古いバージョンを削除) すると、スケール セットのスケールアップはできません。 スケール セット テンプレートに指定されたイメージのバージョンを使用できる必要があるため、これは仕様です。  
+    Azure Stack オペレーターが新しいバージョンのイメージをダウンロード (および古いバージョンを削除) すると、スケール セットはスケールアップできません。 スケール セット テンプレートに指定されたイメージのバージョンを使用できる必要があるため、これは仕様です。  
 
 詳細は、[オペレーティング システムのディスクとイメージ](../user/azure-stack-compute-overview.md#operating-system-disks-and-images)に関するページを参照してください。  
 

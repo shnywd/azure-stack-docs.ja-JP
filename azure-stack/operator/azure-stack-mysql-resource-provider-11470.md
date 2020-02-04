@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub MySQL リソース プロバイダー 1.1.47.0 のリリース ノート | Microsoft Docs
+title: Azure Stack Hub MySQL リソース プロバイダー 1.1.47.0 のリリース ノート
 description: リリース ノートを参照して、Azure Stack Hub MySQL リソース プロバイダー 1.1.47.0 更新プログラムの新機能を確認してください。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 43bbfb0c044dc90986a099c1d5729ad54082dc88
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 25d9a3650b51e2b46557800f5e9f6297c9900b77
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882217"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881861"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>MySQL リソース プロバイダー 1.1.47.0 のリリース ノート
 

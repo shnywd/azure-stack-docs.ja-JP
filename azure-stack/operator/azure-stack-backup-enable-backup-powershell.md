@@ -1,26 +1,18 @@
 ---
-title: PowerShell で Azure Stack Hub のバックアップを有効にする | Microsoft Docs
+title: PowerShell で Azure Stack Hub のバックアップを有効にする
 description: PowerShell で Infrastructure Backup サービスを有効にし、障害が発生した場合に Azure Stack Hub を復元できるようにする方法について学習します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 06f20168bb3960eccab5b29b8538382dcd9a0ce3
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 0a4398328df57802b19f20edbe534ba1fe40709d
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877661"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878039"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>PowerShell で Azure Stack Hub のバックアップを有効にする
 

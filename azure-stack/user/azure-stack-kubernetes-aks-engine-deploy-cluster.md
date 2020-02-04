@@ -1,26 +1,18 @@
 ---
-title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする | Microsoft Docs
+title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 34fc30c13cf365560fbd30234a60af4cc4f9a594
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884811"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -158,7 +150,7 @@ Azure Stack Hub オペレーターに次のことを依頼します。
 
 ## <a name="verify-your-cluster"></a>クラスターを確認する
 
-クラスターを確認するために Helm を使用して MySQL をデプロイし、クラスターを確認します。
+クラスターを確認するために Helm を使用して MySQL をデプロイし、クラスターをチェックします。
 
 1. Azure Stack Hub ポータルを使用して、いずれかのマスター ノードのパブリック IP アドレスを取得します。
 
@@ -166,31 +158,71 @@ Azure Stack Hub オペレーターに次のことを依頼します。
 
 3. SSH ユーザー名には、"azureuser" と、クラスターのデプロイ用に指定したキー ペアの秘密キー ファイルを使用します。
 
-4.  次のコマンドを実行します。
+4. 次のコマンドを実行して、Redis マスターのサンプル デプロイを作成します (接続されているスタンプに対してのみ)。
+
+   ```bash
+   kubectl apply -f https://k8s.io/examples/application/guestbook/redis-master-deployment.yaml
+   ```
+
+    1. ポッドの一覧を照会します。
+
+       ```bash
+       kubectl get pods
+       ```
+
+    2. 応答は、次のようになります。
+
+       ```shell
+       NAME                            READY     STATUS    RESTARTS   AGE
+       redis-master-1068406935-3lswp   1/1       Running   0          28s
+       ```
+
+    3. デプロイ ログを表示します。
+
+       ```shell
+       kubectl logs -f <pod name>
+       ```
+
+    Redis マスターを含むサンプル PHP アプリの完全なデプロイについては、[こちらの手順](https://kubernetes.io/docs/tutorials/stateless-application/guestbook/)に従ってください。
+
+5. 接続されていないスタンプに対しては、次のコマンドによって十分に対応できるはずです。
+
+    1. 最初に、クラスター エンドポイントが実行されていることを確認します。
+
+       ```bash
+       kubectl cluster-info
+       ```
+
+       出力は次のようになります。
+
+       ```shell
+       Kubernetes master is running at https://democluster01.location.domain.com
+       CoreDNS is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+       kubernetes-dashboard is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy
+       Metrics-server is running at https://democluster01.location.domain.com/api/v1/namespaces/kube-system/services/https:metrics-server:/proxy
+       ```
+
+    2. 次に、ノードの状態を確認します。
+
+       ```bash
+       kubectl get nodes
+       ```
+
+       出力は次のようになります。
+
+       ```shell
+       k8s-linuxpool-29969128-0   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-1   Ready      agent    9d    v1.15.5
+       k8s-linuxpool-29969128-2   Ready      agent    9d    v1.15.5
+       k8s-master-29969128-0      Ready      master   9d    v1.15.5
+       k8s-master-29969128-1      Ready      master   9d    v1.15.5
+       k8s-master-29969128-2      Ready      master   9d    v1.15.5
+       ```
+
+6. 前の手順の Redis POD デプロイをクリーンアップするには、次のコマンドを実行します。
 
     ```bash
-    sudo snap install helm --classic
-    kubectl -n kube-system create serviceaccount tiller
-    kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
-    helm init --service-account=tiller
-    helm repo update
-    helm install stable/mysql
-    ```
-
-5.  テストをクリーン アップするには、MySQL のデプロイに使用した名前を見つけます。 次の例では、名前は `wintering-rodent` です。 次に、削除します。 
-
-    次のコマンドを実行します。
-
-    ```bash
-    helm ls
-    NAME REVISION UPDATED STATUS CHART APP VERSION NAMESPACE
-    wintering-rodent 1 Thu Oct 18 15:06:58 2018 DEPLOYED mysql-0.10.1 5.7.14 default
-    helm delete wintering-rodent
-    ```
-
-    CLI で次が表示されます。
-    ```bash
-    release "wintering-rodent" deleted
+    kubectl delete deployment -l app=redis
     ```
 
 ## <a name="next-steps"></a>次のステップ

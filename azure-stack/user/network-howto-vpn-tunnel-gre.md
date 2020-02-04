@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法 | Microsoft Docs
+title: Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法
 description: Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 88f3d1ab53ace7a666aab8dcae640f2cef3b77fa
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 623d2825c74d486b0500d5aa17e98d28234f0086
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536557"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882978"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法
 

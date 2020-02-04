@@ -1,26 +1,18 @@
 ---
-title: クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する | Microsoft Docs
+title: クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する
 description: Azure Stack Hub をクラウド ソリューション プロバイダー (CSP) として登録し、課金に向けて顧客を追加する方法を説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 7fcd34efefa9c82085274837829f989908f751ba
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881095"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76876560"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する
 
@@ -55,7 +47,7 @@ CSP サブスクリプションは、CSP リセラーまたはエンド カス�
 
 ## <a name="register-azure-stack-hub"></a>Azure Stack Hub の登録
 
-前のセクションの情報に従って作成した APSS サブスクリプションを使用して、Azure Stack Hub を Azure に登録します。 詳細については、[Azure サブスクリプションを使用した Azure Stack Hub の登録](azure-stack-registration.md)に関する記事を参照してください。
+前のセクションの情報に従って作成した APSS サブスクリプションを使用して、Azure Stack Hub を Azure に登録します。 詳細については、[Azure サブスクリプションを使用した Azure Stack Hub の登録](azure-stack-registration.md)に関するページを参照してください。
 
 ## <a name="add-end-customer"></a>最終顧客を追加する
 
@@ -67,7 +59,7 @@ Azure Stack Hub では、"*登録*" と呼ばれる機能を使用します。 �
 
 登録を使用すると、Azure Stack Hub では次のことが可能になります。
 
-- Azure Stack Hub の使用状況データの Azure コマースへの転送、および Azure サブスクリプションへの課金。
+- [Azure Stack Hub の使用状況データ](azure-stack-billing-and-chargeback.md)の Azure コマースへの転送、および Azure サブスクリプションへの課金。
 - マルチテナント Azure Stack Hub デプロイを使用した、別のサブスクリプションでの各顧客の使用状況の報告。 マルチテナント機能を使用すると、同じ Azure Stack Hub インスタンス上のさまざまな組織を、Azure Stack Hub でサポートすることができるようになります。
 
 Azure Stack Hub ごとに、1 つの既定のサブスクリプションと、複数のテナント サブスクリプションが存在します。 既定のサブスクリプションは、テナント固有のサブスクリプションが存在しない場合に課金される Azure サブスクリプションです。 これは登録される最初のサブスクリプションである必要があります。 マルチテナント使用状況レポートが機能するには、サブスクリプションは CSP または APSS サブスクリプションである必要があります。

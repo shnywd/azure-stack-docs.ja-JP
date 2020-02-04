@@ -1,26 +1,19 @@
 ---
-title: Azure Stack のサービスとしての検証のトラブルシューティング | Microsoft Docs
+title: Azure Stack のサービスとしての検証のトラブルシューティング
 description: Azure Stack のサービスとしての検証のトラブルシューティングを行います。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2dfa55af61627a82f869c7e222dc29997b07a6e3
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 1525ed6ce9005fd8a64acefb44c730e2f172bcdc
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955836"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884966"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>サービスとしての検証のトラブルシューティング
 
@@ -103,11 +96,11 @@ ms.locfileid: "73955836"
     > [!IMPORTANT]
     > Marketplace の既存の項目について、すべての既定値が適切であるとは限りません。
 
-    | フィールド  | 値  |
+    | フィールド  | Value  |
     |---------|---------|
     | Publisher | MicrosoftWindowsServer |
     | プラン | WindowsServer |
-    | [OS Type]\(OS の種類\) | Windows |
+    | OS の種類 | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
     | OS ディスク BLOB URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
@@ -117,7 +110,7 @@ ms.locfileid: "73955836"
 
 全 5 つの VM イメージのプロパティは次のとおりです。
 
-| Publisher  | プラン  | [OS Type]\(OS の種類\) | SKU | Version | OS ディスク BLOB URI |
+| Publisher  | プラン  | OS の種類 | SKU | Version | OS ディスク BLOB URI |
 |---------|---------|---------|---------|---------|---------|
 | MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
 | MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
@@ -127,6 +120,6 @@ ms.locfileid: "73955836"
 | OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
 | credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - 「[サービスとしての検証のリリース ノート](azure-stack-vaas-release-notes.md)」で、最新のリリースでの変更点を確認します。

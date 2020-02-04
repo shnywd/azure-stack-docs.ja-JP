@@ -1,20 +1,18 @@
 ---
-title: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法 | Microsoft Docs
+title: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法
 description: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: af60e71ef9143e1ca5b51fa07aeed100369faa45
-ms.sourcegitcommit: a1abc27a31f04b703666de02ab39ffdc79a632f6
+ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76536574"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883389"
 ---
 # <a name="connect-two-vnets-through-peering"></a>ピアリングを通じて 2 つの VNET を接続する
 

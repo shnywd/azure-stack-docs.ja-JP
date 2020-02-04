@@ -2,18 +2,17 @@
 title: Azure と Azure Stack Hub を使用してハイブリッド リレー ソリューションを実装するためのパターン。
 description: ファイアウォールで保護されているエッジ リソースまたはエッジ デバイスに接続するために、Azure および Azure Stack Hub サービスを使用する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9b9defd4a6aec6dab3511425089e7395649d8087
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73640126"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890070"
 ---
 # <a name="hybrid-relay-pattern"></a>ハイブリッド リレー パターン
 
@@ -36,16 +35,16 @@ Azure Service Bus Relay を使用して、ファイアウォールで保護さ�
 3. Azure Stack Hub 上の VM は、Service Bus Relay への長期間有効な接続を既に確立しており、トラフィックを受信して、それを宛先に転送します。
 4. オンプレミスのサービスまたはエンドポイントがこの要求を処理します。 
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | 説明 |
+| レイヤー | コンポーネント | [説明] |
 |----------|-----------|-------------|
 | Azure | Azure VM | Azure VM は、オンプレミス リソースに対して、パブリックにアクセス可能なエンドポイントを提供します。 |
 | | Azure Service Bus Relay | [Azure Service Bus Relay](/azure/service-bus-relay/) は、Azure VM と Azure Stack Hub VM 間のトンネルと接続を維持するためのインフラストラクチャを提供します。|
 | Azure Stack Hub | Compute | Azure Stack Hub VM は、サーバー側のハイブリッド リレー トンネルを提供します。 |
-| | Storage | AKS エンジン クラスターが Azure Stack Hub にデプロイされているため、Face API コンテナーを実行するためのスケーラブルで回復性があるエンジンが提供されます。|
+| | ストレージ | Azure Stack Hub にデプロイされた AKS エンジン クラスターによって、Face API コンテナーを実行するためのスケーラブルで回復性があるエンジンが提供されます。|
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
@@ -59,15 +58,15 @@ Azure Service Bus Relay を使用して、ファイアウォールで保護さ�
 
 これらのトンネルと接続は冗長ではありません。 高可用性を確保するために、エラー チェック コードを実装することをお勧めします。 もう 1 つの方法は、ロード バランサーの背後に、Service Bus Relay に接続された VM のプールを作成することです。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
 このソリューションは多数のデバイスと場所にまたがることがあるため、扱いにくくなる可能性があります。 Azure の IoT サービスにより、新しい場所とデバイスを自動的にオンラインにし、最新の状態に保つことができます。
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
 図のように、このパターンでは、エッジから内部デバイス上のポートに自由にアクセスできます。 内部デバイス上のサービス、またはハイブリッド リレー エンドポイントの前面に、認証メカニズムを追加することを検討してください。 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
 - このパターンでは、Azure Service Bus Relay を使用します。 詳細については、[Azure Service Bus Relay のドキュメント](/azure/service-bus-relay/)を参照してください。

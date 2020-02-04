@@ -1,27 +1,18 @@
 ---
-title: 自動 Azure Stack Hub ログ収集の構成 | Microsoft Docs
+title: 自動 Azure Stack Hub ログ収集の構成
 description: Azure Stack Hub のヘルプとサポートで自動ログ収集を構成する方法。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: a20bea32-3705-45e8-9168-f198cfac51af
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 63ee429c37d5ec7bf9258e3e940d9dbfa3786907
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 3dede51916863a79f720f463af2a031e597f844f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882591"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76878192"
 ---
 # <a name="configure-automatic-azure-stack-hub-diagnostic-log-collection"></a>自動 Azure Stack Hub 診断ログ収集の構成
 
@@ -39,7 +30,7 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 
 ### <a name="create-a-blob-storage-account"></a>BLOB ストレージ アカウントの作成
  
-1. [Azure portal](https://portal.azure.com) にサインインする
+1. [Azure portal](https://portal.azure.com) にサインインします。
 1. **[ストレージ アカウント]**  >  **[追加]** をクリックします。 
 1. 次の設定を使用して BLOB コンテナーを作成します。
    - **サブスクリプション**:Azure サブスクリプションを選びます

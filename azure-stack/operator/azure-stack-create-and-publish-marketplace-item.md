@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub での Marketplace アイテムの作成と発行 | Microsoft Docs
+title: Azure Stack Hub で Marketplace 項目を作成して発行する
 description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: aa308690caa875d2ab22ca0b987634c2d29795fa
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882761"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890121"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -214,15 +206,15 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 
 ### <a name="identity-information"></a>ID 情報
 
-| Name | 必須 | 種類 | 制約 | [説明] |
+| Name | Required | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
 | Name |X |String |[A-Za-z0-9]+ | |
 | Publisher |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
-### <a name="metadata"></a>メタデータ
+### <a name="metadata"></a>Metadata
 
-| Name | 必須 | 種類 | 制約 | [説明] |
+| Name | Required | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |推奨 80 文字 |項目名が 80 文字より長い場合、ポータルで適切に表示されないことがあります。 |
 | PublisherDisplayName |X |String |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
@@ -251,7 +243,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| Name | 必須 | 種類 | 制約 | [説明] |
+| Name | Required | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最大 64 文字。 | |
 | Uri |X |URI | | |
@@ -260,10 +252,10 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| Name | 必須 | 種類 | 制約 | [説明] |
+| Name | Required | 種類 | 制約 | [説明] |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最大 25 文字。 | |
-| 値 |X |String |最大 30 文字。 | |
+| Value |X |String |最大 30 文字。 | |
 
 ### <a name="html-sanitization"></a>HTML のサニタイズ
 

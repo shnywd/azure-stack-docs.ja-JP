@@ -1,20 +1,18 @@
 ---
-title: Azure Stack Hub でデータ センターを拡張する方法 | Microsoft Docs
+title: Azure Stack Hub 上でデータ センターを拡張する方法
 description: Azure Stack Hub でデータ センターを拡張する方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 292f210d8145bdac64e2f50f4c8ef85dc79d1a77
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: fd851b4d25d188c03fe09793986901e28a00a6a5
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75883645"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884662"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>ストレージを Azure Stack Hub に拡張する
 

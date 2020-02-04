@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub デプロイ ネットワーク トラフィック | Microsoft Docs
+title: Azure Stack Hub デプロイ ネットワーク トラフィック
 description: この記事では、Azure Stack Hub デプロイ ネットワーキング プロセスで予想されることについて説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 12/05/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: 8b29f3e768e7af241afb5479e5051969f6f41b24
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: bf7504ce1004fdc3c2a00d1b831e6f135218eb0a
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75812452"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879909"
 ---
 # <a name="about-deployment-network-traffic"></a>デプロイ ネットワーク トラフィックについて
 Azure Stack Hub デプロイ中のネットワーク トラフィックを理解すると、デプロイを成功させるのに役立ちます。 この記事では、デプロイ プロセス中のネットワーク トラフィック フローについて段階的に説明して、何が予想されるかがわかるようにします。

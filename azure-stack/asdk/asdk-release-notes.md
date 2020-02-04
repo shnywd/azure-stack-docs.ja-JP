@@ -1,26 +1,18 @@
 ---
-title: ASDK リリースノート | Microsoft Docs
+title: ASDK リリース ノート
 description: Azure Stack Development Kit (ASDK) の機能強化、修正、既知の問題。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 2323f13029d4d356ce54b825bab69da5ca21d6ab
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.openlocfilehash: 608374ce5e788a82378aaf9c62414b05d871c983
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76873483"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -89,7 +81,7 @@ ms.locfileid: "74993570"
 
 - このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1)を参照してください。
 
-### <a name="changes"></a>変更点
+### <a name="changes"></a>[変更点]
 
 - Azure Stack のログ コレクション サービスをホストする **AzS-SRNG01** サポート リング VM を追加しました。 詳しくは、[仮想マシン ロール](asdk-architecture.md)に関するページをご覧ください。
 

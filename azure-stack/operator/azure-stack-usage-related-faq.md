@@ -1,26 +1,18 @@
 ---
-title: Usage API のよくあるご質問 (FAQ) | Microsoft Docs
+title: Usage API に関してよく寄せられる質問
 description: Azure Stack Hub の測定、Azure Usage API との比較、使用時間と報告時間、エラー コードの一覧。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: dea410ab514f095f7ed68a0617b2dd7816544f80
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 18539c666683c6e35c8736616405f961b63adf40
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813064"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76880654"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -396,12 +388,12 @@ ms.locfileid: "75813064"
 
 使用状況データ レポートには、2 つの主要な時間値があります。
 
-* **報告時間**。 使用状況システムに使用状況イベントが入力された時間
-* **使用時間**。 Azure Stack Hub リソースが使用された時間
+* **報告時間**。 使用状況イベントが使用状況システムに入力された時間。
+* **使用時間**。 Azure Stack Hub リソースが使用された時間。
 
 特定の使用状況イベントに対して、使用時間とレポート時間の値に不一致が見られることがあります。 遅延はすべての環境で数時間に達することもあります。
 
-現在、"*報告時間によってのみ*" クエリを実行できます。
+現在、"**報告時間によってのみ**" クエリを実行できます。
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>これらの Usage API エラー コードの意味は何ですか。
 

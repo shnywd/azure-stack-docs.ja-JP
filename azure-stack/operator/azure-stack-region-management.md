@@ -1,28 +1,19 @@
 ---
-title: Azure Stack Hub でのリージョンの管理 | Microsoft Docs
+title: Azure Stack Hub でのリージョンの管理
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でのリージョンの管理の概要です。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: e94775d5-d473-4c03-9f4e-ae2eada67c6c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: 56fb993f7c4059ba468100904d10baabac38cd7d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 930909dd82b67dbeff5dbf656635855b6d34d92b
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882047"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881457"
 ---
 # <a name="region-management-in-azure-stack-hub"></a>Azure Stack Hub でのリージョンの管理
 
@@ -36,7 +27,7 @@ Azure Stack Hub には、 **[リージョンの管理]** タイルで使用で�
 
 ![Azure Stack Hub 管理者ポータルの [リージョンの管理] タイル](media/azure-stack-region-management/image1.png)
 
-**[Region management]\(リージョン管理\)** タイル内のリージョンをクリックすると、次の情報にアクセスできます。
+**[Region management]\(リージョン管理\)** タイル内のリージョンを選択すると、次の情報にアクセスできます。
 
 [![Azure Stack Hub 管理者ポータルの [リージョンの管理] ブレードにあるペインの説明](media/azure-stack-region-management/regionssm.png "Azure Stack Hub 管理者ポータルの [リージョンの管理] ブレード")](media/azure-stack-region-management/regions.png#lightbox)
 

@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub に使用量と課金用のテナントを追加する | Microsoft Docs
+title: Azure Stack Hub に使用量と課金用のテナントを追加する
 description: Azure Stack Hub に使用量と課金用のテナントを追加する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 9bf0e51deb8e30bfeab978e3bdec1f4c4343561d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882608"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882553"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
 
@@ -51,7 +43,7 @@ ms.locfileid: "75882608"
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>エンド カスタマー ディレクトリにゲスト ユーザーを作成する
 
-既定では、CSP (あなた) はエンド カスタマーの Azure Stack Hub サブスクリプションにアクセスできません。 ただし、顧客があなたにリソースの管理を望む場合、顧客があなたのアカウントを所有者/共同作成者として自分の Azure Stack Hub サブスクリプションに追加できます。 これを行うには、Azure AD テナントにゲスト ユーザーとしてご自身のアカウントを追加する必要があります。 ご自分の顧客の Azure サブスクリプションに引き続きアクセスできるよう、ご自分の Azure CSP アカウントとは別のアカウントを使用してご自分の顧客の Azure Stack Hub サブスクリプションを管理することをお勧めします。
+既定では、CSP (あなた) はエンド カスタマーの Azure Stack Hub サブスクリプションにアクセスできません。 ただし、顧客があなたにリソースの管理を望む場合、顧客があなたのアカウントを所有者/共同作成者として自分の Azure Stack Hub サブスクリプションに追加できます。 そのためには、Azure AD テナントにゲスト ユーザーとしてあなたのアカウントを追加してもらう必要があります。 ご自分の顧客の Azure サブスクリプションに引き続きアクセスできるよう、ご自分の Azure CSP アカウントとは別のアカウントを使用してご自分の顧客の Azure Stack Hub サブスクリプションを管理することをお勧めします。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>エンド カスタマーのサブスクリプションで登録を更新する
 

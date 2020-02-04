@@ -1,25 +1,18 @@
 ---
-title: Azure Stack のサービスとしての検証ポータルを使用して初めてのテストをスケジュールする | Microsoft Docs
+title: Azure Stack のサービスとしての検証ポータルを使用して初めてのテストをスケジュールする
 description: Azure Stack のサービスとしての検証ポータルを使用して初めてのテストをスケジュールします。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8843b6791876b4e0362d7aee3aa738453a8c3b88
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955923"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885129"
 ---
 # <a name="scheduling-a-test"></a>テストのスケジュール設定
 
@@ -85,6 +78,6 @@ ms.locfileid: "73955923"
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

@@ -1,26 +1,19 @@
 ---
-title: Azure Stack の検証のベスト プラクティス | Microsoft Docs
+title: Azure Stack の検証のベスト プラクティス
 description: この記事では、サービスとしての検証を使用するためのベスト プラクティスについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ee5a873a6281ed5d71db05b05abd15986043676
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167373"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885055"
 ---
 # <a name="create-an-oem-package"></a>OEM パッケージの作成
 
@@ -52,6 +45,6 @@ ZIP ファイルの構造を検証するために、ZIP ファイルを検査し
 
 これで、ZIP ファイルを VaaS にアップロードし、パッケージ検証ワークフローで Microsoft が署名できるようになりました。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [OEM パッケージを検証する](azure-stack-vaas-validate-oem-package.md)

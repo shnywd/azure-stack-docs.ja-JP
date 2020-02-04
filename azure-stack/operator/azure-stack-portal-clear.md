@@ -1,32 +1,23 @@
 ---
-title: Azure Stack Hub からオンデマンドでポータル ユーザー データをクリアする | Microsoft Docs
+title: Azure Stack Hub からオンデマンドでポータル ユーザー データをクリアする
 description: Azure Stack Hub オペレーターとして、Azure Stack Hub ユーザーからの要求時に、ポータル ユーザー データをクリアする方法を学習します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 09/10/2019
+ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
 monikerRange: azs-1802
-ms.openlocfilehash: ac28a67f7b1409ebc5a786a88e8b9702df94c2ff
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c632161c32f6a20b7f9943df191ab0f0c0158720
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022758"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881630"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Azure Stack Hub からポータル ユーザー データをクリアする
 
-Azure Stack Hub オペレーターは、Azure Stack Hub ユーザーが要求したときに、オンデマンドでポータル ユーザー データをクリアできます。 Azure Stack Hub ユーザーは、タイルをピン留めし、ダッシュボードのレイアウトを変更することによって、ポータルをカスタマイズできます。 また、ユーザーは個人の好みに合わせてテーマを変更し、既定の言語を調整することもできます。 
+Azure Stack Hub オペレーターは、Azure Stack Hub ユーザーが要求したときに、オンデマンドでポータル ユーザー データをクリアできます。 Azure Stack Hub ユーザーは、タイルをピン留めし、ダッシュボードのレイアウトを変更することによって、ポータルをカスタマイズできます。 また、ユーザーは個人の好みに合わせてテーマを変更し、既定の言語を調整することもできます。
 
 ポータル ユーザー データには、Azure Stack Hub ユーザー ポータルでのお気に入りや最近アクセスしたリソースが含まれます。 この記事では、ポータル ユーザー データをクリアする方法について説明します。
 
@@ -59,7 +50,7 @@ Azure Stack Hub オペレーターは、Azure Stack Hub ユーザーが要求し
    Import-Module .\DatacenterIntegration\Portal\PortalUserDataUtilities.psm1
    ```
 
-2. 次のコマンドを実行します。 プレースホルダーを実際の環境に一致する値に置き換えてください。
+2. 次のコマンドを実行します。 必ず、プレースホルダーを実際の環境に一致する値に置き換えてください。
 
    ```powershell
    ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.

@@ -1,32 +1,25 @@
 ---
-title: Azure Stack のサービスとしての検証の主要概念 | Microsoft Docs
+title: Azure Stack のサービスとしての検証の主要概念
 description: Azure Stack のサービスとしての検証の主要概念について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a79b6e6f34c8293febf30a9cb48ddbfae9c99816
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 25feb0b51d8b202f72b297c2badc5c152144de1f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167330"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76885004"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>サービスとしての検証の主要概念
 
 この記事では、サービスとしての検証 (VaaS) の主要概念について説明します。
 
-## <a name="solutions"></a>解決方法
+## <a name="solutions"></a>ソリューション
 
 VaaS ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack ソリューションを表します。 VaaS ソリューションは、Azure Stack ソリューションに対して実行されるワークフローのコンテナーとして機能します。
 
@@ -54,7 +47,7 @@ VaaS ワークフローは、VaaS ソリューションのコンテキスト内�
 
 1. ソリューション ダッシュボードで、新しいソリューションを作成するか、既存のソリューションを選択します。 これにより、ワークフロー タイルが最新の情報に更新され、アクティブになります。
 2. 新しいワークフローを作成するには、任意のタイルで **[開始]** を選択します。 各ワークフローに固有の情報については、次の記事をご覧ください。
-    - テスト成功:[クイック スタート:サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
+    - テスト成功:[クイック スタート: サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
     - ソリューション検証:[新しい Azure Stack ソリューションの検証](azure-stack-vaas-validate-solution-new.md)
     - パッケージ検証 (毎月の更新プログラム):[Microsoft のソフトウェア更新プログラムの検証](azure-stack-vaas-validate-microsoft-updates.md)
     - パッケージ検証 (パッケージの署名):[OEM パッケージの検証](azure-stack-vaas-validate-oem-package.md)
@@ -71,7 +64,7 @@ VaaS でのテストは、Azure Stack ソリューションに対して実行さ
 
 テスト パラメーターの詳細については、「[Azure Stack のサービスとしての検証のワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」をご覧ください。
 
-## <a name="agents"></a>エージェント
+## <a name="agents"></a>[エージェント]
 
 テストは VaaS エージェントによって実行されます。 VaaS テストを実行するエージェントには、次の 2 種類があります。
 
@@ -82,6 +75,6 @@ VaaS でのテストは、Azure Stack ソリューションに対して実行さ
 
 ローカル エージェントを追加する手順については、「[Deploy the local agent (ローカル エージェントのデプロイ)](azure-stack-vaas-local-agent.md)」をご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証のベスト プラクティス](azure-stack-vaas-best-practice.md)

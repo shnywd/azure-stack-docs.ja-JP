@@ -1,20 +1,18 @@
 ---
-title: Commvault を使用して Azure Stack Hub で VM をバックアップする方法 | Microsoft Docs
+title: Commvault を使用して Azure Stack Hub 上で VM をバックアップする方法
 description: Commvault を使用して Azure Stack Hub で VM をバックアップする方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
 ms.date: 10/30/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: b2e9871d48352d2e6a5f6d312a4d98cc3ace37ce
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878698"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884644"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 
@@ -77,7 +75,7 @@ ms.locfileid: "75878698"
 
 4. Commvault VM のサイズを選択します。 バックアップ用の VM サイズは、少なくとも 10 GB の RAM と 100 GB のストレージにする必要があります。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png).
+    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-03.png)
 
 5. Commvault VM の設定を選択します。
 

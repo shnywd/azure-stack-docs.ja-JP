@@ -1,28 +1,20 @@
 ---
-title: Linux イメージを Azure Stack Hub Marketplace に追加する | Microsoft Docs
+title: Linux イメージを Azure Stack Hub Marketplace に追加する
 description: Azure Stack Hub Marketplace へ Linux イメージを追加する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: d8714901bc8ac8f8c20b9b2649527f8e6f6627fc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: b5e15568b2943d34dd5456f924db59cfcf48cb7f
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882404"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890257"
 ---
-# <a name="add-linux-images-to-azure-stack-hub-marketplace"></a>Linux イメージを Azure Stack Hub Marketplace に追加する
+# <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux イメージを Azure Stack Hub Marketplace に追加する
 
 Azure Stack Hub Marketplace に Linux ベースのイメージを追加することによって、Azure Stack Hub 上に Linux 仮想マシン (VM) をデプロイできます。 最も簡単に Linux イメージを Azure Stack Hub に追加する方法では、Marketplace Management を使用します。 これらのイメージは、Azure Stack Hub との互換性を確保できるよう、あらかじめ準備とテストが行われています。
 
@@ -61,7 +53,7 @@ Azure Linux エージェント (一般に **WALinuxAgent** または **walinuxag
 
 ## <a name="cloud-init"></a>cloud-init
 
-[Cloud-init](https://cloud-init.io/) は、Azure Stack Hub の 1910 より後のリリースでサポートされます。 cloud-init を使用して Linux VM をカスタマイズするには、次の PowerShell の手順に従います。 
+[Cloud-init](https://cloud-init.io/) は、Azure Stack Hub の 1910 より後のリリースでサポートされます。 cloud-init を使用して Linux VM をカスタマイズするには、次の PowerShell の手順に従います。
 
 ### <a name="step-1-create-a-cloud-inittxt-file-with-your-cloud-config"></a>手順 1:cloud-config を使用して cloud-init.txt ファイルを作成する
 

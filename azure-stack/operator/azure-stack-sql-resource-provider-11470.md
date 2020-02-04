@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub SQL リソース プロバイダー 1.1.47.0 のリリース ノート | Microsoft Docs
+title: Azure Stack Hub SQL リソース プロバイダー 1.1.47.0 のリリース ノート
 description: 既知の問題やダウンロードする場所など、最新の Azure Stack Hub SQL リソース プロバイダーの更新プログラムについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 758390e9190e75125bad5701b810af08456f2efc
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 1210b537d36d4be5c31f596bde589afa9b3cadfa
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882848"
 ---
 # <a name="sql-resource-provider-11470-release-notes"></a>SQL リソース プロバイダー 1.1.47.0 のリリース ノート
 

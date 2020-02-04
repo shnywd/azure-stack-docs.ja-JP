@@ -1,26 +1,18 @@
 ---
-title: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する | Microsoft Docs
+title: Azure からマーケットプレースの項目をダウンロードして Azure Stack Hub に発行する
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/23/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 80cf9d192be07f951ee959c7a83419bb16bd2bbb
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: 0df8b4e85aea2a194061da523e66385389b38bb1
+ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76022955"
+ms.lasthandoff: 01/30/2020
+ms.locfileid: "76890325"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 

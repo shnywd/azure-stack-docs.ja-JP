@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub 統合システム デプロイのための Azure Stack Hub 公開キー インフラストラクチャ証明書を検証する | Microsoft Docs
+title: Azure Stack Hub 統合システム デプロイのための Azure Stack Hub 公開キー インフラストラクチャ証明書を検証する
 description: Azure Stack Hub 統合システムの Azure Stack Hub PKI 証明書を検証する方法について説明します。 Azure Stack Hub 証明書チェッカー ツールの使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
+author: ihenkel
 ms.topic: article
 ms.date: 07/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 94acfbeb0c08bc79ad6d9bfa0282313a39c0eae6
-ms.sourcegitcommit: e47dc5fe9e59010ea3dbb9cb31abe15cfb821262
+ms.openlocfilehash: 8ade18f01f9d0636e3a5903307ee9513c44470f7
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76124720"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882595"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 

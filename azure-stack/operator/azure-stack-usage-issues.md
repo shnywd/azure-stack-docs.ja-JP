@@ -1,30 +1,22 @@
 ---
-title: Azure Stack Hub での使用量接続の問題とエラー | Microsoft Docs
+title: Azure Stack Hub での使用量接続の問題とエラー
 description: Azure Stack Hub 使用量接続の問題とエラーのトラブルシューティング。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 5ad2f6b3b66e2c01cbae91a42a2b2a1bb0b59a26
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 4a4b34c6aeaac3bd484c0a954af0f3a456cbfe85
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75813013"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76882674"
 ---
 # <a name="usage-connectivity-errors"></a>使用量接続エラー
 
-Azure Stack Hub の使用状況データは、Azure Stack Hub 内の [*Azure Bridge* コンポーネント](azure-stack-usage-reporting.md)に送信されます。 Azure Stack Hub 内のブリッジでは、Azure 使用状況サービスに接続できない場合、次のエラーが表示されます。
+Azure Stack Hub の使用状況データは、Azure Stack Hub 内の [*Azure Bridge*](azure-stack-usage-reporting.md) コンポーネントによって、Azure に送信されます。 Azure Stack Hub 内のブリッジでは、Azure 使用状況サービスに接続できない場合、次のエラーが表示されます。
 
 ![使用量ブリッジ エラー](media/azure-stack-usage-issues/usageerror2.png)
 

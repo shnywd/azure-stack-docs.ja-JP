@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub の Linux に AKS エンジンをインストールする | Microsoft Docs
+title: Azure Stack Hub の Linux に AKS エンジンをインストールする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: d9f56d8d40d4f4420e073516678017c4904dd7d1
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 01/28/2020
+ms.openlocfilehash: 66e340df1d687e9a0c19f43c05c4fcb92e6940c2
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75878953"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883550"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 
@@ -41,7 +33,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  

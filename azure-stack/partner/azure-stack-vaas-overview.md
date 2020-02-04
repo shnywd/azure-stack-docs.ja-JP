@@ -1,26 +1,19 @@
 ---
-title: Azure Stack Hub のサービスとしての検証の概要 | Microsoft Docs
+title: Azure Stack Hub のサービスとしての検証の概要
 description: Azure Stack Hub のサービスとしての検証の概要。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: dee0be0817c8b614c9961d39330b64f4bd11f85f
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955854"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76884067"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Azure Stack Hub のサービスとしての検証とは
 
@@ -67,7 +60,7 @@ Microsoft は、定期的に Azure Stack Hub で新機能を提供していま�
 | [OEM パッケージの検証](azure-stack-vaas-validate-oem-package.md) | OEM Extension Package Verification (OEM 拡張機能パッケージの検証)<br>Cloud Simulation Engine (クラウド シミュレーション エンジン) |
 | [毎月の更新プログラムの検証](azure-stack-vaas-validate-microsoft-updates.md) | Monthly Azure Stack Hub Update Verification (月次 Azure Stack Hub 更新プログラムの検証)<br>Cloud Simulation Engine (クラウド シミュレーション エンジン)<br> |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証のリソースを設定する](azure-stack-vaas-set-up-resources.md)
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)を確認する

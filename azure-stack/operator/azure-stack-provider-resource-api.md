@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub のプロバイダー リソース使用量 API | Microsoft Docs
+title: Azure Stack Hub のプロバイダー リソース使用量 API
 description: Azure Stack Hub の使用状況情報を取得するリソース使用量 API のリファレンス。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: e1d2e350079ab3d58802c8490da30a4c9555885d
-ms.sourcegitcommit: d62400454b583249ba5074a5fc375ace0999c412
+ms.openlocfilehash: c6c68b3455e7de78e116b3ef6ede1dde7172fb33
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76023258"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881532"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
@@ -36,7 +28,7 @@ ms.locfileid: "76023258"
 
 この使用状況 API はプロバイダー API であるため、呼び出し元に、プロバイダーのサブスクリプションの**所有者**、**共同作成者**、または**閲覧者**の役割が割り当てられている必要があります。
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
@@ -120,13 +112,13 @@ meterID1",
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>アクティブ ユーザーに対して削除されたすべてのテナントの使用状況を返す
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>削除済みまたはアクティブなテナントの使用状況を返す
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 

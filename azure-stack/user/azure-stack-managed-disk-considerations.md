@@ -1,31 +1,22 @@
 ---
-title: Azure Stack Hub マネージド ディスクの相違点と考慮事項 | Microsoft Docs
+title: Azure Stack Hub マネージド ディスク; 相違点と考慮事項
 description: Azure Stack Hub でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2019
+ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 2e09f10fc61454cf1b32797e75b5a57fc3f90f8f
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: c1369ada357e8439e39fed4642996af86925522c
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75819881"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76883441"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub マネージド ディスク: 相違点と考慮事項
 
-この記事は、[Azure Stack Hub のマネージド ディスク](azure-stack-manage-vm-disks.md)と [Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の相違点をまとめたものです。 Azure Stack Hub と Azure の相違点の概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+この記事は、Azure Stack Hub の["*マネージド ディスク*"](azure-stack-manage-vm-disks.md) と[ Azure のマネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)の相違点をまとめたものです。 Azure Stack Hub と Azure の相違点の概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
 マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS 仮想マシン (VM) のディスク管理が簡素化されます。
 
@@ -147,7 +138,7 @@ Azure Stack Hub では "*マネージド イメージ*" がサポートされて
 Windows の場合は、「[Sysprep を使用して Windows VM を一般化する](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)」のセクションに従います。 Linux の場合は、手順 1 ([こちら](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)) に従います。
 
 > [!NOTE]
-> 必ず VM を一般化してください。 適切に一般化されていないイメージから VM を作成すると、**VMProvisioningTimeout** エラーが発生します。
+> 必ず VM を一般化してください。 適切に一般化されていないイメージから VM を作成すると、**VMProvisioningTimeout** エラーが発生する可能性があります。
 
 ### <a name="step-2-create-the-managed-image"></a>手順 2:マネージド イメージを作成する
 
@@ -232,4 +223,4 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VmC
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack Hub 仮想マシンについての詳細](azure-stack-compute-overview.md)
+- [Azure Stack Hub 仮想マシン](azure-stack-compute-overview.md)について確認してください。

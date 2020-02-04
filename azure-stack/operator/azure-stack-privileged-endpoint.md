@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub での特権エンドポイントの使用 | Microsoft Docs
+title: Azure Stack Hub での特権エンドポイントの使用
 description: オペレーターとして Azure Stack Hub 内で特権エンドポイント (PEP) を使用する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 665e0a32abfbdce3953423135600eed98cbc2eef
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 74d21915b7df5161817c0cf48ec7db6f06cbd904
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882132"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76881521"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
@@ -191,7 +183,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
    このコマンドレットでは次の表のパラメーターを使用します。
 
-   | パラメーター | [説明] | 種類 | 必須 |
+   | パラメーター | [説明] | 種類 | Required |
    |---------|---------|---------|---------|
    | *TranscriptsPathDestination* | "fileshareIP\sharefoldername" として定義されている外部ファイル共有へのパス | String | はい|
    | *資格情報* | ファイル共有にアクセスするための資格情報 | SecureString |   はい |

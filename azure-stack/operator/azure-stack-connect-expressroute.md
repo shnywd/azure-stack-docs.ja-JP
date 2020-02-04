@@ -1,25 +1,18 @@
 ---
-title: ExpressRoute を使用して Azure Stack Hub を Azure に接続する | Microsoft Docs
+title: ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 description: ExpressRoute を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 014ff5a0b4791ac7b939ac3e61a79c89f531aa8d
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
+ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75877559"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76879433"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
@@ -81,7 +74,7 @@ ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、�
 
 Azure Stack Hub の構成を始める前に、次のものが必要となります。
 
-* Azure Stack Hub のデプロイ。 
+* Azure Stack Hub のデプロイ。
 * ユーザーがサブスクライブできる Azure Stack Hub 内のオファー。 詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
 
 ### <a name="create-network-resources-in-azure-stack-hub"></a>Azure Stack Hub でネットワーク リソースを作成する
@@ -100,7 +93,7 @@ Azure Stack Hub 内でテナントに必要なネットワーク リソースを
 
 5. **[仮想ネットワークの作成]** で、次の表に示した値をそれぞれ対応するフィールドに入力します。
 
-   |フィールド  |値  |
+   |フィールド  |Value  |
    |---------|---------|
    |Name     |Tenant1VNet1         |
    |アドレス空間     |10.1.0.0/16|
