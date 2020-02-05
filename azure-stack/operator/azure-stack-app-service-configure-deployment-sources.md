@@ -89,7 +89,7 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 ![OneDrive アプリケーションのプロパティ][11]
 5. **[アプリケーション シークレット]** で **[新しいパスワードを生成]** をクリックします。 **新しく生成されたパスワード**をメモします。 このパスワードがお客様のアプリケーション シークレットになります。 **[OK]** をクリックした後で、もう一度取得することはできません。
 6. **[プラットフォーム]** で **[プラットフォームの追加]** をクリックし、 **[Web]** を選択します。
-7. **[リダイレクト URI]** を入力します。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は https://portal.local.azurestack.external/TokenAuthorize という形式になります。 別のドメインで実行する場合は、azurestack.local のドメイン名を切り替えます。
+7. **[リダイレクト URI]** を入力します。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](https://portal.local.azurestack.external/TokenAuthorize ) という形式になります。 別のドメインで実行する場合は、azurestack.local のドメイン名を切り替えます。
 ![OneDrive アプリケーション - Web プラットフォームの追加][12]
 8. **[Microsoft Graph のアクセス許可]**  -  **[委任されたアクセス許可]** を追加します。
     - **Files.ReadWrite.AppFolder**
@@ -118,7 +118,7 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 ![Dropbox アプリケーションの登録][15]
 6. **[Create app (アプリの作成)]** をクリックします。 **[アプリ キー]** と **[アプリケーション シークレット]** を含む、アプリの設定を一覧表示するページが表示されます。
 7. **[App folder name]\(アプリ フォルダー名\)** が **[App Service on Azure Stack Hub]** に設定されていることを確認します。
-8. **[OAuth 2 Redirect URI\(OAuth 2 リダイレクト URI\])** を設定し、 **[追加]** をクリックします。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は https://portal.local.azurestack.external/TokenAuthorize という形式になります。 別のドメインで実行する場合は、azurestack.local のドメインを切り替えます。
+8. **[OAuth 2 Redirect URI\(OAuth 2 リダイレクト URI\])** を設定し、 **[追加]** をクリックします。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](https://portal.local.azurestack.external/TokenAuthorize ) という形式になります。 別のドメインで実行する場合は、azurestack.local のドメインを切り替えます。
 ![Dropbox アプリケーションの構成][16]
 9.  新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理ポータル (https://adminportal.local.azurestack.external) にサービス管理者としてサインインします。
 10.  **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin (App Service リソース プロバイダー管理)]** を選択します。

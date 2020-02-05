@@ -62,11 +62,11 @@ Azure Stack Hub で .NET Azure SDK を使用するには、次の値を指定し
 
 | Value                     | 環境変数   | [説明]                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack Hub の ["*テナント ID*"][] の値。                                                                          |
+| テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack Hub の [*テナント ID*][] の値。                                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID `      | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
-| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID` | ["*サブスクリプション ID*"][] は、Azure Stack Hub 内のオファーにアクセスするために必要です。                                                      |
+| サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID` | [*サブスクリプション ID*][] は、Azure Stack Hub 内のオファーにアクセスするために必要です。                                                      |
 | クライアント シークレット             | `AZURE_CLIENT_SECRET`   | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。                                      |
-| Resource Manager エンドポイント | `ARM_ENDPOINT`          | ["*Azure Stack Hub Resource Manager エンドポイント*"][] に関する記事を参照してください。                                                                    |
+| Resource Manager エンドポイント | `ARM_ENDPOINT`          | [*Azure Stack Hub Resource Manager エンドポイント*][] に関する記事を参照してください。                                                                    |
 | Location                  | `RESOURCE_LOCATION`     | Azure Stack Hub の場所。
 
 Azure Stack Hub のテナント ID を確認するには、[この記事](../operator/azure-stack-csp-ref-operations.md)の手順に従ってください。 環境変数を設定するには、次の手順に従います。
