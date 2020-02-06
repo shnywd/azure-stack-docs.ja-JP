@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 42529e5757100ed2ad1334b62bf4e58e1266f561
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cd1e5e66b5cdb893591fc4116b335ff399ace736
+ms.sourcegitcommit: bcd2c6cd08526723f4b770b149c5e9a4fd5ef0ee
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881687"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76922624"
 ---
 # <a name="network-integration-planning-for-azure-stack-hub"></a>Azure Stack Hub のためのネットワーク統合計画
 
-この記事では、Azure Stack Hub を既存のネットワーク環境に統合する最善の方法を決定するために役立つ Azure Stack Hub ネットワーク インフラストラクチャの情報を提供します。 
+この記事では、Azure Stack Hub を既存のネットワーク環境に統合する最善の方法を決定するために役立つ Azure Stack Hub ネットワーク インフラストラクチャの情報を提供します。
 
 > [!NOTE]
 > Azure Stack Hub から外部の DNS 名 (たとえば www\.bing.com) を解決するには、DNS 要求を転送するための DNS サーバーを提供する必要があります。 Azure Stack Hub の DNS 要件の詳細については、[Azure Stack Hub とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)に関するページをご覧ください。
@@ -34,7 +34,7 @@ Azure Stack Hub ソリューションには、その操作やサービスをサ�
 
 次の表に、論理ネットワークと、計画する必要がある関連付けられた IPv4 サブネット範囲を示します。
 
-| 論理ネットワーク | [説明] | Size | 
+| 論理ネットワーク | 説明 | Size | 
 | -------- | ------------- | ------------ | 
 | パブリック VIP | Azure Stack Hub では、このネットワークからの合計 31 個のアドレスが使用されます。 少数の Azure Stack Hub サービスに 8 個のパブリック IP アドレスが使用されます。残りはテナント VM によって使用されます。 App Service と SQL リソース プロバイダーを使用する場合は、さらに 7 個のアドレスを使用します。 残りの 15 個の IP アドレスは、将来の Azure サービスのために予約されています。 | /26 (62 ホスト) - /22 (1022 ホスト)<br><br>推奨 = /24 (254 ホスト) | 
 | スイッチのインフラストラクチャ | ルーティングを目的としたポイント ツー ポイント IP アドレス (スイッチ管理専用インターフェイス) と、スイッチに割り当てられたループバック アドレス。 | /26 | 

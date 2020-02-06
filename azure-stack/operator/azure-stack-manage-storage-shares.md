@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d7db8ade21580af67c0a1b3f3783f694544f5e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7453e8e454d6af39d86be0eaff49bef6e4538fac
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882000"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037286"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
@@ -43,7 +43,7 @@ Azure Stack Hub ではストレージ容量の拡張はサポートされない�
 
 共有の空き領域が少ないときに、領域を[回収](#reclaim-capacity)するためのアクションが成功しないか使用できない場合、Azure Stack Hub クラウド オペレーターは、ある共有から別の共有に BLOB コンテナーを移行できます。
 
-- テナント ユーザーによる Azure Stack Hub での BLOB ストレージの操作方法については、[Azure Stack Hub ストレージ サービス](/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services)に関する記事を参照してください。
+- テナント ユーザーによる Azure Stack Hub での BLOB ストレージの操作方法については、[Azure Stack Hub ストレージ サービス](/azure-stack/user/azure-stack-storage-overview)に関する記事を参照してください。
 
 
 ### <a name="containers"></a>Containers

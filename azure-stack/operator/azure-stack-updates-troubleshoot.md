@@ -7,12 +7,12 @@ ms.date: 09/23/2019
 ms.author: mabrigg
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b944e598080df3551764c7978ab205a9fffd666b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882644"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037218"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス
 
@@ -23,7 +23,7 @@ Azure Stack Hub の修正プログラムと更新プログラムのプロセス�
 
 0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[自動ログ収集を構成済み](azure-stack-configure-automatic-diagnostic-log-collection.md)であることを確認してください。
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
-2. [Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates-troubleshoot#Common-azure-stack-hub-patch-and-update-issues)を確認し、起きた問題が示されている場合は推奨されている操作を行います。
+2. [Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題](#common-azure-stack-hub-patch-and-update-issues)を確認し、起きた問題が示されている場合は推奨されている操作を行います。
 3. 上記の手順で問題を解決できない場合は、[Azure Stack Hub のサポート チケット](azure-stack-help-and-support-overview.md)を作成します。 問題が発生した期間に[収集されたログ](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection)があることを確認してください。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
