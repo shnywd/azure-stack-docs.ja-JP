@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 2b8a6b06b0eca680a42d7c15bfe7fbb43afec29a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
+ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882085"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77001618"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 
@@ -23,7 +23,7 @@ Azure Stack Hub 更新プログラム 1809 以降には、構成すると、CEF 
 次の図は、Azure Stack Hub と外部の SIEM との統合について説明しています。 考慮する必要がある統合のパターンは 2 つあります。最初の 1 つ (青色のもの) は、インフラストラクチャの仮想マシンと HYPER-V ノードを含む Azure Stack Hub インフラストラクチャです。 すべての監査、セキュリティ ログ、およびそれらのコンポーネントからのアラートは、一元的に収集されて、CEF ペイロードを持つ Syslog を介して公開されます。 この統合パターンについては、このドキュメントのページで説明します。
 2 つ目の統合パターンは、オレンジ色で示されているもので、その範囲には、ベースボード管理コントローラー (BMC)、ハードウェア ライフサイクル ホスト (HLH)、仮想マシンやハードウェア パートナーの監視および管理ソフトウェアを実行する仮想アプライアンス、トップ オブ ラック (TOR) スイッチが含まれています。 これらのコンポーネントはハードウェア パートナー固有のものであるため、それらを外部 SIEM に統合する方法に関するドキュメントについては、ハードウェア パートナーにお問い合わせください。
 
-![Syslog 転送の図](media/azure-stack-integrate-security/syslog-forwarding.png)
+![Syslog 転送の図](media/azure-stack-integrate-security/azure-stack-hub-syslog-forwarding-diagram_bg.svg)
 
 ## <a name="configuring-syslog-forwarding"></a>Syslog 転送の構成
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* コマンドレットのパラメーター:
 
-| パラメーター | [説明] | 種類 | Required |
+| パラメーター | 説明 | Type | Required |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog サーバーの FQDN または IP アドレス。 | String | はい|
 |*ServerPort* | Syslog サーバーがリッスンしているポート番号。 | UInt16 | はい|
@@ -69,7 +69,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogClient* コマンドレットのパラメーター:
 
-| パラメーター | [説明] | 種類 |
+| パラメーター | 説明 | Type |
 |---------|---------| ---------|
 | *pfxBinary* | Syslog サーバーへの認証でクライアントが ID として使用する証明書が入った Byte[] にパイプする pfx ファイルの内容。  | Byte[] |
 | *CertPassword* |  pfx ファイルに関連付けられている秘密キーをインポートするためのパスワード。 | SecureString |

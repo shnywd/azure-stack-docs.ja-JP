@@ -8,12 +8,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 5171b52bc3c85dd5dbcc2c83cf307274ef92d558
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: c590aed504df1549e3c4a43ae282a304e579195a
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890206"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037201"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub でサポートされているゲスト オペレーティング システム
 
@@ -21,7 +21,7 @@ ms.locfileid: "76890206"
 
 Azure Stack Hub では、次の表に示す Windows ゲスト オペレーティング システムがサポートされています。
 
-| オペレーティング システム | [説明] | Azure Stack Hub Marketplace で使用可能 |
+| オペレーティング システム | 説明 | Azure Stack Hub Marketplace で使用可能 |
 | --- | --- | --- |
 | Windows Server、バージョン 1709 | 64 ビット | コンテナー付き Core |
 | Windows Server 2019 | 64 ビット |  データセンター、Datacenter Core、コンテナー付きデータセンター |
@@ -33,7 +33,7 @@ Azure Stack Hub では、次の表に示す Windows ゲスト オペレーティ
 | Windows 10 *(注 1 をご覧ください)* | 64 ビット、Pro、および Enterprise | Bring your own image |
 
 > [!NOTE]
-> Azure Stack Hub で Windows 10 クライアント オペレーティング システムをデプロイするには、[Windows のユーザーごとのライセンス](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)を持っているか、Qualified Multitenant Hoster [(QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)) から購入する必要があります。
+> Azure Stack Hub で Windows 10 クライアント オペレーティング システムをデプロイするには、[Windows のユーザーごとのライセンス](https://www.microsoft.com/licensing/product-licensing/windows10.aspx)を持っているか、Qualified Multitenant Hoster [(QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)) から購入する必要があります。
 
 Marketplace イメージは従量課金制または BYOL (EA/SPLA) ライセンスで利用できます。 1 つの Azure Stack Hub インスタンスで両方を使うことはサポートされていません。 デプロイ時に Azure Stack Hub によって、適切なバージョンのゲスト エージェントがイメージに挿入されます。
 
@@ -48,7 +48,7 @@ Azure Stack Hub Marketplace で入手可能として示されている Linux デ
 >
 > [cloud-init](https://cloud-init.io/) は、Azure Stack Hub 1910 以降でサポートされます。
 
-| Distribution | [説明] | Publisher | Azure Stack Hub Marketplace |
+| Distribution | 説明 | Publisher | Azure Stack Hub Marketplace |
 | --- | --- | --- | --- |
 | CentOS-based 6.9 | 64 ビット | Rogue Wave | はい |
 | CentOS-based 7.5 | 64 ビット | Rogue Wave | はい |
