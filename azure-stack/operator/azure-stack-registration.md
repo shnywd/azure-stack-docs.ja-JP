@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/02/2020
 ms.author: mabrigg
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 81b899104b162e92f74204f9b70c67fc280d7c31
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881410"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972584"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -124,7 +124,7 @@ Run: Get-AzureStackStampInformation
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
-   | パラメーター | [説明] |  
+   | パラメーター | 説明 |  
    |-----|-----|
    | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
@@ -155,7 +155,7 @@ Run: Get-AzureStackStampInformation
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | パラメーター | [説明] |  
+   | パラメーター | 説明 |  
    |-----|-----|
    | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
@@ -191,7 +191,7 @@ Run: Get-AzureStackStampInformation
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
-   | パラメーター | [説明] |  
+   | パラメーター | 説明 |  
    |-----|-----|
    | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
@@ -468,7 +468,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
     <String>] [<CommonParameters>]
 ```
 
-| パラメーター | 種類 | [説明] |
+| パラメーター | Type | 説明 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、**AzureStackDomain\CloudAdmin** の形式です。 |
 | PrivilegedEndpoint | String | ログ収集およびその他のデプロイ後タスクのような機能を提供する、あらかじめ構成されたリモート PowerShell コンソール。 詳細については、[特権エンドポイントの使用](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)の記事を参照してください。 |
@@ -478,7 +478,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | BillingModel | String | 自分のサブスクリプションで使用する請求モデル。 このパラメーターの有効値は、Capacity、PayAsYouUse、および Development です。 |
 | MarketplaceSyndicationEnabled | True または False | ポータル内で Marketplace 管理機能を使用できるようにするかどうかを決定します。 インターネット接続を使用して登録している場合は true に設定します。 切断された環境で登録している場合は false に設定します。 切断された環境で登録した場合は、[オフライン シンジケーション ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用して、マーケットプレースの項目をダウンロードできます。 |
 | UsageReportingEnabled | True または False | Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。 このパラメーターの有効値は、True、False。 |
-| AgreementNumber | String |  |
+| AgreementNumber | String | この Azure Stack の容量 SKU が注文された EA 契約の番号。 |
 | RegistrationName | String | 同じ Azure サブスクリプション ID を利用し、複数の Azure Stack Hub インスタンスで登録スクリプトを実行している場合、登録に一意の名前を設定します。 このパラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack Hub インスタンスに同じ名前を使用すると、スクリプトは失敗します。 |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
@@ -490,7 +490,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| パラメーター | 種類 | [説明] |
+| パラメーター | Type | 説明 |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、**AzureStackDomain\CloudAdmin** の形式です。 |
 | PrivilegedEndpoint | String |  ログ収集およびその他のデプロイ後タスクのような機能を提供する、あらかじめ構成されたリモート PowerShell コンソール。 詳細については、[特権エンドポイントの使用](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)の記事を参照してください。 |

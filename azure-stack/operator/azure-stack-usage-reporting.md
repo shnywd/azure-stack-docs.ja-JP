@@ -1,18 +1,21 @@
 ---
 title: Azure Stack Hub 使用状況データの Azure への報告
-description: Azure Stack Hub で使用状況データ レポートを設定する方法について説明します。
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 使用状況データを Azure に報告する方法について説明します。
+services: azure-stack
+documentationcenter: ''
 author: sethmanheim
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 195491ebd67f1e7741a793278b316bab028c4471
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed0bcd873d6bd33017172eb3accad227e2073668
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882657"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972641"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Azure Stack Hub 使用状況データの Azure への報告
 
@@ -23,15 +26,15 @@ ms.locfileid: "76882657"
 > [!IMPORTANT]
 > すべてのワークロードは、Azure Stack Hub のライセンス条項に従って、[テナント サブスクリプションでデプロイする必要があります](#are-users-charged-for-the-infrastructure-vms)。
 
-使用状況データの報告は、従量課金モデルのライセンスを持つ Azure Stack Hub マルチノードのユーザーにとっては必須事項です。 一方、容量モデルのライセンスを持つユーザーはこの報告を省略できます ([購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)に関するページを参照してください)。 Azure Stack Development Kit (ASDK) ユーザーの場合は、Azure Stack Hub オペレーターが使用状況データを報告し、機能をテストできます。 ただし、ユーザーの使用に対して課金されることはありません。
+使用状況データの報告は、従量課金モデルのライセンスを持つ Azure Stack Hub マルチノードのユーザーにとっては必須事項です。 容量モデルのライセンスを持つユーザーはこの報告を省略できます ([購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)に関するページを参照してください)。 Azure Stack Development Kit (ASDK) ユーザーの場合は、Azure Stack Hub オペレーターが使用状況データを報告し、機能をテストできます。 ただし、ユーザーの使用に対して課金されることはありません。
 
-![課金のフロー](media/azure-stack-usage-reporting/billing-flow.png)
+![Azure Stack Hub の使用状況データの課金フロー](media/azure-stack-usage-reporting/billing-flow.png)
 
 使用状況データは、Azure Bridge 経由で Azure Stack Hub から Azure に送信されます。 Azure では、コマース システムが使用状況データを処理し、課金を生成します。 課金が生成された後、Azure サブスクリプションの所有者はそれを表示したり、[Azure アカウント センター](https://account.windowsazure.com/subscriptions)からダウンロードしたりできます。 Azure Stack Hub のライセンス方法については、「[Microsoft Azure Stack Hub のパッケージ化と価格](https://go.microsoft.com/fwlink/?LinkId=842847)」ドキュメントを参照してください。
 
 ## <a name="set-up-usage-data-reporting"></a>使用状況データ レポートの設定
 
-使用状況データ レポートを設定するには、[Azure Stack Hub インスタンスを Azure に登録する](azure-stack-registration.md)必要があります。 登録プロセスの一部として、Azure Stack Hub を Azure に接続し、使用状況データを送信する Azure Stack Hub の Azure Bridge コンポーネントが構成されます。 次の使用状況データが Azure Stack Hub から Azure に送信されます。
+使用状況データ レポートを設定するには、[Azure Stack Hub インスタンスを Azure に登録する](azure-stack-registration.md)必要があります。 登録プロセスの一部として、Azure Stack Hub の Azure Bridge コンポーネントが構成されます。 Azure Bridge コンポーネントによって、Azure Stack Hub が Azure に接続されます。 次の使用状況データが Azure Stack Hub から Azure に送信されます。
 
 - **メーター ID** - 使用されたリソースの一意の ID。
 - **数量** - リソース使用状況の量。
@@ -48,9 +51,9 @@ ms.locfileid: "76882657"
 
 ## <a name="view-usage---csp-subscriptions"></a>使用状況の表示 - CSP サブスクリプション
 
-Azure Stack Hub を CSP サブスクリプションを使用して登録した場合は、Azure の消費量を表示するのと同じ方法で、使用状況と請求金額を表示できます。 Azure Stack Hub の使用状況は請求書と調整ファイルに含まれます。これらは[パートナー センター](https://partnercenter.microsoft.com/partner/home)を通して入手できます。 調整ファイルは月単位で更新されます。 Azure Stack Hub の最近の使用状況情報にアクセスする必要がある場合は、パートナー センター API を使用できます。
+Azure Stack ハブを CSP サブスクリプションを使用して登録した場合は、Azure の消費量を表示するのと同じ方法で、使用状況と請求金額を表示できます。 Azure Stack Hub の使用状況は請求書と調整ファイルに含まれます。これらは[パートナー センター](https://partnercenter.microsoft.com/partner/home)を通して入手できます。 調整ファイルは月単位で更新されます。 Azure Stack Hub の最近の使用状況情報にアクセスする必要がある場合は、パートナー センター API を使用できます。
 
-![パートナー センター](media/azure-stack-usage-reporting/partner-center.png)
+![Microsoft パートナー センターで Azure Stack Hub の課金と使用状況データを表示する](media/azure-stack-usage-reporting/partner-center.png)
 
 ## <a name="view-usage---enterprise-agreement-subscriptions"></a>使用状況の表示 - Enterprise Agreement サブスクリプション
 
@@ -58,15 +61,15 @@ Azure Stack Hub を Enterprise Agreement サブスクリプションを使用し
 
 ## <a name="view-usage---other-subscriptions"></a>使用状況の表示 - その他のサブスクリプション
 
-Azure Stack Hub をその他のサブスクリプションの種類 (従量課金制など) を使用して登録した場合は、Azure アカウント センターで使用状況と請求金額を確認できます。 Azure アカウント管理者として [Azure アカウント センター](https://account.windowsazure.com/subscriptions)にサインインし、Azure Stack Hub を登録するために使用される Azure サブスクリプションを選択します。 次の図に示すように、Azure Stack Hub 使用状況データ (使用された各リソースの課金される量) を表示できます。
+Azure Stack ハブをその他のサブスクリプションの種類 (従量課金制など) を使用して登録した場合は、Azure アカウント センターで使用状況と請求金額を確認できます。 Azure アカウント管理者として [Azure アカウント センター](https://account.windowsazure.com/subscriptions)にサインインし、Azure Stack Hub を登録するために使用した Azure サブスクリプションを選択します。 次の図に示すように、Azure Stack Hub 使用状況データ (使用された各リソースの課金される量) を表示できます。
 
-![課金のフロー](media/azure-stack-usage-reporting/pricing-details.png)
+![Azure アカウント センターでの課金および使用状況フローの表示](media/azure-stack-usage-reporting/pricing-details.png)
 
 ASDK の場合、Azure Stack Hub リソースは課金されないため、表示される価格は $0.00 です。
 
 ## <a name="which-azure-stack-hub-deployments-are-charged"></a>どの Azure Stack Hub デプロイが課金されますか?
 
-ASDK では、リソースの使用は無料です。 Azure Stack Hub マルチノード システム、ワークロード VM、ストレージ サービス、App Services は課金されます。
+ASDK では、リソースの使用は無料です。 Azure Stack Hub マルチノード システム、ワークロード VM、ストレージ サービス、および App Services は課金されます。
 
 ## <a name="are-users-charged-for-the-infrastructure-vms"></a>ユーザーはインフラストラクチャ VM に対して課金されますか?
 
@@ -76,7 +79,7 @@ ASDK では、リソースの使用は無料です。 Azure Stack Hub マルチ�
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-hub-how-do-i-do-it"></a>Windows Server ライセンスを持っています。Azure Stack Hub で使用したいのですが、どうすればよいですか?
 
-既存のライセンスを使用すると、使用状況メーターの生成を回避できます。 既存の Windows Server ライセンスを Azure Stack Hub で使用できます。「[Azure Stack Hub ライセンス ガイド](https://go.microsoft.com/fwlink/?LinkId=851536)」の「Azure Stack Hub で既存のソフトウェアを使用する」を参照してください。 既存のライセンスを使用するには、「[Windows Server 向け Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing)」で説明されているように、Windows Server 仮想マシンをデプロイする必要があります。
+既存のライセンスを使用すると、使用状況メーターの生成を回避できます。 既存の Windows Server ライセンスを Azure Stack Hub で使用できます。 このプロセスについては、「[Azure Stack Hub ライセンス ガイド](https://go.microsoft.com/fwlink/?LinkId=851536)」の「Azure Stack Hub で既存のソフトウェアを使用する」を参照してください。 既存のライセンスを使用するには、「[Windows Server 向け Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing)」で説明されているように、Windows Server VM をデプロイする必要があります。
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>使用されたリソースに対してどのサブスクリプションが課金されますか?
 
@@ -84,11 +87,11 @@ ASDK では、リソースの使用は無料です。 Azure Stack Hub マルチ�
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>使用状況データ レポートでは、どのような種類のサブスクリプションがサポートされますか?
 
-Azure Stack Hub マルチノードでは、Enterprise Agreement (EA) と CSP サブスクリプションがサポートされます。 Azure Stack Development Kit の場合、Enterprise Agreement (EA)、従量課金制、CSP、MSDN サブスクリプションで、使用状況データの報告がサポートされます。
+Azure Stack Hub マルチノードでは、Enterprise Agreement (EA) と CSP サブスクリプションがサポートされます。 ASDK の場合、Enterprise Agreement (EA)、従量課金制、CSP、および MSDN サブスクリプションで、使用状況データの報告がサポートされます。
 
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>使用状況データ レポートはソブリン クラウドで機能しますか?
 
-Azure Stack Development Kit では、使用状況データ レポートにはグローバルな Azure システムで作成されたサブスクリプションが必要です。 ソブリン クラウド (Azure Government、Azure Germany、および Azure China 21Vianet クラウド) のいずれかで作成されたサブスクリプションは、Azure に登録できないため、使用状況データ レポートがサポートされません。
+ASDK では、使用状況データ レポートにはグローバルな Azure システムで作成されたサブスクリプションが必要です。 ソブリン クラウド (Azure Government、Azure Germany、および Azure China 21Vianet クラウド) のいずれかで作成されたサブスクリプションは Azure に登録できないため、使用状況データ レポートはサポートされません。
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-hub-match-the-report-generated-from-azure-account-center"></a>Azure Stack Hub で報告された使用状況が Azure アカウント センターから生成されたレポートと一致しないのはなぜですか?
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 10035700de713910d33114e06fab11321e96e5b1
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72a0fd215363911457271f65d636be37e3388c83
+ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877444"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77037167"
 ---
 # <a name="hybrid-application-design-considerations"></a>ハイブリッド アプリケーション設計に関する考慮事項 
 
@@ -142,7 +142,7 @@ Microsoft Azure は、一貫性のある唯一のハイブリッド クラウド
 
 可用性とは、システムが動作し実際に使用可能である時間です。 可用性は、アップタイムの割合として測定されます。 アプリケーション エラー、インフラストラクチャの問題、システムの負荷はすべて、可用性を低下させる可能性があります。
 
-この要点の主要な説明については、「ソフトウェア品質の要点」の[*可用性*](https://docs.microsoft.com/azure/architecture/guide/pillars#availability)を参照してください。
+この要点の主要な説明については、「ソフトウェア品質の要点」の[*可用性*](/azure/architecture/framework/)を参照してください。
 
 ### <a name="availability-checklist"></a>可用性のチェックリスト
 
@@ -186,7 +186,7 @@ Microsoft Azure は、一貫性のある唯一のハイブリッド クラウド
 
 ハイブリッド アプリケーションの管理方法に関する考慮事項は、アーキテクチャの設計に不可欠です。 適切に管理されたハイブリッド アプリケーションは、共通の開発パイプラインで一貫したアプリケーション コードを統合できるようにするための、コードとしてのインフラストラクチャを提供します。 インフラストラクチャの変更に対して一貫したシステム全体および個別のテストを実装することにより、変更がテストに合格した場合は統合されたデプロイを保証でき、それらをソース コードにマージすることができます。
 
-この要点の主要な説明については、「ソフトウェア品質の要点」の[*管理性と DevOps*](https://docs.microsoft.com/azure/architecture/guide/pillars#management-and-devops) を参照してください。
+この要点の主要な説明については、「ソフトウェア品質の要点」の[*DevOps*](/azure/architecture/framework/#devops)を参照してください。
 
 ### <a name="manageability-checklist"></a>管理容易性のチェックリスト
 

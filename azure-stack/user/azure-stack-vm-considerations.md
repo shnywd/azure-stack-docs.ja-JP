@@ -3,16 +3,16 @@ title: Azure Stack Hub VM の機能
 description: Azure Stack Hub で VM を操作する際のさまざまな機能と考慮事項について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 94889f2d5d1223d1f5c1da1eaf5289f968cc5efa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 76ecac957ab7680032c31cd46db4b717a2f029e5
+ms.sourcegitcommit: 4178443d84cf6d3fbaba11425beff703568c1a2c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883038"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76977888"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -23,6 +23,7 @@ Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラ�
 | 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 | 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Hub Marketplace に使用可能なイメージはありません。 Azure Stack Hub のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Hub Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
+| VHD 世代 | 第 2 世代 VM では、第 1 世代 VM ではサポートされていない重要な機能がサポートされています。 これらの機能には、メモリの増加、Intel ソフトウェア ガード エクステンションズ (Intel SGX)、および仮想化された永続メモリ (vPMEM) が含まれます。 オンプレミスで実行される第 2 世代 VM には、Azure ではまだサポートされていない機能がいくつかあります。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。  | Azure Stack Hub でサポートされるのは、第 1 世代 VM のみです。 第 1 世代 VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。 |
 | 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack Hub は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
 | 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack Hub のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
 | 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack Hub は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack Hub のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
@@ -46,7 +47,7 @@ Azure Stack Hub は、リソースの過剰消費を防ぐため、(サーバー
 
 次の表は、Azure Stack Hub でサポートされている VM とその構成の一覧です。
 
-| 種類            | Size          | サポートされるサイズの範囲 |
+| Type            | Size          | サポートされるサイズの範囲 |
 | ----------------| ------------- | ------------------------ |
 |汎用  |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |汎用  |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

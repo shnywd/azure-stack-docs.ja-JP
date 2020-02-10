@@ -7,12 +7,12 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: fe20a682041e3e23e2a67957ecdce85f922fbf20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
+ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876373"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77012888"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure Stack Hub のオフライン環境に Azure App Service をデプロイする
 
@@ -37,9 +37,9 @@ Azure App Service リソース プロバイダーをオフラインの Azure Sta
 
 オフライン環境で Azure App Service をデプロイするには、まず、インターネットに接続されているマシンでオフライン インストール パッケージを作成します。
 
-1. インターネットに接続されているマシンで AppService.exe インストーラーを実行します。
+1. インターネットに接続されているマシンで AppService.exe インストーラーを実行します。 
 
-2. **[詳細]**  >  **[オフライン インストール パッケージを作成する]** の順に選択します。
+2. **[詳細]**  >  **[オフライン インストール パッケージを作成する]** の順に選択します。 この手順は、完了までに数分かかります。
 
     ![Azure App Service インストーラーでオフライン パッケージを作成する][1]
 
@@ -148,7 +148,7 @@ Azure App Service リソース プロバイダーをオフラインの Azure Sta
      >
      >
 
-    | Role | インスタンスの最小値 | SKU の最小値 | メモ |
+    | Role | インスタンスの最小値 | SKU の最小値 | Notes |
     | --- | --- | --- | --- |
     | コントローラー | 1 | Standard_A2 - (2 vCPU、3584 MB) | Azure App Service クラウドの正常性を管理および維持します。 |
     | 管理 | 1 | Standard_A2 - (2 vCPU、3584 MB) | Azure App Service Azure Resource Manager および API のエンドポイント、ポータル拡張機能 (管理、テナント、Functions ポータル)、データ サービスを管理します。 フェールオーバーをサポートするには、推奨されるインスタンスを 2 つに増やします。 |
@@ -158,10 +158,17 @@ Azure App Service リソース プロバイダーをオフラインの Azure Sta
 
     ![Azure App Service インストーラーでロール階層と SKU オプションを設定する][14]
 
+1. **[プラットフォーム イメージの選択]** ボックスで、Azure App Service クラウド用のコンピューティング リソース プロバイダーで選択可能なイメージの中から、ご自分のデプロイの Windows Server 2016 仮想マシン (VM) イメージを選びます。 **[次へ]** を選択します。
+
     > [!NOTE]
     > Windows Server 2016 Core は、Azure App Service on Azure Stack Hub で使用するためにサポートされているプラットフォーム イメージでは*ありません*。  運用環境デプロイには評価版イメージを使用しないでください。 Azure App Service on Azure Stack Hub では、デプロイに使用されるイメージ上で Microsoft .NET 3.5.1 SP1 がアクティブにされている必要があります。 Marketplace にシンジケート化された Windows Server 2016 イメージでは、この機能は有効ではありません。 そのため、この機能をあらかじめ有効にして Windows Server 2016 イメージを作成し、使用する必要があります。
-
-1. **[プラットフォーム イメージの選択]** ボックスで、Azure App Service クラウド用のコンピューティング リソース プロバイダーで選択可能なイメージの中から、ご自分のデプロイの Windows Server 2016 仮想マシン (VM) イメージを選びます。 **[次へ]** を選択します。
+    >
+    > カスタム イメージを作成して Marketplace に追加する方法の詳細については、「[Azure Stack Hub にカスタム VM イメージを追加する](azure-stack-add-vm-image.md)」を参照してください。 Marketplace にイメージを追加するときは、必ず以下を指定してください。
+    >
+    >- 発行元 = MicrosoftWindowsServer
+    >- オファー = WindowsServer
+    >- SKU = 2016-Datacenter
+    >- バージョン = "最新" バージョンを指定
 
 1. 次のページで、次の操作を行います。
      1. Worker ロールの VM 管理者のユーザー名とパスワードを入力します。

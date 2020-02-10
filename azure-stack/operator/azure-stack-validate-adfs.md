@@ -1,18 +1,21 @@
 ---
-title: Azure Stack Hub の AD FS 統合を検証する
-description: Azure Stack Hub 適合性チェッカーを使用して、Azure Stack Hub の AD FS 統合を検証します。
+title: AD FS 統合の検証
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 適合性チェッカーを使用して、Azure Stack Hub の AD FS 統合を検証する方法について説明します。
+services: azure-stack
+documentationcenter: ''
 author: ihenkel
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: a98a5384b8590f494e6e9d6acdeb05e90fce3a20
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
+ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880634"
+ms.lasthandoff: 02/03/2020
+ms.locfileid: "76972593"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Azure Stack Hub の AD FS 統合を検証する
 
@@ -21,7 +24,7 @@ Azure Stack Hub 適合性チェッカー ツール (AzsReadinessChecker) を使�
 適合性チェッカーは以下を検証します。
 
 * "*フェデレーション メタデータ*" にフェデレーションに有効な XML 要素が含まれている。
-* *AD FS SSL 証明書*を取得し、信頼チェーンを構築できる。 スタンプで、AD FS は SSL 証明書チェーンを信頼する必要があります。 証明書は、Azure Stack Hub デプロイ証明書に使用される同じ "*証明機関*" か、信頼されたルート証明機関パートナーによって署名されている必要があります。 信頼されたルート証明機関パートナーの完全な一覧については、[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) を参照してください。
+* *AD FS SSL 証明書*を取得し、信頼チェーンを構築できる。 スタンプでは、AD FS で SSL 証明書チェーンを信頼する必要があります。 証明書は、Azure Stack Hub デプロイ証明書に使用される同じ "*証明機関*" か、信頼されたルート証明機関パートナーによって署名されている必要があります。 信頼されたルート証明機関パートナーの完全な一覧については、[TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) を参照してください。
 * *AD FS 署名証明書*が信頼され、有効期限が迫っていない。
 
 Azure Stack Hub とデータ センターの統合の詳細については、「[Azure Stack Hub とデータセンターの統合 - ID](azure-stack-integrate-identity.md)」を参照してください。
@@ -38,29 +41,35 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 
 * ドメインに接続された Windows 10 または Windows Server 2016。
 * PowerShell 5.1 以降。 お使いのバージョンを確認するには、次の PowerShell コマンドを実行し、"*メジャー*" バージョンと "*マイナー*" バージョンを確かめます。  
-   > `$PSVersionTable.PSVersion`
+    ```powershell
+    $PSVersionTable.PSVersion
+    ```
 * 最新バージョンの [Microsoft Azure Stack Hub 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。
 
 **Active Directory フェデレーション サービス (AD FS) 環境:**
 
 少なくとも次のいずれかの形式のメタデータが必要です。
 
-* AD FS フェデレーション メタデータの URL。 たとえば `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml` です。
-* フェデレーション メタデータ XML ファイル。 たとえば、FederationMetadata.xml です。
+- AD FS フェデレーション メタデータの URL。 (例: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`)。
+* フェデレーション メタデータ XML ファイル。 次に例を示します。FederationMetadata.xml。
 
 ## <a name="validate-ad-fs-integration"></a>AD FS 統合の検証
 
 1. 前提条件を満たしているコンピューターで、管理 PowerShell プロンプトを開き、次のコマンドを実行して、AzsReadinessChecker をインストールします。
 
-     `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
+    ```powershell
+    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+    ```
 
 1. PowerShell プロンプトから次のコマンドを実行して、検証を開始します。 フェデレーション メタデータの URI として、 **-CustomADFSFederationMetadataEndpointUri** の値を指定します。
 
-     `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
+     ```powershell
+     Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
+     ```
 
 1. ツールの実行後、出力を確認します。 AD FS 統合の要件について、状態が OK であることを確認します。 検証が成功した場合は、次の例と同様になります。
 
-    ```
+    ```powershell
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
 
     Testing ADFS Endpoint https://sts.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
@@ -93,8 +102,8 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 
 次のコマンドを使用します。
 
-* **-OutputPath**:別のレポートの場所を指定するには、実行コマンドの末尾に *path* パラメーターを使用します。
-* **-CleanReport**:前のレポート情報から AzsReadinessCheckerReport.json をクリアするために、実行コマンドの末尾に付けるパラメーターです。 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
+* `-OutputPath`:別のレポートの場所を指定するには、実行コマンドの末尾に *path* パラメーターを使用します。
+* `-CleanReport`:前のレポート情報から AzsReadinessCheckerReport.json をクリアするために、実行コマンドの末尾に付けるパラメーターです。 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
 ## <a name="validation-failures"></a>検証エラー
 
@@ -104,13 +113,17 @@ Azure Stack Hub とデータ センターの統合の詳細については、「
 
 ### <a name="command-not-found"></a>コマンドが見つからない
 
-`Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
+```powershell
+Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+```
 
 **原因**:PowerShell Autoload で、適合性チェッカー モジュールを正しく読み込めませんでした。
 
-**解決方法**:適合性チェッカー モジュールを明示的にインポートします。 次のコードをコピーして PowerShell に貼り付け、\<version\> を現在インストールされているバージョンの番号に更新します。
+**解決方法**:適合性チェッカー モジュールを明示的にインポートします。 次のコードをコピーして PowerShell に貼り付け、`<version>` を現在インストールされているバージョンの番号に更新します。
 
-`Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
+```powershell
+Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force
+```
 
 ## <a name="next-steps"></a>次のステップ
 
