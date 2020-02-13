@@ -1,6 +1,6 @@
 ---
 title: ローカル エージェントをデプロイする
-description: Azure Stack のサービスとしての検証に使用するローカル エージェントをデプロイします。
+description: Azure Stack Hub のサービスとしての検証に使用するローカル エージェントをデプロイします。
 author: mattbriggs
 ms.topic: quickstart
 ms.date: 11/11/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a84f2495b0e2195ac143dc8fd9ac4ea4668392b4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a5090b60c5aa3c947fbbf1fc887b4fb25900ae98
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884093"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143979"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 
@@ -32,13 +32,13 @@ ms.locfileid: "76884093"
 
 ## <a name="download-and-start-the-local-agent"></a>ローカル エージェントのダウンロードと起動
 
-データセンター内の前提条件を満たしたマシンのうち、Azure Stack のすべてのエンドポイントにアクセスできるマシンにエージェントをダウンロードします。 対象のマシンは、Azure Stack システムに属していないこと、また Azure Stack クラウドでホストされていないことが必要です。
+データセンター内の前提条件を満たしたマシンのうち、Azure Stack Hub のすべてのエンドポイントにアクセスできるマシンにエージェントをダウンロードします。 対象のマシンは、Azure Stack Hub システムに属していないこと、また Azure Stack Hub クラウドでホストされていないことが必要です。
 
 ### <a name="machine-prerequisites"></a>マシンの前提条件
 
 対象のマシンが次の条件を満たしていることを確認します。
 
-- すべての Azure Stack エンドポイントへのアクセス
+- すべての Azure Stack Hub エンドポイントへのアクセス
 - .NET 4.6 と PowerShell 5.0 のインストール
 - 8 GB 以上の RAM
 - 8 コア以上のプロセッサ
@@ -48,7 +48,7 @@ ms.locfileid: "76884093"
 ### <a name="download-and-install-the-local-agent"></a>ローカル エージェントのダウンロードとインストール
 
 1. テストの実行に使用するマシンから、管理者特権でのコマンド プロンプトで Windows PowerShell を開きます。
-2. 次のコマンドを実行して、ローカル エージェントの依存関係をダウンロードしてインストールし、Azure Stack 環境にパブリック イメージ リポジトリ (PIR) イメージ (OS VHD) をコピーします。
+2. 次のコマンドを実行して、ローカル エージェントの依存関係をダウンロードしてインストールし、Azure Stack Hub 環境にパブリック イメージ リポジトリ (PIR) イメージ (OS VHD) をコピーします。
 
     ```powershell
     # Review and update the following five parameters
@@ -82,7 +82,7 @@ ms.locfileid: "76884093"
 
 **パラメーター**
 
-| パラメーター | [説明] |
+| パラメーター | 説明 |
 | --- | --- |
 | AadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
 | AadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
@@ -93,7 +93,7 @@ ms.locfileid: "76884093"
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>テストを開始する前のサニティ チェックを実行する
 
-テストではリモート操作が実行されます。 テストを実行するマシンは、Azure Stack エンドポイントにアクセスできる必要があります。そうでないと、テストは機能しません。 VaaS のローカル エージェントを使用する場合は、エージェントを実行するマシンを使用します。 次のチェックを実行すると、マシンが Azure Stack エンドポイントにアクセスできることを確認できます。
+テストではリモート操作が実行されます。 テストを実行するマシンは、Azure Stack Hub エンドポイントにアクセスできる必要があります。そうでないと、テストは機能しません。 VaaS のローカル エージェントを使用する場合は、エージェントを実行するマシンを使用します。 次のチェックを実行すると、マシンが Azure Stack Hub エンドポイントにアクセスできることを確認できます。
 
 1. ベース URI に到達できることを確認します。 CMD プロンプトまたは bash シェルを開きます。`<EXTERNALFQDN>` をお使いの環境の外部 FQDN に置き換えて、次のコマンドを実行します。
 
@@ -105,7 +105,7 @@ ms.locfileid: "76884093"
 
 3. テスト成功の作成時に指定した Azure AD サービス管理者の名前とパスワードの値を使用してサインインします。
 
-4. 「[Azure Stack の検証テストを実行する](../operator/azure-stack-diagnostic-test.md)」の説明に従って、**Test-AzureStack** PowerShell コマンドレットを実行してシステムの正常性を確認します。 警告やエラーがあれば、テストを開始する前にすべて解消しておいてください。
+4. 「[Azure Stack Hub の検証テストを実行する](../operator/azure-stack-diagnostic-test.md)」の説明に従って、**Test-AzureStack** PowerShell コマンドレットを実行してシステムの正常性を確認します。 警告やエラーがあれば、テストを開始する前にすべて解消しておいてください。
 
 ## <a name="run-the-local-agent"></a>ローカル エージェントを実行する
 
@@ -127,7 +127,7 @@ ms.locfileid: "76884093"
 
       **パラメーター**  
 
-    | パラメーター | [説明] |
+    | パラメーター | 説明 |
     | --- | --- |
     | CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、 [こちら](azure-stack-vaas-parameters.md) をご覧ください。 |
     | CloudAdminPassword | クラウド管理者アカウントのパスワード。|

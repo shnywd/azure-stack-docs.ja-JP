@@ -1,6 +1,7 @@
 ---
 title: PowerShell を使用した Azure Stack の検証の自動化
-description: Azure Stack の検証は、PowerShell を使って自動化することができます。
+titleSuffix: Azure Stack Hub
+description: PowerShell を使って Azure Stack の検証を自動化する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/26/2019
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d37c1f9027017446c31b0877496c28928d22f92a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884997"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147758"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>PowerShell を使用した Azure Stack の検証の自動化
+# <a name="automate-azure-stack-hub-validation-with-powershell"></a>PowerShell を使用した Azure Stack Hub の検証の自動化
 
 サービスとしての検証 (VaaS) には、**RunVaaSAutomation.ps1** スクリプトを使ってテストの開始を自動化する機能があります。
 
@@ -29,7 +30,7 @@ ms.locfileid: "76884997"
 
 次のリンクには、VaaS ポータルを使用してテストを実行する方法に関する情報が含まれています。 スクリプトを使用する前に、必須パラメーターとその値について学習してください。
 
-* SolutionValidation ワークフロー:[新しい Azure Stack ソリューションの検証](azure-stack-vaas-validate-solution-new.md)
+* SolutionValidation ワークフロー:[新しい Azure Stack Hub ソリューションの検証](azure-stack-vaas-validate-solution-new.md)
 * PackageValidation ワークフロー:[OEM パッケージの検証](azure-stack-vaas-validate-oem-package.md)
 * TestPass ワークフロー:[テストのスケジュール設定](azure-stack-vaas-schedule-test-pass.md)
 
@@ -253,13 +254,13 @@ $scriptParameters = @{
 
 詳細については、「[一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください。
 
-| パラメーター | [説明] |
+| パラメーター | 説明 |
 | --- | --- |
 | VaaSAccountUserName | VaaS ポータルの VaaS ユーザー名。 |
 | VaaSAccountPassword | VaaS ポータルの VaaS パスワード。 |
 | VaaSAccountTenantId | VaaS テナントの GUID。 |
-| ServiceAdminUserName | Azure Stack サービス管理者アカウント。  |
-| ServiceAdminPassword | Azure Stack サービスのパスワード。  |
+| ServiceAdminUserName | Azure Stack Hub サービスの管理者アカウント。  |
+| ServiceAdminPassword | Azure Stack Hub サービスのパスワード。  |
 | TenantAdminUserName | プライマリ テナントの管理者。  |
 | TenantAdminPassword | プライマリ テナントのパスワード。  |
 | CloudAdminUserName | クラウド管理者のユーザー名。  |
@@ -276,6 +277,6 @@ $scriptParameters = @{
 
 ## <a name="next-steps"></a>次のステップ
 
-Azure Stack での PowerShell の詳細については、最新のモジュールを参照してください。
+Azure Stack Hub での PowerShell の詳細については、最新のモジュールを参照してください。
 
-- [Azure Stack モジュール](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)
+- [Azure Stack Hub モジュール](/powershell/azure/azure-stack/overview?view=azurestackps-1.6.0)

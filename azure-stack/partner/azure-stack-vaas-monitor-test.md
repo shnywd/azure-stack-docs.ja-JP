@@ -1,6 +1,6 @@
 ---
-title: Azure Stack VaaS ポータルでテストを監視および管理する
-description: Azure Stack VaaS ポータルでテストを監視および管理します。
+title: Azure Stack Hub VaaS ポータルでテストを監視および管理する
+description: Azure Stack Hub VaaS ポータルでテストを監視および管理します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2a6f2b1e40ddfad9edbf64c92f29e93786fc6f9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885081"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143812"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>VaaS ポータルでのテストの監視と管理
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Azure Stack ソリューションに対するテストをスケジュールすると、サービスとしての検証 (VaaS) によってテストの実行状況のレポートが開始されます。 この情報は、テストのスケジュール変更や取り消しなどのアクションと共に VaaS ポータルで利用できます。
+Azure Stack Hub ソリューションに対するテストをスケジュールすると、サービスとしての検証 (VaaS) によってテストの実行状況のレポートが開始されます。 この情報は、テストのスケジュール変更や取り消しなどのアクションと共に VaaS ポータルで利用できます。
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>ワークフロー テストの概要ページに移動する
 
@@ -37,7 +37,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 1. テストの概要ページで **[編集]** ボタンを選択します。
 
-1. 「[Azure Stack Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」に従って、新しい値を指定します。
+1. 「[Azure Stack Hub Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」に従って、新しい値を指定します。
 
 1. **[送信]** を選択して値を保存します。
 
@@ -53,13 +53,13 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 ## <a name="managing-test-instances"></a>テスト インスタンスを管理する
 
-非公式の実行 (つまり、**テスト成功**のワークフロー) の場合、テストの概要ページには、Azure Stack ソリューションに対してスケジュールされたテストの一覧が表示されます。
+非公式の実行 (つまり、**テスト成功**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションに対してスケジュールされたテストの一覧が表示されます。
 
-公式の実行 (つまり、**検証**のワークフロー) の場合、テストの概要ページには、Azure Stack ソリューションの検証を完了するために必要なテストの一覧が表示されます。 検証テストは、このページでスケジュールされます。
+公式の実行 (つまり、**検証**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションの検証を完了するために必要なテストの一覧が表示されます。 検証テストは、このページでスケジュールされます。
 
 スケジュールされた各テスト インスタンスには、次の情報が示されます。
 
-| 列 | [説明] |
+| 列 | 説明 |
 | --- | --- |
 | テスト名 | テストの名前とバージョン。 |
 | カテゴリ | テストの目的。 |
@@ -80,14 +80,14 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 テストの定義に関する全般的な情報を表示するには、コンテキスト メニューの **[情報の表示]** を選択します。 これは、名前とバージョンが同じ各テスト インスタンスに共有されます。
 
-| テストのプロパティ | [説明] |
+| テストのプロパティ | 説明 |
 | -- | -- |
 | テスト名 | テストの名前。 |
 | テスト バージョン | テストのバージョン。 |
 | Publisher | テストの発行元。 |
 | カテゴリ |  テストの目的。 |
-| Target services (ターゲット サービス) | テストされている Azure Stack サービス。 |
-| [説明] | テストの説明。 |
+| Target services (ターゲット サービス) | テストされている Azure Stack Hub サービス。 |
+| 説明 | テストの説明。 |
 | Estimated duration (minutes) (見積もり期間 (分)) | テストの予期される実行時間。 |
 | リンク | テストの関連情報や連絡先。 |
 
@@ -97,7 +97,7 @@ Azure Stack ソリューションに対するテストをスケジュールす�
 
 このウィンドウには、すべてのテスト インスタンスの次のメタデータが含まれています。
 
-| テスト インスタンスのプロパティ | [説明] |
+| テスト インスタンスのプロパティ | 説明 |
 | -- | -- |
 | テスト名 | テストの名前。 |
 | テスト バージョン | テストのバージョン。 |

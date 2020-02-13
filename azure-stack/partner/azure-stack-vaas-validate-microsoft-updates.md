@@ -1,5 +1,5 @@
 ---
-title: Azure Stack のサービスとしての検証で Microsoft のソフトウェア更新プログラムを検証する
+title: Azure Stack Hub のサービスとしての検証で Microsoft のソフトウェア更新プログラムを検証する
 description: Microsoft のソフトウェア更新プログラムをサービスとしての検証で検証する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
@@ -8,20 +8,20 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5e4438f0c3a95b2254422a428741a28b685cb9f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884012"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143915"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft のソフトウェア更新プログラムの検証
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft は、Azure Stack ソフトウェアの更新プログラムを定期的にリリースします。 これらの更新プログラムは、Azure Stack 共同エンジニアリング パートナーに提供されます。 更新プログラムの一般公開より前に提供されます。 独自のソリューションに対して更新プログラムのチェックを行い、Microsoft にフィードバックを返すことができます。
+Microsoft は、Azure Stack Hub ソフトウェアの更新プログラムを定期的にリリースします。 これらの更新プログラムは、Azure Stack Hub 共同エンジニアリング パートナーに提供されます。 更新プログラムの一般公開より前に提供されます。 独自のソリューションに対して更新プログラムのチェックを行い、Microsoft にフィードバックを返すことができます。
 
-Azure Stack を対象とした Microsoft のソフトウェア更新プログラムは名前付け規則を使って指定されます。たとえば 1803 は、2018 年 3 月の更新プログラムであることを示します。 Azure Stack の更新ポリシー、周期、リリース ノートについては、「[Azure Stack サービス ポリシー](../operator/azure-stack-servicing-policy.md)」を参照してください。
+Azure Stack Hub を対象とした Microsoft のソフトウェア更新プログラムは名前付け規則を使って指定されます。たとえば 1803 は、2018 年 3 月の更新プログラムであることを示します。 Azure Stack Hub の更新ポリシー、周期、リリース ノートについては、「[Azure Stack Hub サービス ポリシー](../operator/azure-stack-servicing-policy.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -38,7 +38,7 @@ VaaS で月次更新プログラムのプロセスを実行する前に、以下
 ## <a name="validating-software-updates"></a>ソフトウェア更新プログラムの検証
 
 1. 新しい**パッケージの検証**ワークフローを作成します。
-1. 上記の必須テストについては、「[Run Package Validation tests (パッケージ検証テストの実行)](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)」の手順に従ってください。 **Monthly Azure Stack Update Verification (月次 Azure Stack 更新プログラムの検証)** テストの詳細な手順については、後のセクションを参照してください。
+1. 上記の必須テストについては、「[Run Package Validation tests (パッケージ検証テストの実行)](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests)」の手順に従ってください。 **Monthly Azure Stack Hub Update Verification (月次 Azure Stack 更新プログラムの検証)** テストの詳細な手順については、後のセクションを参照してください。
 
 質問や懸念事項がある場合は、[VaaS ヘルプ](mailto:vaashelp@microsoft.com)にお問い合わせください。
 

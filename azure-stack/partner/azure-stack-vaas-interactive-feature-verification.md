@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のサービスとしての検証における対話型機能検証テスト
-description: サービスとしての検証を使用して Azure Stack 用の対話型機能検証テストを作成する方法について説明します。
+title: Azure Stack Hub のサービスとしての検証における対話型機能検証テスト
+description: サービスとしての検証を使用して Azure Stack Hub 用の対話型機能検証テストを作成する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/28/2019
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: c957d076fb4d90dc9a19d5b8fbaaddbdb55c789d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 15cd1b2adb4ef1b0e5738b89078beb57d6b7b346
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884143"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143834"
 ---
 # <a name="interactive-feature-verification-testing"></a>対話型機能検証テスト  
 
@@ -21,7 +21,7 @@ ms.locfileid: "76884143"
 
 お客様は、対話型機能検証テスト フレームワークを使用して、ご自分のシステムに対するテストを要求できます。 お客様がテストを要求すると、Microsoft はフレームワークを使用して、対話型の手動ステップが必要なテストを準備します。 Microsoft は、フレームワークを使用していくつかの独立した自動テストをつなぎ合わせることができます。
 
-この記事では、シンプルな手動シナリオについて説明します。 Azure Stack におけるディスクの交換がテストでチェックされます。 フレームワークによって、各ステップの診断ログが収集されます。 問題が見つかったら、それらをデバッグできます。 このフレームワークでは、他のツールやプロセスによって生成されたログの共有もできるほか、シナリオに関するフィードバックを送ることができます。
+この記事では、シンプルな手動シナリオについて説明します。 Azure Stack Hub におけるディスクの交換がテストでチェックされます。 フレームワークによって、各ステップの診断ログが収集されます。 問題が見つかったら、それらをデバッグできます。 このフレームワークでは、他のツールやプロセスによって生成されたログの共有もできるほか、シナリオに関するフィードバックを送ることができます。
 
 > [!Important]  
 > この記事では、ディスク識別を実行する手順を参照します。 テスト成功ワークフローから収集された結果は、新しいソリューションの検証には使用できない可能性があるため、これは単なるデモンストレーションです。

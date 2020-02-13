@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: e04a4fa7384d56a88938e87a83a33bb86829eca3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884058"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143920"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>チュートリアル:サービスとしての検証のためのリソースを設定する
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-サービスとしての検証 (VaaS) は、マーケットで Azure Stack ソリューションを検証およびサポートするために使用される Azure サービスです。 ソリューションを検証するサービスを使用する前に、この記事に従ってください。
+サービスとしての検証 (VaaS) は、マーケットで Azure Stack Hub ソリューションを検証およびサポートするために使用される Azure サービスです。 ソリューションを検証するサービスを使用する前に、この記事に従ってください。
 
 このチュートリアルでは、以下の内容を学習します。
 
@@ -41,35 +41,35 @@ Azure AD テナントは、組織を登録し、VaaS を使用するユーザー
 
     次のいずれかのロールを割り当てることで、VaaS でアクションを実行する権限をテナント内のユーザーに付与します。
 
-    | ロール名 | [説明] |
+    | ロール名 | 説明 |
     |---------------------|------------------------------------------|
     | 所有者 | すべてのリソースへのフル アクセス権が与えられます。 |
     | Reader | すべてのリソースを表示できますが、作成または管理することはできません。 |
     | Test Contributor | テスト リソースを作成および管理できます。 |
 
-    **Azure Stack Validation Service** アプリケーションでロールを割り当てるには:
+    **Azure Stack Hub Validation Service** アプリケーションでロールを割り当てるには:
 
    1. [Azure portal](https://portal.azure.com) にサインインします。
    2. **[すべてのサービス]**  >  **[ID]** セクションの下の **[Azure Active Directory]** を選択します。
-   3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Validation Service]** アプリケーションを選択します。
-   4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Validation Service - Users and group]\(Azure Stack Validation Service - ユーザーとグループ\)** ブレードに、アプリケーションの使用を許可されたユーザーが一覧表示されます。
+   3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Hub Validation Service]** アプリケーションを選択します。
+   4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Hub Validation Service - Users and group]\(Azure Stack Hub Validation Service - ユーザーとグループ\)** ブレードに、アプリケーションの使用を許可されたユーザーが一覧表示されます。
    5. **+ [ユーザーの追加]** を選択し、テナントからユーザーを追加してロールを割り当てます。
 
       組織内の異なるグループ間で VaaS リソースとアクションを分離したい場合は、複数の Azure AD テナント ディレクトリを作成できます。
 
 ### <a name="register-your-tenant"></a>テナントの登録
 
-このプロセスでは、**Azure Stack Validation Service** Azure AD アプリケーションを使用してテナントを承認します。
+このプロセスでは、**Azure Stack Hub Validation Service** Azure AD アプリケーションを使用してテナントを承認します。
 
 1. テナントについて次の情報を Microsoft ([vaashelp@microsoft.com](mailto:vaashelp@microsoft.com)) に送信します。
 
-    | Data | [説明] |
+    | Data | 説明 |
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | 組織名 | 組織の正式名称。 |
     | Azure AD テナント ディレクトリ名 | 登録する Azure AD テナント ディレクトリ名。 |
     | Azure AD テナント ディレクトリ ID | Azure AD テナント ディレクトリに関連付けられている GUID。 Azure AD テナント ディレクトリ ID の確認方法については、「[Get tenant ID (テナント ID を取得する)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in)」を参照してください。 |
 
-2. ご利用のテナントで VaaS ポータルを使用できるかどうかを Azure Stack 検証チームがチェックし、確認するのを待ちます。
+2. ご利用のテナントで VaaS ポータルを使用できるかどうかを Azure Stack Hub 検証チームがチェックし、確認するのを待ちます。
 
 ### <a name="consent-to-the-vaas-application"></a>VaaS アプリケーションへの同意
 
@@ -85,7 +85,7 @@ Azure AD 管理者として、テナントのために必要なアクセス許�
 
 テストの実行中、VaaS によって、Azure ストレージ アカウントに診断ログが出力されます。 テスト ログに加えて、ストレージ アカウントは、パッケージ検証ワークフローの OEM 拡張機能パッケージをアップロードするために使用することもできます。
 
-Azure ストレージ アカウントは、お客様の Azure Stack 環境ではなく Azure パブリック クラウドでホストされます。
+Azure Storage アカウントは、お客様の Azure Stack Hub 環境ではなく Azure パブリック クラウドでホストされます。
 
 1. Azure portal で、 **[すべてのサービス]**  >  **[ストレージ]**  >  **[ストレージ アカウント]** の順に選択します。 **[ストレージ アカウント]** ブレードで、 **[追加]** を選択します。
 

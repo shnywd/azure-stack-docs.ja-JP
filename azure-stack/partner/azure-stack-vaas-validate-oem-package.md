@@ -1,5 +1,5 @@
 ---
-title: Azure Stack のサービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する
+title: Azure Stack Hub のサービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する
 description: サービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ed6d3055e3e5cab0def090d31f907e0fd1deea50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8bb39f3aae4031402e38023f92ebdb91feb9bf92
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885103"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143736"
 ---
 # <a name="validate-oem-packages"></a>OEM パッケージの検証
 
@@ -55,7 +55,7 @@ ms.locfileid: "76885103"
 
 ### <a name="generate-package-blob-url-for-vaas"></a>VaaS のパッケージ BLOB の URL の生成
 
-VaaS ポータルで**パッケージの検証**ワークフローを作成する場合、パッケージが含まれている Azure Storage BLOB への URL を指定する必要があります。 **Monthly AzureStack Update Verification (月次 Azure Stack 更新プログラムの検証)** と **OEM Extension Package Verification (OEM 拡張機能パッケージの検証)** などの、一部の*対話型*テストではパッケージ BLOB の URL が必要です。
+VaaS ポータルで**パッケージの検証**ワークフローを作成する場合、パッケージが含まれている Azure Storage BLOB への URL を指定する必要があります。 **Monthly AzureStack Hub Update Verification (月次 Azure Stack Hub 更新プログラムの検証)** と **OEM Extension Package Verification (OEM 拡張機能パッケージの検証)** などの、一部の*対話型*テストではパッケージ BLOB の URL が必要です。
 
 #### <a name="handling-container-access-level"></a>コンテナーのアクセス レベルを処理する
 
@@ -141,14 +141,14 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
 5. Microsoft の署名が必要なテスト署名済み OEM パッケージに、Azure Storage BLOB URL を入力します。 手順については、「[VaaS のパッケージ BLOB の URL の生成](#generate-package-blob-url-for-vaas)」を参照してください。
 
-6. AzureStack 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
+6. Azure Stack Hub 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
 
 7. 上記で作成された OEM パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [OEM update package folder path]\(OEM 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
 
     > [!NOTE]
-    > AzureStack 更新プログラムと OEM 更新プログラムは **2 つの別々の**ディレクトリにコピーします。
+    > Azure Stack Hub 更新プログラムと OEM 更新プログラムは **2 つの別々の**ディレクトリにコピーします。
 
-8. 'RequireDigitalSignature' - パッケージを Microsoft 署名にする (OEM 検証ワークフローを実行する) 必要がある場合に **true** を指定します。 最新の AzureStack 更新プログラムで Microsoft 署名済みパッケージを検証する場合は、この値を false (毎月の AzureStack 更新検証を実行) として指定します。
+8. 'RequireDigitalSignature' - パッケージを Microsoft 署名にする (OEM 検証ワークフローを実行する) 必要がある場合に **true** を指定します。 最新の Azure Stack Hub 更新プログラムで Microsoft 署名済みパッケージを検証する場合は、この値を false (毎月の Azure Stack Hub 更新検証を実行) として指定します。
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -170,7 +170,7 @@ OEM パッケージの検証では、以下のテストを実行する必要が�
 
 1. **パッケージの検証テストの概要**に関するページでは、ご自分のシナリオに適した、一覧表示されているテストの一部を実行します。
 
-    検証ワークフローでは、テストを**スケジュール設定**するときに、ワークフローの作成時に指定したワークフロー レベルの一般的なパラメーターを使用します (「[Azure Stack Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください)。 テスト パラメーター値のいずれかが無効になった場合は、[ワークフロー パラメーターの変更](azure-stack-vaas-monitor-test.md#change-workflow-parameters)に関するセクションの手順に従ってパラメーター値を再度指定する必要があります。
+    検証ワークフローでは、テストを**スケジュール設定**するときに、ワークフローの作成時に指定したワークフロー レベルの一般的なパラメーターを使用します (「[Azure Stack Hub Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください)。 テスト パラメーター値のいずれかが無効になった場合は、[ワークフロー パラメーターの変更](azure-stack-vaas-monitor-test.md#change-workflow-parameters)に関するセクションの手順に従ってパラメーター値を再度指定する必要があります。
 
     > [!NOTE]
     > 既存のインスタンスに対して検証テストをスケジュール設定すると、ポータルの古いインスタンスに代わる新しいインスタンスが作成されます。 古いインスタンスのログは保持されますが、ポータルからアクセスできません。  
