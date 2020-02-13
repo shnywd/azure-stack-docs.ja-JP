@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: c7b3d1ef979e69a72904e03b49cb5ee4b75c182e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d46837540e8b4bd22fb114062266a5be86862921
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882820"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125703"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL リソース プロバイダーへのホスティング サーバーの追加
 
@@ -84,11 +84,11 @@ SQL Server 2014 または SQL Server 2016 の任意のエディションを使�
 
    **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** では、リソース プロバイダーのバックエンドとして機能する SQL Server のインスタンスに SQL リソース プロバイダーを接続できます。
 
-   ![Azure Stack Hub 管理者ポータルの SQL アダプター ダッシュボード](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Azure Stack Hub 管理者ポータルの SQL アダプター ダッシュボード](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. **[追加]** をクリックし、 **[Add a SQL Hosting Server]\(SQL ホスティング サーバーの追加\)** ブレードで、SQL Server インスタンスの接続の詳細を指定します。
 
-   ![Azure Stack Hub 管理者ポータルでの SQL ホスティング サーバーの追加](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Azure Stack Hub 管理者ポータルでの SQL ホスティング サーバーの追加](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
     必要に応じて、インスタンス名を指定します。また、インスタンスが既定のポート 1433 に割り当てられていない場合は、ポート番号を指定します。
 
@@ -100,7 +100,7 @@ SQL Server 2014 または SQL Server 2016 の任意のエディションを使�
    * 既存の SKU を使用するには、使用可能な SKU を選択してから、 **[作成]** を選択します。
    * SKU を作成するには、 **[+ Create new SKU]\(+ 新しい SKU の作成\)** を選択します。 必要な情報を **[Create SKU]\(SKU の作成\)** に入力し、 **[OK]** を選択します。
 
-     ![Azure Stack Hub 管理者ポータルでの SKU の作成](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Azure Stack Hub 管理者ポータルでの SKU の作成](./media/azure-stack-sql-rp-deploy/sqlrp-new-sku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On 可用性グループを使用して高可用性を提供する
 

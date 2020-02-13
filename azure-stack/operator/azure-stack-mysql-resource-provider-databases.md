@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 5955dcf6c211f9f431d84227548496af7782a0d7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881850"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125773"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Azure Stack Hub で MySQL データベースを作成する
 MySQL データベース サービスを含むオファーにサブスクライブした Azure Stack Hub ユーザーは、ユーザー ポータルで、セルフ サービスの MySQL データベースを作成し、管理することができます。
@@ -23,7 +23,7 @@ MySQL データベース サービスを含むオファーにサブスクライ�
 2. **[+ リソースの作成]**  >  **[データ + ストレージ]**  >  **[MySQL データベース]**  >  **[追加]** の順に選択します。
 3. **[MySQL Database の作成]** でデータベース名を入力し、環境で必要な他の設定を構成します。
 
-    ![テスト MySQL データベースの作成](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![テスト MySQL データベースの作成](./media/azure-stack-mysql-rp-deploy/mysql-create-db-a.png)
 
 4. **[データベースの作成]** で、 **[SKU]** を選択します。 **[MySQL SKU の選択]** で、データベースで使用する SKU を選択します。
 
@@ -44,7 +44,7 @@ MySQL データベース サービスを含むオファーにサブスクライ�
 
 データベースの配置後、 **[要点]** に表示される **[接続文字列]** の情報を書き留めます。 この文字列は、MySQL データベースにアクセスする必要があるすべてのアプリケーションで使用できます。
 
-![MySQL データベースの接続文字列の取得](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+![MySQL データベースの接続文字列の取得](./media/azure-stack-mysql-rp-deploy/mysql-db-created-a.png)
 
 ## <a name="update-the-administrative-password"></a>管理パスワードの更新
 

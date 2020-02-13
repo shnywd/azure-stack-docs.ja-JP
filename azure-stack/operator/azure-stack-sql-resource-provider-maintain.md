@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: mabrigg
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0d6551f7db2ef8b7266d45223c9b20587610b169
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881243"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125815"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -33,7 +33,7 @@ SQL リソース プロバイダーはアドオン コンポーネントであ�
 
 設定を変更するには、 **[参照]** &gt; **[管理リソース]** &gt; **[SQL ホスティング サーバー]** &gt; **[SQL ログイン]** の順に選択し、ユーザー名を選択します。 変更は、最初に SQL インスタンス (および必要な場合はレプリカ) で行う必要があります。 **[設定]** で **[パスワード]** を選択します。
 
-![SQL 管理者パスワードの更新](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![SQL 管理者パスワードの更新](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>シークレットのローテーション
 
@@ -93,7 +93,7 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 のパラメーター
 
-|パラメーター|[説明]|
+|パラメーター|説明|
 |-----|-----|
 |AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|
 |CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|

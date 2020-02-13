@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 4269cce339ee606fd8efb4cb08677079c0f2e477
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
+ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972668"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77125604"
 ---
 # <a name="create-sql-databases"></a>SQL データベースの作成
 
@@ -32,7 +32,7 @@ ms.locfileid: "76972668"
 
 4. **[データベースの作成]** で、 **[SKU]** を選択します。 **[SKU の選択]** で、データベースの SKU を選択します。
 
-   ![Azure Stack Hub ユーザー ポータルでのデータベースの作成。](./media/azure-stack-sql-rp-deploy/newsqldb.png)
+   ![Azure Stack Hub ユーザー ポータルでのデータベースの作成。](./media/azure-stack-sql-rp-deploy/newsqldba.png)
 
    >[!NOTE]
    >ホスティング サーバーは、Azure Stack Hub に追加されるときに SKU が割り当てられます。 データベースは、ホスティング サーバー プールの SKU 内に作成されます。
@@ -46,13 +46,13 @@ ms.locfileid: "76972668"
    >[!NOTE]
    >これらの設定は、このデータベースにアクセスするためにのみ作成する SQL 認証資格情報です。 ログイン ユーザー名はグローバルに一意である必要があります。 同じ SKU を使用する他のデータベースのログイン設定を再利用できます。
 
-   ![Azure Stack Hub ユーザー ポータルでの新しいデータベース ログインの作成](./media/azure-stack-sql-rp-deploy/create-new-login.png)
+   ![Azure Stack Hub ユーザー ポータルでの新しいデータベース ログインの作成](./media/azure-stack-sql-rp-deploy/create-new-login-a.png)
 
 8. **[OK]** を選択して、データベースの配置を完了します。
 
 データベースの配置後に表示される **[要点]** で、 **[接続文字列]** の情報を書き留めます。 この文字列は、SQL Server データベースにアクセスする必要があるすべてのアプリで使用できます。
 
-![SQL Server データベースの接続文字列の取得](./media/azure-stack-sql-rp-deploy/sql-db-settings.png)
+![SQL Server データベースの接続文字列の取得](./media/azure-stack-sql-rp-deploy/sql-db-settings-a.png)
 
 ## <a name="sql-always-on-databases"></a>SQL AlwaysOn データベース
 
@@ -62,7 +62,7 @@ ms.locfileid: "76972668"
 
 次の画面キャプチャは、SQL Server Management Studio を使用して、SQL AlwaysOn データベースの状態を確認する方法を示しています。
 
-![SQL Server Management Studio での AlwaysOn データベースの状態](./media/azure-stack-sql-rp-deploy/verifyalwayson.png)
+![SQL Server Management Studio での AlwaysOn データベースの状態](./media/azure-stack-sql-rp-deploy/verify-always-on.png)
 
 AlwaysOn データベースは **[同期済み]** と表示され、すべての SQL インスタンスで使用でき、 **[可用性グループ]** 内に表示されます。 前のスクリーンショットでは、データベースの例は newdb1 であり、その状態は **newdb1 (同期済み)** です。
 
