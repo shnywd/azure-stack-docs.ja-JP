@@ -253,6 +253,7 @@
             - name: NodeJS Web アプリをデプロイする
               href: azure-stack-dev-start-howto-vm-nodejs.md
     - name: 基本パターンのデプロイ
+      href: deploy-foundational-patterns.md
       items:
         - name: ネットワークのパターン
           items:
@@ -282,7 +283,6 @@
               href: azure-stack-network-howto-iscsi-storage.md
             - name: データセンターを拡張する
               href: azure-stack-network-howto-extend-datacenter.md
-        - name: VNet ピアリング
         - name: バックアップと回復
           items:
             - name: Commvault を使用して Azure Stack Hub で VM をバックアップする
