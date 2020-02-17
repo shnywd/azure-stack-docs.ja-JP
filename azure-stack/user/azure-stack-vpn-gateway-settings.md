@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b230c78811e79e7a04114b77a2fcacd1b2a2fc9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2f0b520b4c615e56fea7575422b306c226188eb0
+ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884124"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075218"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイ設定の構成
 
@@ -160,9 +160,9 @@ Azure Stack Hub で VPN 接続を設定する場合、両端で接続を構成�
 | プロパティ              | Value|
 |-|-|
 | IKE のバージョン           | IKEv2 |
-|Diffie-hellman グループ   | ECP384 |
+|Diffie-Hellman グループ*   | ECP384 |
 | 認証方法 | 事前共有キー |
-|暗号化とハッシュ アルゴリズム | AES256、SHA384 |
+|暗号化とハッシュ アルゴリズム* | AES256、SHA384 |
 |SA の有効期間 (時間)     | 28,800 秒|
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>IKE フェーズ 2 (クイック モード) のパラメーター
@@ -174,8 +174,19 @@ Azure Stack Hub で VPN 接続を設定する場合、両端で接続を構成�
 |暗号化とハッシュ アルゴリズム (認証) | GCMAES256|
 |SA の有効期間 (時間)  | 27,000 秒  |
 |SA の有効期間 (キロバイト単位) | 33,553,408     |
-|Perfect Forward Secrecy (PFS) | ECP384 |
-|Dead Peer Detection | サポートされています|  
+|Perfect Forward Secrecy (PFS)* | ECP384 |
+|Dead Peer Detection | サポートされています| 
+
+>[!NOTE]
+>ビルド 1910 以降では、Diffie-Hellman グループ、ハッシュ アルゴリズム、および Perfect Forward Secrecy の既定値が変更されています。 Azure Stack Hub が 1910 より前のビルド バージョン上にある場合は、上記のパラメーターに次の値を使用してください。
+
+>| プロパティ| Value|
+>|-|-|
+>|Diffie-hellman グループ   | DHGroup2 |
+>|ハッシュ アルゴリズム | SHA256 |
+>|Perfect Forward Secrecy (PFS) | なし |
+
+\* 新しいまたは変更されたパラメーター。
 
 ## <a name="next-steps"></a>次のステップ
 

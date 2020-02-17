@@ -3,16 +3,16 @@ title: Azure Stack Hub にカスタム VM イメージを追加する
 description: Azure Stack Hub にカスタム VM イメージを追加または削除する方法について説明します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 359adfbe9083bd21368934426a54c887af2f9f2a
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: ae446d053c008fc2433f44ba8e7ffa7324972362
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889968"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075974"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Azure Stack Hub にカスタム VM イメージを追加する
 
@@ -22,18 +22,20 @@ Azure Stack Hub では、カスタム仮想マシン (VM) のイメージをマ�
 
 ### <a name="windows"></a>Windows
 
-汎用化したカスタム VHD を作成します。 
+汎用化したカスタム VHD を作成します。
 
 **VHD が Azure の外部からのものである場合は**、「[汎用化した VHD をアップロードして Azure で新しい VM を作成する](/azure/virtual-machines/windows/upload-generalized-managed)」の手順に従って VHD に対して **Sysprep** を正しく実行し、その VHD を汎用化します。
 
 **VHD が Azure からのものである場合は**、VM を汎用化する前に、次のことを確認してください。
-1) Azure 上で VM をプロビジョニングする場合は、PowerShell を使用し、`-ProvisionVMAgent` フラグなしでそれをプロビジョニングします。 
-2) Azure で VM を汎用化する前に、VM から **Remove-AzureRmVMExtension** コマンドレットを使用してすべての VM 拡張機能を削除します。 Windows (C:) > WindowsAzure > Logs > Plugins に移動することにより、どの VM 拡張機能がインストールされているかを見つけることができます。
 
-```Powershell
+- Azure 上で VM をプロビジョニングする場合は、PowerShell を使用し、`-ProvisionVMAgent` フラグなしでそれをプロビジョニングします。
+- Azure で VM を汎用化する前に、VM から **Remove-AzureRmVMExtension** コマンドレットを使用してすべての VM 拡張機能を削除します。 `Windows (C:) > WindowsAzure > Logs > Plugins` に移動することにより、どの VM 拡張機能がインストールされているかを見つけることができます。
+
+```powershell
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
-```                       
-VHD を Azure Stack Hub に移植する前に、上記をポストし、[このドキュメント](/azure/virtual-machines/windows/download-vhd)の手順に従ってその VHD を正しく汎用化してダウンロードします。
+```
+
+VHD を Azure Stack Hub に移植する前に、[この記事](/azure/virtual-machines/windows/download-vhd)の手順に従ってその VHD を正しく汎用化してダウンロードします。
 
 ### <a name="linux"></a>Linux
 
@@ -72,7 +74,7 @@ VHD を Azure Stack Hub に移植する前に、上記をポストし、[この�
    1. **[URL の生成]** を選択します。
 
    1. URL を生成します。
-   
+
    1. 生成された URL の下にある **[VHD ファイルのダウンロード]** を選択します。
 
    1. ダウンロードを開始するのに、ブラウザーで **[保存]** を選択する必要がある場合があります。 VHD ファイルの既定の名前は _abcd_ です。
@@ -83,7 +85,7 @@ VHD を Azure Stack Hub に移植する前に、上記をポストし、[この�
 
 - Azure Stack Hub では、VHD フォーマットの固定ディスク内で第 1 世代の VM のみサポートされます。 固定フォーマットの場合、ファイル内で論理ディスクが線形に構成されるため、ディスク オフセット *X* は BLOB オフセット *X* に格納されます。BLOB 末尾の小さなフッターに、VHD のプロパティが記述されます。 ディスクが固定フォーマットであるかどうかを確認するには、**Get-VHD** PowerShell コマンドレットを使用します。
 
-- Azure Stack Hub では、ダイナミック ディスク VHD はサポートされていません。 
+- Azure Stack Hub では、ダイナミック ディスク VHD はサポートされていません。
 
 ## <a name="step-2-upload-the-vm-image-to-a-storage-account"></a>手順 2:ストレージ アカウントに VM イメージをアップロードする
 
@@ -100,19 +102,18 @@ VHD を Azure Stack Hub に移植する前に、上記をポストし、[この�
      この例で使用するそうしたツールの 1 つは、Azure Stack Hub 管理者ポータルのストレージ アカウントに VHD をアップロードする Add-AzureRmVHD コマンドです。  
 
      ```powershell
-     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd" 
+     Add-AzureRmVhd -Destination "https://bash.blob.redmond.azurestack.com/sample/vhdtestingmgd.vhd" -LocalFilePath "C:\vhd\vhdtestingmgd.vhd"
      ```
 
-3. イメージのアップロード先の Blob Storage URI をメモしておきます。 Blob Storage URI の形式は *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd です。
+4. イメージのアップロード先の Blob Storage URI をメモしておきます。 Blob Storage URI の形式は *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd です。
 
-4. BLOB に匿名でアクセスできるようにするには、VM イメージ VHD がアップロードされたストレージ アカウントの BLOB コンテナーに移動します。 **[BLOB]** を選択し、 **[アクセス ポリシー]** を選択してください。 必要であれば、このコンテナーの Shared Access Signature を生成し、それを BLOB URI に含めることもできます。 この手順により、確実に BLOB が利用できるようになります。 BLOB に匿名でアクセスできない場合、VM イメージがエラー状態で作成されます。
+5. BLOB に匿名でアクセスできるようにするには、VM イメージ VHD がアップロードされたストレージ アカウントの BLOB コンテナーに移動します。 **[BLOB]** を選択し、 **[アクセス ポリシー]** を選択してください。 必要であれば、このコンテナーの Shared Access Signature を生成し、それを BLOB URI に含めることもできます。 この手順により、確実に BLOB が利用できるようになります。 BLOB に匿名でアクセスできない場合、VM イメージがエラー状態で作成されます。
 
    ![ストレージ アカウント BLOB に移動](./media/azure-stack-add-vm-image/tca1.png)
 
    ![BLOB のアクセスを公開に設定](./media/azure-stack-add-vm-image/tca2.png)
 
    ![BLOB のアクセスを公開に設定](./media/azure-stack-add-vm-image/tca3.png)
-   
 
 ## <a name="step-3-option-1-add-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>手順 3、オプション 1:Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを追加する
 
@@ -121,11 +122,11 @@ VHD を Azure Stack Hub に移植する前に、上記をポストし、[この�
    ![カスタム イメージ サイドローディング UI](./media/azure-stack-add-vm-image/tca4.png)
 
 2. **[イメージの作成]** で、[Publisher] (発行元)、[Offer] (オファー)、[SKU]、[バージョン]、および [OS disk blob URI] (OS ディスクの BLOB URI) に入力します。 その後 **[作成]** をクリックすると VM イメージの作成が開始されます。
-   
+
    ![カスタム イメージ サイドローディング UI](./media/azure-stack-add-vm-image/tca5.png)
 
    イメージが正常に作成されると、VM イメージの状態が **[成功]** に変わります。
-   
+
 3. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタム .azpkg 内の Resource Manager テンプレートと Manifest.json を編集するときに必要になります。
 
 ## <a name="step-3-option-2-add-a-vm-image-as-an-azure-stack-hub-operator-using-powershell"></a>手順 3、オプション 2:Azure Stack Hub オペレーターとして PowerShell を使用して VM イメージを追加する
@@ -166,7 +167,7 @@ VHD を Azure Stack Hub に移植する前に、上記をポストし、[この�
      `osDisk` の Blob Storage URI を指定できます。  
 
      詳細については、[Add-AzsPlatformimage](/powershell/module/azs.compute.admin/add-azsplatformimage) コマンドレットの PowerShell リファレンスを参照してください。
-     
+
 4. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタムの .azpkg でリソース マネージャー テンプレートと Manifest.json を編集するときに必要になります。
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを削除する

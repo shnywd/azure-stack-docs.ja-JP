@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のサービスとしての検証におけるワークフロー共通パラメーター
-description: Azure Stack のサービスとしての検証のワークフロー共通パラメーター
+title: Azure Stack Hub のサービスとしての検証におけるワークフロー共通パラメーター
+description: Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +8,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: ee72aca1cbba27c75d2811dac96d4b0a78a87617
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885041"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143688"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Azure Stack のサービスとしての検証のワークフロー共通パラメーター
+# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -26,14 +26,14 @@ ms.locfileid: "76885041"
 
 ## <a name="environment-parameters"></a>環境パラメーター
 
-環境パラメーターは、テスト対象の Azure Stack 環境を表します。 テスト対象の特定のインスタンスの Azure Stack スタンプ情報ファイルを生成してアップロードすることによって、これらの値を提供する必要があります。
+環境パラメーターは、テスト対象の Azure Stack Hub 環境を表します。 テスト対象の特定のインスタンスの Azure Stack Hub スタンプ情報ファイルを生成してアップロードすることによって、これらの値を提供する必要があります。
 
 > [!NOTE]
 > 公式の検証ワークフローでは、ワークフローの作成後に環境パラメーターを変更することはできません。
 
 ### <a name="generate-the-stamp-information-file"></a>スタンプ情報ファイルを生成する
 
-1. DVM または Azure Stack 環境にアクセスできる任意のマシンにサインインします。
+1. DVM または Azure Stack Hub 環境にアクセスできる任意のマシンにサインインします。
 2. 管理者特権の PowerShell ウィンドウで次のコマンドを実行します。
 
     ```powershell  
@@ -52,11 +52,11 @@ ms.locfileid: "76885041"
 
 共通のテスト パラメーターには、構成ファイルに格納できない機密情報が含まれます。 これらは手動で指定する必要があります。
 
-パラメーター    | [説明]
+パラメーター    | 説明
 -------------|-----------------
-テナント管理者ユーザー                            | AAD ディレクトリのサービス管理者によってプロビジョニングされた Azure Active Directory テナント管理者。 このユーザーは、リソース (VM、ストレージ アカウントなど) を設定したり、ワークロードを実行したりするためのテンプレートのデプロイなどのテナント レベルのアクションを実行します。 テナント アカウントのプロビジョニングの詳細については、[新しい Azure Stack テナントの追加](../operator/azure-stack-add-new-user-aad.md)に関する記事をご覧ください。
-サービス管理者ユーザー             | Azure Stack のデプロイ時に指定された Azure AD ディレクトリ テナントの Azure Active Directory 管理者。 ECE 構成ファイルで `AADTenant` を検索し、`UniqueName` 要素の値を選択します。
-クラウド管理者ユーザー               | Azure Stack ドメイン管理者アカウント (例: `contoso\cloudadmin`)。 ECE 構成ファイルで `User Role="CloudAdmin"` を検索し、`UserName` 要素の値を選択します。
+テナント管理者ユーザー                            | AAD ディレクトリのサービス管理者によってプロビジョニングされた Azure Active Directory テナント管理者。 このユーザーは、リソース (VM、ストレージ アカウントなど) を設定したり、ワークロードを実行したりするためのテンプレートのデプロイなどのテナント レベルのアクションを実行します。 テナント アカウントのプロビジョニングの詳細については、[新しい Azure Stack Hub テナントの追加](../operator/azure-stack-add-new-user-aad.md)に関する記事をご覧ください。
+サービス管理者ユーザー             | Azure Stack Hub のデプロイ時に指定された Azure AD ディレクトリ テナントの Azure Active Directory 管理者。 ECE 構成ファイルで `AADTenant` を検索し、`UniqueName` 要素の値を選択します。
+クラウド管理者ユーザー               | Azure Stack Hub ドメイン管理者アカウント (例: `contoso\cloudadmin`)。 ECE 構成ファイルで `User Role="CloudAdmin"` を検索し、`UserName` 要素の値を選択します。
 診断接続文字列          | テストの実行中に診断ログのコピー先となる Azure ストレージ アカウントの SAS URL。 SAS URL を生成する手順については、「[診断接続文字列を生成する](#generate-the-diagnostics-connection-string)」をご覧ください。 |
 
 > [!IMPORTANT]

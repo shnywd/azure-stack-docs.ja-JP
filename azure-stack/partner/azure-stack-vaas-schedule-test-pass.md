@@ -1,26 +1,26 @@
 ---
-title: Azure Stack のサービスとしての検証ポータルを使用して初めてのテストをスケジュールする
-description: Azure Stack のサービスとしての検証ポータルを使用して初めてのテストをスケジュールします。
+title: Azure Stack Hub のサービスとしての検証ポータルを使用して初めてのテストをスケジュールする
+description: Azure Stack Hub のサービスとしての検証ポータルを使用して初めてのテストをスケジュールします。
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 166a75da9f6571e80cdfe213fe0ea32c58279dac
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885129"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143721"
 ---
 # <a name="scheduling-a-test"></a>テストのスケジュール設定
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-サービスとしての検証 (VaaS) ポータルで、Azure Stack ソリューションのテストをスケジュールします。 VaaS ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack ソリューションを表します。 ハードウェアが Azure Stack を実行できることを確認するためのテストをスケジュールできます。
+サービスとしての検証 (VaaS) ポータルで、Azure Stack Hub ソリューションのテストをスケジュールします。 VaaS ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack Hub ソリューションを表します。 ハードウェアが Azure Stack Hub を実行できることを確認するためのテストをスケジュールできます。
 
-ソリューションを確認するには、テストのワークフローを作成します。 VaaS ワークフローは、VaaS ソリューションのコンテキスト内で動作します。 ワークフローは、ハードウェア上で Azure Stack デプロイの機能を実行する一連のテスト スイートを表します。 ソリューションの環境パラメーターを追加し、ソリューションで実行する 1 つ以上のテストを選択します。
+ソリューションを確認するには、テストのワークフローを作成します。 VaaS ワークフローは、VaaS ソリューションのコンテキスト内で動作します。 ワークフローは、ハードウェア上で Azure Stack Hub デプロイの機能を実行する一連のテスト スイートを表します。 ソリューションの環境パラメーターを追加し、ソリューションで実行する 1 つ以上のテストを選択します。
 
 テスト成功ワークフローを使用して、VaaS で提供されるテスト (検証ワークフローに含まれているテストなど) を実行できますが、テスト成功ワークフローの結果は "*公式*" とは見なされません。 公式の検証ワークフローについては、「[ワークフロー](azure-stack-vaas-key-concepts.md#workflows)」をご覧ください。
 

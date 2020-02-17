@@ -1,20 +1,22 @@
 ---
-title: Azure Stack Hub デプロイ ネットワーク トラフィック
-description: この記事では、Azure Stack Hub デプロイ ネットワーキング プロセスで予想されることについて説明します。
+title: デプロイ ネットワーク トラフィック
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub デプロイ中のネットワーク トラフィックについて説明します。
 author: ihenkel
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: bf7504ce1004fdc3c2a00d1b831e6f135218eb0a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dcda09494d13782b51c7cc8e3f46a314910576a9
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879909"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147687"
 ---
-# <a name="about-deployment-network-traffic"></a>デプロイ ネットワーク トラフィックについて
+# <a name="deployment-network-traffic"></a>デプロイ ネットワーク トラフィック
+
 Azure Stack Hub デプロイ中のネットワーク トラフィックを理解すると、デプロイを成功させるのに役立ちます。 この記事では、デプロイ プロセス中のネットワーク トラフィック フローについて段階的に説明して、何が予想されるかがわかるようにします。
 
 この図には、デプロイ プロセスに関連するすべてのコンポーネントと接続が示されています。
@@ -22,27 +24,30 @@ Azure Stack Hub デプロイ中のネットワーク トラフィックを理解
 ![Azure Stack Hub デプロイ ネットワーク トポロジ](media/deployment-networking/figure1.png)
 
 > [!NOTE]
-> この記事では、接続デプロイの要件について説明します。他のデプロイ方法については、[Azure Stack Hub デプロイ接続モデル](azure-stack-connection-models.md)に関するページを参照してください。
+> この記事では、接続デプロイの要件について説明します。 他のデプロイ方法については、[Azure Stack Hub デプロイの接続モデル](azure-stack-connection-models.md)に関するページを参照してください。
 
-### <a name="the-deployment-vm"></a>デプロイ VM
+## <a name="the-deployment-vm"></a>デプロイ VM
+
 Azure Stack Hub ソリューションには、Azure Stack Hub コンポーネントをホストするためのサーバーのグループと、Hardware Lifecycle Host (HLH) という名前の特別なサーバーが含まれています。 このサーバーは、ソリューションをデプロイし、そのライフサイクルを管理するために使用されます。デプロイ中、デプロイ VM (DVM) をホストします。
 
 Azure Stack Hub ソリューション プロバイダーが追加の管理 VM をプロビジョニングする場合があります。 ソリューション プロバイダーからの管理 VM を変更する前に、ソリューション プロバイダーに確認してください。
 
 ## <a name="deployment-requirements"></a>デプロイ要件
+
 デプロイを正常に完了するための最小要件があります。デプロイを開始する前に、その要件を OEM で検証できます。
 
--   [証明書](azure-stack-pki-certs.md)
--   [Azure サブスクリプション](azure-stack-validate-registration.md)。 サブスクリプションの確認が必要な場合があります。
--   インターネットへのアクセス
--   DNS
--   NTP
+- [証明書](azure-stack-pki-certs.md)。
+- [Azure サブスクリプション](azure-stack-validate-registration.md)。 サブスクリプションの確認が必要な場合があります。
+- インターネット アクセス。
+- DNS。
+- NTP。
 
 > [!NOTE]
 > この記事では、最後の 3 つの要件について説明します。 最初の 2 つの詳細については、リンク先のページをご覧ください。
 
-## <a name="deployment-network-traffic"></a>デプロイ ネットワーク トラフィック
-DVM は BMC ネットワークからの IP で構成され、インターネットへのネットワーク アクセスを必要とします。 BMC ネットワークのすべてのコンポーネントで外部ルーティングまたはインターネットへのアクセスが必要になるわけではありませんが、このネットワークからの IP を利用する OEM 固有のコンポーネントでも必要になることがあります。
+## <a name="about-deployment-network-traffic"></a>デプロイ ネットワーク トラフィックについて
+
+DVM は BMC ネットワークからの IP で構成され、インターネットへのネットワーク アクセスを必要とします。 BMC ネットワークのすべてのコンポーネントで外部ルーティングまたはインターネットへのアクセスが必要になるわけではありませんが、このネットワークからの IP を使用する OEM 固有のコンポーネントでも必要になることがあります。
 
 デプロイ中、DVM はお使いのサブスクリプションの Azure アカウントを利用し、Azure Active Directory (Azure AD) に対して認証を行います。 そのために、DVM は一覧にある[特定のポートや URL](azure-stack-integrate-endpoints.md) にインターネット アクセスする必要があります。 DVM は DNS サーバーを利用し、内部コンポーネントによって行われた DNS 要求を外部 URL に転送します。 内部 DNS は転送されてきた要求を DNS フォワーダー アドレスに転送します。このアドレスは、デプロイ前に OEM に指定します。 同じことは NTP サーバーにも当てはまります。すべての Azure Stack Hub コンポーネントで一貫性を維持し、時刻を同期するには、信頼性のあるタイム サーバーが必要です。
 
@@ -53,4 +58,5 @@ Azure Stack Hub スイッチのネットワーク構成には、特定のネッ�
 デプロイの完了後、指定した DNS サーバー アドレスと NTP サーバー アドレスは、システムのコンポーネントによって、外部ネットワークを使用して SDN 経由で引き続き使用されます。 たとえば、デプロイの完了後に DNS 要求を確認する場合、DVM IP からパブリック VIP にソースが変わります。
 
 ## <a name="next-steps"></a>次のステップ
+
 [Azure の登録を検証する](azure-stack-validate-registration.md)

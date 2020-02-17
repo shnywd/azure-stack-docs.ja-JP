@@ -1,5 +1,5 @@
 ---
-title: Azure Stack の検証のベスト プラクティス
+title: Azure Stack Hub の検証のベスト プラクティス
 description: この記事では、サービスとしての検証を使用するためのベスト プラクティスについて説明します。
 author: mattbriggs
 ms.topic: article
@@ -8,18 +8,18 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 647e724b179d994819032859c325bf711cb9d2ee
+ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885055"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77143823"
 ---
 # <a name="create-an-oem-package"></a>OEM パッケージの作成
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Azure Stack OEM 拡張機能パッケージは、Azure Stack インフラストラクチャに OEM 固有のコンテンツを追加するメカニズムであり、デプロイと運用プロセス (更新、拡張、フィールドの置換など) で使用します。
+Azure Stack Hub OEM 拡張機能パッケージは、Azure Stack Hub インフラストラクチャに OEM 固有のコンテンツを追加するメカニズムであり、デプロイと運用プロセス (更新、拡張、フィールドの置換など) で使用します。
 
 ## <a name="creating-the-package"></a>パッケージの作成
 

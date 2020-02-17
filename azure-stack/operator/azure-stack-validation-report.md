@@ -1,32 +1,33 @@
 ---
-title: Azure Stack Hub 用検証レポート
-description: Azure Stack Hub 適合性チェッカー レポートを使用して、検証結果を確認します。
+title: Azure Stack Hub 検証レポート
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 適合性チェッカー ツールを使用して、検証レポートを生成します。
 author: ihenkel
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 21c19a368b62a35e3b2daeef2a0e36f84eb4e527
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a2264608c295a29fecc5335ce4970499dd10c895
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880571"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147725"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack Hub 検証レポート
 
-*Azure Stack 適合性チェッカー* ツールを使用して、Azure Stack Hub 環境のデプロイとサービスをサポートする検証を実行します。 このツールでは、結果が .json レポート ファイルに書き込まれます。 レポートには、Azure Stack Hub デプロイの前提条件の状態に関する詳細データと概要データが表示されます。 また、既存の Azure Stack Hub デプロイのシークレット ローテーションについての情報も表示されます。  
+[Azure Stack 適合性チェッカー ツール](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.2002.1111.69)を使用して、Azure Stack Hub 環境のデプロイとサービスをサポートする検証を実行します。 このツールでは、結果が .json レポート ファイルに書き込まれます。 レポートには、Azure Stack Hub デプロイの前提条件の状態に関する詳細データと概要データが表示されます。 また、既存の Azure Stack Hub デプロイのシークレット ローテーションについての情報も表示されます。  
 
 ## <a name="where-to-find-the-report"></a>レポートの場所
 
 ツールを実行すると、結果のログが **AzsReadinessCheckerReport.json** に出力されます。 また、ツールにより、**AzsReadinessChecker.log** という名前のログも作成されます。 これらのファイルの場所は、PowerShell に検証結果と共に表示されます。
 
-![run-validation](./media/azure-stack-validation-report/validation.png)
+![Azure Stack Hub 適合性チェッカーの run-validation 結果](./media/azure-stack-validation-report/validation.png)
 
 両方のファイルに、同じコンピューター上で実行された以降の検証チェックの結果が保持されます。 たとえば、ツールを実行して証明書を検証した後、再度実行して Azure ID を検証し、3 回目に実行では登録を検証することができます。 この 3 回の検証の結果はすべて、結果として生成される .json レポートで確認できます。  
 
-既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
+既定では、両方のファイルが `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
 - ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
@@ -93,7 +94,7 @@ PSBoundParameters :
 Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary
 ```
 
-概要には、結果がない検証が表示され、完了した検証が成功したか失敗したかが示されます。 出力は次の例のようになります。
+概要には、結果がない検証が表示されます。この概要には、完了した結果が成功したか失敗したかが示されます。 出力は次の例のようになります。
 
 ```shell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
@@ -121,7 +122,7 @@ Azure Stack Hub ADFS Validation results not available.
 
 ## <a name="view-a-filtered-report"></a>フィルター処理されたレポートを表示する
 
-1 種類の検証でフィルター処理されたレポートを表示するには、 **-ReportSections** パラメーターを使用して、次のいずれかの値を指定します。
+1 種類の検証でフィルター処理されたレポートを表示するには、`-ReportSections` パラメーターを使用して、次のいずれかの値を指定します。
 
 - Certificate
 - AzureRegistration

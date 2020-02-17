@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: be2da63bcb2eb986a14ebae417810ee4b585714d
+ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882923"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77075957"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -77,6 +77,9 @@ Microsoft ソフトウェア更新プログラム パッケージは累積的で
 
 Azure Stack Hub には、Azure と同じサポート プロセスが適用されます。 企業のお客様は、[Azure サポート要求を作成する方法](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)で説明されているプロセスに従ってください。 クラウド ソリューション プロバイダー (CSP) のお客様の場合は、担当の CSP までサポートについてお問い合わせください。 詳細については、「[Azure サポートに関する FAQ](https://azure.microsoft.com/support/faq/)」を参照してください。
 
+更新プログラムに関する問題のトラブルシューティングのヘルプについては、「[Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-updates-troubleshoot.md)」を参照してください。
+
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub での更新プログラム管理](azure-stack-updates.md)
+- [Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-updates-troubleshoot.md)
