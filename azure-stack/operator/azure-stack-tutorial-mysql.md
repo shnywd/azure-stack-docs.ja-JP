@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: b8ad46128d3b0228fdc2e6ecc0c3ca507b4ec697
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
+ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882737"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77147890"
 ---
 # <a name="create-highly-available-mysql-databases"></a>高可用性 MySQL データベースの作成
 
@@ -78,7 +78,7 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
    - 使用するリソース グループを選択するか、新しく作成します。
    - 場所を選択します (ASDK の場合、既定値は local)。
 
-   ![デプロイの基礎 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+   [![デプロイの基礎 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. **[Environment Configuration]\(環境の構成\)** ページに次の情報を入力し、 **[OK]** を選択します。
 
@@ -86,11 +86,11 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
    - VM サイズ (既定値は Standard D1 v2 VM)。
    - データ ディスク サイズ (GB 単位)
 
-   ![環境の構成 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+   [![環境の構成 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. デプロイの **[概要]** を確認します。 必要に応じて、カスタマイズしたテンプレートとパラメーターをダウンロードして、 **[OK]** を選択します。
 
-   ![概要 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   [![概要 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. **[購入]** ページで **[作成]** を選択して、デプロイを開始します。
 
@@ -115,7 +115,7 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
 
     **[宛先ポート範囲]** に「**3306**」と入力し、必要に応じて **[名前]** フィールドと **[説明]** フィールドに説明を入力します。
 
-   ![オープン](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
 
 3. **[追加]** を選択して、受信セキュリティ規則のダイアログを閉じます。
 
