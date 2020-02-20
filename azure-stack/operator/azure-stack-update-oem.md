@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用します。
 description: Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 10/15/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/15/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: a5b1449ae82258a7e4d65ef3d237673cba388420
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4ff26f9da9d15bd7a19cf1d54a0810feaeee4d8d
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880727"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491205"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する
 

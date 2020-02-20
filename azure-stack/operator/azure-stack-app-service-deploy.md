@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub に App Service をデプロイする
 description: Azure Stack Hub に App Service をデプロイする方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 01/13/2020
-ms.author: anwestg
+ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 55d42471f56b17fe2016c7a7ac05f0b688773128
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874860"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491171"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Azure Stack Hub に App Service をデプロイする
 
@@ -129,7 +129,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
     >[!NOTE]
     >運用環境デプロイの場合は、「[Azure Stack Hub での Azure App Service サーバー ロールのキャパシティ プランニング](azure-stack-app-service-capacity-planning.md)」のガイダンスに従ってください。
 
-    | Role | インスタンスの最小値 | SKU の最小値 | メモ |
+    | Role | インスタンスの最小値 | SKU の最小値 | Notes |
     | --- | --- | --- | --- |
     | コントローラー | 1 | Standard_A2 - (2 vCPU、3584 MB) | App Service クラウドの正常性を管理および維持します。 |
     | 管理 | 1 | Standard_A2 - (2 vCPU、3584 MB) | App Service Azure Resource Manager および API のエンドポイント、ポータル拡張機能 (管理、テナント、Functions ポータル)、データ サービスを管理します。 フェールオーバーをサポートする場合は、お勧めのインスタンス数は 2 つに増えます。 |

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub で更新プログラムをトラブルシューティングする
 description: Azure Stack Hub ができるだけ迅速に運用可能な状態に戻ることができるように、Azure Stack Hub オペレーターが更新プログラムに関する問題を解決する方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 09/23/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 927877867b0ec8cb2601b50e7f084f86964a5342
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: 8524850d2f93fdf4d7a14c6b6b00a6d989a46a74
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037218"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491111"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス
 

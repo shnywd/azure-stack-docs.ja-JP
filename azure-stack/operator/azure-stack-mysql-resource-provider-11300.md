@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
 description: このリリース ノートでは、Azure Stack Hub MySQL リソース プロバイダー 1.1.30.0 の更新プログラムの新機能を紹介しています。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 3598fe210f951e33905bc369b73fd29f9d2a9d5b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 49e161588ba3dadaba0ec55bb63963cb7cc93bce
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881913"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492157"
 ---
 # <a name="mysql-resource-provider-11300-release-notes"></a>MySQL リソース プロバイダー 1.1.30.0 のリリース ノート
 

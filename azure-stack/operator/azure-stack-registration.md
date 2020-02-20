@@ -2,18 +2,18 @@
 title: Azure Stack Hub を Azure に登録する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 2/02/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 6a56c6381cc1a88729b31c5d020460100d29ca39
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972584"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491919"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 

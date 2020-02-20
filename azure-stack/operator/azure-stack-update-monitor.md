@@ -1,18 +1,18 @@
 ---
 title: PowerShell を使用した Azure Stack Hub での更新の監視
 description: PowerShell を使用して Azure Stack Hub で更新を監視する方法を説明します
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 12c3de988fde0dc7b5abd35bfa07c504f8c60c4b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 02ca66c4dcbd7d02f2129686d4c0a75d84f3ae28
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882688"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491375"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での更新の監視
 
@@ -20,7 +20,7 @@ Azure Stack Hub 管理エンドポイントを使用して、更新の監視と�
 
 次の PowerShell コマンドレットを使用して更新を管理することもできます。
 
-| コマンドレット | [説明] |
+| コマンドレット | 説明 |
 |------------------------------------------------------|-------------|
 | [Get-AzsUpdate](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdate?view=azurestackps-1.8.0) | 使用可能な更新プログラムの一覧を取得します。 |
 | [Get-AzsUpdateLocation](https://docs.microsoft.com/powershell/module/azs.update.admin/Get-AzsUpdateLocation?view=azurestackps-1.8.0)| 更新プログラムの場所の一覧を取得します。 |

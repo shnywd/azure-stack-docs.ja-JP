@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 上に MySQL リソース プロバイダーをデプロイする
 description: Azure Stack Hub に MySQL リソース プロバイダー アダプターと MySQL データベースをサービスとしてデプロイする方法を説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 52ee1953098f861cca572e08269dff56da31f3aa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 60a5df4b54165ab86ac8c836254baabaab4f7ca6
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881827"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492683"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -119,7 +119,7 @@ MySQL リソース プロバイダーをデプロイするには、管理者特�
 
 これらのパラメーターをコマンド ラインで指定できます。 必須パラメーターの指定がない場合、またはいずれかのパラメーターの検証が失敗した場合は、指定することを求められます。
 
-| パラメーター名 | [説明] | コメントまたは既定値 |
+| パラメーター名 | 説明 | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
 | **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub で MySQL データベースを作成する
 description: Azure Stack Hub で MySQL アダプター リソース プロバイダーを使用してプロビジョニングされた MySQL データベースの作成と管理を行う方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 23c823fcbfa76d34a471ac404b18dab13b737315
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: afe2a9fe46a5abae9f94347422153480536c37bc
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125773"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492123"
 ---
 # <a name="create-mysql-databases-in-azure-stack-hub"></a>Azure Stack Hub で MySQL データベースを作成する
 MySQL データベース サービスを含むオファーにサブスクライブした Azure Stack Hub ユーザーは、ユーザー ポータルで、セルフ サービスの MySQL データベースを作成し、管理することができます。

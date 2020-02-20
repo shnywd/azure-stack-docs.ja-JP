@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub の更新プログラムをインストールする
 description: Azure Stack Hub の更新プログラムをインストールする方法について学習します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: b854a7334055dcee4a753143f4a601f1eb8281f8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: bf65ebb1e0d9969062e63cb7e95920c89ece6437
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877786"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492242"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
 

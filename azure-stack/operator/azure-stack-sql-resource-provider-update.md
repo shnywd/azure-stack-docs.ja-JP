@@ -2,18 +2,18 @@
 title: Azure Stack Hub SQL リソース プロバイダーの更新
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub SQL リソース プロバイダーの更新方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 07f372f1974780d2310b12cc8d874808e010ac3c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09a9b190594eb4d737b54c971fc2e3dbd03cd5f9
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881270"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491749"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
 
@@ -43,7 +43,7 @@ SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降�
 
 **UpdateSQLProvider.ps1** PowerShell スクリプトを実行するときに、コマンド ラインから以下のパラメーターを指定できます。 必須パラメーターの指定がない場合、またはいずれかのパラメーターの検証が失敗した場合は、指定することを求められます。
 
-| パラメーター名 | [説明] | コメントまたは既定値 |
+| パラメーター名 | 説明 | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
 | **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |

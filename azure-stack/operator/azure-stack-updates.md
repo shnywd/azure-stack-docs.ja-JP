@@ -1,18 +1,18 @@
 ---
 title: 更新プログラムの管理
 description: Azure Stack Hub 上で更新プログラムを管理する方法について説明します
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 7894d59d3129b151f6110cbac4606cbfecad8889
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: 3bbe40c0965027556c1ab00e9b26137e4b956955
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037252"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77490933"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Azure Stack Hub での更新プログラム管理
 

@@ -1,18 +1,18 @@
 ---
 title: 特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 description: 特権エンドポイントを使用して Azure Stack Hub 統合システムの更新プログラムの状態をモニターする方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f320973cfd5b7e9117eeeeb1463ee9b45cb5448f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881892"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492174"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 
@@ -20,7 +20,7 @@ ms.locfileid: "76881892"
 
 次に示す更新プログラム管理用の新しい PowerShell コマンドレットは、Azure Stack Hub 統合システムの 1710 更新プログラムに含まれています。
 
-| コマンドレット  | [説明]  |
+| コマンドレット  | 説明  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | 現在実行中、完了済み、または失敗した更新プログラムの状態を返します。 更新操作の状態の詳細と、現在のステップと対応する状態の両方について説明する XML ドキュメントを提供します。 |
 | `Resume-AzureStackUpdate` | 失敗した更新プログラムを失敗した時点から再開します。 特定のシナリオでは、更新プログラムを再開する前に、リスク軽減の手順を完了しなければならない場合があります。         |
@@ -100,7 +100,7 @@ $statusString.Value
 指定できる値は、次のとおりです。
 
 - 実行中
-- [完了]
+- 完了
 - 失敗 
 - Canceled
 

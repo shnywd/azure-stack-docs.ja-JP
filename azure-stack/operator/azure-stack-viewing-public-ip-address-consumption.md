@@ -2,18 +2,18 @@
 title: ネットワーク リソースの管理
 titleSuffix: Azure Stack Hub
 description: MAC アドレス プールや、リージョン内のパブリック IP アドレスの使用など、ネットワーク リソースを管理する方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: conceptual
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: scottnap
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 3542706d71ed6800cd246cbc0d59a5443ed3edbc
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 10f949791a38a7c4c9e21fa910df166b56cc1330
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147823"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77490950"
 ---
 # <a name="manage-network-resources-in-azure-stack-hub"></a>Azure Stack Hub 上でのネットワーク リソースの管理
 

@@ -2,18 +2,18 @@
 title: SQL リソース プロバイダーへのホスティング サーバーの追加
 titleSuffix: Azure Stack Hub
 description: SQL リソース プロバイダー アダプターを使用したプロビジョニングのためにホスティング サーバーを追加する方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: d46837540e8b4bd22fb114062266a5be86862921
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.openlocfilehash: 919b0ed28e6214f8854a3a19012bb7f8cd952b6e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125703"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491817"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL リソース プロバイダーへのホスティング サーバーの追加
 

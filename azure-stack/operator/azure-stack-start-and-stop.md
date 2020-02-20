@@ -2,18 +2,18 @@
 title: 開始と停止
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub を開始および停止する方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 3f3493d55d524de7c292f0052cc20d26b2fccc28
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0bda5660edd58fb3222fa6bb1fdf790013efae22
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881204"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491698"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Azure Stack Hub の開始と停止
 

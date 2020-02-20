@@ -2,18 +2,18 @@
 title: Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 titleSuffix: Azure Stack
 description: Azure Stack Hub 用のストレージ インフラストラクチャを管理する方法について説明します。
-author: mattbriggs
+author: ihenkel
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 045bab05645c5186069d787645efe56ea5b4effa
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 47233e29ef5921fbf8feb7b31f9160a8f67ff71b
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882768"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491715"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 
@@ -99,7 +99,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 ### <a name="volume-health-state-healthy"></a>ボリュームの正常性状態:Healthy
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | [OK] | ボリュームは正常な状態です。 |
 | Suboptimal (最適でない) | データが複数のドライブに均等に書き込まれていません。<br> <br>**アクション:** 記憶域プール内のドライブの使用を最適化するために、サポートにお問い合わせください。 それに先立って、 https://aka.ms/azurestacklogfiles に記載されているガイダンスを使用してログ ファイルの収集プロセスを開始してください。 失敗した接続を復元した後に、バックアップからの復元が必要になることがあります。 |
@@ -108,7 +108,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 ボリュームの正常性状態が警告のときは、データの 1 つ以上のコピーが利用不可能な状態になっているものの、Azure Stack Hub では依然としてデータの少なくとも 1 つのコピーを読み取れることを示します。
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | サービス中 | ドライブを追加または削除した後などに、Azure Stack Hub がボリュームを修復している最中です。 修復が完了したら、ボリュームの正常性状態が [OK] に戻ります。<br> <br>**アクション:** Azure Stack Hub がボリュームの修復を終えるまで待ち、修復が終わったら状態を確認します。 |
 | Incomplete (不完全) | 障害が発生しているドライブや、見つからないドライブが 1 つ以上あるため、ボリュームの回復性が低下しています。 ただし、見つからないドライブにはデータの最新のコピーが格納されています。<br> <br>**アクション:** 見つからなかったドライブを再接続し、障害が発生したドライブを交換します。また、オフラインになっているサーバーがあれば、オンラインに復帰させます。 |
@@ -118,7 +118,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 ボリュームの状態が [異常] のときは、ボリューム上のデータの一部または全部にアクセスできなくなっています。
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | No redundancy (冗長性なし) | 障害が発生したドライブが多すぎるため、ボリュームからデータが失われました。<br> <br>**アクション:** サポートにお問い合わせください。 それに先立って、 https://aka.ms/azurestacklogfiles に記載されているガイダンスを使用してログ ファイルの収集プロセスを開始してください。 |
 
@@ -126,7 +126,7 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 
 このほか、仮想ディスクがデタッチされた場合には、ボリュームの正常性が [不明] になることもあります。
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | デタッチ | ストレージ デバイスの障害が発生しており、ボリュームにアクセスできなくなる可能性があります。 一部のデータが失われるおそれがあります。<br> <br>**アクション:** <br>1.ストレージ デバイスすべてについて、物理的な接続状態とネットワーク接続の状況を確認します。<br>2.デバイスがすべて正しく接続できている場合は、サポートにお問い合わせください。 それに先立って、 https://aka.ms/azurestacklogfiles に記載されているガイダンスを使用してログ ファイルの収集プロセスを開始してください。 失敗した接続を復元した後に、バックアップからの復元が必要になることがあります。 |
 
@@ -146,7 +146,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 ### <a name="drive-health-state-healthy"></a>ドライブの正常性状態:Healthy
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | [OK] | ボリュームは正常な状態です。 |
 | サービス中 | ドライブ内部でハウスキープ処理を実行中です。 処理が完了したら、ドライブの正常性状態が [OK] に戻ります。 |
@@ -155,7 +155,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 ドライブが [警告] 状態の場合には、データの読み取りと書き込みは正常に実行できるものの、ドライブに何らかの問題が発生しています。
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | 通信の切断 | ドライブへの接続が失われました。<br> <br>**アクション:** サーバーをすべてオンラインに戻します。 問題が解決しない場合には、ドライブを再接続します。 この状態が続く場合には、回復性確保のためにドライブを交換します。 |
 | 予測される障害 | ドライブに間もなく障害が発生することが予想されます。<br> <br>**アクション:** 回復性確保のために、できるだけ早くドライブを交換します。 |
@@ -171,7 +171,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 状態が [異常] のドライブには、書き込みまたはアクセスができません。
 
-| 操作状態 | [説明] |
+| 操作状態 | 説明 |
 |---|---|
 | Split | ドライブがプールから隔離されています。<br> <br>**アクション:** ドライブを新しいディスクに交換します。 このディスクを使う必要がある場合は、ディスクをシステムから取り外したうえで、ディスクに有用なデータが一切ないことを確認してから、ディスクを消去し、同じディスクをもう一度取り付けます。 |
 | 使用不可 | 物理ディスクがソリューション ベンダーによりサポートされていないため、ディスクが検疫されています。 サポートされるのは、ソリューションでの利用が承認され、正しいディスク ファームウェアを備えたディスクのみです。<br> <br>**アクション:** ドライブを、ソリューションでの利用が承認されている製造元とモデルの番号を備えたディスクに交換します。 |
@@ -186,7 +186,7 @@ Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sele
 
 一部のドライブは、Azure Stack Hub の記憶域プールに入れる準備ができていません。 ドライブをプールできない理由は、ドライブの `CannotPoolReason` プロパティを見ると確認できます。 次の表は、それぞれの理由をもう少し詳しく説明したものです。
 
-| 理由 | [説明] |
+| 理由 | 説明 |
 |---|---|
 | Hardware not compliant (非準拠ハードウェア) | ドライブが、ヘルス サービスを使用して指定された承認済みのストレージ モデルの一覧に存在しません。<br> <br>**アクション:** ドライブを新しいディスクに交換します。 |
 | Firmware not compliant (非準拠ファームウェア) | 物理ドライブ上のファームウェアが、ヘルス サービスを使用して指定された承認済みのファームウェア リビジョンの一覧に存在しません。<br> <br>**アクション:** ドライブを新しいディスクに交換します。 |
