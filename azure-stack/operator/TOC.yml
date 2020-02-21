@@ -4,8 +4,6 @@
   items:
     - name: Azure Stack Hub とは
       href: azure-stack-overview.md
-    - name: Azure Stack HCI とは
-      href: azure-stack-hci-overview.md
     - name: Azure エコシステムの比較
       href: compare-azure-azure-stack.md
     - name: リリース ノート
