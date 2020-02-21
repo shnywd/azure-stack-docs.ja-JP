@@ -1,0 +1,28 @@
+- name: Azure Stack HCI のドキュメント
+  href: overview.md
+- name: 概要
+  items:
+    - name: Azure Stack HCI とは
+      href: overview.md
+- name: リファレンス
+  items:
+    - name: Hyper-V PowerShell コマンド
+      href: /powershell/module/hyper-v
+    - name: Storage PowerShell コマンド
+      href: /powershell/module/storage
+- name: 関連項目
+  items:
+    - name: Azure Stack ファミリ
+      href: ../index.yml
+    - name: Windows Admin Center
+      href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
+    - name: Azure ハイブリッド サービス
+      href: /windows-server/manage/windows-admin-center/azure
+    - name: 記憶域スペース ダイレクト
+      href: /windows-server/storage/storage-spaces/storage-spaces-direct-overview
+    - name: フェールオーバー クラスタリング
+      href: /windows-server/failover-clustering/failover-clustering-overview
+    - name: Hyper-V
+      href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
+    - name: ソフトウェアによるネットワーク
+      href: /windows-server/networking/sdn
