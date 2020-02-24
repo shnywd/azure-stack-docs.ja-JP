@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub に MySQL ホスティング サーバーを追加する
 description: MySQL アダプター リソース プロバイダーを使用したプロビジョニングのために MySQL ホスティング サーバーを追加する方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 6cd5d09dcfc2467bd596b94597d001c4803e1655
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8c998675f3446941a00da9d9a444f1f9186e60e
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881812"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492089"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Azure Stack Hub に MySQL ホスティング サーバーを追加する
 
@@ -22,6 +22,39 @@ MySQL リソース プロバイダーが SQL インスタンスに接続でき�
 > MySQL リソース プロバイダーは既定のプロバイダー サブスクリプションに作成する必要がありますが、MySQL ホスティング サーバーは課金対象のユーザー サブスクリプションに作成する必要があります。 リソース プロバイダー サーバーは、ユーザー データベースをホストするためには使用しないでください。
 
 ホスティング サーバーには、MySQL バージョン 5.6、5.7、および 8.0 を使用できます。 MySQL RP では、caching_sha2_password 認証はサポートされません。これは、次のリリースで追加される予定です。 mysql_native_password を使用するには、MySQL 8.0 サーバーを構成する必要があります。 MariaDB もサポートされています。
+
+## <a name="configure-external-access-to-the-mysql-hosting-server"></a>MySQL ホスティング サーバーへの外部アクセスを構成する
+
+MySQL サーバーを Azure Stack Hub MySQL Server ホストとして追加する前に、外部アクセスを有効にする必要があります。 Azure Stack Hub マーケットプレースで入手できる BitNami MySQL を例にとると、次の手順を実行して外部アクセスを構成できます。
+
+1. SSH クライアントを使用して (この例では [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) を使用)、パブリック IP にアクセスできるコンピューターから MySQL サーバーにログインします。
+
+    パブリック IP を使用して、ユーザー名 **bitnami** と、前に作成した特殊文字を含まないアプリケーション パスワードを入力して、VM にログインします。
+
+   ![LinuxLogin](media/azure-stack-tutorial-mysqlrp/bitnami1.png)
+
+2. SSH クライアント ウィンドウで、次のコマンドを使用して、bitnami サービスがアクティブで実行中であることを確認します。 プロンプトが表示されたら、もう一度 bitnami パスワードを入力します。
+
+   `sudo service bitnami status`
+
+   ![bitnami サービスを確認する](media/azure-stack-tutorial-mysqlrp/bitnami2.png)
+
+3. Azure Stack Hub MySQL ホスティング サーバーが MySQL に接続し、SSH クライアントを終了するために使用するリモート アクセス ユーザー アカウントを作成します。
+
+    前に作成したルート パスワードを使用して、次のコマンドを実行して MySQL に root としてログインします。 新しい管理者ユーザーを作成し、環境に合わせて *\<username\>* および *\<password\>* を置き換えます。 この例では、作成されたユーザーの名前は **sqlsa** であり、強力なパスワードが使用されています。
+
+   ```mysql
+   mysql -u root -p
+   create user <username>@'%' identified by '<password>';
+   grant all privileges on *.* to <username>@'%' with grant option;
+   flush privileges;
+   ```
+
+   ![管理者ユーザーを作成する](media/azure-stack-tutorial-mysqlrp/bitnami3.png)
+
+4. 新しい MySQL ユーザー情報をメモします。
+
+このユーザー名とパスワードは、Azure Stack Hub オペレーターがこの MySQL サーバーを使用して MySQL ホスティング サーバーを作成するときに使用されます。
 
 ## <a name="connect-to-a-mysql-hosting-server"></a>MySQL ホスティング サーバーに接続する
 

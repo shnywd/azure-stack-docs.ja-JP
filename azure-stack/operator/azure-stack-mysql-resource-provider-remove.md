@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 上の MySQL リソース プロバイダーを削除する
 description: Azure Stack Hub のデプロイから MySQL リソース プロバイダーを削除する方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 89d0a55797b6182b7490778db10914a09977e105
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e432e0a37dbcea7bf441594ba6669ee15578b3e4
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881783"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492055"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Azure Stack Hub 上の MySQL リソース プロバイダーを削除する
 
@@ -21,16 +21,7 @@ MySQL リソース プロバイダーを削除する前に、プロバイダー�
 > [!NOTE]
 > リソース プロバイダーのインストーラーのダウンロード リンクは、[リソース プロバイダーを展開するための前提条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)に関するページにあります。
 
-MySQL リソース プロバイダーを削除しても、ホスティング サーバーからテナント データベースが削除されることはありません。
-
-## <a name="dependency-cleanup"></a>依存関係のクリーンアップ
-
-DeployMySqlProvider.ps1 スクリプトを実行してリソース プロバイダーを削除する前に、いくつかのクリーンアップ タスクを実行する必要があります。
-
-次のクリーンアップ タスクは、Azure Stack Hub オペレーターが担当します。
-
-* MySQL アダプターを参照しているすべてのプランを削除する。
-* MySQL アダプターに関連付けられているすべてのクォータを削除する。
+MySQL リソース プロバイダーを削除すると、オペレーターが管理する関連プランとクォータが削除されます。 ただし、ホスティング サーバーからテナント データベースは削除されません。
 
 ## <a name="to-remove-the-mysql-resource-provider"></a>MySQL リソースプロバイダーを削除するには
 

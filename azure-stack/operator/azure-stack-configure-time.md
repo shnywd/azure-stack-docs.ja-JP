@@ -3,16 +3,16 @@ title: Azure Stack Hub のタイム サーバーを構成する
 description: Azure Stack Hub のタイム サーバーを構成する方法について学習します。
 author: ihenkel
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 2/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 10/10/2019
-ms.openlocfilehash: d2dbc9ea7968ed3ad1911dd908966b6ac1e2a9c9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 891e034f691f5e8e1e087015aff36107c649198c
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879195"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492191"
 ---
 # <a name="configure-the-time-server-for-azure-stack-hub"></a>Azure Stack Hub のタイム サーバーを構成する
 
@@ -40,10 +40,16 @@ Azure Stack Hub で時刻を同期するには、タイム サーバー (NTP) �
 3. 次のコマンドを実行して、新しい NTP サーバーを使用するよう Azure Stack Hub を更新し、時刻を直ちに同期します。
 
     > [!Note]  
-    > この手順では、物理スイッチ上のタイム サーバーを更新しません
+    > この手順では、物理スイッチ上のタイム サーバーは更新されません。 タイム サーバーが Windows ベースの NTP サーバーではない場合、フラグ `0x8` を追加する必要があります。
 
     ```PowerShell
     Set-AzsTimeSource -TimeServer NEWTIMESERVERIP -resync
+    ```
+
+    Windows ベースのタイム サーバー以外のサーバーの場合:
+
+    ```PowerShell
+    Set-AzsTimeSource -TimeServer "NEWTIMESERVERIP,0x8" -resync
     ```
 
 4. エラーが発生した場合は、コマンドの出力を確認してください。

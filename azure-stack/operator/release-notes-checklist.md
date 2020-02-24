@@ -3,16 +3,16 @@ title: Azure Stack Hub 更新アクティビティのチェックリスト
 description: 最新の Azure Stack Hub の更新に備えてシステムを準備するためのチェックリスト。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/20/2020
 ms.author: sethm
 ms.reviewer: ppacent
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 7ee8a4bc80b211b8e6aa8fd77d29ae5cf4c524e1
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.openlocfilehash: e1260cec62c2b1906f76004f04010e0f0857664e
+ms.sourcegitcommit: b501f9dc931bb0a1648b768f7ea47116b4dfda33
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037184"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77213665"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新アクティビティのチェックリスト
 
@@ -31,7 +31,7 @@ Azure Stack Hub の更新を準備するために、このチェックリスト�
 | **Test-AzureStack** の実行 | `Test-AzureStack -Group UpdateReadiness` を実行して、操作上の問題を特定します。 コマンドレットには、特権エンドポイント セッション (PEP) を使用してアクセスできます。 詳細については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。 |
 | 問題の解決 | `Test-AzureStack` によって特定された操作上の問題を解決します。 |
 | 更新プログラムが利用可能 | Azure Stack Hub デプロイでは、接続されたシナリオでのみ、セキュリティで保護されたエンドポイントが定期的にチェックされ、お客様のクラウド用の更新プログラムが入手可能かどうかが自動的に通知されます。 接続していないお客様は、[ここで説明されているプロセス](azure-stack-apply-updates.md)を使用して、新しいパッケージをダウンロードしてインポートできます。 |
-| メンテナンス期間の日程計画とユーザーへの通知 | メンテナンス作業についてユーザーに通知し、通常のメンテナンス期間を可能であれば勤務時間外にスケジュールする必要があります。 メンテナンス作業をポータルから開始するか、Azure Resource Manager API からプログラミングによって開始するかに関係なく、作業によって既存のテナント ワークロードに影響が出たり、新しいテナント作業 (VM の作成、再設定、または削除) が失敗したりすることがあります。 Azure Stack Hub の Express 更新や完全更新については、[こちら](release-notes.md)のリリース ノートでご確認いただけます。ご利用のバージョンでは、更新にどのくらいの時間がかかるか予想されています。 |
+| メンテナンス期間の日程計画とユーザーへの通知 | メンテナンス作業についてユーザーに通知し、通常のメンテナンス期間を可能であれば勤務時間外にスケジュールする必要があります。 メンテナンス作業をポータルから開始するか、Azure Resource Manager API からプログラミングによって開始するかに関係なく、作業によって既存のテナント ワークロードに影響が出たり、新しいテナント作業 (VM の作成、再設定、または削除) が失敗したりすることがあります。 また、バックアップなどの他の操作は、更新が完了するまで使用できない場合があります。 Azure Stack Hub の Express 更新や完全更新については、[こちら](release-notes.md)のリリース ノートでご確認いただけます。ご利用のバージョンでは、更新にどのくらいの時間がかかるか予想されています。 |
 
 ## <a name="during-azure-stack-hub-update"></a>Azure Stack Hub の更新中
 

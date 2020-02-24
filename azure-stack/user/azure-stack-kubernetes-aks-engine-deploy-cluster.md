@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f7d9b735a3b4936a5bb97e60e4c84f4b35b29baa
+ms.sourcegitcommit: 40c7b3dad98eede5e2b2d19d9c24b805d0395e63
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884811"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77479392"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -68,7 +68,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 7.  配列 `masterProfile` で、次のフィールドを設定します。
 
-    | フィールド | [説明] |
+    | フィールド | 説明 |
     | --- | --- |
     | dnsPrefix | VM のホスト名を識別するために使用される一意の文字列を入力します。 たとえば、リソース グループ名に基づいて名前を指定します。 |
     | count |  デプロイに必要なマスターの数を入力します。 HA デプロイの最小値は 3 ですが、非 HA デプロイでは 1 が許可されます。 |
@@ -77,7 +77,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 8.  配列 `agentPoolProfiles` の更新では、次のようにします。
 
-    | フィールド | [説明] |
+    | フィールド | 説明 |
     | --- | --- |
     | count | デプロイに必要なエージェントの数を入力します。 |
     | vmSize | [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
@@ -85,7 +85,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 9.  配列 `linuxProfile` の更新では、次のようにします。
 
-    | フィールド | [説明] |
+    | フィールド | 説明 |
     | --- | --- |
     | adminUsername | VM の管理者ユーザー名を入力します。 |
     | ssh | VM での SSH 認証に使用される公開キーを入力します。 Putty を使用している場合、PuTTY key generator を起動し、Putty 秘密キーと、次の例にあるように ssh-rsa から始まっている公開キーを読み込みます。 Linux の作成時に生成されたキーを使用できますが、**例に示すように単一行のテキストになるように公開キーをコピーする必要があります**。|
@@ -111,7 +111,7 @@ Azure Stack Hub オペレーターに次のことを依頼します。
 
 1.  Azure Stack Hub の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で、AKS エンジンで使用可能なパラメーターを確認します。
 
-    | パラメーター | 例 | [説明] |
+    | パラメーター | 例 | 説明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack Hub であることを示すには、`AzureStackCloud` を使用します。 |
     | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |

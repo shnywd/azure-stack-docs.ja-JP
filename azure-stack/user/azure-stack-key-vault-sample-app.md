@@ -3,15 +3,15 @@ title: Azure Stack Hub でアプリに Key Vault に格納されているシー�
 description: Azure Stack Hub で Key Vault からキーとシークレットを取得するサンプル アプリを実行する方法を説明します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 11b26d5e079ce16c7450bea0424aa4902c0ff8b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4db38de1586096cfeeb2e7f2b806430d0ca1344f
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883575"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492310"
 ---
 # <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack Hub でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
 
@@ -142,9 +142,17 @@ Write-Host
 Visual Studio で次の操作を行います。
 
 1. HelloKeyVault\App.config ファイルを開き、`<appSettings>` 要素を見つけます。
-2. Key Vault の作成時に返された値を使用して、**VaultUrl**、**AuthClientId**、**AuthClientSecret** を更新します。 既定では、App.config ファイルには `AuthCertThumbprint` のプレースホルダーが含まれます。 このプレースホルダーを `AuthClientSecret` に置き換えます。
+2. キー コンテナーの作成時に返された値を使用して **VaultUrl**、**AuthClientId**、および **AuthCertThumbprint** キーを更新します。 既定では、App.config ファイルには `AuthCertThumbprint` のプレースホルダーが含まれます。 このプレースホルダーを `AuthClientSecret` に置き換えます。
 
-   ![アプリケーション設定](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ```xml
+   <appSettings>
+    <!-- Update these settings for your test environment -->
+    <add key="VaultUrl" value="URL to your Vault" />
+    <add key="AuthClientId" value="Client Id of your Service Principal" />
+    <add key="AuthCertThumbprint" value="Thumbprint of the certificate used for authentication" />
+    <add key="TracingEnabled" value="false" />
+   </appSettings>
+   ```
 
 3. ソリューションをリビルドします。
 

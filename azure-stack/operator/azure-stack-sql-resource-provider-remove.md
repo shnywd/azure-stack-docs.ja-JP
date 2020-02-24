@@ -2,18 +2,18 @@
 title: SQL リソース プロバイダーの削除
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 5d8335e69c35c209e444d88f41ce76a3fae94bb0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f8b9ed17aa19a2d0ed9403ace3876f4c8f3a25bf
+ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882798"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77491783"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL リソース プロバイダーの削除
 
@@ -22,16 +22,7 @@ SQL リソース プロバイダーを削除する前に、プロバイダーの
 > [!NOTE]
 > リソース プロバイダーのインストーラーのダウンロード リンクは、[リソース プロバイダーを展開するための前提条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)に関するページにあります。
 
-SQL リソース プロバイダーを削除しても、ホスティング サーバーからテナント データベースが削除されることはありません。
-
-## <a name="dependency-cleanup"></a>依存関係のクリーンアップ
-
-DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダーを削除する前に、いくつかのクリーンアップ タスクを実行する必要があります。
-
-次のクリーンアップ タスクは、Azure Stack Hub オペレーターが担当します。
-
-* SQL アダプターを参照しているすべてのプランを削除する。
-* SQL アダプターに関連付けられているすべてのクォータを削除する。
+SQL リソース プロバイダーを削除すると、オペレーターが管理する関連プランとクォータが削除されます。 ただし、ホスティング サーバーからテナント データベースは削除されません。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL リソース プロバイダーを削除するには
 
