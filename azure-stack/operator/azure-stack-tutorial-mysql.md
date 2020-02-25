@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 0a15f4256349b9080f73d976f4e4a9782fd5b665
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: 7201ad85961ecf08d1162d97aa684625e0782d35
+ms.sourcegitcommit: 381e4e47851dd2526bbf04d6b06af90fb1fb6a49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147890"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77363058"
 ---
 # <a name="create-highly-available-mysql-databases"></a>高可用性 MySQL データベースの作成
 
@@ -60,13 +60,15 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
 - MySQL クラスターをホストする 3 つの Linux VM
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../includes/azs-user-portal.md)]
 
-2. **[\+** **リソースの作成]** 、 **[計算]** の順に選択し、 **[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
+2. サブスクリプションがまだ割り当てられていない場合は、ダッシュボードから **[サブスクリプションの取得]** を選択します。 ブレードで、サブスクリプションの名前を入力し、オファーを選択します。 誤って削除されないように、MySQL クラスターのデプロイは独自のサブスクリプションに保持することをお勧めします。
 
-   ![Azure Stack Hub でのカスタム テンプレートのデプロイ](media/azure-stack-tutorial-mysqlrp/1.png)
+3. **[\+** **リソースの作成]** 、 **[計算]** の順に選択し、 **[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
 
-3. **[基本]** ページで基本的なデプロイ情報を提供します。 既定値を確認し、必要に応じて変更して **[OK]** を選択します。
+   ![Azure Stack Hub でのカスタム テンプレートのデプロイ](media/azure-stack-tutorial-mysqlrp/img1.png)
+
+4. **[基本]** ページで基本的なデプロイ情報を提供します。 既定値を確認し、必要に応じて変更して **[OK]** を選択します。
 
     少なくとも、以下の情報を指定します。
 
@@ -78,28 +80,28 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
    - 使用するリソース グループを選択するか、新しく作成します。
    - 場所を選択します (ASDK の場合、既定値は local)。
 
-   [![デプロイの基礎 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/2-sm.PNG)](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
+     ![デプロイの基礎 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/img2.png)
 
-4. **[Environment Configuration]\(環境の構成\)** ページに次の情報を入力し、 **[OK]** を選択します。
+5. **[Environment Configuration]\(環境の構成\)** ページに次の情報を入力し、 **[OK]** を選択します。
 
    - Secure Shell (SSH) 認証に使用するパスワードまたは SSH パブリック キー。 パスワードを使用する場合は、英字、数字を含める必要があります。また、特殊文字を含めることも**可能です**。
    - VM サイズ (既定値は Standard D1 v2 VM)。
    - データ ディスク サイズ (GB 単位)
 
-   [![環境の構成 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/3-sm.PNG)](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
+     ![環境の構成 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/img3.png)
 
-5. デプロイの **[概要]** を確認します。 必要に応じて、カスタマイズしたテンプレートとパラメーターをダウンロードして、 **[OK]** を選択します。
+6. デプロイの **[概要]** を確認します。 必要に応じて、カスタマイズしたテンプレートとパラメーターをダウンロードして、 **[OK]** を選択します。
 
-   [![概要 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/4-sm.PNG)](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
+   ![概要 — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/img4.png)
 
-6. **[購入]** ページで **[作成]** を選択して、デプロイを開始します。
+7. **[購入]** ページで **[作成]** を選択して、デプロイを開始します。
 
-   ![[購入] ページ — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/5.png)
+   ![[購入] ページ — レプリケーション付きの MySQL の作成](media/azure-stack-tutorial-mysqlrp/img5.png)
 
     > [!NOTE]
     > デプロイには約 1 時間かかります。 続行する前に、デプロイが完了し、MySQL クラスターの構成が完了していることを確認してください。
 
-7. すべてのデプロイが正常に完了したら、リソース グループ項目を確認し、**mysqlip** パブリック IP アドレス項目を選択します。 クラスターのパブリック IP アドレスと完全な FQDN をメモします。
+8. すべてのデプロイが正常に完了したら、リソース グループ項目を確認し、**mysqlip** パブリック IP アドレス項目を選択します。 クラスターのパブリック IP アドレスと完全な FQDN をメモします。
 
     この MySQL クラスターを利用する MySQL ホスティング サーバーを作成できるように、この IP アドレスを Azure Stack Hub オペレーターに提供する必要があります。
 
@@ -109,13 +111,13 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
 
 1. 管理者ポータル上で、MySQL クラスターのデプロイ時に作成されたリソース グループに移動して、ネットワーク セキュリティ グループ (**default-subnet-sg**) を選択します。
 
-   ![Azure Stack Hub 管理者ポータル上でネットワーク セキュリティ グループを選択します](media/azure-stack-tutorial-mysqlrp/6.png)
+   ![Azure Stack Hub 管理者ポータル上でネットワーク セキュリティ グループを選択します](media/azure-stack-tutorial-mysqlrp/img6.png)
 
 2. **[受信セキュリティ規則]** を選択してから、 **[追加]** を選択します。
 
     **[宛先ポート範囲]** に「**3306**」と入力し、必要に応じて **[名前]** フィールドと **[説明]** フィールドに説明を入力します。
 
-   ![open](media/azure-stack-tutorial-mysqlrp/7.png)
+   ![open](media/azure-stack-tutorial-mysqlrp/img7.png)
 
 3. **[追加]** を選択して、受信セキュリティ規則のダイアログを閉じます。
 
