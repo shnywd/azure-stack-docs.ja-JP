@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 94553618afdfdbc2c1be84556d630ae89b63bd3d
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: c5e780206f86c2b08298fe267916c67f0108ce4e
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147706"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508040"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い
 
@@ -68,7 +68,7 @@ Azure Stack Hub についての詳細は、「[Azure Stack Hub とは](azure-sta
 
 ## <a name="azure-stack-hci"></a>Azure Stack HCI
 
-[Azure Stack HCI](azure-stack-hci-overview.md) ソリューションでは、ハイパーコンバージド インフラストラクチャ (HCI) ソリューションを使用して、仮想マシンをオンプレミスで実行し、Azure に簡単に接続できます。 規制要件または技術要件を満たすために、一貫性のあるオンプレミスの Azure サービスを使用してクラウド アプリをビルドおよび実行します。 仮想化されたアプリをオンプレミスで実行するだけでなく、Azure Stack HCI では、経年劣化したサーバー インフラストラクチャを交換および整理し、クラウド サービスを利用するために Windows Admin Center を使用して Azure に接続できます。
+[Azure Stack HCI](../hci/overview.md) ソリューションでは、ハイパーコンバージド インフラストラクチャ (HCI) ソリューションを使用して、仮想マシンをオンプレミスで実行し、Azure に簡単に接続できます。 規制要件または技術要件を満たすために、一貫性のあるオンプレミスの Azure サービスを使用してクラウド アプリをビルドおよび実行します。 仮想化されたアプリをオンプレミスで実行するだけでなく、Azure Stack HCI では、経年劣化したサーバー インフラストラクチャを交換および整理し、クラウド サービスを利用するために Windows Admin Center を使用して Azure に接続できます。
 
 Azure Stack HCI では、Hyper-V および Windows Server 2019 Software-Defined Datacenter (SDDC) の記憶域スペース ダイレクトによって強化された検証済みの HCI ソリューションが提供されます。 Windows Admin Center は、次のような Azure サービスの管理と統合アクセスのために使用されます。
 
