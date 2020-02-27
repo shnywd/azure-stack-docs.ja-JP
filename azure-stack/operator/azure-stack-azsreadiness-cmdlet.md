@@ -1,18 +1,18 @@
 ---
 title: Start-AzsReadinessChecker コマンドレット リファレンス
 description: PowerShell コマンドレットは、Azure Stack Hub 適合性チェッカー モジュールを助けるものです。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: e4794df9c66f1d060b6701d782c0486ddb914b02
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 067164db905e6649def7ecd06b0e15d166d286b9
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877767"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509383"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
@@ -155,7 +155,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>[説明]
+## <a name="description"></a>説明
 
 **Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、Azure Active Directory (Azure AD) が検証されます。 Azure Stack Hub のデプロイ前、またはシークレット ローテーションなどの Azure Stack Hub サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
 

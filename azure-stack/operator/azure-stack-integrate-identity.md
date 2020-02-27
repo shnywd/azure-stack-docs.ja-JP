@@ -1,18 +1,18 @@
 ---
 title: AD FS ID を Azure Stack Hub データセンターに統合する
 description: Azure Stack Hub の AD FS ID プロバイダーを、ご利用のデータセンターの AD FS と統合する方法を学習します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b4f48c8fe4138b74b735615777b16630c0fe7060
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882142"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509842"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -52,7 +52,7 @@ Graph は、単一の Active Directory フォレストとの統合のみをサ�
 
 自動化パラメーターの入力として、次の情報が必要です。
 
-|パラメーター|デプロイ ワークシート パラメーター|[説明]|例|
+|パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS Forest FQDN|統合先のターゲット Active Directory フォレストの FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |LDAP の読み取りアクセス許可を持つユーザー|YOURDOMAIN\graphservice|
@@ -102,7 +102,7 @@ Active Directory サイトの詳細については、「[サイト トポロジ�
 
 3. **Register-DirectoryService** コマンドレットには、既存の Active Directory の検証が失敗する特定のシナリオで使用できる省略可能なパラメーターがあります。 このコマンドレットを実行すると、指定されたドメインがルート ドメインであること、グローバル カタログ サーバーに到達可能であること、指定されたアカウントでは読み取りアクセスが許可されていることが検証されます。
 
-   |パラメーター|[説明]|
+   |パラメーター|説明|
    |---------|---------|
    |`-SkipRootDomainValidation`|推奨されるルート ドメインではなく、子ドメインを使用する必要があることを指定します。|
    |`-Force`|すべての検証チェックをバイパスします。|
@@ -113,7 +113,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 Azure Stack Hub の Graph サービスでは、次のプロトコルとポートを使用して、ターゲットの Active Directory と通信します。
 
-|種類|Port|Protocol|
+|Type|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP と UDP|
 |LDAP SSL|636|TCP|
@@ -124,7 +124,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 自動化パラメーターの入力として、次の情報が必要です。
 
-|パラメーター|デプロイ ワークシート パラメーター|[説明]|例|
+|パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS Provider Name|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS Metadata URI|フェデレーション メタデータのリンク。| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
@@ -164,7 +164,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 自動化パラメーターの入力として、次の情報が必要です。
 
 
-|パラメーター|[説明]|例|
+|パラメーター|説明|例|
 |---------|---------|---------|
 |CustomAdfsName|クレーム プロバイダーの名前。 AD FS のランディング ページにそのように表示されます。|Contoso|
 |CustomADFSFederationMetadataFileContent|メタデータの内容。|$using:federationMetadataFileContent|

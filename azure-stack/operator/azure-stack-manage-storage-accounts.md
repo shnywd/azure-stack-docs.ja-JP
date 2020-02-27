@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のストレージ アカウントを管理する
 description: Azure Stack Hub のストレージ アカウントを検索、管理、回復、および回収する方法を学習します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 212934dee1d5caaece8cfe84df74095ed38e0042
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 77505a2d91ff4aac4174395a170ba040fb4e9ec7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492276"
+ms.locfileid: "77509825"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 

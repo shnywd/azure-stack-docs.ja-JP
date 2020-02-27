@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub データセンターの DNS の統合
 description: Azure Stack Hub の DNS をデータセンターの DNS と統合する方法を学習します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 50553f15d394b5640bb63cb2e675da9a9684469d
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882163"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509893"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub データセンターの DNS の統合
 
@@ -23,7 +23,7 @@ Azure Stack Hub の外部から、**portal**、**adminportal**、**management**�
 Azure Stack Hub をデプロイするときに、DNS に関するいくつかの重要な情報を指定する必要があります。
 
 
-|フィールド  |[説明]  |例|
+|フィールド  |説明  |例|
 |---------|---------|---------|
 |リージョン|Azure Stack Hub のデプロイの地理的な場所。|`east`|
 |外部ドメイン名|Azure Stack Hub のデプロイに使用したいゾーンの名前。|`cloud.fabrikam.com`|

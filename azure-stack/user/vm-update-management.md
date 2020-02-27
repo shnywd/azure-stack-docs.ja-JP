@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e3595179c4efc5503f8e4315fbe5a419049b2db4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0a105730f36aa9ce14e967bcdcefdb93ece0f26b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885236"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77636286"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。

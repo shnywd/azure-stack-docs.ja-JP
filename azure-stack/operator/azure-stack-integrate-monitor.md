@@ -1,18 +1,18 @@
 ---
 title: 外部の監視ソリューションと Azure Stack Hub を統合する
 description: Azure Stack Hub とご利用のデータセンターの外部の監視ソリューションを統合する方法を説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/05/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a38c6f8aca4ad8203b576550dd01873cdeb9b7a8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882123"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509859"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>外部の監視ソリューションと Azure Stack Hub を統合する
 
@@ -114,7 +114,7 @@ samples/etc/azurestack_services.cfg
 
 SPN の作成方法に関する詳細については、「[アプリ ID を使用してリソースにアクセスする](azure-stack-create-service-principals.md)」を参照してください。
 
-| パラメーター | [説明] | 認証 |
+| パラメーター | 説明 | 認証 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部ドメイン FQDN |    |
 | **region: ** | リージョン名 |    |
@@ -133,7 +133,7 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 > [!Note]  
 > azurestack_hosts.cfg と azurestack_services.cfg で目的の場所を確認します。
 
-| 構成 | [説明] |
+| 構成 | 説明 |
 | --- | --- |
 | azurestack_commands.cfg | ハンドラー構成を変更する必要はありません |
 | azurestack_contacts.cfg | 通知設定 |

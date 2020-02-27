@@ -2,18 +2,18 @@
 title: Azure Stack Hub 登録用のカスタム ロールを作成する
 titleSuffix: Azure Stack Hub
 description: カスタム ロールを作成して Azure Stack Hub の登録にグローバル管理者の使用を回避する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: inhenkel
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: fb4f9c117dd7f7e9ff0e2121706aecebc188de2a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e867e8e95c53d7dcf25b98edf9a2be7aceac526b
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881413"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509672"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Azure Stack Hub 登録用のカスタム ロールを作成する
 

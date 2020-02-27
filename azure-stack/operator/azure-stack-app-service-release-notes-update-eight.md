@@ -4,15 +4,15 @@ description: Azure App Service on Azure Stack Hub Update 8 の内容、既知の
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 02/10/2020
+ms.date: 02/25/2020
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: daa4cb85ca58a6e638d6d8a1f14ad5e9232f3d72
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: b8f6e8868723685eb00d6cfa8424905642697c5a
+ms.sourcegitcommit: 7f185ce838756c879b28e380875be97c62b9a707
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143665"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77600300"
 ---
 # <a name="app-service-on-azure-stack-hub-update-8-release-notes"></a>App Service on Azure Stack Hub update 8 のリリース ノート
 
@@ -232,7 +232,7 @@ Azure App Service on Azure Stack Hub のすべての新しいデプロイでは�
     $builder = New-Object System.Data.SqlClient.SqlConnectionStringBuilder -ArgumentList (Get-AppServiceConnectionString -Type Hosting)
     $conn = New-Object System.Data.SqlClient.SqlConnection -ArgumentList $builder.ToString()
 
-    $siteManager.Workers | ForEach-Object {
+    $siteManager.RoleServers | Where-Object {$_.IsWorker} | ForEach-Object {
         $worker = $_
         $dbUserName = "WebWorker_" + $worker.Name
 

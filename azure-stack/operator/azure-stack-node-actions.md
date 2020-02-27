@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub でのスケール ユニットのノード操作
 description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションと、Azure Stack Hub 統合システムでノードの状態を表示する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: d633aacdc95f273a275f45b7525cfb4f75eecd2a
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 5941fb3d433512bad69c36a0620d6ec32988d44a
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491970"
+ms.locfileid: "77509740"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 

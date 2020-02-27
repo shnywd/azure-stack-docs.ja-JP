@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 公開キー インフラストラクチャ証明書の要件
 description: Azure Stack Hub 統合システムの Azure Stack Hub PKI 証明書のデプロイ要件について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 464e47b204c782f5ebac5a3588d0aff5eaf98d49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed0a7fa6091ee62a7de5e1938bd0094d7765512
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881645"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509706"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ証明書の要件
 

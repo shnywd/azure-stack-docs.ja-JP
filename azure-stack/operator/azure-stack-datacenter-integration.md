@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 統合システムのデータセンター統合計画に関する考慮事項
 description: Azure Stack Hub 統合システムとのデータセンター統合を計画し、準備する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: b4809454f6bec18fbfd2ffdc3f1aa866786199c5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5c91ddd19ad384cc2a029dfac21d482470d37bc8
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882469"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77510046"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムのデータセンター統合計画に関する考慮事項
 
@@ -76,7 +76,7 @@ Azure Stack Hub の名前空間 (特にリージョン名と外部のドメイ�
 
 次の表は、これらのドメイン名前付けの決定事項をまとめたものです。
 
-| Name | [説明] | 
+| 名前 | 説明 | 
 | -------- | ------------- | 
 |リージョン名 | 最初の Azure Stack Hub リージョンの名前。 この名前は、Azure Stack Hub によって管理されるパブリック仮想 IP アドレス (VIP) の FQDN の一部として使用されます。 通常、リージョン名は、データセンターの場所などの物理的な場所の識別子になります。<br><br>リージョン名は文字と 0 から 9 までの数字で作成する必要があります。 特殊文字 (`-`、`#` など) は使用できません。| 
 | 外部ドメイン名 | 外部接続 VIP を持つエンドポイントのドメイン ネーム システム (DNS) ゾーンの名前。 パブリック VIP の FQDN に使用します。 | 

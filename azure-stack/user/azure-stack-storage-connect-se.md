@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c9940e110d86ca1ebeb4739a6beb375381786be2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884397"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568719"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -62,7 +62,7 @@ Storage Explorer で Azure Stack Hub サブスクリプションにアクセス�
 
 8. Storage Explorer が再起動したら、 **[編集]** メニューを選択し、 **[Target Azure Stack Hub APIs]\(Azure Stack Hub API を対象にする\)** が選択されているかどうかを確認します。 **[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\)** が選択されていない場合は、選択してから Storage Explorer を再起動して、この変更を反映させます。 この構成は、Azure Stack Hub 環境との互換性を確保するために必要です。
 
-    ![[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\) が確実に選択されているようにする](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\) が確実に選択されているようにする](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Azure AD を使用して Azure Stack Hub サブスクリプションに接続する
 
@@ -104,7 +104,7 @@ AD FS アカウントに属している Azure Stack Hub サブスクリプショ
 
 4. Azure Stack Hub のカスタム環境に必要な情報を入力します。 
 
-    | フィールド | メモ |
+    | フィールド | Notes |
     | ---   | ---   |
     | 環境名 | このフィールドはユーザーがカスタマイズできます。 |
     | Azure Resource Manager endpoint (Azure Resource Manager エンドポイント) | Azure Stack Development Kit の Azure Resource Manager リソース エンドポイントの例は次のとおりです。<br>オペレーター用: https://adminmanagement.local.azurestack.external <br> ユーザー用: https://management.local.azurestack.external |

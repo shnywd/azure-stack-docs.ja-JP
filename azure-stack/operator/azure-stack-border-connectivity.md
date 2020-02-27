@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 統合システムの境界接続とネットワーク統合
 description: Azure Stack Hub 統合システムでデータセンターの境界ネットワーク接続を計画する方法について学習します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 15440c32974aebfed3f3faf86885dd6f0af71ddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8a0f6b45d261df2347589178bead735e72cdccd7
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878515"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509485"
 ---
 # <a name="border-connectivity"></a>境界接続 
 ネットワーク統合の計画は、Azure Stack Hub 統合システムのデプロイ、運用、管理を正常に行うための重要な前提条件です。 境界接続の計画は、境界ゲートウェイ プロトコル (BGP) による動的ルーティングを使用するかどうかを選択することから始まります。 これを行うには、16 ビットの BGP 自律システム番号 (パブリックまたはプライベート) を割り当てるか、または既定の静的ルートが境界デバイスに割り当てられる静的ルーティングを使用する必要があります。

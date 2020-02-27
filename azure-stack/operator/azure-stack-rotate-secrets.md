@@ -2,19 +2,19 @@
 title: シークレットの切り替え
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でシークレットをローテーションする方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 12/13/2019
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 22be9075f6c1d8b25c6ce241ad24ed8e10630261
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881341"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509570"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -295,13 +295,13 @@ Start-SecretRotation [-ReRun]
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>[説明]
+### <a name="description"></a>説明
 
 **Start-SecretRotation** コマンドレットは、Azure Stack Hub システムのインフラストラクチャ シークレットのローテーションを行います。 既定では、すべての外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。 -Internal フラグを付けて使用した場合は、内部インフラストラクチャ シークレットのローテーションが行われます。 外部ネットワーク インフラストラクチャ エンドポイントのローテーションを行う場合は、**Invoke-Command** スクリプト ブロックで **Start-SecretRotation** を実行し、Azure Stack Hub 環境の特権エンドポイント セッションを **Session** パラメーターで渡す必要があります。
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター | 種類 | Required | [位置] | Default | [説明] |
+| パラメーター | Type | Required | [位置] | Default | 説明 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |
@@ -379,7 +379,7 @@ Remove-PSSession -Session $PEPSession
 
    **バージョン 1910 以降**:OEM の指示に従って Azure Stack Hub 物理サーバーの BMC 資格情報を最初に更新する必要がなくなりました。 環境内の各 BMC のユーザー名とパスワードは同じである必要があります。 BMC のユーザー名は、16 文字を超えることはできません。
 
-    | パラメーター | [説明] | State |
+    | パラメーター | 説明 | State |
     | --- | --- | --- |
     | BypassBMCUpdate | このパラメーターを使用すると、BMC の資格情報は更新されません。 更新されるのは、Azure Stack Hub 内部データストアのみです。 | 省略可能 |
 

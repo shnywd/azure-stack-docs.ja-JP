@@ -2,18 +2,18 @@
 title: Azure の登録の検証
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカーを使用して、Azure 登録を検証する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 58f65be2ac4ba352b17b9b0bba079b286a9609fa
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 0bf57569d1f0f3af38f2fc1d276d02cc0e92439b
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972559"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77508074"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 

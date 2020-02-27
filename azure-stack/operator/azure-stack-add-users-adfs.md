@@ -1,18 +1,18 @@
 ---
 title: AD FS に Azure Stack Hub ユーザーを追加する
 description: Active Directory フェデレーション サービス (AD FS) デプロイに Azure Stack Hub ユーザーを追加する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 06/03/2019
-ms.openlocfilehash: 7d11ae849a5ecc51c1506e8d978510884b752a9a
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: fc60c23f47ea5e1afd68c6e4f6299d0bf83b4a24
+ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890376"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77509400"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-active-directory-federation-services-ad-fs"></a>新しい Azure Stack Hub ユーザー アカウントを Active Directory フェデレーション サービス (AD FS) に追加する
 
