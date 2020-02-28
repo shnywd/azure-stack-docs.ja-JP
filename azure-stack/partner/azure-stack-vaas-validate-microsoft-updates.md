@@ -1,6 +1,7 @@
 ---
-title: Azure Stack Hub のサービスとしての検証で Microsoft のソフトウェア更新プログラムを検証する
-description: Microsoft のソフトウェア更新プログラムをサービスとしての検証で検証する方法について説明します。
+title: Microsoft のソフトウェア更新プログラムの検証
+titleSuffix: Azure Stack Hub
+description: Microsoft のソフトウェア更新プログラムを Azure Stack Hub サービスとしての検証で検証する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 10/29/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8e09160245551ee83f631360931c8e70bac4318e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: a8e0b3ee678fc56a94a947ab6d390d9e99296977
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143915"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625358"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Microsoft のソフトウェア更新プログラムの検証
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Microsoft は、Azure Stack Hub ソフトウェアの更新プログラムを定期的にリリースします。 これらの更新プログラムは、Azure Stack Hub 共同エンジニアリング パートナーに提供されます。 更新プログラムの一般公開より前に提供されます。 独自のソリューションに対して更新プログラムのチェックを行い、Microsoft にフィードバックを返すことができます。
+Microsoft は、Azure Stack Hub ソフトウェアの更新プログラムを定期的にリリースします。 これらの更新プログラムは、Azure Stack Hub 共同エンジニアリング パートナーに提供されます。 更新プログラムは、更新プログラムの一般公開より前に提供されます。 独自のソリューションに対して更新プログラムのチェックを行い、Microsoft にフィードバックを返すことができます。
 
-Azure Stack Hub を対象とした Microsoft のソフトウェア更新プログラムは名前付け規則を使って指定されます。たとえば 1803 は、2018 年 3 月の更新プログラムであることを示します。 Azure Stack Hub の更新ポリシー、周期、リリース ノートについては、「[Azure Stack Hub サービス ポリシー](../operator/azure-stack-servicing-policy.md)」を参照してください。
+Azure Stack Hub を対象とした Microsoft のソフトウェア更新プログラムは名前付け規則を使って指定されます。 たとえば 1803 は、2018 年 3 月の更新プログラムであることを示します。 Azure Stack Hub のサービス ポリシーおよびリリース ノートについては、「[Azure Stack Hub サービス ポリシー](../operator/azure-stack-servicing-policy.md)」を参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-VaaS で月次更新プログラムのプロセスを実行する前に、以下の項目に理解しておく必要があります。
+サービスとしての検証 (VaaS) で月次更新プログラムのプロセスを実行する前に、以下の項目を理解しておく必要があります。
 
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)
 

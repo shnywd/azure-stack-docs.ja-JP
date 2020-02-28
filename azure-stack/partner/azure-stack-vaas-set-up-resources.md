@@ -1,6 +1,7 @@
 ---
-title: チュートリアル - サービスとしての検証のためのリソースを設定する
-description: このチュートリアルでは、サービスとしての検証のためのリソースを設定する方法を学習します。
+title: VaaS 向けの Azure AD とストレージ リソースの設定
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のサービスとしての検証用に Azure AD とストレージ リソースを設定する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7c47c6810802cce31793aae3be3a1502acb5f102
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 3dc72eb4dfac10e6e199b2cbfe9668666f83e122
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143920"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625307"
 ---
-# <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>チュートリアル:サービスとしての検証のためのリソースを設定する
+# <a name="set-up-azure-ad-and-storage-resources-for-validation-as-a-service"></a>サービスとしての検証のための Azure AD とストレージ リソースの設定
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -33,7 +34,7 @@ Azure AD テナントは、組織を登録し、VaaS を使用するユーザー
 
 ### <a name="create-a-tenant"></a>テナントの作成
 
-組織が VaaS サービスへのアクセスに使用するテナントを作成します。 わかりやすい名前を付けます。例、`ContosoVaaS@onmicrosoft.com`。
+組織が VaaS サービスへのアクセスに使用するテナントを作成します。 わかりやすい名前 (たとえば、`ContosoVaaS@onmicrosoft.com`) を付けます。
 
 1. [Azure portal](https://portal.azure.com) で Azure AD テナントを作成するか、既存のテナントを使用します。 <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
@@ -44,15 +45,15 @@ Azure AD テナントは、組織を登録し、VaaS を使用するユーザー
     | ロール名 | 説明 |
     |---------------------|------------------------------------------|
     | 所有者 | すべてのリソースへのフル アクセス権が与えられます。 |
-    | Reader | すべてのリソースを表示できますが、作成または管理することはできません。 |
+    | Reader | すべてのリソースを表示できますが、作成および管理することはできません。 |
     | Test Contributor | テスト リソースを作成および管理できます。 |
 
-    **Azure Stack Hub Validation Service** アプリケーションでロールを割り当てるには:
+    **Azure Stack Hub 検証サービス** アプリでロールを割り当てるには:
 
    1. [Azure portal](https://portal.azure.com) にサインインします。
    2. **[すべてのサービス]**  >  **[ID]** セクションの下の **[Azure Active Directory]** を選択します。
-   3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Hub Validation Service]** アプリケーションを選択します。
-   4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Hub Validation Service - Users and group]\(Azure Stack Hub Validation Service - ユーザーとグループ\)** ブレードに、アプリケーションの使用を許可されたユーザーが一覧表示されます。
+   3. **[エンタープライズ アプリケーション]**  >  **[Azure Stack Hub Validation Service]\(Azure Stack Hub 検証サービス\)** アプリを選択します。
+   4. **[ユーザーとグループ]** を選択します。 **[Azure Stack Hub Validation Service - Users and group]\(Azure Stack Hub 検証サービス - ユーザーとグループ\)** ブレードに、アプリの使用を許可されたユーザーが一覧表示されます。
    5. **+ [ユーザーの追加]** を選択し、テナントからユーザーを追加してロールを割り当てます。
 
       組織内の異なるグループ間で VaaS リソースとアクションを分離したい場合は、複数の Azure AD テナント ディレクトリを作成できます。
@@ -69,13 +70,13 @@ Azure AD テナントは、組織を登録し、VaaS を使用するユーザー
     | Azure AD テナント ディレクトリ名 | 登録する Azure AD テナント ディレクトリ名。 |
     | Azure AD テナント ディレクトリ ID | Azure AD テナント ディレクトリに関連付けられている GUID。 Azure AD テナント ディレクトリ ID の確認方法については、「[Get tenant ID (テナント ID を取得する)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-values-for-signing-in)」を参照してください。 |
 
-2. ご利用のテナントで VaaS ポータルを使用できるかどうかを Azure Stack Hub 検証チームがチェックし、確認するのを待ちます。
+2. ご利用のテナントで Azure Stack Hub 検証ポータルを使用できるかどうかを Azure Stack Hub 検証チームがチェックし、確認するのを待ちます。
 
-### <a name="consent-to-the-vaas-application"></a>VaaS アプリケーションへの同意
+### <a name="consent-to-the-vaas-app"></a>VaaS アプリへの同意
 
 Azure AD 管理者として、テナントのために必要なアクセス許可を VaaS Azure AD アプリケーションに付与します。
 
-1. テナントの全体管理者の資格情報を使って [VaaS ポータル](https://azurestackvalidation.com/)にサインインします。 
+1. テナントの全体管理者の資格情報を使って [Azure Stack Hub 検証ポータル](https://azurestackvalidation.com/)にサインインします。
 
 2. **[マイ アカウント]** を選択します。
 
@@ -97,7 +98,7 @@ Azure Storage アカウントは、お客様の Azure Stack Hub 環境ではな�
 
 5. ストレージ アカウントのリージョンとして **[米国西部]** を選択します。
 
-    ログの格納に対してネットワーク料金が発生しないように、 **[米国西部]** リージョンのみを使用するように Azure ストレージ アカウントを構成できます。 データのレプリケーションとホット ストレージ層機能は、このデータには必要ありません。 いずれかの機能を有効にすると、コストが大幅に増加します。
+    ログの格納に対してネットワーク料金が発生しないように、 **[米国西部]** リージョンのみを使用するように Azure Storage アカウントを構成できます。 データのレプリケーションとホット ストレージ層機能は、このデータには必要ありません。 いずれかの機能を有効にすると、コストが大幅に増加します。
 
 6. **[アカウントの種類]** 以外の設定は既定値のままにしておきます。
 

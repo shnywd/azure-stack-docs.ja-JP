@@ -1,6 +1,7 @@
 ---
-title: Azure Stack Hub VaaS ポータルでテストを監視および管理する
-description: Azure Stack Hub VaaS ポータルでテストを監視および管理します。
+title: Azure Stack Hub 検証ポータルでテストを管理する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 検証ポータルでテストを管理する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
 ms.date: 11/11/2019
@@ -8,24 +9,24 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 494fffff04cd092afc4a4df3fbf0be59ca894278
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 697aabcb1b52bc52083b635e67058f1b08451a38
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143812"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625436"
 ---
-# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>VaaS ポータルでのテストの監視と管理
+# <a name="manage-tests-in-the-azure-stack-hub-validation-portal"></a>Azure Stack Hub 検証ポータルでテストを管理する
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Azure Stack Hub ソリューションに対するテストをスケジュールすると、サービスとしての検証 (VaaS) によってテストの実行状況のレポートが開始されます。 この情報は、テストのスケジュール変更や取り消しなどのアクションと共に VaaS ポータルで利用できます。
+Azure Stack Hub ソリューションに対するテストをスケジュールすると、サービスとしての検証 (VaaS) によってテストの実行状況のレポートが開始されます。 この情報は、テストのスケジュール変更や取り消しなどのアクションと共に Azure Stack Hub 検証ポータルで利用できます。
 
 ## <a name="navigate-to-the-workflow-tests-summary-page"></a>ワークフロー テストの概要ページに移動する
 
 1. ソリューション ダッシュボードで、少なくとも 1 つのワークフローを備えた既存のソリューションを選択します。
 
-    ![ワークフロー タイル](media/tile_all-workflows.png)
+    ![ソリューション ダッシュボードのワークフロー タイル](media/tile_all-workflows.png)
 
 1. ワークフロー タイルの **[管理]** を選択します。 次のページに、選択したソリューションのために作成されたワークフローの一覧が表示されます。
 
@@ -35,9 +36,9 @@ Azure Stack Hub ソリューションに対するテストをスケジュール�
 
 ワークフローの任意の種類について、ワークフローの作成中に指定した[テスト パラメーター](azure-stack-vaas-parameters.md#test-parameters)を編集できます。
 
-1. テストの概要ページで **[編集]** ボタンを選択します。
+1. テストの概要ページで **[編集]** を選択します。
 
-1. 「[Azure Stack Hub Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」に従って、新しい値を指定します。
+1. 「[Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」に従って、新しい値を指定します。
 
 1. **[送信]** を選択して値を保存します。
 
@@ -49,13 +50,13 @@ Azure Stack Hub ソリューションに対するテストをスケジュール�
 **テスト成功**のワークフローでは、 **[テストの追加]** ボタンでも **[編集]** ボタンでも、ワークフローに新しいテストをスケジュールすることができます。
 
 > [!TIP]
-> 新しいテストをスケジュールするだけで、**テスト成功**のワークフローのパラメーターを編集する必要がない場合は、 **[テストの追加]** を選択します。
+> 新しいテストをスケジュールして、**テスト成功**のワークフローのパラメーターを編集する必要がない場合は、 **[テストの追加]** を選択します。
 
-## <a name="managing-test-instances"></a>テスト インスタンスを管理する
+## <a name="manage-test-instances"></a>テスト インスタンスを管理する
 
-非公式の実行 (つまり、**テスト成功**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションに対してスケジュールされたテストの一覧が表示されます。
+非公式の実行 (**テスト成功**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションに対してスケジュールされたテストの一覧が表示されます。
 
-公式の実行 (つまり、**検証**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションの検証を完了するために必要なテストの一覧が表示されます。 検証テストは、このページでスケジュールされます。
+公式の実行 (**検証**のワークフロー) の場合、テストの概要ページには、Azure Stack Hub ソリューションの検証を完了するために必要なテストの一覧が表示されます。 検証テストは、このページでスケジュールされます。
 
 スケジュールされた各テスト インスタンスには、次の情報が示されます。
 
@@ -78,7 +79,7 @@ Azure Stack Hub ソリューションに対するテストをスケジュール�
 
 #### <a name="view-information-about-the-test-definition"></a>テストの定義に関する情報を表示する
 
-テストの定義に関する全般的な情報を表示するには、コンテキスト メニューの **[情報の表示]** を選択します。 これは、名前とバージョンが同じ各テスト インスタンスに共有されます。
+テストの定義に関する全般的な情報を表示するには、コンテキスト メニューの **[情報の表示]** を選択します。 この情報は、名前とバージョンが同じ各テスト インスタンスで共有されます。
 
 | テストのプロパティ | 説明 |
 | -- | -- |
@@ -111,7 +112,7 @@ Azure Stack Hub ソリューションに対するテストをスケジュール�
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>完了したテスト インスタンスのログをダウンロードする
 
-テストの実行中に出力されたログの `.zip` ファイルをダウンロードするには、コンテキスト メニューの **[ログのダウンロード]** を選択します。 このアクションは、完了したテスト (つまり状態が `Cancelled`、`Failed`、`Aborted`、または `Succeeded` であるテスト) にだけ実行できます。
+テストの実行中に出力されたログの `.zip` ファイルをダウンロードするには、コンテキスト メニューの **[ログのダウンロード]** を選択します。 このアクションは、完了したテスト (つまり状態が `Cancelled`、`Failed`、`Aborted`、または `Succeeded` であるテスト) でのみ使用できます。
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>テスト インスタンスをスケジュール変更する、またはテストをスケジュールする
 
