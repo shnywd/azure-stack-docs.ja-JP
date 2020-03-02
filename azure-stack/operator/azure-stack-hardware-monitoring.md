@@ -3,20 +3,20 @@ title: Azure Stack Hub のハードウェアの正常性を監視する
 description: Azure Stack Hub のハードウェア コンポーネントの正常性を監視する方法を学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/24/2020
 ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: dba47774205b4c0631f33de336e0efbfb73db9cf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fe942e6a4230d9807780507de8b658a6e0ed4c3
+ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882224"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77575124"
 ---
 # <a name="monitor-azure-stack-hub-hardware-components"></a>Azure Stack Hub のハードウェア コンポーネントを監視する
 
-記憶域サブシステムの状態は、Azure Stack Hub の正常性および監視システムによって既に監視されており、必要に応じてアラートが生成されます。 Azure Stack Hub の 1910 リリースでは、正常性および監視システムによって、次のハードウェア コンポーネントについてもアラートが生成されるようになりました。
+Azure Stack Hub の正常性および監視システムは、記憶域サブシステムの状態を監視し、必要に応じてアラートを生成します。 正常性および監視システムは、次のハードウェア コンポーネントについてもアラートを生成できます。
 
 - システム ファン
 - システム温度

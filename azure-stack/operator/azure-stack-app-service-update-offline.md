@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.openlocfilehash: a617483b849b02576f1349e3b79620c47c7a5705
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c259504e1c4b70ccc5e6be6fc9b88f5e683bc5c9
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874436"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568556"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub のオフライン更新
 
 > [!IMPORTANT]
-> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 以降の更新プログラムを適用するか、最新の Azure Stack Hub 開発キットをデプロイします。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 以降の更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
 
 この記事の手順に従うことによって、次のような Azure Stack Hub 環境にデプロイされた [Azure App Service リソース プロバイダー](azure-stack-app-service-overview.md)をアップグレードできます。
 
@@ -77,7 +77,7 @@ Azure Stack Hub 環境内の App Service リソース プロバイダーをア�
 
 5. サード パーティのライセンス条項を確認して同意し、 **[次へ]** をクリックします。
 
-6. Azure Stack Hub Azure Resource Manager エンドポイントと Active Directory テナントの情報が正しいことを確認します。 Azure Stack Hub Development Kit のデプロイ中に既定の設定を使用した場合は、ここで既定値を受け入れることができます。 ただし、Azure Stack Hub のデプロイ時にオプションをカスタマイズした場合は、このウィンドウで値を編集する必要があります。 たとえば、ドメイン サフィックス *mycloud.com* を使用する場合は、Azure Stack Hub Azure Resource Manager エンドポイントを *management.region.mycloud.com* に変更する必要があります。 自分の情報を確認したら、 **[次へ]** をクリックします。
+6. Azure Stack Hub Azure Resource Manager エンドポイントと Active Directory テナントの情報が正しいことを確認します。 Azure Stack Development Kit の展開中に既定の設定を使用した場合は、ここで既定値を受け入れることができます。 ただし、Azure Stack Hub のデプロイ時にオプションをカスタマイズした場合は、このウィンドウで値を編集する必要があります。 たとえば、ドメイン サフィックス *mycloud.com* を使用する場合は、Azure Stack Hub Azure Resource Manager エンドポイントを *management.region.mycloud.com* に変更する必要があります。 自分の情報を確認したら、 **[次へ]** をクリックします。
 
     ![Azure Stack Hub クラウドの情報][3]
 

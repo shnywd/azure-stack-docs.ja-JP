@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 88cad7fc3f9ac4d213cd16f6e690876b1e0faa4d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7611387047d80ad7c60f4402c7399d3d0d4e8b09
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877002"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568336"
 ---
 # <a name="deploy-a-highly-available-mongodb-solution-to-azure-and-azure-stack-hub"></a>高可用性の MongoDB ソリューションを Azure と Azure Stack Hub にデプロイする
 
@@ -40,7 +40,7 @@ ms.locfileid: "76877002"
 
 ## <a name="prerequisites-for-mongodb-with-azure-stack-hub"></a>Azure Stack Hub 利用時の MongoDB の前提条件
 
-  - 接続された 2 つの Azure Stack Hub Integrated Systems (Azure Stack)。このデプロイは、Azure Stack Hub 開発キット (ASDK) では動作しません。 Azure Stack Hub の詳細については、「[Azure Stack Hub とは](https://azure.microsoft.com/overview/azure-stack/)」を参照してください。
+  - 接続された 2 つの Azure Stack Hub 統合システム (Azure Stack Hub)。このデプロイは、Azure Stack Development Kit (ASDK) では動作しません。 Azure Stack Hub の詳細については、「[Azure Stack Hub とは](https://azure.microsoft.com/overview/azure-stack/)」を参照してください。
       - 各 Azure Stack Hub のテナント サブスクリプション。    
       - **各サブスクリプション ID と Azure Resource Manager エンドポイントを Azure Stack Hub ごとにメモしてください。**
   - 各 Azure Stack Hub のテナント サブスクリプションに対する権限が与えられた Azure Active Directory (Azure AD) サービス プリンシパル。 複数の Azure AD テナントに対して Azure Stack Hub がデプロイされている場合、サービス プリンシパルを 2 つ作成しなければならないことがあります。 Azure Stack Hub のサービス プリンシパルを作成する方法については、[Azure Stack Hub リソースへのアクセスをアプリケーションに提供するサービス プリンシパルを作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)方法に関するページを参照してください。    

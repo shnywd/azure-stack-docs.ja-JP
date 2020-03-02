@@ -2,18 +2,18 @@
 title: Azure Stack Hub を Azure に登録する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
+ms.date: 02/25/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 6a56c6381cc1a88729b31c5d020460100d29ca39
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 3f8570f765b87736975a15c49b1a2a5ff4bdf55d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491919"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625324"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -506,17 +506,23 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Azure Stack Hub の登録を試みている間に、次のエラーのいずれかが発生する可能性があります。
 
-- $hostName の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再度実行します。
+- `$hostName` の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再実行してください。
 
-- ハードウェア情報を取得するために $hostName に接続できません。物理ホストと接続を確認してから、登録を再実行してください。
+- ハードウェア情報を取得するために `$hostName` に接続できません。 物理ホストと接続を確認してから、登録を再実行してください。
 
-> 原因: これは通常、アクティブ化を試みるためにホストから UUID、BIOS、CPU などのハードウェア詳細を取得しようとしたが、物理ホストに接続できないことでハードウェア詳細を取得不能だったことが原因です。
+   原因: これは通常、アクティブ化を試みるためにホストから UUID、BIOS、CPU などのハードウェア詳細を取得しようとしたが、物理ホストに接続できないことでハードウェア詳細を取得不能だったことが原因です。
 
-Marketplace の管理にアクセスしして、製品を配信しようとするとエラーが発生します。 
-> 原因: これは通常、Azure Stack Hub が登録リソースにアクセスできない場合に発生します。 これに関する一般的な理由の 1 つとして、Azure サブスクリプションのディレクトリ テナントが変更されると登録がリセットされることがあげられます。 サブスクリプションのディレクトリ テナントを変更した場合、Azure Stack Hub Marketplace へのアクセスおよび使用状況のレポートを行うことはできません。 この問題を解決するには再登録する必要があります。
+- Cloud identifier [`GUID`] is already registered. (クラウド識別子 [`GUID`] は既に登録されています。) Reusing cloud identifiers is not allowed. (クラウド識別子の再使用は許可されません。)
 
-切断されたプロセスを使用して既にスタンプを登録している場合でも、Marketplace の管理から、Azure Stack Hub の登録とアクティブ化を要求されます。
-> 原因: これは切断された環境における既知の問題です。 [これらの手順](azure-stack-registration.md#verify-azure-stack-hub-registration)を実行することで登録状態を確認できます。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用する必要があります。
+   原因: これは、Azure Stack 環境が既に登録されている場合に発生します。 別のサブスクリプションまたは課金モデルを使用して環境を再登録する場合は、[こちらの手順を参照してください](#change-the-subscription-you-use)。
+
+- Marketplace の管理にアクセスしして、製品を配信しようとするとエラーが発生します。
+
+   原因: これは通常、Azure Stack Hub が登録リソースにアクセスできない場合に発生します。 これに関する一般的な理由の 1 つとして、Azure サブスクリプションのディレクトリ テナントが変更されると登録がリセットされることがあげられます。 サブスクリプションのディレクトリ テナントを変更した場合、Azure Stack Hub Marketplace へのアクセスおよび使用状況のレポートを行うことはできません。 この問題を解決するには再登録する必要があります。
+
+- 切断されたプロセスを使用して既にスタンプを登録している場合でも、Marketplace の管理から、Azure Stack Hub の登録とアクティブ化を要求されます。
+
+   原因: これは切断された環境における既知の問題です。 [これらの手順](azure-stack-registration.md#verify-azure-stack-hub-registration)を実行することで登録状態を確認できます。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用します。
 
 ## <a name="next-steps"></a>次のステップ
 

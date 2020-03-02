@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 4b65ce6d03ee345b308cd5c5dd594e4dcf56cfec
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5ed6869b4c03c9e360cd12a98e206941a3842bfc
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875506"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568488"
 ---
 # <a name="configure-hybrid-cloud-connectivity-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してハイブリッド クラウド接続を構成する
 
@@ -37,7 +37,7 @@ ms.locfileid: "76875506"
 
 **Azure Stack Hub**
 
-運用 Azure Stack Hub は、Azure OEM/ハードウェア パートナーがデプロイできます。Azure StackHub Development Kit (ASDK) は、すべてのユーザーがデプロイできます。
+運用 Azure Stack Hub は、Azure OEM/ハードウェア パートナーがデプロイできます。Azure Stack Development Kit (ASDK) は、すべてのユーザーがデプロイできます。
 
 **Azure Stack Hub のコンポーネント**
 
@@ -55,7 +55,7 @@ Azure Stack Hub オペレーターが、App Service のデプロイ、プラン�
 
 ### <a name="azure-stack-hub"></a>Azure Stack Hub
 
- - 運用 Azure Stack Hub を使用するか、 https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 から Azure Stack Hub Development Kit をデプロイします。
+ - 運用 Azure Stack Hub を使用するか、 https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 から Azure Stack Development Kit をデプロイします。
    >[!Note]
    >ASDK のデプロイには最大 7 時間がかかることがあるため、適切に計画してください。
 
@@ -87,7 +87,7 @@ Azure Stack Hub オペレーターが、App Service のデプロイ、プラン�
 
 ネットワークとサブネットの IP アドレス:
 
-| Azure/Azure Stack Hub 接続 | Name | Subnet | IP アドレス |
+| Azure/Azure Stack Hub 接続 | 名前 | Subnet | IP アドレス |
 |-------------------------------------|---------------------------------------------|---------------------------------------|-----------------------------|
 | Azure vNet | ApplicationvNet<br>10.100.102.9/23 | ApplicationSubnet<br>10.100.102.0/24 |  |
 |  |  | GatewaySubnet<br>10.100.103.0/24 |  |

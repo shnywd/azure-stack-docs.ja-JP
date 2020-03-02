@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: eb2b3431fa7c9e9aada4e4df3f43715d48d1d72e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874758"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568454"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub のデプロイの前提条件
 
 Azure App Service on Azure Stack Hub をデプロイする前に、この記事にある、前提となる手順を完了する必要があります。
 
 > [!IMPORTANT]
-> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub 開発キット (ASDK) をデプロイします。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>インストーラーおよびヘルパー スクリプトをダウンロードする
 
@@ -59,7 +59,7 @@ Azure Stack Hub 統合システムまたは ASDK ホストで特権エンドポ�
 
 #### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 スクリプトのパラメーター
 
-| パラメーター | 必須または省略可能 | 既定値 | [説明] |
+| パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
 | PrivilegedEndpoint | Required | AzS-ERCS01 | 特権エンドポイント |
 | CloudAdminCredential | Required | AzureStack\CloudAdmin | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報 |
@@ -84,7 +84,7 @@ Azure Stack Hub 統合システムまたは ASDK ホストで特権エンドポ�
 
 #### <a name="create-appservicecertsps1-script-parameters"></a>Create-AppServiceCerts.ps1 スクリプトのパラメーター
 
-| パラメーター | 必須または省略可能 | 既定値 | [説明] |
+| パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
 | pfxPassword | Required | [Null] | 証明書の秘密キーを保護するのに役立つパスワード |
 | DomainName | Required | local.azurestack.external | Azure Stack Hub のリージョンとドメイン サフィックス |
@@ -355,7 +355,7 @@ GO
     Create-AADIdentityApp.ps1
 ```
 
-| パラメーター | 必須または省略可能 | 既定値 | [説明] |
+| パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
 | DirectoryTenantName | Required | [Null] | Azure AD テナント ID。 GUID または文字列を指定します。 例として、myazureaaddirectory.onmicrosoft.com があります。 |
 | AdminArmEndpoint | Required | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
@@ -391,7 +391,7 @@ AD FS によって保護されている Azure Stack Hub 環境の場合、AD FS 
     Create-ADFSIdentityApp.ps1
 ```
 
-| パラメーター | 必須または省略可能 | 既定値 | [説明] |
+| パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
 | AdminArmEndpoint | Required | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
 | PrivilegedEndpoint | Required | [Null] | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |

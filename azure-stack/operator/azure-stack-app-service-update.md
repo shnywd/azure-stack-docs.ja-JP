@@ -7,17 +7,17 @@ ms.date: 01/13/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
-ms.openlocfilehash: ec0b241fd1568fb6851e3ae4fad6c79a8dfeb201
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 07cf0762a87fbf0cea490d246e6e31e003fd7275
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877597"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568607"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を更新する
 
 > [!IMPORTANT]
-> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub Development Kit (ASDK) をデプロイします。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 この記事では、インターネットに接続された Azure Stack Hub 環境にデプロイされている [Azure App Service リソース プロバイダー](azure-stack-app-service-overview.md)をアップグレードする方法について説明します。
 

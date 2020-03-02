@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: a0e9c00aeca18b8f5ed435d39bfb5cf9d4e56067
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: dc3096888138400007c4091ec9f7f40e289340ed
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875489"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568420"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Azure および Azure Stack Hub アプリケーションのハイブリッド クラウド ID を構成する
 
@@ -58,7 +58,7 @@ Azure Stack Hub API にアクセスするためのトークンを取得するプ
 
 ### <a name="prerequisites"></a>前提条件
 
-アクセスできるサブスクリプションの Azure Active Directory に接続された Azure Stack Hub インストールが必要です。 Azure Stack Hub のインストールがない場合は、この手順に従って [Azure Stack Hub Development Kit](../asdk/asdk-install.md) を設定できます。
+アクセスできるサブスクリプションの Azure Active Directory に接続された Azure Stack Hub インストールが必要です。 Azure Stack Hub のインストールがない場合は、この手順に従って [Azure Stack Development Kit](../asdk/asdk-install.md) を設定できます。
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>コードを使用して Azure Stack Hub に接続する
 

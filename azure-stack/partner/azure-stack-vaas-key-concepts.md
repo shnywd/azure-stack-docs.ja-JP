@@ -1,5 +1,6 @@
 ---
-title: Azure Stack Hub のサービスとしての検証の主要概念
+title: サービスとしての検証の主要概念
+titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のサービスとしての検証の主要概念について説明します。
 author: mattbriggs
 ms.topic: article
@@ -8,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 972b0be328f80a82ed3c12076a1f540c52b53ea7
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 211a2bf18643ff0c873969520f9bfae20d2ed89d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143752"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625409"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>サービスとしての検証の主要概念
 
@@ -23,9 +24,9 @@ ms.locfileid: "77143752"
 
 VaaS ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack Hub ソリューションを表します。 VaaS ソリューションは、Azure Stack Hub ソリューションに対して実行されるワークフローのコンテナーとして機能します。
 
-### <a name="create-a-solution-in-the-vaas-portal"></a>VaaS ポータルでソリューションを作成する
+### <a name="create-a-solution-in-the-azure-stack-hub-validation-portal"></a>Azure Stack Hub 検証ポータルでソリューションを作成する
 
-1. [VaaS ポータル](https://azurestackvalidation.com)にサインインします。
+1. [Azure Stack Hub 検証ポータル](https://azurestackvalidation.com)にサインインします。
 2. ソリューション ダッシュボードで、 **[新しいソリューション]** を選択します。
 3. ソリューションの名前を入力します。 名前付けの推奨事項については、「[VaaS ソリューションの名前付け規則](azure-stack-vaas-best-practice.md#naming-convention-for-vaas-solutions)」をご覧ください。
 4. **[保存]** を選択してソリューションを作成します。
@@ -47,7 +48,7 @@ VaaS ワークフローは、VaaS ソリューションのコンテキスト内�
 
 1. ソリューション ダッシュボードで、新しいソリューションを作成するか、既存のソリューションを選択します。 これにより、ワークフロー タイルが最新の情報に更新され、アクティブになります。
 2. 新しいワークフローを作成するには、任意のタイルで **[開始]** を選択します。 各ワークフローに固有の情報については、次の記事をご覧ください。
-    - テスト成功:[クイック スタート: サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
+    - テスト成功:[クイック スタート: Azure Stack Hub 検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
     - ソリューション検証:[新しい Azure Stack Hub ソリューションの検証](azure-stack-vaas-validate-solution-new.md)
     - パッケージ検証 (毎月の更新プログラム):[Microsoft のソフトウェア更新プログラムの検証](azure-stack-vaas-validate-microsoft-updates.md)
     - パッケージ検証 (パッケージの署名):[OEM パッケージの検証](azure-stack-vaas-validate-oem-package.md)
@@ -58,9 +59,9 @@ VaaS ワークフローは、VaaS ソリューションのコンテキスト内�
 
 ## <a name="tests"></a>テスト
 
-VaaS でのテストは、Azure Stack Hub ソリューションに対して実行される一連の操作で構成されます。 テストには、機能や信頼性などのカテゴリで識別されるさまざまな目的があり、Azure Stack Hub の 1 つ以上のサービスを対象としています。 各テストでは独自のパラメーター セットが定義されており、その一部はテストが含まれているワークフローの共通パラメーターによって指定されています。
+VaaS でのテストは、Azure Stack Hub ソリューションに対して実行される一連の操作で構成されます。 テストには、カテゴリ (機能や信頼性など) で識別されるさまざまな目的があり、Azure Stack Hub の 1 つ以上のサービスを対象としています。 各テストでは独自のパラメーター セットが定義されており、その一部はテストが含まれているワークフローの共通パラメーターによって指定されています。
 
-テストの管理と監視の詳細については、「[Monitor and manage tests in the VaaS portal (VaaS ポータルでのテストの監視と管理)](azure-stack-vaas-monitor-test.md)」をご覧ください。
+テストの管理と監視の詳細については、[Azure Stack Hub 検証ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)に関する記事をご覧ください。
 
 テスト パラメーターの詳細については、「[Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」をご覧ください。
 

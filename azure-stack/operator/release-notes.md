@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/03/2020
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 11/22/2019
-ms.openlocfilehash: 40c727c97035b0f843ce84b0eafad47c77560938
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.openlocfilehash: 3225dce7a767dd973be62844c219dea5135bd91d
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001643"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625222"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -200,14 +200,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適用された 1908 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.14.53](https://support.microsoft.com/help/4537661)
+- [Azure Stack Hub 修正プログラム 1.1908.19.62](https://support.microsoft.com/help/4541349)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>1910 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.17.95](https://support.microsoft.com/help/4537833)
+- [Azure Stack Hub 修正プログラム 1.1910.24.108](https://support.microsoft.com/help/4541350)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -275,7 +275,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1908 リリースは、以下の修正プログラムが適用された 1907 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack Hub 修正プログラム 1.1907.26.70](https://support.microsoft.com/help/4541348)
 
 Azure Stack Hub 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack Hub OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack Hub システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
 
@@ -284,7 +284,7 @@ Azure Stack Hub 1908 更新プログラムには、システムのハードウ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.14.53](https://support.microsoft.com/help/4537661)
+- [Azure Stack Hub 修正プログラム 1.1908.19.62](https://support.microsoft.com/help/4541349)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -408,7 +408,7 @@ Azure Stack Hub の 1907 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1907.18.56](https://support.microsoft.com/help/4528552)
+- [Azure Stack Hub 修正プログラム 1.1907.26.70](https://support.microsoft.com/help/4541348)
 ::: moniker-end
 
 ::: moniker range="azs-1906"

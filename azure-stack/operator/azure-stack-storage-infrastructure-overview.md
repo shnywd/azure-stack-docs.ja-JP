@@ -2,18 +2,18 @@
 title: Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 titleSuffix: Azure Stack
 description: Azure Stack Hub 用のストレージ インフラストラクチャを管理する方法について説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 47233e29ef5921fbf8feb7b31f9160a8f67ff71b
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 4db040483ff841801081ef4f2acf60d9a9e3d4a0
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491715"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568641"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 
@@ -68,7 +68,7 @@ Azure Stack Hub の記憶域プール上に作成されるボリュームは 3 �
 
 - ボリュームの数は、ノードに不具合が発生したり、ノードを削除したりした場合でもそのまま維持されます。
 
-- Azure Stack Hub 開発キットを使用する場合は、複数の共有を含む 1 つのボリュームがあります。
+- Azure Stack Development Kit を使用する場合は、複数の共有を含む 1 つのボリュームがあります。
 
 記憶域スペース ダイレクト内のボリュームでは、ドライブやサーバーの障害などのハードウェアの問題から保護するための回復性が提供されます。 また、ソフトウェアの更新など、サーバーのメンテナンスを通して継続的な可用性が実現されます。 Azure Stack Hub のデプロイでは、データの回復性確保のために 3 方向のミラーリングが使用されます。 テナント データのコピーが 3 つ、別々のサーバーに書き込まれ、キャッシュに保存されます。
 

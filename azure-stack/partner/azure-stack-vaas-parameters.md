@@ -1,6 +1,7 @@
 ---
-title: Azure Stack Hub のサービスとしての検証におけるワークフロー共通パラメーター
-description: Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター
+title: VaaS の共通ワークフロー パラメーター
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のサービスとしての検証の共通ワークフロー パラメーターについて説明します。
 author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
@@ -8,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc237792576ffa3a5bb3ad0a003da4284c9cc56f
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: 9a53f489ac1fdf92afdf8ba841b1cbb4a030680b
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143688"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625392"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター
+# <a name="common-workflow-parameters-in-validation-as-a-service"></a>サービスとしての検証の共通ワークフロー パラメーター
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -50,12 +51,12 @@ ms.locfileid: "77143688"
 
 ## <a name="test-parameters"></a>テスト パラメーター
 
-共通のテスト パラメーターには、構成ファイルに格納できない機密情報が含まれます。 これらは手動で指定する必要があります。
+共通のテスト パラメーターには、構成ファイルに格納できない機密情報が含まれます。 これらのパラメーターは手動で指定する必要があります。
 
 パラメーター    | 説明
 -------------|-----------------
-テナント管理者ユーザー                            | AAD ディレクトリのサービス管理者によってプロビジョニングされた Azure Active Directory テナント管理者。 このユーザーは、リソース (VM、ストレージ アカウントなど) を設定したり、ワークロードを実行したりするためのテンプレートのデプロイなどのテナント レベルのアクションを実行します。 テナント アカウントのプロビジョニングの詳細については、[新しい Azure Stack Hub テナントの追加](../operator/azure-stack-add-new-user-aad.md)に関する記事をご覧ください。
-サービス管理者ユーザー             | Azure Stack Hub のデプロイ時に指定された Azure AD ディレクトリ テナントの Azure Active Directory 管理者。 ECE 構成ファイルで `AADTenant` を検索し、`UniqueName` 要素の値を選択します。
+テナント管理者ユーザー                            | AAD ディレクトリのサービス管理者によってプロビジョニングされた Azure Active Directory (Azure AD) テナント管理者。 このユーザーは、リソース (VM、ストレージ アカウントなど) を設定したり、ワークロードを実行したりするためのテンプレートのデプロイなどのテナント レベルのアクションを実行します。 テナント アカウントのプロビジョニングの詳細については、[新しい Azure Stack Hub テナントの追加](../operator/azure-stack-add-new-user-aad.md)に関する記事をご覧ください。
+サービス管理者ユーザー             | Azure Stack Hub のデプロイ中に指定される Azure AD ディレクトリ テナントの Azure AD 管理者。 ECE 構成ファイルで `AADTenant` を検索し、`UniqueName` 要素の値を選択します。
 クラウド管理者ユーザー               | Azure Stack Hub ドメイン管理者アカウント (例: `contoso\cloudadmin`)。 ECE 構成ファイルで `User Role="CloudAdmin"` を検索し、`UserName` 要素の値を選択します。
 診断接続文字列          | テストの実行中に診断ログのコピー先となる Azure ストレージ アカウントの SAS URL。 SAS URL を生成する手順については、「[診断接続文字列を生成する](#generate-the-diagnostics-connection-string)」をご覧ください。 |
 
@@ -64,7 +65,7 @@ ms.locfileid: "77143688"
 
 ### <a name="generate-the-diagnostics-connection-string"></a>診断接続文字列を生成する
 
-テストの実行中に診断ログを保存するために、診断接続文字列が必要となります。 セットアップ時に作成した Azure ストレージ アカウント ([サービスとしての検証のリソースの設定](azure-stack-vaas-set-up-resources.md)に関する記事を参照) を使用して、VaaS でログをストレージ アカウントにアップロードする際にアクセスする Shared Access Signature (SAS) URL を作成します。
+テストの実行中に診断ログを保存するために、診断接続文字列が必要となります。 セットアップ時に作成した Azure Storage アカウント ([サービスとしての検証のリソースの設定](azure-stack-vaas-set-up-resources.md)に関する記事を参照) を使用して、VaaS でログをストレージ アカウントにアップロードする際にアクセスする Shared Access Signature (SAS) URL を作成します。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
 
@@ -79,8 +80,7 @@ ms.locfileid: "77143688"
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
 
 > [!NOTE]  
-> SAS URL の生成時に指定した終了時刻になると、URL の有効期限が切れます。  
-テストをスケジュールするときは、URL の有効期間が 30 日以上であり、なおかつテストの実行に必要な期間有効であることを確認してください (3 か月を推奨)。
+> SAS URL の生成時に指定した終了時刻になると、URL の有効期限が切れます。 テストをスケジュールするときは、URL の有効期間が 30 日以上であり、なおかつテストの実行に必要な期間有効であることを確認してください (3 か月を推奨)。
 
 ## <a name="next-steps"></a>次のステップ
 

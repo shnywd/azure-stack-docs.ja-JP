@@ -1,24 +1,25 @@
 ---
-title: Azure Stack Hub のサービスとしての検証ポータルを使用して初めてのテストをスケジュールする
-description: Azure Stack Hub のサービスとしての検証ポータルを使用して初めてのテストをスケジュールします。
+title: Azure Stack Hub 検証ポータルでテストをスケジュールする
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 検証ポータルでテストをスケジュールする方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: f69629fea796d43e756ccf5436635d282a07b17e
-ms.sourcegitcommit: a76301a8bb54c7f00b8981ec3b8ff0182dc606d7
+ms.openlocfilehash: ccaae2e6d7625687f7739cba4fa77eda3ab91520
+ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77143721"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77625460"
 ---
-# <a name="scheduling-a-test"></a>テストのスケジュール設定
+# <a name="schedule-a-test-in-azure-stack-validation-portal"></a>Azure Stack 検証ポータルでテストをスケジュールする
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-サービスとしての検証 (VaaS) ポータルで、Azure Stack Hub ソリューションのテストをスケジュールします。 VaaS ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack Hub ソリューションを表します。 ハードウェアが Azure Stack Hub を実行できることを確認するためのテストをスケジュールできます。
+Microsoft Azure Stack 検証ポータルで、Azure Stack Hub ソリューションのテストをスケジュールします。 サービスとしての検証 (VaaS) ソリューションは、特定のハードウェア部品表 (BoM) を含む Azure Stack Hub ソリューションを表します。 ハードウェアが Azure Stack Hub を実行できることを確認するためのテストをスケジュールできます。
 
 ソリューションを確認するには、テストのワークフローを作成します。 VaaS ワークフローは、VaaS ソリューションのコンテキスト内で動作します。 ワークフローは、ハードウェア上で Azure Stack Hub デプロイの機能を実行する一連のテスト スイートを表します。 ソリューションの環境パラメーターを追加し、ソリューションで実行する 1 つ以上のテストを選択します。
 
@@ -26,11 +27,11 @@ ms.locfileid: "77143721"
 
 ## <a name="prerequisites"></a>前提条件
 
-このクイック スタートを実行する前に、次の項目を完了してください。
+このクイック スタートを実行する前に、次のタスクを完了してください。
 
-- [サービスとしての検証のリソースを設定する](azure-stack-vaas-set-up-resources.md)
-- [ローカル エージェントをデプロイする](azure-stack-vaas-local-agent.md) (必須)
-- [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md) (必須)
+- [サービスとしての検証のリソースを設定する](azure-stack-vaas-set-up-resources.md)。
+- [ローカル エージェントをデプロイする](azure-stack-vaas-local-agent.md) (必須)。
+- [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md) (必須)。
 
 ## <a name="start-a-workflow"></a>ワークフローの開始
 
@@ -39,12 +40,12 @@ ms.locfileid: "77143721"
 ポータルにサインインし、ソリューションを選択するか、ソリューションを作成してそのソリューションを選択します。
 
 1. [VaaS ポータル](https://azurestackvalidation.com)にサインインします。
-2. 既存のソリューションの名前を入力するか、 **[新しいソリューション]** を選択して新しいソリューションを作成します。 手順については、「[VaaS ポータルでソリューションを作成する](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-vaas-portal)」をご覧ください。
+2. 既存のソリューションの名前を入力するか、 **[新しいソリューション]** を選択して新しいソリューションを作成します。 手順については、「[VaaS ポータルでソリューションを作成する](azure-stack-vaas-key-concepts.md#create-a-solution-in-the-azure-stack-hub-validation-portal)」をご覧ください。
 3. **[Test Passes]\(テスト成功\)** タイルで **[開始]** を選択します。
 
 ## <a name="specify-parameters"></a>パラメーターの指定
 
-![代替テキスト](media/vaas_test_pass_parameters.png)
+![VaaS ポータルでのパラメーターの指定](media/vaas_test_pass_parameters.png)
 
 ワークフロー内のすべてのテストに適用されるパラメーターを指定します。
 

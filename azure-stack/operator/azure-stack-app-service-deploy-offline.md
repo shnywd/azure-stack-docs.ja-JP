@@ -7,17 +7,17 @@ ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: bf9ce157e927b2fc43b64746d53d74e8cb82524c
-ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
+ms.openlocfilehash: 7fa4ac0f63b3f5243a6473c921012614bb01bfb2
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012888"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568624"
 ---
 # <a name="deploy-azure-app-service-in-an-offline-environment-in-azure-stack-hub"></a>Azure Stack Hub のオフライン環境に Azure App Service をデプロイする
 
 > [!IMPORTANT]
-> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub 開発キット (ASDK) をデプロイします。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 この記事の手順に従うと、次のような Azure Stack Hub 環境に [Azure App Service リソース プロバイダー](azure-stack-app-service-overview.md)をデプロイできます。
 - インターネットに接続されていない。

@@ -7,19 +7,19 @@ ms.date: 01/13/2020
 ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 1d11e9572decd7bd135fe62806c284e43657febf
-ms.sourcegitcommit: b2173b4597057e67de1c9066d8ed550b9056a97b
+ms.openlocfilehash: 9f27013f36b3542e10640b6526eb396aa556e946
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77491171"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568675"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Azure Stack Hub に App Service をデプロイする
 
 この記事では、Azure Stack Hub に App Service をデプロイする方法について説明します。
 
 > [!IMPORTANT]
-> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Hub 開発キット (ASDK) をデプロイします。
+> Azure App Service 1.8 をデプロイする前に、Azure Stack Hub 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 Web および API アプリケーションを作成する機能をユーザーに提供できます。 これらのアプリをユーザーが作成できるようにするには、次のことを行う必要があります。
 

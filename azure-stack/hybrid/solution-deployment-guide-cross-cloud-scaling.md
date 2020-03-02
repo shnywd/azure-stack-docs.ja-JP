@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: dc615786a23295468e173c3ce13b46cb308b8215
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 10ad85a306b225241822cb2b8531515dc9bb1719
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875625"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568590"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
 
@@ -39,8 +39,8 @@ Azure Stack Hub でホストされる Web アプリから、Traffic Manager を�
 
 -   Azure のサブスクリプション。 必要に応じて、開始前に[無料アカウント](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)を作成します。
 
-- Azure Stack Hub 統合システムまたは Azure Stack Hub Development Kit のデプロイ。
-    - Azure Stack Hub のインストール手順は、[Azure Stack Hub Development Kit のインストール](../asdk/asdk-install.md)に関するページでご覧ください。
+- Azure Stack Hub 統合システムまたは Azure Stack Development Kit のデプロイ。
+    - Azure Stack Hub のインストール手順は、[Azure Stack Development Kit のインストール](../asdk/asdk-install.md)に関するページでご覧ください。
     - ASDK デプロイ後の自動化スクリプトについては、[https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) にアクセスしてください。 
     - このインストールが完了するまで数時間かかることがあります。
 

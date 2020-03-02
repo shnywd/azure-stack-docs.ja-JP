@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d81fdf315e9bc834c46161d901d6ac10d736f7ab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 66f6e316c83e25651dc0e0b1be95d6a8467f7f47
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875302"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568386"
 ---
 # <a name="deploy-an-ai-based-footfall-detection-solution-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用して AI ベースの足取り検出ソリューションをデプロイする
 
@@ -36,7 +36,7 @@ ms.locfileid: "76875302"
 このデプロイ ガイドの使用を開始する前に、必ず次のことを行ってください。
 
 - [足取り検出ソリューションの概要](pattern-retail-footfall-detection.md)を確認する 
-- 次のものがある、Azure Stack Hub Development Kit (ASDK) または Azure Stack Hub 統合システム インスタンスへのユーザーアクセス権を取得する
+- 次のものがある、Azure Stack Development Kit (ASDK) または Azure Stack Hub 統合システム インスタンスへのユーザー アクセス権を取得する
   - [Azure App Service on Azure Stack Hub リソース プロバイダー](../operator/azure-stack-app-service-overview.md)がインストールされている。 インストールには、Azure Stack Hub インスタンスへのオペレーター アクセス、または管理者と協力する必要があります。
   - App Service とストレージ クォータを提供するオファーに対するサブスクリプション。 オファーを作成するには、オペレーター アクセスが必要です。
 - Azure サブスクリプションへのアクセスを取得する
