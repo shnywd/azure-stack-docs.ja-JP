@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
+ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877512"
+ms.lasthandoff: 02/24/2020
+ms.locfileid: "77568573"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする
 
@@ -55,7 +55,7 @@ ms.locfileid: "76877512"
 
 このソリューションを開始する前に、次の要件を満たしてください。
 
-- Azure Stack Hub Development Kit (ASDK) または Azure Stack Hub 統合システムのサブスクリプション。 Azure Stack Hub Development Kit をデプロイするには、[インストーラーを使用した ASDK のデプロイ](../asdk/asdk-install.md)に関するページの手順に従ってください。
+- Azure Stack Development Kit (ASDK) または Azure Stack Hub 統合システムのサブスクリプション。 Azure Stack Development Kit をデプロイするには、[インストーラーを使用した ASDK のデプロイ](../asdk/asdk-install.md)に関するページの手順に従ってください。
 - ご利用の Azure Stack Hub 環境に次のものがインストールされている必要があります。
   - Azure App Service。 Azure Stack Hub のオペレーターと協力して、Azure App Service をご自分の環境にデプロイし、構成してください。 このチュートリアルでは、App Service で専用の worker ロールを少なくとも 1 つ利用できるようにすることが求められます。
   - Windows Server 2016 イメージ。
@@ -260,7 +260,7 @@ Azure Stack Hub に SSL を追加するには、次の手順に従います。
 Web アプリの各インスタンスでは、異なる方法を使用して SQL データベースに接続します。 Azure のアプリでは SQL Server 仮想マシン (VM) のプライベート IP アドレスが使用され、Azure Stack Hub のアプリでは SQL Server VM のパブリック IP アドレスが使用されます。
 
 > [!Note]  
-> Azure Stack Hub 統合システムでは、パブリック IP アドレスをインターネット ルーティング可能にしないでください。 Azure Stack Hub Development Kit (ASDK) では、パブリック IP アドレスを ASDK の外部でルーティングすることはできません。
+> Azure Stack Hub 統合システムでは、パブリック IP アドレスをインターネット ルーティング可能にしないでください。 Azure Stack Development Kit (ASDK) では、パブリック IP アドレスを ASDK の外部でルーティングすることはできません。
 
 App Service 環境変数を使用し、アプリの各インスタンスに異なる接続文字列を渡すことができます。
 
