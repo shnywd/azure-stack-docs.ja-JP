@@ -7,12 +7,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: 56af62717b4cd32d7a5130d1d324bd40bf61adb9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c14c2cf0d65c29ea7b2968558e89a20b504d8f53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878430"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700478"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自動 Azure Stack Hub ログ収集のベスト プラクティス 
 
@@ -22,7 +22,7 @@ ms.locfileid: "76878430"
 
 ログを収集する Azure Stack Hub スケールユニットごとに 1 つの BLOB コンテナーを設定します。 BLOB コンテナーを構成する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください。 ベスト プラクティスとして、単一の BLOB コンテナー内の同じ Azure Stack Hub スケール ユニットからの診断ログのみを保存します。 
 
-## <a name="retention-policy"></a>保持ポリシー
+## <a name="retention-policy"></a>Retention ポリシー
 
 Azure Blob Storage [ライフサイクル管理ルール](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、ログの保持ポリシーを管理します。 診断ログは 30 日間保持することをお勧めします。 Azure storage でライフサイクル管理ルールを作成するには、Azure portal にサインインし、 **[ストレージ アカウント]** をクリックし、BLOB コンテナーをクリックし、 **[Blob service]** の **[ライフサイクル管理]** をクリックします。
 
@@ -62,7 +62,7 @@ Azure [BLOB ストレージの料金](https://azure.microsoft.com/pricing/detail
 
 ベスト プラクティスとして、Azure BLOB ストレージ [ライフサイクル管理ポリシー](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、継続的なストレージ コストを最小限に抑えます。 ストレージ アカウントを設定する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください
 
-## <a name="see-also"></a>参照
+## <a name="see-also"></a>関連項目
 
 [自動 Azure Stack Hub ログ収集の構成](azure-stack-best-practices-automatic-diagnostic-log-collection.md)
 

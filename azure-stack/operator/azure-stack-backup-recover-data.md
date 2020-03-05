@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: ccc4a91fda1bd3c1d3a55ef0bac7df92d6a2e07c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878277"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703589"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -36,7 +36,7 @@ Azure Stack を保護する過程は、インフラストラクチャとアプ�
 
 ![Azure Stack Hub のデータ回復ワークフロー — 再デプロイ](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
-## <a name="restore"></a>[復元]
+## <a name="restore"></a>復元
 
 致命的なデータ損失が発生しても、ハードウェアが引き続き使用できる場合は、Azure Stack Hub の再デプロイが必要になります。 再展開の際に、ストレージの場所と、バックアップのアクセスに必要な資格情報を指定できます。 このモードでは、復元の必要があるサービスを指定する必要はありません。 展開ワークフローの一部として、インフラストラクチャ バックアップ コントローラーによってコントロール プレーンの状態が挿入されます。
 

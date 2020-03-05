@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7315013253c04ebbb231a0915dba610e459848e7
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 945aaf9fa9d422418718c87545c238239220bc06
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890070"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688782"
 ---
 # <a name="hybrid-relay-pattern"></a>ハイブリッド リレー パターン
 
@@ -39,7 +39,7 @@ Azure Service Bus Relay を使用して、ファイアウォールで保護さ�
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | [説明] |
+| レイヤー | コンポーネント | 説明 |
 |----------|-----------|-------------|
 | Azure | Azure VM | Azure VM は、オンプレミス リソースに対して、パブリックにアクセス可能なエンドポイントを提供します。 |
 | | Azure Service Bus Relay | [Azure Service Bus Relay](/azure/service-bus-relay/) は、Azure VM と Azure Stack Hub VM 間のトンネルと接続を維持するためのインフラストラクチャを提供します。|

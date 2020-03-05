@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 904a15c59cf2e9418d3615d25c11303fede04762
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8425b4f8492e57502ca93b0be802b63601f6ba34
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885027"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704320"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Azure Stack Hub でポータルを使用してテンプレートをデプロイする
 
@@ -44,7 +44,7 @@ ms.locfileid: "76885027"
 
    ![Azure Stack Hub ポータルでリソース グループを選択する](media/azure-stack-deploy-template-portal/template-deploy6.png)
 
-1. **作成** を選択します。 ダッシュボードの新しいタイルにより、テンプレート デプロイの進行状況を追跡します。
+1. **［作成］** を選択します ダッシュボードの新しいタイルにより、テンプレート デプロイの進行状況を追跡します。
 
    ![Azure Stack Hub ポータルでテンプレートを作成する](media/azure-stack-deploy-template-portal/template-deploy7.png)
 

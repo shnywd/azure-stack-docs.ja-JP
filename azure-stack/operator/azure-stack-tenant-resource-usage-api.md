@@ -8,12 +8,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 842291fc47d76ad40b9933bb6295efaa4446fe41
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880887"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696884"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>テナント リソース使用状況 API リファレンス
 
@@ -80,7 +80,7 @@ GET
 | --- | --- |
 | id |使用状況集計の一意の ID |
 | name |使用状況集計の名前 |
-| 型 |リソース定義 |
+| type |リソース定義 |
 | subscriptionId |Azure ユーザーのサブスクリプション識別子。 |
 | usageStartTime |この使用状況集計が属する使用状況バケットの UTC 開始時間 |
 | usageEndTime |この使用状況集計が属する使用状況バケットの UTC 終了時間 |

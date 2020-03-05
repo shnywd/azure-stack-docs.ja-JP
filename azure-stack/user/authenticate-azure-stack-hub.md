@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 18e0f405cbe4107fee320b9ffa1bff8711439bfd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 21cd92626a5ddb4e86e5f0dd7568dc1a875bd3c1
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883992"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77687446"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 
@@ -30,7 +30,7 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
     ディレクトリとは、ユーザー、アプリケーション、グループ、およびサービス プリンシパルに関する情報を保持するコンテナーのことです。 ディレクトリ テナントとは、Microsoft や自分の会社のなどの組織のことです。
 
--   **Location**
+-   **場所**
 
     場所 (またはリージョン) は、待ち時間で定義された境界内にデプロイされ、待ち時間の短い専用リージョン ネットワークを介して接続される一連のデータセンターです。 Azure Stack Hub では、場所に Azure リージョンではなくローカル データセンターが含まれる場合があります。
 

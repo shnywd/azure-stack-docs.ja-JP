@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e57de0bbcb51b4e1bf2d3d4501b57cbc5115927e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883766"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704167"
 ---
 # <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Go Web アプリをデプロイする
 
@@ -24,7 +24,7 @@ Azure Stack Hub で Go Web アプリをホストする仮想マシン (VM) を�
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
-    | Port | Protocol | [説明] |
+    | Port | Protocol | 説明 |
     | --- | --- | --- |
     | 80 | HTTP | ハイパーテキスト転送プロトコル (HTTP) は、サーバーからの Web ページの配信に使用されるプロトコルです。 クライアントは、DNS 名または IP アドレスを使用して HTTP 経由で接続されます。 |
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876594"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77688765"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
@@ -96,7 +96,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 ### <a name="status-for-the-add-node-operation"></a>ノードの追加操作の状態 
 **スケール ユニットの場合:**
 
-|Status               |[説明]  |
+|Status               |説明  |
 |---------------------|---------|
 |実行中              |すべてのノードは、アクティブにスケール ユニットに参加しています。|
 |停止済み              |スケール ユニット ノードはダウンしているか、到達不能です。|
@@ -107,7 +107,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 
 **スケール ユニット ノードの場合:**
 
-|Status                |[説明]  |
+|Status                |説明  |
 |----------------------|---------|
 |実行中               |ノードは、アクティブにスケール ユニットに参加しています。|
 |停止済み               |ノードは利用不可です。|

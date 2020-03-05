@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889543"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703623"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
@@ -101,10 +101,10 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 4.  トラブルシューティングのウィンドウを確認します。 デプロイ済みの各リソースから、次の情報が提供されます。
     
-    | プロパティ | [説明] |
+    | プロパティ | 説明 |
     | ----     | ----        |
     | リソース | リソースの名前。 |
-    | 種類 | リソース プロバイダーとリソースの種類。 |
+    | Type | リソース プロバイダーとリソースの種類。 |
     | Status | 項目の状態。 |
     | TimeStamp | 時刻のタイムスタンプ (UTC)。 |
     | 操作の詳細 | 操作に関係するリソース プロバイダー、リソースのエンド ポイント、リソースの名前などの操作の詳細。 |
@@ -136,7 +136,7 @@ Azure Stack Hub の管理に使用するマシンには Bash プロンプトが�
 
 3. スクリプトに必要な情報を探して、実行します。
 
-    | パラメーター           | [説明]                                                                                                      | 例                                                                       |
+    | パラメーター           | 説明                                                                                                      | 例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d、--vmd-host      | DVM のパブリック IP または完全修飾ドメイン名 (FQDN)。 VM 名は `vmd-` で始まります。 | IP:192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Print コマンドの使用方法。 | |

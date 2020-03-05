@@ -7,12 +7,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6f8220f9a8683569c23460acf2890c9aa8407f30
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883092"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705204"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Azure Stack Hub での .NET による API バージョンのプロファイルの使用
 
@@ -60,14 +60,14 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 Azure Stack Hub で .NET Azure SDK を使用するには、次の値を指定した後、環境変数を使用して値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
-| Value                     | 環境変数   | [説明]                                                                                                             |
+| Value                     | 環境変数   | 説明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack Hub の [*テナント ID*][] の値。                                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID `      | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
 | サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID` | [*サブスクリプション ID*][] は、Azure Stack Hub 内のオファーにアクセスするために必要です。                                                      |
 | クライアント シークレット             | `AZURE_CLIENT_SECRET`   | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。                                      |
 | Resource Manager エンドポイント | `ARM_ENDPOINT`          | [*Azure Stack Hub Resource Manager エンドポイント*][] に関する記事を参照してください。                                                                    |
-| Location                  | `RESOURCE_LOCATION`     | Azure Stack Hub の場所。
+| 場所                  | `RESOURCE_LOCATION`     | Azure Stack Hub の場所。
 
 Azure Stack Hub のテナント ID を確認するには、[この記事](../operator/azure-stack-csp-ref-operations.md)の手順に従ってください。 環境変数を設定するには、次の手順に従います。
 

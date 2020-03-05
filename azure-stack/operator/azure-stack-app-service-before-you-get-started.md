@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 8d995550ead87f31a9024cc9c87ba45f0800a78d
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: 3a0a62fe74b3420ccc321f79539cdce16aac6934
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701226"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub のデプロイの前提条件
 
@@ -61,8 +61,8 @@ Azure Stack Hub 統合システムまたは ASDK ホストで特権エンドポ�
 
 | パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | Required | AzS-ERCS01 | 特権エンドポイント |
-| CloudAdminCredential | Required | AzureStack\CloudAdmin | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報 |
+| PrivilegedEndpoint | 必須 | AzS-ERCS01 | 特権エンドポイント |
+| CloudAdminCredential | 必須 | AzureStack\CloudAdmin | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報 |
 
 ### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure での Azure App Service のデプロイメントに必要な証明書
 
@@ -86,8 +86,8 @@ Azure Stack Hub 統合システムまたは ASDK ホストで特権エンドポ�
 
 | パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
-| pfxPassword | Required | [Null] | 証明書の秘密キーを保護するのに役立つパスワード |
-| DomainName | Required | local.azurestack.external | Azure Stack Hub のリージョンとドメイン サフィックス |
+| pfxPassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード |
+| DomainName | 必須 | local.azurestack.external | Azure Stack Hub のリージョンとドメイン サフィックス |
 
 ### <a name="certificates-required-for-azure-stack-hub-production-deployment-of-azure-app-service"></a>Azure App Service を Azure Stack Hub の運用環境にデプロイするために必要な証明書
 
@@ -357,12 +357,12 @@ GO
 
 | パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | Required | [Null] | Azure AD テナント ID。 GUID または文字列を指定します。 例として、myazureaaddirectory.onmicrosoft.com があります。 |
-| AdminArmEndpoint | Required | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
-| TenantARMEndpoint | Required | [Null] | テナントの Azure Resource Manager エンドポイント。 例として、management.local.azurestack.external があります。 |
-| AzureStackAdminCredential | Required | [Null] | Azure AD サービス管理者の資格情報。 |
-| CertificateFilePath | Required | [Null] | 先ほど生成された ID アプリケーション証明書ファイルへの**完全なパス**。 |
-| CertificatePassword | Required | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
+| DirectoryTenantName | 必須 | [Null] | Azure AD テナント ID。 GUID または文字列を指定します。 例として、myazureaaddirectory.onmicrosoft.com があります。 |
+| AdminArmEndpoint | 必須 | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
+| TenantARMEndpoint | 必須 | [Null] | テナントの Azure Resource Manager エンドポイント。 例として、management.local.azurestack.external があります。 |
+| AzureStackAdminCredential | 必須 | [Null] | Azure AD サービス管理者の資格情報。 |
+| CertificateFilePath | 必須 | [Null] | 先ほど生成された ID アプリケーション証明書ファイルへの**完全なパス**。 |
+| CertificatePassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
 | 環境 | 省略可能 | AzureCloud | 対象の Azure Active Directory Graph サービスが利用可能な、サポートされているクラウド環境の名前。  使用できる値は以下の通りです。'AzureCloud'、'AzureChinaCloud'、'AzureUSGovernment'、'AzureGermanCloud'。|
 
 ## <a name="create-an-active-directory-federation-services-app"></a>Active Directory フェデレーション サービス アプリを作成する
@@ -393,11 +393,11 @@ AD FS によって保護されている Azure Stack Hub 環境の場合、AD FS 
 
 | パラメーター | 必須または省略可能 | 既定値 | 説明 |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | Required | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
-| PrivilegedEndpoint | Required | [Null] | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |
-| CloudAdminCredential | Required | [Null] | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
-| CertificateFilePath | Required | [Null] | ID アプリケーションの証明書 PFX ファイルへの**完全なパス**。 |
-| CertificatePassword | Required | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
+| AdminArmEndpoint | 必須 | [Null] | 管理者の Azure Resource Manager エンドポイント。 例として、adminmanagement.local.azurestack.external があります。 |
+| PrivilegedEndpoint | 必須 | [Null] | 特権エンドポイント。 例として、AzS-ERCS01 があります。 |
+| CloudAdminCredential | 必須 | [Null] | Azure Stack Hub クラウド管理者のドメイン アカウントの資格情報。 例として、Azurestack\CloudAdmin があります。 |
+| CertificateFilePath | 必須 | [Null] | ID アプリケーションの証明書 PFX ファイルへの**完全なパス**。 |
+| CertificatePassword | 必須 | [Null] | 証明書の秘密キーを保護するのに役立つパスワード。 |
 
 ## <a name="next-steps"></a>次のステップ
 

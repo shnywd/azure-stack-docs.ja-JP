@@ -9,14 +9,14 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 31d47f947c4c71847156ca4e49c4b370c872e920
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 4f6255ee26eb686b78640f95b44ee5286693d081
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704643"
 ---
-# <a name="validation-as-a-service-for-azure-stack-hub"></a>Azure Stack Hub のサービスとしての検証
+# <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Azure Stack Hub のサービスとしての検証とは
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -51,7 +51,7 @@ VaaS の主な用途は次のとおりです。
 
 Microsoft は、定期的に Azure Stack Hub で新機能を提供しています。 これらの機能を市場に投入するための開発プロセスの一環として、**テスト成功**ワークフローで新しい 2 次テストが利用できるようになりました。 テスト成功ワークフローには、他のワークフローからの 2 次テストが含まれ、非公式のテストを実行できます。 承認を求めて結果を提出するときには、テスト成功ワークフローを使用しないでください。 ソリューションの正式な承認を得るには、ソリューション検証ワークフローとパッケージ検証ワークフローを使用します。
 
-詳細については、[Azure Stack Hub 検証ポータルを使用して初めてのテストをスケジュールする方法に関するクイックスタート](azure-stack-vaas-schedule-test-pass.md)を参照してください。
+詳細については、「[クイック スタート: Azure Stack Hub 検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)」を参照してください。
 
 ## <a name="validation-workflow-tests-summary"></a>検証ワークフロー テストの概要
 

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 21a4d50c4ebb191e32c8c5a853359880bcdb1392
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 01/10/2019
+ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509791"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699424"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 
@@ -57,7 +57,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | Type | Required |
+| パラメーター | 説明 | Type | 必須 |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog サーバーの FQDN または IP アドレス。 | String | はい|
 |*ServerPort* | Syslog サーバーがリッスンしているポート番号。 | UInt16 | はい|

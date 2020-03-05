@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: b397ee97c5b1e7ea9cc1a47e60f24d21ae8d6f29
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: acdacb826d75a2df1aca49c9029a0ef02e6744ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884273"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705272"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -82,7 +82,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 Azure Stack Hub で Node.js Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用しているオペレーティング システムの表の後にある手順を参照してください。
 
-| Value | 環境変数 | [説明] |
+| Value | 環境変数 | 説明 |
 | --- | --- | --- |
 | テナント ID | TENANT\_ID | Azure Stack Hub の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
 | クライアント ID | CLIENT\_ID | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。  |

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c23d005869e83b46ac73be8660adc3056dcc52e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 4c96dcc4a9405e22513ecd33e7aa4c7415ac257b
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884557"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702127"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの概要
 
@@ -26,7 +26,7 @@ Azure Stack Hub には、単独でまたは組み合わせて使用できる、�
     インターネット上の仮想プライベート ネットワーク (VPN) を介して、または Azure Stack Hub への専用接続を介して、オンプレミスのネットワークを Azure Stack Hub リソースに接続します。
 - **負荷分散とトラフィックの方向**  
     同じ場所のサーバー間でトラフィックを負荷分散したり、異なる場所のサーバーにトラフィックを誘導したりします。
-- **セキュリティ**  
+- **Security**  
     ネットワーク サブネット間や個々の VM 間のネットワーク トラフィックをフィルタリングします。
 - **ルーティング**  
     Azure Stack Hub リソースとオンプレミス リソースとの間で既定のルーティングまたは完全制御のルーティングを使用します。

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 759edb6cf4f106e59a1b847cb4dcafd4450665da
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890087"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701549"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack Hub 診断ログを収集する
 
@@ -141,7 +141,7 @@ ASDK ホスト コンピューター上で `Get-AzureStackLog` を実行する�
   6. 新しいコンテナーを右クリックして、 **[Get Shared Access Signature]\(Shared Access Signature の取得\)** を選択します。
   7. お客様の要件に合わせて、有効な **[開始時間]** と **[終了時間]** を選択します。
   8. 必要なアクセス許可については、 **[読み取り]** 、 **[書き込み]** 、 **[一覧]** を選択します。
-  9. **作成** を選択します。
+  9. **［作成］** を選択します
   10. Shared Access Signature が表示されます。 URL の部分をコピーし、`-OutputSasUri` パラメーターに入力します。
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK および統合システムの両方に関するパラメーターの考慮事項

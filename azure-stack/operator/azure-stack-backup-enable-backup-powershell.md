@@ -7,12 +7,12 @@ ms.date: 04/25/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 0a4398328df57802b19f20edbe534ba1fe40709d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2369ffbd1d3fc72c9d2df7ff87be6131f7aabcd7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76878039"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703317"
 ---
 # <a name="enable-backup-for-azure-stack-hub-with-powershell"></a>PowerShell で Azure Stack Hub のバックアップを有効にする
 
@@ -34,7 +34,7 @@ PowerShell 環境の構成方法については、[PowerShell for Azure Stack Hu
 
 同じ PowerShell セッションで、環境変数を追加して次の PowerShell スクリプトを編集します。 更新されたスクリプトを実行して、インフラストラクチャ バックアップ サービスにバックアップ共有、資格情報、および暗号化キーを提供します。
 
-| 変数        | [説明]   |
+| 変数        | 説明   |
 |---              |---                                        |
 | `$username`       | ファイルを読み書きするための十分なアクセス権がある共有ドライブの場所のドメインとユーザー名を使用して**ユーザー名**を入力します。 たとえば、「 `Contoso\backupshareuser` 」のように入力します。 |
 | `$password`       | ユーザーの**パスワード**を入力します。 |

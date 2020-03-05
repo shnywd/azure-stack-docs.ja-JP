@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 83d52af03f33a01ccdf1b065ea1f59d7842f4cda
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b1d60037dd86a6de1aac73ff5a607605ceda1614
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883389"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703878"
 ---
 # <a name="connect-two-vnets-through-peering"></a>ピアリングを通じて 2 つの VNET を接続する
 
@@ -102,7 +102,7 @@ ms.locfileid: "76883389"
 
 9.  **[OK]** を選択します。 **[OK]** を選択します。
 
-10.  **作成** を選択します。
+10.  **［作成］** を選択します
 
 デプロイには約 10 分かかります。
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879433"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701498"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
@@ -95,7 +95,7 @@ Azure Stack Hub 内でテナントに必要なネットワーク リソースを
 
    |フィールド  |Value  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
+   |名前     |Tenant1VNet1         |
    |アドレス空間     |10.1.0.0/16|
    |サブネット名     |Tenant1 Sub1|
    |サブネットのアドレス範囲     |10.1.1.0/24|

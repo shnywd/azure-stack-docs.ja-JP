@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 01/21/2020
-ms.openlocfilehash: 64618cb3f1840db5472023902c58fc3fa771e6a5
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 01/21/2019
+ms.openlocfilehash: 875aafa4602e9db34bfe98eb80a658c36b3d0041
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890393"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700546"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
@@ -20,7 +20,7 @@ ms.locfileid: "76890393"
 
 ご使用の仮想マシン (VM) の拡張機能の更新プログラムがあるときは、必ずダウンロードする必要があります。 製品に付属している拡張機能は、通常の修正プログラムや更新プロセスでは更新されません。更新プログラムは頻繁に確認するようにしてください。 他の拡張機能は、Marketplace Management からのみ入手できます。
 
-|  | 項目名 | [説明] | Publisher | OS の種類 |
+|  | 項目名 | 説明 | Publisher | OS の種類 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
 |![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
@@ -41,7 +41,7 @@ ms.locfileid: "76890393"
 
 Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリューション テンプレートをサポートしています。 依存関係がある場合は、前述のように、それらすべてを個別にダウンロードします。 SQL Server や Machine Learning Server などのアプリには、適切なライセンスが必要です (無償または試用版としてマークされている場合を除く)。
 
-|  | 項目名 | [説明] | Publisher |
+|  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Windows Server](media/azure-stack-marketplace-azure-items/windowsserver.png) | [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) | アプリに焦点を当てた、ユーザー指向のエンタープライズ クラス ソリューションで、容易にデプロイできるほか、コスト効率に優れています。 これらのイメージは、最新の修正プログラムで定期的に更新されます。 **重要な情報: 2018 年 1 月 18 日より前にダウンロードしたイメージは、削除し、最新のバージョンに置き換える必要があります。** | Microsoft |
 | ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
@@ -71,7 +71,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 
 ## <a name="linux-distributions"></a>Linux ディストリビューション
 
-|  | 項目名 | [説明] | Publisher |
+|  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Intel アーキテクチャ用に最適化された参照 Linux ディストリビューションです。 | Clear Linux Project |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS は、最新で最小の Linux ディストリビューションであり、コンテナーの実行、クラスターの管理、サーバーのシームレスな更新の簡単な方法を提供します。どのコンポーネントも、ウェアハウス規模のコンピューティングを可能にするものです。 | CoreOS |
@@ -89,7 +89,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>サードパーティの BYOL、無料、試用版のイメージ、ソリューション テンプレート
 
-|  | 項目名 | [説明] | Publisher |
+|  | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 Networks vThunder ADC (Application Delivery Controller) for Microsoft Azure は、ハイパフォーマンス、柔軟性、デプロイの容易性を備えたアプリの配信とサーバー負荷分散を意図して専用設計されており、Azure クラウド内でネイティブに動作するよう最適化されています。 | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS ルーターはマルチクラウド対応かつマルチ ハイパーバイザー対応の機能豊富な仮想ルーターで、企業やクラウド プロバイダーが一貫性のある安全性が高くスケーラブルなハイブリッド ネットワークを構築するために役立ちます。 | Arista Networks |

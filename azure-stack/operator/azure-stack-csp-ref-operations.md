@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 1f5f3011c1546970a1b94773b171e6419757c461
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882489"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700342"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
@@ -37,7 +37,7 @@ Azure Stack Hub と API プロファイルの詳細については、「[Azure S
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | [説明] |
+| パラメーター                  | 説明 |
 |---                         | --- |
 | registrationSubscriptionID | 初期登録に使用された Azure サブスクリプション。 |
 | customerSubscriptionID     | 登録される顧客に属する Azure サブスクリプション (Azure Stack Hub ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack Hub にサインインするためのサブスクリプションを作成します。 |
@@ -71,7 +71,7 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | [説明]          |
+| パラメーター                  | 説明          |
 |---                         | ---                  |
 | registrationSubscriptionId | 初期登録に使用された Azure サブスクリプション。   |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。    |
@@ -119,7 +119,7 @@ GET 操作を使用して、すべてのテナント マッピングの一覧を
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター                  | [説明]          |
+| パラメーター                  | 説明          |
 |---                         | ---                  |
 | registrationSubscriptionId | 登録用のサブスクリプション ID です。   |
 | resourceGroup              | 登録のリソース グループです。   |

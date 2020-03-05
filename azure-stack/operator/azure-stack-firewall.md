@@ -7,12 +7,12 @@ ms.date: 11/15/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: f0074bedfbcd0e55bea84080e33e14738fccb896
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: f27d314e8537cabb9c1625d3496751eba0feb264
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509978"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77699883"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack Hub ファイアウォールの統合
 Azure Stack Hub は、ファイアウォール デバイスを使ってセキュリティで保護することをお勧めします。 ファイアウォールは、分散型サービス拒否 (DDOS) 攻撃に対する防御、侵入検出、コンテンツ検査などに役立ちます。 ただし、これが BLOB、テーブル、キューなどの Azure ストレージ サービスのスループットのボトルネックになる場合もあります。

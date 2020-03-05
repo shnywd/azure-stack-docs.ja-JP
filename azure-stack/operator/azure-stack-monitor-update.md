@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 170bb21a8facd66fc5f581729a19f436fbd16fc1
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 14df72fda88f505e564b16519f583c8b6875ade7
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77508006"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698982"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 
@@ -157,7 +157,7 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>[トラブルシューティング]
+## <a name="troubleshoot"></a>トラブルシューティング
 
 特権エンドポイントは、Azure Stack Hub 環境内のすべての ERCS VM で使用できます。 高可用性エンドポイントへの接続は確立されないため、中断したり、警告またはエラー メッセージが表示されたりすることがあります。 これらのメッセージは、セッションが切断されたか、または ECE サービスとの通信エラーがあったことを示している場合があります。 これは正しい動作です。 しばらく待ってから操作を再試行するか、他の ERCS VM のいずれかで新しい特権エンドポイント セッションを作成できます。
 

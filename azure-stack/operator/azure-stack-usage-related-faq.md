@@ -10,12 +10,12 @@ ms.date: 01/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1e5b2198bc830ea91babadab7a0a33ed5dc09f38
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972523"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77696449"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -285,7 +285,7 @@ ms.locfileid: "76972523"
 **単位**:GB  
 **注**:受信要求応答の合計バイト数 + 送信要求応答の合計バイト数 + 受信 FTP 要求応答の合計バイト数 + 受信 Web デプロイ要求応答の合計バイト数。  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack Hub Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Azure Stack Hub Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
 
 * テナント使用量 API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack Hub では *showDetails* フラグはサポートされていません。
 * プロバイダー使用量 API は、Azure Stack Hub にのみ適用されます。

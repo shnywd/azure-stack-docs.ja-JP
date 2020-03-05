@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 3353977eb36701575a725f2e74f2275dac73bddd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877648"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701005"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
 
@@ -233,7 +233,7 @@ Azure DevOps Services が提供するパイプラインは自由に構成でき�
 
 ## <a name="part-2-update-web-app-options"></a>パート 2: Web アプリ オプションを更新する
 
-[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) では、高度にスケーラブルな自己適用型の Web ホスティング サービスを提供しています。 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) は、非常にスケーラブルな、自己適用型の Web ホスティング サービスを提供します。 
 
 ![Azure App Service](media/solution-deployment-guide-geo-distributed/image27.png)
 
@@ -567,7 +567,7 @@ Web アプリページで、 **[SSL 設定]** を選択します。 その後、
 
     5.  **[リソース グループの場所]** で、リソース グループの場所を選択します。 これはリソース グループの場所を指定する設定であり、グローバルにデプロイされる Traffic Manager プロファイルには影響しません。
 
-    6.  **作成** を選択します。
+    6.  **［作成］** を選択します
 
     7.  Traffic Manager プロファイルは、グローバルなデプロイが完了すると、それぞれのリソース グループ内にリソースの 1 つとして表示されます。
 

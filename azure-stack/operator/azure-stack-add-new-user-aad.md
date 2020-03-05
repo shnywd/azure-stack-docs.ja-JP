@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/20/2019
 ms.author: justinha
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: b7bfcf97df22f5ca0d1dcaa7c9687079656af840
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890155"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77700563"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する (Azure AD)
 
@@ -40,7 +40,7 @@ Azure ポータルを使用するには Azure サブスクリプションが必�
 
 5. **[パスワードの表示]** チェックボックスを選択し、 **[パスワード]** ボックスに表示される自動生成されたパスワードをコピーします。 このパスワードは、最初のサインイン プロセスで必要になります。
 
-6. **作成** を選択します。
+6. **［作成］** を選択します
 
     ユーザーが作成され、Azure AD テナントに追加されます。
 

@@ -6,12 +6,12 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e53758880f8cc6bd4b365d5d752a960d623795e6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879858"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704813"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
 
@@ -78,7 +78,7 @@ Azure Stack Hub をデプロイするときに AD FS を ID 管理サービス�
 
 証明書を用意できたら、下記の PowerShell スクリプトを使用してアプリを登録し、サービス プリンシパルを作成します。 また、このサービス プリンシパルを使用して Azure にサインインします。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | [説明] | 例 |
+| プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourCertificateLocation\> | ローカル証明書ストア内の X509 証明書の場所。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
@@ -149,7 +149,7 @@ PowerShell コンソール セッションは開いたままにします。`Appl
 
 PowerShell を使用して証明書資格情報を更新します。次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | [説明] | 例 |
+| プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
@@ -194,7 +194,7 @@ PowerShell を使用して証明書資格情報を更新します。次のプレ
 
 別のアプリ登録を作成しますが、今回はクライアント シークレット資格情報を指定します。 証明書資格情報とは異なり、クライアント シークレット資格情報はディレクトリが生成することができます。 開発者はクライアント シークレットを指定する代わりに、`-GenerateClientSecret` スイッチを使用してシークレットの生成を要求できます。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | [説明] | 例 |
+| プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<YourAppName\> | 新しいアプリ登録のわかりやすい名前。 | "My management tool" |
@@ -251,7 +251,7 @@ PowerShell コンソール セッションは開いたままにします。`Appl
 
 PowerShell を使用してクライアント シークレット資格情報を更新します。**ResetClientSecret** パラメーターを使用するので、クライアント シークレットが即座に変更されます。 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | [説明] | 例 |
+| プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
@@ -288,7 +288,7 @@ PowerShell を使用してクライアント シークレット資格情報を�
 
 次のプレースホルダーを実際の値で置き換えてください。
 
-| プレースホルダー | [説明] | 例 |
+| プレースホルダー | 説明 | 例 |
 | ----------- | ----------- | ------- |
 | \<PepVM\> | Azure Stack Hub インスタンス上にある特権エンドポイント VM の名前。 | "AzS-ERCS01" |
 | \<AppIdentifier\> | アプリケーション登録に割り当てられた識別子。 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |

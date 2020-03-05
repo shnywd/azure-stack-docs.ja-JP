@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 51224171848b6109a7cd3d8eb2d5fa1fdcb70973
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f492eba4cd2fae28162eb47b990737a8f5b21c53
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875778"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77689530"
 ---
 # <a name="cross-cloud-scaling-on-premises-data-pattern"></a>クラウド間スケーリング (オンプレミスのデータ) パターン
 
@@ -34,7 +34,7 @@ Azure と Azure Stack Hub にまたがるハイブリッド アプリケーシ�
 
 このソリューションでは、次のコンポーネントを使用します。
 
-| レイヤー | コンポーネント | [説明] |
+| レイヤー | コンポーネント | 説明 |
 |----------|-----------|-------------|
 | Azure | Azure App Service | [Azure App Service](/azure/app-service/) を使用すると、Web アプリ、RESTful API アプリ、および Azure Functions を構築してホストすることができます。 すべて任意のプログラミング言語で行うことができ、インフラストラクチャを管理する必要はありません。 |
 | | Azure Virtual Network| [Azure Virtual Network (VNet)](/azure/virtual-network/virtual-networks-overview) は、Azure 内のプライベート ネットワークの基本的な構成ブロックです。 VNet により、Virtual Machines (VM) などのさまざまな種類の Azure リソースは、他の Azure リソース、インターネット、およびオンプレミスのネットワークと安全に通信することができます。 また、このソリューションでは、追加のネットワーク コンポーネントの使用方法も示します。<br>- アプリケーションとゲートウェイ サブネット<br>- ローカルのオンプレミス ネットワーク ゲートウェイ<br>- サイト間 VPN ゲートウェイ接続として機能する仮想ネットワーク ゲートウェイ<br>- パブリック IP アドレス<br>- ポイント対サイト VPN 接続<br>- DNS ドメインをホストし、名前解決を提供するための Azure DNS |

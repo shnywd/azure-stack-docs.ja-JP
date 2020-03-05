@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884739"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702433"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -118,17 +118,17 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 2. `getkuberneteslogs.sh` スクリプトに必要なパラメーターを探します。 このスクリプトでは、次のパラメーターが使用されます。
 
-    | パラメーター | [説明] | Required | 例 |
+    | パラメーター | 説明 | 必須 | 例 |
     | --- | --- | --- | --- |
-    | -h, --help | Print コマンドの使用方法。 | いいえ | 
+    | -h, --help | Print コマンドの使用方法。 | no | 
     -u,--user | クラスター VM の管理者ユーザー名 | はい | azureuser<br>(既定値) |
     | -i、--identity-file | Kubernetes クラスターの作成に使用される公開キーに関連付けられた RSA 秘密キー (' id_rsa ' と呼ばれることもあります)  | はい | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g, --resource-group    | Kubernetes クラスター リソース グループ | はい | k8sresourcegroup |
-    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | いいえ |   monitoring |
-    |       --api-model                    | Azure Stack Hub ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | いいえ | `./apimodel.json` |
-    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | いいえ | |
-    | --upload-logs                  | Azure Stack Hub ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | いいえ | |
-    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | いいえ | |
+    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | no |   monitoring |
+    |       --api-model                    | Azure Stack Hub ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | no | `./apimodel.json` |
+    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | no | |
+    | --upload-logs                  | Azure Stack Hub ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | no | |
+    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | no | |
 
 3. ご自分の情報を使用して、次のサンプル コマンドのいずれかを実行します。
 

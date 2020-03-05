@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882553"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704830"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
 
@@ -69,7 +69,7 @@ ms.locfileid: "76882553"
 
 次のセクションでは、**New-AzureRmResource** コマンドレットのパラメーターについて説明します。
 
-| パラメーター | [説明] |
+| パラメーター | 説明 |
 | --- | --- |
 |registrationSubscriptionID | Azure Stack Hub の初期登録に使用された Azure サブスクリプション。|
 | customerSubscriptionID | 登録する顧客が所有する (Azure Stack Hub ではない) Azure サブスクリプション。 CSP のオファー内で作成する必要があります。 実際には、パートナー センターを介することを意味します。 顧客が複数の Azure Active Directory テナントを持っている場合は、Azure Stack Hub へのログインに使用するテナントでこのサブスクリプションを作成する必要があります。 顧客サブスクリプション ID には、小文字を使用する必要があります。 |

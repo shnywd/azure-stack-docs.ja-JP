@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 211a2bf18643ff0c873969520f9bfae20d2ed89d
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 5199a9f3b8dcf9a3ac43d9563688cba8da949ce3
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77625409"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77704694"
 ---
 # <a name="validation-as-a-service-key-concepts"></a>サービスとしての検証の主要概念
 
@@ -65,7 +65,7 @@ VaaS でのテストは、Azure Stack Hub ソリューションに対して実�
 
 テスト パラメーターの詳細については、「[Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」をご覧ください。
 
-## <a name="agents"></a>[エージェント]
+## <a name="agents"></a>エージェント
 
 テストは VaaS エージェントによって実行されます。 VaaS テストを実行するエージェントには、次の 2 種類があります。
 

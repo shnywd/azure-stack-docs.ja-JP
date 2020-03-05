@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 08/10/2018
-ms.openlocfilehash: 99c43848af1d140c6698e1f4d1ae992665c0389a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/10/2019
+ms.openlocfilehash: f582f6061ebc2bbce7a3605ed7795b9ab5562738
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873840"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77695905"
 ---
 # <a name="download-and-extract-the-asdk"></a>ASDK のダウンロードと抽出
 開発キットのホスト コンピューターが Azure Stack Development Kit (ASDK) の基本的なインストール要件を満たしていることを確認した後、次の手順は ASDK デプロイ パッケージをダウンロードおよび抽出して Cloudbuilder.vhdx を取得することです。

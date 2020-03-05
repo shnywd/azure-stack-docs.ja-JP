@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: e77edd87f09f4e620c4388b8e5a277d49276bff2
-ms.sourcegitcommit: 97806b43314d306e0ddb15847c86be2c92ae001e
+ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77509434"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77698489"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -34,7 +34,7 @@ Azure Stack ソリューションには、その操作やサービスをサポ�
 
 次の表に、論理ネットワークと、計画する必要がある関連付けられた IPv4 サブネット範囲を示します。
 
-| 論理ネットワーク | 説明 | Size | 
+| 論理ネットワーク | 説明 | サイズ | 
 | -------- | ------------- | ------------ | 
 | パブリック VIP | Azure Stack では、このネットワークからの合計 31 個のアドレスが使用されます。 少数の Azure Stack サービスに 8 個のパブリック IP アドレスが使用されます。残りはテナント VM によって使用されます。 App Service と SQL リソース プロバイダーを使用する場合は、さらに 7 個のアドレスを使用します。 残りの 15 個の IP アドレスは、将来の Azure サービスのために予約されています。 | /26 (62 ホスト) - /22 (1022 ホスト)<br><br>推奨 = /24 (254 ホスト) | 
 | スイッチのインフラストラクチャ | ルーティングを目的としたポイント ツー ポイント IP アドレス (スイッチ管理専用インターフェイス) と、スイッチに割り当てられたループバック アドレス。 | /26 | 

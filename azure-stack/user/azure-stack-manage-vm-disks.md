@@ -7,12 +7,12 @@ ms.date: 12/03/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: a6f728e69eacab25941ef0640a35243d390fa4c7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883479"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77702484"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -103,7 +103,7 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 
      Standard ディスクのコストは、ディスクのサイズに応じて高くなります。 Premium ディスクのコストとパフォーマンスは、ディスクのサイズに応じて高くなります。 詳細については、「[Managed Disks の価格](https://go.microsoft.com/fwlink/?linkid=843142)」を参照してください。
 
-   * **作成** を選択します。 Azure Stack Hub でマネージド ディスクが作成されて検証されます。
+   * **［作成］** を選択します Azure Stack Hub でマネージド ディスクが作成されて検証されます。
 
 6. Azure Stack Hub でディスクが作成され、VM に接続されると、VM のディスク設定の **[データ ディスク]** に新しいディスクが表示されます。
 
