@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: abaa1405db1e3837c02cbc67e00cd3a593e9b98b
-ms.sourcegitcommit: a7db4594de43c31fe0c51e60e84fdaf4d41ef1bb
+ms.openlocfilehash: b376be7855300dab0177bbbe735d6a5bf34d6bb9
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/24/2020
-ms.locfileid: "77568573"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77701073"
 ---
 # <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする
 
@@ -385,7 +385,7 @@ Azure で Traffic Manager プロファイルを作成し、クラウド間スケ
    - **[リソース グループ]** で、このプロファイルの新しいリソース グループを作成します。
    - **[リソース グループの場所]** で、リソース グループの場所を選択します。 これはリソース グループの場所を指定する設定であり、グローバルにデプロイされる Traffic Manager プロファイルには影響しません。
 
-4. **作成** を選択します。
+4. **［作成］** を選択します
 
     ![Traffic Manager プロファイルを作成する](media/solution-deployment-guide-hybrid/image19.png)
 
