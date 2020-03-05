@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 9aa6104e3f6a93d55db82d4bd9ae21ef54601bf2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884182"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77694545"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Azure Stack Hub でユーザー用にサービス オファリングを作成する
 
@@ -101,7 +101,7 @@ Azure Stack Hub では、リソース プロバイダーに 2 つの一般的な
 
    ![Azure Stack Hub 管理ポータル内でのコンピューティング クォータの作成](media/tutorial-offer-services/6-create-new-plan-quotas.png)
 
-1. **[確認および作成]** タブを選択します。新しい基本プランを作成する準備ができたことを示す緑色の [検証に成功しました] バナーが、上部に表示されます。 **作成** を選択します。 また、プランが作成されたことを示す通知も表示されます。
+1. **[確認および作成]** タブを選択します。新しい基本プランを作成する準備ができたことを示す緑色の [検証に成功しました] バナーが、上部に表示されます。 **［作成］** を選択します また、プランが作成されたことを示す通知も表示されます。
 
    ![Azure Stack Hub 管理ポータル内での新しいプランの作成](media/tutorial-offer-services/7-create-new-plan-review-create.png)
 

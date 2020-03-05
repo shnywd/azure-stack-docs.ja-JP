@@ -6,13 +6,13 @@ ms.topic: overview
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: ab6d3e378c4a6f40e597367f06d9e5c4e31eb0c3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/02/20
+ms.openlocfilehash: 3166982098c68760f4f20f4094038f2ab275b73f
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883763"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77703062"
 ---
 # <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub で VM に Node.js Web アプリをデプロイする
 
@@ -24,7 +24,7 @@ Azure Stack Hub で Node.js Web アプリをホストする仮想マシン (VM) 
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
-    | Port | Protocol | [説明] |
+    | Port | Protocol | 説明 |
     | --- | --- | --- |
     | 80 | HTTP | ハイパーテキスト転送プロトコル (HTTP) は、サーバーからの Web ページの配信に使用されるプロトコルです。 クライアントは、DNS 名または IP アドレスを使用して HTTP 経由で接続されます。 |
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |

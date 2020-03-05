@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: d02b500fce65464ecc27e8fbbd6edbbf7c6882b3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873313"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77691349"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK のトラブルシューティング
 この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 Azure Stack 統合システムに関するヘルプについては、「[Microsoft Azure Stack のトラブルシューティング](../operator/azure-stack-troubleshooting.md)」を参照してください。 

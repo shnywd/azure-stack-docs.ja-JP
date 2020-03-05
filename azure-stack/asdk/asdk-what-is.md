@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 7d3b4115ea34a185c5535c77cecdddf060ed84eb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
+ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873296"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77690550"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Azure Stack 開発キット (ASDK) とは
 [Microsoft Azure Stack Hub 統合システム](../operator/azure-stack-overview.md)には 4 ノードから 16 ノードまでのサイズがあり、ハードウェア パートナーと Microsoft によって共同でサポートされます。 Azure Stack Hub 統合システムの使用により、運用ワークロード向けの新しいシナリオが可能になります。 統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack Hub オペレーターは、[オペレーター ドキュメント](/azure-stack/operator)を参照してください。
@@ -36,7 +36,7 @@ ASDK の詳細については、次の短い動画をご覧ください。
 ## <a name="asdk-and-multi-node-azure-stack-hub-differences"></a>ASDK とマルチノード Azure Stack Hub の相違点
 単一ノードの ASDK デプロイは、マルチノードの Azure Stack Hub デプロイとはいくつかの重要な点で異なります。
 
-|[説明]|ASDK|マルチノード Azure Stack Hub|
+|説明|ASDK|マルチノード Azure Stack Hub|
 |-----|-----|-----|
 |**スケール**|すべてのコンポーネントが、単一ノードのサーバー コンピューターにインストールされます。|サイズは 4 から 16 ノードの範囲で設定できます。|
 |**回復力**|単一ノードの構成では、高可用性は提供されません|高可用性機能がサポートされています。|
