@@ -4,6 +4,10 @@
   items:
     - name: Azure Stack HCI とは
       href: overview.md
+- name: 管理する
+  items:
+    - name: ボリュームの作成
+      href: manage/create-volumes.md
 - name: リファレンス
   items:
     - name: Hyper-V PowerShell コマンド
