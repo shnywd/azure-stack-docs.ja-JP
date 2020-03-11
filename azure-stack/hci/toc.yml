@@ -8,6 +8,20 @@
   items:
     - name: ボリュームの作成
       href: manage/create-volumes.md
+    - name: ボリュームの拡張
+      href: manage/extend-volumes.md
+    - name: ボリュームを削除する
+      href: manage/delete-volumes.md
+    - name: ドライブの交換
+      href: manage/replace-drives.md
+- name: 概念
+  items:
+    - name: キャッシュの理解
+      href: concepts/cache.md
+    - name: フォールト トレランスとストレージの効率性
+      href: concepts/fault-tolerance.md
+    - name: クラスターと記憶域プールのクォーラム
+      href: concepts/quorum.md
 - name: リファレンス
   items:
     - name: Hyper-V PowerShell コマンド
