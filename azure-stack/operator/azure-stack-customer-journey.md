@@ -2,17 +2,17 @@
 title: Azure Stack Hub データセンターの統合のチュートリアル
 description: 計画からデプロイ後まで、データセンターでの Azure Stack Hub のオンサイト デプロイの成功のために期待されることについて学習します。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 11/07/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 4ac479607aae5921f322942452de48840662bfc7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700325"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78368846"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub データセンターの統合のチュートリアル
 

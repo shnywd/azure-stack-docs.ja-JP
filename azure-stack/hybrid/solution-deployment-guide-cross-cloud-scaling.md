@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 9788c875e5d2f40f2ed6e644537f4d13ffa80f5a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 41c6b4e5adf7b659bf9db30eb8a3906c257f5473
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701158"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366247"
 ---
 # <a name="deploy-an-app-that-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用してクロスクラウドをスケーリングするアプリをデプロイする
 
@@ -107,7 +107,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>両方のクラウドで App Services の自己完結型 Web アプリ デプロイを作成する
 
-1.  **WebApplication.csproj** ファイルを編集します。 `Runtimeidentifier` を選択し、`win10-x64` を追加します。 (「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)」に関するドキュメントを参照してください)。 
+1.  **WebApplication.csproj** ファイルを編集します。 `Runtimeidentifier` を選択し、`win10-x64` を追加します。 (「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)」に関するドキュメントを参照してください)。 
 
     ![Web アプリ プロジェクト ファイルを編集する](media/solution-deployment-guide-cross-cloud-scaling/image3.png)
 
@@ -123,7 +123,7 @@ Azure Repos
 
     ![Web アプリにコードを追加する](media/solution-deployment-guide-cross-cloud-scaling/image4.png)
 
-3. ビルドを実行します。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)のプロセスにより、Azure 上と Azure Stack Hub 上で実行される成果物が発行されます。
+3. ビルドを実行します。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)のプロセスにより、Azure 上と Azure Stack Hub 上で実行される成果物が発行されます。
 
 ## <a name="use-an-azure-hosted-agent"></a>Azure でホストされるエージェントを使用する
 
@@ -266,7 +266,7 @@ Azure Repos から [Azure Resource Manager テンプレート](https://azure.mic
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>両方のクラウドで App Services の自己完結型 Web アプリ デプロイを作成する
 
-1.  **WebApplication.csproj** ファイルを編集します。`Runtimeidentifier` を選択し、`win10-x64` を追加します。 詳細については、「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)」に関するドキュメントを参照してください。
+1.  **WebApplication.csproj** ファイルを編集します。`Runtimeidentifier` を選択し、`win10-x64` を追加します。 詳細については、「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)」に関するドキュメントを参照してください。
 
 2.  チーム エクスプローラーを使用して、コードを Azure Repos にチェックインします。
 
@@ -280,7 +280,7 @@ Azure Repos から [Azure Resource Manager テンプレート](https://azure.mic
 
 3.  **[引数]** に **-r win10-x64** コードを追加します。 この追加は、.NET Core を使用して自己完結型のデプロイをトリガーするために必要です。
 
-4.  ビルドを実行します。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)のプロセスにより、Azure および Azure Stack Hub 上で実行できる成果物が発行されます。
+4.  ビルドを実行します。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)のプロセスにより、Azure および Azure Stack Hub 上で実行できる成果物が発行されます。
 
 #### <a name="use-an-azure-hosted-build-agent"></a>Azure ホスト ビルド エージェントを使用する
 

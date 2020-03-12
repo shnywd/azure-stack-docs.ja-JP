@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 2dbff36dba8739661b88b58ef27eec49597646bc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701005"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366281"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
 
@@ -113,7 +113,7 @@ Azure サブスクリプションと Azure Stack Hub のインストールが必
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>両方のクラウドで Web アプリ デプロイを作成する
 
-1.  **WebApplication.csproj** ファイルを編集します。`Runtimeidentifier` を選択し、`win10-x64` を追加します。 (「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)」に関するドキュメントを参照してください)。
+1.  **WebApplication.csproj** ファイルを編集します。`Runtimeidentifier` を選択し、`win10-x64` を追加します。 (「[自己完結型デプロイ](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)」に関するドキュメントを参照してください)。
 
     ![Visual Studio で Web アプリケーション プロジェクト ファイルを編集する](media/solution-deployment-guide-geo-distributed/image3.png)
 
@@ -129,7 +129,7 @@ Azure サブスクリプションと Azure Stack Hub のインストールが必
 
     ![ビルド定義にコードを追加する](media/solution-deployment-guide-geo-distributed/image4.png)
 
-3. **ビルドを実行します**。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)のプロセスにより、Azure および Azure Stack Hub 上で実行できる成果物が発行されます。
+3. **ビルドを実行します**。 [自己完結型のデプロイ ビルド](https://docs.microsoft.com/dotnet/core/deploying/deploy-with-vs#simpleSelf)のプロセスにより、Azure および Azure Stack Hub 上で実行できる成果物が発行されます。
 
 **Azure ホステッド エージェントを使用する**
 

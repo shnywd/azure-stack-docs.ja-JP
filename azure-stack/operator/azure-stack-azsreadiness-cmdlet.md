@@ -2,17 +2,17 @@
 title: Start-AzsReadinessChecker コマンドレット リファレンス
 description: PowerShell コマンドレットは、Azure Stack Hub 適合性チェッカー モジュールを助けるものです。
 author: IngridAtMicrosoft
-ms.topic: conceptual
-ms.date: 01/07/2020
+ms.topic: reference
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 588808f93ae23af3aaed37686474490bc402c566
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0b81915cd7a95bede1edcbfa0f84ea8a5f38513d
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695480"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366062"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 

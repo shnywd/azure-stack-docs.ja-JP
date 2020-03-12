@@ -3,16 +3,16 @@ title: Azure Stack Hub でストレージ アカウントを作成する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でストレージ アカウントを作成する方法について説明します。
 author: IngridAtMicrosoft
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 77f0ebf58f20943de39975d913c7019578c73d0e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2d4085605fc37e95c3f68db074d4a517f5296a7a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698166"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78367915"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントを作成する
 

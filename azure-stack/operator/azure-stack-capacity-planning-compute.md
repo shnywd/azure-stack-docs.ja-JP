@@ -2,17 +2,17 @@
 title: Azure Stack Hub のコンピューティング能力
 description: Azure Stack Hub デプロイのためのコンピューティング能力の計画について説明します。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/16/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: fd67c1bc02c16bc15eb569418bcb5d4914eca222
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77688663"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366349"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -76,10 +76,10 @@ VM の配置に利用可能なメモリ = ホストの合計メモリ - 回復�
 回復性のための予約 = H + R * ((N-1) * H) + V * (N-2)
 
 > 各値の説明:
-> - H = 単一サーバーのメモリ サイズ
+> -    H = 単一サーバーのメモリ サイズ
 > - N = スケール ユニットのサイズ (サーバーの数)
-> - R = OS オーバーヘッドのためのオペレーティング システムの予約 (この数式では 0.15)<sup>2</sup>
-> - V = スケール ユニット内の最大 VM
+> -    R = OS オーバーヘッドのためのオペレーティング システムの予約 (この数式では 0.15)<sup>2</sup>
+> -    V = スケール ユニット内の最大 VM
 
 <sup>1</sup> Azure Stack Hub インフラストラクチャのオーバーヘッド = 242 GB + (4 GB x ノード数)。 約 31 個の VM が Azure Stack Hub のインフラストラクチャをホストするために使用され、合計で約 242 GB + (4 GB x ノード数) のメモリと 146 個の仮想コアが消費されます。 この VM の数の論理的根拠は、セキュリティ、スケーラビリティ、サービス提供および修正プログラムの適用に関する要件を満たすために必要なサービス分離を行うことです。 この内部サービス構造により、今後、新しいインフラストラクチャ サービスが開発されたときに、そのサービスを導入できるようになります。
 
