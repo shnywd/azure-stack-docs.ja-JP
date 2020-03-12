@@ -16,6 +16,10 @@
       href: manage/replace-drives.md
 - name: 概念
   items:
+    - name: ドライブの選択
+      href: concepts/choose-drives.md
+    - name: ボリュームの計画
+      href: concepts/plan-volumes.md
     - name: キャッシュの理解
       href: concepts/cache.md
     - name: フォールト トレランスとストレージの効率性
