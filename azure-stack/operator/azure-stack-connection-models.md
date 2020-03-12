@@ -2,17 +2,17 @@
 title: Azure Stack Hub 統合システムの接続モデル
 description: Azure Stack Hub 統合システムに対して接続モデルとその他のデプロイ計画を決定します。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 1/22/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 620e88bcf20f9744ab91d2450da2a8570369cc14
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695191"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364046"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack Hub 統合システムの接続モデル
 Azure Stack Hub 統合システムの購入に関心をお持ちの場合は、このシステムがご利用のデータセンターにどのように適合するかを判断するために、Azure Stack Hub のデプロイに関する[データセンターの統合のいくつかの考慮事項](azure-stack-datacenter-integration.md)を理解する必要があります。 さらに、Azure Stack Hub をハイブリッド クラウド環境にどのように統合するかを決定する必要があります。 この記事では、Azure 接続モデル、ID ストア オプション、課金モデル オプションなど、これらの主な決定の概要について示します。
@@ -28,7 +28,7 @@ Azure Stack Hub をインターネット (および Azure) に接続した状態
 > これは重要な意思決定のポイントです。 Active Directory フェデレーション サービス (AD FS) または Azure Active Directory (Azure AD) の選択は、デプロイ時に行う必要がある 1 回限りの決定です。 システム全体を再デプロイせずに、後でこれを変更することはできません。  
 
 
-|オプション|Azure への接続|Azure からの切断|
+|Options|Azure への接続|Azure からの切断|
 |-----|:-----:|:-----:|
 |Azure AD|![サポートされています](media/azure-stack-connection-models/check.png)| |
 |AD FS|![サポートされています](media/azure-stack-connection-models/check.png)|![サポートされています](media/azure-stack-connection-models/check.png)|

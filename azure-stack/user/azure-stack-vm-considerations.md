@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: ba6e4483475b97b6803781f5b7c5d29d94cbe896
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705136"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78364804"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -25,7 +25,7 @@ Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラ�
 | 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Hub Marketplace に使用可能なイメージはありません。 Azure Stack Hub のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Hub Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
 | VHD 世代 | 第 2 世代 VM では、第 1 世代 VM ではサポートされていない重要な機能がサポートされています。 これらの機能には、メモリの増加、Intel ソフトウェア ガード エクステンションズ (Intel SGX)、および仮想化された永続メモリ (vPMEM) が含まれます。 オンプレミスで実行される第 2 世代 VM には、Azure ではまだサポートされていない機能がいくつかあります。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。  | Azure Stack Hub でサポートされるのは、第 1 世代 VM のみです。 第 1 世代 VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。 |
 | 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack Hub は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
-| 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack Hub のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
+| 仮想マシンのクォータ | [クォータ制限](/azure/azure-resource-manager/management/azure-subscription-service-limits#managing-limits)は Microsoft によって設定されます | Azure Stack Hub のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
 | 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack Hub は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack Hub のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
 | 仮想マシンのネットワーク | テナントの VM に割り当てられたパブリック IP アドレスは、インターネット経由でアクセスできます。<br><br><br>Azure VM には固定の DNS 名があります。 | テナントの VM に割り当てられたパブリック IP アドレスにアクセスできるのは、Azure Stack Development Kit 環境内のみです。 ユーザーは、Azure Stack Hub で作成される VM に接続するためには、[RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) または [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) 経由で Azure Stack Development Kit にアクセスできる必要があります。<br><br>特定の Azure Stack Hub インスタンス内に作成された VM には、クラウド管理者が構成した値に基づく DNS 名があります。 |
 | 仮想マシンのストレージ | [マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)をサポートしています。 | マネージド ディスクは、バージョン 1808 以降の Azure Stack Hub でサポートされています。 |

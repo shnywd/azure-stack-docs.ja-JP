@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: b6186a836ac38d94c3b15aa7de45ebc80a8accd1
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
+ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696194"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78366417"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い
 
@@ -29,7 +29,7 @@ Microsoft Azure は、ビジネス上の課題への対応を支援するため�
 
 グローバル Azure では、世界 54 の地域で 100 を超えるサービスが提供されています。 グローバル Azure サービスの最新の一覧については、「[*リージョン別の利用可能な製品*](https://azure.microsoft.com/regions/services)」を参照してください。 Azure で利用可能なサービスがカテゴリ別に一覧表示され、一般提供かプレビューかも示されます。
 
-グローバル Azure サービスについて詳しくは、[Azure の作業開始](https://docs.microsoft.com/azure/#pivot=get-started&panel=get-started1)に関するページをご覧ください。
+グローバル Azure サービスについて詳しくは、[Azure の作業開始](https://docs.microsoft.com/azure/?pivot=get-started&panel=get-started1)に関するページをご覧ください。
 
 ## <a name="azure-stack-hub"></a>Azure Stack Hub
 
