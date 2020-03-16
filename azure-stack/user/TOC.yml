@@ -63,6 +63,8 @@
               href: azure-stack-install-visual-studio.md
             - name: Secure Shell を使用する
               href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: ssh-keygen を使用してキーを作成する
+              href: create-ssh-key-on-windows.md
             - name: API と共に REST クライアントを使用する
               href: azure-stack-rest-api-use.md
         - name: Azure Stack Hub Resource Manager テンプレートを使用する
@@ -210,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-deploy-windows.md
                     - name: クラスターのデプロイ
                       href: azure-stack-kubernetes-aks-engine-deploy-cluster.md
+                    - name: カスタム仮想ネットワークへのデプロイ
+                      href: kubernetes-aks-engine-custom-vnet.md
                     - name: クラスターのスケーリング
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: クラスターのアップグレード
