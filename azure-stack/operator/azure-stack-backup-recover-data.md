@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 00eba2158fcb4e5a2e18f88d0493e1bb2e7c3b3d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
+ms.sourcegitcommit: 8198753ebafd69d0dbfc6b3548defbd70f4c79c1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703589"
+ms.lasthandoff: 03/09/2020
+ms.locfileid: "78935053"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -28,7 +28,7 @@ Azure Stack Hub は、データセンターで Azure サービスを実行し、
 
 ## <a name="workflows"></a>Workflows
 
-Azure Stack を保護する過程は、インフラストラクチャとアプリおよびテナントのデータを別々にバックアップすることから始まります。 このドキュメントでは、インフラストラクチャを保護する方法について説明します。 
+Azure Stack Hub を保護する過程は、インフラストラクチャとアプリおよびテナントのデータを別々にバックアップすることから始まります。 このドキュメントでは、インフラストラクチャを保護する方法について説明します。 
 
 ![Azure Stack Hub のデータ回復ワークフロー — デプロイ](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 

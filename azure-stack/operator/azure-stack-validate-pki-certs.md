@@ -5,17 +5,17 @@ description: Azure Stack Hub 適合性チェック ツールを使用して、Az
 services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 07/23/2019
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 210157878b6f5a97b4c9a99f9a7f734587a0da46
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696347"
+ms.lasthandoff: 03/10/2020
+ms.locfileid: "79025239"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 
@@ -89,11 +89,11 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. PowerShell ウィンドウで、Azure Stack Hub 環境に合わせて `RegionName` と `FQDN` の値を変更し、次のコマンドレットを実行します。
+3. PowerShell ウィンドウで、Azure Stack Hub 環境に合わせて `RegionName`、`FQDN`、および `IdentitySystem` の値を変更し、次のコマンドレットを実行します。
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
-    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com  
+    Invoke-AzsCertificateValidation -CertificateType Deployment -CertificatePath C:\Certificates\Deployment -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD  
     ```
 
 4. 出力を確認し、すべての証明書がすべてのテストに合格していることを確認します。 次に例を示します。
