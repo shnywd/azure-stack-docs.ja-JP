@@ -8,12 +8,12 @@ ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ef90476685a786549ed239429a222fbd561f6d15
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fec8ac1797ef3fb6ce17b7173d813aff74ba3712
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696755"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512334"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -87,7 +87,7 @@ PowerShell を使用して、CSS を利用せずに、スタンプ使用状況�
 4. invoke-command 呼び出しを使用して、`get-azurestacklog -filterbyrole seedring` を実行します。
 5. seedring .zip を抽出します。 `test-azurestack` を実行した ERCS フォルダーから、検証レポートを取得することができます。
 
-詳細については、[Azure Stack Hub の診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関する記述を参照してください。
+詳細については、[Azure Stack Hub の診断](azure-stack-get-azurestacklog.md)に関する記述を参照してください。
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>仮想マシン (VM) のトラブルシューティングを行う
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub 内の仮想マシンに Python Web アプリをデプロ
 description: Azure Stack Hub 内の仮想マシンに Python Web アプリをデプロイします。
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 3a5eb2667c290eba41a347209608db96c9ce5598
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: 700589e985aa651a1a7ae4a5ffbc020b8e6a2d3f
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704133"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313014"
 ---
 # <a name="deploy-a-python-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Python Web アプリをデプロイする
 
@@ -66,9 +66,9 @@ Azure Stack Hub でご自分の Python Web アプリをホストする VM を作
 1. VM 上でご自分の Git リポジトリを設定します。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
 
     ```bash  
-       git clone https://github.com/mattbriggs/flask-hello-world.git
+       git clone https://github.com/Azure-Samples/azure-stack-hub-flask-hello-world.git
     
-       cd flask-hello-world
+       cd azure-stack-hub-flask-hello-world
     ```
 
 2. 仮想環境を作成し、そこにパッケージの依存関係をすべて設定します。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。

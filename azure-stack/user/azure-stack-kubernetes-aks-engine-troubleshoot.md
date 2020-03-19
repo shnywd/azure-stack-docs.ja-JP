@@ -7,12 +7,12 @@ ms.date: 11/21/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 202a6269dfc978747b3d1c4dc754b19490911046
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: aa41ddde0986716e49073d571e967a050ef660f6
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702433"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79313021"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -84,7 +84,7 @@ AKS エンジンによって作成されたレビュー情報にアクセスで�
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes のログの収集
 
-AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://aka.ms/aa6z613) を使用して収集できます。
+AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) を使用して収集できます。
 
 このスクリプトにより、次のログの収集プロセスが自動化されます。 
 

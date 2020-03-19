@@ -7,19 +7,19 @@ ms.date: 01/16/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: a0f905a0f6238a0303cacb71e5864ac05b223595
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f17f835c88851d03d7ef1905cbac96b9f6701d8e
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77701549"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512220"
 ---
 # <a name="collect-azure-stack-hub-diagnostic-logs-on-demand"></a>オンデマンドで Azure Stack Hub 診断ログを収集する
 
 トラブルシューティングの一環として、Microsoft カスタマー サポート サービス (CSS) が診断ログを分析する必要がある場合があります。 1907 リリース以降、Azure Stack Hub オペレーターは、**ヘルプとサポート**を使用して、診断ログを Azure の BLOB コンテナーにアップロードできます。 PowerShell を使用する以前の方法よりも簡単であるため、**ヘルプとサポート**を使用することをお勧めします。 ただし、ポータルが使用できない場合、オペレーターは引き続き以前のリリースと同様に特権エンドポイント (PEP) 経由で **Get-AzureStackLog** を使用してログを収集できます。 このトピックでは、オンデマンドで診断ログを収集する両方の方法について説明します。
 
 >[!Note]
->必要に応じたログ収集の代わりとして、[自動による診断ログの収集](azure-stack-configure-automatic-diagnostic-log-collection.md)を有効化することで、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、分析のために、CSS によってログが自動的にアップロードされます。 
+>必要に応じたログ収集の代わりとして、[自動による診断ログの収集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)を有効化することで、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、分析のために、CSS によってログが自動的にアップロードされます。 
 
 ## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>ヘルプとサポートを使用して必要に応じて診断ログを収集する
 

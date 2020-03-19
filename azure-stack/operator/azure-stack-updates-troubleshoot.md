@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: aaedd7f4985ae96c051ef2be427002592134e00b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 6cf5d83b9fdf71ba68506c760112635910d26eb3
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367312"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512317"
 ---
 # <a name="best-practices-for-troubleshooting-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス
 
@@ -21,10 +21,10 @@ ms.locfileid: "78367312"
 
 Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
 
-0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[自動ログ収集を構成済み](azure-stack-configure-automatic-diagnostic-log-collection.md)であることを確認してください。
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[自動ログ収集を構成済み](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)であることを確認してください。
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
 2. [Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題](#common-azure-stack-hub-patch-and-update-issues)を確認し、起きた問題が示されている場合は推奨されている操作を行います。
-3. 上記の手順で問題を解決できない場合は、[Azure Stack Hub のサポート チケット](azure-stack-help-and-support-overview.md)を作成します。 問題が発生した期間に[収集されたログ](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection)があることを確認してください。
+3. 上記の手順で問題を解決できない場合は、[Azure Stack Hub のサポート チケット](azure-stack-help-and-support-overview-tzl.md)を作成します。 問題が発生した期間に[収集されたログ](https://docs.microsoft.com/azure-stack/operator/azure-stack-configure-on-demand-diagnostic-log-collection)があることを確認してください。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
 
@@ -43,4 +43,4 @@ Azure Stack Hub の修正プログラムと更新プログラムのプロセス�
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub の更新](azure-stack-updates.md)  
-- [Microsoft Azure Stack Hub のヘルプとサポート](azure-stack-help-and-support-overview.md)
+- [Microsoft Azure Stack Hub のヘルプとサポート](azure-stack-help-and-support-overview-tzl.md)

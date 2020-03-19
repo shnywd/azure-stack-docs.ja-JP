@@ -7,12 +7,12 @@ ms.date: 07/25/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/25/2019
-ms.openlocfilehash: c14c2cf0d65c29ea7b2968558e89a20b504d8f53
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a99519d12109716c296e58b4525748229513a747
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700478"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511965"
 ---
 # <a name="best-practices-for-automatic-azure-stack-hub-log-collection"></a>自動 Azure Stack Hub ログ収集のベスト プラクティス 
 
@@ -20,7 +20,7 @@ ms.locfileid: "77700478"
 
 ## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>複数の Azure Stack Hub システムからのログの収集
 
-ログを収集する Azure Stack Hub スケールユニットごとに 1 つの BLOB コンテナーを設定します。 BLOB コンテナーを構成する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください。 ベスト プラクティスとして、単一の BLOB コンテナー内の同じ Azure Stack Hub スケール ユニットからの診断ログのみを保存します。 
+ログを収集する Azure Stack Hub スケールユニットごとに 1 つの BLOB コンテナーを設定します。 BLOB コンテナーを構成する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)」を参照してください。 ベスト プラクティスとして、単一の BLOB コンテナー内の同じ Azure Stack Hub スケール ユニットからの診断ログのみを保存します。 
 
 ## <a name="retention-policy"></a>Retention ポリシー
 
@@ -58,9 +58,9 @@ SAS URL の有効期限を 2 年に設定します。 ストレージ アカウ�
 
 ## <a name="managing-costs"></a>コストの管理
 
-Azure [BLOB ストレージの料金](https://azure.microsoft.com/pricing/details/storage/blobs/)は、毎月保存されるデータの量と、データの冗長性などのその他の要因によって異なります。 既存のストレージアカウントがない場合は、Azure portal にサインインし、 **[ストレージ アカウント]** をクリックし、手順に従って、[Azure BLOB コンテナーの SAS URL を作成](azure-stack-configure-automatic-diagnostic-log-collection.md)します。
+Azure [BLOB ストレージの料金](https://azure.microsoft.com/pricing/details/storage/blobs/)は、毎月保存されるデータの量と、データの冗長性などのその他の要因によって異なります。 既存のストレージアカウントがない場合は、Azure portal にサインインし、 **[ストレージ アカウント]** をクリックし、手順に従って、[Azure BLOB コンテナーの SAS URL を作成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)します。
 
-ベスト プラクティスとして、Azure BLOB ストレージ [ライフサイクル管理ポリシー](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、継続的なストレージ コストを最小限に抑えます。 ストレージ アカウントを設定する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください
+ベスト プラクティスとして、Azure BLOB ストレージ [ライフサイクル管理ポリシー](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、継続的なストレージ コストを最小限に抑えます。 ストレージ アカウントを設定する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)」を参照してください
 
 ## <a name="see-also"></a>関連項目
 

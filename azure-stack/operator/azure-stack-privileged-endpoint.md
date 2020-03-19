@@ -7,12 +7,12 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 7dc570ede3f953b4886971ea827fe69b881b5b89
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698149"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512441"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
@@ -20,7 +20,7 @@ Azure Stack Hub オペレーターは、管理ポータル、PowerShell、また
 
 PEP を使用すると、次のタスクを実行できます。
 
-- [診断ログの収集](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)などの低レベル タスク。
+- [診断ログの収集](azure-stack-get-azurestacklog.md)などの低レベル タスク。
 - デプロイ後のドメイン ネーム システム (DNS) フォワーダーの追加や、Microsoft Graph 統合、Active Directory フェデレーション サービス (AD FS) 統合、証明書ローテーションの設定など、統合システムのための多くのデプロイ後データセンター統合タスク。
 - 統合システムの詳細なトラブルシューティングのために、サポート部門と連携して一時的な高レベル アクセスを取得。
 
@@ -197,4 +197,4 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Hub の診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)
+[Azure Stack Hub の診断ツール](azure-stack-diagnostic-log-collection-overview-tzl.md)

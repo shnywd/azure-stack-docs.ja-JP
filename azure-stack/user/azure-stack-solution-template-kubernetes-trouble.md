@@ -7,12 +7,12 @@ ms.author: mabrigg
 ms.date: 11/14/2019
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 80222728bca3aa65fd211ccc5ef5700d0a15f397
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0d9e1512cab3ad33bba5cfa2d4f57128edf51cf2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703623"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512594"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
@@ -85,7 +85,7 @@ Kubernetes クラスターをサポートしている VM のデプロイ ログ�
     - VM の完全修飾ドメイン名 (FQDN) は重複するプレフィックスで始まっていることを確認してください。
 5.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - Azure Stack Hub 管理者に連絡して、特権付きエンドポイントを使用して Azure Stack Hub のログを取得してください。 詳細については、[Azure Stack Hub の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関するページを参照してください。
+    - Azure Stack Hub 管理者に連絡して、特権付きエンドポイントを使用して Azure Stack Hub のログを取得してください。 詳細については、[Azure Stack Hub の診断ツール](../operator/azure-stack-get-azurestacklog.md)に関するページを参照してください。
 5. デプロイに関して質問がある場合は、[Azure Stack Hub フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 

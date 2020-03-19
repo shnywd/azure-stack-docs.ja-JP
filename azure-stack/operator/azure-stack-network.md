@@ -2,17 +2,17 @@
 title: Azure Stack Hub のためのネットワーク統合計画
 description: Azure Stack Hub 統合システムとのデータセンターのネットワーク統合を計画する方法について説明します。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 02/18/2020
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: c783a22ea284413d7db79ab4925db6d8c58858ea
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698489"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295474"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
