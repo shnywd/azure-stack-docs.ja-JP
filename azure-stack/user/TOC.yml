@@ -2,6 +2,8 @@
   href: index.yml
 - name: 概要
   items:
+    - name: Azure Stack Hub とは
+      href: user-overview.md
     - name: 重要な考慮事項
       href: azure-stack-considerations.md
 - name: クイックスタート
