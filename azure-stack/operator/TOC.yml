@@ -136,10 +136,6 @@
           items:
             - name: PowerShell RM のインストール
               href: azure-stack-powershell-install.md
-            - name: PowerShell Az のインストール
-              href: powershell-install-az-module.md
-            - name: PowerShell AzureRM の Az への移行
-              href: migrate-azurerm-az.md
             - name: ツールのダウンロード
               href: azure-stack-powershell-download.md
             - name: PowerShell で接続する
@@ -252,7 +248,7 @@
           href: azure-stack-supported-os.md
         - name: 仮想マシン スケール セットの提供
           href: azure-stack-compute-add-scalesets.md
-        - name: Marketplace の Windows Server の FAQ
+        - name: Azure Stack Hub Marketplace のよくあるご質問
           href: azure-stack-windows-server-faq.md
         - name: Linux 仮想マシンの提供
           href: azure-stack-linux.md
