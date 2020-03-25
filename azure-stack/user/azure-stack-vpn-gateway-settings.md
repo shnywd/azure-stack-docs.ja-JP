@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: b762dfa9897ac732df7c09858ef3a5d25357f1d7
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: b8f7be7885bd4565a13983d858c1f10b30df20b3
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705051"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295570"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイ設定の構成
 
@@ -154,6 +154,10 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 Azure Stack Hub で VPN 接続を設定する場合、両端で接続を構成する必要があります。 VPN ゲートウェイとして動作するスイッチやルーターなどのハードウェア デバイスと Azure Stack Hub との間で VPN 接続を構成している場合、そのデバイスには追加の設定が必要になることがあります。
 
 イニシエーターとレスポンダーの両方として複数のオファーをサポートしている Azure とは異なり、Azure Stack Hub は、既定では 1 つのオファーだけをサポートします。 VPN デバイスを操作するために異なる IPSec/IKE 設定を使用する必要がある場合は、接続を手動で構成するために使用できる設定が他にもあります。 詳細については、「[サイト間 VPN 接続の IPsec/IKE ポリシーを構成する](azure-stack-vpn-s2s.md)」を参照してください。
+
+> [!IMPORTANT] 
+> S2S トンネルを使用する場合、パケットはさらに追加のヘッダーでカプセル化され、パケットの全体的なサイズが増加します。 これらのシナリオでは、TCP **MSS** を **1350** で固定する必要があります。 お使いの VPN デバイスで MSS クランプがサポートされていない場合、別の方法として、トンネル インターフェイスの **MTU** を **1400** バイトに設定することができます。 詳細については、[仮想ネットワーク TCPIP パフォーマンス チューニング] (virtual-network-tcpip-performance-tuning.md) を参照してください。 
+>
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>IKE フェーズ 1 (メイン モード) のパラメーター
 

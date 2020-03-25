@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: d909786e3cf3bacbf981fc2150f20084d283e81b
-ms.sourcegitcommit: c653efe7cd5177bf61c1a321ba7f38c0cdf90346
+ms.lastreviewed: 12/23/2019
+ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
+ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77575154"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79295192"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -91,6 +91,8 @@ Azure Stack Hub のインターネット接続が制限されている場合や�
   ```
   Install-Module -Name Azs.Syndication.Admin
   ```
+  
+- .NET Framework 4.7 以降のバージョン。
 
 Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理\) ブレードに表示される次のメッセージは、切断されたユース ケースには関係ないため無視できます。
 
@@ -111,7 +113,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
    Azure アカウントの資格情報の入力を求めるメッセージが表示されます。アカウントの構成によっては、2 要素認証を使用する必要があります。
 
    > [!NOTE]
-   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、コマンドレット **Remove-AzureRmAccount-Scope Process** を実行します。
+   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
 
 3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、登録に使用したものを選択します。
 

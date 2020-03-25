@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: f852aa2165f51c0a57f09ea94b872de015535923
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: eeca00875a13b8f67ccaeab38f124d17979d1a7c
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77687395"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511999"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
@@ -30,9 +30,11 @@ Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレ�
 |レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ|ローカル冗長ストレージ。
 |Premium Storage|ハイ パフォーマンスで待機時間の短いストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。
 |マネージド ディスク|Premium および標準がサポートされます|使用バージョンが 1808 以降の場合にサポートされます。
+|マネージド ディスクのスナップショット|一般提供|サポートされています。
+|マネージド ディスクの増分スナップショット|一般提供|まだサポートされていません。
 |BLOB 名|1,024 文字 (2,048 バイト)|880 文字 (1,760 バイト)
 |ブロック BLOB の最大サイズ|4.75 TB (100 MB X 50,000 ブロック)|1802 update 以降のバージョンでは、4.75 TB (100 MB x 50,000 ブロック)。 それより前のバージョンでは 50,000 X 4 MB (約 195 GB)。
-|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています|まだサポートされていません。
+|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています|[非同期操作としての API](azure-stack-acs-differences.md) でサポートされています。
 |ページ BLOB の増分スナップショットのコピー|Premium および標準の Azure ページ BLOB がサポートされます|まだサポートされていません。
 |ページ BLOB の課金|一意のページに対する料金が発生します。そのページが BLOB とスナップショットのどちらに含まれているかは関係ありません。 BLOB に関連付けられているスナップショットについて追加料金が発生するのは、ベース BLOB が更新されたときです。|ベース BLOB と、関連付けられているスナップショットに対する料金が発生します。 個々のスナップショットごとに追加料金が発生します。
 |Blob Storage のストレージ層|ホット ストレージ層、クール ストレージ層、アーカイブ ストレージ層。|まだサポートされていません。

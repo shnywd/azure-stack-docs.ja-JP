@@ -3,22 +3,36 @@ title: ASDK リリース ノート
 description: Azure Stack Development Kit (ASDK) の機能強化、修正、既知の問題。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 03/18/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: c73e7bc20b1eb1e2538f211d2aaa84dafbfa103b
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 6f7bec082564c9f7cb3a0c70cec7e8e7e48fbd35
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694120"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79511812"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md)します。
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>ビルド 1.2002.0.35
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの修正された問題、変更点、および新機能の一覧については、[Azure Stack リリースノート](../operator/release-notes.md)の関連セクションを参照してください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- 解読証明書のパスワードは、バックアップ データの解読に必要な秘密キーが含まれている自己署名証明書 (.pfx) のパスワードを指定するための新しいオプションです。 このパスワードは、バックアップが証明書を使用して暗号化されている場合にのみ必要です。
+- このリリースでの Azure Stack の既知の問題の一覧については、[既知の問題](../operator/known-issues.md)に関する記事を参照してください。
+- 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>ビルド 1.1910.0.58
@@ -72,23 +86,4 @@ ms.locfileid: "77694120"
 - このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-2)を参照してください。
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1907)を参照してください。
 - [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)が Azure Stack ASDK には適用できないことに注意してください。
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>ビルド 1.1906.0.30
-
-### <a name="new-features"></a>新機能
-
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1)を参照してください。
-
-### <a name="changes"></a>[変更点]
-
-- Azure Stack のログ コレクション サービスをホストする **AzS-SRNG01** サポート リング VM を追加しました。 詳しくは、[仮想マシン ロール](asdk-architecture.md)に関するページをご覧ください。
-
-### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
-
-- 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-3)を参照してください。
-- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1906)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end

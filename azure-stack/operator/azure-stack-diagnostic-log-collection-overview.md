@@ -7,18 +7,18 @@ ms.date: 11/07/2019
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 05d54d3db2429faa410cc67a46fba234d285a1af
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 792c639a5233a7d30dc86488059045a9516dfaa2
+ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77700053"
+ms.lasthandoff: 03/18/2020
+ms.locfileid: "79512560"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack Hub の診断ログの収集の概要 
 
 Azure Stack Hub は、相互に連携して作用する複数のコンポーネントの大規模なコレクションです。 これらすべてのコンポーネントでは、独自の一意のログが生成されます。 このため、特に相互に作用する複数の Azure Stack Hub コンポーネントからのエラーで、問題の診断が困難になることがあります。 この課題に対処するために、診断ログの収集エクスペリエンスを設計しました。 
 
-1907 より前では、[Test-AzureStack](azure-stack-diagnostic-test.md) を使用して、システム正常性を検証し、[特権エンドポイント (PEP) ](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) を使用して、トラブルシューティングのログを収集する診断エクスペリエンスが含まれていました。 
+1907 より前では、[Test-AzureStack](azure-stack-diagnostic-test.md) を使用して、システム正常性を検証し、[特権エンドポイント (PEP) ](azure-stack-get-azurestacklog.md) を使用して、トラブルシューティングのログを収集する診断エクスペリエンスが含まれていました。 
 
 1907 リリース以降、 **[ヘルプとサポート]** ページに、**診断ログの収集**を使用した簡単なエクスペリエンスが追加されています。 
 **診断ログの収集**は、Azure Stack Hub のオペレーターのトラブルシューティングの一連の作業のエクスペリエンスを向上するために継続して行う投資の一部です。 これらの向上により、オペレーターは診断ログを迅速に収集し、Microsoft カスタマーサポートサービス (CSS) と共有することができます。 ログは、Azure の BLOB コンテナーに格納でき、そこで必要に応じてアクセスをカスタマイズできます。    
@@ -31,20 +31,20 @@ Azure Stack Hub は、相互に連携して作用する複数のコンポーネ�
 ![診断ログ収集オプションのスクリーンショット](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
 **診断ログの収集**には簡単なユーザー インターフェイスがあり、PowerShell は必要ありません。 インフラストラクチャ サービスが停止している場合でも、ログは確実に収集されます。
-ポリシーで CSS との診断ログの共有が許されている場合、**診断ログの収集**は、1907 リリース以降の推奨される収集方法です。 ヘルプとサポートで**診断ログの収集**を使用できない場合にのみ、[PEP](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs) を使用してログを収集する必要があります。
+ポリシーで CSS との診断ログの共有が許されている場合、**診断ログの収集**は、1907 リリース以降の推奨される収集方法です。 ヘルプとサポートで**診断ログの収集**を使用できない場合にのみ、[PEP](azure-stack-get-azurestacklog.md) を使用してログを収集する必要があります。
 
 ## <a name="automatic-diagnostic-log-collection"></a>自動診断ログ収集 
 
-[特定の正常性アラート](azure-stack-configure-automatic-diagnostic-log-collection.md#automatic-diagnostic-log-collection-alerts)が発生すると、診断ログの自動収集が開始され、Azure Stack Hub から Azure のストレージ BLOB に先を見越して診断ログがアップロードされます。これにより、診断ログを CSS と共有する時間が大幅に短縮されます。 診断ログは、アラートが発生した場合にのみ収集されます。  
+[特定の正常性アラート](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts)が発生すると、診断ログの自動収集が開始され、Azure Stack Hub から Azure のストレージ BLOB に先を見越して診断ログがアップロードされます。これにより、診断ログを CSS と共有する時間が大幅に短縮されます。 診断ログは、アラートが発生した場合にのみ収集されます。  
 
-ログの自動収集の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection.md)」を参照してください。
+ログの自動収集の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)」を参照してください。
 
 ## <a name="on-demand-diagnostic-log-collection"></a>オンデマンド診断ログ収集
 
 オンデマンドの収集では、Azure Stack Hub のオペレーターが収集を手動でトリガーしたときに、診断ログが Azure Stack Hub から Azure のストレージ BLOB にアップロードされます。
 CSS は、CSS が所有しているストレージ BLOB への Shared Access Signature (SAS) URL を提供します。 Azure Stack Hub のオペレーターは **[Collect logs now]** \(今すぐログを収集する\) をクリックして SAS URL を入力できます。 これにより、診断ログは、中間共有を必要とせずに、CSS の BLOB に直接アップロードされます。 
 
-オンデマンドでのログ収集の詳細については、「[オンデマンドで Azure Stack Hub 診断ログを収集する](azure-stack-configure-on-demand-diagnostic-log-collection.md)」を参照してください。
+オンデマンドでのログ収集の詳細については、「[Azure Stack Hub 診断ログを今すぐ送信する](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)」を参照してください。
 
 ## <a name="bandwidth-considerations"></a>帯域幅に関する考慮事項
 

@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: b8826fc929c571e39d36139bf724861ae9cc7fbd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
+ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702705"
+ms.lasthandoff: 03/13/2020
+ms.locfileid: "79312957"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -35,7 +35,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     > [!Note]  
     > 切断されている場合は、ファイルをダウンロードして、編集する予定の切断されたマシンに手動でコピーすることができます。 [PuTTY や WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) などのツールを使用して、ファイルを Linux マシンにコピーできます。
 
-2.  エディターで開くには、nano を使用できます。
+2.  API モデルをエディターで開くには、nano を使用できます。
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -88,9 +88,9 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | フィールド | 説明 |
     | --- | --- |
     | adminUsername | VM の管理者ユーザー名を入力します。 |
-    | ssh | VM での SSH 認証に使用される公開キーを入力します。 Putty を使用している場合、PuTTY key generator を起動し、Putty 秘密キーと、次の例にあるように ssh-rsa から始まっている公開キーを読み込みます。 Linux の作成時に生成されたキーを使用できますが、**例に示すように単一行のテキストになるように公開キーをコピーする必要があります**。|
+    | ssh | VM での SSH 認証に使用される公開キーを入力します。 `ssh-rsa` およびキーを使用します。 公開キーを作成する手順については、「[Linux 用の SSH キーを作成する](create-ssh-key-on-windows.md)」を参照してください。 |
 
-    ![PuTTY key generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    カスタム仮想ネットワークにデプロイする場合、API モデルの適切な配列に必要なキーと値を見つけて追加する手順は、[カスタム仮想ネットワークへの Kubernetes クラスターのデプロイ](kubernetes-aks-engine-custom-vnet.md)に関する記事で確認できます。
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報
 
@@ -120,8 +120,8 @@ Azure Stack Hub オペレーターに次のことを依頼します。
     | api-model | ./kubernetes-azurestack.json | クラスター構成ファイルまたは API モデルへのパス。 |
     | output-directory | kube-rg | 出力ファイル `apimodel.json` とその他の生成されたファイルを格納するディレクトリの名前を入力します。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 これは、サービスの作成時に設定するクライアント シークレットです。 |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」をご覧ください。 |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 クライアント シークレットは、サービスの作成時に設定します。 |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」を参照してください。 |
 
     たとえば次のようになります。
 
