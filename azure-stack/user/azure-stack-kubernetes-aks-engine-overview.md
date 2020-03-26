@@ -3,16 +3,16 @@ title: Azure Stack Hub の AKS エンジンとは
 description: AKS エンジンのコマンド ライン ツールを使用して、Azure および Azure Stack Hub で Kubernetes クラスターをデプロイおよび管理する方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: e1cd3e10e8805ff286afd3d919892fcdc054d208
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: ac4604d438cf0be03e2dd8c2d6050456ff2ac3a5
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702637"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80068975"
 ---
 # <a name="what-is-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンとは
 

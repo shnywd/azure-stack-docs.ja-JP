@@ -7,20 +7,19 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: df0a87180e1e8ed4b2506d0f2b21406474ee93c1
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512458"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069434"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
 Azure PowerShell AzureRM には、Azure Stack Hub リソースの管理に Azure Resource Manager モデルを使用する一連のコマンドレットが用意されています。
 
-クラウドで動作させるには、Azure Stack Hub と互換性のある PowerShell モジュールをインストールする必要があります。 Azure Stack Hub では、[新しい **AzureAZ** モジュール](powershell-install-az-module.md)ではなく、**AzureRM** モジュールを使用できます。 
-
 また、"*API プロファイル*" を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定する必要もあります。
+
 API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
 Azure Stack Hub と互換性のある PowerShell モジュールは、インターネットに接続されたシナリオ、部分的に接続されたシナリオ、または接続が切断されたシナリオでインストールできます。 この記事では、これらのシナリオの詳細な手順について説明します。

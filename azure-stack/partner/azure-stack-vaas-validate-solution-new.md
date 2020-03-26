@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a743a27b836ad4e82d75f8a4c6b156340c354ad
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: f52b4f20e0cf21201836e19894a7ea15159363f1
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704558"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229560"
 ---
 # <a name="validate-a-new-azure-stack-hub-solution"></a>新しい Azure Stack Hub ソリューションの検証
 
@@ -67,12 +67,7 @@ Azure Stack Hub ソリューションは、Windows Server ロゴ認定要件に�
 
 2. 以下のテストを選択します。
     - Cloud Simulation Engine (クラウド シミュレーション エンジン)
-    - Compute SDK Operational Suite (コンピューティング SDK 操作スイート)
     - Disk Identification Test (ディスク識別テスト)
-    - KeyVault Extension SDK Operational Suite (KeyVault 拡張機能 SDK 操作スイート)
-    - KeyVault SDK Operational Suite (KeyVault SDK 操作スイート)
-    - Network SDK Operational Suite (Network SDK 操作スイート)
-    - Storage Account SDK Operational Suite (ストレージ アカウント SDK 操作スイート)
 
 3. テスト インスタンスをスケジュール設定するためのプロンプトを開くには、コンテキスト メニューの **[スケジュール]** を選択します。
 
