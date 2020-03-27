@@ -8,12 +8,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiaha
-ms.openlocfilehash: 6bfdca8487a5725417f88b5fcf0fb1acce26635a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 4ac1d0de3775c22c0c982d79713847e7cd171f41
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77697095"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152261"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 
@@ -25,9 +25,9 @@ ms.locfileid: "77697095"
 
 Windows Server ソフトウェアの機能を利用して、Azure Stack Hub では、記憶域スペース ダイレクト (S2D) と Windows Server フェールオーバー クラスタリングの組み合わせでストレージ機能が定義されています。 この組み合わせにより、パフォーマンス、スケーラビリティ、回復性の優れたストレージ サービスが提供されます。
 
-Azure Stack Hub の統合システム パートナーからは、ストレージの幅広い柔軟性など、バリエーション豊かなソリューションが提供されています。 ドライブは現在、次の 3 種類を選んで組み合わせることができます:NVMe (Non-Volatile Memory Express)、SATA/SAS SSD (ソリッドステート ドライブ)、HDD (ハード ディスク ドライブ)。
+Azure Stack Hub の統合システム パートナーからは、ストレージの幅広い柔軟性など、バリエーション豊かなソリューションが提供されています。 現在、サポートされている次の 3 つのドライブの種類から 2 つまでを選択できます:NVMe (Non-Volatile Memory Express)、SATA/SAS SSD (ソリッドステート ドライブ)、HDD (ハード ディスク ドライブ)。 
 
-記憶域スペース ダイレクトは、キャッシュを使ってストレージのパフォーマンスを最大化する機能です。 1 種類以上のドライブを備えた Azure Stack Hub アプライアンスでは、記憶域スペース ダイレクトにより "最も高速な" 種類のドライブ (NVMe &gt; SSD &gt; HDD) がすべて、自動的にキャッシュとして使用されます。 残りのドライブは、キャパシティとして使用されます。 ドライブは "オールフラッシュ" と "ハイブリッド" のいずれかのデプロイにグループ化することができます。
+記憶域スペース ダイレクトは、キャッシュを使ってストレージのパフォーマンスを最大化する機能です。 1 種類のドライブ (NVMe または SSD) を備えた Azure Stack Hub アプライアンスでは、すべてのドライブが容量に使用されます。 2 種類のドライブがある場合は、記憶域スペース ダイレクトにより "最も高速な" 種類のドライブ (NVMe &gt; SSD &gt; HDD) がすべて、自動的にキャッシュとして使用されます。 残りのドライブは、キャパシティとして使用されます。 ドライブは "オールフラッシュ" と "ハイブリッド" のいずれかのデプロイにグループ化することができます。
 
 ![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image1.png)
 

@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: cf0e3f35c6aec650f07d926157c2b73cef965126
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699560"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152311"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -43,8 +43,8 @@ Graph の構成には、既存の Active Directory での読み取りアクセ�
 
 |コンポーネント|要件|
 |---------|---------|
-|グラフ|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|グラフ|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>Graph の統合を設定する
 
@@ -264,7 +264,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 3. 証明書利用者信頼を追加するには、AD FS インスタンスまたはファーム メンバーで、次の Windows PowerShell コマンドを実行します。 必ず AD FS エンドポイントを更新して、手順 1 で作成されたファイルを指定します。
 
-   **AD FS 2016 の場合**
+   **AD FS 2016/2019 の場合**
 
    ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440

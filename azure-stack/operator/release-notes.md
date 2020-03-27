@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ce8c4843bc8316a744e1cf3d4f13e744269a9183
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
+ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512101"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80229550"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -48,7 +48,7 @@ ms.locfileid: "79512101"
 Azure Stack Hub 2002 更新プログラムのビルド番号は **1.2002.0.35** です。
 
 > [!IMPORTANT]  
-> Azure Stack Hub 2002 更新プログラムでは、Microsoft は [Azure Stack Hub サポート ポリシー ステートメント](azure-stack-servicing-policy.md)を一時的に延長しています。  Microsoft は現在、COVID-19 に対応中のユーザーで、Azure Stack Hub システムとその更新および管理の方法に関する重要な意思決定を行う可能性がある世界中のお客様と連携しています。その結果、お客様のデータセンターのビジネス運営が引き続き通常通り運営できるようにしています。 Microsoft はお客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるようにサポート ポリシーを変更し、一時的に延長しています。  その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のいずれもがサポートされるようになります。
+> Azure Stack Hub 2002 更新プログラムでは、Microsoft は [Azure Stack Hub サポート ポリシー ステートメント](azure-stack-servicing-policy.md)を一時的に延長しています。  Microsoft は現在、COVID-19 に対応中のユーザーで、Azure Stack Hub システムとその更新および管理の方法に関する重要な意思決定を行う可能性がある世界中のお客様と連携しています。その結果、お客様のデータセンターのビジネス運営が引き続き通常通り運営できるようにしています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。  その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のいずれもがサポートされるようになります。
 
 ### <a name="update-type"></a>更新の種類
 
@@ -67,10 +67,9 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 <!-- What's new, also net new experiences and features. -->
 
 - AzureRM に基づく Azure Stack Hub 管理 PowerShell モジュールの新しいバージョン (1.8.1) がリリースされました。
-- Azure Stack 用の az.* Azure PowerShell テナント モジュールの新しいバージョンは 2020 年 3 月 16 日にリリースされます。 現在使用されている Azure Stack テナント リソース マネージャー モジュールは引き続き機能しますが、ビルド 2002 以降は更新されなくなります。
 - 構成された syslog サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**The Syslog client encountered a networking issue while sending a Syslog message** (syslog クライアントは syslog メッセージの送信中にネットワークの問題を検出しました) です。
 - ネットワーク タイム プロトコル (NTP) サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**Invalid Time Source on [node name]** ([ノード名] の時間ソースが無効です) です。
-- 2002 での TLS 制限に関連する破壊的変更により、[Java SDK](https://azure.microsoft.com/develop/java/)の新しいパッケージがリリースされました。 新しい Java SDK 依存関係をインストールする必要があります。 手順については、「[Java と API バージョンのプロファイル](../user/azure-stack-version-profiles-java.md?view=azs-1910#java-and-api-version-profiles)」を参照してください。
+- 2002 での TLS 制限に関連する破壊的変更により、[Java SDK](https://azure.microsoft.com/develop/java/)の新しいパッケージがリリースされました。 新しい Java SDK 依存関係をインストールする必要があります。 手順については、「[Java と API バージョンのプロファイル](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)」を参照してください。
 - System Center Operations Manager - Azure Stack Hub MP の新しいバージョン (1.0.5.10) が利用できます。これは、API の破壊的変更により、2002 を実行しているすべてのシステムで必要となります。 この API の変更は、バックアップとストレージのパフォーマンス ダッシュボードに影響します。最初にすべてのシステムを 2002 に更新してから MP を更新することをお勧めします。
 
 ### <a name="improvements"></a>機能強化
@@ -80,6 +79,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - この更新プログラムには、今後の完全な更新のパフォーマンスを大幅に向上させる更新プロセスの変更が含まれています。 これらの変更は、2002 リリース後の次の完全な更新で有効になり、特にホスト オペレーティング システムが更新される完全な更新のフェーズのパフォーマンスを向上させます。 ホスト オペレーティング システムの更新のパフォーマンスを向上させると、完全な更新中にテナントのワークロードが影響を受ける時間が大幅に短縮されます。
 - Azure Stack Hub 適合性チェッカー ツールは、AD Graph に割り当てられているすべての TCP IP ポートを使用して AD Graph の統合を検証するようになりました。
 - オフライン シンジケーション ツールは、信頼性に関する機能強化によって更新されました。 このツールは GitHub では入手できなくなり、[PowerShell ギャラリーに移動されました](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)。 詳細については、「[Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。
+- 新しい監視機能が導入されています。 物理ホストとインフラストラクチャ VM のディスク領域不足のアラートは、プラットフォームによって自動的に修復されます。この操作が失敗した場合にのみ、オペレーターがアクションを実行するために、Azure Stack Hub 管理者ポータルにアラートが表示されます。
 - [診断ログの収集](azure-stack-diagnostic-log-collection-overview-tzl.md)に対する改善。 新しいエクスペリエンスでは、BLOB ストレージ アカウントを事前に構成する必要がなくなるため、診断ログの収集が合理化されて簡素化されます。 ストレージ環境が事前構成されるため、サポート ケースを開く前にログを送信でき、サポート コールにかかる時間が短縮されます。
 - [事前ログ収集とオンデマンドのログ収集](azure-stack-diagnostic-log-collection-overview-tzl.md) の両方にかかる時間が 80% 削減されました。 ログ収集時間は、この予想値より長くなることがありますが、ログ収集が失敗しない限り、Azure Stack Hub オペレーターによる操作は必要ありません。
 - 更新が開始された後、Azure Stack Hub 更新パッケージのダウンロードの進行状況が更新ブレードに表示されるようになりました。 これは、[自動ダウンロードを使用して更新パッケージを準備する](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)ことを選択した、接続済みの Azure Stack Hub システムに対してのみ適用されます。

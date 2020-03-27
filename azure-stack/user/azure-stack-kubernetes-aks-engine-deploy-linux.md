@@ -3,16 +3,16 @@ title: Azure Stack Hub の Linux に AKS エンジンをインストールする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 7f37d6c8c46679a3511ee0e071fb3b98907c3075
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 23ffcd6e92ba442447dfa43459344904af514d14
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704031"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069097"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 

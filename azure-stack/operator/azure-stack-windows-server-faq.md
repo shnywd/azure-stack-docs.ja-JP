@@ -1,25 +1,29 @@
 ---
-title: Azure Stack Hub Marketplace 内の Windows Server に関する FAQ
+title: Azure Stack Hub Marketplace のよくあるご質問
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub Marketplace の Windows Server に関する FAQ 一覧。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/27/2019
+ms.date: 03/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 72b21675e97a436499f53f00e4c7d25dfc1beb54
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 95719c6b0651932ab41cef5321db06b77eb4fc63
+ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696075"
+ms.lasthandoff: 03/21/2020
+ms.locfileid: "80069458"
 ---
-# <a name="windows-server-in-azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace 内の Windows Server に関する FAQ
+# <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace のよくあるご質問
 
-この記事では、[Azure Stack Hub Marketplace](azure-stack-marketplace.md) 内の Windows Server イメージについてよく寄せられるいくつかの質問に回答します。
+この記事では、[Azure Stack Hub Marketplace](azure-stack-marketplace.md) 内の Marketplace アイテムについてよく寄せられるいくつかの質問に回答します。
 
 ## <a name="marketplace-items"></a>Marketplace アイテム
+
+### <a name="who-should-i-contact-for-support-issues-with-azure-stack-hub-marketplace-items"></a>Azure Stack Hub Marketplace アイテムのサポートに関する問題については、だれに問い合わせる必要がありますか?
+
+Azure Marketplace のサポート ガイダンスは、Azure Stack Hub Marketplace アイテムにも適用されます。 発行元は、Azure Stack Hub Marketplace 上の製品のテクニカル サポートを提供する責任を負います。 Azure Marketplace アイテムのサポート ガイダンスについて詳しくは、Azure Marketplace FAQ 記事の[サポートに関するセクション](/azure/marketplace/marketplace-faq-publisher-guide#customer-support)をご覧ください。
 
 ### <a name="how-do-i-update-to-a-newer-windows-image"></a>より新しい Windows イメージに更新するにはどうすればよいですか?
 

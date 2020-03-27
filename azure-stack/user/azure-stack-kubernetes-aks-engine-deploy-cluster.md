@@ -3,16 +3,16 @@ title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラス�
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: fc53a0b1e4273436e9e06e10feccbe577ea2e488
-ms.sourcegitcommit: 4301e8dee16b4db32b392f5979dfec01ab6566c9
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 3186d3976f5d4ca533a89644b3abc16fdf824c7c
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79312957"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152175"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -66,7 +66,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 6. `portalURL` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。
 
-7.  配列 `masterProfile` で、次のフィールドを設定します。
+7.  `masterProfile` で、次のフィールドを編集します。
 
     | フィールド | 説明 |
     | --- | --- |
@@ -75,15 +75,18 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | vmSize |  [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
-8.  配列 `agentPoolProfiles` の更新では、次のようにします。
+8.  `agentPoolProfiles` で、以下を更新します。
 
     | フィールド | 説明 |
     | --- | --- |
-    | count | デプロイに必要なエージェントの数を入力します。 |
+    | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)で指定されている構成アイテムを使用してください。  |
     | vmSize | [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
-9.  配列 `linuxProfile` の更新では、次のようにします。
+
+
+
+9.  `linuxProfile` で、以下を更新します。
 
     | フィールド | 説明 |
     | --- | --- |

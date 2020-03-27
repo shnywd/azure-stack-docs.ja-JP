@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a2f86835a9b1008417e427bc62229e94d6b00595
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
-ms.locfileid: "79512237"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152151"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -67,6 +67,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 修復: **[アカウントの種類]** ドロップダウンリストからアカウントの種類を選択し、スナップショットを作成します。
 - 発生頻度: 共通
 
+### <a name="alert-for-network-interface-disconnected"></a>ネットワーク インターフェイスの切断についてのアラート
+
+- 適用先:この問題は、1908 以降に適用されます。
+- 原因: ケーブルがネットワーク アダプターから切り離されたときに、管理者ポータルにアラートが表示されません。 この問題は、Windows Server 2019 ではこの障害が既定で無効にされるために発生します。
+- 発生頻度: 共通
+
 ## <a name="networking"></a>ネットワーク
 
 ### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
@@ -104,6 +110,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+
+### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ
+
+- 適用先:この問題は、2002 以降に適用されます。
+- 原因: VM の作成エクスペリエンスを実行すると、次の VM サイズが表示されます:NV4as_v4。 AMD Mi25 ベースの Azure Stack Hub GPU プレビューに必要なハードウェアを所有しているお客様は、VM のデプロイを成功させることができます。 他のすべてのお客様は、この VM サイズでの VM のデプロイに失敗します。
+- 修復: Azure Stack Hub GPU プレビューの準備のための仕様です。
 
 ### <a name="vm-boot-diagnostics"></a>VM ブート診断
 

@@ -3,22 +3,24 @@ title: Azure Stack Hub でサポートされている VM サイズ
 description: Azure Stack Hub でサポートされている VM のサイズを示します。
 author: mattbriggs
 ms.topic: reference
-ms.date: 12/3/2019
+ms.date: 03/23/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/3/2019
-ms.openlocfilehash: eaa7fd667dfba1a9963c1bebfe292b8b6ba9a355
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.lastreviewed: 03/23/2020
+ms.openlocfilehash: cce150e9e7698ea98035dc4f9104595100686cb7
+ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705102"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80152192"
 ---
 # <a name="vm-sizes-supported-in-azure-stack-hub"></a>Azure Stack Hub でサポートされている VM サイズ
 
 この記事では、Azure Stack Hub で使用可能な仮想マシン (VM) のサイズの一覧を示します。 この記事を使用して、Azure Stack Hub ソリューションをサポートするために VM を選択できます。
 
 Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は、ディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
+
+VM vCPU は、ノードあたりのコアの数に依存します。 たとえば、64 未満のコアまたは論理プロセッサを搭載したシステムでは、Standard_F64s_v2 の VM サイズはサポートされません。
 
 ## <a name="vm-general-purpose"></a>VM 汎用
 
@@ -140,7 +142,7 @@ Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は�
 
 メモリ最適化済み VM のサイズは、リレーショナル データベース サーバー、中規模から大規模のキャッシュ、インメモリ分析のために設計された、メモリと CPU の高い比率を提供します。
 
-### <a name="mo-d"></a>D シリーズ
+### <a name="d-series"></a><a name="mo-d"></a>D シリーズ
 |サイズ     |vCPU     |メモリ (GiB) | 一時ストレージ (GiB)  | OS ディスクの最大スループット (IOPS) | 一時ストレージの最大スループット (IOPS) | データ ディスクの最大スループット (IOPS) | 最大 NIC 数 |
 |------------------|---|----|----|--------|------|------------|---------|
 |**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8x500   |2 |
@@ -148,7 +150,7 @@ Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は�
 |**Standard_D13**  |8  |56  |400 |500     |24000 |32 / 32x500 |8 |
 |**Standard_D14**  |16 |112 |800 |500     |48000 |64 / 64x500 |8 |
 
-### <a name="mo-ds"></a>DS シリーズ
+### <a name="ds-series"></a><a name="mo-ds"></a>DS シリーズ
 |サイズ     |vCPU     |メモリ (GiB) | 一時ストレージ (GiB)  | OS ディスクの最大スループット (IOPS) | 一時ストレージの最大スループット (IOPS) | データ ディスクの最大スループット (IOPS) | 最大 NIC 数 |
 |-------------------|---|----|----|--------|------|-------------|---------|
 |**Standard_DS11**  |2  |14  |28  |1000    |8000  |8 / 8x2300   |2 |
@@ -156,7 +158,7 @@ Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は�
 |**Standard_DS13**  |8  |56  |112 |1000    |32000 |32 / 32x2300 |8 |
 |**Standard_DS14**  |16 |112 |224 |1000    |64000 |64 / 64x2300 |8 |
 
-### <a name="mo-dv2"></a>Dv2 シリーズ
+### <a name="dv2-series"></a><a name="mo-dv2"></a>Dv2 シリーズ
 |サイズ     |vCPU     |メモリ (GiB) | 一時ストレージ (GiB)  | OS ディスクの最大スループット (IOPS) | 一時ストレージの最大スループット (IOPS) | データ ディスクの最大スループット (IOPS) | 最大 NIC 数 |
 |--------------------|----|----|-----|----|-------|-------------|---------|
 |**Standard_D11_v2** |2   |14  |100  |500 |6000   |8 / 8x500    |2 |
@@ -165,7 +167,7 @@ Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は�
 |**Standard_D14_v2** |16  |112 |800  |500 |48000  |64 / 64x500  |8 |
 
 
-### <a name="mo-dsv2"></a>DSv2 シリーズ
+### <a name="dsv2-series"></a><a name="mo-dsv2"></a>DSv2 シリーズ
 |サイズ     |vCPU     |メモリ (GiB) | 一時ストレージ (GiB)  | OS ディスクの最大スループット (IOPS) | 一時ストレージの最大スループット (IOPS) | データ ディスクの最大スループット (IOPS) | 最大 NIC 数 |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
 |**Standard_DS11_v2** |2   |14  |28   |1000 |8000   |4 / 4x2300    |2 |
