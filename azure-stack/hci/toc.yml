@@ -14,6 +14,8 @@
       href: manage/delete-volumes.md
     - name: ドライブの交換
       href: manage/replace-drives.md
+    - name: Linux VM への GPU のアタッチ
+      href: manage/attach-gpu-to-linux-vm.md
 - name: 概念
   items:
     - name: ドライブの選択
@@ -32,10 +34,22 @@
       href: /powershell/module/hyper-v
     - name: Storage PowerShell コマンド
       href: /powershell/module/storage
+    - name: ClusterAwareUpdating PowerShell コマンド
+      href: /powershell/module/clusterawareupdating
+    - name: FailoverClusters PowerShell コマンド
+      href: /powershell/module/failoverclusters
+    - name: StorageReplica PowerShell コマンド
+      href: /powershell/module/storagereplica
 - name: 関連項目
   items:
     - name: Azure Stack ファミリ
       href: ../index.yml
+    - name: Azure Stack Hub
+      href: /azure-stack/operator/azure-stack-overview?view=azs-2002
+    - name: Azure Stack Edge
+      href: /azure/databox-online/data-box-edge-overview
+    - name: Windows Server
+      href: /windows-server/
     - name: Windows Admin Center
       href: /windows-server/manage/windows-admin-center/understand/windows-admin-center
     - name: Azure ハイブリッド サービス
@@ -48,3 +62,5 @@
       href: /windows-server/virtualization/hyper-v/hyper-v-on-windows-server
     - name: ソフトウェアによるネットワーク
       href: /windows-server/networking/sdn
+    - name: System Center
+      href: /system-center/
