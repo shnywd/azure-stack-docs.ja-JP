@@ -332,6 +332,34 @@
                   href: azure-stack-app-service-release-notes-update-seven.md
                 - name: App Service on Azure Stack Hub update 8 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-eight.md
+        - name: Azure Stack Hub 上の Event Hubs
+          items:
+            - name: 概要
+              href: event-hubs-rp-overview.md
+            - name: 容量計画
+              href: event-hubs-rp-capacity-planning.md
+            - name: 前提条件
+              href: event-hubs-rp-prerequisites.md
+            - name: インストール
+              href: event-hubs-rp-install.md
+            - name: ライフ サイクル管理
+              items:
+                - name: 更新プログラムの適用
+                  href: resource-provider-apply-updates.md
+                - name: バックアップと復元
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: ログの収集
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 正常性とアラート
+                  href: azure-stack-monitor-health.md
+                - name: 管理する
+                  href: event-hubs-rp-manage.md
+                - name: シークレットの切り替え
+                  href: azure-stack-rotate-secrets.md
+                - name: サービス更新のお知らせ
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: '[削除]'
+              href: event-hubs-rp-remove.md
         - name: Azure Stack Hub 上の MySQL
           items:
             - name: 概要

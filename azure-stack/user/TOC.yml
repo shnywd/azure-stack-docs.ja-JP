@@ -21,6 +21,8 @@
       href: azure-stack-quick-create-vm-linux-powershell.md
     - name: Linux VM の作成 - CLI
       href: azure-stack-quick-create-vm-linux-cli.md
+    - name: Event Hubs クラスターの作成 - ポータル
+      href: event-hubs-quickstart-cluster-portal.md
 - name: チュートリアル
   items:
     - name: プランへのサブスクライブ
@@ -185,6 +187,10 @@
                   href: azure-stack-key-vault-store-credentials.md
                 - name: Key Vault サンプル アプリ
                   href: azure-stack-key-vault-sample-app.md
+            - name: Event Hubs
+              items:
+                - name: 概要
+                  href: event-hubs-overview.md
             - name: Azure Monitor
               href: azure-stack-metrics-azure-data.md
               items:
@@ -265,11 +271,11 @@
           items:
             - name: VM を使用した VNet ピアリング
               href: azure-stack-network-howto-vnet-peering.md
-            - name: サード パーティの NVA を使用する (Fortinet Fortigate NVA)
+            - name: サードパーティの NVA を使用する (Fortinet Fortigate NVA)
               items:
                 - name: FortiGate を使用した VNet ピアリング
                   href: azure-stack-network-howto-vnet-to-vnet.md
-                - name: オンプレミスへの VPN のセットアップ
+                - name: オンプレミスへの VPN を設定する
                   href: azure-stack-network-howto-vnet-to-onprem.md
                 - name: VNet 間接続
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
