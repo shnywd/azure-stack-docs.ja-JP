@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 7b3f8fe96ddd33550f28860c0eaa77fa8cfa8c84
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704354"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362153"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い
 
@@ -39,7 +39,7 @@ Azure Stack Hub オペレーターは、ユーザーに使用可能なサービ�
 | 運用担当(オペレーター) | Microsoft | 組織またはサービス プロバイダー。|
 | サポートに関する連絡先 | Microsoft | 統合システムについては、(組織またはサービス プロバイダーの) Azure Stack Hub オペレーターにお問い合わせください。<br><br>Azure Stack Development Kit (ASDK) のサポートについては、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)にアクセスして確認してください。 開発キットは評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通した正式なサポートは提供されていません。
 | 利用可能なサービス | [Azuer 製品](https://azure.microsoft.com/services/?b=17.04b)の一覧を参照してください。 利用可能なサービスは Azure リージョンによって異なります。 | Azure Stack Hub では Azure サービスのサブセットがサポートされます。 提供される実際のサービスは、組織またはサービス プロバイダーによる選択内容によって異なります。
-| Azure Resource Manager のエンドポイント* | https://management.azure.com | Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、 https://management.local.azurestack.external を使用します。
+| Azure Resource Manager のエンドポイント* | `https://management.azure.com` | Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、 https://management.local.azurestack.external を使用します。
 | ポータル URL* | [https://portal.azure.com](https://portal.azure.com) | Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供される URL を使用します。<br><br>開発キットの場合は、 https://portal.local.azurestack.external を使用します。
 | リージョン | デプロイ先のリージョンを選択することができます。 | Azure Stack Hub 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>Azure Stack Development Kit (ASDK) の場合、リージョンは常に**ローカル**になります。
 | リソース グループ | リソース グループは複数のリージョンにまたがることができます。 | 統合システムと開発キットのいずれも、リージョンは 1 つのみです。

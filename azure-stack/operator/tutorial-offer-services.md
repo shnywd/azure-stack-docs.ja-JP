@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 3d05ff70909508701db2f4770ecb3efb9d860a6d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77694545"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423904"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Azure Stack Hub でユーザー用にサービス オファリングを作成する
 
@@ -65,6 +65,7 @@ Azure Stack Hub では、リソース プロバイダーに 2 つの一般的な
 | Microsoft.Web | App Service の関数アプリ、Web アプリ、API アプリ | 
 | Microsoft.MySqlAdapter | MySQL ホスティング サーバー、MySQL データベース | 
 | Microsoft.SqlAdapter | SQL Server ホスティング サーバー、SQL Server データベース |
+| Microsoft.EventHub | Event Hubs |
 
 ::: moniker range=">=azs-1902"
 
