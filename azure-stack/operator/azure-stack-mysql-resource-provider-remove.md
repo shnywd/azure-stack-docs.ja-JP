@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/20/2
-ms.openlocfilehash: 78dbba26d13914fe54111b315a0f01c48d53a26a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 60f8ab926bb868517c7b9feeb1c5c4325212607c
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77698676"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302817"
 ---
 # <a name="remove-the-mysql-resource-provider-in-azure-stack-hub"></a>Azure Stack Hub 上の MySQL リソース プロバイダーを削除する
 
@@ -37,7 +37,6 @@ MySQL リソース プロバイダーを削除すると、オペレーターが�
     - **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
     - **AzureEnvironment**:Azure Stack Hub のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
     - **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
-    - **DirectoryTenantID**
     - **AzCredential**:Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。
 
 ## <a name="next-steps"></a>次のステップ

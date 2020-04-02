@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: cc17789485bc4c1d0676d54751f4d5bc820c3a5e
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 22919a17f58cf83857dc24d154fcfd1ab3760e59
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366281"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362194"
 ---
 # <a name="create-a-geo-distributed-app-solution-to-direct-traffic-with-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub を使用し、トラフィックを転送する地理的分散アプリ ソリューションを作成します。
 
@@ -538,7 +538,7 @@ Web アプリページで、 **[SSL 設定]** を選択します。 その後、
 操作が完了すると、アプリを指定する HTTP URL のいずれかに移動します。 次に例を示します。
 
 -   https://<app_name>.azurewebsites.net
--   https://northwindcloud.com
+-   `https://northwindcloud.com`
 -   <https://www.northwindcloud.com>
 
 #### <a name="enforce-tls-1112"></a>TLS 1.1/1.2 の適用

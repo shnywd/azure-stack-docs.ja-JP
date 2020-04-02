@@ -7,12 +7,12 @@ ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: 3b3ea77dcbb59f2a0471225000aa48624bcb1a15
-ms.sourcegitcommit: 390eac7abc94cea1405178e8d6a9358f6488f5d9
+ms.openlocfilehash: 883a39ac7c0d3f11d3f9242a7efaa8549e41f4cf
+ms.sourcegitcommit: 1969a13d378cc3b8c58fea11dca8cf8c06136acd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231674"
+ms.lasthandoff: 03/26/2020
+ms.locfileid: "80302790"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub のプロファイルでサポートされているリソース プロバイダー API バージョン
 
@@ -165,7 +165,7 @@ Azure Resource Manager を使用して、Azure ソリューション用のイン
 | 操作 | 2018-05-01 |
 | プロバイダー | 2018-05-01 |
 | ResourceGroups| 2018-05-01 |
-| リソース | 2018-05-01/ |
+| リソース | 2018-05-01 |
 | サブスクリプション | 2018-05-01 |
 | Subscriptions/locations | 2016-06-01 |
 | Subscriptions/operationresults | 2018-05-01 |

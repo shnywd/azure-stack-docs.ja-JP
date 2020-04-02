@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: c8ea0ea53574132d144ad7e205f78c5bebc41226
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 9ea880003492768e67c71f948a71d693e5a90c9b
+ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295324"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80362167"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムのデータセンター統合計画に関する考慮事項
 
@@ -68,8 +68,8 @@ Azure Stack Hub の Graph サービスを既存の Active Directory と統合す
 
 Azure Stack Hub の名前空間 (特にリージョン名と外部のドメイン名) を計画する方法について検討する必要があります。 Azure Stack Hub のデプロイで公開されたエンドポイントの外部完全修飾ドメイン名 (FQDN) は、&lt;*region*&gt;.&lt;*fqdn*&gt; という 2 つの名前の組み合わせです。 たとえば、*east.cloud.fabrikam.com* となります。 この例では、Azure Stack Hub ポータルが次の URL で使用可能になります。
 
-- https://portal.east.cloud.fabrikam.com
-- https://adminportal.east.cloud.fabrikam.com
+- `https://portal.east.cloud.fabrikam.com`
+- `https://adminportal.east.cloud.fabrikam.com`
 
 > [!IMPORTANT]
 > Azure Stack Hub のデプロイに選択したリージョン名は一意でなければならず、ポータル アドレスに表示されます。 
