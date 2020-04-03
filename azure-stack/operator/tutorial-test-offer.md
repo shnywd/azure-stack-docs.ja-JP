@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 4d8f727178b4bbe6da6377f965a4863acf322abc
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77704762"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423843"
 ---
 # <a name="tutorial-test-a-service-offering"></a>チュートリアル:サービス オファリングをテストする
 
@@ -143,3 +143,4 @@ ms.locfileid: "77704762"
 - [Azure Stack Hub で SQL を提供する](azure-stack-sql-resource-provider.md)
 - [Azure Stack Hub で MySQL を提供する](azure-stack-mysql-resource-provider.md)
 - [Azure Stack Hub で App Service を提供する](azure-stack-app-service-overview.md)
+- [Azure Stack Hub で Event Hubs を提供する](event-hubs-rp-overview.md)
