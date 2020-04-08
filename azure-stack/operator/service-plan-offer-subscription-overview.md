@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 0e5d71335fb5b7086341c7c06ec503aae1a8e728
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295264"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423880"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub サービス、プラン、オファー、サブスクリプションの概要
 
@@ -31,7 +31,7 @@ Azure Stack Hub オペレーターは、オファー、プラン、サブスク�
 1. 以下を使用して、サービスのオファーを計画します。
 
    - コンピューティング、ストレージ、ネットワーク、Key Vault などの基本サービス。
-   - App Service、SQL Server、MySQL Server などの付加価値サービス。
+   - Event Hubs、App Service、SQL Server、MySQL Server などの付加価値サービス。
 
 2. 1 つ以上のサービスから構成されるプランを作成します。 プランを作成するときに、プラン内の各サービスのリソースの制限を定義するクォータを選択または作成します。
 3. 1 つ以上のプランを含むオファーを作成します。 オファーには基本プランとオプションのアドオン プランを含めることができます。
@@ -44,8 +44,9 @@ Azure Stack Hub オペレーターは、オファー、プラン、サブスク�
 
 [サービスとしてのインフラストラクチャ](https://azure.microsoft.com/overview/what-is-iaas/) (IaaS) サービスを提供し、ユーザーが、Azure Stack Hub ユーザー ポータルからプロビジョニングおよび管理されるオンデマンドのコンピューティング インフラストラクチャを構築できるようにすることができます。
 
-また、Microsoft およびその他サード パーティ プロバイダーの Azure Stack Hub 用の[サービスとしてのプラットフォーム](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) サービスをデプロイすることもできます。 提供できる PaaS サービスの一部として、次のようなものが挙げられます。
+また、Microsoft およびサード パーティ プロバイダーの Azure Stack Hub 用の[サービスとしてのプラットフォーム](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) サービスをデプロイすることもできます。 デプロイできる PaaS サービスの一例として、次のようなものが挙げられます。
 
+- [Event Hubs](event-hubs-rp-overview.md)
 - [App Service](azure-stack-app-service-overview.md)
 - [SQL Server](azure-stack-sql-resource-provider-deploy.md)
 - [MySQL サーバー](azure-stack-mysql-resource-provider-deploy.md)。

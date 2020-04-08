@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cd8569e5ea0f3537aa915207b7d52141d9444afa
-ms.sourcegitcommit: fec2b21e80c8049a823baeaf2b642802ccdcfb67
+ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80229550"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402816"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -241,7 +241,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
    **IKE フェーズ 1 (メイン モード) のパラメーター**
 
-   | プロパティ              | Value|
+   | プロパティ              | 値|
    |-|-|
    | IKE のバージョン           | IKEv2 |
    |Diffie-hellman グループ   | ECP384 |
@@ -251,7 +251,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
    **IKE フェーズ 2 (クイック モード) のパラメーター**
 
-   | プロパティ| Value|
+   | プロパティ| 値|
    |-|-|
    |IKE のバージョン |IKEv2 |
    |暗号化とハッシュ アルゴリズム (暗号化)     | GCMAES256|
@@ -269,11 +269,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 - Azure から Azure Stack Hub にマーケットプレース項目をダウンロードするときに、複数のバージョンが存在する場合、項目のバージョンを指定できる新しいユーザー インターフェイスが追加されました。 新しい UI は、接続されたシナリオと切断されたシナリオの両方で使用できます。 詳細については、「[Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。  
 
-- 1910 リリース以降、Azure Stack Hub システムには追加で /20 プライベート内部 IP 空間が**必要**になりました。 このネットワークは Azure Stack Hub システム専用であり、データセンター内の複数の Azure Stack Hub システム上で再利用できます。 このネットワークは Azure Stack Hub 専用ですが、データセンター内のネットワークと重複することはできません。 /20 プライベート IP 空間は複数のネットワークに分割され、コンテナー上で Azure Stack Hub インフラストラクチャを実行できるようになりました ([1905 リリース ノート](release-notes.md?view=azs-1905)にも記載されています)。 コンテナーで Azure Stack Hub インフラストラクチャを実行する目的は、使用率を最適化し、パフォーマンスを向上させることです。 さらに、/20 プライベート IP 空間は、デプロイ前に必要なルーティング可能な IP 空間を減らす継続的な取り組みを可能にするためにも使用されます。
-
-  - /20 の入力は、1910 の次の Azure Stack Hub 更新プログラムの前提条件となることに注意してください。 1910 の次の Azure Stack Hub 更新プログラムがリリースされ、それをインストールしようとすると、後述する修復手順で説明するように /20 の入力を完了していない場合、更新は失敗します。 前記の修復手順が完了するまで、管理者ポータルにはアラートが表示されます。 この新しいプライベート空間がどのように使用されるかについては、[データセンターのネットワーク統合](azure-stack-network.md#private-network)に関する記事を参照してください。
-
-  - 修復手順:修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、次の例を使用して、PEP セッション内で次のコマンドレット (1910 以降でのみ使用可能) を実行します: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理者ポータル上のアラートは閉じられます。 これで、Azure Stack Hub システムは、次のバージョンに更新できるようになります。
+- 1910 リリース以降、Azure Stack Hub システムには追加で /20 プライベート内部 IP 空間が**必要**になりました。  詳細については、「(Azure Stack のためのネットワーク統合計画)[azure-stack-network.md]」を参照してください。
   
 - アップロード手順中に外部ストレージの場所の容量が不足すると、インフラストラクチャ バックアップ サービスによって、部分的にアップロードされたバックアップ データが削除されます。  
 

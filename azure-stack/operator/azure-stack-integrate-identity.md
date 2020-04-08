@@ -7,12 +7,12 @@ ms.date: 05/10/2019
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 288ece49e873da5820f6cb7dab70643418636704
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152311"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367815"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -287,6 +287,13 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
+
+   **AD FS 2002 以上の場合**
+
+   > [!NOTE]
+   > お客様が所有する ADFS ホストまたはファーム上で `Add-ADFSRelyingPartyTrust` を実行する場合は、まず ADFS ホストまたはファームで TLS1.2 が適用されていることを確認してください。適用せずに実行すると、次のエラー メッセージが表示されます。
+
+`Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
 ## <a name="spn-creation"></a>SPN の作成
 

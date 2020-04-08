@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2020
-ms.openlocfilehash: 864421f543e02da39dcbd3bf2972fe3a0782676f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.openlocfilehash: 3f5701cbb601b82db3b802bfd602c53576230b6f
+ms.sourcegitcommit: f114e9d268a74fde6891180b80c74c148dc0a129
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069387"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80530759"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
@@ -44,9 +44,15 @@ Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレ�
 |ページ BLOB のページ サイズ|512 バイト|4 KB
 |テーブルのパーティション キーと行キーのサイズ|1,024 文字 (2,048 バイト)|400 文字 (800 バイト)
 |BLOB スナップショット|1 つの BLOB の最大スナップショット数は制限されていません。|1 つの BLOB の最大スナップショット数は 1,000 です。
-|ストレージの Azure AD Authentication|プレビュー段階|まだサポートされていません。
+|ストレージの Azure AD Authentication|一般提供|まだサポートされていません。
 |不変 BLOB|一般提供|まだサポートされていません。
 |ストレージのファイアウォールおよび仮想ネットワーク規則|一般提供|まだサポートされていません。|
+|カスタム ドメインを BLOB ストレージ エンドポイントにマップする|一般提供|まだサポートされていません。|
+|BLOB ストレージでの静的な Web サイトのホスティング|一般提供|まだサポートされていません。|
+|カスタマー マネージド キーを使用してストレージの保存データを暗号化する|一般提供|まだサポートされていません。|
+|CRC64 ハッシュを使用してトランザクション データの整合性を検証する|一般提供|まだサポートされていません。|
+|URL のデータのサーバー側同期コピー|一般提供|まだサポートされていません。|
+|BLOB ストレージ用の Batch API|一般提供|まだサポートされていません。|
 
 ストレージ メトリックにも相違点があります。
 

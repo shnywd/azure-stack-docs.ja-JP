@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 3c7a68376ddb57d9e7fad1f936c8990243203b9c
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
+ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295474"
+ms.lasthandoff: 03/30/2020
+ms.locfileid: "80402848"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -25,7 +25,7 @@ ms.locfileid: "79295474"
 
 Azure Stack ソリューションには、その操作やサービスをサポートするための回復性と可用性の高い物理インフラストラクチャが必要です。 Azure Stack をネットワークに統合するには、Top-of-Rack スイッチ (ToR) から最も近いスイッチまたはルーター (このドキュメントでは境界と呼びます) へのアップリンクが必要です。 ToR は、単一または一対の境界にアップリンクできます。 ToR は、自動化ツールによって事前に構成されます。BGP ルーティングを使用する場合は、ToR と境界の間に 1 つ以上の接続、静的ルーティングを使用する場合は、ToR と境界の間に 2 つ以上の接続 (ToR ごとに 1 つ) が必要であり、いずれかのルーティング オプションの最大の接続数は 4 つです。 これらの接続は、SFP+ または SFP28 メディアと、1 GB、10 GB、または 25 GB の速度に制限されています。 OEM (Original Equipment Manufacturer) ハードウェア ベンダーに可用性を確認してください。 推奨される設計を次の図に示します。
 
-![推奨される Azure Stack ネットワークの設計](media/azure-stack-network/physical-network.png)
+![推奨される Azure Stack ネットワークの設計](media/azure-stack-network/physical-network.svg)
 
 
 ## <a name="logical-networks"></a>論理ネットワーク
@@ -50,7 +50,7 @@ Azure Stack ソリューションには、その操作やサービスをサポ�
 
 Azure Stack のネットワーク インフラストラクチャは、スイッチ上に構成されたいくつかの論理ネットワークから成ります。 それらの論理ネットワークを次の図に示し、各論理ネットワークと TOR (top-of-rack)、ベースボード管理コントローラー (BMC)、境界 (カスタマー ネットワーク) スイッチを統合する方法を説明します。
 
-![論理ネットワーク図とスイッチ接続](media/azure-stack-network/NetworkDiagram.png)
+![論理ネットワーク図とスイッチ接続](media/azure-stack-network/networkdiagram.svg)
 
 ### <a name="bmc-network"></a>BMC ネットワーク
 
@@ -66,11 +66,14 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 - **内部仮想 IP ネットワーク**:ソフトウェア ロード バランサーのための内部のみの VIP 専用の /25 ネットワーク。
 - **コンテナー ネットワーク**:インフラストラクチャ サービスを実行しているコンテナー間の内部トラフィックのみを対象とする専用 /23 (512 IP) ネットワーク。
 
-1910 以降、プライベート ネットワークのサイズがプライベート IP 空間の /20 (4096 IP) に変更されます。 このネットワークは Azure Stack リージョンに対してプライベートになり (Azure Stack システムの境界スイッチ デバイスを超えてルーティングされることはありません)、データセンター内の複数の Azure Stack システムで再利用できます。 ネットワークは Azure Stack に対してプライベートですが、データセンター内の他のネットワークと重複することはできません。 プライベート IP 空間のガイダンスについては、[RFC 1918](https://tools.ietf.org/html/rfc1918) に従うことをお勧めします。
+1910 リリース以降、Azure Stack Hub システムには追加で /20 プライベート内部 IP 空間が**必要**になりました。 このネットワークは Azure Stack リージョンに対してプライベートになり (Azure Stack システムの境界スイッチ デバイスを超えてルーティングされることはありません)、データセンター内の複数の Azure Stack システムで再利用できます。 ネットワークは Azure Stack に対してプライベートですが、データセンター内の他のネットワークと重複することはできません。 /20 プライベート IP 空間は複数のネットワークに分割され、コンテナー上で Azure Stack Hub インフラストラクチャを実行できるようになりました ([1905 リリース ノート](release-notes.md?view=azs-1905)にも記載されています)。 さらに、この新しいプライベート IP 空間によって、デプロイ前に必要となるルーティング可能な IP 空間を減少させるための継続的な作業が可能になります。 コンテナーで Azure Stack Hub インフラストラクチャを実行する目的は、使用率を最適化し、パフォーマンスを向上させることです。 さらに、/20 プライベート IP 空間は、デプロイ前に必要なルーティング可能な IP 空間を減らす継続的な取り組みを可能にするためにも使用されます。 プライベート IP 空間のガイダンスについては、[RFC 1918](https://tools.ietf.org/html/rfc1918) に従うことをお勧めします。
 
-この /20 プライベート IP 空間は、今後のリリースで Azure Stack システムの内部インフラストラクチャをコンテナー上で実行できるように、複数のネットワークに分割されます。 詳細については、[1910 のリリース ノート](release-notes.md)を参照してください。 さらに、この新しいプライベート IP 空間によって、デプロイ前に必要となるルーティング可能な IP 空間を減少させるための継続的な作業が可能になります。
+1910 より前にデプロイされたシステムでは、この /20 サブネットは、1910 の更新後にシステムに入力される追加のネットワークになります。 追加のネットワークは、**Set-AzsPrivateNetwork** PEP コマンドレットを使用して、システムに提供する必要があります。
 
-1910 より前にデプロイされたシステムでは、この /20 サブネットは、1910 の更新後にシステムに入力される追加のネットワークになります。 追加のネットワークは、**Set-AzsPrivateNetwork** PEP コマンドレットを使用して、システムに提供する必要があります。 このコマンドレットのガイダンスについては、[1910 のリリースノート](release-notes.md)を参照してください。
+> [!NOTE]
+> /20 の入力は、1910 の次の Azure Stack Hub 更新プログラムの前提条件となります。 1910 の次の Azure Stack Hub 更新プログラムがリリースされ、それをインストールしようとすると、後述する修復手順で説明するように /20 の入力を完了していない場合、更新は失敗します。 前記の修復手順が完了するまで、管理者ポータルにはアラートが表示されます。 この新しいプライベート空間がどのように使用されるかについては、[データセンターのネットワーク統合](azure-stack-network.md#private-network)に関する記事を参照してください。
+
+**修復手順**: 修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、次の例を使用して、PEP セッション内で次のコマンドレット (1910 以降でのみ使用可能) を実行します: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理者ポータル上のアラートは閉じられます。 これで、Azure Stack Hub システムは、次のバージョンに更新できるようになります。
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack インフラストラクチャ ネットワーク
 この /24 ネットワークは、内部の Azure Stack コンポーネントが互いにデータを通信したり交換したりできるように、これらのコンポーネント専用です。 このサブネットは、Azure Stack ソリューションの外部からデータセンターにルーティングできます。このサブネットでパブリックまたはインターネットのルーティング可能な IP アドレスを使用することはお勧めしません。 このネットワークは境界にアドバタイズされますが、そのほとんどの IP はアクセス制御リスト (ACL) によって保護されています。 アクセスが許可される IP は、/27 ネットワークや、[特権エンド ポイント (PEP)](azure-stack-privileged-endpoint.md)、[Azure Stack Backup](azure-stack-backup-reference.md) などのホスト サービスとサイズが同等の小さな範囲内です。

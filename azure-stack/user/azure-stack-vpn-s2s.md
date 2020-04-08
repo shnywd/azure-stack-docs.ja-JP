@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: a44af909dc3f3309c51f748b0f3b3f0275843c80
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
+ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77705068"
+ms.lasthandoff: 03/27/2020
+ms.locfileid: "80367803"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
@@ -60,13 +60,13 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 以下の表は、サポートされている暗号アルゴリズムと、Azure Stack Hub のお客様が構成できるキーの強度を一覧にしたものです。
 
-| IPsec/IKEv2                                          | オプション                                                                  |
+| IPsec/IKEv2                                          | Options                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2 暗号化                                     | AES256、AES192、AES128、DES3、DES                                        |
 | IKEv2 整合性                                      | SHA384、SHA256、SHA1、MD5                                                |
-| DH グループ                                             | ECP384、ECP256、DHGroup14、DHGroup2048、DHGroup2、DHGroup1、なし         |
+| DH グループ                                             | ECP384、ECP256、DHGroup14、DHGroup2、DHGroup1、なし                      |
 | IPsec 暗号化                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、なし |
-| IPsec 整合性                                      | GCMASE256、GCMAES192、GCMAES128、SHA256、SHA1、MD5                       |
+| IPsec 整合性                                      | GCMASE256、GCMAES192、GCMAES128                                          |
 | PFS グループ                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、なし                         |
 | QM SA の有効期間                                       | (オプション: 指定されていない場合、既定値が使用されます)<br />                         秒 (整数: 最小 300/既定値 27,000 秒)<br />                         キロバイト数 (整数: 最小 1,024/既定値 102,400,000 キロバイト) |
 | トラフィック セレクター                                     | Azure Stack Hub ではポリシー ベースのトラフィック セレクターはサポートされていません。         |

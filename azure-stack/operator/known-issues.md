@@ -7,12 +7,12 @@ ms.date: 03/20/2020
 ms.author: sethm
 ms.reviewer: prchint
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d06514242069e20957e15e1503b513ece366fba1
-ms.sourcegitcommit: 961e3b1fae32d7f9567359fa3f7cb13cdc37e28e
+ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80152151"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479226"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -111,6 +111,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ## <a name="compute"></a>Compute
 
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
+
+- 適用先:この問題は、2002 以降に適用されます。
+- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。
+- 修復: **[設定]** の下にある **[プロパティ]** ブレードを確認します。
+
 ### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ
 
 - 適用先:この問題は、2002 以降に適用されます。
@@ -138,6 +144,11 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
 - 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub のデプロイでは、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+
+### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>SQL VM のプロビジョニングが ASDK で失敗する
+- 適用先:この問題は ASDK 2002 にのみ適用されます。 
+- 原因: ASDK 2002 で新しい SQL VM を作成する際に、"**Extension with publisher 'Microsoft.SqlServer.Management', type 'SqlIaaSAgent', and type handler version '2.0' could not be found in the extension repository. (発行元 'Microsoft.SqlServer.Management'、種類 'SqlIaaSAgent'、種類ハンドラー バージョン '2.0' の拡張機能が拡張機能リポジトリに見つかりません。)"** というエラー メッセージが表示されることがあります。 Azure Stack Hub に 'SqlIaaSAgent' 2.0 がありません。 
+
 
 ## <a name="resource-providers"></a>リソース プロバイダー
 

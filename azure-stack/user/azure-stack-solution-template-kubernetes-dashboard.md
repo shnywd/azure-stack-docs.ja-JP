@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e2b6598137774a5bf654aef1f9a75827da4f108a
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
+ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703640"
+ms.lasthandoff: 04/01/2020
+ms.locfileid: "80479316"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
@@ -121,6 +121,14 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 ダッシュボードを使用できます。 Kubernetes ダッシュボードの詳細については、[Kubernetes の Web UI ダッシュボード](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)に関するページを参照してください。 
 
 ![Azure Stack Hub Kubernetes ダッシュボード](media/azure-stack-solution-template-kubernetes-dashboard/azure-stack-kub-dashboard.png)
+
+## <a name="troubleshooting"></a>トラブルシューティング
+
+### <a name="custom-virtual-networks"></a>カスタム仮想ネットワーク
+
+[カスタム仮想ネットワーク](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet)に Kubernetes をデプロイした後に、Kubernetes ダッシュボードにアクセスする際に接続の問題が発生する場合は、ターゲット サブネットが、AKS エンジンによって作成されたルート テーブルとネットワーク セキュリティ グループのリソースにリンクされていることを確認してください。
+
+ネットワーク セキュリティ グループの規則で、マスター ノードと Kubernetes ダッシュボード ポッド IP の間の通信が許可されていることを確認します。 これは、マスター ノードから ping コマンドを実行することで検証できます。
 
 ## <a name="next-steps"></a>次のステップ 
 

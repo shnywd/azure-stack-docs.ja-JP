@@ -7,14 +7,14 @@ ms.date: 3/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a63fcbb13defc0d7e679c0be7fb931c0e2570b37
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c4565ce33faf1f76a4774736d9195c9d7256b6da
+ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295186"
+ms.lasthandoff: 03/31/2020
+ms.locfileid: "80423826"
 ---
-# <a name="azure-stack-hub-public-key-infrastructure-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ証明書の要件
+# <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件
 
 Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント VM に割り当てられた外部からアクセス可能なパブリック IP アドレスを使用するパブリック インフラストラクチャ ネットワークが存在します。 Azure Stack Hub のデプロイ中に、これらの Azure Stack Hub パブリック インフラストラクチャ エンドポイントの適切な DNS 名を持つ PKI 証明書が必要です。 この記事では、次の項目に関する情報を提供します。
 
@@ -91,12 +91,12 @@ Azure AD デプロイ モードを使用して Azure Stack Hub をデプロイ�
 > このセクションに一覧表示されているすべての証明書のパスワードは同じである必要があります。
 
 ## <a name="optional-paas-certificates"></a>オプションの PaaS 証明書
-Azure Stack Hub がデプロイおよび構成された後に追加の Azure Stack Hub PaaS サービス (SQL、MySQL、および App Service) をデプロイする予定がある場合は、それらの PaaS サービスのエンドポイントに対応する追加の証明書を要求する必要があります。
+Azure Stack Hub がデプロイおよび構成された後に追加の Azure Stack Hub PaaS サービス (SQL、MySQL、App Service、Event Hubs など) をデプロイする予定がある場合は、それらの PaaS サービスのエンドポイントに対応する追加の証明書を要求する必要があります。
 
 > [!IMPORTANT]
-> App Service、SQL、および MySQL リソース プロバイダーに使用する証明書は、グローバル Azure Stack Hub エンドポイントに使用されるものとルート証明機関が同じである必要があります。
+> リソース プロバイダーに使用する証明書は、グローバル Azure Stack Hub エンドポイントに使用されるものとルート証明機関が同じである必要があります。
 
-次の表では、SQL および MySQL アダプターと App Service に必要なエンドポイントと証明書について説明します。 これらの証明書を Azure Stack Hub デプロイ フォルダーにコピーする必要はありません。 代わりに、追加のリソース プロバイダーをインストールするときにこれらの証明書を指定します。
+次の表では、リソースプロバイダーに必要なエンドポイントと証明書について説明します。 これらの証明書を Azure Stack Hub デプロイ フォルダーにコピーする必要はありません。 リソースプロバイダーをインストールするときにこれらの証明書を指定します。
 
 |スコープ (リージョンごと)|Certificate|必要な証明書のサブジェクト名とサブジェクトの別名 (SAN)|サブドメインの名前空間|
 |-----|-----|-----|-----|
@@ -105,10 +105,11 @@ Azure Stack Hub がデプロイおよび構成された後に追加の Azure Sta
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
 
 <sup>1</sup> 複数のワイルドカード サブジェクトの別名を持つ 1 つの証明書が必要です。 単一の証明書での複数のワイルドカード SAN は、公的証明機関によってはサポートされていない場合があります。
 
-<sup>2</sup> これらの 3 つの証明書 (api.appservice. *&lt;region>.&lt;fqdn>* 、ftp.appservice. *&lt;region>.&lt;fqdn>* 、および sso.appservice. *&lt;region>.&lt;fqdn>* ) の代わりに &#42;.appservice. *&lt;region>.&lt;fqdn>* ワイルドカード証明書を使用することはできません。 App Service では、これらのエンドポイントに個別の証明書を明示的に使用する必要があります。
+<sup>2</sup> これら 3 つの証明書 (api.appservice. *&lt;region>.&lt;fqdn>* 、ftp.appservice. *&lt;region>.&lt;fqdn>* 、sso.appservice. *&lt;region>.&lt;fqdn>* ) の代わりに &#42;.appservice. *&lt;region>.&lt;fqdn>* ワイルドカード証明書を使用することはできません。 App Service では、これらのエンドポイントに個別の証明書を明示的に使用する必要があります。
 
 ## <a name="learn-more"></a>詳細情報
 [Azure Stack Hub デプロイのための PKI 証明書を生成する](azure-stack-get-pki-certs.md)方法について理解を深めましょう。
