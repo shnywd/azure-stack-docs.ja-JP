@@ -1,9 +1,13 @@
 - name: Azure Stack HCI のドキュメント
-  href: overview.md
+  href: index.yml
 - name: 概要
   items:
     - name: Azure Stack HCI とは
       href: overview.md
+- name: はじめに
+  items:
+    - name: Windows Admin Center で Azure Stack HCI を使用する
+      href: get-started.md
 - name: 管理する
   items:
     - name: ボリュームの作成
@@ -14,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: ドライブの交換
       href: manage/replace-drives.md
+    - name: Azure Monitor による監視
+      href: manage/azure-monitor.md
     - name: Linux VM への GPU のアタッチ
       href: manage/attach-gpu-to-linux-vm.md
 - name: 概念
@@ -40,6 +46,12 @@
       href: /powershell/module/failoverclusters
     - name: StorageReplica PowerShell コマンド
       href: /powershell/module/storagereplica
+    - name: NetAdapter PowerShell コマンド
+      href: /powershell/module/netadapter
+    - name: NetQoS PowerShell コマンド
+      href: /powershell/module/netqos
+    - name: DcbQoS PowerShell コマンド
+      href: /powershell/module/dcbqos
 - name: 関連項目
   items:
     - name: Azure Stack ファミリ
