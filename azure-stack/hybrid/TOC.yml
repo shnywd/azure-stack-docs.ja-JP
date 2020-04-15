@@ -8,7 +8,7 @@
   items:
     - name: Single
       items:
-        - name: クロス クラウド スケーリング
+        - name: クラウド間スケーリング
           href: pattern-cross-cloud-scale.md
         - name: DevOps ハイブリッド CI/CD
           href: pattern-cicd-pipeline.md
