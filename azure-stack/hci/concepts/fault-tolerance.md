@@ -6,10 +6,10 @@ ms.author: v-kedow
 ms.topic: article
 ms.date: 02/28/2020
 ms.openlocfilehash: 9ace3960b4c54461a4153c4997694e6d17ee4fd1
-ms.sourcegitcommit: a77dea675af6500bdad529106f5782d86bec6a34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/10/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79026117"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Azure Stack HCI のフォールト トレランスとストレージの効率性
@@ -97,7 +97,7 @@ Microsoft の [Claus Joergensen](https://twitter.com/clausjor) による、非�
 > [!IMPORTANT]
 > ほとんどのパフォーマンスを重視するワークロードにはミラーリングを使用することをお勧めします。 ワークロードに応じてパフォーマンスと容量のバランスを取る方法の詳細については、「[ボリュームの計画](/windows-server/storage/storage-spaces/plan-volumes#choosing-the-resiliency-type)」を参照してください。
 
-## <a name="summary"></a>概要
+## <a name="summary"></a><a name="summary"></a>概要
 
 このセクションでは、記憶域スペース ダイレクトで使用できる回復性の種類、各種類を使用するための最小スケール要件、各種類で許容される障害の数、および対応するストレージ効率性についてまとめます。
 
@@ -166,7 +166,7 @@ Microsoft の [Claus Joergensen](https://twitter.com/clausjor) による、非�
 |    15                 |    RS 6+2           |    75.0%        |
 |    16                 |    LRC (12、2、1)   |    80.0%        |
 
-## <a name="examples"></a>例
+## <a name="examples"></a><a name="examples"></a>例
 
 サーバーが 2 台しかない場合を除き、フォールト トレランスの向上を実現するため、3 方向のミラーリングとデュアル パリティ (またはそのいずれか) を使用することをお勧めします。 具体的には、2 つの障害ドメイン (記憶域スペース ダイレクトでは 2 台のサーバー) が同時障害の影響を受ける場合でも、すべてのデータが安全に維持され、継続的にアクセス可能であることが保証されます。
 

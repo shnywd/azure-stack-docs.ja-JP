@@ -9,10 +9,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 327b63e2b21ea545fd6e0d175d531862ceeac0d6
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77696925"
 ---
 # <a name="create-highly-available-mysql-databases"></a>高可用性 MySQL データベースの作成
@@ -64,7 +64,7 @@ Azure Stack Marketplace に項目を追加する方法については、「[Azur
 
 2. サブスクリプションがまだ割り当てられていない場合は、ダッシュボードから **[サブスクリプションの取得]** を選択します。 ブレードで、サブスクリプションの名前を入力し、オファーを選択します。 誤って削除されないように、MySQL クラスターのデプロイは独自のサブスクリプションに保持することをお勧めします。
 
-3. **[\+** **リソースの作成]** 、 **[計算]** の順に選択し、 **[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
+3. **[\+** **リソースの作成]**  >  **[計算]** の順に選択し、 **[MySQL with Replication]\(レプリケーション付き MySQL\)** を選択します。
 
    ![Azure Stack Hub でのカスタム テンプレートのデプロイ](media/azure-stack-tutorial-mysqlrp/img1.png)
 
@@ -180,7 +180,7 @@ MySQL クラスターが Azure Stack Hub オペレーターによって Azure St
 1. 
    [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
-2. **[\+** **リソースの作成]** 、 **[データ \+ ストレージ]** の順に選択し、 **[MySQL Database]** を選択します。
+2. **[\+** **リソースの作成]**  >  **[データ \+ ストレージ]** の順に選択し、 **[MySQL Database]** を選択します。
 
     名前、照合順序、使用するサブスクリプション、デプロイに使用する場所などの必須のデータベースのプロパティを指定します。
 

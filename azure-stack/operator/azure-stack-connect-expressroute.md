@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
 ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701498"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
@@ -93,7 +93,7 @@ Azure Stack Hub 内でテナントに必要なネットワーク リソースを
 
 5. **[仮想ネットワークの作成]** で、次の表に示した値をそれぞれ対応するフィールドに入力します。
 
-   |フィールド  |Value  |
+   |フィールド  |値  |
    |---------|---------|
    |名前     |Tenant1VNet1         |
    |アドレス空間     |10.1.0.0/16|

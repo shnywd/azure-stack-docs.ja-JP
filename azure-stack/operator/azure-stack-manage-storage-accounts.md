@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
 ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295330"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
@@ -100,7 +100,7 @@ Azure Stack Hub では、これを行う簡単な方法があります。
 
    ![管理者ポータルで保有期間を編集する](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>容量の回収
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>容量の回収
 保有期間を設定することの副作用の 1 つは、削除されたアカウントが、保有期間外になるまで、容量を消費し続けることです。 クラウド オペレーターとして、削除されたアカウントの保有期間が終了していなくても、その領域を回収する方法が必要な場合があります。
 
 ポータルまたは PowerShell のいずれかを使用して、容量の回収ができます。

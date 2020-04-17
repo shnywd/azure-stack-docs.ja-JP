@@ -3,16 +3,16 @@ title: Azure Stack Hub の ID プロバイダーの概要
 description: Azure Stack Hub に使用できる ID プロバイダーについて学習します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 896dc2b2def823a91278fe77062b20146a3c6976
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: c9a01d4aaa437549177f6e32c10f4600287732a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699696"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244142"
 ---
 # <a name="overview-of-identity-providers-for-azure-stack-hub"></a>Azure Stack Hub の ID プロバイダーの概要
 
@@ -32,7 +32,7 @@ Azure Stack Hub 環境に依存するオプションの詳細については、�
 
 次のセクションでは、ID プロバイダーの一般的な概念と、Azure Stack Hub での使用について説明します。
 
-![ID プロバイダーに関する用語](media/azure-stack-identity-overview/terminology.png)
+![ID プロバイダーに関する用語](media/azure-stack-identity-overview/terminology.svg)
 
 ### <a name="directory-tenants-and-organizations"></a>ディレクトリ テナントと組織
 
@@ -130,7 +130,7 @@ Azure Stack Hub をインストールすると、いくつかの組み込みの�
 
 ### <a name="authentication-by-apps-and-users"></a>アプリとユーザーによる認証
 
-![Azure Stack Hub のレイヤー間の ID](media/azure-stack-identity-overview/identity-layers.png)
+![Azure Stack Hub のレイヤー間の ID](media/azure-stack-identity-overview/identity-layers.svg)
 
 アプリとユーザーにとって、Azure Stack Hub のアーキテクチャは 4 つのレイヤーで表されます。 各レイヤー間の対話には、さまざまな種類の認証を使用できます。
 
@@ -141,7 +141,7 @@ Azure Stack Hub をインストールすると、いくつかの組み込みの�
 |リソース プロバイダー     |リソース プロバイダーに渡された呼び出しは、証明書ベースの認証によって保護されます。 <br>Azure Resource Manager とリソース プロバイダーは、API を介した通信を継続します。 Azure Resource Manager から受信したすべての呼び出しを、リソース プロバイダーはその証明書で検証します。|
 |インフラストラクチャとビジネス ロジック     |リソース プロバイダーは、任意の認証モードを使用して、ビジネス ロジックおよびインフラストラクチャと通信します。 Azure Stack Hub 付属の既定のリソース プロバイダーは、この通信をセキュリティで保護するために Windows 認証を使用します。|
 
-![認証に必要な情報](media/azure-stack-identity-overview/authentication.png)
+![認証に必要な情報](media/azure-stack-identity-overview/authentication.svg)
 
 ### <a name="authenticate-to-azure-resource-manager"></a>Azure Resource Manager への認証
 
@@ -168,7 +168,7 @@ ID プロバイダーで認証して JSON Web トークンを受け取るには�
 
 すべての検証が完了すると、Azure Resource Manager で *object id* (oid) および *groups* 要求を使用して、プリンシパルがアクセスできるリソースの一覧が作成されます。
 
-![トークン交換プロトコルの図](media/azure-stack-identity-overview/token-exchange.png)
+![トークン交換プロトコルの図](media/azure-stack-identity-overview/token-exchange.svg)
 
 > [!NOTE]
 > デプロイ後は、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります (たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能です)。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。

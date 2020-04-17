@@ -7,12 +7,12 @@ ms.date: 2/3/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 611fec639fbcec478b79d44975b24f2d806df5bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78364804"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80614427"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -108,6 +108,17 @@ Windows の製品は、製品使用権利およびマイクロソフのライセ
 - Windows Server 2012 以前を実行する VM は、自動的にアクティブ化されないので、[MAK ライセンス認証](https://technet.microsoft.com/library/ff793438.aspx)を使用してアクティブ化する必要があります。 MAK ライセンス認証を使用するには、自分のプロダクト キーを指定する必要があります。
 
 Microsoft Azure では、KMS ライセンス認証を使用して、Windows VM をアクティブ化します。 Azure Stack Hub から Azure に VM を移行して、アクティブ化の問題があった場合は、[Azure Windows VM のライセンス認証に関する問題のトラブルシューティング](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems)を参照してください。 追加の情報については、Azure サポート チームのブログ記事「[Troubleshooting Windows activation failures on Azure VMs (Azure VM での Windows のライセンス認証の失敗をトラブルシューティングする)](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/)」を参照してください。
+
+## <a name="high-availability"></a>高可用性
+
+Azure Stack Hub オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 Azure でのマルチ VM による実稼働システムの高可用性を実現するため、VM は、複数の障害ドメインと更新ドメインに分散される[可用性セット](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)に配置されます。 より小さいスケールの Azure Stack Hub では、可用性セット内の障害ドメインは、スケール ユニット内の 1 つのノードとして定義されます。  
+
+Azure Stack Hub のインフラストラクチャは既に障害に対する回復性を備えていますが、基盤となっているテクノロジ (フェールオーバー クラスタリング) では、ハードウェアが故障した場合にその影響を受ける物理サーバー上の VM に多少のダウンタイムが発生します。 Azure Stack Hub では、Azure との一貫性がある最大 3 つの障害ドメインを持つ可用性セットを用意することをサポートしています。
+
+|                   |             |
+|-------------------|-------------|
+| **障害ドメイン** | 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack Hub ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は、他の障害ドメインで再起動されます。 これらは、他の VM とは別の障害ドメインに、ただし可能な場合、同じ可用性セットに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。 |
+| **更新ドメイン**| 更新ドメインも、Azure によって可用性セットに高可用性が提供される方法です。 更新ドメインは、メンテナンスを同時に実行できる、基盤となるハードウェアの論理グループです。 同じ更新ドメイン内の VM は、計画済みメンテナンス中に同時に再起動されます。 テナントが可用性セット内に VM を作成すると、Azure プラットフォームは、これらの更新ドメインに VM を自動的に分散します。 <br>Azure Stack Hub では、VM のホストが更新される前に、クラスター内の他のオンライン ホストに VM がライブ マイグレーションされます。 ホスト更新の際にテナントのダウンタイムは発生しないため、Azure Stack Hub の更新ドメイン機能は、Azure とテンプレートの互換性を保つためにのみ存在します。 可用性セット内の VM では、ポータル上でその更新ドメイン番号として 0 が表示されます。 |
 
 ## <a name="next-steps"></a>次のステップ
 
