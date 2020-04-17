@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2019
 ms.openlocfilehash: 5cc3f24c62fc9c91637744cf031da39c6c7279fb
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366502"
 ---
 # <a name="azure-stack-hub-validation-report"></a>Azure Stack Hub 検証レポート
@@ -30,7 +30,7 @@ ms.locfileid: "78366502"
 既定では、両方のファイルが `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
-- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
+- ツールの以前の実行に関する情報を `-CleanReport`AzsReadinessCheckerReport.json**からクリアするには、コマンド ラインの末尾に** パラメーターを使用します。
 
 ## <a name="view-the-report"></a>レポートを表示する
 

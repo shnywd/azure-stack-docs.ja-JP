@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
 ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367848"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Azure Stack Hub の物理ディスクを交換する
@@ -49,7 +49,7 @@ ms.locfileid: "78367848"
 ディスクの交換後、Azure Stack Hub PowerShell を使用して、仮想ディスクの正常性状態と修復ジョブの進行状況を監視できます。
 
 1. Azure Stack Hub PowerShell がインストールされていることを確認してください。 詳細については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
-2. オペレーターとして PowerShell を使用する Azure Stack Hub に接続します。 詳細については、[オペレーターとして PowerShell を使用する Azure Stack Hub への接続](azure-stack-powershell-configure-admin.md)に関する記事を参照してください。
+2. オペレーターとして、PowerShell を使用して Azure Stack Hub に接続します。 詳細については、[オペレーターとして PowerShell を使用する Azure Stack Hub への接続](azure-stack-powershell-configure-admin.md)に関する記事を参照してください。
 3. 仮想ディスクの正常性と修復状態を検証するには、次のコマンドレットを実行します。
 
     ```powershell  

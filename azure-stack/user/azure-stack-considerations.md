@@ -7,10 +7,10 @@ ms.date: 01/06/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: 9d60c9300d2a717f280ab16a7f6c55d67a13f28c
-ms.sourcegitcommit: 19e9b6d6ce24d74ff396a5dc48208671aeda432a
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "80362153"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い
@@ -30,7 +30,7 @@ Azure Stack Hub オペレーターは、ユーザーに使用可能なサービ�
 * 適切な Azure Stack Hub 固有のエンドポイント (ポータル アドレスや Azure Resource Manager エンドポイントの URL など) を使用する必要があります。
 * Azure Stack Hub でサポートされている PowerShell および API のバージョンを使用する必要があります。 サポートされているバージョンを使用すると、確実に Azure Stack Hub と Azure の両方でアプリが動作するようになります。
 
-## <a name="cheat-sheet-high-level-differences"></a>チート シート:大まかな違い
+## <a name="cheat-sheet-high-level-differences"></a>チート シート: 違いの概要
 
 次の表では、Azure Stack Hub と Azure の大まかな違いを示します。 Azure Stack Hub 向けに開発する場合や、Azure Stack Hub サービスを使用する場合は以下の相違点に注意してください。
 
@@ -75,7 +75,7 @@ Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | S
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-出力例 (抜粋):![Get-AzureRmResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
+出力例 (一部): ![Get-AzureRmResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>次のステップ
 

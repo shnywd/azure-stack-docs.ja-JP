@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppace
 ms.openlocfilehash: 461bad387dd5616eba227df4bd9b6e8beee40e43
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295102"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
@@ -40,7 +40,7 @@ ms.locfileid: "79295102"
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
 > [!Important]
-> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+> Azure Stack Hub に更新プログラムを適用する前に、**更新前のチェックリスト**の手順を[すべて](release-notes-checklist.md)完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
 
 1. Azure Stack Hub 管理者ポータルを開きます。
 

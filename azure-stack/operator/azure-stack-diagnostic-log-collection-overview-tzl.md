@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
 ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79520634"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack Hub の診断ログの収集の概要 
@@ -77,7 +77,7 @@ Azure Stack Hub から診断ログ収集を開始することで、これらの�
 | 共有接続 | アップロードは、ネットワーク接続を共有する他のアプリケーションやユーザーに影響を与える場合があります |
 | 従量制課金接続 | 追加のネットワーク使用に対して、ISP からの追加料金が発生する場合があります | 
 
-## <a name="see-also"></a>関連項目
+## <a name="see-also"></a>参照
 
 [Azure Stack Hub でのログおよび顧客データの処理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

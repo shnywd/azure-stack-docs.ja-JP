@@ -8,17 +8,17 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
 ms.openlocfilehash: 7451338194742723d6b669f94dc11b4449570eda
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703844"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する
 
 この記事のテンプレートを使用すると、Azure Stack Hub 仮想マシン (VM) をオンプレミスの iSCSI ターゲットに接続し、Azure Stack Hub の外部やデータセンターの他の場所でホストされるストレージを使用するように VM を設定できます。 この記事では、Windows マシンを iSCSI ターゲットとして使用する方法について説明します。
 
-このテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) リポジトリの **lucidqdreams** フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack Hub 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack Hub VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack Hub VM に追加されます。 
+このテンプレートは、**Azure Intelligent Edge Patterns GitHub** リポジトリの [lucidqdreams](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack Hub 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack Hub VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack Hub VM に追加されます。 
 
 ## <a name="overview"></a>概要
 

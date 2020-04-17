@@ -9,10 +9,10 @@ ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
 ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512403"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
@@ -68,7 +68,7 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 ::: moniker range="azs-2002"
 
 > [!IMPORTANT]  
-> Azure Stack Hub 2002 更新プログラムでは、Microsoft は Azure Stack Hub サポート ポリシー ステートメントを一時的に延長しています。 Microsoft は現在、COVID-19 に対応中の、Azure Stack Hub システムとその更新方法と管理方法に関する重要な意思決定を行っている可能性のある世界中のお客様と連携して、お客様のデータセンターのビジネス運用を正常に継続するための取り組みを行っています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。 その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のすべてがサポートされます。
+> Azure Stack Hub 2002 更新プログラムでは、Microsoft は Azure Stack Hub サポート ポリシー ステートメントを一時的に延長しています。 Microsoft は現在、COVID-19 に対応中のユーザーで、Azure Stack Hub システムとその更新および管理の方法に関する重要な意思決定を行う可能性がある世界中のお客様と連携しています。その結果、お客様のデータセンターのビジネス運営が引き続き通常通り運営できるようにしています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。 その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のいずれもがサポートされるようになります。
 
 ::: moniker-end
 

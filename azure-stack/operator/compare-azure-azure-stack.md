@@ -9,10 +9,10 @@ ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
 ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "78366417"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い

@@ -8,10 +8,10 @@ ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
 ms.openlocfilehash: 976d602cea47131bef68b38add07e0bcaeeb9617
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295300"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
@@ -51,7 +51,7 @@ Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に
 
     |前提条件|リファレンス|
     |-----|-----|
-    |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack Hub データセンターの統合 - DNS](azure-stack-integrate-dns.md)|
+    |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack Hub とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)|
     |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack Hub データセンターの統合 - エンドポイントの発行](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
     |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack Hub のデプロイに対する PKI の必須前提条件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack Hub のデプロイに対する PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |

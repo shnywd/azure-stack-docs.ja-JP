@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
 ms.openlocfilehash: 5bcfcb8a5e2af29b0d7b60774853fa35392d9f23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702484"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
@@ -40,7 +40,7 @@ VM を作成するときは、新しい仮想マシンごとに同じストレ�
 
 次の表は、ポータルおよび PowerShell を使用してディスクを追加する方法をまとめたものです。
 
-| Method | オプション
+| Method | Options
 |-|-|
 |ユーザー ポータル|- 既存の VM に新しいデータ ディスクを追加します。 新しいディスクは、Azure Stack Hub によって作成されます。 </br> </br> - 前に作成した VM に既存のディスク (.vhd) ファイルを追加します。 これを行うには、.vhd ファイルを準備して、そのファイルを Azure Stack Hub にアップロードする必要があります。 |
 |[PowerShell](#use-powershell-to-add-multiple-disks-to-a-vm) | - OS ディスクがある新しい VM を作成し、同時にその VM に 1 つまたは複数のデータ ディスクを追加します。 |

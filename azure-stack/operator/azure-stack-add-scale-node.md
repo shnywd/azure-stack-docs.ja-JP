@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77688765"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
@@ -120,7 +120,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 ## <a name="troubleshooting"></a>トラブルシューティング
 ノードを追加するときに多く見られる問題は次のとおりです。 
 
-**シナリオ 1:** スケール ユニット ノードの追加操作は失敗するが、一覧に停止状態として表示されるノードが少なくとも 1 つ存在する。  
+**シナリオ 1:**  スケール ユニット ノードの追加操作は失敗するが、停止状態で表示されるノードが少なくとも 1 つ存在する。  
 - 修復: 修復操作を使用してノードを修復してください。 一度に実行できる修復操作は 1 つだけです。
 
 **シナリオ 2:** 1 つまたは複数のスケール ユニット ノードが追加されましたが、ストレージの拡張に失敗した。 このシナリオでは、スケール ユニット ノード オブジェクトから "実行中" という状態が報告されますが、"記憶域を構成しています" タスクが開始されません。  

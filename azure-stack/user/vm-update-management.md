@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 0a105730f36aa9ce14e967bcdcefdb93ece0f26b
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.openlocfilehash: 6656d4eec9eedda8bb037598d92b29a07b6a72a0
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77636286"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806940"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
@@ -65,7 +65,7 @@ Azure Monitor for VMs では、ご利用の Azure VM および仮想マシン �
 
 3. さまざまなリソース グループおよびサブスクリプションからの VM と相互接続されているコンポーネントを表示する依存関係マップ。
 
-Log Analytics ワークスペースが作成されたら、Linux および Windows VM 上のコレクションに対し、ワークスペースのパフォーマンス カウンターを有効にします。 次に、ワークスペースに ServiceMap および InfrastructureInsights ソリューションをインストールして有効にします。 このプロセスについて詳しくは、「[Azure Monitor for VMs をデプロイする](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-onboard#how-to-enable-azure-monitor-for-vms-preview)」をご覧ください。
+Log Analytics ワークスペースが作成されたら、Linux および Windows VM 上のコレクションに対し、ワークスペースのパフォーマンス カウンターを有効にします。 次に、ワークスペースに ServiceMap および InfrastructureInsights ソリューションをインストールして有効にします。 このプロセスについて詳しくは、「[Azure Monitor for VMs をデプロイする](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview)」をご覧ください。
 
 ### <a name="in-the-azure-stack-hub-administrator-portal"></a>Azure Stack Hub 管理者ポータルで
 Azure portal で Azure Automation のソリューションを有効にしたら、次に、クラウド管理者として Azure Stack Hub 管理者ポータルにサインインし、Azure Stack Hub Marketplace の **Azure Monitor、更新および構成管理**および **Linux 用 Azure Monitor、更新および構成管理**という拡張機能をダウンロードします。

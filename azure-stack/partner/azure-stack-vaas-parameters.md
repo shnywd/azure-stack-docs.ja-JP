@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: a9fce93fb66793ec933d2a8182811bd0577a2588
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295090"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-hub-validation-as-a-service"></a>Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター
@@ -47,7 +47,7 @@ ms.locfileid: "79295090"
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>ECE 構成ファイルで値を検索する
 
-環境パラメーター値は、DVM の `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` にある **ECE 構成ファイル**で手動で検索することもできます。
+環境パラメーター値は、DVM の **にある**ECE 構成ファイル`C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787`で手動で検索することもできます。
 
 ## <a name="test-parameters"></a>テスト パラメーター
 

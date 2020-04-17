@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
 ms.openlocfilehash: eb9cc45f3c8de162550cb7f882060a9506831d23
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704830"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
@@ -90,5 +90,5 @@ Azure Stack Hub に新しいカスタマーを追加するか、お使いのゲ�
 ## <a name="next-steps"></a>次のステップ
 
 - 登録プロセス中にエラーが発生した場合にエラー メッセージを確認する方法については、[テナント登録時のエラー メッセージ](azure-stack-registration-errors.md)に関するページを参照してください。
-- Azure Stack Hub からリソース使用量情報を取得する方法の詳細については、「[Azure Stack Hub での使用量と請求](azure-stack-billing-and-chargeback.md)」を参照してください。
+- Azure Stack Hub からリソース使用量情報を取得する方法の詳細については、「[Azure Stack Hub での使用量と請求](azure-stack-billing-and-chargeback.md)」をご覧ください。
 - エンド カスタマーが CSP を Azure Stack Hub テナントの管理者として追加する方法を確認するには、[クラウド ソリューション プロバイダーがお使いの Azure Stack Hub サブスクリプションを管理する](../user/azure-stack-csp-enable-billing-usage-tracking.md)方法に関するページを参照してください。

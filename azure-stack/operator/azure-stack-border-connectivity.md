@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: a1faf66aa6bd3195ceece035b4c67234673359bf
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: d0b50cc2237315c1ab6063aef6419db0e18aa395
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366223"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243963"
 ---
 # <a name="border-connectivity"></a>境界接続 
 ネットワーク統合の計画は、Azure Stack Hub 統合システムのデプロイ、運用、管理を正常に行うための重要な前提条件です。 境界接続の計画は、境界ゲートウェイ プロトコル (BGP) による動的ルーティングを使用するかどうかを選択することから始まります。 これを行うには、16 ビットの BGP 自律システム番号 (パブリックまたはプライベート) を割り当てるか、または既定の静的ルートが境界デバイスに割り当てられる静的ルーティングを使用する必要があります。
@@ -29,7 +29,7 @@ Azure Stack Hub ソリューションの内部で実行されているソフト�
 
 ユーザー トラフィックが即時かつ透過的に障害から復旧できるようにするために、TOR デバイス間で構成された VPC または MLAG は、ホストと IP ネットワークの冗長性を提供する HSRP または VRRP に対してマルチシャーシ リンク アグリゲーションの使用を許可します。
 
-![BGP ルーティング](media/azure-stack-border-connectivity/bgp-routing.png)
+![BGP ルーティング](media/azure-stack-border-connectivity/bgp-routing.svg)
 
 ## <a name="static-routing"></a>静的ルーティング
 静的ルーティングには、境界デバイスへの追加構成が必要です。 これにより、より多くの手動介入と管理が必要になり、変更を行う前に分析を行う必要もあります。 構成エラーによって発生した問題の場合、行われた変更によっては、より長い時間がかかる可能性があります。 このルーティング方法はお勧めできませんが、サポートされています。
@@ -42,7 +42,7 @@ TOR デバイスには、すべてのトラフィックを境界デバイスに�
 
 静的ルーティングは、TOR と境界スイッチの間のアップリンクにのみ適用されます。 BGP 動的ルーティングは、ラックの内部で使用されます。これは SLB とその他のコンポーネントにとって不可欠なツールであり、無効にしたり削除したりすることはできないためです。
 
-![静的ルーティング](media/azure-stack-border-connectivity/static-routing.png)
+![静的ルーティング](media/azure-stack-border-connectivity/static-routing.svg)
 
 <sup>\*</sup> デプロイ後の BMC ネットワークは省略可能です。
 
@@ -58,7 +58,7 @@ TOR デバイスには、すべてのトラフィックを境界デバイスに�
 
 透過プロキシ (インターセプト、インライン、または強制プロキシとも呼ばれます) は、特殊なクライアント構成を必要とすることなく、通常の通信をネットワーク レイヤーでインターセプトします。 クライアントがプロキシの存在を意識する必要はありません。
 
-![透過プロキシ](media/azure-stack-border-connectivity/transparent-proxy.png)
+![透過プロキシ](media/azure-stack-border-connectivity/transparent-proxy.svg)
 
 SSL トラフィックのインターセプトは[サポートされておらず](azure-stack-firewall.md#ssl-interception)、エンドポイントへのアクセスでサービス エラーが発生する可能性があります。 ID に必要なエンドポイントとの通信に対してサポートされる最大タイムアウトは 60 秒で、再試行は 3 回です。
 

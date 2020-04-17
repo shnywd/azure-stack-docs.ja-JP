@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
 ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702178"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>Azure Stack Hub での VM との VNET ピアリング
@@ -28,7 +28,7 @@ ms.locfileid: "77702178"
 ## <a name="requirements"></a>必要条件
 
 - 最新の更新プログラムが適用されたデプロイ。 
-- 必要な Azure Stack Hub Marketplace 項目:
+- 次の Azure Stack Hub Marketplace 必須項目。
     -  Windows Server 2016 Datacenter (最新ビルドを推奨)
     -  カスタム スクリプト拡張機能
 

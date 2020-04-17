@@ -3,16 +3,16 @@ title: Azure Stack Hub の ID アーキテクチャ
 description: Azure Stack Hub の ID アーキテクチャと、Azure AD と AD FS の違いについて説明します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 42badc226bfd8339c497c752ee4b547c48a1250c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: ae5cc821ffe621d4e14ef37b426ff36202ed37ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77699679"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244031"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub の ID アーキテクチャ
 
@@ -47,7 +47,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 - すべてのユーザーが、同じテナントに属している。
 - サービス プロバイダーが、組織の Azure Stack Hub インスタンスをホストする。
 
-![Azure AD による Azure Stack Hub のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure AD による Azure Stack Hub のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.svg)
 
 このトポロジには次の特徴があります。
 
@@ -64,7 +64,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 
 - サービス プロバイダーが、複数の組織のユーザーに Azure Stack Hub へのアクセスを許可しようとしている。
 
-![Azure AD による Azure Stack Hub のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure AD による Azure Stack Hub のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 このトポロジには次の特徴があります。
 
@@ -79,7 +79,7 @@ AD FS トポロジは、次のいずれかの条件に該当する場合に必�
 - Azure Stack Hub がインターネットに接続されない。
 - Azure Stack Hub はインターネットに接続できるが、ID プロバイダーのために AD FS を使用することを選択する。
   
-![AD FS を使用する Azure Stack Hub トポロジ](media/azure-stack-identity-architecture/adfs.png)
+![AD FS を使用する Azure Stack Hub トポロジ](media/azure-stack-identity-architecture/adfs.svg)
 
 このトポロジには次の特徴があります。
 

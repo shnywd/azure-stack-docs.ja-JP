@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
 ms.openlocfilehash: 50a5a9498939f47cc8a688f1171d8b1a0cc4ca8a
-ms.sourcegitcommit: 4e1c948ae4a498bd730543b0704bbc2b0d88e1ec
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/26/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77636303"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法
@@ -27,7 +27,7 @@ ms.locfileid: "77636303"
 ## <a name="requirements"></a>必要条件
 
 - 最新の更新プログラムが適用された状態でデプロイされたシステム。 
-- 必要な Azure Stack Hub Marketplace 項目:
+- 次の Azure Stack Hub Marketplace 必須項目。
     -  Windows Server 2016 Datacenter (最新ビルドを推奨)
     -  カスタム スクリプト拡張機能
 

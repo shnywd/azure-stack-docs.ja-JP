@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295492"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
@@ -82,7 +82,7 @@ gem install 'azure_sdk'
 
 Azure Stack Hub で Ruby Azure SDK を使用するには、次の値を指定した後、環境変数で値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
-| Value | 環境変数 | 説明 |
+| 値 | 環境変数 | 説明 |
 | --- | --- | --- |
 | テナント ID | `AZURE_TENANT_ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。  |

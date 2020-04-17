@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80068986"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Stack Hub で Azure Monitor for containers を使用する
@@ -28,7 +28,7 @@ Azure Monitor では、Kubernetes で使用可能なコントローラー、ノ�
 
 ## <a name="prerequisites"></a>前提条件
 
-どちらの方法でも、「[Azure Monitor – コンテナー](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)」に記載されている[前提条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)が必要です。
+どちらの方法でも、「[Azure Monitor – コンテナー](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)」に記載されている[前提条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)が必要です。
 
 ## <a name="method-one"></a>方法 1
 

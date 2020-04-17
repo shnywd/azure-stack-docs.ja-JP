@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
 ms.openlocfilehash: d7972047787ed9ae7a5c6525c8da7dc67717c502
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705255"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Azure CLI を使用した Azure Stack Hub へのリソースの管理とデプロイ
@@ -156,7 +156,7 @@ Azure Stack Hub の CA ルート証明書を信頼するには、そのルート
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | Value | 例 | 説明 |
+    | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -269,7 +269,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | Value | 例 | 説明 |
+    | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -380,7 +380,7 @@ Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | Value | 例 | 説明 |
+    | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
@@ -486,7 +486,7 @@ Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追�
 
 2. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | Value | 例 | 説明 |
+    | 値 | 例 | 説明 |
     | --- | --- | --- |
     | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
     | Resource Manager エンドポイント | https://management.local.azurestack.external | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |

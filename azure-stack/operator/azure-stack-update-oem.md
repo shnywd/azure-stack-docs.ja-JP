@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.lastreviewed: 03/04/2020
 ms.reviewer: ppacent
 ms.openlocfilehash: 982c62ad37d2d19dd3273c7ece3f20ff725ce6b6
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367252"
 ---
 # <a name="apply-azure-stack-hub-original-equipment-manufacturer-oem-updates"></a>Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する
@@ -47,7 +47,7 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 次の手順で OEM パッケージを適用します。
 
 > [!IMPORTANT]
-> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+> Azure Stack Hub に更新プログラムを適用する前に、**更新前のチェックリスト**の手順を[すべて](release-notes-checklist.md)完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
 
 1. 次の場合に、OEM に問い合わせる必要があります。
       - OEM パッケージの現在のバージョンを確認する。  
@@ -58,7 +58,7 @@ OEM (相手先ブランド供給) パッケージの更新通知が確実に組�
 
 ## <a name="configure-hardware-vendor-vm"></a>ハードウェアベンダー VM を構成する
 
-ハードウェア ベンダーによっては、OEM 更新プロセスを支援するために VM が必要になる場合があります。 ハードウェア ベンダーは、これらの VM を作成し、**Set-OEMExternalVM** コマンドレットを実行する際に、 **-VMType** に、`ProxyVM` または `HardwareManager` が必要な場合、および **-Credential** に使用すべき資格情報について、文書化する責任があります。 VM が作成されたら、特権エンドポイントからの **Set-OEMExternalVM** を使用してそれらを構成します。
+ハードウェア ベンダーによっては、OEM 更新プロセスを支援するために VM が必要になる場合があります。 ハードウェア ベンダーは、これらの VM を作成し、`ProxyVM`Set-OEMExternalVM`HardwareManager` コマンドレットを実行する際に、 **-VMType** に、**または** が必要な場合、および **-Credential** に使用すべき資格情報について、文書化する責任があります。 VM が作成されたら、特権エンドポイントからの **Set-OEMExternalVM** を使用してそれらを構成します。
 
 Azure Stack Hub 上の特権エンドポイントの詳細については、「[Azure Stack Hub での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)」を参照してください。
 

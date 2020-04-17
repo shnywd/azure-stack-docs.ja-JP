@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 03/11/2020
 ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79512016"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
@@ -41,7 +41,7 @@ ASDK によるバックアップの検証は、次のシナリオでサポート
 ## <a name="cloud-recovery-deployment"></a>クラウドの復旧デプロイ
 ASDK のクラウドの復旧デプロイを実行することによって、統合システムのデプロイからインフラストラクチャのバックアップを検証できます。 この種類のデプロイでは、ホスト コンピューターで ASDK をインストールした後、特定のサービス データがバックアップから復元します。
 
-### <a name="prereqs"></a>クラウドの復旧の前提条件
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>クラウドの復旧の前提条件
 ASDK のクラウドの復旧デプロイを開始する前に、次の情報があることを確認します。
 
 **UI インストーラーの要件**

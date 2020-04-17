@@ -7,10 +7,10 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
 ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77702790"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Azure Stack Hub に安全に格納された証明書で VM をデプロイする
@@ -114,7 +114,7 @@ Set-AzureKeyVaultSecret `
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>azuredeploy.parameters.json ファイルを更新する
 
-ご自分の環境に従って、`vaultName`、シークレットの URI、`VmName`、他のパラメーターで **azuredeploy.parameters.json** ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
+ご自分の環境に従って、 **、シークレットの URI、** 、他のパラメーターで `vaultName`azuredeploy.parameters.json`VmName` ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
 
 ```json
 {

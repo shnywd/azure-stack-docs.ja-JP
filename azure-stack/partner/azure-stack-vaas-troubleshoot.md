@@ -10,10 +10,10 @@ ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: daef2c9685bd844ba99cadfa4f9f095fadc028be
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704507"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>サービスとしての検証のトラブルシューティング
@@ -97,7 +97,7 @@ ms.locfileid: "77704507"
     > [!IMPORTANT]
     > マーケットプレースの既存の項目について、すべての既定値が適切であるとは限りません。
 
-    | フィールド  | Value  |
+    | フィールド  | 値  |
     |---------|---------|
     | Publisher | MicrosoftWindowsServer |
     | プラン | WindowsServer |

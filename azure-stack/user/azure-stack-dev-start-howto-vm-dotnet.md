@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 505d00c6255ef7b8b919f1af0229bd207bbe032f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/15/2020
 ms.locfileid: "77704184"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイする
@@ -93,7 +93,7 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     e. **[割り当て]** で **[動的]** を選択します。
 
-    f. 完全な URL が *mywebapp.local.cloudapp.azurestack.external* になるように、**mywebapp** などの DNS 名ラベルを入力します。
+    f. 完全な URL が **mywebapp.local.cloudapp.azurestack.external** になるように、*mywebapp* などの DNS 名ラベルを入力します。
 
 ## <a name="create-an-app"></a>アプリを作成する 
 

@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 07/18/2019
 ms.openlocfilehash: c7e6bc3042b79ee47bde45cefbabc4243c3f0a03
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367822"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-hub-scale-unit-node"></a>Azure Stack Hub スケール ユニット ノードのハードウェア コンポーネントを交換する

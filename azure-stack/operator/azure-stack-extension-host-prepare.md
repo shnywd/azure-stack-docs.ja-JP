@@ -8,10 +8,10 @@ ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
 ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77699900"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Azure Stack Hub での拡張機能ホストを準備する
@@ -123,7 +123,7 @@ Azure Stack Hub 対応性チェッカー ツールを使用すると、必要と
 > DNS 統合に DNS ゾーンの委任を使用した場合、この手順は必要ありません。
 Azure Stack Hub エンドポイントを公開するよう個別のホスト A レコードが構成されている場合、追加のホスト A レコードを 2 つ作成する必要があります。
 
-| IP | hostname | Type |
+| IP | hostname | 種類 |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<リージョン>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<リージョン>.\<FQDN> | A |

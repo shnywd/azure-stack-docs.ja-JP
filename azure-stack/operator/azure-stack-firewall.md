@@ -3,16 +3,16 @@ title: Azure Stack Hub 統合システムでの Azure Stack Hub ファイアウ�
 description: Azure Stack Hub 統合システムでの Azure Stack Hub ファイアウォールの統合について説明します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: d0929edd5db0ba45593d5d061f5d831df50f3d35
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: c33c2dbcdb662f23072ef7aca83364643c3cdf0c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295336"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244209"
 ---
 # <a name="azure-stack-hub-firewall-integration"></a>Azure Stack Hub ファイアウォールの統合
 Azure Stack Hub は、ファイアウォール デバイスを使ってセキュリティで保護することをお勧めします。 ファイアウォールは、分散型サービス拒否 (DDOS) 攻撃に対する防御、侵入検出、コンテンツ検査などに役立ちます。 ただし、これが BLOB、テーブル、キューなどの Azure ストレージ サービスのスループットのボトルネックになる場合もあります。
@@ -41,7 +41,7 @@ Azure Resource Manager (管理者)、管理者ポータル、Key Vault (管理�
 
 パブリックにルーティング可能な IP アドレスは、デプロイ時に、外部ネットワークからのパブリック VIP プールに対して指定されます。 エッジのシナリオでは、セキュリティの目的のために、他のどのネットワークに対しても、パブリックにルーティング可能な IP を使用することは推奨されません。 このシナリオでは、Azure などのパブリック クラウドでのエクスペリエンスのような、完全に自己管理型のクラウドを体験できます。  
 
-![Azure Stack Hub のエッジ ファイアウォールの例](./media/azure-stack-firewall/firewallScenarios.png)
+![Azure Stack Hub のエッジ ファイアウォールの例](./media/azure-stack-firewall/firewallScenarios.svg)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>企業イントラネットまたは境界ネットワークのファイアウォール シナリオ
 企業イントラネットまたは境界デプロイでは、Azure Stack Hub のデプロイ先が、マルチゾーン ファイアウォールか、またはエッジ ファイアウォールと内部の企業ネットワーク ファイアウォールとの間になります。 そのトラフィックは、セキュア ゾーン、境界ネットワーク ゾーン (DMZ)、セキュリティ保護なしゾーンに分散されます。
@@ -50,7 +50,7 @@ Azure Resource Manager (管理者)、管理者ポータル、Key Vault (管理�
 - **境界ゾーン**. 通常、境界ネットワークには、Web サーバーなど、外部 (インターネットに公開される) アプリがデプロイされます。 一般的に、DDoS や侵入 (ハッキング) などの攻撃を防ぐためにファイアウォールによって監視され、インターネットからは指定した受信トラフィックが引き続き許可されます。 Azure Stack Hub の中で、DMZ ゾーンに存在する必要があるのは、外部ネットワークのパブリック VIP プールだけです。
 - **セキュリティ保護なしゾーン** これは外部ネットワーク、つまりインターネットです。 セキュリティ保護なしゾーンに Azure Stack Hub をデプロイすることは**推奨されません**。
 
-![Azure Stack Hub の境界ネットワークの例](./media/azure-stack-firewall/perimeter-network-scenario.png)
+![Azure Stack Hub の境界ネットワークの例](./media/azure-stack-firewall/perimeter-network-scenario.svg)
 
 ## <a name="learn-more"></a>詳細情報
 [Azure Stack Hub のエンドポイントで使用されるポートとプロトコル](azure-stack-integrate-endpoints.md)について詳しく確認します。

@@ -9,10 +9,10 @@ ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
 ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78366485"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
@@ -98,7 +98,7 @@ Azure Stack Hub 登録の詳細については、「[Azure を使用した Azure
 既定では、両方のファイルが `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
-- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
+- ツールの以前の実行に関する情報を `-CleanReport`AzsReadinessCheckerReport.json**からクリアするには、実行コマンド ラインの末尾に** パラメーターを使用します。
 
 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 

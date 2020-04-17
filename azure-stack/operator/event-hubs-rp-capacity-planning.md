@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 7eb9dce19bb25367181b17d3f13ada5ed12eff5d
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.openlocfilehash: 4cd946bf306761533f7c8d6dcba8af75a5001400
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80424621"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806725"
 ---
 # <a name="how-to-do-capacity-planning-for-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub で Event Hubs のキャパシティ プランニングを行う方法
 
@@ -29,7 +29,7 @@ Event Hubs のデプロイの容量消費を把握するには、ユーザーが
 - 1 CU Event Hubs クラスターによって使用される合計コア数。
 - VM ストレージ、メモリ、ストレージ アカウントなど、他のリソースの消費に必要なおおよその容量。
 
-| | VM の種類 | クラスター ノード | VM またはノードあたりのコア数 | コアの合計 | VM ストレージ | メモリ | ストレージ アカウント |
+| | VM の種類 | クラスター ノード | VM またはノードあたりのコア数 | コア総数 | VM ストレージ | メモリ | ストレージ アカウント |
 |-|---------|-------|-------------------|-------------|------------|--------|------------------|
 | **1 CU Event Hubs クラスター** | [D11_V2](../user/azure-stack-vm-sizes.md#mo-dv2) | 5 | 2 | 10 | 500 GiB | 70 GiB | 4 |
 
@@ -40,7 +40,7 @@ Event Hubs のデプロイの容量消費を把握するには、ユーザーが
 
 ## <a name="resource-provider-resource-consumption"></a>リソース プロバイダーのリソース消費量  
 
-Event Hubs リソース プロバイダーによるリソース消費量は一定であり、ユーザーが作成するクラスターの数やサイズには関係がありません。 次の表は、Azure Stack Hub での Event Hubs リソース プロバイダーによるコア使用量と、他のリソースによるおおよそのリソース消費量を示しています。 Event Hubs リソース プロバイダーでは、VM の種類として [D2_V2](/user/azure-stack-vm-sizes#dv2-series) をデプロイに使用します。
+Event Hubs リソース プロバイダーによるリソース消費量は一定であり、ユーザーが作成するクラスターの数やサイズには関係がありません。 次の表は、Azure Stack Hub での Event Hubs リソース プロバイダーによるコア使用量と、他のリソースによるおおよそのリソース消費量を示しています。 Event Hubs リソース プロバイダーでは、VM の種類として [D2_V2](/azure-stack/user/azure-stack-vm-sizes#dv2-series) をデプロイに使用します。
 
 |                                  | VM の種類 | クラスター ノード | コア | VM ストレージ | メモリ | ストレージ アカウント |
 |----------------------------------|---------|-------|-------|------------|--------|------------------|

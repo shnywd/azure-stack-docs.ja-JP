@@ -3,16 +3,16 @@ title: AD FS ID を Azure Stack Hub データセンターに統合する
 description: Azure Stack Hub の AD FS ID プロバイダーを、ご利用のデータセンターの AD FS と統合する方法を学習します。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 999c1b2983342189ca86805a4139e3c7f77b5ceb
-ms.sourcegitcommit: da91962d8133b985169b236fb4c84f4ef564efc8
+ms.openlocfilehash: 31ef13db3d0a195d0d9505dec2fabf4124448a0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80367815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243809"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -27,7 +27,7 @@ AD FS を使用してデプロイすると、既存の Active Directory フォ�
 
 認証は ID の一部です。 Azure Stack Hub 内でロールベースのアクセス制御 (RBAC) を管理するには、Graph コンポーネントを構成する必要があります。 リソースへのアクセスが委任されると、Graph のコンポーネントは LDAP プロトコルを使用して、既存の Active Directory フォレストでユーザー アカウントを検索します。
 
-![Azure Stack Hub AD FS のアーキテクチャ](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack Hub AD FS のアーキテクチャ](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 既存の AD FS はアカウント セキュリティ トークン サービス (STS) であり、Azure Stack Hub AD FS (リソース STS) に要求を送信します。 Azure Stack Hub では、自動化によって、既存の AD FS のメタデータ エンドポイントとのクレーム プロバイダー信頼が作成されます。
 
@@ -162,7 +162,6 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 - Azure Stack Hub の AD FS インスタンスと既存の AD FS サーバーがネットワークで接続されていない。
 
 自動化パラメーターの入力として、次の情報が必要です。
-
 
 |パラメーター|説明|例|
 |---------|---------|---------|

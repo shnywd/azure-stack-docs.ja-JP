@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
 ms.openlocfilehash: 3d7c4e7481b3054eaf44394e9b80f1e07bc75fa9
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77703725"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
@@ -159,7 +159,7 @@ curl -X "POST" "https://login.windows.net/fabrikam.onmicrosoft.com/oauth2/token"
 
 ## <a name="api-queries"></a>API クエリ
 
-アクセス トークンを取得したら、それを各 API 要求にヘッダーとして追加します。 それをヘッダーとして追加するためには、値 `Bearer <access token>` を含むヘッダー **authorization** を作成します。 次に例を示します。
+アクセス トークンを取得したら、それを各 API 要求にヘッダーとして追加します。 それをヘッダーとして追加するためには、値 **を含むヘッダー**authorization`Bearer <access token>` を作成します。 次に例を示します。
 
 要求:
 

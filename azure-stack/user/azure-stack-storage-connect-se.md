@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: ecf05c089ca193cca3554fc6a8e52e406dce3da2
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704995"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
@@ -104,7 +104,7 @@ AD FS アカウントに属している Azure Stack Hub サブスクリプショ
 
 4. Azure Stack Hub のカスタム環境に必要な情報を入力します。 
 
-    | フィールド | Notes |
+    | フィールド | メモ |
     | ---   | ---   |
     | 環境名 | このフィールドはユーザーがカスタマイズできます。 |
     | Azure Resource Manager endpoint (Azure Resource Manager エンドポイント) | Azure Stack Development Kit の Azure Resource Manager リソース エンドポイントの例は次のとおりです。<br>オペレーター用: https://adminmanagement.local.azurestack.external <br> ユーザー用: https://management.local.azurestack.external |

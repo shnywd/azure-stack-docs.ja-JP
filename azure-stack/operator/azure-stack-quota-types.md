@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
 ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80423859"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub のクォータの種類
@@ -38,7 +38,7 @@ ms.locfileid: "80423859"
 
 ## <a name="storage-quota-types"></a>Storage クォータの種類
 
-| **Item** | **既定値** | **説明** |
+| **項目** | **既定値** | **説明** |
 | --- | --- | --- |
 | 最大容量 (GB) |2048 |1 つのサブスクリプションがこの場所で使用できる記憶域の最大容量です。 この値は、すべての BLOB (アンマネージド ディスクを含む) と、それに関連付けられているすべてのスナップショット、テーブル、キューの使用サイズの合計です。 |
 | [Total number of storage accounts]\(ストレージ アカウントの合計数\) |20 |1 つのサブスクリプションでこの場所に作成できるストレージ アカウントの最大数です。 |
@@ -48,7 +48,7 @@ ms.locfileid: "80423859"
 
 ## <a name="network-quota-types"></a>Network クォータの種類
 
-| **Item** | **既定値** | **説明** |
+| **項目** | **既定値** | **説明** |
 | --- | --- | --- |
 | [Maximum virtual networks]\(仮想ネットワークの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワークの最大数です。 |
 | [Maximum virtual network gateways]\(仮想ネットワーク ゲートウェイの最大数\) |1 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワーク ゲートウェイ (VPN ゲートウェイ) の最大数です。 |

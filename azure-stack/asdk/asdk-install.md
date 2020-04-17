@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
 ms.openlocfilehash: b85279aff5427e0f3dbdc15b979a00a41db43e57
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77695854"
 ---
 # <a name="install-the-asdk"></a>ASDK のインストール
@@ -68,7 +68,7 @@ ms.locfileid: "77695854"
 
 8. Azure AD デプロイを使用している場合、セットアップを開始して数分後に、Azure AD の全体管理者アカウントの資格情報を入力するように求めるメッセージが表示されます。
 
-9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、ASDK のホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 
+9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、ASDK のホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功した場合、PowerShell コンソールには、 **[COMPLETE: Action 'Deployment']\(完了: アクション 'デプロイ'\)** と表示されます。 
     > [!IMPORTANT]
     > コンピューターが azurestack ドメインに参加した後にローカル管理者としてサインインした場合、デプロイの進行状況は表示されません。 デプロイを再実行せず、代わりに azurestack\AzureStackAdmin としてサインインし、それが実行中であることを確認します。
 

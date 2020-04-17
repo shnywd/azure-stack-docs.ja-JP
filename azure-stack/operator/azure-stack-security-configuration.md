@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
 ms.openlocfilehash: 4cfc5ee7f9e2284b3f7f5c632980235b24d2e956
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78367507"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack Hub セキュリティ コントロールを構成する
@@ -51,9 +51,9 @@ Set-TLSPolicy -Version <String>
 
 *Set-TLSPolicy* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | Type | 必須 |
+| パラメーター | 説明 | 種類 | 必須 |
 |---------|---------|---------|---------|
-| *Version* | Azure Stack Hub で許可されている TLS のバージョン | String | はい|
+| *バージョン* | Azure Stack Hub で許可されている TLS のバージョン | String | はい|
 
 すべての Azure Stack Hub エンドポイントに対して許可された TLS バージョンを構成するには、次のいずれかの値を使用します。
 
@@ -117,5 +117,5 @@ Set-TLSPolicy -Version TLS_All
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub インフラストラクチャのセキュリティ体制の詳細](azure-stack-security-foundations.md)
-- [Azure Stack Hub でシークレットをローテーションする方法](azure-stack-rotate-secrets.md)
+- [Azure Stack Hub でシークレットをローテーションする方法を確認する](azure-stack-rotate-secrets.md)
 - [Azure Stack Hub 上での Windows Defender ウイルス対策の更新](azure-stack-security-av.md)

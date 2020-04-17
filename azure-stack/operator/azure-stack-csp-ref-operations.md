@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
 ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295534"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
@@ -57,10 +57,10 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 ### <a name="api-call"></a>API 呼び出し
 
-**Operation**:PUT  
+**操作**: PUT  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**応答**:201 Created  
-**応答本文**:Empty  
+**応答**: 201 Created  
+**応答本文**: 空  
 
 ## <a name="list-all-registered-tenants"></a>すべての登録済みテナントの一覧
 
@@ -89,9 +89,9 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 GET 操作を使用して、すべてのテナント マッピングの一覧を取得できます。
 
-**Operation**:GET  
+**操作**: GET  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
-**応答**:200  
+**応答**: 200  
 **応答本文**:
 
 ```json
@@ -138,10 +138,10 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 DELETE 操作を使用して、テナントのマッピングを削除することができます。
 
-**Operation**:DELETE  
+**操作**: DELETE  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**応答**:204 No Content  
-**応答本文**:Empty
+**応答**: 204 No Content  
+**応答本文**: 空
 
 ## <a name="next-steps"></a>次のステップ
 

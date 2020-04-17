@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
 ms.openlocfilehash: 37ffe5bd8325e309f8d9381cf058cfd07ac48480
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77705204"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack-hub"></a>Azure Stack Hub での .NET による API バージョンのプロファイルの使用
@@ -60,7 +60,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 Azure Stack Hub で .NET Azure SDK を使用するには、次の値を指定した後、環境変数を使用して値を設定する必要があります。 環境変数を設定するには、使用している特定のオペレーティング システムの表の後にある手順を参照してください。
 
-| Value                     | 環境変数   | 説明                                                                                                             |
+| 値                     | 環境変数   | 説明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
 | テナント ID                 | `AZURE_TENANT_ID `      | Azure Stack Hub の [*テナント ID*][] の値。                                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID `      | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |

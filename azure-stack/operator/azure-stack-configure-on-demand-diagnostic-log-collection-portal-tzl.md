@@ -7,14 +7,16 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2a46c031be648eedf42e204496ed2a123c926dd9
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: 990ed8ae3a5ba3d08247c79043b3a407c8a876ed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402724"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80682223"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Azure Stack Hub 診断ログを今すぐ送信する
+
+::: moniker range=">= azs-2002"
 
 Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用して、サポートを要求する前に Microsoft カスタマー サポート サービス (CSS) に診断ログをオンデマンドで送信することができます。 Azure Stack Hub が Azure に接続されている場合は、管理者ポータルの **[Send logs now]\(今すぐログを送信する\)** オプションをお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [Send-AzureStackDiagnosticLog を使用してログをすぐに送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)必要があります。 
 
@@ -29,6 +31,29 @@ Azure Stack オペレーターは、管理者ポータルまたは PowerShell �
 
 ![今すぐログを送信するオプションのスクリーンショット](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range="<= azs-1910"
+## <a name="use-help-and-support-to-collect-diagnostic-logs-on-demand"></a>ヘルプとサポートを使用して必要に応じて診断ログを収集する
+
+問題のトラブルシューティングを行うために、CSS は、Azure Stack Hub オペレーターに、前週の特定の時間枠に対して、オンデマンドで診断ログを収集するように要求する場合があります。 その場合、CSS はオペレーターにコレクションをアップロードするための SAS URL を提供します。 
+CSS からの SAS URL を使用して、オンデマンドのログ収集を構成するには、次の手順に従います。
+
+1. **[Help and Support Overview]\(ヘルプとサポートの概要\)** を開き、 **[Collect logs now]\(今すぐログを収集する\)** をクリックします。 
+1. 過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択します。 
+1. ローカル タイム ゾーンを選択します。
+1. CSS によって提供された SAS URL を入力します。
+
+   ![オンデマンドのログ収集のスクリーンショット](media/azure-stack-automatic-log-collection/collect-logs-now.png)
+
+>[!NOTE]
+>自動診断ログ収集が有効になっている場合、 **[ヘルプとサポート]** に、ログ収集が進行中であるタイミングが表示されます。 自動ログ収集の進行中に、 **[Collect logs now]\(今すぐログを収集する\)** をクリックして特定の時間からログを収集した場合、自動ログ収集の完了後にオンデマンドの収集が開始されます。 
+
+
+::: moniker-end
+
+
 ## <a name="next-steps"></a>次のステップ
 
 [特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
+

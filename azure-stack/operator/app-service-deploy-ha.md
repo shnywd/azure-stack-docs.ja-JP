@@ -8,10 +8,10 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
 ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77701855"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
@@ -162,15 +162,15 @@ App Service リソース プロバイダーをデプロイするには、次の�
     ![App Service の予期されるエラー ダイアログ](media/app-service-deploy-ha/08.png)
 
     既存の仮想ネットワークおよび内部 IP アドレスにデプロイして、ファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
-    - ソース:Any
+    - 送信元: 任意
     - 送信元ポート範囲: *
-    - 変換先:IP アドレス
-    - 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
-    - 送信先ポート範囲:445
-    - プロトコル:TCP
-    - アクション:Allow
-    - 優先順位:700
-    - 名前:Outbound_Allow_SMB445
+    - 送信先: IP アドレス
+    - 送信先 IP アドレス範囲: ファイル サーバーの IP の範囲
+    - 送信先ポート範囲: 445
+    - プロトコル: TCP
+    - アクション: 許可
+    - 優先順位: 700
+    - 名前: Outbound_Allow_SMB445
 
 10. Identity Application ID を入力し、ID 証明書のパスとパスワードを入力して、 **[次へ]** をクリックします。
     - Identity Application 証明書 (**sso.appservice.local.azurestack.external.pfx** の形式)

@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
 ms.openlocfilehash: bb407a03b2a5887b75b8b5d729fa5cc2cc636755
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704456"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
@@ -255,7 +255,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 | 名前 | 必須 | Type | 制約 | 説明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最大 25 文字。 | |
-| Value |X |String |最大 30 文字。 | |
+| 値 |X |String |最大 30 文字。 | |
 
 ### <a name="html-sanitization"></a>HTML のサニタイズ
 

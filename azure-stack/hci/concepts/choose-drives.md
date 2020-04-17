@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 42fb0703ed1e4947a1f35cc14a8708c8372f220e
-ms.sourcegitcommit: 900332596d0bb473d82b1d1a28c3fe3aa6522add
+ms.openlocfilehash: ee51dc973c26335cfb6c75de991508a6063e0993
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/11/2020
-ms.locfileid: "79095210"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806672"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
@@ -46,7 +46,7 @@ ms.locfileid: "79095210"
 
 2. **NVMe + SSD。** NVMe を SSD とともに使用すると、NVMe によって SSD への書き込みが自動的にキャッシュされます。 これにより、書き込みがキャッシュ内で結合され、必要に応じてのみデステージングされるため、SSD の消耗が軽減されます。 これにより、 NVMe に似た書き込み特性が得られる一方で、読み取りは同じく高速な SSD から直接提供されます。
 
-3. **SSD のみ。** NVMe のみの場合と同様に、すべてのドライブが同じモデルの場合、キャッシュはありません。 耐久性の高いモデルと耐久性の低いモデルを混在させる場合は、後者に対する書き込みをキャッシュするように前者を構成することができます ([セットアップが必要です](/windows-server/storage/storage-spaces/understand-the-cache.md#manual-configuration))。
+3. **SSD のみ。** NVMe のみの場合と同様に、すべてのドライブが同じモデルの場合、キャッシュはありません。 耐久性の高いモデルと耐久性の低いモデルを混在させる場合は、後者に対する書き込みをキャッシュするように前者を構成することができます ([セットアップが必要です](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration))。
 
    >[!NOTE]
    > キャッシュなしで NVMe のみまたは SSD のみを使用する利点は、すべてのドライブから使用可能なストレージ容量を取得できることです。 キャッシュに "費やされる" 容量がないため、小規模のスケールで有用である場合があります。

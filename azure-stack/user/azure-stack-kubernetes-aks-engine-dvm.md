@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: f15c870a1b256ffa546672a3abde2fc68f9baa4f
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069006"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンに Marketplace アイテムのクラスターを移動する
@@ -27,7 +27,7 @@ Kubernetes Azure Stack Hub Marketplace アイテムによって開始された�
 3.  デプロイ VM を選択します。 [概要] で、**パブリック IP アドレスを見つけます。 このアドレスと、Putty などのコンソール アプリを使用して、VM への SSH セッションを確立します。
 4.  デプロイ VM のセッションでは、AKS エンジンは、パス `./var/lib/waagent/custom-script/download/0/bin/aks-engine` にあります。
 5.  aks-engine に入力として使用したクラスターを記述した `.json` ファイルを見つけます。 ファイルは `/var/lib/waagent/custom-script/download/0/bin/azurestack.json` にあります。 ファイルには、クラスターのデプロイに使用されるサービス プリンシパルの資格情報があることに注意してください。 ファイルを保存する場合は、ファイルを保護されたストアに転送してください。
-6.  `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` で AKS エンジンによって生成された出力ディレクトリを見つけます。 このディレクトリで、パス `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` の出力 `apimodel.json` を見つけます。 ディレクトリと `apimodel.json` ファイルには、Kubernetes クラスターのデプロイに必要なすべての証明書、キー、および資格情報が含まれています。 これらのリソースは安全な場所に保管してください。
+6.  `/var/lib/waagent/custom-script/download/0/_output/<resource group name>` で AKS エンジンによって生成された出力ディレクトリを見つけます。 このディレクトリで、パス `apimodel.json` の出力 `/var/lib/waagent/custom-script/download/0/bin/apimodel.json` を見つけます。 ディレクトリと `apimodel.json` ファイルには、Kubernetes クラスターのデプロイに必要なすべての証明書、キー、および資格情報が含まれています。 これらのリソースは安全な場所に保管してください。
 7.  Kubernetes 構成ファイル (多くの場合、**kubeconfig** ファイルという名前) をパス `$HOME/<output dir>/kubeconfig/kubeconfing.<location>.json` で探します。 **\<location>** は Azure Stack Hub の場所の識別子に対応します。 このファイルは、Kubernetes クラスターにアクセスするように **kubectl** を設定する場合に役立ちます。
 
 ## <a name="use-the-aks-engine-with-your-newly-created-cluster"></a>新しく作成したクラスターで AKS エンジンを使用する

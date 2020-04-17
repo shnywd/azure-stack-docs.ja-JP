@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
 ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "78364046"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack Hub 統合システムの接続モデル
@@ -28,7 +28,7 @@ Azure Stack Hub をインターネット (および Azure) に接続した状態
 > これは重要な意思決定のポイントです。 Active Directory フェデレーション サービス (AD FS) または Azure Active Directory (Azure AD) の選択は、デプロイ時に行う必要がある 1 回限りの決定です。 システム全体を再デプロイせずに、後でこれを変更することはできません。  
 
 
-|Options|Azure への接続|Azure からの切断|
+|オプション|Azure への接続|Azure からの切断|
 |-----|:-----:|:-----:|
 |Azure AD|![サポートされています](media/azure-stack-connection-models/check.png)| |
 |AD FS|![サポートされています](media/azure-stack-connection-models/check.png)|![サポートされています](media/azure-stack-connection-models/check.png)|

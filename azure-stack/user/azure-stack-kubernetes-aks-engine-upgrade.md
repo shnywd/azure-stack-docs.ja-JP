@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
 ms.openlocfilehash: 50f63cee7776bd9093d986746ed613b38164b171
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80069260"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
@@ -107,7 +107,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 1. [サポートされている Kubernetes バージョン情報の一覧](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)を確認し、アップグレードを計画している aks-engine と AKS 基本イメージのバージョンがあるかどうかを判断します。 aks-engine のバージョンを表示するには、`aks-engine version` を実行します。
 2. 必要に応じて、aks-engine をインストールしたマシンで `./get-akse.sh --version vx.xx.x` を実行して AKS エンジンをアップグレードします。**x.xx.x** は、対象のバージョン情報に置き換えます。
 3. 使用する予定の Azure Stack Hub Marketplace で必要な AKS 基本イメージのバージョンを追加するには、社内の Azure Stack Hub オペレーターに依頼します。
-4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`--force` を追加して `aks-engine upgrade` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
+4. 既に使用しているものと同じバージョンの Kubernetes を使用し、`aks-engine upgrade` を追加して `--force` コマンドを実行します。 例については、「[アップグレードの強制](#forcing-an-upgrade)」を参照してください。
 
 
 ## <a name="forcing-an-upgrade"></a>アップグレードの強制

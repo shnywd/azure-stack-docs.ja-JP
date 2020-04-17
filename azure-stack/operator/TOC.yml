@@ -136,6 +136,10 @@
           items:
             - name: PowerShell RM のインストール
               href: azure-stack-powershell-install.md
+            - name: PowerShell Az のインストール
+              href: powershell-install-az-module.md
+            - name: PowerShell AzureRM の Az への移行
+              href: migrate-azurerm-az.md
             - name: ツールのダウンロード
               href: azure-stack-powershell-download.md
             - name: PowerShell で接続する

@@ -2,17 +2,17 @@
 title: Azure Stack Hub ストレージ容量の計画
 description: Azure Stack Hub デプロイのためのストレージ容量の計画について説明します。
 author: IngridAtMicrosoft
-ms.topic: article
-ms.date: 05/31/2019
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 05/31/2019
-ms.openlocfilehash: beccdd382ad95229e136442651e8def37a3a9552
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: d7776f07745a2f76bc447df3f29a54578624aca6
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77695378"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78935034"
 ---
 # <a name="azure-stack-hub-storage-capacity-planning"></a>Azure Stack Hub ストレージ容量の計画
 

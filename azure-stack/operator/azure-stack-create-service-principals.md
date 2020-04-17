@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 11/11/2019
 ms.lastreviewed: 11/11/2019
 ms.openlocfilehash: 1c96ee9520285e0bc2b9784fa5d310a1ec2ae60f
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79295222"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
@@ -71,7 +71,7 @@ Azure Stack Hub をデプロイするときに AD FS を ID 管理サービス�
 
 サービス プリンシパル資格情報のための証明書を作成するときは、次の要件を満たす必要があります。
 
- - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に関するページに完全な一覧があります。 "自己署名" テスト証明書の作成の例については、後で「[サービス プリンシパルの証明書資格情報を更新する](#update-a-service-principals-certificate-credential)」でも示しています。 
+ - 運用環境では、証明書は、内部の証明機関または公的証明機関のどちらかから発行されている必要があります。 公的証明機関を使用している場合は、Microsoft の信頼されたルート機関プログラムの一部としてその機関を基本オペレーティング システム イメージに含める必要があります。 [Microsoft の信頼されたルート証明書プログラム: 参加者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)に完全な一覧があります。 "自己署名" テスト証明書の作成の例については、後で「[サービス プリンシパルの証明書資格情報を更新する](#update-a-service-principals-certificate-credential)」でも示しています。 
  - 暗号化プロバイダーを、Microsoft レガシ暗号化サービス プロバイダー (CSP) のキー プロバイダーとして指定する必要があります。
  - 公開キーと秘密キーの両方が必要なため、証明書は PFX ファイル形式である必要があります。 Windows サーバーでは、公開キー ファイル (SSL 証明書ファイル) と関連付けられている秘密キー ファイルが含まれている .pfx ファイルが使用されます。
  - お使いの Azure Stack Hub インフラストラクチャは、証明書において公開されている証明機関の証明書失効リスト (CRL) の場所にネットワークでアクセスできる必要があります。 この CRL は、HTTP エンドポイントである必要があります。

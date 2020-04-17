@@ -8,10 +8,10 @@ ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/20/2019
 ms.openlocfilehash: 95cc91a2f9443271b0e89d6dbf22a67137924627
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704303"
 ---
 # <a name="let-your-cloud-solution-provider-manage-your-azure-stack-hub-subscription"></a>クラウド ソリューション プロバイダーで Azure Stack Hub サブスクリプションを管理できるようにする
@@ -45,4 +45,4 @@ CSP を**所有者**としてサブスクリプションに追加します。
 
 ## <a name="next-steps"></a>次のステップ
 
-* Azure Stack Hub からリソース使用量情報を取得する方法の詳細については、「[Azure Stack Hub での使用量と請求](../operator/azure-stack-billing-and-chargeback.md)」を参照してください。
+* Azure Stack Hub からリソース使用量情報を取得する方法の詳細については、「[Azure Stack Hub での使用量と請求](../operator/azure-stack-billing-and-chargeback.md)」をご覧ください。

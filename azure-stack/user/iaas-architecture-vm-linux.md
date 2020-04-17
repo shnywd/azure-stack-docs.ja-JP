@@ -8,10 +8,10 @@ ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
 ms.openlocfilehash: f969435900f290aaae10942e223ade15cacf4769
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "77704966"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Linux 仮想マシンを実行する

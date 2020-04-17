@@ -8,10 +8,10 @@ ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/05/2020
 ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: 53efd12bf453378b6a4224949b60d6e90003063b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/18/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "79520652"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する
@@ -134,7 +134,7 @@ if ($session) {
   6. 新しいコンテナーを右クリックして、 **[Get Shared Access Signature]\(Shared Access Signature の取得\)** を選択します。
   7. お客様の要件に合わせて、有効な **[開始時間]** と **[終了時間]** を選択します。
   8. 必要なアクセス許可については、 **[読み取り]** 、 **[書き込み]** 、 **[一覧]** を選択します。
-  9. **［作成］** を選択します
+  9. **作成** を選択します。
   10. Shared Access Signature が表示されます。 URL の部分をコピーし、`-OutputSasUri` パラメーターに入力します。
 
 ### <a name="parameter-considerations"></a>パラメーターに関する考慮事項 

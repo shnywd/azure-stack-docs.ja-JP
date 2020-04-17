@@ -7,10 +7,10 @@ ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
 ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: dd53af1b0fc2390de162d41e3d59545d1baad1a7
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/31/2020
+ms.lasthandoff: 04/16/2020
 ms.locfileid: "80424609"
 ---
 既に Azure Stack Hub Marketplace からリソース プロバイダーをインストールしている場合は、一般的な前提条件を満たしていると考えられるため、このセクションは省略してもかまいません。 それ以外の場合は、まず次の前提条件を満たしておく必要があります。 

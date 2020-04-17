@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub デプロイ中のネットワーク トラフィックについて説明します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 12/05/2019
-ms.openlocfilehash: b2acff92365cfd9904a033c381bf85ea843d6b30
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: a663544b21fee671e57483e13030639c7b5edd3b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78366400"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243775"
 ---
 # <a name="deployment-network-traffic"></a>デプロイ ネットワーク トラフィック
 
@@ -21,7 +21,7 @@ Azure Stack Hub デプロイ中のネットワーク トラフィックを理解
 
 この図には、デプロイ プロセスに関連するすべてのコンポーネントと接続が示されています。
 
-![Azure Stack Hub デプロイ ネットワーク トポロジ](media/deployment-networking/figure1.png)
+![Azure Stack Hub デプロイ ネットワーク トポロジ](media/deployment-networking/figure1.svg)
 
 > [!NOTE]
 > この記事では、接続デプロイの要件について説明します。 他のデプロイ方法については、[Azure Stack Hub デプロイの接続モデル](azure-stack-connection-models.md)に関するページを参照してください。
