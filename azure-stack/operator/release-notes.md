@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/10/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 33c620624feca5b2d416ff1173741209b99011cb
-ms.sourcegitcommit: b65952127f39c263b162aad990e4d5b265570a7f
+ms.openlocfilehash: a522aee76cef06b49887aa9727651daf4efe506c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80402816"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243834"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -87,7 +87,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - 修正プログラムや更新プログラムを適用中の内部 DNS サービスの回復性ロジックを向上させる、DNS Orchestrator と呼ばれる新しいマイクロサービスが導入されました。
 - VM の作成中にブート診断ストレージ アカウントパラメーターの無効な BLOB URI をエラーとする新しい要求検証を追加しました。
 - VM の CRUD 操作を容易にするホスト上の 2 つのサービスである Rdagent とホスト エージェントの自動修復とログ作成の機能強化が追加されました。
-- Azure Stack のバージョンや課金モデルなどのさまざまな属性により、ユーザーの Azure Stack と互換性のないマーケットプレース製品を管理者にダウンロードさせないようにする新しい機能が Marketplace 管理に追加されました。
+- Azure Stack のバージョンや課金モデルなどのさまざまなプロパティにより、利用している Azure Stack と互換性のないマーケットプレース製品を管理者にダウンロードさせないようにする属性を Microsoft が追加できるようにする新しい機能がマーケットプレース管理に追加されました。 これらの属性を追加できるのは Microsoft だけです。 詳細については、「[ポータルを使用して Marketplace 項目をダウンロードする](azure-stack-download-azure-marketplace-item.md#use-the-portal-to-download-marketplace-items)」を参照してください。
 
 ### <a name="changes"></a>[変更点]
 
@@ -109,7 +109,17 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
   | Microsoft.Backup.Admin | backupLocation         | 2016-05-01 |
   | Microsoft.Backup.Admin | backups                | 2016-05-01 |
   | Microsoft.Backup.Admin | 操作             | 2016-05-01 |
-  
+
+- PowerShell を使用して Windows VM を作成するときに、VM で拡張機能をデプロイする場合は、必ず `provisionvmagent` フラグを追加してください。 このフラグがない場合、VM はゲスト エージェントなしで作成され、VM 拡張機能をデプロイする機能が削除されます。
+
+   ```powershell
+   $VirtualMachine = Set-AzureRmVMOperatingSystem `
+     -VM $VirtualMachine `
+     -Windows `
+     -ComputerName "MainComputer" `
+     -Credential $Credential -ProvisionVMAgent
+  ```
+
 ### <a name="fixes"></a>修正
 
 <!-- Product fixes that came up from customer deployments worth highlighting, especially if there is an SR/ICM associated to it. -->
@@ -159,14 +169,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適用された 1910 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Azure Stack Hub 修正プログラム 1.1910.37.132](https://support.microsoft.com/help/4550133)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>2002 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 2002 で利用可能な Azure Stack Hub 修正プログラムはありません。
+- [Azure Stack Hub 修正プログラム 1.2002.19.73](https://support.microsoft.com/help/4557355)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -326,14 +336,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適用された 1908 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Azure Stack Hub 修正プログラム 1.1908.25.78](https://support.microsoft.com/help/4552361)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>1910 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.24.108](https://support.microsoft.com/help/4541350)
+- [Azure Stack Hub 修正プログラム 1.1910.37.132](https://support.microsoft.com/help/4550133)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -401,7 +411,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1908 リリースは、以下の修正プログラムが適用された 1907 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack Hub 修正プログラム 1.1907.29.80](https://support.microsoft.com/help/4555650)
 
 Azure Stack Hub 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack Hub OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack Hub システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
 
@@ -410,7 +420,7 @@ Azure Stack Hub 1908 更新プログラムには、システムのハードウ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.19.62](https://support.microsoft.com/help/4541349)
+- [Azure Stack Hub 修正プログラム 1.1908.25.78](https://support.microsoft.com/help/4552361)
 ::: moniker-end
 
 ::: moniker range="azs-1907"
@@ -534,7 +544,7 @@ Azure Stack Hub の 1907 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1907.26.70](https://support.microsoft.com/help/4541348)
+- [Azure Stack Hub 修正プログラム 1.1907.29.80](https://support.microsoft.com/help/4555650)
 ::: moniker-end
 
 ::: moniker range=">=azs-1907"

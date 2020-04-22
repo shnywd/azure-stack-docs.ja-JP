@@ -1,18 +1,18 @@
 ---
-title: Azure と Azure Stack Hub を使用した、インテリジェント エッジの DevOps パターン。
-description: Azure と Azure Stack Hub を使用した、インテリジェント エッジの DevOps パターンについて説明します。
+title: Azure Stack Hub の DevOps パターン
+description: DevOps パターンについて学習することで、Azure とAzure Stack Hub でのデプロイ間の一貫性を確保することができます。
 author: BryanLa
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ebd9925b471d46dc67df29557f677b43d0221a1d
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 306cc9604a8e919724f9f76b7e5122d534d2d1ae
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77689547"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812287"
 ---
 # <a name="devops-pattern"></a>DevOps パターン
 
@@ -40,7 +40,7 @@ DevOps リリース パイプラインを使用すると、次のことができ
 
 ## <a name="issues-and-considerations"></a>問題と注意事項
 
-DevOps パターンは、ターゲット環境に関係なく、デプロイ間の一貫性を確保することを目的としています。 ただし、機能は、クラウド環境とオンプレミス環境で異なります。 以下、具体例に沿って説明します。
+DevOps パターンは、ターゲット環境に関係なく、デプロイ間の一貫性を確保することを目的としています。 ただし、機能は、クラウド環境とオンプレミス環境で異なります。 次の点を考慮してください。
 
 - デプロイ内の関数、エンドポイント、サービス、その他のリソースはデプロイ先の場所で利用できますか?
 - 構成成果物は、クラウドをまたいでアクセスできる場所に格納されていますか?
@@ -59,9 +59,9 @@ DevOps パターンは、ターゲット環境に関係なく、デプロイ間�
 
 DevPattern のコンテキストにおける可用性とは、ワークフローに関連付けられているすべての状態情報 (テスト結果など)、コードの依存関係、または他の成果物を復旧できることを意味します。 可用性の要件を評価するには、次の 2 つの一般的なメトリックを検討します。
 
--   目標復旧時間 (RTO) は、システムなしで継続できる時間を示します。
+- 目標復旧時間 (RTO) は、システムなしで継続できる時間を示します。
 
--   目標復旧時点 (RPO) は、サービスの中断がシステムに影響を及ぼす場合に、失われても差し支えないデータの量を示します。
+- 目標復旧時点 (RPO) は、サービスの中断がシステムに影響を及ぼす場合に、失われても差し支えないデータの量を示します。
 
 実際には、RTO と RPO は冗長性とバックアップを意味します。 グローバル Azure クラウドでは、可用性は、Azure の一部であるハードウェアの復旧の問題ではなく、DevOps システムの状態を確実に維持することを表します。 Azure Stack Hub では、ハードウェアの復旧について考慮することが必要になる場合があります。
 
@@ -88,7 +88,8 @@ DevOps パターンに基づいたシステムの設計では、各サービス�
 ## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
+
 - Azure DevOps と関連ツール (Azure Repos、Azure Pipelines など) の詳細については、[Azure DevOps のドキュメント](/azure/devops)を参照してください。
 - 製品とソリューションのポートフォリオ全体の詳細について、[Azure Stack ファミリの製品とソリューション](/azure-stack)を参照してください。
 
-ソリューションの例をテストする準備ができたら、[DevOps ハイブリッド CI/CD のソリューション デプロイ ガイド](https://aka.ms/hybriddevopsdeploy)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。 ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して Azure と Azure Stack Hub にアプリケーションをデプロイする方法を習得できます。
+ソリューションの例をテストする準備ができたら、[DevOps ハイブリッド CI/CD のソリューション デプロイ ガイド](https://aka.ms/hybriddevopsdeploy)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。 ハイブリッドの継続的インテグレーション/継続的デリバリー (CI/CD) パイプラインを使用して Azure と Azure Stack Hub にアプリをデプロイする方法を学習します。

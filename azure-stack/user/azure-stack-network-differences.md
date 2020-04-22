@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 1845a25b0cd66168277e39026a3651e6638cf98c
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77703912"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81274074"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの違いと考慮事項
 
@@ -38,9 +38,10 @@ Azure Stack Hub ネットワークは、Azure ネットワークで提供され�
 |  | サービス エンドポイント | Azure サービスへの内部接続 (インターネット以外) でサポートされています。 | まだサポートされていません。 |
 |  | サービス エンドポイント ポリシー | サポートされています | まだサポートされていません。 |
 |  | サービス トンネル | サポートされています | まだサポートされていません。  |
-| ネットワーク セキュリティ グループ | 拡張セキュリティ規則 | サポートされています | まだサポートされていません。 |
+| ネットワーク セキュリティ グループ | 拡張セキュリティ規則 | サポートされています | サポートされています。 |
 |  | 有効なセキュリティ規則 | サポートされています | まだサポートされていません。 |
 |  | アプリケーション セキュリティ グループ | サポートされています | まだサポートされていません。 |
+|  | 規則のプロトコル | TCP、UDP、ICMP、Any | TCP、UDP または Any のみ |
 | 仮想ネットワーク ゲートウェイ | ポイント対サイト VPN ゲートウェイ | サポートされています | まだサポートされていません。 |
 |  | VNet 間ゲートウェイ | サポートされています | まだサポートされていません。 |
 |  | 仮想ネットワーク ゲートウェイの種類 | Azure では、以下がサポートされています: VPN<br> ExpressRoute <br> ハイパー ネット。 | Azure Stack Hub では現在、VPN の種類のみがサポートされています。 |

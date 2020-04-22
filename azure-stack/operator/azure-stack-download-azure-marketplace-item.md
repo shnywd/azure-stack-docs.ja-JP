@@ -3,16 +3,16 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/08/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: 38e0f6deea5cfeb86ba3c42c8590004ee5dc99bc
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295192"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979429"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -54,9 +54,9 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 
    ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。
+5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。 Microsoft は、Azure Stack のバージョンや課金モデルなどのさまざまなプロパティが理由で、利用している Azure Stack と互換性のないマーケットプレース製品を管理者にダウンロードさせないようにする属性を追加することができるようになっています。 これらの属性を追加できるのは Microsoft だけです。
 
-   ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
+   [![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "複数のバージョン")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
 6. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロード時間はさまざまで、ネットワーク接続によって異なります。 ダウンロードが完了したら、Azure Stack Hub オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
 

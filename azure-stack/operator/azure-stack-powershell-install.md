@@ -3,18 +3,18 @@ title: Azure Stack Hub 用の PowerShell AzureRM モジュールをインスト�
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: b362ab1e4c555ae4de5be0feecd19d8cc8e6654a
-ms.sourcegitcommit: 17be49181c8ec55e01d7a55c441afe169627d268
+ms.lastreviewed: 04/14/2020
+ms.openlocfilehash: 937a3610891a2ec532e5c95bc60a9b9c5a8cc684
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/21/2020
-ms.locfileid: "80069434"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81395003"
 ---
-# <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
+# <a name="install-powershell-azurerm-or-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM または Az モジュールをインストールする
 
 Azure PowerShell AzureRM には、Azure Stack Hub リソースの管理に Azure Resource Manager モデルを使用する一連のコマンドレットが用意されています。
 
@@ -49,7 +49,7 @@ PSGallery がリポジトリとして登録されているかどうかを検証�
 管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
 ```powershell
-Install-module -Name PowerShellGet -Force 
+Install-module -Name PowerShellGet -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
 ```
@@ -65,16 +65,17 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub AzureRM PowerShell モジュールをアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
 
-1. 既存の AzureRM PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて終了し、次のコマンドレットを実行します。
+1. 既存の AzureRM と Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
 
     ```powershell
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
+    Get-Module -Name Az.* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
     ```
 
     「モジュールが既に使用されています」などのエラーが発生した場合には、そのモジュールを使用している PowerShell セッションを終了してから、上のスクリプトをもう一度実行してください。
 
-2. `C:\Program Files\WindowsPowerShell\Modules` フォルダーおよび `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` フォルダーから、`Azure` または `Azs.` で始まるすべてのフォルダーを削除します。 これらのフォルダーを削除すると、既存の PowerShell モジュールがすべて削除されます。
+2. `C:\Program Files\WindowsPowerShell\Modules` と `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` の各フォルダーから、`Azure`、`Az`、または `Azs.` で始まるすべてのフォルダーを削除します。 これらのフォルダーを削除すると、既存の PowerShell モジュールがすべて削除されます。
 
 ## <a name="4-connected-install-powershell-for-azure-stack-hub-with-internet-connectivity"></a>4.接続済みの場合: インターネット接続を使用して PowerShell for Azure Stack Hub をインストールする
 
@@ -86,6 +87,10 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 以降の場合:
+
+AzureRm モジュールまたは Az プレビュー モジュールのいずれかを使用できます。 Az モジュールを使用するには Azure Stack Hub 2002 と最新の修正プログラムが必要です。
+
+Az プレビュー モジュールを使用するには [PowerShell Az モジュールのインストール](powershell-install-az-module.md)に関する説明に従ってください。
 
 ```powershell  
 # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -139,7 +144,7 @@ Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
 
-インストールに成功すると、出力に `AzureAz` モジュールと `AzureStack` モジュールが表示されます。
+インストールに成功すると、出力に `AzureRm` モジュールと `AzureStack` モジュールが表示されます。
 
 ## <a name="5-disconnected-install-powershell-without-an-internet-connection"></a>5.切断状態の場合: インターネット接続なしで PowerShell をインストールする
 
@@ -159,6 +164,8 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 以降。
+
+AzureRM または Az プレビュー モジュールのいずれかを使用できます。 Az モジュールについては、[PowerShell Az モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。
 
 ```powershell
 

@@ -2,18 +2,18 @@
 title: Azure Stack Hub の管理の基本
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub の管理の基本について説明します。
-author: nicoalba
+author: justinha
 ms.topic: article
-ms.date: 03/02/2020
-ms.author: v-nialba
-ms.reviewer: ''
-ms.lastreviewed: ''
-ms.openlocfilehash: 8f56dafbcc27e3ff4de9adcfbf5de27dea115bb3
-ms.sourcegitcommit: 20d10ace7844170ccf7570db52e30f0424f20164
+ms.date: 04/03/2020
+ms.author: justinha
+ms.reviewer: thoroet
+ms.lastreviewed: 04/03/2020
+ms.openlocfilehash: 66fbcf3b94ae89f5f0946ee34582d69cea4ea97e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/13/2020
-ms.locfileid: "79295066"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80979360"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub の管理の基本
 
@@ -21,7 +21,7 @@ Azure Stack Hub の管理が初めての場合は、知っておく必要があ�
 
 ## <a name="understand-the-builds"></a>ビルドを理解する
 
-Azure Stack Hub 統合システムを使用している場合、Azure Stack Hub の更新バージョンは更新プログラム パッケージによって配布されます。 これらのパッケージをインポートし、管理者ポータルの **[更新]**  タイルを使用して、これらを適用できます。
+Azure Stack Hub 統合システムを使用している場合、Azure Stack Hub の更新バージョンは更新プログラム パッケージによって配布されます。 これらのパッケージをインポートし、管理者ポータルの **[更新]** タイルを使用して、これらを適用できます。
 
 ## <a name="learn-about-available-services"></a>利用できるサービスの詳細
 
@@ -53,7 +53,7 @@ Azure Stack Hub をデプロイすると、Azure Stack Hub に既定で次の基
 
 ### <a name="service-roadmap"></a>サービスのロードマップ
 
-Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 予想されるロードマップについては、「 [Azure Stack Hub: Azure の拡張機能](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)」ホワイトペーパーを参照してください。 新しい発表については、 [Azure Stack Hub のブログ投稿](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)を確認することもできます。
+Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 予想されるロードマップについては、「[Azure Stack Hub: Azure の拡張機能](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)」ホワイトペーパーを参照してください。 新しい発表については、[Azure Stack Hub のブログ投稿](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)を確認することもできます。
 
 ## <a name="what-account-should-i-use"></a>使用するアカウントについて
 
@@ -68,31 +68,31 @@ Azure Stack Hub を管理する場合に注意するいくつかのアカウン�
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
 
- [管理者ポータル](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-portals?view=azs-2002)または PowerShell を使用して、Azure Stack Hub を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 開始する前に、Azure Stack Hub での PowerShell の使用方法についてよく理解する必要がある場合があります。 詳細については、「 [Azure Stack Hub の PowerShell の概要](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-powershell-overview?view=azs-2002)」を参照してください。
+[管理者ポータル](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)または PowerShell を使用して、Azure Stack Hub を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使用する場合は、準備の手順があります。 開始する前に、Azure Stack Hub での PowerShell の使用方法についてよく理解する必要がある場合があります。 詳細については、[Azure Stack Hub 上の PowerShell の概要](https://docs.microsoft.com/azure-stack/user/azure-stack-powershell-overview)に関するページを参照してください。
 
-Azure Stack Hub ではデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack Hub の管理とユーザーのサポートを行う予定であれば、Resource Manager について学習する必要があります。 「 [Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
+Azure Stack Hub ではデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack Hub の管理とユーザーのサポートを行う予定であれば、Resource Manager について学習する必要があります。 「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーを参照してください。
 
 ## <a name="your-typical-responsibilities"></a>クラウド オペレーターの通常の担当範囲
 
-ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、「 [Azure Stack Hub でのサービスの提供の概要](https://review.docs.microsoft.com/en-us/azure-stack/operator/service-plan-offer-subscription-overview?view=azs-2002)」を参照してください。
+ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 提供するサービスを決定し、プラン、オファー、クォータを作成することで、それらのサービスを使用できるようにします。 詳細については、[Azure Stack Hub でのサービス提供の概要](https://docs.microsoft.com/azure-stack/operator/service-plan-offer-subscription-overview)に関するページを参照してください。
 
- [Azure Stack Hub Marketplace](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-marketplace?view=azs-2002) に項目を追加する必要もあります。  [Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-2002)のが最も簡単な方法です。
+[Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace) に項目を追加する必要もあります。 [Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)のが最も簡単な方法です。
 
-プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく、 [ユーザー ポータル](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-portals?view=azs-2002)を使用することができます。
+プラン、オファー、およびサービスをテストする場合は、管理者ポータルではなく、[ユーザー ポータル](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)を使用することができます。
 
 サービスを提供することに加えて、オペレーターとして Azure Stack Hub を稼働させ続けるという通常の業務を行う必要があります。 これらの業務には、次のタスクが含まれます。
 
--  [Azure AD](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-add-new-user-aad?view=azs-2002) のデプロイ用のユーザー アカウントを追加します。
-- [ロールベースのアクセス制御を使用してアクセス許可を設定します](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-permissions?view=azs-2002)。 (このタスクは管理者に限定されません)。
-- [インフラストラクチャの正常性を監視します](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-monitor-health?view=azs-2002)。
--  [ネットワーク](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption?view=azs-2002) リソースと [ストレージ](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-storage-accounts?view=azs-2002) リソースを管理します。
-- [Azure Stack Hub を開始および停止します](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-start-and-stop?view=azs-2002&branch=release-tzl)。
-- [拡張ストレージを運用します](https://review.docs.microsoft.com/en-us/azure-stack/tdc/extended-storage-operator-guide?view=azs-2002&branch=release-tzl)。
-- [IoT Hub を管理します](https://review.docs.microsoft.com/en-us/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
-- [イベント ハブを管理します](https://review.docs.microsoft.com/en-us/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
-- [App Service を管理します](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
-- ハードウェアを交換します。 こちらに、[交換可能な部分](https://review.docs.microsoft.com/en-us/azure-stack/tdc/cru-replaceable-parts?view=azs-2002&branch=release-tzl)の一覧があります。
-- [サポートを受けます](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [Azure AD](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-new-user-aad) のデプロイ用のユーザー アカウントを追加します。
+- [ロールベースのアクセス制御を使用してアクセス許可を設定します](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-permissions)。 (このタスクは管理者に限定されません)。
+- [インフラストラクチャの正常性を監視します](https://docs.microsoft.com/azure-stack/operator/azure-stack-monitor-health)。
+- [ネットワーク](https://docs.microsoft.com/azure-stack/operator/azure-stack-viewing-public-ip-address-consumption)と[ストレージ](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-accounts)のリソースを管理します。
+- [Azure Stack Hub を開始および停止します](https://docs.microsoft.com/azure-stack/operator/azure-stack-start-and-stop&branch=release-tzl)。
+- [拡張ストレージを運用します](https://docs.microsoft.com/azure-stack/tdc/extended-storage-operator-guide&branch=release-tzl)。
+- [IoT Hub を管理します](https://docs.microsoft.com/azure-stack/operator/iot-hub-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&.bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [イベント ハブを管理します](https://docs.microsoft.com/azure-stack/operator/event-hubs-rp-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- [App Service を管理します](https://docs.microsoft.com/azure-stack/operator/azure-stack-app-service-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
+- ハードウェアを交換します。 こちらに、[交換可能な部分](https://docs.microsoft.com/azure-stack/tdc/cru-replaceable-parts&branch=release-tzl)の一覧があります。
+- [サポートを受けます](https://docs.microsoft.com/azure-stack/operator/azure-stack-help-and-support-overview?toc=%2Fazure-stack%2Ftdc%2Ftoc.json&bc=%2Fazure-stack%2Fbreadcrumb%2Ftoc.json&view=azs-2002&branch=release-tzl)。
 
 ## <a name="operator-tasks"></a>オペレーターのタスク
 
@@ -135,35 +135,35 @@ Azure Stack Hub ではデプロイ、管理、整理のための基礎となる�
 
 ## <a name="what-to-tell-your-users"></a>ユーザーに伝えること
 
-ユーザーには、Azure Stack Hub 内のサービスを操作する方法、環境に接続する方法、およびオファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供できるカスタム ドキュメントのほかに、ユーザーには [Azure Stack Hub ユーザー ドキュメント](https://review.docs.microsoft.com/en-us/azure-stack/user/)を案内できます。
+ユーザーには、Azure Stack Hub 内のサービスを操作する方法、環境に接続する方法、およびオファーをサブスクライブする方法を知らせる必要があります。 ユーザーに提供できるカスタム ドキュメントのほかに、ユーザーには [Azure Stack Hub ユーザー ドキュメント](https://docs.microsoft.com/azure-stack/user/)を案内できます。
 
 ### <a name="understand-how-to-work-with-services-in-azure-stack-hub"></a>Azure Stack Hub 内のサービスを操作する方法について
 
 Azure Stack Hub 内のサービスを使用してアプリを構築する前に、ユーザーが理解しておく必要のある情報があります。 たとえば、PowerShell と API については、特定のバージョン要件があります。 また、Azure のサービスと Azure Stack Hub の同等のサービスの機能には、いくつかの違いがあります。 ユーザーには、以下の記事に必ず目を通してもらってください。
 
-- [サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-considerations?view=azs-2002)
-- [Azure Stack Hub VM の機能](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-vm-considerations?view=azs-2002)
-- [Azure Stack Hub のストレージ: 相違点と考慮事項](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-acs-differences?view=azs-2002)
+- [サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い](https://docs.microsoft.com/azure-stack/user/azure-stack-considerations)
+- [Azure Stack Hub VM の機能](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-considerations)
+- [Azure Stack Hub のストレージ: 相違点と考慮事項](https://docs.microsoft.com/azure-stack/user/azure-stack-acs-differences)
 
 これらの記事には、Azure と Azure Stack Hub でのサービスの相違点に関する情報がまとめられています。 これらは、グローバルな Azure ドキュメントで Azure サービスについて提供されている情報を補完するものです。
 
 ### <a name="connect-to-azure-stack-hub-as-a-user"></a>ユーザーとして Azure Stack Hub に接続する
 
-ユーザーは、 [ユーザー ポータルへのアクセス方法](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-use-portal?view=azs-2002)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
+ユーザーは、[ユーザー ポータルへのアクセス方法](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
 
-PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。 ユーザーは PowerShell を [インストール](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-install?view=azs-2002)し、追加のモジュールを [ダウンロード](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-powershell-download?view=azs-2002)して、PowerShell を[構成](https://review.docs.microsoft.com/en-us/azure-stack/user/azure-stack-powershell-configure-user?view=azs-2002)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
+PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。 ユーザーは PowerShell を[インストール](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)し、追加のモジュールを[ダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download)して、PowerShell を[構成](https://docs.microsoft.com/azure-stack/user/azure-stack-powershell-configure-user)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
 
 ### <a name="subscribe-to-an-offer"></a>プランへのサブスクライブ
 
-ユーザーはサービスを使用する前に、オペレーターが作成した [オファーをサブスクライブする](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-2002)必要があります。 
+ユーザーはサービスを使用する前に、オペレーターが作成した[オファーをサブスクライブする](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm)必要があります。
 
 ## <a name="where-to-get-support"></a>サポートが受けられる場所
 
-以前のリリースの Azure Stack Hub (1905 より前) に関するサポート情報を見つける場合は、「 [Azure Stack Hub サービス ポリシー](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-servicing-policy?view=azs-2002)」を参照してください。
+以前のリリースの Azure Stack Hub (1905 より前) に関するサポート情報を見つける場合は、「[Azure Stack Hub サービス ポリシー](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)」を参照してください。
 
 統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間に、統合されたエスカレーションと解決のプロセスがあります。
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供します。 サポート リクエストを開くには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択します。 次に、 **[ヘルプとサポート]** を選択し、 **[サポート]**  セクションの **[新しいサポート リクエスト]**  を選択します。
+クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供します。 サポート リクエストを開くには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択します。 次に、 **[ヘルプとサポート]** を選択し、 **[サポート]** セクションの **[新しいサポート リクエスト]** を選択します。
 
 デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。
 
@@ -171,4 +171,4 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack Hub でのリージョンの管理](https://review.docs.microsoft.com/en-us/azure-stack/operator/azure-stack-region-management?view=azs-2002)
+- [Azure Stack Hub でのリージョンの管理](https://docs.microsoft.com/azure-stack/operator/azure-stack-region-management)

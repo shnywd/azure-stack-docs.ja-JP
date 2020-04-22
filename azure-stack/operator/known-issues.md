@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/20/2020
+ms.date: 04/13/2020
 ms.author: sethm
-ms.reviewer: prchint
+ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ca29dd169523872b2dcc21b323bc489de5caf9b3
-ms.sourcegitcommit: b824c7b9af9ba415ca4fe8d15673b521362f0abb
+ms.openlocfilehash: aee141a5840e33dcd2afa093fa906b07d0b310b9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80479226"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81395071"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -126,7 +126,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="vm-boot-diagnostics"></a>VM ブート診断
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しい Windows 仮想マシン (VM) を作成するときに、次のエラーが表示されることがあります。**仮想マシン 'vm-name' を起動できませんでした。エラー:Failed to update serial output settings for VM 'vm-name'** . (VM 'vm-name' のシリアル出力設定を更新できませんでした。) このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。
+- 原因: 新しい仮想マシン (VM) を作成するときに、次のエラーが表示されることがあります。**仮想マシン 'vm-name' を起動できませんでした。エラー:Failed to update serial output settings for VM 'vm-name'** . (VM 'vm-name' のシリアル出力設定を更新できませんでした。) このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。
+- 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
+- 発生頻度: 共通
+
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: 停止解除された仮想マシンを起動しようとすると、次のエラーが表示されることがあります。**VM diagnostics Storage account 'diagnosticstorageaccount' not found. (VM 診断ストレージ アカウント 'diagnosticstorageaccount' が見つかりません。)Ensure storage account is not deleted**. (ストレージ アカウントが削除されていないことを確認してください。) ブート診断が有効になっている VM を起動しようとしたときに、参照されるブート診断ストレージ アカウントが削除されていると、このエラーが発生します。
 - 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
 - 発生頻度: 共通
 
@@ -145,10 +151,19 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
 - 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub のデプロイでは、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
 
-### <a name="sql-vm-provision-will-be-failed-in-asdk"></a>SQL VM のプロビジョニングが ASDK で失敗する
-- 適用先:この問題は ASDK 2002 にのみ適用されます。 
-- 原因: ASDK 2002 で新しい SQL VM を作成する際に、"**Extension with publisher 'Microsoft.SqlServer.Management', type 'SqlIaaSAgent', and type handler version '2.0' could not be found in the extension repository. (発行元 'Microsoft.SqlServer.Management'、種類 'SqlIaaSAgent'、種類ハンドラー バージョン '2.0' の拡張機能が拡張機能リポジトリに見つかりません。)"** というエラー メッセージが表示されることがあります。 Azure Stack Hub に 'SqlIaaSAgent' 2.0 がありません。 
+### <a name="sql-vm"></a>SQL VM
 
+#### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>自動バックアップを構成するときにストレージ アカウントの作成がエラーになる
+
+- 適用先:この問題は 2002 に適用されます。
+- 原因: 新しいストレージ アカウントを使用して SQL VM の自動バックアップを構成すると、**Deployment template validation failed.The template parameter for 'SqlAutobackupStorageAccountKind' is not found.** (デプロイ テンプレートの検証に失敗しました。'SqlAutobackupStorageAccountKind' のテンプレート パラメーターが見つかりません) のエラーで失敗します。
+- 修復: 最新の 2002 修正プログラムを適用します。
+
+#### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>TLS 1.2 が有効になっていると自動バックアップを構成できない
+
+- 適用先:この問題は、2002 以降の新規インストール、または TLS 1.2 が有効になっている以前のリリースに適用されます。
+- 原因: 既存のストレージ アカウントを使用して SQL VM の自動バックアップを構成すると、次のエラーで失敗します。**SQL Server IaaS Agent:基になる接続が閉じられました。送信時に、予期しないエラーが発生しました。**
+- 発生頻度: 共通
 
 ## <a name="resource-providers"></a>リソース プロバイダー
 
@@ -186,7 +201,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 修復: これら 2 つのサブスクリプション上でリソースが実行されている場合は、ユーザー サブスクリプションで再作成してください。
 - 発生頻度: 共通
 
-### <a name="subscriptions-lock-blade"></a>サブスクリプションの [ロック] ブレード
+### <a name="duplicate-subscription-button-in-lock-blade"></a>[ロック] ブレードの重複する [サブスクリプション] ボタン
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 管理者ポータルのユーザー サブスクリプションの **[ロック]** ブレードには、**サブスクリプション**という 2 つのボタンがあります。
@@ -424,7 +439,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 修復: これらのサブスクリプションのプロパティは、 **[サブスクリプションの概要]** ブレードの **[要点]** ウィンドウで表示できます。
 - 発生頻度: 共通
 
-### <a name="subscriptions-lock-blade"></a>サブスクリプションの [ロック] ブレード
+### <a name="duplicate-subscription-button-in-lock-blade"></a>[ロック] ブレードの重複する [サブスクリプション] ボタン
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 管理者ポータルのユーザー サブスクリプションの **[ロック]** ブレードには、**サブスクリプション**という 2 つのボタンがあります。

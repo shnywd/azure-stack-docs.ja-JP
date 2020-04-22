@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bd62be6a7a2990a7a405dd5c5e1ff44e64007b6f
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77696809"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81478838"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Azure Stack Hub を使用して高可用性 SQL データベースを作成する
 
@@ -37,7 +37,7 @@ Azure Stack Hub オペレーターとして、SQL Server データベースを�
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) マーケットプレース イメージ。
 - Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) この記事では、[Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) を使用します。
-- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) バージョン 1.2.30 以降 SQL IaaS 拡張機能を使用して、すべての Windows バージョンの Marketplace SQL Server 項目に必要なコンポーネントをインストールします。 SQL 仮想マシン (VM) 上で SQL 固有の設定を構成することが可能になります。 拡張機能がローカルのマーケットプレースにインストールされていない場合、SQL のプロビジョニングは失敗します。
+- [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) バージョン 1.3.20180 以降 SQL IaaS 拡張機能を使用して、すべての Windows バージョンの Marketplace SQL Server 項目に必要なコンポーネントをインストールします。 SQL 仮想マシン (VM) 上で SQL 固有の設定を構成することが可能になります。 拡張機能がローカルのマーケットプレースにインストールされていない場合、SQL のプロビジョニングは失敗します。
 - [Windows バージョン 1.9.1 以降のカスタム スクリプト拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 カスタム スクリプト拡張機能は、デプロイ後の VM カスタマイズ タスクを自動的に起動するために使用できるツールです。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) バージョン 2.76.0.0 以降。 DSC は、Windows PowerShell の管理プラットフォームであり、ソフトウェア サービス用の構成データのデプロイと管理を行うことができます。 また、プラットフォームでは、これらのサービスを実行する環境の管理も行われます。
 
@@ -58,15 +58,15 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 - SQL およびファイル共有監視の VM を含む 1 つの可用性セット。
 
 1. 
-   [!INCLUDE [azs-admin-portal](../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-user-portal](../includes/azs-user-portal.md)]
 
 2. **\+** **[リソースの作成]**  >  **[カスタム]** の順に選択し、 **[テンプレートのデプロイ]** を選択します。
 
-   ![Azure Stack Hub 管理者ポータルでのカスタム テンプレートのデプロイ](media/azure-stack-tutorial-sqlrp/1.png)
+   ![Azure Stack Hub 管理者ポータルでのカスタム テンプレートのデプロイ](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-1.png)
 
 3. **[カスタム デプロイ]** ブレード上で **[テンプレートの編集]**  >  **[クイック スタート テンプレート]** の順に選択し、利用可能なカスタム テンプレートのドロップダウン リストを使用して **sql-2016-alwayson** テンプレートを選択します。 **[OK]** 、 **[保存]** の順に選択します。
 
-   [![Azure Stack Hub 管理者ポータル上でテンプレートを編集する](media/azure-stack-tutorial-sqlrp/2-sm.PNG "クイックスタート テンプレートを選択する")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
+   [![Azure Stack Hub 管理者ポータル上でテンプレートを編集する](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png "クイックスタート テンプレートを選択する")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-2.png#lightbox)
 
 4. **[カスタム デプロイ]** ブレードで、 **[パラメーターの編集]** を選択し、既定値を確認します。 必要に応じて値を変更し、必要なすべてのパラメーター情報を入力してから、 **[OK]** を選択します。
 
@@ -74,22 +74,20 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
     - ADMINPASSWORD、SQLSERVERSERVICEACCOUNTPASSWORD、および SQLAUTHPASSWORD パラメーターに複雑なパスワードを指定します。
     - DNSSUFFIX パラメーターの場合、すべての小文字で逆引き参照の DNS サフィックスを入力します (ASDK インストールの場合は、**azurestack.external**)。
     
-   [![Azure Stack Hub 管理者ポータル上でパラメーターを編集する](media/azure-stack-tutorial-sqlrp/3-sm.PNG "カスタム デプロイ パラメーターを編集する")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
+   [![Azure Stack Hub 管理者ポータル上でパラメーターを編集する](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png "カスタム デプロイ パラメーターを編集する")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-3.png#lightbox)
 
 5. **[カスタム デプロイ]** ブレードで、使用するサブスクリプションを選択し、カスタム デプロイ用に新しいデプロイ グループを作成するか、既存のリソース グループを選択します。
 
     次に、リソース グループの場所 (ASDK のインストールの場合は **local**) を選択し、 **[作成]** をクリックします。 カスタムのデプロイ設定が検証され、デプロイが開始されます。
 
-    [![Azure Stack Hub 管理者ポータル上でサブスクリプションを選択する](media/azure-stack-tutorial-sqlrp/4-sm.PNG "カスタム デプロイを作成する")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
+    [![Azure Stack Hub 管理者ポータル上でサブスクリプションを選択する](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png "カスタム デプロイを作成する")](media/azure-stack-tutorial-sqlrp/aoag-template-deployment-4.png#lightbox)
 
-6. 管理者ポータル上で、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前 (この例では **resource-group**) を選択します。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
+6. ユーザー ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では、**resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
     
     次に、リソース グループ項目を確認して、**SQLPIPsql\< リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、これを Azure Stack Hub オペレーターに提供する必要があります。
 
    > [!NOTE]
    > テンプレートのデプロイには数時間かかる場合があります。
-
-   ![Azure Stack Hub 管理者ポータルでのカスタム デプロイの完了](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>自動シード処理を有効にする
 

@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でシークレットをローテーションする方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 04/03/2020
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: d7179d8b87ee8e543fc7f8b78d1a8113e0e2746b
-ms.sourcegitcommit: 1fa0140481a483e5c27f602386fe1fae77ad29f7
+ms.openlocfilehash: 5ffa1f2f03ca942192acdd881b7e785598c4c94b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 03/05/2020
-ms.locfileid: "78367728"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80812375"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -60,6 +60,9 @@ Azure Stack Hub では、さまざまなシークレットを使って、Azure S
 
 > [!Note]
 > BMC やスイッチ パスワードなどの他のすべてのセキュリティで保護されたキーと文字列、ユーザーアカウントと管理者アカウントのパスワードは、依然として管理者が手動で更新します。
+
+> [!Important]
+> これらの手順では、Azure Stack Hub リソース プロバイダーの Azure App Service の証明書、シークレット、資格情報はローテーションされません。  これらをローテーションするには、「[App Service のシークレットと証明書のローテーション](app-service-rotate-certificates.md)」の手順に従ってください。
 
 > [!Important]
 > Azure Stack Hub の 1811 リリース以降、シークレットのローテーションは、内部の証明書と外部の証明書に分けられます。
