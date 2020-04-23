@@ -316,6 +316,8 @@
               href: app-service-back-up.md
             - name: App Service の復旧
               href: app-service-recover.md
+            - name: App Service の削除
+              href: app-service-remove.md
             - name: App Service の課金に関する FAQ
               href: app-service-billing-faq.md
             - name: App Service on Azure Stack Hub のリリース ノート
@@ -510,5 +512,5 @@
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 料金情報
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: スタック オーバーフロー
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
