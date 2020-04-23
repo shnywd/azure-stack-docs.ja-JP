@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のサービスとしての検証を使って OEM パッケージを検証する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb028078cf6ddb54827e33786a44f0eb53356fc9
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81395122"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661412"
 ---
 # <a name="validate-oem-packages"></a>OEM パッケージの検証
 

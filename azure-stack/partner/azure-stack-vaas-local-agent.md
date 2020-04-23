@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のサービスとしての検証に使用するローカル エージェントをデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a6358b7b9baff76726b2bd1282f525184a071c05
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295618"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661271"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 

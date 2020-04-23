@@ -3,16 +3,16 @@ title: Azure Stack Hub の概要
 description: Azure Stack Hub の概要と、これを使ってデータセンターで Azure サービスをどのように実行できるかについて説明します。
 author: justinha
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: afa7f02f451192640172665e18213d125e24b574
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "77698455"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772634"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub の概要
 
@@ -40,11 +40,11 @@ Azure Stack Hub アーキテクチャを使うと、インターネットから�
 
 ## <a name="deployment-options"></a>デプロイ オプション
 
-Azure Stack Hub 統合システムはマイクロソフトとハードウェア パートナーのパートナーシップによって提供され、クラウドと歩調を合わせた革新と、コンピューティングの管理のしやすさを両立させたソリューションを実現します。 Azure Stack Hub は統合されたハードウェアおよび ソフトウェア システムとして提供されているため、必要な柔軟性やコントロールが得られるほか、クラウドから革新を図ることができます。 
+Azure Stack Hub 統合システムはマイクロソフトとハードウェア パートナーのパートナーシップによって提供され、クラウドと歩調を合わせた革新と、コンピューティングの管理のしやすさを両立させたソリューションを実現します。 Azure Stack Hub は統合されたハードウェアおよび ソフトウェア システムとして提供されているため、必要な柔軟性やコントロールが得られるほか、クラウドから革新を図ることができます。
 
 Azure Stack Hub 統合システムのサイズは 4 から 16 サーバーの範囲で指定できます (通称 "*スケール ユニット*")。 統合システムは、ハードウェア パートナーと Microsoft によって共同でサポートされます。 次の図は、スケール ユニットの一例を示しています。 
 
-![Azure Stack Hub 統合システムを示す図](./media/azure-stack-overview/azure-stack-integrated-system.png)。 
+![Azure Stack Hub 統合システムを示す図](./media/azure-stack-overview/azure-stack-integrated-system.svg)。 
 
 <!---add info and image on regions, etc--->
 
