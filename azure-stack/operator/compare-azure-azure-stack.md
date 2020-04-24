@@ -8,12 +8,12 @@ ms.date: 05/03/2019
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: df143d08f3d5e4445020f4932a47de657805fa7c
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: f71367c86dcb360297fed7250e3a5dfb4bd6beda
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "78366417"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772443"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い
 
@@ -21,7 +21,7 @@ Microsoft では 1 つの Azure エコシステムで Azure と Azure Stack Hub 
 
 この記事では、グローバル Azure、Azure Stack Hub、および Azure Stack HCI の機能の違いについて説明します。 組織で Microsoft クラウドベースのサービスを実現するための最適な選択を行うときに役立つ一般的なシナリオの推奨事項を示します。
 
-![Azure エコシステムの概要](./media/compare-azure-azure-stack/azure-family.png)
+![Azure エコシステムの概要](./media/compare-azure-azure-stack/azure-family.svg)
 
 ## <a name="global-azure"></a>グローバル Azure
 
@@ -52,7 +52,7 @@ Azure Stack Hub は Microsoft ではなくお客様によって運用される�
 - Ethereum ブロックチェーン
 - Cloud Foundry
 
-### <a name="example-use-cases-for-azure-stack-hub"></a>Azure Stack Hub のユース ケース例:
+### <a name="example-use-cases-for-azure-stack-hub"></a>Azure Stack Hub のユース ケース例
 
 - 財務モデリング
 - 臨床データおよび診療報酬データ
