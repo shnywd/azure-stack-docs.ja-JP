@@ -134,7 +134,7 @@
           href: azure-stack-cli-admin.md
         - name: 管理環境の設定
           items:
-            - name: PowerShell RM のインストール
+            - name: PowerShell AzureRM のインストール
               href: azure-stack-powershell-install.md
             - name: PowerShell Az のインストール
               href: powershell-install-az-module.md
