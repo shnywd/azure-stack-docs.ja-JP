@@ -212,6 +212,8 @@
                       href: azure-stack-kubernetes-aks-engine-overview.md
                     - name: サポート ポリシー
                       href: azure-stack-kubernetes-aks-engine-support.md
+                    - name: AKS エンジンのリリース ノート
+                      href: kubernetes-aks-engine-release-notes.md
                     - name: 前提条件の設定
                       href: azure-stack-kubernetes-aks-engine-set-up.md
                     - name: Linux クライアントを作成する
