@@ -3,16 +3,16 @@ title: Azure Stack Hub でのお客様への請求と配賦
 description: Azure Stack Hub ユーザーにどのようにリソース使用量が請求されるか、および分析と配賦のために請求情報にアクセスする方法を学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: b5de9aa3723d16ab4c80510ab5e18d0300ebde04
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9606f5ec17826e4fc339ebad5b4439829bd828cc
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695395"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772538"
 ---
 # <a name="usage-and-billing-in-azure-stack-hub"></a>Azure Stack Hub での使用量と請求
 
@@ -30,7 +30,7 @@ Azure Stack Hub 内の各リソース プロバイダーは、リソース使用
 
 次の図は、使用量パイプラインの主要なコンポーネントを示しています。
 
-![使用量パイプライン](media/azure-stack-billing-and-chargeback/usagepipeline.png)
+![使用量パイプライン](media/azure-stack-billing-and-chargeback/usagepipeline.svg)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>確認できる使用量情報とその確認方法
 

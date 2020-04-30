@@ -3,16 +3,16 @@ title: Azure Stack Hub にスケール ユニット ノードを追加する
 description: Azure Stack Hub のスケール ユニットにスケール ユニット ノードを追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 8aa33cda9a657d3e0bcec9525f86bd792c855e65
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77688765"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772590"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
@@ -22,7 +22,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 
 次のフロー図は、スケール ユニット ノードを追加するための一般的なプロセスを示しています。
 
-![スケール ユニットの追加フロー](media/azure-stack-add-scale-node/add-node-flow.png)
+![スケール ユニットの追加フロー](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *OEM ハードウェア ベンダーが物理サーバー ラックの配置とファームウェアの更新を行うかどうかは、サポート契約により異なります。*
 
 新しいノードを追加する作業は、完了までに数時間から数日かかることがあります。 他のスケール ユニット ノードが追加されている間、システム上の実行中のワークロードに影響はありません。

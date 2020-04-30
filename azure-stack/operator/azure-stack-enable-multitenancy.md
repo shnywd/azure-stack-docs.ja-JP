@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub でマルチテナントを構成する
 description: Azure Stack Hub で複数の Azure Active Directory テナントを有効および無効にする方法について説明します。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ba5c757a08b63c80ce86a9f8890f82fa696066a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ffad503fec50952eca492e16ca0051e69d1c1f14
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295432"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173881"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Azure Stack Hub でマルチテナントを構成する
 

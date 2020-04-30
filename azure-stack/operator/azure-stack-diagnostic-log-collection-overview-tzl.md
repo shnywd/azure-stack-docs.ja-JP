@@ -7,14 +7,16 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 8f97ecd20e7ef8db69033268baf96060e1315751
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b1c1048a8ad8bdb8d16d2e86c82febc8c74b03af
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520634"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624943"
 ---
 # <a name="overview-of-azure-stack-hub-diagnostic-log-collection"></a>Azure Stack Hub の診断ログの収集の概要 
+
+::: moniker range=">= azs-2002"
 
 Azure Stack Hub は、相互にやり取りする Windows コンポーネントとオンプレミスの Azure サービスからなる大規模なコレクションです。 これらのすべてのコンポーネントとサービスは、独自のログ セットを生成します。 Microsoft カスタマーサポート サービス (CSS) が問題を効率的に診断できるように、診断ログ収集のシームレスなエクスペリエンスが提供されています。 
 
@@ -64,12 +66,13 @@ Azure Stack Hub から診断ログ収集を開始することで、これらの�
 
 [Send logs now]\(今すぐログを送信する\) を使用して収集されたログは、Microsoft が管理および制御するストレージにアップロードされます。 これらのログは、Azure Stack Hub の正常性を向上させるために、サポート ケースのコンテキストで Microsoft によってアクセスされます。 
 
+
+
 ## <a name="bandwidth-considerations"></a>帯域幅に関する考慮事項
 
 診断ログの収集の平均サイズは、事前実行するか手動で実行するかによって異なります。 **事前ログ収集** の平均サイズは約 2 GB です。 **[Send logs now]\(今すぐログを送信する\)** の収集サイズは、収集される時間の長さによって異なります。
 
 次の表に、Azure への制限付きまたは従量制課金接続の環境の場合の考慮事項を示します。
-
 
 | ネットワーク接続 | 影響 |
 |--------------------|--------|
@@ -77,7 +80,62 @@ Azure Stack Hub から診断ログ収集を開始することで、これらの�
 | 共有接続 | アップロードは、ネットワーク接続を共有する他のアプリケーションやユーザーに影響を与える場合があります |
 | 従量制課金接続 | 追加のネットワーク使用に対して、ISP からの追加料金が発生する場合があります | 
 
-## <a name="see-also"></a>参照
+::: moniker-end
+::: moniker range="<= azs-1910"
+
+## <a name="collecting-logs-from-multiple-azure-stack-hub-systems"></a>複数の Azure Stack Hub システムからのログの収集
+
+ログを収集する Azure Stack Hub スケールユニットごとに 1 つの BLOB コンテナーを設定します。 BLOB コンテナーを構成する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)」を参照してください。 ベスト プラクティスとして、単一の BLOB コンテナー内の同じ Azure Stack Hub スケール ユニットからの診断ログのみを保存します。 
+
+## <a name="retention-policy"></a>Retention ポリシー
+
+Azure Blob Storage [ライフサイクル管理ルール](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、ログの保持ポリシーを管理します。 診断ログは 30 日間保持することをお勧めします。 Azure storage でライフサイクル管理ルールを作成するには、Azure portal にサインインし、 **[ストレージ アカウント]** をクリックし、BLOB コンテナーをクリックし、 **[Blob service]** の **[ライフサイクル管理]** をクリックします。
+
+![Azure portal のライフサイクル管理を示すスクリーンショット](media/azure-stack-automatic-log-collection/blob-storage-lifecycle-management.png)
+
+
+## <a name="sas-token-expiration"></a>SAS トークンの有効期限
+
+SAS URL の有効期限を 2 年に設定します。 ストレージ アカウント キーを更新する場合は、必ず SAS URL を再生成してください。 SAS トークンは、ベストプラクティスに従って管理する必要があります。 詳細については、「[SAS を使用する際のベスト プラクティス](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#best-practices-when-using-sas)」を参照してください。
+
+
+## <a name="bandwidth-consumption"></a>帯域幅の消費
+
+診断ログ収集の平均サイズは、ログ収集がオンデマンドであるか自動であるかによって異なります。 
+
+オンデマンドのログ収集の場合、ログ収集のサイズは、収集される時間数によって異なります。 過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択できます。 
+
+自動診断ログ収集が有効になっている場合、サービスによって重大なアラートが監視されます。 
+重大なアラートが発生し、約 30 分間持続すると、サービスによって適切なログが収集され、アップロードされます。 
+このログ収集のサイズは、平均で約 2 GB です。 
+修正プログラムや更新のエラーが発生した場合、自動ログ収集は、重大なアラートが発生し、約 30 分間持続している場合のみ開始されます。 [修正プログラムと更新の監視に関するガイダンス](azure-stack-updates.md)に従うことをお勧めします。
+アラートの監視、ログ収集、およびアップロードは、ユーザーに対して透過的です。 
+
+
+
+正常なシステムでは、ログはまったく収集されません。 
+異常なシステムでは、ログ収集が 1 日に 2、3 回実行される場合がありますが、通常は 1 回だけ実行されます。 
+多くて、最悪のシナリオで 1 日に最大 10 回実行される可能性があります。  
+
+次の表は、Azure への接続が制限されている環境で、自動ログ収集を有効にする影響を考慮する場合に役立つ可能性があります。
+
+| ネットワーク接続 | 影響 |
+|--------------------|--------|
+| 低帯域幅/待機時間が長い接続 | ログのアップロードは、完了までに長時間かかります | 
+| 共有接続 | アップロードは、ネットワーク接続を共有する他のアプリケーションやユーザーに影響を与える場合があります |
+| 従量制課金接続 | 追加のネットワーク使用に対して、ISP からの追加料金が発生する場合があります |
+
+
+## <a name="managing-costs"></a>コストの管理
+
+Azure [BLOB ストレージの料金](https://azure.microsoft.com/pricing/details/storage/blobs/)は、毎月保存されるデータの量と、データの冗長性などのその他の要因によって異なります。 
+既存のストレージアカウントがない場合は、Azure portal にサインインし、 **[ストレージ アカウント]** をクリックし、手順に従って、[Azure BLOB コンテナーの SAS URL を作成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)します。
+
+ベスト プラクティスとして、Azure BLOB ストレージ [ライフサイクル管理ポリシー](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)を作成して、継続的なストレージ コストを最小限に抑えます。 ストレージ アカウントを設定する方法の詳細については、「[自動 Azure Stack Hub 診断ログ収集の構成](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)」を参照してください
+
+::: moniker-end
+
+## <a name="see-also"></a>関連項目
 
 [Azure Stack Hub でのログおよび顧客データの処理](https://docs.microsoft.com/azure-stack/operator/azure-stack-data-collection)
 

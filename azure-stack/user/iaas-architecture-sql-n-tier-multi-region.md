@@ -3,16 +3,16 @@ title: 高可用性を得るために複数の Azure Stack Hub リージョン�
 description: 高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する方法について学習します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e7cef7bf2545a8e256d9e09fbbef338aab230e17
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705017"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81659880"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub にパブリック IP アドレスを追加する
 description: Azure Stack Hub にパブリック IP アドレスを追加する方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: f17ef9fad4dd595d4a8d1e51b4efc3c0dd029bef
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77703368"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772470"
 ---
 # <a name="add-public-ip-addresses"></a>パブリック IP アドレスの追加
 
@@ -26,7 +26,7 @@ Azure Stack Hub システムの初期デプロイ後はいつでも、Azure Stac
 
 Azure Stack Hub に新しいパブリック IP アドレス ブロックを追加するプロセスの概要は次のようになります。
 
- ![IP の追加フロー](media/azure-stack-add-ips/flow.PNG)
+ ![IP の追加フロー](media/azure-stack-add-ips/flow.svg)
 
 ## <a name="obtain-the-address-block-from-your-provider"></a>プロバイダーからアドレス ブロックを取得する
 まず、Azure Stack Hub に追加するアドレス ブロックを取得する必要があります。 どこからアドレス ブロックを取得するかに応じて、リード タイムを考慮し、Azure Stack Hub でのパブリック IP アドレスの使用率と照らし合わせて管理します。

@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の AKS エンジンのトラブルシューティン�
 description: この記事では Azure Stack Hub 上の AKS エンジンのトラブルシューティングの手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: d362eb0bf418cf292953afc50fe993dc4867253c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069295"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624986"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -142,7 +142,7 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 ## <a name="review-custom-script-extension-error-codes"></a>カスタム スクリプト拡張機能のエラー コードを確認する
 
-クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの操作の多くがサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)」を参照してください。
+クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの操作の多くがサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go)」を参照してください。
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Microsoft サポート エンジニアへの Kubernetes ログの提供
 

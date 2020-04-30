@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 294fec646462d154c8d8f2e1d22c31d2d88220d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d0d11295d9425e07e34dc59eb2fcc83c6b020582
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696381"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772552"
 ---
 # <a name="report-azure-stack-hub-usage-data-to-azure"></a>Azure Stack Hub 使用状況データの Azure への報告
 
@@ -28,7 +28,7 @@ ms.locfileid: "77696381"
 
 使用状況データの報告は、従量課金モデルのライセンスを持つ Azure Stack Hub マルチノードのユーザーにとっては必須事項です。 容量モデルのライセンスを持つユーザーはこの報告を省略できます ([購入方法](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)に関するページを参照してください)。 Azure Stack Development Kit (ASDK) ユーザーの場合は、Azure Stack Hub オペレーターが使用状況データを報告し、機能をテストできます。 ただし、ユーザーの使用に対して課金されることはありません。
 
-![Azure Stack Hub の使用状況データの課金フロー](media/azure-stack-usage-reporting/billing-flow.png)
+![Azure Stack Hub の使用状況データの課金フロー](media/azure-stack-usage-reporting/billing-flow.svg)
 
 使用状況データは、Azure Bridge 経由で Azure Stack Hub から Azure に送信されます。 Azure では、コマース システムが使用状況データを処理し、課金を生成します。 課金が生成された後、Azure サブスクリプションの所有者はそれを表示したり、[Azure アカウント センター](https://account.windowsazure.com/subscriptions)からダウンロードしたりできます。 Azure Stack Hub のライセンス方法については、「[Microsoft Azure Stack Hub のパッケージ化と価格](https://go.microsoft.com/fwlink/?LinkId=842847)」ドキュメントを参照してください。
 

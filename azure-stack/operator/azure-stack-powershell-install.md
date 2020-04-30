@@ -7,14 +7,14 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 937a3610891a2ec532e5c95bc60a9b9c5a8cc684
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395003"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106943"
 ---
-# <a name="install-powershell-azurerm-or-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM または Az モジュールをインストールする
+# <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
 Azure PowerShell AzureRM には、Azure Stack Hub リソースの管理に Azure Resource Manager モデルを使用する一連のコマンドレットが用意されています。
 
@@ -86,7 +86,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 次の PowerShell スクリプトを実行して、これらのモジュールを開発用ワークステーションにインストールします。
 
 ::: moniker range=">=azs-2002"
-Azure Stack Hub 2002 以降の場合:
+Azure Stack Hub 2002 以降の場合: 
 
 AzureRm モジュールまたは Az プレビュー モジュールのいずれかを使用できます。 Az モジュールを使用するには Azure Stack Hub 2002 と最新の修正プログラムが必要です。
 

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: 121bbc5ff081a6a7773d69294175f979b89bcfc5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80402848"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106909"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -73,7 +73,7 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 > [!NOTE]
 > /20 の入力は、1910 の次の Azure Stack Hub 更新プログラムの前提条件となります。 1910 の次の Azure Stack Hub 更新プログラムがリリースされ、それをインストールしようとすると、後述する修復手順で説明するように /20 の入力を完了していない場合、更新は失敗します。 前記の修復手順が完了するまで、管理者ポータルにはアラートが表示されます。 この新しいプライベート空間がどのように使用されるかについては、[データセンターのネットワーク統合](azure-stack-network.md#private-network)に関する記事を参照してください。
 
-**修復手順**: 修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、次の例を使用して、PEP セッション内で次のコマンドレット (1910 以降でのみ使用可能) を実行します: `Set-AzsPrivateNetwork -UserSubnet 100.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理者ポータル上のアラートは閉じられます。 これで、Azure Stack Hub システムは、次のバージョンに更新できるようになります。
+**修復手順**: 修復するには、次の手順に従って [PEP セッション開きます](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)。 サイズ /20 の[プライベート内部 IP 範囲](azure-stack-network.md#logical-networks)を準備し、次の例を使用して、PEP セッション内で次のコマンドレット (1910 以降でのみ使用可能) を実行します: `Set-AzsPrivateNetwork -UserSubnet 10.87.0.0/20`。 操作が正常に実行されると、"**Azs Internal Network range added to the config** (構成に Azs 内部ネットワーク範囲が追加されました)" というメッセージが表示されます。正常に完了すると、管理者ポータル上のアラートは閉じられます。 これで、Azure Stack Hub システムは、次のバージョンに更新できるようになります。
 
 ### <a name="azure-stack-infrastructure-network"></a>Azure Stack インフラストラクチャ ネットワーク
 この /24 ネットワークは、内部の Azure Stack コンポーネントが互いにデータを通信したり交換したりできるように、これらのコンポーネント専用です。 このサブネットは、Azure Stack ソリューションの外部からデータセンターにルーティングできます。このサブネットでパブリックまたはインターネットのルーティング可能な IP アドレスを使用することはお勧めしません。 このネットワークは境界にアドバタイズされますが、そのほとんどの IP はアクセス制御リスト (ACL) によって保護されています。 アクセスが許可される IP は、/27 ネットワークや、[特権エンド ポイント (PEP)](azure-stack-privileged-endpoint.md)、[Azure Stack Backup](azure-stack-backup-reference.md) などのホスト サービスとサイズが同等の小さな範囲内です。

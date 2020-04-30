@@ -3,16 +3,16 @@ title: ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 description: ExpressRoute を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 59fa339cfa58fa2c5c6b0e1b727cf2adee79b7e2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1b68435317136afdbfcc5d1ade16b18a2210baad
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701498"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772695"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
@@ -51,7 +51,7 @@ ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、�
 
 次の図は、この記事の例に従って ExpressRoute の設定を完了した後の Azure Stack Hub と Azure の環境を示しています。
 
-![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/conceptual.svg)
 
 次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack Hub インフラストラクチャから Azure に接続するしくみを示しています。
 
@@ -68,7 +68,7 @@ ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、�
 >[!NOTE]
 >これらの手順では、Azure Stack Hub ポータルを使用してリソースを作成する方法を示していますが、PowerShell を使用することもできます。
 
-![Azure Stack Hub のネットワークのセットアップ](media/azure-stack-connect-expressroute/image2.png)
+![Azure Stack Hub のネットワークのセットアップ](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>開始する前に
 
@@ -267,7 +267,7 @@ ASDK は自己完結型であり、物理ホストがデプロイされている
 
 Azure Stack Hub の構成が完了したら、Azure のリソースをデプロイすることができます。 次の図は、Azure 内のテナント仮想ネットワークの例を示しています。 Azure 内の VNet には、任意の名前とアドレス指定スキームを使用できます。 ただし、Azure と Azure Stack Hub 内の VNet のアドレス範囲は一意であり、重複していない必要があります。
 
-![Azure VNet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure VNet](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Azure でデプロイするリソースは、Azure Stack Hub でデプロイしたリソースに似ています。 デプロイするコンポーネントは次のとおりです。
 
