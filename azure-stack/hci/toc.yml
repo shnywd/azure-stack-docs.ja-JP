@@ -18,6 +18,8 @@
       href: manage/delete-volumes.md
     - name: ドライブの交換
       href: manage/replace-drives.md
+    - name: Azure Site Recovery を使用する
+      href: manage/azure-site-recovery.md
     - name: Azure Monitor による監視
       href: manage/azure-monitor.md
     - name: Linux VM への GPU のアタッチ
