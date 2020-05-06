@@ -3,16 +3,16 @@ title: 複数の Azure Stack Hub サブスクリプション間でリソース�
 description: Azure Stack Hub サブスクリプション レプリケーターの一連のスクリプトを使用してリソースをレプリケートする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/07/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: b8e955075553480b4178223a5475b44e3debd106
-ms.sourcegitcommit: 4ac711ec37c6653c71b126d09c1f93ec4215a489
+ms.openlocfilehash: a20979ff0bb60f058658e9a0f9f540b2c0cb434e
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77702348"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173915"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Azure Stack Hub サブスクリプション レプリケーターを使用してリソースをレプリケートする
 
@@ -98,7 +98,7 @@ Deployment_Files には、2 つのファイル **DeployResourceGroups.ps1** と 
 
     ![フォルダーの確認](./media/azure-stack-network-howto-backup-replicator/image4.png)
 
-3.  コンテキストをターゲット サブスクリプションに設定し、フォルダーを **Deployment_Files** に変更して、リソース グループをデプロイしてから、リソースのデプロイを開始します。
+3.  コンテキストをターゲット サブスクリプションに設定し、フォルダーを **Deployment_Files** に変更して、リソース グループをデプロイしてから (DeployResourceGroups.ps1 スクリプトを実行)、リソースのデプロイを開始します (DeployResources.ps1 スクリプトを実行)。
 
     ![デプロイの構成と開始](./media/azure-stack-network-howto-backup-replicator/image6.png)
 

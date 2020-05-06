@@ -7,16 +7,16 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: e82ddb48b3858acdf25163976854f538400da54b
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069200"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624987"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Azure Stack Hub で Linux 用の SSH キーを作成する
 
-Windows マシンで Linux マシンの SSH (Secure Shell) キーを作成できます。 この記事の手順で生成された公開キーを、VM での SSH 認証に使用します。 Windows マシンを使用している場合は、Ubuntu on Windows をインストールし、bash、ssh、git などのユーティリティ、および Ubuntu on Windows によりターミナルを取得します。 **ssh-keygen** を実行してキーを作成します。
+Windows マシンで Linux マシンの SSH (Secure Shell) キーを作成できます。 この記事の手順で生成された公開キーを、VM での SSH 認証に使用します。 Windows マシンを使用している場合は、Ubuntu on Windows をインストールし、bash、ssh、git、apt などのユーティリティを使用してターミナルを取得します。 **ssh-keygen** を実行してキーを作成します。
 
 ## <a name="open-bash-on-windows"></a>Windows で bash を開く
 

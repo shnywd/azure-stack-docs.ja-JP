@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の新機能
 description: Azure Stack Hub Marketplace の変更と更新。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 3a78dabf7e4bae13d4fcea5d672d79110ddb44b7
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77699101"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82166975"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -22,16 +22,13 @@ ms.locfileid: "77699101"
 
 ## <a name="new-marketplace-items"></a>新しい Marketplace 項目
 
-- 2019/06/27:SIOS Datakeeper Cluster Edition
-- 2019/06/27:Veeam Backup & Replication
-- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers Pay-as-you-use
-- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers BYOL
-- 2019/06/27:Windows Server 2019 Datacenter Pay-as-you-use
-- 2019/06/27:Windows Server 2019 Datacenter BYOL
-- 2019/06/27:Windows Server 2019 Datacenter Server Core Pay-as-you-use
-- 2019/06/27:Windows Server 2019 Datacenter Server Core BYOL
-- 2019/06/27:Windows Server 2019 Datacenter With Containers Pay-as-you-use
-- 2019/06/27:Windows Server 2019 Datacenter With Containers BYOL
+- 2020/01/21:Teradici Cloud Access Software
+- 2019/12/26:CloudGuard IaaS High Availability
+- 2019/12/26:Check Point CloudGuard IaaS Security Management
+- 2019/12/26:Check Point CloudGuard IaaS Single Gateway
+- 2019/10/16: SIOS DataKeeper Cluster Edition
+- 2019/08/19:Iguazio Data Science Platform
+- 2019/08/09:Oracle Linux
 - 2019/08/05:Bitnami Drupal
 - 2019/08/05:Bitnami etcd
 - 2019/08/05:Bitnami Grafana
@@ -43,13 +40,16 @@ ms.locfileid: "77699101"
 - 2019/08/05:Bitnami NATS
 - 2019/08/05:Bitnami Review Board
 - 2019/08/05:Bitnami Composr
-- 2019/08/09:Oracle Linux
-- 2019/08/19:Iguazio Data Science Platform
-- 2019/10/16: SIOS DataKeeper Cluster Edition
-- 2019/12/26:CloudGuard IaaS High Availability
-- 2019/12/26:Check Point CloudGuard IaaS Security Management
-- 2019/12/26:Check Point CloudGuard IaaS Single Gateway
-- 2020/01/21:Teradici Cloud Access Software
+- 2019/06/27:SIOS Datakeeper Cluster Edition
+- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter Server Core With Containers BYOL
+- 2019/06/27:Windows Server 2019 Datacenter Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter BYOL
+- 2019/06/27:Windows Server 2019 Datacenter Server Core Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter Server Core BYOL
+- 2019/06/27:Windows Server 2019 Datacenter With Containers Pay-as-you-use
+- 2019/06/27:Windows Server 2019 Datacenter With Containers BYOL
+- 2019/06/27:Veeam Backup & Replication
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 
@@ -62,7 +62,168 @@ ms.locfileid: "77699101"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
-- 2019/07/11: Thales CipherTrust Cloud Key Manager - バージョン 1.0.7
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter - BYOL - バージョン 3.127.20190521
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - Pay as you use - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - BYOL - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter - Pay as you use - バージョン 3.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - BYOL - バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - Pay as you use - バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - BYOL- バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - Pay as you use - バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - BYOL - バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - Pay as you use - バージョン 2020.01
+- 2020 年 4 月 17 日:Bitnami AbanteCart - バージョン 1.2.2002091007
+- 2020 年 4 月 17 日:Bitnami ActiveMQ - バージョン 5.15.2003260344
+- 2020 年 4 月 17 日:Bitnami Akeneo - バージョン 3.2.2004030743
+- 2020 年 4 月 17 日:Bitnami Alfresco Community - バージョン 201911.0.2003121515
+- 2020 年 4 月 17 日:Bitnami JFrog Artifactory Open Source - バージョン 6.18.2003290935
+- 2020 年 4 月 17 日:Bitnami Canvas LMS - バージョン 2020.3.2004032020
+- 2020 年 4 月 17 日:Bitnami Cassandra - バージョン 3.11.2003302002
+- 2020 年 4 月 17 日:Bitnami CiviCRM - バージョン 5.24.2004020441
+- 2020 年 4 月 17 日:Bitnami CMS Made Simple - バージョン 2.2.2002251724
+- 2020 年 4 月 17 日:Bitnami concrete5 - バージョン 8.5.2003290934
+- 2020 年 4 月 17 日:Bitnami HashiCorp Consul - バージョン 1.7.2003252309
+- 2020 年 4 月 17 日:Bitnami Coppermine - バージョン 1.6.2002270450
+- 2020 年 4 月 17 日:Bitnami CouchDB - バージョン 3.0.2004031727
+- 2020 年 4 月 17 日:Bitnami Diaspora - バージョン 0.7.2003290934
+- 2020 年 4 月 17 日:Bitnami Discourse - バージョン 2.4.2003272110
+- 2020 年 4 月 17 日:Bitnami Django - バージョン 2.2.2003091923
+- 2020 年 4 月 17 日:Bitnami Dolibarr - バージョン 11.0.2003201041
+- 2020 年 4 月 17 日:Bitnami DreamFactory - バージョン 4.0.2004030129
+- 2020 年 4 月 17 日:Bitnami Drupal - バージョン 8.8.2003190909
+- 2020 年 4 月 17 日:Bitnami Elasticsearch - バージョン 7.6.2003312054
+- 2020 年 4 月 17 日:Bitnami ELK - バージョン 7.6.2003312108
+- 2020 年 4 月 17 日:Bitnami ERPNext - バージョン 12.6.2003272110
+- 2020 年 4 月 17 日:Bitnami EspoCRM - バージョン 5.8.2003180952
+- 2020 年 4 月 17 日:Bitnami etcd - バージョン 3.4.2004020147
+- 2020 年 4 月 17 日:Bitnami eXo Platform - バージョン 5.2.2004011322
+- 2020 年 4 月 17 日:Bitnami Fat Free CRM - バージョン 0.18.2003290935
+- 2020 年 4 月 17 日:Bitnami Ghost - バージョン 3.12.2004010229
+- 2020 年 4 月 17 日:Bitnami GitLab CE - バージョン 12.9.2004030743
+- 2020 年 4 月 17 日:Bitnami Grafana - バージョン 6.7.2004021439
+- 2020 年 4 月 17 日:Bitnami Apache Guacamole - バージョン 1.1.2003260344
+- 2020 年 4 月 17 日:Bitnami Hadoop - バージョン 3.2.2003032233
+- 2020 年 4 月 17 日:Bitnami HHVM - バージョン 3.30.2004011930
+- 2020 年 4 月 17 日:Bitnami Horde Groupware Webmail - バージョン 5.2.2003290935
+- 2020 年 4 月 17 日:Bitnami JasperReports - バージョン 7.5.2003032233
+- 2020 年 4 月 17 日:Bitnami Jenkins - バージョン 2.204.2003061428
+- 2020 年 4 月 17 日:Bitnami Joomla! - バージョン 3.9.2003101942
+- 2020 年 4 月 17 日:Bitnami JRuby - バージョン 9.2.2003260225
+- 2020 年 4 月 17 日:Bitnami Kafka - バージョン 2.4.2003260336
+- 2020 年 4 月 17 日:Bitnami Kafka Cluster Image - バージョン 2.4.2003261150
+- 2020 年 4 月 17 日:Bitnami Kong - バージョン 2.0.2003252244
+- 2020 年 4 月 17 日:Bitnami Kubernetes Sandbox - バージョン 1.17.2003290935
+- 2020 年 4 月 17 日:Bitnami LAMP - バージョン 7.3.2004022153
+- 2020 年 4 月 17 日:Bitnami LAPP - バージョン 7.3.2004030129
+- 2020 年 4 月 17 日:Bitnami Let's Chat - バージョン 0.4.2003060941
+- 2020 年 4 月 17 日:Bitnami Liferay - バージョン 7.3.2003062233
+- 2020 年 4 月 17 日:Bitnami LimeSurvey - バージョン 4.1.2003300404
+- 2020 年 4 月 17 日:Bitnami Live Helper Chat - バージョン 3.28.2002182119
+- 2020 年 4 月 17 日:Bitnami Magento - バージョン 2.3.2003290934
+- 2020 年 4 月 17 日:Bitnami Mahara - バージョン 19.10.2003060941
+- 2020 年 4 月 17 日:Bitnami Mantis - バージョン 2.24.2003171132
+- 2020 年 4 月 17 日:Bitnami MariaDB - バージョン 10.4.2003252212
+- 2020 年 4 月 17 日:Bitnami Mattermost Team Edition - バージョン 5.21.2003310821
+- 2020 年 4 月 17 日:Bitnami Mautic - バージョン 2.16.2003291301
+- 2020 年 4 月 17 日:Bitnami MEAN - バージョン 4.2.2003272110
+- 2020 年 4 月 17 日:Bitnami MediaWiki - バージョン 1.34.2003290934
+- 2020 年 4 月 17 日:Bitnami Memcached - バージョン 1.6.2003290237
+- 2020 年 4 月 17 日:Bitnami MODX - バージョン 2.7.2003021115
+- 2020 年 4 月 17 日:Bitnami MongoDB - バージョン 4.2.2003260102
+- 2020 年 4 月 17 日:Bitnami MongoDB with Replication Image - バージョン 4.2.2003260238
+- 2020 年 4 月 17 日:Bitnami Moodle - バージョン 3.8.2003070332
+- 2020 年 4 月 17 日:Bitnami MyBB - バージョン 1.8.2003312155
+- 2020 年 4 月 17 日:Bitnami MySQL - バージョン 8.0.2003252232
+- 2020 年 4 月 17 日:Bitnami NATS - バージョン 2.1.2004010828
+- 2020 年 4 月 17 日:Bitnami Neo4j - バージョン 4.0.2003311444
+- 2020 年 4 月 17 日:Bitnami Neos - バージョン 5.1.2002251336
+- 2020 年 4 月 17 日:Bitnami NGINX Open Source - バージョン 1.16.2003091723
+- 2020 年 4 月 17 日:Bitnami Noalyss - バージョン 7.2.2003300403
+- 2020 年 4 月 17 日:Bitnami Node.js - バージョン 12.16.2004032020
+- 2020 年 4 月 17 日:Bitnami Composr - バージョン 10.0.2003130312
+- 2020 年 4 月 17 日:Bitnami Odoo - バージョン 13.0.2003171346
+- 2020 年 4 月 17 日:Bitnami Open Atrium - バージョン 2.645.2003272110
+- 2020 年 4 月 17 日:Bitnami OpenCart - バージョン 3.0.2004011016
+- 2020 年 4 月 17 日:Bitnami Open edX - バージョン 576663.2.2004040204
+- 2020 年 4 月 17 日:Bitnami Openfire - バージョン 4.5.2003121708
+- 2020 年 4 月 17 日:Bitnami OpenProject - バージョン 10.3.2002271344
+- 2020 年 4 月 17 日:Bitnami OrangeHRM - バージョン 4.3.2003290934
+- 2020 年 4 月 17 日:Bitnami OroCRM - バージョン 4.0.2002240342
+- 2020 年 4 月 17 日:Bitnami Osclass - バージョン 3.9.2004011930
+- 2020 年 4 月 17 日:Bitnami ownCloud - バージョン 10.4.2003060941
+- 2020 年 4 月 17 日:Bitnami OXID eShop - バージョン 6.1.2003182102
+- 2020 年 4 月 17 日:Bitnami Parse Server - バージョン 4.2.2004032142
+- 2020 年 4 月 17 日:Bitnami Phabricator - バージョン 2020.7.2003302247
+- 2020 年 4 月 17 日:Bitnami phpBB - バージョン 3.3.2003300403
+- 2020 年 4 月 17 日:Bitnami phpList - バージョン 3.5.2003120217
+- 2020 年 4 月 17 日:Bitnami Pimcore - バージョン 6.6.2004020731
+- 2020 年 4 月 17 日:Bitnami Matomo - バージョン 3.13.2003310821
+- 2020 年 4 月 17 日:Bitnami Plone - バージョン 5.2.2004040204
+- 2020 年 4 月 17 日:Bitnami Pootle - バージョン 2.8.2003142035
+- 2020 年 4 月 17 日:Bitnami PostgreSQL - バージョン 12.2.2003252203
+- 2020 年 4 月 17 日:Bitnami PrestaShop - バージョン 1.7.2003060402
+- 2020 年 4 月 17 日:Bitnami ProcessMaker Community - バージョン 3.3.2002280250
+- 2020 年 4 月 17 日:Bitnami ProcessWire - バージョン 3.0.2003271723
+- 2020 年 4 月 17 日:Bitnami Publify - バージョン 9.1.2004050325
+- 2020 年 4 月 17 日:Bitnami RabbitMQ - バージョン 3.8.2003252248
+- 2020 年 4 月 17 日:Bitnami Re:dash - バージョン 8.0.2003101838
+- 2020 年 4 月 17 日:Bitnami Redis - バージョン 5.0.2003260436
+- 2020 年 4 月 17 日:Bitnami Redmine - バージョン 4.1.2003192006
+- 2020 年 4 月 17 日:Bitnami ReportServer Community - バージョン 3.1.2004042019
+- 2020 年 4 月 17 日:Bitnami ResourceSpace - バージョン 9.2.2003120258
+- 2020 年 4 月 17 日:Bitnami Review Board - バージョン 3.0.2003290934
+- 2020 年 4 月 17 日:Bitnami Roundcube - バージョン 1.4.2004030743
+- 2020 年 4 月 17 日:Bitnami Ruby - バージョン 2.5.2004022154
+- 2020 年 4 月 17 日:Bitnami SEO Panel - バージョン 4.3.2003142037
+- 2020 年 4 月 17 日:Bitnami Shopware - バージョン 6.1.2003182107
+- 2020 年 4 月 17 日:Bitnami SilverStripe - バージョン 4.5.2003291647
+- 2020 年 4 月 17 日:Bitnami Simple Machines Forum - バージョン 2.0.2003271504
+- 2020 年 4 月 17 日:Bitnami SonarQube - バージョン 8.2.2003100519
+- 2020 年 4 月 17 日:Bitnami Spree - バージョン 4.0.2003091450
+- 2020 年 4 月 17 日:Bitnami Subversion - バージョン 1.13.2003270848
+- 2020 年 4 月 17 日:Bitnami SuiteCRM - バージョン 7.11.2003290935
+- 2020 年 4 月 17 日:Bitnami TensorFlow Serving - バージョン 2.1.2003311517
+- 2020 年 4 月 17 日:Bitnami TestLink - バージョン 1.9.2003030838
+- 2020 年 4 月 17 日:Bitnami Tiki Wiki CMS Groupware - バージョン 21.0.2003290934
+- 2020 年 4 月 17 日:Bitnami Tiny Tiny RSS - バージョン 202004.0.2004010740
+- 2020 年 4 月 17 日:Bitnami Tomcat - バージョン 8.5.2003252327
+- 2020 年 4 月 17 日:Bitnami Trac - バージョン 1.4.2003271701
+- 2020 年 4 月 17 日:Bitnami TYPO3 - バージョン 9.5.2004021800
+- 2020 年 4 月 17 日:Bitnami WildFly - バージョン 19.0.2004011057
+- 2020 年 4 月 17 日:Bitnami WordPress - バージョン 5.3.2002192111
+- 2020 年 4 月 17 日:Bitnami WordPress Multisite - バージョン 5.4.2004021948
+- 2020 年 4 月 17 日:Bitnami WordPress with NGINX and SSL - バージョン 5.3.2002212004
+- 2020 年 4 月 17 日:Bitnami XOOPS - バージョン 2.5.2004042000
+- 2020 年 4 月 17 日:Bitnami ZooKeeper - バージョン 3.6.2003261205
+- 2020 年 4 月 17 日:Bitnami Elastic Search Cluster - バージョン 1.0.1
+- 2020 年 4 月 17 日:Bitnami Kafka Cluster – バージョン 1.0.1
+- 2020 年 4 月 17 日:Bitnami MongoDB with Replication – バージョン 1.0.1
+- 2020 年 4 月 17 日:Bitnami Redis High Availability – バージョン 1.0.26
+- 2020 年 4 月 17 日:Bitnami Moodle Multi-Tier – バージョン 1.0.45
+- 2020 年 4 月 17 日:Bitnami ZooKeeper Cluster - バージョン 1.0.17
+- 2020 年 4 月 17 日:Bitnami PostgreSQL with Replication - バージョン 1.0.36
+- 2020 年 4 月 17 日:Bitnami Memcached Multiple Instances - バージョン 1.0.33 
+- 2020 年 4 月 17 日:Bitnami MySQL with Replication - バージョン 1.0.36
+- 2020 年 4 月 17 日:Bitnami Cassandra Cluster - バージョン 1.0.20
+- 2020 年 4 月 17 日:Bitnami etcd Cluster - バージョン 1.0.15
+- 2020 年 4 月 17 日:Bitnami MariaDB with Replication - バージョン 1.0.12
+- 2020 年 4 月 17 日:Bitnami WordPress Multi-Tier - バージョン 1.0.55
+- 2020 年 4 月 17 日:Bitnami NATS Cluster - バージョン 1.0.18
+- 2020 年 4 月 17 日:Bitnami MariaDB Galera Cluster - バージョン 1.0.35
+- 2020 年 4 月 17 日:Bitnami Jenkins Cluster - バージョン 1.0.69
+- 2020 年 4 月 17 日:Bitnami RabbitMQ Cluster - バージョン 1.0.37
+- 2019/10/01:Microsoft JsonADDomain 拡張機能 - バージョン 1.3.4
+- 2019/09/25:Debian 8 - バージョン 8.0.20190806
+- 2019/09/24:F5-Networks Big-IP Virtual Edition - バージョン 14.1.200000
+- 2019/09/12:Service Fabric - バージョン 1.0.3
+- 2019/09/02:AKS 基本イメージ - バージョン 2019.08.09 およびバージョン 2019.08.21
+- 2019/08/30:Azure Stack Hub Kubernetes クラスター - バージョン 0.5.1
+- 2019/08/08:CloudLink SecureVM Extension for Linux - バージョン 6.8
+- 2019/08/08:CloudLink SecureVM Extension for Windows - バージョン 6.8
+- 2019/07/30:SQLIaaSExtension - バージョン 1.3.20180
+- 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) - バージョン 14.0.20190410
+- 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
+- 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
 - 2019/07/16: Windows Server 2016 Datacenter Server Core BYOL - バージョン 2016.127.20190522
 - 2019/07/16: Windows Server 2016 Datacenter Server Core Pay-as-you-use - バージョン 2016.127.20190522
 - 2019/07/16: Windows Server 2016 Datacenter With Containers BYOL - バージョン 2016.127.20190522
@@ -73,19 +234,7 @@ ms.locfileid: "77699101"
 - 2019/07/16: Windows Server 2008 R2 Pay-as-you-use - バージョン 2.127.20190522
 - 2019/07/16: Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20190522
 - 2019/07/16: Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20190522
-- 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
-- 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
-- 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) - バージョン 14.0.20190410
-- 2019/07/30:SQLIaaSExtension - バージョン 1.3.20180
-- 2019/08/08:CloudLink SecureVM Extension for Linux - バージョン 6.8
-- 2019/08/08:CloudLink SecureVM Extension for Windows - バージョン 6.8
-- 2019/08/30:Azure Stack Hub Kubernetes クラスター - バージョン 0.5.1
-- 2019/09/02:AKS 基本イメージ - バージョン 2019.08.09 およびバージョン 2019.08.21
-- 2019/09/12:Service Fabric - バージョン 1.0.3
-- 2019/09/24:F5-Networks Big-IP Virtual Edition - バージョン 14.1.200000
-- 2019/09/25:Debian 8 - バージョン 8.0.20190806
-- 2019/10/01:Microsoft JsonADDomain 拡張機能 - バージョン 1.3.4
-
+- 2019/07/11: Thales CipherTrust Cloud Key Manager - バージョン 1.0.7
 
 ## <a name="next-steps"></a>次のステップ
 
