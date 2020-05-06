@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 8928c0c163976c03fad4355090958e98b1eb1907
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1829d56488501e03a18f27e87f1fd0742626e3be
+ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806696"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580141"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Azure Stack Hub 上の App Services のデプロイ ソースを構成する
 
@@ -27,104 +27,130 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 
 ## <a name="view-deployment-sources-in-app-service-administration"></a>App Service 管理でデプロイ ソースを表示する
 
-1. Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
+1. サービス管理者として Azure Stack Hub 管理者ポータルにサインインします。
 2. **[All Services (すべてのサービス)]** を参照し、 **[App Service]** を選択します。
+
     ![App Service リソース プロバイダー管理][1]
-3. **[Source control configuration (ソース管理構成)]** をクリックします。 構成されているすべてのデプロイ ソースの一覧が表示されます。
-    ![App Service リソース プロバイダー管理のソース管理構成][2]
+
+3. **[ソース管理の構成]** を選択します。 構成されているすべてのデプロイ ソースの一覧が表示されます。
+
+    ![App Service リソース プロバイダー管理のソース管理の構成][2]
 
 ## <a name="configure-github"></a>GitHub を構成する
 
 このタスクを完了するには、GitHub アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
-1. GitHub にサインインして https://www.github.com/settings/developers に移動し、 **[Register a new application]\(新しいアプリケーションの登録\)** をクリックします。
+1. GitHub にサインインし、 https://www.github.com/settings/developers に移動して、 **[Register a new application]\(新しいアプリケーションの登録\)** を選択します。
+
     ![GitHub - 新しいアプリケーションの登録][3]
+
 2. **アプリケーション名**を入力します。 たとえば、**App Service on Azure Stack Hub**  です。
 3. **[Homepage URL (ホームページの URL)]** を入力します。 ホームページの URL は、Azure Stack Hub ポータルのアドレスである必要があります。 たとえば、「 `https://portal.<region>.<FQDN>` 」のように入力します。 Azure Stack Hub の完全修飾ドメイン名 (FQDN) の詳細については、「[Azure Stack Hub の DNS 名前空間](azure-stack-integrate-dns.md#azure-stack-hub-dns-namespace)」を参照してください。
 4. **[アプリケーションの説明]** .を入力します。
 5. **[Authorization callback URL (認証コールバック エンドポイント URL)]** を入力します。 既定の Azure Stack Hub デプロイでは、URL は `https://portal.<region>.<FQDN>/TokenAuthorize` という形式になります。 
-6. **[Register application (アプリケーションを登録する)]** をクリックします。 アプリの **[クライアント ID]** と **[クライアント シークレット]** を示すページが表示されます。
+6. **[アプリケーションの登録]** を選択します。 アプリの **[クライアント ID]** と **[クライアント シークレット]** を示すページが表示されます。
+
     ![GitHub - 完了したアプリケーション登録][5]
-7. 新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
+
+7. 新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理者ポータルにサービス管理者としてサインインします。
 8. **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin]\(App Service リソース プロバイダー管理\)** を選択します。
-9. **[Source control configuration (ソース管理構成)]** をクリックします。
+9. **[ソース管理の構成]** を選択します。
 10. **クライアント ID** と**クライアント シークレット**をコピーして、GitHub 用の対応する入力ボックスに貼り付けます。
-11. **[保存]** をクリックします。
+11. **[保存]** を選択します。
 
 ## <a name="configure-bitbucket"></a>BitBucket を構成する
 
 このタスクを完了するには、BitBucket アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
 1. BitBucket にサインインし、アカウントの下の **[Integrations (統合)]** に移動します。
+
     ![BitBucket ダッシュボード - 統合][7]
-2. [アクセス管理] で **[OAuth]** をクリックし、 **[Add consumer]\(顧客の追加\)** をクリックします。
-    ![BitBucket への OAuth 顧客の追加][8]
+
+2. [アクセス管理] で **[OAuth]** を選択し、 **[Add consumer]\(コンシューマーの追加\)** を選択します。
+
+    ![BitBucket への OAuth コンシューマーの追加][8]
+
 3. コンシューマーの**名前**を入力します。 たとえば、**App Service on Azure Stack Hub**  です。
 4. アプリの**説明**を入力します。
 5. **[Callback URL (コールバック URL)]** を入力します。 既定の Azure Stack Hub デプロイでは、コールバック URL は `https://portal.<region>.<FQDN>/TokenAuthorize` という形式になります。 BitBucket の統合を成功させるには、URL の大文字と小文字をここに示されているとおりにする必要があります。
 6. **[URL]** を入力します。 この URL は、Azure Stack Hub ポータルの URL にする必要があります。 たとえば、「 `https://portal.<region>.<FQDN>` 」のように入力します。
 7. 必要な **[Permissions]\(権限\)** を次のように選択します。
+
     - **リポジトリ**: *読み取り*
     - **Webhooks**: *読み取りと書き込み*
-8. **[保存]** をクリックします。 これで、この新しいアプリが **[OAuth consumers]\(OAuth コンシューマー\)** の下に **[キー]** と **[シークレット]** と共に表示されます。
+
+8. **[保存]** を選択します。 これで、この新しいアプリが **[OAuth consumers]\(OAuth コンシューマー\)** の下に **[キー]** と **[シークレット]** と共に表示されます。
+
     ![BitBucket アプリケーション リスト][9]
-9.  新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
-10.  **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin (App Service リソース プロバイダー管理)]** を選択します。
-11. **[Source control configuration (ソース管理構成)]** をクリックします。
+
+9. 新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理者ポータルにサービス管理者としてサインインします。
+10. **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin]\(App Service リソース プロバイダー管理\)** を選択します。
+11. **[ソース管理の構成]** を選択します。
 12. **キー**をコピーして BitBucket 用の **[クライアント ID]** 入力ボックスに、**シークレット**をコピーして BitBucket 用の **[クライアント シークレット]** 入力ボックスに貼り付けます。
-13. **[保存]** をクリックします。
+13. **[保存]** を選択します。
 
 ## <a name="configure-onedrive"></a>OneDrive を構成する
 
-このタスクを完了するには、OneDrive アカウントにリンクされている Microsoft アカウントが必要です。  個人のアカウントではなく、組織のアカウントを使用できます。
+このタスクを完了するには、OneDrive アカウントにリンクされている Microsoft アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
 > [!NOTE]
 > 現時点では、OneDrive for Business アカウントはサポートされていません。
 
-1. [https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm](https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm ) に移動し、Microsoft アカウントを使用してサインインします。
-2. **[マイ アプリケーション]** で **[アプリを追加]** をクリックします。
-![OneDrive アプリケーション][10]
-3. 新しく登録するアプリの **[名前]** を入力します。「**App Service on Azure Stack Hub**」と入力し、 **[アプリケーションの作成]** をクリックします。
-4. 次の画面に、新しいアプリのプロパティが表示されます。 **[アプリケーション ID]** をどこか一時的な場所に保存します。
-![OneDrive アプリケーションのプロパティ][11]
-5. **[アプリケーション シークレット]** で **[新しいパスワードを生成]** をクリックします。 **新しく生成されたパスワード**をメモします。 このパスワードがお客様のアプリケーション シークレットになります。 **[OK]** をクリックした後で、もう一度取得することはできません。
-6. **[プラットフォーム]** で **[プラットフォームの追加]** をクリックし、 **[Web]** を選択します。
-7. **[リダイレクト URI]** を入力します。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](`https://portal.<region>.<FQDN>/TokenAuthorize`) という形式になります。 
-![OneDrive アプリケーション - Web プラットフォームの追加][12]
+1. https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm に移動し、Microsoft アカウントを使用してサインインします。
+2. **[マイ アプリケーション]** で **[アプリの追加]** を選択します。
+
+    ![OneDrive アプリケーション][10]
+
+3. 新しく登録するアプリの **[名前]** を入力します。「**App Service on Azure Stack Hub**」と入力し、 **[アプリケーションの作成]** を選択します。
+4. 次の画面に、新しいアプリのプロパティが表示されます。 **[アプリケーション ID]** を一時的な場所に保存します。
+
+    ![OneDrive アプリケーションのプロパティ][11]
+
+5. **[アプリケーション シークレット]** で **[新しいパスワードを生成]** を選択します。 **新しく生成されたパスワード**をメモします。 このパスワードがお客様のアプリケーション シークレットになります。 **[OK]** を選択した後で、もう一度取得することはできません。
+6. **[プラットフォーム]** で **[プラットフォームの追加]** を選択し、 **[Web]** を選択します。
+7. **[リダイレクト URI]** を入力します。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は `https://portal.<region>.<FQDN>/TokenAuthorize` という形式になります。
+
+    ![OneDrive アプリケーション - Web プラットフォームの追加][12]
+
 8. **[Microsoft Graph のアクセス許可]**  -  **[委任されたアクセス許可]** を追加します。
+
     - **Files.ReadWrite.AppFolder**
-    - **User.Read**  
-      ![OneDrive アプリケーション - Graph のアクセス許可][13]
-9. **[保存]** をクリックします。
-10.  新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
-11.  **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin (App Service リソース プロバイダー管理)]** を選択します。
-12. **[Source control configuration (ソース管理構成)]** をクリックします。
+    - **User.Read** ![OneDrive アプリケーション - Graph のアクセス許可][13]
+
+9. **[保存]** を選択します。
+10. 新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理者ポータルにサービス管理者としてサインインします。
+11. **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin]\(App Service リソース プロバイダー管理\)** を選択します。
+12. **[ソース管理の構成]** を選択します。
 13. **アプリケーション ID** をコピーして OneDrive 用の **[クライアント ID]** 入力ボックスに、**パスワード**をコピーして OneDrive 用の **[クライアント シークレット]** 入力ボックスに貼り付けます。
-14. **[保存]** をクリックします。
+14. **[保存]** を選択します。
 
 ## <a name="configure-dropbox"></a>DropBox を構成する
 
 > [!NOTE]
 > このタスクを完了するには、DropBox アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
-1. [https://www.dropbox.com/developers/apps](https://www.dropbox.com/developers/apps ) に移動し、DropBox アカウントの資格情報を使用してサインインします。
-2. **[Create app]** をクリックします。
+1. https://www.dropbox.com/developers/apps に移動し、DropBox アカウントの資格情報を使用してサインインします。
+2. **[Create app]\(アプリの作成\)** を選択します。
 
     ![Dropbox アプリ][14]
 
 3. **[Dropbox API]** を選択します。
 4. アクセス レベルを **[App folder]\(アプリ フォルダー\)** に設定します。
 5. アプリの**名前**を入力します。
-![Dropbox アプリケーションの登録][15]
-6. **[Create app (アプリの作成)]** をクリックします。 **[アプリ キー]** と **[アプリケーション シークレット]** を含む、アプリの設定を一覧表示するページが表示されます。
+
+    ![Dropbox アプリケーションの登録][15]
+
+6. **[Create app]\(アプリの作成\)** を選択します。 **[アプリ キー]** と **[アプリケーション シークレット]** を含む、アプリの設定を一覧表示するページが表示されます。
 7. **[App folder name]\(アプリ フォルダー名\)** が **[App Service on Azure Stack Hub]** に設定されていることを確認します。
-8. **[OAuth 2 Redirect URI\(OAuth 2 リダイレクト URI\])** を設定し、 **[追加]** をクリックします。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は [https://portal.local.azurestack.external/TokenAuthorize](`https://portal.<region>.<FQDN>/TokenAuthorize`) という形式になります。 
-![Dropbox アプリケーションの構成][16]
-9.  新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
-10.  **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin (App Service リソース プロバイダー管理)]** を選択します。
-11. **[Source control configuration (ソース管理構成)]** をクリックします。
+8. **[OAuth 2 Redirect URI]\(OAuth 2 リダイレクト URI\)** を設定し、 **[Add]\(追加\)** を選択します。 既定の Azure Stack Hub デプロイでは、リダイレクト URI は `https://portal.<region>.<FQDN>/TokenAuthorize` という形式になります。
+
+    ![Dropbox アプリケーションの構成][16]
+
+9. 新しいブラウザー タブまたはウィンドウで、Azure Stack Hub 管理者ポータルにサービス管理者としてサインインします。
+10. **[リソースプロバイダー]** に移動し、 **[App Service Resource Provider Admin]\(App Service リソース プロバイダー管理\)** を選択します。
+11. **[ソース管理の構成]** を選択します。
 12. **アプリケーション キー**をコピーして DropBox 用の **[クライアント ID]** 入力ボックスに、**アプリ シークレット**をコピーして DropBox 用の **[クライアント シークレット]** 入力ボックスに貼り付けます。
-13. **[保存]** をクリックします。
+13. **[保存]** を選択します。
 
 ## <a name="next-steps"></a>次のステップ
 

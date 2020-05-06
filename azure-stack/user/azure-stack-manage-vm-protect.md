@@ -7,12 +7,12 @@ ms.date: 02/18/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 913d0eeed1ba2cfce0b062385a4f544919889f43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
+ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512611"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82150222"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
 
@@ -64,7 +64,7 @@ RPO は、障害発生時に許容できるデータ損失の最大期間です�
 
 #### <a name="backup-using-disk-snapshot-for-stopped-vms"></a>停止した VM のディスク スナップショットを使用したバックアップ
 
-バックアップ製品では、停止した VM に接続されている IaaS VM の構成とディスクを保護できます。 Azure Stack Hub API と統合されたバックアップ製品は、VM 構成をキャプチャし、ディスク スナップショットを作成します。 アプリケーションの計画的ダウンタイムが可能な場合は、バックアップ ワークフローを開始する前に、VM が停止状態になっていることを確認してください。  
+バックアップ製品では、停止した VM に接続されている IaaS VM の構成とディスクを保護できます。 Azure Stack Hub API と統合されたバックアップ製品を使用して、VM 構成をキャプチャし、ディスク スナップショットを作成します。 アプリケーションの計画的ダウンタイムが可能な場合は、バックアップ ワークフローを開始する前に、VM が停止状態になっていることを確認してください。  
 
 #### <a name="backup-using-disk-snapshot-snapshot-for-running-vms"></a>実行中の VM のディスク スナップショットを使用したバックアップ
 

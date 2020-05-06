@@ -3,16 +3,16 @@ title: Azure Stack Hub での特権エンドポイントの使用
 description: オペレーターとして Azure Stack Hub 内で特権エンドポイント (PEP) を使用する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/8/2020
-ms.openlocfilehash: 335afce7423872156c84c655d9c94ed59a9592d2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/28/2020
+ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512441"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556397"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
@@ -47,7 +47,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
       - 統合システムで、管理者特権の Windows PowerShell セッションから次のコマンドを実行して、ハードウェア ライフサイクル ホストまたは特権アクセス ワークステーションで実行されているセキュリティ強化された VM の信頼されたホストとして PEP を追加します。
 
       ```powershell  
-        winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
+    Set-Item WSMan:\localhost\Client\TrustedHosts -Value '<IP Address of Privileged Endpoint>' -Concatenate
       ```
 
       - ASDK を実行している場合、開発キットのホストにサインインします。
@@ -109,7 +109,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
    - Stop-AzureStack
    - Get-ClusterLog
 
-## <a name="tips-for-using-the-privileged-endpoint"></a>特権エンドポイントを使用するためのヒント 
+## <a name="how-to-use-the-privileged-endpoint"></a>特権エンドポイントの使用方法 
 
 前述のとおり、PEP は、[PowerShell JEA](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) エンドポイントです。 JEA エンドポイントにより、強力なセキュリティ層が提供される一方で、スクリプトやタブ補完などの基本的な PowerShell の機能の一部が失われます。 何らかの種類のスクリプト操作を試みると、エラー **ScriptsNotAllowed** で操作は失敗します。 このエラーは予想される動作です。
 
@@ -119,7 +119,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
     Get-Command <cmdlet_name> -Syntax
 ```
 
-または、[Import-PSSession](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 これにより、PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。
+または、[**Import-PSSession**](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Import-PSSession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。 **[Get-Help](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-help)** モジュールを実行して、コマンドレットの手順を確認することもできます。
 
 ローカル コンピューターに PEP セッションをインポートするには、次の手順を実行します。
 
@@ -197,4 +197,5 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Hub の診断ツール](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack Hub の診断ツール](azure-stack-diagnostic-log-collection-overview-tzl.md)
+- [Azure Stack Hub の特権エンドポイント リファレンス](../reference/pep-2002/index.md)

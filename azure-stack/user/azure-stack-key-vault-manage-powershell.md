@@ -3,15 +3,15 @@ title: PowerShell を使用した Azure Stack Hub での Key Vault の管理
 description: PowerShell を使用して Azure Stack Hub で Key Vault を管理する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0c7dc4bffba85c60213df4e57c3fc95f756259df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
+ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704065"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580164"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での Key Vault の管理
 
@@ -145,14 +145,16 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 次の例では、コンテナー名が **ContosoKeyVault** で、承認するアプリのクライアント ID が **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed** です。 アプリを承認するには、次のコマンドを実行します。 また、**PermissionsToKeys** パラメーターを指定し、ユーザー、アプリ、またはセキュリティ グループに対してアクセス許可を設定することもできます。
 
+ADFS が構成された Azure Stack Hub 環境に対して Set-AzureRmKeyvaultAccessPolicy を使用する場合、パラメーター BypassObjectIdValidation を指定する必要があります
+
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 その同じアプリがコンテナーのシークレットを読み取ることを承認する場合は、次のコマンドレットを実行します。
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>次のステップ
