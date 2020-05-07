@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 3f9741019a28548e9f20308312d62ea68e757795
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81308248"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848219"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -486,7 +486,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | 自分のサブスクリプションで使用する請求モデル。 このパラメーターの有効値は、Capacity、PayAsYouUse、および Development です。 |
-| MarketplaceSyndicationEnabled | True または False | ポータル内で Marketplace 管理機能を使用できるようにするかどうかを決定します。 インターネット接続を使用して登録している場合は true に設定します。 切断された環境で登録している場合は false に設定します。 切断された環境で登録した場合は、[オフライン シンジケーション ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用して、マーケットプレースの項目をダウンロードできます。 |
+| MarketplaceSyndicationEnabled | True または False | ポータル内で Marketplace 管理機能を使用できるようにするかどうかを決定します。 インターネット接続を使用して登録している場合は true に設定します。 切断された環境で登録している場合は false に設定します。 切断された環境で登録した場合は、[オフライン シンジケーション ツール](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)を使用して、マーケットプレースの項目をダウンロードできます。 |
 | UsageReportingEnabled | True または False | Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。 このパラメーターの有効値は、True、False。 |
 | AgreementNumber | String | この Azure Stack の容量 SKU が注文された EA 契約の番号。 |
 | RegistrationName | String | 同じ Azure サブスクリプション ID を利用し、複数の Azure Stack Hub インスタンスで登録スクリプトを実行している場合、登録に一意の名前を設定します。 このパラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack Hub インスタンスに同じ名前を使用すると、スクリプトは失敗します。 |
@@ -532,7 +532,7 @@ Azure Stack Hub の登録を試みている間に、次のエラーのいずれ�
 ::: zone pivot="state-disconnected"
 - 切断されたプロセスを使用して既にスタンプを登録している場合でも、Marketplace の管理から、Azure Stack Hub の登録とアクティブ化を要求されます。
 
-   原因: これは、切断された環境に関する既知の問題であり、[登録状態を確認](#verify-azure-stack-hub-registration)する必要があります。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用します。
+   原因: これは、切断された環境に関する既知の問題であり、[登録状態を確認](#verify-azure-stack-hub-registration)する必要があります。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)を使用します。
 ::: zone-end
 
 ## <a name="next-steps"></a>次のステップ

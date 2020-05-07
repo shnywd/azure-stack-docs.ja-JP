@@ -3,16 +3,16 @@ title: Azure Stack Hub での Python による API バージョンのプロフ�
 description: Azure Stack Hub での Python による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: db66156cfa1b4b5a2c97b5d17559ae2c48760ce0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705187"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82835902"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Azure Stack Hub での Python による API バージョンのプロファイルの使用
 

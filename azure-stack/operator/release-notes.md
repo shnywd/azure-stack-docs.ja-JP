@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: a522aee76cef06b49887aa9727651daf4efe506c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ccb21762eded64a5e1a5430c80ebfc4e69617375
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81243834"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848253"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -37,7 +37,11 @@ ms.locfileid: "81243834"
 - [セキュリティ更新プログラム](release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
 
-更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack Hub の修正プログラムと更新プログラムについての問題のトラブルシューティング](azure-stack-updates-troubleshoot.md)に関するページを参照してください。
+更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack Hub の修正プログラムと更新プログラムについての問題のトラブルシューティング](azure-stack-troubleshooting.md)に関するページを参照してください。
+
+## <a name="download-the-update"></a>更新プログラムをダウンロードする
+
+Azure Stack Hub 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 <!---------------------------------------------------------->
 <!------------------- SUPPORTED VERSIONS ------------------->
@@ -67,6 +71,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 <!-- What's new, also net new experiences and features. -->
 
 - AzureRM に基づく Azure Stack Hub 管理 PowerShell モジュールの新しいバージョン (1.8.1) がリリースされました。
+- 新しい Azure PowerShell テナント モジュールは、2020 年 4 月 15 日に Azure Stack Hub 用にリリースされます。 現在使用されている Azure RM モジュールは引き続き機能しますが、ビルド 2002 の後は更新されません。
 - 構成された syslog サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**The Syslog client encountered a networking issue while sending a Syslog message** (syslog クライアントは syslog メッセージの送信中にネットワークの問題を検出しました) です。
 - ネットワーク タイム プロトコル (NTP) サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**Invalid Time Source on [node name]** ([ノード名] の時間ソースが無効です) です。
 - 2002 での TLS 制限に関連する破壊的変更により、[Java SDK](https://azure.microsoft.com/develop/java/)の新しいパッケージがリリースされました。 新しい Java SDK 依存関係をインストールする必要があります。 手順については、「[Java と API バージョンのプロファイル](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)」を参照してください。
@@ -132,7 +137,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - ERCS ロールのメモリ不足のために Azure Stack Hub の更新エラーの一般的な原因となった問題を修正しました。
 - Azure Stack Hub の更新の準備フェーズ中に更新ステータスが **[準備中]** ではなく **[インストール中]** と表示されていた、更新ブレードのバグを修正しました。
 - 物理スイッチ上の RSC 機能が不整合を起こし、ロード バランサーを通過するトラフィックを破棄する問題を修正しました。 RSC 機能は既定で無効化されるようになりました。
-- VM にセカンダリ IP を追加すると RDP の問題が発生する問題を修正しました。
+- NIC の複数の IP 構成が原因でトラフィックが誤ってルーティングされ、送信接続が妨げられていた問題を修正しました。 
 - NIC の MAC アドレスがキャッシュされているときに、そのアドレスを別のリソースに割り当てると VM のデプロイ エラーが発生する問題が修正されました。
 - RETAIL チャネルからの Windows VM イメージが、AVMA によってライセンス認証を行うことができない問題を修正しました。
 - VM によって要求された仮想コアの数がノードの物理コアと等しい場合に VM が作成されないという問題を修正しました。 VM の仮想コアがノードの物理コアの数以下でも許可されるようになりました。
@@ -142,18 +147,6 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
 Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
-
-## <a name="update-planning"></a>計画の更新
-
-更新プログラムを適用する前に、必ず次の情報を確認してください。
-
-- [既知の問題](known-issues.md)
-- [セキュリティ更新プログラム](release-notes-security-updates.md)
-- [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>更新プログラムをダウンロードする
-
-Azure Stack Hub 2002 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -310,17 +303,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
 
-## <a name="update-planning"></a>計画の更新
-
-更新プログラムを適用する前に、必ず次の情報を確認してください。
-
-- [既知の問題](known-issues.md)
-- [セキュリティ更新プログラム](release-notes-security-updates.md)
-- [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>更新プログラムをダウンロードする
-
-Azure Stack Hub 1910 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
+このリリースの Qualys 脆弱性レポートは、[Qualys Web サイト](https://www.qualys.com/azure-stack/)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -396,7 +379,9 @@ Azure Stack Hub 1908 更新プログラムのビルドの種類は**完全**で�
 
 Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
 
-## <a name="download-the-update"></a><a name="download-the-update-1908"></a>更新プログラムのダウンロード
+このリリースの Qualys 脆弱性レポートは、[Qualys Web サイト](https://www.qualys.com/azure-stack/)からダウンロードできます。
+
+## <a name="download-the-update"></a>更新プログラムをダウンロードする
 
 Azure Stack Hub 1908 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
@@ -513,6 +498,8 @@ Azure Stack Hub 1907 更新プログラムのビルドの種類は**高速**で�
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
 Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
+
+このリリースの Qualys 脆弱性レポートは、[Qualys Web サイト](https://www.qualys.com/azure-stack/)からダウンロードできます。
 
 ## <a name="update-planning"></a>計画の更新
 

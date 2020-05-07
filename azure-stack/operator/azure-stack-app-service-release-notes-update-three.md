@@ -8,12 +8,12 @@ ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 08/20/2019
-ms.openlocfilehash: 0b277f33472c25d0dc8e6b813685029aea81a303
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ed14d3a482a61b3daad827d559ef96926b65c551
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701396"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848066"
 ---
 # <a name="app-service-on-azure-stack-hub-update-3-release-notes"></a>App Service on Azure Stack Hub Update 3 のリリース ノート
 
@@ -26,7 +26,7 @@ ms.locfileid: "77701396"
 
 App Service on Azure Stack Hub Update 3 のビルド番号は **74.0.13698.31** です。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
@@ -34,7 +34,7 @@ Azure App Service on Azure Stack Hub を 1.3 にアップグレードする前�
 
 ![App Service のロールの状態](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-### <a name="new-features-and-fixes"></a>新機能と修正
+## <a name="new-features-and-fixes"></a>新機能と修正
 
 Azure App Service on Azure Stack Hub Update 3 には、次の機能強化と修正が含まれています。
 
@@ -66,7 +66,7 @@ Azure App Service on Azure Stack Hub Update 3 には、次の機能強化と修�
   - [x64 ベース システム用 Windows Server 2016 に対するサービス スタック更新プログラム (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
   - [x64 ベース システム用 Windows Server 2016 に対する 2018-07 累積的更新プログラム (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
-### <a name="post-update-steps-optional"></a>更新後の手順 (省略可)
+## <a name="post-update-steps-optional"></a>更新後の手順 (省略可)
 
 既存の Azure App Service on Azure Stack Hub デプロイに関して包含データベースへの移行を検討している場合は、Azure App Service on Azure Stack Hub 1.3 への更新が完了した後で、以下の手順を実行してください。
 
@@ -170,7 +170,7 @@ Azure App Service on Azure Stack Hub Update 3 には、次の機能強化と修�
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
+## <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
 - App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。 この問題は Azure Stack Hub 上の Azure App Service のデプロイに関するドキュメントで言及されています。
 
@@ -186,7 +186,7 @@ Azure App Service on Azure Stack Hub Update 3 には、次の機能強化と修�
  * 優先順位:700
  * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
 Azure Stack Hub 1807 リリース ノート内のドキュメントを参照してください。
 

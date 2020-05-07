@@ -34,7 +34,11 @@
         - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: ストレージ
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: ストレージ容量の計画
+              href: azure-stack-capacity-planning-storage.md
+            - name: ストレージ インフラストラクチャの概要
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Azure Stack Hub キャパシティ プランニング ツール
           href: azure-stack-capacity-planner.md
     - name: データセンターの統合
@@ -168,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: 特権エンドポイントの使用
                   href: azure-stack-monitor-update.md
-            - name: 更新プログラムのトラブルシューティング
-              href: azure-stack-updates-troubleshoot.md
         - name: 正常性とアラートの監視
           href: azure-stack-monitor-health.md
         - name: ハードウェア コンポーネントを監視する
@@ -187,7 +189,7 @@
             - name: ストレージ容量の管理
               href: azure-stack-manage-storage-shares.md
             - name: ストレージ インフラストラクチャの管理
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: 物理メモリ容量の管理
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: スケール ユニット ノードの追加
@@ -294,50 +296,52 @@
               href: azure-stack-app-service-overview.md
             - name: App Service のキャパシティ プランニング
               href: azure-stack-app-service-capacity-planning.md
-            - name: 開始する前に
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: App Service のデプロイ
-              href: azure-stack-app-service-deploy.md
-            - name: 高可用性のための App Service のデプロイ
-              href: app-service-deploy-ha.md
-            - name: App Service のオフライン デプロイ
-              href: azure-stack-app-service-deploy-offline.md
-            - name: App Service の更新
-              href: azure-stack-app-service-update.md
-            - name: App Service のオフライン更新
-              href: azure-stack-app-service-update-offline.md
-            - name: App Service のインフラストラクチャ ロールの追加
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: デプロイ ソースを構成する
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: App Service のシークレットと証明書のローテーション
-              href: app-service-rotate-certificates.md
-            - name: App Service のバックアップ
-              href: app-service-back-up.md
-            - name: App Service の復旧
-              href: app-service-recover.md
-            - name: App Service の削除
-              href: app-service-remove.md
             - name: App Service の課金に関する FAQ
               href: app-service-billing-faq.md
+            - name: 前提条件
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: デプロイ
+              items:
+                - name: App Service のデプロイ
+                  href: azure-stack-app-service-deploy.md
+                - name: 高可用性のための App Service のデプロイ
+                  href: app-service-deploy-ha.md
+            - name: ライフ サイクル管理
+              items:
+                - name: App Service の更新
+                  href: azure-stack-app-service-update.md
+                - name: App Service のインフラストラクチャ ロールの追加
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: デプロイ ソースを構成する
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: App Service のシークレットと証明書のローテーション
+                  href: app-service-rotate-certificates.md
+                - name: App Service のバックアップ
+                  href: app-service-back-up.md
+                - name: App Service の復旧
+                  href: app-service-recover.md
+                - name: App Service の削除
+                  href: app-service-remove.md
             - name: App Service on Azure Stack Hub のリリース ノート
               items:
-                - name: App Service on Azure Stack Hub update 1 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service on Azure Stack Hub update 2 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service on Azure Stack Hub update 3 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service on Azure Stack Hub update 4 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: App Service on Azure Stack Hub update 5 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service on Azure Stack Hub update 6 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service on Azure Stack Hub update 7 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service on Azure Stack Hub 2020 年第 2 四半期のリリース ノート
+                  href: app-service-release-notes-2020-Q2.md
                 - name: App Service on Azure Stack Hub update 8 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: App Service on Azure Stack Hub update 7 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service on Azure Stack Hub update 6 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service on Azure Stack Hub update 5 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service on Azure Stack Hub update 4 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: App Service on Azure Stack Hub update 3 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: App Service on Azure Stack Hub update 2 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service on Azure Stack Hub update 1 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Azure Stack Hub 上の Event Hubs
           items:
             - name: 概要

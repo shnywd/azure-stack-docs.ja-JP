@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ee08259248a49eef08ce0012d60be2705cc4f877
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69f47c34f55935d73ffb1349b8c90624d6311449
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704915"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742359"
 ---
 # <a name="introduction-to-azure-stack-hub-storage"></a>Azure Stack Hub ストレージの概要
 
@@ -37,7 +37,7 @@ Azure Stack Hub Storage は次の 3 つのサービスを提供します。
 
 Azure Stack Hub Storage アカウントは、Azure Stack Hub Storage のサービスにアクセスできる安全なアカウントです。 ストレージ アカウントは、ストレージ リソースに対して一意の名前空間を提供します。 以下の図は、ストレージ アカウントにおける Azure Stack Hub Storage のリソース間の関係を示したものです。
 
-![Azure Stack Hub Storage の概要](media/azure-stack-storage-overview/AzureStackStorageOverview.png)
+![Azure Stack Hub Storage の概要](media/azure-stack-storage-overview/azurestackstorageoverview.svg)
 
 ### <a name="blob-storage"></a>BLOB ストレージ
 

@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 90eb2c2c6dac0c4a1dde16b05192b9188b63c709
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ff6d5b9667e63a6b8d232b6dd93db2d8b12fd46d
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700665"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848015"
 ---
 # <a name="deploy-a-sql-server-2016-availability-group-to-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub に SQL Server 2016 可用性グループをデプロイする
 
@@ -21,15 +21,15 @@ ms.locfileid: "77700665"
 このソリューションでは、以下を実現するためのサンプル環境を構築します。
 
 > [!div class="checklist"]
-> - 2 つの Azure Stack Hub にわたってデプロイを調整する
-> - Docker を使用し、Azure API プロファイルで依存関係の問題を最小限に抑える
-> - 基本的な高可用性 SQL Server 2016 Enterprise クラスターをディザスター リカバリー サイトと共にデプロイする
+> - 2 つの Azure Stack Hub にわたってデプロイを調整する。
+> - Docker を使用し、Azure API プロファイルで依存関係の問題を最小限に抑える。
+> - 基本的な高可用性 SQL Server 2016 Enterprise クラスターをディザスター リカバリー サイトと共にデプロイする。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub は Azure の拡張機能です。 Azure Stack Hub により、オンプレミス環境にクラウド コンピューティングの機敏性とイノベーションがもたらされ、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドが可能になります。  
+> Microsoft Azure Stack Hub は Azure の拡張機能です。 Azure Stack Hub はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリの設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ## <a name="architecture-for-sql-server-2016"></a>SQL Server 2016 のアーキテクチャ
 
@@ -37,41 +37,41 @@ ms.locfileid: "77700665"
 
 ## <a name="prerequisites-for-sql-server-2016"></a>SQL Server 2016 の前提条件
 
-  - 接続された 2 つの Azure Stack Hub 統合システム (Azure Stack Hub)。このデプロイは、Azure Stack Development Kit (ASDK) では動作しません。 Azure Stack Hub の詳細については、「[Azure Stack Hub とは](https://azure.microsoft.com/overview/azure-stack/)」を参照してください。
-  - 各 Azure Stack Hub のテナント サブスクリプション。    
-      - **各サブスクリプション ID と Azure Resource Manager エンドポイントを Azure Stack Hub ごとにメモしてください。**
-  - 各 Azure Stack Hub のテナント サブスクリプションに対する権限が与えられた Azure Active Directory (Azure AD) サービス プリンシパル。 複数の Azure AD テナントに対して Azure Stack Hub がデプロイされている場合、サービス プリンシパルを 2 つ作成しなければならないことがあります。 Azure Stack Hub のサービス プリンシパルを作成する方法については、[Azure Stack Hub リソースへのアクセスをアプリケーションに提供するサービス プリンシパルを作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)方法に関するページを参照してください。
-      - **各サービス プリンシパルのアプリケーション ID、クライアント シークレット、テナント名 (xxxxx.onmicrosoft.com) をメモしてください。**
-  - 各 Azure Stack Hub の Marketplace にシンジケート化された SQL Server 2016 Enterprise。 マーケットプレース シンジケーションの詳細については、「[Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)」を参照してください。
+- 2 つの接続された Azure Stack Hub 統合システム (Azure Stack Hub)。 このデプロイは Azure Stack Development Kit (ASDK) では機能しません。 Azure Stack Hub の詳細については、「[Azure Stack の概要](https://azure.microsoft.com/overview/azure-stack/)」を参照してください。
+- 各 Azure Stack Hub のテナント サブスクリプション。
+  - **各サブスクリプション ID と Azure Resource Manager エンドポイントを Azure Stack Hub ごとにメモしてください。**
+- 各 Azure Stack Hub のテナント サブスクリプションに対する権限が与えられた Azure Active Directory (Azure AD) サービス プリンシパル。 複数の Azure AD テナントに対して Azure Stack Hub がデプロイされている場合、サービス プリンシパルを 2 つ作成しなければならないことがあります。 Azure Stack Hub のサービス プリンシパルを作成する方法については、[Azure Stack Hub リソースへのアクセスをアプリに提供するサービス プリンシパルを作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-create-service-principals)方法に関するページを参照してください。
+  - **各サービス プリンシパルのアプリケーション ID、クライアント シークレット、テナント名 (xxxxx.onmicrosoft.com) をメモしてください。**
+- 各 Azure Stack Hub の Marketplace にシンジケート化された SQL Server 2016 Enterprise。 マーケットプレース シンジケーションの詳細については、「[Azure Stack Hub に Marketplace の項目をダウンロードする](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)」を参照してください。
     **組織に適切な SQL ライセンスが与えられていることを確認してください。**
-  - ローカル コンピューターにインストールされた [Docker for Windows](https://docs.docker.com/docker-for-windows/)。
+- ローカル コンピューターにインストールされた [Docker for Windows](https://docs.docker.com/docker-for-windows/)。
 
 ## <a name="get-the-docker-image"></a>Docker イメージを取得する
 
 各デプロイの Docker イメージにより、異なる Azure PowerShell バージョン間の依存関係イシューがなくなります。
 
-1.  Docker for Windows で Windows コンテナーが使用されていることを確認します。
-2.  管理者特権でのコマンド プロンプトで次のスクリプトを実行し、Docker コンテナーとデプロイ スクリプトを取得します。
+1. Docker for Windows で Windows コンテナーが使用されていることを確認します。
+2. 管理者特権でのコマンド プロンプトで次のスクリプトを実行し、Docker コンテナーとデプロイ スクリプトを取得します。
 
-```powershell  
- docker pull intelligentedge/sqlserver2016-hadr:1.0.0
-```
+    ```powershell  
+    docker pull intelligentedge/sqlserver2016-hadr:1.0.0
+    ```
 
 ## <a name="deploy-the-availability-group"></a>可用性グループをデプロイする
 
-1.  コンテナー イメージが正常にプルされたら、イメージを起動します。
+1. コンテナー イメージが正常にプルされたら、イメージを起動します。
 
       ```powershell  
       docker run -it intelligentedge/sqlserver2016-hadr:1.0.0 powershell
       ```
 
-2.  コンテナーが起動すると、コンテナーに管理者特権の PowerShell ターミナルが表示されます。 ディレクトリを変更し、デプロイ スクリプトに移動します。
+2. コンテナーが起動すると、コンテナーに管理者特権の PowerShell ターミナルが表示されます。 ディレクトリを変更し、デプロイ スクリプトに移動します。
 
       ```powershell  
       cd .\SQLHADRDemo\
       ```
 
-3.  デプロイを実行します。 必要とされる箇所で資格情報とリソース名を入力します。 HA は HA クラスターがデプロイされる Azure Stack Hub を示し、DR は DR クラスターがデプロイされる Azure Stack Hub を示します。
+3. デプロイを実行します。 必要とされる箇所で資格情報とリソース名を入力します。 HA は、HA クラスターがデプロイされる Azure Stack Hub を指します。 DR は、DR クラスターがデプロイされる Azure Stack Hub を指します。
 
       ```powershell
       > .\Deploy-AzureResourceGroup.ps1 `
@@ -89,22 +89,22 @@ ms.locfileid: "77700665"
       -AzureStackSubscriptionId_DR "drSubscriptionId"
       ```
 
-4.  「`Y`」と入力すると、NuGet プロバイダーのインストールが許可され、API Profile "2018-03-01-hybrid" モジュールのインストールが開始されます。
+4. 「`Y`」と入力すると、NuGet プロバイダーのインストールが許可され、API Profile "2018-03-01-hybrid" モジュールのインストールが開始されます。
 
-5.  リソース デプロイが完了するまで待ちます。
+5. リソース デプロイが完了するまで待ちます。
 
-6.  DR リソース デプロイが完了したら、コンテナーを終了します。
+6. DR リソース デプロイが完了したら、コンテナーを終了します。
 
       ```powershell
       exit
       ```
 
-7.  各 Azure Stack Hub のポータルでリソースを表示し、デプロイを調べます。 HA 環境で SQL インスタンスの 1 つに接続し、SQL Server Management Studio (SSMS) で可用性グループを調べます。
+7. 各 Azure Stack Hub のポータルでリソースを表示し、デプロイを調べます。 HA 環境で SQL インスタンスの 1 つに接続し、SQL Server Management Studio (SSMS) で可用性グループを調べます。
 
-![SQL Server 2016 SQL HA](media/solution-deployment-guide-sql-ha/image2.png)
+    ![SQL Server 2016 SQL HA](media/solution-deployment-guide-sql-ha/image2.png)
 
 ## <a name="next-steps"></a>次のステップ
 
-  - SQL Server Management Studio を使用し、手動でクラスターをフェールオーバーします。「[AlwaysOn 可用性グループの強制手動フェールオーバーの実行 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)」を参照してください。
-  - ハイブリッド クラウド アプリケーションの詳細については、[ハイブリッド クラウド ソリューション](https://aka.ms/azsdevtutorials)に関するページを参照してください。
-  - 独自のデータを使用するか、[GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) のこのサンプルに合わせてコードを変更します。
+- SQL Server Management Studio を使用して手動でクラスターをフェールオーバーします。 「[Always On 可用性グループの強制手動フェールオーバーの実行 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/perform-a-forced-manual-failover-of-an-availability-group-sql-server?view=sql-server-2017)」を参照してください
+- ハイブリッド クラウド アプリの詳細を確認してください。 [ハイブリッド クラウド ソリューション](https://aka.ms/azsdevtutorials)に関するページを参照してください。
+- 独自のデータを使用するか、[GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) のこのサンプルに合わせてコードを変更します。

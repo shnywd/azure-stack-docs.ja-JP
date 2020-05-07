@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 0175e0880edbecc4cb30e05df94cf26e518b8d0e
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173983"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848236"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub の ID アーキテクチャ
 
@@ -26,7 +26,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 |------------------------------|----------|-------|
 |インターネットに接続されている     |はい       |省略可能|
 |マルチテナントのサポート     |はい       |いいえ      |
-|Marketplace で項目を提供する |はい       |はい ([オフラインの Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) ツールを使用する必要があります)|
+|Marketplace で項目を提供する |はい       |はい ([オフラインの Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) ツールを使用する必要があります)|
 |Active Directory Authentication Library (ADAL) のサポート |はい |はい|
 |Azure CLI、Visual Studio、PowerShell などのツールのサポート  |はい |はい|
 |Azure Portal を通じてサービス プリンシパルを作成する     |はい |いいえ|

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 11/08/2019
-ms.openlocfilehash: dc5fa60f0ab1460a98ec21a0501c3cdcec6a6637
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: a1e49ef9138c04557c8cd0a54b11ada30d97f334
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772634"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605639"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub の概要
 
@@ -65,7 +65,7 @@ Azure Stack Hub の切断されたデプロイの場合は、AD FS を使用す�
 
 Azure Stack Hub では、Azure と同じ操作モデルが使用されます。 Azure Stack Hub オペレーターは、Microsoft がテナント ユーザーに Azure サービスを提供するのと同様の方法で、さまざまなサービスやアプリをテナント ユーザーに提供できます。 
 
-![Azure Stack Hub ジョブの役割を示す図](./media/azure-stack-overview/azure-stack-job-roles.png)
+![Azure Stack Hub ジョブの役割を示す図](./media/azure-stack-overview/azure-stack-job-roles.svg)
 
 Azure Stack Hub は、管理者ポータル、ユーザー ポータル、または [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) で管理することができます。 Azure Stack Hub のポータルは、それぞれが Azure Resource Manager の個別のインスタンスでサポートされています。 **Azure Stack Hub オペレーター**は、管理者ポータルを使用して Azure Stack Hub を管理し、テナント オファリングの作成などの操作を行い、統合システムの正常性の維持や状態の監視を行います。 ユーザー ポータルでは、仮想マシン (VM) やストレージ アカウント、Web アプリなどのクラウド リソースを消費するためのセルフサービス エクスペリエンスが提供されます。
 

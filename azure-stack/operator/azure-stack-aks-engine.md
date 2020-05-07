@@ -7,12 +7,12 @@ ms.date: 2/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: abbf82a61c27a58833d286639b281989d3a29fd7
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
+ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166958"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82861386"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する
 
@@ -38,7 +38,7 @@ ID 管理サービスのために Active Directory Federated Services (AD FS) �
 
 ## <a name="add-the-aks-base-image"></a>AKS 基本イメージを追加する
 
-Azure から項目を取得して、AKS 基本イメージを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。 手順 5 で指定した項目を追加します。
+Azure から項目を取得して、AKS 基本イメージを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)し、項目を追加します。 手順 5 で指定した項目を追加します。
 
 次の項目を Marketplace に追加します。
 
@@ -61,7 +61,7 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 ## <a name="add-a-custom-script-extension"></a>カスタム スクリプト拡張機能を追加する
 
-Azure から項目を取得して、カスタム スクリプトを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item?view=azs-1908#disconnected-or-a-partially-connected-scenario)し、項目を追加します。  手順 5 で指定した項目を追加します。
+Azure から項目を取得して、カスタム スクリプトを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)し、項目を追加します。  手順 5 で指定した項目を追加します。
 
 1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
 

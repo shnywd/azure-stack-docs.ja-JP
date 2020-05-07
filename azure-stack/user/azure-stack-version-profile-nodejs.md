@@ -3,16 +3,16 @@ title: Azure Stack Hub での Node.js による API バージョンのプロフ�
 description: Azure Stack Hub での Node.js による API バージョンのプロファイルの使用について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 639c532d4ac105e434557fe18ef8070b656c0849
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 04/30/2020
+ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
+ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660124"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82596807"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -209,9 +209,9 @@ function main() {
 
 次のサンプルは、Node.js と Azure Stack Hub API のプロファイルを使用してソリューションを作成するための参考資料として使用できます。 GitHub から、次のリポジトリでサンプルを取得できます。
 
-- [ストレージ ノード リソース プロバイダーの概要](https://github.com/sijuman/storage-node-resource-provider-getting-started)
-- [コンピューティング ノードの管理](https://github.com/sijuman/compute-node-manage-vm)
-- [リソースマネージャー ノードのリソースとグループ](https://github.com/sijuman/resource-manager-node-resources-and-groups)
+- [ストレージ ノード リソース プロバイダーの概要](https://github.com/Azure-Samples/hybrid-storage-nodejs-create-storageaccount)
+- [コンピューティング ノードの管理](https://github.com/Azure-Samples/Hybrid-compute-nodejs-create-vm)
+- [リソースマネージャー ノードのリソースとグループ](https://github.com/Azure-Samples/Hybrid-resourcegroups-nodejs-manageresources)
 
 ### <a name="sample-create-storage-account"></a>ストレージ アカウントの作成のサンプル 
 

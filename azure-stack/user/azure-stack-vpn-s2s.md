@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/07/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 36a4ea0532eda0593de2beb9191d6e0911e58276
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a1cf522176e6943ad1975a402affbb81d1aeea4f
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80367803"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643493"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
@@ -54,7 +54,7 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 この記事では、次の図に示す IPsec/IKE ポリシーを設定して構成します。
 
-![IPsec/IKE ポリシーを設定して構成する](media/azure-stack-vpn-s2s/site-to-site.png)
+![IPsec/IKE ポリシーを設定して構成する](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>パート 2: サポートされる暗号アルゴリズムとキーの強度
 
@@ -64,10 +64,10 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 |------------------------------------------------------|--------------------------------------------------------------------------|
 | IKEv2 暗号化                                     | AES256、AES192、AES128、DES3、DES                                        |
 | IKEv2 整合性                                      | SHA384、SHA256、SHA1、MD5                                                |
-| DH グループ                                             | ECP384、ECP256、DHGroup14、DHGroup2、DHGroup1、なし                      |
+| DH グループ                                             | ECP384、ECP256、DHGroup24、DHGroup14、DHGroup2、DHGroup1                 |
 | IPsec 暗号化                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、なし |
 | IPsec 整合性                                      | GCMASE256、GCMAES192、GCMAES128                                          |
-| PFS グループ                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、なし                         |
+| PFS グループ                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、PFSMM、なし                  |
 | QM SA の有効期間                                       | (オプション: 指定されていない場合、既定値が使用されます)<br />                         秒 (整数: 最小 300/既定値 27,000 秒)<br />                         キロバイト数 (整数: 最小 1,024/既定値 102,400,000 キロバイト) |
 | トラフィック セレクター                                     | Azure Stack Hub ではポリシー ベースのトラフィック セレクターはサポートされていません。         |
 
@@ -109,7 +109,7 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 このセクションでは、IPsec/IKE ポリシーを使用するサイト対サイト VPN 接続を作成する手順について説明します。 以下の手順によって、次の図に示す接続が作成されます。
 
-![サイト対サイト ポリシー](media/azure-stack-vpn-s2s/site-to-site.png)
+![サイト対サイト ポリシー](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 サイト対サイト VPN 接続を作成するための詳細な手順については、[サイト対サイト VPN 接続の作成](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)に関する記事を参照してください。
 

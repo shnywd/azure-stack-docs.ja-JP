@@ -3,16 +3,16 @@ title: Azure Stack Hub での GO による API バージョンのプロファイ
 description: Azure Stack Hub での GO による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: d008a30991e41be6abc3f21f888acfbc8d46d69e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705238"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836191"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Azure Stack Hub での GO による API バージョンのプロファイルの使用
 

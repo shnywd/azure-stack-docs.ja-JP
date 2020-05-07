@@ -3,16 +3,16 @@ title: Azure Stack Hub のクラウド ソリューション プロバイダー�
 description: クラウド ソリューション プロバイダー (CSP) がサービスを提供するテナントの使用量を追跡するために使用される使用量レポート インフラストラクチャについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 548bcef83794230a196b8afc9d6db11767678df5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2a154390f3d3aef4af93d12899a6a658be41d884
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700376"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742387"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>クラウド ソリューション プロバイダー向けの使用量レポート インフラストラクチャ
 

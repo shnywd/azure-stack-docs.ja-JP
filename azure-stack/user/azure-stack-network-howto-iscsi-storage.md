@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: f691ba0cfeadae0d359473db881601e90478276c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660888"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687438"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する
 
@@ -24,7 +24,7 @@ ms.locfileid: "81660888"
 
 この図は、オンプレミスの Windows マシン (物理または仮想) から iSCSI マウント ディスクを使用して Azure Stack Hub でホストされている VM を示しています。これにより、Azure Stack Hub の外部ストレージを iSCSI プロトコルで Azure Stack Hub ホスト VM 内にマウントすることができます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>必要条件
 
@@ -57,7 +57,7 @@ ms.locfileid: "81660888"
 
 この図は、iSCSI ターゲットへの接続に使用できる iSCSI クライアントを作成するために、テンプレートからデプロイされるリソースを示しています。 このテンプレートでは、VM とその他のリソースがデプロイされ、さらに prepare-iSCSIClient.ps1 が実行され、VM が再起動されます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>デプロイ プロセス
 
@@ -68,7 +68,7 @@ ms.locfileid: "81660888"
 3. テンプレートからの IP アドレスとサーバー名の出力を、iSCSI ターゲット (仮想マシンまたは物理サーバー) のスクリプトの入出力パラメーターとして使用して、`Create-iSCSITarget.ps1` を実行します。
 4. `Connect-toiSCSITarget.ps1` スクリプトを実行するための入力として、iSCSI ターゲット サーバーの外部 IP アドレスを使用します。 
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>azuredeploy.json の入力
 
@@ -97,7 +97,7 @@ ms.locfileid: "81660888"
 
 既存の仮想マシン上でスクリプトを実行し、iSCSI クライアントから iSCSI ターゲットに接続することもできます。 このフローは、iSCSI ターゲットを自分で作成する場合に使用します。 次の図は、PowerShell スクリプトの実行フローを示しています。 これらのスクリプトは、Script ディレクトリにあります。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 

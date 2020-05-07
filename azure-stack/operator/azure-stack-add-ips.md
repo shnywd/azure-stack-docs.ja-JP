@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: efa240fbec361657362b936594ccee4c79f70afe
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772470"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847913"
 ---
 # <a name="add-public-ip-addresses"></a>パブリック IP アドレスの追加
 
@@ -36,7 +36,7 @@ Azure Stack Hub に新しいパブリック IP アドレス ブロックを追�
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>Azure Stack Hub に IP アドレス範囲を追加する
 
-1. ブラウザーで、管理者ポータル ダッシュボードにアクセスします。 この例では、 https://adminportal.local.azurestack.external を使用します。
+1. ブラウザーで、管理者ポータル ダッシュボードにアクセスします。 この例では、 `https://adminportal.local.azurestack.external` を使用します。
 2. Azure Stack Hub 管理者ポータルにクラウド オペレーターとしてサインインします。
 3. 既定のダッシュボードで、[Region management]\(リージョンの管理\) リストを見つけ、管理するリージョンを選択します。 この例では、ローカルを使用します。
 4. [リソース プロバイダー] タイルを見つけて、ネットワーク リソース プロバイダーをクリックします。

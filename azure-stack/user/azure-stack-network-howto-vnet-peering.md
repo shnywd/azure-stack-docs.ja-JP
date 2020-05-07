@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 03ead55141ff6a7b8aa9451b814d399b607ebb47
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 97fc89897d63d368cfface0f5fc7dece4b8480cd
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702178"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742565"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>Azure Stack Hub での VM との VNET ピアリング
 
@@ -23,7 +23,7 @@ ms.locfileid: "77702178"
 テンプレートは [Azure Intelligent Edge Patterns GitHub](https://github.com/Azure-Samples/azure-intelligent-edge-patterns
 ) リポジトリにあります。 テンプレートは **S2SVPNTunnel** フォルダーにあります。
 
-![alt text](./media/azure-stack-network-howto-vnet-peering/overview.png)
+![alt text](./media/azure-stack-network-howto-vnet-peering/overview.svg)
 
 ## <a name="requirements"></a>必要条件
 
@@ -51,7 +51,7 @@ ms.locfileid: "77702178"
 
 このテンプレートには、VNet の名前付けと IP アドレス指定の既定値が指定されています。 管理者 (rrasadmin) のパスワードが必要です。また、SAS トークンで独自のストレージ BLOB を使用することもできます。 デプロイが失敗する可能性があるため、これらの値を適切な範囲内に保つように注意します。 PowerShell RDS パッケージは各 RRAS VM で実行され、ルーティングと必要なすべての依存サービスと機能がインストールされます。 この DSC は、必要に応じてさらにカスタマイズできます。 カスタム スクリプト拡張機能では、次のスクリプトが実行され、`Add-Site2Site.ps1` によって 2 つの RRAS サーバー間の VPNS2S トンネルが共有キーを使用して構成されます。 カスタム スクリプト拡張機能からの詳細な出力を表示して、VPN トンネル構成の結果を確認できます。
 
-![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.png)
+![alt text](./media/azure-stack-network-howto-vnet-peering/s2svpntunnels2.svg)
 
 ## <a name="next-steps"></a>次のステップ
 

@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: c745325c720ed37f93b12fee844a6ebc0b829cca
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812443"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643582"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 
@@ -29,7 +29,7 @@ ms.locfileid: "80812443"
 
 次の図は、作業完了後の接続構成を表しています。
 
-![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/image2.png)
+![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/azure-stack-connect-vpn-image2.svg)
 
 ### <a name="network-configuration-example-values"></a>ネットワーク構成の値の例
 
@@ -50,7 +50,6 @@ ms.locfileid: "80812443"
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>仮想ネットワークと仮想マシン (VM) サブネットを作成する
 
 1. Azure アカウントを使用して [Azure Portal](https://portal.azure.com/) にサインインします。
-
 2. ユーザー ポータルで **[+ リソースの作成]** を選択します。
 3. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 4. **[仮想ネットワーク]** を選択します。
