@@ -167,6 +167,10 @@
                       href: azure-stack-vpn-s2s.md
                     - name: VPN ゲートウェイの設定
                       href: azure-stack-vpn-gateway-settings.md
+                    - name: ネットワーク仮想アプライアンスに関する問題のトラブルシューティング
+                      href: network-virtual-appliance.md
+                    - name: サイト間接続のトラブルシューティング
+                      href: site-to-site.md
                 - name: Azure Stack Hub 用の iDNS
                   href: azure-stack-understanding-dns.md
                 - name: Azure Stack Hub の DNS
@@ -231,7 +235,7 @@
                     - name: AKS エンジンのトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Azure Monitor for containers を使用する
-                      href: kubernetes-aks-engine-azure-monitor.md
+                      href: 'https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-hybrid-setup'
                 - name: Marketplace の項目
                   items:
                     - name: Kubernetes クラスターのデプロイ
