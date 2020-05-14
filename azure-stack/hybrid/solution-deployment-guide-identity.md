@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f3c952695d430befa69c4b3dc2ffaf7787ac8b31
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847165"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988229"
 ---
 # <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Azure および Azure Stack Hub アプリのハイブリッド クラウド ID を構成する
 
@@ -41,11 +41,11 @@ Azure Stack Hub 内の Azure Resource Manager を使用したデプロイまた�
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>ポータルで Azure AD のサービス プリンシパルを作成する
 
-Azure AD を ID ストアとして使用して Azure Stack Hub をデプロイした場合は、Azure での手順と同様の方法でサービス プリンシパルを作成できます。 [アプリ ID を使用したリソースへのアクセスの提供](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)に関するページには、ポータルから手順を実行する方法が紹介されています。 始める前に、[Azure AD で必要なアクセス許可](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)があることを確認してください。
+Azure AD を ID ストアとして使用して Azure Stack Hub をデプロイした場合は、Azure での手順と同様の方法でサービス プリンシパルを作成できます。 [アプリ ID を使用したリソースへのアクセスの提供](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity)に関するページには、ポータルから手順を実行する方法が紹介されています。 始める前に、[Azure AD で必要なアクセス許可](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)があることを確認してください。
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>PowerShell を使用して AD FS のサービス プリンシパルを作成する
 
-AD FS を使用して Azure Stack Hub をデプロイした場合は、PowerShell を使ってサービス プリンシパルを作成し、アクセスのロールを割り当てて、その ID を使用して PowerShell からサインインできます。 「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)」には、PowerShell で必要な手順を実行する方法が紹介されています。
+AD FS を使用して Azure Stack Hub をデプロイした場合は、PowerShell を使ってサービス プリンシパルを作成し、アクセスのロールを割り当てて、その ID を使用して PowerShell からサインインできます。 「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity)」には、PowerShell で必要な手順を実行する方法が紹介されています。
 
 ## <a name="using-the-azure-stack-hub-api"></a>Azure Stack Hub API を使用する
 
