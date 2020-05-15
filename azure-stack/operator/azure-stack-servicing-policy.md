@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 02/07/2020
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9b1459fbb5e484e3fc0588e8c9717f8e09b6e309
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79512403"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848151"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -68,7 +68,7 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 ::: moniker range="azs-2002"
 
 > [!IMPORTANT]  
-> Azure Stack Hub 2002 更新プログラムでは、Microsoft は Azure Stack Hub サポート ポリシー ステートメントを一時的に延長しています。 Microsoft は現在、COVID-19 に対応中のユーザーで、Azure Stack Hub システムとその更新および管理の方法に関する重要な意思決定を行う可能性がある世界中のお客様と連携しています。その結果、お客様のデータセンターのビジネス運営が引き続き通常通り運営できるようにしています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。 その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のいずれもがサポートされるようになります。
+> Azure Stack Hub 2002 更新プログラムでは、Microsoft は Azure Stack Hub サポート ポリシー ステートメントを一時的に延長しています。 Microsoft は現在、COVID-19 に対応中の、Azure Stack Hub システムとその更新方法と管理方法に関する重要な意思決定を行っている可能性のある世界中のお客様と連携して、お客様のデータセンターのビジネス運用を正常に継続するための取り組みを行っています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。 その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のすべてがサポートされます。
 
 ::: moniker-end
 
@@ -80,13 +80,19 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 Microsoft ソフトウェア更新プログラム パッケージは累積的ではないため、前提として前のバージョンの更新パッケージか修正プログラムが必要です。 1 つ以上の更新プログラムを先送りにする場合は、最新のバージョンを取得する際に全体のランタイムを考慮してください。
 
+### <a name="resource-provider-version-support"></a>リソース プロバイダーのバージョンのサポート
+
+Azure Stack Hub リソース プロバイダーでは、サポートされているバージョンの Azure Stack Hub と互換性がある、特定のリソース プロバイダーの最新リリース バージョンのみがサポートされています。これは、まだサポート有効期限内の古いバージョンの Azure Stack Hub を使用している場合でも同様です。
+
+リソース プロバイダーの互換性の詳細については、その特定のリソース プロバイダーのリリース ノートを参照してください。
+
 ## <a name="get-support"></a>サポートを受ける
 
 Azure Stack Hub には、Azure と同じサポート プロセスが適用されます。 企業のお客様は、[Azure サポート要求を作成する方法](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)で説明されているプロセスに従ってください。 クラウド ソリューション プロバイダー (CSP) のお客様の場合は、担当の CSP までサポートについてお問い合わせください。 詳細については、「[Azure サポートに関する FAQ](https://azure.microsoft.com/support/faq/)」を参照してください。
 
-更新プログラムに関する問題のトラブルシューティングのヘルプについては、「[Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-updates-troubleshoot.md)」を参照してください。
+更新プログラムに関する問題のトラブルシューティングのヘルプについては、「[Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-troubleshooting.md)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub での更新プログラム管理](azure-stack-updates.md)
-- [Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-updates-troubleshoot.md)
+- [Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-troubleshooting.md)

@@ -3,16 +3,17 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/08/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: a37f8b14a1a21caa8f710afe54868f308971e422
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979429"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848270"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -28,15 +29,14 @@ Marketplace 製品をダウンロードする場合は、次の 2 つのシナ�
 > [!NOTE]
 > カタログは、お使いの Azure Stack Hub システムの接続先クラウドによって異なります。 クラウド環境は、Azure Stack Hub の登録に使用する Azure サブスクリプションによって決まります。
 
-## <a name="connected-scenario"></a>接続されているシナリオ
+::: zone pivot="state-connected"
+接続されたデプロイでは、管理者ポータルを使用して Marketplace 項目をダウンロードできます。
 
-Azure Stack Hub がインターネットに接続されている場合は、管理者ポータルを使用して Marketplace 項目をダウンロードできます。
-
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 Azure Stack Hub デプロイは、インターネット接続を備えていて、Azure に登録されている必要があります。
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>ポータルを使用して Marketplace 項目をダウンロードする
+## <a name="use-the-portal-to-download-marketplace-items"></a>ポータルを使用して Marketplace 項目をダウンロードする
 
 1. Azure Stack Hub 管理者ポータルにサインインします。
 
@@ -61,10 +61,10 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 6. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロード時間はさまざまで、ネットワーク接続によって異なります。 ダウンロードが完了したら、Azure Stack Hub オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
 
 7. ダウンロードした項目をデプロイするには、 **[+ リソースの作成]** を選択し、カテゴリで新しいマーケットプレース項目を検索します。 次に、デプロイ処理を開始する項目を選択します。 処理は、Marketplace 項目ごとに異なります。
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>接続されていないか、部分的に接続されているシナリオ
-
-Azure Stack Hub のインターネット接続が制限されている場合や接続がない場合は、PowerShell と*マーケットプレース シンジケーション ツール*を使用して、インターネット接続のあるコンピューターに Marketplace 項目をダウンロードできます。 その後、Azure Stack Hub 環境に項目を転送します。 接続されていない環境では、Azure Stack Hub ポータルを使用して Marketplace 項目をダウンロードすることはできません。
+::: zone pivot="state-disconnected"
+Azure Stack Hub のインターネット接続が制限されている場合や接続がない場合は、PowerShell と*マーケットプレース シンジケーション ツール*を使用して、インターネット接続のあるマシンに Marketplace 項目をダウンロードします。 その後、Azure Stack Hub 環境に項目を転送します。 接続されていない環境では、Azure Stack Hub ポータルを使用して Marketplace 項目をダウンロードすることはできません。
 
 マーケットプレース シンジケーション ツールは、接続されているシナリオでも使用することができます。
 
@@ -73,7 +73,7 @@ Azure Stack Hub のインターネット接続が制限されている場合や�
 - **パート 1**:Marketplace から項目をダウンロードします。 インターネットにアクセスできるコンピューターで PowerShell を構成し、シンジケーション ツールをダウンロードして、Azure Marketplace から項目をダウンロードします。
 - **パート 2**:Azure Stack Hub Marketplace にアップロードして発行します。 ダウンロードしたファイルを Azure Stack Hub 環境に移動した後、Azure Stack Hub Marketplace に発行します。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 - 接続された環境 (Azure Stack Hub である必要はありません)。 Azure から製品の一覧をその詳細と共に取得し、すべてをローカルにダウンロードするには、接続が必要です。 これが実行されれば、手順の残りの部分ではインターネット接続は不要です。 これにより、切断された環境で使用するために以前にダウンロードした項目のカタログが作成されます。
 
@@ -98,7 +98,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 
 ![Marketplace Management](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>マーケットプレース シンジケーション ツールを使用して Marketplace 項目をダウンロードする
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>マーケットプレース シンジケーション ツールを使用して Marketplace 項目をダウンロードする
 
 > [!IMPORTANT]
 > 切断されたシナリオで Marketplace 項目をダウンロードするたびに、必ず Marketplace シンジケーション ツールをダウンロードしてください。 このツールは頻繁に変更されるため、各ダウンロードに対して最新バージョンを使用する必要があります。
@@ -168,7 +168,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>PowerShell を使用したダウンロードのインポートと Azure Stack Hub Marketplace への発行
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>PowerShell を使用したダウンロードのインポートと Azure Stack Hub Marketplace への発行
 
 1. ローカルに[ダウンロード済みの](#use-the-marketplace-syndication-tool-to-download-marketplace-items)ファイルを、Azure Stack Hub 環境に接続されているコンピューターに移動する必要があります。 マーケットプレース シンジケーション ツールを使用してインポート操作を実行する必要があるので、このツールも Azure Stack Hub 環境で利用できるようにする必要があります。
 
@@ -187,3 +187,4 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     ```
 
 5. スクリプトが正常に完了すると、Azure Stack Hub Marketplace で Marketplace 項目を利用できるようになります。
+::: zone-end

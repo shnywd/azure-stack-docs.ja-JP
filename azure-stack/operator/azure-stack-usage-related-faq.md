@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 9f7fbb8657ec13aa6c7768e1db4d62f36fbb46cb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77696449"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742411"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -306,13 +306,13 @@ ms.locfileid: "77696449"
 
 | **HTTP 状態コード** | **エラー コード** | **説明** |
 | --- | --- | --- |
-| 400/無効な要求 |*NoApiVersion* |*api-version* クエリ パラメーターがありません。 |
-| 400/無効な要求 |*InvalidProperty* |プロパティが見つからないか、無効な値が指定されています。 応答本文のエラー コード内のメッセージに、見つからないプロパティが示されています。 |
-| 400/無効な要求 |*RequestEndTimeIsInFuture* |*ReportedEndTime* の値は将来の値です。 この引数では将来の値を使用できません。 |
-| 400/無効な要求 |*SubscriberIdIsNotDirectTenant* |プロバイダー API 呼び出しで、呼び出し元の有効なテナントではないサブスクリプション ID が使用されました。 |
-| 400/無効な要求 |*SubscriptionIdMissingInRequest* |呼び出し元のサブスクリプション ID がありません。 |
-| 400/無効な要求 |*InvalidAggregationGranularity* |無効な集計単位が要求されました。 有効な値は、日単位と時間単位です。 |
-| 503 |*ServiceUnavailable* |サービスがビジー状態か、呼び出しが調整されているため、再試行可能エラーが発生しました。 |
+| 400/無効な要求 |NoApiVersion |`api-version` クエリ パラメーターがありません。 |
+| 400/無効な要求 |InvalidProperty |プロパティが見つからないか、無効な値が指定されています。 応答本文のエラー コード内のメッセージに、見つからないプロパティが示されています。 |
+| 400/無効な要求 |RequestEndTimeIsInFuture |`ReportedEndTime` の値は将来の値です。 この引数では将来の値を使用できません。 |
+| 400/無効な要求 |SubscriberIdIsNotDirectTenant |プロバイダー API 呼び出しで、呼び出し元の有効なテナントではないサブスクリプション ID が使用されました。 |
+| 400/無効な要求 |SubscriptionIdMissingInRequest |呼び出し元のサブスクリプション ID がありません。 |
+| 400/無効な要求 |InvalidAggregationGranularity |無効な集計単位が要求されました。 有効な値は、日単位と時間単位です。 |
+| 503 |ServiceUnavailable |サービスがビジー状態か、呼び出しが調整されているため、再試行可能エラーが発生しました。 |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM の課金ポリシーはどうなっていますか。
 

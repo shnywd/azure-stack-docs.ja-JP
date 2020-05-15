@@ -3,22 +3,22 @@ title: Azure Stack Hub での API バージョンのプロファイルの管理
 description: Azure Stack Hub での API バージョンのプロファイルについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/06/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 2e229c8add5b850384c7b46d05373c4ee19fd266
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: f72f0e79fe7b890c65c630ff00ec3870d4756c5e
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295540"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836225"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Azure Stack Hub での API バージョンのプロファイルの管理
 
 API プロファイルでは、Azure リソース プロバイダーと Azure REST エンドポイントの API バージョンが指定されます。 API プロファイルを使用して、さまざまな言語でカスタム クライアントを作成できます。 各クライアントは API プロファイルを使用して、適切なリソース プロバイダーと Azure Stack Hub の API バージョンに連絡します。
 
-各リソース プロバイダー API の正確にどのバージョンが Azure Stack Hub と互換性があるかを選別せずに、Azure リソース プロバイダーと連携するアプリを作成できます。 アプリをプロファイルに整合させるだけで、SDK によって適切な API バージョンに戻されます。
+各リソース プロバイダー API のどのバージョンが Azure Stack Hub と互換性があるかが厳密にわからなくても、Azure リソース プロバイダーと連携するアプリを作成できます。 アプリをプロファイルに整合させるだけで、SDK によって適切な API バージョンに戻されます。
 
 このトピックは、以下に役立ちます。
 

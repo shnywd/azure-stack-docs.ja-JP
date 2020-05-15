@@ -7,12 +7,12 @@ ms.date: 06/14/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 2f0af3bd550b31e70f7c1e722ab79149c57c1a2f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e93b5b16d30017dd7a1ea50d2f990ee983c8f124
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700648"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847131"
 ---
 # <a name="register-the-asdk-with-azure"></a>ASDK の Azure への登録
 
@@ -209,7 +209,7 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
 
 Azure Stack の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。
 
-1. [Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. Azure Stack 管理者ポータル (`https://adminportal.local.azurestack.external`) にサインインします。
 
 2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 

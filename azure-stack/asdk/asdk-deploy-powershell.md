@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 3c9c4fca443af34422d76bd30af4efe5de685936
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695667"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847148"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
@@ -158,7 +158,7 @@ Azure Stack に [Azure Marketplace 項目をダウンロード](../operator/azur
 **[Azure Stack を Azure に登録する](asdk-register.md)**
 
 ## <a name="next-steps"></a>次のステップ
-お疲れさまでした。 これらの手順を完了すると、[管理](https://adminportal.local.azurestack.external)ポータルと[ユーザー](https://portal.local.azurestack.external) ポータルの両方で ASDK 環境を利用できるようになります。 
+お疲れさまでした。 これらの手順を完了すると、管理ポータル (`https://adminportal.local.azurestack.external`) とユーザー ポータル (`https://portal.local.azurestack.external`) の両方で ASDK 環境を利用できるようになります。 
 
 [ASDK インストール後の構成タスク](asdk-post-deploy.md)
 

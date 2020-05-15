@@ -4,16 +4,16 @@ description: App Service on Azure Stack Hub Update 5 の機能強化、修正、
 author: bryanla
 manager: stefsch
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 42a87396caeb4392b14e88dd122f78396efb8ead
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32dbed7c4cca981c04f904f61e9abea77cb5fc4a
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77695497"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847794"
 ---
 # <a name="app-service-on-azure-stack-hub-update-5-release-notes"></a>App Service on Azure Stack Hub Update 5 のリリース ノート
 
@@ -26,13 +26,15 @@ ms.locfileid: "77695497"
 
 App Service on Azure Stack Hub Update 5 のビルド番号は **80.0.2.15** です。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
 Azure App Service on Azure Stack Hub の 1.5 へのアップグレードを開始する前に:
 
 - Azure Stack Hub 管理者ポータルの Azure App Service の管理で確実にすべてのロールの準備ができているようにします。
+
+- Azure Stack Hub 管理ポータルの Azure App Service 管理を使用して、App Service のシークレットをバックアップします
 
 - App Service とマスター データベースをバックアップします。
   - AppService_Hosting
@@ -41,9 +43,12 @@ Azure App Service on Azure Stack Hub の 1.5 へのアップグレードを開�
 
 - テナント アプリのコンテンツ ファイル共有をバックアップします。
 
+  > [!Important]
+  > ファイル サーバーと SQL Server の保守と操作を担当するのは、クラウド オペレーターです。  リソース プロバイダーは、これらのリソースの管理は行いません。  クラウドオ ペレーターが、App Service データベースとテナント コンテンツ ファイル共有のバックアップを行います。
+
 - Marketplace から**カスタム スクリプト拡張機能**バージョン **1.9.1** を配信します。
 
-### <a name="new-features-and-fixes"></a>新機能と修正
+## <a name="new-features-and-fixes"></a>新機能と修正
 
 Azure App Service on Azure Stack Hub Update 5 には、次の機能強化と修正が含まれています。
 
@@ -64,12 +69,12 @@ Azure App Service on Azure Stack Hub Update 5 には、次の機能強化と修�
 - **すべてのロールの基になっているオペレーティング システムの更新プログラム**:
   - [x64 ベース システム用 Windows Server 2016 に対する 2019-02 累積的更新プログラム (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-### <a name="post-deployment-steps"></a>デプロイ後の手順
+## <a name="post-deployment-steps"></a>デプロイ後の手順
 
 > [!IMPORTANT]  
 > SQL Always On インスタンスを使用して App Service リソース プロバイダーを提供している場合は、データベースのフェールオーバーが発生したときにサービスが失われないように、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する "*必要があります*"。
 
-### <a name="post-update-steps"></a>更新後の手順
+## <a name="post-update-steps"></a>更新後の手順
 
 既存の Azure App Service on Azure Stack Hub デプロイに関して包含データベースへの移行を検討している場合は、Azure App Service on Azure Stack Hub 1.5 への更新が完了した後で、以下の手順を実行してください。
 
@@ -132,6 +137,33 @@ Azure App Service on Azure Stack Hub Update 5 には、次の機能強化と修�
 1. 包含データベース ユーザーにログインを移行します。
 
     ```sql
+        USE appservice_hosting
+        IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
+        BEGIN
+        DECLARE @username sysname ;  
+        DECLARE user_cursor CURSOR  
+        FOR
+            SELECT dp.name
+            FROM sys.database_principals AS dp  
+            JOIN sys.server_principals AS sp
+                ON dp.sid = sp.sid  
+                WHERE dp.authentication_type = 1 AND dp.name NOT IN ('dbo','sys','guest','INFORMATION_SCHEMA');
+            OPEN user_cursor  
+            FETCH NEXT FROM user_cursor INTO @username  
+                WHILE @@FETCH_STATUS = 0  
+                BEGIN  
+                    EXECUTE sp_migrate_user_to_contained
+                    @username = @username,  
+                    @rename = N'copy_login_name',  
+                    @disablelogin = N'do_not_disable_login';  
+                FETCH NEXT FROM user_cursor INTO @username  
+            END  
+            CLOSE user_cursor ;  
+            DEALLOCATE user_cursor ;
+            END
+        GO
+
+        USE appservice_metering
         IF EXISTS(SELECT * FROM sys.databases WHERE Name=DB_NAME() AND containment = 1)
         BEGIN
         DECLARE @username sysname ;  
@@ -171,7 +203,7 @@ Azure App Service on Azure Stack Hub Update 5 には、次の機能強化と修�
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
 
-### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
+## <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
 - App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。 この問題は Azure Stack Hub 上の Azure App Service のデプロイに関するドキュメントで言及されています。
 
@@ -187,7 +219,7 @@ Azure App Service on Azure Stack Hub Update 5 には、次の機能強化と修�
  * 優先順位:700
  * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
 [Azure Stack Hub 1809 リリース ノート](azure-stack-update-1903.md)内のドキュメントを参照してください。
 

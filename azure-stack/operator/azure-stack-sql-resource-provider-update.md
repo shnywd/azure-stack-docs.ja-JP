@@ -8,23 +8,23 @@ ms.date: 11/11/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 43099dfb4bfb2ffe50e6c8ccdfc05633ff4f3a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2c6ad5acc7096f243334165032eb7c134fc5cae0
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77697163"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799783"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
+
+> [!IMPORTANT]
+> リソース プロバイダーを更新する前に、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。 リリース ノートには、リソース プロバイダーに必要な Azure Stack Hub の最小バージョンも指定されています。
 
 Azure Stack Hub が新しいビルドに更新される際に、新しい SQL リソース プロバイダーがリリースされることがあります。 既存のリソース プロバイダーが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
 
 SQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の SQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それらがサポートされる Azure Stack Hub のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)に関する記事で、バージョンの一覧を参照してください。
 
 リソース プロバイダーの更新には *UpdateSQLProvider.ps1* スクリプトを使用します。 ローカル管理権限を持ち、サブスクリプションの**所有者**であるサービス アカウントを使用します。 このスクリプトは、新しい SQL リソース プロバイダーのダウンロードに含まれています。 更新プロセスは、[リソース プロバイダーを展開する](./azure-stack-sql-resource-provider-deploy.md)ために使用されるプロセスに似ています。 更新スクリプトは DeploySqlProvider.ps1 スクリプトと同じ引数を使用し、証明書情報を提供する必要があります。
-
- > [!IMPORTANT]
- > リソース プロバイダーをアップグレードする前に、リリース ノートを確認し、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。
 
 ## <a name="update-script-processes"></a>更新スクリプトのプロセス
 

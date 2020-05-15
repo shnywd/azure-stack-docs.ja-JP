@@ -3,16 +3,16 @@ title: Azure Stack Hub での App Service サーバー ロールのキャパシ�
 description: Azure Stack Hub での Azure App Service サーバー ロールのキャパシティ プランニングについて説明します。
 author: BryanLa
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/20192
-ms.openlocfilehash: 9e9447baf9f5676cac8555513682bab8da750bb2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701175"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847861"
 ---
 # <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Azure Stack Hub での App Service サーバー ロールのキャパシティ プランニング
 
@@ -20,44 +20,49 @@ ms.locfileid: "77701175"
 
 この記事では、実稼働環境のデプロイに使用すべき最小限のコンピューティング インスタンス数とコンピューティング SKU に関するガイダンスを示します。
 
+> [!NOTE]
+> 各ロールの推奨されるコンピューティング SKU に関するガイダンスは、Azure デプロイに沿った標準的なデプロイを導入できるように、Azure App Service on Azure Stack Hub の2020 Q2 リリースで更新されました。
+
 これらのガイドラインを使用して、App Service のキャパシティ戦略を計画できます。
 
 | App Service サーバー ロール | 推奨の最小インスタンス数 | 推奨のコンピューティング SKU|
 | --- | --- | --- |
-| コントローラー | 2 | A1 |
-| フロントエンド | 2 | A1 |
-| 管理 | 2 | A3 |
-| Publisher | 2 | A1 |
-| Web Worker - 共有 | 2 | A1 |
-| Web Worker - 専用 | 層ごとに 2 個 | A1 |
+| コントローラー | 2 | A4v2 |
+| フロントエンド | 2 | A4_v2 |
+| 管理 | 2 | D3_v2 |
+| Publisher | 2 | A2_v2 |
+| Web Worker - 共有 | 2 | A4_v2 |
+| Web Worker - 専用 - 小 | 層ごとに 2 個 | A1_v2 |
+| Web Worker - 専用 - 中 | 層ごとに 2 個 | A2_v2 |
+| Web Worker - 専用 - 大 | 層ごとに 2 個 | A4_v2 |
 
 ## <a name="controller-role"></a>コントローラー ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4v2 の 2 つのインスタンス
 
 Azure App Service コントローラーでは通常、CPU、メモリ、ネットワーク リソースはそれほど消費されません。 ただし、高可用性のためには、2 つのコントローラーが必要です。 コントローラー 2 つは、許容される最大コント ローラー数でもあります。 2 番目の Web サイト コントローラーは、デプロイ中にインストーラーから直接作成できます。
 
 ## <a name="front-end-role"></a>フロントエンド ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4v_2 の 2 つのインスタンス
 
 フロントエンドでは、Web worker の可用性に応じて、Web worker に要求をルーティングします。 高可用性のためには複数のフロントエンドが必要で、3 つ以上保有できます。 計画段階では、各コアが秒間約 100 リクエストを処理できると想定します。
 
 ## <a name="management-role"></a>管理ロール
 
-**推奨の最小構成**: 2 つの A3 Standard のインスタンス
+**推奨の最小構成**: D3v2 の 2 つのインスタンス
 
 Azure アプリケーション クラシック デプロイ モデル ロールでは、App Service Azure Resource Manager および API のエンドポイント、ポータル拡張機能 (管理、テナント、Functions ポータル)、データ サービスを担当します。 通常、運用環境では、管理サーバー ロールに約 4 GB の RAM のみが必要となります。 ただし、多くの管理タスク (Web サイトの作成など) が実行される場合は、CPU レベルが高くなる可能性があります。 高可用性のためには、このロールに複数のサーバーが割り当てられている必要があり、サーバーごとに少なくとも 2 つのコアが必要です。
 
 ## <a name="publisher-role"></a>パブリッシャー ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A2v2 の 2 つのインスタンス
 
 多くのユーザーが同時に公開する場合は、パブリッシャー ロールの CPU 使用率が高くなる可能性があります。 高可用性のためには、複数のパブリッシャー ロールを使用できるようにします。 パブリッシャーは、FTP または FTPS のトラフィックのみを処理します。
 
 ## <a name="web-worker-role"></a>Web Worker ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4_v2 の 2 つのインスタンス
 
 高可用性のためには、少なくとも 4 つの Web worker ロールが必要です。つまり、共有 Web サイト モード用に 2 つと、提供する予定の各専用 worker 層用に 2 つです。 共有および専用のコンピューティング モードでは、さまざまなレベルのサービスがテナントに提供されます。 次のような顧客が多い場合は、より多くの Web worker が必要になる可能性があります。
 

@@ -7,23 +7,23 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: a617efab5516fb2f6bad96e36c99f1b84852237c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d43c39aeed909946e852ccad37d92a2d47d3d889
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698642"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799766"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Azure Stack Hub の MySQL リソース プロバイダーを更新する
+
+> [!IMPORTANT]
+> リソース プロバイダーを更新する前に、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。 リリース ノートには、リソース プロバイダーに必要な Azure Stack Hub の最小バージョンも指定されています。
 
 Azure Stack Hub のビルドの更新時に、新しい MySQL リソース プロバイダー アダプターがリリースされる場合があります。 既存のアダプターが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
 
 MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の MySQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それがサポートされる Azure Stack Hub のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)に関する記事で、バージョンの一覧を参照してください。
 
 リソース プロバイダーの更新には **UpdateMySQLProvider.ps1** スクリプトを使用します。 プロセスは、この記事のリソース プロバイダーのデプロイに関するセクションに記述されている、リソース プロバイダーをインストールするプロセスと類似しています。 スクリプトはリソース プロバイダーのダウンロードに含まれています。 
-
- > [!IMPORTANT]
- > リソース プロバイダーをアップグレードする前に、リリース ノートを確認し、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。
 
 ## <a name="update-script-processes"></a>更新スクリプトのプロセス
 

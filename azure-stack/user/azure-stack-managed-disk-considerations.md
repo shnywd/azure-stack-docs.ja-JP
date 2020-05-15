@@ -3,16 +3,16 @@ title: Azure Stack Hub マネージド ディスク; 相違点と考慮事項
 description: Azure Stack Hub でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 1abee3556ac45791831c6dcb9fc8dce05477e51e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 335c6e39b067e9a95ec075866279d35b451d7c87
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479307"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777680"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub マネージド ディスク: 相違点と考慮事項
 
@@ -21,7 +21,7 @@ ms.locfileid: "80479307"
 マネージド ディスクを使用すると、VM ディスクに関連付けられている[ストレージ アカウント](../operator/azure-stack-manage-storage-accounts.md)を管理できるため、IaaS 仮想マシン (VM) のディスク管理が簡素化されます。
 
 > [!NOTE]  
-> Azure Stack Hub のマネージド ディスクは 1808 更新プログラムから使用できます。 1811 更新プログラム以降で Azure Stack Hub ポータルを使用して VM を作成する場合、機能は既定で有効になっています。
+> Azure Stack Hub のマネージド ディスクは 1808 更新プログラム以降で利用可能でした。 1811 更新プログラム以降で Azure Stack Hub ポータルを使用して VM を作成する場合、機能は既定で有効になっています。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>チート シート: マネージド ディスクの相違点
 
@@ -54,7 +54,7 @@ ms.locfileid: "80479307"
 
 Azure Stack Hub のマネージド ディスクでは、次の API バージョンがサポートされています。
 
-- 2017-03-30 
+- 2017-03-30
 - 2017-12-01 (マネージド イメージのみ、ディスクなし、スナップショットなし)
 
 ## <a name="convert-to-managed-disks"></a>マネージド ディスクへの変換

@@ -3,16 +3,16 @@ title: Azure Stack Hub での Ruby による API バージョンのプロファ�
 description: Azure Stack Hub での Ruby による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 5b79c676b922f0e76ed75e3ad043f53c1fb9d6a5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b59adea78b5325a449bd52b211edc5e04ea5e566
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295492"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836242"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
 
@@ -44,7 +44,7 @@ API プロファイルは、リソース プロバイダーとサービス バ�
 
 - 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成手順については、「[Azure Stack Hub でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」の記事で説明しています。
 - サービス プリンシパルを作成し、その ID とシークレットを保存します。 Azure Stack Hub 向けサービス プリンシパルの作成手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」の記事で説明しています。
-- サブスクリプションでサービス プリンシパルに共同作成者/所有者ロールが割り当てられていることを確認します。 サービス プリンシパルへのロールの割り当て方法に関する手順は、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」の記事で説明しています。
+- サブスクリプションでサービス プリンシパルに共同作成者/所有者ロールが割り当てられていることを確認します。 サービス プリンシパルへのロールの割り当て方法に関する手順は、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」の記事で説明されています。
 
 ## <a name="install-the-rubygem-packages"></a>RubyGem パッケージをインストールする
 

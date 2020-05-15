@@ -7,12 +7,13 @@ ms.date: 01/02/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/02/2019
-ms.openlocfilehash: ec4f3dc2a17e362038d11ec988d19ffa9edd6a6e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: e6d8708b15d5402d16b17a722640c9bf0c2251c4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701855"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848032"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 
@@ -90,12 +91,11 @@ Azure Stack Hub でのカスタム リソースの作成にこのテンプレー
 
 3. **[デプロイ]** をクリックしてから、 **[Microsoft.Template]** を選択します。
 
-    ![Microsoft.template のデプロイ](media/app-service-deploy-ha/6.png)
+    ![Microsoft. テンプレートのデプロイ](media/app-service-deploy-ha/6.png)
 
 4. **[Microsoft.Template]** デプロイを選択した後、 **[出力]** を選択し、テンプレート パラメーターの出力を記録します。 App Service をデプロイするときに、この情報が必要になります。
 
     ![パラメーターの出力](media/app-service-deploy-ha/7.png)
-
 
 ## <a name="deploy-app-service-in-a-highly-available-configuration"></a>高可用性構成で App Service をデプロイする
 このセクションの手順に従って、[appservice-fileshare-sqlserver-ha](https://github.com/Azure/azurestack-quickstart-templates/tree/master/appservice-fileserver-sqlserver-ha) Azure Stack Hub クイックスタート テンプレートに基づき、高可用性構成で Azure Stack Hub 用に App Service をデプロイします。 
@@ -111,20 +111,46 @@ App Service インストーラーを実行する前に、[App Service on Azure S
 > [!TIP]
 > テンプレートのデプロイによってインフラストラクチャ VM が自動的に構成されるため、[App Service を開始する前に関する記事](azure-stack-app-service-before-you-get-started.md)で説明されているすべての手順が必ずしも必要というわけではありません。
 
-- [App Service インストーラーおよびヘルパー スクリプトをダウンロードする](azure-stack-app-service-before-you-get-started.md#download-the-installer-and-helper-scripts)。
+- [App Service インストーラーおよびヘルパー スクリプトをダウンロードする](azure-stack-app-service-before-you-get-started.md#installer-and-helper-scripts)。
 - [Azure Stack Hub Marketplace から項目をダウンロードする](azure-stack-app-service-before-you-get-started.md#download-items-from-the-azure-marketplace)。
-- [必要な証明書を生成する](azure-stack-app-service-before-you-get-started.md#get-certificates)。
-- Azure Stack Hub 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-active-directory-federation-services-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
+- [デプロイの種類に必要な証明書を生成する](azure-stack-app-service-before-you-get-started.md)。
+- Azure Stack Hub 用に選択した ID プロバイダーに基づいて ID アプリケーションを作成する。 ID アプリケーションは [Azure AD](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app)または [Active Directory フェデレーション サービス (AD FS)](azure-stack-app-service-before-you-get-started.md#create-an-adfs-app) のいずれかに対して作成し、アプリケーション ID を記録できます。
+<!-- Connected --->
+::: zone pivot="state-connected"
 - Windows Server 2016 Datacenter イメージを Azure Stack Hub Marketplace に確実に追加してください。 このイメージは App Service のインストールに必要です。
+::: zone-end
+
+::: zone pivot="state-disconnected"
+<!-- Disconnected --->
+- **Microsoft. Net 3.5.1 SP1 がアクティブになっている Windows Server 2016 Datacenter の完全 VM イメージ**。  Azure App Service on Azure Stack Hub では、デプロイに使用されるイメージ上で Microsoft .NET 3.5.1 SP1 がアクティブになっている必要があります。 Marketplace にシンジケート化された Windows Server 2016 のイメージでは、この機能が有効になっておらず、切断された環境では Microsoft Update に接続できないため、DISM を介してインストールするパッケージをダウンロードできません。 そのため、切断されたデプロイでは、この機能をあらかじめ有効にして Windows Server 2016 イメージを作成し、使用する必要があります。
+
+   カスタム イメージを作成して Marketplace に追加する方法の詳細については、「[Azure Stack Hub にカスタム VM イメージを追加する](azure-stack-add-vm-image.md)」を参照してください。 Marketplace にイメージを追加するときは、必ず次のプロパティを指定してください。
+
+   - 発行元 = MicrosoftWindowsServer
+   - オファー = WindowsServer
+   - SKU = 2016-Datacenter
+   - バージョン = "最新" バージョンを指定
+
+::: zone-end
+
+<!-- For All --> 
 
 ### <a name="steps-for-app-service-deployment"></a>App Service のデプロイの手順
 App Service リソース プロバイダーのインストールには少なくとも 1 時間かかります。 必要な時間の長さは、デプロイするロール インスタンスの数によって異なります。 デプロイ中に、インストーラーは次のタスクを実行します。
 
-- 指定した Azure Stack Hub ストレージ アカウントに BLOB コンテナーを作成します。
-- App Service の DNS ゾーンとエントリを作成します。
-- App Service リソース プロバイダーを登録します。
-- App Service のギャラリー アイテムを登録します。
+- [既定のプロバイダー サブスクリプション] で必要なリソース プロバイダーを登録する
+- App Service ID アプリケーションへの共同作成者のアクセス権を付与する
+- リソース グループと仮想ネットワークを作成する (必要な場合)
+- App Service インストール アーティファクト、使用状況サービス、リソース ハイドレーション用のストレージ アカウントとコンテナーを作成する
+- App Service アーティファクトをダウンロードし、App Service ストレージア カウントにアップロードする
+- App Service をデプロイする
+- 使用状況サービスを登録する
+- App Service の DNS エントリを作成する
+- App Service の管理者とテナント リソース プロバイダーを登録する
+- ギャラリー項目 (Web、API、関数アプリ、App Service プラン、WordPress、DNN、Orchard、Django アプリケーション) を登録する
 
+<!-- Connected --->
+::: zone pivot="state-connected"
 App Service リソース プロバイダーをデプロイするには、次の手順を実行します。
 
 1. Azure Stack Hub の管理者の Azure Resource Management エンドポイントにアクセスできるコンピューターから、以前にダウンロードした App Service インストーラー (**appservice.exe**) を管理者として実行します。
@@ -160,17 +186,6 @@ App Service リソース プロバイダーをデプロイするには、次の�
 9. App Service のインストールに使用されているマシンは、App Service のファイル共有をホストするために使用されているファイル サーバーと同じ VNet 上に配置されていないため、ユーザーは名前を解決することができません。 **このエラーは予想される動作です**。<br><br>ファイル共有 UNC パスとアカウント情報に入力された情報が正しいことを確認します。 次に、アラート ダイアログで **[はい]** をクリックして、App Service のインストールを続行します。
 
     ![App Service の予期されるエラー ダイアログ](media/app-service-deploy-ha/08.png)
-
-    既存の仮想ネットワークおよび内部 IP アドレスにデプロイして、ファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
-    - 送信元: 任意
-    - 送信元ポート範囲: *
-    - 送信先: IP アドレス
-    - 送信先 IP アドレス範囲: ファイル サーバーの IP の範囲
-    - 送信先ポート範囲: 445
-    - プロトコル: TCP
-    - アクション: 許可
-    - 優先順位: 700
-    - 名前: Outbound_Allow_SMB445
 
 10. Identity Application ID を入力し、ID 証明書のパスとパスワードを入力して、 **[次へ]** をクリックします。
     - Identity Application 証明書 (**sso.appservice.local.azurestack.external.pfx** の形式)
@@ -224,6 +239,138 @@ App Service リソース プロバイダーをデプロイするには、次の�
 18. App Service デプロイの進行状況を確認します。 特定のデプロイ構成とハードウェアによっては、このデプロイに 1 時間以上かかることがあります。 インストーラーが正常に完了したら、 **[終了]** を選択します。
 
     ![App Service のセットアップの完了](media/app-service-deploy-ha/16.png)
+
+::: zone-end
+
+::: zone pivot="state-disconnected"
+<!-- Disconnected --->
+
+## <a name="create-an-offline-installation-package"></a>オフライン インストール パッケージを作成する
+
+オフライン環境で Azure App Service をデプロイするには、まず、インターネットに接続されているマシンでオフライン インストール パッケージを作成します。
+
+1. インターネットに接続されているマシンで AppService.exe インストーラーを実行します。 
+
+1. **[詳細]**  >  **[オフライン インストール パッケージを作成する]** の順に選択します。 この手順は、完了までに数分かかります。
+
+    ![Azure App Service インストーラーでオフライン パッケージを作成する][31]
+
+1. Azure App Service インストーラーにより、オフライン インストール パッケージが作成され、そのパッケージへのパスが表示されます。 **[フォルダーを開く]** を選択すると、エクスプローラーでフォルダーが開きます。
+
+    ![Azure App Service インストーラーで正常に生成されたオフライン インストール パッケージ](media/azure-stack-app-service-deploy-offline/image02.png)
+
+1. インストーラー (AppService.exe) とオフライン インストール パッケージを、Azure Stack Hub に接続されているマシンにコピーします。
+
+## <a name="complete-the-offline-installation-of-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub のオフライン インストールを完了させる
+
+1. Azure Stack Hub 管理の Azure Resource Management エンドポイントに到達できるコンピューターから、appservice.exe を管理者として実行します。
+
+1. **[詳細設定]**  >  **[Complete offline installation]\(オフライン インストールを完了する\)** の順に選択します。
+
+    ![Azure App Service インストーラーでオフライン インストールを実行する][32]
+
+1. 先ほど作成したオフライン インストール パッケージの場所を参照し、 **[次へ]** を選択します。
+
+    ![Azure App Service インストーラーでオフライン インストール パッケージ パスを指定する](media/azure-stack-app-service-deploy-offline/image04.png)
+
+1. Microsoft のライセンス条項に同意し、 **[次へ]** をクリックします。
+
+    ![App Service の Microsoft ライセンス条項](media/app-service-deploy-ha/02.png)
+
+1. Microsoft 以外のライセンス条項に同意し、 **[次へ]** をクリックします。
+
+    ![App Service の Microsoft 以外のライセンス条項](media/app-service-deploy-ha/03.png)
+
+1. Azure Stack Hub 環境に App Service クラウド エンドポイント構成を指定します。
+
+    ![App Service のクラウド エンドポイント構成](media/app-service-deploy-ha/04.png)
+
+1. インストールに使用する Azure Stack Hub サブスクリプションに**接続**し、場所を選択します。 
+
+    ![App Service で Azure Stack Hub サブスクリプションに接続する](media/app-service-deploy-ha/05.png)
+
+1. 高可用性テンプレートのデプロイに使用されるリソース グループに **[既存の VNet とサブネットを使用する]** と **[リソース グループ名]** を選択します。  次に、テンプレートのデプロイの一環として作成された仮想ネットワークを選択してから、ドロップダウン リスト オプションから適切なロールのサブネットを選択します。 
+
+    ![App Service での Vnet の選択](media/app-service-deploy-ha/06.png)
+
+1. ファイル共有パスとファイル共有所有者のパラメーターに、以前に記録したテンプレート出力情報を入力します。 完了したら、 **[次へ]** をクリックします。
+
+    ![App Service でのファイル共有出力情報](media/app-service-deploy-ha/07.png)
+
+1. App Service のインストールに使用されているマシンは、App Service のファイル共有をホストするために使用されているファイル サーバーと同じ VNet 上に配置されていないため、ユーザーは名前を解決することができません。 **このエラーは予想される動作です**。  ファイル共有 UNC パスとアカウント情報に入力された情報が正しいことを確認します。 次に、アラート ダイアログで **[はい]** をクリックして、App Service のインストールを続行します。
+
+    ![App Service の予期されるエラー ダイアログ](media/app-service-deploy-ha/08.png)
+
+1. Identity Application ID を入力し、ID 証明書のパスとパスワードを入力して、 **[次へ]** をクリックします。
+    - Identity Application 証明書 (**sso.appservice.local.azurestack.external.pfx** の形式)
+    - Azure Resource Manager ルート証明書 (**AzureStackCertificationAuthority.cer**)
+
+    ![App Service での ID Application 証明書とルート証明書](media/app-service-deploy-ha/008.png)
+
+1. 次に、以下の証明書に必要な残りの情報を入力して、 **[次へ]** をクリックします。
+    - 既定の Azure Stack Hub SSL 証明書 ( **_.appservice.local.azurestack.external.pfx** の形式)
+    - API SSL 証明書 (**api.appservice.local.azurestack.external.pfx** の形式)
+    - パブリッシャー証明書 (**ftp.appservice.local.azurestack.external.pfx** の形式) 
+
+    ![App Service での追加の構成証明書](media/app-service-deploy-ha/09.png)
+
+1. 高可用性テンプレートのデプロイ出力からの SQL Server 接続情報を使用して、SQL Server 接続情報を入力します。
+
+    ![App Service での SQL Server の接続情報](media/app-service-deploy-ha/10.png)
+
+1. App Service のインストールに使用されているマシンは、App Service データベースをホストするために使用されている SQL Server と同じ VNet 上に配置されていないため、ユーザーは名前を解決することができません。  **これは予想される動作です**。  SQL Server の名前とアカウント情報に入力した情報が正しいことを確認し、 **[はい]** を押して App Service のインストールを続行してください。 **[次へ]** をクリックします。
+
+    ![App Service での SQL Server の接続情報](media/app-service-deploy-ha/11.png)
+
+1. 既定のロール構成値を受け入れるか、または推奨値に変更して **[次へ]** をクリックします。  高可用性構成の場合は、App Service インフラストラクチャ ロール インスタンスの既定値を次のように変更することをお勧めします。
+
+    |Role|Default|高可用性の推奨設定|
+    |-----|-----|-----|
+    |コントローラー ロール|2|2|
+    |管理ロール|1|3|
+    |パブリッシャー ロール|1|3|
+    |FrontEnd ロール|1|3|
+    |共有 worker ロール|1|2|
+    |     |     |     |
+
+    ![App Service でのインフラストラクチャ ロール インスタンスの値](media/app-service-deploy-ha/12.png)
+
+    > [!NOTE]
+    > 既定値からこのチュートリアルで推奨されている値に変更すると、App Service をインストールするためのハードウェア要件が増加します。 6 VM 用に既定の 9 コアおよび 16,128 MB の RAM をサポートする代わりに、推奨される 13 VM をサポートするには、合計 18 コアおよび 32,256 MB のRAM が必要です。
+
+1. App Service インフラストラクチャ VM のインストールに使用するプラットフォーム イメージを選択して、 **[次へ]** をクリックします。
+
+    ![App Service でのプラットフォーム イメージの選択](media/app-service-deploy-ha/13.png)
+
+1. 使用する App Service インフラストラクチャ ロールの資格情報を入力して、 **[次へ]** をクリックします。
+
+    ![App Service でのインフラストラクチャ ロールの資格情報](media/app-service-deploy-ha/14.png)
+
+1. App Service のデプロイに使用される情報を確認し、 **[次へ]** をクリックしてデプロイを開始します。
+
+    ![App Service のインストールの概要を確認する](media/app-service-deploy-ha/15.png)
+
+1. App Service デプロイの進行状況を確認します。 特定のデプロイ構成とハードウェアによっては、このデプロイに 1 時間以上かかることがあります。 インストーラーが正常に完了したら、 **[終了]** を選択します。
+
+    ![App Service のセットアップの完了](media/app-service-deploy-ha/16.png)
+
+::: zone-end
+
+## <a name="post-deployment-steps"></a>デプロイ後の手順
+
+1. [appservice_hosting および appservice_metering データベースを可用性グループに追加する](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)**必要があります**。 また、データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期する必要もあります。
+
+2. App Service を既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続している場合、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする**必要があります**。 管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
+
+- ソース:Any
+- 送信元ポート範囲: *
+- 変換先:IP アドレス
+- 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
+- 送信先ポート範囲:445
+- プロトコル:TCP
+- アクション:Allow
+- 優先順位:700
+- 名前:Outbound_Allow_SMB445
 
 ## <a name="next-steps"></a>次のステップ
 

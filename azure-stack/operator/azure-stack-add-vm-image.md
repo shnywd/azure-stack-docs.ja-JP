@@ -7,12 +7,12 @@ ms.date: 02/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2019
-ms.openlocfilehash: 4d2f76e1af47800331aac44715b5b8630baceae1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 167a9c9d46be7ac77e59e2be7ede1c09e43fda70
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701430"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847930"
 ---
 # <a name="add-a-custom-vm-image-to-azure-stack-hub"></a>Azure Stack Hub にカスタム VM イメージを追加する
 
@@ -172,7 +172,7 @@ VHD を Azure Stack Hub に移植する前に、[この記事](/azure/virtual-ma
 
 ## <a name="remove-the-vm-image-as-an-azure-stack-hub-operator-using-the-portal"></a>Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを削除する
 
-1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)を開きます。
+1. Azure Stack Hub 管理者ポータル (`https://adminportal.local.azurestack.external`) を開きます。
 
 2. VM イメージに Marketplace 項目が関連付けられている場合は、 **[Marketplace management]\(Marketplace 管理\)** を選択し、削除する VM Marketplace 項目を選択します。
 

@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 943f391d709f772ec3ed5aa0c99bd738f5de679a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368126"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848185"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 
@@ -27,7 +27,7 @@ ms.locfileid: "78368126"
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>コマンドレットが利用可能なことを確認する
-これらのコマンドレットは、Azure Stack Hub の 1710 更新プログラム パッケージの新機能であるため、1710 更新プロセスを、モニター機能が使用可能となる前の特定の時点まで進める必要があります。 通常は、管理者ポータルの状態で、1710 更新が「**ストレージ ホストの再起動**」の手順に達していることが示された場合に、コマンドレットを使用できるようになります。 特に、コマンドレットの更新は、「**手順: 手順 2.6 の実行 - PrivilegedEndpoint ホワイトリストの更新**」の際に行われます。
+これらのコマンドレットは、Azure Stack Hub の 1710 更新プログラム パッケージの新機能であるため、1710 更新プロセスを、モニター機能が使用可能となる前の特定の時点まで進める必要があります。 通常は、管理者ポータルの状態で、1710 更新が「**ストレージ ホストの再起動**」の手順に達していることが示された場合に、コマンドレットを使用できるようになります。 具体的には、コマンドレットの更新は、「**手順: 手順 2.6 の実行 - PrivilegedEndpoint ホワイトリストの更新**」の間に行われます。
 
 特権エンドポイントからコマンド一覧のクエリを実行することによって、コマンドレットが使用可能かどうかをプログラムによって判別することもできます。 このクエリを実行するには、ハードウェア ライフ サイクル ホストまたは特権アクセス ワークステーションから、次のコマンドを実行します。 さらに、特権エンドポイントが信頼されたホストであることを確認してください。 詳細については、「[特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)」の手順 1 を参照してください。
 
@@ -100,7 +100,7 @@ $statusString.Value
 指定できる値は、次のとおりです。
 
 - 実行中
-- [完了]
+- 完了
 - 失敗 
 - Canceled
 
@@ -157,9 +157,11 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>[トラブルシューティング]
+## <a name="troubleshoot"></a>トラブルシューティング
 
 特権エンドポイントは、Azure Stack Hub 環境内のすべての ERCS VM で使用できます。 高可用性エンドポイントへの接続は確立されないため、中断したり、警告またはエラー メッセージが表示されたりすることがあります。 これらのメッセージは、セッションが切断されたか、または ECE サービスとの通信エラーがあったことを示している場合があります。 これは正しい動作です。 しばらく待ってから操作を再試行するか、他の ERCS VM のいずれかで新しい特権エンドポイント セッションを作成できます。
+
+更新プログラムのトラブルシューティングの詳細については、[Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)に関するページをご覧ください
 
 ## <a name="next-steps"></a>次のステップ
 

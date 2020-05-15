@@ -6,14 +6,14 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.reviewer: bryanla
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e1e2c3c6c3d1149b2cd034c2f5e4abfdf26e712f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: d84b6a7d7f4ec1777b8e58e8cafc9ba64726393f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424609"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847882"
 ---
-既に Azure Stack Hub Marketplace からリソース プロバイダーをインストールしている場合は、一般的な前提条件を満たしていると考えられるため、このセクションは省略してもかまいません。 それ以外の場合は、まず次の前提条件を満たしておく必要があります。 
+既にリソース プロバイダーをインストールしている場合は、次の前提条件を満たしていると考えられるため、このセクションは省略してもかまいません。 それ以外の場合は、続行する前に次の手順を完了してください。 
 
 1. まだの場合は、[Azure Stack Hub インスタンスを Azure に登録します](../operator/azure-stack-registration.md)。 この手順は、Azure から Marketplace に接続して項目をダウンロードする際に必要になります。
 

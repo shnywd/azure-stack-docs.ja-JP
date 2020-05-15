@@ -3,23 +3,23 @@ title: Azure Stack Hub に使用状況の追跡のためのテナントを登録
 description: Azure Stack Hub でのテナントの登録方法とテナントの使用状況の追跡方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 72fdb2bf4d19291ff5b0a83c2233354bde4ec201
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295534"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742307"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
 この記事では、登録操作について詳しく説明します。 これらの操作を使用して次のことができます。
 
-- テナントの登録を管理する
-- テナントの使用状況の追跡を管理する
+- テナントの登録を管理する。
+- テナントの使用状況の追跡を管理する。
 
 ## <a name="add-tenant-to-registration"></a>テナントを登録に追加する
 
@@ -57,10 +57,10 @@ New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 ### <a name="api-call"></a>API 呼び出し
 
-**操作**: PUT  
+**Operation**:PUT  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**応答**: 201 Created  
-**応答本文**: 空  
+**応答**:201 Created  
+**応答本文**:Empty  
 
 ## <a name="list-all-registered-tenants"></a>すべての登録済みテナントの一覧
 
@@ -89,9 +89,9 @@ Get-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/reso
 
 GET 操作を使用して、すべてのテナント マッピングの一覧を取得できます。
 
-**操作**: GET  
+**Operation**:GET  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions?api-version=2017-06-01 HTTP/1.1`  
-**応答**: 200  
+**応答**:200  
 **応答本文**:
 
 ```json
@@ -138,10 +138,10 @@ Remove-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/r
 
 DELETE 操作を使用して、テナントのマッピングを削除することができます。
 
-**操作**: DELETE  
+**Operation**:DELETE  
 **要求 URI**: `subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}?api-version=2017-06-01 HTTP/1.1`  
-**応答**: 204 No Content  
-**応答本文**: 空
+**応答**:204 No Content  
+**応答本文**:Empty
 
 ## <a name="next-steps"></a>次のステップ
 
