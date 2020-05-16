@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 38e3d36b5269dac3ee3c4190aff001b4ed4921b4
-ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82173949"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908610"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -219,7 +219,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 コマンドを手動で実行する場合は、次の手順に従います。
 
-1. データセンターの AD FS インスタンスまたはファーム メンバーの .txt ファイル (例: c:\ClaimRules.txt) に次のコンテンツをコピーします。
+1. データセンターの AD FS インスタンスまたはファーム メンバーの .txt ファイル (例: c:\ClaimIssuanceRules.txt) に次のコンテンツをコピーします。
 
    ```text
    @RuleTemplate = "LdapClaims"

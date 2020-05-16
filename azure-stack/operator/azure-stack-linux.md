@@ -3,16 +3,16 @@ title: Linux イメージを Azure Stack Hub Marketplace に追加する
 description: Azure Stack Hub Marketplace へ Linux イメージを追加する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/07/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: ''
 ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: 532f61b2b306dab833c35dab403226e70950d43a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 32cdb1ec98f9825a63b5acfa68e4c8e3f43089a7
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295096"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967728"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux イメージを Azure Stack Hub Marketplace に追加する
 
@@ -22,7 +22,7 @@ Azure Stack Hub Marketplace に Linux ベースのイメージを追加するこ
 
 Azure Marketplace から Linux イメージをダウンロードするには、[Azure から Azure Stack Hub への Marketplace 項目のダウンロード](azure-stack-download-azure-marketplace-item.md)に関する記事を参照してください。 Azure Stack Hub で、ユーザーに提供する Linux イメージを選択します。
 
-これらのイメージは頻繁に更新されるので、Marketplace Management をこまめに確認して最新の状態に保つようにしてください。
+これらのイメージは頻繁に更新されるので、こまめに確認して最新の状態に保つようにしてください。
 
 ## <a name="prepare-your-own-image"></a>独自のイメージを準備する
 
@@ -101,7 +101,7 @@ runcmd:
   - nodejs index.js
   ```
   
-### <a name="step-2-reference-the-cloud-inittxt-during-the-linux-vm-deployment"></a>手順 2:Linux VM のデプロイ中に cloud-init.txt を参照する
+### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>手順 2:Linux VM のデプロイ中に cloud-init.txt を参照する
 
 Azure Stack Hub Linux VM からアクセスできる Azure ストレージ アカウント、Azure Stack Hub ストレージ アカウント、または GitHub リポジトリにファイルをアップロードします。
 現時点では、VM のデプロイでの cloud-init の使用は、REST、Powershell、CLI でのみサポートされており、Azure Stack Hub に関連付けられたポータル UI はありません。

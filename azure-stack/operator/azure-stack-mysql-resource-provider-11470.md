@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: justinha
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/26/2019
-ms.openlocfilehash: 4984f36b4632f2bcb204c93ef409ea82a7f299f5
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: cf116e392cc75119eabe8fbea9ccb37f72f4b1a0
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698829"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375140"
 ---
 # <a name="mysql-resource-provider-11470-release-notes"></a>MySQL リソース プロバイダー 1.1.47.0 のリリース ノート
 
@@ -31,9 +31,9 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
 
 ## <a name="new-features-and-fixes"></a>新機能と修正
 
-このバージョンの Azure Stack Hub MySQL リソース プロバイダーは、リソース プロバイダーが 1910 更新プログラムでの最新のポータル変更の一部との互換性を持つようにするための修正プログラム リリースであり、新機能はありません。
+このバージョンの Azure Stack Hub MySQL リソース プロバイダーは、リソース プロバイダーが 1910 更新プログラムでの最新のポータル変更の一部との互換性を持つようにするための修正プログラム リリースです。 新しい機能はありません。
 
-現時点で最新の Azure Stack Hub API バージョン プロファイル 2019-03-01-hybrid と Azure Stack Hub PowerShell モジュール 1.8.0 もサポートされています。 このため、デプロイおよび更新時にモジュールの特定の履歴バージョンをインストールする必要はありません。
+最新の Azure Stack Hub API バージョン プロファイル 2019-03-01-hybrid と Azure Stack Hub PowerShell モジュール 1.8.0 もサポートされています。 このため、デプロイおよび更新時にモジュールの特定の履歴バージョンをインストールする必要はありません。
 
 Azure Stack Hub が 1910 リリースにアップグレードされた後に MySQL リソース プロバイダーの修正プログラム 1.1.47.0 を適用することをお勧めします。
 
@@ -42,8 +42,7 @@ Azure Stack Hub が 1910 リリースにアップグレードされた後に MyS
 [なし] :
 
 ## <a name="next-steps"></a>次のステップ
-[MySQL リソース プロバイダーの詳細を確認します](azure-stack-mysql-resource-provider.md)。
 
-[MySQL リソースプロバイダーのデプロイを準備します](azure-stack-mysql-resource-provider-deploy.md#prerequisites)。
-
-[MySQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-mysql-resource-provider-update.md)。 
+- [MySQL リソース プロバイダーの詳細を確認します](azure-stack-mysql-resource-provider.md)。
+- [MySQL リソースプロバイダーのデプロイを準備します](azure-stack-mysql-resource-provider-deploy.md#prerequisites)。
+- [MySQL リソース プロバイダーを以前のバージョンからアップグレードします](azure-stack-mysql-resource-provider-update.md)。

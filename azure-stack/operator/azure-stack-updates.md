@@ -3,16 +3,16 @@ title: 更新プログラムの管理
 description: Azure Stack Hub 上で更新プログラムを管理する方法について説明します
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 48bc8e2df857b2e1c352ffaa55ef900672d4f78b
-ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
+ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81772487"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374610"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Azure Stack Hub での更新プログラム管理
 
@@ -49,7 +49,7 @@ ms.locfileid: "81772487"
 
 サポートを継続して受けるには、Azure Stack Hub 環境を、サポートされる Azure Stack Hub ソフトウェア バージョンで維持する必要があります。 詳細については「[Azure Stack Hub サービス ポリシー](azure-stack-update-servicing-policy.md)」を参照してください。
 
-## <a name="where-to-get-notice-of-an-update"></a>更新の通知を受け取る場所
+## <a name="how-to-know-an-update-is-available"></a>更新プログラムが利用可能になっていることを確認する方法
 
 更新の通知は、インターネットへの接続や更新プログラムの種類など、いくつかの要因によって異なります。
 

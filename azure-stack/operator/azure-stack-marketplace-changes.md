@@ -1,22 +1,22 @@
 ---
-title: Azure Stack Hub Marketplace の新機能
-description: Azure Stack Hub Marketplace の変更と更新。
+title: Azure Stack Hub Marketplace の最新情報
+description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/13/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 9852799c59e7ddf2c33a93f5af4feee69718d4ab
-ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
+ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
+ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82166975"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83382490"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
-この記事では、過去約 3 か月にわたる [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
+この記事では、過去 3 か月にわたる [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
 
 [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)に関する記事には、常に最新の利用可能な Azure Stack Hub Marketplace 項目の一覧が含まれています。
 
@@ -57,21 +57,158 @@ ms.locfileid: "82166975"
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
 - Bitnami Node.js の高可用性クラスター
+- Bitnami ProcessMaker Enterprise Edition
 - A10 vThunder:L4-L7 Application Delivery Controller、Global Server Load Balancing (GSLB)、SSL Insight
 - Check Point vSEC セキュリティ管理
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 5 月 7 日:Bitnami ActiveMQ - バージョン 5.15.2003260344
+- 2020 年 5 月 7 日:Bitnami Akeneo- バージョン 4-3.2.2004230142
+- 2020 年 5 月 7 日:Bitnami Alfresco Community - バージョン 201911.0.2004242008
+- 2020 年 5 月 7 日:Bitnami Apache Solr - バージョン 8.5.2004201607
+- 2020 年 5 月 7 日:Bitnami JFrog Artifactory Open Source - バージョン 6.19.2005041054
+- 2020 年 5 月 7 日:Bitnami Cassandra - バージョン 3.11.2003302002
+- 2020 年 5 月 7 日:Bitnami CiviCRM - バージョン 5.24.2004230742
+- 2020 年 5 月 7 日:Bitnami CMS Made Simple - バージョン 2.2.2004220149
+- 2020 年 5 月 7 日:Bitnami concrete5 - バージョン 8.5.2004220952
+- 2020 年 5 月 7 日:Bitnami HashiCorp Consul - バージョン 1.7.2003252309
+- 2020 年 5 月 7 日:Bitnami Coppermine - バージョン 1.6.2004220101
+- 2020 年 5 月 7 日:Bitnami CouchDB - バージョン 3.0.2004090905
+- 2020 年 5 月 7 日:Bitnami Diaspora - バージョン 0.7.2004220228
+- 2020 年 5 月 7 日:Bitnami Discourse - バージョン 2.4.2004222352
+- 2020 年 5 月 7 日:Bitnami Django - バージョン 2.2.2004220952
+- 2020 年 5 月 7 日:Bitnami DokuWiki - バージョン 20180422.0.2004220151
+- 2020 年 5 月 7 日:Bitnami Dolibarr - バージョン 11.0.2004220907
+- 2020 年 5 月 7 日:Bitnami DreamFactory - バージョン 4.1.2004221304
+- 2020 年 5 月 7 日:Bitnami Drupal - バージョン 8.8.2004220309
+- 2020 年 5 月 7 日:Bitnami Elasticsearch - バージョン 7.6.2003312054
+- 2020 年 5 月 7 日:Bitnami ELK - バージョン 7.6.2003312108
+- 2020 年 5 月 7 日:Bitnami ERPNext - バージョン -12.7.2004231458
+- 2020 年 5 月 7 日:Bitnami EspoCRM - バージョン 5.8.2004220156
+- 2020 年 5 月 7 日:Bitnami etcd - バージョン 3.4.2004020147
+- 2020 年 5 月 7 日:Bitnami eXo Platform - バージョン 5.2.2004241913
+- 2020 年 5 月 7 日:Bitnami Fat Free CRM - バージョン 0.18.2004220211
+- 2020 年 5 月 7 日:Bitnami Ghost - バージョン 3.14.2005041054
+- 2020 年 5 月 7 日:Bitnami GitLab CE - バージョン 12.10.2004241755
+- 2020 年 5 月 7 日:Bitnami Grafana - バージョン 6.7.2004231501
+- 2020 年 5 月 7 日:Bitnami Apache Guacamole - バージョン 1.1.2003260344
+- 2020 年 5 月 7 日:Bitnami Hadoop - バージョン 3.2.2004242040
+- 2020 年 5 月 7 日:Bitnami HHVM - バージョン 3.30.2004220056
+- 2020 年 5 月 7 日:Bitnami Horde Groupware Webmail - バージョン 5.2.2004220952
+- 2020 年 5 月 7 日:Bitnami JasperReports - バージョン 7.5.2004220219
+- 2020 年 5 月 7 日:Bitnami Jenkins - バージョン 2.204.2003061428
+- 2020 年 5 月 7 日:Bitnami Joomla! - バージョン 3.9.2004220511
+- 2020 年 5 月 7 日:Bitnami JRuby - バージョン 9.2.2004241917
+- 2020 年 5 月 7 日:Bitnami Kafka - バージョン 2.5.2004152349
+- 2020 年 5 月 7 日:Bitnami Kong - バージョン 2.0.2004232326
+- 2020 年 5 月 7 日:Bitnami Kubernetes Sandbox - バージョン 1.18.2004090333
+- 2020 年 5 月 7 日:Bitnami LAMP - バージョン 7.3.2004241853
+- 2020 年 5 月 7 日:Bitnami LAPP - バージョン 7.3.2004241251
+- 2020 年 5 月 7 日:Bitnami Let's Chat - バージョン 0.4.2004221148
+- 2020 年 5 月 7 日:Bitnami Liferay - バージョン 7.3.2004231024
+- 2020 年 5 月 7 日:Bitnami LimeSurvey - バージョン 4.2.2005041206
+- 2020 年 5 月 7 日:Bitnami Live Helper Chat - バージョン 3.31.2004220209
+- 2020 年 5 月 7 日:Bitnami Magento - バージョン 2.3.2004220952
+- 2020 年 5 月 7 日:Bitnami Mahara - バージョン 10-19.10.2004220207
+- 2020 年 5 月 7 日:Bitnami Mantis - バージョン 2.24.2004220951
+- 2020 年 5 月 7 日:Bitnami MariaDB - バージョン 10.4.2003252212
+- 2020 年 5 月 7 日:Bitnami Mattermost Team Edition - バージョン 5.22.2005041054
+- 2020 年 5 月 7 日:Bitnami Mautic - バージョン 2.16.2004220323
+- 2020 年 5 月 7 日:Bitnami MEAN - バージョン 4.2.2004281603
+- 2020 年 5 月 7 日:Bitnami MediaWiki - バージョン 1.34.2004220952
+- 2020 年 5 月 7 日:Bitnami Memcached - バージョン 1.6.2004132340
+- 2020 年 5 月 7 日:Bitnami MODX - バージョン 2.7.2004220204
+- 2020 年 5 月 7 日:Bitnami MongoDB - バージョン 4.2.2004170936
+- 2020 年 5 月 7 日:Bitnami Moodle - バージョン 3.8.2004220952
+- 2020 年 5 月 7 日:Bitnami MyBB - バージョン 1.8.2004230613
+- 2020 年 5 月 7 日:Bitnami MySQL - バージョン 8.0.2003252232
+- 2020 年 5 月 7 日:Bitnami NATS - バージョン 2.1.2004010828
+- 2020 年 5 月 7 日:Bitnami Neo4j - バージョン .4.0.2003311444
+- 2020 年 5 月 7 日:Bitnami NGINX Open Source - バージョン 1.16.2004221209
+- 2020 年 5 月 7 日:Bitnami Noalyss - バージョン 7.3.2004220120
+- 2020 年 5 月 7 日:Bitnami Node.js - バージョン 12.16.2004281743
+- 2020 年 5 月 7 日:Bitnami Composr - バージョン 10.0.2004220137
+- 2020 年 5 月 7 日:Bitnami Odoo - バージョン 13.0.2004220418
+- 2020 年 5 月 7 日:Bitnami Open Atrium - バージョン 2.645.2004220952
+- 2020 年 5 月 7 日:Bitnami OpenCart - バージョン 3.0.2004230142
+- 2020 年 5 月 7 日:Bitnami Open edX - バージョン 576663.2.2004250743
+- 2020 年 5 月 7 日:Bitnami Openfire - バージョン 4.5.2004241829
+- 2020 年 5 月 7 日:Bitnami OpenProject - バージョン 10.3.2004220618
+- 2020 年 5 月 7 日:Bitnami OrangeHRM - バージョン 4.3.2004220223
+- 2020 年 5 月 7 日:Bitnami OroCRM - バージョン 4.0.2004220319
+- 2020 年 5 月 7 日:Bitnami Osclass - バージョン 3.9.2004221629
+- 2020 年 5 月 7 日:Bitnami ownCloud - バージョン 10.4.2004231341
+- 2020 年 5 月 7 日:Bitnami OXID eShop - バージョン 6.2.2004220516
+- 2020 年 5 月 7 日:Bitnami Parse Server - バージョン 4.2.2004091706
+- 2020 年 5 月 7 日:Bitnami Phabricator - バージョン 2020.7.2004220220
+- 2020 年 5 月 7 日:Bitnami phpBB - バージョン 3.3.2004220456
+- 2020 年 5 月 7 日:Bitnami phpList - バージョン 3.5.2004240140
+- 2020 年 5 月 7 日:Bitnami Pimcore - バージョン 6.6.2004220524
+- 2020 年 5 月 7 日:Bitnami Matomo - バージョン 3.13.2004221147
+- 2020 年 5 月 7 日:Bitnami Plone - バージョン 5.2.2004231024
+- 2020 年 5 月 7 日:Bitnami Pootle - バージョン 2.8.2004221629
+- 2020 年 5 月 7 日:Bitnami PostgreSQL - バージョン 12.2.2003252203
+- 2020 年 5 月 7 日:Bitnami PrestaShop - バージョン 1.7.2004220522
+- 2020 年 5 月 7 日:Bitnami ProcessMaker Community - バージョン 3.3.2004220909
+- 2020 年 5 月 7 日:Bitnami ProcessWire - バージョン 3.0.2004230142
+- 2020 年 5 月 7 日:Bitnami Publify - バージョン 9.1.2004220128
+- 2020 年 5 月 7 日:Bitnami RabbitMQ - バージョン 3.8.2003252248
+- 2020 年 5 月 7 日:Bitnami Re:dash - バージョン 8.0.2004231503
+- 2020 年 5 月 7 日:Bitnami Redis - バージョン 5.0.2004271447
+- 2020 年 5 月 7 日:Bitnami Redmine - バージョン 4.1.2004220530
+- 2020 年 5 月 7 日:Bitnami ReportServer Community - バージョン 3.1.2004220515
+- 2020 年 5 月 7 日:Bitnami ResourceSpace - バージョン 9.2.2004240738
+- 2020 年 5 月 7 日:Bitnami Review Board - バージョン 3.0.2004220506
+- 2020 年 5 月 7 日:Bitnami Roundcube - バージョン 1.4.2004220454
+- 2020 年 5 月 7 日:Bitnami Ruby - バージョン 2.5.2004220936
+- 2020 年 5 月 7 日:Bitnami SEO Panel - バージョン 4.3.2004220952
+- 2020 年 5 月 7 日:Bitnami Shopware - バージョン 6.1.2004231024
+- 2020 年 5 月 7 日:Bitnami SilverStripe - バージョン 4.5.2004220952
+- 2020 年 5 月 7 日:Bitnami Simple Machines Forum - バージョン 2.0.2004220454
+- 2020 年 5 月 7 日:Bitnami SonarQube - バージョン 4-8.2.2004250108
+- 2020 年 5 月 7 日:Bitnami Spree - バージョン 4.1.2004220518
+- 2020 年 5 月 7 日:Bitnami Subversion - バージョン 1.13.2004220556
+- 2020 年 5 月 7 日:Bitnami SuiteCRM - バージョン 7.11.2004220532
+- 2020 年 5 月 7 日:Bitnami TensorFlow Serving - バージョン 2.1.2004131848
+- 2020 年 5 月 7 日:Bitnami TestLink - バージョン 1.9.2004220510
+- 2020 年 5 月 7 日:Bitnami Tiki Wiki CMS Groupware - バージョン 21.0.2004221629
+- 2020 年 5 月 7 日:Bitnami Tiny Tiny RSS - バージョン 202004.0.2004220952
+- 2020 年 5 月 7 日:Bitnami Tomcat - バージョン 8.5.2004091906
+- 2020 年 5 月 7 日:Bitnami Trac - バージョン 1.4.2004220504
+- 2020 年 5 月 7 日:Bitnami TYPO3 - バージョン 9.5.2004221628
+- 2020 年 5 月 7 日:Bitnami Weblate - バージョン 4.0.2004231024
+- 2020 年 5 月 7 日:Bitnami WildFly - バージョン 19.0.2004011057
+- 2020 年 5 月 7 日:Bitnami WordPress - バージョン 5.4.2004221628
+- 2020 年 5 月 7 日:Bitnami WordPress Multisite - バージョン 5.4.2004221629
+- 2020 年 5 月 7 日:Bitnami WordPress with NGINX and SSL - バージョン 5.4.2004221147
+- 2020 年 5 月 7 日:Bitnami XOOPS - バージョン 2.5.2004220506
+- 2020 年 5 月 7 日:Bitnami ZooKeeper - バージョン 3.6.2004302354
+- 2020 年 5 月 7 日:Bitnami Zurmo - バージョン 3.2.2004220512
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter BYOL - バージョン 2019.127.20200213
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Payg - バージョン 2019.127.20200213
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core BYOL - バージョン 2019.127.- 20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core Payg - バージョン 2019.127.- 20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers BYOL - バージョン 2019.127.- 20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers Payg - バージョン 2019.127.- 20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Core With Containers BYOL - バージョン 2019.- 127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Core With Containers Payg - バージョン 2019.127.20200204
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - BYOL - バージョン 2016.127.20200131
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - Pay as you use - バージョン 2016.127.20200131
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - BYOL- バージョン 2016.127.20200131
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - Pay as you use - バージョン 2016.127.20200131
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - BYOL - バージョン 2016.127.20200131
+- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - Pay-as-you-use - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2012 Datacenter - BYOL - バージョン 3.127.20190521
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - Pay as you use - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - BYOL - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 Datacenter - Pay as you use - バージョン 3.127.20200205
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - BYOL - バージョン 2020.01
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - Pay as you use - バージョン 2020.01
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - BYOL- バージョン 2020.01
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - Pay as you use - バージョン 2020.01
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - BYOL - バージョン 2020.01
-- 2020 年 4 月 20 日:Windows Server 2016 Datacenter - Pay as you use - バージョン 2020.01
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter BYOL - バージョン 3.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter Pay-as-you-use - バージョン 3.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2008 R2 SP1 BYOL - バージョン 2.127.20200206
+- 2020 年 4 月 20 日:Windows Server 2008 R2 SP1 Pay-as-you-use - バージョン 2.127.20200206
 - 2020 年 4 月 17 日:Bitnami AbanteCart - バージョン 1.2.2002091007
 - 2020 年 4 月 17 日:Bitnami ActiveMQ - バージョン 5.15.2003260344
 - 2020 年 4 月 17 日:Bitnami Akeneo - バージョン 3.2.2004030743
@@ -224,17 +361,17 @@ ms.locfileid: "82166975"
 - 2019/07/30:SQL Server 2017 (Express、Developer、Standard、および Enterprise エディション) - バージョン 14.0.20190410
 - 2019/07/30:SQL Server 2016 SP1 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
 - 2019/07/30:SQL Server 2016 SP2 (Express、Developer、Standard、および Enterprise エディション) - バージョン 13.2.20190410
-- 2019/07/16: Windows Server 2016 Datacenter Server Core BYOL - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2016 Datacenter Server Core Pay-as-you-use - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2016 Datacenter With Containers BYOL - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2016 Datacenter With Containers Pay-as-you-use - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2016 Datacenter BYOL - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2016 Datacenter Pay-as-you-use - バージョン 2016.127.20190522
-- 2019/07/16: Windows Server 2008 R2 BYOL - バージョン 2.127.20190522
-- 2019/07/16: Windows Server 2008 R2 Pay-as-you-use - バージョン 2.127.20190522
-- 2019/07/16: Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20190522
-- 2019/07/16: Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20190522
-- 2019/07/11: Thales CipherTrust Cloud Key Manager - バージョン 1.0.7
+- 2019/07/16:Windows Server 2016 Datacenter Server Core BYOL - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2016 Datacenter Server Core Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2016 Datacenter With Containers BYOL - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2016 Datacenter With Containers Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2016 Datacenter BYOL - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2016 Datacenter Pay-as-you-use - バージョン 2016.127.20190522
+- 2019/07/16:Windows Server 2008 R2 BYOL - バージョン 2.127.20190522
+- 2019/07/16:Windows Server 2008 R2 Pay-as-you-use - バージョン 2.127.20190522
+- 2019/07/16:Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20190522
+- 2019/07/16:Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20190522
+- 2019/07/11:Thales CipherTrust Cloud Key Manager - バージョン 1.0.7
 
 ## <a name="next-steps"></a>次のステップ
 

@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e8a8d2f156d2608db01a652225540a73722f16fc
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848219"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988300"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -359,10 +359,10 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 ### <a name="change-the-subscription-you-use"></a>使用するサブスクリプションを変更する
 
-使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。
+使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、管理者ポータルに表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。現在の登録の詳細は[こちらで](#verify-azure-stack-hub-registration)見つけてください。
 
   ```powershell  
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
+  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
@@ -436,6 +436,7 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -BillingModel Capacity
       -RegistrationName $RegistrationName
+      -UsageReportingEnabled:$false
    ```
 ::: zone-end
 ::: zone pivot="state-disconnected"

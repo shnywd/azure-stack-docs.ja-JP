@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Hub セキュリティ コントロールを構成する
-description: Azure Stack Hub のセキュリティ コントロールを構成する方法について説明します
+title: Azure Stack Hub のセキュリティ コントロールを構成する
+description: Azure Stack Hub のセキュリティ コントロールを構成する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/17/2019
-ms.openlocfilehash: 4cfc5ee7f9e2284b3f7f5c632980235b24d2e956
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0426dc0ba78b992ccc1605cca6c0f581cb9a24b9
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367507"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375034"
 ---
 # <a name="configure-azure-stack-hub-security-controls"></a>Azure Stack Hub セキュリティ コントロールを構成する
 
@@ -39,7 +39,9 @@ Get-TLSPolicy
 
 出力例:
 
-    TLS_1.2
+```powershell
+TLS_1.2
+```
 
 ## <a name="set-tls-policy"></a>TLS ポリシーを設定する
 
@@ -51,16 +53,16 @@ Set-TLSPolicy -Version <String>
 
 *Set-TLSPolicy* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | 種類 | 必須 |
-|---------|---------|---------|---------|
-| *バージョン* | Azure Stack Hub で許可されている TLS のバージョン | String | はい|
+| パラメーター | 説明 | Type | 必須 |
+|-----|-----|-----|-----|
+| *Version* | Azure Stack Hub で許可されている TLS のバージョン | String | はい |
 
 すべての Azure Stack Hub エンドポイントに対して許可された TLS バージョンを構成するには、次のいずれかの値を使用します。
 
 | バージョンの値 | 説明 |
-|---------|---------|
+|-------|-------|
 | *TLS_All* | Azure Stack Hub の TLS エンドポイントでは、TLS 1.2 がサポートされていますが、TLS 1.1 と TLS 1.0 のダウン ネゴシエーションは許可されています。 |
-| *TLS_1.2* | Azure Stack Hub の TLS エンドポイントでは、TLS 1.2 のみがサポートされます。 | 
+| *TLS_1.2* | Azure Stack Hub の TLS エンドポイントでは、TLS 1.2 のみがサポートされます。 |
 
 TLS ポリシーの更新は、完了するまで数分かかります。
 
@@ -74,20 +76,22 @@ Set-TLSPolicy -Version TLS_1.2
 
 出力例:
 
-    VERBOSE: Successfully setting enforce TLS 1.2 to True
-    VERBOSE: Invoking action plan to update GPOs
-    VERBOSE: Create Client for execution of action plan
-    VERBOSE: Start action plan
-    <...>
-    VERBOSE: Verifying TLS policy
-    VERBOSE: Get GPO TLS protocols registry 'enabled' values
-    VERBOSE: GPO TLS applied with the following preferences:
-    VERBOSE:     TLS protocol SSL 2.0 enabled value: 0
-    VERBOSE:     TLS protocol SSL 3.0 enabled value: 0
-    VERBOSE:     TLS protocol TLS 1.0 enabled value: 0
-    VERBOSE:     TLS protocol TLS 1.1 enabled value: 0
-    VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
-    VERBOSE: TLS 1.2 is enforced
+```powershell
+VERBOSE: Successfully setting enforce TLS 1.2 to True
+VERBOSE: Invoking action plan to update GPOs
+VERBOSE: Create Client for execution of action plan
+VERBOSE: Start action plan
+<...>
+VERBOSE: Verifying TLS policy
+VERBOSE: Get GPO TLS protocols registry 'enabled' values
+VERBOSE: GPO TLS applied with the following preferences:
+VERBOSE:     TLS protocol SSL 2.0 enabled value: 0
+VERBOSE:     TLS protocol SSL 3.0 enabled value: 0
+VERBOSE:     TLS protocol TLS 1.0 enabled value: 0
+VERBOSE:     TLS protocol TLS 1.1 enabled value: 0
+VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
+VERBOSE: TLS 1.2 is enforced
+```
 
 ### <a name="allow-all-versions-of-tls-12-11-and-10-configuration-example"></a>TLS のすべてのバージョン (1.2、1.1、1.0) の構成例を許可する
 
@@ -99,23 +103,25 @@ Set-TLSPolicy -Version TLS_All
 
 出力例:
 
-    VERBOSE: Successfully setting enforce TLS 1.2 to False
-    VERBOSE: Invoking action plan to update GPOs
-    VERBOSE: Create Client for execution of action plan
-    VERBOSE: Start action plan
-    <...>
-    VERBOSE: Verifying TLS policy
-    VERBOSE: Get GPO TLS protocols registry 'enabled' values
-    VERBOSE: GPO TLS applied with the following preferences:
-    VERBOSE:     TLS protocol SSL 2.0 enabled value: 0
-    VERBOSE:     TLS protocol SSL 3.0 enabled value: 0
-    VERBOSE:     TLS protocol TLS 1.0 enabled value: 1
-    VERBOSE:     TLS protocol TLS 1.1 enabled value: 1
-    VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
-    VERBOSE: TLS 1.2 is not enforced
+```powershell
+VERBOSE: Successfully setting enforce TLS 1.2 to False
+VERBOSE: Invoking action plan to update GPOs
+VERBOSE: Create Client for execution of action plan
+VERBOSE: Start action plan
+<...>
+VERBOSE: Verifying TLS policy
+VERBOSE: Get GPO TLS protocols registry 'enabled' values
+VERBOSE: GPO TLS applied with the following preferences:
+VERBOSE:     TLS protocol SSL 2.0 enabled value: 0
+VERBOSE:     TLS protocol SSL 3.0 enabled value: 0
+VERBOSE:     TLS protocol TLS 1.0 enabled value: 1
+VERBOSE:     TLS protocol TLS 1.1 enabled value: 1
+VERBOSE:     TLS protocol TLS 1.2 enabled value: 1
+VERBOSE: TLS 1.2 is not enforced
+```
 
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub インフラストラクチャのセキュリティ体制の詳細](azure-stack-security-foundations.md)
-- [Azure Stack Hub でシークレットをローテーションする方法を確認する](azure-stack-rotate-secrets.md)
+- [Azure Stack Hub でシークレットをローテーションする方法](azure-stack-rotate-secrets.md)
 - [Azure Stack Hub 上での Windows Defender ウイルス対策の更新](azure-stack-security-av.md)

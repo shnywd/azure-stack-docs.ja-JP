@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: aee141a5840e33dcd2afa093fa906b07d0b310b9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81395071"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202433"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -36,7 +36,9 @@ ms.locfileid: "81395071"
 ::: moniker range="azs-2002"
 ## <a name="update"></a>更新
 
-Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-updates-troubleshoot.md)に関する記事を参照してください。
+2002 更新プログラムを適用した後、"Invalid Time Source"(無効なタイム ソース) のアラートが管理者ポータルに誤って表示される場合があります。 この誤検知アラートは無視してもかまいません。今後のリリースで修正される予定です。 
+
+Azure Stack Hub の更新に関する他の既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-troubleshooting.md)に関する記事を参照してください。
 
 ## <a name="portal"></a>ポータル
 
@@ -73,12 +75,22 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ケーブルがネットワーク アダプターから切り離されたときに、管理者ポータルにアラートが表示されません。 この問題は、Windows Server 2019 ではこの障害が既定で無効にされるために発生します。
 - 発生頻度: 共通
 
+### <a name="access-control-iam"></a>アクセス制御 (IAM)
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: IAM 拡張機能が古すぎます。 Azure Stack Hub に付属している Ibiza ポータルで導入された新しい動作は、ユーザーがグローバル サブスクリプション セレクター (ユーザー ポータルの **[ディレクトリ + サブスクリプション]** ) 内で選択されていないサブスクリプションの **[アクセス制御 (IAM)]** ブレードを開いている場合に、RBAC 拡張機能が失敗する原因となります。 このブレードには **[読み込み中]** がループで表示され、ユーザーはサブスクリプションに新しいロールを追加できません。 **[追加]** ブレードにも、 **[読み込み中]** がループで表示されます。
+- 修復: **[ディレクトリ + サブスクリプション]** メニューでサブスクリプションがオンになっていることを確認します。 このメニューには、ポータルの上部から、または **[通知]** ボタンの近くからアクセスするか、 **[すべてのリソース]** ブレードのショートカット ( **[サブスクリプションが表示されていませんか?ディレクトリとサブスクリプションの設定を開きます]** と表示されている) を使用してアクセスします。 このメニューで、サブスクリプションを選択する必要があります。
+
 ## <a name="networking"></a>ネットワーク
 
 ### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
 - 原因: 明示的な **DenyAllOutbound** 規則は、VM のデプロイを完了するために必要なインフラストラクチャへの内部通信がすべて妨げられるため、NSG に作成することはできません。
+- 発生頻度: 共通
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
+- 原因: 受信または送信のネットワーク セキュリティ規則を作成するとき、 **[プロトコル]** オプションに **[ICMP]** オプションが表示されます。 現在、これは Azure Stack Hub ではサポートされていません。 この問題は修正されており、次の Azure Stack Hub リリースでは表示されません。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -94,6 +106,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: VM のプライマリ NIC を変更することはできません。 プライマリ NIC を削除またはデタッチすると、VM の起動時に問題が発生します。
+- 発生頻度: 共通
+
+### <a name="public-ip"></a>パブリック IP
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ロード バランサーに関連付けられているパブリック IP の **IdleTimeoutInMinutes** 値は変更できません。 この操作により、パブリック IP は失敗状態になります。
+- 修復: パブリック IP を正常な状態に戻すには、パブリック IP を参照するロード バランサー規則の **IdleTimeoutInMinutes** 値を元の値に戻します (既定値は 4 分です)。
 - 発生頻度: 共通
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
@@ -113,8 +132,8 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 
-- 適用先:この問題は、2002 以降に適用されます。
-- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。
+- 適用先:この問題はすべてのリリースに適用されます。
+- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるものです。
 - 修復: **[設定]** の下にある **[プロパティ]** ブレードを確認します。
 
 ### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ
@@ -156,7 +175,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 #### <a name="storage-account-creating-failure-when-configuring-auto-backup"></a>自動バックアップを構成するときにストレージ アカウントの作成がエラーになる
 
 - 適用先:この問題は 2002 に適用されます。
-- 原因: 新しいストレージ アカウントを使用して SQL VM の自動バックアップを構成すると、**Deployment template validation failed.The template parameter for 'SqlAutobackupStorageAccountKind' is not found.** (デプロイ テンプレートの検証に失敗しました。'SqlAutobackupStorageAccountKind' のテンプレート パラメーターが見つかりません) のエラーで失敗します。
+- 原因: 新しいストレージ アカウントを使用して SQL VM の自動バックアップを構成すると、エラー "**Deployment template validation failed. The template parameter for 'SqlAutobackupStorageAccountKind' is not found**" (デプロイ テンプレートの検証に失敗しました。'SqlAutobackupStorageAccountKind' のテンプレート パラメーターが見つかりません) が発生して失敗します。
 - 修復: 最新の 2002 修正プログラムを適用します。
 
 #### <a name="auto-backup-cannot-be-configured-with-tls-12-enabled"></a>TLS 1.2 が有効になっていると自動バックアップを構成できない
@@ -177,7 +196,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、リリース 2002 に適用されます。
 - 原因: スタンプに App Service リソース プロバイダー (RP) バージョン 1.7 以前が含まれている場合は、スタンプの更新時に App Service のブレードが読み込まれません。
-- 修復: RP をバージョン 1.8 に更新します。
+- 修復: RP をバージョン [2020 Q2](azure-stack-app-service-update.md) に更新します。
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
@@ -190,7 +209,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ::: moniker range="azs-1910"
 ## <a name="update"></a>更新
 
-Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-updates-troubleshoot.md)に関する記事を参照してください。
+Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-troubleshooting.md)に関する記事を参照してください。
 
 ## <a name="portal"></a>ポータル
 
@@ -233,7 +252,6 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルのアップロード ブレードで BLOB をアップロードしようとすると、 **[AAD]** または **[キー認証]** を選択するオプションが表示されますが、Azure Stack Hub では **[AAD]** はサポートされていません。
 - 発生頻度: 共通
 
-
 ### <a name="alert-for-network-interface-disconnected"></a>ネットワーク インターフェイスの切断についてのアラート
 
 - 適用先:この問題は、1908 以降に適用されます。
@@ -251,7 +269,6 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルでは、VPN ゲートウェイ リソースに **[VPN のトラブルシューティング]** 機能と **[メトリック]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
-
 
 ### <a name="delete-a-storage-container"></a>ストレージ コンテナーを削除する
 
@@ -396,7 +413,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、1910 以前のリリースに適用されます。
 - 原因: 英語以外のバージョンの Windows を実行しているコンピューターから特権エンドポイント (ERC VM) に接続できません。
-- 修復: これは、1910 より後のリリースで修正されている既知の問題です。 この回避策として、**en-us** カルチャを使用して、**New-PSSession** および **Enter-PSSession** の Powershell コマンドレットを実行できます。たとえば、このスクリプトを使用してカルチャを設定します: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
+- 修復: これは、1910 より後のリリースで修正されている既知の問題です。 この回避策として、**en-US** カルチャを使用して、**New-PSSession** および **Enter-PSSession** の PowerShell コマンドレットを実行できます。たとえば、次のスクリプトを使用してカルチャを設定します: https://resources.oreilly.com/examples/9780596528492/blob/master/Use-Culture.ps1 。
 - 発生頻度: 珍しい
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット

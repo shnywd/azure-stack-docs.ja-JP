@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: 0c61abfab5615d265377341f6fb96fe5b4a18b29
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81478838"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202416"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Azure Stack Hub を使用して高可用性 SQL データベースを作成する
 
@@ -95,13 +95,18 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 自動シード処理を使用して可用性グループを作成すると、他の手動作業を必要とせずに、SQL Server によって、グループ内のすべてのデータベースに対するセカンダリ レプリカが自動的に作成されます。 この方法によって、AlwaysOn データベースの高可用性が保証されます。
 
-これらの SQL コマンドを使用して、AlwaysOn 可用性グループの自動シード処理を構成します。 必要に応じて、`<InstanceName>` をプライマリ インスタンス SQL Server の名前に、`<availability_group_name>` を AlwaysOn 可用性グループの名前に置き換えます。
+これらの SQL コマンドを使用して、AlwaysOn 可用性グループの自動シード処理を構成します。 必要に応じて、`<PrimaryInstanceName>` をプライマリ インスタンス SQL Server 名に、`<SecondaryInstanceName>` をセカンダリ インスタンス SQL Server 名に、`<availability_group_name>` を AlwaysOn 可用性グループ名に置換してください。
 
 プライマリ SQL インスタンスの場合:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON '<InstanceName>'
+      MODIFY REPLICA ON '<PrimaryInstanceName>'
+      WITH (SEEDING_MODE = AUTOMATIC)
+  GO
+  
+  ALTER AVAILABILITY GROUP [<availability_group_name>]
+      MODIFY REPLICA ON '<SecondaryInstanceName>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```

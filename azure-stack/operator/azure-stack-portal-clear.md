@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub からオンデマンドでポータル ユーザー データをクリアする
-description: Azure Stack Hub オペレーターとして、Azure Stack Hub ユーザーからの要求時に、ポータル ユーザー データをクリアする方法を学習します。
+description: Azure Stack Hub ユーザーからの要求時に、ポータル ユーザー データをクリアする方法を学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: troettinger
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: bede8fc72cfcdd6f3376c49a87293fef3626c380
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e419ebd632fabac6985b1a763b4661d75307e4ba
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698336"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375096"
 ---
 # <a name="clear-portal-user-data-from-azure-stack-hub"></a>Azure Stack Hub からポータル ユーザー データをクリアする
 
@@ -128,7 +128,7 @@ Azure Stack Hub オペレーターは、ユーザー オブジェクト ID を�
 
    ## Replace the following value with the Azure Stack Hub directory tenant ID.
    $AzsAdminDirectoryTenantId = "f5025bf2-547f-4b49-9693-6420c1d5e4ca"
-   
+
    ## Replace the following value with the directory tenant ID of the user to clear.
    $DirectoryTenantId = "3160cbf5-c227-49dd-8654-86e924c0b72f"
 

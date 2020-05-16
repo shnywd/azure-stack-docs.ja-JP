@@ -6,12 +6,12 @@ author: jasongerend
 ms.author: jgerend
 ms.localizationpriority: medium
 ms.date: 11/04/2019
-ms.openlocfilehash: 3b08b5e65c0cff4ab82494261fb1663b16bf757d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2b7ab4dbb4eefe867c207b9db4329cbae1bfef4a
+ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80812409"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202462"
 ---
 # <a name="azure-stack-hci-solutions-overview"></a>Azure Stack HCI ソリューションの概要
 
@@ -98,6 +98,10 @@ Windows Server 2019 を実行する検証済みの Azure Stack HCI ソリュー�
 [Azure Stack HCI Web サイト](https://azure.microsoft.com/overview/azure-stack/hci)にアクセスして、現在次の Microsoft パートナーから提供されている 70 を超える Azure Stack HCI ソリューションを確認してください。ASUS、Axellio、Blue Chip、DataON、Dell EMC、Fujitsu、HPE、Hitachi、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD、Supermicro。
 
 ## <a name="video-based-learning"></a>ビデオでの学習
+
+Azure 拡張ネットワーク デオは次のとおりです。
+
+- [Windows Server とハイブリッド ットワークを使用した Azure へのシームレスな接続](https://www.youtube.com/watch?v=do2_4Y2p9dk)
 
 Microsoft Ignite 2019 セッションのビデオをいくつかご紹介します。
 

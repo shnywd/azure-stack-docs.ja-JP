@@ -1,27 +1,27 @@
 ---
-title: Azure Stack Hub 更新プログラム パッケージを準備する
-description: Azure Stack Hub 更新プログラム パッケージの準備について説明します。
+title: Azure Stack Hub で更新プログラム パッケージを準備する
+description: Azure Stack Hub で更新プログラム パッケージを準備する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: 1911a07c1a22cbb58b7b7794addadb9cf01f0993
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 4e6ce21088a95677907c978abf5e89612488381f
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367337"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374671"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack Hub 更新プログラム パッケージを準備する
 
 この記事では、Azure Stack Hub 環境を更新するために使用できるように Azure Stack Hub 更新パッケージを準備することの概要を説明します。 このプロセスは次のもので構成されます。
 
-- [更新プログラム パッケージのダウンロード](#download-the-update-package)
-- [お使いの Azure Stack Hub 環境への Azure Stack Hub 管理者ポータルを使用した更新プログラム パッケージのインポート](#import-and-install-updates)
+- [更新プログラム パッケージのダウンロード](#download-the-update-package)。
+- [お使いの Azure Stack Hub 環境への Azure Stack Hub 管理者ポータルを使用した更新プログラム パッケージのインポート](#import-and-install-updates)。
 
-自動更新エンドポイントに接続できるシステムでは、Azure Stack Hub のソフトウェア更新プログラムと修正プログラムが自動的にダウンロードされ、準備されます。 接続できないシステムと OEM からの更新プログラムの場合は、このトピックの説明に従って更新プログラム パッケージを準備する必要があります。  
+自動更新エンドポイントに接続できるシステムでは、Azure Stack Hub のソフトウェア更新プログラムと修正プログラムが自動的にダウンロードされ、準備されます。 接続できないシステムと相手先ブランド供給業者 (OEM) からの更新プログラムの場合は、このトピックの説明に従って更新プログラム パッケージを準備する必要があります。  
 
 次の表は、更新プログラム パッケージが手動による準備を必要とするタイミングと、それらが自動的に準備されるタイミングを示しています。
 
@@ -35,15 +35,17 @@ ms.locfileid: "78367337"
 | OEM パッケージの更新プログラム | 切断されているか、または弱い接続 | 更新プログラム パッケージを準備する必要があります。 この記事ではその手順を説明します。 |
 
 ## <a name="download-the-update-package"></a>更新プログラム パッケージをダウンロードする
-Azure Stack Hub の更新プログラムおよび修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、お使いの Azure Stack Hub インスタンスにアクセスできる場所にパッケージを移動する必要があります。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
+
+Azure Stack Hub の更新プログラムおよび修正プログラムの更新プログラム パッケージは、接続されているシステムの [更新] ブレードから入手できます。 OEM パッケージを更新する場合、または切断されたシステムをサポートしている場合、パッケージをダウンロードして、お使いの Azure Stack Hub インスタンスにアクセスできる場所にパッケージを移動します。 また、接続が途切れがちなシステムを実行している場合、パッケージをダウンロードしてから、アクセス可能な場所にアップロードすることが必要になる場合もあります。
 
 パッケージの内容を確認します。 通常、更新プログラム パッケージは、次のファイルで構成されます。
 
--   **自己解凍形式の \<PackageName>.zip ファイル**。 このファイルには、更新プログラムのペイロードが含まれています。
-- **Metadata.xml ファイル**。 このファイルには、更新プログラムに関する重要な情報 (発行元、名前、前提条件、サイズ、サポート パス URL など) が含まれます。
+- **自己解凍形式の \<PackageName>.zip ファイル**。 このファイルには、更新プログラムのペイロードが含まれています。
+- **Metadata.xml ファイル**。 このファイルには、更新プログラムに関する重要な情報が含まれています。 例: 発行元、名前、前提条件、サイズ、サポート パス URL。
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>更新プログラム パッケージの自動ダウンロードと準備
-Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント** (https://*.azureedge.net および https://aka.ms/azurestackautomaticupdate ) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント**への接続の設定の詳細については、**Azure Stack Hub へのファイアウォールの統合**に関するページに記載されている[修正プログラムと更新](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)エンドポイントに関する記事を参照してください。
+
+Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント**  (<https://*.azureedge.net> および <https://aka.ms/azurestackautomaticupdate>) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack Hub へのファイアウォールの統合](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)に関するページに記載されている**修正プログラムと更新**エンドポイントに関する記事を参照してください。
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Azure Stack Hub 更新プログラム パッケージをダウンロードする場所
 
@@ -52,13 +54,13 @@ Azure Stack Hub のソフトウェア更新プログラムと修正プログラ�
 >[!NOTE]
 >更新プログラム パッケージとそのコンテンツ (バイナリ、PowerShell スクリプトなど) は、Microsoft が所有する証明書で署名されています。 パッケージを改ざんすると、この署名は無効になります。
 
-
 ### <a name="where-to-download-azure-stack-hub-hotfix-packages"></a>Azure Stack Hub の修正プログラム パッケージをダウンロードする場所
 
 [Azure Stack Hub 修正プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)のパッケージは、Azure Stack Hub 更新プログラムと同じセキュリティで保護された Azure エンドポイントでホストされます。 接続されたインスタンスを担当する Azure Stack Hub オペレーターには、[管理者ポータルで、Azure Stack Hub の更新プログラムが自動的に表示](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-prepare-package#automatic-download-and-preparation-for-update-packages)されます。 それらは、各修正プログラムの KB 記事 ([Azure Stack Hub 修正プログラム 1.1906.11.52](https://support.microsoft.com/help/4515650) など) の埋め込みリンクを使用してダウンロードできます。 修正プログラムは、お使いの Azure Stack Hub のバージョンのリリース ノートに記載されています。
 
 ### <a name="where-to-download-oem-update-packages"></a>OEM 更新プログラム パッケージをダウンロードする場所
-また、OEM ベンダーがドライバーやファームウェアの更新プログラムなど、更新プログラムをリリースします。 これらの更新プログラムは、ハードウェア ベンダーから個別の [OEM パッケージ更新プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)として提供されますが、それらは引き続き、Microsoft の更新プログラム パッケージと同じようにインポート、インストール、および管理されます。 ベンダーの連絡先リンクの一覧については、「[Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)」を参照してください。
+
+また、OEM ベンダーがドライバーやファームウェアの更新プログラムなど、更新プログラムをリリースします。 これらの更新プログラムは、ハードウェア ベンダーから個別の [OEM パッケージ更新プログラム](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates#update-package-types)として提供されますが、それらは引き続き、Microsoft の更新プログラム パッケージと同じようにインポート、インストール、および管理されます。 ベンダーの連絡先リンクの一覧については、[Azure Stack Hub に OEM の更新プログラムを適用する](https://docs.microsoft.com/azure-stack/operator/azure-stack-update-oem#oem-contact-information)方法に関するページを参照してください。
 
 ## <a name="import-and-install-updates"></a>更新プログラムをインポートしてインストールする
 
@@ -67,41 +69,41 @@ Azure Stack Hub のソフトウェア更新プログラムと修正プログラ�
 > [!Important]  
 > メンテナンス操作についてユーザーに通知し、通常のメンテナンス期間をできるだけ勤務時間外にスケジュールします。 メンテナンス操作は、ユーザーのワークロードとポータル操作の両方に影響を及ぼす可能性があります。
 
-1.  管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[DATA + STORAGE]\(データ + ストレージ\)** カテゴリで、 **[ストレージ アカウント]** を選択します (または、フィルター ボックスで「**ストレージ アカウント**」の入力を開始して選択します)。
+1. 管理者ポータルで、 **[すべてのサービス]** を選択します。 次に、 **[DATA + STORAGE]\(データ + ストレージ\)** カテゴリで、 **[ストレージ アカウント]** を選択します (または、フィルター ボックスで「**ストレージ アカウント**」の入力を開始して選択します)。
 
     ![Azure Stack Hub の更新プログラム](./media/azure-stack-update-prepare-package/image1.png) 
 
-1.  フィルター ボックスに「**更新**」と入力し、**updateadminaccount** ストレージ アカウントを選択します。
+2. フィルター ボックスに「**更新**」と入力し、**updateadminaccount** ストレージ アカウントを選択します。
 
-2.  ストレージ アカウントの詳細で、 **[サービス]** の **[BLOB]** を選択します。
+3. ストレージ アカウントの詳細で、 **[サービス]** の **[BLOB]** を選択します。
 
     ![Azure Stack Hub の更新プログラム ‐ BLOB](./media/azure-stack-update-prepare-package/image2.png)
 
-1.  **[Blob service]** で、 **[+ コンテナー]** を選択してコンテナーを作成します。 名前 (例: *update-1811*) を入力し、 **[OK]** を選択します。
+4. **[Blob service]** で、 **[+ コンテナー]** を選択してコンテナーを作成します。 名前 (例: *update-1811*) を入力し、 **[OK]** を選択します。
 
     ![Azure Stack Hub の更新プログラム - コンテナー](./media/azure-stack-update-prepare-package/image3.png)
 
-1.  コンテナーが作成されたら、コンテナー名をクリックした後、 **[アップロード]** をクリックしてパッケージ ファイルをコンテナーにアップロードします。
+5. コンテナーが作成されたら、コンテナー名を選択した後、 **[アップロード]** を選択してパッケージ ファイルをコンテナーにアップロードします。
 
     ![Azure Stack Hub の更新プログラム ‐ アップロード](./media/azure-stack-update-prepare-package/image4.png)
 
-1.  **[BLOB のアップロード]** で、フォルダー アイコンをクリックし、更新プログラム パッケージの .zip ファイルを参照し、エクスプローラー ウィンドウで **[開く]** をクリックします。
+6. **[BLOB のアップロード]** で、フォルダー アイコンを選択し、更新プログラム パッケージの .zip ファイルを参照し、エクスプローラー ウィンドウで **[開く]** を選択します。
 
-2.  **[BLOB のアップロード]** で、 **[アップロード]** をクリックします。
+7. **[BLOB のアップロード]** で、 **[アップロード]** を選択します。
 
     ![Azure Stack Hub の更新プログラム - BLOB のアップロード](./media/azure-stack-update-prepare-package/image5.png)
 
-1.  更新プログラム パッケージの Metadata.xml ファイルおよび追加の .zip ファイルに対して、手順 6. と 7. を繰り返します。 Supplemental Notice.txt ファイルが含まれている場合、そのファイルはインポートしないでください。
+8. 更新プログラム パッケージの `Metadata.xml` ファイルおよび追加の .zip ファイルに対して、手順 6. と 7. を繰り返します。 含まれている場合、`Supplemental Notice.txt ` ファイルをインポートしないでください。
 
-2.  終了したら、通知を確認できます (ポータルの右上隅にあるベル アイコン)。 アップロードの完了が通知に示されている必要があります。
+9. 終了したら、通知を確認できます (ポータルの右上隅にあるベル アイコン)。 アップロードの完了が通知に示されている必要があります。
 
-3.  ダッシュボードの [更新] ブレードに戻ります。 ブレードに更新プログラムが使用可能であることが示されているはずです。 これは、更新が正常に準備されたことを示します。 新しく追加された更新プログラム パッケージを確認するには、ブレードをクリックします。
+10. ダッシュボードの [更新] ブレードに戻ります。 ブレードに更新プログラムが使用可能であることが示されているはずです。 これは、更新が正常に準備されたことを示します。 新しく追加された更新プログラム パッケージを確認するには、ブレードを選択します。
 
-4.  更新プログラムをインストールするには、 **[準備完了]** とマークされているパッケージを選択し、パッケージを右クリックして **[今すぐ更新]** を選択するか、上部にある **[今すぐ更新]** アクションをクリックします。
+11. 更新プログラムをインストールするには、 **[準備完了]** とマークされているパッケージを選択し、パッケージを右クリックして **[今すぐ更新]** を選択するか、上部にある **[今すぐ更新]** アクションを選択します。
 
-5.  更新プログラム パッケージのインストールをクリックしたら、 **[Update run details]\(更新実行の詳細\)** 領域でその状態を確認できます。 ここから **[Download summary]\(サマリーのダウンロード\)** をクリックして、ログ ファイルをダウンロードすることもできます。 更新実行のログは、試行が終了してから 6 か月間は利用できます。
+12. 更新プログラム パッケージのインストールを選択したら、 **[Update run details]\(更新実行の詳細\)** 領域でその状態を確認できます。 ここから **[Download summary]\(サマリーのダウンロード\)** を選択して、ログ ファイルをダウンロードすることもできます。 更新実行のログは、試行が終了してから 6 か月間は利用できます。
 
-6.  更新プログラムが完了すると、更新された Azure Stack Hub のバージョンが [更新] ブレードに表示されます。
+13. 更新プログラムが完了すると、更新された Azure Stack Hub のバージョンが [更新] ブレードに表示されます。
 
 更新プログラムは Azure Stack Hub にインストール後、手動でストレージ アカウントから削除できます。 Azure Stack Hub は古い更新プログラム パッケージを定期的にチェックし、それらをストレージから削除します。 Azure Stack Hub では古いパッケージの削除に 2 週間かかる場合があります。
 

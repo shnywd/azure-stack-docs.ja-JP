@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e0f10db1c9d983b4802812bd4274429387032c66
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 20f50ffdaee8ca24cfc0c0406d846d3f5e830396
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77698404"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988272"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>PowerShell を使用して Azure Stack Hub に接続する
 
@@ -62,7 +62,7 @@ Azure Stack Hub オペレーター環境に Azure Active Directory フェデレ�
   ```
 
 > [!Note]  
-> AD FS でサポートされるのは、ユーザー ID を使用した対話型認証のみです。 資格情報オブジェクトが必要な場合は、サービス プリンシパル (SPN) を使用する必要があります。 Azure Stack Hub と AD FS を ID 管理サービスとしてサービス プリンシパルを設定する方法の詳細については、[AD FS のサービス プリンシパルの管理](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)に関する記事を参照してください。
+> AD FS でサポートされるのは、ユーザー ID を使用した対話型認証のみです。 資格情報オブジェクトが必要な場合は、サービス プリンシパル (SPN) を使用する必要があります。 Azure Stack Hub と AD FS を ID 管理サービスとしてサービス プリンシパルを設定する方法の詳細については、[AD FS のアプリ ID の管理](azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity)に関する記事を参照してください。
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 

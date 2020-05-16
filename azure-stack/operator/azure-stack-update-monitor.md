@@ -1,20 +1,20 @@
 ---
-title: PowerShell を使用した Azure Stack Hub での更新の監視
-description: PowerShell を使用して Azure Stack Hub で更新を監視する方法を説明します
+title: Azure Stack Hub で PowerShell を使用して更新プログラムを監視する
+description: Azure Stack Hub で PowerShell を使用して更新プログラムを監視する方法を説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: c611d901c62765462d5bccaee6894f5f7c0b0b18
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 3e6f5ebac251ca18dd15d269ad23ac1632a4794c
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367286"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374981"
 ---
-# <a name="monitor-updates-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での更新の監視
+# <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub で PowerShell を使用して更新プログラムを監視する
 
 Azure Stack Hub 管理エンドポイントを使用して、更新の監視と管理を行うことができます。 それらには、PowerShell でアクセスできます。 Azure Stack Hub で PowerShell を使用してセットアップする手順については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
 
@@ -30,7 +30,7 @@ Azure Stack Hub 管理エンドポイントを使用して、更新の監視と�
 
 ## <a name="get-a-list-of-update-runs"></a>更新実行の一覧を取得する
 
-更新実行の一覧を取得するコマンド:
+更新実行の一覧を取得するには、次のコマンドを実行します。
 
 ```powershell
 Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
@@ -44,6 +44,10 @@ Get-AzsUpdateRun -UpdateName Microsoft1.0.180302.1
 Get-AzsUpdateRun -Name 5173e9f4-3040-494f-b7a7-738a6331d55c -UpdateName Microsoft1.0.180305.1 | Resume-AzsUpdateRun
 ```
 
+## <a name="troubleshoot"></a>トラブルシューティング
+
+更新プログラムのトラブルシューティングの詳細については、[Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)に関するページをご覧ください。
+
 ## <a name="next-steps"></a>次のステップ
 
--   [Azure Stack Hub での更新プログラム管理](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
+- [Azure Stack Hub での更新プログラム管理](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)
