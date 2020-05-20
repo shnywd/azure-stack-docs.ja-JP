@@ -30,7 +30,7 @@ ms.locfileid: "78366502"
 既定では、両方のファイルが `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
-- ツールの以前の実行に関する情報を `-CleanReport`AzsReadinessCheckerReport.json**からクリアするには、コマンド ラインの末尾に** パラメーターを使用します。
+- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
 
 ## <a name="view-the-report"></a>レポートを表示する
 

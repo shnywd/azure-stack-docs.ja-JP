@@ -18,7 +18,7 @@ ms.locfileid: "78367915"
 
 Azure Stack Hub のストレージ アカウントには、BLOB や Table service、およびストレージ データ オブジェクトの一意の名前空間が含まれます。 既定では、アカウントのデータはストレージ アカウント所有者だけが使用できます。
 
-1. Azure Stack Hub POC コンピューターで、`https://adminportal.local.azurestack.external`管理者[として ](../asdk/asdk-connect.md) にログインし、 **[+ リソースの作成]**  >  **[データ + ストレージ]**  >  **[ストレージ アカウント]** の順にクリックします。
+1. Azure Stack Hub POC コンピューターで、[管理者](../asdk/asdk-connect.md)として `https://adminportal.local.azurestack.external` にログインし、**[+ リソースの作成]** > **[データ + ストレージ]** > **[ストレージ アカウント]** の順にクリックします。
 
    ![Azure Stack Hub 管理者ポータルでストレージ アカウントを作成する](media/azure-stack-provision-storage-account/image01.png)
 

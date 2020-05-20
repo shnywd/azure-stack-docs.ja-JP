@@ -114,7 +114,7 @@ Set-AzureKeyVaultSecret `
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>azuredeploy.parameters.json ファイルを更新する
 
-ご自分の環境に従って、 **、シークレットの URI、** 、他のパラメーターで `vaultName`azuredeploy.parameters.json`VmName` ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
+ご自分の環境に従って、`vaultName`、シークレットの URI、`VmName`、他のパラメーターで **azuredeploy.parameters.json** ファイルを更新します。 テンプレート パラメーター ファイルの JSON ファイルの例を次に示します。
 
 ```json
 {
@@ -169,7 +169,7 @@ New-AzureRmResourceGroupDeployment `
 証明書は、デプロイ中に Azure Stack Hub によって VM にプッシュされます。 証明書の場所は、VM のオペレーティング システムによって異なります。
 
 * Windows では、証明書はユーザー指定の証明書ストアで **LocalMachine** の証明書の場所に追加されます。
-* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、 **/var/lib/waagent** ディレクトリに配置されます。
+* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、**/var/lib/waagent** ディレクトリに配置されます。
 
 ## <a name="retire-certificates"></a>証明書の使用を終了する
 

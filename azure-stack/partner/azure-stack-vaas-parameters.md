@@ -47,7 +47,7 @@ ms.locfileid: "79295090"
 
 ### <a name="locate-values-in-the-ece-configuration-file"></a>ECE 構成ファイルで値を検索する
 
-環境パラメーター値は、DVM の **にある**ECE 構成ファイル`C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787`で手動で検索することもできます。
+環境パラメーター値は、DVM の `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` にある **ECE 構成ファイル**で手動で検索することもできます。
 
 ## <a name="test-parameters"></a>テスト パラメーター
 
