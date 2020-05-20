@@ -40,7 +40,7 @@ ms.locfileid: "79295102"
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
 > [!Important]
-> Azure Stack Hub に更新プログラムを適用する前に、**更新前のチェックリスト**の手順を[すべて](release-notes-checklist.md)完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
 
 1. Azure Stack Hub 管理者ポータルを開きます。
 
