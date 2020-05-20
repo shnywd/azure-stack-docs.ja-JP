@@ -28,7 +28,7 @@ Azure Monitor では、Kubernetes で使用可能なコントローラー、ノ�
 
 ## <a name="prerequisites"></a>前提条件
 
-どちらの方法でも、「[Azure Monitor – コンテナー](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)」に記載されている[前提条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)が必要です。
+どちらの方法でも、「[Azure Monitor – コンテナー](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers)」に記載されている[前提条件](https://github.com/Helm/charts/tree/master/incubator/azuremonitor-containers#pre-requisites)が必要です。
 
 ## <a name="method-one"></a>方法 1
 
