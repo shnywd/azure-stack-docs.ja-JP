@@ -7,12 +7,12 @@ ms.date: 11/27/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: a37547a7c2e5a737685e370307a1ae8f37d5d363
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 6e58e60e0863e2ef40abc95689430f8e378a4fd4
+ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295636"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83708195"
 ---
 # <a name="what-is-the-azure-stack-development-kit-asdk"></a>Azure Stack 開発キット (ASDK) とは
 [Microsoft Azure Stack Hub 統合システム](../operator/azure-stack-overview.md)には 4 ノードから 16 ノードまでのサイズがあり、ハードウェア パートナーと Microsoft によって共同でサポートされます。 Azure Stack Hub 統合システムの使用により、運用ワークロード向けの新しいシナリオが可能になります。 統合システム インフラストラクチャの管理およびサービスの提供を行う Azure Stack Hub オペレーターは、[オペレーター ドキュメント](/azure-stack/operator)を参照してください。
@@ -67,7 +67,7 @@ ASDK をデプロイすると、Azure Stack Hub には既定で以下の "基礎
 > これらのサービスをユーザーが利用できるようにするには、追加の構成が必要です。ASDK をインストールした時点で、既定では使用できません。
 
 ## <a name="service-roadmap"></a>サービスのロードマップ
-Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 Azure Stack Hub の今後の予定については、[Azure Stack ロードマップ](https://azure.microsoft.com/roadmap/?tag=azure-stack)を参照してください。 
+Azure Stack Hub には、引き続き Azure サービスのサポートが追加される予定です。 Azure Stack Hub の今後の予定については、[Azure Stack ロードマップ](https://azure.microsoft.com/updates/?query=azure%20stack%20hub)を参照してください。
 
 
 ## <a name="next-steps"></a>次のステップ

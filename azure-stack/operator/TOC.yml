@@ -516,8 +516,8 @@
   items:
     - name: トレーニングと認定
       href: azure-stack-train-and-cert.md
-    - name: Azure Stack Hub のロードマップ
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack Hub のロード マップ
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure Stack Hub のドキュメントのフィードバック

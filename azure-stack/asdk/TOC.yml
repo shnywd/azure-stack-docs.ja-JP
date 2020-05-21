@@ -59,8 +59,8 @@
       href: /azure-stack/user/
 - name: リソース
   items:
-    - name: Azure Stack のロードマップ
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack のロード マップ
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure Stack のドキュメントのフィードバック
