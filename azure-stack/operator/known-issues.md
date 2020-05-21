@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 94b90f8a3a648a466ac221a76099a71964e00f9a
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
+ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202433"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83721880"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -264,12 +264,6 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、Premium SSD のディスクの種類でマネージド ディスクを選択すると、ドロップダウン リストに **[OS ディスク]** と表示されます。 そのオプションの横には、"**Azure の無料アカウントでは、一定の OS ディスク サイズを無料で利用できます**" というヒントが表示されますが、Azure Stack Hub はこの対象外です。 さらに、リストには **[Free account eligible] (無料アカウント利用可能)** が含まれていますが、これも Azure Stack Hub は対象外です。
 - 発生頻度: 共通
 
-### <a name="vpn-troubleshoot-and-metrics"></a>VPN のトラブルシューティングとメトリック
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルでは、VPN ゲートウェイ リソースに **[VPN のトラブルシューティング]** 機能と **[メトリック]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
 ### <a name="delete-a-storage-container"></a>ストレージ コンテナーを削除する
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
@@ -282,12 +276,6 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで **[Virtual Machines]** に移動し、上部のボタンを使用して更新しようとすると、状態が正確に更新されません。
 - 修復: [更新] ボタンがクリックされたかどうかに関係なく、状態は 5 分ごとに自動的に更新されます。 5 分待ってから状態を確認してください。
-- 発生頻度: 共通
-
-### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルでルート テーブルを作成すると、次のホップの種類オプションの 1 つとして **[Virtual Network ゲートウェイ]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 ### <a name="storage-account-options"></a>ストレージ アカウントのオプション
@@ -364,6 +352,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
 
+#### <a name="next-hop-type"></a>次ホップの種類
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルでルート テーブルを作成すると、次のホップの種類オプションの 1 つとして **[Virtual Network ゲートウェイ]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
+- 発生頻度: 共通
+
 #### <a name="alerts"></a>警告
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
@@ -380,6 +374,10 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
+- 発生頻度: 共通
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルでは、VPN ゲートウェイ リソースに **[VPN のトラブルシューティング]** 機能と **[メトリック]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
 #### <a name="documentation"></a>ドキュメント
@@ -525,6 +523,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 発生頻度: 共通
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
+
+#### <a name="next-hop-type"></a>次ホップの種類
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルでルート テーブルを作成すると、次のホップの種類オプションの 1 つとして **[Virtual Network ゲートウェイ]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
+- 発生頻度: 共通
 
 #### <a name="alerts"></a>警告
 
@@ -689,6 +693,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 発生頻度: 共通
 
 ### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
+
+#### <a name="next-hop-type"></a>次ホップの種類
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: ユーザー ポータルでルート テーブルを作成すると、次のホップの種類オプションの 1 つとして **[Virtual Network ゲートウェイ]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
+- 発生頻度: 共通
 
 #### <a name="alerts"></a>警告
 
