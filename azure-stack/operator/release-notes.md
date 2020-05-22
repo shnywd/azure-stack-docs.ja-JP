@@ -113,7 +113,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
   |------------------------|-----------------------|------------|
   | Microsoft.Backup.Admin | backupLocation         | 2016-05-01 |
   | Microsoft.Backup.Admin | backups                | 2016-05-01 |
-  | Microsoft.Backup.Admin | 操作             | 2016-05-01 |
+  | Microsoft.Backup.Admin | operations             | 2016-05-01 |
 
 - PowerShell を使用して Windows VM を作成するときに、VM で拡張機能をデプロイする場合は、必ず `provisionvmagent` フラグを追加してください。 このフラグがない場合、VM はゲスト エージェントなしで作成され、VM 拡張機能をデプロイする機能が削除されます。
 
