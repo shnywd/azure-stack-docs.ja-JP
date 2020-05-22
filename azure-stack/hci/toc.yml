@@ -20,10 +20,16 @@
       href: manage/replace-drives.md
     - name: クラスターの管理
       href: manage/cluster.md
+    - name: サーバーの追加または削除
+      href: manage/add-cluster.md
     - name: Azure Site Recovery を使用する
       href: manage/azure-site-recovery.md
     - name: Azure Monitor による監視
       href: manage/azure-monitor.md
+    - name: VM の管理
+      href: manage/vm.md
+    - name: PowerShell で VM を管理する
+      href: manage/vm-powershell.md
     - name: Linux VM への GPU のアタッチ
       href: manage/attach-gpu-to-linux-vm.md
 - name: 概念
