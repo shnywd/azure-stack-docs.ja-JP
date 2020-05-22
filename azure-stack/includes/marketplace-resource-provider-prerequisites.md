@@ -21,5 +21,5 @@ ms.locfileid: "82847882"
 
 3. Azure Active Directory (Azure AD) ホーム ディレクトリを更新します。 ビルド 1910 以降では、新しいデプロイ リソース プロバイダー (DRP) アプリケーションを使用してホーム ディレクトリ テナントを登録する必要があります。 このアプリを使用すると、DRP でリソース プロバイダーを正常に作成して登録できます。 この手順を完了しないと、リソース プロバイダーのインストールが失敗します。 
 
-   - Azure Stack Hub インスタンスが 1910 以上に正常に更新されたら、[Azure Stack Hub Tools リポジトリの複製またはダウンロードに関する手順](../operator/azure-stack-powershell-download.md)に従います。 
+   - Azure Stack Hub インスタンスが 1910 以上に正常に更新されたら、[Azure Stack Hub Tools リポジトリのクローンまたはダウンロードに関する手順](../operator/azure-stack-powershell-download.md)に従います。 
    - 次に、[(リソース プロバイダーの更新プログラムまたは新しいリソース プロバイダーのインストール後の) Azure Stack Hub Azure AD ホーム ディレクトリの更新](https://github.com/Azure/AzureStack-Tools/tree/master/Identity#updating-the-azure-stack-aad-home-directory-after-installing-updates-or-new-resource-providers)に関するページの指示に従います。 
