@@ -48,7 +48,7 @@ ms.locfileid: "82847216"
 - Azure Cognitive Services を Azure または Azure Stack Hub にデプロイします。
   - まず、[Cognitive Services の詳細について説明します](https://azure.microsoft.com/services/cognitive-services/)。
   - 次に、「[Azure Cognitive Services を Azure Stack にデプロイする](../user/azure-stack-solution-template-cognitive-services.md)」にアクセスして、Azure Stack Hub 上に Cognitive Services をデプロイします。 プレビューにアクセスするには、まず、サインアップする必要があります。
-- 未構成の Azure Custom Vision AI Dev Kit を複製またはダウンロードします。 詳細については、[Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/) を参照してください。
+- 未構成の Azure Custom Vision AI Dev Kit をクローンまたはダウンロードします。 詳細については、[Vision AI DevKit](https://azure.github.io/Vision-AI-DevKit-Pages/) を参照してください。
 - Power BI アカウントにサインアップする。
 - Azure Cognitive Services Face API サブスクリプション キーとエンドポイント URL。 どちらも「[Cognitive Services を試す](https://azure.microsoft.com/try/cognitive-services/?api=face-api)」の無料試用版を使用して取得できます。 または、[Cognitive Services アカウントの作成](/azure/cognitive-services/cognitive-services-apis-create-account)の手順に従います。
 - 次の開発リソースをインストールする。
@@ -64,7 +64,7 @@ ms.locfileid: "82847216"
 
 まず、Porter CLI を使用して資格情報セットを生成してから、クラウド アプリをデプロイします。  
 
-1. [https://github.com/azure-samples/azure-intelligent-edge-patterns](https://github.com/azure-samples/azure-intelligent-edge-patterns ) からソリューション サンプル コードを複製するか、ダウンロードします。 
+1. [https://github.com/azure-samples/azure-intelligent-edge-patterns](https://github.com/azure-samples/azure-intelligent-edge-patterns ) からソリューション サンプル コードをクローンするか、ダウンロードします。 
 
 1. Porter によって、アプリのデプロイを自動化する一連の資格情報が生成されます。 資格情報の生成コマンドを実行する前に、次のものを使用できるようにしておく必要があります。
 
