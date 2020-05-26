@@ -20,7 +20,7 @@ ms.locfileid: "82106926"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Azure Stack Hub AzureRM モジュール用のツールを入手する
 
-これらのツールを取得するには、`master` ブランチから GitHub リポジトリを複製するか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+これらのツールを取得するには、`master` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
 
 ```powershell
 # Change directory to the root directory.
@@ -45,7 +45,7 @@ Azure Stack Hub 用の AzureRM モジュールの使用の詳細については�
 
 ## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Azure Stack Hub Az (プレビュー) モジュール用のツールを入手する
 
-これらのツールを取得するには、`az` ブランチから GitHub リポジトリを複製するか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+これらのツールを取得するには、`az` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
 
 ```powershell
 # Change directory to the root directory.
