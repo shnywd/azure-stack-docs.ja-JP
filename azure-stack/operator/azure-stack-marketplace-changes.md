@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/18/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 5d915c34d5752e2b496705a90215715121127409
-ms.sourcegitcommit: e83191c952a89d4ac52bf2606eb2b45075e6a8ba
+ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
+ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83382490"
+ms.lasthandoff: 05/18/2020
+ms.locfileid: "83550148"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -63,6 +63,9 @@ ms.locfileid: "83382490"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 5 月 15 日:Bitnami AbanteCart - バージョン 1.2.2004220207
+- 2020 年 5 月 15 日:Bitnami Canvas LMS - バージョン 2020.5.2005120909
+- 2020 年 5 月 15 日:Bitnami Neos - バージョン 5.2.2005130917
 - 2020 年 5 月 7 日:Bitnami ActiveMQ - バージョン 5.15.2003260344
 - 2020 年 5 月 7 日:Bitnami Akeneo- バージョン 4-3.2.2004230142
 - 2020 年 5 月 7 日:Bitnami Alfresco Community - バージョン 201911.0.2004242008
@@ -187,11 +190,11 @@ ms.locfileid: "83382490"
 - 2020 年 5 月 7 日:Bitnami Zurmo - バージョン 3.2.2004220512
 - 2020 年 4 月 20 日:Windows Server 2019 Datacenter BYOL - バージョン 2019.127.20200213
 - 2020 年 4 月 20 日:Windows Server 2019 Datacenter Payg - バージョン 2019.127.20200213
-- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core BYOL - バージョン 2019.127.- 20200204
-- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core Payg - バージョン 2019.127.- 20200204
-- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers BYOL - バージョン 2019.127.- 20200204
-- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers Payg - バージョン 2019.127.- 20200204
-- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Core With Containers BYOL - バージョン 2019.- 127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core BYOL - バージョン 2019.127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Server Core Payg - バージョン 2019.127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers BYOL - バージョン 2019.127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter With Containers Payg - バージョン 2019.127.20200204
+- 2020 年 4 月 20 日:Windows Server 2019 Datacenter Core With Containers BYOL - バージョン 2019.127.20200204
 - 2020 年 4 月 20 日:Windows Server 2019 Datacenter Core With Containers Payg - バージョン 2019.127.20200204
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter - BYOL - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter - Pay as you use - バージョン 2016.127.20200131
@@ -199,7 +202,7 @@ ms.locfileid: "83382490"
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter Server Core - Pay as you use - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - BYOL - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - Pay-as-you-use - バージョン 2016.127.20200131
-- 2020 年 4 月 20 日:Windows Server 2012 Datacenter - BYOL - バージョン 3.127.20190521
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter BYOL - バージョン 3.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - Pay as you use - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - BYOL - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 Datacenter - Pay as you use - バージョン 3.127.20200205

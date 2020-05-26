@@ -3,25 +3,41 @@ title: Azure Cognitive Services を Azure Stack Hub にデプロイする
 description: Azure Cognitive Services を Azure Stack Hub にデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/13/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ff5dd1ccb8193e9dae3d97401793773e3e28fb4d
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.lastreviewed: 05/13/2020
+ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
+ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660188"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83554983"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Azure Cognitive Services を Azure Stack Hub にデプロイする
 
-> [!Note]  
-> Azure Stack Hub の Azure Cognitive Services は、プレビュー段階です。
-
-Azure Cognitive Services は、Azure Stack Hub のコンテナー サポートとともに使用できます。 Azure Cognitive Services でのコンテナーのサポートにより、Azure で使用できる同じ豊富な API を使用できます。 コンテナーを使用することで、[Docker コンテナー](https://www.docker.com/what-container)で提供されるサービスのデプロイ先やホスト先に柔軟に対応できるようになります。 現在、コンテナー サポートは、[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)、[Face](https://docs.microsoft.com/azure/cognitive-services/face/overview)、[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)、および [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/luis-container-howto) (LUIS) など、Azure Cognitive Services のサブセットに対するプレビューで使用できます。
+Azure Cognitive Services は、Azure Stack Hub のコンテナー サポートとともに使用できます。 Azure Cognitive Services でのコンテナーのサポートにより、Azure で使用できる同じ豊富な API を使用できます。 コンテナーを使用することで、[Docker コンテナー](https://www.docker.com/what-container)で提供されるサービスのデプロイ先やホスト先に柔軟に対応できるようになります。 
 
 コンテナー化とは、アプリまたはサービスとその依存関係や構成をコンテナー イメージとしてパッケージ化する、ソフトウェア配布のアプローチです。 ほとんどまたはまったく変更せずに、コンテナー ホストにイメージをデプロイできます。 各コンテナーは、他のコンテナーや、基になるオペレーティング システムから分離されます。 システム自体には、イメージを実行するために必要なコンポーネントしかありません。 コンテナー ホストは、仮想マシンよりも小さいフット プリントです。 短期的なタスクではイメージからコンテナーを作成することもでき、不要になったときには削除できます。
+
+現在、Azure Cognitive Services のサブセットに対するコンテナー サポートを利用できます。
+
+- Language Understanding
+- Text Analytics (Sentiment 3.0)
+
+> [!IMPORTANT]
+> Azure Stack Hub 用の Azure Cognitive Services のサブセットは、現在パブリック プレビューの段階にあります。
+> プレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
+
+次の Azure Cognitive Services のサブセットに対するコンテナー サポートは、現在プレビュー段階にあります。
+
+- 読み取り (光学式文字認識 \[OCR])
+- キー フレーズの抽出
+- 言語検出
+- Anomaly Detector
+- Form Recognizer
+- 音声テキスト変換 (カスタム、標準)
+- テキスト読み上げ (カスタム、標準)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Azure Stack Hub の Cognitive Services でコンテナーを使用する
 
@@ -128,7 +144,7 @@ spec:
 
 キー フィールドに関する詳細:
 
-| フィールド | メモ |
+| フィールド | Notes |
 | --- | --- |
 | replicaNumber | 作成するインスタンスの初期レプリカを定義します。 スケーリングはデプロイ後に可能になります。 |
 | ImageLocation | ACR での特定の Cognitive Service コンテナー イメージの場所を示します。 たとえば、顔サービスの場合は次のようになります: `aicpppe.azurecr.io/microsoft/cognitive-services-face` |
@@ -141,12 +157,37 @@ spec:
 Cognitive Services コンテナーをデプロイするには、次のコマンドを使用します。
 
 ```bash  
-    Kubectl apply -f <yamlFineName>
+    Kubectl apply -f <yamlFileName>
 ```
 デプロイ方法を監視するには、次のコマンドを使用します。 
 ```bash  
     Kubectl get pod - watch
 ```
+
+## <a name="configure-http-proxy-settings"></a>HTTP プロキシ設定を構成する
+
+ワーカー ノードにはプロキシと SSL が必要です。 送信要求を行うために HTTP プロキシを構成する必要がある場合は、次の 2 つの引数を使用します。
+
+- **HTTP_PROXY** - 使用するプロキシ。例: `https://proxy:8888`
+- **HTTP_PROXY_CREDS** - プロキシで認証されるために必要な資格情報。例: `username:password`
+
+### <a name="set-up-the-proxy"></a>プロキシを設定する
+
+1. `http-proxy.conf` ファイルを両方の場所に追加します。
+    - `/etc/system/system/docker.service.d/`
+    - `/cat/etc/environment/`
+
+2. Cognitive Services チームから提供された資格情報を使用してコンテナーにサインオンして次のコンテナーで `docker pull` を実行できることを検証します。 
+
+    `docker pull containerpreview.azurecr.io/microsoft/cognitive-services-read:latest`
+
+    次のコマンドを実行します。
+
+    `docker run hello-world pull`
+
+### <a name="ssl-interception-setup"></a>SSL インターセプトの設定
+
+1. **https インターセプション**証明書を `/usr/local/share/ca-certificates` に追加し `update-ca-certificates`でストアを更新します。 
 
 ## <a name="test-the-cognitive-service"></a>Cognitive Service をテストする
 

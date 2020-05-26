@@ -64,7 +64,7 @@ ms.locfileid: "82847216"
 
 まず、Porter CLI を使用して資格情報セットを生成してから、クラウド アプリをデプロイします。  
 
-1. [https://github.com/azure-samples/azure-intelligent-edge-patterns](https://github.com/azure-samples/azure-intelligent-edge-patterns ) からソリューション サンプル コードをクローンするか、ダウンロードします。 
+1. [https://github.com/azure-samples/azure-intelligent-edge-patterns](https://github.com/azure-samples/azure-intelligent-edge-patterns ) からソリューション サンプル コードを複製するか、ダウンロードします。 
 
 1. Porter によって、アプリのデプロイを自動化する一連の資格情報が生成されます。 資格情報の生成コマンドを実行する前に、次のものを使用できるようにしておく必要があります。
 

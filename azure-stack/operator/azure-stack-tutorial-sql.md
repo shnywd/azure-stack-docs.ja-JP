@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: bf9ed5ced7bfde80219f0d9bddcf285e76183361
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
+ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202416"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83403864"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Azure Stack Hub を使用して高可用性 SQL データベースを作成する
 
@@ -35,8 +35,8 @@ Azure Stack Hub オペレーターとして、SQL Server データベースを�
 > [!IMPORTANT]
 > Azure Stack Hub クイックスタート テンプレートを使用するには、以下のすべてが必要です。
 
-- [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/MicrosoftWindowsServer.WindowsServer) マーケットプレース イメージ。
-- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) この記事では、[Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) を使用します。
+- Windows Server 2016 Datacenter マーケットプレース イメージ。
+- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise または Developer)。 この記事では、Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise を使用します。
 - [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) バージョン 1.3.20180 以降 SQL IaaS 拡張機能を使用して、すべての Windows バージョンの Marketplace SQL Server 項目に必要なコンポーネントをインストールします。 SQL 仮想マシン (VM) 上で SQL 固有の設定を構成することが可能になります。 拡張機能がローカルのマーケットプレースにインストールされていない場合、SQL のプロビジョニングは失敗します。
 - [Windows バージョン 1.9.1 以降のカスタム スクリプト拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 カスタム スクリプト拡張機能は、デプロイ後の VM カスタマイズ タスクを自動的に起動するために使用できるツールです。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) バージョン 2.76.0.0 以降。 DSC は、Windows PowerShell の管理プラットフォームであり、ソフトウェア サービス用の構成データのデプロイと管理を行うことができます。 また、プラットフォームでは、これらのサービスを実行する環境の管理も行われます。
@@ -45,7 +45,7 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 ## <a name="create-a-sql-server-alwayson-availability-group"></a>SQL Server AlwaysOn 可用性グループを作成する
 
-このセクションの手順を使用し、[sql-2016-Always On Azure Stack Hub クイックスタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)を使用して SQL Server Always On 可用性グループをデプロイします。 このテンプレートでは、Always On 可用性グループに 2 つの SQL Server Enterprise、Standard、または Developer インスタンスをデプロイします。 このテンプレートは次のリソースを作成します。
+このセクションの手順を使用し、[sql-2016-Always On Azure Stack Hub クイックスタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2016-alwayson)を使用して SQL Server Always On 可用性グループをデプロイします。 このテンプレートでは、Always On 可用性グループに 2 つの SQL Server Enterprise または Developer インスタンスをデプロイします。 このテンプレートは次のリソースを作成します。
 
 - ネットワーク セキュリティ グループ。
 - 仮想ネットワーク。
@@ -53,7 +53,7 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 - 4 つのパブリック IP アドレス (AD 用に 1 つ、各 SQL VM 用に 2 つ、SQL AlwaysOn リスナーにバインドされたパブリック ロード バランサー用に 1 つ)。
 - パブリック IP が SQL AlwaysOn リスナーにバインドされた SQL VM 用の 1 つの外部ロード バランサー。
 - 単一のドメインを使用する新しいフォレスト用のドメイン コントローラーとして構成された 1 台の VM (Windows Server 2016)。
-- SQL Server 2016 SP1 または SP2 Enterprise、Standard、または Developer エディションで構成され、クラスター化されている 2 つの VM (Windows Server 2016)。 これらは Marketplace イメージである必要があります。
+- SQL Server 2016 SP1 または SP2 Enterprise または Developer エディションで構成され、クラスター化されている 2 つの VM (Windows Server 2016)。 これらは Marketplace イメージである必要があります。
 - クラスターのファイル共有監視として構成された 1 台の VM (Windows Server 2016)。
 - SQL およびファイル共有監視の VM を含む 1 つの可用性セット。
 
