@@ -7,12 +7,12 @@ ms.date: 09/16/2019
 ms.author: Justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3cf7b6cadbefb32359e6104bd7b5a3c7851e73f7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3209c3a51b491bcdf2779e95c58f41cb124cd3f3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704864"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>Azure Stack Hub での iDNS の使用 
 

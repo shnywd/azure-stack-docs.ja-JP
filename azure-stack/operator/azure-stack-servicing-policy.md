@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/30/2019
+ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: harik
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 280509c989a10b11884e93947d20569b3c128426
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882923"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848151"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -45,10 +45,10 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
+- [Azure Stack Hub 2002 更新プログラム](/azure-stack/operator/release-notes?view=azs-2002)
 - [Azure Stack Hub 1910 更新プログラム](/azure-stack/operator/release-notes?view=azs-1910)
 - [Azure Stack Hub 1908 更新プログラム](/azure-stack/operator/release-notes?view=azs-1908)
 - [Azure Stack Hub 1907 更新プログラム](/azure-stack/operator/release-notes?view=azs-1907)
-- [Azure Stack Hub 1906 更新プログラム](/azure-stack/operator/release-notes?view=azs-1906)
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -58,12 +58,19 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
-- [Azure Stack Hub 1910 修正プログラム](/azure-stack/operator/release-notes?view=azs-1910#hotfixes)
-- [Azure Stack Hub 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-1)
-- [Azure Stack Hub 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)
-- [Azure Stack Hub 1906 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)
+- [Azure Stack Hub 2002 修正プログラム](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
+- [Azure Stack Hub 1910 修正プログラム](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
+- [Azure Stack Hub 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
+- [Azure Stack Hub 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
+
+::: moniker range="azs-2002"
+
+> [!IMPORTANT]  
+> Azure Stack Hub 2002 更新プログラムでは、Microsoft は Azure Stack Hub サポート ポリシー ステートメントを一時的に延長しています。 Microsoft は現在、COVID-19 に対応中の、Azure Stack Hub システムとその更新方法と管理方法に関する重要な意思決定を行っている可能性のある世界中のお客様と連携して、お客様のデータセンターのビジネス運用を正常に継続するための取り組みを行っています。 Microsoft では、お客様をサポートするために、3 つ前までの更新プログラムのバージョンを含めるように一時的なサポート ポリシー変更の延長を行っています。 その結果、新しくリリースされた 2002 更新プログラムと、3 つ前までの更新プログラムのバージョン (1910、1908、1907 など) のすべてがサポートされます。
+
+::: moniker-end
 
 サポートを受けられる状態に Azure Stack Hub インスタンスを維持するためには、インスタンスで、リリースされた最新バージョンの更新プログラムを実行するか、またはその前の 2 つの更新プログラムのバージョンのいずれかを実行する必要があります。
 
@@ -73,10 +80,19 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 Microsoft ソフトウェア更新プログラム パッケージは累積的ではないため、前提として前のバージョンの更新パッケージか修正プログラムが必要です。 1 つ以上の更新プログラムを先送りにする場合は、最新のバージョンを取得する際に全体のランタイムを考慮してください。
 
+### <a name="resource-provider-version-support"></a>リソース プロバイダーのバージョンのサポート
+
+Azure Stack Hub リソース プロバイダーでは、サポートされているバージョンの Azure Stack Hub と互換性がある、特定のリソース プロバイダーの最新リリース バージョンのみがサポートされています。これは、まだサポート有効期限内の古いバージョンの Azure Stack Hub を使用している場合でも同様です。
+
+リソース プロバイダーの互換性の詳細については、その特定のリソース プロバイダーのリリース ノートを参照してください。
+
 ## <a name="get-support"></a>サポートを受ける
 
 Azure Stack Hub には、Azure と同じサポート プロセスが適用されます。 企業のお客様は、[Azure サポート要求を作成する方法](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)で説明されているプロセスに従ってください。 クラウド ソリューション プロバイダー (CSP) のお客様の場合は、担当の CSP までサポートについてお問い合わせください。 詳細については、「[Azure サポートに関する FAQ](https://azure.microsoft.com/support/faq/)」を参照してください。
 
+更新プログラムに関する問題のトラブルシューティングのヘルプについては、「[Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-troubleshooting.md)」を参照してください。
+
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub での更新プログラム管理](azure-stack-updates.md)
+- [Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-troubleshooting.md)

@@ -1,17 +1,17 @@
 ---
 title: Azure Stack Hub での正常性およびアラートの監視
 description: Azure Stack Hub で正常性およびアラートを監視する方法について説明します。
-author: mattbriggs
-ms.topic: article
-ms.date: 1/22/2020
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: bfe250a6285ddf69308e56246d5d4bd6eefadd50
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881967"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78368092"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Azure Stack Hub での正常性およびアラートの監視
 

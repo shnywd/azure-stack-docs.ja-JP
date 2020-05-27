@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Kubernetes を Azure Stack Hub Marketplace に追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 03/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: bbd99b7085f96e24f2d1b2a74795be2a1584b656
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 03/24/2020v
+ms.openlocfilehash: bd8867b4bd7fae79f82752a0f4cdbd1457efc0ef
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881291"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80229528"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes を Azure Stack Hub Marketplace に追加する
 

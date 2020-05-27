@@ -3,16 +3,16 @@ title: 仮想マシン スケール セットを Azure Stack Hub 内で使用で
 description: クラウド オペレーターが Azure Stack Hub Marketplace に仮想マシン スケール セットを追加する方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/04/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 7474b18a1d50c6ab8ed91be64f8f943a215ff7fd
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889747"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777833"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 
@@ -76,7 +76,7 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>仮想マシン スケール セットを拡大縮小する
 
-仮想マシン スケール セットのサイズをスケーリングして大きく、または小さくすることができます。
+仮想マシン スケール セットのサイズを変更して大きく、または小さくすることができます。
 
 1. ポータルで、スケール セットを選択し、 **[拡大縮小]** を選択します。
 

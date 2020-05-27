@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカーを使用して、Azure Stack Hub の AD FS 統合を検証する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
-ms.topic: article
-ms.date: 06/10/2019
-ms.author: inhenkel
+author: BryanLa
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 786ee290aba91c855211d3f470f439c3e9b2c01a
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: a8809c9f3a041d6bb4812c58d614693ce2d5431a
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972593"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82174000"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack-hub"></a>Azure Stack Hub の AD FS 統合を検証する
 

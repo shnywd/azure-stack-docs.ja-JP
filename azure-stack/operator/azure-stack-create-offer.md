@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 20dc75b0165ab476d324ae677eea41bb4bd371fe
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879841"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704490"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Azure Stack Hub でのオファーの作成
 

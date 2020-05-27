@@ -2,18 +2,18 @@
 title: SQL データベースの作成
 titleSuffix: Azure Stack Hub
 description: SQL リソース プロバイダー アダプター使用してプロビジョニングされた SQL データベースの作成と管理を行う方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: b0ea11c3245d8a3ddbf9eeaf85481f830c67dc7f
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 0d1e58fffc7bc5fcc6a2c54ad409752314d1d36b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125604"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697401"
 ---
 # <a name="create-sql-databases"></a>SQL データベースの作成
 

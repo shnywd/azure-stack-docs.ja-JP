@@ -2,18 +2,18 @@
 title: デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムのデプロイ、または既存の Azure Stack Hub 環境でのシークレットのローテーションのために PKI 証明書を準備する方法について説明します。
-author: ihenkel
-ms.topic: article
-ms.date: 09/16/2019
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3111d59a685425210bd8e63fbafcd4bb68c4a3a2
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881592"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367956"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 

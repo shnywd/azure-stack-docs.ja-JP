@@ -3,16 +3,16 @@ title: Azure Stack Hub 内の仮想マシンに C# ASP.NET Web アプリをデ�
 description: Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイします。
 author: mattbriggs
 ms.topic: overview
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 8222d102b22b05a3d5d1fd1a7530aeae62cc276d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 1f986c1d09397fae9d765f2a64a7fda267f4ac98
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884920"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661068"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイする
 
@@ -53,7 +53,7 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     e. 次のポートのインバウンド セキュリティ規則を追加します。
 
-    | Port | Protocol | [説明] |
+    | Port | Protocol | 説明 |
     | --- | --- | --- |
     | 80 | HTTP | ハイパーテキスト転送プロトコル (HTTP) は、サーバーからの Web ページの配信に使用されるプロトコルです。 クライアントは、DNS 名または IP アドレスを使用して HTTP 経由で接続されます。 |
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。  |
@@ -93,7 +93,7 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     e. **[割り当て]** で **[動的]** を選択します。
 
-    f. 完全な URL が *mywebapp.local.cloudapp.azurestack.external* になるように、**mywebapp** などの DNS 名ラベルを入力します。
+    f. 完全な URL が **mywebapp.local.cloudapp.azurestack.external** になるように、*mywebapp* などの DNS 名ラベルを入力します。
 
 ## <a name="create-an-app"></a>アプリを作成する 
 

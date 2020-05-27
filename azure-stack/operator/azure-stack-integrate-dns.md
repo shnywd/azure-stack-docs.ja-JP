@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub データセンターの DNS の統合
 description: Azure Stack Hub の DNS をデータセンターの DNS と統合する方法を学習します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: 3d92504080e754db08d76cf7ec2a2c7e010ee394
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d16aea039103c69302c8f84aa7de078907f1efce
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882163"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81244081"
 ---
 # <a name="azure-stack-hub-datacenter-dns-integration"></a>Azure Stack Hub データセンターの DNS の統合
 
@@ -23,7 +23,7 @@ Azure Stack Hub の外部から、**portal**、**adminportal**、**management**�
 Azure Stack Hub をデプロイするときに、DNS に関するいくつかの重要な情報を指定する必要があります。
 
 
-|フィールド  |[説明]  |例|
+|フィールド  |説明  |例|
 |---------|---------|---------|
 |リージョン|Azure Stack Hub のデプロイの地理的な場所。|`east`|
 |外部ドメイン名|Azure Stack Hub のデプロイに使用したいゾーンの名前。|`cloud.fabrikam.com`|
@@ -72,13 +72,11 @@ DNS サーバーには次の 2 種類があります。
 
 Azure Stack Hub には、権限のある DNS サーバーと再帰 DNS サーバーの両方が含まれます。 再帰サーバーは、その Azure Stack Hub のデプロイの内部プライベート ゾーンと外部パブリック DNS ゾーンを除くすべての名前の解決に使用されます。
 
-![Azure Stack Hub DNS のアーキテクチャ](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Azure Stack Hub DNS のアーキテクチャ](media/azure-stack-integrate-dns/Integrate-DNS-01.svg)
 
 ## <a name="resolving-external-dns-names-from-azure-stack-hub"></a>Azure Stack Hub からの外部 DNS 名の解決
 
 Azure Stack Hub 外部のエンドポイントの DNS 名 (たとえば、www\.bing.com) を解決するには、Azure Stack Hub に権限のない DNS 要求を転送するために、その Azure Stack Hub で使用できる DNS サーバーを提供する必要があります。 デプロイでは、Azure Stack Hub の要求の転送先となる DNS サーバーをデプロイ ワークシート ([DNS フォワーダー] フィールド) に入力する必要があります。 フォールト トレランスのために、このフィールドには 2 つ以上のサーバーを入力します。 これらの値がない場合、Azure Stack Hub のデプロイは失敗します。 デプロイ後に [**Set-AzSDnsForwarder** コマンドレット](#editing-dns-forwarder-ips) を使用して、DNS フォワーダーの値を編集できます。 
-
-
 
 ### <a name="configure-conditional-dns-forwarding"></a>条件付き DNS フォワーダーの構成
 
@@ -93,14 +91,14 @@ Azure Stack Hub 外部のエンドポイントの DNS 名 (たとえば、www\.b
 
 1. 管理者特権での Windows PowerShell セッション (管理者として実行) を開き、特権エンドポイントの IP アドレスに接続します。 CloudAdmin 認証の資格情報を使用します。
 
-   ```
+   ```PowerShell
    $cred=Get-Credential 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
 2. 特権エンドポイントに接続したら、次の PowerShell コマンドを実行します。 サンプルの値を、使用する DNS サーバーのドメイン名とアドレスで置き換えてください。
 
-   ```
+   ```PowerShell
    Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 

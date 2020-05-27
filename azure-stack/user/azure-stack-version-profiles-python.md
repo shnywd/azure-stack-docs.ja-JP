@@ -3,16 +3,16 @@ title: Azure Stack Hub での Python による API バージョンのプロフ�
 description: Azure Stack Hub での Python による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 48df6dab5d93e4e9875dc422f90f3f823a4b2ee9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884232"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82835902"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Azure Stack Hub での Python による API バージョンのプロファイルの使用
 
@@ -47,7 +47,7 @@ Python SDK では、以下の API プロファイルをサポートします。
 
 Azure Stack Hub で Python Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、次の表の後にある、お使いの特定のオペレーティング システム用の手順を参照してください。
 
-| Value | 環境変数 | [説明] |
+| 値 | 環境変数 | 説明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
 | テナント ID | `AZURE_TENANT_ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |

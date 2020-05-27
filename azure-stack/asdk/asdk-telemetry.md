@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 4ab0323b38d538e1c064bc998a84a26eae267a52
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: df742ed6c0a2b082aaddd4498c313474a47c6227
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873449"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80362190"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack のテレメトリ
 
@@ -26,7 +26,7 @@ Azure Stack のオペレーターにとってテレメトリは、企業での�
 Azure Stack テレメトリの基盤になっているのは、*Windows Server 2016 の接続ユーザー エクスペリエンスとテレメトリ* コンポーネントです。このコンポーネントでは、[Windows イベント トレーシング (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) のトレース ログ テクノロジを使って、テレメトリのイベントやデータが収集され、保存されます。 Azure Stack のコンポーネントにも、同じログ テクノロジが使用されており、パブリックなオペレーティング システムのイベント ログとトレース API を使って収集されたイベントとデータが発行されます。 Azure Stack のコンポーネントの例として、ネットワーク リソース プロバイダー、ストレージ リソース プロバイダー、監視リソース プロバイダー、更新リソース プロバイダーがあります。 "接続ユーザー エクスペリエンスとテレメトリ" コンポーネントは、SSL を使用してデータを暗号化し、証明書のピン留めを使用してテレメトリ データを HTTPS で Microsoft Data Management サービスに送信します。
 
 > [!NOTE]
-> テレメトリ データ フローをサポートするには、ネットワークでポート 443 (HTTPS) を開く必要があります。 接続ユーザー エクスペリエンスとテレメトリ コンポーネントは https://v10.vortex-win.data.microsoft.com の Microsoft Data Management サービスに接続され、構成情報をダウンロードするために、 https://settings-win.data.microsoft.com に接続されます。
+> テレメトリ データ フローをサポートするには、ネットワークでポート 443 (HTTPS) を開く必要があります。 接続ユーザー エクスペリエンスとテレメトリ コンポーネントは `https://v10.vortex-win.data.microsoft.com` の Microsoft Data Management サービスに接続され、構成情報をダウンロードするために、`https://settings-win.data.microsoft.com` に接続されます。
 
 ## <a name="privacy-considerations"></a>プライバシーに関する考慮事項
 ETW サービスによって、テレメトリ データが、保護されたクラウド ストレージに返送されます。 テレメトリ データへのアクセスには、最小特権の原則が適用されます。 テレメトリ データへのアクセスは、業務上の正当な必要性がある Microsoft 担当者にしか認められません。 お客様の判断による場合や、[Azure Stack のプライバシーに関する声明](https://privacy.microsoft.com/PrivacyStatement)に記載されている限定的な目的を除き、Microsoft がお客様の個人データを第三者と共有することはありません。 ただし Microsoft は、集計されて匿名化されたテレメトリ情報を含んだビジネス レポートについては、OEM やパートナーと共有します。 データ共有の決定は、プライバシー、法務、データ管理の関係者を含む Microsoft 社内のチームが行います。

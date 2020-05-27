@@ -2,18 +2,18 @@
 title: PKI 証明書に関する一般的な問題を修正する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカー ツールを使用して Azure Stack Hub PKI 証明書に関する一般的な問題を修します。
-author: ihenkel
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: 942a5f4145fbee0d7a012350d88601554b44834c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/19/2019
+ms.openlocfilehash: 079bec68836af5491d9f39bcf24e68001ffcfe2b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881379"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367796"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書に関する一般的な問題を修復する
 

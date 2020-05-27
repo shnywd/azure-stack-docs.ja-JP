@@ -3,16 +3,16 @@ title: Azure Stack Hub に対する API 要求を作成する
 description: Azure から認証を取得して、Azure Stack Hub に対して API 要求を行う方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/06/2020
 ms.author: sethm
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 45dd07337aef61a1fcfecb855e0c113315b15271
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: d44158342b1bca1aec575d51fb7144a8c88e88d1
+ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883213"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82967745"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -26,7 +26,7 @@ Azure Stack Hub REST API を使用して、Azure Stack Hub クラウドへの仮
 
 Azure Stack Hub REST API を **cURL** などの汎用 REST クライアントと共に使用するプロセス全体をレビューすることは、基になる要求と、期待できる応答ペイロードの内容を把握するのに役立ちます。
 
-この記事では、対話型サインインなどのトークンの取得や専用アプリ ID の作成に使用できるすべてのオプションについては説明しません。 これらのトピックの情報を取得するには、[Azure REST API リファレンス](/rest/api/)に関するページを参照してください。
+この記事では、対話型サインインなどのトークンの取得や専用アプリ ID の作成に使用できるすべてのオプションについては説明しません。 これらのトピックに関する詳細については、[Azure REST API リファレンス](/rest/api/)に関するページを参照してください。
 
 ## <a name="get-a-token-from-azure"></a>Azure からトークンを取得する
 

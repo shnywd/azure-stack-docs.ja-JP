@@ -3,16 +3,16 @@ title: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする�
 description: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 87c924ff78e4209b300bc7fd68e7cc5b59640026
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885332"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661441"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法
 
@@ -138,9 +138,9 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
     ![](./media/network-howto-f5/image11.png)
     
-    | Key | Value |
+    | Key | 値 |
     | --- | --- |
-    | Name | NGINX_Pool |
+    | 名前 | NGINX_Pool |
     | Health Monitor (正常性モニター) | HTTPS |
     | Node Name (ノード名) | NGINX |
     | Address | \<お使いの NGINX プライベート IP アドレス> |
@@ -158,9 +158,9 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
 13. **[Local Traffic]\(ローカル トラフィック\)**  >  **[Virtual Servers]\(仮想サーバー\)**  >  **[Virtual Server List]\(仮想サーバー一覧\)** に移動し、 **[+]** を選択して、仮想サーバーを作成します。 次の表の値を使用して、プールを構成します。 他のすべてのフィールドは既定値のままにします。
 
-    | Key | Value |
+    | Key | 値 |
     | --- | --- |
-    |Name | NGINX |
+    |名前 | NGINX |
     |Destination Address (宛先アドレス) | \<BIG-IP のセルフ IP アドレス> |
     |Service Port (サービス ポート) | 443 |
     |SSL Profile (Client) (SSL プロファイル (クライアント)) | clientssl |

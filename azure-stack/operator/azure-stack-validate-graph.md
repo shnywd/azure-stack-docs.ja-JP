@@ -2,18 +2,18 @@
 title: Azure Graph 統合を検証する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカーを使用して、Azure Stack Hub の Graph 統合を検証します。
-author: ihenkel
-ms.topic: article
-ms.date: 06/10/2019
-ms.author: inhenkel
+author: BryanLa
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: bryanla
 ms.reviewer: jerskine
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ff9763edbd96dda39f3de8e8a764ce4f4acd7200
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: e4af68d1d4f9a44bb957f318f0f13ec1d2c9ecdd
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972499"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173846"
 ---
 # <a name="validate-graph-integration-for-azure-stack-hub"></a>Azure Stack Hub の Graph 統合を検証する
 

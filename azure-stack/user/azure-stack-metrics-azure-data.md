@@ -5,17 +5,17 @@ author: mattbriggs
 ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: f25ec6b74eac2213a6ffa701a0d826b8f035b1e5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/01/2019
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884678"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742428"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor を使用する
 
-この記事では、Azure Stack Hub 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack Hub での Azure Monitor の使用方法に関するその他の情報を紹介します。 
+この記事では、Azure Stack Hub 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack Hub での Azure Monitor の使用方法に関するその他の情報を紹介します。
 
 Azure Monitor の概要については、[Azure Stack Hub 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
 
@@ -42,7 +42,7 @@ Azure 上の Azure Monitor と同様、Azure Stack Hub 上の Azure Monitor で�
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor のソース: コンピューティングのサブセット
 
-![Azure Stack Hub 上の Azure Monitor のソース: コンピューティングのサブセット](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack Hub 上の Azure Monitor のソース: コンピューティングのサブセット](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
 Azure Stack Hub 上の **Microsoft.Compute** リソース プロバイダーには、以下が含まれます。
  - 仮想マシン 
@@ -76,7 +76,7 @@ Azure Stack Hub 上の **Microsoft.Compute** リソース プロバイダーに�
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor のソース: 上記以外のすべて
 
-![Azure Stack Hub 上の Azure Monitor のソース: 上記以外のすべて](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Stack Hub 上の Azure Monitor のソース: 上記以外のすべて](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>リソース - メトリックと診断ログ
 

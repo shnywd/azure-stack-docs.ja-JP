@@ -4,15 +4,15 @@ description: Kubernetes の Azure Stack Hub へのデプロイのトラブルシ
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 11/14/2019
+ms.date: 04/20/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 5e98ed511fab30e7ece3ebca282c79ef6a5bed97
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 30743cf5a2edf880c155e443c0608dc7d3f8f55f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76889543"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660211"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
@@ -85,7 +85,7 @@ Kubernetes クラスターをサポートしている VM のデプロイ ログ�
     - VM の完全修飾ドメイン名 (FQDN) は重複するプレフィックスで始まっていることを確認してください。
 5.  VM が **[OK]** の場合は、DVM を評価します。 DVM にエラー メッセージがある場合:
     - 公開キーが無効な場合があります。 作成したキーを確認してください。  
-    - Azure Stack Hub 管理者に連絡して、特権付きエンドポイントを使用して Azure Stack Hub のログを取得してください。 詳細については、[Azure Stack Hub の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関するページを参照してください。
+    - Azure Stack Hub 管理者に連絡して、特権付きエンドポイントを使用して Azure Stack Hub のログを取得してください。 詳細については、[Azure Stack Hub の診断ツール](../operator/azure-stack-get-azurestacklog.md)に関するページを参照してください。
 5. デプロイに関して質問がある場合は、[Azure Stack Hub フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で質問を投稿するか、他の人が既に回答を受け取っていないか確認することができます。 
 
 
@@ -101,10 +101,10 @@ Kubernetes クラスターをデプロイする際には、デプロイの状態
 
 4.  トラブルシューティングのウィンドウを確認します。 デプロイ済みの各リソースから、次の情報が提供されます。
     
-    | プロパティ | [説明] |
+    | プロパティ | 説明 |
     | ----     | ----        |
     | リソース | リソースの名前。 |
-    | 種類 | リソース プロバイダーとリソースの種類。 |
+    | Type | リソース プロバイダーとリソースの種類。 |
     | Status | 項目の状態。 |
     | TimeStamp | 時刻のタイムスタンプ (UTC)。 |
     | 操作の詳細 | 操作に関係するリソース プロバイダー、リソースのエンド ポイント、リソースの名前などの操作の詳細。 |
@@ -136,7 +136,7 @@ Azure Stack Hub の管理に使用するマシンには Bash プロンプトが�
 
 3. スクリプトに必要な情報を探して、実行します。
 
-    | パラメーター           | [説明]                                                                                                      | 例                                                                       |
+    | パラメーター           | 説明                                                                                                      | 例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d、--vmd-host      | DVM のパブリック IP または完全修飾ドメイン名 (FQDN)。 VM 名は `vmd-` で始まります。 | IP:192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
     | -h, --help  | Print コマンドの使用方法。 | |

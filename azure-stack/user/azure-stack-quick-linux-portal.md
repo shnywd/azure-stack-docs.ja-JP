@@ -3,16 +3,16 @@ title: Azure Stack Hub を使用して Linux VM を作成する
 description: Azure Stack Hub を使用して Linux サーバー VM を作成します。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 4e4f9eb8d9a1bf0966d75c2d4e47b94a998675f0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884470"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660435"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成する
 
@@ -73,7 +73,7 @@ Azure Stack Hub ポータルのアドレスは、接続している Azure Stack 
 
    ![Linux サーバーを作成する](media/azure-stack-quick-linux-portal/image1.png)
 
-1. **作成** を選択します。
+1. **［作成］** を選択します
 
    ![Linux サーバーを作成する - 作成](media/azure-stack-quick-linux-portal/image2.png)
 

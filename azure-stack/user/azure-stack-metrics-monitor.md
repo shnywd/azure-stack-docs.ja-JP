@@ -3,15 +3,15 @@ title: Azure Stack Hub の監視データの使用
 description: Azure Stack Hub からの監視データを使用するためのオプションについて説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: bb03193c1c4b061a996e3bef135c6cfc630f36b0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 933d05e17098ed7ef27a21d5ed846a420ff2f48a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883427"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660520"
 ---
 # <a name="consume-monitoring-data-from-azure-stack-hub"></a>Azure Stack Hub の監視データの使用
 

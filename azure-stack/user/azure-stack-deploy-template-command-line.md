@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 7566a1b2b607064560302ee5178c5c52b5098e94
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: fc01d7ebab8855580470a7d4e29ab86851b88280
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883836"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704286"
 ---
 # <a name="deploy-a-template-with-the-command-line-in-azure-stack-hub"></a>Azure Stack Hub でコマンド ラインを使ってテンプレートをデプロイする
 

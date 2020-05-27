@@ -3,16 +3,16 @@ title: Azure Stack Hub ポータルを使用して Windows VM を作成する
 description: Azure Stack Hub ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 1/10/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 0792d0dffa8a61194b0f6725aba9222d69c8634e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883298"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660259"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する
 
@@ -36,7 +36,7 @@ Azure Stack Hub ポータルにサインインします。 Azure Stack Hub ポ�
 
     ![Windows Server 2016 Datacenter - Pay as you use](./media/azure-stack-quick-windows-portal/image1.png)
 
-1. **作成** を選択します。
+1. **［作成］** を選択します
 
     ![リソースの作成](./media/azure-stack-quick-windows-portal/image2.png)
 

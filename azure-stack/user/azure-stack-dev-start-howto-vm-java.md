@@ -2,21 +2,21 @@
 title: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイする
 description: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイします。
 author: mattbriggs
-ms.topic: overview
-ms.date: 1/22/2020
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 6a696417b296da978b2d077c6f2c01b94a106d2e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884910"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836208"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Java Web アプリをデプロイする
 
-Azure Stack Hub でご自分の Python Web アプリをホストする仮想マシン (VM) を作成できます。 この記事では、Azure Stack Hub の Linux VM で Apache Tomcat サーバーをインストールして構成します。 その後、サーバーに Java Web アプリケーション リソース (WAR) ファイルを読み込みます。 WAR ファイルは、一連の Java アーカイブ (JAR) ファイル、つまり、クラス、テキスト、イメージ、XML、HTML、および Web アプリケーションの配信に使用される他のリソースなどの Java リソースを含む圧縮ファイルを配布するために使用されます。
+Azure Stack Hub でご自分の Java Web アプリをホストする仮想マシン (VM) を作成できます。 この記事では、Azure Stack Hub の Linux VM で Apache Tomcat サーバーをインストールし、適切なポートを開いて構成します。 その後、サーバーに Java Web アプリケーション リソース (WAR) ファイルを読み込みます。 WAR ファイルは、一連の Java アーカイブ (JAR) ファイル、つまり、クラス、テキスト、イメージ、XML、HTML、および Web アプリケーションの配信に使用される他のリソースなどの Java リソースを含む圧縮ファイルを配布するために使用されます。
 
 ## <a name="create-a-vm"></a>VM の作成
 
@@ -24,7 +24,7 @@ Azure Stack Hub でご自分の Python Web アプリをホストする仮想マ�
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
-    | Port | Protocol | [説明] |
+    | Port | Protocol | 説明 |
     | --- | --- | --- |
     | 80 | HTTP | ハイパーテキスト転送プロトコル (HTTP) は、サーバーからの Web ページの配信に使用されるプロトコルです。 クライアントは、DNS 名または IP アドレスを使用して HTTP 経由で接続されます。 |
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |

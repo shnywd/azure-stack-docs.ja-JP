@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Azure Stack Hub の使用状況情報を取得する、リソース使用状況 API のリファレンス。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 458dc41cd587ca78b979270611cb94ba109d7035
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: b38b6ac920fefa808ed5f9ee21f93d06d58098d4
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880887"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742303"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>テナント リソース使用状況 API リファレンス
 
@@ -80,7 +80,7 @@ GET
 | --- | --- |
 | id |使用状況集計の一意の ID |
 | name |使用状況集計の名前 |
-| 型 |リソース定義 |
+| type |リソース定義 |
 | subscriptionId |Azure ユーザーのサブスクリプション識別子。 |
 | usageStartTime |この使用状況集計が属する使用状況バケットの UTC 開始時間 |
 | usageEndTime |この使用状況集計が属する使用状況バケットの UTC 終了時間 |

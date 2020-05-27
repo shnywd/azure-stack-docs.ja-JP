@@ -1,18 +1,18 @@
 ---
 title: Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 description: Syslog 転送を使用して、Azure Stack Hub と監視ソリューションを統合する方法を説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 43398b4ef745c9ad0d72274a9a3ef400c4669053
-ms.sourcegitcommit: 3974fc544986a5eccfac0ba7c4441b05279ae226
+ms.lastreviewed: 01/10/2019
+ms.openlocfilehash: a02458ba7790fdf48d8b506abfea0e771b8a179e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77001618"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77699424"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 
@@ -57,15 +57,15 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 *Set-SyslogServer* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | Type | Required |
+| パラメーター | 説明 | Type | 必須 |
 |---------|---------|---------|---------|
 |*ServerName* | Syslog サーバーの FQDN または IP アドレス。 | String | はい|
 |*ServerPort* | Syslog サーバーがリッスンしているポート番号。 | UInt16 | はい|
-|*NoEncryption*| クライアントに Syslog メッセージを強制的にクリア テキストで送信させます。 | フラグ | いいえ|
-|*SkipCertificateCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の検証をスキップします。 | フラグ | いいえ|
-|*SkipCNCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の共通名値の検証をスキップします。 | フラグ | いいえ|
-|*UseUDP*| トランスポート プロトコルとして UDP を使用して、Syslog を使用します。 |フラグ | いいえ|
-|*Remove*| クライアントからサーバーの構成を削除し、Syslog 転送を停止します。| フラグ | いいえ|
+|*NoEncryption*| クライアントに Syslog メッセージを強制的にクリア テキストで送信させます。 | フラグ | no|
+|*SkipCertificateCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の検証をスキップします。 | フラグ | no|
+|*SkipCNCheck*| 初期 TLS ハンドシェイク時に Syslog サーバーによって提供された証明書の共通名値の検証をスキップします。 | フラグ | no|
+|*UseUDP*| トランスポート プロトコルとして UDP を使用して、Syslog を使用します。 |フラグ | no|
+|*Remove*| クライアントからサーバーの構成を削除し、Syslog 転送を停止します。| フラグ | no|
 
 *Set-SyslogClient* コマンドレットのパラメーター:
 

@@ -1,47 +1,49 @@
 ---
-title: Azure Stack の検証のベスト プラクティス
-description: この記事では、サービスとしての検証を使用するためのベスト プラクティスについて説明します。
+title: OEM 拡張機能パッケージを作成する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub でOEM 拡張機能パッケージを作成する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 19446113fc2e167d83b578fbad15964b21001ef4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c38a2738fcdfcb61c032982ce4ae0d2ea88d6e3f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885055"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661464"
 ---
 # <a name="create-an-oem-package"></a>OEM パッケージの作成
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Azure Stack OEM 拡張機能パッケージは、Azure Stack インフラストラクチャに OEM 固有のコンテンツを追加するメカニズムであり、デプロイと運用プロセス (更新、拡張、フィールドの置換など) で使用します。
+Azure Stack Hub OEM 拡張機能パッケージは、OEM 固有のコンテンツを Azure Stack Hub インフラストラクチャに追加するメカニズムです。 このコンテンツは、更新、拡張、フィールドの置換などのデプロイと運用のプロセスで使用されます。
 
 ## <a name="creating-the-package"></a>パッケージの作成
 
-OEM 拡張機能パッケージを作成して検証したら、VaaS で使用できます。  続行する前に、[OEM パッケージの作成](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)の手順を完了していることを確認してください。 その後、パッケージは VaaS のテスト結果と共に Microsoft に提出され、パッケージ検証ワークフローで署名されます。 次の手順は、生成されたファイルを、VaaS で使用できる単一の ZIP ファイルにバンドルする方法の詳細を示しています。
+OEM 拡張機能パッケージを作成して検証したら、VaaS で使用できます。 続行する前に、[OEM パッケージの作成](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)の手順を完了していることを確認してください。 その後、パッケージは VaaS のテスト結果と共に Microsoft に提出され、パッケージ検証ワークフローで署名されます。 次の手順は、生成されたファイルを、VaaS で使用できる単一の ZIP ファイルにバンドルする方法の詳細を示しています。
 
 1. パッケージの次のコンテンツを確認します。
-    - パッケージのコンテンツが含まれている ZIP ファイル
-    - `oemMetadata.xml` という名前のマニフェスト ファイル。パッケージ コンテンツのルートにある metadata.xml ファイルと同じ内容である必要があります。
+    - パッケージのコンテンツが含まれている ZIP ファイル。
+    - `oemMetadata.xml` という名前のマニフェスト ファイル。パッケージ コンテンツのルートにある `metadata.xml` ファイルと同じ内容である必要があります。
 
-2. コンテンツ ファイルを選択し、コンテンツから ZIP ファイルを作成します。
+2. コンテンツ ファイルを選択し、ZIP ファイルを作成します。
 
-    ![ZIP ファイルの内容](media/vaas-create-oem-package-1.png) ![項目のコンテンツの圧縮](media/vaas-create-oem-package-2.png)
+    ![OEM 拡張パッケージ作成時の ZIP ファイルのコンテンツ](media/vaas-create-oem-package-1.png) ![OEM 拡張パッケージ作成時に項目のコンテンツを圧縮する](media/vaas-create-oem-package-2.png)
 
 3. ファイルを識別できるように、生成されたファイルの名前をわかりやすい名前に変更します。
 
 ## <a name="verifying-the-contents"></a>コンテンツの確認
 
 ZIP ファイルの構造を検証するために、ZIP ファイルを検査し、サブフォルダーがないことを確認します。 TLD には圧縮済みのコンテンツがあります。 有効なパッケージ構造を次に示します。
+
 > [!IMPORTANT]
 > コンテンツではなく、親フォルダーを圧縮すると、パッケージの署名が失敗します。
 
-![適切に圧縮されたパッケージ コンテンツ](media/vaas-create-oem-package-3.png)
+![OEM 拡張パッケージの作成時に適切に圧縮されたパッケージ コンテンツ](media/vaas-create-oem-package-3.png)
 
 これで、ZIP ファイルを VaaS にアップロードし、パッケージ検証ワークフローで Microsoft が署名できるようになりました。
 

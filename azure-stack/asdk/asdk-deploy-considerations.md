@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 9d466060f46f924441a8226c2f53ff3889b37429
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873892"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846961"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -28,7 +28,9 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 | コンピューティング: メモリ |192 GB の RAM。 |256 GB の RAM。 |
 | コンピューティング: BIOS |Hyper-V 対応 (SLAT サポートあり)。 |Hyper-V 対応 (SLAT サポートあり)。 |
 | [ネットワーク]\: NIC |Windows Server 2012 R2 認定。 特別な機能は必要ありません。 | Windows Server 2012 R2 認定。 特別な機能は必要ありません。 |
-| ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |[Windows Server 2016 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |
+| ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|[Windows Server 2016 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|
 
 <sup>*</sup> Azure から[マーケットプレース項目](../operator/azure-stack-create-and-publish-marketplace-item.md)の多くを追加する計画の場合は、この推奨容量より多くが必要です。
 

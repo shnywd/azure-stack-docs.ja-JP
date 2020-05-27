@@ -10,12 +10,12 @@ metadata:
   author: BryanLa
   ms.author: bryanla
   ms.date: 11/04/2019
-  ms.openlocfilehash: 96ea6293fb0436f57fc619625222062e0955ef44
-  ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+  ms.openlocfilehash: 9a0a1b733882ca77cdce2d6ccc0395ce31c891f1
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73636821"
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "77568364"
 highlightedContent:
   items:
   - title: Azure Stack ファミリに関するお知らせ
@@ -39,7 +39,7 @@ productDirectory:
   - title: Azure Stack HCI
     imageSrc: media/index/azure-stack-hci.svg
     links:
-    - url: /azure-stack/operator/azure-stack-hci-overview
+    - url: /azure-stack/hci/overview
       text: Azure Stack HCI の概要
 conceptualContent:
   title: ハイブリッド パターンとソリューションの例
@@ -85,7 +85,7 @@ additionalContent:
   sections:
   - title: Azure Stack Hub
     items:
-    - title: Operator
+    - title: 演算子
       links:
       - url: /azure-stack/operator/azure-stack-manage-portals
         text: 管理者ポータルを使用する
@@ -105,7 +105,7 @@ additionalContent:
         text: アプリを構築するための重要な考慮事項
       - url: /azure-stack/user/azure-stack-key-vault-manage-portal
         text: キー コンテナーの作成と管理
-    - title: Azure Stack Hub 開発キット (ASDK)
+    - title: Azure Stack Development Kit (ASDK)
       links:
       - url: /azure-stack/asdk/asdk-deploy-considerations
         text: ASDK の要件と考慮事項
@@ -115,7 +115,7 @@ additionalContent:
         text: ASDK ホスト コンピューターの準備
   - title: Azure Stack Edge
     items:
-    - title: デプロイ
+    - title: 配置
       links:
       - url: /azure/databox-online/data-box-edge-system-requirements
         text: システム要件を確認する
@@ -124,7 +124,7 @@ additionalContent:
       - url: /azure/databox-online/data-box-edge-deploy-prep
         text: デプロイを準備する
       - url: /azure/databox-online/data-box-edge-deploy-install
-        text: Install
+        text: インストール
     - title: 開発
       links:
       - url: /azure/databox-online/data-box-edge-create-iot-edge-module
@@ -133,13 +133,13 @@ additionalContent:
         text: IoT Edge モジュールのサンプル (C#)
   - title: Azure Stack HCI
     items:
-    - title: 解決方法
+    - title: ソリューション
       links:
       - url: https://azure.microsoft.com/overview/azure-stack/hci/
         text: Azure Stack HCI ソリューションの概要
       - url: https://www.microsoft.com/cloud-platform/azure-stack-hci-catalog
         text: Azure Stack HCI カタログ
-    - title: 管理
+    - title: 管理する
       links:
       - url: /windows-server/manage/windows-admin-center/understand/windows-admin-center
         text: Windows Admin Center

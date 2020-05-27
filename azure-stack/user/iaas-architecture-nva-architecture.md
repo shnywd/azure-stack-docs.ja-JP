@@ -3,16 +3,16 @@ title: Azure Stack Hub に高可用性ネットワーク仮想アプライアン
 description: Azure Stack Hub に高可用性ネットワーク仮想アプライアンスをデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: cdcf4eca724e4b8b215b0fcb32e2b81969ef10d0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884152"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643543"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Azure Stack Hub に高可用性ネットワーク仮想アプライアンスをデプロイする
 
@@ -40,7 +40,7 @@ ms.locfileid: "76884152"
 
 NVA は、さまざまなアーキテクチャの境界ネットワークにデプロイできます。 たとえば、次の図では、イングレス用の単一の NVA の使用が示されています。
 
-![自動的に生成されたソーシャル メディアの投稿についての説明のスクリーンショット](./media/iaas-architecture-nva-architecture/image1.png)
+![自動的に生成されたソーシャル メディアの投稿についての説明のスクリーンショット](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 このアーキテクチャでは、NVA は、すべての着信ネットワーク トラフィックと発信ネットワーク トラフィックをチェックし、ネットワーク セキュリティ ルールを満たしているトラフィックのみを渡すことによって、セキュリティで保護されたネットワーク境界を提供します。 すべてのネットワーク トラフィックが NVA を通過する必要があるという事実は、NVA がネットワークの単一障害点であることを意味します。 この NVA で障害が発生した場合、ネットワーク トラフィック用の他のパスが存在しないため、すべてのバックエンド サブネットが使用不能になります。
 
@@ -58,7 +58,7 @@ NVA に高可用性を持たせるには、複数の NVA を可用性セット�
 
 次の図は、インターネットに接続するロード バランサーの背後でイングレス境界ネットワークを実装する高可用性アーキテクチャを示しています。 このアーキテクチャは、HTTP や HTTPS などの第 7 層のトラフィックで、Azure Stack Hub ワークロードへの接続を提供するように設計されています。
 
-![自動生成されたマップ説明のスクリーンショット](./media/iaas-architecture-nva-architecture/image2.png)
+![自動生成されたマップ説明のスクリーンショット](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image2.svg)
 
 このアーキテクチャの利点は、すべての NVA がアクティブであることであり、片方の NVA で障害が発生すると、ロード バランサーが他方の NVA にネットワーク トラフィックを送信します。 両方の NVA がトラフィックを内部ロード バランサーにルーティングするため、1 つの NVA がアクティブである限り、トラフィックが停止することはありません。 Web 層の VM を対象とする SSL トラフィックを終了するには、NVA が必要です。 エンタープライズ ネットワークのトラフィックには独自のネットワーク ルートを持つ NVA の別の専用セットが必要であるため、エンタープライズ ネットワークのトラフィックを処理することを目的としてこれらの NVA を拡張することはできません。
 
@@ -66,7 +66,7 @@ NVA に高可用性を持たせるには、複数の NVA を可用性セット�
 
 第 7 層で NVA を使用するイングレスを拡張して、Azure Stack Hub ワークロードから発信される要求に対して、エグレス境界ネットワークを提供できます。 次のアーキテクチャは、HTTP や HTTPS などの第 7 層のトラフィックで、境界ネットワーク内の高可用性を持つ NVA を提供するように設計されています。
 
-![自動的に生成された携帯電話の説明のスクリーンショット](./media/iaas-architecture-nva-architecture/image3.png)
+![自動的に生成された携帯電話の説明のスクリーンショット](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 このアーキテクチャでは、Azure Stack Hub から発信されるすべてのトラフィックが内部ロード バランサーにルーティングされます。 ロード バランサーは、発信要求を NVA セットに分散します。 これらの NVA は、それぞれのパブリック IP アドレスを使用して、インターネットにトラフィックを送信します。
 
@@ -74,7 +74,7 @@ NVA に高可用性を持たせるには、複数の NVA を可用性セット�
 
 イングレスとエグレスという 2 つのアーキテクチャでは、イングレス用とエグレス用に別個の境界ネットワークがありました。 次のアーキテクチャは、HTTP や HTTPS などの第 7 層のトラフィックのイングレスとエグレスの両方で使用できる境界ネットワークの作成方法を示しています。
 
-![自動的に生成されたソーシャル メディアの投稿についての説明のスクリーンショット](./media/iaas-architecture-nva-architecture/image4.png)
+![自動的に生成されたソーシャル メディアの投稿についての説明のスクリーンショット](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image4.svg)
 
 第 7 層で NVA を使用するイングレスとエグレスのアーキテクチャでは、その NVA によって第 7 層のロード バランサーからの受信要求が処理されます。 NVA は、ロード バランサーのバックエンド プール内のワークロード VM から発信された要求も処理します。 受信トラフィックは第 7 層のロード バランサーによってルーティングされ、発信トラフィックは SLB (Azure Stack Hub Basic Load Balancer) によってルーティングされるため、NVA はセッション アフィニティも担当します。 つまり、着信要求と発信要求のマッピングは第 7 層のロード バランサーによって管理されるため、最初の要求元に適切な応答を転送できます。 ただし、内部ロード バランサーは第 7 層のロード バランサーのマッピングにアクセスできないため、独自のロジックを使用して NVA への応答を送信します。 ロード バランサーは、第 7 層のロード バランサーから要求を受信していない NVA に応答を送信する場合があります。 この場合、適切な NVA が第 7 層のロード バランサーに応答を転送できるように、NVA 間で通信を行って応答を転送する必要があります。
 

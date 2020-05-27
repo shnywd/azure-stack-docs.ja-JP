@@ -2,23 +2,23 @@
 title: Azure Stack Hub でストレージ アカウントを作成する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でストレージ アカウントを作成する方法について説明します。
-author: mattbriggs
-ms.topic: conceptual
+author: IngridAtMicrosoft
+ms.topic: how-to
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: d130b47d9c5c51d2d0cfa75f778a1facf829ab3b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2d4085605fc37e95c3f68db074d4a517f5296a7a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881506"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367915"
 ---
 # <a name="create-storage-accounts-in-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントを作成する
 
 Azure Stack Hub のストレージ アカウントには、BLOB や Table service、およびストレージ データ オブジェクトの一意の名前空間が含まれます。 既定では、アカウントのデータはストレージ アカウント所有者だけが使用できます。
 
-1. Azure Stack Hub POC コンピューターで、[管理者](../asdk/asdk-connect.md)として `https://adminportal.local.azurestack.external` にログインし、 **[+ リソースの作成]**  >  **[データ + ストレージ]**  >  **[ストレージ アカウント]** の順にクリックします。
+1. Azure Stack Hub POC コンピューターで、[管理者](../asdk/asdk-connect.md)として `https://adminportal.local.azurestack.external` にログインし、**[+ リソースの作成]** > **[データ + ストレージ]** > **[ストレージ アカウント]** の順にクリックします。
 
    ![Azure Stack Hub 管理者ポータルでストレージ アカウントを作成する](media/azure-stack-provision-storage-account/image01.png)
 

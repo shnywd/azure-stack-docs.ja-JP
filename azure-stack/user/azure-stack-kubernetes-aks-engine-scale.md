@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes クラスターをスケーリングする
 description: Azure Stack Hub で Kubernetes クラスターをスケーリングする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 8956fd60436281c4bb3362b82df38f23d6278425
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: e5a9c44d91137d8f9868a9a9c6a809a54ca09026
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883487"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80069110"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをスケーリングする
 
@@ -26,7 +26,7 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 
 次のパラメーターは、クラスター定義ファイルを検索してクラスターを更新するために、scale コマンドによって使用されます。
 
-| パラメーター | 例 | [説明] |
+| パラメーター | 例 | 説明 |
 | --- | --- | --- | 
 | azure-env | AzureStackCloud | Azure Stack Hub を使用する場合は、環境名を `AzureStackCloud` に設定する必要があります。 | 
 | location | local | これは、ご使用の Azure Stack Hub インストールのリージョンです。 ASDK の場合、リージョンは `local` に設定されます。  | 

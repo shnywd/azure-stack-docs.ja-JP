@@ -3,16 +3,16 @@ title: VPN を使用して Azure Stack Hub を Azure に接続する
 description: VPN を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
-ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: c0a03b453a574b04e6b4a8654e3375d552acc5f5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/24/2019
+ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883922"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643582"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 
@@ -29,7 +29,7 @@ ms.locfileid: "76883922"
 
 次の図は、作業完了後の接続構成を表しています。
 
-![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/image2.png)
+![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/azure-stack-connect-vpn-image2.svg)
 
 ### <a name="network-configuration-example-values"></a>ネットワーク構成の値の例
 
@@ -50,7 +50,6 @@ ms.locfileid: "76883922"
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>仮想ネットワークと仮想マシン (VM) サブネットを作成する
 
 1. Azure アカウントを使用して [Azure Portal](https://portal.azure.com/) にサインインします。
-
 2. ユーザー ポータルで **[+ リソースの作成]** を選択します。
 3. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 4. **[仮想ネットワーク]** を選択します。
@@ -58,7 +57,7 @@ ms.locfileid: "76883922"
 6. **[リソース グループ]** については、新しいものを作成するか、既存のリソース グループがある場合は **[既存のものを使用]** を選択します。
 7. **[場所]** については、VNet の場所を選択します。  例の値を使用している場合は、 **[米国東部]** を選択するか、別の場所を使用します。
 8. **[ダッシュボードにピン留めする]** をオンにします。
-9. **作成** を選択します。
+9. **［作成］** を選択します
 
 ### <a name="create-the-gateway-subnet"></a>ゲートウェイ サブネットを作成する
 
@@ -83,7 +82,7 @@ ms.locfileid: "76883922"
 5. 仮想ネットワークを選択するには、 **[仮想ネットワーク]** を選択します。 その後、一覧から **[AzureVnet]** を選択します。
 6. **[パブリック IP アドレス]** を選択します。 **[パブリック IP アドレスの選択]** セクションが開いたら、 **[新規作成]** を選択します。
 7. **[名前]** フィールドに「**Azure-GW-PiP**」と入力し、 **[OK]** を選択します。
-8. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **作成** を選択します。
+8. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **［作成］** を選択します
 
 ### <a name="create-the-local-network-gateway-resource"></a>ローカル ネットワーク ゲートウェイ リソースを作成する
 
@@ -112,6 +111,25 @@ ms.locfileid: "76883922"
    >共有キーに別の値を使用する場合は、接続の別の端で作成した共有キーの値と一致する必要があることに注意してください。
 
 10. **[概要]** セクションを確認し、 **[OK]** を選択します。
+
+## <a name="create-a-custom-ipsec-policy"></a>カスタム IPSec ポリシーを作成する
+
+Azure Stack Hub の[ビルド 1910 以降](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)では、IPSec ポリシーの既定のパラメーターが変更されているため、Azure と Azure Stack Hub を一致させるためにカスタム IPSec ポリシーが必要になります。
+
+1. カスタム ポリシーの作成:
+
+   ```powershell
+     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+     -SADataSizeKilobytes 102400000 
+   ```
+
+2. 接続へのポリシーの適用:
+
+   ```powershell
+   $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
 
 ## <a name="create-a-vm"></a>VM の作成
 
@@ -155,7 +173,7 @@ ms.locfileid: "76883922"
 7. **[リソース グループ]** については、リソース グループを作成することも、既存のリソース グループがある場合に **[既存のものを使用]** を選択することもできます。
 8. 既定の場所を確認します。
 9. **[ダッシュボードにピン留めする]** をオンにします。
-10. **作成** を選択します。
+10. **［作成］** を選択します
 
 ### <a name="create-the-gateway-subnet"></a>ゲートウェイ サブネットを作成する
 
@@ -180,7 +198,7 @@ ms.locfileid: "76883922"
 7. **[名前]** に「**Azs-GW-PiP**」と入力し、 **[OK]** を選択します。
 8. 既定では、 **[VPN の種類]** に **[ルート ベース]** が選択されています。 VPN の種類は **[ルート ベース]** のままにします。
 
-9. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **作成** を選択します。
+9. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **［作成］** を選択します
 
 ### <a name="create-the-local-network-gateway"></a>ローカル ネットワーク ゲートウェイを作成する
 

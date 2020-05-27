@@ -6,13 +6,13 @@ ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: bryanla
 ms.reviewer: efemmano
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: ea0bf7287fd0463aa7b57a24386a30f7f3a1b754
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: 244d5e214e2d1d42e5697a5aafd51c17d97465f6
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884329"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "77704898"
 ---
 # <a name="tutorial-create-and-test-a-subscription-in-azure-stack-hub"></a>チュートリアル:Azure Stack Hub でサブスクリプションを作成してテストする
 

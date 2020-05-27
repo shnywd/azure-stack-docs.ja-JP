@@ -1,83 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Stack Hub のオペレーター ドキュメント
+summary: Microsoft Azure Stack Hub は、データセンターからの Azure サービスの提供を可能にするハイブリッド クラウド プラットフォームです。 Azure Stack Hub を管理する方法について説明します。
 metadata:
   title: Azure Stack Hub のドキュメント - チュートリアル、API リファレンス
-  meta.description: azure-stack
+  description: Microsoft が提供するクイック スタートとチュートリアルを使用して、Azure Stack Hub 統合システム インフラストラクチャを管理する方法とサービスを提供する方法を確認してください。
   services: azure-stack
-  author: justinha
-  manager: femila
-  layout: LandingPage
-  ms.assetid: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   ms.service: azure-stack
-  ms.tgt_pltfrm: from-team
-  ms.devlang: from-team
   ms.topic: landing-page
-  ms.date: 07/09/2019
+  author: justinha
   ms.author: justinha
-abstract:
-  description: Microsoft Azure Stack Hub は、データセンターからの Azure サービスの提供を可能にするハイブリッド クラウド プラットフォームです。 Microsoft が提供するクイック スタートとチュートリアルを使用して、Azure Stack Hub 統合システム インフラストラクチャを管理する方法とサービスを提供する方法を確認してください。<br/><br/>Azure Stack Hub でサービスを使用するかアプリを作成する Azure Stack Hub ユーザーは、<a href="/azure-stack/user">ユーザー ドキュメント</a>を参照してください。<br/><br/>Azure Stack Development Kit (ASDK) は、Azure Stack Hub の単一ノード デプロイであり、無料でダウンロードして使用できます。この ASDK に興味をお持ちの Azure Stack Hub オペレーターの方は、<a href="/azure-stack/asdk">ASDK のドキュメント</a>をご覧ください。
-sections:
-  - title: Azure Stack Hub の概要
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-manage-portals">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_portal.svg" alt="">
-              <br><b>管理ポータルの使用</b></a>
-              <p>Azure Stack Hub の日常的な管理と操作に管理ポータルを使用します。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-powershell-install">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_powershell.svg" alt="">
-              <br><b>Azure Stack Hub PowerShell</b></a>
-              <p>PowerShell で Azure Stack Hub リソースを容易に管理できます。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-capacity-planning-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_load-testing.svg" alt="">
-              <br><b>キャパシティ プランニング</b></a>
-              <p>コンピューティング リソースのさまざまな割り当てがハードウェア オファリングのさまざまな選択に対してどのようにフィットするかを確認します。</p>
-  - title: Azure Stack Hub サービスの提供
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-sql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_SQL.svg" alt="hybrid cloud app ci/cd">
-              <br><b>SQL を PaaS として提供する</b></a>
-              <p>SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub のサービスとして提供します。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-mysql-resource-provider">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/logos/logo_mysql.svg" alt="hybrid cloud app identity">
-              <br><b>MySQL を PaaS として提供する</b></a>
-              <p>MySQL リソース プロバイダーを使用して、MySQL データベースを Azure Stack Hub のサービスとして提供します。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-app-service-overview">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_web-apps.svg" alt="hybrid cloud app scaling">
-              <br><b>Azure App Service を PaaS として提供する</b></a>
-              <p>ユーザーが任意のプラットフォームまたはデバイス用の Web アプリケーションと API シリーズを作成するのに役立ちます。</p>
-  - title: Azure Stack Hub の管理
-    items:
-      - type: list
-        style: cards
-        className: cardsA
-        items:
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-updates">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_upgrade.svg" alt="">
-              <br><b>Azure Stack Hub の更新</b></a>
-              <p>Microsoft では、Azure Stack Hub 統合システムを最新の状態に保つために、月ごとに 1 つのパッケージをバンドルしています。 </p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-backup-infrastructure-backup">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_usb.svg" alt="">
-              <br><b>Azure Stack Hub のバックアップ</b></a>
-              <p>Infrastructure Backup サービスを使用して、構成およびサービス データをバックアップおよび復元します。</p>
-          - html: |-
-              <a href="/azure-stack/operator/azure-stack-security-configuration">
-              <img height="48" width="48" src="https://docs.microsoft.com/media/common/i_cloud-security.svg" alt="">
-              <br><b>Azure Stack Hub セキュリティの構成</b></a>
-              <p>Azure Stack Hub は、最新の脅威から防御し、コンプライアンス標準を満たすように設計されています。</p>
+  ms.date: 04/13/2020
+  ms.openlocfilehash: 16a63e28a67b6dfc9d68b29df343e130ae4abca0
+  ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 04/14/2020
+  ms.locfileid: "81274091"
+landingContent:
+- title: Azure Stack Hub について
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Stack Hub とは
+      url: azure-stack-overview.md
+    - text: Azure Stack HCI とは
+      url: azure-stack-hci-overview.md
+  - linkListType: whats-new
+    links:
+    - text: セキュリティ更新プログラム
+      url: azure-stack-release-notes-security-updates.md
+    - text: リリース ノート
+      url: azure-stack-release-notes-1908.md
+    - text: Azure Stack Hub キャパシティ プランニング ツール
+      url: azure-stack-capacity-planning-overview.md
+- title: はじめに
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 管理ポータルの使用
+      url: azure-stack-manage-portals.md
+    - text: ユーザーにサービスを提供する
+      url: tutorial-offer-services.md
+    - text: サービス オファリングをテストする
+      url: tutorial-test-offer.md
+  - linkListType: concept
+    links:
+    - text: 接続モデルの比較
+      url: azure-stack-connection-models.md
+    - text: 接続されたデプロイ
+      url: azure-stack-connected-deployment.md
+    - text: 切断されたデプロイ
+      url: azure-stack-disconnected-deployment.md
+- title: Azure Stack Hub ツール
+  linkLists:
+  - linkListType: download
+    links:
+    - text: GitHub からの Azure Stack Hub ツールのダウンロード
+      url: azure-stack-powershell-download.md
+    - text: Azure Stack PowerShell のインストール
+      url: azure-stack-powershell-install.md
+    - text: Azure Stack PowerShell を使用して接続する
+      url: azure-stack-powershell-configure-admin.md
+    - text: Azure Stack Development Kit (ASDK) のダウンロード
+      url: ../asdk/asdk-download.md
+- title: Azure Stack Hub を試す
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: ASDK ホストを準備する
+      url: ../asdk/asdk-prepare-host.md
+    - text: ASDK のインストール
+      url: ../asdk/asdk-install.md
+    - text: ASDK 管理の基礎
+      url: ../asdk/asdk-admin-basics.md
+- title: サービスの提供
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 仮想マシンのプランを作成する
+      url: azure-stack-tutorial-tenant-vm.md
+    - text: 高可用性 MySQL データベースを作成する
+      url: azure-stack-tutorial-mysql.md
+    - text: あらゆるプラットフォーム向けのアプリを作成する
+      url: azure-stack-app-service-overview.md
+- title: Azure Stack Hub の管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 正常性とアラートの監視
+      url: azure-stack-monitor-health.md
+    - text: 更新プログラムのインストールと進行状況の監視
+      url: azure-stack-apply-updates.md
+    - text: 構成とサービス データのバックアップと復元
+      url: azure-stack-backup-infrastructure-backup.md

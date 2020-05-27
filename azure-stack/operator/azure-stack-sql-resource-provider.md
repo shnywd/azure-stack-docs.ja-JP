@@ -2,18 +2,18 @@
 title: SQL データベースを使用する
 titleSuffix: Azure Stack Hub
 description: SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub 上のサービスとして提供する方法を説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 30ca5673bb337342eba57d127acf2f3e657bb8df
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882787"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697146"
 ---
 # <a name="use-sql-databases-on-azure-stack-hub"></a>Azure Stack Hub 上で SQL データベースを使用する
 

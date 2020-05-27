@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
 description: リリース ノートを参照して、Azure Stack Hub MySQL リソース プロバイダー 1.1.33.0 更新プログラムの新機能を確認してください。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: d6afec9ea1932260305fe48d3a5728a50ed7472a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4cab915bc4b824c1a178d94aaa571ca71c9c948b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881887"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77698914"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
 
@@ -46,15 +46,15 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
 
 - **MySQL SKU はポータルに表示されるまで最大 1 時間かかることがあります**。 新しい MySQL データベースを作成するときに、新規に作成される SKU が表示されて使用できるようになるまで、最大 1 時間かかることがあります。 
 
-    **回避策**:[なし] :
+    **対処法**: なし。
 
 - **再利用された MySQL ログイン**。 同じサブスクリプションの既存のログインと同じユーザー名で新しい MySQL ログインを作成しようとすると、同じログインと既存のパスワードが再利用されます。
 
-    **回避策**:同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
+    **対処法**: 同じサブスクリプションに新しいログインを作成するときに別のユーザー名を使用するか、同じユーザー名のログインを異なるサブスクリプションに作成します。
 
 - **データの不整合の原因となる共有 MySQL ログイン**。 MySQL ログインが同じサブスクリプション下で複数の MySQL データベースに対して共有されている場合、ログイン パスワードを変更するとデータの不整合が発生します。
 
-    **回避策**:同じサブスクリプション下の異なるデータベースには常に異なるログインを使用します。
+    **対処法**: 同じサブスクリプション下の異なるデータベースには常に異なるログインを使用します。
 
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Azure Stack Hub を運用するクラウド管理者に関する既知の問題

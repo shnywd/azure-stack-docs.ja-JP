@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2903a4c9f47b7f3b5d0161069f76d68eb9d19497
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883597"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702790"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Azure Stack Hub に安全に格納された証明書で VM をデプロイする
 
@@ -169,7 +169,7 @@ New-AzureRmResourceGroupDeployment `
 証明書は、デプロイ中に Azure Stack Hub によって VM にプッシュされます。 証明書の場所は、VM のオペレーティング システムによって異なります。
 
 * Windows では、証明書はユーザー指定の証明書ストアで **LocalMachine** の証明書の場所に追加されます。
-* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、 **/var/lib/waagent** ディレクトリに配置されます。
+* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、**/var/lib/waagent** ディレクトリに配置されます。
 
 ## <a name="retire-certificates"></a>証明書の使用を終了する
 

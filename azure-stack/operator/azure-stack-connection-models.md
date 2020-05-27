@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 統合システムの接続モデル
 description: Azure Stack Hub 統合システムに対して接続モデルとその他のデプロイ計画を決定します。
-author: ihenkel
-ms.topic: article
-ms.date: 1/22/2020
+author: IngridAtMicrosoft
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 02/21/2019
-ms.openlocfilehash: 26a5821f6616390a4657a64d974862ef25c4cbe5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 4e0fb77bc6f6f174d474a123611dbf529e814b0a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879416"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78364046"
 ---
 # <a name="azure-stack-hub-integrated-systems-connection-models"></a>Azure Stack Hub 統合システムの接続モデル
 Azure Stack Hub 統合システムの購入に関心をお持ちの場合は、このシステムがご利用のデータセンターにどのように適合するかを判断するために、Azure Stack Hub のデプロイに関する[データセンターの統合のいくつかの考慮事項](azure-stack-datacenter-integration.md)を理解する必要があります。 さらに、Azure Stack Hub をハイブリッド クラウド環境にどのように統合するかを決定する必要があります。 この記事では、Azure 接続モデル、ID ストア オプション、課金モデル オプションなど、これらの主な決定の概要について示します。
@@ -35,8 +35,8 @@ Azure Stack Hub をインターネット (および Azure) に接続した状態
 |消費ベースの課金|![サポートされています](media/azure-stack-connection-models/check.png)| |
 |容量ベースの課金|![サポートされています](media/azure-stack-connection-models/check.png)|![サポートされています](media/azure-stack-connection-models/check.png)|
 |ライセンス| マイクロソフト エンタープライズ契約または Cloud Solution Provider | Enterprise Agreement |
-|パッチと更新プログラム|更新プログラム パッケージはインターネットから Azure Stack Hub に直接ダウンロード可能 |  Required<br><br>リムーバブル メディアと<br> 別途接続されているデバイスも必要 |
-| 登録 | 自動 | Required<br><br>リムーバブル メディアと<br> 別途接続されているデバイスも必要 |
+|パッチと更新プログラム|更新プログラム パッケージはインターネットから Azure Stack Hub に直接ダウンロード可能 |  必須<br><br>リムーバブル メディアと<br> 別途接続されているデバイスも必要 |
+| 登録 | 自動 | 必須<br><br>リムーバブル メディアと<br> 別途接続されているデバイスも必要 |
 
 Azure Stack Hub デプロイに使用される Azure 接続モデルを決定した後、ID ストアと課金方法に関する、接続に依存した追加の決定を行う必要があります。
 

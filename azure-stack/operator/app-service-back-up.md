@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 8e28461f730275b27b9fc252714cdfbfc7be5dc4
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: c559a90234b486f8501eeb7b0b8249e41dcdb8fa
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876645"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77701481"
 ---
 # <a name="back-up-app-service-on-azure-stack-hub"></a>Azure Stack Hub 上の App Service をバックアップする
 
@@ -28,7 +28,7 @@ Azure Stack Hub 上の Azure App Service でディザスター リカバリー�
 4. App Service のファイル共有に格納された App Service ユーザー ワークロード コンテンツ。
 
 ## <a name="back-up-app-service-secrets"></a>App Service のシークレットのバックアップ
-App Service をバックアップから不kky空する場合、初期デプロイで使用した App Service キーを入力する必要があります。 この情報は、App Service が正常にデプロイされ、安全な場所に格納されたら、すぐに保存する必要があります。 リソース プロバイダーのインフラストラクチャ構成は、App Service リカバリー PowerShell コマンドレットを使用して、復旧中にバックアップから再作成されます。
+App Service をバックアップから復旧する場合、初期デプロイで使用した App Service キーを入力する必要があります。 この情報は、App Service が正常にデプロイされ、安全な場所に格納されたら、すぐに保存する必要があります。 リソース プロバイダーのインフラストラクチャ構成は、App Service リカバリー PowerShell コマンドレットを使用して、復旧中にバックアップから再作成されます。
 
 次の手順に従って、管理ポータルからアプリ サービスのシークレットをバックアップします。 
 

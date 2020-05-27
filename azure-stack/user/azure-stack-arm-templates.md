@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
-ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 48e418c3fa8dd761282f67f59b1cf1ebfc18610b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: c41989d662122dafb5d535c356aeb7d7e48ed4aa
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883961"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704422"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Stack Hub で Azure Resource Manager テンプレートを使用する
 

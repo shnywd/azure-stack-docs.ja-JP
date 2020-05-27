@@ -4,8 +4,6 @@
   items:
     - name: Azure Stack Hub とは
       href: azure-stack-overview.md
-    - name: Azure Stack HCI とは
-      href: azure-stack-hci-overview.md
     - name: Azure エコシステムの比較
       href: compare-azure-azure-stack.md
     - name: リリース ノート
@@ -36,7 +34,11 @@
         - name: Compute
           href: azure-stack-capacity-planning-compute.md
         - name: ストレージ
-          href: azure-stack-capacity-planning-storage.md
+          items:
+            - name: ストレージ容量の計画
+              href: azure-stack-capacity-planning-storage.md
+            - name: ストレージ インフラストラクチャの概要
+              href: azure-stack-storage-infrastructure-overview.md
         - name: Azure Stack Hub キャパシティ プランニング ツール
           href: azure-stack-capacity-planner.md
     - name: データセンターの統合
@@ -136,8 +138,12 @@
           href: azure-stack-cli-admin.md
         - name: 管理環境の設定
           items:
-            - name: Azure Stack Hub PowerShell のインストール
+            - name: PowerShell AzureRM のインストール
               href: azure-stack-powershell-install.md
+            - name: PowerShell Az のインストール
+              href: powershell-install-az-module.md
+            - name: PowerShell AzureRM の Az への移行
+              href: migrate-azurerm-az.md
             - name: ツールのダウンロード
               href: azure-stack-powershell-download.md
             - name: PowerShell で接続する
@@ -166,8 +172,6 @@
                   href: azure-stack-update-monitor.md
                 - name: 特権エンドポイントの使用
                   href: azure-stack-monitor-update.md
-            - name: 更新プログラムのトラブルシューティング
-              href: azure-stack-updates-troubleshoot.md
         - name: 正常性とアラートの監視
           href: azure-stack-monitor-health.md
         - name: ハードウェア コンポーネントを監視する
@@ -185,7 +189,7 @@
             - name: ストレージ容量の管理
               href: azure-stack-manage-storage-shares.md
             - name: ストレージ インフラストラクチャの管理
-              href: azure-stack-storage-infrastructure-overview.md
+              href: azure-stack-manage-storage-infrastructure.md
             - name: 物理メモリ容量の管理
               href: azure-stack-manage-storage-physical-memory-capacity.md
             - name: スケール ユニット ノードの追加
@@ -250,7 +254,7 @@
           href: azure-stack-supported-os.md
         - name: 仮想マシン スケール セットの提供
           href: azure-stack-compute-add-scalesets.md
-        - name: Marketplace の Windows Server の FAQ
+        - name: Azure Stack Hub Marketplace のよくあるご質問
           href: azure-stack-windows-server-faq.md
         - name: Linux 仮想マシンの提供
           href: azure-stack-linux.md
@@ -292,48 +296,80 @@
               href: azure-stack-app-service-overview.md
             - name: App Service のキャパシティ プランニング
               href: azure-stack-app-service-capacity-planning.md
-            - name: 開始する前に
-              href: azure-stack-app-service-before-you-get-started.md
-            - name: App Service のデプロイ
-              href: azure-stack-app-service-deploy.md
-            - name: 高可用性のための App Service のデプロイ
-              href: app-service-deploy-ha.md
-            - name: App Service のオフライン デプロイ
-              href: azure-stack-app-service-deploy-offline.md
-            - name: App Service の更新
-              href: azure-stack-app-service-update.md
-            - name: App Service のオフライン更新
-              href: azure-stack-app-service-update-offline.md
-            - name: App Service のインフラストラクチャ ロールの追加
-              href: azure-stack-app-service-add-worker-roles.md
-            - name: デプロイ ソースを構成する
-              href: azure-stack-app-service-configure-deployment-sources.md
-            - name: App Service のシークレットと証明書のローテーション
-              href: app-service-rotate-certificates.md
-            - name: App Service のバックアップ
-              href: app-service-back-up.md
-            - name: App Service の復旧
-              href: app-service-recover.md
             - name: App Service の課金に関する FAQ
               href: app-service-billing-faq.md
+            - name: 前提条件
+              href: azure-stack-app-service-before-you-get-started.md
+            - name: デプロイ
+              items:
+                - name: App Service のデプロイ
+                  href: azure-stack-app-service-deploy.md
+                - name: 高可用性のための App Service のデプロイ
+                  href: app-service-deploy-ha.md
+            - name: ライフ サイクル管理
+              items:
+                - name: App Service の更新
+                  href: azure-stack-app-service-update.md
+                - name: App Service のインフラストラクチャ ロールの追加
+                  href: azure-stack-app-service-add-worker-roles.md
+                - name: デプロイ ソースを構成する
+                  href: azure-stack-app-service-configure-deployment-sources.md
+                - name: App Service のシークレットと証明書のローテーション
+                  href: app-service-rotate-certificates.md
+                - name: App Service のバックアップ
+                  href: app-service-back-up.md
+                - name: App Service の復旧
+                  href: app-service-recover.md
+                - name: App Service の削除
+                  href: app-service-remove.md
             - name: App Service on Azure Stack Hub のリリース ノート
               items:
-                - name: App Service on Azure Stack Hub update 1 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-one.md
-                - name: App Service on Azure Stack Hub update 2 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service on Azure Stack Hub update 3 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service on Azure Stack Hub update 4 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: App Service on Azure Stack Hub update 5 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service on Azure Stack Hub update 6 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service on Azure Stack Hub update 7 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service on Azure Stack Hub 2020 年第 2 四半期のリリース ノート
+                  href: app-service-release-notes-2020-Q2.md
                 - name: App Service on Azure Stack Hub update 8 のリリース ノート
                   href: azure-stack-app-service-release-notes-update-eight.md
+                - name: App Service on Azure Stack Hub update 7 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-seven.md
+                - name: App Service on Azure Stack Hub update 6 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-six.md
+                - name: App Service on Azure Stack Hub update 5 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-five.md
+                - name: App Service on Azure Stack Hub update 4 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-four.md
+                - name: App Service on Azure Stack Hub update 3 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-three.md
+                - name: App Service on Azure Stack Hub update 2 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-two.md
+                - name: App Service on Azure Stack Hub update 1 のリリース ノート
+                  href: azure-stack-app-service-release-notes-update-one.md
+        - name: Azure Stack Hub 上の Event Hubs
+          items:
+            - name: 概要
+              href: event-hubs-rp-overview.md
+            - name: 容量計画
+              href: event-hubs-rp-capacity-planning.md
+            - name: 前提条件
+              href: event-hubs-rp-prerequisites.md
+            - name: インストール
+              href: event-hubs-rp-install.md
+            - name: ライフ サイクル管理
+              items:
+                - name: 更新プログラムの適用
+                  href: resource-provider-apply-updates.md
+                - name: バックアップと復元
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: ログの収集
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                - name: 正常性とアラート
+                  href: azure-stack-monitor-health.md
+                - name: 管理する
+                  href: event-hubs-rp-manage.md
+                - name: シークレットの切り替え
+                  href: azure-stack-rotate-secrets.md
+                - name: サービス更新のお知らせ
+                  href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
+            - name: '[削除]'
+              href: event-hubs-rp-remove.md
         - name: Azure Stack Hub 上の MySQL
           items:
             - name: 概要
@@ -439,19 +475,23 @@
         - name: '[ヘルプとサポート] ポータル'
           items:
             - name: 概要
-              href: azure-stack-help-and-support-overview.md
+              href: azure-stack-help-and-support-overview-tzl.md
+            - name: クラウド ID を検索する
+              href: azure-stack-find-cloud-id.md
             - name: 診断ログの収集
               items:
                 - name: 概要
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: 自動収集
+                  href: azure-stack-diagnostic-log-collection-overview-tzl.md
+                - name: ログを事前に送信する
+                  href: azure-stack-configure-automatic-diagnostic-log-collection-tzl.md
+                - name: 今すぐログを送信する
                   items:
-                    - name: 自動収集の構成
-                      href: azure-stack-configure-automatic-diagnostic-log-collection.md
-                    - name: ベスト プラクティス
-                      href: azure-stack-best-practices-automatic-diagnostic-log-collection.md
-                - name: オンデマンドでの収集
-                  href: azure-stack-configure-on-demand-diagnostic-log-collection.md
+                    - name: 管理者ポータルを使用する
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md
+                    - name: PowerShell の使用
+                      href: azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md
+                - name: Get-AzureStackLog (PEP)
+                  href: azure-stack-get-azurestacklog.md
         - name: Azure Stack Hub に対する検証
           href: azure-stack-diagnostic-test.md
         - name: トラブルシューティング
@@ -459,7 +499,13 @@
 - name: リファレンス
   items:
     - name: Azure Stack Hub PowerShell
-      href: /powershell/azure/azure-stack/overview
+      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+    - name: Azure Stack Hub の特権エンドポイント
+      href: ../reference/pep-2002/
+    - name: Azure Stack Hub の管理者 REST API
+      href: /rest/api/azure-stack/
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
 - name: 関連項目
   items:
     - name: Azure Stack Hub のユーザー ドキュメント
@@ -470,13 +516,13 @@
   items:
     - name: トレーニングと認定
       href: azure-stack-train-and-cert.md
-    - name: Azure Stack Hub のロードマップ
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack Hub のロード マップ
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
     - name: Azure Stack Hub のドキュメントのフィードバック
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 料金情報
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: スタック オーバーフロー
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'

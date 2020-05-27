@@ -3,16 +3,16 @@ title: Azure Stack Hub での使用量接続の問題とエラー
 description: Azure Stack Hub 使用量接続の問題とエラーのトラブルシューティング。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 79f34d685998a6719bc580504d4d26a8e4be093f
-ms.sourcegitcommit: 2377c6947cf846fd2a4a0274c41326293a2a239c
+ms.openlocfilehash: a2c7ed968eeb6cbe9245590c6c0a75479294c916
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075991"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742392"
 ---
 # <a name="usage-connectivity-errors"></a>使用量接続エラー
 
@@ -47,7 +47,7 @@ Azure Stack Hub の使用状況データは、Azure Stack Hub 内の [*Azure Bri
 | 権限がありません               | Azure サービスでは Azure Stack Hub のブリッジを認証できないため、Azure Bridge ではデータを Azure 内の使用状況サービスにプッシュできません。 | 登録リソースが変更されていないか確認し、そうであれば Azure Stack Hub を再登録します。 <br><br> 場合によっては、Azure Stack Hub と Azure AD との間の時間同期の問題がこの失敗の原因となります。 この場合、Azure Stack Hub の XRP VM の時間が Azure AD と確実に同期しているようにします。 |
 |                            |                                                                                                                                                   |                                                                                                                                                                                                                                                                                                    |
 
-さらに、[これらの手順](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に従って Azure Bridge、WAS、WASPublic コンポーネントのログ ファイルを提供することが求められる場合があります。
+さらに、Azure Bridge、WAS、WASPublic コンポーネントのログ ファイルを提供することが求められる場合があります。
 
 ## <a name="next-steps"></a>次のステップ
 

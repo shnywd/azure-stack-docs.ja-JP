@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub での拡張機能ホストを準備する
 description: Azure Stack Hub 内で、拡張機能ホストの準備を行う方法について学習します。これは、バージョン 1808 以降では、Azure Stack Hub 更新プログラム パッケージを通じて自動的に有効化されます。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.date: 1/22/2020
 ms.topic: article
 ms.reviewer: thoroet
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: c28f47930ea7fa9913ae339ea379562477694492
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882271"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77699900"
 ---
 # <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Azure Stack Hub での拡張機能ホストを準備する
 

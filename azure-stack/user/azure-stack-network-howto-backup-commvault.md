@@ -3,16 +3,16 @@ title: Commvault を使用して Azure Stack Hub 上で VM をバックアップ
 description: Commvault を使用して Azure Stack Hub で VM をバックアップする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/30/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: aa4e5d10534f2ffe4c9b6cc948fcb7968213aab0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 390c6fdb3268dee90b0928b5a280d60c08c1e7fa
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884644"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742487"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 
@@ -38,7 +38,7 @@ ms.locfileid: "76884644"
 
 このアプローチのトポロジは、次の図のようになります。
 
-![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.png)
+![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
 ## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Commvault Marketplace の項目から Commvault VM を作成する
 
@@ -49,7 +49,7 @@ ms.locfileid: "76884644"
     > [!Note]  
     > Commvault を使用できない場合は、クラウド オペレーターに問い合わせてください。
 
-    ![](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
+    ![VM を作成する](./media/azure-stack-network-howto-backup-commvault/commvault-create-vm-01.png)
 
 3. **[仮想マシンの作成] の [1 基本]** で基本設定を構成します。
 
@@ -109,7 +109,7 @@ ms.locfileid: "76884644"
 
 ID マネージャーが Azure AD か AD DFS かを把握する必要があります。 次の表には、Azure Stack Hub で Commvault を設定するために必要な情報がまとめられています。
 
-| 要素 | [説明] | source |
+| 要素 | 説明 | source |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Resource Manager URL | Azure Stack Hub Resource Manager エンドポイント。 | https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1908#the-azure-stack-hub-resource-manager-endpoint |
 | アプリケーション名 |  |  |

@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 2ff4ec010243b27406a2ebb3149bc123aa01947d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 03/11/2020
+ms.openlocfilehash: 268bef58cb4176909ec6a13029324b18de75b52d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76873500"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79512016"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>ASDK を使用してAzure Stack のバックアップを検証する
 Azure Stack をデプロイし、オファー、プラン、クォータ、およびサブスクリプションなどのユーザー リソースのプロビジョニング後に、[Azure Stack インフラストラクチャのバックアップを有効にする](../operator/azure-stack-backup-enable-backup-console.md)必要があります。 スケジュール設定とインフラストラクチャの定期的なバックアップの実行により、突発的的なハードウェアの故障またはサービスのエラーがある場合に、インフラストラクチャ管理のデータが失われないこようにします。
@@ -41,34 +41,29 @@ ASDK によるバックアップの検証は、次のシナリオでサポート
 ## <a name="cloud-recovery-deployment"></a>クラウドの復旧デプロイ
 ASDK のクラウドの復旧デプロイを実行することによって、統合システムのデプロイからインフラストラクチャのバックアップを検証できます。 この種類のデプロイでは、ホスト コンピューターで ASDK をインストールした後、特定のサービス データがバックアップから復元します。
 
-### <a name="prereqs"></a>クラウドの復旧の前提条件
+### <a name="cloud-recovery-prerequisites"></a><a name="prereqs"></a>クラウドの復旧の前提条件
 ASDK のクラウドの復旧デプロイを開始する前に、次の情報があることを確認します。
 
 **UI インストーラーの要件**
 
-"*現在の UI インストーラーでは、暗号化キーのみがサポートされています*"
-
-|前提条件|[説明]|
-|-----|-----|
-|バックアップ共有パス|Azure Stack インフラストラクチャの情報を復旧するために使用する最新の Azure Stack のバックアップの UNC ファイル共有パス。 クラウドの復旧デプロイのプロセス中に、このローカル共有が作成されます。|
-|復元するバックアップの ID|クラウドの復旧中に復元するバックアップを識別する、「xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx」という英数字形式のバックアップ ID。|
-|時刻サーバーの IP|132.163.97.2 など、有効な時刻サーバーの IP は、Azure Stack のデプロイに必要です。|
-|外部の 証明書のパスワード|Azure Stack で使用される外部の証明書のパスワード。 CA のバックアップには、このパスワードを使用して復元する必要がある外部の証明書が含まれています。|
-|バックアップ暗号化キー|バックアップ設定が暗号化キーで構成されている場合は必要です (これは非推奨です)。 インストーラーでは、少なくとも 3 リリースに対する下位互換性モードで暗号化キーがサポートされます。 証明書を使用するようにバックアップの設定を更新したら、次の表で必要な情報を参照してください。|
-|     |     | 
-
-**PowerShell インストーラーの要件**
-
-"*現在の PowerShell インストーラーでは、暗号化キーまたは解読証明書がサポートされています*"
-
-|前提条件|[説明]|
+|前提条件|説明|
 |-----|-----|
 |バックアップ共有パス|Azure Stack インフラストラクチャの情報を復旧するために使用する最新の Azure Stack のバックアップの UNC ファイル共有パス。 クラウドの復旧デプロイのプロセス中に、このローカル共有が作成されます。|
 |復元するバックアップの ID|クラウドの復旧中に復元するバックアップを識別する、「xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx」という英数字形式のバックアップ ID。|
 |時刻サーバーの IP|132.163.97.2 など、有効な時刻サーバーの IP は、Azure Stack のデプロイに必要です。|
 |外部の 証明書のパスワード|Azure Stack で使用される外部の証明書のパスワード。 CA のバックアップには、このパスワードを使用して復元する必要がある外部の証明書が含まれています。|
 |解読証明書のパスワード|省略可能。 バックアップが証明書を使用して暗号化されている場合にのみ必要です。 パスワードは、バックアップ データの解読に必要な秘密キーが含まれている自己署名証明書 (.pfx) に対するものです。|
-|バックアップ暗号化キー|省略可能。 バックアップ設定がまだ暗号化キーで構成されている場合は必要です。 インストーラーでは、少なくとも 3 リリースに対する下位互換性モードで暗号化キーがサポートされます。 証明書を使用するようにバックアップの設定を更新した後、解読証明書のパスワードを指定する必要があります。|
+|     |     | 
+
+**PowerShell インストーラーの要件**
+
+|前提条件|説明|
+|-----|-----|
+|バックアップ共有パス|Azure Stack インフラストラクチャの情報を復旧するために使用する最新の Azure Stack のバックアップの UNC ファイル共有パス。 クラウドの復旧デプロイのプロセス中に、このローカル共有が作成されます。|
+|復元するバックアップの ID|クラウドの復旧中に復元するバックアップを識別する、「xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx」という英数字形式のバックアップ ID。|
+|時刻サーバーの IP|132.163.97.2 など、有効な時刻サーバーの IP は、Azure Stack のデプロイに必要です。|
+|外部の 証明書のパスワード|Azure Stack で使用される外部の証明書のパスワード。 CA のバックアップには、このパスワードを使用して復元する必要がある外部の証明書が含まれています。|
+|解読証明書のパスワード|パスワードは、バックアップ データの解読に必要な秘密キーが含まれている自己署名証明書 (.pfx) に対するものです。|
 |     |     | 
 
 ## <a name="prepare-the-host-computer"></a>ホスト コンピューターを準備する 
@@ -137,23 +132,6 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 ### <a name="use-powershell-to-deploy-the-asdk-in-recovery-mode"></a>PowerShell を使用して ASDK を回復モードでデプロイする
 
 環境内の次の PowerShell コマンドを変更し、クラウド復旧モードで実行して ASDK をデプロイします:
-
-**InstallAzureStackPOC.ps1 スクリプトを使用して、暗号化キーでクラウドの復旧を開始します。**
-
-```powershell
-cd C:\CloudDeployment\Setup     
-$adminpass = Read-Host -AsSecureString -Prompt "Local Administrator password"
-$certPass = Read-Host -AsSecureString -Prompt "Password for the external certificate"
-$backupstorecredential = Read-Host -AsSecureString -Prompt "Credential for backup share"
-$key = Read-Host -AsSecureString -Prompt "Your backup encryption key"
-
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass `
- -BackupStorePath ("\\" + $env:COMPUTERNAME + "\AzSBackups") `
- -BackupEncryptionKeyBase64 $key `
- -BackupStoreCredential $backupstorecredential `
- -BackupId "<Backup ID to restore>" `
- -TimeServer "<Valid time server IP>" -ExternalCertPassword $certPass
-```
 
 **InstallAzureStackPOC.ps1 スクリプトを使用して、解読証明書でクラウドの復旧を開始します。**
 

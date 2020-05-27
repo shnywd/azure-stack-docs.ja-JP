@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の AKS エンジンのトラブルシューティン�
 description: この記事では Azure Stack Hub 上の AKS エンジンのトラブルシューティングの手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 4/17/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: de9bceea3cd8fb7003afff8e5b654146aff8883b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 4/17/2020
+ms.openlocfilehash: 8768628e246c439c86bba80f4faac2ff9ae1973d
+ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884739"
+ms.lasthandoff: 04/17/2020
+ms.locfileid: "81624986"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -84,7 +84,7 @@ AKS エンジンによって作成されたレビュー情報にアクセスで�
 
 ## <a name="collect-kubernetes-logs"></a>Kubernetes のログの収集
 
-AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://aka.ms/aa6z613) を使用して収集できます。
+AKS エンジン ログに加えて、Kubernetes コンポーネントでは、ステータス メッセージとエラー メッセージが生成されます。 これらのログは、Bash スクリプト [getkuberneteslogs.sh](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/diagnosis-v0.1.3) を使用して収集できます。
 
 このスクリプトにより、次のログの収集プロセスが自動化されます。 
 
@@ -118,17 +118,17 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 2. `getkuberneteslogs.sh` スクリプトに必要なパラメーターを探します。 このスクリプトでは、次のパラメーターが使用されます。
 
-    | パラメーター | [説明] | Required | 例 |
+    | パラメーター | 説明 | 必須 | 例 |
     | --- | --- | --- | --- |
-    | -h, --help | Print コマンドの使用方法。 | いいえ | 
+    | -h, --help | Print コマンドの使用方法。 | no | 
     -u,--user | クラスター VM の管理者ユーザー名 | はい | azureuser<br>(既定値) |
     | -i、--identity-file | Kubernetes クラスターの作成に使用される公開キーに関連付けられた RSA 秘密キー (' id_rsa ' と呼ばれることもあります)  | はい | `./rsa.pem` (Putty)<br>`~/.ssh/id_rsa` (SSH) |
     |   -g, --resource-group    | Kubernetes クラスター リソース グループ | はい | k8sresourcegroup |
-    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | いいえ |   monitoring |
-    |       --api-model                    | Azure Stack Hub ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | いいえ | `./apimodel.json` |
-    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | いいえ | |
-    | --upload-logs                  | Azure Stack Hub ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | いいえ | |
-    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | いいえ | |
+    |   -n, --user-namespace               | 指定された名前空間のコンテナーからログが収集されます (kube-system ログは常に収集されます) | no |   monitoring |
+    |       --api-model                    | Azure Stack Hub ストレージ アカウントで apimodel.json ファイルが保持されます。 --upload-logs パラメーターも指定すると、apimodel.json ファイルがストレージ アカウントにアップロードされます。 | no | `./apimodel.json` |
+    | --all-namespaces               | すべての名前空間のコンテナーからログが収集されます。 --user-namespace がオーバーライドされます。 | no | |
+    | --upload-logs                  | Azure Stack Hub ストレージ アカウントで取得したログが保持されます。 ログは KubernetesLogs リソース グループにあります。 | no | |
+    --disable-host-key-checking    | スクリプトの実行中に、SSH の StrictHostKeyChecking オプションが "no" に設定されます。 安全な環境でのみ使用してください。 | no | |
 
 3. ご自分の情報を使用して、次のサンプル コマンドのいずれかを実行します。
 
@@ -142,7 +142,7 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 ## <a name="review-custom-script-extension-error-codes"></a>カスタム スクリプト拡張機能のエラー コードを確認する
 
-クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの操作の多くがサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/parts/k8s/cloud-init/artifacts/cse_helpers.sh)」を参照してください。
+クラスターを実行しているカスタム スクリプト拡張機能 (CSE) によって作成されたエラー コードの一覧を参照できます。 CSE エラーは、問題の根本原因を診断するのに役立ちます。 Kubernetes クラスターで使用されている Ubuntu サーバーの CSE では、AKS エンジンの操作の多くがサポートされます。 CSE 終了コードの詳細については、「[cse_helpers.sh](https://github.com/Azure/aks-engine/blob/master/pkg/engine/cse.go)」を参照してください。
 
 ### <a name="providing-kubernetes-logs-to-a-microsoft-support-engineer"></a>Microsoft サポート エンジニアへの Kubernetes ログの提供
 

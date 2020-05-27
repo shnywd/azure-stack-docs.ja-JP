@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 259d0dcde866eb2dd93b7ccb2959e3d78ec101cb
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884501"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79312974"
 ---
 # <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 
@@ -44,7 +44,7 @@ PowerShell を使用して Azure Stack Hub 内のリソースにアクセスす�
 
 Dockerfile は、Windows PowerShell 5.1 がインストールされている Microsoft イメージ *microsoft/windowsservercore* を開きます。 その後、そのファイルは、NuGet と Azure Stack Hub PowerShell モジュールを読み込み、Azure Stack Hub ツールからツールをダウンロードします。
 
-1. ZIP ファイルとして [azure-stack-powershell リポジトリをダウンロードする](https://github.com/mattbriggs/azure-stack-powershell)か、そのリポジトリを複製します。
+1. ZIP ファイルとして [azure-stack-powershell リポジトリをダウンロードする](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)か、そのリポジトリを複製します。
 
 2. ターミナルからリポジトリ フォルダーを開きます。
 

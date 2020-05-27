@@ -3,16 +3,16 @@ title: Azure Stack Hub の VPN ゲートウェイを設定する
 description: Azure Stack Hub の VPN ゲートウェイを設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 19056b0ad37511e75d462c201190c8e2f3a606e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: be0457eaa1c8c72984e995a690e5d5c6c53f198f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883378"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660834"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
@@ -42,7 +42,7 @@ ms.locfileid: "76883378"
 
 次の表には、これらのデプロイで使用されているパラメーターが参照用にまとめられています。
 
-| パラメーター | Value |
+| パラメーター | 値 |
 |-----------------------------------|---------------------------|
 | FortiGate のインスタンス名 | forti1 |
 | BYOL ライセンス/バージョン | 6.0.3 |
@@ -92,7 +92,7 @@ ms.locfileid: "76883378"
 
 5. **[OK]** を選択します。 **[OK]** を選択します。
 
-6. **作成** を選択します。
+6. **［作成］** を選択します
 
     デプロイには約 10 分かかります。
 
@@ -211,7 +211,7 @@ NVA をアクティブにしたら、NVA で IPSec VPN トンネルを作成し�
 
 IPSec VPN トンネルを作成するには、オンプレミスの VPN デバイスを構成する必要があります。 次の表は、オンプレミスの VPN デバイスを設定するために必要なパラメーターを示しています。 オンプレミスの VPN デバイスを構成する方法の詳細については、お使いのデバイスのドキュメントを参照してください。
 
-| パラメーター | Value |
+| パラメーター | 値 |
 | --- | --- |
 | リモート ゲートウェイ IP | forti1 に割り当てられたパブリック IP アドレス (「[FortiGate NVA をアクティブにする](#activate-the-fortigate-nva)」を参照)。 |
 | リモート IP ネットワーク | 172.16.0.0/16 (VNET にこの手順の IP 範囲を使用している場合)。 |

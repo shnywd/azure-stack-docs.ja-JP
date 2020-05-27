@@ -2,18 +2,18 @@
 title: 開始と停止
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub を開始および停止する方法について説明します。
-author: mattbriggs
-ms.topic: article
-ms.date: 10/02/2019
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 3f3493d55d524de7c292f0052cc20d26b2fccc28
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 2c8211606ae797b4a88da1c268a7fb36b7de214b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881204"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79512373"
 ---
 # <a name="start-and-stop-azure-stack-hub"></a>Azure Stack Hub の開始と停止
 
@@ -84,4 +84,4 @@ Azure Stack Hub 環境の電源投入後 2 時間経ってもインフラスト�
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Hub 診断ツール](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)の詳細を確認する
+[Azure Stack Hub 診断ツール](azure-stack-diagnostic-log-collection-overview-tzl.md)の詳細を確認する

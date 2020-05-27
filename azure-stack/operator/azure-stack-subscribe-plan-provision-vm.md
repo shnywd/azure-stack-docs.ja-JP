@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 2b4c90edbb4c53caf358d936873196f1a8c6ef9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 5225772f94e5a28d03872d1764681e56f14a2cf4
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881216"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295402"
 ---
 # <a name="create-subscriptions-to-offers-in-azure-stack-hub"></a>Azure Stack Hub でオファーのサブスクリプションを作成する
 

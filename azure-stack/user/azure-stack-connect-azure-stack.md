@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 388c01ce8a4c5c6834ab88f8fe28013c1208e728
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 0a3dfcc7d12baa6616f57908e87d24afaf1e927e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883906"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295384"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する
 

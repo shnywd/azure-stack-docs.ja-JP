@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1690e191e2aa610e69b1e204b9e685e5d8e90187
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884293"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77705289"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Azure Stack Hub でのテンプレート検証ツールの使用
 
@@ -72,7 +72,7 @@ ms.locfileid: "76884293"
 
 テンプレート検証コマンドレットでは、次のパラメーターがサポートされます。
 
-| パラメーター | [説明] | Required |
+| パラメーター | 説明 | 必須 |
 | ----- | -----| ----- |
 | `TemplatePath` | Azure Resource Manager テンプレートを再帰的に検索するパスを指定します。 | はい |
 | `TemplatePattern` | 照合するテンプレート ファイルの名前を指定します。 | いいえ |

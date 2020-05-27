@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: c44f5b06c034a65a79ddd8098b9abc8e220ea5b9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885093"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "80423843"
 ---
 # <a name="tutorial-test-a-service-offering"></a>チュートリアル:サービス オファリングをテストする
 
@@ -43,7 +43,7 @@ ms.locfileid: "76885093"
 
    ![サブスクリプションの取得](media/tutorial-test-offer/1-get-subscription.png)
 
-1. **[サブスクリプションの取得]** で、 **[表示名]** フィールドに、新しいサブスクリプションの名前を入力します。 **[プラン]** を選択してから、前のチュートリアルで作成したオファーを **[プランの選択]** の一覧から選択します。 **作成** を選択します。
+1. **[サブスクリプションの取得]** で、 **[表示名]** フィールドに、新しいサブスクリプションの名前を入力します。 **[プラン]** を選択してから、前のチュートリアルで作成したオファーを **[プランの選択]** の一覧から選択します。 **［作成］** を選択します
 
    ![オファーの作成](media/tutorial-test-offer/2-create-subscription.png)
 
@@ -143,3 +143,4 @@ ms.locfileid: "76885093"
 - [Azure Stack Hub で SQL を提供する](azure-stack-sql-resource-provider.md)
 - [Azure Stack Hub で MySQL を提供する](azure-stack-mysql-resource-provider.md)
 - [Azure Stack Hub で App Service を提供する](azure-stack-app-service-overview.md)
+- [Azure Stack Hub で Event Hubs を提供する](event-hubs-rp-overview.md)

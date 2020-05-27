@@ -1,18 +1,18 @@
 ---
 title: 物理デバイスの監査を Azure Stack Hub データセンターと統合する
 description: 物理デバイスのアクセス監査を、ご利用の Azure Stack Hub データセンターと統合する方法を学習します。
-author: ihenkel
-ms.topic: article
-ms.date: 06/10/2019
+author: IngridAtMicrosoft
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 0ebf71cc6ba794169965fb17181ae497913bf30b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 99b195618841640b77a00b9d1bbab01d18b0e19e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882108"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78368058"
 ---
 # <a name="integrate-physical-device-auditing-with-your-azure-stack-hub-datacenter"></a>物理デバイスの監査を Azure Stack Hub データセンターと統合する
 

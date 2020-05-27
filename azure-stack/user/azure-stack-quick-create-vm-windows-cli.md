@@ -5,13 +5,13 @@ author: mattbriggs
 ms.topic: quickstart
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f3a895b2ec8245e95ed8482b84433f900e07dfab
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884481"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "78231657"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>クイック スタート:Azure Stack Hub で Azure CLI を使用して Windows Server 仮想マシンを作成する
 

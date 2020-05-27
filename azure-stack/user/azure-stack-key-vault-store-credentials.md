@@ -5,13 +5,13 @@ author: sethmanheim
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6c2943565ca750176bc3bba4ca28084a2b8b100e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/16/2020
+ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883561"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702722"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Azure Stack Hub でサービス プリンシパルの資格情報を Key Vault に格納する
 

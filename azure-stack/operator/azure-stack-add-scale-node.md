@@ -3,16 +3,16 @@ title: Azure Stack Hub にスケール ユニット ノードを追加する
 description: Azure Stack Hub のスケール ユニットにスケール ユニット ノードを追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/16/2020
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: d138fe5c4203cc28cedfb44964d7b99d9fc72931
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 09/17/2019
+ms.openlocfilehash: c264e0abc0fdc5a382b83a23158f860a56aea260
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876594"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772590"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
@@ -22,7 +22,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 
 次のフロー図は、スケール ユニット ノードを追加するための一般的なプロセスを示しています。
 
-![スケール ユニットの追加フロー](media/azure-stack-add-scale-node/add-node-flow.png)
+![スケール ユニットの追加フロー](media/azure-stack-add-scale-node/add-node-flow.svg)
 <br> *OEM ハードウェア ベンダーが物理サーバー ラックの配置とファームウェアの更新を行うかどうかは、サポート契約により異なります。*
 
 新しいノードを追加する作業は、完了までに数時間から数日かかることがあります。 他のスケール ユニット ノードが追加されている間、システム上の実行中のワークロードに影響はありません。
@@ -96,7 +96,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 ### <a name="status-for-the-add-node-operation"></a>ノードの追加操作の状態 
 **スケール ユニットの場合:**
 
-|Status               |[説明]  |
+|Status               |説明  |
 |---------------------|---------|
 |実行中              |すべてのノードは、アクティブにスケール ユニットに参加しています。|
 |停止済み              |スケール ユニット ノードはダウンしているか、到達不能です。|
@@ -107,7 +107,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 
 **スケール ユニット ノードの場合:**
 
-|Status                |[説明]  |
+|Status                |説明  |
 |----------------------|---------|
 |実行中               |ノードは、アクティブにスケール ユニットに参加しています。|
 |停止済み               |ノードは利用不可です。|
@@ -120,7 +120,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 ## <a name="troubleshooting"></a>トラブルシューティング
 ノードを追加するときに多く見られる問題は次のとおりです。 
 
-**シナリオ 1:** スケール ユニット ノードの追加操作は失敗するが、一覧に停止状態として表示されるノードが少なくとも 1 つ存在する。  
+**シナリオ 1:**  スケール ユニット ノードの追加操作は失敗するが、停止状態で表示されるノードが少なくとも 1 つ存在する。  
 - 修復: 修復操作を使用してノードを修復してください。 一度に実行できる修復操作は 1 つだけです。
 
 **シナリオ 2:** 1 つまたは複数のスケール ユニット ノードが追加されましたが、ストレージの拡張に失敗した。 このシナリオでは、スケール ユニット ノード オブジェクトから "実行中" という状態が報告されますが、"記憶域を構成しています" タスクが開始されません。  

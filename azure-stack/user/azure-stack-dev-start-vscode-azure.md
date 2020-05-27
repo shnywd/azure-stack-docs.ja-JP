@@ -3,16 +3,16 @@ title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure
 description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続します
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: cbcb238e644295e1a66f4eb061d1327fdba3fd13
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884873"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661051"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
@@ -76,7 +76,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
     - 値:
 
-        | パラメーター | [説明] |
+        | パラメーター | 説明 |
         | --- | --- |
         | `tenant-ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
         | `activeDirectoryEndpointUrl` | これは loginEndpoint プロパティからの URL です。 |

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のストレージ アカウントを管理する
 description: Azure Stack Hub のストレージ アカウントを検索、管理、回復、および回収する方法を学習します。
-author: mattbriggs
-ms.topic: conceptual
-ms.date: 1/22/2020
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: e3817639d379811b79387cb46064fbaff02b2f33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882031"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295330"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 
@@ -90,7 +90,7 @@ Azure Stack Hub では、これを行う簡単な方法があります。
 **保有期間を変更するには:**
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
-2. **[管理]** の下で、 **[すべてのサービス]**  >  **[リージョン管理]** を選択します。
+2. **[管理]** の下で、**[すべてのサービス]** > **[リージョン管理]** を選択します。
 3. **[リソース プロバイダー]**  >  **[ストレージ]**  >  **[設定]** の順に選択します。 パスは、[ホーム] > [<*リージョン*> - リソース プロバイダー] > [ストレージ] です。
 4. **[構成]** を選択してリテンション期間の値を編集します。
 
@@ -100,7 +100,7 @@ Azure Stack Hub では、これを行う簡単な方法があります。
 
    ![管理者ポータルで保有期間を編集する](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>容量の回収
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>容量の回収
 保有期間を設定することの副作用の 1 つは、削除されたアカウントが、保有期間外になるまで、容量を消費し続けることです。 クラウド オペレーターとして、削除されたアカウントの保有期間が終了していなくても、その領域を回収する方法が必要な場合があります。
 
 ポータルまたは PowerShell のいずれかを使用して、容量の回収ができます。

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 4b305b56c9da4a5511a98397df66cc0fa6be34a9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 505891a9f7131d474d0b37d08b1d24d08656718d
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883791"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77704235"
 ---
 # <a name="common-deployments-for-azure-stack-hub"></a>Azure Stack Hub 向けの一般的なデプロイ
 

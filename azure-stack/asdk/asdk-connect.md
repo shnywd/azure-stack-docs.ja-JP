@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: knithinc
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: df4b6c770ef1dd93cddbeb748c0845f391305173
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 44fa05f5841952d581a35d8394300e96333bfc4f
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76874027"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847080"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK に接続する
 
@@ -33,9 +33,9 @@ ms.locfileid: "76874027"
 
 2. ASDK ホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
 
-3. 管理者ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理者ポータルのアドレスは [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external) です。
+3. 管理者ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack オペレーターの資格情報を使用します。 ASDK 管理者ポータルのアドレスは `https://adminportal.local.azurestack.external` です。
 
-4. ユーザー ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack ユーザーの資格情報を使用します。 ASDK ユーザー ポータルのアドレスは [https://portal.local.azurestack.external](https://portal.local.azurestack.external) です。
+4. ユーザー ポータルに **AzureStack\CloudAdmin** としてサインインするか、他の Azure Stack ユーザーの資格情報を使用します。 ASDK ユーザー ポータルのアドレスは `https://portal.local.azurestack.external` です。
 
 > [!NOTE]
 > どのアカウントをいつ使用するかについては、「[ASDK 管理の基礎](asdk-admin-basics.md#what-account-should-i-use)」をご覧ください。
@@ -118,7 +118,7 @@ Add-AzsVpnConnection `
 
 ### <a name="test-vpn-connectivity"></a>VPN 接続をテストする
 
-ポータルの接続をテストするには、ブラウザーを開き、ユーザー ポータル (https://portal.local.azurestack.external/) または管理者ポータル (https://adminportal.local.azurestack.external/) のいずれかに移動します。
+ポータルの接続をテストするには、ブラウザーを開き、ユーザー ポータル (`https://portal.local.azurestack.external/`) または管理者ポータル (`https://adminportal.local.azurestack.external/`) のいずれかに移動します。
 
 適切なサブスクリプションの資格情報でサインインし、リソースを作成して管理します。  
 

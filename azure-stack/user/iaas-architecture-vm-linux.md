@@ -3,16 +3,16 @@ title: Azure Stack Hub で Linux 仮想マシンを実行する
 description: Azure Stack Hub で Linux 仮想マシンを実行する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 97f1b58fc1d36a9cd3f26875625c2ae7ea67abdc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 91c312bd3709dd4117b7f371c1fd2cd49822331a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885306"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81659910"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Linux 仮想マシンを実行する
 

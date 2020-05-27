@@ -2,18 +2,18 @@
 title: SQL リソース プロバイダーの保守操作
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub での SQL リソース プロバイダーのメンテナンス操作について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: ed76e3611fe0b7b57386a7b688f08ddbdc3c36d7
-ms.sourcegitcommit: b7b86e875cf04cb0fd9d48a2b830588d3ff99b6d
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77125815"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697265"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 

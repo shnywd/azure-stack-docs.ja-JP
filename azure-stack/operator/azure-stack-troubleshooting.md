@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
 author: justinha
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: f5c223e08207518bde315725fd69ddb3fb97a578
-ms.sourcegitcommit: 74ce7c12a93d47315d70427b02bcacbd3b44f854
+ms.lastreviewed: 15/13/2020
+ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77037269"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375006"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -33,6 +33,7 @@ ms.locfileid: "77037269"
 * [Azure Stack Hub で診断ツールを使用する方法](azure-stack-diagnostics.md)
 * [Azure Stack Hub システムの状態を検証する方法](azure-stack-diagnostic-test.md)
 * [更新プログラム パッケージのリリース周期](azure-stack-servicing-policy.md#update-package-release-cadence)
+* [ノードの状態の確認とトラブルシューティング](azure-stack-node-actions.md)
 
 ### <a name="supported-operating-systems-and-sizes-for-guest-vms"></a>ゲスト VM でサポートされているオペレーティング システムとサイズ
 
@@ -87,7 +88,7 @@ PowerShell を使用して、CSS を利用せずに、スタンプ使用状況�
 4. invoke-command 呼び出しを使用して、`get-azurestacklog -filterbyrole seedring` を実行します。
 5. seedring .zip を抽出します。 `test-azurestack` を実行した ERCS フォルダーから、検証レポートを取得することができます。
 
-詳細については、[Azure Stack Hub の診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)に関する記述を参照してください。
+詳細については、[Azure Stack Hub の診断](azure-stack-get-azurestacklog.md)に関する記述を参照してください。
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>仮想マシン (VM) のトラブルシューティングを行う
 
@@ -116,8 +117,32 @@ Azure Stack Hub に VM をデプロイする前に、Windows Server イメージ
 
 切断されたシナリオで統合システムを使用する場合は、エンタープライズ証明機関 (CA) を利用することをお勧めします。 ルート証明書を Base-64 形式でエクスポートしてから、Azure Storage Explorer にインポートします。 必ず、Resource Manager エンドポイントから末尾のスラッシュ (`/`) を削除してください。 詳細については、「[Azure Stack Hub への接続を準備する](/azure-stack/user/azure-stack-storage-connect-se)」を参照してください。
 
-## <a name="troubleshooting-app-service"></a>App Service のトラブルシューティング
+## <a name="troubleshoot-app-service"></a>App Service のトラブルシューティング
 
 ### <a name="create-aadidentityappps1-script-fails"></a>Create-AADIdentityApp.ps1 スクリプトが失敗する
 
-App Service に必要な Create-AADIdentityApp.ps1 スクリプトが失敗する場合は、スクリプトの実行時に必須の `-AzureStackAdminCredential` パラメーターを必ず含めるようにしてください。 詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-active-directory-app)」を参照してください。
+App Service に必要な Create-AADIdentityApp.ps1 スクリプトが失敗する場合は、スクリプトの実行時に必須の `-AzureStackAdminCredential` パラメーターを必ず含めるようにしてください。 詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md#create-an-azure-ad-app)」を参照してください。
+
+## <a name="troubleshoot-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムのトラブルシューティング
+
+Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
+
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)にしていることを確認してください。
+
+1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
+
+2. 問題を解決できない場合は、[Azure Stack Hub のサポート チケット](azure-stack-help-and-support-overview-tzl.md)を作成します。 問題が発生した期間に[収集されたログ](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)があることを確認してください。
+
+## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
+
+*適用対象:Azure Stack Hub 統合システム*
+
+### <a name="preparationfailed"></a>PreparationFailed
+
+**適用先**: この問題は、サポートされているすべてのリリースに適用されます。
+
+**原因**:Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新が失敗して、状態が `PreparationFailed` に変更される場合があります。 インターネットに接続されたシステムの場合、これは通常、インターネット接続が脆弱であるために、更新プログラム パッケージが適切にダウンロードされないことを示します。 
+
+**対応策**: **[今すぐインストール]** をもう一度クリックすることで、この問題を回避できます。 問題が解決しない場合は、[更新プログラムのインストール](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)に関するセクションに従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
+
+**発生頻度**: 共通

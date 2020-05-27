@@ -50,15 +50,15 @@
       href: /azure/active-directory/
 - name: リソース
   items:
-    - name: Azure Stack Hub のロードマップ
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+    - name: Azure Stack Hub のロード マップ
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Azure Stack Hub のドキュメントのフィードバック
       href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
     - name: 料金情報
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: スタック オーバーフロー
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: トレーニングと認定
       href: /azure-stack/operator/azure-stack-train-and-cert

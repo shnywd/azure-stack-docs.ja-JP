@@ -3,16 +3,16 @@ title: Azure Stack Hub での Java による API バージョンのプロファ�
 description: Azure Stack Hub での Java による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: da85abeff55d09684c561679bdc0f85e28440ed7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 6d072c061839c9d10f1f0d97c01ef9b2fa41e6a7
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884245"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836157"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack-hub"></a>Azure Stack Hub での Java による API バージョンのプロファイルの使用
 
@@ -40,7 +40,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
      <dependency>
      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
-     <version>1.0.0-beta</version>
+     <version>1.0.0-beta-1</version>
      </dependency>
      ```
 
@@ -62,7 +62,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
    <dependency>
    <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <version>1.0.0-beta-1</version>
    </dependency>
    ```
 
@@ -82,14 +82,14 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 Azure Stack Hub で Azure Java SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、使用しているオペレーティング システムの表の後にある手順を参照してください。
 
-| Value                     | 環境変数 | [説明]                                                                                                                                                                                                          |
+| 値                     | 環境変数 | 説明                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | テナント ID                 | `AZURE_TENANT_ID`            | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md)。                                                          |
 | クライアント ID                 | `AZURE_CLIENT_ID`             | 前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。                                                                                              |
 | サブスクリプション ID           | `AZURE_SUBSCRIPTION_ID`      | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack Hub 内のオファーにアクセスするために使用します。                |
 | クライアント シークレット             | `AZURE_CLIENT_SECRET`        | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット。                                                                                                                                   |
 | Resource Manager エンドポイント | `ARM_ENDPOINT`              | 「[Azure Stack Hub Resource Manager エンドポイント](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint)」の記事を参照してください。 |
-| Location                  | `RESOURCE_LOCATION`    | Azure Stack Hub 用の**ローカル**。                                                                                                                                                                                                |
+| 場所                  | `RESOURCE_LOCATION`    | Azure Stack Hub 用の**ローカル**。                                                                                                                                                                                                |
 
 Azure Stack Hub のテナント ID を確認するには、[こちら](../operator/azure-stack-csp-ref-operations.md)の手順を参照してください。 環境変数を設定するには、以降のセクションの手順に従います。
 
@@ -295,13 +295,13 @@ public static HashMap<String, String> getActiveDirectorySettings(String armEndpo
 
 6. **Pom.xml** ファイルで、Azure Stack Hub 用の **2019-03-01-hybrid** プロファイルを使用するために次の依存関係を追加します。 この依存関係では、Compute、Networking、Storage、Key Vault、App Services のリソース プロバイダー用の、このプロファイルに関連付けられているモジュールがインストールされます。
 
-   ```xml
-   <dependency>
-   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
-   <artifactId>azure</artifactId>
-   <vers1s.0.0-beta</version>
-   </dependency>
-   ```
+    ```xml
+    <dependency>
+      <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
+      <artifactId>azure</artifactId>
+      <version>1.0.0-beta-1</version>
+    </dependency>
+    ```
 
 7. 環境変数を設定するために開いていたコマンド プロンプトで、次のコマンドを入力します。
 

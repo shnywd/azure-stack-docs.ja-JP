@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2238b399c6c7de6e37a7059a395a0024d3e71a98
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883318"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643449"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub 内の PowerShell の概要
 
@@ -35,7 +35,7 @@ PowerShell は、コマンド ラインからリソースを管理できるよ�
 
 次のブロック図は、PowerShell モジュールのセット間の関係を示しています。 お使いのマシンから、PowerShell モジュールを読み込んで、グローバル Azure および Azure Stack Hub の両方を管理できます。
 
-![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/Azure-Stack-PowerShell.png)
+![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
 
 ### <a name="global-azure"></a>グローバル Azure
 

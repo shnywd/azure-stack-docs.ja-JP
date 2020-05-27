@@ -7,12 +7,12 @@ ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: cddce90bf8675aa619175fca2e8c97468b1edebe
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 3404e0d0e5bbf2c8293d70a7cf816b9e4923261f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883680"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704082"
 ---
 # <a name="develop-for-azure-stack-hub"></a>Azure Stack Hub 向けの開発
 

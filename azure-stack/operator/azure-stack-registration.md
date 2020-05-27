@@ -2,18 +2,19 @@
 title: Azure Stack Hub を Azure に登録する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 2/02/2020
-ms.author: mabrigg
+ms.date: 04/06/2020
+ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 568bcc7b04da397dff343662a8e80b86e27d2618
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972584"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988300"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -26,13 +27,14 @@ Azure Stack Hub を Azure に登録して、Azure から Azure Marketplace 項�
 
 ## <a name="prerequisites"></a>前提条件
 
-登録する前に、次の前提条件が満たされている必要があります。
+登録する前に、次の前提条件を完了してください。
 
 - 資格情報を確認する。
 - PowerShell 言語モードを設定する。
 - PowerShell for Azure Stack Hub をインストールする。
 - Azure Stack Hub ツールをダウンロードする。
-- 登録シナリオを決定する。
+- 課金モデルを決定する。
+- 一意の登録名を決定する。
 
 ### <a name="verify-your-credentials"></a>資格情報を確認する
 
@@ -58,7 +60,7 @@ Azure Stack Hub を登録するユーザーは、Azure AD のサービス プリ
 > [!NOTE]
 > 複数の Azure Stack Hub がある場合のベスト プラクティスは、各 Azure Stack Hub を専用のサブスクリプションに登録することです。 これにより、使用状況の追跡が容易になります。
 
-### <a name="powershell-language-mode"></a>PowerShell 言語モード
+### <a name="set-the-powershell-language-mode"></a>PowerShell 言語モードを設定する
 
 Azure Stack Hub を正常に登録するには、PowerShell 言語モードを **FullLanguageMode** に設定する必要があります。  現在の言語モードが完全に設定されていることを確認するには、PowerShell ウィンドウを管理者特権で開いて、次の PowerShell コマンドレットを実行します。
 
@@ -80,25 +82,21 @@ Azure Stack Hub ツールの GitHub リポジトリには、Azure Stack Hub 機�
 
 最新バージョンを使用していることを確認するには、Azure に登録する前に、既存のバージョンの Azure Stack Hub ツールをすべて削除し、[GitHub から最新バージョンをダウンロード](azure-stack-powershell-download.md)します。
 
-### <a name="determine-your-registration-scenario"></a>登録シナリオを決定する
+### <a name="determine-your-billing-model"></a>課金モデルを決定する
+::: zone pivot="state-connected"
+ 接続されたデプロイでは、Azure Stack Hub はインターネットと Azure に接続できます。 また、ID ストアとして Azure AD または Active Directory フェデレーション サービス (AD FS) を使用して、従量課金制と容量ベースの 2 つの課金モデルのどちらかを選択することもできます。 課金モデルは、後で登録スクリプトの実行中に指定します。
+::: zone-end
 
-Azure Stack Hub のデプロイは、"*接続*" デプロイまたは "*切断*" デプロイになります。
+::: zone pivot="state-disconnected"
+ 切断されたデプロイでは、インターネットに接続していなくても、Azure Stack Hub を使用することができます。 切断されたデプロイでは、AD FS ID ストアおよび容量ベースの課金モデルに制限されます。 課金モデルは、後で登録スクリプトの実行中に指定します。
+::: zone-end
 
-- **接続済み**  
- "接続" とは、インターネットと Azure に接続できるように Azure Stack Hub をデプロイしたことを意味します。 ID ストアには、Azure AD または Active Directory フェデレーション サービス (AD FS) のどちらかを使用します。 接続されたデプロイの場合、従量課金制と容量ベースの 2 つの課金モデルから選択できます。
-  - [**従量課金制**課金モデルを使用して接続された Azure Stack Hub を Azure に登録する](#register-connected-with-pay-as-you-go-billing)。
-  - [**容量**課金モデルを使用して接続された Azure Stack Hub を Azure に登録する](#register-connected-with-capacity-billing)。
+### <a name="determine-your-unique-registration-name"></a>一意の登録名を決定する
 
-- **切断**  
- Azure からの切断デプロイ オプションを使用すると、インターネットへの接続なしで Azure Stack Hub をデプロイして使用できます。 ただし、切断されたデプロイでは、AD FS ID ストアおよび容量ベースの課金モデルに制限されます。
-  - [**容量**課金モデルを使用して切断された Azure Stack Hub を登録する](#register-disconnected-with-capacity-billing)。
-
-### <a name="determine-a-unique-registration-name-to-use"></a>使用する一意の登録名の判別
-
-Azure Stack Hub を Azure に登録するときに、一意の登録名を指定する必要があります。 Azure の登録に Azure Stack Hub サブスクリプションを関連付ける簡単な方法は、Azure Stack Hub の**クラウド ID** を使用することです。
+登録スクリプトを実行するときに、一意の登録名を指定する必要があります。 Azure の登録に Azure Stack Hub サブスクリプションを関連付ける簡単な方法は、Azure Stack Hub の**クラウド ID** を使用することです。
 
 > [!NOTE]
-> 容量ベースの課金モデルを使用している Azure Stack Hub 登録では、[期限切れの登録を削除](azure-stack-registration.md#change-the-subscription-you-use)して Azure に再登録するのでない限り、年単位のサブスクリプションの期限が切れた後の再登録で一意の名前を変更する必要があります。
+> 容量ベースの課金モデルを使用している Azure Stack Hub 登録では、[期限切れの登録を削除](#renew-or-change-registration)して Azure に再登録するのでない限り、年単位のサブスクリプションの期限が切れた後の再登録で一意の名前を変更する必要があります。
 
 Azure Stack Hub デプロイのクラウド ID を調べるには、特権エンドポイントにアクセスできるコンピューターで管理者として PowerShell を開き、次のコマンドを実行して、**CloudID** の値を書き留めます。
 
@@ -107,7 +105,8 @@ Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -Configur
 Run: Get-AzureStackStampInformation
 ```
 
-## <a name="register-connected-with-pay-as-you-go-billing"></a>従量課金制モデルを使用して接続された Azure Stack を登録する
+::: zone pivot="state-connected"
+## <a name="register-with-pay-as-you-use-billing"></a>従量課金制の課金で登録する
 
 従量制課金モデルを使用して Azure Stack Hub を Azure に登録するには、次の手順を使用します。
 
@@ -174,9 +173,9 @@ Run: Get-AzureStackStampInformation
 
    このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「**Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)** 」というメッセージが表示されます。
 
-## <a name="register-connected-with-capacity-billing"></a>容量課金モデルを使用して接続された Azure Stack を登録する
+## <a name="register-with-capacity-billing"></a>容量課金で登録する
 
-従量制課金モデルを使用して Azure Stack Hub を Azure に登録するには、次の手順を使用します。
+容量課金モデルを使用して Azure Stack Hub を Azure に登録するには、次の手順を使用します。
 
 > [!Note]  
 > これらのすべての手順は、特権エンドポイント (PEP) にアクセスできるコンピューターから実行する必要があります。 PEP の詳細については、[Azure Stack Hub での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)に関するページを参照してください。
@@ -223,8 +222,10 @@ Run: Get-AzureStackStampInformation
    > **Set-AzsRegistration** コマンドレットの UsageReportingEnabled パラメーターを false に設定することで、使用状況レポートを無効にすることができます。 
    
    Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
+::: zone-end
 
-## <a name="register-disconnected-with-capacity-billing"></a>容量課金モデルを使用して切断された Azure Stack を登録する
+::: zone pivot="state-disconnected"
+## <a name="register-with-capacity-billing"></a>容量課金で登録する
 
 接続されていない環境 (インターネットに接続されていない環境) に Azure Stack Hub を登録する場合は、Azure Stack Hub 環境から登録トークンを取得する必要があります。 次に、Azure に接続でき、PowerShell for Azure Stack Hub がインストールされているコンピューターでそのトークンを使用します。  
 
@@ -319,6 +320,7 @@ Get-AzsActivationKey から作成されたアクティブ化キーのファイ�
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
   ```
+::: zone-end
 
 ## <a name="verify-azure-stack-hub-registration"></a>Azure Stack Hub の登録を検証する
 
@@ -348,41 +350,40 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 ## <a name="renew-or-change-registration"></a>登録を更新または変更する
 
-### <a name="renew-or-change-registration-in-connected-environments"></a>接続された環境で登録を更新または変更する
-
+::: zone pivot="state-connected"
 次の状況では、登録を更新または変更する必要があります。
 
 - 容量ベースの年単位サブスクリプションを更新した後。
 - 課金モデルを変更したとき。
 - 容量ベースの課金のために変更を調整したとき (ノードの追加/削除)。
 
-#### <a name="change-the-subscription-you-use"></a>使用するサブスクリプションを変更する
+### <a name="change-the-subscription-you-use"></a>使用するサブスクリプションを変更する
 
-使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。
+使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、管理者ポータルに表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。現在の登録の詳細は[こちらで](#verify-azure-stack-hub-registration)見つけてください。
 
   ```powershell  
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName $RegistrationName
+  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-how-to-offer-features"></a>課金モデルまたは機能の提供方法を変更する
+### <a name="change-the-billing-model-or-how-to-offer-features"></a>課金モデルまたは機能の提供方法を変更する
 
 インストールの課金モデルまたは機能の提供方法を変更する場合は、登録機能を呼び出して新しい値を設定できます。 先に現在の登録を削除する必要はありません。
 
   ```powershell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
+::: zone-end
 
-### <a name="renew-or-change-registration-in-disconnected-environments"></a>切断された環境で登録を更新または変更する
-
+::: zone pivot="state-disconnected"
 次の状況では、登録を更新または変更する必要があります。
 
 - 容量ベースの年単位サブスクリプションを更新した後。
 - 課金モデルを変更したとき。
 - 容量ベースの課金のために変更を調整したとき (ノードの追加/削除)。
 
-#### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Azure Stack Hub からアクティブ化リソースを削除する
+### <a name="remove-the-activation-resource-from-azure-stack-hub"></a>Azure Stack Hub からアクティブ化リソースを削除する
 
 最初に Azure Stack Hub からアクティブ化リソースを削除してから、Azure の登録リソースを削除する必要があります。  
 
@@ -408,15 +409,24 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
   Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
+### <a name="re-register-using-connected-steps"></a>接続された手順を使用して再登録する
+
+課金モデルを切断状態の容量課金から接続された状態での従量課金に変更する場合は、[接続されたモデルの手順](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features)に従って再登録します。 
+
+>[!Note] 
+>これによって ID モデルが変更されるわけではなく、課金モデルのみが変更されます。ID ソースとして ADFS が引き続き使用されます。
+
 ### <a name="re-register-using-disconnected-steps"></a>切り離された手順を使用して再登録する
 
 これで、接続が切断されたシナリオで登録が完全に解除されました。接続が切断されたシナリオで Azure Stack Hub 環境を登録する手順を繰り返す必要があります。
+::: zone-end
 
 ### <a name="disable-or-enable-usage-reporting"></a>使用状況レポートを無効または有効にする
 
 容量課金モデルを使用する Azure Stack Hub 環境では、**Set-AzsRegistration** または **Get-AzsRegistrationToken** コマンドレットのいずれかで **UsageReportingEnabled** パラメーターを使用して使用状況レポートをオフにします。 Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。
 
-#### <a name="with-a-connected-azure-stack-hub"></a>接続された Azure Stack Hub
+::: zone pivot="state-connected"
+次の PowerShell コマンドレットを実行します。
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -426,10 +436,10 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -BillingModel Capacity
       -RegistrationName $RegistrationName
+      -UsageReportingEnabled:$false
    ```
-
-#### <a name="with-a-disconnected-azure-stack-hub"></a>切断された Azure Stack Hub
-
+::: zone-end
+::: zone pivot="state-disconnected"
 1. 登録トークンを変更するには、次の PowerShell コマンドレットを実行します。  
 
    ```Powershell
@@ -442,6 +452,7 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
    > 登録トークンは、 *$FilePathForRegistrationToken* に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
 
 2. 接続された Azure マシンで使用するためにこの登録トークンを保存します。 *$FilePathForRegistrationToken* からファイルまたはテキストをコピーできます。
+::: zone-end
 
 ## <a name="move-a-registration-resource"></a>登録リソースを移動する
 
@@ -476,7 +487,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | 自分のサブスクリプションで使用する請求モデル。 このパラメーターの有効値は、Capacity、PayAsYouUse、および Development です。 |
-| MarketplaceSyndicationEnabled | True または False | ポータル内で Marketplace 管理機能を使用できるようにするかどうかを決定します。 インターネット接続を使用して登録している場合は true に設定します。 切断された環境で登録している場合は false に設定します。 切断された環境で登録した場合は、[オフライン シンジケーション ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用して、マーケットプレースの項目をダウンロードできます。 |
+| MarketplaceSyndicationEnabled | True または False | ポータル内で Marketplace 管理機能を使用できるようにするかどうかを決定します。 インターネット接続を使用して登録している場合は true に設定します。 切断された環境で登録している場合は false に設定します。 切断された環境で登録した場合は、[オフライン シンジケーション ツール](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)を使用して、マーケットプレースの項目をダウンロードできます。 |
 | UsageReportingEnabled | True または False | Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。 このパラメーターの有効値は、True、False。 |
 | AgreementNumber | String | この Azure Stack の容量 SKU が注文された EA 契約の番号。 |
 | RegistrationName | String | 同じ Azure サブスクリプション ID を利用し、複数の Azure Stack Hub インスタンスで登録スクリプトを実行している場合、登録に一意の名前を設定します。 このパラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack Hub インスタンスに同じ名前を使用すると、スクリプトは失敗します。 |
@@ -506,17 +517,24 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 
 Azure Stack Hub の登録を試みている間に、次のエラーのいずれかが発生する可能性があります。
 
-- $hostName の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再度実行します。
+- `$hostName` の必須ハードウェア情報を取得できませんでした。 物理ホストと接続を確認してから、登録を再実行してください。
 
-- ハードウェア情報を取得するために $hostName に接続できません。物理ホストと接続を確認してから、登録を再実行してください。
+- ハードウェア情報を取得するために `$hostName` に接続できません。 物理ホストと接続を確認してから、登録を再実行してください。
 
-> 原因: これは通常、アクティブ化を試みるためにホストから UUID、BIOS、CPU などのハードウェア詳細を取得しようとしたが、物理ホストに接続できないことでハードウェア詳細を取得不能だったことが原因です。
+   原因: これは通常、アクティブ化を試みるためにホストから UUID、BIOS、CPU などのハードウェア詳細を取得しようとしたが、物理ホストに接続できないことでハードウェア詳細を取得不能だったことが原因です。
 
-Marketplace の管理にアクセスしして、製品を配信しようとするとエラーが発生します。 
-> 原因: これは通常、Azure Stack Hub が登録リソースにアクセスできない場合に発生します。 これに関する一般的な理由の 1 つとして、Azure サブスクリプションのディレクトリ テナントが変更されると登録がリセットされることがあげられます。 サブスクリプションのディレクトリ テナントを変更した場合、Azure Stack Hub Marketplace へのアクセスおよび使用状況のレポートを行うことはできません。 この問題を解決するには再登録する必要があります。
+- Cloud identifier [`GUID`] is already registered. (クラウド識別子 [`GUID`] は既に登録されています。) Reusing cloud identifiers is not allowed. (クラウド識別子の再使用は許可されません。)
 
-切断されたプロセスを使用して既にスタンプを登録している場合でも、Marketplace の管理から、Azure Stack Hub の登録とアクティブ化を要求されます。
-> 原因: これは切断された環境における既知の問題です。 [これらの手順](azure-stack-registration.md#verify-azure-stack-hub-registration)を実行することで登録状態を確認できます。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)を使用する必要があります。
+   原因: これは、Azure Stack 環境が既に登録されている場合に発生します。 別のサブスクリプションまたは課金モデルを使用して環境を再登録する場合は、[登録を更新または変更する手順](#renew-or-change-registration)に従ってください。
+
+- Marketplace の管理にアクセスしして、製品を配信しようとするとエラーが発生します。
+
+   原因: これは通常、Azure Stack Hub が登録リソースにアクセスできない場合に発生します。 これに関する一般的な理由の 1 つとして、Azure サブスクリプションのディレクトリ テナントが変更されると登録がリセットされることがあげられます。 サブスクリプションのディレクトリ テナントを変更した場合、Azure Stack Hub Marketplace へのアクセスおよび使用状況のレポートを行うことはできません。 この問題を解決するには再登録する必要があります。
+::: zone pivot="state-disconnected"
+- 切断されたプロセスを使用して既にスタンプを登録している場合でも、Marketplace の管理から、Azure Stack Hub の登録とアクティブ化を要求されます。
+
+   原因: これは、切断された環境に関する既知の問題であり、[登録状態を確認](#verify-azure-stack-hub-registration)する必要があります。 Marketplace 管理を使用するには、[オフライン ツール](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)を使用します。
+::: zone-end
 
 ## <a name="next-steps"></a>次のステップ
 

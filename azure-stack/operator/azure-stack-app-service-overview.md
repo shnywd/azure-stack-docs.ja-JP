@@ -3,16 +3,16 @@ title: Azure App Service on Azure Stack の概要
 description: App Service on Azure Stack Hub と Azure Functions の概要。
 author: BryanLa
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 05/05/2020
 ms.author: BryanLa
 ms.reviewer: anwestg
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: 76acf85ac6bdfa1576416a9fc583463a71ad95d8
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/13/2019
+ms.openlocfilehash: 8cf8f5c42eea1ce1884760c974881712954f1af7
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876118"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847828"
 ---
 # <a name="azure-app-service-and-azure-functions-on-azure-stack-hub-overview"></a>App Service on Azure Stack Hub と Azure Functions の概要
 
@@ -34,7 +34,7 @@ App Service にはアプリの種類が複数用意されており、それぞ�
 
 - [Web Apps](/azure/app-service/overview) - Web サイトと Web アプリをホストするためのアプリの種類。
 - [API Apps](/azure/app-service/overview) - REST API をホストするためのアプリの種類。
-- イベント ドリブンでサーバーレスのワークロードをホスティングするための Azure Functions。
+- イベント ドリブンでサーバーレスのワークロードをホスティングするための [Azure Functions v1](/azure/azure-functions)。
 
 "*アプリ*" とは、ワークロードの実行専用のホスティング リソースを指しています。 *Web アプリ*を例にとると、Web アプリをコンピューティング リソースとアプリ コードの両方の観点から捉えることにおそらく慣れているでしょう。この両者が合わさって、ブラウザーに機能が提供されます。 Azure App Service において、Web アプリとは、アプリ コードをホストするために Azure Stack Hub で提供されるコンピューティング リソースです。
 
@@ -52,7 +52,6 @@ App Service のリソース プロバイダーは、Azure App Service で使用�
 Azure には、共有ワーカーと専用ワーカーがあります。 共有ワーカーは高密度のマルチテナント アプリ ホスティングをサポートします。この共有ワーカーは 1 セットしかありません。 専用サーバーは 1 つのテナントでのみ使用され、小、中、大という 3 つのサイズがあります。 オンプレミスの顧客のニーズは、必ずしもこれらの用語を使用して説明されるわけではありません。 Azure App Service on Azure Stack Hub では、リソース プロバイダー管理者が、使用可能にするワーカー層を定義します。 独自のホスティング ニーズに基づき、複数の共有ワーカー セットや、異なる専用ワーカー セットを定義できます。 これらのワーカー層の定義を使用することで、独自の価格 SKU を定義できます。
 
 ## <a name="portal-features"></a>ポータルの機能
-
 
 Azure App Service on Azure Stack Hub では、Azure App Service で使用するのと同じユーザー インターフェイスが使用されます。 同じことがバック エンドにも当てはまります。 ただし、Azure Stack Hub では一部の機能が無効になります。 Azure Stack Hub では現在、このような機能に必要な Azure 固有の期待値やサービスはまだ使用できません。
 

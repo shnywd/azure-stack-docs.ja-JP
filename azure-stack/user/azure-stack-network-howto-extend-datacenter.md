@@ -3,16 +3,16 @@ title: Azure Stack Hub 上でデータ センターを拡張する方法
 description: Azure Stack Hub でデータ センターを拡張する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: fd851b4d25d188c03fe09793986901e28a00a6a5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884662"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742598"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>ストレージを Azure Stack Hub に拡張する
 
@@ -30,7 +30,7 @@ ms.locfileid: "76884662"
 
 この図は、ワークロードを実行している単一の仮想マシンを、データの読み取り/書き込みなどの目的で、外部 (VM や Azure Stack Hub 自体の) ストレージに接続して利用するシナリオを示しています。この記事では、ファイルの簡単な取得に焦点を当てますが、データベース ファイルのリモート ストレージなど、より複雑なシナリオに合わせてこの例を拡張することもできます。
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
 この図では、Azure Stack Hub システム上の VM が複数の NIC を使用してデプロイされていることがわかります。 冗長性だけでなく、ストレージのベスト プラクティスからも、ターゲットと宛先の間に複数のパスを用意することが重要です。 状況が複雑になるのは、Azure と同様に、Azure Stack Hub の VM にパブリック IP とプライベート IP の両方がある場合です。 外部ストレージから VM に到達する必要がある場合は、パブリック IP を使用する必要があります。これは、プライベート IP は主に Azure Stack Hub システム内、vNet およびサブネット内で使用されるためです。 外部ストレージは、サイト間 VPN を経由して vNet 自体に接続しない限り、VM のプライベート IP 空間と通信できません。 したがって、この例では、パブリック IP 空間を介した通信に注目します。 この図のパブリック IP 空間で注目する点は、2 つの異なるパブリック IP プール サブネットがあることです。 既定で、パブリック IP アドレスの目的では Azure Stack Hub には 1 つのプールのみが必要ですが、冗長ルーティングのためには、2 つ目のプールを追加することも考えられます。 ただし、現時点では、1 つの特定のプールから IP アドレスを選択することはできないため、実際には、複数の仮想ネットワーク カードにまたがる同じプールのパブリック IP を持つ VM を使用することになる可能性があります。
 

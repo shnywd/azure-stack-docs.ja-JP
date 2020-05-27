@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェック ツールを使用して、Azure Stack Hub 統合システムの PKI 証明書を検証する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: ihenkel
-ms.topic: article
-ms.date: 07/23/2019
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 4ec3732df372e0b768b3f52c082cae5db932a36c
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: e8114d060e596f581cd23ec80b0b5f455567dc1f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972538"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79025239"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 
@@ -89,7 +89,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
         - `C:\Certificates\Deployment\Admin Portal\CustomerCertificate.pfx`
         - `C:\Certificates\Deployment\ARM Admin\CustomerCertificate.pfx`
 
-3. PowerShell ウィンドウで、Azure Stack Hub 環境に合わせて `RegionName` と `FQDN` の値を変更し、次のコマンドレットを実行します。
+3. PowerShell ウィンドウで、Azure Stack Hub 環境に合わせて `RegionName`、`FQDN`、および `IdentitySystem` の値を変更し、次のコマンドレットを実行します。
 
     ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -238,7 +238,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
 
 | ディレクトリ | Certificate |
 | ---    | ----        |
-| acsBlob | `wildcard_blob_<region>_<externalFQDN>` |
+| ACSBlob | `wildcard_blob_<region>_<externalFQDN>` |
 | ACSQueue  |  `wildcard_queue_<region>_<externalFQDN>` |
 | ACSTable  |  `wildcard_table_<region>_<externalFQDN>` |
 | 管理者拡張機能ホスト  |  `wildcard_adminhosting_<region>_<externalFQDN>` |

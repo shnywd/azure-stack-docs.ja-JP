@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 029601b9bac3bc3b14d2ab4202df072b6d9063de
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 05/18/2019
+ms.openlocfilehash: 9c9838a93c0ee46ce0556cd86e9f6ae8b4c7c9d4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875795"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848049"
 ---
 # <a name="app-service-on-azure-stack-hub-update-2-release-notes"></a>App Service on Azure Stack Hub Update 2 のリリース ノート
 
@@ -26,14 +26,14 @@ ms.locfileid: "76875795"
 
 App Service on Azure Stack Hub Update 2 のビルド番号は **72.0.13698.10** です。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack Hub の新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です
+> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack Hub の新しいデプロイには、3 つのサブジェクトのワイルドカード証明書が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です
 
 デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
-### <a name="new-features-and-fixes"></a>新機能と修正
+## <a name="new-features-and-fixes"></a>新機能と修正
 
 Azure App Service on Azure Stack Hub Update 2 には、次の機能強化と修正が含まれています。
 
@@ -67,7 +67,7 @@ Azure App Service on Azure Stack Hub Update 2 には、次の機能強化と修�
   - システム資格情報のローテーション
   - 接続文字列のローテーション
 
-### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
+## <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
 - App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。
 
@@ -83,7 +83,7 @@ Azure App Service on Azure Stack Hub Update 2 には、次の機能強化と修�
 * 優先順位:700
 * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
 [Azure Stack Hub 1804 リリース ノート](azure-stack-update-1903.md)内のドキュメントを参照してください。
 

@@ -2,18 +2,18 @@
 title: Azure Stack Hub のテレメトリを構成する
 titleSuffix: Azure Stack
 description: Azure Stack Hub のテレメトリと、PowerShell を使用してテレメトリ設定を構成する方法について学習します。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: conceptual
 ms.date: 1/16/2020
-ms.author: mabrigg
+ms.author: inhenkel
 ms.reviewer: comartin
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: cc4122424f990fd0c218899956e9ea32a695fe99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 6bc12104ef8ce325fe9b1773373ef235a33919e5
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76880953"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77696959"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack Hub のテレメトリを構成する
 

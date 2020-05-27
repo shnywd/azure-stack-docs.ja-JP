@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 07cc157290280dbfd435dbcda6939d62388ba7d9
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8ecb1fde96c4d53bd94c57199635af21d7cf7196
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879008"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77700869"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Azure Stack Hub ユーザーに対して Azure CLI を有効にする
 

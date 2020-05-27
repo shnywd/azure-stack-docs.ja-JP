@@ -3,16 +3,17 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 02/04/2020
+ms.date: 04/13/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/23/2018
-ms.openlocfilehash: 5fee671c0d31f78d92e84733cc1ebf1f7626a50f
-ms.sourcegitcommit: b5541815abfab3f8750fa419fdd1f93a8844731a
+ms.lastreviewed: 12/23/2019
+zone_pivot_groups: state-connected-disconnected
+ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77012932"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848270"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -28,25 +29,24 @@ Marketplace 製品をダウンロードする場合は、次の 2 つのシナ�
 > [!NOTE]
 > カタログは、お使いの Azure Stack Hub システムの接続先クラウドによって異なります。 クラウド環境は、Azure Stack Hub の登録に使用する Azure サブスクリプションによって決まります。
 
-## <a name="connected-scenario"></a>接続されているシナリオ
+::: zone pivot="state-connected"
+接続されたデプロイでは、管理者ポータルを使用して Marketplace 項目をダウンロードできます。
 
-Azure Stack Hub がインターネットに接続されている場合は、管理者ポータルを使用して Marketplace 項目をダウンロードできます。
-
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 Azure Stack Hub デプロイは、インターネット接続を備えていて、Azure に登録されている必要があります。
 
-### <a name="use-the-portal-to-download-marketplace-items"></a>ポータルを使用して Marketplace 項目をダウンロードする
+## <a name="use-the-portal-to-download-marketplace-items"></a>ポータルを使用して Marketplace 項目をダウンロードする
 
 1. Azure Stack Hub 管理者ポータルにサインインします。
 
-2. Marketplace 項目をダウンロードする前に、使用可能なストレージ領域を確認してください。 後で、ダウンロードする項目を選択するときに、ダウンロード サイズと使用可能なストレージ容量を比較することができます。 容量が限られている場合は、 [空き領域を管理する](azure-stack-manage-storage-shares.md#manage-available-space)のためのオプションを検討してください。
+2. Marketplace 項目をダウンロードする前に、使用可能なストレージ領域を確認してください。 後で、ダウンロードする項目を選択するときに、ダウンロード サイズと使用可能なストレージ容量を比較することができます。 容量が限られている場合は、[空き領域の管理](azure-stack-manage-storage-shares.md#manage-available-space)のためのオプションを検討してください。
 
-   空き領域を確認するには、 **[リージョン管理]** で対象リージョンを選択し、 **[リソース プロバイダー]**  > **[ストレージ]** の順に移動します。
+   空き領域を確認するには、 **[Region Management]\(リージョン管理\)** で対象リージョンを選択し、 **[リソース プロバイダー]**  >  **[ストレージ]** の順に移動します。
 
    ![Azure Stack Hub 管理者ポータルでのストレージ スペースの確認](media/azure-stack-download-azure-marketplace-item/storage.png)
 
-3. Azure Stack Hub Marketplace を開き、Azure に接続します。 そのためには、 **[Marketplace の管理]**  サービスを選択し、 **[Marketplace の項目]** を選択して、 **[Azure から追加]** を選択します。
+3. Azure Stack Hub Marketplace を開き、Azure に接続します。 そのためには、 **[Marketplace management]\(Marketplace 管理\)** サービスを選択し、 **[Marketplace の項目]** を選択して、 **[Add from Azure]\(Azure から追加\)** を選択します。
 
    ![Azure から Marketplace の項目を追加する](media/azure-stack-download-azure-marketplace-item/marketplace.png)
 
@@ -54,26 +54,26 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 
    ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
-5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。
+5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。 Microsoft は、Azure Stack のバージョンや課金モデルなどのさまざまなプロパティが理由で、利用している Azure Stack と互換性のないマーケットプレース製品を管理者にダウンロードさせないようにする属性を追加することができるようになっています。 これらの属性を追加できるのは Microsoft だけです。
 
-   ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png)
+   [![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure3sm.png "複数のバージョン")](media/azure-stack-download-azure-marketplace-item/add-from-azure3.png#lightbox)
 
-6. 必要な項目を選択し、 **[ダウンロード]** を選択します。 ダウンロード時間はさまざまで、ネットワーク接続によって異なります。 ダウンロードが完了したら、Azure Stack Hub オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
+6. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロード時間はさまざまで、ネットワーク接続によって異なります。 ダウンロードが完了したら、Azure Stack Hub オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
 
-7. ダウンロードした項目をデプロイするには、 **[+ リソースの作成]** を選択してから、新しい Marketplace 項目がないかカテゴリを検索します。 次に、デプロイ処理を開始する項目を選択します。 処理は、Marketplace 項目ごとに異なります。
+7. ダウンロードした項目をデプロイするには、 **[+ リソースの作成]** を選択し、カテゴリで新しいマーケットプレース項目を検索します。 次に、デプロイ処理を開始する項目を選択します。 処理は、Marketplace 項目ごとに異なります。
+::: zone-end
 
-## <a name="disconnected-or-a-partially-connected-scenario"></a>接続されていないか、部分的に接続されているシナリオ
-
-Azure Stack Hub のインターネット接続が制限されている場合や接続がない場合は、PowerShell と *Marketplace シンジケーション ツール* を使用して、インターネット接続のあるコンピューターに Marketplace 項目をダウンロードできます。 その後、Azure Stack Hub 環境に項目を転送します。 接続されていない環境では、Azure Stack Hub ポータルを使用して Marketplace 項目をダウンロードすることはできません。
+::: zone pivot="state-disconnected"
+Azure Stack Hub のインターネット接続が制限されている場合や接続がない場合は、PowerShell と*マーケットプレース シンジケーション ツール*を使用して、インターネット接続のあるマシンに Marketplace 項目をダウンロードします。 その後、Azure Stack Hub 環境に項目を転送します。 接続されていない環境では、Azure Stack Hub ポータルを使用して Marketplace 項目をダウンロードすることはできません。
 
 マーケットプレース シンジケーション ツールは、接続されているシナリオでも使用することができます。
 
 このシナリオは次の 2 つに分けられます。
 
-- **パート 1**: Marketplace から項目をダウンロードします。 インターネットにアクセスできるコンピューターで PowerShell を構成し、シンジケーション ツールをダウンロードして、Azure Marketplace から項目をダウンロードします。
-- **パート 2**: Azure Stack Hub Marketplace にアップロードして発行します。 ダウンロードしたファイルを Azure Stack Hub 環境に移動した後、Azure Stack Hub Marketplace に発行します。
+- **パート 1**:Marketplace から項目をダウンロードします。 インターネットにアクセスできるコンピューターで PowerShell を構成し、シンジケーション ツールをダウンロードして、Azure Marketplace から項目をダウンロードします。
+- **パート 2**:Azure Stack Hub Marketplace にアップロードして発行します。 ダウンロードしたファイルを Azure Stack Hub 環境に移動した後、Azure Stack Hub Marketplace に発行します。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 - 接続された環境 (Azure Stack Hub である必要はありません)。 Azure から製品の一覧をその詳細と共に取得し、すべてをローカルにダウンロードするには、接続が必要です。 これが実行されれば、手順の残りの部分ではインターネット接続は不要です。 これにより、切断された環境で使用するために以前にダウンロードした項目のカタログが作成されます。
 
@@ -83,27 +83,29 @@ Azure Stack Hub のインターネット接続が制限されている場合や�
 
   - お使いの Azure Stack Hub のデプロイが Azure に登録されている必要があります。
 
-  - インターネットに接続できるコンピューターに、 **Azure Stack Hub PowerShell モジュール バージョン 1.2.11** 以降が備わっている必要があります。 まだない場合は、 [Azure Stack Hub 固有の PowerShell モジュールをインストール](azure-stack-powershell-install.md)してください。
+  - インターネットに接続できるコンピューターには、**Azure Stack Hub PowerShell モジュール バージョン 1.2.11** 以降がインストールされている必要があります。 まだない場合は、[Azure Stack Hub 固有の PowerShell モジュールをインストール](azure-stack-powershell-install.md)してください。
 
-  - ダウンロードした Marketplace 項目のインポートを有効にするには、 [Azure Stack Hub オペレーター用の PowerShell 環境](azure-stack-powershell-configure-admin.md) を構成する必要があります。
+  - ダウンロードした Marketplace 項目のインポートを有効にするには、[Azure Stack Hub オペレーター用の PowerShell 環境](azure-stack-powershell-configure-admin.md)を構成する必要があります。
 
 - 次のコマンドを使用して、PowerShell ギャラリーから Azs.Syndication.Admin モジュールをダウンロードします。
   ```
   Install-Module -Name Azs.Syndication.Admin
   ```
+  
+- .NET Framework 4.7 以降のバージョン。
 
 Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理\) ブレードに表示される次のメッセージは、切断されたユース ケースには関係ないため無視できます。
 
 ![Marketplace Management](media/azure-stack-download-azure-marketplace-item/toolsmsg.png)
 
-### <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>マーケットプレース シンジケーション ツールを使用して Marketplace 項目をダウンロードする
+## <a name="use-the-marketplace-syndication-tool-to-download-marketplace-items"></a>マーケットプレース シンジケーション ツールを使用して Marketplace 項目をダウンロードする
 
 > [!IMPORTANT]
 > 切断されたシナリオで Marketplace 項目をダウンロードするたびに、必ず Marketplace シンジケーション ツールをダウンロードしてください。 このツールは頻繁に変更されるため、各ダウンロードに対して最新バージョンを使用する必要があります。
 
 1. インターネットに接続されているコンピューターで、PowerShell コンソールを管理者として開きます。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを使用して、適切な Azure クラウドと AzureAD Directory テナントにサインインします。 アカウントを追加するには、PowerShell で  **Add-AzureRmAccount** を実行します。 
+2. Azure Stack Hub を登録するために使用した Azure アカウントを使用して、適切な Azure クラウドと AzureAD Directory テナントにサインインします。 アカウントを追加するには、PowerShell で **Add-AzureRmAccount** を実行します。 
 
    ```powershell  
    Login-AzureRmAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'
@@ -111,7 +113,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
    Azure アカウントの資格情報の入力を求めるメッセージが表示されます。アカウントの構成によっては、2 要素認証を使用する必要があります。
 
    > [!NOTE]
-   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、コマンドレット  **Remove-AzureRmAccount-Scope Process** を実行します。
+   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
 
 3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、登録に使用したものを選択します。
 
@@ -135,10 +137,10 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 
      ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
-   これで、ダウンロード可能なすべての Marketplace 項目を一覧表示する 2 番目のテーブルが表示されます。 ダウンロードする項目を選択し、その **バージョン**を書き留めておきます。  **Ctrl** キーを押しながら複数のイメージを選択できます。
+   これで、ダウンロード可能なすべての Marketplace 項目を一覧表示する 2 番目のテーブルが表示されます。 ダウンロードする項目を選択し、**バージョン**を書き留めておきます (**Ctrl** キーを押しながら、複数のイメージを選択することができます)。
      ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
-   また、 **[条件の追加]**  オプションを使用してイメージの一覧をフィルター処理することもできます。
+   また、 **[Add criteria]\(条件の追加\)** オプションを使用して、イメージの一覧をフィルター処理することもできます。
    ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)
 
    必要な項目を選択したら、[OK] をクリックします。
@@ -149,7 +151,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     $products | Export-AzsMarketplaceItem  -RepositoryDir "Destination folder path in quotes"
     ```
 
-7. ダウンロードにかかる時間は、項目のサイズによって異なります。 ダウンロードが完了したら、その項目をスクリプトで指定したフォルダーで使用できます。 ダウンロードには、VHD ファイル (仮想マシンの場合) または .zip ファイル (仮想マシン拡張機能やリソース プロバイダーの場合) が含まれています。  *.azpkg*  形式のギャラリー パッケージが含まれていることもあります (これは .zip ファイルです)。
+7. ダウンロードにかかる時間は、項目のサイズによって異なります。 ダウンロードが完了したら、その項目をスクリプトで指定したフォルダーで使用できます。 ダウンロードには、VHD ファイル (仮想マシンの場合) または .zip ファイル (仮想マシン拡張機能やリソース プロバイダーの場合) が含まれています。 *.azpkg* 形式のギャラリー パッケージが含まれていることもあります (これは .zip ファイルです)。
 
 8. ダウンロードに失敗した場合は、次の PowerShell コマンドレットを再実行してやり直すことができます。
 
@@ -166,15 +168,15 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>PowerShell を使用したダウンロードのインポートと Azure Stack Hub Marketplace への発行
+## <a name="import-the-download-and-publish-to-azure-stack-hub-marketplace-using-powershell"></a>PowerShell を使用したダウンロードのインポートと Azure Stack Hub Marketplace への発行
 
-1. ローカルに [ダウンロード済みの](#use-the-marketplace-syndication-tool-to-download-marketplace-items) ファイルを、Azure Stack Hub 環境に接続されているコンピューターに移動する必要があります。 マーケットプレース シンジケーション ツールを使用してインポート操作を実行する必要があるので、このツールも Azure Stack Hub 環境で利用できるようにする必要があります。
+1. ローカルに[ダウンロード済みの](#use-the-marketplace-syndication-tool-to-download-marketplace-items)ファイルを、Azure Stack Hub 環境に接続されているコンピューターに移動する必要があります。 マーケットプレース シンジケーション ツールを使用してインポート操作を実行する必要があるので、このツールも Azure Stack Hub 環境で利用できるようにする必要があります。
 
-   次の画像は、フォルダー構造の例を示しています。 **D:\downloadfolder** に、ダウンロードしたすべての Marketplace 項目が含まれています。 各サブフォルダーは、製品 ID で名前が指定された Marketplace 項目です (例:  **microsoft.custom-script-linux-arm-2.0.3**)。 各サブ フォルダーの内容は、Marketplace 項目のダウンロードされたコンテンツです。
+   次の図に、フォルダー構造の例を示します。 ダウンロードしたすべての Marketplace 項目は **D:\downloadfolder**に含まれます。 各サブフォルダーは、製品 ID で名前が指定された Marketplace 項目です (例: **microsoft.custom-script-linux-arm-2.0.3**)。 各サブ フォルダーの内容は、Marketplace 項目のダウンロードされたコンテンツです。
 
    ![Marketplace ダウンロード ディレクトリ構造](media/azure-stack-download-azure-marketplace-item/mp1.png)
 
-2.  [この記事](azure-stack-powershell-configure-admin.md) の指示に従って、Azure Stack Hub オペレーターの PowerShell セッションを構成します。
+2. [こちらの記事](azure-stack-powershell-configure-admin.md)の指示に従って、Azure Stack Hub オペレーターの PowerShell セッションを構成します。
 
 3. "既定のプロバイダー サブスクリプション" に対する所有者アクセス権を持つ ID を使用して、Azure Stack ハブにログインします。
 
@@ -185,3 +187,4 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     ```
 
 5. スクリプトが正常に完了すると、Azure Stack Hub Marketplace で Marketplace 項目を利用できるようになります。
+::: zone-end

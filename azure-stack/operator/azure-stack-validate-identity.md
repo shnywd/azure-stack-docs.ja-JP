@@ -2,18 +2,18 @@
 title: Azure ID を検証する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカーを使用して、Azure ID を検証します。
-author: ihenkel
-ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: inhenkel
+author: BryanLa
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 5c20e951e2a34c800611c8417d3b8504ed84c346
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 0852c977494dcd91545b1ea13430811b83eeeddb
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972482"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173833"
 ---
 # <a name="validate-azure-identity"></a>Azure ID の検証
 
@@ -97,7 +97,7 @@ Azure Stack Hub のユーザー、アプリケーション、グループ、お�
 既定では、両方のファイルが `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
-- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
+- ツールの以前の実行に関する情報を `-CleanReport`AzsReadinessCheckerReport.json**からクリアするには、実行コマンド ラインの末尾に** パラメーターを使用します。
 
 詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 

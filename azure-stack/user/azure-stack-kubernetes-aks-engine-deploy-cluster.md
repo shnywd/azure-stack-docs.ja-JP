@@ -3,16 +3,16 @@ title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラス�
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 author: mattbriggs
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 4/23/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: bc56a45bc1312488d00570e4a44436bcdfe14834
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 4/23/2020
+ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
+ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884811"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82218825"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -35,7 +35,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     > [!Note]  
     > 切断されている場合は、ファイルをダウンロードして、編集する予定の切断されたマシンに手動でコピーすることができます。 [PuTTY や WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) などのツールを使用して、ファイルを Linux マシンにコピーできます。
 
-2.  エディターで開くには、nano を使用できます。
+2.  API モデルをエディターで開くには、nano を使用できます。
 
     ```bash
     nano ./kubernetes-azurestack.json
@@ -44,11 +44,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     > [!Note]  
     > nano がインストールされていない場合は、Ubuntu で nano をインストールできます: `sudo apt-get install nano`。
 
-3.  kubernetes-azurestack.json ファイルで、`orchestratorRelease` を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、1.14、1.15 などです。 多くの場合、バージョンは更新プログラムです。 バージョンは、x. xx. x ではなく、x. xx として指定します。 現在のバージョンの一覧については、[サポートされている Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)に関する記事を参照してください。 次の AKS エンジン コマンドを実行すると、サポートされているバージョンを確認できます。
-
-    ```bash
-    aks-engine get-versions
-    ```
+3.  kubernetes-azurestack.json ファイルで、orchestratorRelease と orchestratorVersion を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、`orchestratorRelease` には 1.14 または 1.15 を使用し、`orchestratorVersion` にはそれぞれ 1.14.7 または 1.15.10 を使用します。 `orchestratorRelease` を x.xx、orchestratorVersion を x.xx.x と指定します。 最新バージョンの一覧については、「[サポートされている AKS エンジンのバージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください
 
 4.  `customCloudProfile` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。 
 
@@ -66,31 +62,34 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
 6. `portalURL` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。
 
-7.  配列 `masterProfile` で、次のフィールドを設定します。
+7.  `masterProfile` で、次のフィールドを編集します。
 
-    | フィールド | [説明] |
+    | フィールド | 説明 |
     | --- | --- |
     | dnsPrefix | VM のホスト名を識別するために使用される一意の文字列を入力します。 たとえば、リソース グループ名に基づいて名前を指定します。 |
     | count |  デプロイに必要なマスターの数を入力します。 HA デプロイの最小値は 3 ですが、非 HA デプロイでは 1 が許可されます。 |
     | vmSize |  [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
-8.  配列 `agentPoolProfiles` の更新では、次のようにします。
+8.  `agentPoolProfiles` で、以下を更新します。
 
-    | フィールド | [説明] |
+    | フィールド | 説明 |
     | --- | --- |
-    | count | デプロイに必要なエージェントの数を入力します。 |
+    | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)で指定されている構成アイテムを使用してください。  |
     | vmSize | [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
-9.  配列 `linuxProfile` の更新では、次のようにします。
 
-    | フィールド | [説明] |
+
+
+9.  `linuxProfile` で、以下を更新します。
+
+    | フィールド | 説明 |
     | --- | --- |
     | adminUsername | VM の管理者ユーザー名を入力します。 |
-    | ssh | VM での SSH 認証に使用される公開キーを入力します。 Putty を使用している場合、PuTTY key generator を起動し、Putty 秘密キーと、次の例にあるように ssh-rsa から始まっている公開キーを読み込みます。 Linux の作成時に生成されたキーを使用できますが、**例に示すように単一行のテキストになるように公開キーをコピーする必要があります**。|
+    | ssh | VM での SSH 認証に使用される公開キーを入力します。 `ssh-rsa` およびキーを使用します。 公開キーを作成する手順については、「[Linux 用の SSH キーを作成する](create-ssh-key-on-windows.md)」を参照してください。 |
 
-    ![PuTTY key generator](media/azure-stack-kubernetes-aks-engine-deploy-cluster/putty-key-generator.png)
+    カスタム仮想ネットワークにデプロイする場合、API モデルの適切な配列に必要なキーと値を見つけて追加する手順は、[カスタム仮想ネットワークへの Kubernetes クラスターのデプロイ](kubernetes-aks-engine-custom-vnet.md)に関する記事で確認できます。
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報
 
@@ -111,7 +110,7 @@ Azure Stack Hub オペレーターに次のことを依頼します。
 
 1.  Azure Stack Hub の [CLI フラグ](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#cli-flags)で、AKS エンジンで使用可能なパラメーターを確認します。
 
-    | パラメーター | 例 | [説明] |
+    | パラメーター | 例 | 説明 |
     | --- | --- | --- |
     | azure-env | AzureStackCloud | AKS エンジンに対して、ターゲット プラットフォームが Azure Stack Hub であることを示すには、`AzureStackCloud` を使用します。 |
     | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
@@ -120,8 +119,8 @@ Azure Stack Hub オペレーターに次のことを依頼します。
     | api-model | ./kubernetes-azurestack.json | クラスター構成ファイルまたは API モデルへのパス。 |
     | output-directory | kube-rg | 出力ファイル `apimodel.json` とその他の生成されたファイルを格納するディレクトリの名前を入力します。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
-    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 これは、サービスの作成時に設定するクライアント シークレットです。 |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」をご覧ください。 |
+    | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 クライアント シークレットは、サービスの作成時に設定します。 |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」を参照してください。 |
 
     たとえば次のようになります。
 

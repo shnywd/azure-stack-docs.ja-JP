@@ -1,5 +1,5 @@
 ---
-title: オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする
+title: オンプレミス データを使用してクロスクラウドをスケーリングするハイブリッド アプリをデプロイする
 description: オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする方法について説明します。
 author: BryanLa
 ms.topic: article
@@ -7,18 +7,18 @@ ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: e1042852535648edae61f24f1634ecbf9b6779af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 65b05acb5edc29fcb612ed614100ff6a71705006
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76877512"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847641"
 ---
-# <a name="deploy-an-app-that-uses-on-premises-data-and-scales-cross-cloud-using-azure-and-azure-stack-hub"></a>オンプレミス データを使用し、Azure と Azure Stack Hub でクロスクラウドをスケーリングするアプリをデプロイする
+# <a name="deploy-hybrid-app-with-on-premises-data-that-scales-cross-cloud"></a>オンプレミス データを使用してクロスクラウドをスケーリングするハイブリッド アプリをデプロイする
 
-このソリューション ガイドでは、Azure と Azure Stack Hub の両方にまたがり、1 つのオンプレミス データ ソースを使用するハイブリッド アプリケーションをデプロイする方法について説明します。
+このソリューション ガイドでは、Azure と Azure Stack Hub の両方にまたがり、1 つのオンプレミス データ ソースを使用するハイブリッド アプリをデプロイする方法について説明します。
 
-ハイブリッド クラウド ソリューションを使用することで、プライベート クラウドが持つコンプライアンス面でのメリットとパブリック クラウドが持つスケーラビリティとを融合することができます。 加えて開発者は、Microsoft デベロッパーのエコシステムを活用し、クラウド環境とオンプレミス環境にそのスキルを活かすことができます。
+ハイブリッド クラウド ソリューションを使用することで、プライベート クラウドが持つコンプライアンス面でのメリットとパブリック クラウドが持つスケーラビリティとを融合することができます。 また、開発者は、Microsoft デベロッパーのエコシステムを活用し、クラウド環境とオンプレミス環境にそのスキルを活かすこともできます。
 
 ## <a name="overview-and-assumptions"></a>概要と前提条件
 
@@ -40,14 +40,14 @@ ms.locfileid: "76877512"
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
 > Microsoft Azure Stack Hub は Azure の拡張機能です。 Azure Stack Hub により、オンプレミス環境にクラウド コンピューティングの機敏性とイノベーションがもたらされ、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドが可能になります。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
+> [ハイブリッド アプリの設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ### <a name="assumptions"></a>前提条件
 
 このチュートリアルは、グローバル Azure と Azure Stack Hub についての基本知識があることを前提にしています。 チュートリアルを開始する前に、より詳しい情報を確認しておきたい場合は、以下の記事をお読みください。
 
- - [Azure 入門](https://azure.microsoft.com/overview/what-is-azure/)
- - [Azure Stack Hub の主要概念](../operator/azure-stack-overview.md)
+- [Azure 入門](https://azure.microsoft.com/overview/what-is-azure/)
+- [Azure Stack Hub の主要概念](../operator/azure-stack-overview.md)
 
 このチュートリアルは、Azure サブスクリプションをお持ちであることも前提としています。 サブスクリプションをお持ちでない場合は、開始する前に[無料アカウントを作成](https://azure.microsoft.com/free/)してください。
 
@@ -55,7 +55,7 @@ ms.locfileid: "76877512"
 
 このソリューションを開始する前に、次の要件を満たしてください。
 
-- Azure Stack Hub Development Kit (ASDK) または Azure Stack Hub 統合システムのサブスクリプション。 Azure Stack Hub Development Kit をデプロイするには、[インストーラーを使用した ASDK のデプロイ](../asdk/asdk-install.md)に関するページの手順に従ってください。
+- Azure Stack Development Kit (ASDK) または Azure Stack Hub 統合システムのサブスクリプション。 ASDK をデプロイするには、[インストーラーを使用して ASDK をデプロイする](../asdk/asdk-install.md)方法の手順に従います。
 - ご利用の Azure Stack Hub 環境に次のものがインストールされている必要があります。
   - Azure App Service。 Azure Stack Hub のオペレーターと協力して、Azure App Service をご自分の環境にデプロイし、構成してください。 このチュートリアルでは、App Service で専用の worker ロールを少なくとも 1 つ利用できるようにすることが求められます。
   - Windows Server 2016 イメージ。
@@ -78,13 +78,13 @@ ms.locfileid: "76877512"
 
 3. **[Marketplace]** で **[Compute]\(計算\)** を選択し、 **[More]\(その他\)** を選択します。 **[More]\(その他\)** から **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** イメージを選択します。
 
-    ![仮想マシン イメージの選択](media/solution-deployment-guide-hybrid/image2.png)
+    ![Azure Stack Hub ユーザー ポータルで仮想マシン イメージを選択する](media/solution-deployment-guide-hybrid/image2.png)
 
 4. **[Free SQL Server License: SQL Server 2017 Developer on Windows Server]** で、 **[作成]** を選択します。
 
 5. **[基本] の [基本設定の構成]** で、仮想マシン (VM) の **[名前]** 、SQL Server SA の **[ユーザー名]** 、SA の **[パスワード]** を入力します。  **[サブスクリプション]** ドロップダウン リストから、デプロイ先のサブスクリプションを選択します。 **[リソース グループ]** では **[Choose existing]\(既存の選択\)** を使用し、Azure Stack Hub Web アプリと同じリソース グループに VM を配置します。
 
-    ![VM の基本設定を構成する](media/solution-deployment-guide-hybrid/image3.png)
+    ![Azure Stack Hub ユーザー ポータルで VM の基本設定を構成する](media/solution-deployment-guide-hybrid/image3.png)
 
 6. **[サイズ]** で VM のサイズを選択します。 このチュートリアルでは、A2_Standard または DS2_V2_Standard をお勧めします。
 
@@ -102,9 +102,10 @@ ms.locfileid: "76877512"
    - **[診断ストレージ アカウント]** :新しいアカウントが必要な場合は、作成します。
    - **[OK]** を選択して構成を保存します。
 
-     ![オプション機能を構成する](media/solution-deployment-guide-hybrid/image4.png)
+     ![Azure Stack Hub ユーザー ポータルでオプションの VM 機能を構成する](media/solution-deployment-guide-hybrid/image4.png)
 
 8. **[SQL Server の設定]** で、次の設定を構成します。
+
    - **[SQL 接続]** で **[パブリック (インターネット)]** を選択します。
    - **[ポート]** は、既定値 (**1433**) のままにします。
    - **[SQL 認証]** には **[有効]** を選択します。
@@ -114,15 +115,15 @@ ms.locfileid: "76877512"
 
    - その他の設定は、既定値のままにしてください。 **[OK]** を選択します。
 
-     ![SQL Server の設定を構成する](media/solution-deployment-guide-hybrid/image5.png)
+     ![Azure Stack Hub ユーザー ポータルで SQL Server 設定を構成する](media/solution-deployment-guide-hybrid/image5.png)
 
-9. **[概要]** で仮想マシンの構成を確認し、 **[OK]** を選択してデプロイを開始します。
+9. **[概要]** で VM の構成を確認し、 **[OK]** を選択してデプロイを開始します。
 
-    ![構成の概要](media/solution-deployment-guide-hybrid/image6.png)
+    ![Azure Stack Hub ユーザー ポータルの構成の概要](media/solution-deployment-guide-hybrid/image6.png)
 
 10. 新しい VM の作成には時間がかかります。 VM の状態は、 **[仮想マシン]** で確認できます。
 
-    ![仮想マシン](media/solution-deployment-guide-hybrid/image7.png)
+    ![Azure Stack Hub ユーザー ポータルの仮想マシンの状態](media/solution-deployment-guide-hybrid/image7.png)
 
 ## <a name="create-web-apps-in-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub に Web アプリを作成する
 
@@ -152,13 +153,13 @@ Azure の Web フロントエンドと Azure Stack Hub の SQL Server データ�
 
 Azure App Service と統合するためには、ハイブリッド ネットワークの Azure 側にある仮想ネットワーク ゲートウェイでポイント対サイト接続を許可する必要があります。
 
-1. Azure の仮想ネットワーク ゲートウェイ ページに移動します。 **[設定]** で、 **[ポイント対サイトの構成]** を選択します。
+1. Azure で仮想ネットワーク ゲートウェイ ページに移動します。 **[設定]** で、 **[ポイント対サイトの構成]** を選択します。
 
-    ![ポイント対サイト オプション](media/solution-deployment-guide-hybrid/image8.png)
+    ![Azure 仮想ネットワーク ゲートウェイのポイント対サイト オプション](media/solution-deployment-guide-hybrid/image8.png)
 
 2. **[今すぐ構成]** を選択し、ポイント対サイトを構成します。
 
-    ![ポイント対サイトの構成を開始](media/solution-deployment-guide-hybrid/image9.png)
+    ![Azure 仮想ネットワーク ゲートウェイでポイント対サイトの構成を開始する](media/solution-deployment-guide-hybrid/image9.png)
 
 3. **[ポイント対サイト]** 構成ページで、使用するプライベート IP アドレス範囲を **[アドレス プール]** に入力します。
 
@@ -167,7 +168,7 @@ Azure App Service と統合するためには、ハイブリッド ネットワ�
 
    **[トンネルの種類]** の **[IKEv2 VPN]** チェック ボックスをオフにします。 **[保存]** を選択して、ポイント対サイトの構成を完了します。
 
-   ![ポイント対サイトの設定](media/solution-deployment-guide-hybrid/image10.png)
+   ![Azure 仮想ネットワーク ゲートウェイのポイント対サイト設定](media/solution-deployment-guide-hybrid/image10.png)
 
 ### <a name="integrate-the-azure-app-service-app-with-the-hybrid-network"></a>Azure App Service アプリとハイブリッド ネットワークを統合する
 
@@ -175,15 +176,15 @@ Azure App Service と統合するためには、ハイブリッド ネットワ�
 
 2. Web アプリをホストしている App Service プランの **[設定]** に移動します。 **[設定]** の **[ネットワーク]** を選択します。
 
-    ![ネットワークを構成する](media/solution-deployment-guide-hybrid/image11.png)
+    ![App Service プランのネットワークを構成する](media/solution-deployment-guide-hybrid/image11.png)
 
 3. **[VNET 統合]** の **[管理するにはここをクリック]** を選択します。
 
-    ![VNET 統合を管理](media/solution-deployment-guide-hybrid/image12.png)
+    ![App Service プランの VNET 統合を管理する](media/solution-deployment-guide-hybrid/image12.png)
 
 4. 構成する VNET を選択します。 **[IP アドレスが VNET にルーティングされました]** で、Azure VNet、Azure Stack Hub VNet、ポイント対サイトのアドレス空間に使用する IP アドレス範囲を入力します。 **[保存]** を選択し、これらの設定を確認して保存します。
 
-    ![ルーティングする IP アドレス範囲](media/solution-deployment-guide-hybrid/image13.png)
+    ![Virtual Network 統合でルーティングする IP アドレス範囲](media/solution-deployment-guide-hybrid/image13.png)
 
 App Service と Azure VNet の統合方法の詳細については、「[アプリを Azure 仮想ネットワークに統合する](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)」を参照してください。
 
@@ -193,11 +194,11 @@ App Service のポイント対サイト アドレス範囲からのトラフィ�
 
 1. Azure Stack Hub で **[ローカル ネットワーク ゲートウェイ]** に移動します。 **[設定]** で **[構成]** を選択します。
 
-    ![ゲートウェイの構成オプション](media/solution-deployment-guide-hybrid/image14.png)
+    ![Azure Stack Hub ローカル ネットワーク ゲートウェイのゲートウェイ構成オプション](media/solution-deployment-guide-hybrid/image14.png)
 
 2. **[アドレス空間]** に、Azure の仮想ネットワーク ゲートウェイのポイント対サイト アドレス範囲を入力します。
 
-    ![ポイント対サイトのアドレス空間](media/solution-deployment-guide-hybrid/image15.png)
+    ![Azure Stack Hub ローカル ネットワーク ゲートウェイのポイント対サイト アドレス空間](media/solution-deployment-guide-hybrid/image15.png)
 
 3. **[保存]** を選択し、構成を検証して保存します。
 
@@ -235,7 +236,7 @@ Web アプリによって収集される機密データを移動中および SQL
 
 Azure に SSL を追加するには、次の手順に従います。
 
-1. 作成したサブドメインに対し、取得した SSL 証明書が有効であることを確認します (ワイルドカード証明書を使用してもかまいません)。
+1. 作成したサブドメインに対し、取得した SSL 証明書が有効であることを確認します  (ワイルドカード証明書を使用してもかまいません)。
 
 2. Azure で、[Azure Web Apps に既存のカスタム SSL 証明書をバインドする](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl)方法に関する記事の「**Web アプリの準備**」と **SSL 証明書のバインド**に関するセクションの指示に従います。 **[SSL の種類]** として **[SNI ベースの SSL]** を選択します。
 
@@ -243,7 +244,7 @@ Azure に SSL を追加するには、次の手順に従います。
 
 Azure Stack Hub に SSL を追加するには、次の手順に従います。
 
-- Azure で使用した手順 1. から手順 3. を繰り返します。
+1. Azure で使用した手順 1. から手順 3. を繰り返します。
 
 ## <a name="configure-and-deploy-the-web-app"></a>Web アプリを構成し、デプロイする
 
@@ -257,10 +258,10 @@ Azure Stack Hub に SSL を追加するには、次の手順に従います。
 
 ### <a name="configure-dynamic-connection-strings"></a>動的接続文字列を構成する
 
-Web アプリの各インスタンスでは、異なる方法を使用して SQL データベースに接続します。 Azure のアプリでは SQL Server 仮想マシン (VM) のプライベート IP アドレスが使用され、Azure Stack Hub のアプリでは SQL Server VM のパブリック IP アドレスが使用されます。
+Web アプリの各インスタンスでは、異なる方法を使用して SQL データベースに接続します。 Azure のアプリでは SQL Server VM のプライベート IP アドレスが使用され、Azure Stack Hub のアプリでは SQL Server VM のパブリック IP アドレスが使用されます。
 
 > [!Note]  
-> Azure Stack Hub 統合システムでは、パブリック IP アドレスをインターネット ルーティング可能にしないでください。 Azure Stack Hub Development Kit (ASDK) では、パブリック IP アドレスを ASDK の外部でルーティングすることはできません。
+> Azure Stack Hub 統合システムでは、パブリック IP アドレスをインターネット ルーティング可能にしないでください。 ASDK では、パブリック IP アドレスは ASDK の外部にルーティングできません。
 
 App Service 環境変数を使用し、アプリの各インスタンスに異なる接続文字列を渡すことができます。
 
@@ -301,21 +302,21 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
 
 1. Azure で、スケールアウトしたいサイトの App Service プランを見つけて、 **[スケールアウト (App Service プラン)]** を選択します。
 
-    ![スケール アウト](media/solution-deployment-guide-hybrid/image16.png)
+    ![Azure App Service をスケールアウトする](media/solution-deployment-guide-hybrid/image16.png)
 
 2. **[自動スケールの有効化]** を選択します。
 
-    ![自動スケールの有効化](media/solution-deployment-guide-hybrid/image17.png)
+    ![Azure App Service で自動スケーリングを有効にする](media/solution-deployment-guide-hybrid/image17.png)
 
 3. **[自動スケール設定の名前]** に名前を入力します。 **既存**の自動スケール ルールで、 **[メトリックに基づいてスケーリングする]** を選択します。 **[インスタンスの制限]** で、 **[最小]** を 1、 **[最大]** を 10、 **[既定]** を 1 に設定します。
 
-    ![自動スケールを構成](media/solution-deployment-guide-hybrid/image18.png)
+    ![Azure App Service で自動スケーリングを構成する](media/solution-deployment-guide-hybrid/image18.png)
 
 4. **[+ ルールの追加]** を選択します。
 
 5. **[メトリック ソース]** で **[現在のリソース]** を選択します。 このルールには、次の条件とアクションを使用します。
 
-**条件**
+#### <a name="criteria"></a>条件
 
 1. **[時間の集計]** で **[平均]** を選択します。
 
@@ -326,7 +327,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
    - **[しきい値]** を **50** に設定します。
    - **[期間]** を **10** に設定します。
 
-**操作**
+#### <a name="action"></a>アクション
 
 1. **[操作]** で **[カウントを増やす量]** を選択します。
 
@@ -349,7 +350,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
 
 1. **[既定]** のスケールアウト条件に移動し、 **[+ ルールの追加]** を選択します。 このルールには、次の条件とアクションを使用します。
 
-**条件**
+#### <a name="criteria"></a>条件
 
 1. **[時間の集計]** で **[平均]** を選択します。
 
@@ -360,7 +361,7 @@ App Service 環境で Web アプリを作成するとき、1 つのインスタ�
    - **[しきい値]** を **30** に設定します。
    - **[期間]** を **10** に設定します。
 
-**操作**
+#### <a name="action"></a>アクション
 
 1. **[操作]** で **[カウントを減らす量]** を選択します。
 
@@ -385,7 +386,7 @@ Azure で Traffic Manager プロファイルを作成し、クラウド間スケ
    - **[リソース グループ]** で、このプロファイルの新しいリソース グループを作成します。
    - **[リソース グループの場所]** で、リソース グループの場所を選択します。 これはリソース グループの場所を指定する設定であり、グローバルにデプロイされる Traffic Manager プロファイルには影響しません。
 
-4. **作成** を選択します。
+4. **［作成］** を選択します
 
     ![Traffic Manager プロファイルを作成する](media/solution-deployment-guide-hybrid/image19.png)
 
@@ -393,7 +394,7 @@ Azure で Traffic Manager プロファイルを作成し、クラウド間スケ
 
 ### <a name="add-traffic-manager-endpoints"></a>Traffic Manager エンドポイントの追加
 
-1. 作成した Traffic Manager プロファイルを検索します プロファイルのリソース グループに移動した場合は、プロファイルを選択してください。
+1. 作成した Traffic Manager プロファイルを検索します  プロファイルのリソース グループに移動した場合は、プロファイルを選択してください。
 
 2. **[Traffic Manager プロファイル]** の **[設定]** で、 **[エンドポイント]** を選択します。
 
@@ -427,7 +428,7 @@ Azure で Traffic Manager プロファイルを作成し、クラウド間スケ
 
 構成したエンドポイントはどちらも、 **[Traffic Manager プロファイル]** で **[エンドポイント]** を選択すると表示されます。 次の画面キャプチャの例には、2 つのエンドポイントが、それぞれの状態および構成情報と共に表示されています。
 
-![エンドポイント](media/solution-deployment-guide-hybrid/image20.png)
+![Traffic Manager プロファイルのエンドポイント](media/solution-deployment-guide-hybrid/image20.png)
 
 ## <a name="set-up-application-insights-monitoring-and-alerting"></a>Application Insights の監視とアラートを設定する
 
@@ -485,13 +486,13 @@ Azure Application Insights を使用すると、アプリを監視し、構成�
 
 9. メニュー バーで **[保存]** を選択します。
 
-次の画面キャプチャには、スケールアウトとスケールインのアラートが示されています。
+次のスクリーンショットには、スケールアウトとスケールインのアラートが示されています。
 
-   ![アラート (クラシック)](media/solution-deployment-guide-hybrid/image22.png)
+   ![Application Insights のアラート (クラシック)](media/solution-deployment-guide-hybrid/image22.png)
 
 ## <a name="redirect-traffic-between-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub の間でトラフィックをリダイレクトする
 
-Azure と Azure Stack Hub の間で行われる Web アプリのトラフィック切り替えには、手動または自動の切り替えを構成できます。
+Azure と Azure Stack Hub の間で行われる Web アプリのトラフィックには、手動または自動の切り替えを構成できます。
 
 ### <a name="configure-manual-switching-between-azure-and-azure-stack-hub"></a>Azure と Azure Stack Hub の間で手動切り替えを構成する
 
@@ -499,22 +500,22 @@ Web サイトが構成済みのしきい値に達した場合、アラートが�
 
 1. Azure portal で、該当する Traffic Manager プロファイルを選択します。
 
-    ![Traffic Manager エンドポイント](media/solution-deployment-guide-hybrid/image20.png)
+    ![Azure portal の Traffic Manager エンドポイント](media/solution-deployment-guide-hybrid/image20.png)
 
 2. **[エンドポイント]** を選択します。
 3. **[Azure エンドポイント]** を選択します。
 4. **[状態]** で **[有効]** を選択し、 **[保存]** を選択します。
 
-    ![Azure エンドポイントを有効化](media/solution-deployment-guide-hybrid/image23.png)
+    ![Azure portal で Azure エンドポイントを有効にする](media/solution-deployment-guide-hybrid/image23.png)
 
 5. Traffic Manager プロファイルの **[エンドポイント]** で、 **[外部エンドポイント]** を選択します。
 6. **[状態]** で **[無効]** を選択し、 **[保存]** を選択します。
 
-    ![Azure Stack Hub エンドポイントを無効化](media/solution-deployment-guide-hybrid/image24.png)
+    ![Azure portal で Azure Stack Hub エンドポイントを無効にする](media/solution-deployment-guide-hybrid/image24.png)
 
 エンドポイントの構成後、アプリ トラフィックは、Azure Stack Hub Web アプリではなく、Azure スケールアウト Web アプリに送信されます。
 
- ![変更されたエンドポイント](media/solution-deployment-guide-hybrid/image25.png)
+ ![Azure web アプリのトラフィックで変更されたエンドポイント](media/solution-deployment-guide-hybrid/image25.png)
 
 フローを再び Azure Stack Hub に戻すには、前の手順を使用して次の設定を行います。
 

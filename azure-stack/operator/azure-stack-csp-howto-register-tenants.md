@@ -3,16 +3,16 @@ title: Azure Stack Hub に使用量と課金用のテナントを追加する
 description: Azure Stack Hub に使用量と課金用のテナントを追加する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: e5bdfa5a190b639ef0537c96f4b0e049817fba21
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d5a846d762d0dab8d07a16c7a7b6f147d8a92324
+ms.sourcegitcommit: e5b587216a137819444680ec619281c90f37bad9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882553"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82167026"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
 
@@ -49,14 +49,14 @@ ms.locfileid: "76882553"
 
 エンド カスタマーの新しいサブスクリプションで登録を更新します。 Azure は、パートナー センターの顧客 ID を使用して顧客の使用量をレポートします。 この手順により、各顧客の使用量が、その顧客それぞれの CSP サブスクリプションごとに報告されるようになります。 これで、使用量の追跡と課金が簡単になります。 この手順を実行するためには、まず [Azure Stack Hub に登録する](azure-stack-registration.md)必要があります。
 
-1. 管理者特権のプロンプトで Windows PowerShell を開き、次のコマンドを実行します。  
+1. 管理者特権のプロンプトで Windows PowerShell を開き、次を実行します。  
 
    ```powershell
    Add-AzureRmAccount
    ```
 
-   >[!Note]
-   > ご自分のセッションの期限が切れたり、ご自分のパスワードが変更になったり、または単純にアカウントを切り替えたい場合は、サインイン前に次のコマンドレットを Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process` を使用して実行します。
+   >[!NOTE]
+   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します。`Remove-AzureRmAccount-Scope Process`
 
 2. Azure の資格情報を入力します。
 3. PowerShell セッションで、次のコマンドを実行します。
@@ -69,7 +69,7 @@ ms.locfileid: "76882553"
 
 次のセクションでは、**New-AzureRmResource** コマンドレットのパラメーターについて説明します。
 
-| パラメーター | [説明] |
+| パラメーター | 説明 |
 | --- | --- |
 |registrationSubscriptionID | Azure Stack Hub の初期登録に使用された Azure サブスクリプション。|
 | customerSubscriptionID | 登録する顧客が所有する (Azure Stack Hub ではない) Azure サブスクリプション。 CSP のオファー内で作成する必要があります。 実際には、パートナー センターを介することを意味します。 顧客が複数の Azure Active Directory テナントを持っている場合は、Azure Stack Hub へのログインに使用するテナントでこのサブスクリプションを作成する必要があります。 顧客サブスクリプション ID には、小文字を使用する必要があります。 |

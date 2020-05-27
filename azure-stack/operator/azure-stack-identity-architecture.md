@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub の ID アーキテクチャ
 description: Azure Stack Hub の ID アーキテクチャと、Azure AD と AD FS の違いについて説明します。
-author: ihenkel
+author: BryanLa
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: inhenkel
+ms.date: 04/10/2020
+ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: a3846deb266b610a1f09b32df549e49c88f19b76
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: d21df4d1a16f7ea56ec02a1aa1e7821bb7fe4484
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890308"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848236"
 ---
 # <a name="identity-architecture-for-azure-stack-hub"></a>Azure Stack Hub の ID アーキテクチャ
 
@@ -26,7 +26,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 |------------------------------|----------|-------|
 |インターネットに接続されている     |はい       |省略可能|
 |マルチテナントのサポート     |はい       |いいえ      |
-|Marketplace で項目を提供する |はい       |はい ([オフラインの Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) ツールを使用する必要があります)|
+|Marketplace で項目を提供する |はい       |はい ([オフラインの Marketplace シンジケーション](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected) ツールを使用する必要があります)|
 |Active Directory Authentication Library (ADAL) のサポート |はい |はい|
 |Azure CLI、Visual Studio、PowerShell などのツールのサポート  |はい |はい|
 |Azure Portal を通じてサービス プリンシパルを作成する     |はい |いいえ|
@@ -47,7 +47,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 - すべてのユーザーが、同じテナントに属している。
 - サービス プロバイダーが、組織の Azure Stack Hub インスタンスをホストする。
 
-![Azure AD による Azure Stack Hub のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.png)
+![Azure AD による Azure Stack Hub のシングルテナント トポロジ](media/azure-stack-identity-architecture/single-tenant.svg)
 
 このトポロジには次の特徴があります。
 
@@ -64,7 +64,7 @@ Azure Stack Hub で使用する ID プロバイダーを選択する場合は、
 
 - サービス プロバイダーが、複数の組織のユーザーに Azure Stack Hub へのアクセスを許可しようとしている。
 
-![Azure AD による Azure Stack Hub のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.png)
+![Azure AD による Azure Stack Hub のマルチテナント トポロジ](media/azure-stack-identity-architecture/multi-tenant.svg)
 
 このトポロジには次の特徴があります。
 
@@ -79,7 +79,7 @@ AD FS トポロジは、次のいずれかの条件に該当する場合に必�
 - Azure Stack Hub がインターネットに接続されない。
 - Azure Stack Hub はインターネットに接続できるが、ID プロバイダーのために AD FS を使用することを選択する。
   
-![AD FS を使用する Azure Stack Hub トポロジ](media/azure-stack-identity-architecture/adfs.png)
+![AD FS を使用する Azure Stack Hub トポロジ](media/azure-stack-identity-architecture/adfs.svg)
 
 このトポロジには次の特徴があります。
 

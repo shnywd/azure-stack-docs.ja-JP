@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
-ms.lastreviewed: 1/16/2020
-ms.openlocfilehash: 7b83fa18f8a550a718023c97ccab8d46b5b86564
-ms.sourcegitcommit: 23861d659c89c2d36390085fe9532b2bcba2100d
+ms.lastreviewed: 04/07/2020
+ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77075201"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891087"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 
@@ -105,11 +105,10 @@ Azure Stack Hub はサード パーティの独立した監査法人による正
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) は、FedRAMP Moderate、ISO27001、HIPAA、HITRUST、ITAR、NIST SP800-53 などの複数の標準間での包括的なマッピングです。
 - 政府顧客向け [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/)。
 
-このコンプライアンス ドキュメントは [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/AzureStack) で確認できます。 コンプライアンス ガイドは、保護されたリソースであり、Azure クラウド サービスの資格情報でサインインする必要があります。
+このコンプライアンス ドキュメントは [Microsoft Service Trust Portal](https://aka.ms/azurestackcompliance) で確認できます。 コンプライアンス ガイドは、保護されたリソースであり、Azure クラウド サービスの資格情報でサインインする必要があります。
 
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub セキュリティ コントロールを構成する](azure-stack-security-configuration.md)
 - [Azure Stack Hub でシークレットをローテーションする方法を確認する](azure-stack-rotate-secrets.md)
-- [Azure Stack Hub 用の PCI-DSS および CSA-CCM ドキュメント](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [Azure Stack Hub 用の DoD および NIST ドキュメント](https://servicetrust.microsoft.com/ViewPage/Blueprint)
+- [Azure Stack Hub 用の PCI-DSS および CSA-CCM ドキュメント](https://aka.ms/azurestackcompliance)

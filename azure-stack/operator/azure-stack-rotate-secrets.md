@@ -2,19 +2,19 @@
 title: シークレットの切り替え
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub でシークレットをローテーションする方法について説明します。
-author: ihenkel
-ms.topic: article
-ms.date: 12/13/2019
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 04/03/2020
 ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: 38e517aef0dcdd60e691d655004a9a807c2789d3
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881341"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83375054"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -60,6 +60,9 @@ Azure Stack Hub では、さまざまなシークレットを使って、Azure S
 
 > [!Note]
 > BMC やスイッチ パスワードなどの他のすべてのセキュリティで保護されたキーと文字列、ユーザーアカウントと管理者アカウントのパスワードは、依然として管理者が手動で更新します。
+
+> [!Important]
+> これらの手順では、Azure Stack Hub リソース プロバイダーの Azure App Service の証明書、シークレット、資格情報はローテーションされません。  これらをローテーションするには、「[App Service のシークレットと証明書のローテーション](app-service-rotate-certificates.md)」の手順に従ってください。
 
 > [!Important]
 > Azure Stack Hub の 1811 リリース以降、シークレットのローテーションは、内部の証明書と外部の証明書に分けられます。
@@ -209,7 +212,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 5. シークレットのローテーションが済むまで待ちます。 外部シークレットのローテーションには、約 1 時間かかります。
 
-    シークレットのローテーションが正常に完了すると、コンソールに **[Overall action status: Success]\(全体的なアクションの状態: 成功\)** と表示されます。
+    シークレットのローテーションが正常に完了すると、コンソールに **[ActionPlanInstanceID ...CurrentStatus:Completed]** が表示され、それに続いて **[DONE]** が表示されます。
 
     > [!Note]
     > シークレットのローテーションが失敗した場合は、エラー メッセージの指示に従い、 **-ReRun** パラメーターを指定して **Start-SecretRotation** を再実行します。
@@ -255,7 +258,7 @@ Remove-PSSession -Session $PEPSession
 
 3. シークレットのローテーションが済むまで待ちます。
 
-   シークレットのローテーションが正常に完了すると、コンソールに **[Overall action status: Success]\(全体的なアクションの状態: 成功\)** と表示されます。
+   シークレットのローテーションが正常に完了すると、コンソールに **[ActionPlanInstanceID ...CurrentStatus:Completed]** が表示され、それに続いて **[DONE]** が表示されます。
     > [!Note]
     > シークレット ローテーションが失敗した場合は、エラー メッセージ内の指示に従い、 **-Internal** パラメーターと **-Rerun** パラメーターを付けて **Start-SecretRotation** を再実行します。  
 
@@ -295,13 +298,13 @@ Start-SecretRotation [-ReRun]
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
-### <a name="description"></a>[説明]
+### <a name="description"></a>説明
 
 **Start-SecretRotation** コマンドレットは、Azure Stack Hub システムのインフラストラクチャ シークレットのローテーションを行います。 既定では、すべての外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。 -Internal フラグを付けて使用した場合は、内部インフラストラクチャ シークレットのローテーションが行われます。 外部ネットワーク インフラストラクチャ エンドポイントのローテーションを行う場合は、**Invoke-Command** スクリプト ブロックで **Start-SecretRotation** を実行し、Azure Stack Hub 環境の特権エンドポイント セッションを **Session** パラメーターで渡す必要があります。
 
 ### <a name="parameters"></a>パラメーター
 
-| パラメーター | 種類 | Required | [位置] | Default | [説明] |
+| パラメーター | Type | 必須 | [位置] | Default | 説明 |
 | -- | -- | -- | -- | -- | -- |
 | `PfxFilesPath` | String  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |
@@ -379,7 +382,7 @@ Remove-PSSession -Session $PEPSession
 
    **バージョン 1910 以降**:OEM の指示に従って Azure Stack Hub 物理サーバーの BMC 資格情報を最初に更新する必要がなくなりました。 環境内の各 BMC のユーザー名とパスワードは同じである必要があります。 BMC のユーザー名は、16 文字を超えることはできません。
 
-    | パラメーター | [説明] | State |
+    | パラメーター | 説明 | State |
     | --- | --- | --- |
     | BypassBMCUpdate | このパラメーターを使用すると、BMC の資格情報は更新されません。 更新されるのは、Azure Stack Hub 内部データストアのみです。 | 省略可能 |
 

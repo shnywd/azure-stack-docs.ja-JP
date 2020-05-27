@@ -3,16 +3,16 @@ title: ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 description: ExpressRoute を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: f857fc92c5fec814ebd44aeb8bb12449f777586f
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879433"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605699"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
@@ -51,11 +51,11 @@ ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、�
 
 次の図は、この記事の例に従って ExpressRoute の設定を完了した後の Azure Stack Hub と Azure の環境を示しています。
 
-![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/conceptual.svg)
 
 次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack Hub インフラストラクチャから Azure に接続するしくみを示しています。
 
-![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/Architecture.png)
+![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/architecture.svg)
 
 この記事の例では、この図に示したものと同じマルチテナント アーキテクチャを使い、ExpressRoute のプライベート ピアリングを使って Azure Stack Hub を Azure に接続します。 この接続は、Azure Stack Hub 内の仮想ネットワーク ゲートウェイから ExpressRoute ルーターへのサイト間 VPN 接続を使用して行われます。
 
@@ -68,7 +68,7 @@ ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、�
 >[!NOTE]
 >これらの手順では、Azure Stack Hub ポータルを使用してリソースを作成する方法を示していますが、PowerShell を使用することもできます。
 
-![Azure Stack Hub のネットワークのセットアップ](media/azure-stack-connect-expressroute/image2.png)
+![Azure Stack Hub のネットワークのセットアップ](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>開始する前に
 
@@ -93,9 +93,9 @@ Azure Stack Hub 内でテナントに必要なネットワーク リソースを
 
 5. **[仮想ネットワークの作成]** で、次の表に示した値をそれぞれ対応するフィールドに入力します。
 
-   |フィールド  |Value  |
+   |フィールド  |値  |
    |---------|---------|
-   |Name     |Tenant1VNet1         |
+   |名前     |Tenant1VNet1         |
    |アドレス空間     |10.1.0.0/16|
    |サブネット名     |Tenant1 Sub1|
    |サブネットのアドレス範囲     |10.1.1.0/24|
@@ -267,7 +267,7 @@ ASDK は自己完結型であり、物理ホストがデプロイされている
 
 Azure Stack Hub の構成が完了したら、Azure のリソースをデプロイすることができます。 次の図は、Azure 内のテナント仮想ネットワークの例を示しています。 Azure 内の VNet には、任意の名前とアドレス指定スキームを使用できます。 ただし、Azure と Azure Stack Hub 内の VNet のアドレス範囲は一意であり、重複していない必要があります。
 
-![Azure VNet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure VNet](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
 Azure でデプロイするリソースは、Azure Stack Hub でデプロイしたリソースに似ています。 デプロイするコンポーネントは次のとおりです。
 
@@ -328,7 +328,7 @@ Azure で接続する追加のテナント VNet ごとに、それぞれの Expr
 
 ExpressRoute ルーターは、次の ExpressRoute ルーターの構成図を参考に構成してください。 2 つのテナント (Tenant 1 と Tenant 2) とそれぞれの ExpressRoute 回線が示されています。 各テナントは ExpressRoute ルーターの LAN および WAN 側にある独自の VRF (Virtual Routing and Forwarding) にリンクされています。 この構成によって、2 つのテナントが確実にエンド ツー エンドで分離されます。 この構成例に従う際は、ルーターのインターフェイスで使用されている IP アドレスに注意してください。
 
-![ExpressRoute ルーターの構成](media/azure-stack-connect-expressroute/EndToEnd.png)
+![ExpressRoute ルーターの構成](media/azure-stack-connect-expressroute/endtoend.svg)
 
 Azure Stack Hub からサイト間 VPN 接続を終了するには、IKEv2 VPN と BGP をサポートする任意のルーターを使用できます。 ExpressRoute 回線を使用して Azure に接続する際は、同じルーターが使用されます。
 

@@ -2,18 +2,18 @@
 title: Azure Stack Hub 統合システムのスケール ユニット ノードを交換する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムの物理スケール ユニット ノードを交換する方法について説明します。
-author: mattbriggs
-ms.topic: article
-ms.date: 11/11/2019
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 9f0a1e21367ee345a004e875594ad6472b3e6a49
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 9d39763397ce39c83a50bb57d97f0b5b8e07de6b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882967"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367990"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-hub-integrated-system"></a>Azure Stack Hub 統合システムのスケール ユニット ノードを交換する
 

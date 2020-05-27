@@ -3,16 +3,16 @@ title: Azure Stack Hub サブスクリプションまたはストレージ ア�
 description: Azure Stack Hub サブスクリプションにストレージ エクスプローラーを接続する方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2776443fac5e30b14154e96618a49bd89d16a7c0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884397"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660374"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -62,7 +62,7 @@ Storage Explorer で Azure Stack Hub サブスクリプションにアクセス�
 
 8. Storage Explorer が再起動したら、 **[編集]** メニューを選択し、 **[Target Azure Stack Hub APIs]\(Azure Stack Hub API を対象にする\)** が選択されているかどうかを確認します。 **[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\)** が選択されていない場合は、選択してから Storage Explorer を再起動して、この変更を反映させます。 この構成は、Azure Stack Hub 環境との互換性を確保するために必要です。
 
-    ![[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\) が確実に選択されているようにする](./media/azure-stack-storage-connect-se/target-azure-stack.png)
+    ![[Target Azure Stack Hub]\(Azure Stack Hub を対象にする\) が確実に選択されているようにする](./media/azure-stack-storage-connect-se/target-azure-stack-new.png)
 
 ## <a name="connect-to-an-azure-stack-hub-subscription-with-azure-ad"></a>Azure AD を使用して Azure Stack Hub サブスクリプションに接続する
 

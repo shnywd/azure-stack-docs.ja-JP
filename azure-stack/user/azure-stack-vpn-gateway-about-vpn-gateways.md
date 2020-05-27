@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 11f27fd12b546a217cd65e65ce21dacc78abbb70
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 35e17b6527b39bc12ad8f140b98a27fa6f4b69ac
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883052"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295258"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイの作成
 

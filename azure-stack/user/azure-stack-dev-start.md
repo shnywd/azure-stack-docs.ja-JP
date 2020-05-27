@@ -3,16 +3,16 @@ title: Azure Stack Hub 内で開発環境を設定する
 description: Azure Stack Hub 向けのアプリケーションの開発を開始します。
 author: mattbriggs
 ms.topic: overview
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 31df74f7c5f3db5c7651747601010109620e82cd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d86797e7239b32e779567942b2c53c1ae58d94c8
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883728"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661001"
 ---
 # <a name="set-up-a-development-environment-in-azure-stack-hub"></a>Azure Stack Hub 内で開発環境を設定する 
 

@@ -1,19 +1,20 @@
 ---
-title: Azure Stack Hub のサービスとしての検証の概要
+title: サービスとしての検証の概要
+titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のサービスとしての検証の概要。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 95cee26239a4549b87360e62c61a34449f6a0774
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 7c42c9029e1e1292865f0da239d3dafcb78e5543
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884067"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661210"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack-hub"></a>Azure Stack Hub のサービスとしての検証とは
 
@@ -23,10 +24,10 @@ ms.locfileid: "76884067"
 
 VaaS の主な用途は次のとおりです。
 
-- 新しい Azure Stack Hub ソリューションの検証
-- Azure Stack Hub ソフトウェアに加えられた変更の検証
-- デプロイ時に使用されるソリューション パートナーのパッケージへのデジタル署名
-- VaaS の 2 次テストのプレビュー
+- 新しい Azure Stack Hub ソリューションの検証。
+- Azure Stack Hub ソフトウェアに加えられた変更の検証。
+- デプロイ時に使用されるソリューション パートナーのパッケージへのデジタル署名。
+- VaaS の 2 次テストのプレビュー。
 
 ## <a name="validate-a-new-azure-stack-hub-solution"></a>新しい Azure Stack Hub ソリューションの検証
 
@@ -42,7 +43,7 @@ VaaS の主な用途は次のとおりです。
 
 ## <a name="get-digitally-signed-solution-partner-packages"></a>デジタル署名されたソリューション パートナーのパッケージの取得
 
-Azure Stack Hub 更新プログラムの検証に加え、パートナーは**パッケージ検証**ワークフローを使用して、OEM カスタマイズ パッケージの更新プログラムを検証します。このパッケージには、Azure Stack Hub ソフトウェアのデプロイ時に使用される Azure Stack Hub パートナー固有のドライバー、ファームウェア、その他のソフトウェアが含まれています。 少なくとも、サポートが予定されている最小サイズのソリューションを使用して、Azure Stack Hub ソフトウェアの最新バージョンで検証するパッケージをデプロイします。 パッケージは、テストを実行する前に VaaS に送信されます。 テストが成功した場合は、パッケージのテストが完了し、Azure Stack Hub デジタル署名でデジタル署名する必要があることを [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に通知します。 Microsoft がパッケージに署名し、パッケージが VaaS ポータルでダウンロード可能であることを Azure Stack Hub パートナーに通知します。
+パートナーは、Azure Stack Hub 更新プログラムの検証に加えて、**パッケージ検証**ワークフローを使用して OEM カスタマイズ パッケージに対する更新プログラムを検証します。 これらの更新プログラムには、Azure Stack Hub ソフトウェアのデプロイ時に使用される Azure Stack Hub パートナー固有のドライバー、ファームウェア、その他のソフトウェアが含まれています。 少なくとも、サポートが予定されている最小サイズのソリューションを使用して、Azure Stack Hub ソフトウェアの最新バージョンで検証するパッケージをデプロイします。 パッケージは、テストを実行する前に VaaS に送信されます。 テストが成功した場合は、パッケージのテストが完了し、Azure Stack Hub デジタル署名でデジタル署名する必要があることを [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に通知します。 Microsoft がパッケージに署名し、Azure Stack Hub 検証ポータルでパッケージがダウンロード可能であることを Azure Stack Hub パートナーに通知します。
 
 詳細については、「[Validate OEM packages (OEM パッケージの検証)](azure-stack-vaas-validate-oem-package.md)」を参照してください。
 
@@ -50,7 +51,7 @@ Azure Stack Hub 更新プログラムの検証に加え、パートナーは**�
 
 Microsoft は、定期的に Azure Stack Hub で新機能を提供しています。 これらの機能を市場に投入するための開発プロセスの一環として、**テスト成功**ワークフローで新しい 2 次テストが利用できるようになりました。 テスト成功ワークフローには、他のワークフローからの 2 次テストが含まれ、非公式のテストを実行できます。 承認を求めて結果を提出するときには、テスト成功ワークフローを使用しないでください。 ソリューションの正式な承認を得るには、ソリューション検証ワークフローとパッケージ検証ワークフローを使用します。
 
-詳細については、「[クイック スタート: サービスとしての検証ポータルを使用して初めてのテストをスケジュールする方法](azure-stack-vaas-schedule-test-pass.md)に関するクイック スタートを参照してください。
+詳細については、「[クイック スタート: Azure Stack Hub 検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)」を参照してください。
 
 ## <a name="validation-workflow-tests-summary"></a>検証ワークフロー テストの概要
 

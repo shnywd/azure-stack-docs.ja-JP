@@ -3,12 +3,12 @@ author: mattbriggs
 ms.topic: include
 ms.date: 1/22/2020
 ms.author: mabrigg
-ms.openlocfilehash: bd7e211fc222989a07150b665310e23f1100cf9c
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d0c8f7aee723a0cec877508a185d664f82dec898
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876910"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79082549"
 ---
 管理者ポータルにサインインします。
 

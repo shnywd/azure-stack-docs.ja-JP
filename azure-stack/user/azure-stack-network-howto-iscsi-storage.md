@@ -3,28 +3,28 @@ title: Azure Stack Hub を使用して iSCSI ストレージに接続する方�
 description: Azure Stack Hub を使用して iSCSI ストレージに接続する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 0e5f87b0cb6920a32021795042a31b740c52adcf
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 27442f9bc5107d9dbeb07b19f1f53b84facc5a06
+ms.sourcegitcommit: e591e8531e8fee07a8315fdca29cf8f45a766c81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883360"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82687438"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する
 
 この記事のテンプレートを使用すると、Azure Stack Hub 仮想マシン (VM) をオンプレミスの iSCSI ターゲットに接続し、Azure Stack Hub の外部やデータセンターの他の場所でホストされるストレージを使用するように VM を設定できます。 この記事では、Windows マシンを iSCSI ターゲットとして使用する方法について説明します。
 
-このテンプレートは、[Azure Intelligent Edge Patterns GitHub](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) リポジトリの **lucidqdreams** フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack Hub 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack Hub VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack Hub VM に追加されます。 
+このテンプレートは、**Azure Intelligent Edge Patterns GitHub** リポジトリの [lucidqdreams](https://github.com/lucidqdreams/azure-intelligent-edge-patterns) フォークにあります。 このテンプレートは **storage-iSCSI** フォルダーにあります。 このテンプレートは、Azure Stack Hub 側で iSCSI ターゲットに接続するために必要なインフラストラクチャを設定するように設計されています。 これには、iSCSI イニシエーターとして機能する仮想マシンと、それに付随する VNet、NSG、PIP、およびストレージが含まれます。 テンプレートをデプロイした後は、2 つの PowerShell スクリプトを実行し、構成を完了する必要があります。 1 つのスクリプトはオンプレミスの VM (ターゲット) 上で実行され、1 つは Azure Stack Hub VM (イニシエーター) 上で実行されます。 これらの処理が完了すると、オンプレミスのストレージが Azure Stack Hub VM に追加されます。 
 
 ## <a name="overview"></a>概要
 
 この図は、オンプレミスの Windows マシン (物理または仮想) から iSCSI マウント ディスクを使用して Azure Stack Hub でホストされている VM を示しています。これにより、Azure Stack Hub の外部ストレージを iSCSI プロトコルで Azure Stack Hub ホスト VM 内にマウントすることができます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/overview.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>必要条件
 
@@ -57,7 +57,7 @@ ms.locfileid: "76883360"
 
 この図は、iSCSI ターゲットへの接続に使用できる iSCSI クライアントを作成するために、テンプレートからデプロイされるリソースを示しています。 このテンプレートでは、VM とその他のリソースがデプロイされ、さらに prepare-iSCSIClient.ps1 が実行され、VM が再起動されます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>デプロイ プロセス
 
@@ -68,7 +68,7 @@ ms.locfileid: "76883360"
 3. テンプレートからの IP アドレスとサーバー名の出力を、iSCSI ターゲット (仮想マシンまたは物理サーバー) のスクリプトの入出力パラメーターとして使用して、`Create-iSCSITarget.ps1` を実行します。
 4. `Connect-toiSCSITarget.ps1` スクリプトを実行するための入力として、iSCSI ターゲット サーバーの外部 IP アドレスを使用します。 
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/process.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>azuredeploy.json の入力
 
@@ -97,7 +97,7 @@ ms.locfileid: "76883360"
 
 既存の仮想マシン上でスクリプトを実行し、iSCSI クライアントから iSCSI ターゲットに接続することもできます。 このフローは、iSCSI ターゲットを自分で作成する場合に使用します。 次の図は、PowerShell スクリプトの実行フローを示しています。 これらのスクリプトは、Script ディレクトリにあります。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.png)
+![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 

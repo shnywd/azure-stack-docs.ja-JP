@@ -3,16 +3,16 @@ title: Azure Stack Hub の認証情報を取得する方法
 description: Azure Stack Hub の認証情報を取得する方法について説明します
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 18e0f405cbe4107fee320b9ffa1bff8711439bfd
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883992"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661093"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 
@@ -68,7 +68,7 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
 Azure Resource Manager エンドポイントは、Azure Stack Hub のデプロイと管理サービスのメタデータ エンドポイントです。 Azure サブスクリプション内のリソースを作成、更新、および削除できる管理レイヤーを提供します。
 
-統合システムの場合、Azure Resource Manager エンドポイントの URL は次のようになります。<br>`https://management.<location>.<fqdn>.com`
+統合システムの場合、Azure Resource Manager エンドポイントの URL は次のようになります。<br>`https://management.<location>.<fqdn>`
 
 ギャラリー エンドポイント、グラフ エンドポイント、ポータル エンドポイント、サインイン エンドポイント、および対象ユーザーなどのプロパティを指すメタデータ エンドポイントを取得するには、URL は次のようになります。`<ResourceManager>/metadata/endpoints?api-version=1.0`
 

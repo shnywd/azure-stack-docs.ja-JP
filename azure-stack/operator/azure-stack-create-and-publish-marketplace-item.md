@@ -3,16 +3,16 @@ title: Azure Stack Hub で Marketplace 項目を作成して発行する
 description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/03/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: fdb31f29faa5fa1890be0fa12050a1cd8b1c56a8
-ms.sourcegitcommit: 959513ec9cbf9d41e757d6ab706939415bd10c38
+ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/30/2020
-ms.locfileid: "76890121"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660710"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -206,28 +206,28 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 
 ### <a name="identity-information"></a>ID 情報
 
-| Name | Required | 種類 | 制約 | [説明] |
+| 名前 | 必須 | Type | 制約 | 説明 |
 | --- | --- | --- | --- | --- |
-| Name |X |String |[A-Za-z0-9]+ | |
+| 名前 |X |String |[A-Za-z0-9]+ | |
 | Publisher |X |String |[A-Za-z0-9]+ | |
 | Version |X |String |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Name | Required | 種類 | 制約 | [説明] |
+| 名前 | 必須 | Type | 制約 | 説明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |推奨 80 文字 |項目名が 80 文字より長い場合、ポータルで適切に表示されないことがあります。 |
 | PublisherDisplayName |X |String |推奨 30 文字 |発行元の名前が 30 文字より長い場合、ポータルで適切に表示されないことがあります。 |
 | PublisherLegalName |X |String |最大 256 文字 | |
 | まとめ |X |String |60 ～ 100 文字 | |
 | LongSummary |X |String |140 ～ 256 文字 |現在はまだ Azure Stack Hub には該当しません。 |
-| [説明] |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
+| 説明 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 ～ 5,000 文字 | |
 
 ### <a name="images"></a>イメージ
 
 Marketplace では、次のアイコンを使用します。
 
-| Name | 幅 | [高さ] | メモ |
+| 名前 | 幅 | [高さ] | Notes |
 | --- | --- | --- | --- |
 | Wide |255 px |115 px |常に必要 |
 | Large |115 px |115 px |常に必要 |
@@ -243,7 +243,7 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 各 Marketplace アイテムには、追加コンテンツへのさまざまなリンクを含めることができます。 これらのリンクは、次の名前と URI の一覧として指定されます。
 
-| Name | Required | 種類 | 制約 | [説明] |
+| 名前 | 必須 | Type | 制約 | 説明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最大 64 文字。 | |
 | Uri |X |URI | | |
@@ -252,10 +252,10 @@ Marketplace の各アイテムは、そのアイテムのポータル UI にお�
 
 前述のメタデータに加えて、Marketplace 作成者は次の形式でカスタムのキー/値のペアでデータを指定することができます。
 
-| Name | Required | 種類 | 制約 | [説明] |
+| 名前 | 必須 | Type | 制約 | 説明 |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |String |最大 25 文字。 | |
-| Value |X |String |最大 30 文字。 | |
+| 値 |X |String |最大 30 文字。 | |
 
 ### <a name="html-sanitization"></a>HTML のサニタイズ
 

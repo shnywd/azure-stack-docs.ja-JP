@@ -3,16 +3,16 @@ title: Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kub
 description: Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kubernetes をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: e8c8ad8581b9deff792ce2c095bbc3c5f9cee034
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/12/2020
+ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883224"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79313221"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack Hub に Kubernetes をデプロイする
 

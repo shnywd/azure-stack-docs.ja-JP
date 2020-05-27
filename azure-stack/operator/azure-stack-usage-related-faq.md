@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 01/27/2020
+ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 1e5b2198bc830ea91babadab7a0a33ed5dc09f38
-ms.sourcegitcommit: 5f53810d3c5917a3a7b816bffd1729a1c6b16d7f
+ms.openlocfilehash: 1d5e6d9cbed6f3273cf2e6e18ffcb36d6a627a90
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/03/2020
-ms.locfileid: "76972523"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742411"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -285,7 +285,7 @@ ms.locfileid: "76972523"
 **単位**:GB  
 **注**:受信要求応答の合計バイト数 + 送信要求応答の合計バイト数 + 受信 FTP 要求応答の合計バイト数 + 受信 Web デプロイ要求応答の合計バイト数。  
   
-## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Azure Stack Hub Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
+## <a name="how-do-the-azure-stack-hub-usage-apis-compare-to-the-azure-usage-api-currently-in-public-preview"></a>Azure Stack Hub Usage API は [Azure Usage API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (現在パブリック プレビュー中) と比較してどうですか。
 
 * テナント使用量 API は、Azure API と一貫性がありますが、唯一の例外として、現在 Azure Stack Hub では *showDetails* フラグはサポートされていません。
 * プロバイダー使用量 API は、Azure Stack Hub にのみ適用されます。
@@ -306,13 +306,13 @@ ms.locfileid: "76972523"
 
 | **HTTP 状態コード** | **エラー コード** | **説明** |
 | --- | --- | --- |
-| 400/無効な要求 |*NoApiVersion* |*api-version* クエリ パラメーターがありません。 |
-| 400/無効な要求 |*InvalidProperty* |プロパティが見つからないか、無効な値が指定されています。 応答本文のエラー コード内のメッセージに、見つからないプロパティが示されています。 |
-| 400/無効な要求 |*RequestEndTimeIsInFuture* |*ReportedEndTime* の値は将来の値です。 この引数では将来の値を使用できません。 |
-| 400/無効な要求 |*SubscriberIdIsNotDirectTenant* |プロバイダー API 呼び出しで、呼び出し元の有効なテナントではないサブスクリプション ID が使用されました。 |
-| 400/無効な要求 |*SubscriptionIdMissingInRequest* |呼び出し元のサブスクリプション ID がありません。 |
-| 400/無効な要求 |*InvalidAggregationGranularity* |無効な集計単位が要求されました。 有効な値は、日単位と時間単位です。 |
-| 503 |*ServiceUnavailable* |サービスがビジー状態か、呼び出しが調整されているため、再試行可能エラーが発生しました。 |
+| 400/無効な要求 |NoApiVersion |`api-version` クエリ パラメーターがありません。 |
+| 400/無効な要求 |InvalidProperty |プロパティが見つからないか、無効な値が指定されています。 応答本文のエラー コード内のメッセージに、見つからないプロパティが示されています。 |
+| 400/無効な要求 |RequestEndTimeIsInFuture |`ReportedEndTime` の値は将来の値です。 この引数では将来の値を使用できません。 |
+| 400/無効な要求 |SubscriberIdIsNotDirectTenant |プロバイダー API 呼び出しで、呼び出し元の有効なテナントではないサブスクリプション ID が使用されました。 |
+| 400/無効な要求 |SubscriptionIdMissingInRequest |呼び出し元のサブスクリプション ID がありません。 |
+| 400/無効な要求 |InvalidAggregationGranularity |無効な集計単位が要求されました。 有効な値は、日単位と時間単位です。 |
+| 503 |ServiceUnavailable |サービスがビジー状態か、呼び出しが調整されているため、再試行可能エラーが発生しました。 |
 
 ## <a name="what-is-the-policy-for-charging-for-vms"></a>VM の課金ポリシーはどうなっていますか。
 

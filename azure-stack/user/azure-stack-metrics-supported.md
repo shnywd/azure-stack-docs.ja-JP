@@ -3,15 +3,15 @@ title: Azure Stack Hub 上の Azure Monitor でサポートされるメトリッ
 description: Azure Stack Hub 上の Azure Monitor でサポートされるメトリックについて説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: fcbde238f47759c8c962242f96fa35975e49d360
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 2a200939dd987ba11edcd5fbca516c3fc6566dbd
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884637"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661026"
 ---
 # <a name="supported-metrics-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor でサポートされるメトリック
 
@@ -21,13 +21,13 @@ Azure Stack Hub 上の Azure Monitor のメトリックは、グローバル Azu
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
-| メトリック | メトリックの表示名 | ユニット | 集計の種類 | [説明] | Dimensions |
+| メトリック | メトリックの表示名 | ユニット | 集計の種類 | 説明 | Dimensions |
 |----------------|---------------------|---------|------------------|-----------------------------------------------------------------------------------------------|---------------|
 | Percentage CPU | Percentage CPU | Percent | Average | VM で現在使用されている、割り当てられたコンピューティング ユニットの割合。 | ディメンションなし |
 
 ## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
 
-| メトリック | メトリックの表示名 | ユニット | 集計の種類 | [説明] | Dimensions |
+| メトリック | メトリックの表示名 | ユニット | 集計の種類 | 説明 | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | UsedCapacity | Used capacity (使用済み容量) | バイト | Average | アカウントの使用済み容量。 | ディメンションなし |
 | トランザクション | トランザクション | Count | 合計 | ストレージ サービスまたは指定された API 操作に対して行われた要求の数。 この数には、成功した要求と失敗した要求、およびエラーが発生した要求が含まれます。 別の種類の応答の数には ResponseType ディメンションを使います。 | ResponseType、GeoType、ApiName |
@@ -39,7 +39,7 @@ Azure Stack Hub 上の Azure Monitor のメトリックは、グローバル Azu
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
 
-| メトリック | メトリックの表示名 | ユニット | 集計の種類 | [説明] | Dimensions |
+| メトリック | メトリックの表示名 | ユニット | 集計の種類 | 説明 | Dimensions |
 |--------|---------------------|------|------------------|-------------|------------|
 | BlobCapacity | Blob Capacity (BLOB 容量) | バイト | 合計 | ストレージ アカウントの Blob service によって使われているストレージの量 (バイト単位)。 | BlobType |
 | BlobCount | Blob Count (BLOB 数) | Count | 合計 | ストレージ アカウントの Blob service 内の BLOB の数。 | BlobType |
@@ -53,7 +53,7 @@ Azure Stack Hub 上の Azure Monitor のメトリックは、グローバル Azu
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
-| メトリック | メトリックの表示名 | ユニット | 集計の種類 | [説明] | Dimensions |
+| メトリック | メトリックの表示名 | ユニット | 集計の種類 | 説明 | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | TableCapacity | Table Capacity (テーブル容量) | バイト | Average | ストレージ アカウントの Table service によって使われているストレージの量 (バイト単位)。 | ディメンションなし |
 | TableCount | Table Count (テーブル数) | Count | Average | ストレージ アカウントの Table service 内のテーブルの数。 | ディメンションなし |
@@ -67,7 +67,7 @@ Azure Stack Hub 上の Azure Monitor のメトリックは、グローバル Azu
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
-| メトリック | メトリックの表示名 | ユニット | 集計の種類 | [説明] | Dimensions |
+| メトリック | メトリックの表示名 | ユニット | 集計の種類 | 説明 | Dimensions |
 |----------------------|------------------------|--------------|------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|
 | QueueCapacity | Queue Capacity (キュー容量) | バイト | Average | ストレージ アカウントの Queue サービスによって使われているストレージの量 (バイト単位)。 | ディメンションなし |
 | QueueCount | Queue Count (キュー数) | Count | Average | ストレージ アカウントの Queue サービス内のキューの数。 | ディメンションなし |

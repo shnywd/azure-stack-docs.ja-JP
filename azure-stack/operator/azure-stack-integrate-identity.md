@@ -1,18 +1,18 @@
 ---
 title: AD FS ID を Azure Stack Hub データセンターに統合する
 description: Azure Stack Hub の AD FS ID プロバイダーを、ご利用のデータセンターの AD FS と統合する方法を学習します。
-author: ihenkel
+author: BryanLa
 ms.topic: article
-ms.date: 05/10/2019
-ms.author: inhenkel
+ms.date: 04/10/2020
+ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: 1e55ae573d67775389e1e8e8ebac1b9ba094e5a7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: f1217bacebc4c391347506720c760b947e363b3a
+ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882142"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82908610"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -27,7 +27,7 @@ AD FS を使用してデプロイすると、既存の Active Directory フォ�
 
 認証は ID の一部です。 Azure Stack Hub 内でロールベースのアクセス制御 (RBAC) を管理するには、Graph コンポーネントを構成する必要があります。 リソースへのアクセスが委任されると、Graph のコンポーネントは LDAP プロトコルを使用して、既存の Active Directory フォレストでユーザー アカウントを検索します。
 
-![Azure Stack Hub AD FS のアーキテクチャ](media/azure-stack-integrate-identity/Azure-Stack-ADFS-architecture.png)
+![Azure Stack Hub AD FS のアーキテクチャ](media/azure-stack-integrate-identity/azure-stack-adfs-architecture.svg)
 
 既存の AD FS はアカウント セキュリティ トークン サービス (STS) であり、Azure Stack Hub AD FS (リソース STS) に要求を送信します。 Azure Stack Hub では、自動化によって、既存の AD FS のメタデータ エンドポイントとのクレーム プロバイダー信頼が作成されます。
 
@@ -43,8 +43,8 @@ Graph の構成には、既存の Active Directory での読み取りアクセ�
 
 |コンポーネント|要件|
 |---------|---------|
-|グラフ|Microsoft Active Directory 2012/2012 R2/2016|
-|AD FS|Windows Server 2012/2012 R2/2016|
+|グラフ|Microsoft Active Directory 2012/2012 R2/2016 2019|
+|AD FS|Windows Server 2012/2012 R2/2016 2019|
 
 ## <a name="setting-up-graph-integration"></a>Graph の統合を設定する
 
@@ -52,7 +52,7 @@ Graph は、単一の Active Directory フォレストとの統合のみをサ�
 
 自動化パラメーターの入力として、次の情報が必要です。
 
-|パラメーター|デプロイ ワークシート パラメーター|[説明]|例|
+|パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
 |`CustomADGlobalCatalog`|AD FS Forest FQDN|統合先のターゲット Active Directory フォレストの FQDN|Contoso.com|
 |`CustomADAdminCredentials`| |LDAP の読み取りアクセス許可を持つユーザー|YOURDOMAIN\graphservice|
@@ -102,7 +102,7 @@ Active Directory サイトの詳細については、「[サイト トポロジ�
 
 3. **Register-DirectoryService** コマンドレットには、既存の Active Directory の検証が失敗する特定のシナリオで使用できる省略可能なパラメーターがあります。 このコマンドレットを実行すると、指定されたドメインがルート ドメインであること、グローバル カタログ サーバーに到達可能であること、指定されたアカウントでは読み取りアクセスが許可されていることが検証されます。
 
-   |パラメーター|[説明]|
+   |パラメーター|説明|
    |---------|---------|
    |`-SkipRootDomainValidation`|推奨されるルート ドメインではなく、子ドメインを使用する必要があることを指定します。|
    |`-Force`|すべての検証チェックをバイパスします。|
@@ -113,7 +113,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 Azure Stack Hub の Graph サービスでは、次のプロトコルとポートを使用して、ターゲットの Active Directory と通信します。
 
-|種類|Port|Protocol|
+|Type|Port|Protocol|
 |---------|---------|---------|
 |LDAP|389|TCP と UDP|
 |LDAP SSL|636|TCP|
@@ -124,7 +124,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 自動化パラメーターの入力として、次の情報が必要です。
 
-|パラメーター|デプロイ ワークシート パラメーター|[説明]|例|
+|パラメーター|デプロイ ワークシート パラメーター|説明|例|
 |---------|---------|---------|---------|
 |CustomAdfsName|AD FS Provider Name|クレーム プロバイダーの名前。<br>AD FS のランディング ページにそのように表示されます。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|AD FS Metadata URI|フェデレーション メタデータのリンク。| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
@@ -163,8 +163,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 自動化パラメーターの入力として、次の情報が必要です。
 
-
-|パラメーター|[説明]|例|
+|パラメーター|説明|例|
 |---------|---------|---------|
 |CustomAdfsName|クレーム プロバイダーの名前。 AD FS のランディング ページにそのように表示されます。|Contoso|
 |CustomADFSFederationMetadataFileContent|メタデータの内容。|$using:federationMetadataFileContent|
@@ -220,7 +219,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 コマンドを手動で実行する場合は、次の手順に従います。
 
-1. データセンターの AD FS インスタンスまたはファーム メンバーの .txt ファイル (例: c:\ClaimRules.txt) に次のコンテンツをコピーします。
+1. データセンターの AD FS インスタンスまたはファーム メンバーの .txt ファイル (例: c:\ClaimIssuanceRules.txt) に次のコンテンツをコピーします。
 
    ```text
    @RuleTemplate = "LdapClaims"
@@ -264,7 +263,7 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
 
 3. 証明書利用者信頼を追加するには、AD FS インスタンスまたはファーム メンバーで、次の Windows PowerShell コマンドを実行します。 必ず AD FS エンドポイントを更新して、手順 1 で作成されたファイルを指定します。
 
-   **AD FS 2016 の場合**
+   **AD FS 2016/2019 の場合**
 
    ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
@@ -287,6 +286,13 @@ Azure Stack Hub の Graph サービスでは、次のプロトコルとポート
    ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
+
+   **AD FS 2002 以上の場合**
+
+   > [!NOTE]
+   > お客様が所有する ADFS ホストまたはファーム上で `Add-ADFSRelyingPartyTrust` を実行する場合は、まず ADFS ホストまたはファームで TLS1.2 が適用されていることを確認してください。適用せずに実行すると、次のエラー メッセージが表示されます。
+
+`Add-ADFSRelyingPartyTrust : The underlying connection was closed: An unexpected error occurred on a send.`
 
 ## <a name="spn-creation"></a>SPN の作成
 

@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.topic: conceptual
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: eed80065694512b0f180a4bc28be54d0cace12e7
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 939479350718ae2176f7d1531e64ad71301e0596
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883160"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80423808"
 ---
 # <a name="get-started-with-azure-stack-hub-storage-development-tools"></a>Azure Stack Hub ストレージの開発ツールの概要
 

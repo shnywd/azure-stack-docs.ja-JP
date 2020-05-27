@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub でのスケール ユニットのノード操作
 description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションと、Azure Stack Hub 統合システムでノードの状態を表示する方法について説明します。
-author: mattbriggs
-ms.topic: article
-ms.date: 11/11/2019
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 04/30/2020
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c9a82059d1b4d8dee853394160997a1366ee8597
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 17ecab0f42c89d6c25daba98652d8dc9d1a9e3b0
+ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881673"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82777748"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 
@@ -46,7 +46,7 @@ ms.locfileid: "76881673"
 
 ### <a name="node-operational-states"></a>ノードの動作状態
 
-| Status | [説明] |
+| Status | 説明 |
 |----------------------|-------------------------------------------------------------------|
 | 実行中 | ノードは、アクティブにスケール ユニットに参加しています。 |
 | 停止済み | ノードは利用不可です。 |
@@ -54,6 +54,35 @@ ms.locfileid: "76881673"
 | 修復中 | ノードは現在、アクティブに修復されています。 |
 | メンテナンス | ノードは一時停止され、アクティブなユーザー ワークロードは実行されていません。 |
 | 修復が必要 | ノードの修復を必要とするエラーが検出されました。 |
+
+### <a name="azure-stack-hub-shows-adding-status-after-an-operation"></a>Azure Stack Hub に [追加中] という状態が表示される
+
+Azure Stack Hub では、ドレイン、再開、修復、シャットダウン、開始などの操作が実行された後に、操作ノードの状態が **[追加中]** と表示されることがあります。
+これは、操作後に、ファブリック リソース プロバイダー ロールのキャッシュが更新されなかった場合に発生する可能性があります。 
+
+次の手順を適用する前に、現在進行中の操作がないことを確認してください。 お使いの環境に合わせてエンドポイントを更新します。
+
+1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)必要があります。
+
+   ```powershell
+   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzureRmAccount -Environment AzureStack
+   ```
+
+2. 次のコマンドを実行して、ファブリック リソース プロバイダー ロールを再起動します。
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. 影響を受けているスケール ユニット ノードの動作状態が、 **[実行中]** に変更されたことを確認します。 管理者ポータルまたは次の PowerShell コマンドを使用できます。
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. ノードの動作状態がまだ **[追加中]** と表示される場合は、続いてサポート インシデントを開いてください。
+
 
 ## <a name="scale-unit-node-actions"></a>スケール ユニットのノード操作
 
@@ -175,4 +204,6 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack Hub Fabric オペレーター モジュールについて](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)。
+- [Azure Stack PowerShell をインストールする](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
+- [Azure Stack Hub Fabric オペレーター モジュールについて確認する](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [ノードの追加操作を監視する](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)

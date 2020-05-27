@@ -1,18 +1,18 @@
 ---
 title: 外部の監視ソリューションと Azure Stack Hub を統合する
 description: Azure Stack Hub とご利用のデータセンターの外部の監視ソリューションを統合する方法を説明します。
-author: ihenkel
+author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 3e50471201c7207aa68b725daf202d323b836a99
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 0bc19bf584f482d2ec67758368afa11c91ae456e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882123"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81243892"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>外部の監視ソリューションと Azure Stack Hub を統合する
 
@@ -29,7 +29,7 @@ Azure Stack Hub インフラストラクチャの外部の監視のためには�
 
 次の図は、Azure Stack Hub 統合システム、ハードウェア ライフサイクル ホスト、外部の監視ソリューション、外部のチケット発行またはデータ収集システムの間のトラフィック フローを示しています。
 
-![Azure Stack Hub 監視とチケット発行ソリューションとの間のトラフィックを示す図。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
+![Azure Stack Hub 監視とチケット発行ソリューションとの間のトラフィックを示す図。](media/azure-stack-integrate-monitor/monitoringintegration.svg)  
 
 > [!NOTE]
 > 物理サーバーとの直接の外部監視統合は許可されておらず、アクセス制御リスト (ACL) によって能動的にブロックされています。 物理ネットワーク デバイスとの直接の外部監視統合はサポートされています。 この機能を有効にする方法については、取引している OEM プロバイダーに確認してください。
@@ -57,7 +57,7 @@ System Center 管理パックと関連するユーザー ガイドをダウン�
 
 次の図は、既存の System Center デプロイと Azure Stack Hub の統合を示しています。 System Center Orchestrator または Service Management Automation (SMA) を使用してさらに Service Manager を自動化し、Azure Stack Hub 内で操作を実行できます。
 
-![OM、Service Manager、SMA との統合を示す図。](media/azure-stack-integrate-monitor/SystemCenterIntegration.png)
+![OM、Service Manager、SMA との統合を示す図。](media/azure-stack-integrate-monitor/systemcenterintegration.svg)
 
 ## <a name="integrate-with-nagios"></a>Nagios との統合
 
@@ -114,7 +114,7 @@ samples/etc/azurestack_services.cfg
 
 SPN の作成方法に関する詳細については、「[アプリ ID を使用してリソースにアクセスする](azure-stack-create-service-principals.md)」を参照してください。
 
-| パラメーター | [説明] | 認証 |
+| パラメーター | 説明 | 認証 |
 | --- | --- | --- |
 | **External_domain_fqdn ** | 外部ドメイン FQDN |    |
 | **region: ** | リージョン名 |    |
@@ -133,7 +133,7 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 > [!Note]  
 > azurestack_hosts.cfg と azurestack_services.cfg で目的の場所を確認します。
 
-| 構成 | [説明] |
+| 構成 | 説明 |
 | --- | --- |
 | azurestack_commands.cfg | ハンドラー構成を変更する必要はありません |
 | azurestack_contacts.cfg | 通知設定 |

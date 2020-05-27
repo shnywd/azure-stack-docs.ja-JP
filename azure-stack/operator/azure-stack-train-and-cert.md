@@ -2,18 +2,18 @@
 title: トレーニングと認定
 titleSuffix: Azure Stack
 description: Azure Stack Hub のトレーニングと認定の機会について学習します。
-author: mattbriggs
+author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 11/11/2019
-ms.author: mabrigg
+ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
-ms.reviewer: efemmano
-ms.openlocfilehash: c3b028477cac6c39eec157a69b56ade9ea59f63b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.reviewer: efemm
+ms.openlocfilehash: 984a8dc52409c22481148c28ac47939543680896
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882749"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77696840"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub のトレーニングと認定
 

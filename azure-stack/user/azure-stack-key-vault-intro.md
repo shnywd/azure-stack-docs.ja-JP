@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/24/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: ba509696f9c4636b541b3f7fa3751d306a27bb0b
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 09db1c2e8daa34b566512ca6daee2480a86527df
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883618"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704048"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack-hub"></a>Azure Stack Hub の Key Vault の概要
 

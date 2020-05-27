@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c23d005869e83b46ac73be8660adc3056dcc52e0
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 4c96dcc4a9405e22513ecd33e7aa4c7415ac257b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884557"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702127"
 ---
 # <a name="introduction-to-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの概要
 

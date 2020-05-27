@@ -2,18 +2,18 @@
 title: Azure Stack Hub SQL リソース プロバイダー 1.1.30.0 のリリース ノート
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub SQL リソース プロバイダー 1.1.30.0 更新プログラムのリリース ノートを確認します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 07abcb71715c3078887e00c89f5eac53f5f98def
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 23767e4d9134e27e1aaa27e5309cd4408a6789d4
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697452"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL リソース プロバイダー 1.1.30.0 のリリース ノート
 

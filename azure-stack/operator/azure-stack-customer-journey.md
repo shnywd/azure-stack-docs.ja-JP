@@ -1,24 +1,24 @@
 ---
 title: Azure Stack Hub データセンターの統合のチュートリアル
 description: 計画からデプロイ後まで、データセンターでの Azure Stack Hub のオンサイト デプロイの成功のために期待されることについて学習します。
-author: ihenkel
-ms.topic: article
-ms.date: 11/07/2019
+author: IngridAtMicrosoft
+ms.topic: conceptual
+ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 6711483384ba9985ced7396d19e025e0ed3240c6
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882511"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78368846"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub データセンターの統合のチュートリアル
 
 この記事では、購入からデプロイ後のサポートまで、Azure Stack Hub データセンターの統合についてエンドツーエンドのプロセスを説明します。 統合は、お客様、ソリューション プロバイダー、Microsoft による共同プロジェクトです。 次のタブをクリックすると、プロジェクトの各メンバーの具体的な手順が表示されます。プロジェクトのタイムラインのさまざまなフェーズの概要については、次のセクションを参照してください。 
 
-# <a name="customertabcustomer"></a>[顧客](#tab/customer)
+# <a name="customer"></a>[顧客](#tab/customer)
 
 1. ユース ケースと要件を説明する
 1. 課金モデルを決定する
@@ -29,7 +29,7 @@ ms.locfileid: "76882511"
 1. デプロイ中にサブスクリプション情報を指定する
 1. 提供されたデータに関する質問を解決する
 
-# <a name="partnertabpartner"></a>[パートナー](#tab/partner)
+# <a name="partner"></a>[パートナー](#tab/partner)
 
 1. お客様の要件に基づいてソリューション オプションを提案する
 1. 概念実証 (POC) を提案する 
@@ -48,7 +48,7 @@ ms.locfileid: "76882511"
 1. Azure Stack Hub をデプロイする
 1. お客様に引き渡す
 
-# <a name="microsofttabmicro"></a>[Microsoft](#tab/micro)
+# <a name="microsoft"></a>[Microsoft](#tab/micro)
 
 1. パートナーにプリセールス サポートを要請する
 2. ソフトウェアのライセンスとコントラクトを準備する

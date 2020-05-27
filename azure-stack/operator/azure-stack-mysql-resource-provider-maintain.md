@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 description: Azure Stack Hub での MySQL リソース プロバイダー サービスのメンテナンス方法について説明します。
-author: mattbriggs
+author: bryanla
 ms.topic: article
 ms.date: 1/22/2020
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a39ecec1cce85582a53e0fb64979726adb15115d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: 219689721c66bcf97bb776874a1b33e84fcfa6d0
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881796"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77698727"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -145,7 +145,7 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
 
 ### <a name="secretrotationmysqlproviderps1-parameters"></a>SecretRotationMySQLProvider.ps1 パラメーター
 
-|パラメーター|[説明]|
+|パラメーター|説明|
 |-----|-----|
 |AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|
 |CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|

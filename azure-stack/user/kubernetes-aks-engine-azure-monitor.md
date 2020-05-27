@@ -3,16 +3,16 @@ title: Azure Stack Hub で Azure Monitor for containers を使用する
 description: Azure Stack Hub で Azure Monitor for containers を使用する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/15/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/15/2019
-ms.openlocfilehash: 5b3172695fd6e0536360eed2dc4e370dd8bccecc
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76885251"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80068986"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Stack Hub で Azure Monitor for containers を使用する
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub にパブリック IP アドレスを追加する
 description: Azure Stack Hub にパブリック IP アドレスを追加する方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/20/2020
 ms.author: justinha
 ms.reviewer: scottnap
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: e047f50dbdb9e7c645351fd83f9f1551f75c157e
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 8cd89a90cb29c802c79e900e07cdb50bfe9c0894
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875167"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847913"
 ---
 # <a name="add-public-ip-addresses"></a>パブリック IP アドレスの追加
 
@@ -26,7 +26,7 @@ Azure Stack Hub システムの初期デプロイ後はいつでも、Azure Stac
 
 Azure Stack Hub に新しいパブリック IP アドレス ブロックを追加するプロセスの概要は次のようになります。
 
- ![IP の追加フロー](media/azure-stack-add-ips/flow.PNG)
+ ![IP の追加フロー](media/azure-stack-add-ips/flow.svg)
 
 ## <a name="obtain-the-address-block-from-your-provider"></a>プロバイダーからアドレス ブロックを取得する
 まず、Azure Stack Hub に追加するアドレス ブロックを取得する必要があります。 どこからアドレス ブロックを取得するかに応じて、リード タイムを考慮し、Azure Stack Hub でのパブリック IP アドレスの使用率と照らし合わせて管理します。
@@ -36,14 +36,14 @@ Azure Stack Hub に新しいパブリック IP アドレス ブロックを追�
 
 ## <a name="add-the-ip-address-range-to-azure-stack-hub"></a>Azure Stack Hub に IP アドレス範囲を追加する
 
-1. ブラウザーで、管理者ポータル ダッシュボードにアクセスします。 この例では、 https://adminportal.local.azurestack.external を使用します。
+1. ブラウザーで、管理者ポータル ダッシュボードにアクセスします。 この例では、 `https://adminportal.local.azurestack.external` を使用します。
 2. Azure Stack Hub 管理者ポータルにクラウド オペレーターとしてサインインします。
 3. 既定のダッシュボードで、[Region management]\(リージョンの管理\) リストを見つけ、管理するリージョンを選択します。 この例では、ローカルを使用します。
 4. [リソース プロバイダー] タイルを見つけて、ネットワーク リソース プロバイダーをクリックします。
 5. [パブリック IP プールの使用量] タイルをクリックします。
 6. [Add IP pool]\(IP プールの追加\) ボタンをクリックします。
 7. IP プールの名前を指定します。 選択した名前によって、IP プールを簡単に識別できます。 必須ではありませんが、アドレス範囲と同じ名前にすることをお勧めします。
-8. CIDR 表記で追加するアドレス ブロックを入力します。 次に例を示します。192.168.203.0/24
+8. CIDR 表記で追加するアドレス ブロックを入力します。 たとえば、192.168.203.0/24 のように入力します。
 9. [アドレス範囲 (CIDR ブロック)] フィールドに有効な CIDR 範囲を指定すると、[開始 IP アドレス]、[終了 IP アドレス] および [利用可能な IP アドレス] の各フィールドが自動的に設定されます。 これらは読み取り専用で、自動的に生成されるため、[アドレス範囲] フィールドで値を変更せずにこれらのフィールドを変更することはできません。
 10. ブレード上の情報を確認し、すべて正しいことを確認したら、 **[OK]** を選択して変更をコミットし、アドレス範囲を Azure Stack Hub に追加します。
 

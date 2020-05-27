@@ -1,18 +1,19 @@
 ---
 title: Azure Stack Hub ストレージの相違点と考慮事項
+titleSuffix: Azure Stack Hub
 description: Azure Stack Hub のデプロイに関する考慮事項と併せて、Azure Stack Hub ストレージと Azure ストレージの相違点について理解します。
 author: mattbriggs
 ms.topic: conceptual
 ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 6e5171c105bd806895a04880e0bec0af5fab8855
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/30/2020
+ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76883967"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81394964"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
@@ -24,26 +25,26 @@ Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレ�
 
 | 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
-|File Storage|クラウド ベースの SMB ファイル共有のサポート|まだサポートされていません
+|File Storage|クラウド ベースの SMB ファイル共有がサポートされています。 | まだサポートされていません。
 |Azure Storage Service Encryption for Data at Rest|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
-|ストレージ アカウントの種類|汎用 V1、V2、および Blob Storage アカウント|汎用 V1 のみ。
-|レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ|ローカル冗長ストレージ。
-|Premium Storage|ハイ パフォーマンスで待機時間の短いストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。
-|マネージド ディスク|Premium および標準がサポートされます|使用バージョンが 1808 以降の場合にサポートされます。
-|BLOB 名|1,024 文字 (2,048 バイト)|880 文字 (1,760 バイト)
-|ブロック BLOB の最大サイズ|4.75 TB (100 MB X 50,000 ブロック)|1802 update 以降のバージョンでは、4.75 TB (100 MB x 50,000 ブロック)。 それより前のバージョンでは 50,000 X 4 MB (約 195 GB)。
-|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています|まだサポートされていません。
-|ページ BLOB の増分スナップショットのコピー|Premium および標準の Azure ページ BLOB がサポートされます|まだサポートされていません。
+|ストレージ アカウントの種類|汎用 V1、V2、および Blob Storage アカウント。 |汎用 V1 のみ。
+|レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ。 |ローカル冗長ストレージ。
+|Premium Storage|高パフォーマンスで低待機時間のストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。
+|マネージド ディスク|Premium および標準がサポートされます。 |使用バージョンが 1808 以降の場合にサポートされます。
+|BLOB 名|1,024 文字 (2,048 バイト)。 |880 文字 (1,760 バイト)。
+|ブロック BLOB の最大サイズ|4.75 TB (100 MB X 50,000 ブロック)。 |1802 update 以降のバージョンでは、4.75 TB (100 MB x 50,000 ブロック)。 それより前のバージョンでは 50,000 X 4 MB (約 195 GB)。
+|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています。 |まだサポートされていません。
+|ページ BLOB の増分スナップショットのコピー|Premium および標準の Azure ページ BLOB がサポートされます。 |まだサポートされていません。
 |ページ BLOB の課金|一意のページに対する料金が発生します。そのページが BLOB とスナップショットのどちらに含まれているかは関係ありません。 BLOB に関連付けられているスナップショットについて追加料金が発生するのは、ベース BLOB が更新されたときです。|ベース BLOB と、関連付けられているスナップショットに対する料金が発生します。 個々のスナップショットごとに追加料金が発生します。
 |Blob Storage のストレージ層|ホット ストレージ層、クール ストレージ層、アーカイブ ストレージ層。|まだサポートされていません。
-|Blob Storage の論理的な削除|一般提供|まだサポートされていません。
-|ページ BLOB の最大サイズ|8 TB|1 TB (テラバイト)
-|ページ BLOB のページ サイズ|512 バイト|4 KB
-|テーブルのパーティション キーと行キーのサイズ|1,024 文字 (2,048 バイト)|400 文字 (800 バイト)
+|Blob Storage の論理的な削除|一般提供。 |まだサポートされていません。
+|ページ BLOB の最大サイズ|8 TB。 |1 TB。 
+|ページ BLOB のページ サイズ|512 バイト。 |4 KB。 
+|テーブルのパーティション キーと行キーのサイズ|1,024 文字 (2,048 バイト)。|400 文字 (800 バイト)。
 |BLOB スナップショット|1 つの BLOB の最大スナップショット数は制限されていません。|1 つの BLOB の最大スナップショット数は 1,000 です。
-|ストレージの Azure AD Authentication|プレビュー段階|まだサポートされていません。
-|不変 BLOB|一般提供|まだサポートされていません。
-|ストレージのファイアウォールおよび仮想ネットワーク規則|一般提供|まだサポートされていません。|
+|ストレージの Azure AD Authentication|プレビュー段階です。 |まだサポートされていません。
+|不変 BLOB|一般提供。 |まだサポートされていません。
+|ストレージのファイアウォールおよび仮想ネットワーク規則|一般提供。 |まだサポートされていません。|
 
 ストレージ メトリックにも相違点があります。
 
@@ -94,13 +95,12 @@ Azure Storage サービスの Management API:
 
 ## <a name="powershell-version"></a>PowerShell バージョン
 
-ストレージ モジュールの PowerShell については、REST API と互換性のあるバージョンを把握しておいてください。 
+ストレージ モジュールの PowerShell については、REST API と互換性のあるバージョンを把握しておいてください。
 
-| [Module] | サポートされているバージョン | 使用法 |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Azure Stack Hub ストレージ アカウントの BLOB、キュー、テーブルを管理する |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理する |
-
+| Module | サポートされているバージョン | 使用法 |
+|---|---|---|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Azure Stack Hub ストレージ アカウントの BLOB、キュー、テーブルを管理します。 |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理します。 |
 
 Azure Stack Hub でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
 

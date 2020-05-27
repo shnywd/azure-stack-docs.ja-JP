@@ -3,16 +3,16 @@ title: クラウド ソリューション プロバイダーとして Azure Stac
 description: Azure Stack Hub をクラウド ソリューション プロバイダー (CSP) として登録し、課金に向けて顧客を追加する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 131a3e0cacc1d08df6f2f925845d8dbf21386162
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 8202942a10e4faf48b09e9fd0d456a810d6a08fd
+ms.sourcegitcommit: a3ae6dd8670f8fb24224880df7eee256ebbcc4ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76876560"
+ms.lasthandoff: 04/22/2020
+ms.locfileid: "81772412"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する
 
@@ -22,7 +22,7 @@ CSP として、Azure Stack Hub を使用して、多様な顧客に対応しま
 
 次の図では、共有サービス アカウントの選択、および Azure Stack Hub アカウントを使用した Azure アカウントの登録に必要な手順を示しています。 登録されると、エンド カスタマーによる利用を開始できます。
 
-[![クラウド ソリューション プロバイダーとして使用状況と管理を有効にするためのプロセス](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "クラウド ソリューション プロバイダーとして使用状況と管理を有効にするためのプロセス")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
+[![クラウド ソリューション プロバイダーとして使用状況と管理を有効にするためのプロセス](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg "クラウド ソリューション プロバイダーとして使用状況と管理を有効にするためのプロセス")](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.svg)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>CSP または APSS サブスクリプションを作成する
 

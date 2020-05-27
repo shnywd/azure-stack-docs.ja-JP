@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: def9dd3fca3c7e3a2076ffdf79b96fa00e72fac5
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 358837da19ad34f82f81a94da0c89b165574ea49
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76882020"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77699254"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Azure Stack Hub で管理者ポータルを使用する
 

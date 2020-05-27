@@ -3,16 +3,16 @@ title: Azure Stack Hub のプロバイダー リソース使用量 API
 description: Azure Stack Hub の使用状況情報を取得するリソース使用量 API のリファレンス。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: c6c68b3455e7de78e116b3ef6ede1dde7172fb33
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: c360123e5393b328e8e5e800ddac283739f89b7b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881532"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661330"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
@@ -34,7 +34,7 @@ ms.locfileid: "76881532"
 
 ### <a name="arguments"></a>引数
 
-| 引数 | [説明] |
+| 引数 | 説明 |
 | --- | --- |
 | `armendpoint` |Azure Stack Hub 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
 | `subId` |呼び出しを行っているユーザーのサブスクリプション ID。 |
@@ -80,7 +80,7 @@ meterID1",
 
 ### <a name="response-details"></a>応答の詳細
 
-| 引数 | [説明] |
+| 引数 | 説明 |
 | --- | --- |
 |`id` |使用状況集計の一意の ID |
 |`name` |使用状況集計の名前 |

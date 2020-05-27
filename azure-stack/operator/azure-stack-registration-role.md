@@ -2,18 +2,18 @@
 title: Azure Stack Hub 登録用のカスタム ロールを作成する
 titleSuffix: Azure Stack Hub
 description: カスタム ロールを作成して Azure Stack Hub の登録にグローバル管理者の使用を回避する方法について説明します。
-author: ihenkel
-ms.topic: article
-ms.date: 06/10/2019
-ms.author: inhenkel
+author: BryanLa
+ms.topic: how-to
+ms.date: 03/27/2020
+ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: fb4f9c117dd7f7e9ff0e2121706aecebc188de2a
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: cb9dd6e3049a4d3287bf60dd939bca4d1a0335da
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881413"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173932"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Azure Stack Hub 登録用のカスタム ロールを作成する
 
@@ -51,7 +51,9 @@ Azure サブスクリプションの所有者アクセス許可を持つアカ�
         "Microsoft.Authorization/roleAssignments/read",
         "Microsoft.Authorization/roleAssignments/write",
         "Microsoft.Authorization/roleAssignments/delete",
-        "Microsoft.Authorization/permissions/read"
+        "Microsoft.Authorization/permissions/read",
+        "Microsoft.Authorization/locks/read",
+        "Microsoft.Authorization/locks/write
       ],
       "NotActions": [
       ],

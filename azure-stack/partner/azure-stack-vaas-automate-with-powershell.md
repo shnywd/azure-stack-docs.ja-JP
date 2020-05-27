@@ -4,17 +4,17 @@ titleSuffix: Azure Stack Hub
 description: PowerShell を使って Azure Stack の検証を自動化する方法について説明します。
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 11/26/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: a85f43096cffa900bfefb801bdd28b26358e6219
-ms.sourcegitcommit: 0a3c8b0bf9c116a5caaeca453a2bbc6e7f7cbfb9
+ms.openlocfilehash: a3b7919f920dc173a3378328bbfff427b9820d48
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77147758"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661427"
 ---
 # <a name="automate-azure-stack-hub-validation-with-powershell"></a>PowerShell を使用した Azure Stack Hub の検証の自動化
 

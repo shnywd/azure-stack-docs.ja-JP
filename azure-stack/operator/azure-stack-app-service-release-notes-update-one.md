@@ -7,13 +7,13 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: d81c0387e26a72865b74a88062c5b7b7588b3281
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: 2e8a4e4fe4de85e981bb0f33366b003c5ee907f8
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76875965"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847760"
 ---
 # <a name="app-service-on-azure-stack-hub-update-1-release-notes"></a>App Service on Azure Stack Hub Update 1 のリリース ノート
 
@@ -26,14 +26,14 @@ ms.locfileid: "76875965"
 
 App Service on Azure Stack Hub Update 1 のビルド番号は **69.0.13698.9** です。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
 > [!IMPORTANT]
-> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack Hub の新しいデプロイには、[3 つのサブジェクトのワイルドカード証明書](azure-stack-app-service-before-you-get-started.md#get-certificates)が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
+> Azure App Service で Kudu の SSO の処理方法が改善されたため、Azure App Service on Azure Stack Hub の新しいデプロイには、3 つのサブジェクトのワイルドカード証明書が必要になります。 新しいサブジェクトは、 **\*.sso.appservice.\<region\>.\<domainname\>.\<extension\>** です。
 
 デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
-### <a name="new-features-and-fixes"></a>新機能と修正
+## <a name="new-features-and-fixes"></a>新機能と修正
 
 Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修正が含まれています。
 
@@ -77,7 +77,7 @@ Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修�
 
   - Azure Functions のカスタム ストレージ ピッカーにストレージ接続の検証が追加されました。
 
-#### <a name="fixes"></a>修正
+### <a name="fixes"></a>修正
 
 - オフライン展開パッケージの作成時に、App Service インストーラーからフォルダーを開くときに、アクセス拒否エラー メッセージが表示されることはなくなります。
 
@@ -91,7 +91,7 @@ Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修�
 
 - Microsoft.Web 名前空間のリソースを含むサブスクリプションが削除されたときに、Azure Resource Manager に正しくない状態が返される問題が修正されました。
 
-### <a name="known-issues-with-the-deployment-process"></a>デプロイ プロセスに関する既知の問題
+## <a name="known-issues-with-the-deployment-process"></a>デプロイ プロセスに関する既知の問題
 
 - 証明書の検証エラー。
 
@@ -101,11 +101,11 @@ Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修�
 
     ルート証明書がインストールされていないマシンでスクリプトを実行すると、Get-AzureStackRootCert.ps1 のエラーにより Azure Stack Hub ルート証明書の取得に失敗する問題がありました。 問題を解決するスクリプトも再リリースされました。 [ここから更新されたヘルパー スクリプトをダウンロード](https://aka.ms/appsvconmashelpers)してください。 更新されたスクリプトを使用してもルート証明書の取得時に問題が発生する場合は、サポートにお問い合わせください。
 
-### <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
+## <a name="known-issues-with-the-update-process"></a>更新プロセスに関する既知の問題
 
 - Azure App Service on Azure Stack Hub Update 1 の更新に関する既知の問題はありません。
 
-### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
+## <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
 - スロット スワップが機能しません。
 
@@ -201,7 +201,7 @@ Azure App Service on Azure Stack Hub Update 1 には、次の機能強化と修�
 - 優先順位:700
 - 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
 [Azure Stack Hub 1802 リリース ノート](azure-stack-update-1903.md)内のドキュメントを参照してください。
 

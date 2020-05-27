@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: c39285cec673a7274304cb2dbe1179e5478ddc7d
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 243baa06b2374fb42ffcd70fe7cb194e193d9e34
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76884605"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702212"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する
 
@@ -110,7 +110,7 @@ ms.locfileid: "76884605"
 
 8. **[OK]** を選択し、 **[OK]** を選択します。
 
-9. **作成** を選択します。
+9. **［作成］** を選択します
 
 デプロイには約 10 分かかります。 これでその手順を繰り返して、他の Azure Stack Hub 環境で他の FortiGate NVA と VNET のデプロイを作成できるようになりました。
 

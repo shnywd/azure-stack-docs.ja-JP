@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 29eddba3dbe89229e57773af79dd88dfee746674
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76879994"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77700835"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Azure Stack Hub でのプランの作成
 

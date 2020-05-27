@@ -1,18 +1,18 @@
 ---
 title: 特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 description: 特権エンドポイントを使用して Azure Stack Hub 統合システムの更新プログラムの状態をモニターする方法について説明します。
-author: mattbriggs
-ms.topic: article
-ms.date: 1/22/2020
-ms.author: mabrigg
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: c116051e305f78fd281f420de2f31dbee36601af
-ms.sourcegitcommit: fd5d217d3a8adeec2f04b74d4728e709a4a95790
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76881892"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82848185"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 
@@ -20,7 +20,7 @@ ms.locfileid: "76881892"
 
 次に示す更新プログラム管理用の新しい PowerShell コマンドレットは、Azure Stack Hub 統合システムの 1710 更新プログラムに含まれています。
 
-| コマンドレット  | [説明]  |
+| コマンドレット  | 説明  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | 現在実行中、完了済み、または失敗した更新プログラムの状態を返します。 更新操作の状態の詳細と、現在のステップと対応する状態の両方について説明する XML ドキュメントを提供します。 |
 | `Resume-AzureStackUpdate` | 失敗した更新プログラムを失敗した時点から再開します。 特定のシナリオでは、更新プログラムを再開する前に、リスク軽減の手順を完了しなければならない場合があります。         |
@@ -100,7 +100,7 @@ $statusString.Value
 指定できる値は、次のとおりです。
 
 - 実行中
-- [完了]
+- 完了
 - 失敗 
 - Canceled
 
@@ -157,9 +157,11 @@ $updateStatus.SelectNodes("//Step[@Status='InProgress']")
 Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate } 
 ```
 
-## <a name="troubleshoot"></a>[トラブルシューティング]
+## <a name="troubleshoot"></a>トラブルシューティング
 
 特権エンドポイントは、Azure Stack Hub 環境内のすべての ERCS VM で使用できます。 高可用性エンドポイントへの接続は確立されないため、中断したり、警告またはエラー メッセージが表示されたりすることがあります。 これらのメッセージは、セッションが切断されたか、または ECE サービスとの通信エラーがあったことを示している場合があります。 これは正しい動作です。 しばらく待ってから操作を再試行するか、他の ERCS VM のいずれかで新しい特権エンドポイント セッションを作成できます。
+
+更新プログラムのトラブルシューティングの詳細については、[Azure Stack のトラブルシューティング](azure-stack-troubleshooting.md)に関するページをご覧ください
 
 ## <a name="next-steps"></a>次のステップ
 
