@@ -1,48 +1,37 @@
 ---
 title: 物理ディスクを交換する
-titleSuffix: Azure Stack
-description: Azure Stack の物理ディスクを交換する方法を説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 12/02/2019
-ms.author: mabrigg
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub の物理ディスクを交換する方法について説明します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 12/02/2019
-ms.openlocfilehash: 3c7808374621d3b60b1884df8ad44e27c244bfc5
-ms.sourcegitcommit: 62283e9826ea78b218f5d2c6c555cc44196b085d
+ms.openlocfilehash: ec161fd296785f42049b7b2917142f08b47ac910
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74780849"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367848"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Azure Stack の物理ディスクを交換する
+# <a name="replace-a-physical-disk-in-azure-stack-hub"></a>Azure Stack Hub の物理ディスクを交換する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、Azure Stack で物理ディスクを交換する一般的な手順について説明します。 物理ディスクが正常に機能しなくなった場合、早急に交換する必要があります。
+この記事では、Azure Stack Hub で物理ディスクを交換する一般的なプロセスについて説明します。 物理ディスクが正常に機能しなくなった場合、早急に交換する必要があります。
 
 > [!Note]  
-> 物理データ ドライブを交換するために、スケール ユニット ノードをメンテナンス モード (ドレイン) にする必要は**ありません**。 物理ドライブを交換した後で、Azure Stack Hub 管理者ポータルを使用してスケール ユニット ノードを修復する必要もありません。 修復が必要な場合、詳細については「[Azure Stack スケール ユニット ノードのハードウェア コンポーネントを交換する](azure-stack-replace-component.md)」を参照してください。
+> 物理データ ドライブを交換するために、スケール ユニット ノードをメンテナンス モード (ドレイン) にする必要は**ありません**。 物理ドライブを交換した後で、Azure Stack Hub 管理者ポータルを使用してスケール ユニット ノードを修復する必要もありません。 修復が必要な場合、詳細については、記事「[Azure Stack Hub スケール ユニット ノードのハードウェア コンポーネントを交換する](azure-stack-replace-component.md)」を参照してください。
 
-この手順は、統合システムと、ホット スワップ可能なディスクを含む Azure Stack Development Kit (ASDK) のデプロイに使用できます。
+この手順は、ホット スワップ可能なディスクを含むデプロイに使用できます。
 
 実際のディスク交換手順は、ご利用の OEM (Original Equipment Manufacturer) ハードウェア ベンダーによって異なります。 お使いのシステムに特化した詳しい手順については、ベンダーの現場交換可能ユニット (FRU) ドキュメントをご覧ください。
 
 ## <a name="review-disk-alert-information"></a>ディスクのアラート情報の確認
 ディスクが正常に機能しなくなると、物理ディスクへの接続が切断されたことを通知するアラートが表示されます。
 
-![物理ディスクへの接続が切断されたことを示す Azure Stack 管理のアラート](media/azure-stack-replace-disk/DiskAlert.png)
+![物理ディスクへの接続が切断されたことを示す Azure Stack Hub 管理のアラート](media/azure-stack-replace-disk/DiskAlert.png)
 
-アラートを開くと、スケール ユニット ノードおよび交換が必要なディスクの厳密な物理スロットの場所が、アラートの説明に示されます。 Azure Stack では LED インジケーター機能を使用して、障害が発生したディスクを識別するさらなる手助けをします。
+アラートを開くと、スケール ユニット ノードおよび交換が必要なディスクの厳密な物理スロットの場所が、アラートの説明に示されます。 Azure Stack Hub は、LED インジケーター機能を使用して、障害が発生したディスクを特定するのにとても役立ちます。
 
 ## <a name="replace-the-physical-disk"></a>物理ディスクを交換する
 
@@ -53,14 +42,14 @@ ms.locfileid: "74780849"
 
 統合システムでサポートされていないディスクの使用を回避するために、ベンダーでサポートされていないディスクはシステムでブロックされます。 サポートされていないディスクを使用しようとすると、サポートされていないモデルまたはファームウェアであるためディスクが検疫された、というアラートが新たに表示されます。
 
-ディスクを交換すると、Azure Stack が自動的に新しいディスクを検出し、仮想ディスクの修復プロセスを開始します。
+ディスクを交換すると、Azure Stack Hub が自動的に新しいディスクを検出し、仮想ディスクの修復プロセスを開始します。
 
-## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-powershell"></a>Azure Stack PowerShell を使用した仮想ディスクの修復状態の確認
+## <a name="check-the-status-of-virtual-disk-repair-using-azure-stack-hub-powershell"></a>Azure Stack Hub PowerShell を使用した仮想ディスクの修復状態の確認
 
-ディスクの交換後、Azure Stack PowerShell を使用して、仮想ディスクの正常性状態と修復ジョブの進行状況を監視できます。
+ディスクの交換後、Azure Stack Hub PowerShell を使用して、仮想ディスクの正常性状態と修復ジョブの進行状況を監視できます。
 
-1. Azure Stack PowerShell がインストールされていることを確認してください。 詳細については、「[PowerShell for Azure Stack のインストール](azure-stack-powershell-install.md)」を参照してください。
-2. オペレーターとして PowerShell を使用して Azure Stack に接続します。 詳細については、「[オペレーターとして PowerShell を使用して Azure Stack に接続する](azure-stack-powershell-configure-admin.md)」を参照してください。
+1. Azure Stack Hub PowerShell がインストールされていることを確認してください。 詳細については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
+2. オペレーターとして、PowerShell を使用して Azure Stack Hub に接続します。 詳細については、[オペレーターとして PowerShell を使用する Azure Stack Hub への接続](azure-stack-powershell-configure-admin.md)に関する記事を参照してください。
 3. 仮想ディスクの正常性と修復状態を検証するには、次のコマンドレットを実行します。
 
     ```powershell  
@@ -69,9 +58,9 @@ ms.locfileid: "74780849"
     Get-AzsVolume -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Select-Object VolumeLabel, OperationalStatus, RepairStatus
     ```
 
-    ![Powershell での Azure Stack のボリュームの正常性](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
+    ![Powershell での Azure Stack Hub のボリュームの正常性](media/azure-stack-replace-disk/get-azure-stack-volumes-health.png)
 
-4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
+4. Azure Stack Hub システムの状態を検証します。 手順については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
 5. 必要に応じて、次のコマンドを実行して、交換した物理ディスクの状態を検証できます。
 
     ```powershell  
@@ -81,7 +70,7 @@ ms.locfileid: "74780849"
     Get-AzsDrive -StorageSubSystem $StorageSubSystem.Name -ScaleUnit $scaleunit.name | Sort-Object StorageNode,MediaType,PhysicalLocation | Format-Table Storagenode, Healthstatus, PhysicalLocation, Model, MediaType,  CapacityGB, CanPool, CannotPoolReason
     ```
 
-    ![Powershell を使用する Azure Stack 内の物理ディスクの交換](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
+    ![Powershell を使用する Azure Stack Hub の物理ディスクの交換](media/azure-stack-replace-disk/check-replaced-physical-disks-azure-stack.png)
 
 ## <a name="check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復状態の確認
 
@@ -111,7 +100,7 @@ ms.locfileid: "74780849"
 
     ![Get-StorageJob コマンドの Powershell 出力](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-4. Azure Stack システムの状態を検証します。 手順については、「[Azure Stack システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
+4. Azure Stack Hub システムの状態を検証します。 手順については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md)」を参照してください。
 
 ## <a name="troubleshoot-virtual-disk-repair-using-the-privileged-endpoint"></a>特権エンドポイントを使用した仮想ディスクの修復のトラブルシューティング
 

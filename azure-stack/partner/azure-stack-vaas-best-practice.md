@@ -1,28 +1,21 @@
 ---
-title: Azure Stack の検証のベスト プラクティス | Microsoft Docs
-description: この記事では、サービスとしての検証のベスト プラクティスについて説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack の検証のベスト プラクティス
+description: サービスとしての検証のベスト プラクティスについて説明します。
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 930a8ea40fde7a021a893e5289d16fa73398300f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: cfb2e4d71f821c23dd076842a0b4f3963a5599cc
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167272"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661255"
 ---
-# <a name="best-practices-for-validation-as-a-service"></a>サービスとしての検証のベスト プラクティス
+# <a name="azure-stack-validation-best-practices"></a>Azure Stack の検証のベスト プラクティス
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
@@ -34,7 +27,7 @@ ms.locfileid: "73167272"
 
 VaaS に登録するすべてのソリューションに、一貫性のある名前付け規則を使用します。 たとえば、次のようにハードウェアのプロパティに基づいてソリューション名を作成できます。
 
-|製品名 | 一意のハードウェア要素 1 | 一意のハードウェア要素 2 | ソリューション名
+|製品名 | 一意のハードウェア要素 1 | 一意のハードウェア要素 2 | [ソリューション名]
 |---|---|---|---|
 My Solution XYZ |  All Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX01
 
@@ -52,6 +45,6 @@ My Solution XYZ |  All Flash | My Switch X01 | MySolutionXYZ_AllFlash_MySwitchX0
 |---|---|---| ---|
 1808 | 081518 | 4NODE | 1808_081518_4NODE
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)を確認する

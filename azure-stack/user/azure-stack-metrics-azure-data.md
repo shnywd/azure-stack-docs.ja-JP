@@ -1,60 +1,50 @@
 ---
-title: Azure Stack 上の Azure Monitor を使用する | Microsoft Docs
-description: Azure Stack 上の Azure Monitor の使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub 上の Azure Monitor を使用する
+description: Azure Stack Hub 上の Azure Monitor の使用方法について説明します。
 author: mattbriggs
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
-ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: e36f7c7f80de3cf0b822c4d145af411584ea38e4
-ms.sourcegitcommit: 4e48f1e5af74712a104eda97757dc5f50a591936
+ms.lastreviewed: 12/01/2019
+ms.openlocfilehash: 0676354bb902ccafed49281c12296440a8aa8c5e
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224998"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742428"
 ---
-# <a name="use-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor を使用する
+# <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor を使用する
 
-*適用対象:Azure Stack 統合システム*
+この記事では、Azure Stack Hub 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack Hub での Azure Monitor の使用方法に関するその他の情報を紹介します。
 
-この記事では、Azure Stack 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack での Azure Monitor の使用方法に関するその他の情報を紹介します。 
+Azure Monitor の概要については、[Azure Stack Hub 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
 
-Azure Monitor の概要については、[Azure Stack 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
+![Azure Stack Hub の Monitor ブレード](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-![Azure Stack の Monitor ブレード](./media/azure-stack-metrics-azure-data/azs-monitor.png)
-
-Azure Monitor は、Azure リソースを監視するための 1 つのソースを提供するプラットフォーム サービスです。 Azure Monitor では、Azure のリソースのメトリックとログを視覚化、クエリ、ルーティング、アーカイブし、そのメトリックとログに対してその他のアクションを実行できます。 このデータは、Azure Stack 管理者ポータル、Monitor PowerShell コマンドレット、クロス プラットフォーム CLI、または Azure Monitor REST API を使用して操作できます。 Azure Stack でサポートされている特定の接続については、「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照してください。
+Azure Monitor は、Azure リソースを監視するための 1 つのソースを提供するプラットフォーム サービスです。 Azure Monitor では、Azure のリソースのメトリックとログを視覚化、クエリ、ルーティング、アーカイブし、そのメトリックとログに対してその他のアクションを実行できます。 このデータは、Azure Stack Hub 管理者ポータル、Monitor PowerShell コマンドレット、クロス プラットフォーム CLI、または Azure Monitor REST API を使用して操作できます。 Azure Stack Hub でサポートされている特定の接続については、「[Azure Stack Hub の監視データの使用](azure-stack-metrics-monitor.md)」を参照してください。
 
 > [!Note]
 > Azure Stack Development Kit では、メトリックと診断ログを使用できません。
 
-## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor の前提条件
+## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor の前提条件
 
 サブスクリプションのオファー リソース プロバイダー設定で **Microsoft.insights** リソース プロバイダーを登録します。 サブスクリプションに関連付けられているオファーでリソース プロバイダーが使用可能であることを確認できます。
 
-1. Azure Stack ユーザーポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 2. **[サブスクリプション]** を選択します。
 3. 登録するサブスクリプションを選択します。
 4. **[設定]** で、 **[リソース プロバイダー]** を選択します。 
 5. 一覧内で **Microsoft.Insights** を見つけ、状態が **[登録済み]** になっていることを確認します。
 
-## <a name="overview-of-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor の概要
+## <a name="overview-of-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor の概要
 
-Azure 上の Azure Monitor と同様、Azure Monitor 上の Azure Stack では、ほとんどのサービスに対して標準となるインフラストラクチャのメトリックおよびログを提供します。
+Azure 上の Azure Monitor と同様、Azure Stack Hub 上の Azure Monitor では、ほとんどのサービスに対して標準となるインフラストラクチャのメトリックおよびログを提供します。
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure Monitor のソース: コンピューティングのサブセット
 
-![Azure Stack 上の Azure Monitor のソース: コンピューティングのサブセット](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack Hub 上の Azure Monitor のソース: コンピューティングのサブセット](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.svg)
 
-Azure Stack 上の **Microsoft.Compute** リソース プロバイダーには、以下が含まれます。
+Azure Stack Hub 上の **Microsoft.Compute** リソース プロバイダーには、以下が含まれます。
  - 仮想マシン 
  - 仮想マシン スケール セット
 
@@ -73,24 +63,24 @@ Azure Stack 上の **Microsoft.Compute** リソース プロバイダーには�
  - カスタム エラー ログ
 
 > [!Note]  
-> Azure Stack 上の Linux 診断拡張機能はサポートされていません。
+> Azure Stack Hub 上の Linux 診断拡張機能はサポートされていません。
 
 ### <a name="host-and-guest-vm-metrics"></a>ホスト VM とゲスト VM のメトリック
 
-上記のコンピューティング リソースには、専用のホスト VM とゲスト OS が存在します。 ホスト VM およびゲスト OS は、Hyper-V ハイパーバイザーのルート VM およびゲスト VM に相当します。 ホスト VM とゲスト OS の両方のメトリックを収集できます。 また、ゲスト OS の診断ログを収集することもできます。 Azure Stack 上のホスト VM とゲスト VM に関して収集可能なメトリックの一覧については、[Azure Stack 上の Azure Monitor でサポートされるメトリック](azure-stack-metrics-supported.md)に関するページを参照してください。 
+上記のコンピューティング リソースには、専用のホスト VM とゲスト OS が存在します。 ホスト VM およびゲスト OS は、Hyper-V ハイパーバイザーのルート VM およびゲスト VM に相当します。 ホスト VM とゲスト OS の両方のメトリックを収集できます。 また、ゲスト OS の診断ログを収集することもできます。 Azure Stack Hub 上のホスト VM とゲスト VM に関して収集可能なメトリックの一覧については、[Azure Stack Hub 上の Azure Monitor でサポートされるメトリック](azure-stack-metrics-supported.md)に関するページを参照してください。 
 
 ### <a name="activity-log"></a>アクティビティ ログ
 
-計算リソースの情報については、Azure Stack インフラストラクチャで確認できるようなアクティビティ ログを検索できます。 このログには、リソースが作成された時点や破棄された時点などの情報が記載されています。 Azure Stack のアクティビティ ログには、Azure との整合性があります。 詳細については、[Azure のアクティビティ ログの概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)に関するページを参照してください。 
+計算リソースの情報については、Azure Stack Hub インフラストラクチャで確認できるようなアクティビティ ログを検索できます。 このログには、リソースが作成された時点や破棄された時点などの情報が記載されています。 Azure Stack Hub のアクティビティ ログには、Azure との整合性があります。 詳細については、[Azure のアクティビティ ログの概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)に関するページを参照してください。 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor のソース: 上記以外のすべて
 
-![Azure Stack 上の Azure Monitor のソース: 上記以外のすべて](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Stack Hub 上の Azure Monitor のソース: 上記以外のすべて](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.svg)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>リソース - メトリックと診断ログ
 
-収集可能なメトリックと診断ログは、リソースの種類によって異なります。 Azure Stack 上の各リソースの収集可能なメトリックの一覧については、サポートされるメトリックに関する記事を参照してください。 詳細については、[Azure Stack 上の Azure Monitor でサポートされるメトリック](azure-stack-metrics-supported.md)に関するページを参照してください。
+収集可能なメトリックと診断ログは、リソースの種類によって異なります。 Azure Stack Hub 上の各リソースの収集可能なメトリックの一覧については、サポートされるメトリックに関する記事を参照してください。 詳細については、[Azure Stack Hub 上の Azure Monitor でサポートされるメトリック](azure-stack-metrics-supported.md)に関するページを参照してください。
 
 ### <a name="activity-log"></a>アクティビティ ログ
 
@@ -115,15 +105,15 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 グラフィックスやグラフで監視データを視覚化すると、データ自体を見るよりも格段に早く傾向を把握できます。 
 
 視覚化の方法には、次のようなものがあります。
- - Azure Stack ユーザーおよび管理者ポータルを使用する。
+ - Azure Stack Hub ユーザーおよび管理者ポータルを使用する。
  - データを Microsoft Power BI にルーティングする。
  - ライブ ストリーミングを使ってサード パーティ製の視覚化ツールにデータをルーティングするか、ツールに Azure Storage のアーカイブからデータを読み込ませる。
 
-## <a name="methods-of-accessing-azure-monitor-on-azure-stack"></a>Azure Stack 上の Azure Monitor にアクセスする方法
+## <a name="methods-of-accessing-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor にアクセスする方法
 
 次のいずれかの方法を使用して、データの追跡、ルーティング、および取得を行うことができます。 ただし、アクションやデータの種類によっては利用できない方法もあります。 
 
- - [Azure Stack ユーザー ポータル ](azure-stack-use-portal.md)
+ - [Azure Stack Hub ユーザー ポータル ](azure-stack-use-portal.md)
  - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
  - [クロスプラットフォーム コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
  - [REST API](https://docs.microsoft.com/rest/api/monitor)
@@ -132,6 +122,6 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 > [!Important]  
 > VM のパフォーマンス グラフを表示しているときに**リソースが見つからない**というエラーが発生した場合は、VM に関連付けられているサブスクリプションに対して、Microsoft.insights が登録されていることを確認してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-「[Azure Stack の監視データの使用](azure-stack-metrics-monitor.md)」を参照して、Azure Stack での監視データの使用の詳細を確認してください。
+[Azure Stack Hub の監視データの使用](azure-stack-metrics-monitor.md)に関するページを参照し、Azure Stack Hub での監視データの使用の詳細を確認してください。

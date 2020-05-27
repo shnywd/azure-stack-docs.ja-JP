@@ -1,28 +1,18 @@
 ---
-title: Powershell を使用してコマンド ラインから ASDK をデプロイする | Microsoft Docs
+title: PowerShell を使用してコマンド ラインから ASDK をデプロイする
 description: PowerShell を使用してコマンド ラインから ASDK デプロイする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 0ba8723b9d0f03006b52ecd016c3713280b63dea
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: d6c7e29f83700eb2eb897bcd4b8bfdd65c7dfb4c
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159297"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847148"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
@@ -163,12 +153,12 @@ ASDK をインストールした後、推奨されるインストール後の確
 **[ASDK デプロイ後のタスク](asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>Azure に登録する
-Azure Stack に [Azure マーケットプレース項目をダウンロード](../operator/azure-stack-create-and-publish-marketplace-item.md)できるように、Azure Stack を Azure に登録する必要があります。
+Azure Stack に [Azure Marketplace 項目をダウンロード](../operator/azure-stack-create-and-publish-marketplace-item.md)できるように、Azure Stack を Azure に登録する必要があります。
 
 **[Azure Stack を Azure に登録する](asdk-register.md)**
 
-## <a name="next-steps"></a>次の手順
-お疲れさまでした。 これらの手順を完了すると、[管理](https://adminportal.local.azurestack.external)ポータルと[ユーザー](https://portal.local.azurestack.external) ポータルの両方で ASDK 環境を利用できるようになります。 
+## <a name="next-steps"></a>次のステップ
+お疲れさまでした。 これらの手順を完了すると、管理ポータル (`https://adminportal.local.azurestack.external`) とユーザー ポータル (`https://portal.local.azurestack.external`) の両方で ASDK 環境を利用できるようになります。 
 
 [ASDK インストール後の構成タスク](asdk-post-deploy.md)
 

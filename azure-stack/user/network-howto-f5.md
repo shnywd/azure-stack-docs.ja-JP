@@ -1,20 +1,18 @@
 ---
-title: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法 | Microsoft Docs
+title: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法
 description: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法について説明します。
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/06/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 60e6330aa492539a3b4e89a390ddcad5650cac92
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718421"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661441"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法
 
@@ -24,21 +22,21 @@ Azure Resource Manager テンプレートは、[f5-azurestack-gslb](https://gith
 
 ## <a name="overview-of-load-balancing-with-f5"></a>F5 を使用した負荷分散の概要
 
-F5 ハードウェア (ロード バランサー) は、Azure Stack の外部にあっても、Azure Stack がホストされるデータセンターの内部にあってもかまいません。 Azure Stack には、2 つの異なる Azure Stack デプロイ間でワークロードを負荷分散するためのネイティブな機能はありません。 F5 の BIG-IP 仮想エディション (VE) は、両方のプラットフォーム上で実行されます。 このセットアップにより、サポートするアプリケーション サービスのレプリケーションによって、Azure アーキテクチャと Azure Stack アーキテクチャの間のパリティがサポートされます。 1 つの環境でアプリを開発し、別の環境に移動することができます。 また、同じ BIG-IP 構成、ポリシー、アプリケーション サービスを含む、運用対応の Azure Stack 全体をミラー化することもできます。 このアプローチにより、アプリケーションのリファクタリングとテストに何時間もかかることがなくなり、コードの作成を進めることができます。
+F5 ハードウェア (ロード バランサー) は、Azure Stack Hub の外部にあっても、Azure Stack Hub がホストされるデータセンターの内部にあってもかまいません。 Azure Stack Hub には、2 つの異なる Azure Stack Hub デプロイ間でワークロードを負荷分散するためのネイティブな機能はありません。 F5 の BIG-IP 仮想エディション (VE) は、両方のプラットフォーム上で実行されます。 このセットアップにより、サポートするアプリケーション サービスのレプリケーションによって、Azure アーキテクチャと Azure Stack Hub アーキテクチャの間のパリティがサポートされます。 1 つの環境でアプリを開発し、別の環境に移動することができます。 また、同じ BIG-IP 構成、ポリシー、アプリケーション サービスを含む、運用対応の Azure Stack Hub 全体をミラー化することもできます。 このアプローチにより、アプリケーションのリファクタリングとテストに何時間もかかることがなくなり、コードの作成を進めることができます。
 
-アプリケーションとそのデータをセキュリティで保護することは、多くの場合、アプリをパブリック クラウドに移動する開発者にとって重要なことです。 これを問題にする必要はありません。 開発者が Azure Stack 環境でアプリを構築する一方で、セキュリティ アーキテクトは F5 の Web アプリケーション ファイアウォール (WAF) で必要な設定を構成します。 アプリケーションが業界をリードする同じ WAF によって保護されることはわかっており、スタック全体を Azure Stack にレプリケートすることができます。 ポリシーとルールセットは同じであり、異なる WAF を採用すると発生する可能性がある、セキュリティの抜け道や脆弱性が発生することはありません。
+アプリケーションとそのデータをセキュリティで保護することは、多くの場合、アプリをパブリック クラウドに移動する開発者にとって重要なことです。 これを問題にする必要はありません。 開発者が Azure Stack Hub 環境でアプリを構築する一方で、セキュリティ アーキテクトは F5 の Web アプリケーション ファイアウォール (WAF) で必要な設定を構成します。 アプリケーションが業界をリードする同じ WAF によって保護されることはわかっており、スタック全体を Azure Stack Hub にレプリケートすることができます。 ポリシーとルールセットは同じであり、異なる WAF を採用すると発生する可能性がある、セキュリティの抜け道や脆弱性が発生することはありません。
 
-Azure Stack には、Azure とは別のマーケットプレースがあります。 特定の項目だけが追加されます。 この場合、各 Azure Stack に新しいリソース グループを作成し、既に使用可能な F5 仮想アプライアンスをデプロイします。 それ以降、両方の Azure Stack インスタンス間をネットワーク接続するためには、**パブリック IP** アドレスが必要です。 基本的に、これらはどちらもアイランドであり、**パブリック IP** アドレスにより両方の場所で通信できるようになります。
+Azure Stack Hub には、Azure とは別のマーケットプレースがあります。 特定の項目だけが追加されます。 この場合、各 Azure Stack Hub に新しいリソース グループを作成し、既に使用可能な F5 仮想アプライアンスをデプロイします。 それ以降、両方の Azure Stack Hub インスタンス間をネットワーク接続するためには、**パブリック IP** アドレスが必要です。 基本的に、これらはどちらもアイランドであり、**パブリック IP** アドレスにより両方の場所で通信できるようになります。
 
 ## <a name="prerequisites-for-big-ip-ve"></a>BIG-IP VE の前提条件
 
--  **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)** を各 Azure Stack マーケットプレースにダウンロードします。 それらをポータルで使用できない場合は、クラウド オペレーターに問い合わせてください。
+-  **F5 BIG-IP VE - ALL (BYOL, 2 Boot Locations)** を各 Azure Stack Hub Marketplace にダウンロードします。 それらをポータルで使用できない場合は、クラウド オペレーターに問い合わせてください。
 
 -  Azure Resource Manager テンプレートは、次の GitHub リポジトリにあります: https://github.com/Mikej81/f5-azurestack-gslb 。
 
 ## <a name="deploy-f5-big-ip-ve-on-each-instance"></a>F5 BIG-IP VE を各インスタンスにデプロイする
 
-Azure Stack インスタンス A とインスタンス B にデプロイします。
+Azure Stack Hub インスタンス A とインスタンス B にデプロイします。
 
 1. Azure Stack Hub ユーザー ポータルにサインインします。
 
@@ -69,20 +67,20 @@ Azure Stack インスタンス A とインスタンス B にデプロイしま�
 
 ## <a name="configure-big-ip-appliances"></a>BIG-IP アプライアンスを構成する
 
-Azure Stack A と B の両方で、次の手順に従う必要があります。
+Azure Stack Hub A と B の両方で、次の手順に従う必要があります。
 
-1. Azure Stack インスタンス A で Azure Stack Hub ユーザー ポータルにサインインし、BIG-IP テンプレートのデプロイから作成されたリソースを確認します。
+1. Azure Stack Hub インスタンス A で Azure Stack Hub ユーザー ポータルにサインインし、BIG-IP テンプレートのデプロイから作成されたリソースを確認します。
 
     ![](./media/network-howto-f5/image18.png)
 
 2. [BIG-IP の構成項目](https://clouddocs.f5.com/training/community/dns/html/class1/class1.html)については F5 の指示に従います。 
 
-3. Azure Stack インスタンス A と B にデプロイされた両方のアプライアンスでリッスンするように、BIG-IP Wide IP List を構成します。手順については、「[「BIG-IP GTM の構成](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html)」を参照してください。
+3. Azure Stack Hub インスタンス A と B にデプロイされた両方のアプライアンスでリッスンするように、BIG-IP Wide IP List を構成します。手順については、「[BIG-IP GTM の構成](https://techdocs.f5.com/kb/en-us/products/big-ip_gtm/manuals/product/gtm-concepts-11-5-0/4.html)」を参照してください。
 
 
 4. BIG-IP アプライアンスのフェールオーバーを検証します。 テスト システムで、次のものを使用するように DNS サーバーを構成します。
-    - Azure Stack インスタンス A = `f5stack1-ext` パブリック IP アドレス
-    - Azure Stack インスタンス B = `f5stack1-ext` パブリック IP アドレス
+    - Azure Stack Hub インスタンス A = `f5stack1-ext` パブリック IP アドレス
+    - Azure Stack Hub インスタンス B = `f5stack1-ext` パブリック IP アドレス
 
 5. `www.contoso.com` を参照すると、ブラウザーに NGINX の既定ページが読み込まれます。
 
@@ -103,7 +101,7 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
 
 ## <a name="post-install-configurations"></a>インストール後の構成
 
-インストールした後は、Azure Stack NSG を構成し、ソース IP アドレスをロックダウンする必要があります。
+インストールした後は、Azure Stack Hub NSG を構成し、ソース IP アドレスをロックダウンする必要があります。
 
 1. 信頼が確立された後、ポート 22 を無効にします。
 
@@ -113,12 +111,12 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
 
     ![](./media/network-howto-f5/image7.png)
 
-4. Azure Stack 環境内に基本的な Web アプリケーション ワークロードをデプロイし、BIG-IP の内側の負荷を分散します。 NGNIX サーバーを使用する例については、「[NGINX と NGINX Plus を Docker にデプロイする](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)」を参照してください。
+4. Azure Stack Hub 環境内に基本的な Web アプリケーション ワークロードをデプロイし、BIG-IP の内側の負荷を分散します。 NGNIX サーバーを使用する例については、「[NGINX と NGINX Plus を Docker にデプロイする](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)」を参照してください。
 
     > [!Note]  
-    > Azure Stack A と Azure Stack B の両方に NGNIX のインスタンスをデプロイします。
+    > Azure Stack Hub A と Azure Stack Hub B の両方に NGNIX のインスタンスをデプロイします。
 
-5. 各 Azure Stack インスタンス内の Ubuntu VM 上 Docker コンテナーに NGINX をデプロイした後、サーバー上の既定の Web ページに接続できることを確認します。
+5. 各 Azure Stack Hub インスタンス内の Ubuntu VM 上 Docker コンテナーに NGINX をデプロイした後、サーバー上の既定の Web ページに接続できることを確認します。
 
     ![](./media/network-howto-f5/image8.png)
 
@@ -142,7 +140,7 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
     
     | Key | 値 |
     | --- | --- |
-    | Name | NGINX_Pool |
+    | 名前 | NGINX_Pool |
     | Health Monitor (正常性モニター) | HTTPS |
     | Node Name (ノード名) | NGINX |
     | Address | \<お使いの NGINX プライベート IP アドレス> |
@@ -162,7 +160,7 @@ Azure Stack A と B の両方で、次の手順に従う必要があります。
 
     | Key | 値 |
     | --- | --- |
-    |Name | NGINX |
+    |名前 | NGINX |
     |Destination Address (宛先アドレス) | \<BIG-IP のセルフ IP アドレス> |
     |Service Port (サービス ポート) | 443 |
     |SSL Profile (Client) (SSL プロファイル (クライアント)) | clientssl |
@@ -195,4 +193,4 @@ F5 の使用に関するリファレンス記事がいくつかあります。
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md) 
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md) 

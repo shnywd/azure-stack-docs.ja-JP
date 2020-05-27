@@ -1,26 +1,20 @@
 ---
-title: ローカル エージェントをデプロイする | Microsoft Docs
-description: Azure Stack のサービスとしての検証に使用するローカル エージェントをデプロイします。
-services: azure-stack
-documentationcenter: ''
+title: ローカル エージェントをデプロイする
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のサービスとしての検証に使用するローカル エージェントをデプロイする方法について説明します。
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cd13f16df804c674c2901ae0e167e47294f176a
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: ff20f82244adbbf4b1aebebd31bbf99e716bd6ce
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955898"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661271"
 ---
 # <a name="deploy-the-local-agent"></a>ローカル エージェントをデプロイする
 
@@ -39,23 +33,23 @@ ms.locfileid: "73955898"
 
 ## <a name="download-and-start-the-local-agent"></a>ローカル エージェントのダウンロードと起動
 
-データセンター内の前提条件を満たしたマシンのうち、Azure Stack のすべてのエンドポイントにアクセスできるマシンにエージェントをダウンロードします。 対象のマシンは、Azure Stack システムに属していないこと、また Azure Stack クラウドでホストされていないことが必要です。
+データセンター内の前提条件を満たしたマシンのうち、Azure Stack Hub のすべてのエンドポイントにアクセスできるマシンにエージェントをダウンロードします。 このマシンは、Azure Stack Hub システムに属していないこと、また Azure Stack Hub クラウドでホストされていないことが必要です。
 
 ### <a name="machine-prerequisites"></a>マシンの前提条件
 
 対象のマシンが次の条件を満たしていることを確認します。
 
-- すべての Azure Stack エンドポイントへのアクセス
-- .NET 4.6 と PowerShell 5.0 のインストール
-- 8 GB 以上の RAM
-- 8 コア以上のプロセッサ
-- 200 GB 以上のディスク領域
-- インターネットへの安定したネットワーク接続
+- すべての Azure Stack Hub エンドポイントへのアクセス。
+- .NET 4.6 と PowerShell 5.0 がインストール済み。
+- 8 GB 以上の RAM。
+- 8 コア以上のプロセッサ。
+- 200 GB 以上のディスク領域。
+- インターネットへの安定したネットワーク接続。
 
 ### <a name="download-and-install-the-local-agent"></a>ローカル エージェントのダウンロードとインストール
 
 1. テストの実行に使用するマシンから、管理者特権でのコマンド プロンプトで Windows PowerShell を開きます。
-2. 次のコマンドを実行して、ローカル エージェントの依存関係をダウンロードしてインストールし、Azure Stack 環境にパブリック イメージ リポジトリ (PIR) イメージ (OS VHD) をコピーします。
+2. 次のコマンドを実行して、ローカル エージェントの依存関係をダウンロードしてインストールし、Azure Stack Hub 環境にパブリック イメージ リポジトリ (PIR) イメージ (OS VHD) をコピーします。
 
     ```powershell
     # Review and update the following five parameters
@@ -85,34 +79,34 @@ ms.locfileid: "73955898"
     ```
 
 > [!Note]  
-> Install-VaaSPrerequisites コマンドレットは、大規模な VM イメージ ファイルをダウンロードします。 ネットワーク速度の低下が発生している場合は、ローカル ファイル サーバーにファイルをダウンロードし、テスト環境に VM イメージを手動で追加することができます。 詳細については、「[低速なネットワーク接続の処理](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)」を参照してください。
+> `Install-VaaSPrerequisites` コマンドレットにより、大きな VM イメージ ファイルがダウンロードされます。 ネットワーク速度の低下が発生している場合は、ローカル ファイル サーバーにファイルをダウンロードし、テスト環境に VM イメージを手動で追加することができます。 詳細については、「[Handle slow network connectivity (低速なネットワーク接続への対応)](azure-stack-vaas-troubleshoot.md#handle-slow-network-connectivity)」を参照してください。
 
 **パラメーター**
 
 | パラメーター | 説明 |
 | --- | --- |
-| AadServiceAdminUser | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
-| AadServiceAdminPassword | 全体管理者ユーザーのパスワード。 |
-| CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
-| CloudAdminPassword | クラウド管理者アカウントのパスワード。|
+| `AadServiceAdminUser` | Azure AD テナントの全体管理者ユーザー (例: vaasadmin@contoso.onmicrosoft.com)。 |
+| `AadServiceAdminPassword` | 全体管理者ユーザーのパスワード。 |
+| `CloudAdminUserName` | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 次に例を示します。AzusreStack\CloudAdmin。 詳細については、[VaaS の一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)に関する記事を参照してください。 |
+| `CloudAdminPassword` | クラウド管理者アカウントのパスワード。|
 
-![前提条件のダウンロード](media/installing-prereqs.png)
+![ローカル エージェントの前提条件をダウンロードする](media/installing-prereqs.png)
 
 ## <a name="perform-sanity-checks-before-starting-the-tests"></a>テストを開始する前のサニティ チェックを実行する
 
-テストではリモート操作が実行されます。 テストを実行するマシンは、Azure Stack エンドポイントにアクセスできる必要があります。そうでないと、テストは機能しません。 VaaS のローカル エージェントを使用する場合は、エージェントを実行するマシンを使用します。 次のチェックを実行すると、マシンが Azure Stack エンドポイントにアクセスできることを確認できます。
+テストではリモート操作が実行されます。 テストを実行するマシンは、Azure Stack Hub エンドポイントにアクセスできる必要があります。そうでないと、テストは機能しません。 VaaS のローカル エージェントを使用する場合は、エージェントを実行するマシンを使用します。 次のチェックを実行すると、マシンが Azure Stack Hub エンドポイントにアクセスできることを確認できます。
 
-1. ベース URI に到達できることを確認します。 CMD プロンプトまたは bash シェルを開きます。`<EXTERNALFQDN>` をお使いの環境の外部 FQDN に置き換えて、次のコマンドを実行します。
+1. ベース URI に到達できることを確認します。 CMD プロンプトまたは bash シェルを開きます。`<EXTERNALFQDN>` をお使いの環境の外部完全修飾ドメイン名 (FQDN) に置き換えて、次のコマンドを実行します。
 
     ```bash
     nslookup adminmanagement.<EXTERNALFQDN>
     ```
 
-2. MAS ポータルに到達できることを確認するために、Web ブラウザーを開き、`https://adminportal.<EXTERNALFQDN>` に移動します。
+2. MAS ポータルに到達できることを確認するために、ブラウザーを開き、`https://adminportal.<EXTERNALFQDN>` に移動します。
 
 3. テスト成功の作成時に指定した Azure AD サービス管理者の名前とパスワードの値を使用してサインインします。
 
-4. 「[Azure Stack の検証テストを実行する](../operator/azure-stack-diagnostic-test.md)」の説明に従って、**Test-AzureStack** PowerShell コマンドレットを実行してシステムの正常性を確認します。 警告やエラーがあれば、テストを開始する前にすべて解消しておいてください。
+4. 「[Azure Stack Hub の検証テストを実行する](../operator/azure-stack-diagnostic-test.md)」の説明に従って、**Test-AzureStack** PowerShell コマンドレットを実行してシステムの正常性を確認します。 警告やエラーがあれば、テストを開始する前にすべて解消しておいてください。
 
 ## <a name="run-the-local-agent"></a>ローカル エージェントを実行する
 
@@ -136,10 +130,10 @@ ms.locfileid: "73955898"
 
     | パラメーター | 説明 |
     | --- | --- |
-    | CloudAdminUserName | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 たとえば、AzusreStack\CloudAdmin のようになります。 詳細については、[ここを](azure-stack-vaas-parameters.md)を参照してください。 |
-    | CloudAdminPassword | クラウド管理者アカウントのパスワード。|
-    | VaaSUserId | VaaS ポータルにサインインするためのユーザー ID (例: UserName\@Contoso.com) |
-    | VaaSTenantId | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
+    | `CloudAdminUserName` | 特権エンドポイント内で許可されたコマンドにアクセスし、実行できるクラウド管理者ユーザー。 次に例を示します。AzusreStack\CloudAdmin。 詳細については、[VaaS の一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)に関する記事を参照してください。 |
+    | `CloudAdminPassword` | クラウド管理者アカウントのパスワード。|
+    | `VaaSUserId` | Azure Stack Hub 検証ポータルにサインインするために使用するユーザー ID。 次に例を示します。UserName\@Contoso.com)。 |
+    | `VaaSTenantId` | サービスとしての検証に登録された Azure アカウントの Azure AD テナント ID。 |
 
     > [!Note]  
     > エージェントを実行するときは、タスク エンジン ホストの実行可能ファイル (**Microsoft.VaaSOnPrem.TaskEngineHost.exe**) が置かれている場所を現在の作業ディレクトリとしてください。
@@ -150,10 +144,10 @@ ms.locfileid: "73955898"
 
 ![起動されたエージェント](media/started-agent.png)
 
-エージェントは、その名前で一意に識別されます。 既定では、その起動元となったマシンの完全修飾ドメイン名 (FQDN) が使用されます。 うっかり選択してしまうことのないようウィンドウは最小化してください。フォーカスが変わると他のアクションがすべて一時停止されます。
+エージェントは、その名前で一意に識別されます。 既定では、その起動元となったマシンの FQDN が使用されます。 うっかり選択してしまうことのないようウィンドウは最小化してください。フォーカスが変わると他のアクションがすべて一時停止されます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [サービスとしての検証のトラブルシューティング](azure-stack-vaas-troubleshoot.md)
 - [サービスとしての検証の主要概念](azure-stack-vaas-key-concepts.md)
-- [クイック スタート:サービスとしての検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)
+- [クイック スタート: Azure Stack Hub 検証ポータルを使用して初めてのテストをスケジュールする](azure-stack-vaas-schedule-test-pass.md)

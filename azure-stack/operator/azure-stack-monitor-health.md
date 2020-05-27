@@ -1,47 +1,37 @@
 ---
-title: Azure Stack での正常性およびアラートの監視 | Microsoft Docs
-description: Azure Stack で正常性およびアラートを監視する方法を説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/2/2019
-ms.author: mabrigg
+title: Azure Stack Hub での正常性およびアラートの監視
+description: Azure Stack Hub で正常性およびアラートを監視する方法について説明します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 5d7074997a42da9ca19006e3b597d2ba02613b28
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534126"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78368092"
 ---
-# <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack での正常性およびアラートの監視
+# <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Azure Stack Hub での正常性およびアラートの監視
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub には、ユーザーが Azure Stack Hub リージョンの正常性とアラートを表示できるようにする、インフラストラクチャ監視機能が含まれています。 **[リージョンの管理]** タイルには、Azure Stack Hub のすべてのデプロイ済みリージョンが一覧表示されます。 それは、既定では、既定のプロバイダー サブスクリプション用の管理者ポータルに固定されています。 タイルには、アクティブな重大アラートおよび警告アラートの数がリージョンごとに表示されます。 このタイルは、Azure Stack Hub の正常性とアラートの機能へのエントリ ポイントです。
 
-Azure Stack には、ユーザーが Azure Stack リージョンの正常性とアラートを表示できるようにするインフラストラクチャ監視機能が含まれています。 **[リージョン管理]** タイルには、Azure Stack のすべてのデプロイ済みリージョンが一覧表示されます。 それは、既定では、既定のプロバイダー サブスクリプション用の管理者ポータルに固定されています。 タイルには、アクティブな重大アラートおよび警告アラートの数がリージョンごとに表示されます。 このタイルは、Azure Stack の正常性とアラートの機能へのエントリ ポイントです。
+![Azure Stack Hub 管理者ポータルの [リージョンの管理] タイル](media/azure-stack-monitor-health/image1.png)
 
-![Azure Stack 管理者ポータルの [リージョン管理] タイル](media/azure-stack-monitor-health/image1.png)
+## <a name="understand-health-in-azure-stack-hub"></a>Azure Stack Hub の正常性について
 
-## <a name="understand-health-in-azure-stack"></a>Azure Stack の正常性について
-
-正常性リソース プロバイダーでは、正常性とアラートが管理されます。 Azure Stack のインフラストラクチャ コンポーネントは、Azure Stack のデプロイおよび構成時に正常性リソース プロバイダーに登録されます。 この登録により、各コンポーネントの正常性とアラートの表示が有効になります。 Azure Stack の正常性の概念は単純です。 コンポーネントの登録済みインスタンスのアラートが存在する場合、そのコンポーネントの正常性の状態は、アクティブなアラートの最大の重大度、つまり警告または重大を反映します。
+正常性リソース プロバイダーでは、正常性とアラートが管理されます。 Azure Stack Hub のインフラストラクチャ コンポーネントは、Azure Stack Hub のデプロイおよび構成の際に、正常性リソース プロバイダーに登録されます。 この登録により、各コンポーネントの正常性とアラートの表示が有効になります。 Azure Stack Hub の正常性は、単純な概念です。 コンポーネントの登録済みインスタンスのアラートが存在する場合、そのコンポーネントの正常性の状態は、アクティブなアラートの最大の重大度、つまり警告または重大を反映します。
 
 ## <a name="alert-severity-definition"></a>アラートの重大度の定義
 
-Azure Stack では、アラートは、2 つの重大度(**警告**または**重大**) でのみ生成されます。
+Azure Stack Hub では、アラートは、2 つの重大度 (**警告**、または**重大**) でのみ生成されます。
 
-- **Warning**  
+- **警告**  
   オペレーターは、予定された方法で警告アラートに対処できます。 このアラートは、通常、ユーザーのワークロードに影響を及ぼしません。
 
-- **Critical**  
-  オペレーターは、重大アラートには緊急で対応する必要があります。 これらのアラートは、Azure Stack ユーザーに現在影響を及ぼしているか、まもなく影響を及ぼす問題があることを示しています。
+- **重大**  
+  オペレーターは、重大アラートには緊急で対応する必要があります。 これらのアラートは、Azure Stack Hub ユーザーに現在影響を及ぼしているか、まもなく影響を及ぼす問題があることを示しています。
 
 
 ## <a name="view-and-manage-component-health-state"></a>コンポーネントの正常性状態の表示および管理
@@ -55,14 +45,14 @@ Azure Stack では、アラートは、2 つの重大度(**警告**または**�
 リソース プロバイダーまたはインフラストラクチャ ロールをクリックすると、詳細情報を表示できます。
 
 > [!WARNING]  
-> インフラストラクチャ ロールとロール インスタンスを順にクリックすると、 **[Start]\(起動\)** 、 **[Restart]\(再起動\)** 、または **[Shutdown]\(シャットダウン\)** のオプションが表示されます。 統合システムに更新プログラムを適用する場合は、これらのアクションを使用しないでください。 また、Azure Stack Development Kit (ASDK) 環境では、これらのオプションを使用**しない**でください。 これらのオプションは、インフラストラクチャ ロールあたり複数のロール インスタンスが存在する統合システム環境専用に設計されています。 ASDK でロール インスタンス (特に AzS-Xrp01) を再起動すると、システムが不安定になります。 トラブルシューティングの支援のため、問題を [Azure Stack フォーラム](https://aka.ms/azurestackforum)に投稿してください。
+> インフラストラクチャ ロールとロール インスタンスを順にクリックすると、 **[Start]\(起動\)** 、 **[Restart]\(再起動\)** 、または **[Shutdown]\(シャットダウン\)** のオプションが表示されます。 統合システムに更新プログラムを適用する場合は、これらのアクションを使用しないでください。 また、Azure Stack Development Kit (ASDK) 環境では、これらのオプションを使用**しない**でください。 これらのオプションは、インフラストラクチャ ロールあたり複数のロール インスタンスが存在する統合システム環境専用に設計されています。 ASDK でロール インスタンス (特に AzS-Xrp01) を再起動すると、システムが不安定になります。 トラブルシューティングの支援のため、問題を [Azure Stack Hub フォーラム](https://aka.ms/azurestackforum)に投稿してください。
 >
 
 ## <a name="view-alerts"></a>アラートを表示する
 
-各 Azure Stack リージョンのアクティブなアラートのリストは、 **[Region management]** \(リージョン管理) ブレードから直接使用できます。 既定の構成の最初のタイルは **[Alerts]** (アラート) タイルで、リージョンの重大アラートと警告アラートの概要が表示されます。 アラート タイルは、このブレードの他のタイルと同様、ダッシュボードに固定してすばやくアクセスできます。
+各 Azure Stack Hub リージョンのアクティブなアラートのリストは、 **[リージョンの管理]** ブレードから直接入手できます。 既定の構成の最初のタイルは **[Alerts]** \(アラート) タイルで、リージョンの重大アラートと警告アラートの概要が表示されます。 アラート タイルは、このブレードの他のタイルと同様、ダッシュボードに固定してすばやくアクセスできます。
 
-![Azure Stack 管理者ポータルの警告を表示している [アラート] タイル](media/azure-stack-monitor-health/image3.png)
+![Azure Stack Hub 管理者ポータルの警告を表示する [アラート] タイル](media/azure-stack-monitor-health/image3.png)
 
  リージョンのすべてのアクティブなアラートの一覧を表示するには、 **[アラート]** タイルの上部を選択します。 フィルター処理されたアラートの一覧 ([重大] または [警告]) を表示するには、タイル内の行項目 ( **[重大]** または **[警告]** ) のいずれかを選択します。
 
@@ -71,13 +61,13 @@ Azure Stack では、アラートは、2 つの重大度(**警告**または**�
 >[!Note]
 >アラートはアクティブなままだが、1日の間に更新されていない場合は、問題が報告されていなければ、[Test-AzureStack](azure-stack-diagnostic-test.md)を実行してアラートを閉じることができます。
 
-![Azure Stack 管理者ポータルで [重大] または [警告] 状態でフィルター処理するためのフィルター ウィンドウ](media/azure-stack-monitor-health/alert-view.png)
+![Azure Stack Hub 管理者ポータルで、[重大] または [警告] ステータスでフィルター処理するためのフィルター ペイン](media/azure-stack-monitor-health/alert-view.png)
 
 また、 **[View API]\(APIの表示\)** アクションには、リスト ビューの生成に使用された REST API が表示されます。 このアクションにより、アラートの照会に使用できる REST API 構文をすばやく理解できます。 この API は、自動化、または既存のデータ センターの監視、レポート、およびチケット発行ソリューションとの統合に使用できます。
 
 特定のアラートをクリックすると、アラートの詳細を表示できます。 アラートの詳細には、アラートに関連付けられているすべてのフィールドが表示され、影響を受けているコンポーネントとアラートのソースにすばやく移動できます。 たとえば、インフラストラクチャ ロール インスタンスの 1 つがオフラインになるか、アクセスできない場合、次のアラートが発生します。  
 
-![Azure Stack 管理者ポータルの [アラートの詳細] ブレード](media/azure-stack-monitor-health/alert-detail.png)
+![Azure Stack Hub 管理者ポータルの [アラートの詳細] ブレード](media/azure-stack-monitor-health/alert-detail.png)
 
 ## <a name="repair-alerts"></a>アラートの修復
 
@@ -91,10 +81,10 @@ Azure Stack では、アラートは、2 つの重大度(**警告**または**�
 
 ![修復アクションが正常に完了](media/azure-stack-monitor-health/repair-completed.png)
 
-インフラストラクチャ ロール インスタンスがオンラインに戻ると、このアラートは自動的に閉じます。 根本的な問題が解決されると、多くのアラートは自動的に閉じますが、すべてのアラートがそうなるわけではありません。 [修復] アクションのボタンが用意されているアラートは、Azure Stack によって問題が解決されると自動的に閉じます。 その他すべてのアラートについては、修復手順を実行した後、 **[アラートを閉じる]** を選択してください。 問題が解決しなかった場合は、Azure Stack で新しいアラートが生成されます。 問題が解決した場合は、アラートが閉じたままとなり、それ以上の手順は不要となります。
+インフラストラクチャ ロール インスタンスがオンラインに戻ると、このアラートは自動的に閉じます。 根本的な問題が解決されると、多くのアラートは自動的に閉じますが、すべてのアラートがそうなるわけではありません。 [修復] アクションのボタンが用意されているアラートは、Azure Stack Hub によって問題が解決されると自動的に閉じます。 その他すべてのアラートについては、修復手順を実行した後、 **[アラートを閉じる]** を選択してください。 問題が解決されなかった場合は、Azure Stack Hub で新しいアラートが生成されます。 問題が解決した場合は、アラートが閉じたままとなり、それ以上の手順は不要となります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack での更新の管理](azure-stack-updates.md)
+[Azure Stack Hub での更新プログラム管理](azure-stack-updates.md)
 
-[Azure Stack でのリージョンの管理](azure-stack-region-management.md)
+[Azure Stack Hub でのリージョンの管理](azure-stack-region-management.md)

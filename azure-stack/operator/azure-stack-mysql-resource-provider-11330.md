@@ -1,47 +1,36 @@
 ---
-title: Azure Stack MySQL リソース プロバイダー 1.1.33.0 のリリース ノート | Microsoft Docs
-description: リリース ノートを参照して、Azure Stack MySQL リソース プロバイダー 1.1.33.0 更新プログラムの新機能を確認してください。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Stack Hub MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
+description: リリース ノートを参照して、Azure Stack Hub MySQL リソース プロバイダー 1.1.33.0 更新プログラムの新機能を確認してください。
+author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.author: mabrigg
+ms.date: 1/22/2020
+ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 0ff97155d1ad27c36e86e142aa000c4987c5c8fd
-ms.sourcegitcommit: a23b80b57668615c341c370b70d0a106a37a02da
+ms.openlocfilehash: 4cab915bc4b824c1a178d94aaa571ca71c9c948b
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72682147"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77698914"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL リソース プロバイダー 1.1.33.0 のリリース ノート
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
 
 これらのリリース ノートでは、MySQL リソース プロバイダー バージョン 1.1.33.0 の機能強化と既知の問題について説明します。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
-MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。 リソース プロバイダーには、対応する最低限の Azure Stack ビルドがあります。 MySQL リソース プロバイダーのこのバージョンをインストールするために必要な Azure Stack の最小リリース バージョンを次に示します。
+MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。 リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。 MySQL リソース プロバイダーのこのバージョンをインストールするために必要な Azure Stack Hub の最小リリース バージョンを次に示します。
 
-> |最小の Azure Stack バージョン|MySQL リソース プロバイダーのバージョン|
+> |Azure Stack Hub の最小バージョン|MySQL リソース プロバイダーのバージョン|
 > |-----|-----|
 > |バージョン 1808 (1.1808.0.97)|[MySQL RP バージョン 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
 > |     |     |
 
 > [!IMPORTANT]
-> MySQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack 更新プログラムを Azure Stack 統合システムに適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
+> MySQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack Hub 更新プログラムを Azure Stack Hub 統合システムに適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 ## <a name="new-features-and-fixes"></a>新機能と修正
-このバージョンの Azure Stack MySQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
+このバージョンの Azure Stack Hub MySQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
 
 ### <a name="fixes"></a>修正
 
@@ -68,10 +57,10 @@ MySQL リソース プロバイダー バイナリをダウンロードした後
     **対処法**: 同じサブスクリプション下の異なるデータベースには常に異なるログインを使用します。
 
 
-### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>Azure Stack を運用するクラウド管理者に関する既知の問題
-[Azure Stack リリース ノート](azure-stack-servicing-policy.md)内のドキュメントをご覧ください。
+### <a name="known-issues-for-cloud-admins-operating-azure-stack-hub"></a>Azure Stack Hub を運用するクラウド管理者に関する既知の問題
+[Azure Stack Hub リリース ノート](azure-stack-servicing-policy.md)内のドキュメントを参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [MySQL リソース プロバイダーの詳細を確認します](azure-stack-mysql-resource-provider.md)。
 
 [MySQL リソースプロバイダーのデプロイを準備します](azure-stack-mysql-resource-provider-deploy.md#prerequisites)。

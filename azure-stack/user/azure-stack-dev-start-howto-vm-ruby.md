@@ -1,30 +1,28 @@
 ---
-title: Azure Stack 内の仮想マシンに Ruby アプリをデプロイする | Microsoft Docs
-description: Azure Stack 内の仮想マシンに Ruby アプリをデプロイします。
-services: azure-stack
+title: Azure Stack Hub 内の仮想マシンに Ruby アプリをデプロイする
+description: Azure Stack Hub 内の仮想マシンに Ruby アプリをデプロイします。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: e54fc1cd1e8fe8588a9498b5af8476437880e988
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 2f4a9d31c1121387efc2310b25703344a85ea5ab
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824180"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77704116"
 ---
-# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Ruby Web アプリをデプロイする
+# <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Ruby Web アプリをデプロイする
 
-Azure Stack でご自分の Ruby Web アプリをホストする VM を作成できます。 この記事では、サーバーを設定し、Ruby Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack にデプロイします。
+Azure Stack Hub でご自分の Ruby Web アプリをホストする VM を作成できます。 この記事では、サーバーを設定し、Ruby Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack Hub にデプロイします。
 
 この記事では、Ruby および Ruby on Rails Web フレームワークを使用します。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. Azure Stack でご自分の VM を設定します。 手順については、「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」を参照してください。
+1. Azure Stack Hub でご自分の VM を設定します。 手順については、「[Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」を参照してください。
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
@@ -34,7 +32,7 @@ Azure Stack でご自分の Ruby Web アプリをホストする VM を作成で
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |
     | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護された通信のための暗号化されたネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
     | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコル (RDP) では、リモート デスクトップ接続を介して、ご利用のマシンでグラフィック ユーザー インターフェイスを使用できるようにします。   |
-    | 3000 | カスタム | 開発時に Ruby on Rails Web フレームワークによって使用されるポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
+    | 3000 | Custom | 開発時に Ruby on Rails Web フレームワークによって使用されるポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
 
 ## <a name="install-ruby"></a>Ruby のインストール
 
@@ -98,8 +96,8 @@ Azure Stack でご自分の Ruby Web アプリをホストする VM を作成で
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
-- [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- [Azure Stack Hub 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
+- [IaaS としての Azure Stack Hub 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する。
 - Ruby プログラミング言語の詳細および Ruby の他のリソースについては、[Ruby-lang.org](https://www.ruby-lang.org) を参照してください。

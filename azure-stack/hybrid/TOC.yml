@@ -8,7 +8,7 @@
   items:
     - name: Single
       items:
-        - name: クロス クラウド スケーリング
+        - name: クラウド間スケーリング
           href: pattern-cross-cloud-scale.md
         - name: DevOps ハイブリッド CI/CD
           href: pattern-cicd-pipeline.md
@@ -79,7 +79,7 @@
 - name: リソース
   items:
     - name: Azure Stack Hub の更新
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
+      href: 'https://azure.microsoft.com/updates/?query=azure%20stack%20hub'
     - name: Azure Stack Hub の MSDN フォーラム
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureStack'
     - name: Azure Stack Hub のドキュメントのフィードバック
@@ -88,5 +88,5 @@
       href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
     - name: Azure Stack Hub のトレーニングと認定
       href: /azure-stack/operator/azure-stack-train-and-cert
-    - name: スタック オーバーフロー
+    - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'

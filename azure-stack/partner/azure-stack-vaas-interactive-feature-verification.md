@@ -1,26 +1,20 @@
 ---
-title: Azure Stack のサービスとしての検証における対話型機能検証テスト | Microsoft Docs
-description: サービスとしての検証を使用して Azure Stack 用の対話型機能検証テストを作成する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: 対話型機能検証テスト
+titleSuffix: Azure Stack Hub
+description: サービスとしての検証を使用して Azure Stack Hub 用の対話型機能検証テストを作成する方法について説明します。
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 10/28/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5da64bbd13e2bfde5b469c1ae0de89d85a054e3c
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: 5529164b909099156219086dd8a4895c223ed5a3
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167254"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661303"
 ---
 # <a name="interactive-feature-verification-testing"></a>対話型機能検証テスト  
 
@@ -28,10 +22,10 @@ ms.locfileid: "73167254"
 
 お客様は、対話型機能検証テスト フレームワークを使用して、ご自分のシステムに対するテストを要求できます。 お客様がテストを要求すると、Microsoft はフレームワークを使用して、対話型の手動ステップが必要なテストを準備します。 Microsoft は、フレームワークを使用していくつかの独立した自動テストをつなぎ合わせることができます。
 
-この記事では、シンプルな手動シナリオについて説明します。 Azure Stack におけるディスクの交換がテストでチェックされます。 フレームワークによって、各ステップの診断ログが収集されます。 問題が見つかったら、それらをデバッグできます。 このフレームワークでは、他のツールやプロセスによって生成されたログの共有もできるほか、シナリオに関するフィードバックを送ることができます。
+この記事では、シンプルな手動シナリオについて説明します。 Azure Stack Hub におけるディスクの交換がテストでチェックされます。 フレームワークによって、各ステップの診断ログが収集されます。 問題が見つかったら、それらをデバッグできます。 このフレームワークでは、他のツールやプロセスによって生成されたログの共有もできるほか、シナリオに関するフィードバックを送ることができます。
 
 > [!Important]  
-> この記事では、ディスク識別を実行する手順を参照します。 テスト成功ワークフローから収集された結果は、新しいソリューションの検証には使用できない可能性があるため、これは単なるデモンストレーションです。
+> この記事では、ディスク識別テストを実行する手順を参照します。 これは単なるデモンストレーションであり、テスト成功ワークフローから収集された結果は、新しいソリューションの検証には使用できません。
 
 ## <a name="overview-of-interactive-testing"></a>対話型テストの概要
 
@@ -54,64 +48,64 @@ ms.locfileid: "73167254"
     > [!Note]  
     > テストのバージョン番号は、2 次テストの改良が行われると増加します。 Microsoft による別段の指示がない限り、常に最新バージョンを使用することが推奨されます。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image4.png)
+    ![ディスク識別テスト - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
-1. **[編集]** を選択して、ドメイン管理者ユーザー名とパスワードを指定します。
+2. **[編集]** を選択して、ドメイン管理者のユーザー名とパスワードを指定します。
 
-1. テストの起動先として適切なテスト実行エージェントまたは DVM を選択します。
+3. テストの起動先として適切なテスト実行エージェントまたは DVM を選択します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image5.png)
+    ![テスト実行エージェントの選択 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
-1. **[送信]** を選択してテストを開始します。
+4. **[送信]** を選択してテストを開始します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image6.png)
+    ![テストの確認と送信 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
-1. 前の手順で選択したエージェントから対話型テストの UI にアクセスします。
+5. 前の手順で選択したエージェントから対話型テストの UI にアクセスします。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image8.png)
+    ![ディスク識別テスト - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
-1. **[ドキュメント]** と **[検証]** のリンク先に移動して、このシナリオの実施方法に関する Microsoft からの指示を確認します。
+6. **[ドキュメント]** と **[検証]** のリンク先に移動して、このシナリオの実施方法に関する Microsoft からの指示を確認します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image9.png)
+    ![ディスク識別テストのドキュメントと検証のリンク](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
-1. **[次へ]** を選択します。
+7. **[次へ]** を選択します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image10.png)
+    ![[次へ] を選択 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
-1. 手順に従って事前チェック スクリプトを実行します。
+8. 手順に従って事前チェック スクリプトを実行します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image11.png)
+    ![事前チェック スクリプトを実行 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
-1. 事前チェック スクリプトが正常に完了したら、 **[情報]** タブの **[ドキュメント]** リンクと **[検証]** リンクのとおりに、手動シナリオ (ディスク交換) を実行します。
+9. 事前チェック スクリプトが正常に完了したら、 **[情報]** タブの **[ドキュメント]** リンクと **[検証]** リンクの説明に従って、手動シナリオ (ディスク交換) を実行します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image12.png)
+    ![手動シナリオの実行 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
     > [!Important]  
-    > 手動シナリオを実施している際中は、ダイアログ ボックスを閉じないでください。
+    > 手動シナリオを実行している間は、ダイアログ ボックスを閉じないでください。
 
-1. 手動シナリオを実施し終えたら、手順に従って事後チェック スクリプトを実行します。
+10. 手動シナリオの実行が終了したら、手順に従って事後チェック スクリプトを実行します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image13.png)
+    ![事後チェック スクリプトを実行 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
-1. 手動シナリオ (ディスク交換) が正常に完了した後、 **[次へ]** を選択します。
+11. 手動シナリオ (ディスク交換) が正常に完了した後、 **[送信]** を選択します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image14.png)
+    ![ディスク識別テストの送信 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
     > [!Important]  
     > ウィンドウを閉じると、テストは完了する前に停止します。
 
-1. 実行したテストについてのフィードバックを送信します。 これらの質問は、Microsoft がシナリオの成功率とリリース品質を評価するのに役立てられます。
+12. 実行したテストについてのフィードバックを送信します。 これらの質問は、Microsoft がシナリオの成功率とリリース品質を評価するのに役立てられます。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image15.png)
+    ![Azure Stack Hub での対話型テストのエクスペリエンスに関するフィードバックを提供する](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
-1. Microsoft に送信したいログ ファイルを添付します。
+13. Microsoft に送信したいログ ファイルを添付します。
 
-    ![Alt text](media/azure-stack-vaas-interactive-feature-verification/image16.png)
+    ![ログ ファイルの添付 - Azure Stack Hub での対話型テスト](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
-1. フィードバック送信の EULA に同意します。
+14. フィードバック送信の EULA に同意します。
 
-1. **[送信]** を選択して、結果を Microsoft に送信します。
+15. **[送信]** を選択して、結果を Microsoft に送信します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)
+- [Azure Stack Hub 検証ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

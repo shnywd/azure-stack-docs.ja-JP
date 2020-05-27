@@ -1,40 +1,29 @@
 ---
-title: Azure Stack 上の App Service の復旧 | Microsoft Docs
-description: Azure Stack 上の App Service の障害復旧について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack 上の App Service の復旧
+description: Azure Stack Hub 上の App Service のディザスター リカバリーについて説明します。
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 82498781e83aedf13a3ba33da24f484bc7e80d4b
-ms.sourcegitcommit: 4eb1766c7a9d1ccb1f1362ae1211ec748a7d708c
+ms.openlocfilehash: e04fa2f3e9d03f1982ef67d4d19549b7b73a1f1a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69579032"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77701685"
 ---
-# <a name="app-service-recovery-on-azure-stack"></a>Azure Stack 上の App Service の復旧
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
+# <a name="app-service-recovery-on-azure-stack-hub"></a>Azure Stack 上の App Service の復旧
 
 このトピックでは、App Service の障害復旧のために実行するアクションの手順を説明します。
 
-Azure Stack 上の App Service をバックアップから復旧するために、次のアクションを実行する必要があります。
+Azure Stack Hub 上の App Service をバックアップから復旧するには、次のアクションを実行する必要があります。
 1. App Service のデータベースを復元します。
 2. ファイル サーバーの共有コンテンツを復元します。
 3. App Service のロールとサービスを復元します。
 
-Azure Stack ストレージが Function App ストレージに使用されていた場合は、Function App を復旧するための手順も実行する必要があります。
+Azure Stack Hub ストレージが Function App ストレージに使用されていた場合は、Function App を復元するための手順も実行する必要があります。
 
 ## <a name="restore-the-app-service-databases"></a>App Service のデータベースの復旧
 App Service SQL Server のデータベースは、実稼働対応の SQL Server インスタンスで復旧する必要があります。 
@@ -105,9 +94,9 @@ App Service データベースとファイル共有コンテンツを復旧し�
 > コマンドが完了したら、この PowerShell セッションを閉じることを強くお勧めします。
 
 ## <a name="restore-function-apps"></a>Function App を復旧する 
-Azure Stack 用の App Service では、テナント ユーザー アプリの復旧およびファイル共有コンテンツ以外のデータの復旧はサポートされていません。 他のすべてのデータは、App Service のバックアップと復旧操作以外でバックアップして復旧する必要があります。 Azure Stack ストレージが Function App ストレージに使用されていた場合は、失われたデータを復旧するために次の手順を実行する必要があります。
+Azure Stack Hub 用の App Service では、テナント ユーザー アプリファイルの復元、または共有コンテンツ以外のデータの復元はサポートされていません。 他のすべてのデータは、App Service のバックアップと復旧操作以外でバックアップして復旧する必要があります。 Azure Stack Hub ストレージが Function App ストレージに使用されていた場合、失われたデータを復旧するには、次の手順を実行する必要があります。
 
-1. Function App によって使用される新しいストレージ アカウントを作成します。 このストレージには、Azure Stack ストレージ、Azure ストレージ、または任意の互換性のあるストレージを指定できます。
+1. Function App によって使用される新しいストレージ アカウントを作成します。 このストレージには、Azure Stack Hub ストレージ、Azure ストレージ、または互換性のある任意のストレージを指定できます。
 2. ストレージの接続文字列を取得します。
 3. 関数ポータルを開き、Function App を参照します。
 4. **[プラットフォーム機能]** タブを参照し、 **[アプリケーションの設定]** をクリックします。
@@ -115,5 +104,5 @@ Azure Stack 用の App Service では、テナント ユーザー アプリの�
 6. **[概要]** に切り替えます。
 7. アプリを再起動します。 すべてのエラーを解消するまでに、複数回試行される可能性があります。
 
-## <a name="next-steps"></a>次の手順
-[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)
+## <a name="next-steps"></a>次のステップ
+[Azure Stack Hub 上の App Service の概要](azure-stack-app-service-overview.md)

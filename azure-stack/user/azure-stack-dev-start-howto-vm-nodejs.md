@@ -1,28 +1,26 @@
 ---
-title: Azure Stack で仮想マシンに Node.js アプリをデプロイする | Microsoft Docs
-description: Azure Stack に Node.js アプリをデプロイします。
-services: azure-stack
+title: Azure Stack Hub 内の仮想マシンに Node.js アプリをデプロイする
+description: Azure Stack Hub に Node.js アプリをデプロイします。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 0b145ab315e855ee08b25ea4980bdde40d0bfc1c
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 10/02/20
+ms.openlocfilehash: 3166982098c68760f4f20f4094038f2ab275b73f
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824195"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77703062"
 ---
-# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack"></a>Azure Stack で VM に Node.js Web アプリをデプロイする
+# <a name="deploy-a-nodejs-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub で VM に Node.js Web アプリをデプロイする
 
-Azure Stack で Node.js Web アプリをホストする仮想マシン (VM) を作成することができます。 この記事では、サーバーを設定し、Node.js Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack にデプロイします。
+Azure Stack Hub で Node.js Web アプリをホストする仮想マシン (VM) を作成することができます。 この記事では、サーバーを設定し、Node.js Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack Hub にデプロイします。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. 「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack で VM を設定します。
+1. 「[Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack Hub で VM を設定します。
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
@@ -32,7 +30,7 @@ Azure Stack で Node.js Web アプリをホストする仮想マシン (VM) を�
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |
     | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護された通信のための暗号化されたネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
     | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコル (RDP) では、リモート デスクトップ接続を介して、ご利用のマシンでグラフィック ユーザー インターフェイスを使用できるようにします。   |
-    | 1337 | カスタム | Node.js で使用されるポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
+    | 1337 | Custom | Node.js で使用されるポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
 
 ## <a name="install-node"></a>Node をインストールする
 
@@ -47,7 +45,7 @@ Azure Stack で Node.js Web アプリをホストする仮想マシン (VM) を�
 2. [NPM をインストール](https://www.npmjs.com/)します。これは、Node.js パッケージ、つまり、モジュール用のパッケージ マネージャーです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
 
     ```bash  
-       go version
+       node --version
     ```
 
 3. [Git をインストール](https://git-scm.com) します。これは、広域分散型のバージョン管理およびソース コード管理 (SCM) システムです。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
@@ -85,8 +83,8 @@ Azure Stack で Node.js Web アプリをホストする仮想マシン (VM) を�
        http://yourhostname.cloudapp.net:1337
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
-- [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- [Azure Stack Hub 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
+- [IaaS としての Azure Stack Hub 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する。
 - Node プログラミング言語の詳細および Node の他のリソースについては、[Nodejs.org](https://nodejs.org) を参照してください。

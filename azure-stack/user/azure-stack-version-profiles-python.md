@@ -1,31 +1,22 @@
 ---
-title: Azure Stack での Python による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での Python による API バージョンのプロファイルの使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub での Python による API バージョンのプロファイルの使用
+description: Azure Stack Hub での Python による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: b54a4440adcc4f683ca27c42d637efa807e9ac75
-ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
+ms.openlocfilehash: 42a00b997031850a61077ec59a92d5df5b6776ef
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239351"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82835902"
 ---
-# <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Azure Stack での Python による API バージョンのプロファイルの使用
+# <a name="use-api-version-profiles-with-python-in-azure-stack-hub"></a>Azure Stack Hub での Python による API バージョンのプロファイルの使用
 
-*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
-
-Python SDK では、Azure Stack やグローバル Azure などの異なるクラウド プラットフォームをターゲットとする API バージョン プロファイルをサポートします。 ハイブリッド クラウド向けのソリューションの作成時に API プロファイルを使用します。
+Python SDK では、Azure Stack Hub やグローバル Azure などの異なるクラウド プラットフォームをターゲットとする API バージョン プロファイルをサポートします。 ハイブリッド クラウド向けのソリューションの作成時に API プロファイルを使用します。
 
 この記事の手順では、Microsoft Azure サブスクリプションが必要です。 お持ちでない場合は、[無料試用版アカウントを入手](https://go.microsoft.com/fwlink/?LinkId=330212)できます。
 
@@ -36,38 +27,38 @@ Python SDK では、以下の API プロファイルをサポートします。
 - **latest**  
     このプロファイルでは、Azure プラットフォーム内にある全サービス プロバイダー向けの最新の API バージョンをターゲットにします。
 - **2019-03-01-hybrid**  
-    このプロファイルでは、バージョン 1904 以降の Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最新の API バージョンをターゲットにします。
+    このプロファイルでは、バージョン 1904 以降の Azure Stack Hub プラットフォーム内にある全リソース プロバイダー向けの最新の API バージョンをターゲットにします。
 - **2018-03-01-hybrid**  
-    このプロファイルでは、Azure Stack プラットフォーム内にある全リソース プロバイダー向けの最も互換性の高い API バージョンをターゲットにします。
+    このプロファイルでは、Azure Stack Hub プラットフォーム内にある全リソース プロバイダー向けの最も互換性の高い API バージョンをターゲットにします。
 - **2017-03-09-profile**  
-    このプロファイルでは、Azure Stack がサポートするリソース プロバイダーの最も互換性の高い API バージョンをターゲットにします。
+    このプロファイルでは、Azure Stack Hub がサポートするリソース プロバイダーの最も互換性の高い API バージョンをターゲットにします。
 
-   API プロファイルと Azure Stack の詳細については、「[Azure Stack での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
+   API プロファイルと Azure Stack Hub の詳細については、「[Azure Stack Hub での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
 
 ## <a name="install-the-azure-python-sdk"></a>Azure Python SDK をインストールする
 
 1. Git を[公式サイト](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)からインストールします。
 2. Python SDK のインストール方法については、[Python 開発者向け Azure](/python/azure/python-sdk-azure-install?view=azure-python) に関する記事を参照してください。
-3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成の詳細については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
-4. サービス プリンシパルを作成し、その ID とシークレットを保存します。 Azure Stack 用のサービス プリンシパルの作成方法については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
-5. サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、「[Azure Stack へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
+3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成の詳細については、「[Azure Stack Hub でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
+4. サービス プリンシパルを作成し、その ID とシークレットを保存します。 Azure Stack Hub 用のサービス プリンシパルの作成方法については、[Azure Stack Hub へのアクセスのアプリケーションへの提供](../operator/azure-stack-create-service-principals.md)に関するページを参照してください。
+5. サブスクリプションでサービス プリンシパルのロールが共同作成者/所有者であることを確認します。 サービス プリンシパルへのロールの割り当て手順については、[Azure Stack Hub へのアクセスのアプリケーションへの提供](../operator/azure-stack-create-service-principals.md)に関するページを参照してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack で Python Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、次の表の後にある、お使いの特定のオペレーティング システム用の手順を参照してください。
+Azure Stack Hub で Python Azure SDK を使用するには、次の値を指定した後、環境変数に値を設定する必要があります。 環境変数を設定するには、次の表の後にある、お使いの特定のオペレーティング システム用の手順を参照してください。
 
 | 値 | 環境変数 | 説明 |
 |---------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------|
-| テナント ID | `AZURE_TENANT_ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
+| テナント ID | `AZURE_TENANT_ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md)。 |
 | クライアント ID | `AZURE_CLIENT_ID` | この記事の前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリ ID。 |
-| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack 内のオファーにアクセスするために使用します。 |
+| サブスクリプション ID | `AZURE_SUBSCRIPTION_ID` | [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack Hub 内のオファーにアクセスするために使用します。 |
 | クライアント シークレット | `AZURE_CLIENT_SECRET` | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリ シークレット。 |
-| Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Resource Manager エンドポイント](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)」の記事を参照してください。 |
-| リソースの場所 | `AZURE_RESOURCE_LOCATION` | Azure Stack 環境のリソースの場所。
+| Resource Manager エンドポイント | `ARM_ENDPOINT` | 「[Azure Stack Hub Resource Manager エンドポイント](azure-stack-version-profiles-ruby.md#the-azure-stack-hub-resource-manager-endpoint)」の記事を参照してください。 |
+| リソースの場所 | `AZURE_RESOURCE_LOCATION` | Azure Stack Hub 環境のリソースの場所。
 
-### <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure Stack の CA ルート証明書を信頼する
+### <a name="trust-the-azure-stack-hub-ca-root-certificate"></a>Azure Stack Hub の CA ルート証明書を信頼する
 
-ASDK を使用する場合は、リモート マシン上で CA ルート証明書を明示的に信頼する必要があります。 Azure Stack 統合システムで CA ルート証明書を信頼する必要はありません。
+ASDK を使用する場合は、リモート マシン上で CA ルート証明書を明示的に信頼する必要があります。 Azure Stack Hub 統合システムで CA ルート証明書を信頼する必要はありません。
 
 #### <a name="windows"></a>Windows
 
@@ -79,7 +70,7 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
 
     証明書ストアの場所をメモします (例: **~/lib/python3.5/site-packages/certifi/cacert.pem**)。 このパスは、オペレーティング システムと、インストールされている Python のバージョンによって異なります。
 
-2. Azure Stack の CA ルート証明書を Python の既存の証明書に追加して信頼します。
+2. Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追加して信頼します。
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate; for ex: C:\Users\user1\Downloads\root.pem>"
@@ -107,23 +98,23 @@ ASDK を使用する場合は、リモート マシン上で CA ルート証明�
     Write-Host "Adding the certificate content to Python Cert store"
     Add-Content "${env:ProgramFiles(x86)}\Python35\Lib\site-packages\certifi\cacert.pem" $rootCertEntry
 
-    Write-Host "Python Cert store was updated to allow the Azure Stack CA root certificate"
+    Write-Host "Python Cert store was updated to allow the Azure Stack Hub CA root certificate"
     ```
 
 > [!NOTE]  
 > 次の「[Python のサンプルコードを実行する](#run-the-python-sample)」セクションで説明されているように、Python SDK で開発するために **virtualenv** を使用する場合は、前述の証明書を仮想環境の証明書ストアに追加する必要があります。 パスは、`..\mytestenv\Lib\site-packages\certifi\cacert.pem` のようになります。
 
-## <a name="python-samples-for-azure-stack"></a>Azure Stack 向けの Python 例
+## <a name="python-samples-for-azure-stack-hub"></a>Azure Stack Hub 向けの Python 例
 
-Python SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
+Python SDK を使用した Azure Stack Hub 向けの入手可能なコード サンプルの一部を次に示します。
 
 - [リソースとリソース グループを管理する](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/)
 - [ストレージ アカウントを管理する](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/)
-- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。このサンプルでは、Azure Stack でサポートされている最新の API バージョンをターゲットとする **2019-03-01-hybrid** プロファイルを使用します。
+- [仮想マシンを管理する](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/)。このサンプルでは、Azure Stack Hub でサポートされている最新の API バージョンをターゲットとする **2019-03-01-hybrid** プロファイルを使用します。
 
 ## <a name="manage-virtual-machine-sample"></a>仮想マシンを管理するサンプル
 
-次の Python コード サンプルを使用して､Azure Stack 内で仮想マシン (VM) に対する一般的な管理タスクを行います｡ コード サンプルでは、次の操作方法を示しています。
+次の Python コード サンプルを使用して、Azure Stack Hub 内で仮想マシン (VM) に対する一般的な管理タスクを行います。 コード サンプルでは、次の操作方法を示しています。
 
 - VM の作成:
   - Linux VM の作成
@@ -173,7 +164,7 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
     pip install -r requirements.txt
     ```
 
-6. Azure Stack と連携させる[サービス プリンシパル](../operator/azure-stack-create-service-principals.md)を作成します｡ サブスクリプションでサービス プリンシパルのロールが[共同作成者/所有者](../operator/azure-stack-create-service-principals.md#assign-a-role)であることを確認します。
+6. Azure Stack Hub と連携させる[サービス プリンシパル](../operator/azure-stack-create-service-principals.md)を作成します。 サブスクリプションでサービス プリンシパルのロールが[共同作成者/所有者](../operator/azure-stack-create-service-principals.md#assign-a-role)であることを確認します。
 
 7. 次の変数を設定して､これらの環境変数を現在のシェルにエクスポートします｡
 
@@ -186,7 +177,7 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
     export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
-8. このサンプルを実行するには､Azure Stack Marketplace に Ubuntu 16.04-LTS と WindowsServer 2012-R2-DataCenter のイメージが存在している必要があります｡ これらのイメージは [Azure からダウンロード](../operator/azure-stack-download-azure-marketplace-item.md)するか､[Platform Image Repository](../operator/azure-stack-add-vm-image.md) に追加することができます｡
+8. このサンプルを実行するには、Azure Stack Hub Marketplace に Ubuntu 16.04-LTS と WindowsServer 2012-R2-DataCenter のイメージが存在している必要があります。 これらのイメージは [Azure からダウンロード](../operator/azure-stack-download-azure-marketplace-item.md)するか､[Platform Image Repository](../operator/azure-stack-add-vm-image.md) に追加することができます｡
 
 9. サンプルを実行します。
 
@@ -194,7 +185,7 @@ Python SDK を使用した Azure Stack 向けの入手可能なコード サン�
     python example.py
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [Azure Python 開発センター](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines 関係のドキュメント](https://azure.microsoft.com/services/virtual-machines/)

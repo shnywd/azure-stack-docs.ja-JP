@@ -2,20 +2,19 @@
 title: Azure および Azure Stack Hub アプリのハイブリッド クラウド ID を構成する
 description: Azure および Azure Stack Hub アプリのハイブリッド クラウド ID を構成する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 813dbe66b2b2c1850430dbe167f0a14227856aee
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 7a0777c218a27647214ada7b628cede5f7c01587
+ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881486"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82988229"
 ---
-# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-applications"></a>Azure および Azure Stack Hub アプリケーションのハイブリッド クラウド ID を構成する
+# <a name="configure-hybrid-cloud-identity-for-azure-and-azure-stack-hub-apps"></a>Azure および Azure Stack Hub アプリのハイブリッド クラウド ID を構成する
 
 Azure および Azure Stack Hub アプリのハイブリッド クラウド ID を構成する方法について説明します。
 
@@ -36,18 +35,17 @@ Azure Stack Hub 内の Azure Resource Manager を使用したデプロイまた�
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/solution-deployment-guide-cross-cloud-scaling/hybrid-pillars.png)  
-> Microsoft Azure Stack Hub は Azure の拡張機能です。 Azure Stack Hub により、オンプレミス環境にクラウド コンピューティングの機敏性とイノベーションがもたらされ、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドが可能になります。  
+> Microsoft Azure Stack Hub は Azure の拡張機能です。 Azure Stack Hub はオンプレミス環境にクラウド コンピューティングの機敏性とイノベーションをもたらし、ハイブリッド アプリをビルドし、どこにでもデプロイできる唯一のハイブリッド クラウドを可能にします。  
 > 
-> [ハイブリッド アプリケーションのための設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリケーションを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
-
+> [ハイブリッド アプリの設計の考慮事項](overview-app-design-considerations.md)に関する記事では、ハイブリッド アプリを設計、デプロイ、および運用するためのソフトウェア品質の重要な要素 (配置、スケーラビリティ、可用性、回復性、管理容易性、およびセキュリティ) についてレビューしています。 これらの設計の考慮事項は、ハイブリッド アプリの設計を最適化したり、運用環境での課題を最小限に抑えたりするのに役立ちます。
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>ポータルで Azure AD のサービス プリンシパルを作成する
 
-Azure AD を ID ストアとして使用して Azure Stack Hub をデプロイした場合は、Azure での手順と同様の方法でサービス プリンシパルを作成できます。 [アプリ ID を使用したリソースへのアクセスの提供](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)に関するページには、ポータルから手順を実行する方法が紹介されています。 始める前に、[Azure AD で必要なアクセス許可](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)があることを確認してください。
+Azure AD を ID ストアとして使用して Azure Stack Hub をデプロイした場合は、Azure での手順と同様の方法でサービス プリンシパルを作成できます。 [アプリ ID を使用したリソースへのアクセスの提供](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-app-identity)に関するページには、ポータルから手順を実行する方法が紹介されています。 始める前に、[Azure AD で必要なアクセス許可](/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)があることを確認してください。
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>PowerShell を使用して AD FS のサービス プリンシパルを作成する
 
-AD FS を使用して Azure Stack Hub をデプロイした場合は、PowerShell を使ってサービス プリンシパルを作成し、アクセスのロールを割り当てて、その ID を使用して PowerShell からサインインできます。 「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)」には、PowerShell で必要な手順を実行する方法が紹介されています。
+AD FS を使用して Azure Stack Hub をデプロイした場合は、PowerShell を使ってサービス プリンシパルを作成し、アクセスのロールを割り当てて、その ID を使用して PowerShell からサインインできます。 「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-app-identity)」には、PowerShell で必要な手順を実行する方法が紹介されています。
 
 ## <a name="using-the-azure-stack-hub-api"></a>Azure Stack Hub API を使用する
 
@@ -59,16 +57,16 @@ Azure Stack Hub API にアクセスするためのトークンを取得するプ
 
 ### <a name="prerequisites"></a>前提条件
 
-アクセスできるサブスクリプションの Azure Active Directory に接続された Azure Stack Hub インストールが必要です。 Azure Stack Hub のインストールがない場合は、この手順に従って [Azure Stack Hub Development Kit](../asdk/asdk-install.md) を設定できます。
+アクセスできるサブスクリプションの Azure AD に接続された Azure Stack Hub インストールが必要です。 Azure Stack Hub のインストールがない場合は、この手順に従って [Azure Stack Development Kit (ASDK)](../asdk/asdk-install.md) を設定できます。
 
 #### <a name="connect-to-azure-stack-hub-using-code"></a>コードを使用して Azure Stack Hub に接続する
 
-コードを使用して Azure Stack Hub に接続するには、Azure Resource Manager エンドポイント API を使用して、Azure Stack Hub インストールの認証およびグラフ エンドポイントを取得し、REST 要求を使用して認証します。 サンプル クライアント アプリケーションは [GitHub](https://github.com/shriramnat/HybridARMApplication) で見つかります。
+コードを使用して Azure Stack Hub に接続するには、Azure Resource Manager エンドポイント API を使用して、Azure Stack Hub インストールの認証およびグラフ エンドポイントを取得します。 次に、REST 要求を使用して認証します。 サンプル クライアント アプリケーションは [GitHub](https://github.com/shriramnat/HybridARMApplication) で見つかります。
 
 >[!Note]
 >選択した言語の Azure SDK で Azure API プロファイルがサポートされていない限り、SDK は Azure Stack Hub で動作しません。 Azure API プロファイルについて詳しくは、「[Azure Stack での API バージョンのプロファイルの管理](../user/azure-stack-version-profiles.md)」をご覧ください。
 
 ## <a name="next-steps"></a>次のステップ
 
- - Azure Stack Hub での ID の処理方法の詳細については、「[Azure Stack Hub の ID アーキテクチャ](../operator/azure-stack-identity-architecture.md)」を参照してください。
- - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。
+- Azure Stack Hub での ID の処理方法の詳細については、「[Azure Stack Hub の ID アーキテクチャ](../operator/azure-stack-identity-architecture.md)」を参照してください。
+- Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

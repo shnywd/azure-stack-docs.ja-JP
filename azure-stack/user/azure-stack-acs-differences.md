@@ -1,59 +1,50 @@
 ---
-title: Azure Stack ストレージの違いと考慮事項 | Microsoft Docs
-description: Azure Stack のデプロイに関する考慮事項と一緒に、Azure Stack ストレージと Azure ストレージの相違点について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub ストレージの相違点と考慮事項
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のデプロイに関する考慮事項と併せて、Azure Stack Hub ストレージと Azure ストレージの相違点について理解します。
 author: mattbriggs
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/2/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: e2680a91aa2b9232eb86de4338d1198fb515e6d3
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 01/30/2020
+ms.openlocfilehash: 47e8935e67185b91b73591a28ba3e453e827e708
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824723"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81394964"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack ストレージ:相違点と考慮事項
+# <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレージ クラウド サービスのセットです。 Azure Stack Hub ストレージでは、BLOB、テーブル、キュー、アカウント管理機能に Azure と整合性のあるセマンティクスを提供します。
 
-Azure Stack ストレージは、Microsoft Azure Stack 内のストレージ クラウド サービスのセットです。 Azure Stack ストレージでは、Azure と整合性のあるセマンティクスによって BLOB、テーブル、キュー、アカウント管理機能が提供されます。
-
-この記事では、Azure Stack Storage サービスと Azure Storage サービスとの間で確認されている相違点をまとめています。 Azure Stack をデプロイするときに考慮すべき事柄も取り上げています。 グローバル Azure と Azure Stack との違いの概要については、[主な考慮事項](azure-stack-considerations.md)の記事をご覧ください。
+この記事では、Azure Stack Hub ストレージと Azure Storage サービス間における既知の違いをまとめています。 Azure Stack Hub をデプロイするときに考慮すべき事柄も一覧しています。 グローバル Azure と Azure Stack Hub との違いの概要については、[主な考慮事項](azure-stack-considerations.md)に関する記事をご覧ください。
 
 ## <a name="cheat-sheet-storage-differences"></a>チート シート:ストレージの相違点
 
-| 機能 | Azure (グローバル) | Azure Stack |
+| 機能 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
-|File Storage|クラウド ベースの SMB ファイル共有のサポート|まだサポートされていません
+|File Storage|クラウド ベースの SMB ファイル共有がサポートされています。 | まだサポートされていません。
 |Azure Storage Service Encryption for Data at Rest|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
-|ストレージ アカウントの種類|汎用 V1、V2、および Blob Storage アカウント|汎用 V1 のみ。
-|レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ|ローカル冗長ストレージ。
-|Premium Storage|ハイ パフォーマンスで待機時間の短いストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。
-|マネージド ディスク|Premium および標準がサポートされます|使用バージョンが 1808 以降の場合にサポートされます。
-|BLOB 名|1,024 文字 (2,048 バイト)|880 文字 (1,760 バイト)
-|ブロック BLOB の最大サイズ|4.75 TB (100 MB X 50,000 ブロック)|1802 update 以降のバージョンでは、4.75 TB (100 MB x 50,000 ブロック)。 それより前のバージョンでは 50,000 X 4 MB (約 195 GB)。
-|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています|まだサポートされていません。
-|ページ BLOB の増分スナップショットのコピー|Premium および標準の Azure ページ BLOB がサポートされます|まだサポートされていません。
+|ストレージ アカウントの種類|汎用 V1、V2、および Blob Storage アカウント。 |汎用 V1 のみ。
+|レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ。 |ローカル冗長ストレージ。
+|Premium Storage|高パフォーマンスで低待機時間のストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。
+|マネージド ディスク|Premium および標準がサポートされます。 |使用バージョンが 1808 以降の場合にサポートされます。
+|BLOB 名|1,024 文字 (2,048 バイト)。 |880 文字 (1,760 バイト)。
+|ブロック BLOB の最大サイズ|4.75 TB (100 MB X 50,000 ブロック)。 |1802 update 以降のバージョンでは、4.75 TB (100 MB x 50,000 ブロック)。 それより前のバージョンでは 50,000 X 4 MB (約 195 GB)。
+|ページ BLOB のスナップショット コピー|実行中の VM にアタッチされている Azure の管理対象外 VM ディスクのバックアップはサポートされています。 |まだサポートされていません。
+|ページ BLOB の増分スナップショットのコピー|Premium および標準の Azure ページ BLOB がサポートされます。 |まだサポートされていません。
 |ページ BLOB の課金|一意のページに対する料金が発生します。そのページが BLOB とスナップショットのどちらに含まれているかは関係ありません。 BLOB に関連付けられているスナップショットについて追加料金が発生するのは、ベース BLOB が更新されたときです。|ベース BLOB と、関連付けられているスナップショットに対する料金が発生します。 個々のスナップショットごとに追加料金が発生します。
 |Blob Storage のストレージ層|ホット ストレージ層、クール ストレージ層、アーカイブ ストレージ層。|まだサポートされていません。
-|Blob Storage の論理的な削除|一般提供|まだサポートされていません。
-|ページ BLOB の最大サイズ|8 TB|1 TB (テラバイト)
-|ページ BLOB のページ サイズ|512 バイト|4 KB
-|テーブルのパーティション キーと行キーのサイズ|1,024 文字 (2,048 バイト)|400 文字 (800 バイト)
+|Blob Storage の論理的な削除|一般提供。 |まだサポートされていません。
+|ページ BLOB の最大サイズ|8 TB。 |1 TB。 
+|ページ BLOB のページ サイズ|512 バイト。 |4 KB。 
+|テーブルのパーティション キーと行キーのサイズ|1,024 文字 (2,048 バイト)。|400 文字 (800 バイト)。
 |BLOB スナップショット|1 つの BLOB の最大スナップショット数は制限されていません。|1 つの BLOB の最大スナップショット数は 1,000 です。
-|ストレージの Azure AD Authentication|プレビュー段階|まだサポートされていません。
-|不変 BLOB|一般提供|まだサポートされていません。
-|ストレージのファイアウォールおよび仮想ネットワーク規則|一般提供|まだサポートされていません。|
+|ストレージの Azure AD Authentication|プレビュー段階です。 |まだサポートされていません。
+|不変 BLOB|一般提供。 |まだサポートされていません。
+|ストレージのファイアウォールおよび仮想ネットワーク規則|一般提供。 |まだサポートされていません。|
 
 ストレージ メトリックにも相違点があります。
 
@@ -62,7 +53,7 @@ Azure Stack ストレージは、Microsoft Azure Stack 内のストレージ ク
 
 ## <a name="api-version"></a>API バージョン
 
-Azure Stack Storage では以下のバージョンがサポートされます。
+Azure Stack Hub ストレージでは、以下のバージョンがサポートされます。
 
 Azure Storage サービスの API:
 
@@ -102,10 +93,19 @@ Azure Storage サービスの Management API:
 - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Azure Stack でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
+## <a name="powershell-version"></a>PowerShell バージョン
 
-## <a name="next-steps"></a>次の手順
+ストレージ モジュールの PowerShell については、REST API と互換性のあるバージョンを把握しておいてください。
 
-* [Azure Stack Storage の開発ツールの概要](azure-stack-storage-dev.md)
-* [Azure Stack ストレージのデータ転送ツールの使用](azure-stack-storage-transfer.md)
-* [Azure Stack Storage の概要](azure-stack-storage-overview.md)
+| Module | サポートされているバージョン | 使用法 |
+|---|---|---|
+| Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Azure Stack Hub ストレージ アカウントの BLOB、キュー、テーブルを管理します。 |
+| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理します。 |
+
+Azure Stack Hub でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
+
+## <a name="next-steps"></a>次のステップ
+
+* [Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)
+* [Azure Stack Hub ストレージでのデータ転送ツールの使用](azure-stack-storage-transfer.md)
+* [Azure Stack Hub ストレージの概要](azure-stack-storage-overview.md)

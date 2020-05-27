@@ -1,28 +1,26 @@
 ---
-title: Azure Stack 内の仮想マシンに Go Web アプリをデプロイする | Microsoft Docs
-description: Azure Stack 内の VM に Go Web アプリをデプロイする方法
-services: azure-stack
+title: Azure Stack Hub 内の仮想マシンに Go Web アプリをデプロイする
+description: Azure Stack Hub 内の VM に Go Web アプリをデプロイする方法
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: b3db83ca42c25503be4ddd2053a011a85ffd7034
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: e6556ee12644140ace4553c4e613441440e00d14
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824429"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77704167"
 ---
-# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Go Web アプリをデプロイする
+# <a name="deploy-a-go-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Go Web アプリをデプロイする
 
-Azure Stack で Go Web アプリをホストする仮想マシン (VM) を作成することができます。 この記事では、サーバーを設定し、Go Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack にデプロイします。
+Azure Stack Hub で Go Web アプリをホストする仮想マシン (VM) を作成することができます。 この記事では、サーバーを設定し、Go Web アプリをホストするようにサーバーを構成してから、アプリを Azure Stack Hub にデプロイします。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. 「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack で VM を設定します。
+1. 「[Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack Hub で VM を設定します。
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
@@ -32,7 +30,7 @@ Azure Stack で Go Web アプリをホストする仮想マシン (VM) を作成
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |
     | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護された通信のための暗号化されたネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
     | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコル (RDP) では、リモート デスクトップ接続を介して、ご利用のマシンでグラフィック ユーザー インターフェイスを使用できるようにします。   |
-    | 3000 | カスタム | ポート 3000 は、開発時に Go Web フレームワークによって使用されます。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
+    | 3000 | Custom | ポート 3000 は、開発時に Go Web フレームワークによって使用されます。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
 
 ## <a name="install-go"></a>Go をインストールする
 
@@ -91,8 +89,8 @@ Azure Stack で Go Web アプリをホストする仮想マシン (VM) を作成
        http://yourhostname.cloudapp.net:3000
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
-- [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- [Azure Stack Hub 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
+- [IaaS としての Azure Stack Hub 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する。
 - Go プログラミング言語の詳細および Go の他のリソースについては、[Golang.org](https://golang.org) を参照してください。

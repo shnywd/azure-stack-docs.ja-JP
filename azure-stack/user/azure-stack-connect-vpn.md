@@ -1,52 +1,41 @@
 ---
-title: VPN を使用して Azure Stack を Azure に接続する | Microsoft Docs
-description: VPN を使用して Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法です。
-services: azure-stack
-documentationcenter: ''
+title: VPN を使用して Azure Stack Hub を Azure に接続する
+description: VPN を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法。
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
-ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: 844162e4f31a6f543a9fe774aa40bd606dad85b9
-ms.sourcegitcommit: f91979c1613ea1aa0e223c818fc208d902b81299
+ms.lastreviewed: 10/24/2019
+ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
+ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71974107"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82643582"
 ---
-# <a name="connect-azure-stack-to-azure-using-vpn"></a>VPN を使用して Azure Stack を Azure に接続する
+# <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 
-*適用対象:Azure Stack 統合システム*
-
-この記事では、Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続するサイト間 VPN を作成する方法について説明します。
+この記事では、Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続するサイト間 VPN を作成する方法について説明します。
 
 ## <a name="before-you-begin"></a>開始する前に
 
 接続構成を行うには、作業開始前に次のものを用意する必要があります。
 
-* インターネットに直接接続された Azure Stack 統合システム (マルチノード) デプロイ。 使用する外部パブリック IP アドレス範囲にパブリック インターネットから直接到達できる必要があります。
+* インターネットに直接接続された Azure Stack Hub 統合システム (マルチノード) デプロイ。 使用する外部パブリック IP アドレス範囲にパブリック インターネットから直接到達できる必要があります。
 * 有効な Azure サブスクリプション。 Azure サブスクリプションをお持ちでない場合は、[ここから無料の Azure アカウント](https://azure.microsoft.com/free/?b=17.06)を作成できます。
 
 ### <a name="vpn-connection-diagram"></a>VPN 接続図
 
 次の図は、作業完了後の接続構成を表しています。
 
-![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/image2.png)
+![サイト間 VPN 接続構成](media/azure-stack-connect-vpn/azure-stack-connect-vpn-image2.svg)
 
 ### <a name="network-configuration-example-values"></a>ネットワーク構成の値の例
 
 ネットワーク構成の例の表は、この記事の例で使用されている値を示しています。 これらの値を使用するか、この値を参考にしながら、この記事の例を確認していくこともできます。
 
-|   |Azure Stack|Azure|
+|   |Azure Stack Hub|Azure|
 |---------|---------|---------|
 |仮想ネットワーク名     |Azs-VNet|AzureVNet |
 |仮想ネットワークのアドレス空間 |10.1.0.0/16|10.100.0.0/16|
@@ -61,7 +50,6 @@ ms.locfileid: "71974107"
 ### <a name="create-the-virtual-network-and-virtual-machine-vm-subnet"></a>仮想ネットワークと仮想マシン (VM) サブネットを作成する
 
 1. Azure アカウントを使用して [Azure Portal](https://portal.azure.com/) にサインインします。
-
 2. ユーザー ポータルで **[+ リソースの作成]** を選択します。
 3. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 4. **[仮想ネットワーク]** を選択します。
@@ -69,7 +57,7 @@ ms.locfileid: "71974107"
 6. **[リソース グループ]** については、新しいものを作成するか、既存のリソース グループがある場合は **[既存のものを使用]** を選択します。
 7. **[場所]** については、VNet の場所を選択します。  例の値を使用している場合は、 **[米国東部]** を選択するか、別の場所を使用します。
 8. **[ダッシュボードにピン留めする]** をオンにします。
-9. **作成** を選択します。
+9. **［作成］** を選択します
 
 ### <a name="create-the-gateway-subnet"></a>ゲートウェイ サブネットを作成する
 
@@ -94,7 +82,7 @@ ms.locfileid: "71974107"
 5. 仮想ネットワークを選択するには、 **[仮想ネットワーク]** を選択します。 その後、一覧から **[AzureVnet]** を選択します。
 6. **[パブリック IP アドレス]** を選択します。 **[パブリック IP アドレスの選択]** セクションが開いたら、 **[新規作成]** を選択します。
 7. **[名前]** フィールドに「**Azure-GW-PiP**」と入力し、 **[OK]** を選択します。
-8. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **作成** を選択します。
+8. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **［作成］** を選択します
 
 ### <a name="create-the-local-network-gateway-resource"></a>ローカル ネットワーク ゲートウェイ リソースを作成する
 
@@ -103,8 +91,8 @@ ms.locfileid: "71974107"
 2. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 3. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
 4. **[名前]** フィールドに「**Azs-GW**」と入力します。
-5. **[IP アドレス]** フィールドに、前述のネットワーク構成表にあった Azure Stack 仮想ネットワーク ゲートウェイのパブリック IP アドレスを入力します。
-6. **[アドレス空間]** フィールドに、Azure Stack から、**AzureVNet** 用の **10.1.0.0/24** および **10.1.1.0/24** アドレス空間を入力します。
+5. **[IP アドレス]** フィールドに、前述のネットワーク構成表にあった Azure Stack Hub 仮想ネットワーク ゲートウェイのパブリック IP アドレスを入力します。
+6. **[アドレス空間]** フィールドに、Azure Stack Hub から、**AzureVNet** 用の **10.1.0.0/24** および **10.1.1.0/24** アドレス空間を入力します。
 7. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** がすべて正しいことを確認し、 **[作成]** を選択します。
 
 ## <a name="create-the-connection"></a>接続の作成
@@ -123,6 +111,25 @@ ms.locfileid: "71974107"
    >共有キーに別の値を使用する場合は、接続の別の端で作成した共有キーの値と一致する必要があることに注意してください。
 
 10. **[概要]** セクションを確認し、 **[OK]** を選択します。
+
+## <a name="create-a-custom-ipsec-policy"></a>カスタム IPSec ポリシーを作成する
+
+Azure Stack Hub の[ビルド 1910 以降](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)では、IPSec ポリシーの既定のパラメーターが変更されているため、Azure と Azure Stack Hub を一致させるためにカスタム IPSec ポリシーが必要になります。
+
+1. カスタム ポリシーの作成:
+
+   ```powershell
+     $IPSecPolicy = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+     -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+     -SADataSizeKilobytes 102400000 
+   ```
+
+2. 接続へのポリシーの適用:
+
+   ```powershell
+   $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
 
 ## <a name="create-a-vm"></a>VM の作成
 
@@ -144,9 +151,9 @@ ms.locfileid: "71974107"
 
 9. **[概要]** セクションで設定を確認し、 **[OK]** を選択します。
 
-## <a name="create-the-network-resources-in-azure-stack"></a>Azure Stack でネットワーク リソースを作成する
+## <a name="create-the-network-resources-in-azure-stack-hub"></a>Azure Stack Hub でネットワーク リソースを作成する
 
-次に、Azure Stack でネットワーク リソースを作成します。
+次に、Azure Stack Hub でネットワーク リソースを作成します。
 
 ### <a name="sign-in-as-a-user"></a>ユーザーとしてサインインする
 
@@ -166,7 +173,7 @@ ms.locfileid: "71974107"
 7. **[リソース グループ]** については、リソース グループを作成することも、既存のリソース グループがある場合に **[既存のものを使用]** を選択することもできます。
 8. 既定の場所を確認します。
 9. **[ダッシュボードにピン留めする]** をオンにします。
-10. **作成** を選択します。
+10. **［作成］** を選択します
 
 ### <a name="create-the-gateway-subnet"></a>ゲートウェイ サブネットを作成する
 
@@ -182,7 +189,7 @@ ms.locfileid: "71974107"
 
 ### <a name="create-the-virtual-network-gateway"></a>仮想ネットワーク ゲートウェイを作成する
 
-1. Azure Stack ポータルで、 **[+ リソースの作成]** を選択します。
+1. Azure Stack Hub ポータルで、 **[+ リソースの作成]** を選択します。
 2. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 3. ネットワーク リソースの一覧から **[仮想ネットワーク ゲートウェイ]** を選択します。
 4. **[名前]** に「**Azs-GW**」と入力します。
@@ -191,19 +198,19 @@ ms.locfileid: "71974107"
 7. **[名前]** に「**Azs-GW-PiP**」と入力し、 **[OK]** を選択します。
 8. 既定では、 **[VPN の種類]** に **[ルート ベース]** が選択されています。 VPN の種類は **[ルート ベース]** のままにします。
 
-9. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **作成** を選択します。
+9. **[サブスクリプション]** と **[場所]** が正しいことを確認します。 リソースをダッシュボードにピン留めできます。 **［作成］** を選択します
 
 ### <a name="create-the-local-network-gateway"></a>ローカル ネットワーク ゲートウェイを作成する
 
-Azure Stack における*ローカル ネットワーク ゲートウェイ*の概念は、Azure デプロイにおけるものと少し異なります。
+Azure Stack Hub における "*ローカル ネットワーク ゲートウェイ*" の概念は、Azure デプロイにおけるものと少し異なります。
 
-Azure デプロイでは、ローカル ネットワーク ゲートウェイは、Azure の仮想ネットワーク ゲートウェイに接続するオンプレミスの (ユーザーの位置にある) 物理デバイスを表します。 ただし、Azure Stack では、接続の両端が仮想ネットワーク ゲートウェイになります。
+Azure デプロイでは、ローカル ネットワーク ゲートウェイは、Azure の仮想ネットワーク ゲートウェイに接続するオンプレミスの (ユーザーの位置にある) 物理デバイスを表します。 しかし、Azure Stack Hub では、接続の両端が仮想ネットワーク ゲートウェイになります。
 
 これをより一般的に説明すると、ローカル ネットワーク ゲートウェイ リソースは、常に接続の反対側の端にあるリモート ゲートウェイを指すということです。
 
 ### <a name="create-the-local-network-gateway-resource"></a>ローカル ネットワーク ゲートウェイ リソースを作成する
 
-1. Azure Stack ポータルにサインインします。
+1. Azure Stack Hub ポータルにサインインします。
 2. ユーザー ポータルで **[+ リソースの作成]** を選択します。
 3. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 4. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
@@ -229,7 +236,7 @@ Azure デプロイでは、ローカル ネットワーク ゲートウェイは
 
 ### <a name="create-a-vm"></a>VM の作成
 
-VPN 接続を確認するには、2 つの VM を作成します。1 つは Azure に作成し、もう 1 つは Azure Stack に作成します。 これらの VM を作成した後は、それらを使用して、VPN トンネル経由でデータを送受信することができます。
+VPN 接続を確認するには、2 つの VM を作成します。1 つは Azure に、もう 1 つは Azure Stack Hub に作成します。 これらの VM を作成した後は、それらを使用して、VPN トンネル経由でデータを送受信することができます。
 
 1. Azure portal で **[+ リソースの作成]** を選択します。
 2. **[Marketplace]** に移動し、 **[計算]** を選択します。
@@ -246,15 +253,15 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 
 サイト間接続が確立された後で、どちらの方向に送信されるデータも取得できることを検証する必要があります。 接続をテストする最も簡単な方法は、次のような ping テストを行うことです。
 
-* Azure Stack で作成した VM にサインインして、Azure で VM に ping します。
-* Azure で作成した VM にサインインして、Azure Stack で VM に ping します。
+* Azure Stack Hub で作成した VM にサインインして、Azure の VM に ping します。
+* Azure で作成した VM にサインインして、Azure Stack Hub の VM に ping します。
 
 >[!NOTE]
 >トラフィックがサイト間接続を通過するように、VIP ではなく、リモート サブネットの VM のダイレクト IP (DIP) に ping を実行します。
 
-### <a name="sign-in-to-the-user-vm-in-azure-stack"></a>Azure Stack 内のユーザー VM にサインインする
+### <a name="sign-in-to-the-user-vm-in-azure-stack-hub"></a>Azure Stack Hub 内のユーザー VM にサインインする
 
-1. Azure Stack ポータルにサインインします。
+1. Azure Stack Hub ポータルにサインインします。
 2. 左側のナビゲーション バーから **[Virtual Machines]** を選択します。
 3. VM の一覧で、先ほど作成した **Azs-VM** を探して選択します。
 4. VM のセクションで、 **[接続]** を選択し、Azs-VM.rdp ファイルを開きます。
@@ -275,7 +282,7 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 
 ### <a name="sign-in-to-the-tenant-vm-in-azure"></a>Azure 内のテナント VM にサインインする
 
-1. Azure ポータルにサインインします。
+1. Azure portal にサインインします。
 2. 左側のナビゲーション バーから **[Virtual Machines]** を選択します。
 3. VM の一覧から、先ほど作成した **Azure-VM** を探して選択します。
 4. VM のセクションで、 **[接続]** を選択します。
@@ -291,7 +298,7 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
     -Protocol ICMPv4
    ```
 
-10. Azure の VM から、トンネルを介して Azure Stack の VM に ping します。 これを行うには、Azs-VM から記録した DIP に ping を実行します。 この例の環境ではこのアドレスは **10.1.0.4** ですが、必ずラボでメモしたアドレスに ping を実行するようにしてください。 結果は次の画面キャプチャのようになります。
+10. Azure の VM から、トンネルを介して Azure Stack Hub の VM に ping します。 これを行うには、Azs-VM から記録した DIP に ping を実行します。 この例の環境ではこのアドレスは **10.1.0.4** ですが、必ずラボでメモしたアドレスに ping を実行するようにしてください。 結果は次の画面キャプチャのようになります。
 
     ![ping 成功](media/azure-stack-connect-vpn/image19b.png)
 
@@ -303,12 +310,12 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 
 サイト間接続を通過したデータの量を把握したい場合、 **[接続]** セクションでこの情報を確認できます。 このテストは、先ほど送信した ping が実際に VPN 接続を通過したことを検証するためのもう 1 つの手段でもあります。
 
-1. Azure Stack 内のユーザー VM にサインインしているとき、ユーザー アカウントを利用してユーザー ポータルにサインインします。
+1. Azure Stack Hub 内のユーザー VM にサインインしているとき、自分のユーザー アカウントを利用してユーザー ポータルにサインインします。
 2. **[すべてのリソース]** に移動し、**Azs-Azure** 接続を選択します。 **[接続]** が表示されます。
 3. **[接続]** セクションには、 **[受信データ]** と **[送信データ]** の統計情報が表示されます。 次の画面キャプチャでは大きな数値を確認できますが、これは追加のファイル転送によるものです。 ここには 0 以外の値が表示されます。
 
     ![受信データと送信データ](media/azure-stack-connect-vpn/Connection.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-* [Azure と Azure Stack へのアプリのデプロイ](azure-stack-solution-pipeline.md)
+* [Azure と Azure Stack Hub へのアプリのデプロイ](azure-stack-solution-pipeline.md)

@@ -1,27 +1,18 @@
 ---
-title: Start-AzsReadinessChecker コマンドレット リファレンス | Microsoft Docs
+title: Start-AzsReadinessChecker コマンドレット リファレンス
 description: PowerShell コマンドレットは、Azure Stack Hub 適合性チェッカー モジュールを助けるものです。
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/07/2020
-ms.author: sethm
+author: IngridAtMicrosoft
+ms.topic: reference
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: d6b7525657696792bd72d968e8888bd8f7bc62fb
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 0b81915cd7a95bede1edcbfa0f84ea8a5f38513d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727447"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78366062"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker コマンドレット リファレンス
 
@@ -164,7 +155,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-## <a name="description"></a>[説明]
+## <a name="description"></a>説明
 
 **Start-AzsReadinessChecker** コマンドレットでは、証明書、Azure アカウント、Azure サブスクリプション、Azure Active Directory (Azure AD) が検証されます。 Azure Stack Hub のデプロイ前、またはシークレット ローテーションなどの Azure Stack Hub サービス アクションの前に検証を実行します。 このコマンドレットを使用して、インフラストラクチャ証明書および必要に応じて PaaS 証明書に対する証明書署名要求を生成することもできます。 最後に、コマンドレットを使用して PFX 証明書を再パッケージ化し、パッケージの一般的な問題を修復することができます。
 

@@ -1,32 +1,26 @@
 ---
-title: Azure Stack のサービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する | Microsoft Docs
-description: サービスとしての検証で OEM (相手先ブランド供給) パッケージを検証する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: OEM パッケージの検証
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のサービスとしての検証を使って OEM パッケージを検証する方法について説明します。
 author: mattbriggs
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 774778e382526cffb30e2a69d16c32cc1e548225
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.openlocfilehash: 4d62dcd1414edbc38b4407d980b7af974190c390
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954555"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661412"
 ---
 # <a name="validate-oem-packages"></a>OEM パッケージの検証
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-完了しているソリューションの検証に関してファームウェアやドライバーに変更が生じたときは、新しい OEM パッケージをテストすることができます。 テストに合格したパッケージは、Microsoft によって署名されます。 テストには、Windows Server ロゴと PCS テストに合格したドライバーとファームウェアと共に、更新された OEM 拡張機能パッケージが含まれている必要があります。
+完了しているソリューションの検証に関してファームウェアやドライバーに変更が生じたときは、新しい OEM (Original Equipment Manufacturer) パッケージをテストできます。 テストに合格したパッケージは、Microsoft によって署名されます。 テストには、Windows Server ロゴと PCS テストに合格したドライバーとファームウェアと共に、更新された OEM 拡張機能パッケージが含まれている必要があります。
 
 [!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
@@ -35,18 +29,18 @@ ms.locfileid: "74954555"
 
 ## <a name="managing-packages-for-validation"></a>検証のためのパッケージの管理
 
-**パッケージの検証**ワークフローを使用してパッケージを検証する場合は、**Azure Storage Blob** への URL を指定する必要があります。 この BLOB は、更新プロセスの一環としてインストールされる、テスト署名済みの OEM パッケージです。 設定中に作成した Azure Storage アカウントを使用して BLOB を作成します ([サービスとしての検証のリソースの設定](azure-stack-vaas-set-up-resources.md)に関するページを参照してください)。
+**パッケージの検証**ワークフローを使用してパッケージを検証する場合は、**Azure Storage Blob** への URL を指定する必要があります。 この BLOB は、更新プロセスの一環としてインストールされる、テスト署名済みの OEM パッケージです。 設定中に作成した Azure Storage アカウントを使用して BLOB を作成します ([サービスとしての検証 (VaaS) のリソースの設定](azure-stack-vaas-set-up-resources.md)に関するページを参照してください)。
 
 ### <a name="prerequisite-provision-a-storage-container"></a>前提条件:ストレージ コンテナーをプロビジョニングする
 
 パッケージ BLOB のストレージ アカウントにコンテナーを作成します。 このコンテナーは、すべてのパッケージの検証の実行に使用できます。
 
-1. [Azure portal](https://portal.azure.com) で、[サービスとしての検証のリソースの設定](azure-stack-vaas-set-up-resources.md)に関する記事で作成したストレージ アカウントに移動します。
+1. [Azure portal](https://portal.azure.com) で、[VaaS リソースの設定](azure-stack-vaas-set-up-resources.md)に関する記事で作成したストレージ アカウントに移動します。
 
 2. 左側のブレードの **[Blob service]** で、 **[コンテナー]** を選択します。
 
 3. メニュー バーから **[+ コンテナー]** を選択します。
-    1. `vaaspackages` などのコンテナーの名前を指定します。
+    1. コンテナーの名前を指定します。 たとえば、「 `vaaspackages` 」のように入力します。
     1. VaaS などの非認証クライアントに必要なアクセス レベルを選択します。 各シナリオでのパッケージに VaaS アクセスを付与する方法の詳細については、「[コンテナーのアクセス レベルを処理する](#handling-container-access-level)」を参照してください。
 
 ### <a name="upload-package-to-storage-account"></a>ストレージ アカウントへのパッケージのアップロード
@@ -62,13 +56,13 @@ ms.locfileid: "74954555"
 
 ### <a name="generate-package-blob-url-for-vaas"></a>VaaS のパッケージ BLOB の URL の生成
 
-VaaS ポータルで**パッケージの検証**ワークフローを作成する場合、パッケージが含まれている Azure Storage BLOB への URL を指定する必要があります。 **Monthly AzureStack Update Verification (月次 Azure Stack 更新プログラムの検証)** と **OEM Extension Package Verification (OEM 拡張機能パッケージの検証)** などの、一部の*対話型*テストではパッケージ BLOB の URL が必要です。
+VaaS ポータルで**パッケージの検証**ワークフローを作成する場合、パッケージが含まれている Azure Storage BLOB への URL を指定する必要があります。 **Monthly AzureStack Hub Update Verification (月次 Azure Stack Hub 更新プログラムの検証)** と **OEM Extension Package Verification (OEM 拡張機能パッケージの検証)** などの、一部の*対話型*テストではパッケージ BLOB の URL が必要です。
 
 #### <a name="handling-container-access-level"></a>コンテナーのアクセス レベルを処理する
 
 VaaS に必要な最低限のアクセス レベルは、パッケージの検証ワークフローを作成するか、*対話型*テストをスケジュール設定するかによって異なります。
 
-**プライベート**と **Blob** アクセス レベルの場合、[Shared Access Signature (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) を VaaS に設定することによって、パッケージ blob へのアクセス権を一時的に付与する必要があります。 **コンテナー** アクセス レベルでは SAS URL を生成する必要はありませんが、コンテナーとその BLOB への非認証アクセスを許可します。
+**プライベート**と **Blob** アクセス レベルの場合、[Shared Access Signature (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) を VaaS に設定することによって、パッケージ BLOB へのアクセス権を一時的に付与する必要があります。 **コンテナー** アクセス レベルでは SAS URL を生成する必要はありませんが、コンテナーとその BLOB への非認証アクセスを許可します。
 
 |アクセス レベル | ワークフローの要件 | テストの要件 |
 |---|---------|---------|
@@ -78,14 +72,14 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
 パッケージへのアクセス権を付与するオプションでは、アクセス権は最小から最大に順序指定されています。
 
-#### <a name="option-1-generate-a-blob-sas-url"></a>オプション 1:BLOB の SAS URL を生成する
+#### <a name="option-1-generate-a-blob-sas-url"></a>オプション 1: BLOB の SAS URL を生成する
 
-ストレージ コンテナーのアクセス レベルが**プライベート**に設定されている場合は、このオプションを使用します。この場合、コンテナーまたはその BLOB へのパブリック読み取りアクセスを有効にしません。
+ストレージ コンテナーのアクセス レベルが**プライベート**に設定されている場合は、このオプションを使用します。この場合、コンテナーまたはその BLOB へのパブリック読み取りアクセスは有効になりません。
 
 > [!NOTE]
-> このメソッドは*対話型*テストでは機能しません。 [オプション 2:コンテナーの SAS URL の構築](#option-2-construct-a-container-sas-url)を参照してください。
+> この方法は*対話型*テストには使用できません。 [オプション 2:コンテナーの SAS URL の構築](#option-2-construct-a-container-sas-url)を参照してください。
 
-1. [Azure portal](https://portal.azure.com/) でストレージ アカウントに移動し、パッケージが含まれている .zip に移動します。
+1. [Azure portal](https://portal.azure.com/) でストレージ アカウントに移動し、パッケージが含まれている `.zip` に移動します。
 
 2. コンテキスト メニューで **[SAS の生成]** を選択します。
 
@@ -112,23 +106,23 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 1. **[開始時間]** として現在の時刻を選択し、 **[終了時間]** として少なくとも **[開始時間]** から 14 日後を選択します。 同じパッケージに対して別のテストも行う場合は、 **[終了時間]** をテストの時間分遅らせることを検討します。 VaaS を通じて **[終了時間]** より後にスケジュールされたテストは失敗し、新しい SAS の生成が必要になります。
 
 1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    次のような形式になります。`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+    形式は次のようになります。`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
-1. 次のように、生成された SAS URL を変更して、パッケージ コンテナー `{containername}` とパッケージ BLOB の名前 `{mypackage.zip}` を含めます。`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+1. 生成された SAS URL を変更して、パッケージ コンテナー `{containername}` とパッケージ BLOB の名前 `{mypackage.zip}` を含めます。 次のようになります。`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
 
     ポータルでパッケージ BLOB URL を指定する場合は、この値を使用してください。
 
-#### <a name="option-3-grant-public-read-access"></a>オプション 3: パブリック読み取りアクセスを許可する
+#### <a name="option-3-grant-public-read-access"></a>オプション 3:パブリック読み取りアクセスを許可する
 
 認証されていないクライアントから個々の BLOB へのアクセス、またはコンテナーへのアクセス (*対話型*テストの場合) を許可することが許容される場合は、このオプションを使用します。
 
 > [!CAUTION]
 > このオプションでは、匿名の読み取り専用アクセス用に BLOB を開放します。
 
-1. 「[コンテナーと BLOB への匿名ユーザーのアクセス許可を付与します](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)」の手順に従って、**BLOB** または**コンテナー**にパッケージ コンテナーのアクセス レベルを設定します。
+1. パッケージ コンテナーのアクセス レベルを **[BLOB]** または **[コンテナー]** に設定します。 詳細については、「[コンテナーと BLOB への匿名ユーザーのアクセス許可を付与します。](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs)」をご覧ください。
 
     > [!NOTE]
-    > パッケージ URL を*対話型*テストに指定している場合、テストを続行するにはコンテナーへの**パブリック読み取りフル アクセス**を付与する必要があります。
+    > パッケージ URL を*対話型*テストに指定している場合、テストを続行するにはコンテナーへの**完全なパブリック読み取りアクセス**を付与する必要があります。
 
 1. パッケージ コンテナーで、パッケージ BLOB を選択してプロパティ ウィンドウを開きます。
 
@@ -148,14 +142,14 @@ VaaS に必要な最低限のアクセス レベルは、パッケージの検�
 
 5. Microsoft の署名が必要なテスト署名済み OEM パッケージに、Azure Storage BLOB URL を入力します。 手順については、「[VaaS のパッケージ BLOB の URL の生成](#generate-package-blob-url-for-vaas)」を参照してください。
 
-6. AzureStack 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
+6. Azure Stack Hub 更新プログラム パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [AzureStack update package folder path]\(AzureStack 更新パッケージ フォルダー パス\) に、**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します。
 
-7. 上記で作成された OEM パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [OEM update package folder path]\(OEM 更新パッケージ フォルダー パス\) の**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します
+7. 上記で作成された OEM パッケージ フォルダーを DVM のローカル ディレクトリにコピーします。 [OEM update package folder path]\(OEM 更新パッケージ フォルダー パス\) に、**パッケージ zip ファイルとメタデータ ファイルを含むフォルダー**へのパスを入力します。
 
     > [!NOTE]
-    > AzureStack 更新プログラムと OEM 更新プログラムは **2 つの別々の**ディレクトリにコピーします。
+    > Azure Stack Hub 更新プログラムと OEM 更新プログラムは **2 つの別々の**ディレクトリにコピーします。
 
-8. 'RequireDigitalSignature' - パッケージを Microsoft 署名にする (OEM 検証ワークフローを実行する) 必要がある場合に **true** を指定します。 最新の AzureStack 更新プログラムで Microsoft 署名済みパッケージを検証する場合は、この値を false (毎月の AzureStack 更新検証を実行) として指定します。
+8. `RequireDigitalSignature` - パッケージを Microsoft 署名にする (OEM 検証ワークフローを実行する) 必要がある場合は、値 **true** を指定します。 最新の Azure Stack Hub 更新プログラムで Microsoft 署名済みパッケージを検証する場合は、この値を false (毎月の Azure Stack Hub 更新検証を実行) にします。
 
 9. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
@@ -175,12 +169,12 @@ OEM パッケージの検証では、以下のテストを実行する必要が�
 
 ## <a name="run-package-validation-tests"></a>パッケージの検証テストの実行
 
-1. **パッケージの検証テストの概要**に関するページでは、ご自分のシナリオに適した、一覧表示されているテストの一部を実行します。
+1. **パッケージの検証テストの概要**ぺージでは、ご自分のシナリオに適した、一覧表示されているテストの一部を実行します。
 
-    検証ワークフローでは、テストを**スケジュール設定**するときに、ワークフローの作成時に指定したワークフロー レベルの一般的なパラメーターを使用します (「[Azure Stack Validation as a Service に使用される一般的なワークフロー パラメーター](azure-stack-vaas-parameters.md)」を参照してください)。 テスト パラメーター値のいずれかが無効になった場合は、[ワークフロー パラメーターの変更](azure-stack-vaas-monitor-test.md#change-workflow-parameters)に関するセクションの手順に従ってパラメーター値を再度指定する必要があります。
+    検証ワークフローでは、テストを**スケジュール設定**するときに、ワークフローの作成時に指定したワークフロー レベルの一般的なパラメーターを使用します (「[Azure Stack Hub のサービスとしての検証のためのワークフロー共通パラメーター](azure-stack-vaas-parameters.md)」を参照してください)。 テスト パラメーター値のいずれかが無効になった場合は、[ワークフロー パラメーターの変更](azure-stack-vaas-monitor-test.md#change-workflow-parameters)に関するセクションの手順に従ってパラメーター値を再度指定する必要があります。
 
     > [!NOTE]
-    > 既存のインスタンスに対して検証テストをスケジュール設定すると、ポータルの古いインスタンスに代わる新しいインスタンスが作成されます。 古いインスタンスのログは保持されますが、ポータルからアクセスできません。  
+    > 既存のインスタンスに対して検証テストをスケジュール設定すると、ポータルの古いインスタンスに代わる新しいインスタンスが作成されます。 古いインスタンスのログは保持されますが、ポータルからアクセスできません。<br><br>
     > テストが正常に完了すると、 **[スケジュール]** アクションが無効になります。
 
 2. テストを実行するエージェントを選択します。 ローカル テストの実行エージェントの追加については、「[ローカル エージェントをデプロイする](azure-stack-vaas-local-agent.md)」を参照してください。
@@ -191,8 +185,8 @@ OEM パッケージの検証では、以下のテストを実行する必要が�
 
 5. **必要な**テストの結果を確認します。
 
-パッケージ署名要求を送信するには、この実行に関連付けられているソリューション名とパッケージ検証名を [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に送信します。
+パッケージ署名要求を送信するには、この実行に関連付けられているソリューション名とパッケージ検証名を記載して、[vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) に電子メールを送信します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [VaaS ポータルでのテストの監視と管理](azure-stack-vaas-monitor-test.md)

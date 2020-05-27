@@ -1,36 +1,25 @@
 ---
-title: Azure Stack に安全に格納された証明書で VM をデプロイする | Microsoft Docs
-description: Azure Stack の Key Vault を使って、仮想マシンをデプロイして証明書を仮想マシンにプッシュする方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub に安全に格納された証明書で VM をデプロイする
+description: Azure Stack Hub の Key Vault を使って、仮想マシンをデプロイして証明書を仮想マシンにプッシュする方法について説明します。
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: 46590eb1-1746-4ecf-a9e5-41609fde8e89
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 01/24/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8741d63dbbcefde950fc10c0917d87bc4e9718f7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.lastreviewed: 12/27/2019
+ms.openlocfilehash: f808d3dca853ef114d215be08f3e6ae3f6737fb5
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961517"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702790"
 ---
-# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>Azure Stack に安全に格納された証明書で VM をデプロイする 
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Azure Stack Hub に安全に格納された証明書で VM をデプロイする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、キー コンテナー証明書がインストールされた Azure Stack 仮想マシン (VM) をデプロイする方法について説明します。
+この記事では、キー コンテナー証明書がインストールされた Azure Stack Hub 仮想マシン (VM) をデプロイする方法について説明します。
 
 ## <a name="overview"></a>概要
 
-Active Directory への認証、Web トラフィックの暗号化など、多くのシナリオで証明書が使用されます。 証明書はシークレットとして Azure Stack Key Vault に安全に格納できます。 Azure Stack Key Vault を使用する利点は次のとおりです。
+Active Directory への認証、Web トラフィックの暗号化など、多くのシナリオで証明書が使用されます。 証明書はシークレットとして Azure Stack Hub Key Vault に安全に格納できます。 Azure Stack Hub Key Vault を使用する利点は次のとおりです。
 
 * 証明書がスクリプト、コマンド ラインの履歴、またはテンプレートに公開されません。
 * 証明書管理プロセスが合理化されます。
@@ -50,8 +39,8 @@ Active Directory への認証、Web トラフィックの暗号化など、多�
 ## <a name="prerequisites"></a>前提条件
 
 * ユーザーは、Key Vault サービスを含むプランをサブスクライブする必要があります。
-* [PowerShell for Azure Stack をインストールします](../operator/azure-stack-powershell-install.md)。
-* [Azure Stack ユーザーの PowerShell 環境を構成します](azure-stack-powershell-configure-user.md)。
+* [PowerShell for Azure Stack Hub をインストールします](../operator/azure-stack-powershell-install.md)。
+* [Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>キー コンテナー シークレットを作成する
 
@@ -177,10 +166,10 @@ New-AzureRmResourceGroupDeployment `
 
 ![Template deployment の結果](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-証明書は、デプロイ中に Azure Stack によって VM にプッシュされます。 証明書の場所は、VM のオペレーティング システムによって異なります。
+証明書は、デプロイ中に Azure Stack Hub によって VM にプッシュされます。 証明書の場所は、VM のオペレーティング システムによって異なります。
 
 * Windows では、証明書はユーザー指定の証明書ストアで **LocalMachine** の証明書の場所に追加されます。
-* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、 **/var/lib/waagent** ディレクトリに配置されます。
+* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、**/var/lib/waagent** ディレクトリに配置されます。
 
 ## <a name="retire-certificates"></a>証明書の使用を終了する
 
@@ -192,7 +181,7 @@ New-AzureRmResourceGroupDeployment `
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Key Vault パスワードを使用して VM をデプロイする](azure-stack-key-vault-deploy-vm-with-secret.md)
 * [アプリケーションが Key Vault にアクセスできるようにする](azure-stack-key-vault-sample-app.md)

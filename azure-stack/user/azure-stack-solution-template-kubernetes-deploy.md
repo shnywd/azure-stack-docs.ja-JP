@@ -1,39 +1,29 @@
 ---
-title: Azure Stack コンテナーを使用するための Kubernetes をデプロイする | Microsoft Docs
-description: Azure Stack でコンテナーを使用するための Kubernetes をデプロイする方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub コンテナーを使用するための Kubernetes をデプロイする
+description: Azure Stack Hub でコンテナーを使用するための Kubernetes をデプロイする方法について説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0fc45ae0413fb7e269d8d7347e2279895c234950
-ms.sourcegitcommit: 0d27456332031ab98ba2277117395ae5ffcbb79f
+ms.openlocfilehash: 5fa9c506b2e030adbf521191a623579f56f1ae0f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73047163"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295198"
 ---
-# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Azure Stack でコンテナーを使用するための Kubernetes をデプロイする
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Azure Stack Hub でコンテナーを使用するための Kubernetes をデプロイする
 
 > [!Note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
-この記事の手順に従えば、1 回の連携した操作で Kubernetes のリソースをデプロイおよび設定することができます。 この手順では、Azure Resource Manager ソリューション テンプレートを使用します。 Azure Stack のインストールに関する必要な情報を収集し、テンプレートを生成してから、クラウドにデプロイする必要があります。 Azure Stack テンプレートでは、グローバルな Azure で提供されているのと同じマネージド型の AKS サービスは使用されません。
+この記事の手順に従えば、1 回の連携した操作で Kubernetes のリソースをデプロイおよび設定することができます。 この手順では、Azure Resource Manager ソリューション テンプレートを使用します。 Azure Stack Hub のインストールに関する必要な情報を収集し、テンプレートを生成してから、クラウドにデプロイする必要があります。 Azure Stack Hub テンプレートでは、グローバルな Azure で提供されているのと同じマネージド型の AKS サービスは使用されません。
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes とコンテナー
 
-Azure Stack 上の AKS エンジンによって生成された Azure Resource Manager テンプレートを使用して、Kubernetes をインストールできます。 [Kubernetes](https://kubernetes.io) はコンテナー内でのアプリケーションのデプロイ、スケーリング、管理を自動化するオープンソース システムです。 [コンテナー](https://www.docker.com/what-container)はイメージに含まれます。 コンテナー イメージは仮想マシン (VM) と似ていますが、VM とは違って、コンテナーには、コード、コードを実行するためのランタイム、特定のライブラリ、および設定など、アプリケーションを実行するために必要なリソースのみが含まれています。
+Azure Stack Hub 上の AKS エンジンによって生成された Azure Resource Manager テンプレートを使用して、Kubernetes をインストールできます。 [Kubernetes](https://kubernetes.io) はコンテナー内でのアプリケーションのデプロイ、スケーリング、管理を自動化するオープンソース システムです。 [コンテナー](https://www.docker.com/what-container)はイメージに含まれます。 コンテナー イメージは仮想マシン (VM) と似ていますが、VM とは違って、コンテナーには、コード、コードを実行するためのランタイム、特定のライブラリ、および設定など、アプリケーションを実行するために必要なリソースのみが含まれています。
 
 Kubernetes は、次の目的で使用できます。
 
@@ -41,17 +31,17 @@ Kubernetes は、次の目的で使用できます。
 - アプリケーションの設計を簡素化し、異なる Helm アプリケーションによって信頼性を向上させる。 [Helm](https://github.com/kubernetes/helm) は、Kubernetes アプリケーションのライフサイクルをインストールおよび管理するのに役立つオープン ソースのパッケージ化ツールです。
 - アプリケーションの正常性を簡単に監視および診断する。
 
-クラスターをサポートするノードに必要なコンピューティングの使用量にのみ課金されます。 詳細については、「[Azure Stack での使用量と請求](../operator/azure-stack-billing-and-chargeback.md)」を参照してください。
+クラスターをサポートするノードに必要なコンピューティングの使用量にのみ課金されます。 詳細については、「[Azure Stack Hub での使用量と請求](../operator/azure-stack-billing-and-chargeback.md)」を参照してください。
 
 ## <a name="deploy-kubernetes-to-use-containers"></a>コンテナーを使用するための Kubernetes をデプロイする
 
-Azure Stack で Kubernetes クラスターをデプロイする手順は、ご使用の ID 管理サービスによって異なります。 Azure Stack のインストールで使用される ID 管理ソリューションを確認します。 ご使用の ID 管理サービスを確認するには、Azure Stack 管理者に問い合わせてください。
+Azure Stack Hub で Kubernetes クラスターをデプロイする手順は、ご使用の ID 管理サービスによって異なります。 Azure Stack Hub のインストールで使用される ID 管理ソリューションを確認します。 ご使用の ID 管理サービスを確認するには、Azure Stack Hub 管理者に問い合わせてください。
 
 - **Azure Active Directory (Azure AD)**  
-Azure AD を使用した場合のクラスターのインストール手順については、「[Deploy Kubernetes to Azure Stack using Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md)」 (Azure Active Directory (Azure AD) を使用して Kubernetes を Azure Stack にデプロイする) を参照してください。
+Azure AD を使用した場合のクラスターのインストール手順については、「[Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-azuread.md)」を参照してください。
 
 - **Active Directory フェデレーション サービス (AD FS)**  
-AD FS を使用した場合のクラスターのインストール手順については、「[Deploy Kubernetes to Azure Stack using Active Directory Federated Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md)」 (Active Directory フェデレーション サービス (AD FS) を使用して Kubernetes を Azure Stack にデプロイする) を参照してください。
+AD FS を使用した場合のクラスターのインストール手順については、「[Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-adfs.md)」を参照してください。
 
 ## <a name="connect-to-your-cluster"></a>クラスターへの接続
 
@@ -59,14 +49,14 @@ AD FS を使用した場合のクラスターのインストール手順につ�
 
 クラスターへのアプリのインストールと展開には、**Helm** パッケージ マネージャーも役に立ちます。 クラスターでの Helm のインストールと使用の方法については、[helm.sh](https://helm.sh/) をご覧ください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Kubernetes ダッシュボードの有効化](azure-stack-solution-template-kubernetes-dashboard.md)
 
-[Kubernetes を Marketplace に追加する (Azure Stack のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
+[Kubernetes を Marketplace に追加する (Azure Stack Hub のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)
 
-[Azure Active Directory (Azure AD) を使用して Azure Stack に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-azuread.md)
+[Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-azuread.md)
 
-[Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-adfs.md)
+[Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-adfs.md)
 
 [Azure における Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

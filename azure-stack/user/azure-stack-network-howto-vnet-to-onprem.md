@@ -1,44 +1,40 @@
 ---
-title: Azure Stack の VPN ゲートウェイを設定する | Microsoft Docs
-description: Azure Stack の VPN ゲートウェイを設定する方法について説明します。
-services: azure-stack
+title: Azure Stack Hub の VPN ゲートウェイを設定する
+description: Azure Stack Hub の VPN ゲートウェイを設定する方法について説明します。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 10/03/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 340f9d868c854560019899f9a4d38a484c973f7f
-ms.sourcegitcommit: cc3534e09ad916bb693215d21ac13aed1d8a0dde
+ms.openlocfilehash: be0457eaa1c8c72984e995a690e5d5c6c53f198f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73167297"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660834"
 ---
-# <a name="setup-vpn-gateway-for-azure-stack-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack の VPN ゲートウェイを設定する
+# <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、Azure Stack に VPN 接続を作成する方法について説明します。 VPN ゲートウェイは、Azure Stack の仮想ネットワークとリモート VPN ゲートウェイの間で暗号化されたトラフィックを送信する、仮想ネットワーク ゲートウェイの一種です。 次の手順では、FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、リソース グループ内に 1 つの VNET をデプロイします。 また、FortiGate NVA で IPSec VPN を設定する手順も提供します。
+この記事では、Azure Stack Hub に VPN 接続を作成する方法について説明します。 VPN ゲートウェイは、Azure Stack Hub の仮想ネットワークとリモート VPN ゲートウェイの間で暗号化されたトラフィックを送信する、仮想ネットワーク ゲートウェイの一種です。 次の手順では、FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、リソース グループ内に 1 つの VNET をデプロイします。 また、FortiGate NVA で IPSec VPN を設定する手順も提供します。
 
 ## <a name="prerequisites"></a>前提条件
 
--  Azure Stack 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
+-  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
     > [!Note]  
     > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations)」を参照してください。
 
--  Azure Stack 統合システムをホストするオンプレミス ネットワーク内の VPN デバイスへのアクセス。 デバイスでは、「[デプロイに使用されるパラメーター](#deployment-parameters)」で説明されているパラメーターを満たす IPSec トンネルを作成する必要があります。
+-  Azure Stack Hub 統合システムをホストするオンプレミス ネットワーク内の VPN デバイスへのアクセス。 デバイスでは、「[デプロイに使用されるパラメーター](#deployment-parameters)」で説明されているパラメーターを満たす IPSec トンネルを作成する必要があります。
 
--  Azure Stack Marketplace でネットワーク仮想アプライアンス (NVA) ソリューションが利用できること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
+-  Azure Stack Hub Marketplace でネットワーク仮想アプライアンス (NVA) ソリューションが利用できること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
 
     > [!Note]  
-    > お使いの Azure Stack Marketplace で **Fortinet FortiGate-VM For Azure BYOL** と **FortiGate NGFW - Single VM Deployment (BYOL)** が利用できない場合は、担当のクラウド オペレーターにお問い合わせください。
+    > お使いの Azure Stack Hub Marketplace で **Fortinet FortiGate-VM For Azure BYOL** と **FortiGate NGFW - Single VM Deployment (BYOL)** が利用できない場合は、担当のクラウド オペレーターにお問い合わせください。
 
 -  FortiGate NVA をアクティブにするには、有効な FortiGate ライセンス ファイルが 1 つ以上必要です。 これらのライセンスを取得する方法については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
-    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
+    この手順では、「[単一の FortiGate-VM デプロイ](ttps://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/632940/single-FortiGate-vm-deployment)」を使用します。 FortiGate NVA を Azure Stack Hub VNET に接続する手順については、オンプレミス ネットワーク内で確認できます。
 
     アクティブ/パッシブ (HA) 設定で FortiGate ソリューションをデプロイする方法の詳細については、Fortinet ドキュメント ライブラリの「[Azure 上の FortiGate-VM の HA](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/983245/ha-for-FortiGate-vm-on-azure)」の記事を参照してください。
 
@@ -63,11 +59,11 @@ ms.locfileid: "73167297"
 | パブリック IP アドレスの種類 | 静的 |
 
 > [!Note]
-> \* `172.16.0.0/16` がオンプレミス ネットワークや Azure Stack VIP プールと重複する場合は、異なるアドレス空間とサブネット プレフィックスを選択してください。
+> \* `172.16.0.0/16` がオンプレミス ネットワークや Azure Stack Hub VIP プールと重複する場合は、異なるアドレス空間とサブネット プレフィックスを選択してください。
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>FortiGate NGFW Marketplace 項目をデプロイする
 
-1. Azure Stack ユーザー ポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
@@ -96,13 +92,13 @@ ms.locfileid: "73167297"
 
 5. **[OK]** を選択します。 **[OK]** を選択します。
 
-6. **作成** を選択します。
+6. **［作成］** を選択します
 
     デプロイには約 10 分かかります。
 
 ## <a name="configure-routes-udr-for-the-vnet"></a>VNET のルート (UDR) を構成する
 
-1. Azure Stack ユーザー ポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 
 2. リソース グループを選択します。 フィルターに「`forti1-rg1`」と入力し、forti1-rg1 リソース グループをダブルクリックします。
 
@@ -140,7 +136,7 @@ FortiGate NVA をアクティブにして各 NVA で IPSec VPN 接続を設定�
 
 NVA をアクティブにしたら、NVA で IPSec VPN トンネルを作成します。
 
-1. Azure Stack ユーザー ポータルを開きます。
+1. Azure Stack Hub ユーザー ポータルを開きます。
 
 2. リソース グループを選択します。 フィルターに「`forti1`」と入力し、forti1 リソース グループをダブルクリックします。
 
@@ -245,19 +241,19 @@ FortiGate NVA で、次のようにします。
 
 次のように接続を検証します。
 
-1. Azure Stack の VNET とオンプレミス ネットワーク上のシステムに VM を作成します。 VM の作成手順については、「[クイック スタート:Azure Stack ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」に従ってください。
+1. Azure Stack Hub の VNET とオンプレミス ネットワーク上のシステムに VM を作成します。 VM の作成手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)。
 
-2. Azure Stack の VM を作成し、オンプレミスのシステムを準備する際には、次のことを確認してください。
+2. Azure Stack Hub の VM を作成し、オンプレミスのシステムを準備する際には、次のことを確認してください。
 
--  Azure Stack の VM が 各 VNET の **InsideSubnet** に配置されていること。
+-  Azure Stack Hub の VM が各 VNET の **InsideSubnet** に配置されていること。
 
--  オンプレミスのシステムが、IPSec 構成で定義されている定義済みの IP 範囲内のオンプレミス ネットワークに配置されていること。 また、オンプレミスの VPN デバイスのローカル インターフェイスの IP アドレスが、Azure Stack の VNET ネットワークに到達できるルートとして、オンプレミスのシステムに指定されていることを確認します (例: `172.16.0.0/16`)。
+-  オンプレミスのシステムが、IPSec 構成で定義されている定義済みの IP 範囲内のオンプレミス ネットワークに配置されていること。 また、オンプレミスの VPN デバイスのローカル インターフェイスの IP アドレスが、Azure Stack Hub の VNET ネットワークに到達できるルートとして、オンプレミスのシステムに確実に指定されているようにします (例: `172.16.0.0/16`)。
 
--  Azure Stack の VM の作成時に NSG を適用**しない**こと。 VM をポータルから作成している場合に、既定で追加される NSG を削除する必要がある場合があります。
+-  Azure Stack Hub の VM の作成時に NSG を適用**しない**こと。 VM をポータルから作成している場合に、既定で追加される NSG を削除する必要がある場合があります。
 
--  オンプレミスのシステム OS と Azure Stack の VM OS に、接続のテストに使用する通信を禁止する OS のファイアウォール規則がないこと。 テスト目的の場合は、両方のシステムのオペレーティング システム内でファイアウォールを完全に無効にすることをお勧めします。
+-  オンプレミスのシステム OS と Azure Stack Hub の VM OS に、接続のテストに使用する通信を禁止する OS のファイアウォール規則が確実に含まれていないこと。 テスト目的の場合は、両方のシステムのオペレーティング システム内でファイアウォールを完全に無効にすることをお勧めします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
-[Fortinet FortiGate を使用して Azure Stack にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)  
+[Fortinet FortiGate を使用して Azure Stack Hub にネットワーク ソリューションを提供する](../operator/azure-stack-network-solutions-enable.md)  

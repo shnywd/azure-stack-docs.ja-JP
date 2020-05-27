@@ -1,40 +1,34 @@
 ---
-title: Azure Stack ネットワークの違い | Microsoft Docs
-description: Azure Stack でネットワークを操作する際の違いと考慮事項について説明します。
-services: azure-stack
-keywords: ''
+title: Azure Stack Hub のネットワークの相違点
+description: Azure Stack Hub でネットワークを操作する際の違いと考慮事項について説明します。
 author: mattbriggs
-manager: femila
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2ba1fc76b8b0ead1da543abb467d7a1613a5304c
-ms.sourcegitcommit: ac7d98a2b58442e82798022d69ebfae6616a225f
+ms.openlocfilehash: e1bdb6425848db2c796fed93520da3b5ef982ee3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74239337"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "81274074"
 ---
-# <a name="differences-and-considerations-for-azure-stack-networking"></a>Azure Stack ネットワークの違いと考慮事項
+# <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの違いと考慮事項
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub ネットワークは、Azure ネットワークで提供される機能の多くを備えています。 ただし、Azure Stack Hub ネットワークをデプロイする前に理解しておくべき大きな違いがいくつか存在します。
 
-Azure Stack ネットワークは、Azure ネットワークで提供される機能の多くを備えています。 ただし、Azure Stack ネットワークをデプロイする前に理解しておくべき大きな違いがいくつか存在します。
-
-この記事では、Azure Stack ネットワークとその機能に固有の考慮事項の概要を示します。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
+この記事では、Azure Stack Hub ネットワークとその機能に固有の考慮事項の概要を示します。 Azure Stack Hub と Azure の違いの概要については、「[主な考慮事項](azure-stack-considerations.md)」をご覧ください。
 
 ## <a name="cheat-sheet-networking-differences"></a>チート シート:ネットワークの違い
 
-| Service | 機能 | Azure (グローバル) | Azure Stack |
+| サービス | 機能 | Azure (グローバル) | Azure Stack Hub |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | マルチテナント DNS | サポートされています | まだサポートされていません |
 |  | DNS AAAA レコード | サポートされています | サポートされていません |
 |  | サブスクリプションあたりの DNS ゾーン数 | 100 (既定値)<br>ご希望により増やすことができます。 | 100 |
 |  | ゾーンあたりの DNS レコード セット数 | 5000 (既定値)<br>ご希望により増やすことができます。 | 5000 |
-|  | ゾーンの委任用のネーム サーバー | Azure では、作成されるユーザー (テナント) ゾーンごとに 4 つのネーム サーバーを提供します。 | Azure Stack では、作成されるユーザー (テナント) ゾーンごとに 2 つのネーム サーバーを提供します。 |
+|  | ゾーンの委任用のネーム サーバー | Azure では、作成されるユーザー (テナント) ゾーンごとに 4 つのネーム サーバーを提供します。 | Azure Stack Hub では、作成されるユーザー (テナント) ゾーンごとに 2 つのネーム サーバーを提供します。 |
 | Azure Firewall | ネットワーク セキュリティ サービス | Azure Firewall は、Azure Virtual Network リソースを保護するクラウドベースのマネージド ネットワーク セキュリティ サービスです。 | まだサポートされていません。 |
 | Virtual Network | 仮想ネットワーク ピアリング | 同じリージョンに存在する 2 つの仮想ネットワークを Azure のバックボーン ネットワークを介して接続します。 | まだサポートされていません |
 |  | IPv6 アドレス | [ネットワーク インターフェイス構成](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)の一部として IPv6 アドレスを割り当てることができます。 | IPv4 のみがサポートされています。 |
@@ -44,23 +38,24 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | サービス エンドポイント | Azure サービスへの内部接続 (インターネット以外) でサポートされています。 | まだサポートされていません。 |
 |  | サービス エンドポイント ポリシー | サポートされています | まだサポートされていません。 |
 |  | サービス トンネル | サポートされています | まだサポートされていません。  |
-| ネットワーク セキュリティ グループ | 拡張セキュリティ規則 | サポートされています | まだサポートされていません。 |
+| ネットワーク セキュリティ グループ | 拡張セキュリティ規則 | サポートされています | サポートされています。 |
 |  | 有効なセキュリティ規則 | サポートされています | まだサポートされていません。 |
 |  | アプリケーション セキュリティ グループ | サポートされています | まだサポートされていません。 |
+|  | 規則のプロトコル | TCP、UDP、ICMP、Any | TCP、UDP または Any のみ |
 | 仮想ネットワーク ゲートウェイ | ポイント対サイト VPN ゲートウェイ | サポートされています | まだサポートされていません。 |
 |  | VNet 間ゲートウェイ | サポートされています | まだサポートされていません。 |
-|  | 仮想ネットワーク ゲートウェイの種類 | Azure では、以下がサポートされています: VPN<br> ExpressRoute <br> ハイパー ネット。 | Azure Stack では現在、VPN の種類のみがサポートされています。 |
+|  | 仮想ネットワーク ゲートウェイの種類 | Azure では、以下がサポートされています: VPN<br> ExpressRoute <br> ハイパー ネット。 | Azure Stack Hub では現在、VPN の種類のみがサポートされています。 |
 |  | VPN ゲートウェイの SKU | Basic、GW1、GW2、GW3、Standard High Performance、Ultra-High Performance をサポートします。 | Basic、Standard、および High-Performance の SKU をサポートします。 |
-|  | VPN の種類 | Azure では、ポリシー ベースとルート ベースの両方がサポートされています。 | Azure Stack では、ルート ベースのみがサポートされています。 |
-|  | BGP 設定 | Azure では、BGP ピアリング アドレスとピアの重みの構成がサポートされています。 | BGP ピアリング アドレスとピアの重みは、Azure Stack で自動構成されます。 ユーザーがこれらの設定を独自の値で構成する方法はありません。 |
+|  | VPN の種類 | Azure では、ポリシー ベースとルート ベースの両方がサポートされています。 | Azure Stack Hub では、ルート ベースのみがサポートされています。 |
+|  | BGP 設定 | Azure では、BGP ピアリング アドレスとピアの重みの構成がサポートされています。 | BGP ピアリング アドレスとピアの重みは、Azure Stack Hub で自動構成されます。 ユーザーがこれらの設定を独自の値で構成する方法はありません。 |
 |  | 既定のゲートウェイ サイト | Azure では、強制トンネリングの既定のサイトの構成がサポートされています。 | まだサポートされていません。 |
 |  | ゲートウェイのサイズ変更 | Azure では、デプロイ後のゲートウェイのサイズ変更がサポートされています。 | サイズ変更はサポートされていません。 |
 |  | 高可用性構成 | アクティブ/アクティブ | アクティブ/パッシブ |
 |  | UsePolicyBasedTrafficSelectors | Azure では、ルート ベースのゲートウェイ接続によるポリシー ベースのトラフィック セレクターの使用がサポートされています。 | まだサポートされていません。 |
 | Load Balancer | SKU | Basic Load Balancer と Standard Load Balancer がサポートされています | Basic Load Balancer のみがサポートされています。<br>SKU のプロパティはサポートされていません。<br>Basic SKU ロード バランサーの /path/ には、5 つを超えるフロントエンド IP 構成を含めることはできません。  |
 |  | ゾーン | Availability Zones がサポートされています。 | まだサポートされていません |
-|  | サービス エンドポイントの受信 NAT ルール サポート | Azure では、受信 NAT 規則のサービス エンドポイントの指定がサポートされています。 | Azure Stack でサービス エンドポイントはまだサポートされていないため、指定できません。 |
-|  | Protocol | Azure では、GRE または ESP の指定がサポートされています。 | Azure Stack では、プロトコル クラスはサポートされていません。 |
+|  | サービス エンドポイントの受信 NAT ルール サポート | Azure では、受信 NAT 規則のサービス エンドポイントの指定がサポートされています。 | Azure Stack Hub でサービス エンドポイントはまだサポートされていないため、指定できません。 |
+|  | Protocol | Azure では、GRE または ESP の指定がサポートされています。 | Azure Stack Hub では、プロトコル クラスはサポートされていません。 |
 | パブリック IP アドレス | パブリック IP アドレスのバージョン | Azure では、IPv6 と IPv4 の両方がサポートされています。 | IPv4 のみがサポートされています。 |
 | | SKU | Azure では、Basic と Standard がサポートされています。 | Basic のみがサポートされています。 |
 | ネットワーク インターフェイス | 有効なルート テーブルの取得 | サポートされています | まだサポートされていません。 |
@@ -70,16 +65,16 @@ Azure Stack ネットワークは、Azure ネットワークで提供される�
 |  | アプリケーション セキュリティ グループ | サポートされています | まだサポートされていません。 |
 |  | 内部 DNS 名ラベル | サポートされています | まだサポートされていません。 |
 |  | プライベート IP アドレス バージョン | IPv6 と IPv4 の両方がサポートされています。 | IPv4 のみがサポートされています。 |
-|  | 静的 MAC アドレス | サポートされていません | サポートされていません。 各 Azure Stack システムでは、同じ MAC アドレス プールを使用します。 |
+|  | 静的 MAC アドレス | サポートされていません | サポートされていません。 各 Azure Stack Hub システムでは、同じ MAC アドレス プールを使用します。 |
 | Network Watcher | Network Watcher テナント ネットワーク監視機能 | サポートされています | まだサポートされていません。 |
 | CDN | Content Delivery Network のプロファイル | サポートされています | まだサポートされていません。 |
 | Application gateway | レイヤー 7 の負荷分散 | サポートされています | まだサポートされていません。 |
 | Traffic Manager | アプリケーションのパフォーマンスと信頼性を最適にするように着信トラフィックをルーティングします。 | サポートされています | まだサポートされていません。 |
-| ExpressRoute | オンプレミス インフラストラクチャや共用施設から Microsoft クラウド サービスに高速なプライベート接続を設定します。 | サポートされています | Express Route 回線への Azure Stack の接続をサポートします。 |
+| ExpressRoute | オンプレミス インフラストラクチャや共用施設から Microsoft クラウド サービスに高速なプライベート接続を設定します。 | サポートされています | Express Route 回線への Azure Stack Hub の接続をサポートします。 |
 
 ## <a name="api-versions"></a>API のバージョン 
 
-Azure Stack ネットワークでは、次の API バージョンがサポートされます。 
+Azure Stack Hub ネットワークでは、次の API バージョンがサポートされます。 
 
 - 2018-11-01
 - 2018-10-01
@@ -94,6 +89,6 @@ Azure Stack ネットワークでは、次の API バージョンがサポート
 - 2017-11-01
 - 2017-10-01
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack の DNS](azure-stack-dns.md)
+[Azure Stack Hub の DNS](azure-stack-dns.md)

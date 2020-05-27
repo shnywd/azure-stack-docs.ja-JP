@@ -1,31 +1,22 @@
 ---
-title: Azure Stack ユーザー サブスクリプションの課金の所有者を変更する | Microsoft Docs
-description: Azure Stack ユーザー サブスクリプションの課金の所有者を変更する方法について学習します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する
+description: Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する方法について学習します。
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 3c4453974092fd1873e5f77b1074c82851fc1be1
-ms.sourcegitcommit: c196463492732218d2474d3a964f88e995272c80
+ms.lastreviewed: 10/19/2019
+ms.openlocfilehash: b02795cf0058a9d63947c6143b0721c544ff9811
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71094365"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77701583"
 ---
-# <a name="change-the-billing-owner-for-an-azure-stack-user-subscription"></a>Azure Stack ユーザー サブスクリプションの課金の所有者を変更する
+# <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する
 
-Azure Stack オペレーターは、PowerShell を使用して、ユーザー サブスクリプションの課金の所有者を変更することができます。 所有者を変更する理由の 1 つに、組織を離れるユーザーの後任を指定することなどがあります。
+Azure Stack Hub オペレーターは、PowerShell を使用して、ユーザー サブスクリプションの課金の所有者を変更することができます。 所有者を変更する理由の 1 つに、組織を離れるユーザーの後任を指定することなどがあります。
 
 サブスクリプションに割り当てられる "*所有者*" には、次の 2 種類があります。
 
@@ -39,10 +30,10 @@ Azure Stack オペレーターは、PowerShell を使用して、ユーザー �
 
 ## <a name="change-the-billing-owner"></a>課金の所有者の変更
 
-ユーザー サブスクリプションの課金の所有者を変更するには、次のスクリプトを実行します。 スクリプトを実行するために使用するコンピューターでは、Azure Stack に接続し、Azure Stack PowerShell モジュール 1.3.0 以降を実行する必要があります。 詳細については、[Azure Stack PowerShell のインストール](azure-stack-powershell-install.md)に関するページを参照してください。
+ユーザー サブスクリプションの課金の所有者を変更するには、次のスクリプトを実行します。 スクリプトを実行するために使用するコンピューターでは、Azure Stack Hub に接続し、Azure Stack Hub PowerShell モジュール 1.3.0 以降を実行する必要があります。 詳細については、[Azure Stack Hub PowerShell のインストール](azure-stack-powershell-install.md)に関するページを参照してください。
 
 >[!NOTE]
->マルチテナント Azure Stack では、新しい所有者を既存の所有者と同じディレクトリに配置する必要があります。 別のディレクトリに配置されているユーザーにサブスクリプションの所有権を与えるには、最初に[そのユーザーをゲストとして自分のディレクトリに招待する](/azure/active-directory/b2b/add-users-administrator)必要があります。
+>マルチテナントの Azure Stack Hub では、新しい所有者を既存の所有者と同じディレクトリに配置する必要があります。 別のディレクトリに配置されているユーザーにサブスクリプションの所有権を与えるには、最初に[そのユーザーをゲストとして自分のディレクトリに招待する](/azure/active-directory/b2b/add-users-administrator)必要があります。
 
 スクリプトを実行する前に、次の値を置き換えてください。
 
@@ -52,7 +43,7 @@ Azure Stack オペレーターは、PowerShell を使用して、ユーザー �
 - **$OwnerUpn**: **user\@example.com** など、新しい課金の所有者として追加するアカウント。
 
 ```powershell
-# Set up Azure Stack admin environment
+# Set up Azure Stack Hub admin environment
 Add-AzureRmEnvironment -ARMEndpoint $ArmEndpoint -Name AzureStack-admin
 Add-AzureRmAccount -Environment AzureStack-admin -TenantId $TenantId
 
@@ -69,6 +60,6 @@ Set-AzsUserSubscription -InputObject $subscription
 
 [!include[Remove Account](../../includes/remove-account.md)]
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [ロールベースのアクセス制御の管理](azure-stack-manage-permissions.md)

@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure Stack Hub のパートナー向けドキュメント
 metadata:
   title: Azure Stack Hub のパートナー向けドキュメント - チュートリアル、API リファレンス
-  description: Azure Stack をホストするためにハードウェアを検証する方法について説明します。 サービスとしての検証とは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
+  description: Azure Stack Hub をホストするためにハードウェアを検証する方法について説明します。 サービスとしての検証とは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
   services: azure-stack
   author: mattbriggs
   manager: femila
@@ -15,7 +15,7 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: johnhas
 abstract:
-  description: サービスとしての検証を使用して、Azure Stack での使用についてハードウェアを検証できます。 このサービスは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
+  description: サービスとしての検証を使用して、Azure Stack Hub での使用についてハードウェアを検証できます。 このサービスは、Microsoft と共同で Azure Stack Hub のサービスを開発しているソリューション パートナーが使用できるように設計されたネイティブの Azure サービスです。
 sections:
   - title: 5 分間のクイック スタート
     items:

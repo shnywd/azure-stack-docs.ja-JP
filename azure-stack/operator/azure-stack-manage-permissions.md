@@ -1,32 +1,22 @@
 ---
-title: ロールベースのアクセス制御を使用してアクセス許可を設定する |Microsoft Docs
-description: Azure Stack 上で、ロールベースのアクセス制御 (RBAC) を使用してアクセス許可を設定する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: ロールベースのアクセス制御を使用してアクセス許可を設定する
+description: Azure Stack Hub で、ロールベースのアクセス制御 (RBAC) を使用してアクセス許可を設定する方法について説明します。
 author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: ae5b167ca807fc1e28c13c553e13ea89c7e6fe49
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.openlocfilehash: f74f35a8b1124ed9678e6b4bc254d4d2cd05a84e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492785"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77699271"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>ロールベースのアクセス制御を使用してアクセス許可を設定する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack のユーザーは、サブスクリプション、リソース グループ、またはサービスの各インスタンスの閲覧者、所有者、または共同作業者になることができます。 たとえば、ユーザー A にはサブスクリプション 1 に対する閲覧者アクセス許可と、仮想マシン 7 に対する所有者アクセス許可がある可能性があります。
+Azure Stack Hub のユーザーは、サブスクリプション、リソース グループ、またはサービスの各インスタンスの閲覧者、所有者、または共同作成者になることができます。 たとえば、ユーザー A にはサブスクリプション 1 に対する閲覧者アクセス許可と、仮想マシン 7 に対する所有者アクセス許可がある可能性があります。
 
  - 閲覧者: ユーザーはすべてを閲覧できますが、変更を加えることはできません。
  - 共同作成者: ユーザーはリソースへのアクセス以外のすべてを管理できます。
@@ -54,4 +44,4 @@ Azure Stack のユーザーは、サブスクリプション、リソース グ�
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack テナントの追加](azure-stack-add-new-user-aad.md)
+[Azure Stack Hub テナントの追加](azure-stack-add-new-user-aad.md)

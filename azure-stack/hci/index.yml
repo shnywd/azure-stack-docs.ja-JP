@@ -1,0 +1,57 @@
+### YamlMime:Landing
+title: Azure Stack HCI のドキュメント
+summary: Azure Stack HCI は、仮想化されたワークロードをオンプレミスで実行するために検証済みのハードウェアを使用するハイパー集約型の Windows Server 2019 クラスターであり、ユーザーが古くなったインフラストラクチャを統合し、クラウド サービスのために Azure に接続することが簡単にできるようにします。
+metadata:
+  title: Azure Stack HCI のドキュメント
+  description: Azure Stack HCI は、検証済みのハードウェアを使用して、仮想化されたワークロードをオンプレミスで実行するハイパーコンバージド Windows Server 2019 クラスターです。
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: v-kedow
+  ms.date: 04/17/2020
+  ms.openlocfilehash: f277947b8de05c0a038c01bf9ab994510aa95b4f
+  ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+  ms.translationtype: HT
+  ms.contentlocale: ja-JP
+  ms.lasthandoff: 04/17/2020
+  ms.locfileid: "81624960"
+landingContent:
+- title: Azure Stack HCI について
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Stack HCI とは
+      url: overview.md
+  - linkListType: get-started
+    links:
+    - text: Windows Admin Center で Azure Stack HCI を使用する
+      url: get-started.md
+- title: Azure Stack HCI の管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: ボリュームの作成
+      url: manage/create-volumes.md
+    - text: ボリュームの拡張
+      url: manage/extend-volumes.md
+    - text: ボリュームを削除する
+      url: manage/delete-volumes.md
+    - text: ドライブの交換
+      url: manage/replace-drives.md
+    - text: Azure Monitor による監視
+      url: manage/azure-monitor.md
+    - text: Linux VM への GPU のアタッチ
+      url: manage/attach-gpu-to-linux-vm.md
+- title: Azure Stack HCI の概念
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: ドライブの選択
+      url: concepts/choose-drives.md
+    - text: ボリュームの計画
+      url: concepts/plan-volumes.md
+    - text: キャッシュの理解
+      url: concepts/cache.md
+    - text: フォールト トレランスとストレージの効率性
+      url: concepts/fault-tolerance.md
+    - text: クラスターと記憶域プールのクォーラム
+      url: concepts/quorum.md

@@ -1,22 +1,20 @@
 ---
-title: Azure Stack に Linux VM をデプロイする | Microsoft Docs
-description: Azure Stack にアプリをデプロイします。
-services: azure-stack
+title: Azure Stack Hub に Linux VM をデプロイする
+description: Azure Stack Hub にアプリをデプロイします。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: overview
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: d1fae6caf6ac37f29382f4d24ce0d8b2299aa1d7
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: 63fffbf1a9dcc5048286f93b18b20eb72174b8cd
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824823"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "77704201"
 ---
-# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>Web アプリをホストする Linux VM を Azure Stack にデプロイする
+# <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする
 
 Web フレームワークを使って作成した Web アプリをホストする基本的な Linux 仮想マシン (VM) を、Azure Marketplace にある Ubuntu イメージを利用して作成し、デプロイできます。 
 
@@ -27,17 +25,17 @@ Web フレームワークを使って作成した Web アプリをホストす�
 - **Ruby**: Ruby Web アプリを配信するためのフレームワークとして Ruby on Rails を設定します。 
 - **Java**: Java を使用して、Apache Tomcat サーバーにポストする Web アプリを開発します。 Tomcat を Linux にインストールした後、サーバーに直接 Java WAR ファイルをデプロイできます。 
 
-Linux OS を使用する任意の Web アプリ、フレームワーク、およびバックエンド テクノロジを稼働させるには、この記事の手順を使用してください。 その後、Azure Stack を使用して、お使いのインフラストラクチャを管理したり、お使いのテクノロジ内の管理ツールを使用してアプリのメンテナンス タスクを処理したりできます。
+Linux OS を使用する任意の Web アプリ、フレームワーク、およびバックエンド テクノロジを稼働させるには、この記事の手順を使用してください。 その後、Azure Stack Hub を使用して、お使いのインフラストラクチャを管理したり、お使いのテクノロジ内の管理ツールを使用してアプリのメンテナンス タスクを処理したりできます。
 
 ## <a name="deploy-a-linux-vm-for-a-web-app"></a>Web アプリ用の Linux VM をデプロイする
 
-このプロセスでは、秘密鍵の作成、Linux VM の基本イメージの使用、VM の特定の属性の指定を行った後に、VM を作成します。 VM を作成した後、VM の操作や VM でのアプリのホストに必要なポートを開きます。 次に、DNS 名を作成します。 最後に、VM に接続し、apt-get ユーティリティを使用してマシンを更新します。 このプロセスを完了すると、Web アプリをホストする状態が整った VM が Azure Stack インスタンス内に用意されます。
+このプロセスでは、秘密鍵の作成、Linux VM の基本イメージの使用、VM の特定の属性の指定を行った後に、VM を作成します。 VM を作成した後、VM の操作や VM でのアプリのホストに必要なポートを開きます。 次に、DNS 名を作成します。 最後に、VM に接続し、apt-get ユーティリティを使用してマシンを更新します。 このプロセスを完了すると、Web アプリをホストする状態が整った VM が Azure Stack Hub インスタンス内に用意されます。
 
 始める前に、必要なものがすべて揃っていることを確認してください。
 
 ## <a name="prerequisites"></a>前提条件
 
-- Ubuntu Server 16.04 LTS イメージにアクセスできる Azure Stack サブスクリプション。 それよりも新しいバージョンのイメージを使用できますが、これらの手順は 16.04 LTS を念頭に置いて書かれています。 このイメージをお持ちでない場合は、このイメージが Azure Stack マーケットプレースに表示されるようお客様のクラウド オペレーターにお問い合わせください。
+- Ubuntu Server 16.04 LTS イメージにアクセスできる Azure Stack Hub サブスクリプション。 それよりも新しいバージョンのイメージを使用できますが、これらの手順は 16.04 LTS を念頭に置いて書かれています。 このイメージをお持ちでない場合は、このイメージが Azure Stack Hub Marketplace に表示されるようお客様のクラウド オペレーターにお問い合わせください。
 
 ## <a name="deploy-the-vm-by-using-the-portal"></a>ポータルを使用して VM をデプロイする
 
@@ -46,13 +44,13 @@ VM をデプロイするには、以降のいくつかのセクションの手�
 ### <a name="create-your-vm"></a>VM の作成
 
 1. お使いのサーバー用の Secure Shell (SSH) 公開キーを作成します。 詳細については、「[SSH 公開キーの使用方法](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
-1. Azure Stack ポータルで、 **[リソースの作成]**  >  **[Compute]**  >  **[Ubuntu Server 16.04 LTS]** の順に選択します。
+1. Azure Stack Hub ポータルで、 **[リソースの作成]**  >  **[Compute]**  >  **[Ubuntu Server 16.04 LTS]** の順に選択します。
 
-    ![Web アプリを Azure Stack VM にデプロイする](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Web アプリを Azure Stack Hub VM にデプロイする](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
 
 4. **[仮想マシンの作成]** ウィンドウの **[1.基本設定の構成]** で以下を実行します。
 
-    a. **お使いの VM の名前**を入力します。
+    a. **使用する VM の名前**を入力します。
 
     b. **[VM ディスクの種類]** で **[Premium SSD]** (Premium ディスク [SSD] の場合) または **[Standard HDD]** (Standard ディスク [HDD] の場合) を選択します。
 
@@ -69,13 +67,13 @@ VM をデプロイするには、以降のいくつかのセクションの手�
     ---- END SSH2 PUBLIC KEY ----
     ```
 
-    f. Azure Stack インスタンスのサブスクリプションを選択します。
+    f. Azure Stack Hub インスタンスのサブスクリプションを選択します。
 
     g. アプリのリソースをどのように整理するかに応じて、新しいリソース グループを作成するか、既存のリソース グループを使用します。
 
-    h. 場所を選択します。 Azure Stack Development Kit (ASDK) は、通常、"*ローカル*" リージョンにあります。 場所は、Azure Stack インスタンスによって決まります。
+    h. 場所を選択します。 Azure Stack Development Kit (ASDK) は、通常、"*ローカル*" リージョンにあります。 場所は、Azure Stack Hub インスタンスによって決まります。
 1. **[2. サイズ]** で、次のように入力します。
-    - Azure Stack インスタンスで使用できる VM のデータと RAM のサイズを選択します。
+    - Azure Stack Hub インスタンスで使用できる VM のデータと RAM のサイズを選択します。
     - 一覧を参照するか、**コンピューティングの種類**、**CPU**、および**記憶域スペース**に基づいて VM のサイズをフィルター処理できます。
     
     > [!NOTE]
@@ -85,7 +83,7 @@ VM をデプロイするには、以降のいくつかのセクションの手�
 
 1. **[3. オプション機能の構成]** で、次のように入力します。
 
-    a. **[高可用性]** で、可用性セットを選択します。 アプリケーションに冗長性を持たせるには、複数の仮想マシンを可用性セットにグループ化します。 この構成により、計画または計画外メンテナンス イベントの間に、1 つ以上の仮想マシンが使用可能になり、99.95% の Azure サービスレベル アグリーメント (SLA) が満たされます。 仮想マシンの可用性セットは、作成後に変更できません。
+    a. **[高可用性]** で、可用性セットを選択します。 アプリケーションに冗長性を持たせるには、複数の仮想マシンを可用性セットにグループ化します。 この構成により、計画または計画外メンテナンス イベントの間に、少なくとも 1 台の仮想マシンが使用可能になり、99.95% の Azure サービスレベル アグリーメント (SLA) が満たされます。 仮想マシンの可用性セットは、作成後に変更できません。
 
     b. **[ストレージ]** で、 **[Premium ディスク (SSD)]** または **[Standard ディスク (HDD)]** を選択します。 Premium ディスク (SSD) の実体はソリッドステート ドライブであり、待ち時間の短い一貫したパフォーマンスが得られます。 価格とパフォーマンスのバランスが最良であり、I/O 集約型アプリケーションや運用環境のワークロードに適しています。 Standard ディスクは、磁気ドライブを基盤としており、データへのアクセス頻度が低いアプリケーションに適しています。 ゾーン冗長ディスクは、データを複数のゾーンをまたいでレプリケートし、1 つのゾーンがダウンしてもデータを利用可能なゾーン冗長ストレージ (ZRS) を基盤としています。 
 
@@ -123,7 +121,7 @@ VM をデプロイするには、以降のいくつかのセクションの手�
 
 RDP や SSH などの事前定義されたサービスの宛先プロトコルとポート範囲を変更することも、カスタム ポート範囲を指定することもできます。 たとえば、お使いの Web フレームワークのポート範囲を操作できます。 たとえば、GO は、ポート 3000 で通信します。
 
-1. ご自分のテナントの Azure Stack ポータルを開きます。
+1. ご自分のテナントの Azure Stack Hub ポータルを開きます。
 
 1. ご自分の VM を検索します。 ダッシュボードに VM をピン留めしている場合があります。また、 **[リソースの検索]** ボックスで検索することもできます。
 
@@ -151,7 +149,7 @@ RDP や SSH などの事前定義されたサービスの宛先プロトコル�
 
 さらに、サーバーの DNS 名を作成して、ユーザーが URL を使用して Web サイトに接続できるようにすることもできます。
 
-1. ご自分のテナントの Azure Stack ポータルを開きます。
+1. ご自分のテナントの Azure Stack Hub ポータルを開きます。
 
 1. ご自分の VM を検索します。 ダッシュボードに VM をピン留めしている場合があります。また、 **[リソースの検索]** ボックスで検索することもできます。
 
@@ -165,7 +163,7 @@ RDP や SSH などの事前定義されたサービスの宛先プロトコル�
 
 ### <a name="connect-via-ssh-to-update-your-vm"></a>SSH 経由で接続して VM を更新する
 
-1. お使いの Azure Stack インスタンスと同じネットワークで、SSH クライアントを開きます。 詳細については、「[SSH 公開キーの使用方法](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
+1. お使いの Azure Stack Hub インスタンスと同じネットワークで、SSH クライアントを開きます。 詳細については、「[SSH 公開キーの使用方法](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 
 1. 次のコマンドを入力します。
 
@@ -174,6 +172,6 @@ RDP や SSH などの事前定義されたサービスの宛先プロトコル�
         sudo apt-get -y upgrade
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack 内で開発環境を設定する](azure-stack-dev-start.md)方法について学習する。
+[Azure Stack Hub 内で開発環境を設定する](azure-stack-dev-start.md)方法について学習する。

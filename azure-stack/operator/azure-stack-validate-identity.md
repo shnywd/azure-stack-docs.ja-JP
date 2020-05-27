@@ -1,42 +1,34 @@
 ---
-title: Azure Stack の Azure ID を検証する | Microsoft Docs
-description: Azure Stack 適合性チェッカーを使用して、Azure ID を検証します。
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: patricka
+title: Azure ID を検証する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 適合性チェッカーを使用して、Azure ID を検証します。
+author: BryanLa
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 9f455d6614917c0365b2143f0523ff2a44b3c05d
-ms.sourcegitcommit: fdeb2760845c9760ea7df1414b8e140b0624a823
+ms.openlocfilehash: 0852c977494dcd91545b1ea13430811b83eeeddb
+ms.sourcegitcommit: d930d52e27073829b8bf8ac2d581ec2accfa37e3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67334413"
+ms.lasthandoff: 04/27/2020
+ms.locfileid: "82173833"
 ---
 # <a name="validate-azure-identity"></a>Azure ID の検証
 
-Azure Stack 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure Active Directory (Azure AD) を Azure Stack で使用する準備が整っていることを検証します。 Azure Stack のデプロイを開始する前に、Azure ID ソリューションを検証します。  
+Azure Stack Hub 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure Active Directory (Azure AD) を Azure Stack Hub で使用する準備が整っていることを検証します。 Azure Stack Hub のデプロイを開始する前に、Azure ID ソリューションを検証します。  
 
 適合性チェッカーは以下を検証します。
 
-- Azure Stack の ID プロバイダーとしての Azure Active Directory (Azure AD)。
-- 使用予定の Azure AD アカウントに、Azure Active Directory のグローバル管理者としてサインインできること。
+- Azure Stack Hub の ID プロバイダーとしての Azure AD。
+- 使用予定の Azure AD アカウントで、Azure AD のグローバル管理者としてサインインできます。
 
-Azure Stack のユーザー、アプリケーション、グループ、およびサービス プリンシパルに関する情報を Azure AD に格納する準備が、お使いの環境に整っていることを検証によって確認できます。
+Azure Stack Hub のユーザー、アプリケーション、グループ、およびサービス プリンシパルに関する情報を Azure AD に格納する準備が、お使いの環境に整っていることを検証によって確保することができます。
 
 ## <a name="get-the-readiness-checker-tool"></a>適合性チェッカー ツールを取得する
 
-最新バージョンの Azure Stack 適合性チェッカー ツール (AzsReadinessChecker) を [PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)からダウンロードします。  
+最新バージョンの Azure Stack Hub 適合性チェッカー ツール (AzsReadinessChecker) を [PowerShell ギャラリー](https://aka.ms/AzsReadinessChecker)からダウンロードします。  
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -46,18 +38,16 @@ Azure Stack のユーザー、アプリケーション、グループ、およ�
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
 - PowerShell 5.1 以降。 お使いのバージョンを確認するには、次の PowerShell コマンドを実行し、"**メジャー**" バージョンと "**マイナー**" バージョンを確かめます。  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
+- [Azure Stack Hub 用に構成された PowerShell](azure-stack-powershell-install.md)。
+- 最新バージョンの [Microsoft Azure Stack Hub 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。
 
-- [Azure Stack 用に構成された PowerShell](azure-stack-powershell-install.md)。
-- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。
+**Azure AD 環境:**
 
-**Azure Active Directory の環境:**
-
-- Azure Stack に使用する Azure AD アカウントを特定し、それが Azure Active Directory グローバル管理者であることを確認します。
-- Azure AD テナントの名前を特定します。 テナント名は、Azure Active Directory のプライマリ ドメイン名 (**contoso.onmicrosoft.com** など) である必要があります。
+- Azure Stack Hub に使用する Azure AD アカウントを特定し、それが確実に Azure AD グローバル管理者であるようにします。
+- Azure AD テナントの名前を特定します。 テナント名は、Azure AD のプライマリ ドメイン名である必要があります (例: **contoso.onmicrosoft.com**)。
 - 使用する Azure 環境を特定します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** です。使用している Azure サブスクリプションに応じて異なります。
 
 ## <a name="steps-to-validate-azure-identity"></a>Azure ID を検証する手順
@@ -68,7 +58,7 @@ Azure Stack のユーザー、アプリケーション、グループ、およ�
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force
    ```
 
-2. PowerShell コマンド プロンプトから次を実行して、 **$serviceAdminCredential** を、お使いの Azure AD テナントのサービス管理者として設定します。  **serviceadmin\@contoso.onmicrosoft.com** をお使いのアカウントとテナント名に置き換えます。
+2. PowerShell コマンド プロンプトから次を実行して、`$serviceAdminCredential` を、お使いの Azure AD テナントのサービス管理者として設定します。  `serviceadmin\@contoso.onmicrosoft.com` を、お使いのアカウントとテナント名に置き換えます。
 
    ```powershell
    $serviceAdminCredential = Get-Credential serviceadmin@contoso.onmicrosoft.com -Message "Enter credentials for service administrator of Azure Active Directory tenant"
@@ -77,7 +67,7 @@ Azure Stack のユーザー、アプリケーション、グループ、およ�
 3. PowerShell プロンプトから次のコマンドを実行して、Azure AD の検証を開始します。
 
    - **AzureEnvironment** の環境名の値を指定します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** です。使用している Azure サブスクリプションに応じて異なります。
-   - Azure Active Directory のテナント名で **contoso.onmicrosoft.com** を置き換えます。
+   - `contoso.onmicrosoft.com` を Azure AD テナント名に置き換えます。
 
    ```powershell
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com
@@ -102,14 +92,14 @@ Azure Stack のユーザー、アプリケーション、グループ、およ�
 
 検証を実行するたびに、結果のログが **AzsReadinessChecker.log** と **AzsReadinessCheckerReport.json** に出力されます。 これらのファイルの場所は、PowerShell に検証結果と共に表示されます。
 
-これらのファイルは、Azure Stack をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
+これらのファイルは、Azure Stack Hub をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
 
-既定では、両方のファイルが **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
+既定では、両方のファイルが `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
-- 別のレポートの場所を指定するには、実行コマンド ラインの末尾で **-OutputPath** ***&lt;パス&gt;*** パラメーターを使用します。
-- ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンドの末尾に **-CleanReport** パラメーターを使用します。
+- 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
+- ツールの以前の実行に関する情報を `-CleanReport`AzsReadinessCheckerReport.json**からクリアするには、実行コマンド ラインの末尾に** パラメーターを使用します。
 
-詳細については、「[Azure Stack 検証レポート](azure-stack-validation-report.md)」を参照してください。
+詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
 ## <a name="validation-failures"></a>検証エラー
 
@@ -135,7 +125,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**原因** - パスワードの有効期限が切れているか、一時パスワードであるため、アカウントがサインインできません。
+**原因** - パスワードの有効期限が切れているか一時パスワードであるため、アカウントでサインインできません。
 
 **解決策** - PowerShell で次のコマンドを実行し、プロンプトに従ってパスワードをリセットします。
 
@@ -143,7 +133,7 @@ Invoke-AzsAzureIdentityValidation Completed
 Login-AzureRMAccount
 ```
 
-または、[Azure portal](https://portal.azure.com) にアカウント オーナーとしてサインインします。この場合、ユーザーはパスワードの変更を強制されます。
+別の方法として、[Azure portal](https://portal.azure.com) にアカウント所有者としてサインインすることがあります。この場合、ユーザーはパスワードの変更を強制されます。
 
 ### <a name="unknown-user-type"></a>ユーザーの種類が不明 
  
@@ -163,7 +153,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**原因** - 指定した Azure Active Directory (**AADDirectoryTenantName**) にアカウントがサインインできません。 この例では、**AzureChinaCloud** が **AzureEnvironment** として指定されています。
+**原因** - 指定した Azure AD (**AADDirectoryTenantName**) にアカウントでサインインできません。 この例では、**AzureChinaCloud** が **AzureEnvironment** として指定されています。
 
 **解決策** - 指定した Azure 環境に対してアカウントが有効であることを確認します。 PowerShell で次のコマンドを実行して、特定の環境に対してアカウントが有効であることを確認します。
 
@@ -189,14 +179,14 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsAzureIdentityValidation Completed
 ```
 
-**原因** - アカウントは正常にサインインできますが、そのアカウントが Azure Active Directory (**AADDirectoryTenantName**) の管理者ではありません。  
+**原因** - アカウントで正常にサインインできますが、そのアカウントは Azure AD (**AADDirectoryTenantName**) の管理者ではありません。  
 
-**解決策** - [Azure portal](https://portal.azure.com) にアカウント オーナーとしてサインインし、 **[Azure Active Directory]** 、 **[ユーザー]** 、 **[ユーザーの選択]** 、 **[ディレクトリ ロール]** に移動して、ユーザーが**グローバル管理者**であることを確認します。 アカウントが**ユーザー**である場合は、 **[Azure Active Directory]**  >  **[カスタム ドメイン]** の名前に移動し、**AADDirectoryTenantName** に対して指定した名前が、このディレクトリのプライマリ ドメイン名としてマークされていることを確認します。 この例では、**contoso.onmicrosoft.com** です。
+**解決策** - [Azure portal](https://portal.azure.com) にアカウント所有者としてサインインし、 **[Azure Active Directory]** 、 **[ユーザー]** 、 **[ユーザーの選択]** の順に移動します。 次に、 **[ディレクトリ ロール]** を選択して、ユーザーが**グローバル管理者**であることを確認します。 アカウントが**ユーザー**である場合は、 **[Azure Active Directory]**  >  **[カスタム ドメイン名]** に移動し、**AADDirectoryTenantName** に対して指定した名前が、このディレクトリのプライマリ ドメイン名としてマークされていることを確認します。 この例では、**contoso.onmicrosoft.com** です。
 
-Azure Stack では、ドメイン名がプライマリ ドメイン名である必要があります。
+Azure Stack Hub では、ドメイン名がプライマリ ドメイン名である必要があります。
 
 ## <a name="next-steps"></a>次の手順
 
 [Azure の登録を検証する](azure-stack-validate-registration.md)  
 [対応状況レポートを表示する](azure-stack-validation-report.md)  
-[Azure Stack の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)  
+[Azure Stack Hub の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)  

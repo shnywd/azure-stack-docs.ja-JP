@@ -1,28 +1,18 @@
 ---
-title: ASDK の再デプロイ | Microsoft Docs
+title: ASDK の再デプロイ
 description: Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.custom: ''
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 5ff77bbe915a506803a1c06f68579c199439ea73
-ms.sourcegitcommit: 7968f9f0946138867323793be9966ee2ef99dcf4
+ms.lastreviewed: 11/05/2019
+ms.openlocfilehash: 7e4c6668253e79a2fc04a6c4b0cf37c9025ccd3c
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70025893"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77695973"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK の再デプロイ
 この記事では、非運用環境で Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。 ASDK のアップグレードはサポートされていないため、新しいバージョンに移行するには、ASDK を完全に再デプロイする必要があります。 最初から始める場合はいつでも、ASDK を再デプロイすることもできます。
@@ -98,7 +88,7 @@ ASDK をインストールするために asdk-installer.ps1 スクリプトを�
 3. 最初に [PowerShell を使用して ASDK をデプロイ](asdk-deploy-powershell.md)したときと同じ手順を繰り返します。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [ASDK デプロイ後のタスク](asdk-post-deploy.md)
 
 

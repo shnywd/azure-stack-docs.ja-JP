@@ -1,27 +1,18 @@
 ---
-title: ASDK のデプロイ後の構成 | Microsoft Docs
+title: ASDK のデプロイ後の構成
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/31/2019
-ms.openlocfilehash: 9408fb5ba7ffa181acc28e78576c9eda2262dc81
-ms.sourcegitcommit: 1185b66f69f28e44481ce96a315ea285ed404b66
+ms.openlocfilehash: 8c0cd14dbeda4e2b7844aefaf10f4a8cf685d60d
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75804556"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295294"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 

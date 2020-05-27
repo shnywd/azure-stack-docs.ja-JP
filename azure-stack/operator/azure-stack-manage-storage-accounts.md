@@ -1,44 +1,36 @@
 ---
-title: Azure Stack のストレージ アカウントを管理する | Microsoft Docs
-description: Azure Stack のストレージ アカウントを検索、管理、回復、および回収する方法について説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: PowerShell
-ms.topic: conceptual
-ms.date: 10/02/2019
-ms.author: mabrigg
+title: Azure Stack Hub のストレージ アカウントを管理する
+description: Azure Stack Hub のストレージ アカウントを検索、管理、回復、および回収する方法を学習します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 9af79442a0fb56e4d6a9cef99741b0180e84304c
-ms.sourcegitcommit: b5eb024d170f12e51cc852aa2c72eabf26792d8d
+ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72534191"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295330"
 ---
-# <a name="manage-azure-stack-storage-accounts"></a>Azure Stack のストレージ アカウントを管理する
+# <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 
-Azure Stack のストレージ アカウントを管理する方法について説明します。 ビジネス ニーズに応じてストレージ容量を検索、回復、および回収できます。
+Azure Stack Hub のストレージ アカウントを管理する方法を学習します。 ビジネス ニーズに応じてストレージ容量を検索、回復、および回収できます。
 
 ## <a name="find-a-storage-account"></a>ストレージ アカウントの検索
 
-リージョン内のストレージ アカウントの一覧は、次の手順に従うことで Azure Stack で表示できます。
+リージョン内のストレージ アカウントのリストは、これらの手順に従うことで Azure Stack Hub で表示できます。
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
 
 2. **[すべてのサービス]**  >  **[ストレージ]**  >  **[ストレージ アカウント]** の順に選択します。
 
-   ![Azure Stack のストレージ アカウント](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack Hub のストレージ アカウント](media/azure-stack-manage-storage-accounts/image4.png)
 
 既定では、最初の 10 個のアカウントが表示されます。 リストの下部にある **[さらに読み込む]** リンクをクリックすると、さらに多くのアカウントをフェッチすることができます。
 
-または
+OR
 
 特定のストレージ アカウントに関心がある場合は、**フィルター処理して関連するアカウントのみをフェッチ**することができます。
 
@@ -48,7 +40,7 @@ Azure Stack のストレージ アカウントを管理する方法について�
 2. [フィルター] ウィンドウでは、**アカウント名**、**サブスクリプション ID**、または**ステータス**を指定して、表示するストレージ アカウントのリストを細かく調整できます。 必要に応じてこれらを使用します。
 3. 入力中、リストに自動的にフィルターが適用されます。
 
-    ![Azure Stack のストレージ アカウントをフィルター処理する](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Azure Stack Hub のストレージ アカウントをフィルター処理する](media/azure-stack-manage-storage-accounts/image5.png)
 
 4. フィルターをリセットするには、 **[フィルター]** を選択し、選択をオフにして更新します。
 
@@ -56,7 +48,7 @@ Azure Stack のストレージ アカウントを管理する方法について�
 
 ここでフリー テキストを使用すると、関心のあるアカウントを見つけるのに役立ちます。
 
-![Azure Stack のストレージ アカウントを検索する](media/azure-stack-manage-storage-accounts/image6.png)
+![Azure Stack Hub のストレージ アカウントを見つける](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>アカウントの詳細の確認
 表示で関心のあるアカウントが見つかったら、そのアカウントを選択して特定の詳細を表示できます。 新しいウィンドウが開き、アカウントの詳細が表示されます。 これらの詳細には、アカウントの種類、作成時刻、場所などが含まれます。
@@ -66,7 +58,7 @@ Azure Stack のストレージ アカウントを管理する方法について�
 ## <a name="recover-a-deleted-account"></a>削除されたキーの回復
 削除したアカウントを回復する必要がある場合があります。
 
-Azure Stack では、これを行う簡単な方法があります。
+Azure Stack Hub では、これを行う簡単な方法があります。
 
 1. ストレージ アカウント リストを参照します。 詳細については、この記事の最初の「[ストレージ アカウントの検索](azure-stack-manage-storage-accounts.md)」を参照してください。
 2. そのリストで特定のアカウントを検索します。 場合によっては、フィルターを使用する必要があります。
@@ -98,7 +90,7 @@ Azure Stack では、これを行う簡単な方法があります。
 **保有期間を変更するには:**
 
 1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
-2. **[管理]** の下で、 **[すべてのサービス]**  >  **[リージョン管理]** を選択します。
+2. **[管理]** の下で、**[すべてのサービス]** > **[リージョン管理]** を選択します。
 3. **[リソース プロバイダー]**  >  **[ストレージ]**  >  **[設定]** の順に選択します。 パスは、[ホーム] > [<*リージョン*> - リソース プロバイダー] > [ストレージ] です。
 4. **[構成]** を選択してリテンション期間の値を編集します。
 
@@ -108,7 +100,7 @@ Azure Stack では、これを行う簡単な方法があります。
 
    ![管理者ポータルで保有期間を編集する](media/azure-stack-manage-storage-accounts/image10.png)
 
-## <a name="reclaim"></a>容量の回収
+## <a name="reclaim-capacity"></a><a name="reclaim"></a>容量の回収
 保有期間を設定することの副作用の 1 つは、削除されたアカウントが、保有期間外になるまで、容量を消費し続けることです。 クラウド オペレーターとして、削除されたアカウントの保有期間が終了していなくても、その領域を回収する方法が必要な場合があります。
 
 ポータルまたは PowerShell のいずれかを使用して、容量の回収ができます。
@@ -143,10 +135,10 @@ PowerShell を使用して保有期間を明示的にオーバーライドし、
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-詳細については、[Azure Stack PowerShell のドキュメント](https://docs.microsoft.com/powershell/azure/azure-stack/overview)を参照してください。
+詳細については、[Azure Stack Hub PowerShell のドキュメント](https://docs.microsoft.com/powershell/azure/azure-stack/overview)を参照してください。
  
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
  - アクセス許可の管理については、「[ロールベースのアクセス制御を使用してアクセス許可を設定する](azure-stack-manage-permissions.md)」を参照してください。
- - Azure Stack のストレージ容量の管理については、「[Azure Stack のストレージ容量を管理する](azure-stack-manage-storage-shares.md)」を参照してください。
+ - Azure Stack Hub のストレージ容量の管理については、「[Azure Stack Hub のストレージ容量を管理する](azure-stack-manage-storage-shares.md)」を参照してください。

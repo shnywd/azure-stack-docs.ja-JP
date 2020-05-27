@@ -1,27 +1,18 @@
 ---
-title: ASDK の要件と考慮事項 | Microsoft Docs
+title: ASDK の要件と考慮事項
 description: Azure Stack Development Kit (ASDK) のハードウェア、ソフトウェア、環境の要件を確認します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 0e5a4e41e4650de8e3cebe7d33b9638890d5bd99
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974566"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846961"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -36,8 +27,10 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 | コンピューティング: CPU |デュアル ソケット: 16 個の物理コア (合計)。 |デュアル ソケット: 20 個の物理コア (合計)。 |
 | コンピューティング: メモリ |192 GB の RAM。 |256 GB の RAM。 |
 | コンピューティング: BIOS |Hyper-V 対応 (SLAT サポートあり)。 |Hyper-V 対応 (SLAT サポートあり)。 |
-| ネットワーク: NIC |Windows Server 2012 R2 認定。 特別な機能は必要ありません。 | Windows Server 2012 R2 認定。 特別な機能は必要ありません。 |
-| ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |[Windows Server 2016 認定](https://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0)。 |
+| [ネットワーク]\: NIC |Windows Server 2012 R2 認定。 特別な機能は必要ありません。 | Windows Server 2012 R2 認定。 特別な機能は必要ありません。 |
+| ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|[Windows Server 2016 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
+|
 
 <sup>*</sup> Azure から[マーケットプレース項目](../operator/azure-stack-create-and-publish-marketplace-item.md)の多くを追加する計画の場合は、この推奨容量より多くが必要です。
 
@@ -84,7 +77,7 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 - 4 個の SSD/8 個の HDD
 
 ## <a name="operating-system"></a>オペレーティング システム
-|  | **要件** |
+|  | **必要条件** |
 | --- | --- |
 | **OS バージョン** |Windows Server 2016 以降。 Azure Stack のインストールに含まれる VHD でホスト コンピューターを起動するので、デプロイが開始する前のオペレーティング システムのバージョンは重要ではありません。 オペレーティング システムと必要なすべての修正プログラムは、イメージに既に統合されています。 ASDK で使われている Windows Server インスタンスをアクティブ化するためにキーを使わないでください。 |
 
@@ -97,7 +90,7 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 環境がインターネットに接続されていない場合、または Azure AD を使いたくない場合は、Active Directory フェデレーション サービス (AD FS) を使って Azure Stack をデプロイできます。 ASDK には、専用の AD FS および Active Directory Domain Services のインスタンスが含まれています。 このオプションを使ってデプロイする場合は、事前にアカウントを設定する必要はありません。
 
 > [!NOTE]
-> AD FS のオプションを使ってデプロイする場合は、Azure Stack を再デプロイして Azure AD に切り替える必要があります。
+> AD FS を使用する構成でデプロイした後、Azure AD を使用する構成へ切り替えるには、Azure Stack を再デプロイする必要があります。
 
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory アカウント
 Azure AD アカウントを使って Azure Stack をデプロイするには、デプロイ用の PowerShell スクリプトを実行する前に、Azure AD アカウントを準備する必要があります。 このアカウントは、Azure AD テナントの全体管理者になります。 それは、Azure AD および Graph API と対話するすべての Azure Stack サービス用のアプリおよびサービス プリンシパルのプロビジョニングと委任に使われます。 また、既定のプロバイダー サブスクリプションの所有者としても使われます (これは後で変更できます)。 このアカウントを使って、Azure Stack システムの管理者ポータルにサインインできます。
@@ -137,14 +130,14 @@ ASDK マシンでは、スイッチ アクセス ポートまたはトランク 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
 IPv4 のみがサポートされています。 IPv6 ネットワークを作成することはできません。
 
-### <a name="dhcp"></a>DHCP
+### <a name="dhcp"></a>[DHCP]
 NIC を接続するネットワークで使用できる DHCP サーバーがあることを確認します。 DHCP が使用できない場合は、ホストが使用するためのものに加え、追加の静的 IPv4 ネットワークを準備する必要があります。 デプロイ パラメーターとしてその IP アドレスとゲートウェイも指定する必要があります。
 
 ### <a name="internet-access"></a>インターネットへのアクセス
 Azure Stack は、直接または透過プロキシ経由で、インターネットにアクセスできる必要があります。 Azure Stack は、インターネット アクセスを有効にするための Web プロキシの構成をサポートしていません。 ホスト IP と (DHCP または静的 IP アドレスによって) AzS-BGPNAT01 に割り当てられた新しい IP の両方が、インターネットにアクセスできる必要があります。 graph.windows.net および login.microsoftonline.com ドメインのポート 80 と 443 を使用します。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [ASDK デプロイ パッケージをダウンロードします](asdk-download.md)。
 - 記憶域スペース ダイレクトの詳細については、「[記憶域スペース ダイレクトの概要](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)」を参照してください。

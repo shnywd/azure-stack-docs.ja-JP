@@ -1,39 +1,33 @@
 ---
-title: GitHub からの Azure Stack ツールのダウンロード | Microsoft Docs
-description: Azure Stack の操作に必要なツールをダウンロードする方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: GitHub からの Azure Stack Hub ツールのダウンロード
+description: Azure Stack Hub の操作に必要なツールをダウンロードする方法について説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/19/2019
+ms.date: 4/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 9ca2e25217886d6b8a55bc394f4ee05df1bea2d6
-ms.sourcegitcommit: cefba8d6a93efaedff303d3c605b02bd28996c5d
+ms.lastreviewed: 4/22/2020
+ms.openlocfilehash: 9faa562f9b8ff339016473f1b3c0df0512c90988
+ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74298788"
+ms.lasthandoff: 04/23/2020
+ms.locfileid: "82106926"
 ---
-# <a name="download-azure-stack-tools-from-github"></a>GitHub からの Azure Stack ツールのダウンロード
+# <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+**AzureStack-Tools** は PowerShell モジュールをホストする [GitHub リポジトリ](https://github.com/Azure/AzureStack-Tools)で、リソースの管理と Azure Stack Hub へのデプロイに使用できます。 VPN 接続を確立する予定の場合は、これらの PowerShell モジュールを、Azure Stack Development Kit (ASDK) または Windows ベースの外部クライアントにダウンロードできます。 
 
-**AzureStack-Tools** は PowerShell モジュールをホストする [GitHub リポジトリ](https://github.com/Azure/AzureStack-Tools)で、リソースの管理と Azure Stack へのデプロイに使用できます。 VPN 接続を確立する予定の場合は、これらの PowerShell モジュールを、Azure Stack Development Kit (ASDK) または Windows ベースの外部クライアントにダウンロードできます。 これらのツールを取得するには、GitHub リポジトリを複製するか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Azure Stack Hub AzureRM モジュール用のツールを入手する
+
+これらのツールを取得するには、`master` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
 
 ```powershell
 # Change directory to the root directory.
 cd \
 
 # Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/master.zip `
   -OutFile master.zip
@@ -47,22 +41,49 @@ expand-archive master.zip `
 cd AzureStack-Tools-master
 
 ```
+Azure Stack Hub 用の AzureRM モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする](azure-stack-powershell-install.md)」を参照してください。
+
+## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Azure Stack Hub Az (プレビュー) モジュール用のツールを入手する
+
+これらのツールを取得するには、`az` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
+
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+ cd AzureStack-Tools-az
+
+```
+
+Azure Stack Hub 用の Az モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。
 
 ## <a name="functionality-provided-by-the-modules"></a>モジュールで提供される機能
 
-**AzureStack-Tools** リポジトリには、Azure Stack の次の機能をサポートする PowerShell モジュールが含まれています。  
+**AzureStack-Tools** リポジトリには、Azure Stack Hub の次の機能をサポートする PowerShell モジュールが含まれています。  
 
 | 機能 | 説明 | このモジュールを使用できるユーザー |
 | --- | --- | --- |
-| [クラウド機能](../user/azure-stack-validate-templates.md) | このモジュールを使用すると、クラウドのクラウド機能を取得できます。 たとえば、API バージョンや Azure Resource Manager リソースなどのクラウド機能を取得できます。 Azure Stack と Azure クラウドの VM 拡張機能を取得することもできます。 | クラウド オペレーターとユーザー |
-| [Azure Stack の Resource Manager ポリシー](../user/azure-stack-policy-module.md) | このモジュールを使用すると、Azure Stack と同じバージョン管理とサービス可用性で、Azure サブスクリプションまたは Azure リソース グループを構成できます。 | クラウド オペレーターとユーザー |
-| [Azure への登録](azure-stack-registration.md ) | このモジュールを使用して、ASDK インスタンスを Azure に登録します。 登録後、Azure Marketplace アイテムをダウンロードして Azure Stack で使用できます。 | クラウド オペレーター |
-| [Azure Stack のデプロイ](../asdk/asdk-install.md) | このモジュールを使用すると、Azure Stack の仮想ハード ディスク (VHD) イメージを使用して、Azure Stack のホスト コンピューターでデプロイおよび再デプロイを行う準備ができます。 | クラウド オペレーター|
-| [Azure Stack への接続](azure-stack-powershell-install.md) | Azure Stack への VPN 接続を構成するには、このモジュールを使用します。 | クラウド オペレーターとユーザー |
-| [テンプレートの検証](../user/azure-stack-validate-templates.md) | このモジュールを使用すると、既存のまたは新しいテンプレートを Azure Stack にデプロイできるかどうか確認できます。 | クラウド オペレーターとユーザー|
+| [クラウド機能](../user/azure-stack-validate-templates.md) | このモジュールを使用すると、クラウドのクラウド機能を取得できます。 たとえば、API バージョンや Azure Resource Manager リソースなどのクラウド機能を取得できます。 Azure Stack Hub と Azure クラウドの VM 拡張機能を取得することもできます。 | クラウド オペレーターとユーザー |
+| [Azure Stack Hub の Resource Manager ポリシー](../user/azure-stack-policy-module.md) | このモジュールを使用すると、Azure Stack Hub と同じバージョン管理とサービス可用性で、Azure サブスクリプションまたは Azure リソース グループを構成できます。 | クラウド オペレーターとユーザー |
+| [Azure への登録](azure-stack-registration.md ) | このモジュールを使用して、ASDK インスタンスを Azure に登録します。 登録後、Azure Marketplace アイテムをダウンロードして Azure Stack Hub で使用できます。 | クラウド オペレーター |
+| [Azure Stack Hub のデプロイ](../asdk/asdk-install.md) | このモジュールを使用すると、Azure Stack Hub の仮想ハード ディスク (VHD) イメージを使用して、Azure Stack Hub のホスト コンピューターでデプロイおよび再デプロイを行う準備ができます。 | クラウド オペレーター|
+| [Azure Stack Hub への接続](azure-stack-powershell-install.md) | このモジュールを使用すると、Azure Stack Hub への VPN 接続を構成できます。 | クラウド オペレーターとユーザー |
+| [テンプレートの検証](../user/azure-stack-validate-templates.md) | このモジュールを使用すると、既存のまたは新しいテンプレートを Azure Stack Hub にデプロイできるかどうかを確認できます。 | クラウド オペレーターとユーザー|
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 上の PowerShell の概要](../user/azure-stack-powershell-overview.md)
-- [Azure Stack ユーザーの PowerShell 環境を構成します](../user/azure-stack-powershell-configure-user.md)。
+- [Azure Stack Hub の PowerShell の概要](../user/azure-stack-powershell-overview.md)
+- [Azure Stack Hub ユーザーの PowerShell 環境の構成](../user/azure-stack-powershell-configure-user.md)
 - [VPN 経由で Azure Stack Development Kit に接続する](../asdk/asdk-connect.md)

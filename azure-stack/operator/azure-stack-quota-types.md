@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub のクォータの種類 | Microsoft Docs
+title: Azure Stack Hub のクォータの種類
 description: Azure Stack Hub のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
-ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 5f4d29a95ab56ee4728109f5b74494c39d8b1c98
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 12/07/2019
+ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882064"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80423859"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub のクォータの種類
 
@@ -66,6 +57,12 @@ ms.locfileid: "75882064"
 | [Maximum NICs]\(最大 NIC 数\) |100 |1 つのサブスクリプションでこの場所に作成できるネットワーク インターフェイスの最大数です。 |
 | [Maximum load balancers]\(ロード バランサーの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるロード バランサーの最大数です。 |
 | [Maximum network security groups]\(ネットワーク セキュリティ グループの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できるネットワーク セキュリティ グループの最大数です。 |
+
+## <a name="event-hubs-quota-types"></a>Event Hubs クォータの種類
+
+| **Type** | **既定値** | **説明** |
+| --- | --- | --- |
+| VM コアの最大数 | 10 | 1 つのサブスクリプションでこの場所に作成できるコアの最大数です (たとえば、A3 VM のコア数は 4 です)。 |
 
 ## <a name="view-an-existing-quota"></a>[View an existing quota]\(既存のクォータの表示\)
 

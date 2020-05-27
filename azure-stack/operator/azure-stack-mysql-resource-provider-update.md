@@ -1,39 +1,29 @@
 ---
-title: Azure Stack 上の MySQL リソース プロバイダーを更新する | Microsoft Docs
-description: Azure Stack 上の Azure Stack MySQL リソース プロバイダーの更新方法について説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Stack Hub の MySQL リソース プロバイダーを更新する
+description: Azure Stack Hub の Azure Stack Hub MySQL リソース プロバイダーを更新する方法について説明します。
+author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.author: mabrigg
+ms.date: 1/22/2020
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 2fd85cb897f1d5e457183ffeeffc5340cbb48696
-ms.sourcegitcommit: 3a8e116fd0b16e1201e55e2088dde2e581004045
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: d43c39aeed909946e852ccad37d92a2d47d3d889
+ms.sourcegitcommit: 519f4298dc1ed5c33f9c4fef811f61d61731dd84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74557555"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82799766"
 ---
-# <a name="update-the-mysql-resource-provider-in-azure-stack"></a>Azure Stack 上の MySQL リソース プロバイダーを更新する
+# <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Azure Stack Hub の MySQL リソース プロバイダーを更新する
 
-*適用対象:Azure Stack 統合システム*
+> [!IMPORTANT]
+> リソース プロバイダーを更新する前に、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。 リリース ノートには、リソース プロバイダーに必要な Azure Stack Hub の最小バージョンも指定されています。
 
-Azure Stack ビルドの更新時に、新しい MySQL リソース プロバイダー アダプターがリリースされる場合があります。 既存のアダプターが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
+Azure Stack Hub のビルドの更新時に、新しい MySQL リソース プロバイダー アダプターがリリースされる場合があります。 既存のアダプターが動作し続けている場合でも、できるだけ早く最新のビルドに更新することをお勧めします。
 
-MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の MySQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それらがサポートされる Azure Stack のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件に関する記事](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)で、バージョンの一覧を参照してください。
+MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以降の更新プログラムは累積的であり、バージョン 1.1.24.0 以降から開始する限り、リリースされた順序でインストールする必要はありません。 たとえば、バージョン 1.1.24.0 の MySQL リソース プロバイダーを実行している場合、最初にバージョン 1.1.30.0 をインストールしなくても、バージョン 1.1.33.0 以降にアップグレードできます。 使用可能なリソース プロバイダーのバージョンと、それがサポートされる Azure Stack Hub のバージョンを確認するには、[リソース プロバイダーのデプロイの前提条件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)に関する記事で、バージョンの一覧を参照してください。
 
 リソース プロバイダーの更新には **UpdateMySQLProvider.ps1** スクリプトを使用します。 プロセスは、この記事のリソース プロバイダーのデプロイに関するセクションに記述されている、リソース プロバイダーをインストールするプロセスと類似しています。 スクリプトはリソース プロバイダーのダウンロードに含まれています。 
-
- > [!IMPORTANT]
- > リソース プロバイダーをアップグレードする前に、リリース ノートを確認し、新しい機能、修正、およびデプロイに影響を与える可能性のある既知の問題について確認してください。
 
 ## <a name="update-script-processes"></a>更新スクリプトのプロセス
 
@@ -51,10 +41,10 @@ MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以�
 | パラメーター名 | 説明 | コメントまたは既定値 | 
 | --- | --- | --- | 
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ | 
-| **AzCredential** | Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ | 
+| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用した資格情報と同じものを使用します。 | _必須_ | 
 | **VMLocalCredential** |SQL リソース プロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ | 
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ | 
-| **AzureEnvironment** | Azure Stack のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
+| **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
 | **DependencyFilesLocalPath** | 証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 | _省略可能_ (マルチノードでは _必須_) | 
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ | 
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 | 
@@ -68,26 +58,29 @@ MySQL リソース プロバイダー バージョン 1.1.33.0 リリース以�
 > [!NOTE] 
 > 更新プロセスは、統合システムにのみに適用されます。
 
-MySQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンを更新する場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack モジュールをインストールする必要があります。 MySQL リソース プロバイダーのバージョン1.1.47.0 を更新する場合は、この手順をスキップできます。
+MySQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンを更新する場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack Hub モジュールをインストールする必要があります。 MySQL リソース プロバイダーをバージョン 1.1.47.0 に更新する場合は、デプロイ スクリプトが自動的にダウンロードされ、C:\Program Files\SqlMySqlPsh へのパスに必要な PowerShell モジュールがインストールされます。
 
 ```powershell 
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
-# Note that this might not be the most currently available version of Azure Stack PowerShell.
+# Note that this might not be the most currently available version of Azure Stack Hub PowerShell.
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
 ```
 
+> [!NOTE]
+> 接続が切断された場合のシナリオでは、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録が前提条件として必要です。 詳細については、[MySQL リソース プロバイダーのデプロイ](azure-stack-mysql-resource-provider-deploy.md)に関する記事を参照してください。
+
 管理者特権の PowerShell コンソールから実行できる *UpdateMySQLProvider.ps1* スクリプトを次に示します。 変数情報とパスワードは、必要に応じて変更してください。
 
 ```powershell 
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+# Use the NetBIOS name for the Azure Stack Hub domain. On the Azure Stack Hub SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack" 
 
 # For integrated systems, use the IP address of one of the ERCS VMs.
 $privilegedEndpoint = "AzS-ERCS01" 
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack Hub. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted. 
@@ -108,7 +101,12 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
- 
+
+# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
+$rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
+$env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 
+
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
 .$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
@@ -121,5 +119,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 -AcceptLicense 
 ```  
 
-## <a name="next-steps"></a>次の手順
+リソース プロバイダーの更新スクリプトが終了したら、現在の PowerShell セッションを終了します。
+
+## <a name="next-steps"></a>次のステップ
 [MySQL リソース プロバイダーの維持](azure-stack-mysql-resource-provider-maintain.md)

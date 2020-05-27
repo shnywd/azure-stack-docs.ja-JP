@@ -1,28 +1,26 @@
 ---
-title: Azure Stack 内の仮想マシンに Java WAR をデプロイする | Microsoft Docs
-description: Azure Stack 内の仮想マシンに Java WAR をデプロイします。
-services: azure-stack
+title: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイする
+description: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイします。
 author: mattbriggs
-ms.service: azure-stack
-ms.topic: overview
-ms.date: 10/02/2019
+ms.topic: how-to
+ms.date: 05/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 2c9c43439872a19ba590fb22059969f9a7c742f0
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 05/05/2020
+ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824457"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836208"
 ---
-# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>Azure Stack 内の VM に Java Web アプリをデプロイする
+# <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Java Web アプリをデプロイする
 
-Azure Stack でご自分の Python Web アプリをホストする仮想マシン (VM) を作成できます。 この記事では、Azure Stack の Linux VM で Apache Tomcat サーバーをインストールして構成します。 その後、サーバーに Java Web アプリケーション リソース (WAR) ファイルを読み込みます。 WAR ファイルは、一連の Java アーカイブ (JAR) ファイル、つまり、クラス、テキスト、イメージ、XML、HTML、および Web アプリケーションの配信に使用される他のリソースなどの Java リソースを含む圧縮ファイルを配布するために使用されます。
+Azure Stack Hub でご自分の Java Web アプリをホストする仮想マシン (VM) を作成できます。 この記事では、Azure Stack Hub の Linux VM で Apache Tomcat サーバーをインストールし、適切なポートを開いて構成します。 その後、サーバーに Java Web アプリケーション リソース (WAR) ファイルを読み込みます。 WAR ファイルは、一連の Java アーカイブ (JAR) ファイル、つまり、クラス、テキスト、イメージ、XML、HTML、および Web アプリケーションの配信に使用される他のリソースなどの Java リソースを含む圧縮ファイルを配布するために使用されます。
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. 「[Web アプリをホストする Linux VM を Azure Stack にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack で VM を設定します。
+1. 「[Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする](azure-stack-dev-start-howto-deploy-linux.md)」の手順に従って、Azure Stack Hub で VM を設定します。
 
 2. VM ネットワーク ウィンドウで、次のポートにアクセスできることを確認します。
 
@@ -32,7 +30,7 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
     | 443 | HTTPS | ハイパーテキスト転送プロトコル セキュア (HTTPS) は、セキュリティ証明書を要求し、情報の暗号化された転送を許可する、セキュリティで保護されたバージョンの HTTP です。 |
     | 22 | SSH | Secure Shell (SSH) は、セキュリティで保護された通信のための暗号化されたネットワーク プロトコルです。 SSH クライアントとのこの接続を使用して、VM を構成し、アプリをデプロイします。 |
     | 3389 | RDP | 省略可能。 リモート デスクトップ プロトコル (RDP) では、リモート デスクトップ接続を介して、ご利用のマシンでグラフィック ユーザー インターフェイスを使用できるようにします。   |
-    | 8080 | カスタム | Apache Tomcat サービスの既定のポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
+    | 8080 | Custom | Apache Tomcat サービスの既定のポート。 運用サーバーでは、80 と 443 を介してトラフィックをルーティングします。 |
 
 ## <a name="install-java"></a>Java のインストール
 
@@ -174,11 +172,11 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
         sudo ufw allow 8080
     ```
 
-    ご自分の Azure Stack VM 用の*受信ポート規則* を追加していない場合は、ここで追加します。 詳細については、「[VM の作成](#create-a-vm)」を参照してください。
+    ご自分の Azure Stack Hub VM 用の*受信ポート規則* を追加していない場合は、ここで追加します。 詳細については、「[VM の作成](#create-a-vm)」を参照してください。
 
-1. Azure Stack と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
+1. Azure Stack Hub と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
 
-    ![Azure Stack VM 上の Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
+    ![Azure Stack Hub VM 上の Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat.png)
 
     ご自分のサーバー上の Apache Tomcat ページが読み込まれます。 次に、Server Status、Manager App、Host Manager にアクセスできるようにサーバーを構成します。
 
@@ -217,7 +215,7 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
 
     c. ファイルを保存して閉じます。
 
-1. Tomcat は *Manager* と *Host Manager* アプリへのアクセスをサーバーからの接続に制限します。 Azure Stack 内の VM 上に Tomcat をインストールするため、この制限を解除する必要があります。 適切な *context.xml* ファイルを編集して、これらのアプリに対する IP アドレスの制限を変更します。
+1. Tomcat は *Manager* と *Host Manager* アプリへのアクセスをサーバーからの接続に制限します。 Azure Stack Hub 内の VM 上に Tomcat をインストールするため、この制限を解除する必要があります。 適切な *context.xml* ファイルを編集して、これらのアプリに対する IP アドレスの制限を変更します。
 
     a. Manager アプリで *context.xml* を更新します。
 
@@ -250,13 +248,13 @@ Azure Stack でご自分の Python Web アプリをホストする仮想マシ�
         sudo systemctl restart tomcat
     ```
 
-1. Azure Stack と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
+1. Azure Stack Hub と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
 
     a. Tomcat サーバーの状態を確認し、アクセス権があることを確認するには、 **[サーバーの状態]** を選択します。
 
     b. ご自分の Tomcat の資格情報を使用してサインインします。
 
-    ![Azure Stack VM 上の Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
+    ![Azure Stack Hub VM 上の Apache Tomcat](media/azure-stack-dev-start-howto-vm-java/apache-tomcat-management-app.png)
 
 ## <a name="create-an-app"></a>アプリを作成する
 
@@ -274,7 +272,7 @@ Azure 内での Java アプリの開発に関するガイダンスについて�
         sudo systemctl stop tomcat
     ```
 
-1. webapps フォルダーに書き込めるようにするには、Tomcat グループにご使用の FTP ユーザーを追加します。 ご使用の FTP ユーザーとは、Azure Stack 内に VM を作成するときに定義したユーザーのことです。
+1. webapps フォルダーに書き込めるようにするには、Tomcat グループにご使用の FTP ユーザーを追加します。 ご使用の FTP ユーザーとは、Azure Stack Hub 内に VM を作成するときに定義したユーザーのことです。
 
     ```bash  
         sudo usermod -a -G tomcat <VM-user>
@@ -286,14 +284,14 @@ Azure 内での Java アプリの開発に関するガイダンスについて�
 
     b. WAR を *TOMCAT_HOME/webapps* ( */opt/tomcat/webapps/* など) に追加します。
 
-1.  Tomcat は自動的に、アプリケーションを展開して配置します。 これは、先ほど作成した DNS 名を使用して確認できます。 例:
+1.  Tomcat は自動的に、アプリケーションを展開して配置します。 これは、先ほど作成した DNS 名を使用して確認できます。 次に例を示します。
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
     ```
     
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
-- [IaaS としての Azure Stack 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する
+- [Azure Stack Hub 向けの開発](azure-stack-dev-start.md)方法について、さらに学習する。
+- [IaaS としての Azure Stack Hub 向けの一般的なデプロイ](azure-stack-dev-start-deploy-app.md)を確認する。
 - Java プログラミング言語の詳細および Java の他のリソースについては、[Java.com](https://www.java.com) を参照してください。

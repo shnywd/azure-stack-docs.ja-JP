@@ -1,42 +1,35 @@
 ---
 title: SQL データベースを使用する
-titleSuffix: Azure Stack
-description: SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack 上のサービスとして提供する方法を説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+titleSuffix: Azure Stack Hub
+description: SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub 上のサービスとして提供する方法を説明します。
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 9e7800c018816155205569397520271fb86c4c12
-ms.sourcegitcommit: dc3d0b77ee77742525fa0cd72d8547d25393022f
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 15eaf26162b0d3f647d65dfab66e3d9327b2f357
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75492759"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697146"
 ---
-# <a name="use-sql-databases-on-azure-stack"></a>Azure Stack 上で SQL データベースを使用する
+# <a name="use-sql-databases-on-azure-stack-hub"></a>Azure Stack Hub 上で SQL データベースを使用する
 
-SQL リソース プロバイダーを使用して、SQL データベースを [Azure Stack](azure-stack-overview.md) のサービスとして提供します。 リソースプロバイダーをインストールして 1 つまたは複数の SQL Server インスタンスに接続すると、御社および御社のユーザーは次のものを作成できます。
+SQL リソース プロバイダーを使用して、[Azure Stack Hub](azure-stack-overview.md) 上で SQL データベースを提供します。 リソースプロバイダーをインストールして 1 つまたは複数の SQL Server インスタンスに接続すると、御社および御社のユーザーは次のものを作成できます。
 
-- クラウドネイティブ アプリ向けデータベース。
-- SQL を使用する Websites。
-- SQL を使用するワークロード。
+- クラウドネイティブ アプリ向けの SQL データベース。
+- Web アプリケーション向けの SQL データベース。
 
-SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
+SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項:
 
-- ユーザーは、個々のデータベースの作成と管理のみを行うことができます。 エンド ユーザーはデータベース サーバー インスタンスにアクセスできません。 これにより、マスター、Temp DB にアクセスしたり、データベースを動的に管理したりすることが必要なオンプレミス データベース アプリケーションとの互換性が制限される可能性があります。
-- Azure Stack オペレーターは、SQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。 
-- 異なるサブスクリプションの異なるユーザーのデータベースは、同じデータベース サーバー インスタンスに配置できます。 RP は、データベースを別のホストまたはデータベース サーバー インスタンスで分離するためのメカニズムを備えていません。
+- ユーザーは、個々のデータベースの作成と管理のみを行うことができます。 エンド ユーザーは、データベース サーバー インスタンスにアクセスできません。 これにより、マスター、Temp DB にアクセスしたり、データベースを動的に管理したりすることが必要なオンプレミス データベース アプリとの互換性が制限される可能性があります。
+- Azure Stack Hub オペレーターは、SQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。
+- 異なるサブスクリプションの異なるユーザーのデータベースは、同じデータベース サーバー インスタンスに配置できます。 RP は、データベースを別のホストまたはデータベース サーバー インスタンス上で分離するためのメカニズムを備えていません。
 - RP では、データベースのテナント使用に関するレポートは提供されません。
+
+オンプレミスの従来の SQL Server ワークロードには、Azure Stack Hub 上の SQL Server 仮想マシンをお勧めします。
 
 ## <a name="sql-resource-provider-adapter-architecture"></a>SQL リソースプロバイダー アダプターのアーキテクチャ
 
@@ -49,7 +42,7 @@ SQL リソース プロバイダーをインストールする前に、考慮す
 少なくとも 1 つの SQL Server インスタンスを作成するか、外部 SQL Server インスタンスへのアクセスを提供する必要があります。
 
 > [!NOTE]
-> Azure Stack 統合システムにインストールされたホスティング サーバーは、テナント サブスクリプションから作成する必要があります。 既定のプロバイダー サブスクリプションからは作成できません。 作成するには、適切なサインインで、テナント ポータルまたは PowerShell を使用する必要があります。 すべてのホスティング サーバーは課金対象の VM であり、ライセンスが必要です。 サービス管理者は、テナント サブスクリプションの所有者になることができます。
+> Azure Stack Hub 統合システムにインストールされたホスティング サーバーは、テナント サブスクリプションから作成する必要があります。 既定のプロバイダー サブスクリプションからは作成できません。 作成するには、適切にサインインしたユーザー ポータルまたは PowerShell を使用する必要があります。 すべてのホスティング サーバーは課金対象の VM であり、ライセンスが必要です。 サービス管理者は、テナント サブスクリプションの所有者になることができます。
 
 ## <a name="next-steps"></a>次のステップ
 

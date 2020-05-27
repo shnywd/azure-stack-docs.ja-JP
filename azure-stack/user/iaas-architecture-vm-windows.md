@@ -1,50 +1,48 @@
 ---
-title: Azure Stack で Windows 仮想マシンを実行する | Microsoft Docs
-description: Azure Stack で Windows 仮想マシンを実行する方法について説明します。
-services: azure-stack
+title: Azure Stack Hub で Windows 仮想マシンを実行する
+description: Azure Stack Hub で Windows 仮想マシンを実行する方法について学習します。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 3/9/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 5f9d8de7c08e8cfa0ad2af9bcb8f898fc32848a3
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 3/9/2020
+ms.openlocfilehash: b3619d0096b7c14ec6f15aaf37f9bee774213e6a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690224"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79025231"
 ---
-# <a name="run-a-windows-virtual-machine-on-azure-stack"></a>Azure Stack で Windows 仮想マシンを実行する
+# <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Windows 仮想マシンを実行する
 
-Azure Stack での仮想マシン (VM) のプロビジョニングには、VM 自体の他に、ネットワーク リソースやストレージ リソースなどの追加コンポーネントがいくつか必要です。 この記事では、Azure 上で Windows VM を実行するためのベスト プラクティスを示します。
+Azure Stack Hub での仮想マシン (VM) のプロビジョニングには、VM 自体の他に、ネットワーク リソースやストレージ リソースなどの追加コンポーネントがいくつか必要です。 この記事では、Azure 上で Windows VM を実行するためのベスト プラクティスを示します。
 
-![Azure Stack の Windows VM のアーキテクチャ](./media/iaas-architecture-vm-windows/image1.png)
+![Azure Stack Hub の Windows VM のアーキテクチャ](./media/iaas-architecture-vm-windows/image1.png)
 
 ## <a name="resource-group"></a>Resource group
 
-[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)は、関連する Azure Stack リソースを保持する論理コンテナーです。 一般には、リソースの有効期間や管理者に基づいて、リソースをグループ化します。
+[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)は、関連する Azure Stack Hub リソースを保持する論理コンテナーです。 一般には、リソースの有効期間や管理者に基づいて、リソースをグループ化します。
 
 同じライフサイクルを共有する密接に関連付けられたリソースを同じ[リソース グループ](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)に配置します。 リソース グループを使用すると、リソースをグループとしてデプロイおよび監視したり、リソース グループ別に課金コストを追跡したりできます。 セットとしてリソースを削除することもできます。これはテスト デプロイの場合に便利です。 特定のリソースの検索やその役割の理解を簡略化するために、意味のあるリソース名を割り当ててください。 詳細については、「[Azure リソースの推奨される名前付け規則](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)」をご覧ください。
 
 ## <a name="virtual-machine"></a>仮想マシン
 
-VM は、発行されたイメージの一覧や、Azure Stack Blob Storage にアップロードされたカスタム管理されたイメージまたは仮想ハード ディスク (VHD) ファイルからプロビジョニングできます。
+VM は、発行されたイメージの一覧や、Azure Stack Hub BLOB ストレージにアップロードされたカスタムのマネージド イメージまたは仮想ハード ディスク (VHD) ファイルからプロビジョニングできます。
 
-Azure Stack には、Azure とは異なる仮想マシン サイズが用意されています。 詳細については、[Azure の仮想マシンのサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)に関するページを参照してください。 既存のワークロードを Azure Stack に移動する場合は、オンプレミスのサーバー/Azure に最も適合性が高い VM サイズから開始します。 次に、CPU、メモリ、およびディスクの 1 秒あたりの入出力操作 (IOPS) について、実際のワークロードのパフォーマンスを測定し、必要に応じてサイズを調整します。
+Azure Stack Hub には、Azure とは異なる仮想マシン サイズが用意されています。 詳細については、[Azure Stack Hub の仮想マシンのサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)に関するページを参照してください。 既存のワークロードを Azure Stack Hub に移動する場合は、オンプレミスのサーバーまたは Azure に最も適合性が高い VM サイズから開始します。 次に、CPU、メモリ、およびディスクの 1 秒あたりの入出力操作 (IOPS) について、実際のワークロードのパフォーマンスを測定し、必要に応じてサイズを調整します。
 
 ## <a name="disks"></a>ディスク
 
 コストは、プロビジョニングされたディスクの容量に基づきます。 IOPS とスループット (つまり、データ転送速度) は VM サイズによって異なるため、ディスクをプロビジョニングする場合は、3 つの要素 (容量、IOPS、スループット) すべてを考慮してください。
 
-Azure Stack のディスク IOPS (Input/Output Operations Per Second) は、ディスクの種類ではなく [VM サイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)の関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
+Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は、ディスクの種類ではなく [VM サイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)の関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、1 つの追加データ ディスクの IOPS 制限は 2,300 IOPS です。 課される IOPS 制限は、周囲へのノイズを防ぐための上限 (可能な最大値) です。 これは特定の VM サイズで得られる IOPS を保証するものではありません。
 
 [Managed Disks](https://docs.microsoft.com/azure-stack/user/azure-stack-managed-disk-considerations) を使用することもお勧めします。 マネージド ディスクでは、ストレージが自動的に処理されることでディスク管理が簡素化されます。 マネージド ディスクでは、ストレージ アカウントは必要ありません。 単にディスクのサイズと種類を指定するだけで、可用性の高いリソースとしてデプロイされます。
 
-OS ディスクは Azure Stack Blob Storage に格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 また、[データ ディスク](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。 可能であれば、OS ディスクではなく、データ ディスクにアプリケーションをインストールします。 一部のレガシー アプリケーションでは、C: ドライブへのコンポーネントのインストールが必要になることがあります。その場合は、PowerShell を使用して [OS ディスクのサイズを変更](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk)できます。
+OS ディスクは Azure Stack Hub BLOB ストレージに格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 また、[データ ディスク](https://docs.microsoft.com/azure-stack/user/azure-stack-manage-vm-disks)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。 可能であれば、OS ディスクではなく、データ ディスクにアプリケーションをインストールします。 一部のレガシー アプリケーションでは、C: ドライブへのコンポーネントのインストールが必要になることがあります。その場合は、PowerShell を使用して [OS ディスクのサイズを変更](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-expand-os-disk)できます。
 
-VM も一時ディスク (Windows の D: ドライブ) を使用して作成されます。 このディスクは、Azure Stack Storage インフラストラクチャの一時ボリュームに格納されます。 再起動やその他の VM ライフサイクル イベント中に削除される可能性があります。 ページ ファイルやスワップ ファイルなどの一時的なデータにのみ、このディスクを使用してください。
+VM も一時ディスク (Windows の D: ドライブ) を使用して作成されます。 このディスクは、Azure Stack Hub ストレージ インフラストラクチャの一時ボリュームに格納されます。 再起動やその他の VM ライフサイクル イベント中に削除される可能性があります。 ページ ファイルやスワップ ファイルなどの一時的なデータにのみ、このディスクを使用してください。
 
 ## <a name="network"></a>ネットワーク
 
@@ -64,11 +62,11 @@ VM も一時ディスク (Windows の D: ドライブ) を使用して作成さ�
 
 すべての NSG に[既定の規則](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules) (すべての受信インターネット トラフィックをブロックする規則など) のセットが含まれています。 既定のルールを削除することはできませんが、他の規則でオーバーライドすることはできます。 インターネット トラフィックを有効にするには、特定のポート (HTTP のポート 80 など) への着信トラフィックを許可するルールを作成します。 RDP を有効にするには、TCP ポート 3389 への着信トラフィックを許可する NSG ルールを追加します。
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>操作
 
 **診断** 基本的な正常性メトリック、診断インフラストラクチャ ログ、[ブート診断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)などの監視と診断を有効にします。 VM が起動不可能な状態になった場合は、起動エラーを診断するのにブート診断が役立ちます。 ログを格納するための Azure Storage アカウントを作成します。 診断ログには、標準的なローカル冗長ストレージ (LRS) アカウントがあれば十分です。 詳細については、「[監視と診断の有効化](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data)」を参照してください。
 
-**可用性**。 Azure Stack オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 Azure でのマルチ VM による実稼働システムの高可用性を実現するため、VM は、複数の障害ドメインと更新ドメインに分散される[可用性セット](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)に配置されます。 より小さいスケールの Azure Stack Hub では、可用性セット内の障害ドメインは、スケール ユニット内の 1 つのノードとして定義されます。  
+**可用性**。 Azure Stack Hub オペレーターによってスケジュールされた計画メンテナンスにより、VM が再起動される場合があります。 Azure でのマルチ VM による実稼働システムの高可用性を実現するため、VM は、複数の障害ドメインと更新ドメインに分散される[可用性セット](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy)に配置されます。 より小さいスケールの Azure Stack Hub では、可用性セット内の障害ドメインは、スケール ユニット内の 1 つのノードとして定義されます。  
 
 Azure Stack Hub のインフラストラクチャは既に障害に対する回復性を備えていますが、基盤となっているテクノロジ (フェールオーバー クラスタリング) では、ハードウェアが故障した場合にその影響を受ける物理サーバー上の VM に多少のダウンタイムが発生します。 Azure Stack Hub では、Azure との一貫性がある最大 3 つの障害ドメインを持つ可用性セットを用意することをサポートしています。
 
@@ -77,9 +75,9 @@ Azure Stack Hub のインフラストラクチャは既に障害に対する回�
 | **障害ドメイン** | 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack Hub ノード) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は、他の障害ドメインで再起動されます。 これらは、他の VM とは別の障害ドメインに、ただし可能な場合、同じ可用性セットに保持されます。 ハードウェアがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。 |
 | **更新ドメイン**| 更新ドメインも、Azure によって可用性セットに高可用性が提供される方法です。 更新ドメインは、メンテナンスを同時に実行できる、基盤となるハードウェアの論理グループです。 同じ更新ドメイン内の VM は、計画済みメンテナンス中に同時に再起動されます。 テナントが可用性セット内に VM を作成すると、Azure プラットフォームは、これらの更新ドメインに VM を自動的に分散します。 <br>Azure Stack Hub では、VM のホストが更新される前に、クラスター内の他のオンライン ホストに VM がライブ マイグレーションされます。 ホスト更新の際にテナントのダウンタイムは発生しないため、Azure Stack Hub の更新ドメイン機能は、Azure とテンプレートの互換性を保つためにのみ存在します。 可用性セット内の VM では、ポータル上でその更新ドメイン番号として 0 が表示されます。 |
 
-**バックアップ**。Azure Stack IaaS VM の保護に関する推奨事項については、この記事を参照してください。
+**バックアップ**。Azure Stack Hub IaaS VM の保護に関する推奨事項については、「[Azure Stack Hub にデプロイされた VM の保護](azure-stack-manage-vm-protect.md)」を参照してください。
 
-**VM の停止**。 Azure では、"停止" 状態と "割り当て解除済み" 状態が区別されます。 VM が割り当て解除されたときではなく、VM が停止状態のときに課金されます。 Azure Stack ポータルの **[停止]** ボタンを使用すると、VM の割り当てが解除されます。 ログイン中に OS からシャットダウンした場合、VM は停止しますが割り当ては "**解除されない**" ため、引き続き課金されます。
+**VM の停止**。 Azure では、"停止" 状態と "割り当て解除済み" 状態が区別されます。 VM が割り当て解除されたときではなく、VM が停止状態のときに課金されます。 Azure Stack Hub ポータルの **[停止]** ボタンを使用すると、VM の割り当てが解除されます。 ログイン中に OS からシャットダウンした場合、VM は停止しますが割り当ては "**解除されない**" ため、引き続き課金されます。
 
 **VM の削除**。 VM を削除しても VM ディスクは削除されません。 つまり、データを失うことなく安全に VM を削除できます。 ただし、Storage に対して引き続き課金されます。 VM ディスクを削除するには、マネージド ディスク オブジェクトを削除します。 誤って削除されないようにするために、*リソース ロック*を使用してリソース グループ全体をロックするか、または個別のリソース (VM など) をロックします。
 
@@ -98,10 +96,10 @@ VM を [Azure Security Center](https://docs.microsoft.com/azure/security-center/
 
 **監査ログ**。 プロビジョニング操作や他の VM イベントを確認するには、[アクティビティ ログ](https://docs.microsoft.com/azure-stack/user/azure-stack-metrics-azure-data?#activity-log)を使用します。
 
-**データの暗号化**。 Azure Stack では、BitLocker 128 ビット AES 暗号化を使用して、記憶域サブシステム内のユーザーとインフラストラクチャの保存データが保護されます。 詳細については、「[Azure Stack における保存データの暗号化](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)」を参照してください。
+**データの暗号化**。 Azure Stack Hub では、BitLocker 128 ビット AES 暗号化を使用して、ストレージ サブシステム内のユーザーとインフラストラクチャの保存データが保護されます。 詳細については、「[Azure Stack Hub における保存データの暗号化](https://docs.microsoft.com/azure-stack/operator/azure-stack-security-bitlocker)」を参照してください。
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- Azure Stack VM の詳細については、「[Azure Stack VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
+- Azure Stack Hub VM の詳細については、「[Azure Stack Hub VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

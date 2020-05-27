@@ -1,26 +1,22 @@
 ---
-title: Azure Stack での拡張機能ホストを準備する | Microsoft Docs
-description: Azure Stack 内で、拡張機能ホストの準備を行う方法について説明します。バージョン 1808 以降では、Azure Stack 更新プログラム パッケージを通じて自動的に有効化されます。
-services: azure-stack
-keywords: ''
-author: mattbriggs
-ms.author: mabrigg
-ms.date: 10/02/2019
+title: Azure Stack Hub での拡張機能ホストを準備する
+description: Azure Stack Hub 内で、拡張機能ホストの準備を行う方法について学習します。これは、バージョン 1808 以降では、Azure Stack Hub 更新プログラム パッケージを通じて自動的に有効化されます。
+author: IngridAtMicrosoft
+ms.author: inhenkel
+ms.date: 1/22/2020
 ms.topic: article
-ms.service: azure-stack
 ms.reviewer: thoroet
-manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 75070550f1863457c3a2aaf9ab5915536372d55b
-ms.sourcegitcommit: 451cfaa24b349393f36ae9d646d4d311a14dd1fd
+ms.openlocfilehash: 69c7d14bef07e3664299c7e78ed1e8bf555f19dd
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72019275"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77699900"
 ---
-# <a name="prepare-for-extension-host-in-azure-stack"></a>Azure Stack での拡張機能ホストを準備する
+# <a name="prepare-for-extension-host-in-azure-stack-hub"></a>Azure Stack Hub での拡張機能ホストを準備する
 
-拡張機能ホストでは、必要とされる TCP/IP ポートの数を減らすことで Azure Stack をセキュリティ保護します。 この記事では、Azure Stack で拡張機能ホストの準備を行う方法について説明します。この拡張機能ホストは、1808 更新プログラムより後の Azure Stack 更新プログラム パッケージを通じて自動的に有効になります。 この記事は、Azure Stack の更新プログラム、1808、1809 および 1811 に該当します。
+拡張機能ホストでは、必要とされる TCP/IP ポートの数を減らすことで Azure Stack Hub をセキュリティ保護します。 この記事では、Azure Stack Hub での拡張機能ホストの準備について確認します。これは、1808 更新プログラムより後の Azure Stack Hub 更新プログラム パッケージを通じて自動的に有効になります。 この記事は、Azure Stack Hub の更新プログラム、1808、1809、1811 に適用されます。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 
@@ -33,19 +29,19 @@ ms.locfileid: "72019275"
 | 管理者拡張機能ホスト | *.adminhosting.\<リージョン>.\<FQDN> (ワイルドカード SSL 証明書) | 管理者拡張機能ホスト | adminhosting.\<リージョン>.\<FQDN> |
 | パブリック拡張機能ホスト | *.hosting.\<リージョン>.\<FQDN> (ワイルドカード SSL 証明書) | パブリック拡張機能ホスト | hosting.\<リージョン>.\<FQDN> |
 
-証明書の詳細な要件については、「[Azure Stack 公開キー インフラストラクチャ証明書の要件](azure-stack-pki-certs.md)」を参照してください。
+証明書の詳細な要件については、「[Azure Stack Hub 公開キー インフラストラクチャ証明書の要件](azure-stack-pki-certs.md)」を参照してください。
 
 ## <a name="create-certificate-signing-request"></a>証明書署名要求の作成
 
-Azure Stack 適合性チェッカー ツールを使用すると、必要とされる新しい 2 つの SSL 証明書への証明書署名要求を作成できます。 記事「[Azure Stack 証明書署名要求の生成](azure-stack-get-pki-certs.md)」の手順に従ってください。
+Azure Stack Hub 対応性チェッカー ツールを使用すると、必要とされる新しい 2 つの SSL 証明書への証明書署名要求を作成できます。 [Azure Stack Hub 証明書署名要求の生成](azure-stack-get-pki-certs.md)に関する記事の手順に従ってください。
 
 > [!Note]  
 > この手順は、SSL 証明書の要求内容によっては省略できます。
 
 ## <a name="validate-new-certificates"></a>新しい証明書の検証
 
-1. ハードウェア ライフサイクル ホストまたは Azure Stack 管理ワークステーションで、昇格された権限で PowerShell を開きます。
-2. 次のコマンドレットを実行して、Azure Stack 適合性チェッカー ツールをインストールします。
+1. ハードウェア ライフサイクル ホストまたは Azure Stack Hub 管理ワークステーションで、昇格された権限で PowerShell を開きます。
+2. 次のコマンドレットを実行して、Azure Stack Hub 対応性チェッカー ツールをインストールします。
 
     ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
@@ -66,7 +62,7 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
     > [!Note]  
     > Active Directory フェデレーション サービス (AD FS) を使用してデプロイする場合、スクリプトの **$directories** に `ADFS` および `Graph` というディレクトリを追加する必要があります。
 
-4. Azure Stack で現在使用している既存の証明書を適切なディレクトリに配置します。 たとえば、**管理者の ARM** 証明書を `Arm Admin` フォルダーに配置します。 その後、新しく作成されたホスティング証明書を `Admin extension host` と `Public extension host` ディレクトリに配置します。
+4. Azure Stack Hub で現在使用している既存の証明書を適切なディレクトリに配置します。 たとえば、**管理者の ARM** 証明書を `Arm Admin` フォルダーに配置します。 その後、新しく作成されたホスティング証明書を `Admin extension host` と `Public extension host` ディレクトリに配置します。
 5. 次のコマンドレットを実行して、証明書の確認を開始します。
 
     ```powershell  
@@ -80,9 +76,9 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
 
 ## <a name="import-extension-host-certificates"></a>拡張機能ホストの証明書のインポート
 
-次の手順では、Azure Stack 特権エンドポイントに接続できるコンピューターを使用します。 そのコンピューターで新しい証明書ファイルにアクセスできるようにしておいてください。
+次の手順では、Azure Stack Hub 特権エンドポイントに接続できるコンピューターを使用します。 そのコンピューターで新しい証明書ファイルにアクセスできるようにしておいてください。
 
-1. 次の手順では、Azure Stack 特権エンドポイントに接続できるコンピューターを使用します。 そのコンピューターで新しい証明書ファイルにアクセスできるようにしておいてください。
+1. 次の手順では、Azure Stack Hub 特権エンドポイントに接続できるコンピューターを使用します。 そのコンピューターで新しい証明書ファイルにアクセスできるようにしておいてください。
 2. PowerShell ISE を開いて、次のスクリプト ブロックを実行します
 3. 管理者ホスティング エンドポイント用の証明書をインポートします。
 
@@ -125,9 +121,9 @@ Azure Stack 適合性チェッカー ツールを使用すると、必要とさ�
 
 > [!Note]  
 > DNS 統合に DNS ゾーンの委任を使用した場合、この手順は必要ありません。
-Azure Stack エンドポイントを公開するよう個別のホスト A レコードが構成されている場合、追加のホスト A レコードを 2 つ作成する必要があります。
+Azure Stack Hub エンドポイントを公開するよう個別のホスト A レコードが構成されている場合、追加のホスト A レコードを 2 つ作成する必要があります。
 
-| IP | ホスト名 | 種類 |
+| IP | hostname | 種類 |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<リージョン>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<リージョン>.\<FQDN> | A |
@@ -136,11 +132,11 @@ Azure Stack エンドポイントを公開するよう個別のホスト A レ�
 
 ### <a name="ports-and-protocols"></a>ポートとプロトコル
 
-記事「[Azure Stack とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md)」では、拡張機能ホストのロールアウト前に Azure Stack を公開するために受信通信を必要とするポートとプロトコルについて説明しています。
+[Azure Stack Hub とデータセンターの統合 - エンドポイントの公開](azure-stack-integrate-endpoints.md)に関する記事では、拡張機能ホストのロールアウト前に Azure Stack Hub を公開するために受信通信を必要とするポートとプロトコルについて説明しています。
 
 ### <a name="publish-new-endpoints"></a>新しいエンドポイントの公開
 
-ファイアウォール経由で 2 つの新しいエンドポイントを公開する必要があります。 パブリック VIP プールから割り当てられた IP は、Azure Stack [環境の特権エンドポイント](azure-stack-privileged-endpoint.md)から実行する必要のある次のコードを使用して取得できます。
+ファイアウォール経由で 2 つの新しいエンドポイントを公開する必要があります。 パブリック VIP プールから割り当てられた IP は、Azure Stack Hub [環境の特権エンドポイント](azure-stack-privileged-endpoint.md)から実行する必要のある次のコードを使用して取得できます。
 
 ```powershell
 # Create a PEP Session
@@ -148,7 +144,7 @@ winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
 $PEPSession = New-PSSession -ComputerName <IpOfERCSMachine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
 
-# Obtain DNS Servers and extension host information from Azure Stack Stamp Information and find the IPs for the Host Extension Endpoints
+# Obtain DNS Servers and extension host information from Azure Stack Hub Stamp Information and find the IPs for the Host Extension Endpoints
 $StampInformation = Invoke-Command $PEPSession {Get-AzureStackStampInformation} | Select-Object -Property ExternalDNSIPAddress01, ExternalDNSIPAddress02, @{n="TenantHosting";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://*.","testdnsentry"-replace "/"}},  @{n="AdminHosting";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://*.","testdnsentry"-replace "/"}},@{n="TenantHostingDNS";e={($_.TenantExternalEndpoints.TenantHosting) -replace "https://",""-replace "/"}},  @{n="AdminHostingDNS";e={($_.AdminExternalEndpoints.AdminHosting)-replace "https://",""-replace "/"}}
 If (Resolve-DnsName -Server $StampInformation.ExternalDNSIPAddress01 -Name $StampInformation.TenantHosting -ErrorAction SilentlyContinue) {
     Write-Host "Can access AZS DNS" -ForegroundColor Green
@@ -182,7 +178,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ```
 
 > [!Note]  
-> 拡張機能ホストを有効にする前に、この変更を行います。 これで、Azure Stack ポータルに継続的にアクセスできるようになります。
+> 拡張機能ホストを有効にする前に、この変更を行います。 これで、Azure Stack Hub ポータルに継続的にアクセスできるようになります。
 
 | エンドポイント (VIP) | Protocol | Port |
 |----------------|----------|-------|
@@ -192,7 +188,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 ### <a name="update-existing-publishing-rules-post-enablement-of-extension-host"></a>既存の公開規則の更新 (拡張機能ホストの今後の有効化)
 
 > [!Note]  
-> 1808 Azure Stack 更新プログラム パッケージでは、まだ拡張機能ホストは有効化**されません**。 必須の証明書をインポートして、拡張機能ホストの準備を行うことができます。 1808 更新プログラム以降の Azure Stack 更新プログラム パッケージを通じて拡張機能ホストが自動的に有効になる前に、ポートを閉じないようにしてください。
+> 1808 Azure Stack Hub 更新プログラム パッケージでは、まだ拡張機能ホストは有効化**されません**。 必須の証明書をインポートして、拡張機能ホストの準備を行うことができます。 1808 更新プログラム以降の Azure Stack Hub 更新プログラム パッケージを通じて拡張機能ホストが自動的に有効になる前に、ポートを閉じないようにしてください。
 
 以下の既存のエンドポイント ポートは、既存のファイアウォール規則で閉じる必要があります。
 
@@ -206,7 +202,7 @@ The Record to be added in the DNS zone: Type A, Name: *.hosting.\<region>.\<fqdn
 | Azure Resource Manager (管理者) | HTTPS | 30024 |
 | Azure Resource Manager (ユーザー) | HTTPS | 30024 |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - [ファイアウォールの統合](azure-stack-firewall.md)について確認する。
-- [Azure Stack 証明書署名要求の生成](azure-stack-get-pki-certs.md)について確認する。
+- [Azure Stack Hub 証明書署名要求の生成](azure-stack-get-pki-certs.md)について学習する。

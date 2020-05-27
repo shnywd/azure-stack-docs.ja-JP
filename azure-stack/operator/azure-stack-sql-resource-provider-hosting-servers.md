@@ -1,31 +1,23 @@
 ---
 title: SQL リソース プロバイダーへのホスティング サーバーの追加
-titleSuffix: Azure Stack
+titleSuffix: Azure Stack Hub
 description: SQL リソース プロバイダー アダプターを使用したプロビジョニングのためにホスティング サーバーを追加する方法について説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 6684e432180b0daee4cf69d524d3fa9bebe7b26b
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: a30c3a4f745e46a5e7b58d4355f1c193d8702e28
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954521"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295426"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL リソース プロバイダーへのホスティング サーバーの追加
 
-SQL リソース プロバイダーがインスタンスに接続できる限り、[Azure Stack](azure-stack-overview.md) 内の仮想マシン (VM) 上、または Azure Stack 環境の外部にある VM 上で、SQL Server データベース ホスティング サーバーを作成できます。
+SQL リソース プロバイダーがインスタンスに接続できる限り、[Azure Stack Hub](azure-stack-overview.md) 内の仮想マシン (VM) 上、または Azure Stack Hub 環境の外部にある VM 上で、SQL Server データベース ホスティング サーバーを作成できます。
 
 > [!NOTE]
 > SQL リソース プロバイダーは既定のプロバイダー サブスクリプションに作成する必要がありますが、SQL ホスティング サーバーは課金対象のユーザー サブスクリプションに作成する必要があります。 リソース プロバイダー サーバーは、ユーザー データベースをホストするためには使用しないでください。
@@ -37,7 +29,7 @@ SQL ホスティング サーバーを追加する前に、次の必須要件と
 ### <a name="mandatory-requirements"></a>必須要件
 
 * SQL Server インスタンス上で SQL 認証を有効にします。 SQL リソース プロバイダー VM は、ドメインに参加していないため、SQL 認証を使用してホスティング サーバーに接続することのみ可能です。
-* Azure Stack にインストールするときに、SQL インスタンスの IP アドレスをパブリックとして構成します。 リソース プロバイダーとユーザー (Web アプリなど) は、ユーザー ネットワーク経由で通信します。そのため、このネットワーク上の SQL インスタンスへの接続が必要です。
+* Azure Stack Hub にインストールするときに、SQL インスタンスの IP アドレスをパブリックとして構成します。 リソース プロバイダーとユーザー (Web アプリなど) は、ユーザー ネットワーク経由で通信します。そのため、このネットワーク上の SQL インスタンスへの接続が必要です。
 
 ### <a name="general-requirements"></a>一般的な要件
 
@@ -54,10 +46,10 @@ Marketplace 項目を使用して SQL VM をデプロイする前に、必ず **
 > [!NOTE]
 > SQL IaaS 拡張機能は、Marketplace にあるすべての SQL on Windows イメージに "_必須_" です。この拡張機能をダウンロードしなかった場合、VM のデプロイは失敗します。 これは、Linux ベースの SQL VM イメージでは使用されません。
 
-SQL VM のデプロイにはその他の選択肢もあります。[Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates) のテンプレートなどです。
+SQL VM のデプロイには、[Azure Stack Hub Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates) 内のテンプレートなどのその他の選択肢もあります。
 
 > [!NOTE]
-> 複数ノードの Azure Stack にインストールされるホスティング サーバーは、既定のプロバイダー サブスクリプションではなくユーザー サブスクリプションから作成する必要があります。 ユーザー ポータル、または適切にログインされた PowerShell セッションから作成する必要があります。 すべてのホスティング サーバーが課金対象の VM であり、適切な SQL ライセンスが必要です。 サービス管理者は、そのサブスクリプションの所有者になることが "_できます_"。
+> マルチノードの Azure Stack Hub にインストールされるホスティング サーバーは、既定のプロバイダー サブスクリプションではなくユーザー サブスクリプションから作成する必要があります。 ユーザー ポータル、または適切にログインされた PowerShell セッションから作成する必要があります。 すべてのホスティング サーバーが課金対象の VM であり、適切な SQL ライセンスが必要です。 サービス管理者は、そのサブスクリプションの所有者になることが "_できます_"。
 
 ### <a name="required-privileges"></a>必要な特権
 
@@ -72,7 +64,7 @@ SQL sysadmin より低い特権を持つ管理者ユーザーを作成できま�
 
 次の情報は、追加のセキュリティに関するガイダンスを提供します。
 
-* すべての Azure Stack ストレージは BitLocker を使用して暗号化されているので、Azure Stack 上のどの SQL インスタンスも暗号化された Blob ストレージを利用します。
+* すべての Azure Stack Hub ストレージは BitLocker を使用して暗号化されているので、Azure Stack Hub 上のどの SQL インスタンスも暗号化された Blob ストレージを利用します。
 * SQL リソース プロバイダーは、TLS 1.2 を完全にサポートします。 SQL RP を通じて管理される SQL Server はすべて、TLS 1.2 "_のみ_" に対して構成されており、RP は既定でこれに設定されることを確認します。 サポートされているすべてのバージョンの SQL Server は、TLS 1.2 をサポートしています。 詳細については、「[Microsoft SQL Server 用の TLS 1.2 のサポート](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)」を参照してください。
 * SQL Server 構成マネージャーを使用して、SQL Server へのすべての通信が常に暗号化されるように **ForceEncryption** オプションを設定します。 詳細については、「[暗号化された接続を強制するサーバーを構成するには](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections)」を参照してください。
 * クライアント アプリが、暗号化された接続で通信することも確認します。
@@ -84,19 +76,19 @@ SQL Server 2014 または SQL Server 2016 の任意のエディションを使�
 
 既に設定されているスタンドアロンのホスティング サーバーを追加するには、次の手順を実行します。
 
-1. Azure Stack 管理ポータルにサービス管理者としてサインインします。
+1. Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
 
-2. **[すべてのサービス]** &gt; **[管理リソース]** &gt; **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** を選択します。
+2. **[すべてのサービス]** 、 **[管理リソース]** 、 **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** の順に選択します。
 
-   ![Azure Stack 管理者ポータルの SQL ホスティング サーバー](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![Azure Stack Hub 管理者ポータルの SQL ホスティング サーバー](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** では、リソース プロバイダーのバックエンドとして機能する SQL Server のインスタンスに SQL リソース プロバイダーを接続できます。
 
-   ![Azure Stack 管理者ポータルの SQL アダプター ダッシュボード](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
+   ![Azure Stack Hub 管理者ポータルの SQL アダプター ダッシュボード](./media/azure-stack-sql-rp-deploy/sql-rp-hosting-server.png)
 
 3. **[追加]** をクリックし、 **[Add a SQL Hosting Server]\(SQL ホスティング サーバーの追加\)** ブレードで、SQL Server インスタンスの接続の詳細を指定します。
 
-   ![Azure Stack 管理者ポータルでの SQL ホスティング サーバーの追加](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
+   ![Azure Stack Hub 管理者ポータルでの SQL ホスティング サーバーの追加](./media/azure-stack-sql-rp-deploy/sql-rp-new-hosting-server.png)
 
     必要に応じて、インスタンス名を指定します。また、インスタンスが既定のポート 1433 に割り当てられていない場合は、ポート番号を指定します。
 
@@ -108,7 +100,7 @@ SQL Server 2014 または SQL Server 2016 の任意のエディションを使�
    * 既存の SKU を使用するには、使用可能な SKU を選択してから、 **[作成]** を選択します。
    * SKU を作成するには、 **[+ Create new SKU]\(+ 新しい SKU の作成\)** を選択します。 必要な情報を **[Create SKU]\(SKU の作成\)** に入力し、 **[OK]** を選択します。
 
-     ![Azure Stack 管理者ポータルでの SKU の作成](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+     ![Azure Stack Hub 管理者ポータルでの SKU の作成](./media/azure-stack-sql-rp-deploy/sqlrp-new-sku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On 可用性グループを使用して高可用性を提供する
 
@@ -157,9 +149,9 @@ SQL Server のインスタンスごとに各可用性グループで[自動シ�
 
 ### <a name="to-add-sql-always-on-hosting-servers"></a>SQL Always On ホスティング サーバーを追加するには
 
-1. Azure Stack 管理ポータルにサービス管理者としてサインインします。
+1. Azure Stack Hub 管理ポータルにサービス管理者としてサインインします。
 
-2. **[参照]** &gt; **[管理リソース]** &gt; **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** &gt; **[+ 追加]** の順に選びます。
+2. **[参照]** 、 **[管理リソース]** 、 **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** 、 **[+ 追加]** の順に選択します。
 
    **[SQL Hosting Servers]\(SQL ホスティング サーバー\)** では、リソース プロバイダーのバックエンドとして機能する SQL Server の実際のインスタンスに SQL Server リソース プロバイダーを接続できます。
 
@@ -167,7 +159,7 @@ SQL Server のインスタンスごとに各可用性グループで[自動シ�
 
 4. SQL Always On 可用性グループ ボックスのインスタンスのサポートを有効にするには、[Always On 可用性グループ] ボックスをオンにします。
 
-   ![Azure Stack 管理者ポータルで Always On 可用性グループを有効にする](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
+   ![Azure Stack Hub 管理者ポータルでの Always On 可用性グループの有効化](./media/azure-stack-sql-rp-deploy/AlwaysOn.PNG)
 
 5. SKU に SQL Always On インスタンスを追加します。
 
@@ -201,6 +193,6 @@ SKU を編集するには、 **[すべてのサービス]**  >  **[SQL アダプ
 > [!IMPORTANT]
 > ユーザー ポータルで新しいクォータが使用可能になるまで、または変更されたクォータが適用されるまでに最大で 2 時間かかることがあります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [データベースを追加する](azure-stack-sql-resource-provider-databases.md)

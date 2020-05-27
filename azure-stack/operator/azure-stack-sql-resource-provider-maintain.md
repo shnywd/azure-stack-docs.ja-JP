@@ -1,27 +1,19 @@
 ---
 title: SQL リソース プロバイダーの保守操作
-titleSuffix: Azure Stack
-description: Azure Stack での SQL リソース プロバイダーのメンテナンス操作について説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub での SQL リソース プロバイダーのメンテナンス操作について説明します。
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: jiahan
-ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: d5467974a6b9164d92a2281fd94973835bc21993
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.lastreviewed: 01/11/2020
+ms.openlocfilehash: 134839230eef3bb76c8df82cb2bd79b5127dfed9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756884"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697265"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -29,7 +21,7 @@ SQL リソース プロバイダーは、ロックダウンされた仮想マシ
 
 ## <a name="patching-and-updating"></a>修正プログラム適用と更新
 
-SQL リソース プロバイダーはアドオン コンポーネントであるため、Azure Stack の一部としては提供されません。 必要に応じて、SQL リソース プロバイダーの更新プログラムが提供されます。 更新された SQL アダプターがリリースされると、更新プログラムを適用するためのスクリプトが提供されます。 このスクリプトによって新しいリソース プロバイダー VM が作成され、古い方のプロバイダーの状態が新しい方の VM に移行されます。 詳細については、「[SQL リソース プロバイダーの更新](azure-stack-sql-resource-provider-update.md)」を参照してください。
+SQL リソース プロバイダーはアドオン コンポーネントであるため、Azure Stack Hub の一部としては提供されません。 必要に応じて、SQL リソース プロバイダーの更新プログラムが提供されます。 更新された SQL アダプターがリリースされると、更新プログラムを適用するためのスクリプトが提供されます。 このスクリプトによって新しいリソース プロバイダー VM が作成され、古い方のプロバイダーの状態が新しい方の VM に移行されます。 詳細については、「[SQL リソース プロバイダーの更新](azure-stack-sql-resource-provider-update.md)」を参照してください。
 
 ### <a name="provider-vm"></a>プロバイダー VM
 
@@ -37,17 +29,17 @@ SQL リソース プロバイダーはアドオン コンポーネントであ�
 
 ## <a name="updating-sql-credentials"></a>SQL 資格情報の更新
 
-管理者は、SQL Server の sysadmin アカウントの作成と保守を担当します。 リソース プロバイダーには、ユーザーに代わってデータベースを管理するためにこれらの権限があるアカウントが必要となりますが、ユーザーのデータにアクセスする必要はありません。 SQL Server で sysadmin パスワードを更新する必要がある場合、リソース プロバイダーの管理者インターフェイスを使用して、保存済みパスワードを変更できます。 これらのパスワードは、Azure Stack インスタンス上の Key Vault に格納されています。
+管理者は、SQL Server の sysadmin アカウントの作成と保守を担当します。 リソース プロバイダーには、ユーザーに代わってデータベースを管理するためにこれらの権限があるアカウントが必要となりますが、ユーザーのデータにアクセスする必要はありません。 SQL Server で sysadmin パスワードを更新する必要がある場合、リソース プロバイダーの管理者インターフェイスを使用して、保存済みパスワードを変更できます。 これらのパスワードは、Azure Stack Hub インスタンス上の Key Vault に格納されています。
 
 設定を変更するには、 **[参照]** &gt; **[管理リソース]** &gt; **[SQL ホスティング サーバー]** &gt; **[SQL ログイン]** の順に選択し、ユーザー名を選択します。 変更は、最初に SQL インスタンス (および必要な場合はレプリカ) で行う必要があります。 **[設定]** で **[パスワード]** を選択します。
 
-![SQL 管理者パスワードの更新](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
+![SQL 管理者パスワードの更新](./media/azure-stack-sql-rp-deploy/sql-rp-update-password.png)
 
 ## <a name="secrets-rotation"></a>シークレットのローテーション
 
-*この説明は、Azure Stack 統合システムに対してのみ適用されます。*
+"*この説明は、Azure Stack Hub 統合システムに対してのみ適用されます。* "
 
-Azure Stack 統合システムで SQL および MySQL リソース プロバイダーを使用する場合、以下のリソース プロバイダーのインフラストラクチャ シークレットが期限切れにならないようにローテーションする責任は Azure Stack オペレーターにあります。
+Azure Stack Hub 統合システムで SQL および MySQL リソース プロバイダーを使用する場合、以下のリソース プロバイダーのインフラストラクチャ シークレットが確実に期限切れにならないようにローテーションする責任は Azure Stack Hub オペレーターにあります。
 
 - [デプロイ時に提供](azure-stack-pki-certs.md)された外部 SSL 証明書。
 - デプロイ時に提供された、リソース プロバイダー VM のローカル管理者アカウントのパスワード。
@@ -101,10 +93,10 @@ Azure Stack 統合システムで SQL および MySQL リソース プロバイ�
 
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 のパラメーター
 
-|パラメーター|[説明]|
+|パラメーター|説明|
 |-----|-----|
-|AzCredential|Azure Stack サービス管理者アカウントの資格情報。|
-|CloudAdminCredential|Azure Stack クラウド管理者ドメイン アカウントの資格情報。|
+|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|
+|CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|
 |PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|
 |DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|
 |VMLocalCredential|MySQLAdapter VM のローカル管理者アカウント。|

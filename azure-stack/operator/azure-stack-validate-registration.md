@@ -1,36 +1,28 @@
 ---
-title: Azure Stack の Azure 登録を検証する | Microsoft Docs
-description: Azure Stack 適合性チェッカーを使用して、Azure 登録を検証します。
-services: azure-stack
-documentationcenter: ''
-author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 10/03/2019
-ms.author: sethm
+title: Azure の登録の検証
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 適合性チェッカーを使用して、Azure 登録を検証する方法について説明します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: c959a2553d6b298ef4a815890de6f717838361de
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.openlocfilehash: 131e4b186078e566c81a2b4aac3e34f3898213bc
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961858"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78366485"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
-Azure Stack のデプロイを開始する前に、Azure Stack 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、対象の Azure サブスクリプションを Azure Stack で使用する準備が整っていることを検証します。 適合性チェッカーは以下を検証します。
+Azure Stack Hub のデプロイを開始する前に、Azure Stack Hub 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、Azure Stack Hub で Azure サブスクリプションをすぐに使用できることを検証します。 適合性チェッカーは以下を検証します。
 
 - 使用する Azure サブスクリプションの種類がサポート対象であること。 サブスクリプションは、クラウド ソリューション プロバイダー (CSP) またはマイクロソフトエンタープライズ契約 (EA) である必要があります。
 - ご自身のサブスクリプションの登録に使用するアカウントが Azure にサインインでき、サブスクリプション所有者であること。
 
-Azure Stack 登録の詳細については、「[Azure を使用した Azure Stack の登録](azure-stack-registration.md)」を参照してください。
+Azure Stack Hub 登録の詳細については、「[Azure を使用した Azure Stack Hub の登録](azure-stack-registration.md)」を参照してください。
 
 ## <a name="get-the-readiness-checker-tool"></a>適合性チェッカー ツールを取得する
 
@@ -44,19 +36,17 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
 - PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、"**メジャー**" バージョンと "**マイナー**" バージョンを調べます。  
-
   ```powershell
   $PSVersionTable.PSVersion
   ```
+- [Azure Stack Hub 用に構成された PowerShell](azure-stack-powershell-install.md)。
+- 最新バージョンの [Microsoft Azure Stack Hub 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。  
 
-- [Azure Stack 用に構成された PowerShell](azure-stack-powershell-install.md)。
-- 最新バージョンの [Microsoft Azure Stack 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツール。  
+### <a name="azure-active-directory-aad-environment"></a>Azure Active Directory (AAD) 環境
 
-### <a name="azure-active-directory-environment"></a>Azure Active Directory の環境
-
-- Azure Stack で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを特定します。  
-- 使用する Azure サブスクリプションのサブスクリプション ID を特定します。
-- 使用する **AzureEnvironment** を特定します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** です。使用している Azure サブスクリプションに応じて異なります。
+- Azure Stack Hub で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを識別します。  
+- 使用する Azure サブスクリプションのサブスクリプション ID を識別します。
+- 使用する **AzureEnvironment** を識別します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** であり、使用されている Azure サブスクリプションに応じて異なります。
 
 ## <a name="steps-to-validate-the-azure-registration"></a>Azure の登録を検証する手順
 
@@ -75,7 +65,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
    > [!NOTE]
    > CSP として、共有サービスまたは IUR サブスクリプションを使用する場合は、それぞれの Azure AD のユーザーの資格情報を指定する必要があります。 これは、通常、`subscriptionowner@iurcontoso.onmicrosoft.com` のようになります。 前の手順で説明したように、そのユーザーは適切な資格情報を持っている必要があります。
 
-3. PowerShell プロンプトから次を実行して、`$subscriptionID` を、使用する Azure サブスクリプションとして設定します。 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` をお使いのサブスクリプション ID に置き換えます。
+3. PowerShell プロンプトから次のコマンドを実行して、`$subscriptionID` を、使用する Azure サブスクリプションとして設定します。 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` をお使いのサブスクリプション ID に置き換えます。
 
    ```powershell
    $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -84,8 +74,7 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 4. PowerShell プロンプトから次のコマンドを実行して、お使いのサブスクリプションの検証を開始します。
 
    - `AzureEnvironment` の値を **AzureCloud**、**AzureGermanCloud**、または **AzureChinaCloud** として指定します。  
-   - Azure Active Directory 管理者と、お使いの Azure Active Directory テナントの名前を指定します。
-
+   - Azure AD 管理者と Azure AD テナント名を指定します。
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
       ```
@@ -104,14 +93,14 @@ Azure Stack 登録の詳細については、「[Azure を使用した Azure Sta
 
 検証を実行するたびに、結果のログが **AzsReadinessChecker.log** と **AzsReadinessCheckerReport.json** に出力されます。 これらのファイルの場所は、PowerShell に検証結果と共に表示されます。
 
-これらのファイルは、Azure Stack をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
+これらのファイルは、Azure Stack Hub をデプロイする前、または検証に関する問題を調査する前に、検証の状態を共有するときに役立ちます。 両方のファイルに、以降の各検証チェックの結果が保持されます。 デプロイ チームはこのレポートを使用して ID 構成を確認できます。 デプロイ チームやサポート チームは、検証の問題を調査する際に、このログ ファイルを役立たせることができます。
 
-既定では、両方のファイルが **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json** に書き込まれます。  
+既定では、両方のファイルが `C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json` に書き込まれます  
 
 - 別のレポートの場所を指定するには、実行コマンド ラインの末尾に `-OutputPath <path>` パラメーターを使用します。
 - ツールの以前の実行に関する情報を **AzsReadinessCheckerReport.json** からクリアするには、実行コマンド ラインの末尾に `-CleanReport` パラメーターを使用します。
 
-詳細については、「[Azure Stack 検証レポート](azure-stack-validation-report.md)」を参照してください。
+詳細については、「[Azure Stack Hub 検証レポート](azure-stack-validation-report.md)」を参照してください。
 
 ## <a name="validation-failures"></a>検証エラー
 
@@ -135,7 +124,7 @@ Invoke-AzsRegistrationValidation Completed
 
 **原因** - アカウントが Azure サブスクリプションの管理者ではありません。
 
-**解決策** - Azure サブスクリプション管理者であるアカウントを使用します。これは、Azure Stack デプロイから使用の請求対象となります。
+**解決策** - Azure サブスクリプション管理者であるアカウントを使用します。これは、Azure Stack Hub デプロイから使用の請求対象となります。
 
 ### <a name="expired-or-temporary-password"></a>期限切れまたは一時パスワード
 
@@ -153,7 +142,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**原因** - パスワードの有効期限が切れているか、一時パスワードであるため、アカウントがサインインできません。
+**原因** - パスワードの有効期限が切れているか一時パスワードであるため、アカウントでサインインできません。
 
 **解決策** - PowerShell で次のコマンドを実行し、プロンプトに従ってパスワードをリセットします。
 
@@ -161,7 +150,7 @@ Invoke-AzsRegistrationValidation Completed
 Login-AzureRMAccount
 ```
 
-または、[Azure portal](https://portal.azure.com) にアカウント オーナーとしてサインインします。この場合、ユーザーはパスワードの変更を強制されます。
+別の方法として、[Azure portal](https://portal.azure.com) にアカウント所有者としてサインインします。この場合、ユーザーはパスワードの変更を強制されます。
 
 ### <a name="unknown-user-type"></a>ユーザーの種類が不明  
 
@@ -176,7 +165,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**原因** - 指定した Azure Active Directory 環境にアカウントがサインインできません。 この例では、**AzureChinaCloud** が **AzureEnvironment** として指定されています。  
+**原因** - 指定した Azure AD 環境にアカウントでサインインできません。 この例では、**AzureChinaCloud** が **AzureEnvironment** として指定されています。  
 
 **解決策** - 指定した Azure 環境に対してアカウントが有効であることを確認します。 PowerShell で次のコマンドを実行して、特定の環境に対してアカウントが有効であることを確認します。
 
@@ -188,4 +177,4 @@ Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 
 - [Azure ID の検証](azure-stack-validate-identity.md)
 - [対応状況レポートを表示する](azure-stack-validation-report.md)
-- [Azure Stack の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)
+- [Azure Stack Hub の統合に関する一般的な考慮事項](azure-stack-datacenter-integration.md)

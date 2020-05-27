@@ -1,32 +1,43 @@
 ---
-title: ASDK リリースノート | Microsoft Docs
+title: ASDK リリース ノート
 description: Azure Stack Development Kit (ASDK) の機能強化、修正、既知の問題。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 04/06/2020
 ms.author: sethm
 ms.reviewer: misainat
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 2323f13029d4d356ce54b825bab69da5ca21d6ab
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.lastreviewed: 03/18/2020
+ms.openlocfilehash: bbe37512d943a45b5981f4e862f55440ade3b08f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993570"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80806709"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md)します。
 
 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+
+::: moniker range="azs-2002"
+## <a name="build-12002035"></a>ビルド 1.2002.0.35
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの修正された問題、変更点、および新機能の一覧については、[Azure Stack リリースノート](../operator/release-notes.md)の関連セクションを参照してください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+- 解読証明書のパスワードは、バックアップ データの解読に必要な秘密キーが含まれている自己署名証明書 (.pfx) のパスワードを指定するための新しいオプションです。 このパスワードは、バックアップが証明書を使用して暗号化されている場合にのみ必要です。
+- このリリースでの Azure Stack の既知の問題の一覧については、[既知の問題](../operator/known-issues.md)に関する記事を参照してください。
+- 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
+
+#### <a name="sql-vm-provision-fails-in-asdk"></a>ASDK で SQL VM のプロビジョニングが失敗する
+
+- 適用先:この問題は、ASDK 2002 に適用されます。
+- 原因: ASDK 2002 で新しい SQL VM を作成する際に、「**Extension with publisher 'Microsoft.SqlServer.Management', type 'SqlIaaSAgent', and type handler version '2.0' could not be found in the extension repository. (発行元 'Microsoft.SqlServer.Management'、種類 'SqlIaaSAgent'、種類ハンドラー バージョン '2.0' の拡張機能が拡張機能リポジトリに見つかりません。)** 」というエラー メッセージが表示されることがあります。 Azure Stack Hub に **SqlIaaSAgent** 2.0 がありません。
+::: moniker-end
 
 ::: moniker range="azs-1910"
 ## <a name="build-11910058"></a>ビルド 1.1910.0.58
@@ -54,7 +65,7 @@ ms.locfileid: "74993570"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-1)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-2)を参照してください。
 
 <!-- ### Changes -->
 
@@ -77,26 +88,7 @@ ms.locfileid: "74993570"
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-2)を参照してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-3)を参照してください。
 - 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1907)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-2)が Azure Stack ASDK には適用できないことに注意してください。
-::: moniker-end
-
-::: moniker range="azs-1906"
-## <a name="build-11906030"></a>ビルド 1.1906.0.30
-
-### <a name="new-features"></a>新機能
-
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#whats-in-this-update-1)を参照してください。
-
-### <a name="changes"></a>変更点
-
-- Azure Stack のログ コレクション サービスをホストする **AzS-SRNG01** サポート リング VM を追加しました。 詳しくは、[仮想マシン ロール](asdk-architecture.md)に関するページをご覧ください。
-
-### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
-
-- 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1906#fixes-3)を参照してください。
-- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1906)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1906#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
+- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end

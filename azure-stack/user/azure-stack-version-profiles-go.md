@@ -1,38 +1,29 @@
 ---
-title: Azure Stack での GO による API バージョンのプロファイルの使用 | Microsoft Docs
-description: Azure Stack での GO による API バージョンのプロファイルの使用方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub での GO による API バージョンのプロファイルの使用
+description: Azure Stack Hub での GO による API バージョンのプロファイルの使用方法について説明します。
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 05/05/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 0636f3069db80613f02e979b5a102a471f12efad
-ms.sourcegitcommit: 3d14ae30ce3ee44729e5419728cce14b3000e968
+ms.openlocfilehash: e40c51d44f93fae4e7293113ab7f06bad03677e3
+ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71814477"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836191"
 ---
-# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Azure Stack での GO による API バージョンのプロファイルの使用
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Azure Stack Hub での GO による API バージョンのプロファイルの使用
 
 ## <a name="go-and-version-profiles"></a>GO と バージョン プロファイル
 
 プロファイルとは、各種のサービスから異なるバージョンのさまざまなリソースの種類を組み合わせたものです。 プロファイルを使用すると、さまざまなリソースの種類を取り混ぜてマッチングできます。 プロファイルには次の利点があります。
 
 - 特定の API バージョンをロックすることによる、アプリの安定性。
-- Azure Stack および地域の Azure データセンターでのアプリの互換性。
+- Azure Stack Hub および地域の Azure データセンターでのアプリの互換性。
 
-Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 プロファイルのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 Azure Stack バージョン 1904 以降の場合、最新の Azure Stack API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 プロファイルのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 Azure Stack Hub バージョン 1904 以降の場合、最新の Azure Stack Hub API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -59,9 +50,9 @@ Azure Go SDK の詳細については、次のリンク先をご覧ください�
 
 Go SDK では、Azure **Go-AutoRest** モジュールに依存して、Azure Resource Manager エンドポイントに REST 要求を送信します。 Azure  **Go-AutoRest** モジュールの依存関係を [GitHub の Azure Go-AutoRest](https://github.com/Azure/go-autorest) からインポートする必要があります。 インストールの bash コマンドは、「**インストール**」セクションで検索できます。
 
-## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Azure Stack での Go SDK プロファイルの使用方法
+## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>Azure Stack Hub での Go SDK プロファイルの使用方法
 
-Azure Stack でサンプルの Go コードを実行するには、次の手順に従います。
+Azure Stack Hub でサンプルの Go コードを実行するには、次の手順に従います。
 
 1. Azure SDK for Go とその依存関係をインストールします。 手順については、前のセクションの「[Azure SDK for Go をインストールする](#install-the-azure-sdk-for-go)」をご覧ください。
 2. リソース マネージャー エンドポイントからメタデータ情報を取得します。 エンドポイントは、Go コードを実行するために必要な情報と共に、JSON ファイルを返します。
@@ -84,11 +75,11 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    }
    ```
 
-3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法に関する詳細については、「[Azure Stack でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
+3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法に関する詳細については、「[Azure Stack Hub でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
 
-4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack 環境が設定されました。
+4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack Hub 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack Hub 環境が設定されました。
 
-5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
+5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack Hub プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
    ```go
    package main
@@ -124,13 +115,13 @@ Azure Stack でサンプルの Go コードを実行するには、次の手順�
    vnetClient .CreateOrUpdate( )
    ```
 
-Go SDK プロファイルを使用して Azure Stack に仮想ネットワークを作成する詳細な例については、「[例](#example)」をご覧ください。
+Go SDK プロファイルを使用して Azure Stack Hub に仮想ネットワークを作成する詳細な例については、「[例](#example)」をご覧ください。
 
 ## <a name="authentication"></a>認証
 
 Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、**Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。 そうでない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールします。
 
-Authorizer には、リソース クライアントの承認者を設定する必要があります。 クライアント資格情報を使用して Azure Stack に authorizer トークンを取得する方法は複数あります。
+Authorizer には、リソース クライアントの承認者を設定する必要があります。 クライアント資格情報を使用して Azure Stack Hub に authorizer トークンを取得する方法は複数あります。
 
 1. サブスクリプションの所有者ロールを備えたサービス プリンシパルが使用可能な場合は、この手順を省略します。 それ以外の場合は、クライアント シークレットを使用するサービス プリンシパルの作成に関する指示と、ご利用のサブスクリプションにスコープされた "所有者" ロールへの割り当て方法のヘルプについては、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 サービス プリンシパル アプリケーション ID とシークレットを必ずキャプチャしてください。
 
@@ -154,9 +145,9 @@ Authorizer には、リソース クライアントの承認者を設定する�
    }
    ```
 
-   `<activeDirectoryEndpoint>` に、このドキュメントの前のセクションで取得した `ResourceManagerUrl` メタデータの `loginEndpoint` プロパティの値を設定します。 `<tenantID>` 値に、お使いの Azure Stack テナント ID を設定します。
+   `<activeDirectoryEndpoint>` に、このドキュメントの前のセクションで取得した `loginEndpoint` メタデータの `ResourceManagerUrl` プロパティの値を設定します。 `<tenantID>` 値に、お使いの Azure Stack Hub テナント ID を設定します。
 
-4. 最後に、**adal** モジュールの `NewServicePrincipalToken` メソッドを使用して、サービス プリンシパルのトークンを作成します。
+4. 最後に、`NewServicePrincipalToken`adal**モジュールの** メソッドを使用して、サービス プリンシパルのトークンを作成します。
 
    ```go
    package main
@@ -180,12 +171,12 @@ Authorizer には、リソース クライアントの承認者を設定する�
 
 ## <a name="example"></a>例
 
-この例では、Azure Stack で仮想ネットワークを作成する Go コードのサンプルを示します。 Go SDK の詳細な例については、[Azure Go SDK サンプル リポジトリ](https://github.com/Azure-Samples/azure-sdk-for-go-samples)をご覧ください。 リポジトリのサービス ホルダー内にある hybrid パスの Azure Stack のサンプルを使用できます。
+この例では、Azure Stack Hub で仮想ネットワークを作成する Go コードのサンプルを示します。 Go SDK の詳細な例については、[Azure Go SDK サンプル リポジトリ](https://github.com/Azure-Samples/azure-sdk-for-go-samples)をご覧ください。 リポジトリのサービス フォルダー内にある hybrid パスの Azure Stack Hub のサンプルを使用できます。
 
 > [!NOTE]  
-> この例のコードを実行するには、使用されるサブスクリプションが、**ネットワーク** リソース プロバイダーの一覧に**登録済み**として示されていることを確認します。 これを確認するには、Azure Stack ポータルでサブスクリプションを検索し、 **[リソース プロバイダー]** を選択します。
+> この例のコードを実行するには、使用されるサブスクリプションが、**ネットワーク** リソース プロバイダーの一覧に**登録済み**として示されていることを確認します。 これを確認するには、Azure Stack Hub ポータルでサブスクリプションを検索し、 **[リソース プロバイダー]** を選択します。
 
-1. コード内で必要なパッケージをインポートします。 ネットワーク モジュールをインポートするには、Azure Stack で使用可能な最新のプロファイルを使用します。
+1. コード内で必要なパッケージをインポートします。 ネットワーク モジュールをインポートするには、Azure Stack Hub で使用可能な最新のプロファイルを使用します。
 
    ```go
    package main
@@ -300,13 +291,13 @@ Authorizer には、リソース クライアントの承認者を設定する�
    }
    ```
 
-Go SDK を使用した Azure Stack 向けの入手可能なコード サンプルの一部を次に示します。
+Go SDK を使用した Azure Stack Hub 向けの入手可能なコード サンプルの一部を次に示します。
 
 - [仮想マシンの作成](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)
 - [ストレージ データプレーン](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)
-- [Managed Disks の使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
+- [Managed Disks の使用](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks) (Azure Stack Hub によってサポートされている最新の API バージョンをターゲットとする 2019-03-01 プロファイルを使用するサンプル)。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [PowerShell for Azure Stack のインストール](../operator/azure-stack-powershell-install.md)
-- [Azure Stack ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)
+- [PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)
+- [Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)

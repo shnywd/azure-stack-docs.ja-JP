@@ -1,35 +1,27 @@
 ---
-title: デプロイまたはローテーションのために Azure Stack PKI 証明書を準備する | Microsoft Docs
-titleSuffix: Azure Stack
-description: Azure Stack 統合システムのデプロイ、または既存の Azure Stack 環境でのシークレットのローテーションのために PKI 証明書を準備する方法について説明します。
-services: azure-stack
-documentationcenter: ''
-author: justinha
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/16/2019
-ms.author: justinha
+title: デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 統合システムのデプロイ、または既存の Azure Stack Hub 環境でのシークレットのローテーションのために PKI 証明書を準備する方法について説明します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a63e0e3a2246cc3c3c659f9671afdf4be0cc93cd
-ms.sourcegitcommit: ca358ea5c91a0441e1d33f540f6dbb5b4d3c92c5
+ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802381"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367956"
 ---
-# <a name="prepare-azure-stack-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack PKI 証明書を準備する
+# <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 
-[任意の証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
+[任意の証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
 
 ## <a name="prepare-certificates-for-deployment"></a>デプロイ用の証明書を準備する
 
-次の手順を使用して、新しい Azure Stack 環境のデプロイまたは既存の Azure Stack 環境でのシークレットのローテーションに使用される Azure Stack PKI 証明書を準備および検証します。
+次の手順を使用して、新しい Azure Stack Hub 環境のデプロイまたは既存の Azure Stack Hub 環境でのシークレットのローテーションに使用される Azure Stack Hub PKI 証明書を準備および検証します。
 
 ### <a name="import-the-certificate"></a>証明書のインポート
 
@@ -54,7 +46,7 @@ ms.locfileid: "73802381"
 1. **[完了]** を選択してインポートを完了します。
 
 > [!NOTE]
-> Azure Stack 用に証明書をインポートすると、証明書の秘密キーがクラスター記憶域に PKCS 12 ファイル (PFX) として保存されます。
+> Azure Stack Hub 用に証明書をインポートすると、証明書の秘密キーがクラスター記憶域に PKCS 12 ファイル (PFX) として保存されます。
 
 ### <a name="export-the-certificate"></a>証明書をエクスポートする
 
@@ -75,7 +67,7 @@ ms.locfileid: "73802381"
 5. 証明書管理者コンソールのタスク バーから、 **[アクション]**  >  **[すべてのタスク]**  >  **[エクスポート]** の順に選択します。 **[次へ]** を選択します。
 
    > [!NOTE]
-   > Azure Stack の証明書の数によっては、このプロセスを複数回完了する必要があります。
+   > Azure Stack Hub の証明書の数によっては、このプロセスを複数回完了する必要があります。
 
 6. **[はい、秘密キーをエクスポートします]** を選択し、 **[次へ]** をクリックします。
 
@@ -101,6 +93,6 @@ ms.locfileid: "73802381"
 
 11. **[完了]** を選択します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [PKI 証明書の検証](azure-stack-validate-pki-certs.md)

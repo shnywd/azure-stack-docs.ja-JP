@@ -1,44 +1,42 @@
 ---
-title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack に接続する | Microsoft Docs
-description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack に接続します
-services: azure-stack
+title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
+description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続します
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 58fecc801312d9da1a2311e4a51114cfbf245e9d
-ms.sourcegitcommit: 102ef41963b5d2d91336c84f2d6af3fdf2ce11c4
+ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73955750"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661051"
 ---
-# <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack に接続する
+# <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
-この記事では、Azure Account 拡張機能を使用して Azure Stack に接続する方法について説明します。 ご自分の Visual Studio Code (VS Code) の設定を更新する必要があります。
+この記事では、Azure Account 拡張機能を使用して Azure Stack Hub に接続する方法について説明します。 ご自分の Visual Studio Code (VS Code) の設定を更新する必要があります。
 
-VS Code は、Web とクラウドのアプリケーションのビルドとデバッグを行うための軽量エディターです。 ASP.NET Core、Python、NodeJS、Go などの開発者が VS Code を使用しています。 Azure Account 拡張機能を利用すると、追加の Azure 拡張機能に対するサブスクリプション フィルターと Azure シングル サインインを使用することができます。 この拡張機能により、VS Code 統合ターミナル内で Azure Cloud Shell を使用できるようになります。 この拡張機能を使用すると、ID マネージャーに Azure AD (Azure AD) と Active Directory フェデレーション サービス (AD FS) の両方を使用して、お使いの Azure Stack サブスクリプションに接続できます。 Azure Stack にサインインし、お使いのサブスクリプションを選択して、Cloud Shell 内で新しいコマンド ラインを開くことができます。 
+VS Code は、Web とクラウドのアプリケーションのビルドとデバッグを行うための軽量エディターです。 ASP.NET Core、Python、NodeJS、Go などの開発者が VS Code を使用しています。 Azure Account 拡張機能を利用すると、追加の Azure 拡張機能に対するサブスクリプション フィルターと Azure シングル サインインを使用することができます。 この拡張機能により、VS Code 統合ターミナル内で Azure Cloud Shell を使用できるようになります。 この拡張機能を使用すると、ID マネージャーとして Azure AD (Azure AD) と Active Directory フェデレーション サービス (AD FS) の両方を使用して、Azure Stack Hub サブスクリプションに接続できます。 Azure Stack Hub にサインインし、お使いのサブスクリプションを選択して、Cloud Shell で新しいコマンド ラインを開くことができます。 
 
 > [!Note]  
 > この記事の手順は、Active Directory フェデレーション サービス (AD FS) 環境に使用できます。 AD FS の資格情報とエンドポイントを使用します。
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Azure Account 拡張機能の前提条件
 
-1. Azure Stack 環境 1904 ビルド以降
+1. Azure Stack Hub 環境 1904 ビルド以降
 2. [Visual Studio Code](https://code.visualstudio.com/)
 3. [Azure Account 拡張機能](https://github.com/Microsoft/vscode-azure-account)
-4. [Azure Stack サブスクリプション](https://azure.microsoft.com/overview/azure-stack/)
+4. [Azure Stack Hub サブスクリプション](https://azure.microsoft.com/overview/azure-stack/)
 
-## <a name="steps-to-connect-to-azure-stack"></a>Azure Stack に接続する手順
+## <a name="steps-to-connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する手順
 
-1. GitHub の Azure Stack ツールから **Identity** スクリプトを実行します。
+1. GitHub の Azure Stack Hub ツールから **Identity** スクリプトを実行します。
 
-    - スクリプトを実行する前に、PowerShell がインストールされ、お使いの環境用に構成されている必要があります。 手順については、「[PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
+    - スクリプトを実行する前に、PowerShell がインストールされ、お使いの環境用に構成されている必要があります。 手順については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
 
-    - **Identity** スクリプトの手順とスクリプトについては、「[AzureStack-Tools/Identity](https://github.com/Azure/AzureStack-Tools/tree/master/Identity)」を参照してください。
+    - **Identity** スクリプトの手順とスクリプトについては、「[AzureStack-Tools/Identity](https://aka.ms/aa6z611)」を参照してください。
 
     - 同じセッションで、次のように実行します。
 
@@ -57,15 +55,15 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
 5. **[Azure Account]** を選択し、 **[インストール]** を選択します。
 
-      ![Azure Stack Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
+      ![Azure Stack Hub Visual Studio Code](media/azure-stack-dev-start-vscode-azure/image1.png)
 
 6. VS Code を再起動して、拡張機能を読み込みます。
 
-7. お使いの Azure Stack 内の Azure Resource Manager に接続するためのメタデータを取得します。 
+7. Azure Stack Hub 内の Azure Resource Manager に接続するためのメタデータを取得します。 
     
     Microsoft Azure Resource Manager は、Azure リソースのデプロイ、管理、監視を行うことができる管理フレームワークです。
     - Azure Stack Development Kit (ASDK) の Resource Manager URL: `https://management.local.azurestack.external/` 
-    - 統合システムの Resource Manager URL: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+    - 統合システムの Resource Manager URL は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。
     - メタデータにアクセスするために、次のテキストを実際の URL に追加します。`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
     たとえば、お使いの Azure Resource Manager エンドポイントのメタデータを取得する URL は次のようになります。`https://management.local.azurestack.external/metadata/endpoints?api-version=1.0`
@@ -80,10 +78,10 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
         | パラメーター | 説明 |
         | --- | --- |
-        | `tenant-ID` | Azure Stack の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
+        | `tenant-ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
         | `activeDirectoryEndpointUrl` | これは loginEndpoint プロパティからの URL です。 |
         | `activeDirectoryResourceId` | これは、audiences プロパティからの URL です。
-        | `resourceManagerEndpointUrl` | これは Azure Stack の Azure Resource Manager のルート URL です。 | 
+        | `resourceManagerEndpointUrl` | これは Azure Stack Hub に対する Azure Resource Manager のルート URL です。 | 
 
     - JSON スニペット:
 
@@ -101,9 +99,9 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
 11. **[AzurePPE]** を選択します。 お使いのブラウザーに認証ページが読み込まれます。 お使いのエンドポイントにサインインします。
 
-12. お使いの Azure Stack サブスクリプションに正常にログインしたことをテストするために、**Ctrl + Shift + P** キーを使用し、 **[Azure:Select Subscription]\(Azure: サブスクリプションの選択\)** を選択し、ご自分のサブスクリプションが使用できるかどうかを確認します。
+12. Azure Stack Hub サブスクリプションに正常にログインしたことをテストするには、**Ctrl + Shift + P** キーを使用し、 **[Azure:Select Subscription]\(Azure: サブスクリプションの選択\)** を選択し、ご自分のサブスクリプションが使用できるかどうかを確認します。
 
-## <a name="commands"></a>command
+## <a name="commands"></a>コマンド
 
 | Azure: Sign In (Azure: サインイン) | Azure サブスクリプションにサインインします。 |
 | --- | --- |
@@ -116,6 +114,6 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 | Azure: Open PowerShell in Cloud Shell (Azure: Cloud Shell 内で PowerShell を開く) | Cloud Shell 内で PowerShell を実行している新しいターミナルを開きます。 |
 | Azure: Upload to Cloud Shell (Azure: Cloud Shell へのアップロード) | お使いの Cloud Shell ストレージ アカウントにファイルをアップロードします。 |
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure Stack 内で開発環境を設定する](azure-stack-dev-start.md)
+[Azure Stack Hub 内で開発環境を設定する](azure-stack-dev-start.md)

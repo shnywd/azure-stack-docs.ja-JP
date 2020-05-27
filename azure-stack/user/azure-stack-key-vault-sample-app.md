@@ -1,45 +1,34 @@
 ---
-title: Azure Stack でアプリに Key Vault に格納されているシークレットへのアクセスを許可する | Microsoft Docs
-description: Azure Stack で Key Vault からキーとシークレットを取得するサンプル アプリを実行する方法を説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
+description: Azure Stack Hub で Key Vault からキーとシークレットを取得するサンプル アプリを実行する方法を説明します。
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 02/19/2020
 ms.author: sethm
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 97299ec47908325f7d3eddb7cf57ca891e145a8d
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 16973c1c381cfecb611370f940f92a7695f9434f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718489"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702773"
 ---
-# <a name="allow-apps-to-access-azure-stack-key-vault-secrets"></a>Azure Stack でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
+# <a name="allow-apps-to-access-azure-stack-hub-key-vault-secrets"></a>Azure Stack Hub でアプリに Key Vault に格納されているシークレットへのアクセスを許可する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事の手順に従って、Azure Stack のキー コンテナーからキーとシークレットを取得するサンプル アプリ **HelloKeyVault** を実行します。
+この記事の手順に従って、Azure Stack Hub のキー コンテナーからキーとシークレットを取得するサンプル アプリ **HelloKeyVault** を実行します。
 
 ## <a name="prerequisites"></a>前提条件
 
 [Azure Stack Development Kit](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) から、または [VPN 経由で接続](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)している場合は Windows ベースの外部クライアントから、次の前提条件をインストールできます。
 
-* [Azure Stack と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
-* [Azure Stack を操作するために必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
+* [Azure Stack Hub と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
+* [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
 
 ## <a name="create-a-key-vault-and-register-an-app"></a>Key Vault の作成とアプリの登録
 
 サンプル アプリケーションを準備するには:
 
-* Azure Stack でキー コンテナーを作成します。
+* Azure Stack Hub でキー コンテナーを作成します。
 * Azure Active Directory (Azure AD) でアプリを登録します。
 
 Azure portal または PowerShell を使用して、サンプル アプリを準備します。
@@ -67,12 +56,12 @@ Function GenerateSymmetricKey()
     return [System.Convert]::ToBase64String($key)
 }
 
-Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor Green
+Write-Host 'Please log into your Azure Stack Hub user environment' -foregroundcolor Green
 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.onmicrosoft.com"
 
-# Configure the Azure Stack operator's PowerShell environment.
+# Configure the Azure Stack Hub operator's PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
@@ -153,15 +142,23 @@ Write-Host
 Visual Studio で次の操作を行います。
 
 1. HelloKeyVault\App.config ファイルを開き、`<appSettings>` 要素を見つけます。
-2. Key Vault の作成時に返された値を使用して、**VaultUrl**、**AuthClientId**、**AuthClientSecret** を更新します。 既定では、App.config ファイルには `AuthCertThumbprint` のプレースホルダーが含まれます。 このプレースホルダーを `AuthClientSecret` に置き換えます。
+2. キー コンテナーの作成時に返された値を使用して **VaultUrl**、**AuthClientId**、および **AuthCertThumbprint** キーを更新します。 既定では、App.config ファイルには `AuthCertThumbprint` のプレースホルダーが含まれます。 このプレースホルダーを `AuthClientSecret` に置き換えます。
 
-   ![アプリケーション設定](media/azure-stack-key-vault-sample-app/appconfig.png)
+   ```xml
+   <appSettings>
+    <!-- Update these settings for your test environment -->
+    <add key="VaultUrl" value="URL to your Vault" />
+    <add key="AuthClientId" value="Client Id of your Service Principal" />
+    <add key="AuthCertThumbprint" value="Thumbprint of the certificate used for authentication" />
+    <add key="TracingEnabled" value="false" />
+   </appSettings>
+   ```
 
 3. ソリューションをリビルドします。
 
 ## <a name="run-the-app"></a>アプリを実行する
 
-**HelloKeyVault** を実行すると、このアプリは Azure AD にサインインし、`AuthClientSecret` トークンを使用して、Azure Stack の Key Vault に対する認証を行います。
+**HelloKeyVault** を実行すると、このアプリは Azure AD にサインインし、`AuthClientSecret` トークンを使用して、Azure Stack Hub の Key Vault に対する認証を行います。
 
 **HelloKeyVault** サンプルを使用して、以下の操作を行います。
 

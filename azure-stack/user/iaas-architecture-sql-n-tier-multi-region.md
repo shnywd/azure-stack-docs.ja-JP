@@ -1,29 +1,27 @@
 ---
-title: 高可用性を得るために複数の Azure Stack リージョンで N 層アプリケーションを実行する | Microsoft Docs
-description: 高可用性を得るために複数の Azure Stack リージョンで N 層アプリケーションを実行する方法について説明します。
-services: azure-stack
+title: 高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する
+description: 高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する方法について学習します。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/01/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: acfeebe626d7745fe200724c8c53c632bada1466
-ms.sourcegitcommit: 8a74a5572e24bfc42f71e18e181318c82c8b4f24
+ms.openlocfilehash: 7667039bc64fe45f912cb855d5cb832b7fe5d28f
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569326"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81659880"
 ---
-# <a name="run-an-n-tier-application-in-multiple-azure-stack-regions-for-high-availability"></a>高可用性を得るために複数の Azure Stack リージョンで N 層アプリケーションを実行する
+# <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する
 
-このリファレンス アーキテクチャは、可用性と堅牢な災害復旧インフラストラクチャを実現するために、複数の Azure Stack リージョンで N 層アプリケーションを実行するための一連の実証済みのプラクティスを示しています。 このドキュメントでは、高可用性を実現するために Traffic Manager が使用されていますが、お使いの環境に Traffic Manager が適していない場合は、可用性の高いロード バランサーのペアに置き換えることもできます。
+このリファレンス アーキテクチャは、可用性と堅牢なディザスター リカバリー インフラストラクチャを実現するために、複数の Azure Stack Hub リージョンで n 層アプリケーションを実行するための一連の実証済みのプラクティスを示しています。 このドキュメントでは、高可用性を実現するために Traffic Manager が使用されていますが、お使いの環境に Traffic Manager が適していない場合は、可用性の高いロード バランサーのペアに置き換えることもできます。
 
 > [!Note]  
 > 以下のアーキテクチャで使用されている Traffic Manager は Azure で構成する必要があり、Traffic Manager プロファイルの構成に使用されるエンドポイントは、パブリックにルーティング可能な IP である必要があります。
 
-## <a name="architecture"></a>アーキテクチャ
+## <a name="architecture"></a>Architecture
 
 このアーキテクチャは、「[SQL Server を使用した n 層アプリケーション](iaas-architecture-windows-sql-n-tier.md)」に示されているアーキテクチャの上に構築されています。
 
@@ -39,7 +37,7 @@ ms.locfileid: "73569326"
 
 -   **SQL Server Always On 可用性グループ**。 SQL Server を使用している場合は、[SQL Always On 可用性グループ](https://msdn.microsoft.com/library/hh510230.aspx)を使用して高可用性を実現することをお勧めします。 両方のリージョンの SQL Server インスタンスを含む単一の可用性グループを作成します。
 
--   **VNET 間 VPN 接続**。 Azure Stack で VNET ピアリングがまだ使用できないため、2 つの VNET を接続するには、VNET 間 VPN 接続を使用します。 詳細については、[Azure Stack での VNET 間接続](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908)に関するページを参照してください。
+-   **VNET 間 VPN 接続**。 Azure Stack Hub で VNET ピアリングがまだ使用できないため、2 つの VNET を接続するには、VNET 間 VPN 接続を使用します。 詳細については、[Azure Stack Hub での VNET 対 VNET](https://docs.microsoft.com/azure-stack/user/azure-stack-network-howto-vnet-to-vnet?view=azs-1908) に関するページを参照してください。
 
 ## <a name="recommendations"></a>Recommendations
 
@@ -171,6 +169,6 @@ SQL Server クラスターでは、2 つのフェールオーバー シナリオ
 
 回復時間を測定し、ビジネス要件を満たしていることを確認します。 障害モードの組み合わせもテストします。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 - Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。

@@ -1,32 +1,21 @@
 ---
-title: Azure Stack で PowerShell を使用して Linux VM を作成する | Microsoft Docs
-description: Azure Stack 内で PowerShell を使用して Linux VM を作成します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub で PowerShell を使用して Linux VM を作成する
+description: Azure Stack Hub 内で PowerShell を使用して Linux VM を作成します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/11/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
-ms.custom: mvc
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 2bd72ad2de570eeb3089645c5ee7c9dd3784e83c
-ms.sourcegitcommit: bbe1048682c7dccc6cebde542462c14ee1f3d0d1
+ms.openlocfilehash: 2b66bee551c9f562b10fe0690e0387217b6d67ea
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75677673"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81660493"
 ---
-# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack"></a>クイック スタート:Azure Stack 内で PowerShell を使用して Linux サーバー VM を作成する
+# <a name="quickstart-create-a-linux-server-vm-by-using-powershell-in-azure-stack-hub"></a>クイック スタート:Azure Stack Hub 内で PowerShell を使用して Linux サーバー VM を作成する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack の PowerShell を使用して、Ubuntu Server 16.04 LTS 仮想マシン (VM) を作成できます。 この記事では、仮想マシンを作成し、使用します。 この記事では、次の方法についても説明します。
+Azure Stack Hub の PowerShell を使用して、Ubuntu Server 16.04 LTS 仮想マシン (VM) を作成できます。 この記事では、仮想マシンを作成し、使用します。 この記事では、次の方法についても説明します。
 
 * リモート クライアントを使用して VM に接続する。
 * NGINX Web サーバーをインストールし、既定のホーム ページを表示する。
@@ -34,17 +23,17 @@ Azure Stack の PowerShell を使用して、Ubuntu Server 16.04 LTS 仮想マ�
 
 ## <a name="prerequisites"></a>前提条件
 
-* Azure Stack Marketplace 内の Linux イメージ。 Azure Stack Marketplace には、既定では Linux イメージが含まれていません。 必要な Ubuntu Server 16.04 LTS イメージを Azure Stack オペレーターに提供してもらってください。 オペレーターは、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](../operator/azure-stack-download-azure-marketplace-item.md)」の手順を使用できます。
+* Azure Stack Hub Marketplace 内の Linux イメージ。 Azure Stack Hub Marketplace には、既定では Linux イメージが含まれていません。 必要な Ubuntu Server 16.04 LTS イメージを Azure Stack Hub オペレーターに提供してもらってください。 オペレーターは、「[Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](../operator/azure-stack-download-azure-marketplace-item.md)」の手順を使用できます。
 
-* Azure Stack には、そのリソースを作成して管理するために、Azure CLI の特定のバージョンが必要です。 
-  * Azure Stack 用に構成された PowerShell がない場合は、「[PowerShell for Azure Stack をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。 
-  * Azure Stack PowerShell を設定したら、ご自身の Azure Stack 環境に接続します。 手順については、「[ユーザーとして PowerShell を使用して Azure Stack に接続する](azure-stack-powershell-configure-user.md)」を参照してください。
+* Azure Stack Hub には、そのリソースを作成して管理するために、Azure CLI の特定のバージョンが必要です。 
+  * Azure Stack Hub 用に構成された PowerShell がない場合は、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。 
+  * Azure Stack Hub PowerShell を設定したら、ご自身の Azure Stack Hub 環境に接続します。 手順については、「[ユーザーとして PowerShell を使用して Azure Stack Hub に接続する](azure-stack-powershell-configure-user.md)」を参照してください。
 
 * Windows ユーザー プロファイルの *.ssh* ディレクトリに保存された *id_rsa.pub* という名前の Secure Shell (SSH) 公開キー。 SSH キーの作成の詳細については、「[SSH 公開キーの使用](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 
 ## <a name="create-a-resource-group"></a>リソース グループを作成する
 
-リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 リソース グループを作成するには、Azure Stack Development Kit (ASDK) または Azure Stack 統合システムから次のコード ブロックを実行します。 
+リソース グループは、Azure Stack Hub リソースのデプロイと管理を行うことができる論理コンテナーです。 リソース グループを作成するには、次のコード ブロックを実行してください。 
 
 > [!NOTE]
 > 次のコード例では、すべての変数に値が割り当てられています。 しかし、独自の値を割り当てることができます。
@@ -212,7 +201,7 @@ New-AzureRmVM `
 ## Create a resource group
 
 <#
-A resource group is a logical container where you can deploy and manage Azure Stack resources. From your development kit or the Azure Stack integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
+A resource group is a logical container where you can deploy and manage Azure Stack Hub resources. From your development kit or the Azure Stack Hub integrated system, run the following code block to create a resource group. Though we've assigned values for all the variables in this article, you can use these values or assign new ones.
 #>
 
 # Edit your variables, if required
@@ -418,4 +407,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>次のステップ
 
-このクイック スタートでは、基本の Linux サーバー VM をデプロイしました。 Azure Stack VM の詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」に進んでください。
+このクイック スタートでは、基本の Linux サーバー VM をデプロイしました。 Azure Stack Hub VM の詳細については、[Azure Stack Hub の VM の考慮事項](azure-stack-vm-considerations.md)に関する記事に進んでください。

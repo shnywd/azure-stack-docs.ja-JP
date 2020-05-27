@@ -1,26 +1,18 @@
 ---
-title: Azure Stack Hub のプロバイダー リソース使用量 API | Microsoft Docs
+title: Azure Stack Hub のプロバイダー リソース使用量 API
 description: Azure Stack Hub の使用状況情報を取得するリソース使用量 API のリファレンス。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: alfredop
-ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: 914f363efa5800c331239a547ee3edd577806188
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: c360123e5393b328e8e5e800ddac283739f89b7b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718115"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661330"
 ---
 # <a name="provider-resource-usage-api"></a>プロバイダー リソース使用量 API
 
@@ -36,15 +28,15 @@ ms.locfileid: "75718115"
 
 この使用状況 API はプロバイダー API であるため、呼び出し元に、プロバイダーのサブスクリプションの**所有者**、**共同作成者**、または**閲覧者**の役割が割り当てられている必要があります。
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value}` |
 
 ### <a name="arguments"></a>引数
 
-| 引数 | [説明] |
+| 引数 | 説明 |
 | --- | --- |
-| `armendpoint` |Azure Stack 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
+| `armendpoint` |Azure Stack Hub 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の名前付け規則は、Azure Resource Manager エンドポイントの名前が `https://adminmanagement.{domain-name}` の形式であることです。 たとえば、Azure Stack Development Kit (ASDK) では、ドメイン名が *local.azurestack.external* の場合、Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` になります。 |
 | `subId` |呼び出しを行っているユーザーのサブスクリプション ID。 |
 | `reportedStartTime` |クエリの開始時間。 `DateTime` の値は協定世界時 (UTC) で、13:00 など、毎時 0 分に設定する必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 (たとえば、`2015-06-16T18%3a53%3a11%2b00%3a00Z` など) です。URI に対応できるように、コロンは `%3a` に、プラスは `%2b` にエスケープされます。 |
 | `reportedEndTime` |クエリの終了時間。 `reportedStartTime` に適用される制約は、この引数にも適用されます。 `reportedEndTime` の値は、将来、または現在の日付にすることはできません。 そうすると、結果は "処理が未完了" に設定されます。 |
@@ -88,7 +80,7 @@ meterID1",
 
 ### <a name="response-details"></a>応答の詳細
 
-| 引数 | [説明] |
+| 引数 | 説明 |
 | --- | --- |
 |`id` |使用状況集計の一意の ID |
 |`name` |使用状況集計の名前 |
@@ -120,13 +112,13 @@ meterID1",
 
 #### <a name="return-all-tenant-usage-for-deleted-for-active-users"></a>アクティブ ユーザーに対して削除されたすべてのテナントの使用状況を返す
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET | `https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&api-version=2015-06-01-preview` |
 
 #### <a name="return-usage-for-deleted-or-active-tenant"></a>削除済みまたはアクティブなテナントの使用状況を返す
 
-| 方法 | 要求 URI |
+| Method | 要求 URI |
 | --- | --- |
 | GET |`https://{armendpoint}/subscriptions/{subId}/providersMicrosoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={start-time}&reportedEndTime={end-endtime}&aggregationGranularity=Hourly&subscriberId={subscriber-id}&api-version=2015-06-01-preview` |
 

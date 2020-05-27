@@ -1,27 +1,19 @@
 ---
 title: SQL リソース プロバイダーの削除
-titleSuffix: Azure Stack
-description: Azure Stack のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub のデプロイから SQL リソース プロバイダーを削除する方法について説明します。
+author: bryanla
 ms.topic: article
 ms.date: 10/02/2019
-ms.author: mabrigg
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: a172b56c43dafd637a66fa8354c2e06e06a67b98
-ms.sourcegitcommit: 08d2938006b743b76fba42778db79202d7c3e1c4
+ms.lastreviewed: 11/20/2019
+ms.openlocfilehash: 7046eff5aa90504e2f02d7b7d24b1c2a74421270
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74954453"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697180"
 ---
 # <a name="remove-the-sql-resource-provider"></a>SQL リソース プロバイダーの削除
 
@@ -30,16 +22,7 @@ SQL リソース プロバイダーを削除する前に、プロバイダーの
 > [!NOTE]
 > リソース プロバイダーのインストーラーのダウンロード リンクは、[リソース プロバイダーを展開するための前提条件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)に関するページにあります。
 
-SQL リソース プロバイダーを削除しても、ホスティング サーバーからテナント データベースが削除されることはありません。
-
-## <a name="dependency-cleanup"></a>依存関係のクリーンアップ
-
-DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダーを削除する前に、いくつかのクリーンアップ タスクを実行する必要があります。
-
-次のクリーンアップ タスクは、Azure Stack オペレーターが担当します。
-
-* SQL アダプターを参照しているすべてのプランを削除する。
-* SQL アダプターに関連付けられているすべてのクォータを削除する。
+SQL リソース プロバイダーを削除すると、オペレーターが管理する関連プランとクォータが削除されます。 ただし、ホスティング サーバーからテナント データベースは削除されません。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>SQL リソース プロバイダーを削除するには
 
@@ -56,10 +39,10 @@ DeploySqlProvider.ps1 スクリプトを実行してリソース プロバイダ
 
     * **Uninstall**:リソース プロバイダーと関連付けられているすべてのリソースを削除します。
     * **PrivilegedEndpoint**:特権エンドポイントの IP アドレスまたは DNS 名。
-    * **AzureEnvironment**:Azure Stack のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
+    * **AzureEnvironment**:Azure Stack Hub のデプロイに使用する Azure 環境。 Azure AD のデプロイでのみ必須です。
     * **CloudAdminCredential**:特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。
-    * **AzCredential**:Azure Stack サービス管理者アカウントの資格情報。 Azure Stack のデプロイに使用したのと同じ資格情報を使用します。
+    * **AzCredential**:Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [App Services を PaaS として提供する](azure-stack-app-service-overview.md)

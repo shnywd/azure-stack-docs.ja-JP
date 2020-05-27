@@ -1,35 +1,24 @@
 ---
-title: Azure Stack のバックアップ | Microsoft Docs
-description: Azure Stack でオンデマンド バックアップを行う方法について学習します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub のバックアップ
+description: Azure Stack Hub でオンデマンド バックアップを行う方法について学習します。
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: 9565DDFB-2CDB-40CD-8964-697DA2FFF70A
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 09/05/2018
-ms.openlocfilehash: 01a4ff62b7cc340a0cf0f98298ee28425d6df892
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 09/05/2019
+ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974717"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77701039"
 ---
-# <a name="back-up-azure-stack"></a>Azure Stack のバックアップ
+# <a name="back-up-azure-stack-hub"></a>Azure Stack Hub のバックアップ
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+この記事では、Azure Stack Hub でオンデマンド バックアップを行う方法について説明します。 PowerShell 環境の構成方法については、[PowerShell for Azure Stack Hub のインストール](azure-stack-powershell-install.md)に関するページをご覧ください。 Azure Stack Hub にサインインするには、「[Azure Stack Hub で管理者ポータルを使用する](azure-stack-manage-portals.md)」をご覧ください。
 
-この記事では、Azure Stack でオンデマンド バックアップを行う方法について示します。 PowerShell 環境の構成方法については、「[PowerShell for Azure Stack をインストールする](azure-stack-powershell-install.md)」をご覧ください。 Azure Stack にサインインするには、「[Azure Stack の管理者ポータルの使用](azure-stack-manage-portals.md)」をご覧ください。
-
-## <a name="start-azure-stack-backup"></a>Azure Stack のバックアップを開始する
+## <a name="start-azure-stack-hub-backup"></a>Azure Stack Hub のバックアップを開始する
 
 ### <a name="start-a-new-backup-without-job-progress-tracking"></a>ジョブの進行状況を追跡せずに新しいバックアップを開始する
 Start-AzSBackup を使用して、ジョブの進行状況を追跡せずに新しいバックアップを迅速に開始します。
@@ -38,7 +27,7 @@ Start-AzSBackup を使用して、ジョブの進行状況を追跡せずに新�
    Start-AzsBackup -Force
 ```
 
-### <a name="start-azure-stack-backup-with-job-progress-tracking"></a>ジョブの進行状況を追跡して Azure Stack のバックアップを開始する
+### <a name="start-azure-stack-hub-backup-with-job-progress-tracking"></a>ジョブの進行状況を追跡して Azure Stack Hub のバックアップを開始する
 Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して新しいバックアップを開始し、バックアップ ジョブの進捗状況を追跡する変数として保存します。
 
 > [!NOTE]
@@ -112,13 +101,13 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
 ```
 
 ### <a name="confirm-backup-has-completed-in-the-administrator-portal"></a>管理者ポータルでバックアップの完了を確認する
-Azure Stack 管理者ポータルを使用して、以下の手順でバックアップが正常に完了したことを確認します。
+Azure Stack Hub 管理者ポータルを使用すると、バックアップが正常に完了したことを以下の手順で確認できます。
 
-1. [Azure Stack 管理者ポータル](azure-stack-manage-portals.md)を開きます。
+1. [Azure Stack Hub 管理者ポータル](azure-stack-manage-portals.md)を開きます。
 2. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Infrastructure backup]** を選択します。 **[Infrastructure backup]\(インフラストラクチャ バックアップ\)** ブレードで **[構成]** を選択します。
 3. **[利用可能なバックアップ]** リストから、バックアップの **[名前]** と **[完了日]** を見つけます。
 4. **[状態]** が **[成功]** であることを確認します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [データ損失イベントから復旧する](azure-stack-backup-recover-data.md)ためのワークフローについて学びます。

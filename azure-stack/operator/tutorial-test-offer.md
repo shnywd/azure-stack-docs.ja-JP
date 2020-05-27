@@ -1,19 +1,18 @@
 ---
-title: Azure Stack サービス オファリングをテストする
+title: Azure Stack Hub サービス オファリングをテストする
 description: サブスクリプションを作成してリソースをデプロイすることで、サービス オファリングをテストする方法について説明します。
 author: BryanLa
 ms.author: bryanla
-ms.service: azure-stack
 ms.topic: tutorial
 ms.date: 10/13/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/06/2019
-ms.openlocfilehash: 9e41cae53612cdf412840eb63d648a9c73260fa6
-ms.sourcegitcommit: b9d520f3b7bc441d43d489e3e32f9b89601051e6
+ms.openlocfilehash: 2aae33b324be4828b514ffbd019992aae989f50b
+ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75727464"
+ms.lasthandoff: 04/14/2020
+ms.locfileid: "80423843"
 ---
 # <a name="tutorial-test-a-service-offering"></a>チュートリアル:サービス オファリングをテストする
 
@@ -31,7 +30,7 @@ ms.locfileid: "75727464"
 
 - 「[ユーザーにサービスを提供する](tutorial-offer-services.md)」チュートリアルを完了します。 その中で、このチュートリアルで使用するオファーを作成する方法を学習します。
 
-- このチュートリアルでサブスクライブするオファーでは、仮想マシン (VM) リソースをデプロイできます。 VM のデプロイをテストする場合は、最初に、Azure Marketplace から VM イメージをダウンロードして、Azure Stack Marketplace で使用できるようにする必要があります。 方法については、「[Azure から Azure Stack に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。 
+- このチュートリアルでサブスクライブするオファーでは、仮想マシン (VM) リソースをデプロイできます。 VM のデプロイをテストする場合は、最初に、Azure Marketplace から VM イメージをダウンロードして、Azure Stack Hub Marketplace で使用できるようにする必要があります。 方法については、[Azure から Azure Stack Hub への Marketplace の項目のダウンロード](azure-stack-download-azure-marketplace-item.md)に関する記事を参照してください。 
 
 ## <a name="subscribe-to-the-offer"></a>オファーへのサブスクライブ
 
@@ -44,7 +43,7 @@ ms.locfileid: "75727464"
 
    ![サブスクリプションの取得](media/tutorial-test-offer/1-get-subscription.png)
 
-1. **[サブスクリプションの取得]** で、 **[表示名]** フィールドに、新しいサブスクリプションの名前を入力します。 **[プラン]** を選択してから、前のチュートリアルで作成したオファーを **[プランの選択]** の一覧から選択します。 **作成** を選択します。
+1. **[サブスクリプションの取得]** で、 **[表示名]** フィールドに、新しいサブスクリプションの名前を入力します。 **[プラン]** を選択してから、前のチュートリアルで作成したオファーを **[プランの選択]** の一覧から選択します。 **［作成］** を選択します
 
    ![オファーの作成](media/tutorial-test-offer/2-create-subscription.png)
 
@@ -141,6 +140,7 @@ ms.locfileid: "75727464"
 
 次に、付加価値サービスのリソース プロバイダーのデプロイについて学習します。 プランでユーザーにさらに多くのサービスを提供することができます。
 
-- [Azure Stack で SQL を提供する](azure-stack-sql-resource-provider.md)
-- [Azure Stack で MySQL を提供する](azure-stack-mysql-resource-provider.md)
-- [Azure Stack で App Service を提供する](azure-stack-app-service-overview.md)
+- [Azure Stack Hub で SQL を提供する](azure-stack-sql-resource-provider.md)
+- [Azure Stack Hub で MySQL を提供する](azure-stack-mysql-resource-provider.md)
+- [Azure Stack Hub で App Service を提供する](azure-stack-app-service-overview.md)
+- [Azure Stack Hub で Event Hubs を提供する](event-hubs-rp-overview.md)

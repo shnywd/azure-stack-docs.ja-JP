@@ -1,36 +1,26 @@
 ---
-title: Key Vault に格納されたパスワードを使用して Azure Stack VM をデプロイする | Microsoft Docs
-description: Azure Stack キー コンテナーに格納されているパスワードを使用して VM をデプロイする方法を説明します
-services: azure-stack
-documentationcenter: ''
+title: Key Vault に格納されたパスワードを使用して Azure Stack Hub VM をデプロイする
+description: Azure Stack Hub キー コンテナーに格納されているパスワードを使用して VM をデプロイする方法を説明します
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 2a75ee1794e9ebfeb995ea03137d12c6c50cce4f
-ms.sourcegitcommit: a7207f4a4c40d4917b63e729fd6872b3dba72968
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 7c68c2b5ecc5a56449e67dd0ffa403b3363cfab9
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71909508"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702892"
 ---
-# <a name="deploy-an-azure-stack-vm-using-a-password-stored-in-key-vault"></a>Key Vault に格納されたパスワードを使用して Azure Stack VM をデプロイする
+# <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Key Vault に格納されたパスワードを使用して Azure Stack Hub VM をデプロイする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、Azure Stack Key Vault に格納されたパスワードを使用して、Windows Server 仮想マシン (VM) をデプロイする手順を説明します。 Key Vault パスワードを使用する方が、プレーンテキスト パスワードを渡すよりも安全性が高くなります。
+この記事では、Azure Stack Hub Key Vault に格納されたパスワードを使用して、Windows Server 仮想マシン (VM) をデプロイする手順を説明します。 Key Vault パスワードを使用する方が、プレーンテキスト パスワードを渡すよりも安全性が高くなります。
 
 ## <a name="overview"></a>概要
 
-Azure Stack Key Vault にはパスワードなどの値をシークレットとして格納できます。 シークレットの作成後、そのシークレットは Azure Resource Manager テンプレートで参照できます。 Resource Manager でシークレットを使用する利点は次のとおりです。
+Azure Stack Hub Key Vault にはパスワードなどの値をシークレットとして格納できます。 シークレットの作成後、そのシークレットは Azure Resource Manager テンプレートで参照できます。 Resource Manager でシークレットを使用する利点は次のとおりです。
 
 * リソースをデプロイするたびにシークレットを手動で入力する必要がありません。
 * シークレットにアクセスできるユーザーまたはサービス プリンシパルを指定できます。
@@ -38,7 +28,7 @@ Azure Stack Key Vault にはパスワードなどの値をシークレットと�
 ## <a name="prerequisites"></a>前提条件
 
 * ユーザーは、Key Vault サービスを含むプランをサブスクライブする必要があります。
-* [PowerShell for Azure Stack のインストール。](../operator/azure-stack-powershell-install.md)
+* [PowerShell for Azure Stack Hub をインストールする。](../operator/azure-stack-powershell-install.md)
 * [PowerShell 環境の構成。](azure-stack-powershell-configure-user.md)
 
 次の手順では、キー コンテナーに格納されているパスワードを取得することによって VM を作成するために必要なプロセスについて説明します。
@@ -131,7 +121,7 @@ New-AzureRmResourceGroupDeployment `
 
 ![デプロイの出力](media/azure-stack-key-vault-deploy-vm-with-secret/deployment-output.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [Key Vault を使ってサンプル アプリをデプロイする](azure-stack-key-vault-sample-app.md)
 * [Key Vault 証明書を使って VM をデプロイする](azure-stack-key-vault-push-secret-into-vm.md)

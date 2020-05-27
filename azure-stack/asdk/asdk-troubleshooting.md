@@ -1,27 +1,18 @@
 ---
-title: ASDK のトラブルシューティング | Microsoft Docs
+title: ASDK のトラブルシューティング
 description: Azure Stack Development Kit (ASDK) のトラブルシューティング方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c8db19ff7bf8d7ccdb406617cbcf75dce3770522
-ms.sourcegitcommit: c583f19d15d81baa25dd49738d53d8fc01463bef
+ms.openlocfilehash: 73e769358d0b6007a7849edd1cebaac0ade78d04
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73659215"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77691349"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK のトラブルシューティング
 この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 Azure Stack 統合システムに関するヘルプについては、「[Microsoft Azure Stack のトラブルシューティング](../operator/azure-stack-troubleshooting.md)」を参照してください。 
@@ -29,9 +20,9 @@ ms.locfileid: "73659215"
 ASDK は評価環境であるため、Microsoft カスタマー サポート サービス (CSS) によるサポートは提供されません。 記載されていない問題が発生している場合は、[Azure Stack MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)で専門家からのヘルプを得られます。 
 
 
-## <a name="deployment"></a>Deployment
+## <a name="deployment"></a>デプロイ
 ### <a name="deployment-failure"></a>デプロイの失敗
-インストール時に障害が発生した場合、デプロイ スクリプトの -rerun オプションを使用して、失敗した手順からデプロイを再開できます。 例:
+インストール時に障害が発生した場合、デプロイ スクリプトの -rerun オプションを使用して、失敗した手順からデプロイを再開できます。 次に例を示します。
 
   ```powershell
   cd C:\CloudDeployment\Setup
@@ -46,7 +37,7 @@ ASDK は評価環境であるため、Microsoft カスタマー サポート サ
 テンプレートの検証時に、パラメーター "osProfile" が許可されないというエラー メッセージが表示される場合は、以下のコンポーネントの正しいバージョンが使用されていることを確認してください。
 
 - [Compute](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftcompute)
-- [ネットワーク](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
+- [Network](https://docs.microsoft.com/azure-stack/user/azure-stack-profiles-azure-resource-manager-versions#microsoftnetwork)
 
 Azure から Azure Stack に VHD をコピーするには、[AzCopy 7.3.0](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer#download-and-install-azcopy)を使用します。 イメージ自体の問題については、ベンダーと協力して解決してください。 Azure Stack の WALinuxAgent の要件の詳細については、「[Azure LinuX エージェント](../operator/azure-stack-linux.md#azure-linux-agent)」を参照してください。
 
@@ -98,9 +89,9 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 
 リテンション期間しきい値と、オンデマンドの再利用の設定について詳しくは、[ストレージ アカウントの管理](../operator/azure-stack-manage-storage-accounts.md)に関するページを参照してください。
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>ストレージ
 ### <a name="storage-reclamation"></a>記憶域の再利用
 ポータルに再利用された容量が表示されるまで、最大で 14 時間かかる場合があります。 領域の再利用は、ブロック BLOB ストア内の内部コンテナー ファイルの使用率をなど、さまざまな要因に依存します。 そのため、削除されるデータの量によって、ガベージ コレクターの実行時に再利用可能になる領域の量に対する保証はありません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [Azure Stack サポート フォーラムを参照する](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)

@@ -1,16 +1,16 @@
 ---
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
-ms.openlocfilehash: 593eafb8924a7195f4739a7a3b293b29c6ab8846
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 87d760359bdf8b56136f5f91ce51381d1f8c507a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72283356"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79082676"
 ---
-ユーザー ポータルにサインインします。
-    - 統合システム デプロイの場合、ポータル アドレスはソリューションのリージョンと外部ドメイン名によって変わります。 形式は、 https://portal.&lt;*リージョン*&gt;.&lt;*FQDN*&gt; です。
-    - Azure Stack Development Kit (ASDK) を使用している場合、ポータル アドレスは [https://portal.local.azurestack.external](https://portal.local.azurestack.external) です。
+ユーザー ポータルにサインインします。 
+
+* 統合システム デプロイの場合、ポータル アドレスはソリューションのリージョンと外部ドメイン名によって変わります。 `https://portal.<region>.<FQDN>` の形式になります。
+* Azure Stack Development Kit (ASDK) の場合、このポータルのアドレスは [https://portal.local.azurestack.external](https://portal.local.azurestack.external) です。

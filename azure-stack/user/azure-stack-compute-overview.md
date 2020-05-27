@@ -1,43 +1,38 @@
 ---
-title: Azure Stack VM の概要 | Microsoft Docs
-description: Azure Stack VM について説明します。
-services: azure-stack
+title: Azure Stack Hub VM の概要
+description: Azure Stack Hub VM について説明します。
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 02/03/2020
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: de96b74351fa3becd0b066da4430e42cb2a9cea7
-ms.sourcegitcommit: b2d19e12a50195bb8925879ee75c186c9604f313
+ms.lastreviewed: 01/05/2020
+ms.openlocfilehash: 576580732440cabd8ae1c140d13130b81b212d16
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71961679"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79295576"
 ---
-# <a name="introduction-to-azure-stack-vms"></a>Azure Stack VM の概要
+# <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM の概要
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+Azure Stack Hub では、オンデマンドでスケーラブルなコンピューティング リソースの一種として仮想マシン (VM) が提供されます。 コンピューティング環境をより細かく管理する必要がある場合は、VM を選択できます。 この記事では、最初の VM を作成する前に詳細を説明します。
 
-Azure Stack は、オンデマンドでスケーラブルなコンピューティング リソースの一種として仮想マシン (VM) を提供します。 コンピューティング環境をより細かく管理する必要がある場合は、VM を選択できます。 この記事では、最初の VM を作成する前に詳細を説明します。
+Azure Stack Hub VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラム/更新プログラムの適用、インストールは必要です。
 
-Azure Stack VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラム/更新プログラムの適用、インストールは必要です。
+Azure Stack Hub VM は、いくつかの方法で利用できます。 次に例を示します。
 
-Azure Stack VM は、いくつかの方法で利用できます。 例:
+- **開発とテスト**:Azure Stack Hub VM を使用すると、アプリケーションのコーディングとテストに必要な特定の構成でコンピューターを作成できます。
 
-- **開発とテスト**:Azure Stack VM を使用すると、アプリケーションのコーディングとテストに必要な特定の構成でコンピューターを作成できます。
+- **クラウドのアプリケーション**:アプリケーションの需要は変動する可能性があるため、Azure Stack Hub 内の VM でアプリケーションを実行することは経済的に理に適っています。 VM が必要になったら追加分の料金を支払い、不要になったらシャットダウンすることができます。
 
-- **クラウドのアプリケーション**:アプリケーションの需要は変動する可能性があるため、Azure Stack 内の VM でアプリケーションを実行することは経済的に理に適っています。 VM が必要になったら追加分の料金を支払い、不要になったらシャットダウンすることができます。
-
-- **データセンターの拡張**:Azure Stack 仮想ネットワーク内の VM は、組織のネットワークや Azure に接続できます。
+- **データセンターの拡張**:Azure Stack Hub 仮想ネットワーク内の VM は、組織のネットワークや Azure に接続できます。
 
 アプリケーションで使用する VM は、ニーズに応じてスケールアップまたはスケールアウトできます。
 
 ## <a name="before-creating-a-vm"></a>VM を作成する前に
 
-Azure Stack でアプリケーション インフラストラクチャを構築する際には、設計上の考慮事項が必ず存在します。 インフラストラクチャの作成を開始する前に、VM の次の側面を考慮することが重要です。
+Azure Stack Hub でアプリケーション インフラストラクチャを構築するときは、設計上の考慮事項が必ず存在します。 インフラストラクチャの作成を開始する前に、VM の次の側面を考慮することが重要です。
 
 - アプリケーション リソースの名前。
 - VM のサイズ。
@@ -50,11 +45,11 @@ Azure Stack でアプリケーション インフラストラクチャを構築�
 
 VM には名前が割り当てられ、コンピューター名がオペレーティング システムの一部として構成されます。 VM の名前は最大で 15 文字です。
 
-Azure Stack を使用してオペレーティング システム ディスクを作成する場合、コンピューター名と VM 名は同じになります。 以前構成されたオペレーティング システムが含まれる独自のイメージをアップロードして使用し、それを基に VM を作成する場合は、別の名前にすることができます。 独自のイメージ ファイルをアップロードするときは、ベスト プラクティスとして、オペレーティング システムのコンピューター名と VM 名が同じであることを確認します。
+Azure Stack Hub を使用してオペレーティング システム ディスクを作成する場合、コンピューター名と VM 名は同じになります。 以前構成されたオペレーティング システムが含まれる独自のイメージをアップロードして使用し、それを基に VM を作成する場合は、別の名前にすることができます。 独自のイメージ ファイルをアップロードするときは、ベスト プラクティスとして、オペレーティング システムのコンピューター名と VM 名が同じであることを確認します。
 
 ### <a name="vm-size"></a>VM サイズ
 
-使用する VM のサイズは、実行するワークロードによって決まります。 さらに、選択したサイズによって、処理能力、メモリ、ストレージの容量などの要素が決まります。 Azure Stack では、さまざまな種類の使用をサポートするために、さまざまなサイズを用意しています。
+使用する VM のサイズは、実行するワークロードによって決まります。 さらに、選択したサイズによって、処理能力、メモリ、ストレージの容量などの要素が決まります。 Azure Stack Hub では、さまざまな種類の使用をサポートするために、さまざまなサイズが用意されています。
 
 ### <a name="vm-limits"></a>VM の制限
 
@@ -62,19 +57,19 @@ Azure Stack を使用してオペレーティング システム ディスクを
 
 ### <a name="operating-system-disks-and-images"></a>オペレーティング システム ディスクおよびイメージ
 
-VM は、仮想ハード ディスク (VHD) を使用して、オペレーティング システム (OS) およびデータを格納します。 VHD は、OS をインストールするために選択するイメージの保存にも使用できます。 Azure Stack には、オペレーティング システムのさまざまなバージョンと種類で使用できるマーケットプレースが用意されています。 Marketplace イメージは、イメージの発行元、オファー、SKU、およびバージョン (通常、最新バージョンは**最新**として指定) によって識別されます。
+Azure Stack Hub の VM は、第 1 世代の仮想ハードディスク (VHD/VHDX) 形式に制限されます。 VHD を使用して、コンピューターのオペレーティング システム (OS) とデータを格納できます。 VHD は、OS をインストールするために選択するイメージの保存にも使用できます。 Azure Stack Hub には、オペレーティング システムのさまざまなバージョンと種類で使用できるマーケットプレースが用意されています。 Marketplace イメージは、イメージの発行元、オファー、SKU、およびバージョン (通常、最新バージョンは**最新**として指定) によって識別されます。
 
 次の表に、イメージに関する情報を見つける方法を示します。
 
-|方法|説明|
+|Method|説明|
 |---------|---------|
-|Azure Stack ポータル|値は、使用するイメージを選択する際に自動的に指定されます。|
-|Azure Stack PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
+|Azure Stack Hub ポータル|値は、使用するイメージを選択する際に自動的に指定されます。|
+|Azure Stack Hub PowerShell|`Get-AzureRMVMImagePublisher -Location "location"`<br>`Get-AzureRMVMImageOffer -Location "location" -Publisher "publisherName"`<br>`Get-AzureRMVMImageSku -Location "location" -Publisher "publisherName" -Offer "offerName"`|
 |REST API     |[イメージ発行元の一覧表示](/rest/api/compute/platformimages/platformimages-list-publishers)<br>[イメージ プランの一覧表示](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<br>[イメージ SKU の一覧表示](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus)|
 
 独自のイメージをアップロードして使用することもできます。 その場合、発行元の名前、オファー、および SKU は使用されません。
 
-### <a name="extensions"></a>Extensions
+### <a name="extensions"></a>拡張機能
 
 VM の拡張機能は、デプロイ後の構成と自動化タスクを通じて VM に追加の機能を提供します。
 拡張機能を使用して、次のような一般的なタスクを実行できます。
@@ -95,19 +90,19 @@ VM の拡張機能は、デプロイ後の構成と自動化タスクを通じ�
 |ストレージ アカウント|いいえ|マネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためのストレージ アカウントは必要ありません。 <br>アンマネージド ディスクを使用する場合、VM には仮想ハード ディスクを格納するためにストレージ アカウントが必要です。|
 |仮想ネットワーク|はい|VM は、仮想ネットワークのメンバーである必要があります。|
 |パブリック IP アドレス|いいえ|VM には、リモートでアクセスするためのパブリック IP アドレスを割り当てることができます。|
-|Linux|はい|VM には、ネットワークで通信するためのネットワーク インターフェイスが必要です。|
+|ネットワーク インターフェイス|はい|VM には、ネットワークで通信するためのネットワーク インターフェイスが必要です。|
 |データ ディスク|いいえ|VM には、ストレージ容量を拡張するためのデータ ディスクを含めることができます。|
 
 ## <a name="create-your-first-vm"></a>最初の VM の作成
 
 VM の作成方法にはいくつかの選択肢があります。 どれを選ぶかは環境によって異なります。 次の表は、VM の作成を開始するのに役立つ情報を提供します。
 
-|方法|記事|
+|Method|[アーティクル]|
 |---------|---------|
-|Azure Stack ポータル|Azure Stack ポータルを使用して Windows VM を作成する<br>[Azure Stack ポータルを使用して Linux VM を作成する](azure-stack-quick-linux-portal.md)|
-|テンプレート|Azure Stack のクイック スタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://github.com/Azure/AzureStack-QuickStarvirtualt-Templates)|
-|PowerShell|[Azure Stack で PowerShell を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure Stack で PowerShell を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-powershell.md)|
-|CLI|[Azure Stack で CLI を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure Stack で CLI を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-cli.md)|
+|Azure Stack Hub ポータル|Azure Stack Hub ポータルを使用して Windows VM を作成する<br>[Azure Stack Hub ポータルを使用して Linux VM を作成する](azure-stack-quick-linux-portal.md)|
+|テンプレート|Azure Stack Hub のクイックスタート テンプレートは次の場所にあります。<br> [https://github.com/Azure/AzureStack-QuickStart-Templates](https://aka.ms/aa6z60s)|
+|PowerShell|[Azure Stack Hub で PowerShell を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-powershell.md)<br>[Azure Stack Hub で PowerShell を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-powershell.md)|
+|CLI|[Azure Stack Hub で CLI を使用して Windows VM を作成する](azure-stack-quick-create-vm-windows-cli.md)<br>[Azure Stack Hub で CLI を使用して Linux VM を作成する](azure-stack-quick-create-vm-linux-cli.md)|
 
 ## <a name="manage-your-vm"></a>VM の管理
 
@@ -122,16 +117,16 @@ VM は、ブラウザーベースのポータル、スクリプトがサポー�
 
 次の表に、VM に関する情報の取得方法の一部を示します。
 
-|方法|説明|
+|Method|説明|
 |---------|---------|
-|Azure Stack ポータル|ハブ メニューの **[仮想マシン]** をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
-|Azure PowerShell|VM の管理は、Azure と Azure Stack とで似ています。 PowerShell の使用について詳しくは、次の Azure トピックをご覧ください。<br>[Azure PowerShell モジュールを使用して Windows VM を作成および管理する](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
-|クライアント SDK|C# による VM の管理は、Azure と Azure Stack とで似ています。 詳細については、次の Azure トピックを参照してください。<br>[C# を使用して Azure で Windows VM を作成および管理する](/azure/virtual-machines/windows/csharp)|
+|Azure Stack Hub ポータル|ハブ メニューの **[仮想マシン]** をクリックし、一覧から VM を選択します。 その VM のページで、概要情報を確認したり、値の設定やメトリックの監視を実行したりできます。|
+|Azure PowerShell|VM の管理は、Azure と Azure Stack Hub とで似ています。 PowerShell の使用について詳しくは、次の Azure トピックをご覧ください。<br>[Azure PowerShell モジュールを使用して Windows VM を作成および管理する](/azure/virtual-machines/windows/tutorial-manage-vm#understand-vm-sizes)|
+|クライアント SDK|C# による VM の管理は、Azure と Azure Stack Hub とで似ています。 詳細については、次の Azure トピックを参照してください。<br>[C# を使用して Azure で Windows VM を作成および管理する](/azure/virtual-machines/windows/csharp)|
 
 ### <a name="connect-to-your-vm"></a>VM に接続する
 
-Azure Stack ポータルの **[接続]** ボタンを使用して、VM に接続できます。
+Azure Stack Hub ポータルの **[接続]** ボタンを使用して、VM に接続できます。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack の VM に関する考慮事項](azure-stack-vm-considerations.md)
+- [Azure Stack Hub の VM に関する考慮事項](azure-stack-vm-considerations.md)

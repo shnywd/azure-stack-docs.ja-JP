@@ -1,71 +1,67 @@
 ---
-title: App Service on Azure Stack Update 7 のリリース ノート | Microsoft Docs
-description: App Service on Azure Stack Update 7 の内容、既知の問題、更新プログラムをダウンロードする場所について説明します。
-services: azure-stack
-documentationcenter: ''
+title: App Service on Azure Stack Hub update 7 のリリース ノート
+description: App Service on Azure Stack Hub の Update 7 リリース ノート (新機能、修正点、既知の問題を含む)。
 author: apwestgarth
 manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2019
 ms.author: anwestg
-ms.reviewer: ''
-ms.openlocfilehash: 77fb9772f027d25b0d8c0d8355e3a868c2142d6c
-ms.sourcegitcommit: d159652f50de7875eb4be34c14866a601a045547
+ms.reviewer: anwestg
+ms.lastreviewed: 08/20/2019
+ms.openlocfilehash: b29b5963326a49b5e74c786f22b53e20e32c2bd6
+ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72282602"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83374698"
 ---
-# <a name="app-service-on-azure-stack-update-7-release-notes"></a>App Service on Azure Stack update 7 のリリース ノート
+# <a name="app-service-on-azure-stack-hub-update-7-release-notes"></a>App Service on Azure Stack Hub update 7 のリリース ノート
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-これらのリリース ノートでは、Azure App Service on Azure Stack Update 7 における機能強化と修正点、および既知の問題について説明します。 既知の問題は、デプロイおよび更新プロセスに直接関係する問題と、ビルド (インストール後) に関する問題に分けられています。
+これらのリリース ノートでは、Azure App Service on Azure Stack Hub Update 7 の新機能、修正点、および既知の問題について説明します。 既知の問題は 2 つのセクションに分かれています。アップグレード プロセスに関連する問題とビルド (インストール後) に関する問題です。
 
 > [!IMPORTANT]
-> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1907 更新プログラムを適用するか、最新の Azure Stack Development Kit をデプロイします。
-
+> Azure App Service 1.7 をデプロイする前に、Azure Stack 統合システムに 1910 更新プログラムを適用するか、最新の Azure Stack Development Kit (ASDK) をデプロイします。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 
-App Service on Azure Stack Update 7 のビルド番号は **84.0.2.10** です
+App Service on Azure Stack Hub Update 7 のビルド番号は **84.0.2.10** です。
 
-### <a name="prerequisites"></a>前提条件
+## <a name="prerequisites"></a>前提条件
 
-デプロイを開始する前に、[前提条件に関するドキュメント](azure-stack-app-service-before-you-get-started.md)をご覧ください。
+デプロイを開始する前に、[App Service on Azure Stack Hub の前提条件](azure-stack-app-service-before-you-get-started.md)に関するページを参照してください。
 
-Azure App Service on Azure Stack の 1.7 へのアップグレードを開始する前に:
+Azure App Service on Azure Stack Hub の 1.7 へのアップグレードを開始する前に:
 
-- Azure Stack 管理ポータルにおいて Azure App Service の [管理] ですべてのロールが [準備完了] になっていることを確認します。
+- Azure Stack Hub 管理者ポータルの Azure App Service の管理で確実にすべてのロールの準備ができているようにします。
+
+- Azure Stack Hub 管理ポータルの Azure App Service 管理を使用して、App Service のシークレットをバックアップします
 
 - App Service とマスター データベースをバックアップします。
   - AppService_Hosting
   - AppService_Metering
-  - Master
+  - master
 
 - テナント アプリのコンテンツ ファイル共有をバックアップします。
 
-- Marketplace から**カスタム スクリプト拡張機能**バージョン **1.9.3** を配信します
+  > [!Important]
+  > ファイル サーバーと SQL Server の保守と操作を担当するのは、クラウド オペレーターです。  リソース プロバイダーは、これらのリソースの管理は行いません。  クラウドオ ペレーターが、App Service データベースとテナント コンテンツ ファイル共有のバックアップを行います。
 
-### <a name="new-features-and-fixes"></a>新機能と修正
+- Azure Stack Hub Marketplace から**カスタム スクリプト拡張機能**のバージョン **1.9.3** を配信します。
 
-Azure App Service on Azure Stack Update 7 には、次の機能強化と修正が含まれています。
+## <a name="new-features-and-fixes"></a>新機能と修正
 
-- [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) リモート コード実行の脆弱性の解決
+Azure App Service on Azure Stack Hub Update 7 には、次の機能強化と修正が含まれています。
 
-- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一致しています。
+- [CVE-2019-1372](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1372) リモート コード実行の脆弱性の解決。
+
+- **App Service のテナント ポータル、管理者ポータル、関数ポータル、Kudu ツール**の更新。 Azure Stack Hub Portal SDK バージョンと一貫性があります。
 
 - **Azure Functions ランタイム**が **v1.0.12582** に更新されました。
 
 - 信頼性を高めるためのコア サービスと、一般的な問題を簡単に診断できるようにするエラー メッセージの更新。
 
-- **次のアプリケーション フレームワークとツールの更新**:
+- **次のアプリ フレームワークとツールの更新**:
+
   - ASP.NET Core 2.2.46
   - Zul OpenJDK 8.38.0.13
   - Tomcat 7.0.94
@@ -79,48 +75,52 @@ Azure App Service on Azure Stack Update 7 には、次の機能強化と修正�
   - [x64 ベース システム用 Windows Server 2016 に対する 2019-08 累積的な更新プログラム (KB4512495)](https://support.microsoft.com/help/4512495)
 
 - **ユーザー ポータルでアクセス制限が有効になりました**:
-  - このリリースの時点では、ユーザーは、公開済みのドキュメント (「[Azure App Service のアクセス制限](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)」) に従って、Web/API/Functions アプリケーションのアクセス制限を構成できます。**注**:Azure Stack 上の Azure App Service ではサービス エンドポイントはサポートされていません。
+  - ユーザーは、公開されているドキュメント「[Azure App Service のアクセス制限](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)」に従って Web、API、関数アプリのアクセス制限を構成できるようになりました。
+  
+  > [!NOTE]
+  > Azure App Service on Azure Stack Hub ではサービス エンドポイントはサポートされていません。
 
 - **デプロイ オプション (クラシック) 機能が復元されました**:
-  - ユーザーはもう一度デプロイ オプション (クラシック) を使用して、GitHub、Bitbucket、Dropbox、OneDrive、ローカルおよび外部リポジトリからアプリのデプロイを構成し、アプリケーションのデプロイ資格情報を設定することができます。
+  - ユーザーはもう一度デプロイ オプション (クラシック) を使用して、GitHub、Bitbucket、Dropbox、OneDrive、ローカルおよび外部リポジトリからアプリのデプロイを構成し、アプリのデプロイ資格情報を設定することができます。
 
-- **Azure Function の監視**が正しく構成されました。
+- **Azure 関数の監視**が正しく構成されました。
 
 - **Windows Update の動作**:お客様からのフィードバックに基づいて、Update 7 の App Service ロールで Windows Update を構成する方法が変更されました。
   - 3 つのモード:
-    - **無効** - Windows Update サービスは無効になっていて、Windows は Azure Stack リリースの Azure App Service に付属している KB で更新されます。
+    - **無効** - Windows Update サービスは無効になっていて、Windows は Azure App Service on Azure Stack Hub リリースに含まれる KB で更新されます。
     - **自動** - Windows Update サービスは有効になっていて、Windows Update によって更新の方法とタイミングが決まります。
     - **マネージド** - Windows Update サービスは無効になっていて、Azure App Service は、個々のロールの OnStart 中に Windows Update サイクルを実行します。
 
   **新規**のデプロイ - Windows Update サービスは既定では無効になっています。
 
-  **既存**のデプロイ - コントローラーの設定を変更した場合、値は **False** から **[無効]** に変更され、**true** の前の値は **[自動]** になります
+  **既存**のデプロイ - コントローラーの設定を変更した場合、値は **False** から **[無効]** に変更され、**true** の前の値は **[自動]** になります。
 
-### <a name="post-deployment-steps"></a>デプロイ後の手順
+## <a name="post-deployment-steps"></a>デプロイ後の手順
 
 > [!IMPORTANT]
-> SQL Always On インスタンスを使用して App Service リソース プロバイダーを提供している場合は、データベースのフェールオーバーが発生したときにサービスが失われないように、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する必要があります。
+> SQL Always On インスタンスを使用して App Service リソース プロバイダーを提供している場合は、データベースのフェールオーバーが発生したときにサービスが失われないように、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する "必要があります"。
 
-### <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
+## <a name="known-issues-post-installation"></a>既知の問題 (インストール後)
 
-- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。Azure App Service on Azure Stack のデプロイ ドキュメントで説明されているとおりです。
+- App Service が既存の仮想ネットワークにデプロイされ、ファイル サーバーがプライベート ネットワークでしか使用できない場合、worker はファイル サーバーに到達することができません。Azure App Service on Azure Stack Hub のデプロイ ドキュメントで説明されているとおりです。
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする必要があります。 管理者ポータルで WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
- * ソース:Any
- * 送信元ポート範囲: *
- * 変換先:IP アドレス
- * 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
- * 送信先ポート範囲:445
- * プロトコル:TCP
- * アクション:Allow
- * 優先順位:700
- * 名前:Outbound_Allow_SMB445
 
-### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>Azure App Service on Azure Stack を運用するクラウド管理者に関する既知の問題
+* ソース:Any
+* 送信元ポート範囲: *
+* 変換先:IP アドレス
+* 宛先 IP アドレス範囲:ファイル サーバーの IP の範囲
+* 送信先ポート範囲:445
+* プロトコル:TCP
+* アクション:Allow
+* 優先順位:700
+* 名前:Outbound_Allow_SMB445
 
-[Azure Stack 1907 リリース ノート](azure-stack-release-notes-1907.md)内のドキュメントを参照してください
+## <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を運用するクラウド管理者に対する既知の問題
 
-## <a name="next-steps"></a>次の手順
+[Azure Stack Hub 1907 リリース ノート](azure-stack-release-notes-1907.md)内のドキュメントを参照してください。
 
-- Azure App Service の概要については、「[Azure Stack 上の App Service の概要](azure-stack-app-service-overview.md)」をご覧ください。
-- App Service on Azure Stack のデプロイの準備をする方法の詳細については、「[App Service on Azure Stack を開始する前に](azure-stack-app-service-before-you-get-started.md)」をご覧ください。
+## <a name="next-steps"></a>次のステップ
+
+- Azure App Service の概要については、「[App Service on Azure Stack Hub と Azure Functions の概要](azure-stack-app-service-overview.md)」を参照してください。
+- App Service on Azure Stack Hub のデプロイを準備する方法の詳細については、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」をご覧ください。

@@ -1,34 +1,24 @@
 ---
-title: Azure Stack の AKS エンジンのサポート ポリシー | Microsoft Docs
-description: このトピックでは Azure Stack の AKS エンジンのサポート ポリシーについて説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub の AKS エンジンのサポート ポリシー
+description: このトピックでは Azure Stack Hub の AKS エンジンのサポート ポリシーについて説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 1aa8aa65f0b19efcbafc85887e644c1c2b773bde
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 8080f6c5ce8461e9d228dc4c77252b0fd236758e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310165"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80069342"
 ---
-# <a name="support-policies-for-aks-engine-on-azure-stack"></a>Azure Stack の AKS エンジンのサポート ポリシー
+# <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンのサポート ポリシー
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+この記事では、Azure Stack Hub の AKS エンジンのテクニカル サポート ポリシーおよび制限事項の詳細について説明します。 また、Kubernetes Marketplace の項目、サード パーティ製オープン ソース コンポーネント、およびセキュリティまたは修正プログラムの管理についても説明します。 
 
-この記事では、Azure Stack の AKS エンジンのテクニカル サポート ポリシーおよび制限事項の詳細について説明します。 また、Kubernetes Marketplace の項目、サード パーティ製オープン ソース コンポーネント、およびセキュリティまたは修正プログラムの管理についても説明します。 
-
-## <a name="self-managed-kubernetes-clusters-on-azure-stack-with-aks-engine"></a>AKS エンジンを使用した Azure Stack の自己管理型 Kubernetes クラスター
+## <a name="self-managed-kubernetes-clusters-on-azure-stack-hub-with-aks-engine"></a>AKS エンジンを使用した Azure Stack Hub の自己管理型 Kubernetes クラスター
 
 コンピューティング コンポーネントやネットワーク コンポーネントなどのサービスとしてのインフラストラクチャ (IaaS) クラウド コンポーネントでは、低レベルの制御とカスタマイズのオプションへのアクセス権がユーザーに付与されます。 AKS エンジンを使用すると、ユーザーはこれらの IaaS コンポーネントを使用して Kubernetes クラスターを透過的に展開できます。ユーザーは、デプロイのすべての側面にアクセスして影響を与えることができます。
 
@@ -42,10 +32,10 @@ Microsoft は、以下に関するテクニカル サポートを提供します
 
 -  AKS エンジン コマンドに関する問題: デプロイ、生成、アップグレード、およびスケール。 このツールは、Azure での動作と一致している必要があります。
 -  「[AKS エンジンの概要](azure-stack-kubernetes-aks-engine-overview.md)」に従ってデプロイされた Kubernetes クラスターに関する問題。
--  他の Azure Stack サービスへの接続に関する問題 
+-  他の Azure Stack Hub サービスへの接続に関する問題 
 -  Kubernetes API 接続に関する問題
--  Azure Resource Manager を使用した Azure Stack Kubernetes プロバイダーの機能と接続に関する問題
--  ロード バランサー、ネットワーク セキュリティ グループ、VNet、サブネット、ネットワーク インターフェイス、ルート テーブル、可用性セット、パブリック IP アドレス、ストレージ アカウント、VM マシンなどの Azure Stack ネイティブな成果物の、AKS エンジンによって生成された構成に関する問題 
+-  Azure Resource Manager を使用した Azure Stack Hub Kubernetes プロバイダーの機能と接続に関する問題
+-  ロード バランサー、ネットワーク セキュリティ グループ、VNet、サブネット、ネットワーク インターフェイス、ルート テーブル、可用性セット、パブリック IP アドレス、ストレージ アカウント、VM マシンなどの Azure Stack Hub ネイティブな成果物の、AKS エンジンによって生成された構成に関する問題 
 -  ネットワーク パフォーマンスと待機時間に関する問題
 -  切断されたデプロイで AKS エンジンによって使用される AKS 基本イメージに関する問題 
 
@@ -54,7 +44,7 @@ Microsoft は、以下に関するテクニカル サポートを提供します
 以下に関するテクニカル サポートは、Microsoft からは提供されません。
 
 -  Azure での AKS エンジンの使用。
--  Azure Stack Kubernetes Marketplace の項目。
+-  Azure Stack Hub Kubernetes Marketplace の項目。
 -  次の AKS エンジン クラスター定義オプションとアドオンの使用。
     -  サポートされていないアドオン:  
             -  AAD Pod Identity  
@@ -98,16 +88,16 @@ Microsoft は、以下に関するテクニカル サポートを提供します
 
 ##  <a name="security-issues-and-patching"></a>セキュリティの問題と修正プログラムの適用
 
-AKS エンジンまたは Azure Stack 用 Kubernetes プロバイダーの 1 つ以上のコンポーネントでセキュリティ上の欠陥が見つかった場合、Microsoft は問題を軽減するために、影響を受けるクラスターを修正するための修正プログラムを提供します。 または、チームがユーザーにアップグレード ガイダンスを示します。 修正プログラムではクラスターのダウンタイムが必要になる場合があることに注意してください。 再起動が必要な場合、Microsoft はこの要件をお客様に通知します。 ユーザーが Microsoft のガイダンスに従って修正プログラムを適用しない場合、クラスターはセキュリティ問題に対して脆弱なままになります。
+AKS エンジンまたは Azure Stack Hub 用 Kubernetes プロバイダーの 1 つ以上のコンポーネントでセキュリティ上の欠陥が見つかった場合、Microsoft は問題を軽減するために、影響を受けるクラスターを修正するための修正プログラムを提供します。 または、チームがユーザーにアップグレード ガイダンスを示します。 修正プログラムではクラスターのダウンタイムが必要になる場合があることに注意してください。 再起動が必要な場合、Microsoft はこの要件をお客様に通知します。 ユーザーが Microsoft のガイダンスに従って修正プログラムを適用しない場合、クラスターはセキュリティ問題に対して脆弱なままになります。
 
 ## <a name="kubernetes-marketplace-item"></a>Kubernetes Marketplace 項目
 
-ユーザーは、Kubernetes Marketplace アイテムをダウンロードできます。これにより、ユーザーは、AKS エンジンを使用して Kubernetes クラスターを、Azure Stack ユーザー ポータルのテンプレートを通じて間接的にデプロイできます。これは、AKS エンジンを直接使用するよりも簡単です。 これは、デモンストレーション、テスト、および開発のためにクラスターをすばやく設定するのに便利なツールです。 Microsoft によってサポートされる項目のセットに含まれていないため、運用環境向けではありません。
+ユーザーは、Kubernetes Marketplace アイテムをダウンロードできます。これにより、ユーザーは、AKS エンジンを使用して Kubernetes クラスターを、Azure Stack Hub ユーザー ポータルのテンプレートを通じて間接的にデプロイできます。これは、AKS エンジンを直接使用するよりも簡単です。 これは、デモンストレーション、テスト、および開発のためにクラスターをすばやく設定するのに便利なツールです。 Microsoft によってサポートされる項目のセットに含まれていないため、運用環境向けではありません。
 
 ## <a name="preview-features"></a>プレビュー機能
 
 拡張テストとユーザー フィードバックを必要とする機能の場合、Microsoft では、新しいプレビュー機能または機能フラグの背後にある機能をリリースします。 これらの機能は、プレリリースまたはベータ機能としてお考えください。 プレビュー機能または機能フラグは、運用環境向けではありません。 機能の継続的な変更と動作、バグの修正、その他の変更により、クラスターが不安定になったり、ダウンタイムが生じたりする可能性があります。 これらの機能は Microsoft ではサポートされていません。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)に関するページを読む
+- [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください

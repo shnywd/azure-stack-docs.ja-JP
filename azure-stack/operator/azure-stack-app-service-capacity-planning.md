@@ -1,74 +1,68 @@
 ---
-title: Azure Stack での App Service サーバー ロールのキャパシティ プランニング | Microsoft Docs
-description: Azure Stack での Azure App Service サーバー ロールのキャパシティ プランニングについて説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub での App Service サーバー ロールのキャパシティ プランニング
+description: Azure Stack Hub での Azure App Service サーバー ロールのキャパシティ プランニングについて説明します。
 author: BryanLa
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: app-service
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 80dc7bae2371025fba82531b08216606580176e1
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.lastreviewed: 04/13/2020
+ms.openlocfilehash: a0cfc16035d82eb230f61900bc0c971a51c86ea1
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70975198"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82847861"
 ---
-# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack"></a>Azure Stack での App Service サーバー ロールのキャパシティ プランニング
+# <a name="capacity-planning-for-app-service-server-roles-in-azure-stack-hub"></a>Azure Stack Hub での App Service サーバー ロールのキャパシティ プランニング
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-稼働準備済みの Azure App Service on Azure Stack のデプロイを設定するには、システムでサポートするキャパシティについて計画する必要があります。  
+稼働準備済みの Azure App Service on Azure Stack Hub のデプロイを設定するには、システムでサポートするキャパシティについて計画する必要があります。  
 
 この記事では、実稼働環境のデプロイに使用すべき最小限のコンピューティング インスタンス数とコンピューティング SKU に関するガイダンスを示します。
+
+> [!NOTE]
+> 各ロールの推奨されるコンピューティング SKU に関するガイダンスは、Azure デプロイに沿った標準的なデプロイを導入できるように、Azure App Service on Azure Stack Hub の2020 Q2 リリースで更新されました。
 
 これらのガイドラインを使用して、App Service のキャパシティ戦略を計画できます。
 
 | App Service サーバー ロール | 推奨の最小インスタンス数 | 推奨のコンピューティング SKU|
 | --- | --- | --- |
-| コントローラー | 2 | A1 |
-| フロントエンド | 2 | A1 |
-| 管理 | 2 | A3 |
-| Publisher | 2 | A1 |
-| Web Worker - 共有 | 2 | A1 |
-| Web Worker - 専用 | 層ごとに 2 個 | A1 |
+| コントローラー | 2 | A4v2 |
+| フロントエンド | 2 | A4_v2 |
+| 管理 | 2 | D3_v2 |
+| Publisher | 2 | A2_v2 |
+| Web Worker - 共有 | 2 | A4_v2 |
+| Web Worker - 専用 - 小 | 層ごとに 2 個 | A1_v2 |
+| Web Worker - 専用 - 中 | 層ごとに 2 個 | A2_v2 |
+| Web Worker - 専用 - 大 | 層ごとに 2 個 | A4_v2 |
 
 ## <a name="controller-role"></a>コントローラー ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4v2 の 2 つのインスタンス
 
 Azure App Service コントローラーでは通常、CPU、メモリ、ネットワーク リソースはそれほど消費されません。 ただし、高可用性のためには、2 つのコントローラーが必要です。 コントローラー 2 つは、許容される最大コント ローラー数でもあります。 2 番目の Web サイト コントローラーは、デプロイ中にインストーラーから直接作成できます。
 
 ## <a name="front-end-role"></a>フロントエンド ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4v_2 の 2 つのインスタンス
 
 フロントエンドでは、Web worker の可用性に応じて、Web worker に要求をルーティングします。 高可用性のためには複数のフロントエンドが必要で、3 つ以上保有できます。 計画段階では、各コアが秒間約 100 リクエストを処理できると想定します。
 
 ## <a name="management-role"></a>管理ロール
 
-**推奨の最小構成**: 2 つの A3 Standard のインスタンス
+**推奨の最小構成**: D3v2 の 2 つのインスタンス
 
 Azure アプリケーション クラシック デプロイ モデル ロールでは、App Service Azure Resource Manager および API のエンドポイント、ポータル拡張機能 (管理、テナント、Functions ポータル)、データ サービスを担当します。 通常、運用環境では、管理サーバー ロールに約 4 GB の RAM のみが必要となります。 ただし、多くの管理タスク (Web サイトの作成など) が実行される場合は、CPU レベルが高くなる可能性があります。 高可用性のためには、このロールに複数のサーバーが割り当てられている必要があり、サーバーごとに少なくとも 2 つのコアが必要です。
 
 ## <a name="publisher-role"></a>パブリッシャー ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A2v2 の 2 つのインスタンス
 
 多くのユーザーが同時に公開する場合は、パブリッシャー ロールの CPU 使用率が高くなる可能性があります。 高可用性のためには、複数のパブリッシャー ロールを使用できるようにします。 パブリッシャーは、FTP または FTPS のトラフィックのみを処理します。
 
 ## <a name="web-worker-role"></a>Web Worker ロール
 
-**推奨の最小構成**: 2 つの A1 Standard のインスタンス
+**推奨の最小構成**: A4_v2 の 2 つのインスタンス
 
 高可用性のためには、少なくとも 4 つの Web worker ロールが必要です。つまり、共有 Web サイト モード用に 2 つと、提供する予定の各専用 worker 層用に 2 つです。 共有および専用のコンピューティング モードでは、さまざまなレベルのサービスがテナントに提供されます。 次のような顧客が多い場合は、より多くの Web worker が必要になる可能性があります。
 
@@ -82,7 +76,7 @@ Azure アプリケーション クラシック デプロイ モデル ロール�
 使用する共有 Web worker ロールの数を決定する場合、次の考慮事項を検討します。
 
 - **メモリ**:メモリは Web worker ロールの最も重要なリソースです。 メモリが不足していると、仮想メモリがディスクからスワップされるときの Web サイトのパフォーマンスに影響します。 各サーバーで、オペレーティング システム用に約 1.2 GB の RAM が必要となります。 このしきい値を超える RAM を Web サイトの実行で使用できます。
-- **アクティブな Web サイトの割合**: 通常は、Azure App Service on Azure Stack デプロイ内のアプリの約 5% がアクティブです。 ただし、特定の時点でのアクティブなアプリの割合は、それよりも高い場合も低い場合もあります。 アクティブなアプリの割合が 5% の場合、Azure App Service on Azure Stack のデプロイに配置するアプリの最大数は、アクティブな Web サイトの数の 20 倍 (5 x 20 = 100) より少なくする必要があります。
+- **アクティブな Web サイトの割合**: 通常は、Azure App Service on Azure Stack Hub デプロイ内のアプリの約 5% がアクティブです。 ただし、特定の時点でのアクティブなアプリの割合は、それよりも高い場合も低い場合もあります。 アクティブなアプリの割合が 5% の場合、Azure App Service on Azure Stack Hub のデプロイに配置するアプリの最大数は、アクティブな Web サイトの数の 20 倍 (5 x 20 = 100) より少なくする必要があります。
 - **平均メモリ占有領域**: 運用環境で計測されるアプリの平均メモリ占有領域は約 70 MB です。 この占有領域を使用して、すべての Web worker ロールのコンピューターまたは VM 全体で割り当てられるメモリは、次のように計算されます。
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
@@ -95,11 +89,11 @@ Azure アプリケーション クラシック デプロイ モデル ロール�
 
 ### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>アップグレードおよびメンテナンス中の専用 worker に関する追加の考慮事項
 
-worker のアップグレードおよびメンテナンス中、Azure App Service on Azure Stack は常に各 worker 層の 20% に対してメンテナンスを実行します。  そのため、クラウド管理者は、アップグレード中およびメンテナンス中にテナントでサービスが停止しないように、worker 層ごとに常に 20% の未割り当て worker のプールを維持する必要があります。  たとえば、1 つの worker 層に 10 個の worker がある場合、アップグレードおよびメンテナンスを可能にするために 2 個を未割り当てにする必要があります。 10 個すべてが割り当て済みになった場合は、未割り当て worker のプールを維持するために、worker 層をスケールアップする必要があります。 
+worker のアップグレードおよびメンテナンス中、Azure App Service on Azure Stack Hub は常に各 worker 層の 20% に対してメンテナンスを実行します。  そのため、クラウド管理者は、アップグレード中およびメンテナンス中にテナントでサービスが停止しないように、worker 層ごとに常に 20% の未割り当て worker のプールを維持する必要があります。  たとえば、1 つの worker 層に 10 個の worker がある場合、アップグレードおよびメンテナンスを可能にするために 2 個を未割り当てにする必要があります。 10 個すべてが割り当て済みになった場合は、未割り当て worker のプールを維持するために、worker 層をスケールアップする必要があります。 
 
 アップグレードおよびメンテナンス中、Azure App Service はワークロードが確実に動作し続けるようにワークロードを未割り当ての worker に移動します。 ただし、アップグレード中に未割り当ての worker を利用できない場合、テナント ワークロードのダウンタイムが発生する可能性があります。 共有 worker に関しては、利用可能な worker 内でテナント アプリがサービスによって自動的に割り当てられるため、お客様が追加の worker をプロビジョニングする必要はありません。 高可用性を実現するためには、この層に 2 個の worker があることが最小要件です。
 
-クラウド管理者は、Azure Stack 管理者ポータルの App Service 管理領域で worker 層の割り当てを監視できます。 App Service に移動し、左側のウィンドウにある [worker 層] を選択します。 [worker 層] テーブルには、worker 層の名前、サイズ、使用されているイメージ、利用可能な worker (未割り当て) の数、各層の worker の合計数、および worker 層の全体的な状態が表示されます。
+クラウド管理者は、Azure Stack Hub 管理者ポータルの App Service 管理領域で worker 層の割り当てを監視できます。 App Service に移動し、左側のウィンドウにある [worker 層] を選択します。 [worker 層] テーブルには、worker 層の名前、サイズ、使用されているイメージ、利用可能な worker (未割り当て) の数、各層の worker の合計数、および worker 層の全体的な状態が表示されます。
 
 ![App Service 管理 - [worker 層]][1]
 
@@ -117,9 +111,9 @@ worker のアップグレードおよびメンテナンス中、Azure App Servic
 
 詳細については、[ファイル サーバーのプロビジョニング](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)に関する記述を参照してください。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[App Service on Azure Stack のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)
+[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

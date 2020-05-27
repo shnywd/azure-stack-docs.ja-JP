@@ -1,27 +1,18 @@
 ---
-title: Azure Stack Hub Marketplace の概要 | Microsoft Docs
+title: Azure Stack Hub Marketplace の概要
 description: Azure Stack Hub Marketplace と Marketplace アイテムの概要。
-services: azure-stack
-documentationcenter: ''
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: 60871cbb-eed2-433c-a76d-d605c7aec06c
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: aea624bc47dec82133e3a438c21f984509492ceb
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.openlocfilehash: 638ffe45cef9301059fd9e9e39b74b793e2ba86a
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75882285"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661342"
 ---
 # <a name="azure-stack-hub-marketplace-overview"></a>Azure Stack Hub Marketplace の概要
 

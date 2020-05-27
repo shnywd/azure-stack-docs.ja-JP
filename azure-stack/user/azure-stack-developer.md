@@ -1,45 +1,34 @@
 ---
-title: Azure Stack 用アプリの開発 | Microsoft Docs
-description: Azure サービスを使用して Azure Stack でアプリの試作品を開発する際の考慮事項。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub 向けのアプリを開発する
+description: Azure サービスを使用して Azure Stack Hub でアプリのプロトタイプを作成する際の開発の考慮事項。
 author: sethmanheim
-manager: femila
-editor: ''
-ms.assetid: d3ebc6b1-0ffe-4d3e-ba4a-388239d6cdc3
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 01/24/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0f1450ff7ce6d7e4cffee3d31f80b046f07f9ac1
-ms.sourcegitcommit: bbf3edbfc07603d2c23de44240933c07976ea550
+ms.openlocfilehash: 3404e0d0e5bbf2c8293d70a7cf816b9e4923261f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71714779"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704082"
 ---
-# <a name="develop-for-azure-stack"></a>Azure Stack 向けの開発
+# <a name="develop-for-azure-stack-hub"></a>Azure Stack Hub 向けの開発
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack 環境へのアクセス権がなくても、アプリの開発にすぐに取り掛かることができます。 Azure Stack は、お使いのデータセンターで実行されている Microsoft Azure サービスを提供します。このことは、Azure Stack で同じ Azure ツールとプロセスを使用して、開発できることを意味します。
+Azure Stack Hub 環境へのアクセス権がなくても、アプリの開発にすぐに取り掛かることができます。 Azure Stack Hub では、お使いのデータセンターで実行されている Microsoft Azure サービスが提供されます。つまり、Azure Stack Hub で同じ Azure ツールとプロセスを使用して、開発できるということです。
 
 ## <a name="development-considerations"></a>開発の考慮事項
 
-簡単な準備をして次のトピックの説明に従えば、Azure を使用して Azure Stack 環境をエミュレートできます。
+いくつかの準備をして次のトピックのガイダンスに従えば、Azure を使用して Azure Stack Hub 環境をエミュレートできます。
 
-* Azure で、Azure Stack にデプロイできる Azure Resource Manager テンプレートを作成できます。 移植性が確保されたテンプレートの作成について詳しくは、[テンプレートに関する考慮事項](azure-stack-develop-templates.md)をご覧ください。
-* Azure と Azure Stack 間には、サービスの可用性とサービスのバージョン管理に違いがあります。 [Azure Stack ポリシー モジュール](azure-stack-policy-module.md)を使用して、Azure サービスの可用性やリソースの種類を Azure Stack で使用できるものに制限できます。 サービスを制限することで、Azure Stack で使用できるサービスにアプリが依存することになります。
-* [Azure Stack クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)は、Azure と Azure Stack の両方にデプロイできるテンプレートを開発する方法を示す一般的なシナリオ例です。
+* Azure で、Azure Stack Hub にデプロイできる Azure Resource Manager テンプレートを作成できます。 移植性が確保されたテンプレートの作成について詳しくは、[テンプレートに関する考慮事項](azure-stack-develop-templates.md)をご覧ください。
+* Azure と Azure Stack Hub 間には、サービスの可用性とサービスのバージョン管理に違いがあります。 [Azure Stack Hub ポリシー モジュール](azure-stack-policy-module.md)を使用して、Azure サービスの可用性やリソースの種類を Azure Stack Hub で使用できるものに制限できます。 サービスを制限することで、Azure Stack Hub で使用できるサービスにアプリが依存することを確実にします。
+* [Azure Stack Hub クイックスタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)は、Azure と Azure Stack Hub の両方にデプロイできるテンプレートを開発する方法を示す一般的なシナリオ例です。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 Azure Stack 開発の詳細については、次の記事をご覧ください。
 
 * [Azure Resource Manager テンプレートのベスト プラクティス](azure-stack-develop-templates.md)
-* [GitHub 上の Azure Stack クイック スタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)
+* [GitHub 上の Azure Stack Hub クイックスタート テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates)

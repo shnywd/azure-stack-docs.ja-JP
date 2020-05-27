@@ -1,36 +1,26 @@
 ---
-title: Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する | Microsoft Docs
-description: Azure Stack に OEM (相手先ブランド供給) 更新プログラムを適用する方法について説明します。
-services: azure-stack
-documentationcenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/10/2019
-ms.author: mabrigg
+title: Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用します。
+description: Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する方法について説明します。
+author: IngridAtMicrosoft
+ms.topic: how-to
+ms.date: 03/04/2020
+ms.author: inhenkel
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: 8065b2905adb5298c23cd7c924ccff28fb778efe
-ms.sourcegitcommit: b2418661bfa3a791e65b9b487e20982dba3e4c41
+ms.reviewer: ppace
+ms.openlocfilehash: 402450c9a0abc8096456450e1e81f92a68d65114
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75756823"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "78367269"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
-
-*適用対象:Azure Stack Hub 統合システム*
 
 この記事では、Azure Stack Hub 統合システムのサービス ポリシー、サポートを受けられる状態にシステムを維持するために行う必要がある事柄、およびサポートを受ける方法について説明します。
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 
-サポートを継続して受けるには、Azure Stack の更新プログラムを最新に維持する必要があります。
+サポートを継続して受けるには、お使いの Azure Stack Hub の更新プログラムを最新に維持する必要があります。
 
 サポートされる状態に Azure Stack Hub システムを維持するには、インスタンスで、リリースされた最新バージョンの更新プログラムを実行するか、それより 2 つ前の更新プログラムのバージョンのいずれかを実行する必要があります。
 

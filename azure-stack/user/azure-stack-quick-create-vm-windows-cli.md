@@ -1,30 +1,19 @@
 ---
-title: Azure CLI を使用して Azure Stack に Windows 仮想マシンを作成する | Microsoft Docs
-description: Azure CLI を使用して Azure Stack に Windows 仮想マシンを作成する
-services: azure-stack
-documentationcenter: ''
+title: Azure CLI を使用して Azure Stack Hub に Windows 仮想マシンを作成する
+description: Azure CLI を使用して Azure Stack Hub に Windows 仮想マシンを作成する
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
-ms.custom: mvc
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: b88d65806abfe83dfff59307d3bdcd4e99adf96d
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.lastreviewed: 01/14/2020
+ms.openlocfilehash: 0d8e3ec61eb5acfbe98efcae1ec0318cb15f661f
+ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71824257"
+ms.lasthandoff: 04/15/2020
+ms.locfileid: "78231657"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>クイック スタート:Azure Stack で Azure CLI を使用して Windows Server 仮想マシンを作成する
-
-"*適用対象: Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack-hub"></a>クイック スタート:Azure Stack Hub で Azure CLI を使用して Windows Server 仮想マシンを作成する
 
 Azure CLI を使用して Windows Server 2016 仮想マシンを作成できます。 この記事の手順に従って仮想マシンを作成し、使用します。 この記事では、以下の手順についても説明します。
 
@@ -34,13 +23,13 @@ Azure CLI を使用して Windows Server 2016 仮想マシンを作成できま�
 
 ## <a name="prerequisites"></a>前提条件
 
-* Azure Stack オペレーターが Azure Stack Marketplace に **Windows Server 2016** のイメージを追加していることを確認します。
+* Azure Stack Hub オペレーターが Azure Stack Hub Marketplace に **Windows Server 2016** のイメージを追加したことを確認します。
 
-* リソースを作成して管理するため、Azure Stack には Azure CLI の特定のバージョンが必要です。 Azure Stack 用に Azure CLI を構成していない場合は、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
+* リソースを作成して管理するため、Azure Stack Hub には Azure CLI の特定のバージョンが必要です。 Azure Stack Hub 用に Azure CLI を構成していない場合は、[Azure CLI のインストールと構成](azure-stack-version-profiles-azurecli2.md)の手順に従います。
 
-## <a name="create-a-resource-group"></a>リソース グループの作成
+## <a name="create-a-resource-group"></a>リソース グループを作成する
 
-リソース グループは、Azure Stack リソースのデプロイと管理を行うことができる論理コンテナーです。 Azure Stack 環境から、[az group create](/cli/azure/group#az-group-create) コマンドを実行してリソース グループを作成します。
+リソース グループは、Azure Stack Hub リソースのデプロイと管理を行うことができる論理コンテナーです。 Azure Stack Hub 環境から、[az group create](/cli/azure/group#az-group-create) コマンドを実行してリソース グループを作成します。
 
 > [!NOTE]
 >  値は、コード例のすべての変数に割り当てられます。 ただし、必要に応じて新しい値を割り当てることができます。
@@ -99,7 +88,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ![IIS の既定のサイト](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 
-## <a name="clean-up-resources"></a>リソースのクリーンアップ
+## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
 不要になったリソースをクリーンアップします。 [az group delete](/cli/azure/group#az-group-delete) コマンドを使用して、リソース グループ、仮想マシン、およびすべての関連リソースを削除します。
 
@@ -107,6 +96,6 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-このクイック スタートでは、基本の Windows Server 仮想マシンをデプロイしました。 Azure Stack 仮想マシンの詳細については、「[Azure Stack の仮想マシンに関する考慮事項](azure-stack-vm-considerations.md)」に進んでください。
+このクイック スタートでは、基本の Windows Server 仮想マシンをデプロイしました。 Azure Stack Hub 仮想マシンの詳細については、[Azure Stack Hub の仮想マシンの考慮事項](azure-stack-vm-considerations.md)に関する記事に進んでください。

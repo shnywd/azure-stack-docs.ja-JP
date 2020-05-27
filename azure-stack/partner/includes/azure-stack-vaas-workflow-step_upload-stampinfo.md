@@ -2,15 +2,15 @@
 author: mattbriggs
 ms.service: azure-stack
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: bca2ddd695576c014e472b93849ce0308e0311d9
-ms.sourcegitcommit: 28c8567f85ea3123122f4a27d1c95e3f5cbd2c25
+ms.openlocfilehash: c65d59189a212c435579e95a4daec67db9779bb3
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830125"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77143705"
 ---
-**[アップロード]** を選択し、Azure Stack スタンプ情報ファイルを選択します。 手順については、「[スタンプ情報ファイルを生成する](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file)」をご覧ください。
+**[アップロード]** を選択し、Azure Stack Hub スタンプ情報ファイルを選択します。 手順については、「[スタンプ情報ファイルを生成する](../azure-stack-vaas-parameters.md#generate-the-stamp-information-file)」をご覧ください。

@@ -1,36 +1,26 @@
 ---
-title: Azure Stack の Linux に AKS エンジンをインストールする | Microsoft Docs
-description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub の Linux に AKS エンジンをインストールする
+description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na (Kubernetes)
-ms.devlang: nav
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 3095ede91ce8ac98f1571307c61b28e80aa90fba
-ms.sourcegitcommit: 0b783e262ac87ae67929dbd4c366b19bf36740f0
+ms.lastreviewed: 3/19/2020
+ms.openlocfilehash: 5a6089a405e860bb25e52e61e273eb5094bc3647
+ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74310275"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82556428"
 ---
-# <a name="install-the-aks-engine-on-linux-in-azure-stack"></a>Azure Stack の Linux に AKS エンジンをインストールする
+# <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Kubernetes クラスターをデプロイおよび管理するには、Azure Stack の Linux マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
+Kubernetes クラスターをデプロイおよび管理するには、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストできます。 この記事では、お使いの接続および切断されている両 Azure Stack Hub インスタンスのクラスターを管理するためのクライアント VM の準備、インストールの確認、ASDK でのクライアント VM の設定について説明します。
 
 ## <a name="prepare-the-client-vm"></a>クライアント VM の準備
 
-AKS エンジンとは、お使いの Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、お使いの Azure Stack のコンピューターで実行できます。 このコンピューターから AKS エンジンを実行して、お使いのクラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているコンピューターを使用して、お使いのクラスターで管理タスクを実行できます。
+AKS エンジンとは、お使いの Kubernetes クラスターをデプロイおよび管理するために使用するコマンドライン ツールです。 このエンジンは、お使いの Azure Stack Hub のコンピューターで実行できます。 このコンピューターから AKS エンジンを実行して、お使いのクラスターの実行に必要な IaaS リソースとソフトウェアをデプロイします。 その後、このエンジンを実行しているコンピューターを使用して、お使いのクラスターで管理タスクを実行できます。
 
 お使いのクライアント コンピューターを選択する場合には、次の点を考慮してください。
 
@@ -39,17 +29,17 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 ## <a name="install-in-a-connected-environment"></a>接続されている環境へのインストール
 
-クライアント VM をインストールし、インターネットに接続されている Azure Stack 上のお使いの Kubernetes クラスターを管理できます。
+クライアント VM をインストールし、インターネットに接続されている Azure Stack Hub 上のお使いの Kubernetes クラスターを管理できます。
 
-1. お使いの Azure Stack に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Linux サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)」を参照してください。
+1. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 この AKS ベースのエンジンは、ご自分の Azure Stack の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.43.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.48.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.43.0
+        ./get-akse.sh --version v0.48.0
     ```
 
     > [!Note]  
@@ -57,15 +47,15 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 ## <a name="install-in-a-disconnected-environment"></a>切断されている環境へのインストール
 
-インターネットから切断されている Azure Stack 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
+インターネットから切断されている Azure Stack Hub 上のお使いの Kubernetes クラスターは、クライアント VM をインストールして管理できます。
 
 1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.xx.x-linux-amd64.tar.gz` など、Linux コンピューターのアーカイブ (*.tar.gz) をダウンロードします。
 
-2.  お使いの Azure Stack インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
+2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
 
-3. お使いの Azure Stack に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack ポータルを使用して Linux サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)」を参照してください。
+3. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 
-3.  アーカイブ ファイル (* tar.gz) をアップロードした Azure Stack ストレージ アカウントの blob URL から、お使いの管理 VM にファイルをダウンロードします。 アーカイブをディレクトリ `/usr/local/bin` に抽出します。
+3.  アーカイブ ファイル (* tar.gz) をアップロードした Azure Stack Hub ストレージ アカウントの blob URL から、お使いの管理 VM にファイルをダウンロードします。 アーカイブをディレクトリ `/usr/local/bin` に抽出します。
 
 4. お使いの VM に接続します。
 
@@ -83,9 +73,16 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 1. お使いのクライアント VM に接続します。
 2. 次のコマンドを実行します。
 
-    ```bash  
-    aks-engine version
-    ```
+   ```bash  
+   aks-engine version
+   ```
+
+3. Azure Resource Manager エンドポイントで自己署名証明書が使用されている場合、コンピューターの信頼された証明書ストアにルート証明書を明示的に追加する必要があります。 VM のルート証明書はディレクトリ /var/lib/waagent/Certificates.pem にあります。 次のコマンドを使用して証明書ファイルをコピーします。 
+
+   ```bash
+   sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azurestackca.crt 
+   sudo update-ca-certificates
+   ```
 
 クライアント VM に AKS エンジンがインストールされていることを確認できない場合は、[AKS エンジンのインストールのトラブルシューティング](azure-stack-kubernetes-aks-engine-troubleshoot.md)に関するページを参照してください。
 
@@ -104,7 +101,7 @@ sudo cp /var/lib/waagent/Certificates.pem /usr/local/share/ca-certificates/azure
 sudo update-ca-certificates
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 > [!div class="nextstepaction"]
-> [AKS エンジンを使用して Azure Stack に Kubernetes クラスターをデプロイする](azure-stack-kubernetes-aks-engine-deploy-cluster.md)
+> [AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする](azure-stack-kubernetes-aks-engine-deploy-cluster.md)

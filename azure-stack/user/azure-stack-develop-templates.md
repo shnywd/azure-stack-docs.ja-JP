@@ -1,41 +1,30 @@
 ---
-title: Azure Stack のテンプレートの開発 | Microsoft Docs
-description: Azure と Azure Stack 間のアプリの移植性のために Azure Resource Manager テンプレートを開発する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub 用のテンプレートの開発
+description: Azure と Azure Stack Hub 間のアプリの移植性のために Azure Resource Manager テンプレートを開発する方法について説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: unknown
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 96e43607809c192b9498c092b4a2584cec40a515
-ms.sourcegitcommit: 7226979ece29d9619c959b11352be601562b41d3
+ms.openlocfilehash: ce9ee8a982ade764947af3c6e2fb2f880cefc217
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72304104"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77702977"
 ---
-# <a name="develop-templates-for-azure-stack-with-azure-resource-manager"></a>Azure Resource Manager による Azure Stack 用テンプレートの開発
+# <a name="develop-templates-for-azure-stack-hub-with-azure-resource-manager"></a>Azure Resource Manager による Azure Stack Hub 用テンプレートの開発
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-アプリを開発するときは、Azure と Azure Stack 間のテンプレートの移植性を確保することが重要です。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)の開発に関する考慮事項について説明します。 これらのテンプレートを使用すると、Azure Stack 環境にアクセスせずに、Azure でアプリのプロトタイプを作成し、デプロイをテストできます。
+アプリを開発するときは、Azure と Azure Stack Hub 間のテンプレートの移植性を確保することが重要です。 この記事では、[Azure Resource Manager テンプレート](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)の開発に関する考慮事項について説明します。 これらのテンプレートを使用すると、Azure Stack Hub 環境にアクセスせずに、Azure でアプリのプロトタイプを作成し、デプロイをテストできます。
 
 ## <a name="resource-provider-availability"></a>リソース プロバイダーの可用性
 
-デプロイする予定のテンプレートは、Azure Stack で既に使用できるか、またはプレビューの段階にある Microsoft Azure サービスのみを使用する必要があります。
+デプロイする予定のテンプレートは、Azure Stack Hub で既に使用できるか、またはプレビューの段階にある Microsoft Azure サービスのみを使用する必要があります。
 
 ## <a name="public-namespaces"></a>パブリック名前空間
 
-Azure Stack はデータセンターでホストされるため、そのサービス エンドポイントの名前空間は、Azure パブリック クラウドとは異なります。 その結果、Azure Resource Manager テンプレートでハードコーディングされたパブリック エンドポイントは、Azure Stack にデプロイしようとすると失敗します。 デプロイ中にリソース プロバイダーから値を取得するために、`reference` および `concatenate` 関数を使用してサービス エンドポイントを動的に構築できます。 たとえば、テンプレートに `blob.core.windows.net` をハードコーディングする代わりに、[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) を取得して *osDisk.URI* エンドポイントを動的に設定します。
+Azure Stack Hub はデータセンターでホストされるため、そのサービス エンドポイントの名前空間は、Azure パブリック クラウドとは異なります。 その結果、Azure Resource Manager テンプレートでハードコーディングされたパブリック エンドポイントは、Azure Stack Hub にデプロイしようとすると失敗します。 デプロイ中にリソース プロバイダーから値を取得するために、`reference` および `concatenate` 関数を使用してサービス エンドポイントを動的に構築できます。 たとえば、テンプレートに `blob.core.windows.net` をハードコーディングする代わりに、[primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) を取得して *osDisk.URI* エンドポイントを動的に設定します。
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -45,13 +34,13 @@ Azure Stack はデータセンターでホストされるため、そのサー�
 
 ## <a name="api-versioning"></a>API のバージョン管理
 
-Azure のサービス バージョンが Azure と Azure Stack で異なる場合があります。 各リソースには、提供される機能を定義する **apiVersion** 属性が必要です。 Azure Stack での API のバージョンの互換性を確保するための各リソースプロバイダーで有効な API のバージョンは次のとおりです。
+Azure のサービス バージョンが Azure と Azure Stack Hub で異なる場合があります。 各リソースには、提供される機能を定義する **apiVersion** 属性が必要です。 Azure Stack Hub での API のバージョンの互換性を確保するための各リソースプロバイダーで有効な API のバージョンは次のとおりです。
 
 | リソース プロバイダー | apiVersion |
 | --- | --- |
 | Compute |**2015-06-15** |
 | ネットワーク |**2015-06-15**、**2015-05-01-preview** |
-| Storage |**2016-01-01**、**2015-06-15**、**2015-05-01-preview** |
+| ストレージ |**2016-01-01**、**2015-06-15**、**2015-05-01-preview** |
 | KeyVault | **2015-06-01** |
 | App Service |**2015-08-01** |
 
@@ -63,14 +52,14 @@ Azure Resource Manager の[関数](/azure/azure-resource-manager/resource-group-
 * その他のリソースからの値の参照。
 * 複数のインスタンスをデプロイするためのリソースの反復処理。
 
-次の関数は、Azure Stack では使用できません。
+次の関数は、Azure Stack Hub では使用できません。
 
 * Skip
 * Take
 
 ## <a name="resource-location"></a>リソースの場所
 
-Azure Resource Manager テンプレートは、デプロイ時にリソースを配置するのに `location` 属性を使用します。 Azure では、場所は、米国西部や南アメリカなどのリージョンを指します。 Azure Stack では、Azure Stack はユーザーのデータセンター内にあるため、場所の意味が異なります。 Azure と Azure Stack 間でテンプレートを確実に転送するには、個々のリソースをデプロイするときにリソース グループの場所を参照する必要があります。 そのためには、`[resourceGroup().Location]` を使用して、すべてのリソースがリソース グループの場所を継承するようにします。 次のコードは、ストレージ アカウントのデプロイ中にこの関数を使用する例を示しています。
+Azure Resource Manager テンプレートは、デプロイ時にリソースを配置するのに `location` 属性を使用します。 Azure では、場所は、米国西部や南アメリカなどのリージョンを指します。 Azure Stack Hub では、Azure Stack Hub はユーザーのデータセンター内にあるため、場所の意味が異なります。 Azure と Azure Stack Hub 間でテンプレートを確実に転送するには、個々のリソースをデプロイするときにリソース グループの場所を参照する必要があります。 そのためには、`[resourceGroup().Location]` を使用して、すべてのリソースがリソース グループの場所を継承するようにします。 次のコードは、ストレージ アカウントのデプロイ中にこの関数を使用する例を示しています。
 
 ```json
 "resources": [
@@ -87,7 +76,7 @@ Azure Resource Manager テンプレートは、デプロイ時にリソースを
 ]
 ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [PowerShell を使用したテンプレートのデプロイ](azure-stack-deploy-template-powershell.md)
 * [Azure CLI を使用したテンプレートのデプロイ](azure-stack-deploy-template-command-line.md)

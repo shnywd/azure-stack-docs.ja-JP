@@ -1,38 +1,30 @@
 ---
-title: Azure Stack で MySQL データベースを PaaS として使用する | Microsoft Docs
-description: Azure Stack で MySQL リソース プロバイダーをデプロイし、MySQL データベースをサービスとして提供する方法を説明します。
-services: azure-stack
-documentationCenter: ''
-author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Stack Hub で MySQL データベースを PaaS として使用する
+description: Azure Stack Hub で、MySQL リソース プロバイダーをデプロイし、MySQL データベースをサービスとして提供する方法を説明します。
+author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.author: mabrigg
+ms.date: 1/22/2020
+ms.author: bryanla
 ms.reviewer: xiaofmao
-ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: ceda705c4a06ac9465c3f017a87986ba6e20e4b3
-ms.sourcegitcommit: e57a53caac50d1f8762307e065fe886fcda7eadf
+ms.lastreviewed: 10/25/2019
+ms.openlocfilehash: 73c916a193492662cdbb3ba20031c58932721053
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/19/2019
-ms.locfileid: "75190864"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77698591"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Microsoft Azure Stack で MySQL データベースを使用する
+# <a name="use-mysql-databases-on-microsoft-azure-stack-hub"></a>Microsoft Azure Stack Hub で MySQL データベースを使用する
 
-MySQL リソース プロバイダーを使用して、[Azure Stack ](azure-stack-overview.md) で MySQL データベース サービスを提供します。 リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、次のことができます。
+MySQL リソース プロバイダーを使用して、[Azure Stack Hub](azure-stack-overview.md) 上で MySQL データベースを提供します。 リソース プロバイダーをデプロイし、1 つ以上の MySQL サーバー インスタンスに接続すると、以下を作成できます。
 
-* Azure Resource Manager デプロイ テンプレートを使用して、MySQL データベースを作成します。
-* MySQL データベースをサービスとして提供します。  
+* クラウドネイティブ アプリ向けの MySQL データベース。
+* Web アプリケーション向けの MySQL データベース。  
 
 SQL リソース プロバイダーをインストールする前に、考慮すべき制限事項がいくつかあります。
 
 - ユーザーは、個々のデータベースの作成と管理のみを行うことができます。 エンド ユーザーはデータベース サーバー インスタンスにアクセスできません。 これにより、マスター、Temp DB にアクセスしたり、データベースを動的に管理したりすることが必要なオンプレミス データベース アプリケーションとの互換性が制限される可能性があります。
-- Azure Stack オペレーターは、MySQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。 
+- Azure Stack Hub オペレーターは、MySQL データベース サーバーおよびホストのデプロイ、更新、セキュリティ保護、構成、および保守を担当します。 RP サービスでは、ホストおよびデータベース サーバー インスタンスの管理機能は提供されません。 
 - 異なるサブスクリプションの異なるユーザーのデータベースは、同じデータベース サーバー インスタンスに配置できます。 RP は、データベースを別のホストまたはデータベース サーバー インスタンスで分離するためのメカニズムを備えていません。
 - RP では、データベースのテナント使用に関するレポートは提供されません。
 
@@ -42,13 +34,13 @@ SQL リソース プロバイダーをインストールする前に、考慮す
 
 * **MySQL リソース プロバイダー アダプター仮想マシン (VM)** 。これはプロバイダー サービスを実行する Windows Server VM です。
 * **リソース プロバイダー**。要求を処理し、データベース リソースにアクセスします。
-* **MySQL サーバーをホストするサーバー**。これはデータベースに容量を提供し、ホスティング サーバーと呼ばれます。 MySQL インスタンスを自分で作成することも、外部の MySQL インスタンスへのアクセスを提供することもできます。 [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) にあるテンプレートの例を使って、次のことができます。
+* **MySQL サーバーをホストするサーバー**。これはデータベースに容量を提供し、ホスティング サーバーと呼ばれます。 MySQL インスタンスを自分で作成することも、外部の MySQL インスタンスへのアクセスを提供することもできます。 [Azure Stack Hub クイックスタート ギャラリー](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows)のテンプレートの例を使用して、以下を行うことができます。
 
   * 自力で MySQL サーバーを作成する。
   * Azure Marketplace から MySQL Server をダウンロードしてデプロイする。
 
 > [!NOTE]
-> Azure Stack 統合システムにインストールされたホスティング サーバーは、テナント サブスクリプションから作成する必要があります。 既定のプロバイダー サブスクリプションからは作成できません。 それらは、テナント ポータルから、または適切なサインインで PowerShell セッションから作成する必要があります。 すべてのホスティング サーバーは課金対象の VM であり、ライセンスが必要です。 サービス管理者は、テナント サブスクリプションの所有者になることができます。
+> Azure Stack Hub 統合システムにインストールされたホスティング サーバーは、テナント サブスクリプションから作成する必要があります。 既定のプロバイダー サブスクリプションからは作成できません。 ユーザー ポータル、または適切にサインインした PowerShell セッションから作成する必要があります。 すべてのホスティング サーバーは課金対象の VM であり、ライセンスが必要です。 サービス管理者は、テナント サブスクリプションの所有者になることができます。
 
 ### <a name="required-privileges"></a>必要な特権
 

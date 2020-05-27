@@ -1,27 +1,18 @@
 ---
-title: 高度な ASDK 評価タスク | Microsoft Docs
+title: 高度な ASDK 評価タスク
 description: 高度な Azure Stack Development Kit (ASDK) 評価タスクについて説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 2390f2c21325a059ea6f651e7fcd944d890bf307
-ms.sourcegitcommit: 5ef433aa6b75cdfb557fab0ef9308ff2118e66e5
+ms.lastreviewed: 10/16/2019
+ms.openlocfilehash: 2c4a83ea024f83c0181cfe77c598519746deaeed
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73594764"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77695361"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>高度な ASDK 評価タスク
 基本的な Azure Stack Development Kit (ASDK) サービスの機能について把握したら、より高度なシナリオをテストして Azure Stack の理解を深めることができます。 これらのより高度な評価タスクは、Azure Stack のオペレーター ドキュメントに詳しく記載されています。
@@ -44,6 +35,6 @@ Azure Stack オペレーターは、ユーザー (テナント) が Azure Functi
 
 App Service リソース プロバイダーをデプロイして、[Web アプリおよび API アプリを Azure Stack ユーザーが使用できるようにします](../operator/azure-stack-tutorial-app-service.md)。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [Azure Stack 統合システムでのサービスの提供の詳細について学習する](../operator/service-plan-offer-subscription-overview.md)

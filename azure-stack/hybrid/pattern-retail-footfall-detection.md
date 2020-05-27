@@ -1,19 +1,18 @@
 ---
-title: Azure と Azure Stack Hub を使用して AI ベースの足取り検出を実装するためのハイブリッド パターン。
-description: Azure および Azure Stack Hub サービスを使用して AI ベースの足取り検出ソリューションを実装し、小売店内のトラフィックを分析する方法について説明します。
+title: Azure と Azure Stack Hub を使用した足取り検出パターン
+description: Azure および Azure Stack Hub を使用して AI ベースの足取り検出ソリューションを実装し、小売店内のトラフィックを分析する方法について説明します。
 author: BryanLa
-ms.service: azure-stack
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 10/31/2019
-ms.openlocfilehash: d165381b6f8f3138d434b8d62376feb8879a21b3
-ms.sourcegitcommit: f3d40c9fe73cf0a32fc643832085de887edf7cf3
+ms.openlocfilehash: e656f243fdb266333e4d0f7dac42db858d7ecc8f
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/18/2019
-ms.locfileid: "75187285"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "80891129"
 ---
 # <a name="footfall-detection-pattern"></a>足取り検出パターン
 
@@ -21,27 +20,27 @@ ms.locfileid: "75187285"
 
 ## <a name="context-and-problem"></a>コンテキストと問題
 
-Contoso Stores では、店舗のレイアウトに関連して、顧客が現在の製品をどのように受け取っているかについて分析情報を得たいと考えています。 すべてのセクションにスタッフを配置することはできません。また、カメラ撮影した店舗内の映像すべてをアナリスト チームに確認してもらうのも非効率です。 さらに、分析用の映像をすべてのカメラからクラウドにストリーミングできるだけの十分な帯域幅は、どの店舗にもありません。 
+Contoso Stores では、店舗のレイアウトに関連して、顧客が現在の製品をどのように受け取っているかについて分析情報を得たいと考えています。 すべてのセクションにスタッフを配置することはできません。また、カメラ撮影した店舗内の映像すべてをアナリスト チームに確認してもらうのも非効率です。 さらに、分析用の映像をすべてのカメラからクラウドにストリーミングできるだけの十分な帯域幅は、どの店舗にもありません。
 
 Contoso では、顧客の人口統計、ロイヤルティ、店舗のディスプレイと製品に対する反応を確認するための、邪魔にならずプライバシーに配慮した方法を見つけたいと考えています。
 
 ## <a name="solution"></a>解決策
 
-この小売分析パターンでは、階層型アプローチを使用してエッジで推論を行います。 Custom Vision AI Dev Kit を使用することで、人の顔が含まれる画像のみが、分析のためにプライベート Azure Stack Hub に送信されます。Azure Stack Hub では、Azure Cognitive Services が実行されています。 集計された匿名データが Azure に送信され、すべての店舗にわたって集計されて Power BI で視覚化されます。 エッジとパブリック クラウドを組み合わせることで、Contoso では最新の AI テクノロジを活用できるようになります。 同時に、企業ポリシーへの準拠状態を維持し、顧客のプライバシーを尊重することができます。
+この小売分析パターンでは、階層型アプローチを使用してエッジで推論を行います。 Custom Vision AI Dev Kit を使用することで、人の顔が含まれる画像のみが、分析のためにプライベート Azure Stack Hub に送信されます。Azure Stack Hub では、Azure Cognitive Services が実行されています。 集計された匿名データが Azure に送信され、すべての店舗にわたって集計されて Power BI で視覚化されます。 エッジとパブリック クラウドを組み合わせることにより、Contoso は最新の AI テクノロジを活用しながら、企業のポリシーに準拠し、顧客のプライバシーを尊重することができます。
 
-[![足取り検出ソリューション](media/pattern-retail-footfall-detection/solution-architecture.png)](media/pattern-retail-footfall-detection/solution-architecture.png)
+[![足取り検出パターン ソリューション](media/pattern-retail-footfall-detection/solution-architecture.png)](media/pattern-retail-footfall-detection/solution-architecture.png)
 
-このソリューションのしくみの概要を以下に示します。 
+このソリューションのしくみの概要を以下に示します。
 
 1. Custom Vision AI Dev Kit は IoT Hub から構成を取得します。これにより IoT Edge ランタイムと ML モデルがインストールされます。
-2. モデルが人を認識すると、写真が撮影され、Azure Stack Hub BLOB ストレージにアップロードされます。 
-3. Blob service によって Azure Stack Hub で Azure 関数がトリガーされます。 
+2. モデルが人を認識すると、写真が撮影され、Azure Stack Hub BLOB ストレージにアップロードされます。
+3. Blob service によって Azure Stack Hub で Azure 関数がトリガーされます。
 4. Azure 関数は、Face API を含むコンテナーを呼び出し、画像から人口統計データと感情データを取得します。
 5. このデータは匿名化され、Azure Event Hubs クラスターに送信されます。
 6. Event Hubs クラスターにより、データは Stream Analytics にプッシュされます。
 7. Stream Analytics によってデータが集計され、Power BI にプッシュされます。
 
-## <a name="components"></a>コンポーネント
+## <a name="components"></a>Components
 
 このソリューションでは、次のコンポーネントを使用します。
 
@@ -51,7 +50,7 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 | Azure | [Azure Event Hubs](/azure/event-hubs/) | Azure Event Hubs は、Azure Stream Analytics と密接に統合された、匿名データを取り込むためのスケーラブルなプラットフォームを提供します。 |
 |  | [Azure Stream Analytics](/azure/stream-analytics/) | Azure Stream Analytics ジョブは、匿名データを集計し、これを視覚化できるように 15 秒間隔でグループ化します。 |
 |  | [Microsoft Power BI](https://powerbi.microsoft.com/) | Power BI には、Azure Stream Analytics からの出力を表示するための、使いやすいダッシュボード インターフェイスが用意されています。 |
-| Azure Stack Hub | [App Service](../operator/azure-stack-app-service-overview.md) | App Service リソース プロバイダー (RP) は、エッジ コンポーネントの基盤となります。 Web アプリ/API と Functions のためのホスティング機能および管理機能が含まれます。 |
+| Azure Stack Hub | [App Service](../operator/azure-stack-app-service-overview.md) | App Service リソースプロバイダー (RP) は、Web アプリ/API および関数のホスティングや管理の機能を含む、エッジ コンポーネントの基本を提供します。 |
 | | [Azure Kubernetes Service (AKS) エンジン](https://github.com/Azure/aks-engine) クラスター | AKS RP では AKS エンジンが Azure Stack Hub にデプロイされているため、Face API コンテナーを実行するためのスケーラブルで回復力のあるエンジンが提供されます。 |
 | | Azure Cognitive Services の [Face API コンテナー](/azure/cognitive-services/face/face-how-to-install-containers)| Face API コンテナーを備えた Azure Cognitive Services RP により、Contoso のプライベート ネットワーク上で人口統計、感情、および買い物客の一意検出が実現します。 |
 | | Blob Storage | AI Dev Kit からキャプチャされた画像は、Azure Stack Hub の BLOB ストレージにアップロードされます。 |
@@ -61,31 +60,32 @@ Contoso では、顧客の人口統計、ロイヤルティ、店舗のディス
 
 このソリューションの実装方法を決めるときには、以下の点を考慮してください。
 
-### <a name="scalability"></a>スケーラビリティ 
+### <a name="scalability"></a>スケーラビリティ
 
 このソリューションを複数のカメラと場所にわたってスケーリングできるようにするには、増えた負荷をすべてのコンポーネントで処理できるようにする必要があります。 次のような措置を取る必要が生じる場合があります。
 
-- Stream Analytics のストリーミング ユニット数を増やす
-- Face API デプロイをスケールアウトする
-- Event Hubs クラスターのスループットを増やす
+- Stream Analytics のストリーミング ユニット数を増やす。
+- Face API デプロイをスケールアウトする。
+- Event Hubs クラスターのスループットを増やす。
 - 極端なケースでは、Azure Functions から仮想マシンへの移行が必要になる場合があります。
 
 ### <a name="availability"></a>可用性
 
-このソリューションは階層化されているため、ネットワークや電源の障害に対処する方法を検討しておく必要があります。 ビジネス ニーズに応じて、画像をローカルにキャッシュし、接続が回復したときに Azure Stack Hub に転送するメカニズムを実装することが適切な場合があります。 場所に余裕がある場合は、Face API コンテナーを備えた Data Box Edge をその場所に配置する方が適切である可能性もあります。
+このソリューションは階層化されているため、ネットワークや電源の障害に対処する方法を検討しておく必要があります。 ビジネス ニーズに応じて、画像をローカルにキャッシュし、接続が回復したときに Azure Stack Hub に転送するメカニズムを実装したい場合があります。 場所に余裕がある場合は、Face API コンテナーを備えた Data Box Edge をその場所に配置する方が適切である可能性もあります。
 
-### <a name="manageability"></a>管理容易性
+### <a name="manageability"></a>管理の容易性
 
-このソリューションは多数のデバイスと場所にまたがることがあるため、扱いにくくなる可能性があります。 [Azure の IoT サービス](/azure/iot-fundamentals/)を使用することで、新しい場所とデバイスを自動的にオンラインにし、最新の状態に保つことができます。 
+このソリューションは多数のデバイスと場所にまたがることがあるため、扱いにくくなる可能性があります。 [Azure の IoT サービス](/azure/iot-fundamentals/)を使用することで、新しい場所とデバイスを自動的にオンラインにし、最新の状態に保つことができます。
 
-### <a name="security"></a>セキュリティ
+### <a name="security"></a>Security
 
-このソリューションでは顧客の画像をキャプチャするため、セキュリティが最も重要な考慮事項となります。 すべてのストレージ アカウントが適切なアクセス ポリシーで保護されていること、またキーが定期的にローテーションされていることを確認します。 ストレージ アカウントと Event Hubs に、企業および政府のプライバシー規制に準拠したアイテム保持ポリシーが備わっていることを確認します。 また、ユーザー アクセス レベルは必ず階層化してください。 階層化により、ユーザーは各自のロールに必要なデータにだけアクセスできるようになります。
+このソリューションでは顧客の画像をキャプチャするため、セキュリティが最も重要な考慮事項となります。 すべてのストレージ アカウントが適切なアクセス ポリシーで保護されていることを確認し、またキーを定期的にローテーションします。 ストレージ アカウントと Event Hubs に、企業および政府のプライバシー規制に準拠したアイテム保持ポリシーが備わっていることを確認します。 また、ユーザー アクセス レベルは必ず階層化してください。 階層化により、ユーザーは各自のロールに必要なデータにだけアクセスできるようになります。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 この記事で紹介したトピックの関連情報:
+
 - 足取り検出パターンによって利用される、[階層化データ パターン](https://aka.ms/tiereddatadeploy)に関するページをご覧ください。
 - Custom Vision の使用に関する詳細については、[Custom Vision AI Dev Kit](https://azure.github.io/Vision-AI-DevKit-Pages/) に関するページをご覧ください。 
 
-ソリューションの例をテストする準備ができたら、[足取り検出のデプロイ ガイド](solution-deployment-guide-retail-footfall-detection.md)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明されています。
+ソリューションの例をテストする準備ができたら、[足取り検出のデプロイ ガイド](solution-deployment-guide-retail-footfall-detection.md)に進んでください。 デプロイ ガイドでは、コンポーネントをデプロイしてテストするための詳細な手順について説明します。

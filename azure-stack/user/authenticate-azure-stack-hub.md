@@ -1,24 +1,22 @@
 ---
-title: Azure Stack Hub の認証情報を取得する方法 |Microsoft Docs
+title: Azure Stack Hub の認証情報を取得する方法
 description: Azure Stack Hub の認証情報を取得する方法について説明します
-services: azure-stack
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 624f0fb87b84ee06284185a521a68bebeb695362
-ms.sourcegitcommit: 7dd9d7bc2b86cca3be5118da149c1d422b2fb09d
+ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
+ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2019
-ms.locfileid: "75034008"
+ms.lasthandoff: 04/21/2020
+ms.locfileid: "81661093"
 ---
-# <a name="how-to-get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する方法
+# <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 
-Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
+Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
 
 ## <a name="values-needed-to-authenticate"></a>認証に必要な値
 
@@ -26,7 +24,7 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
 -   **サブスクリプション ID**  
 
-    サブスクリプション ID は Azure Stack 内のオファーにアクセスするために使用します。
+    サブスクリプション ID は Azure Stack Hub 内のオファーにアクセスするために使用します。
 
 -   **テナント ID**
 
@@ -70,10 +68,10 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
 Azure Resource Manager エンドポイントは、Azure Stack Hub のデプロイと管理サービスのメタデータ エンドポイントです。 Azure サブスクリプション内のリソースを作成、更新、および削除できる管理レイヤーを提供します。
 
-統合システムの場合、Azure Resource Manager エンドポイントの URL は次のようになります。<br>`https://management.<location>.<fqdn>.com`
+統合システムの場合、Azure Resource Manager エンドポイントの URL は次のようになります。<br>`https://management.<location>.<fqdn>`
 
 ギャラリー エンドポイント、グラフ エンドポイント、ポータル エンドポイント、サインイン エンドポイント、および対象ユーザーなどのプロパティを指すメタデータ エンドポイントを取得するには、URL は次のようになります。`<ResourceManager>/metadata/endpoints?api-version=1.0`
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-Azure Stack Hub での [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) の使用について詳しく確認します。
+Azure Stack Hub での [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) の使用について詳細に説明します。

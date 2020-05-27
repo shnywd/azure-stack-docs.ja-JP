@@ -1,28 +1,20 @@
 ---
-title: Docker を使用して Azure Stack 内で PowerShell を実行する | Microsoft Docs
-description: Docker を使用して Azure Stack 内で PowerShell を実行する
-services: azure-stack
-documentationcenter: ''
+title: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
+description: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 author: mattbriggs
-manager: femila
-editor: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 07/09/2019
-ms.openlocfilehash: 118f29c46a1b11c07c62407f19b86aa28ada3bd1
-ms.sourcegitcommit: a6d47164c13f651c54ea0986d825e637e1f77018
+ms.openlocfilehash: 2a23469b36bd05aaef1c6597fc0be6e0c1bab783
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72277788"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79312974"
 ---
-# <a name="use-docker-to-run-powershell-in-azure-stack"></a>Docker を使用して Azure Stack 内で PowerShell を実行する
+# <a name="use-docker-to-run-powershell-in-azure-stack-hub"></a>Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 
 この記事では、Docker を使用して、Windows ベースのコンテナーを作成します。そのコンテナー上で、さまざまなインターフェイスの操作に必要な PowerShell のバージョンを実行します。 Docker では、Windows ベースのコンテナーを使用する必要があります。
 
@@ -38,21 +30,21 @@ ms.locfileid: "72277788"
 
 1. Windows 10 を必要とする Windows コンテナーを使って Docker を実行する必要があります。 Docker を実行しているときに、Windows コンテナーに切り替えます。
 
-1. Azure Stack と同じドメインに参加しているマシンから Docker を実行します。 Azure Stack Development Kit (ASDK) を使用している場合は、[お使いのリモート マシン上に VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) をインストールする必要があります。
+1. Azure Stack Hub と同じドメインに参加しているマシンから Docker を実行します。 Azure Stack Development Kit (ASDK) を使用している場合は、[お使いのリモート マシン上に VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-hub-with-vpn) をインストールする必要があります。
 
 ## <a name="set-up-a-service-principal-for-using-powershell"></a>PowerShell を使用してサービス プリンシパルを設定する
 
-PowerShell を使用して Azure Stack 内のリソースにアクセスするには、お使いの Azure Active Directory (Azure AD) テナントのサービス プリンシパルが必要になります。 ユーザーのロールベースのアクセス制御 (RBAC) を使用してアクセス許可を委任します。
+PowerShell を使用して Azure Stack Hub 内のリソースにアクセスするには、お使いの Azure Active Directory (Azure AD) テナントのサービス プリンシパルが必要になります。 ユーザーのロールベースのアクセス制御 (RBAC) を使用してアクセス許可を委任します。
 
-1. サービス プリンシパルを設定するには、「[サービス プリンシパルを作成してアプリケーションに Azure Stack リソースへのアクセスを付与する](azure-stack-create-service-principals.md)」の手順に従います。
+1. サービス プリンシパルを設定するには、[サービス プリンシパルを作成することによるアプリケーションへの Azure Stack Hub リソースに対するアクセスの付与](azure-stack-create-service-principals.md)に関するページの手順に従います。
 
 2. 後で使用するためにアプリケーション ID、シークレット、お使いのテナント ID をメモします。
 
-## <a name="docker---azure-stack-api-profiles-module"></a>Docker - Azure Stack API プロファイル モジュール
+## <a name="docker---azure-stack-hub-api-profiles-module"></a>Docker - Azure Stack Hub API プロファイル モジュール
 
-Dockerfile は、Windows PowerShell 5.1 がインストールされている Microsoft イメージ *microsoft/windowsservercore* を開きます。 その後、そのファイルは、NuGet と Azure Stack PowerShell モジュールを読み込み、Azure Stack ツールからツールをダウンロードします。
+Dockerfile は、Windows PowerShell 5.1 がインストールされている Microsoft イメージ *microsoft/windowsservercore* を開きます。 その後、そのファイルは、NuGet と Azure Stack Hub PowerShell モジュールを読み込み、Azure Stack Hub ツールからツールをダウンロードします。
 
-1. ZIP ファイルとして [azure-stack-powershell リポジトリをダウンロードする](https://github.com/mattbriggs/azure-stack-powershell)か、そのリポジトリを複製します。
+1. ZIP ファイルとして [azure-stack-powershell リポジトリをダウンロードする](https://github.com/Azure-Samples/azure-stack-hub-powershell-in-docker.git)か、そのリポジトリを複製します。
 
 2. ターミナルからリポジトリ フォルダーを開きます。
 
@@ -77,7 +69,7 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
     PS C:\>
     ```
 
-6. サービス プリンシパルを使用して、お使いの Azure Stack インスタンスに接続します。 現在、Docker で PowerShell プロンプトを使用しています。 
+6. サービス プリンシパルを使用して、お使いの Azure Stack Hub インスタンスに接続します。 現在、Docker で PowerShell プロンプトを使用しています。 
 
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
@@ -93,15 +85,15 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
     <AccountID>    <SubName>       <TenantID>  AzureCloud
     ```
 
-7. Azure Stack でリソース グループを作成して、接続をテストします。
+7. Azure Stack Hub でリソース グループを作成して、接続をテストします。
 
     ```powershell  
     New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
     ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
--  [Azure Stack の Azure Stack PowerShell](azure-stack-powershell-overview.md) の概要をお読みください。
-- Azure Stack の [PowerShell の API プロファイル](azure-stack-version-profiles.md)についてお読みください。
-- [Azure Stack PowerShell](../operator/azure-stack-powershell-install.md) をインストールします。
+-  [Azure Stack Hub の Azure Stack Hub PowerShell](azure-stack-powershell-overview.md) の概要をお読みください。
+- Azure Stack Hub の [PowerShell の API プロファイル](azure-stack-version-profiles.md)についてお読みください。
+- [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) をインストールします。
 - クラウドの一貫性のための [Azure Resource Manager テンプレート](azure-stack-develop-templates.md)の作成についてお読みください。

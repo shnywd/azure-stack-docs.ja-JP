@@ -1,27 +1,18 @@
 ---
-title: ASDK を起動および停止する | Microsoft Docs
+title: ASDK を起動および停止する
 description: Azure Stack Development Kit (ASDK) を起動および停止する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 07/18/2019
-ms.openlocfilehash: e32fc6c58232e21eb6e7c087c2d95623209bc28d
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.openlocfilehash: 6798481e7645c4a1a49c6370b00b1851c32ff478
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689848"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79511982"
 ---
 # <a name="start-and-stop-the-asdk"></a>ASDK を起動および停止する
 ASDK ホスト コンピューターを単純に再起動することはお勧めしません。 代わりに、この記事の手順に従い、正しくシャット ダウンして ASDK サービスを再起動してください。
@@ -89,5 +80,5 @@ ASDK ホスト コンピューターの電源投入後 2 時間以内に Azure S
 
 **Start-AzureStack**の実行が失敗した場合、[Azure Stack サポート フォーラム](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack)で ASDK トラブルシューティングのサポートを得てください。 
 
-## <a name="next-steps"></a>次の手順 
-Azure Stack 診断ツールと問題のログ記録については、「[Azure Stack の診断ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)」をご覧ください。
+## <a name="next-steps"></a>次のステップ 
+Azure Stack 診断ツールと問題のログ記録については、「[Azure Stack の診断ツール](../operator/azure-stack-get-azurestacklog.md)」をご覧ください。

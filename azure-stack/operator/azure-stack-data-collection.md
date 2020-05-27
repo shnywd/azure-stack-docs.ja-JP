@@ -1,37 +1,27 @@
 ---
-title: Azure Stack のログおよび顧客データの処理 | Microsoft Docs
-description: Azure Stack がどのように顧客データと情報を収集するかについて説明します。
-services: azure-stack
-documentationcenter: ''
-author: PatAltimore
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+title: Azure Stack Hub でのログおよび顧客データの処理
+description: Azure Stack Hub がどのように顧客データと情報を収集するかについて学習します。
+author: JustinHall
 ms.topic: article
-ms.date: 06/10/2019
-ms.author: patricka
+ms.date: 02/24/2020
+ms.author: justinha
 ms.reviewer: chengwei
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: ff633133b7d0fd0489b3e81295ea53351968ac8f
-ms.sourcegitcommit: 7817d61fa34ac4f6410ce6f8ac11d292e1ad807c
+ms.lastreviewed: 02/24/2020
+ms.openlocfilehash: fc7d819bce237b98c359bc7c4bc43bc478d84952
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74690190"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "79512577"
 ---
-# <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack のログおよび顧客データの処理 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*  
+# <a name="azure-stack-hub-log-and-customer-data-handling"></a>Azure Stack Hub でのログおよび顧客データの処理 
 
-Microsoft は、Azure Stack に関係する個人データのプロセッサーまたはサブプロセッサーである範囲において、2018 年 5 月 25 日、すべてのお客様に対して次の確約を有効にします。
+Microsoft は、Azure Stack Hub に関係する個人データのプロセッサーまたはサブプロセッサーである範囲において、2018 年 5 月 25 日、すべてのお客様に対して次の確約を有効にします。
 
 - [オンライン サービス使用条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の "データ保護条件" セクションの "個人データの処理: GDPR" 条項。
 - [オンライン サービス使用条件](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)の特則 4 の EU 一般データ保護規則の条件。
 
-Azure Stack がお客様のデータセンター内に常駐している間、Microsoft は、[診断](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)、[テレメトリ](azure-stack-telemetry.md)、および[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
+Azure Stack Hub がお客様のデータセンター内に存在している間、Microsoft は、[診断](azure-stack-diagnostic-log-collection-overview-tzl.md)、[テレメトリ](azure-stack-telemetry.md)、[課金](azure-stack-usage-reporting.md)を通じて Microsoft と共有されるデータのみを制御します。  
 
 ## <a name="data-access-controls"></a>データ アクセスの制御 
 特定のサポート ケースを調査するために割り当てられた Microsoft の従業員には、暗号化されたデータを読み取り専用でアクセスする権限が付与されます。 また、Microsoft の従業員は、必要に応じてデータの削除に使用するツールにアクセスできます。 顧客データへのアクセスは、すべて監査および記録されます。  
@@ -51,20 +41,20 @@ Microsoft は、お客様の要求に応じたオンデマンドでのデータ�
 オンデマンドでのデータ削除アクションを実行する場合、Microsoft サポート エンジニアはオンデマンドでデータを削除できるようにするツールにアクセスできます。 完了したら、その旨を電話でお客様に確認します。
 
 ## <a name="diagnostic-data"></a>診断データ
-サポート プロセスの一環として、Azure Stack Operator は、トラブルシューティングに役立てるため、Azure Stack のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-configure-on-demand-diagnostic-log-collection.md#use-the-privileged-endpoint-pep-to-collect-diagnostic-logs)できます。
+サポート プロセスの一環として、Azure Stack Hub オペレーターは、トラブルシューティングに役立てるため、Azure Stack Hub のサポート チームおよびエンジニアリング チームと[診断ログを共有](azure-stack-diagnostic-log-collection-overview-tzl.md)できます。
 
 Microsoft は、お客様が、要求された診断ログ ファイルを収集してアップロードするためのツールおよびスクリプトを提供します。 収集されたログ ファイルは、HTTPS で保護された暗号化接続を通じて Microsoft に転送されます。 HTTPS では、ネットワーク データが暗号化されるため、転送時に暗号化のためのパスワードは不要です。 受信されたログは、サポート ケースが終了して 90 日後に自動削除されるまで、暗号化された状態で保管されます。
 
 ## <a name="telemetry-data"></a>テレメトリ データ
-[Azure Stack のテレメトリ](azure-stack-telemetry.md)では、接続ユーザー エクスペリエンスを介してシステム データが自動的に Microsoft にアップロードされます。 テレメトリの機能やプライバシー設定は、Azure Stack Operator の権限でいつでもカスタマイズできます。
+[Azure Stack Hub のテレメトリ](azure-stack-telemetry.md)では、接続ユーザー エクスペリエンスを介してシステム データが自動的に Microsoft にアップロードされます。 テレメトリの機能やプライバシー設定は、Azure Stack Hub オペレーターの権限でいつでもカスタマイズできます。
 
 Microsoft が意図して機密データ (クレジット カード番号、ユーザー名とパスワード、メール アドレスなど) を収集することはありません。 意図せず機密情報を受け取ったと Microsoft が判断した場合には、削除します。
 
 ## <a name="billing-data"></a>課金データ
-[Azure Stack の課金](azure-stack-usage-reporting.md)では、グローバルな Azure の課金および使用パイプラインが活用されます。このため、Microsoft のコンプライアンス ガイドラインに合致しています。
+[Azure Stack Hub の課金](azure-stack-usage-reporting.md)では、グローバルな Azure の課金および使用パイプラインが活用されます。このため、Microsoft のコンプライアンス ガイドラインに合致しています。
 
-Azure Stack Operator は、課金のための使用状況情報を Azure に転送するように Azure Stack を構成できます。 従量制課金モデルを選択した Azure Stack 統合システムのお客様には、この構成が必須となります。 使用状況のレポートは、テレメトリとは別に管理されます。容量モデルを選択した統合システムのお客様や、Azure Stack Development Kit ユーザーの場合、使用状況のレポートは不要です。 そのような場合は、[登録スクリプト](azure-stack-usage-reporting.md)を使って、使用状況のレポートを無効にすることができます。
+Azure Stack Hub オペレーターは、課金のための使用状況情報を Azure に転送するように Azure Stack Hub を構成できます。 従量制課金モデルを選択した Azure Stack Hub 統合システムのお客様には、この構成が必須となります。 使用状況のレポートは、テレメトリとは別に管理されます。容量モデルを選択した統合システムのお客様や、Azure Stack Development Kit ユーザーの場合、使用状況のレポートは不要です。 そのような場合は、[登録スクリプト](azure-stack-usage-reporting.md)を使って、使用状況のレポートを無効にすることができます。
 
 
-## <a name="next-steps"></a>次の手順 
-[Azure Stack のセキュリティについて詳しく学習する](azure-stack-security-foundations.md) 
+## <a name="next-steps"></a>次のステップ 
+[Azure Stack Hub のセキュリティについて詳しく学習する](azure-stack-security-foundations.md) 

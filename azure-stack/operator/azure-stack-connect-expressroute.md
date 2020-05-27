@@ -1,31 +1,22 @@
 ---
-title: ExpressRoute を使用して Azure Stack を Azure に接続する | Microsoft Docs
-description: ExpressRoute を使用して Azure Stack 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: ExpressRoute を使用して Azure Stack Hub を Azure に接続する
+description: ExpressRoute を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法について説明します。
 author: sethmanheim
-manager: femila
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
-ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: efea925c421a031206ac33b49a13bd486bab1eea
-ms.sourcegitcommit: 5c92a669007ab4aaffe4484f1d8836a40340dde1
+ms.lastreviewed: 10/22/2019
+ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
+ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73636883"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82605699"
 ---
-# <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack を Azure に接続する
+# <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-この記事では、[Microsoft Azure ExpressRoute](/azure/expressroute/) の直接接続を使用して、Azure Stack の仮想ネットワークを Azure の仮想ネットワークに接続する方法について説明します。
+この記事では、[Microsoft Azure ExpressRoute](/azure/expressroute/) の直接接続を使用して、Azure Stack Hub の仮想ネットワークを Azure の仮想ネットワークに接続する方法について説明します。
 
 この記事に忠実に従い、記載されている例を使用して同じテスト環境をセットアップできます。 または、この記事を参考にしながら、独自の ExpressRoute 環境をセットアップすることもできます。
 
@@ -40,59 +31,59 @@ Azure ExpressRoute の詳細については、[ExpressRoute の概要](/azure/ex
 この記事では、以下のことを前提としています。
 
 * Azure に関する実践的な知識がある。
-* Azure Stack に関する基礎知識がある。
+* Azure Stack Hub に関する基礎知識がある。
 * ネットワークに関する基礎知識がある。
 
 ### <a name="prerequisites"></a>前提条件
 
-ExpressRoute を使用して Azure Stack と Azure を接続するには、次の要件を満たしている必要があります。
+ExpressRoute を使用して Azure Stack Hub と Azure を接続するには、次の要件を満たしている必要があります。
 
 * [接続プロバイダー](/azure/expressroute/expressroute-locations)経由でプロビジョニングされている [ExpressRoute 回線](/azure/expressroute/expressroute-circuit-peerings)。
 * Azure で ExpressRoute 回線と VNet を作成するための Azure サブスクリプション。
 * 次の機能を備えたルーター。
-  * LAN インターフェイスと Azure Stack マルチテナント ゲートウェイの間でサイト間 VPN 接続をサポートする。
-  * Azure Stack のデプロイに複数のテナントが存在する場合に、複数の VRF (Virtual Routing and Forwarding) を作成することができる。
+  * LAN インターフェイスと Azure Stack Hub マルチテナント ゲートウェイの間でサイト間 VPN 接続をサポートする。
+  * Azure Stack Hub のデプロイに複数のテナントが存在する場合に、複数の VRF (Virtual Routing and Forwarding) を作成することができる。
 * 次のポートを備えたルーター。
   * ExpressRoute 回線に接続された WAN ポート。
-  * Azure Stack マルチテナント ゲートウェイに接続された LAN ポート。
+  * Azure Stack Hub マルチテナント ゲートウェイに接続された LAN ポート。
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute ネットワークのアーキテクチャ
 
-次の図は、この記事の例に従って ExpressRoute の設定を完了した後の Azure Stack と Azure の環境を示しています。
+次の図は、この記事の例に従って ExpressRoute の設定を完了した後の Azure Stack Hub と Azure の環境を示しています。
 
-![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/Conceptual.png)
+![ExpressRoute ネットワーク](media/azure-stack-connect-expressroute/conceptual.svg)
 
-次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack インフラストラクチャから Azure に接続するしくみを示しています。
+次の図は、複数のテナントが ExpressRoute ルーターを介して Azure Stack Hub インフラストラクチャから Azure に接続するしくみを示しています。
 
-![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/Architecture.png)
+![ExpressRoute でのマルチテナント接続](media/azure-stack-connect-expressroute/architecture.svg)
 
-この記事の例では、この図に示したものと同じマルチテナント アーキテクチャを使い、ExpressRoute のプライベート ピアリングを使って Azure Stack を Azure に接続します。 この接続は、Azure Stack 内の仮想ネットワーク ゲートウェイから ExpressRoute ルーターへのサイト間 VPN 接続を使用して行われます。
+この記事の例では、この図に示したものと同じマルチテナント アーキテクチャを使い、ExpressRoute のプライベート ピアリングを使って Azure Stack Hub を Azure に接続します。 この接続は、Azure Stack Hub 内の仮想ネットワーク ゲートウェイから ExpressRoute ルーターへのサイト間 VPN 接続を使用して行われます。
 
-この記事内の各手順では、Azure Stack 内の 2 つの異なるテナントにある 2 つの VNet から Azure 内の対応する VNet へのエンド ツー エンド接続を作成する方法を示します。 設定するテナントは必ずしも 2 つである必要はありません。これらの手順をシングル テナントに使うこともできます。
+この記事内の各手順では、Azure Stack Hub 内の 2 つの異なるテナントにある 2 つの VNet から Azure 内の対応する VNet へのエンドツーエンド接続を作成する方法を示します。 設定するテナントは必ずしも 2 つである必要はありません。これらの手順をシングル テナントに使うこともできます。
 
-## <a name="configure-azure-stack"></a>Azure Stack の構成
+## <a name="configure-azure-stack-hub"></a>Azure Stack Hub の構成
 
-1 つ目のテナントの Azure Stack 環境は、次の手順を参考にして設定してください。 複数のテナントを設定する場合は、これらの手順を繰り返すことになります。
+1 つ目のテナントの Azure Stack Hub 環境は、次の手順を参考にして設定してください。 複数のテナントを設定する場合は、これらの手順を繰り返すことになります。
 
 >[!NOTE]
->これらの手順では、Azure Stack ポータルを使用してリソースを作成する方法を示していますが、PowerShell を使用することもできます。
+>これらの手順では、Azure Stack Hub ポータルを使用してリソースを作成する方法を示していますが、PowerShell を使用することもできます。
 
-![Azure Stack のネットワークのセットアップ](media/azure-stack-connect-expressroute/image2.png)
+![Azure Stack Hub のネットワークのセットアップ](media/azure-stack-connect-expressroute/azure-stack-connect-expressrouteimage-image2.svg)
 
 ### <a name="before-you-begin"></a>開始する前に
 
-Azure Stack の構成を始める前に、次のものが必要となります。
+Azure Stack Hub の構成を始める前に、次のものが必要となります。
 
-* Azure Stack 統合システムのデプロイまたは Azure Stack Development Kit (ASDK) のデプロイ。 ASDK のデプロイについては、[Azure Stack Development Kit のデプロイに関するクイック スタート](../asdk/asdk-download.md)を参照してください。
-* ユーザーがサブスクライブできる Azure Stack 内のオファー。 詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
+* Azure Stack Hub のデプロイ。
+* ユーザーがサブスクライブできる Azure Stack Hub 内のオファー。 詳細については、「[サービス、プラン、オファー、サブスクリプションの概要](service-plan-offer-subscription-overview.md)」を参照してください。
 
-### <a name="create-network-resources-in-azure-stack"></a>Azure Stack でネットワーク リソースを作成する
+### <a name="create-network-resources-in-azure-stack-hub"></a>Azure Stack Hub でネットワーク リソースを作成する
 
-Azure Stack 内でテナントに必要なネットワーク リソースを作成するには、次の手順を使用します。
+Azure Stack Hub 内でテナントに必要なネットワーク リソースを作成するには、次の手順を使用します。
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>仮想ネットワークと VM サブネットを作成する
 
-1. Azure Stack ユーザー ポータルにサインインします。
+1. Azure Stack Hub のユーザー ポータルにサインインします。
 
 2. ポータルで **[+ リソースの作成]** を選択します。
 
@@ -127,7 +118,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 #### <a name="create-the-virtual-network-gateway"></a>仮想ネットワーク ゲートウェイを作成する
 
-1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** をクリックします。
+1. Azure Stack Hub ユーザー ポータルで、 **[+ リソースの作成]** をクリックします。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. ネットワーク リソースの一覧から **[仮想ネットワーク ゲートウェイ]** を選択します。
 1. **[名前]** フィールドに「**GW1**」と入力します。
@@ -142,7 +133,7 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 ローカル ネットワーク ゲートウェイ リソースは、VPN 接続のもう一方の端にあるリモート ゲートウェイを識別します。 この例の場合、接続のリモート側の終端は ExpressRoute ルーターの LAN サブインターフェイスです。 前の図のテナント 1 のリモート アドレスは、10.60.3.255 です。
 
-1. Azure Stack ユーザー ポータルにサインインして、 **[+ リソースの作成]** を選択します。
+1. Azure Stack Hub ユーザー ポータルにサインインして、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. リソースの一覧から **[ローカル ネットワーク ゲートウェイ]** を選択します。
 1. **[名前]** フィールドに「**ER-Router-GW**」と入力します。
@@ -153,17 +144,17 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
    * 10.100.0.0/16 (Azure のスポーク VNet)。
 
    > [!IMPORTANT]
-   > この例では、Azure Stack ゲートウェイと ExpressRoute ルーターの間のサイト間 VPN 接続に静的ルートを使用していると想定しています。
+   > この例では、Azure Stack Hub ゲートウェイと ExpressRoute ルーターの間のサイト間 VPN 接続に静的ルートを使用していると想定しています。
 
 1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** がすべて正しいことを確認します。 **[作成]** を選択します。
 
 #### <a name="create-the-connection"></a>接続の作成
 
-1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
+1. Azure Stack Hub ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[ネットワーク]** を選択します。
 1. リソースの一覧から **[接続]** を選択します。
 1. **[基本]** で、 **[接続の種類]** として **[サイト間 (IPSec)]** を選択します。
-1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を選択します。 Click **OK**.
+1. **[サブスクリプション]** 、 **[リソース グループ]** 、 **[場所]** を選択します。 **[OK]** をクリックします。
 1. **[設定]** で **[仮想ネットワーク ゲートウェイ]** を選択し、 **[GW1]** を選択します。
 1. **[ローカル ネットワーク ゲートウェイ]** を選択し、 **[ER Router GW]** を選択します。
 1. **[接続名]** フィールドに、「**ConnectToAzure**」と入力します。
@@ -174,21 +165,21 @@ Azure Stack 内でテナントに必要なネットワーク リソースを作�
 
 仮想ネットワーク ゲートウェイの作成後、ゲートウェイのパブリック IP アドレスを取得できます。 このアドレスは、後でデプロイに必要になった場合のためにメモしておいてください。 デプロイによっては、このアドレスが**内部 IP アドレス**として使用されます。
 
-1. Azure Stack ユーザー ポータルで **[すべてのリソース]** を選択します。
+1. Azure Stack Hub ユーザー ポータルで **[すべてのリソース]** を選択します。
 1. **[すべてのリソース]** で、仮想ネットワーク ゲートウェイを選択します。この例では **GW1** が該当します。
 1. **[仮想ネットワーク ゲートウェイ]** で、リソースの一覧から **[概要]** を選択します。 または、 **[プロパティ]** を選択することもできます。
 1. メモする必要のある IP アドレスは、 **[パブリック IP アドレス]** に一覧表示されています。 この例の構成では、192.68.102.1 が該当します。
 
 #### <a name="create-a-virtual-machine-vm"></a>仮想マシン (VM) の作成
 
-VPN 接続上のデータ トラフィックをテストするには、Azure Stack VNet 内でデータを送受信する VM が必要です。 VM を作成して、ご利用の仮想ネットワークの VM サブネットにデプロイします。
+VPN 接続上のデータ トラフィックをテストするには、Azure Stack Hub VNet 内でデータを送受信する VM が必要です。 VM を作成して、ご利用の仮想ネットワークの VM サブネットにデプロイします。
 
-1. Azure Stack ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
+1. Azure Stack Hub ユーザー ポータルで、 **[+ リソースの作成]** を選択します。
 1. **[Azure Marketplace]** の **[計算]** を選択します。
 1. VM のイメージの一覧で、**Windows Server 2016 Datacenter Eval** イメージを選択します。
 
    >[!NOTE]
-   >この記事で使用されているイメージを入手できない場合は、Azure Stack のオペレーターに依頼して、別の Windows Server イメージを入手してください。
+   >この記事で使用されているイメージを入手できない場合は、Azure Stack Hub のオペレーターに依頼して、別の Windows Server イメージを入手してください。
 
 1. **[仮想マシンの作成]** で、 **[基本]** を選択し、次に **[名前]** に「**VM01**」と入力します。
 1. 有効なユーザー名とパスワードを入力します。 このアカウントは、作成後の VM へのサインインに使用します。
@@ -225,7 +216,7 @@ ASDK は自己完結型であり、物理ホストがデプロイされている
 
 #### <a name="configure-the-nat"></a>NAT を構成する
 
-1. Azure Stack のホスト コンピューターに管理者アカウントでサインインします。
+1. Azure Stack Hub のホスト コンピューターに管理者アカウントでサインインします。
 1. 管理者特権の PowerShell ISE でスクリプトを実行します。 このスクリプトから**外部 BGPNAT アドレス**が返されます。
 
    ```powershell
@@ -274,11 +265,11 @@ ASDK は自己完結型であり、物理ホストがデプロイされている
 
 ## <a name="configure-azure"></a>Azure を構成する
 
-Azure Stack の構成が完了したら、Azure のリソースをデプロイすることができます。 次の図は、Azure 内のテナント仮想ネットワークの例を示しています。 Azure 内の VNet には、任意の名前とアドレス指定スキームを使用できます。 ただし、Azure と Azure Stack 内の VNet のアドレス範囲は一意であり、重複していない必要があります。
+Azure Stack Hub の構成が完了したら、Azure のリソースをデプロイすることができます。 次の図は、Azure 内のテナント仮想ネットワークの例を示しています。 Azure 内の VNet には、任意の名前とアドレス指定スキームを使用できます。 ただし、Azure と Azure Stack Hub 内の VNet のアドレス範囲は一意であり、重複していない必要があります。
 
-![Azure VNet](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure VNet](media/azure-stack-connect-expressroute/azurearchitecture.svg)
 
-Azure でデプロイするリソースは、Azure Stack でデプロイしたリソースに似ています。 デプロイするコンポーネントは次のとおりです。
+Azure でデプロイするリソースは、Azure Stack Hub でデプロイしたリソースに似ています。 デプロイするコンポーネントは次のとおりです。
 
 * 仮想ネットワークとサブネット
 * ゲートウェイ サブネット
@@ -337,9 +328,9 @@ Azure で接続する追加のテナント VNet ごとに、それぞれの Expr
 
 ExpressRoute ルーターは、次の ExpressRoute ルーターの構成図を参考に構成してください。 2 つのテナント (Tenant 1 と Tenant 2) とそれぞれの ExpressRoute 回線が示されています。 各テナントは ExpressRoute ルーターの LAN および WAN 側にある独自の VRF (Virtual Routing and Forwarding) にリンクされています。 この構成によって、2 つのテナントが確実にエンド ツー エンドで分離されます。 この構成例に従う際は、ルーターのインターフェイスで使用されている IP アドレスに注意してください。
 
-![ExpressRoute ルーターの構成](media/azure-stack-connect-expressroute/EndToEnd.png)
+![ExpressRoute ルーターの構成](media/azure-stack-connect-expressroute/endtoend.svg)
 
-Azure Stack からサイト間 VPN 接続を終了するには、IKEv2 VPN と BGP をサポートする任意のルーターを使用できます。 ExpressRoute 回線を使用して Azure に接続する際は、同じルーターが使用されます。
+Azure Stack Hub からサイト間 VPN 接続を終了するには、IKEv2 VPN と BGP をサポートする任意のルーターを使用できます。 ExpressRoute 回線を使用して Azure に接続する際は、同じルーターが使用されます。
 
 次の Cisco ASR 1000 Series Aggregation Services Router の構成例は、「*ExpressRoute ルーターの構成*」の図に示したネットワーク インフラストラクチャをサポートします。
 
@@ -566,8 +557,8 @@ route-map VNET-ONLY permit 10
 
 次の ping テストを実行します。
 
-* Azure VNet 内のいずれかの VM にサインインし、Azure Stack 内に作成した VM に ping を実行します。
-* Azure Stack 内に作成したいずれかの VM にサインインし、Azure VNet 内に作成した VM に ping を実行します。
+* Azure VNet 内のいずれかの VM にサインインし、Azure Stack Hub 内に作成した VM に ping を実行します。
+* Azure Stack Hub 内に作成したいずれかの VM にサインインし、Azure VNet 内に作成した VM に ping を実行します。
 
 >[!NOTE]
 >送信するトラフィックがサイト間および ExpressRoute 接続を確実に通過するようにするため、両方の端で VM の VIP アドレスでなく、VM の専用 IP (DIP) アドレスに ping を実行する必要があります。
@@ -583,9 +574,9 @@ New-NetFirewallRule `
   -Protocol ICMPv4
 ```
 
-### <a name="ping-the-azure-stack-vm"></a>Azure Stack VM に ping を実行する
+### <a name="ping-the-azure-stack-hub-vm"></a>Azure Stack Hub VM に ping を実行する
 
-1. Azure Stack ユーザー ポータルにサインインします。
+1. Azure Stack Hub のユーザー ポータルにサインインします。
 
 1. 作成した VM を見つけて選択します。
 
@@ -599,15 +590,15 @@ New-NetFirewallRule `
 
 ### <a name="view-data-transfer-statistics"></a>データ転送統計情報を表示する
 
-接続を通過するトラフィック量を知りたい場合は、Azure Stack ユーザー ポータルでその情報を見ることができます。 データ転送統計情報を表示することは、ping テスト データが VPN 接続と ExpressRoute 接続を通過したかどうかを調べる手段としてもお勧めします。
+接続を通過するトラフィック量を知りたい場合は、Azure Stack Hub ユーザー ポータルでその情報を見ることができます。 データ転送統計情報を表示することは、ping テスト データが VPN 接続と ExpressRoute 接続を通過したかどうかを調べる手段としてもお勧めします。
 
-1. Azure Stack ユーザー ポータルにサインインし、 **[すべてのリソース]** を選択します。
+1. Azure Stack Hub ユーザー ポータルにサインインし、 **[すべてのリソース]** を選択します。
 1. VPN ゲートウェイのリソース グループに移動し、オブジェクトの種類として **[接続]** を選択します。
 1. 一覧から **[ConnectToAzure]** 接続を選択します。
 1. **[接続]**  >  **[概要]** で、 **[受信データ]** と **[送信データ]** の統計情報を確認できます。0 以外の何らかの値が表示されていると思います。
 
    ![受信データと送信データ](media/azure-stack-connect-expressroute/DataInDataOut.png)
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
-[Azure と Azure Stack へのアプリのデプロイ](../user/azure-stack-solution-pipeline.md)
+[Azure と Azure Stack Hub へのアプリのデプロイ](../user/azure-stack-solution-pipeline.md)

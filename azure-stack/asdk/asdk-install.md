@@ -1,27 +1,18 @@
 ---
-title: ASDK のインストール | Microsoft Docs
+title: ASDK のインストール
 description: Azure Stack Development Kit (ASDK) をインストールする方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: deac15b2f1e3ebd86fdd2e171f664bd4b5917e37
-ms.sourcegitcommit: 3af71025e85fc53ce529de2f6a5c396b806121ed
+ms.openlocfilehash: b85279aff5427e0f3dbdc15b979a00a41db43e57
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71159433"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77695854"
 ---
 # <a name="install-the-asdk"></a>ASDK のインストール
 [ASDK ホスト コンピューターの準備](asdk-prepare-host.md)ができたら、この記事の次の手順に従って、Azure Stack Development Kit (ASDK) を CloudBuilder.vhdx イメージにデプロイできます。
@@ -77,7 +68,7 @@ ms.locfileid: "71159433"
 
 8. Azure AD デプロイを使用している場合、セットアップを開始して数分後に、Azure AD の全体管理者アカウントの資格情報を入力するように求めるメッセージが表示されます。
 
-9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、ASDK のホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功すると、PowerShell コンソールに次のように表示されます:**COMPLETE:Action 'Deployment' (完了: アクション 'デプロイ')** 。 
+9. デプロイ処理には数時間かかります。その間に、ホスト コンピューターは自動的に 1 回再起動されます。 デプロイの進行状況を監視する場合は、ASDK のホストが再起動された後に、azurestack\AzureStackAdmin としてサインインします。 デプロイが成功した場合、PowerShell コンソールには、 **[COMPLETE: Action 'Deployment']\(完了: アクション 'デプロイ'\)** と表示されます。 
     > [!IMPORTANT]
     > コンピューターが azurestack ドメインに参加した後にローカル管理者としてサインインした場合、デプロイの進行状況は表示されません。 デプロイを再実行せず、代わりに azurestack\AzureStackAdmin としてサインインし、それが実行中であることを確認します。
 
@@ -92,5 +83,5 @@ ms.locfileid: "71159433"
   .\InstallAzureStackPOC.ps1 -Rerun
   ```
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [デプロイ後の構成](asdk-post-deploy.md)

@@ -1,58 +1,54 @@
 ---
-title: Azure Stack Hub でデータ センターを拡張する方法 | Microsoft Docs
-description: Azure Stack でデータ センターを拡張する方法について説明します。
-services: azure-stack
+title: Azure Stack Hub 上でデータ センターを拡張する方法
+description: Azure Stack Hub でデータ センターを拡張する方法について説明します。
 author: mattbriggs
-ms.service: azure-stack
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: b0c676033a5690025fb2d8f5c3aa203766ae67fd
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
+ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718472"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82742598"
 ---
-# <a name="extending-storage-to-azure-stack"></a>ストレージを Azure Stack に拡張する
+# <a name="extending-storage-to-azure-stack-hub"></a>ストレージを Azure Stack Hub に拡張する
 
-*適用対象:Azure Stack Hub 統合システムと Azure Stack Hub Development Kit*
-
-この記事では、Azure Stack を既存のネットワーク環境に統合する方法を決めるのに役立つ Azure Stack Hub ストレージ インフラストラクチャの情報を提供します。 データ センターの拡張について概要を説明した後、2 つの異なるシナリオを紹介します。 Windows ファイル ストレージ サーバーに接続できます。 Windows iSCSI サーバーに接続することもできます。
+この記事では、Azure Stack Hub を既存のネットワーク環境に統合する方法を決めるのに役立つ Azure Stack Hub ストレージ インフラストラクチャの情報を提供します。 データ センターの拡張について概要を説明した後、2 つの異なるシナリオを紹介します。 Windows ファイル ストレージ サーバーに接続できます。 Windows iSCSI サーバーに接続することもできます。
 
 ## <a name="overview-of-extending-storage-to-azure-stack-hub"></a>Azure Stack Hub へのストレージの拡張の概要
 
 データをパブリック クラウドに格納しても十分ではないシナリオがあります。 たとえば、遅延に敏感な、コンピューティング集中型の仮想化されたデータベース ワークロードがあり、パブリック クラウドへのラウンド トリップ時間がデータベース ワークロードのパフォーマンスに影響を与える場合があります。 たとえば、ファイル サーバー、NAS、または iSCSI のストレージ アレイに保持されているオンプレミスのデータがあるとします。それには、オンプレミスのワークロードがアクセスする必要があり、また、規制やコンプライアンスの目標を達成するために、それはオンプレミスに配置されている必要があります。 これらは、データをオンプレミスに常駐させることが、多くの組織にとって重要であることに変わりはないという 2 つのシナリオに過ぎません。
 
-では、なぜ Azure Stack 上のストレージ アカウントで、または Azure Stack システムで実行されている仮想化されたファイル サーバー内でそのデータをホストしないのでしょうか。 Azure とは異なり、Azure Stack のストレージは有限です。 使用量として使用可能な容量は、所有するノードの数に加え、購入することを選択したノードごとの容量によってすべて決まります。 また Azure Stack はハイパーコンバージド ソリューションであるため、使用量のニーズに合わせてストレージ容量を拡大することが必要になった場合は、ノードの追加によってコンピューティングの占有領域を増加することも必要になります。 このコストは、特に追加容量のニーズが、Azure Stack システムの外では低料金で追加できるコールド アーカイブ ストレージの場合、莫大なものになる可能性があります。
+では、なぜ Azure Stack Hub 上のストレージ アカウントで、または Azure Stack Hub システムで実行されている仮想化されたファイル サーバー内でそのデータをホストしないのでしょうか。 Azure とは異なり、Azure Stack Hub のストレージは有限です。 使用量として使用可能な容量は、所有するノードの数に加え、購入することを選択したノードごとの容量によってすべて決まります。 また Azure Stack Hub はハイパーコンバージド ソリューションであるため、使用量のニーズに合わせてストレージ容量を拡大することが必要になった場合は、ノードの追加によってコンピューティングの占有領域を増加することも必要になります。 このコストは、特に追加容量のニーズが、Azure Stack Hub システムの外では低料金で追加できるコールド アーカイブ ストレージの場合、莫大なものになる可能性があります。
 
-このようなことから以下のシナリオをご検討ください。 どうすれば、Azure Stack のシステム (Azure Stack 上で実行されている仮想化されたワークロード) を、ネットワーク経由でアクセス可能な Azure Stack 外部のストレージ システムに、簡単かつ効率的に接続できるでしょうか。
+このようなことから以下のシナリオをご検討ください。 どうすれば、Azure Stack Hub のシステム (Azure Stack Hub 上で実行されている仮想化されたワークロード) を、ネットワーク経由でアクセス可能な Azure Stack Hub 外部のストレージ システムに、簡単かつ効率的に接続できるでしょうか。
 
 ### <a name="design-for-extending-storage"></a>ストレージを拡張するための設計
 
-この図は、ワークロードを実行している単一の仮想マシンを、データの読み取り/書き込みなどの目的で、外部 (VM や Azure Stack 自体の) ストレージに接続して利用するシナリオを示しています。この記事では、ファイルの簡単な取得に焦点を当てますが、データベース ファイルのリモート ストレージなど、より複雑なシナリオに合わせてこの例を拡張することもできます。
+この図は、ワークロードを実行している単一の仮想マシンを、データの読み取り/書き込みなどの目的で、外部 (VM や Azure Stack Hub 自体の) ストレージに接続して利用するシナリオを示しています。この記事では、ファイルの簡単な取得に焦点を当てますが、データベース ファイルのリモート ストレージなど、より複雑なシナリオに合わせてこの例を拡張することもできます。
 
-![](./media/azure-stack-network-howto-extend-datacenter/image1.png)
+![](./media/azure-stack-network-howto-extend-datacenter/azure-stack-network-howto-extend-datacenter-image1.svg)
 
-この図では、Azure Stack システム上の VM が複数の NIC を使用してデプロイされていることがわかります。 冗長性だけでなく、ストレージのベスト プラクティスからも、ターゲットと宛先の間に複数のパスを用意することが重要です。 状況が複雑になるのは、Azure と同様に、Azure Stack の VM にパブリック IP とプライベート IP の両方がある場合です。 外部ストレージから VM に到達する必要がある場合は、パブリック IP を使用する必要があります。これは、プライベート IP は主に Azure Stack システム内、vNet およびサブネット内で使用されるためです。 外部ストレージは、サイト間 VPN を経由して vNet 自体に接続しない限り、VM のプライベート IP 空間と通信できません。 したがって、この例では、パブリック IP 空間を介した通信に注目します。 この図のパブリック IP 空間で注目する点は、2 つの異なるパブリック IP プール サブネットがあることです。 既定で、パブリック IP アドレスの目的では Azure Stack には 1 つのプールのみが必要ですが、冗長ルーティングのためには、2 つ目のプールを追加することも考えられます。 ただし、現時点では、1 つの特定のプールから IP アドレスを選択することはできないため、実際には、複数の仮想ネットワーク カードにまたがる同じプールのパブリック IP を持つ VM を使用することになる可能性があります。
+この図では、Azure Stack Hub システム上の VM が複数の NIC を使用してデプロイされていることがわかります。 冗長性だけでなく、ストレージのベスト プラクティスからも、ターゲットと宛先の間に複数のパスを用意することが重要です。 状況が複雑になるのは、Azure と同様に、Azure Stack Hub の VM にパブリック IP とプライベート IP の両方がある場合です。 外部ストレージから VM に到達する必要がある場合は、パブリック IP を使用する必要があります。これは、プライベート IP は主に Azure Stack Hub システム内、vNet およびサブネット内で使用されるためです。 外部ストレージは、サイト間 VPN を経由して vNet 自体に接続しない限り、VM のプライベート IP 空間と通信できません。 したがって、この例では、パブリック IP 空間を介した通信に注目します。 この図のパブリック IP 空間で注目する点は、2 つの異なるパブリック IP プール サブネットがあることです。 既定で、パブリック IP アドレスの目的では Azure Stack Hub には 1 つのプールのみが必要ですが、冗長ルーティングのためには、2 つ目のプールを追加することも考えられます。 ただし、現時点では、1 つの特定のプールから IP アドレスを選択することはできないため、実際には、複数の仮想ネットワーク カードにまたがる同じプールのパブリック IP を持つ VM を使用することになる可能性があります。
 
 この説明では、境界デバイスと外部ストレージ間のルーティングが処理され、トラフィックがネットワークを適切に通過できることを前提とします。 この例では、バックボーンが 1 GbE、10 GbE、25 GbE、またはそれより高速かどうかは関係ありませんが、統合を計画する際は、この外部ストレージにアクセスするアプリケーションのパフォーマンス ニーズに対応することを考慮することが重要です。
 
 ## <a name="connect-to-a-windows-server-iscsi-target"></a>Windows Server iSCSI ターゲットに接続する
 
-このシナリオでは、Azure Stack 上で Windows Server 2019 の仮想マシンをデプロイして構成し、外部の iSCSI ターゲット (ここでも Windows Server 2019 が実行されます) に接続するように準備します。 必要に応じて、MPIO などの主要な機能を有効にして、VM と外部ストレージ間のパフォーマンスと接続を最適化します。
+このシナリオでは、Azure Stack Hub 上で Windows Server 2019 の仮想マシンをデプロイして構成し、外部の iSCSI ターゲット (ここでも Windows Server 2019 が実行されます) に接続するように準備します。 必要に応じて、MPIO などの主要な機能を有効にして、VM と外部ストレージ間のパフォーマンスと接続を最適化します。
 
-### <a name="deploy-the-windows-server-2019-vm-on-azure-stack"></a>Windows Server 2019 VM を Azure Stack にデプロイする
+### <a name="deploy-the-windows-server-2019-vm-on-azure-stack-hub"></a>Windows Server 2019 VM を Azure Stack Hub にデプロイする
 
-1.  **Azure Stack 管理ポータル**から、このシステムが正しく登録され、マーケットプレースに接続されていると仮定して、 **[Marketplace Management]\(マーケットプレースの管理\)** を選択します。次に、Windows Server 2019 イメージをまだ持っていないと仮定して、 **[Add from Azure]\(Azure から追加\)** を選択し、**Windows Server 2019** を検索し、**Windows Server 2019 Datacenter** イメージを追加します。
+1.  **Azure Stack Hub 管理ポータル**から、このシステムが正しく登録され、マーケットプレースに接続されていると仮定して、 **[Marketplace Management]\(マーケットプレースの管理\)** を選択します。次に、Windows Server 2019 イメージをまだ持っていないと仮定して、 **[Add from Azure]\(Azure から追加\)** を選択し、**Windows Server 2019** を検索し、**Windows Server 2019 Datacenter** イメージを追加します。
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image2.png)
 
     Windows Server 2019 イメージのダウンロードには時間がかかる場合があります。
 
-2.  Azure Stack 環境に Windows Server 2019 イメージを用意できたら、**Azure Stack Hub ユーザー ポータルにサインインします**。
+2.  Azure Stack Hub 環境に Windows Server 2019 イメージを用意できたら、**Azure Stack Hub ユーザー ポータルにサインインします**。
 
 3.  Azure Stack Hub ユーザー ポータルにログインしたら、[オファーのサブスクリプション](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908)があることを確認します。これを使用して、IaaS リソース (コンピューティング、ストレージ、ネットワーク) をプロビジョニングできます。
 
@@ -136,9 +132,9 @@ ms.locfileid: "75718472"
 
 27. VM 内に接続されたら、(管理者として) **CMD** を開き、**hostname** と入力して、OS のコンピューター名を取得します。 **これは VM001 と一致している必要があります**。 後のために、これを書き留めておいてください。
 
-### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack"></a>Azure Stack 上の Windows Server 2019 VM で 2 番目のネットワーク アダプターを構成する
+### <a name="configure-second-network-adapter-on-windows-server-2019-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の Windows Server 2019 VM で 2 番目のネットワーク アダプターを構成する
 
-既定では、Azure Stack は、仮想マシンに接続されている最初の (プライマリ) ネットワーク インターフェイスに既定のゲートウェイを割り当てます。 Azure Stack は、仮想マシンに接続されている追加の (セカンダリ) ネットワーク インターフェイスには既定のゲートウェイを割り当てません。 したがって、既定では、セカンダリ ネットワーク インターフェイスのサブネット外のリソースと通信することはできません。 ただし、通信を有効にする手順はオペレーティング システムによってそれぞれ異なりますが、セカンダリ ネットワーク インターフェイスはサブネットの外部にあるリソースと通信することができます。
+既定では、Azure Stack Hub からは、仮想マシンに接続されている最初の (プライマリ) ネットワーク インターフェイスに既定のゲートウェイが割り当てられます。 仮想マシンに接続されている追加の (セカンダリ) ネットワーク インターフェイスに既定のゲートウェイが Azure Stack Hub から割り当てられることはありません。 したがって、既定では、セカンダリ ネットワーク インターフェイスのサブネット外のリソースと通信することはできません。 ただし、通信を有効にする手順はオペレーティング システムによってそれぞれ異なりますが、セカンダリ ネットワーク インターフェイスはサブネットの外部にあるリソースと通信することができます。
 
 1.  まだ接続を開いていない場合は、**VM001** への RDP 接続を確立してください。
 
@@ -172,11 +168,11 @@ ms.locfileid: "75718472"
 
 ### <a name="configure-the-windows-server-2019-iscsi-target"></a>Windows Server 2019 iSCSI ターゲットを構成する
 
-このシナリオでは、Windows Server 2019 iSCSI ターゲットが、Azure Stack 環境の外の Hyper-V 上で実行されている仮想マシンである構成を検証します。 この仮想マシンは、8 つの仮想プロセッサ、1 つの VHDX ファイル、そして最も重要な 2 つの仮想ネットワーク アダプターで構成されます。 理想的なシナリオでは、これらのネットワーク アダプターはルーティング可能なサブネットが異なりますが、この検証では、同じサブネット上にネットワーク アダプターがあります。
+このシナリオでは、Windows Server 2019 iSCSI ターゲットが、Azure Stack Hub 環境の外の Hyper-V 上で実行されている仮想マシンである構成を検証します。 この仮想マシンは、8 つの仮想プロセッサ、1 つの VHDX ファイル、そして最も重要な 2 つの仮想ネットワーク アダプターで構成されます。 理想的なシナリオでは、これらのネットワーク アダプターはルーティング可能なサブネットが異なりますが、この検証では、同じサブネット上にネットワーク アダプターがあります。
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image9.png)
 
-iSCSI ターゲット サーバーの場合、これは、Hyper-V、VMware、または任意の代替アプライアンス (専用の物理 iSCSI SAN など) で実行される Windows Server 2016 または 2019 (物理または仮想) です。 ここで重要な焦点は、Azure Stack システムとの相互接続ですが、ソースと宛先の間に複数のパスを用意することが推奨されます。これは、追加の冗長性を実現し、MPIO など、より高度な機能を使用してパフォーマンスを向上させるためです。
+iSCSI ターゲット サーバーの場合、これは、Hyper-V、VMware、または任意の代替アプライアンス (専用の物理 iSCSI SAN など) で実行される Windows Server 2016 または 2019 (物理または仮想) です。 ここで重要な焦点は、Azure Stack Hub システムとの相互接続ですが、ソースと宛先の間に複数のパスを用意することが推奨されます。これは、追加の冗長性を実現し、MPIO など、より高度な機能を使用してパフォーマンスを向上させるためです。
 
 ファイル共有の構成に進む前に、最新の累積的な更新プログラムと修正プログラムで Windows Server 2019 iSCSI ターゲットを更新し、必要に応じて再起動することをお勧めします。
 
@@ -224,7 +220,7 @@ iSCSI ターゲット サーバーの場合、これは、Hyper-V、VMware、ま
 
 ### <a name="configure-the-windows-server-2019-iscsi-initiator-and-mpio"></a>Windows Server 2019 iSCSI イニシエーターと MPIO を構成する
 
-iSCSI イニシエーターを設定するには、まず、**Azure Stack** システムの **Azure Stack Hub ユーザー ポータル**に再びログインし、**VM001** の **[概要]** ブレードに移動します。
+iSCSI イニシエーターを設定するには、まず、**Azure Stack Hub** システムの **Azure Stack Hub ユーザー ポータル**に再びログインし、**VM001** の **[概要]** ブレードに移動します。
 
 1.  VM001 への RDP 接続を確立します。 接続したら、**サーバー マネージャー**を開きます。
 
@@ -334,7 +330,7 @@ iSCSI イニシエーターを設定するには、まず、**Azure Stack** シ�
 
 ### <a name="testing-external-storage-connectivity"></a>外部ストレージ接続をテストする
 
-通信を確認して、基本的なファイル コピー テストを実行するには、まず、**Azure Stack** システムの **Azure Stack Hub ユーザー ポータル**に再びログインし、**VM001** の **[概要]** ブレードに移動します。
+通信を確認して、基本的なファイル コピー テストを実行するには、まず、**Azure Stack Hub** システムの **Azure Stack Hub ユーザー ポータル**に再びログインし、**VM001** の **[概要]** ブレードに移動します。
 
 1.  **[接続]** を選択して **VM001** への RDP 接続を確立します。
 
@@ -365,8 +361,8 @@ iSCSI イニシエーターを設定するには、まず、**Azure Stack** シ�
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image29.png)
 
-このシナリオは、Azure Stack で実行されているワークロードと外部ストレージ アレイ (この場合、Windows Server ベースの iSCSI ターゲット) との間の接続に焦点を当てるように設計されました。 これは、パフォーマンス テストとして使用するように設計されたものではなく、また別の iSCSI ベースのアプライアンスを使用している場合に実行する必要がある手順も反映していません。これは、Azure Stack にワークロードをデプロイする際や Azure Stack 環境の外のストレージ システムに接続する際のいくつかの主な考慮事項に焦点を当てています。
+このシナリオは、Azure Stack Hub で実行されているワークロードと外部ストレージ アレイ (この場合、Windows Server ベースの iSCSI ターゲット) との間の接続に焦点を当てるように設計されました。 これは、パフォーマンス テストとして使用するように設計されたものではなく、また別の iSCSI ベースのアプライアンスを使用している場合に実行する必要がある手順も反映していません。これは、Azure Stack Hub にワークロードをデプロイする際や Azure Stack Hub 環境の外のストレージ システムに接続する際のいくつかの主な考慮事項に焦点を当てています。
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure Stack ネットワークの違いと考慮事項](azure-stack-network-differences.md)
+[Azure Stack Hub ネットワークの違いと考慮事項](azure-stack-network-differences.md)

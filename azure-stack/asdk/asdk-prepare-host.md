@@ -1,27 +1,18 @@
 ---
-title: ASDK ホスト コンピューターの準備 |Microsoft Docs
+title: ASDK ホスト コンピューターの準備
 description: ASDK のインストール用に Azure Stack Development Kit (ASDK) ホスト コンピューターを準備する方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-manager: femila
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 08/28/2019
-ms.openlocfilehash: cf15aebac3ad4d099892270bb2e334d32f82f580
-ms.sourcegitcommit: 5efa09034a56eb2f3dc0c9da238fe60cff0c67ac
+ms.openlocfilehash: ba64a3bfbef9601d9cc8d8a28176a84a9403326a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70144012"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77696024"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK ホスト コンピューターの準備
 Azure Stack Development Kit (ASDK) をホスト コンピューターにインストールするには、ASDK ホストがインストール用に準備されている必要があります。 ホストが準備されると、CloudBuilder.vhdx 仮想マシン (VM) のハード ドライブから起動して ASDK のデプロイが開始されます。
@@ -86,5 +77,5 @@ ASDK をホスト コンピューターにインストールする前に、ASDK 
     ![ASDK を再起動する](media/asdk-prepare-host/5.PNG)
 
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 [ASDK のインストール](asdk-install.md)

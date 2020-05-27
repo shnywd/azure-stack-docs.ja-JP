@@ -1,32 +1,29 @@
 ---
 title: Windows Defender ウイルス対策を更新する
-titleSuffix: Azure Stack
-description: Azure Stack 上で Windows Defender ウイルス対策を更新する方法を説明します
-services: azure-stack
+titleSuffix: Azure Stack Hub
+description: Azure Stack Hub 上で Windows Defender ウイルス対策を更新する方法を説明します
 author: justinha
-manager: femila
-ms.service: azure-stack
 ms.topic: article
 ms.date: 12/04/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 12/04/2019
-ms.openlocfilehash: fb6271114f27b16b9cb7a660deb7d6bcee197ca2
-ms.sourcegitcommit: b96a0b151b9c0d3eea59e7c2d39119a913782624
+ms.openlocfilehash: 8f0ad292f8d9772c53c332d2cad7af8bd606594a
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75718132"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77697741"
 ---
 # <a name="update-windows-defender-antivirus-on-azure-stack-hub"></a>Azure Stack Hub 上で Windows Defender ウイルス対策を更新する
 
-[Windows Defender ウイルス対策](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)はセキュリティとウイルス対策を提供するマルウェア対策ソリューションです。 すべての Azure Stack インフラストラクチャ コンポーネント (Hyper-V ホストと仮想マシン) は、Windows Defender ウイルス対策によって保護されています。 保護を最新に保つために、Windows Defender ウイルス対策の定義、エンジン、プラットフォームに定期的な更新が必要です。 更新を適用する方法は、構成によって変わります。
+[Windows Defender ウイルス対策](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)はセキュリティとウイルス対策を提供するマルウェア対策ソリューションです。 すべての Azure Stack Hub インフラストラクチャ コンポーネント (Hyper-V ホストと仮想マシン) は、Windows Defender ウイルス対策によって保護されています。 保護を最新に保つために、Windows Defender ウイルス対策の定義、エンジン、プラットフォームに定期的な更新が必要です。 更新を適用する方法は、構成によって変わります。
 
 ## <a name="connected-scenario"></a>接続されているシナリオ
 
-Azure Stack Hub の[更新リソース プロバイダー](azure-stack-updates.md#the-update-resource-provider)によって、1 日に複数回、マルウェア対策の定義とエンジンの更新プログラムがダウンロードされます。 各 Azure Stack インフラストラクチャ コンポーネントは、更新リソース プロバイダーから更新を取得し、それを自動的に適用します。
+Azure Stack Hub の[更新リソース プロバイダー](azure-stack-updates.md#the-update-resource-provider)によって、1 日に複数回、マルウェア対策の定義とエンジンの更新プログラムがダウンロードされます。 各 Azure Stack Hub インフラストラクチャ コンポーネントは、更新リソース プロバイダーから更新を取得し、それを自動的に適用します。
 
-パブリック インターネットに接続されている Azure Stack Hub のデプロイの場合は、[Azure Stack の月次更新](azure-stack-apply-updates.md)を適用します。 Azure Stack Hub の月次更新には、月ごとの Windows Defender ウイルス対策プラットフォームの更新が含まれています。
+パブリック インターネットに接続されている Azure Stack Hub のデプロイの場合は、[Azure Stack Hub の月次更新](azure-stack-apply-updates.md)を適用します。 Azure Stack Hub の月次更新には、月ごとの Windows Defender ウイルス対策プラットフォームの更新が含まれています。
 
 ## <a name="disconnected-scenario"></a>切断されたシナリオ
 

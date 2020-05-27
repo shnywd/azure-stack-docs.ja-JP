@@ -1,26 +1,18 @@
 ---
-title: ASDK 管理の基礎 | Microsoft Docs
+title: ASDK 管理の基礎
 description: Azure Stack Development Kit (ASDK) の基本的な管理作業を行う方法について説明します。
-services: azure-stack
-documentationcenter: ''
 author: justinha
-editor: ''
-ms.assetid: ''
-ms.service: azure-stack
-ms.workload: na
-pms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 785b787702f173fe3f30b53f29f8770f9f039b1b
-ms.sourcegitcommit: d450dcf5ab9e2b22b8145319dca7098065af563b
+ms.lastreviewed: 10/15/2019
+ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
+ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75881622"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82846893"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理の基礎
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要を示します。 この情報をよく理解することで、テスト ユーザーの生産性が可能な限り迅速に向上することになります。
@@ -41,7 +33,7 @@ Azure Stack を管理する場合に注意するいくつかのアカウント�
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>管理に使用するツールについて
-[Azure Stack 管理者ポータル](https://adminportal.local.azurestack.external)または PowerShell を使って Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使う場合は、[PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) をインストールし、[GitHub から Azure Stack ツールをダウンロードする](asdk-post-deploy.md#download-the-azure-stack-tools)必要があります。
+Azure Stack 管理者ポータル (`https://adminportal.local.azurestack.external`) または PowerShell を使って Azure Stack を管理できます。 基本的概念を学ぶためには、ポータルを介するのが最も容易な方法です。 PowerShell を使う場合は、[PowerShell for Azure Stack](asdk-post-deploy.md#install-azure-stack-powershell) をインストールし、[GitHub から Azure Stack ツールをダウンロードする](asdk-post-deploy.md#download-the-azure-stack-tools)必要があります。
 
 Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定であれば、Azure Resource Manager について学習する必要があります。 詳しくは、「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーをご覧ください。
 
@@ -49,7 +41,7 @@ Azure Stack はデプロイ、管理、整理のための基礎となるメカ�
 ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 ASDK を使って、提供するサービスと、[プラン、オファー、クォータを作成する](../operator/azure-stack-tutorial-tenant-vm.md)ことで、それらのサービスを使用できるようにする方法を確認できます。 仮想マシン (VM) のイメージなど、マーケットプレースに項目を追加する必要もあります。 Azure から Azure Stack に[マーケットプレースの項目をダウンロードする](../operator/azure-stack-create-and-publish-marketplace-item.md)のが最も容易な方法です。
 
 > [!NOTE]
-> プラン、オファー、およびサービスをテストする場合は、[管理者ポータル](https://adminportal.local.azurestack.external)ではなく[ユーザー ポータル](https://portal.local.azurestack.external)を使用する必要があります。
+> プラン、オファー、およびサービスをテストする場合は、管理者ポータル (`https://adminportal.local.azurestack.external`) ではなくユーザー ポータル (`https://portal.local.azurestack.external`) を使用する必要があります。
 
 サービスを提供することに加えて、Azure Stack オペレーターとして Azure を稼働させ続けるという通常の業務にすべて対応する必要があります。 これらの業務には、次のものが含まれます。
 - Azure AD または AD FS デプロイ用のユーザー アカウントを追加します。

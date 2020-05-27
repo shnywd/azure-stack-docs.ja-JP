@@ -1,44 +1,33 @@
 ---
-title: Azure Stack でロールベースのアクセス制御を使用してリソースへのアクセスを管理する | Microsoft Docs
-description: Azure Stack で、管理者またはテナントとしてロールベースのアクセス制御 (RBAC) のアクセス許可を管理する方法について説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub でロールベースのアクセス制御を使用してリソースへのアクセスを管理する
+description: Azure Stack Hub で、管理者またはテナントとしてロールベースのアクセス制御 (RBAC) のアクセス許可を管理する方法について説明します。
 author: bryanla
-manager: femila
-editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: bryanla
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: a784da0d16f6ec92a105d9360430f4e8da2817ef
-ms.sourcegitcommit: 245a4054a52e54d5989d6148fbbe386e1b2aa49c
+ms.openlocfilehash: 2f633e44b4646659a888df85e51450147104710e
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70974924"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77703980"
 ---
-# <a name="manage-access-to-resources-in-azure-stack-with-role-based-access-control"></a>Azure Stack でロールベースのアクセス制御を使用してリソースへのアクセスを管理する
+# <a name="manage-access-to-resources-in-azure-stack-hub-with-role-based-access-control"></a>Azure Stack Hub でロールベースのアクセス制御を使用してリソースへのアクセスを管理する
 
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
-
-Azure Stack はロールベースのアクセス制御 (RBAC) をサポートしますが、これは[アクセス管理のためのセキュリティ モデル](/azure/role-based-access-control/overview)であり、Microsoft Azure が使用するものと同じです。 RBAC を使用して、ユーザー、グループ、またはアプリによるサブスクリプション、リソース、およびサービスへのアクセスを管理することができます。
+Azure Stack Hub はロールベースのアクセス制御 (RBAC) をサポートしますが、これは[アクセス管理のためのセキュリティ モデル](/azure/role-based-access-control/overview)であり、Microsoft Azure が使用するものと同じです。 RBAC を使用して、ユーザー、グループ、またはアプリによるサブスクリプション、リソース、およびサービスへのアクセスを管理することができます。
 
 ## <a name="basics-of-access-management"></a>アクセス管理の基礎
 
 ロールベースのアクセス制御 (RBAC) は、環境をセキュリティで保護するために使用できるきめ細やかなアクセス制御を提供します。 特定のスコープで RBAC のロールを割り当てることによって、ユーザーに必要な正しいアクセス許可をユーザーに付与します。 ロール割り当てのスコープには、サブスクリプション、リソース グループ、または単独のリソースを指定できます。 アクセス管理の詳細については、[Azure portal でのロールベースのアクセス制御](/azure/role-based-access-control/overview)に関する記事を参照してください。
 
 > [!NOTE]
-> Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack を ID プロバイダーとしてデプロイした場合、RBAC シナリオではユニバーサル グループのみがサポートされます。
+> Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub を ID プロバイダーとしてデプロイした場合、RBAC シナリオではユニバーサル グループのみがサポートされます。
 
 ### <a name="built-in-roles"></a>組み込みのロール
 
-Azure Stack には、すべてのリソースの種類に適用できる 3 つの基本的なロールがあります:
+Azure Stack Hub には、すべてのリソースの種類に適用できる 3 つの基本的なロールがあります:
 
 * **所有者**: リソースへのアクセスを含め、すべてを管理できます。
 * **共同作業者**: リソースへのアクセス以外のすべてを管理できます。
@@ -46,20 +35,20 @@ Azure Stack には、すべてのリソースの種類に適用できる 3 つ�
 
 ### <a name="resource-hierarchy-and-inheritance"></a>リソース階層と継承
 
-Azure Stack には、次のリソース階層があります:
+Azure Stack Hub には、次のリソース階層があります:
 
 * 各サブスクリプションは、1 つのディレクトリに属しています。
 * 各リソース グループは、1 つのサブスクリプションに属しています。
 * 各リソースは、1 つのリソース グループに属しています。
 
-親スコープで付与されたアクセス権は、子スコープに継承されます。 例:
+親スコープで付与されたアクセス権は、子スコープに継承されます。 次に例を示します。
 
 * **閲覧者**ロールをサブスクリプション スコープで Azure AD グループに割り当てます。 そのグループのメンバーは、サブスクリプション内のすべてのリソース グループとすべてのリソースを表示できるようになります。
 * **共同作成者**ロールをリソース グループ スコープでアプリに割り当てます。 そのアプリでは、そのリソース グループ内のすべてのタイプのリソースを管理できるようになりますが、サブスクリプション内の他のリソース グループは管理できません。
 
 ### <a name="assigning-roles"></a>ロールの割り当て
 
-ユーザーに複数のロールを割り当てることができ、各ロールを異なるスコープに関連付けることができます。 例:
+ユーザーに複数のロールを割り当てることができ、各ロールを異なるスコープに関連付けることができます。 次に例を示します。
 
 * Subscription-1 の**閲覧者**ロールを TestUser-A に割り当てます。
 * TestVM-1 の**所有者**ロールを TestUser-A に割り当てます。
@@ -83,6 +72,6 @@ Azure の[ロールの割り当て](/azure/role-based-access-control/role-assign
 
 7. **[保存]** を選択します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 [サービス プリンシパルの作成](../operator/azure-stack-create-service-principals.md)

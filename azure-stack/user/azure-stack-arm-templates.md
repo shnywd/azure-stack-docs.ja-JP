@@ -1,35 +1,24 @@
 ---
-title: Azure Stack で Azure Resource Manager テンプレートを使用する | Microsoft Docs
-description: Azure Stack で Azure Resource Manager テンプレートを使用してリソースをプロビジョニングする方法を説明します。
-services: azure-stack
-documentationcenter: ''
+title: Azure Stack Hub で Azure Resource Manager テンプレートを使用する
+description: Azure Stack Hub で Azure Resource Manager テンプレートを使用してリソースをプロビジョニングする方法を説明します。
 author: mattbriggs
-manager: femila
-editor: ''
-ms.assetid: 2022dbe5-47fd-457d-9af3-6c01688171d7
-ms.service: azure-stack
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 1/22/2020
 ms.author: mabrigg
 ms.reviewer: justini
-ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: df7a6e7c42a8863117faaccfd4108c4ffd806a5a
-ms.sourcegitcommit: d619612f54eeba3231ed73ed149ff894f9bf838a
+ms.lastreviewed: 11/14/2019
+ms.openlocfilehash: c41989d662122dafb5d535c356aeb7d7e48ed4aa
+ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74993768"
+ms.lasthandoff: 04/16/2020
+ms.locfileid: "77704422"
 ---
-# <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Stack で Azure リソース マネージャー テンプレートを使用する
-
-*適用対象:Azure Stack 統合システムと Azure Stack Development Kit*
+# <a name="use-azure-resource-manager-templates-in-azure-stack-hub"></a>Azure Stack Hub で Azure Resource Manager テンプレートを使用する
 
 Azure Resource Manager テンプレートを使用して、お使いのアプリケーションのすべてのリソースを、単一の連携した操作でデプロイしてプロビジョニングできます。 テンプレートを再デプロイして、リソース グループ内のリソースを変更することもできます。
 
-これらのテンプレートは、Microsoft Azure Stack ポータル、PowerShell、コマンド ライン、および Visual Studio を使用してデプロイできます。
+これらのテンプレートは、Microsoft Azure Stack Hub ポータル、PowerShell、コマンド ライン、および Visual Studio を使用してデプロイできます。
 
 以下のクイックスタート テンプレートを [GitHub](https://aka.ms/azurestackgithub) で入手できます。
 
@@ -73,13 +62,13 @@ PowerShell DSC 拡張機能を使用して、既存の仮想マシンのロー�
 
 ## <a name="basic-virtual-machine"></a>基本的な仮想マシン
 
-仮想ネットワーク (DNS 付き)、パブリック IP アドレス、およびネットワーク インターフェイスを含む [Windows VMをデプロイ](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm)します。
+仮想ネットワーク (DNS 付き)、パブリック IP アドレス、およびネットワーク インターフェイスを含む [Windows VMをデプロイ](https://aka.ms/aa6zdzx)します。
 
 ## <a name="cancel-a-running-template-deployment"></a>実行中のテンプレートのデプロイのキャンセル
 
 実行中のテンプレートのデプロイをキャンセルするには、[Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [コマンドレット](/powershell/scripting/developer/cmdlet/cmdlet-overview)を使用します。
 
-## <a name="next-steps"></a>次の手順
+## <a name="next-steps"></a>次のステップ
 
 * [ポータルを使用してテンプレートをデプロイする](azure-stack-deploy-template-portal.md)
 * [PowerShell を使用したテンプレートのデプロイ](azure-stack-deploy-template-powershell.md)
