@@ -28,7 +28,7 @@ Azure Stack Hub 上の Azure App Service でディザスター リカバリー�
 4. App Service のファイル共有に格納された App Service ユーザー ワークロード コンテンツ。
 
 ## <a name="back-up-app-service-secrets"></a>App Service のシークレットのバックアップ
-App Service をバックアップから不kky空する場合、初期デプロイで使用した App Service キーを入力する必要があります。 この情報は、App Service が正常にデプロイされ、安全な場所に格納されたら、すぐに保存する必要があります。 リソース プロバイダーのインフラストラクチャ構成は、App Service リカバリー PowerShell コマンドレットを使用して、復旧中にバックアップから再作成されます。
+App Service をバックアップから復旧する場合、初期デプロイで使用した App Service キーを入力する必要があります。 この情報は、App Service が正常にデプロイされ、安全な場所に格納されたら、すぐに保存する必要があります。 リソース プロバイダーのインフラストラクチャ構成は、App Service リカバリー PowerShell コマンドレットを使用して、復旧中にバックアップから再作成されます。
 
 次の手順に従って、管理ポータルからアプリ サービスのシークレットをバックアップします。 
 
