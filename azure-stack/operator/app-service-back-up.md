@@ -80,5 +80,5 @@ robocopy $source $destination
 net use $destination /delete
 ```
 
-## <a name="next-steps"></a>次のステップ
-[Azure Stack Hub 上の App Service の復元](app-service-recover.md)
+## <a name="next-steps"></a>次の手順
+[Azure Stack 上の App Service の復元](app-service-recover.md)
