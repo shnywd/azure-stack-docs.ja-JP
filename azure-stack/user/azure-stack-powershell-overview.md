@@ -3,16 +3,16 @@ title: Azure Stack Hub での PowerShell
 description: Azure Stack Hub 内の PowerShell には、さまざまなモジュールやコンテキストがあります。
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 76dd8c2275c0d75132a508d6849d8356ff2e1f67
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: b54e8a184c90408c0d27054446a91f09c34749fb
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643449"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111806"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub 内の PowerShell の概要
 

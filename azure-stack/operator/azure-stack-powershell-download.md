@@ -7,12 +7,12 @@ ms.date: 4/22/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 4/22/2020
-ms.openlocfilehash: 9faa562f9b8ff339016473f1b3c0df0512c90988
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: c85982690578cbfbed65c83fb2c83792ce6b4fb2
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106926"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111190"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
@@ -52,18 +52,18 @@ Azure Stack Hub 用の AzureRM モジュールの使用の詳細については�
 cd \
 
 # Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
   https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile az.zip
+  -OutFile master.zip
 
 # Expand the downloaded files.
-expand-archive az.zip `
+expand-archive master.zip `
   -DestinationPath . `
   -Force
 
 # Change to the tools directory.
- cd AzureStack-Tools-az
+cd AzureStack-Tools-master
 
 ```
 

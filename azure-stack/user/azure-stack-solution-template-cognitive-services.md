@@ -3,16 +3,16 @@ title: Azure Cognitive Services を Azure Stack Hub にデプロイする
 description: Azure Cognitive Services を Azure Stack Hub にデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/13/2020
-ms.openlocfilehash: 857d934a9cb55052a5e27d15943f05f032d05d6c
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.lastreviewed: 05/21/2020
+ms.openlocfilehash: 07af0665b2bc7993a90100edccc0a4831700c432
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554983"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780766"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Azure Cognitive Services を Azure Stack Hub にデプロイする
 
@@ -174,7 +174,7 @@ Cognitive Services コンテナーをデプロイするには、次のコマン�
 ### <a name="set-up-the-proxy"></a>プロキシを設定する
 
 1. `http-proxy.conf` ファイルを両方の場所に追加します。
-    - `/etc/system/system/docker.service.d/`
+    - `/etc/system/systemd/docker.service.d/`
     - `/cat/etc/environment/`
 
 2. Cognitive Services チームから提供された資格情報を使用してコンテナーにサインオンして次のコンテナーで `docker pull` を実行できることを検証します。 
