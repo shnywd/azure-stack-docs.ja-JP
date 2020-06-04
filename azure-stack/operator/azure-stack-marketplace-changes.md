@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/18/2020
+ms.date: 05/22/2020
 ms.author: sethm
 ms.reviewer: ihcherie
-ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: 952c77069126288bfe41f9775140aea44071580a
-ms.sourcegitcommit: 458ffe9638bd358e6b5d9e79145b4c1b70c3bacd
+ms.lastreviewed: 05/22/2020
+ms.openlocfilehash: 9d9f86dce51b13960a7543636e79954a71992a84
+ms.sourcegitcommit: f2203f070c17e19ba1a41d681662bac3ab50ed12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "83550148"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83854356"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -63,6 +63,24 @@ ms.locfileid: "83550148"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 5 月 21 日:Ubuntu Server 16.04 LTS - バージョン 16.04.202004290
+- 2020 年 5 月 21 日:Ubuntu Server 18.04 LTS - バージョン 18.04.202004080
+- 2020 年 5 月 21 日:Windows Server 2008 R2 SP1 BYOL - バージョン 7601.24552.2004101827
+- 2020 年 5 月 21 日:Windows Server 2008 R2 SP1 Pay as you use - バージョン 7601.24552.2004101827
+- 2020 年 5 月 21 日:Windows Server 2012 Datacenter BYOL - バージョン 9200.23016.2004101828
+- 2020 年 5 月 21 日:Windows Server 2012 Datacenter Pay as you use - バージョン 9200.23016.2004101828
+- 2020 年 5 月 21 日:Windows Server 2012 R2 Datacenter BYOL - バージョン 9600.19676.2004101829
+- 2020 年 5 月 21 日:Windows Server 2012 R2 Datacenter Pay as you use - バージョン 9600.19676.2004101829
+- 2020 年 5 月 21 日:Windows Server 2016 Datacenter BYOL - バージョン 14393.3630.2004101604
+- 2020 年 5 月 21 日:Windows Server 2016 Datacenter Pay as you use - バージョン 14393.3630.2004101604
+- 2020 年 5 月 21 日:Windows Server 2016 Datacenter Server Core BYOL - バージョン14393.3630.2004101604
+- 2020 年 5 月 21 日:Windows Server 2016 Datacenter Server Core Pay as you use - バージョン 14393.3630.2004101604
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter Server Core BYOL - バージョン17763.1158.2004131759
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter Server Core Pay as you use - バージョン17763.1158.2004131759
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter BYOL - バージョン 17763.1158.2004131759
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter Pay as you use - バージョン 17763.1158.2004131759
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter with Containers BYOL - バージョン 17763.1158.2004131759
+- 2020 年 5 月 21 日:Windows Server 2019 Datacenter with Containers - Pay as you use - バージョン 17763.1158.2004131759
 - 2020 年 5 月 15 日:Bitnami AbanteCart - バージョン 1.2.2004220207
 - 2020 年 5 月 15 日:Bitnami Canvas LMS - バージョン 2020.5.2005120909
 - 2020 年 5 月 15 日:Bitnami Neos - バージョン 5.2.2005130917

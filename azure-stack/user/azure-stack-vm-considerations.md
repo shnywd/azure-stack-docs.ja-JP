@@ -3,16 +3,16 @@ title: Azure Stack Hub VM の機能
 description: Azure Stack Hub で VM を操作する際のさまざまな機能と考慮事項について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/3/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: f93ce26acd7474def8495e6e0df28bd3b8669848
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614427"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146786"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 

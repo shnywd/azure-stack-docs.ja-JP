@@ -3,16 +3,16 @@ title: Azure Stack Hub にデプロイされた VM の保護
 description: データ損失や計画外のダウンタイムから Azure Stack Hub にデプロイされた VM を保護するための復旧計画の作成方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: b5618fb39e9fc24fc8a086c99a7e1dd71f6b7a65
-ms.sourcegitcommit: b185ab34c4c799892948536dd6d1d1b2fc31174e
+ms.openlocfilehash: 3a59f36b5bae91255628d79b14ee727a5990ef11
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82150222"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146939"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
 

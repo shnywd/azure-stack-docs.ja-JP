@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: cda4a78a507f94d5e40f723cb5489a9e79990d50
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 497a051c67b05683a874de955c069256c19bba9a
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988300"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780788"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -357,22 +357,40 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 - 課金モデルを変更したとき。
 - 容量ベースの課金のために変更を調整したとき (ノードの追加/削除)。
 
+### <a name="prerequisites"></a>前提条件
+
+登録を更新または変更するには、[管理者ポータル](#verify-azure-stack-hub-registration)の次の情報が必要です。
+
+| 管理者ポータル | コマンドレット パラメーター | Notes | 
+|-----|-----|-----|
+| 登録サブスクリプション ID | サブスクリプション | 以前の登録時に使用されたサブスクリプション ID |
+| 登録リソース グループ | ResourceGroupName | 以前の登録リソースが存在するリソース グループ |
+| 登録名 | RegistrationName | 以前の登録時に使用された登録名 |
+
 ### <a name="change-the-subscription-you-use"></a>使用するサブスクリプションを変更する
 
-使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、管理者ポータルに表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。現在の登録の詳細は[こちらで](#verify-azure-stack-hub-registration)見つけてください。
+使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、[管理者ポータル](#verify-azure-stack-hub-registration)に表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。
 
   ```powershell  
+  # select the subscription used during the registration (shown in portal)
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # unregister using the parameter values from portal
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # switch to new subscription id
+  Select-AzureRmSubscription -Subscription '<New subscription ID>'
+  # register 
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
   ```
 
-### <a name="change-the-billing-model-or-how-to-offer-features"></a>課金モデルまたは機能の提供方法を変更する
+### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>課金モデルと機能の提供方法の変更、インスタンスの再登録
 
-インストールの課金モデルまたは機能の提供方法を変更する場合は、登録機能を呼び出して新しい値を設定できます。 先に現在の登録を削除する必要はありません。
+このセクションは、課金モデルや機能を提供する方法を変更する場合、またはインスタンスを再登録する場合に適用されます。 これらのすべてのケースで、登録関数を呼び出して新しい値を設定します。 最初に現在の登録を削除する必要はありません。 [管理者ポータル](#verify-azure-stack-hub-registration)に表示されているサブスクリプション ID にサインインし、`RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値は[管理者ポータル](#verify-azure-stack-hub-registration)に表示された値のままで、新しい `BillingModel` の値を指定して登録を再実行します。
 
   ```powershell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
+  # select the subscription used during the registration
+  Select-AzureRmSubscription -Subscription '<Registration subscription ID from portal>'
+  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 ::: zone-end
 
@@ -389,7 +407,7 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 Azure Stack Hub のアクティブ化リソースを削除するには、Azure Stack Hub 環境で次の PowerShell コマンドレットを実行します。  
 
-  ```Powershell
+  ```powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
@@ -397,21 +415,20 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
 
 リソースの作成に使用した登録トークンを使用できます。  
 
-  ```Powershell
+  ```powershell
   $RegistrationToken = "<registration token>"
   Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
-または登録名を使用することもできます。
+または、[管理者ポータル](#verify-azure-stack-hub-registration)の登録名と登録リソース グループ名を使用することもできます。
 
-  ```Powershell
-  $RegistrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $RegistrationName
+  ```powershell
+  Unregister-AzsEnvironment -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
   ```
 
 ### <a name="re-register-using-connected-steps"></a>接続された手順を使用して再登録する
 
-課金モデルを切断状態の容量課金から接続された状態での従量課金に変更する場合は、[接続されたモデルの手順](azure-stack-registration.md?pivots=state-connected#change-the-billing-model-or-how-to-offer-features)に従って再登録します。 
+課金モデルを切断状態の容量課金から接続された状態での従量課金に変更する場合は、[接続されたモデルの手順](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance)に従って再登録します。 
 
 >[!Note] 
 >これによって ID モデルが変更されるわけではなく、課金モデルのみが変更されます。ID ソースとして ADFS が引き続き使用されます。

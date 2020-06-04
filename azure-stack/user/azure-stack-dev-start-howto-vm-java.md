@@ -3,16 +3,16 @@ title: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイする
 description: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイします。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/05/2020
-ms.openlocfilehash: f252a369588dcf224a1eb7d965a7ff99381e13a6
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 1a7915743314481630dc489f733b3123ae2fafe8
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836208"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147007"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Java Web アプリをデプロイする
 

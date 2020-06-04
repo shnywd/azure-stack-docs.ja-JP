@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes ダッシュボードにアクセスする
 description: Azure Stack Hub で Kubernetes ダッシュボードにアクセスする方法について説明します
 author: mattbriggs
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 04d7935ca88c578c2019703855e79278211127d1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
+ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80479316"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84111564"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 

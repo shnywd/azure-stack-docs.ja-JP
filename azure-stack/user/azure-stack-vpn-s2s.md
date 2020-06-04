@@ -1,17 +1,18 @@
 ---
-title: IPsec/IKE のサイト間 VPN 接続を構成する
-description: Azure Stack Hub でのサイト対サイト VPN 接続または VNet 対 VNet 接続用の IPsec/IKE ポリシーについて説明し、構成します。
+title: Azure Stack Hub で IPsec/IKE のサイト間 VPN 接続を構成する
+description: Azure Stack Hub でのサイト間 VPN 接続または VNet 間接続用の IPsec/IKE ポリシーについて説明し、構成します。
 author: sethmanheim
+ms.custom: contperfq4
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 2456bd234b8affaecf061871ca701f45088f17c4
-ms.sourcegitcommit: 9894804f31527234d43f4a93a9b7c106c8540435
+ms.openlocfilehash: fdc1f71e5d4c5afa8b3989b69795d150cf96de67
+ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82967796"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780678"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
@@ -24,7 +25,7 @@ ms.locfileid: "82967796"
 
 IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさまざまな組み合わせでサポートされています。 コンプライアンスまたはセキュリティ要件を満たすことができるように、Azure Stack Hub でサポートされているパラメーターを確認するには、「[IPsec/IKE パラメーター](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)」を参照してください。
 
-この記事では、IPsec/IKE ポリシーを作成して構成し、新規または既存の接続に適用する方法を示します。
+この記事では、IPsec/IKE ポリシーを作成して構成し、新規または既存の接続に適用する手順について説明します。
 
 ## <a name="considerations"></a>考慮事項
 
@@ -38,9 +39,17 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 - オンプレミスの VPN デバイスでポリシーがサポートされることを、VPN デバイス ベンダーの仕様で確認してください。 ポリシーに対応していない場合、サイト対サイト接続を確立することはできません。
 
-## <a name="part-1---workflow-to-create-and-set-ipsecike-policy"></a>パート 1 - IPsec/IKE ポリシーを作成して設定するためのワークフロー
+### <a name="prerequisites"></a>前提条件
 
-このセクションでは、サイト対サイト VPN 接続に関する IPsec/IKE ポリシーの作成と更新を行うために必要なワークフローについて説明します。
+開始する前に、以下の前提条件を確認してください。
+
+- Azure サブスクリプション。 Azure サブスクリプションをまだお持ちでない場合は、[MSDN サブスクライバーの特典](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)を有効にするか、[無料アカウント](https://azure.microsoft.com/pricing/free-trial/)にサインアップしてください。
+
+- Azure Resource Manager PowerShell コマンドレット。 PowerShell コマンドレットのインストールの詳細については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
+
+## <a name="part-1---create-and-set-ipsecike-policy"></a>パート 1 - IPsec/IKE ポリシーを作成して設定する
+
+このセクションでは、サイト間 VPN 接続に関する IPsec/IKE ポリシーの作成と更新を行うために必要な手順について説明します。
 
 1. 仮想ネットワークと VPN ゲートウェイを作成します。
 
@@ -58,7 +67,7 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 
 ## <a name="part-2---supported-cryptographic-algorithms-and-key-strengths"></a>パート 2: サポートされる暗号アルゴリズムとキーの強度
 
-以下の表は、サポートされている暗号アルゴリズムと、Azure Stack Hub のお客様が構成できるキーの強度を一覧にしたものです。
+次の表は、サポートされている暗号アルゴリズムと、Azure Stack Hub で構成できるキーの強度を一覧にしたものです。
 
 | IPsec/IKEv2                                          | Options                                                                  |
 |------------------------------------------------------|--------------------------------------------------------------------------|
@@ -79,9 +88,9 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
   - IPsec 暗号化アルゴリズム (クイック モード/フェーズ 2)。
   - IPsec 整合性アルゴリズム (クイック モード/フェーズ 2)。
   - PFS グループ (クイック モード/フェーズ 2)。
-  - SA の有効期間は、ローカルの指定のみであり、それらが一致している必要はありません。
+  - SA の有効期間はローカルの指定にすぎず、一致している必要はありません。
 
-- IPsec 暗号化アルゴリズム用として GCMAES を使用する場合は、IPsec 整合性に、同じ GCMAES アルゴリズムとキーの長さを選択する必要があります。 たとえば、両方に GCMAES128 を使用します。
+- IPsec 暗号化アルゴリズム用として GCMAES を使用する場合は、IPsec 整合性に、同じ GCMAES アルゴリズムとキーの長さを選択する必要があります。たとえば、両方に GCMAES128 を使用します。
 
 - 上記の表では、
 
@@ -112,14 +121,6 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 ![サイト対サイト ポリシー](media/azure-stack-vpn-s2s/site-to-site.svg)
 
 サイト対サイト VPN 接続を作成するための詳細な手順については、[サイト対サイト VPN 接続の作成](/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell)に関する記事を参照してください。
-
-### <a name="prerequisites"></a>前提条件
-
-開始する前に、以下の前提条件を確認してください。
-
-- Azure サブスクリプション。 Azure サブスクリプションをまだお持ちでない場合は、[MSDN サブスクライバーの特典](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)を有効にするか、[無料アカウント](https://azure.microsoft.com/pricing/free-trial/)にサインアップしてください。
-
-- Azure Resource Manager PowerShell コマンドレット。 PowerShell コマンドレットのインストールの詳細については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
 
 ### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>手順1 - 仮想ネットワーク、VPN ゲートウェイ、およびローカル ネットワーク ゲートウェイを作成する
 
@@ -226,9 +227,9 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 
 前のセクションでは、既存のサイト対サイト接続用の IPsec/IKE ポリシーを管理する方法を示しました。 このセクションでは、接続に対して次の操作を行います。
 
-1. 接続の IPsec/IKE ポリシーを表示する。
-2. 接続に IPsec/IKE ポリシーを追加する、またはポリシーを更新する。
-3. 接続から IPsec/IKE ポリシーを削除する。
+- 接続の IPsec/IKE ポリシーを表示する。
+- 接続に IPsec/IKE ポリシーを追加する、またはポリシーを更新する。
+- 接続から IPsec/IKE ポリシーを削除する。
 
 > [!NOTE]
 > IPsec/IKE ポリシーは、"*Standard*" および "*HighPerformance*" のルート ベースの VPN ゲートウェイでのみサポートされています。 *Basic* ゲートウェイ SKU では機能しません。
@@ -297,7 +298,7 @@ PfsGroup : None
 
 ### <a name="3-remove-an-ipsecike-policy-from-a-connection"></a>3.接続から IPsec/IKE ポリシーを削除する
 
-接続からカスタム ポリシーを削除すると、Azure VPN ゲートウェイは[既定の IPsec/IKE 提案](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)に戻り、オンプレミスの VPN デバイスとの再ネゴシエーションが実行されます。
+接続からカスタム ポリシーを削除すると、Azure VPN ゲートウェイは[既定の IPsec/IKE 候補](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)に戻り、オンプレミスの VPN デバイスとの再ネゴシエーションが実行されます。
 
 ```powershell
 $RG1 = "TestPolicyRG1"
