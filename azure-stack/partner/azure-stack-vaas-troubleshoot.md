@@ -9,12 +9,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bcca404c451190ccf1d0b82e93aea655e069044
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 310a8a8d958428af2ce29f6c465a788e64870b8e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661404"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146973"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>サービスとしての検証のトラブルシューティング
 
@@ -40,13 +40,22 @@ ms.locfileid: "81661404"
 
 ## <a name="vm-images"></a>VM イメージ
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>`VaaSPreReq` スクリプトで VM イメージをアップロードしたときにエラーが発生する
+以下のセクション「**低速なネットワーク接続を処理**」を参照してください。 VM イメージを Azure Stack スタンプにアップロードする手動の手順が記載されています。
+
 ### <a name="handle-slow-network-connectivity"></a>低速なネットワーク接続の処理
 
-ローカル データセンターの共有に PIR イメージをダウンロードできます。 その後、イメージを確認できます。
+#### <a name="1-verify-that-the-environment-is-healthy"></a>1.環境が正常であることを確認する
+
+1. DVM/ジャンプ ボックスから、管理者の資格情報を使用して管理ポータルに正常にサインインできることを確認します。
+
+2. アラートや警告が表示されていないことを確認します。
+
+3. 環境が正常である場合は、VaaS テストの実行に必要な VM イメージを、以下のセクションの手順に従って、手動でアップロードします。
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>ネットワーク トラフィックが低速な場合は、PIR イメージをローカル共有にダウンロードしてください
+#### <a name="2-download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>2.ネットワーク トラフィックが低速な場合は、PIR イメージをローカル共有にダウンロードしてください
 
 1. 次の場所から AzCopy をダウンロードします: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
 
@@ -67,7 +76,7 @@ ms.locfileid: "81661404"
 > [!Note]  
 > LocalFileShare は共有パスまたはローカル パスです。
 
-#### <a name="verifying-pir-image-file-hash-value"></a>PIR イメージ ファイルのハッシュ値の検証
+#### <a name="3-verifying-pir-image-file-hash-value"></a>3.PIR イメージ ファイルのハッシュ値の検証
 
 **Get-HashFile** コマンドレットを使用して、ダウンロードしたパブリック イメージ リポジトリのイメージ ファイルのハッシュ値を取得し、イメージの整合性を確認することができます。
 
@@ -81,19 +90,26 @@ ms.locfileid: "81661404"
 | OpenLogic-CentOS-69-20180105.vhd | C8B874FE042E33B488110D9311AF1A5C7DC3B08E6796610BF18FDD6728C7913C |
 | Debian8_latest.vhd | 06F8C11531E195D0C90FC01DFF5DC396BB1DD73A54F8252291ED366CACD996C1 |
 
-### <a name="failure-happens-when-uploading-vm-image-in-the-vaasprereq-script"></a>`VaaSPreReq` スクリプトで VM イメージをアップロードしたときにエラーが発生する
+#### <a name="4-upload-vm-images-to-a-storage-account"></a>4.ストレージ アカウントに VM イメージをアップロードする
 
-まず、環境が正常であることを確認します。
+1. 既存のストレージ アカウントを選択するか、Azure に新しいストレージ アカウントを作成します。
 
-1. DVM/ジャンプ ボックスから、管理者の資格情報を使用して管理者ポータルに正常にサインインできることを確認します。
-1. アラートや警告が表示されていないことを確認します。
+2. イメージをアップロードするコンテナーを作成します。
 
-環境が正常である場合は、VaaS テストの実行に必要な 5 つの VM イメージを手動でアップロードします。
+3. Azcopy ツールを使用して、先ほど作成したコンテナーに (VM イメージをダウンロードした) [*LocalFileShare*] から VM イメージをアップロードします。
+    > [!IMPORTANT]
+    > コンテナーの "パブリック アクセス レベル" を "BLOB (BLOB 専用の匿名読み取りアクセス)" に変更します。
 
-1. 管理者ポータルにサービス管理者としてサインインします。 管理者ポータルの URL は、ECE ストアまたはスタンプ情報ファイルで確認できます。 手順については、「[環境パラメーター](azure-stack-vaas-parameters.md#environment-parameters)」をご覧ください。
-1. **[その他のサービス]**  >  **[リソース プロバイダー]**  >  **[コンピューティング]**  >  **[VM イメージ]** を選択します。
-1. **[VM イメージ]** ブレードの上部にある **[+ 追加]** を選択します。
-1. 最初の VM イメージの次のフィールドの値を変更または確認します。
+#### <a name="5-upload-vm-images-to-azure-stack-environment"></a>5.Azure Stack 環境に VM イメージをアップロードする
+
+1. 管理ポータルにサービス管理者としてサインインします。 管理ポータルの URL は、ECE ストアまたはスタンプ情報ファイルで確認できます。 手順については、「[環境パラメーター](azure-stack-vaas-parameters.md#environment-parameters)」をご覧ください。
+
+2. **[その他のサービス]**  >  **[リソース プロバイダー]**  >  **[コンピューティング]**  >  **[VM イメージ]** を選択します。
+
+3. **[VM イメージ]** ブレードの上部にある **[+ 追加]** を選択します。
+
+4. 最初の VM イメージの次のフィールドの値を変更または確認します。
+
     > [!IMPORTANT]
     > マーケットプレースの既存の項目について、すべての既定値が適切であるとは限りません。
 
@@ -104,22 +120,24 @@ ms.locfileid: "81661404"
     | OS の種類 | Windows |
     | SKU | 2012-R2-Datacenter |
     | Version | 1.0.0 |
-    | OS ディスク BLOB URI | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+    | OS ディスク BLOB URI | https://<*ストレージ アカウント*>/<*コンテナー名*>/WindowsServer2012R2DatacenterBYOL.vhd |
 
-1. **[作成]** ボタンを選択します。
-1. 残りの VM イメージに対してこの手順を繰り返します。
 
-全 5 つの VM イメージのプロパティは次のとおりです。
+5. **[作成]** ボタンを選択します。
+
+6. 残りの VM イメージに対してこの手順を繰り返します。
+
+すべての必要な VM イメージのプロパティは次のとおりです。
 
 | Publisher  | プラン  | OS の種類 | SKU | Version | OS ディスク BLOB URI |
 |---------|---------|---------|---------|---------|---------|
-| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
-| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
-| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
-| Canonical | UbuntuServer | Linux | 16.04 LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
-| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/OpenLogic-CentOS-69-20180105.vhd |
-| credativ | Debian | Linux | 8 | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Debian8_latest.vhd |
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04 LTS | 16.04.20170811 | https://[*ストレージ アカウント*]/[*コンテナー名*]/Ubuntu1604-20170619.1.vhd |
+| OpenLogic | CentOS | Linux | 6.9 | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/OpenLogic-CentOS-69-20180105.vhd |
+| Credativ | Debian | Linux | 8 | 1.0.0 | https://[*ストレージ アカウント*]/[*コンテナー名*]/Debian8_latest.vhd |
 
 ## <a name="next-steps"></a>次のステップ
 

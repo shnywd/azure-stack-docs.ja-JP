@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 5277e908fa9f3c5d8fbcebf28b4d766045d03187
-ms.sourcegitcommit: 999c6cd0ab64cd2d695feb8405a9c720c9ae755b
+ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
+ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83342952"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203121"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 
@@ -32,6 +32,8 @@ Azure サポート要求を送信することもできます。 [Azure Stack Hub
 - VPN 構成がルートベース (IKEv2) であることを確認します。 Azure Stack Hub では、ポリシーベース (IKEv1) 構成はサポートされていません。
 
 - 使っている [VPN デバイスとオペレーティング システム バージョンが検証済み](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#devicetable)であるかどうかを確認します。 検証済みの VPN デバイスではない場合、互換性の問題があるかどうかをデバイスの製造元に問い合わせてください。
+
+- Azure Stack Hub 仮想ネットワークとオンプレミス ネットワークの間に重複する IP 範囲がないことを確認します。 これにより、接続の問題が発生する可能性があります。 
 
 - VPN ピア IP を確認する
 

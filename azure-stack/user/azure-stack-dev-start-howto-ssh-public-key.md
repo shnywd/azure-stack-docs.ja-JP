@@ -3,16 +3,16 @@ title: Azure Stack Hub で SSH 公開キーを使用する方法
 description: SSH 公開キーの使用方法
 author: mattbriggs
 ms.topic: overview
-ms.date: 1/22/2020
+ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 5f65b0ff096fbf84b140406b7cb98fdbdf5b0b11
-ms.sourcegitcommit: 4138a2a15f78e7db38b3a29acc963a71937146fd
+ms.openlocfilehash: 1b5a83d8fa6626233acc3abbde69494310cbd06e
+ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "79295630"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84146922"
 ---
 # <a name="use-an-ssh-public-key"></a>SSH 公開キーの使用
 
@@ -83,7 +83,7 @@ PuTTY をインストールした場合は、PuTTY Key Generator と SSH クラ�
 
     ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウ - SSH 秘密キー](media/azure-stack-dev-start-howto-ssh-public-key/002-putty-set-private-key.png)
 
-5. **[Private key file for authentication]\(認証のための秘密キー ファイル\)** ボックスの横にある **[参照]** を選択してから、公開キーと秘密キーのペアの秘密キー ファイル ( *\<ファイル名>.ppk*) を検索します。
+5. **[Private key file for authentication]\(認証のための秘密キー ファイル\)** ボックスの横にある **[参照]** を選択してから、公開キーと秘密キーのペアの秘密キー ファイル ( *\<filename>.ppk*) を検索します。
 6. **[カテゴリ]** ツリーで、 **[セッション]** を選択します。
 
     ![[PuTTY Configuration]\(PuTTY 構成\) ウィンドウの [Saved Sessions]\(保存されたセッション\) ボックス](media/azure-stack-dev-start-howto-ssh-public-key/003-puTTY-save-session.png)
@@ -114,7 +114,7 @@ PuTTY をインストールした場合は、PuTTY Key Generator と SSH クラ�
     ![FileZilla の [設定] ウィンドウ](media/azure-stack-dev-start-howto-ssh-public-key/006-filezilla-add-private-key.png)
 
 1. **[ページの選択]** ツリーで、 **[接続]** を展開してから **[SFTP]** を選択します。
-1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル ( *\<ファイル名>.ppk* など) を入力します。
+1. **[Add key file]\(鍵ファイルを追加\)** を選択し、ご自分の秘密キー ファイル ( *\<filename>.ppk* など) を入力します。
 1. **[OK]** を選択します。
 
 ### <a name="open-your-connection"></a>ご自分の接続を開く

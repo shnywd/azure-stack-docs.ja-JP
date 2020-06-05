@@ -7,12 +7,12 @@ ms.date: 04/28/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
-ms.openlocfilehash: 8c68e7dd4aa40d448e76050e4c657ee4cea9763b
-ms.sourcegitcommit: 54f98b666bea9226c78f26dc255ddbdda539565f
+ms.openlocfilehash: ff1a4f255f81c10c29c87320bdb71fcbaf9b234b
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82556397"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158352"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
@@ -87,6 +87,8 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
       > ERCS エンドポイントに接続できない場合は、別の ERCS VM の IP アドレスを使用して、手順 1 と手順 2 を再試行してください。
 
 3. 接続後、環境に応じて **[*IP アドレスまたは ERCS VM 名*]: PS>** または **[azs-ercs01]:PS>** プロンプトが変わります。 ここから `Get-Command` を実行して、利用可能なコマンドレットの一覧を表示します。
+
+    コマンドレットのリファレンスについては、「[Azure Stack ハブの特権エンドポイント リファレンス](../reference/pep-2002/index.md)」を参照してください。
 
    これらのコマンドレットの多くは、統合システム環境での使用のみが意図されています (データセンター統合に関連するコマンドレットなど)。 ASDK では、次のコマンドレットが検証済みです。
 

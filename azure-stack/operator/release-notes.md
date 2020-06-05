@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 05/29/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: d8da583fbf954857e2331ce963ec2ae7f0883ea2
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
+ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780799"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84329216"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -162,14 +162,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適用された 1910 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack Hub 修正プログラム 1.1910.42.142](https://support.microsoft.com/help/4564874)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>2002 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.24.85](https://support.microsoft.com/help/4558081)
+- [Azure Stack Hub 修正プログラム 1.2002.28.93](https://support.microsoft.com/help/4562966)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -326,7 +326,7 @@ Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム1.1910.40.138](https://support.microsoft.com/help/4558082)
+- [Azure Stack Hub 修正プログラム 1.1910.42.142](https://support.microsoft.com/help/4564874)
 ::: moniker-end
 
 ::: moniker range="azs-1908"

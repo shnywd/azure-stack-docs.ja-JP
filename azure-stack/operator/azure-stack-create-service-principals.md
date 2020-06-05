@@ -6,16 +6,15 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 372df0bdb99ce06b22912e9e5c175af07620f5f4
-ms.sourcegitcommit: 510bb047b0a78fcc29ac611a2a7094fc285249a1
+ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
+ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82988308"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84262669"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
-
-アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをその ID で表す必要があります。 ユーザー プリンシパルと呼ばれているセキュリティ プリンシパルでユーザーが表されるように、アプリはサービス プリンシパルで表されます。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのアプリに委任することができます。  
+<meta name="robots" content="nosnippet"> リソースのデプロイや構成を Azure Resource Manager を通じて行う必要があるアプリケーションは、それ自体の ID で表す必要があります。 ユーザー プリンシパルと呼ばれているセキュリティ プリンシパルでユーザーが表されるように、アプリはサービス プリンシパルで表されます。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのアプリに委任することができます。  
 
 たとえば、Azure Resource Manager を使用して Azure リソースのインベントリを作成する構成管理アプリがあります。 このシナリオでは、サービス プリンシパルを作成し、これに "閲覧者" ロールを付与して、構成管理アプリのアクセスを読み取り専用に制限します。
 
@@ -337,7 +336,7 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 3. **[アクセス制御 (IAM)]** ページを選択します。このページは、RBAC をサポートするすべてのリソースにあります。
 4. **[+ 追加]** を選択します。
 5. **[ロール]** の下で、アプリに割り当てるロールを選択します。
-6. **[選択]** の下で、アプリケーション名の全体または一部を入力してアプリを検索します。 登録時に、アプリケーション名は *Azurestack-\<YourAppName\>-\<ClientId\>* の形式で生成されます。 たとえば、作成時にアプリケーション名として *App2* を使用し、クライアント ID として *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* が割り当てられた場合のフル ネームは *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* となります。 検索するときに、この文字列全体を正確に指定することも、その一部分 (たとえば *Azurestack* や *Azurestack-App2*) を指定することもできます。
+6. **[選択]** の下で、アプリケーション名の全体または一部を入力してアプリを検索します。 登録時に、アプリケーション名は *Azurestack-\<YourAppName\>YourAppName-\<ClientId\>* として生成されます。 たとえば、作成時にアプリケーション名として *App2* を使用し、クライアント ID として *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* が割り当てられた場合のフル ネームは *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff* となります。 検索するときに、この文字列全体を正確に指定することも、その一部分 (たとえば *Azurestack* や *Azurestack-App2*) を指定することもできます。
 7. アプリが見つかったら、そのアプリを選択すると **[選択したメンバー]** に表示されます。
 8. **[保存]** を選択して、ロールの割り当てを完了します。
 

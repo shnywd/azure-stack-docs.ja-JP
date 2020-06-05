@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: b067428a9096855f38f8e1f33a601010dc27359c
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742307"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158369"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
@@ -40,7 +40,7 @@ Azure Stack Hub と API プロファイルの詳細については、「[Azure S
 | パラメーター                  | 説明 |
 |---                         | --- |
 | registrationSubscriptionID | 初期登録に使用された Azure サブスクリプション。 |
-| customerSubscriptionID     | 登録される顧客に属する Azure サブスクリプション (Azure Stack Hub ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack Hub にサインインするためのサブスクリプションを作成します。 |
+| customerSubscriptionID     | 登録される顧客に属する Azure サブスクリプション (Azure Stack Hub ではない)。 パートナー センターを使用してクラウド ソリューション プロバイダー (CSP) オファーで作成されている必要があります。 顧客が複数のテナントを持っている場合は、テナントが Azure Stack Hub にサインインするためのサブスクリプションを作成します。 顧客サブスクリプション ID は大文字と小文字の区別があります。 |
 | resourceGroup              | 登録が格納されている Azure 内のリソース グループ。 |
 | registrationName           | お使いの Azure Stack Hub の登録名。 Azure に格納されているオブジェクトです。 通常、名前は **azurestack-CloudID** の形式で、**CloudID** はお使いの Azure Stack Hub デプロイのクラウド ID です。 |
 
@@ -124,7 +124,7 @@ GET 操作を使用して、すべてのテナント マッピングの一覧を
 | registrationSubscriptionId | 登録用のサブスクリプション ID です。   |
 | resourceGroup              | 登録のリソース グループです。   |
 | registrationName           | 登録の名前です。  |
-| customerSubscriptionId     | 顧客サブスクリプション ID です。  |
+| customerSubscriptionId     | 顧客サブスクリプション ID です。 顧客サブスクリプション ID は大文字と小文字の区別があります。  |
 
 ### <a name="powershell"></a>PowerShell
 

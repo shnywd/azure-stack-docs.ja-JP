@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 06/27/2019
-ms.openlocfilehash: 4b193ada5c9a188b725ea88dc2d5f54905a5e537
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d4cd7b00b00f4447f9ba9a8bc341452ae6464897
+ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375078"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84158335"
 ---
 # <a name="usage-and-billing-registration-error-codes"></a>使用量と請求の登録エラー コード
 
@@ -23,7 +23,7 @@ Cloud Solution Provider (CSP) の場合、顧客の Azure サブスクリプシ�
 | エラー   | 詳細  | 説明  |
 |---|---|---|
 | RegistrationNotFound | 指定された登録が見つかりませんでした。 次の情報が正しく指定されていることを確認してください。<br>1.サブスクリプション識別子 (指定された値: "**サブスクリプション識別子**")、<br>2.リソース グループ (指定された値: "**リソース グループ**")、<br>3.登録名 (指定された値: "**登録名**")。 | 通常、このエラーは初期登録を示す情報が正しくない場合に発生します。 リソース グループと登録の名前を確認する必要がある場合は、Azure Portal ですべてのリソースを一覧表示して探すことができます。 複数の登録リソースを検索する場合は、プロパティで **CloudDeploymentID** を参照し、**CloudDeploymentID** がクラウドと一致する登録を選択します。 **CloudDeploymentID** を特定するには、Azure Stack Hub 上で次の PowerShell コマンドを使用します。<br>`$azureStackStampInfo = Invoke-Command -Session $session -ScriptBlock { Get-AzureStackStampInformation }` |
-| BadCustomerSubscriptionId | 指定された "**顧客サブスクリプション識別子**" と "**登録名**" サブスクリプション識別子は、同じ Microsoft CSP によって所有されていません。 顧客サブスクリプション識別子が正しいことを確認してください。 問題が解決しない場合は、サポートにお問い合わせください。 | このエラーは、顧客サブスクリプションが CSP サブスクリプションで、初期登録で使用されたサブスクリプションのロールアップ先とは異なる CSP パートナーにロールアップされる場合に発生します。 このチェックは、使用される Azure Stack Hub について担当外の CSP パートナーへの請求を避けるために実行されます。 |
+| BadCustomerSubscriptionId | 指定された "**顧客サブスクリプション識別子**" と "**登録名**" サブスクリプション識別子は、同じ Microsoft CSP によって所有されていません。 顧客サブスクリプション識別子が正しいことを確認してください。 顧客サブスクリプション ID は大文字と小文字の区別があります。 問題が解決しない場合は、サポートにお問い合わせください。 | このエラーは、顧客サブスクリプションが CSP サブスクリプションで、初期登録で使用されたサブスクリプションのロールアップ先とは異なる CSP パートナーにロールアップされる場合に発生します。 このチェックは、使用される Azure Stack Hub について担当外の CSP パートナーへの請求を避けるために実行されます。 |
 | InvalidCustomerSubscriptionId  | "**顧客サブスクリプション識別子**" が無効です。 有効な Azure サブスクリプションが指定されていることを確認してください。 |   |
 | CustomerSubscriptionNotFound  | "**登録名**" に "**顧客サブスクリプション識別子**" が見つかりませんでした。 有効な Azure サブスクリプションを使用中であることと、サブスクリプション ID が PUT 操作を使用して登録に追加されたことを確認してください。 | このエラーは、テナントがサブスクリプションに追加されたことを検証しようとしたが、登録に関連付けられた顧客サブスクリプションが見つからない場合に発生します。 顧客が登録に追加されていないか、サブスクリプション ID が正しく記述されていません。 |
 | UnauthorizedCspRegistration | 指定された "**登録名**" はマルチ テナントの使用を承認されていません。 電子メールを azstCSP@microsoft.com に送信し、登録名、リソース グループ、および登録で使用されたサブスクリプション識別子を含めます。 | 登録へのテナントの追加を開始するには、その前にマルチテナントに関して Microsoft から登録の承認を受ける必要があります。 |

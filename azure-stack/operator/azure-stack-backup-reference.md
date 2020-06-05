@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: cdbe5150b72a720fa527d3bb1b1e32f5a66a6955
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 0760e7d796c6e17c88089675fa6ff659eb684cc7
+ms.sourcegitcommit: 721b82b3a1711f2825ec76ab6d75964b4f508631
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295564"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84301030"
 ---
 # <a name="infrastructure-backup-service-reference"></a>インフラストラクチャ バックアップ サービスのリファレンス
 
@@ -111,6 +111,15 @@ Infrastructure Backup サービスでは、サーバー側で SMB 暗号化が�
 |----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 信頼されたネットワーク環境内のストレージ デバイスでホストされる SMB ファイル共有 | Azure Stack Hub インスタンスがファイアウォールで保護された環境に存在する場合、ポート 445 が必須です。 インフラストラクチャ バックアップ コントローラーは、ポート 445 経由で SMB ファイル サーバーへの接続を開始します。 |
 | ファイル サーバーの FQDN を使用するには、名前を PEP から解決可能にする必要があります。             |                                                                                                                                                                                         |
+
+#### <a name="firewall-rules"></a>ファイアウォール規則
+ERCS VM と外部の保存場所の間の接続を許可するように、ファイアウォール規則を設定してください。 
+
+| source | 移行先 | プロトコル/ポート |
+|------------------|-----------------------|--------------------------------|
+| ERCS VM 1        | 保存先      | 445/SMB                        |
+| ERCS VM 2        | 保存先      | 445/SMB                        |
+| ERCS VM 3        | 保存先      | 445/SMB                        |
 
 > [!Note]  
 > 受信ポートを開く必要はありません。
