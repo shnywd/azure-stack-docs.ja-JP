@@ -3,16 +3,16 @@ title: Azure Stack Hub で Marketplace 項目を作成して発行する
 description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 45eb02425b0c90e95bb2b0c1c5278b9408fa1f27
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
+ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660710"
+ms.lasthandoff: 06/18/2020
+ms.locfileid: "85069128"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -149,7 +149,7 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 11. ファイルの変更が終わったら、それを .azpkg ファイルに変換します。 変換は、**AzureGallery.exe** ツールと、前にダウンロードしたサンプル ギャラリー パッケージを使用して実行します。 次のコマンドを実行します。
 
     ```shell
-    .\AzureGallery.exe package –m c:\<path>\<gallery package name>\manifest.json –o c:\Temp
+    .\AzureGallery.exe package -m c:\<path>\<gallery package name>\manifest.json -o c:\Temp
     ```
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 
     ```powershell
     Add-AzsGalleryItem -GalleryItemUri `
-    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg –Verbose
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
     ```
 
 5. アイテムの格納に使用できる有効なストレージ アカウントがあることを確認します。 `GalleryItemURI` の値は、Azure Stack Hub 管理者ポータルから取得できます。 **[ストレージ アカウント] > [BLOB のプロパティ] > [URL]** の順に選択し、拡張子を .azpkg にします。 ストレージ アカウントは、Marketplace に発行するために一時的に使用するためのものです。
@@ -233,7 +233,7 @@ Marketplace では、次のアイコンを使用します。
 | Large |115 px |115 px |常に必要 |
 | Medium |90 px |90 px |常に必要 |
 | Small |40 px |40 px |常に必要 |
-| Screenshot |533 px |324 px |常に必要 |
+| Screenshot |533 px |324 px |省略可能 |
 
 ### <a name="categories"></a>Categories
 
