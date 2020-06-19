@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e331be14abdeceeb2fef462fba47c4871a320e7f
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: ee2352e6e7ee6b6e6a7322bcdb66ea4d24797eb8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81659884"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631126"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 
@@ -80,7 +80,7 @@ VM の構成に関する推奨事項については、「[Azure Stack Hub で Wi
 
 VM は直接インターネットに公開せず、代わりに各 VM にプライベート IP アドレスを付与します。 クライアントでは、レイヤー 7 ロード バランサーに関連付けられているパブリック IP アドレスを使用して接続が行われます。
 
-ロード バランサー規則を定義して、ネットワーク トラフィックを VM に転送します。 たとえば、HTTP トラフィックを有効にするには、フロントエンド構成からのポート 80 をバックエンド アドレス プールのポート 80 にマップします。 クライアントがポート 80 に HTTP 要求を送信するときに、ロード バランサーは、発信元 IP アドレスを含む[ハッシュ アルゴリズム](/azure/load-balancer/concepts-limitations#load-balancer-concepts)を使用して、バックエンド IP アドレスを選択します。 クライアント要求が、バックエンド アドレス プールのすべての VM に分散されます。
+ロード バランサー規則を定義して、ネットワーク トラフィックを VM に転送します。 たとえば、HTTP トラフィックを有効にするには、フロントエンド構成からのポート 80 をバックエンド アドレス プールのポート 80 にマップします。 クライアントがポート 80 に HTTP 要求を送信するときに、ロード バランサーは、発信元 IP アドレスを含む[ハッシュ アルゴリズム](https://docs.microsoft.com/azure/load-balancer/concepts#limitations)を使用して、バックエンド IP アドレスを選択します。 クライアント要求が、バックエンド アドレス プールのすべての VM に分散されます。
 
 ### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
 

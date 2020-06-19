@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: b32ce924aae800360229ca1e309b568fdc6f5353
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5e34a943984583ab1e6d3a83a4aa5e4e7d302d5c
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660259"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631255"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する
 
@@ -26,7 +26,7 @@ Azure Stack Hub ポータルを使用して Windows Server 2016 仮想マシン 
 
 Azure Stack Hub ポータルにサインインします。 Azure Stack Hub ポータルのアドレスは、接続している Azure Stack Hub 製品によって異なります。
 
-* Azure Stack Development Kit (ASDK) の場合は、 https://portal.local.azurestack.external にアクセスします。
+* Azure Stack Development Kit (ASDK) の場合は、 `https://portal.local.azurestack.external` にアクセスします。
 * Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供された URL に移動します。
 
 ## <a name="create-a-vm"></a>VM の作成
