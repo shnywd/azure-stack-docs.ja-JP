@@ -6,15 +6,16 @@ ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
-ms.openlocfilehash: 011018493cee92d23675369a9704f5bcf3503ebe
-ms.sourcegitcommit: fe9b2fae89e595c8e739251b7a0d6ea3a0d8659a
+ms.openlocfilehash: 8a86c1c19f4239e6af1e7094ee8803865f9fd70d
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84262669"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666415"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
-<meta name="robots" content="nosnippet"> リソースのデプロイや構成を Azure Resource Manager を通じて行う必要があるアプリケーションは、それ自体の ID で表す必要があります。 ユーザー プリンシパルと呼ばれているセキュリティ プリンシパルでユーザーが表されるように、アプリはサービス プリンシパルで表されます。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのアプリに委任することができます。  
+
+アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをその ID で表す必要があります。 ユーザー プリンシパルと呼ばれているセキュリティ プリンシパルでユーザーが表されるように、アプリはサービス プリンシパルで表されます。 サービス プリンシパルは、開発者が開発するアプリの ID となり、開発者は必要なアクセス許可のみをそのアプリに委任することができます。  
 
 たとえば、Azure Resource Manager を使用して Azure リソースのインベントリを作成する構成管理アプリがあります。 このシナリオでは、サービス プリンシパルを作成し、これに "閲覧者" ロールを付与して、構成管理アプリのアクセスを読み取り専用に制限します。
 

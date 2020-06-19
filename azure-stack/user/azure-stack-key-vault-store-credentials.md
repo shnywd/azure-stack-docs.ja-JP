@@ -3,15 +3,15 @@ title: Azure Stack Hub でサービス プリンシパルの資格情報を Key 
 description: Azure Stack Hub でサービス プリンシパルの資格情報が Key Vault にどのように格納されるかについて説明します
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: 66d69fa3397fa748dfbc67377c3e52c47f35904c
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: e42be131f23690611aa4509911644753bea53c4e
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77702722"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666364"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Azure Stack Hub でサービス プリンシパルの資格情報を Key Vault に格納する
 

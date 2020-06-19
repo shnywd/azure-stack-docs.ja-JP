@@ -3,16 +3,16 @@ title: GitHub からの Azure Stack Hub ツールのダウンロード
 description: Azure Stack Hub の操作に必要なツールをダウンロードする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 4/22/2020
+ms.date: 6/13/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 4/22/2020
-ms.openlocfilehash: c85982690578cbfbed65c83fb2c83792ce6b4fb2
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.lastreviewed: 6/13/2020
+ms.openlocfilehash: 2ab627803b1c811f131694ab58a8c53da6104774
+ms.sourcegitcommit: 9c4c3487ca79b4e077b415611051cd4ad471277c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111190"
+ms.lasthandoff: 06/15/2020
+ms.locfileid: "84766373"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
@@ -63,7 +63,7 @@ expand-archive master.zip `
   -Force
 
 # Change to the tools directory.
-cd AzureStack-Tools-master
+cd AzureStack-Tools-az
 
 ```
 

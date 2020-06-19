@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 701b2a0c6bae3fa4f246877f49f73aca8482b0de
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a72179e26ab4c873aa67ece9e207f4e6f4e71579
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660374"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631239"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -104,10 +104,10 @@ AD FS アカウントに属している Azure Stack Hub サブスクリプショ
 
 4. Azure Stack Hub のカスタム環境に必要な情報を入力します。 
 
-    | フィールド | メモ |
+    | フィールド | Notes |
     | ---   | ---   |
     | 環境名 | このフィールドはユーザーがカスタマイズできます。 |
-    | Azure Resource Manager endpoint (Azure Resource Manager エンドポイント) | Azure Stack Development Kit の Azure Resource Manager リソース エンドポイントの例は次のとおりです。<br>オペレーター用: https://adminmanagement.local.azurestack.external <br> ユーザー用: https://management.local.azurestack.external |
+    | Azure Resource Manager endpoint (Azure Resource Manager エンドポイント) | Azure Stack Development Kit の Azure Resource Manager リソース エンドポイントの例は次のとおりです。<br>オペレーター用: `https://adminmanagement.local.azurestack.external` <br> ユーザー用: `https://management.local.azurestack.external` |
 
     Azure Stack Hub 統合システムで作業していて、管理エンドポイントが不明な場合は、オペレーターに問い合わせてください。
 
