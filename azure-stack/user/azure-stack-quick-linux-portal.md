@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 75056bbadb3ab5792bd51ed3dcb348ef3d42aa3e
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81660435"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631269"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成する
 
@@ -63,7 +63,7 @@ SSH キーの組を作成するには:
 
 Azure Stack Hub ポータルのアドレスは、接続している Azure Stack Hub 製品によって異なります。
 
-* ASDK の場合は、 https://portal.local.azurestack.external に移動します。
+* ASDK の場合は、`https://portal.local.azurestack.external` に移動します。
 
 * Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供された URL に移動します。
 
@@ -152,7 +152,7 @@ NGINX のインストールが完了したら、SSH セッションを閉じて 
 
 NGINX がインストールされ、VM 上のポート 80 が開かれたので、その VM のパブリック IP アドレスを使用して Web サーバーにアクセスできます (パブリック IP アドレスは VM の **[概要]** ページに表示されます)。
 
-Web ブラウザーを開いて、*http://\<public IP address>* に移動します。
+Web ブラウザーを開いて､*http://\<public IP address>* に移動します｡
 
 ![NGINX Web サーバーのようこそページ](media/azure-stack-quick-linux-portal/linux-05a.png)
 
