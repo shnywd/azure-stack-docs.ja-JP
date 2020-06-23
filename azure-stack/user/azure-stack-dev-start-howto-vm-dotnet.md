@@ -93,7 +93,7 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     e. **[割り当て]** で **[動的]** を選択します。
 
-    f. 完全な URL が **mywebapp.local.cloudapp.azurestack.external** になるように、*mywebapp* などの DNS 名ラベルを入力します。
+    f. 完全な URL が *mywebapp.local.cloudapp.azurestack.external* になるように、**mywebapp** などの DNS 名ラベルを入力します。
 
 ## <a name="create-an-app"></a>アプリを作成する 
 

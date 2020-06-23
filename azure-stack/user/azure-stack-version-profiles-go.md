@@ -145,9 +145,9 @@ Authorizer には、リソース クライアントの承認者を設定する�
    }
    ```
 
-   `<activeDirectoryEndpoint>` に、このドキュメントの前のセクションで取得した `loginEndpoint` メタデータの `ResourceManagerUrl` プロパティの値を設定します。 `<tenantID>` 値に、お使いの Azure Stack Hub テナント ID を設定します。
+   `<activeDirectoryEndpoint>` に、このドキュメントの前のセクションで取得した `ResourceManagerUrl` メタデータの `loginEndpoint` プロパティの値を設定します。 `<tenantID>` 値に、お使いの Azure Stack Hub テナント ID を設定します。
 
-4. 最後に、`NewServicePrincipalToken`adal**モジュールの** メソッドを使用して、サービス プリンシパルのトークンを作成します。
+4. 最後に、**adal** モジュールの `NewServicePrincipalToken` メソッドを使用して、サービス プリンシパルのトークンを作成します。
 
    ```go
    package main
