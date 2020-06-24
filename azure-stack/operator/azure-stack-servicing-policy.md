@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: harik
+ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 479343623f59720cd330c3f9d8d8b8c7836a8a0e
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848151"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636837"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -52,9 +52,9 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Microsoft は、予防可能または緊急な場合の多い特定の問題に対応するため、Azure Stack Hub の修正プログラムを随時提供します。 各修正プログラムは、問題、原因、および解決方法の詳細が記載された Microsoft のナレッジ ベースの記事に対応してリリースされます。
+Microsoft は、予防可能または緊急な場合の多い特定の問題に対応するため、Azure Stack Hub の修正プログラムを随時提供します。 各修正プログラムは、その修正プログラムで対処された問題の詳細が記載された Microsoft ナレッジ ベースの該当記事と共にリリースされます。
 
-修正プログラムは、Azure Stack Hub の通常の完全版更新プログラム パッケージと同様に、ダウンロードおよびインストールできます。 ただし、完全な更新プログラムとは異なり、修正プログラムは数分でインストールできます。 修正プログラムをインストールする際に、Azure Stack Hub オペレーターがメンテナンス期間を設定することをお勧めします。 修正プログラムでは、修正プログラムが適用されているかを簡単に判別できるように、お使いの Azure Stack Hub クラウドのバージョンが更新されます。 まだサポート対象となっている Azure Stack Hub のバージョンごとに、個別の修正プログラムが提供されています。 特定のイテレーションの各修正プログラムは重複しており、同じバージョンの以前の更新プログラムが含まれています。 特定の修正プログラムの該当性については、対応するナレッジ ベースの記事を参照してください。 前のセクションのリリース ノートのリンクを参照してください。
+修正プログラムは、Azure Stack Hub の通常の完全版更新プログラム パッケージと同様に、ダウンロードおよびインストールできます。 ただし、完全な更新プログラムとは異なり、修正プログラムは数分でインストールできます。 修正プログラムをインストールする際に、Azure Stack Hub オペレーターがメンテナンス期間を設定することをお勧めします。 修正プログラムでは、修正プログラムが適用されているかを簡単に判別できるように、お使いの Azure Stack Hub クラウドのバージョンが更新されます。 まだサポート対象となっている Azure Stack Hub のバージョンごとに、個別の修正プログラムが提供されています。 **特定のイテレーションの各修正プログラムは重複しており、同じバージョンの以前の修正プログラムが含まれています。** 特定の修正プログラムの該当性については、対応するナレッジ ベースの記事を参照してください。 前のセクションのリリース ノートのリンクを参照してください。
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 2a71320a660c7dbf74ad885226bb7fcbfa78b35f
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
+ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111381"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84730681"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの違いと考慮事項
 
@@ -22,7 +22,7 @@ Azure Stack Hub ネットワークは、Azure ネットワークで提供され�
 
 ## <a name="cheat-sheet-networking-differences"></a>チート シート:ネットワークの違い
 
-| サービス | 機能 | Azure (グローバル) | Azure Stack Hub |
+| サービス | 特徴量 | Azure (グローバル) | Azure Stack Hub |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DNS | マルチテナント DNS | サポートされています | まだサポートされていません |
 |  | DNS AAAA レコード | サポートされています | サポートされていません |
@@ -52,6 +52,7 @@ Azure Stack Hub ネットワークは、Azure ネットワークで提供され�
 |  | ゲートウェイのサイズ変更 | Azure では、デプロイ後のゲートウェイのサイズ変更がサポートされています。 | サイズ変更はサポートされていません。 |
 |  | 高可用性構成 | アクティブ/アクティブ | アクティブ/パッシブ |
 |  | UsePolicyBasedTrafficSelectors | Azure では、ルート ベースのゲートウェイ接続によるポリシー ベースのトラフィック セレクターの使用がサポートされています。 | まだサポートされていません。 |
+|  | 監視とアラート | Azure では Azure Monitor を使用し、VPN リソースのアラートを設定するための機能を提供します。 | まだサポートされていません。|
 | Load Balancer | SKU | Basic Load Balancer と Standard Load Balancer がサポートされています | Basic Load Balancer のみがサポートされています。<br>SKU のプロパティはサポートされていません。<br>Basic SKU ロード バランサーの /path/ には、5 つを超えるフロントエンド IP 構成を含めることはできません。  |
 |  | ゾーン | Availability Zones がサポートされています。 | まだサポートされていません |
 |  | サービス エンドポイントの受信 NAT ルール サポート | Azure では、受信 NAT 規則のサービス エンドポイントの指定がサポートされています。 | Azure Stack Hub でサービス エンドポイントはまだサポートされていないため、指定できません。 |

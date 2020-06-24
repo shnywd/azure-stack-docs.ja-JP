@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/28/2020
+ms.date: 06/16/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 17a4a5d617332a38ac33af38b97452f5bd2975ff
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146820"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819363"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -63,6 +63,8 @@ ms.locfileid: "84146820"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 6 月 16 日:SQLIaaSExtension - バージョン 1.3.20370
+- 2020 年 6 月 12 日:Bitnami Grafana - バージョン 6.7.2006040249
 - 2020 年 5 月 21 日:Ubuntu Server 16.04 LTS - バージョン 16.04.202004290
 - 2020 年 5 月 21 日:Ubuntu Server 18.04 LTS - バージョン 18.04.202004080
 - 2020 年 5 月 21 日:Windows Server 2008 R2 SP1 BYOL - バージョン 7601.24552.2004101827

@@ -8,12 +8,12 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: be747a57b61b2d06a667bd577dd135c6220fc968
-ms.sourcegitcommit: e2ed259c0274abe930df1c7716c3f4c9f3a7b167
+ms.openlocfilehash: 6d5c80403a355186632c245baecd0796ac3acbf9
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83403864"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630988"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Azure Stack Hub を使用して高可用性 SQL データベースを作成する
 
@@ -35,8 +35,8 @@ Azure Stack Hub オペレーターとして、SQL Server データベースを�
 > [!IMPORTANT]
 > Azure Stack Hub クイックスタート テンプレートを使用するには、以下のすべてが必要です。
 
-- Windows Server 2016 Datacenter マーケットプレース イメージ。
-- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise または Developer)。 この記事では、Windows Server 2016 マーケットプレース イメージ上で SQL Server 2016 SP2 Enterprise を使用します。
+- Windows Server 2016 Datacenter。
+- Windows Server 2016 サーバー イメージ上の SQL Server 2016 SP1 または SP2 (Enterprise、Standard、または Developer) 
 - [SQL Server IaaS Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) バージョン 1.3.20180 以降 SQL IaaS 拡張機能を使用して、すべての Windows バージョンの Marketplace SQL Server 項目に必要なコンポーネントをインストールします。 SQL 仮想マシン (VM) 上で SQL 固有の設定を構成することが可能になります。 拡張機能がローカルのマーケットプレースにインストールされていない場合、SQL のプロビジョニングは失敗します。
 - [Windows バージョン 1.9.1 以降のカスタム スクリプト拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension)。 カスタム スクリプト拡張機能は、デプロイ後の VM カスタマイズ タスクを自動的に起動するために使用できるツールです。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) バージョン 2.76.0.0 以降。 DSC は、Windows PowerShell の管理プラットフォームであり、ソフトウェア サービス用の構成データのデプロイと管理を行うことができます。 また、プラットフォームでは、これらのサービスを実行する環境の管理も行われます。
@@ -84,7 +84,7 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 6. ユーザー ポータルで、 **[リソース グループ]** を選択してから、カスタム デプロイ用に作成したリソース グループの名前を選択します (この例では、**resource-group**)。 すべてのデプロイが正常に完了したことを確認するために、デプロイの状態を表示します。
     
-    次に、リソース グループ項目を確認して、**SQLPIPsql\< リソース グループ名\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、これを Azure Stack Hub オペレーターに提供する必要があります。
+    次に、リソース グループ項目を確認して、**SQLPIPsql\<resource group name\>** パブリック IP アドレス項目を選択します。 ロードバランサー パブリック IP のパブリック IP アドレスと完全な FQDN をメモします。 この SQL AlwaysOn 可用性グループを利用する SQL ホスティング サーバーを作成できるようにするには、これを Azure Stack Hub オペレーターに提供する必要があります。
 
    > [!NOTE]
    > テンプレートのデプロイには数時間かかる場合があります。
@@ -141,7 +141,7 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 SQL Server AlwayOn 可用性グループが作成され、適切に構成されたら、Azure Stack Hub オペレーターは Azure Stack Hub SQL ホスティング サーバーを作成する必要があります。 SQL ホスティング サーバーによって、ユーザーはデータベースを作成するための追加の容量を利用できるようになります。
 
-以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<リソース グループ名\>** )。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
+以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<resource group name\>** )。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
 
 > [!NOTE]
 > この手順は、Azure Stack Hub オペレーターが Azure Stack Hub 管理者ポータルから実行する必要があります。

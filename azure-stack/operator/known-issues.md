@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 06/17/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 31ef3ee64eb98b34160e95fee0a228fc32cee589
-ms.sourcegitcommit: 7c10a45a8de0c5c7649e5329ca5b69a0791e37b5
+ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83721880"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977174"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -83,14 +83,23 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
 
 ## <a name="networking"></a>ネットワーク
 
-### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
+### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound ルールを作成できません
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
 - 原因: 明示的な **DenyAllOutbound** 規則は、VM のデプロイを完了するために必要なインフラストラクチャへの内部通信がすべて妨げられるため、NSG に作成することはできません。
 - 発生頻度: 共通
 
+### <a name="icmp-protocol-not-supported-for-nsg-rules"></a>ICMP プロトコルが NSG ルールでサポートされない
+
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
 - 原因: 受信または送信のネットワーク セキュリティ規則を作成するとき、 **[プロトコル]** オプションに **[ICMP]** オプションが表示されます。 現在、これは Azure Stack Hub ではサポートされていません。 この問題は修正されており、次の Azure Stack Hub リリースでは表示されません。
+- 発生頻度: 共通
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>実行中の VM に NIC が接続されていない場合、NSG を削除できない
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
+- 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -129,6 +138,11 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの VMSS を削除できない
+
+- 適用先:この問題は 2002 リリースに適用されます。
+- 原因: ポータルにバグがあり、Standard_DS2_v2 VM サイズで VMSS を作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
+- 修復: PowerShell またはリソース マネージャー テンプレートで VMSS を作成します。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 
@@ -138,7 +152,7 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
 
 ### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ
 
-- 適用先:この問題は、2002 以降に適用されます。
+- 適用先:この問題は 2002 以降のリリースに適用されます。
 - 原因: VM の作成エクスペリエンスを実行すると、次の VM サイズが表示されます:NV4as_v4。 AMD Mi25 ベースの Azure Stack Hub GPU プレビューに必要なハードウェアを所有しているお客様は、VM のデプロイを成功させることができます。 他のすべてのお客様は、この VM サイズでの VM のデプロイに失敗します。
 - 修復: Azure Stack Hub GPU プレビューの準備のための仕様です。
 
@@ -149,6 +163,7 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
 - 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
 - 発生頻度: 共通
 
+### <a name="vm-boot-diagnostics"></a>VM ブート診断
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 停止解除された仮想マシンを起動しようとすると、次のエラーが表示されることがあります。**VM diagnostics Storage account 'diagnosticstorageaccount' not found. (VM 診断ストレージ アカウント 'diagnosticstorageaccount' が見つかりません。)Ensure storage account is not deleted**. (ストレージ アカウントが削除されていないことを確認してください。) ブート診断が有効になっている VM を起動しようとしたときに、参照されるブート診断ストレージ アカウントが削除されていると、このエラーが発生します。
@@ -335,6 +350,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
 
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>実行中の VM に NIC が接続されていない場合、NSG を削除できない
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
+- 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
+- 発生頻度: 共通
+
 ### <a name="network-interface"></a>ネットワーク インターフェイス
 
 #### <a name="addingremoving-network-interface"></a>ネットワーク インターフェイスの追加/削除
@@ -375,6 +397,8 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
 - 発生頻度: 共通
+
+#### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルでは、VPN ゲートウェイ リソースに **[VPN のトラブルシューティング]** 機能と **[メトリック]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
@@ -504,6 +528,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
+- 発生頻度: 共通
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>実行中の VM に NIC が接続されていない場合、NSG を削除できない
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
+- 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
@@ -662,6 +693,13 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
 - 原因: 可用性セットの VM をロード バランサーのバックエンド プールに追加すると、"**ロード バランサー バックエンド プールを保存できませんでした**" というエラー メッセージがポータルに表示されます。 これはポータルの表面的な問題です。機能は有効であり、内部的には VM はバックエンド プールに正常に追加されます。 
+- 発生頻度: 共通
+
+### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>実行中の VM に NIC が接続されていない場合、NSG を削除できない
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
+- 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
+- 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
 - 発生頻度: 共通
 
 ### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ

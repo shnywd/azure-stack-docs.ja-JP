@@ -3,16 +3,16 @@ title: Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stac
 description: AKS エンジンの前提条件を Azure Stack Hub Marketplace に追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 2/27/2020
+ms.date: 6/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 11/21/2019
-ms.openlocfilehash: 5bebac9b3c604b2726cf5cd8f895fb17e0db3486
-ms.sourcegitcommit: 8646eba1674ca708baf6699f4a4b56d134766e85
+ms.lastreviewed: 6/08/2020
+ms.openlocfilehash: 7090ac774da41e8f7f1bc319a9956cba8f8b0f4a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82861386"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630437"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する
 
@@ -42,7 +42,7 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 次の項目を Marketplace に追加します。
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. 管理ポータル `https://adminportal.local.azurestack.external` にサインインします。
 
 1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 
@@ -50,12 +50,12 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 1. 「`AKS Base`」と入力します。
 
-1. AKS エンジンのバージョンと一致するイメージ バージョンを選択します。 AKS エンジンと AKS 基本イメージの対応一覧については、「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-kubernetes-versions)」を参照してください。 
+1. AKS エンジンのバージョンと一致するイメージ バージョンを選択します。 AKS エンジンと AKS 基本イメージの対応一覧については、「[Supported Kubernetes Versions (サポートされている Kubernetes バージョン)](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください。 
 
     一覧で、次のように選択します。
     - **[発行者]** : Azure Kubernetes Service
     - **オファー**: aks
-    - **バージョン**:AKS 基本イメージ 16.04-LTS のイメージ配布、2019 年 10 月 (2019.10.24 または AKS Engine にマップされているバージョン)
+    - **バージョン**:AKS 基本 Ubuntu 16.04-LTS のイメージ配布、2020 年 3 月 (2020.03.19 または AKS Engine にマップされているバージョン)
 
 1. **[ダウンロード]** を選択します。
 
@@ -63,7 +63,7 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
 
 Azure から項目を取得して、カスタム スクリプトを Marketplace に追加できます。 ただし、Azure Stack Hub が切断されている場合は、次の手順に従って、[Azure から Marketplace の項目をダウンロード](azure-stack-download-azure-marketplace-item.md?pivots=state-disconnected)し、項目を追加します。  手順 5 で指定した項目を追加します。
 
-1. [管理ポータル](https://adminportal.local.azurestack.external)を開きます。
+1. 管理ポータル `https://adminportal.local.azurestack.external` を開きます。
 
 1. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[Marketplace management] (Marketplace 管理)** を選択します。
 

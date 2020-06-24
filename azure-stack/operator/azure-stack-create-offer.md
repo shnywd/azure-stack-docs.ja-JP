@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: fe2cb87c666e8c3447eca46bdcb49c71514bccdc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab12123410971dcbff3a4750650dd5508ca93efe
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77704490"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631150"
 ---
 # <a name="create-an-offer-in-azure-stack-hub"></a>Azure Stack Hub でのオファーの作成
 
@@ -21,7 +21,7 @@ ms.locfileid: "77704490"
 ::: moniker range=">=azs-1902"
 ## <a name="create-an-offer-1902-and-later"></a>オファーの作成 (1902 以降)
 
-1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[オファー]** の順に選択します。
+1. Azure Stack Hub 管理者ポータル `https://adminportal.local.azurestack.external` にサインインし、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[オファー]** の順に選択します。
 
    ![Azure Stack Hub でのオファーの作成](media/azure-stack-create-offer/offers.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "77704490"
 ::: moniker range="<=azs-1901"
 ## <a name="create-an-offer-1901-and-earlier"></a>オファーの作成 (1901 以前)
 
-1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)にサインインし、 **[+ リソースの作成]** 、 **[テナントのプラン]** 、 **[オファー]** の順に選択します。
+1. Azure Stack Hub 管理者ポータル `https://adminportal.local.azurestack.external` にサインインし、 **[+ リソースの作成]** 、 **[テナントのプラン]** 、 **[オファー]** の順に選択します。
 
    ![Azure Stack Hub でのオファーの作成](media/azure-stack-create-offer/image01.png)
   

@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 2d1b97bc17543e4fbdc1a1f79c39a01f188332df
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80891087"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819244"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 
@@ -48,9 +48,7 @@ Azure Stack Hub の外部エンドポイントに対して TLS 1.2 を適用す�
 
 ## <a name="secret-management"></a>シークレットの管理
 
-Azure Stack Hub インフラストラクチャが機能するうえで、パスワードなど、さまざまなシークレット情報が使用されます。 これらのほとんどは、24 時間ごとに入れ換えるグループ管理サービス アカウント (gMSA) であるため、頻繁に自動的に入れ換えが行われます。
-
-gMSA ではない残りのシークレットは、特権エンドポイントでスクリプトを使用して手動で入れ換えることができます。
+Azure Stack Hub インフラストラクチャが機能するうえで、パスワードや証明書など、さまざまなシークレット情報が使用されます。 内部サービス アカウントに関連付けられているパスワードのほとんどは、24 時間おきに自動的にローテーションされます。これはアカウントが[グループの管理されたサービス アカウント (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) であるためです。gMSA は、内部ドメイン コントローラーによって直接管理される種類のドメイン アカウントです。
 
 Azure Stack Hub インフラストラクチャでは、すべての内部証明書に 4096 ビット RSA キーが使用されます。 外部エンドポイントに対しても、同じキー長の証明書を使用できます。 シークレットと証明書のローテーションの詳細については、「[Azure Stack Hub でシークレットをローテーションする](azure-stack-rotate-secrets.md)」を参照してください。
 

@@ -1,18 +1,18 @@
 ---
 title: 更新プログラムの管理
 description: Azure Stack Hub 上で更新プログラムを管理する方法について説明します
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 05/13/2020
-ms.author: inhenkel
+ms.date: 06/09/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppacent
-ms.openlocfilehash: cdf2ba4d3dd226ea727efe05dc8be671ba172f8b
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.reviewer: niy
+ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
+ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83374610"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84636871"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Azure Stack Hub での更新プログラム管理
 
@@ -63,7 +63,17 @@ ms.locfileid: "83374610"
 
     OEM の更新プログラムは製造元によって異なります。 適用する必要がある OEM からの更新プログラムに気付けるように、OEM との通信チャネルを確立する必要があります。 OEM および OEM 更新プロセスの詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください。
 
-## <a name="update-processes"></a>更新プロセス
+### <a name="major-version-to-major-version"></a>メジャー バージョンからメジャー バージョンに
+
+メジャー バージョンからメジャー バージョンへの更新は、段階的に行う必要があります。現在の環境では、次のメジャー バージョンのみに更新できます。メジャー バージョンの更新をスキップすることはできません。
+
+たとえば、Azure Stack Hub 環境が 1908.x のとき、利用できる更新バージョンが 2002.x であれば、1908 から 1910 に更新し、それから 2002 に更新してください。
+
+### <a name="hotfixes-within-major-versions"></a>メジャー バージョン内の修正プログラム
+
+同じメジャー バージョン内で、Azure Stack Hub から複数の修正プログラムが公開されることがあります。 修正プログラムが累積仕様です。最新の修正プログラムには、そのバージョンの過去の修正プログラムがすべて含まれています。 詳細については、「[修正プログラム](azure-stack-servicing-policy.md#hotfixes)」を参照してください。
+
+## <a name="update-process"></a>更新処理
 
 更新プログラムがあることに気付いたら、次の手順に従って更新プログラムを適用します。
 

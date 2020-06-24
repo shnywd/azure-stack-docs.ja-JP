@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: c90231d96f3f076b0824222fba43c8d9ef680fa5
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 4559eb88c044d38182a14f1bafecf2f7019cd5cb
+ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146786"
+ms.lasthandoff: 06/17/2020
+ms.locfileid: "84977140"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -20,7 +20,7 @@ Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラ�
 
 ## <a name="vm-differences"></a>VM の相違点
 
-| 機能 | Azure (グローバル) | Azure Stack Hub |
+| 特徴量 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 | 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Hub Marketplace に使用可能なイメージはありません。 Azure Stack Hub のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Hub Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
 | VHD 世代 | 第 2 世代 VM では、第 1 世代 VM ではサポートされていない重要な機能がサポートされています。 これらの機能には、メモリの増加、Intel ソフトウェア ガード エクステンションズ (Intel SGX)、および仮想化された永続メモリ (vPMEM) が含まれます。 オンプレミスで実行される第 2 世代 VM には、Azure ではまだサポートされていない機能がいくつかあります。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。  | Azure Stack Hub でサポートされるのは、第 1 世代 VM のみです。 第 1 世代 VM を、VHDX ファイル形式から VHD ファイル形式に、および容量可変から容量固定ディスクに変換できます。 VM の世代を変更することはできません。 詳細については、「[Azure での第 2 世代 VM のサポート](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2)」を参照してください。 |
@@ -36,6 +36,7 @@ Azure Stack Hub 仮想マシン (VM) では、オンデマンドのスケーラ�
 | 仮想マシン スケール セット|自動スケーリングがサポートされます。|自動スケーリングはサポートされません。<br><br>ポータル、Resource Manager テンプレート、または PowerShell を使用してスケール セットにより多くのインスタンスを追加します。 |
 | クラウド監視 | Azure Stack Hub で使用できるストレージ アカウントのプロパティからエンドポイントを選択します。 | [クラウド監視](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)はフェールオーバー クラスター クォーラム監視の一種であり、Microsoft Azure を使用してクラスター クォーラムで投票を提供します。<br>グローバル Azure のエンドポイントと Azure Stack Hub の比較は次のようになります。<br>グローバル Azure の場合:<br>`https://mywitness.blob.core.windows.net/`<br>Azure Stack Hub の場合:<br>`https://mywitness.blob.<region>.<FQDN>/`|
 | 仮想マシンの診断 | Linux VM の診断がサポートされます。 | Linux VM の診断は、Azure Stack Hub でサポートされません。 VM 診断を有効にして Linux VM を展開すると、展開が失敗します。 診断設定で Linux VM の基本メトリックを有効にした場合も、展開が失敗します。 |
+| 入れ子になった仮想化 VM のサイズ | サポートされています | サポートされていません |
 
 ## <a name="vm-sizes"></a>VM サイズ
 

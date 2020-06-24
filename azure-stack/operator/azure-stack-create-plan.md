@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 20ee0c2b59f3a8038afc443f9b3c1b12d606d95d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700835"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631116"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Azure Stack Hub でのプランの作成
 
@@ -21,7 +21,7 @@ ms.locfileid: "77700835"
 ::: moniker range=">=azs-1902"
 ## <a name="create-a-plan-1902-and-later"></a>プランを作成する (1902 以降)
 
-1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. Azure Stack Hub 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
 
 2. ユーザーがサブスクライブできるプランやオファーを作成するには、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[プラン]** の順に選択します。
   
@@ -65,7 +65,7 @@ ms.locfileid: "77700835"
 ::: moniker range="<=azs-1901"
 ## <a name="create-a-plan-1901-and-earlier"></a>プランを作成する (1901 以前)
 
-1. [Azure Stack Hub 管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. Azure Stack Hub 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
 
 2. ユーザーがサブスクライブできるプランやオファーを作成するには、 **[+ 新規]** 、 **[オファー + プラン]** 、 **[プラン]** の順に選択します。
   

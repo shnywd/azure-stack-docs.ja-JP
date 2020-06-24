@@ -1,21 +1,20 @@
 ---
-title: Azure Stack Hub のクォータの種類
-description: Azure Stack Hub のサービスとリソースで使用可能なさまざまなクォータの種類を表示して編集します。
+title: Azure Stack Hub のクォータとクォータの種類
+description: Azure Stack Hub のサービスとリソースで使用可能なさまざまなクォータとクォータの種類を表示して編集します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2019
-ms.openlocfilehash: bc36b4fe7326596f4ef993ceb087818270cf1b5a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9556784a86ecca0d55b7cafa407a667b69efd8fd
+ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423859"
+ms.lasthandoff: 06/10/2020
+ms.locfileid: "84666391"
 ---
 # <a name="quota-types-in-azure-stack-hub"></a>Azure Stack Hub のクォータの種類
-
 
 [クォータ](service-plan-offer-subscription-overview.md#plans)は、ユーザー サブスクリプションがプロビジョニングまたは使用できるリソースの制限を定義します。 たとえば、1 つのクォータでユーザー 1 人に最大 5 つの仮想マシン (VM) の作成を許可できます。 各リソースは、独自のクォータの種類を持つことが可能です。
 
@@ -38,7 +37,7 @@ ms.locfileid: "80423859"
 
 ## <a name="storage-quota-types"></a>Storage クォータの種類
 
-| **項目** | **既定値** | **説明** |
+| **Item** | **既定値** | **説明** |
 | --- | --- | --- |
 | 最大容量 (GB) |2048 |1 つのサブスクリプションがこの場所で使用できる記憶域の最大容量です。 この値は、すべての BLOB (アンマネージド ディスクを含む) と、それに関連付けられているすべてのスナップショット、テーブル、キューの使用サイズの合計です。 |
 | [Total number of storage accounts]\(ストレージ アカウントの合計数\) |20 |1 つのサブスクリプションでこの場所に作成できるストレージ アカウントの最大数です。 |
@@ -48,7 +47,7 @@ ms.locfileid: "80423859"
 
 ## <a name="network-quota-types"></a>Network クォータの種類
 
-| **項目** | **既定値** | **説明** |
+| **Item** | **既定値** | **説明** |
 | --- | --- | --- |
 | [Maximum virtual networks]\(仮想ネットワークの最大数\) |50 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワークの最大数です。 |
 | [Maximum virtual network gateways]\(仮想ネットワーク ゲートウェイの最大数\) |1 |1 つのサブスクリプションでこの場所に作成できる仮想ネットワーク ゲートウェイ (VPN ゲートウェイ) の最大数です。 |

@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: e85df91b08c51ce8255e2b35c9d7ba31505b3d00
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313221"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631197"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -71,7 +71,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 サービス プリンシパルがリソースを作成できるように、そのプリンシパルにサブスクリプションへのアクセスを付与します。
 
-1.  [Azure Stack Hub ポータル](https://portal.local.azurestack.external/)にサインインします。
+1.  Azure Stack Hub ポータル `https://portal.local.azurestack.external/` にサインインします。
 
 1. **[すべてのサービス]**  >  **[サブスクリプション]** を選択します。
 
@@ -87,7 +87,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 ## <a name="deploy-kubernetes"></a>Kubernetes のデプロイ
 
-1. [Azure Stack Hub ポータル](https://portal.local.azurestack.external)を開きます。
+1. Azure Stack Hub ポータル `https://portal.local.azurestack.external` を開きます。
 
 1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **Create** をクリックしてください。
 

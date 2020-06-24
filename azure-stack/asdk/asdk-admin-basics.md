@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 75e20d593f1fb07e55655a7128c12b5417835dfe
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846893"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819376"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理の基礎
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要を示します。 この情報をよく理解することで、テスト ユーザーの生産性が可能な限り迅速に向上することになります。
@@ -56,7 +56,7 @@ ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.mi
 また、管理者ポータルの右上隅の **[ヘルプ]** (疑問符) をクリックして、フォーラムにアクセスすることもできます。 次に、 **[ヘルプとサポート]** をクリックすると、フォーラムへのリンクが含まれるヘルプとサポートの **[概要]** が開きます。 MSDN フォーラムは定期的にチェックされています。  
 
 > [!IMPORTANT]
-> ASDK は評価環境であるため、Microsoft カスタマー サポート サービス (CSS) を通じて公式なサポートは提供されません。
+> ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
 
 ## <a name="next-steps"></a>次のステップ
 [ASDK をデプロイする](asdk-install.md)

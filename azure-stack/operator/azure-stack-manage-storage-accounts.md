@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 995342f471ed7300d2fb9dd95a6623588a13d1a9
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295330"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630924"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 
@@ -22,7 +22,7 @@ Azure Stack Hub のストレージ アカウントを管理する方法を学習
 
 リージョン内のストレージ アカウントのリストは、これらの手順に従うことで Azure Stack Hub で表示できます。
 
-1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
 
 2. **[すべてのサービス]**  >  **[ストレージ]**  >  **[ストレージ アカウント]** の順に選択します。
 
@@ -89,8 +89,8 @@ Azure Stack Hub では、これを行う簡単な方法があります。
 
 **保有期間を変更するには:**
 
-1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
-2. **[管理]** の下で、**[すべてのサービス]** > **[リージョン管理]** を選択します。
+1. 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
+2. **[管理]** の下で、 **[すべてのサービス]**  >  **[リージョン管理]** を選択します。
 3. **[リソース プロバイダー]**  >  **[ストレージ]**  >  **[設定]** の順に選択します。 パスは、[ホーム] > [<*リージョン*> - リソース プロバイダー] > [ストレージ] です。
 4. **[構成]** を選択してリテンション期間の値を編集します。
 

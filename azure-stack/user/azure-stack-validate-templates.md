@@ -3,20 +3,20 @@ title: Azure Stack Hub でのテンプレート検証ツールの使用
 description: テンプレート検証ツールを使用して、Azure Stack Hub にデプロイするテンプレートをチェックします。
 author: sethmanheim
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 06/09/2020
 ms.author: sethm
-ms.reviewer: unknown
+ms.reviewer: sijuman
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 4c545c60c0890f87c87108101a3e30ab4c87d16d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 69df3da5b5769be9ee9d9bd3234c53de177fd9e2
+ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77705289"
+ms.lasthandoff: 06/12/2020
+ms.locfileid: "84744871"
 ---
 # <a name="use-the-template-validation-tool-in-azure-stack-hub"></a>Azure Stack Hub でのテンプレート検証ツールの使用
 
-テンプレート検証ツールを使用して、Azure Stack Hub に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックします。 テンプレート検証ツールは Azure Stack Hub ツールの GitHub リポジトリの一部として使用できます。 Azure Stack Hub ツールをダウンロードするには、「[GitHub からの Azure Stack Hub ツールのダウンロード](../operator/azure-stack-powershell-download.md)」で説明されている手順を行います。
+テンプレート検証ツールを使用して、Azure Stack Hub に Azure Resource Manager [テンプレート](azure-stack-arm-templates.md)をデプロイする準備ができているかどうかをチェックします。 テンプレート検証ツールは Azure Stack Hub ツールの GitHub リポジトリで利用できます。 Azure Stack Hub ツールをダウンロードするには、「[GitHub からの Azure Stack Hub ツールのダウンロード](../operator/azure-stack-powershell-download.md)」で説明されている手順を行います。
 
 ## <a name="overview"></a>概要
 
@@ -29,7 +29,7 @@ ms.locfileid: "77705289"
 
 テンプレート検証ツールを使用する前に、**AzureRM.CloudCapabilities** PowerShell モジュールを実行して JSON ファイルを構築します。
 
->[!NOTE]
+> [!NOTE]
 > 統合システムを更新する場合や、新しいサービスまたは仮想拡張機能を追加する場合は、このモジュールの再実行が必要になります。
 
 1. Azure Stack Hub への接続があることを確認してください。 これらの手順は Azure Stack Development Kit (ASDK) ホストから実行するか、または、[VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) を使用してワークステーションから接続できます。

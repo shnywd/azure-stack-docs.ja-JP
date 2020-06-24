@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: adca3be6659d140dcf05776d04696ff7302a9ab3
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79313166"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631225"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -55,7 +55,7 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack H
 
 ## <a name="deploy-kubernetes"></a>Kubernetes のデプロイ
 
-1. [Azure Stack Hub ポータル](https://portal.local.azurestack.external)を開きます。
+1. Azure Stack Hub ポータル `https://portal.local.azurestack.external` を開きます。
 
 1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **［作成］** を選択します
 

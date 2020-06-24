@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: e77252cf89d52291d7d4071d83981eb36bb062ef
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836174"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819423"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での事前診断ログの収集
 
@@ -20,7 +20,7 @@ ms.locfileid: "82836174"
 
 Azure Stack Hub でアラートが発生したときに診断ログを事前に収集することで、カスタマー サポートに要する時間を節約します。
 
-システム正常性状態を調査する必要がある場合、サポート ケースを開く前に Microsoft カスタマー サポートサービス (CSS) により分析のためにログを自動的にアップロードできます。
+システム正常性状態を調査する必要がある場合、サポート ケースを開く前に Microsoft サポートにより分析のためにログを自動的にアップロードできます。
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>事前ログ収集を構成する手順
 
@@ -41,13 +41,13 @@ Azure Stack Hub でアラートが発生したときに診断ログを事前に�
 
 ログ収集とカスタマー サポート エクスペリエンスを効率化するために、自動診断ログ収集機能を構成することをお勧めします。
 
-システム正常性状態を調査する必要がある場合、Microsoft カスタマー サポートサービス (CSS) による分析のためにログを自動的にアップロードすることができます。
+システム正常性状態を調査する必要がある場合、Microsoft サポートによる分析のためにログを自動的にアップロードすることができます。
 
 ## <a name="create-an-azure-blob-container-sas-url"></a>Azure BLOB コンテナー SAS URL の作成
 
 自動ログ収集を構成する前に、BLOB コンテナーの Shared Access Signature (SAS) を取得する必要があります。 SAS により、アカウント キーを共有することなく、ストレージ アカウントのリソースへのアクセス権を付与できます。
 
-Azure Stack Hub ログ ファイルを Azure の BLOB コンテナーに保存し、CSS がログを収集できる SAS URL を提供することができます。
+Azure Stack Hub ログ ファイルを Azure の BLOB コンテナーに保存し、Microsoft サポートがログを収集できる SAS URL を提供することができます。
 
 ### <a name="prerequisites"></a>前提条件
 
@@ -135,7 +135,7 @@ Azure Stack Hub から収集されたログの履歴は、 **[ヘルプとサポ
 
 有効にすると、次のいずれかのイベントが発生した場合にのみ、事前ログ収集によってログがアップロードされます。
 
-たとえば、**更新失敗**は、事前診断ログ収集をトリガーするアラートです。 これが有効になっていると、CSS による問題のトラブルシューティングに役立つように、更新エラーの間に前もって診断ログがキャプチャされます。 診断ログは、**更新失敗**のアラートが発生した場合にだけ収集されます。
+たとえば、**更新失敗**は、事前診断ログ収集をトリガーするアラートです。 これが有効になっていると、Microsoft サポートによる問題のトラブルシューティングに役立つように、更新エラーの間に前もって診断ログがキャプチャされます。 診断ログは、**更新失敗**のアラートが発生した場合にだけ収集されます。
 
 | アラートのタイトル | FaultIdType |
 |---|---|

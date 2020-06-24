@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/29/2020
+ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 39e6c3ce9b942398954c5c81cbce172095520d90
-ms.sourcegitcommit: c167bf3724139aafe40066f9533985ed7d919c0e
+ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84329216"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819450"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -157,6 +157,8 @@ Azure Stack Hub では、修正プログラムが定期的にリリースされ�
 
 Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
+修正プログラムの詳細については、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md#hotfixes)」を参照してください。
+
 ### <a name="prerequisites-before-applying-the-2002-update"></a>前提条件:2002 更新プログラムを適用する前
 
 Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適用された 1910 リリースに適用する必要があります。
@@ -166,7 +168,7 @@ Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適�
 
 ### <a name="after-successfully-applying-the-2002-update"></a>2002 更新プログラムの適用に成功した後
 
-この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
+この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
 - [Azure Stack Hub 修正プログラム 1.2002.28.93](https://support.microsoft.com/help/4562966)
@@ -222,7 +224,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
     - Azure Arc との統合。
     - Azure Monitor for Containers との統合。
   - Windows コンテナーを AKS エンジンと共に使用します。
-  - デプロイに対して CSS およびエンジニアリグ サポートを受けられます。
+  - デプロイに対して Microsoft サポートおよびエンジニアリグ サポートを受けられます。
 
 ### <a name="improvements"></a>機能強化
 
@@ -429,7 +431,7 @@ Azure Stack Hub 1907 更新プログラムのビルドの種類は**高速**で�
 
 <!-- What's new, also net new experiences and features. -->
 
-- 診断ログの収集を容易にし、改善するための Azure Stack Hub 診断ログ収集サービスの一般公開リリース。 Azure Stack Hub 診断ログ収集サービスは、診断ログを収集して、Microsoft カスタマー サポート サービス (CSS) と共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack Hub 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定できます。 オンデマンドで同じ操作を実行するためにも、サービスを使用できます。 詳細については、[診断ログの収集](azure-stack-diagnostic-log-collection-overview.md)に関する記事を参照してください。
+- 診断ログの収集を容易にし、改善するための Azure Stack Hub 診断ログ収集サービスの一般公開リリース。 Azure Stack Hub 診断ログ収集サービスは、診断ログを収集して、Microsoft サポートと共有するための簡単な方法を提供します。 この診断ログ収集サービスは、Azure Stack Hub 管理者ポータルでの新しいユーザー エクスペリエンスを提供します。これにより、オペレーターは、特定の重要なアラートが発生したときに、ストレージ BLOB への診断ログの自動アップロードを設定できます。 オンデマンドで同じ操作を実行するためにも、サービスを使用できます。 詳細については、[診断ログの収集](azure-stack-diagnostic-log-collection-overview.md)に関する記事を参照してください。
 
 - Azure Stack Hub 検証ツール **Test-AzureStack** の一部としての Azure Stack Hub ネットワーク インフラストラクチャ検証の一般公開リリース。 Azure Stack Hub ネットワーク インフラストラクチャは、**Test-AzureStack** の一部になり、Azure Stack Hub のネットワーク インフラストラクチャで障害が発生したかどうかを特定します。 テストでは、Azure Stack Hub ソフトウェアで定義されたネットワークをバイパスすることによって、ネットワーク インフラストラクチャの接続が確認されます。 パブリック VIP から構成済みの DNS フォワーダー、NTP サーバー、および ID エンドポイントへの接続が示されます。 また、ID プロバイダーとして Azure AD を使用する場合には Azure への、または ADFS を使用する場合にはフェデレーション サーバーへの接続が確認されます。 詳細については、[Azure Stack Hub 検証ツール](azure-stack-diagnostic-test.md)に関する記事を参照してください。
 

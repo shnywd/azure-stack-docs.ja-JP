@@ -7,20 +7,20 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 2fcc31625fc0f508532c5c6a524f26e9cef31760
-ms.sourcegitcommit: 70c344b3c9c63f8c12867b2cdfdd1794fcc518dc
+ms.openlocfilehash: d3c6ecaa062f97aef76835d3c291b4ecaf405b11
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836038"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819464"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での診断ログの収集
 
 ::: moniker range=">= azs-2002"
 
-Azure Stack Hub は、相互にやり取りする Windows コンポーネントとオンプレミスの Azure サービスからなる大規模なコレクションです。 これらのすべてのコンポーネントとサービスは、独自のログ セットを生成します。 Microsoft カスタマー サポート サービス (CSS) が問題を効率的に診断できるように、診断ログ収集のシームレスなエクスペリエンスが提供されています。
+Azure Stack Hub は、相互にやり取りする Windows コンポーネントとオンプレミスの Azure サービスからなる大規模なコレクションです。 これらのすべてのコンポーネントとサービスは、独自のログ セットを生成します。 Microsoft サポートが問題を効率的に診断できるように、診断ログ収集のシームレスなエクスペリエンスが提供されています。
 
-**[ヘルプとサポート]**   の診断ログ収集によって、オペレーターは診断ログを迅速に収集し、CSS と共有できます。これは PowerShell を必要としない簡単なユーザー インターフェイスです。 他のインフラストラクチャ サービスが停止している場合でも、ログは収集されます。  
+**[ヘルプとサポート]**   の診断ログ収集によって、オペレーターは診断ログを迅速に収集し、Microsoft サポートと共有できます。これは PowerShell を必要としない簡単なユーザー インターフェイスです。 他のインフラストラクチャ サービスが停止している場合でも、ログは収集されます。  
 
 このログ収集方法を使用し、管理者ポータルまたは **[ヘルプとサポート]** ブレードが使用できない場合のみ[特権エンドポイント (PEP) を使用する](azure-stack-get-azurestacklog.md)ことをお勧めします。
 
@@ -35,7 +35,7 @@ Azure Stack Hub は、相互にやり取りする Windows コンポーネント�
 
 ### <a name="send-logs-proactively"></a>ログを事前に送信する
 
-[事前ログ収集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)では、お客様がサポート ケースを開く前に Microsoft にログを送信できるように、診断ログの収集が合理化および簡素化されます。 診断ログは、分析のために Azure Stack Hub から事前にアップロードされます。 これらのログは、[システム正常性アラート](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts)が発生した場合にのみ収集され、サポート ケースのコンテキストで CSS によってのみアクセスされます。
+[事前ログ収集](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)では、お客様がサポート ケースを開く前に Microsoft にログを送信できるように、診断ログの収集が合理化および簡素化されます。 診断ログは、分析のために Azure Stack Hub から事前にアップロードされます。 これらのログは、[システム正常性アラート](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md#proactive-diagnostic-log-collection-alerts)が発生した場合にのみ収集され、サポート ケースのコンテキストで Microsoft サポートによってのみアクセスされます。
 
 #### <a name="how-the-data-is-handled"></a>データの処理方法
 
@@ -51,7 +51,7 @@ Azure Stack Hub は、相互にやり取りする Windows コンポーネント�
 
 [[Send logs now]\(今すぐログを送信する\)](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) は、お客様が通常はサポートケースを開く前に収集を開始したときのみ、診断ログが Azure Stack Hub からアップロードされる手動オプションです。
 
-Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用して、Microsoft カスタマー サポート サービス (CSS) に診断ログをオンデマンドで送信することができます。 Azure Stack Hub が Azure に接続されている場合は、[管理者ポータルの [Send logs now]\(今すぐログを送信する\)](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) の使用をお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [PowerShell を使用してログをすぐに送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)必要があります。
+Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用し、Microsoft サポートに診断ログをオンデマンドで送信できます。 Azure Stack Hub が Azure に接続されている場合は、[管理者ポータルの [Send logs now]\(今すぐログを送信する\)](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md) の使用をお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [PowerShell を使用してログをすぐに送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)必要があります。
 
 インターネットに接続していない場合、またはローカルでのみログを保存する場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) メソッドを使用してログを送信します。 次のフローチャートは、それぞれの場合に診断ログを送信するために使用するオプションを示しています。
 
@@ -59,7 +59,7 @@ Azure Stack オペレーターは、管理者ポータルまたは PowerShell �
 
 #### <a name="how-the-data-is-handled"></a>データの処理方法
 
-Azure Stack Hub から診断ログ収集を開始することで、これらのログをアップロードし、Microsoft によって管理および制御されている Azure ストレージア カウントに保持することを承認し、同意します。 Microsoft CSS は、ログ収集のために顧客とやり取りすることなく、サポート ケースを使用して、これらのログにすぐにアクセスできます。
+Azure Stack Hub から診断ログ収集を開始することで、これらのログをアップロードし、Microsoft によって管理および制御されている Azure ストレージア カウントに保持することを承認し、同意します。 Microsoft サポートは、ログ収集のために顧客とやり取りすることなく、サポート ケースを使用して、これらのログにすぐにアクセスできます。
 
 このデータはシステム正常性アラートをトラブルシューティングするためにのみ使用され、お客様の同意なしに、マーケティング、広告、その他の商業目的で使用されることはありません。 このデータは最大 90 日間保持でき、Microsoft が収集したすべてのデータは、[標準的なプライバシーに関する声明](https://privacy.microsoft.com/)に従って処理されます。
 

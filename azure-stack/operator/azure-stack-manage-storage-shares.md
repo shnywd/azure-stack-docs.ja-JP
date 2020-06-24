@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 15908ca3057cb347f1dd02c7ee5113c0e9d0b9de
-ms.sourcegitcommit: e75218d2e04f41620cc09caf04473ad4c7289253
+ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708334"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84630994"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
@@ -90,7 +90,7 @@ Azure PowerShell または管理者ポータルを使用して共有を監視す
 ### <a name="use-the-administrator-portal"></a>管理者ポータルを使用する
 クラウド オペレーターは、管理者ポータルを使用して、すべての共有のストレージ容量を確認できます。
 
-1. [管理者ポータル](https://adminportal.local.azurestack.external)にサインインします。
+1. 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
 2. **[すべてのサービス]** > **[ストレージ]** > **[ファイル共有]** を選択してファイル共有の一覧を開きます。そこで使用状況情報を確認できます。
 
     ![例:Azure Stack Hub 管理者ポータルでのストレージ ファイル共有](media/azure-stack-manage-storage-shares/storage-file-shares.png)
@@ -152,7 +152,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
 詳細については、「[Azure Stack Hub ストレージ アカウントを管理する](azure-stack-manage-storage-accounts.md#reclaim)」の「容量の回収」セクションを参照してください。
 
-::: moniker range="<azs-2002"
+::: moniker range="<azs-1910"
 
 ### <a name="migrate-a-container-between-volumes"></a>ボリューム間でコンテナーを移行する
 "*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "
@@ -242,7 +242,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 領域を管理する最も極端な方法には、VM ディスクの移動が伴います。 接続されているコンテナー (VM ディスクを含むコンテナー) の移動は複雑であるため、この操作を実行する場合は Microsoft サポートに問い合わせてください。
 
 ::: moniker-end
-::: moniker range=">=azs-2002"
+::: moniker range=">=azs-1910"
 
 ### <a name="migrate-a-managed-disk-between-volumes"></a>ボリューム間でマネージド ディスクを移行する
 "*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "
@@ -263,7 +263,10 @@ PowerShell または管理者ポータルを使用してボリュームを監視
    $StorageSubSystem = (Get-AzsStorageSubSystem -ScaleUnit $ScaleUnit.Name)[0]
    $Volumes = (Get-AzsVolume -ScaleUnit $ScaleUnit.Name -StorageSubSystem $StorageSubSystem.Name | Where-Object {$_.VolumeLabel -Like "ObjStore_*"})
    $SourceVolume  = ($Volumes | Sort-Object RemainingCapacityGB)[0]
-   $Disks = Get-AzsDisk -Status All -ScaleUnit $ScaleUnit.name -VolumeLabel $SourceVolume.VolumeLabel | Select-Object -First 10
+   $VolumeName = $SourceVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationSource = "\\SU1FileServer."+$VolumeName+"\SU1_"+$SourceVolume.VolumeLabel
+   $Disks = Get-AzsDisk -Status All -SharePath $MigrationSource | Select-Object -First 10
    ```
    次に、$disks を調べます。
 
@@ -277,13 +280,16 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
    ```powershell
    $DestinationVolume  = ($Volumes | Sort-Object RemainingCapacityGB -Descending)[0]
+   $VolumeName = $DestinationVolume.Name.Split("/")[2]
+   $VolumeName = $VolumeName.Substring($VolumeName.IndexOf(".")+1)
+   $MigrationTarget = "\\SU1FileServer."+$VolumeName+"\SU1_"+$DestinationVolume.VolumeLabel
    ```
 
 4. マネージド ディスクの移行を開始します。 移行は非同期です。 最初の移行が完了する前に、別のディスクの移行を開始する場合は、ジョブ名を使用してそれぞれの状態を追跡します。
 
    ```powershell
    $jobName = "MigratingDisk"
-   Start-AzsDiskMigrationJob -Disks $Disks -TargetScaleUnit $ScaleUnit.name -TargetVolumeLabel $DestinationVolume.VolumeLabel -Name $jobName
+   Start-AzsDiskMigrationJob -Disks $Disks -TargetShare $MigrationTarget -Name $jobName
    ```
 
 5. ジョブ名を使用して、移行ジョブの状態を確認します。 ディスクの移行が完了すると、**MigrationStatus** が **Completed** に設定されます。

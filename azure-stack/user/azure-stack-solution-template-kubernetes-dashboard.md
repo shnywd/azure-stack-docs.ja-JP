@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 82c3a0c7c43494a3a1a2790ba4672c3d498a61cd
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
+ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111564"
+ms.lasthandoff: 06/09/2020
+ms.locfileid: "84631184"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
@@ -47,7 +47,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 1. Azure Stack Hub のダッシュボードから、クラスターのマスターのパブリック IP アドレスとユーザー名を取得します。 情報の取得方法は以下のとおりです。
 
-    - [Azure Stack Hub ポータル](https://portal.local.azurestack.external/)にサインインする
+    - Azure Stack Hub ポータル `https://portal.local.azurestack.external/` にサインインします。
     - **[すべてのサービス]**  >  **[すべてのリソース]** の順に選択します。 クラスター リソース グループで、マスターを見つけます。 マスターの名前は `k8s-master-<sequence-of-numbers>` です。 
 
 2. ポータルで、マスター ノードを開きます。 **パブリック IP** アドレスをコピーします。 **[接続]** をクリックして、 **[VM ローカル アカウントを使用してログインする]** ボックスのユーザー名を取得します。 これは、クラスターを作成するときに設定したのと同じユーザー名です。 [接続] ブレードの一覧に表示されたプライベート IP アドレスではなく、パブリック IP アドレスを使用します。

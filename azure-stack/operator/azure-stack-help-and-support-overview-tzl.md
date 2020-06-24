@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: 20d20e5e53a8826ea0514e894bacbfeeeda6c540
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580138"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819499"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub のヘルプとサポート
 
@@ -42,15 +42,15 @@ Azure Stack Hub のオペレーターは **[ヘルプとサポート]** を使�
 
 統合システムについては、Microsoft と Microsoft の OEM (original equipment manufacturer) ハードウェア パートナーとの間に、統合されたエスカレーションと解決のプロセスがあります。
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供します。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、 **[ヘルプとサポートの概要]** が開き、新しいサポート リクエストを送信できます。 サポート要求を作成するときに、Azure Stack Hub サービスが事前に選択されます。 グローバルな Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することをお客様に強くお勧めします。
+クラウド サービスに問題がある場合は、Microsoft サポートを通じてサポートが提供されます。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、 **[ヘルプとサポートの概要]** が開き、新しいサポート リクエストを送信できます。 サポート要求を作成するときに、Azure Stack Hub サービスが事前に選択されます。 グローバルな Azure portal を使うのではなく、このエクスペリエンスを使ってチケットを送信することをお客様に強くお勧めします。
 
-デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
+デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft サポートにお問い合わせください。
 
 ![統合システムの専門家のサポートを受ける](media/azure-stack-help-and-support/get-support-integrated.png)
 
 Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。
 
-管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、フォーラムへのリンクが含まれるヘルプとサポートの**概要**が開きます。 MSDN フォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、フォーラムへのリンクが含まれるヘルプとサポートの**概要**が開きます。 MSDN フォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
 
 また、MSDN フォーラムにアクセスして問題について話し合ったり、オンライン トレーニングを受けて自分のスキルを向上させたりすることもできます。
 
@@ -83,7 +83,7 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フ�
 
 ![診断ログの収集オプション](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
 
-統合システムでは、Microsoft カスタマー サポート サービス (CSS) と診断ログを共有できます。 Azure Stack Development Kit (ASDK) は評価環境であるため、CSS ではサポートされません。 詳細については、[Azure Stack Hub 診断ログの収集の概要](azure-stack-diagnostic-log-collection-overview.md)に関するページを参照してください。
+統合システムでは、Microsoft サポートと診断ログを共有できます。 Azure Stack Development Kit (ASDK) は評価環境であるため、Microsoft サポートではサポートされません。 詳細については、[Azure Stack Hub 診断ログの収集の概要](azure-stack-diagnostic-log-collection-overview.md)に関するページを参照してください。
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>以前のリリースの Azure Stack Hub (1905 より前) に関するヘルプとサポート
 
@@ -91,15 +91,15 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フ�
 
 ![サポート利用のチュートリアル](media/azure-stack-help-and-support/get-support-previous.png)
 
-クラウド サービスに問題がある場合は、Microsoft カスタマー サポート サービス (CSS) を通じてサポートを提供します。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択してから、 **[新しいサポート リクエスト]** を選択して、CSS で新しいサポート リクエストを直接送信できます。
+クラウド サービスに問題がある場合は、Microsoft サポートを通じてサポートが提供されます。 管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択してから、 **[新しいサポート リクエスト]** を選択して、Microsoft サポートで新しいサポート リクエストを直接送信できます。
 
-統合システムの場合は、Microsoft と OEM パートナーとの間に、調整されたエスカレーションと解決のプロセスがあります。 クラウド サービスに問題がある場合は、Microsoft CSS を通じてサポートが提供されます。
+統合システムの場合は、Microsoft と OEM パートナーとの間に、調整されたエスカレーションと解決のプロセスがあります。 クラウド サービスに問題がある場合は、Microsoft サポートを通じてサポートが提供されます。
 
-デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft CSS にお問い合わせください。
+デプロイ、パッチと更新プログラム、ハードウェア (現場交換可能ユニットを含む) や、ハードウェア ライフサイクル ホストで実行するソフトウェアなどのハードウェア ブランドのソフトウェアに問題がある場合は、最初に OEM ハードウェア ベンダーにお問い合わせください。 その他の問題については、Microsoft サポートにお問い合わせください。
 
 ASDK については、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。
 
-管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[新しいサポート要求]** を選択すると、Azure Stack Hub コミュニティの専門家からのヘルプを得られます。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[新しいサポート要求]** を選択すると、Azure Stack Hub コミュニティの専門家からのヘルプを得られます。 ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
 
 ::: moniker-end
 

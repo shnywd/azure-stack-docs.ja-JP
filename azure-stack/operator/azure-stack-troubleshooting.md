@@ -8,12 +8,12 @@ ms.date: 05/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: 4910a7aaa2462cb53c4ce89246c92a60f61d5017
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
+ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375006"
+ms.lasthandoff: 06/16/2020
+ms.locfileid: "84819511"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -21,7 +21,7 @@ ms.locfileid: "83375006"
 
 ## <a name="frequently-asked-questions"></a>よく寄せられる質問
 
-以下のセクションには、Microsoft カスタマー サポート サービス (CSS) に送られてくる一般的な質問を取り上げたドキュメントのリンクが含まれています。
+以下のセクションには、Microsoft サポートに送られてくる一般的な質問を取り上げたドキュメントのリンクが含まれています。
 
 ### <a name="purchase-considerations"></a>購入に関する考慮事項
 
@@ -80,7 +80,7 @@ Azure Stack Hub で使用する共有サービス アカウントの種類を選
 
 ### <a name="get-scale-unit-metrics"></a>スケール ユニットのメトリックを取得する
 
-PowerShell を使用して、CSS を利用せずに、スタンプ使用状況の情報を取得できます。 スタンプの使用状況を取得するには:
+PowerShell を使用して、Microsoft サポートを利用せずに、スタンプ使用状況の情報を取得できます。 スタンプの使用状況を取得するには:
 
 1. PEP セッションを作成します。
 2. `test-azurestack` を実行します。
