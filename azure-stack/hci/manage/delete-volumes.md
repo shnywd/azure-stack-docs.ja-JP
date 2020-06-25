@@ -3,14 +3,14 @@ title: Azure Stack HCI のボリュームを削除する
 description: Windows Admin Center と PowerShell を使用して Azure Stack HCI でボリュームを削除する方法について説明します。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/17/2020
-ms.openlocfilehash: cf556a9b6c130907e8607d8e5b9436b71756a3d4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ffa848436169a55e2a2ad4f878e1e3aecaf29d6e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79511897"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196360"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Azure Stack HCI のボリュームの削除
 
@@ -33,7 +33,7 @@ Windows Admin Center を使用したボリュームの削除方法を説明す�
 
 記憶域スペース ダイレクト内のボリュームを削除するには、**Remove-VirtualDisk** コマンドレットを使用します。 このコマンドレットは、**VirtualDisk** オブジェクトを削除し、使用した領域を、**VirtualDisk** オブジェクトを公開する記憶域プールに返します。
 
-まず、管理 PC で PowerShell を起動し、**Get-VirtualDisk** コマンドレットを **CimSession** パラメーターを指定して実行します。このパラメーターは、記憶域スペース ダイレクト クラスターまたはサーバー ノードの名前で、たとえば *clustername.microsoft.com* となります。 
+まず、管理 PC で PowerShell を起動し、**Get-VirtualDisk** コマンドレットを **CimSession** パラメーターを指定して実行します。このパラメーターは、記憶域スペース ダイレクト クラスターまたはサーバー ノードの名前で、たとえば *clustername.microsoft.com* となります。
 
 ```PowerShell
 Get-VirtualDisk -CimSession clustername.microsoft.com

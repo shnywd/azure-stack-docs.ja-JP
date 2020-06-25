@@ -1,17 +1,17 @@
 ---
 title: Azure Site Recovery を使用して Azure Stack HCI VM を保護する
 description: Windows Admin Center を使用して、Azure Site Recovery で Azure Stack HCI VM を保護します。
-ms.topic: article
+ms.topic: how-to
 author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 01b6f16b3812b5f11f95d9d11f6563a1631fd690
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 0465666549e0ae8801c9bab0be6d8a3d6dad8891
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783999"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196462"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Azure Site Recovery を使用して Azure Stack HCI VM を保護する
 
@@ -53,13 +53,13 @@ Azure Site Recovery は、"*レプリケーション*" と "*フェールオー�
 
    - **サブスクリプション:** このホストの VM レプリケーションに使用する Azure サブスクリプション。
    - **[リソース グループ]:** 新しいリソース グループ名。
-   - **Recovery Services コンテナー:** このホストで保護される VM の Azure Site Recovery コンテナーの名前。  
+   - **Recovery Services コンテナー:** このホストで保護される VM の Azure Site Recovery コンテナーの名前。
    - **[場所]:** Azure Site Recovery リソースを作成する Azure リージョン。
 
     :::image type="content" source="media/azure-site-recovery/set-up-host-with-asr.png" alt-text="Windows Admin Center の [Setting up host with Azure Site Recovery]\(Azure Site Recovery でのホストの設定\) ページ。":::
 
 1. 次の通知が表示されるまで待ちます: **Site Recovery Setting Completed (Site Recovery の設定が完了しました)** 。
- 
+
 このプロセスには最大 10 分かかることがあります。 進行状況を確認するには、 **[通知]** (Windows Admin Center の右上にあるベル アイコン) に移動します。
 
 >[!NOTE]
@@ -81,11 +81,11 @@ VM を保護するには、次の手順を実行します。
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting-asr.png" alt-text="Windows Admin Center で VM を保護する Azure Site Recovery のストレージ アカウントを定義する。":::
 
-    Azure Site Recovery で、レプリケーション プロセスが開始されます。 **[仮想マシンのインベントリ]** グリッドの **[Protected]\(保護済み\)** 列の値が **[はい]** に変更されると、VM が保護されています。 このプロセスには数分かかることがあります。  
+    Azure Site Recovery で、レプリケーション プロセスが開始されます。 **[仮想マシンのインベントリ]** グリッドの **[Protected]\(保護済み\)** 列の値が **[はい]** に変更されると、VM が保護されています。 このプロセスには数分かかることがあります。
 
 ## <a name="step-3-configure-and-run-a-test-failover-in-the-azure-portal"></a>手順 3:Azure portal でテスト フェールオーバーを構成して実行する
 VM レプリケーションを開始する前に、この手順を完了する必要はありません。 VM は、レプリケーションのみで保護されます。 ただし、Azure Site Recovery を設定するときに、フェールオーバーの設定を構成しておくことをお勧めします。
- 
+
 Azure VM へのフェールオーバーを準備するには、次の手順を実行します。
 1. フェールオーバーされた VM がこの VNET に接続する Azure ネットワークを設定します。 詳細については、「[Azure にオンプレミス Hyper-V VM のディザスター リカバリーを設定する](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure)」を参照してください。
 

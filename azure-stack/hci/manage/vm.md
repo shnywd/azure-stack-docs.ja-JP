@@ -2,16 +2,16 @@
 title: Windows Admin Center を使用して Azure Stack HCI 上の VM を管理する
 description: Windows Admin Center を使用して Azure Stack HCI 上のクラスターで仮想マシンを作成および管理する方法について説明します。
 author: v-dasis
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: f3ba9415cd5d91260067a1648bdb38c196be206a
-ms.sourcegitcommit: d69eacbf48c06309b00d17c82ebe0ce2bc6552df
+ms.openlocfilehash: 21bb8cf8c88a66fdb4ecee8d45d3e13127faabec
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83794409"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196496"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI 上の VM を管理する
 
@@ -61,7 +61,7 @@ Windows Admin Center を使用して、Azure Stack HCI 上の仮想マシン (VM
 :::image type="content" source="media/manage-vm/host-metrics.png" alt-text="ホスト メトリック画面":::
 
 1. **[ツール]** で下方向にスクロールし、 **[仮想マシン]** を選択します。
-1. 右側の **[概要]** タブには、次のような、選択したサーバーまたはクラスターの Hyper-v ホストのリソースとパフォーマンスの総合的なビューが表示されます。 
+1. 右側の **[概要]** タブには、次のような、選択したサーバーまたはクラスターの Hyper-v ホストのリソースとパフォーマンスの総合的なビューが表示されます。
     - 実行中、停止、一時停止、および保存されている VM の数
     - クラスターの最近の正常性アラートまたは Hyper-V イベント ログのイベント
     - ホストとゲストの CPU とメモリの使用率の内訳
@@ -148,7 +148,7 @@ Windows Admin Center を使用して、新しい仮想マシンを簡単に作�
 1. **[仮想プロセッサ]** で、仮想プロセッサの数と、入れ子になった仮想化を有効にするかどうかを選択します。
 1. **[メモリ]** で、起動メモリの量 (最小の推奨値は 4 GB) と、必要に応じて、VM に割り当てる動的メモリの最小範囲と最大範囲を選択します。
 1. **[ネットワーク]** で、ドロップダウン リストからネットワーク アダプターを選択します。
-1. **[ストレージ]** で、 **[追加]** をクリックし、新しい仮想ハード ディスクを作成するか、既存の仮想ハード ディスクを使用するかを選択します。 既存の仮想ハード ディスクを使用する場合は、 **[参照]** をクリックして、該当するファイル パスを選択します。  
+1. **[ストレージ]** で、 **[追加]** をクリックし、新しい仮想ハード ディスクを作成するか、既存の仮想ハード ディスクを使用するかを選択します。 既存の仮想ハード ディスクを使用する場合は、 **[参照]** をクリックして、該当するファイル パスを選択します。
 1. **[オペレーティング システム]** で、次のいずれかの操作を行います。
    - 後で VM にオペレーティング システムをインストールする場合は、 **[後でオペレーティング システムをインストールする]** を選択します。
    - **[Install an operating system from an image file (*.iso)]\(イメージ ファイル (*.iso) からオペレーティング システムをインストールする\)** を選択し、 **[参照]** をクリックして、使用する適用可能な .iso イメージ ファイルを選択します。

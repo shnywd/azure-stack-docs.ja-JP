@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: a68736088f8da95b0a7851007b8add4038c8199c
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.openlocfilehash: 612d5fa11c2f34c73925212103c2699c9581f107
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533741"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197040"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
@@ -40,7 +40,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.51.0 -y
     ```
 
 > [!Note]  
@@ -65,7 +65,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 7.  管理者特権でのプロンプトで、次のコマンドを実行します。 適切なバージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.48.0 -y
+        choco install aks-engine --version 0.51.0 -y
     ```
 
 ## <a name="verify-the-installation"></a>インストールの確認

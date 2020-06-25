@@ -3,14 +3,14 @@ title: Azure Stack HCI でボリュームを拡張する
 description: Windows Admin Center と PowerShell を使用して Azure Stack HCI でボリュームのサイズを変更する方法。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 703931b0dccb533b2b924847eb3302f0efa46d1a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 1369d3bcd0393fd322d17e1977524732d5b97ccf
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79089292"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196445"
 ---
 # <a name="extending-volumes-in-storage-spaces-direct"></a>記憶域スペース ダイレクトのボリュームの拡張
 > 適用対象:Windows Server 2019
@@ -61,7 +61,7 @@ Get-VirtualDisk
 たとえば、仮想ディスクからそのボリュームまでを取得する方法を次に示します。
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume 
+Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume
 ```
 
 ### <a name="step-1--resize-the-virtual-disk"></a>手順 1 – 仮想ディスクのサイズを変更する
@@ -71,7 +71,7 @@ Get-VirtualDisk <FriendlyName> | Get-Disk | Get-Partition | Get-Volume
 確認するには、次のコマンドレットを実行します。
 
 ```PowerShell
-Get-VirtualDisk <FriendlyName> | Get-StorageTier 
+Get-VirtualDisk <FriendlyName> | Get-StorageTier
 ```
 
 コマンドレットから何も返されない場合、仮想ディスクはストレージ層を使用しません。
@@ -126,7 +126,7 @@ $VirtualDisk = Get-VirtualDisk <FriendlyName>
 # Get its partition
 $Partition = $VirtualDisk | Get-Disk | Get-Partition | Where PartitionNumber -Eq 2
 
-# Resize to its maximum supported size 
+# Resize to its maximum supported size
 $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).SizeMax
 ```
 

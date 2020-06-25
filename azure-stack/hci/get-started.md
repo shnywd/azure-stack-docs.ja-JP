@@ -3,14 +3,14 @@ title: Azure Stack HCI と Windows Admin Center の使用を開始する
 description: 既存の Azure Stack HCI クラスターにすばやく接続し、Windows Admin Center を使用してクラスターとストレージのパフォーマンスを監視します。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: overview
 ms.date: 04/08/2020
-ms.openlocfilehash: efd0922639f628bfea0f2c78755b10de0053bc1f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd97ee55779d1c3c35976005a880a0dd510e29af
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80979456"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196887"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Azure Stack HCI と Windows Admin Center の使用を開始する
 
@@ -35,7 +35,7 @@ Windows Admin Center のインストールが完了したら、メインの概�
     :::image type="content" source="media/get-started/addcluster.png" alt-text="クラスターの追加のスクリーンショット":::
 
 2. Windows Server クラスターの追加を選択します。
-    
+
     :::image type="content" source="media/get-started/chooseconnectiontype.png" alt-text="接続の種類を選択するスクリーンショット":::
 
 3. 管理するクラスターの名前を入力し、 **[追加]** をクリックします。 クラスターが [概要] ページの接続リストに追加されます。

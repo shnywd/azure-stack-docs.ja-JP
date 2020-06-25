@@ -3,14 +3,14 @@ title: Azure Stack HCI のキャッシュについて
 description: 記憶域スペース ダイレクトおよび Azure Stack HCI での読み取りおよび書き込みキャッシュのしくみ。
 author: khdownie
 ms.author: v-kedow
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: f1fc40a6475b8e51a063491cc120e2c4236cbeea
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 063dab5f6f395e33a42a9722b399a469f6ce6ac7
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79026099"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196921"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Azure Stack HCI のキャッシュについて
 
@@ -171,7 +171,7 @@ CSV キャッシュを使用するかどうかはユーザーが自由に選択�
 
 ## <a name="manual-configuration"></a>手動構成
 
-ほとんどのデプロイで、手動の構成は必要ありません。 必要な場合は、以降のセクションを参照してください。 
+ほとんどのデプロイで、手動の構成は必要ありません。 必要な場合は、以降のセクションを参照してください。
 
 セットアップ後にキャッシュ デバイス モデルを変更する必要がある場合は、[ヘルス サービスの概要](/windows-server/failover-clustering/health-service-overview#supported-components-document)に関する記事で説明されているように、ヘルス サービスのサポート コンポーネント ドキュメントを編集してください。
 
