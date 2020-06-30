@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: d2c40307daa37b8f522fde9010a3d285eebff0fc
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 114be8564f264f38715ebacbb74c85559540c72f
+ms.sourcegitcommit: 8ad3ff64e6a47e512c7ae4442d5418fa79345fb5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106943"
+ms.lasthandoff: 06/23/2020
+ms.locfileid: "85264160"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
@@ -86,7 +86,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 次の PowerShell スクリプトを実行して、これらのモジュールを開発用ワークステーションにインストールします。
 
 ::: moniker range=">=azs-2002"
-Azure Stack Hub 2002 以降の場合: 
+Azure Stack Hub 2002 以降の場合:
 
 AzureRm モジュールまたは Az プレビュー モジュールのいずれかを使用できます。 Az モジュールを使用するには Azure Stack Hub 2002 と最新の修正プログラムが必要です。
 
@@ -266,6 +266,25 @@ Get-Module -Name "Azs*" -ListAvailable
    #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
    ```
+
+## <a name="known-issue"></a>既知の問題
+
+###  <a name="method-get_serializationsettings-error"></a>get_SerializationSettings メソッドのエラー 
+
+- 原因: PowerShell Az モジュールと PowerShell AzureRM モジュールには互換性がありません。
+
+    次のエラーは、AzureRM モジュールと Az モジュールが同じセッションに読み込まれたことを示しています。 
+
+    ```powershell  
+    >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
+    not have an implementation.
+    ```
+
+- 修復: 競合しているモジュールをアンインストールします。 
+
+  AzureRM モジュールを使用する場合は、Az モジュールをアンインストールします。 または、Az モジュールを使用する場合は、AzureRM をアンインストールします。 ご自分の PowerShell セッションを閉じ、Az または AzureRM モジュールのいずれかをアンインストールします。 
+  
+  手順については、「[既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

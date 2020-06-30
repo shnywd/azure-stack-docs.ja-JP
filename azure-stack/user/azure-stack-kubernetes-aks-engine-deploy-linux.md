@@ -3,16 +3,16 @@ title: Azure Stack Hub の Linux に AKS エンジンをインストールする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 9b99f0d7184030d513d2fab375ebb9040ec370c8
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 06/19/2020
+ms.openlocfilehash: cfe1d5fd33ac64f00cecaf5acdbe24a643c79e5e
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533673"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197057"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 
@@ -33,13 +33,13 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-linux-portal)。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.48.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされ、最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.51.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされます。最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.48.0
+        ./get-akse.sh --version v0.51.0
     ```
 
     > [!Note]  

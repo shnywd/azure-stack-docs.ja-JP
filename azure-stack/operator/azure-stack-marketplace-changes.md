@@ -3,20 +3,20 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 06/19/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 6649f7d282c869fbd348310a2bfdf883727282ff
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: a1e7b227a0e18475a1fcfac3246f193f54b84ced
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819363"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85196955"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
-この記事では、過去 3 か月にわたる [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
+この記事では、[Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)の最近の追加、更新、変更、および削除について説明します。 このセクションの情報は頻繁に更新されるため、頻繁に変更を確認してください。
 
 [Azure Stack Hub Marketplace 項目](azure-stack-marketplace-azure-items.md)に関する記事には、常に最新の利用可能な Azure Stack Hub Marketplace 項目の一覧が含まれています。
 
@@ -63,6 +63,7 @@ ms.locfileid: "84819363"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 6 月 19 日:Bitnami Gitlab CE – バージョン 13.0.2006110322
 - 2020 年 6 月 16 日:SQLIaaSExtension - バージョン 1.3.20370
 - 2020 年 6 月 12 日:Bitnami Grafana - バージョン 6.7.2006040249
 - 2020 年 5 月 21 日:Ubuntu Server 16.04 LTS - バージョン 16.04.202004290

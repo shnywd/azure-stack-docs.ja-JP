@@ -3,18 +3,144 @@ title: Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンのリ�
 description: Azure Stack Hub 上の AKS エンジンの更新プログラムを使用して実行する必要がある手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 9fd9671d4dbdad1dbf43b151c481fdbd9ca2c0ab
-ms.sourcegitcommit: f0ee2a3af78dd6d6e2806710681d52b763948967
+ms.lastreviewed: 06/19/2020
+ms.openlocfilehash: 13fd13ddd0177893f2cd5626caafa0487d927820
+ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84533690"
+ms.lasthandoff: 06/22/2020
+ms.locfileid: "85197108"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
+::: moniker range=">=azs-2002"
+"*ASK エンジンのバージョン0.51.0 に適用されます。* "
+
+この記事では、Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンの更新プログラムの内容について説明します。 この更新プログラムには、Azure Stack Hub プラットフォームを対象とした最新リリースの AKS engine の機能強化と修正が含まれています。 これは、グローバルな Azure 用の AKS エンジンに関するリリース情報を文書化するためのものではないことに注意してください。
+
+## <a name="update-planning"></a>計画の更新
+
+AKS エンジンのアップグレード コマンドを使用すると、クラスターのアップグレード プロセスが完全に自動化され、仮想マシン (VM)、ネットワーク、ストレージ、Kubernetes、オーケストレーション タスクが処理されます。 更新プログラムを適用する前に、この記事の情報を必ず確認してください。
+
+### <a name="upgrade-considerations"></a>アップグレードの考慮事項
+
+-   お使いのバージョンの AKS エンジンに適した Marketplace 項目である AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューションを使用していますか。 これらのバージョンについては、「新しいイメージと AKS エンジンをダウンロードする」セクションを参照してください。
+
+-   ターゲット クラスターに正しいクラスター仕様 (`apimodel.json`) とリソース グループを使用していますか? 最初にクラスターをデプロイしたときに、このファイルは出力ディレクトリに生成されました。 `deploy` コマンドのパラメーターについては、「[Kubernetes クラスターのデプロイ](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster#deploy-a-kubernetes-cluster)」を参照してください。
+
+-   AKS エンジンを実行してアップグレード操作を実行するために信頼できるマシンを使用していますか。
+
+-   クラスターに通常の負荷がかかっている前提では、アクティブなワークロードを使用して運用中のクラスターを更新する場合、ワークロードに影響を与えずにアップグレードを適用できます。 ただし、ユーザーをリダイレクトする必要がある場合に備えて、バックアップ クラスターが必要です。 バックアップ クラスターを強くお勧めします。
+
+-   可能であれば、Azure Stack Hub 環境内の VM からコマンドを実行して、ネットワーク ホップと接続障害の可能性を減らします。
+
+-   サブスクリプションにプロセス全体のための十分なクォータがあることを確認します。 このプロセスでは、プロセス中に新しい VM が割り当てられます。 結果として得られる VM の数は元の VM と同じですが、このプロセス中に作成する VM をいくつか増やすことを計画してください。
+
+-   システムの更新やスケジュールされたタスクは計画されていません。
+
+-   運用クラスターと同じ値を使用して構成されたクラスターで段階的なアップグレードをセットアップし、運用クラスターでアップグレードを実行する前に、そこでアップグレードをテストします。
+
+### <a name="use-the-upgrade-command"></a>upgrade コマンドを使用する
+
+「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade)」の記事で説明されているように、AKS エンジンの `upgrade` コマンドを使用する必要があります。
+
+### <a name="upgrade-interruptions"></a>アップグレードの中断
+
+予期しない要因によってクラスターのアップグレードが中断されることがあります。 AKS エンジンからエラーが報告されたり、AKS エンジンの実行プロセスに何かが発生したりすると、中断が発生する可能性があります。 中断の原因を調べて対処し、同じアップグレード コマンドを再度送信して、アップグレード プロセスを続行します。 **upgrade** コマンドはべき等です。コマンドを再送信したら、クラスターのアップグレードを再開する必要があります。 通常、中断によって更新が完了するまでの時間は長くなりますが、その完了には影響しません。
+
+### <a name="estimated-upgrade-time"></a>推定アップグレード時間
+
+推定所要時間は、クラスター内の VM あたり 12 分から 15 分です。 たとえば、20 ノードのクラスターのアップグレードには、約 5 時間かかる場合があります。
+
+## <a name="download-new-image-and-aks-engine"></a>新しいイメージと AKS エンジンをダウンロードする
+
+AKS ベースの Ubuntu イメージと AKS エンジンの新しいバージョンをダウンロードします。
+
+Azure Stack Hub 用 AKS エンジンのドキュメントで説明されているように、Kubernetes クラスターのデプロイには 2 つの主要コンポーネントが必要です。
+
+-   aks-engine バイナリ
+
+-   AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション
+
+この更新プログラムでは、これらの新しいバージョンを使用できます。
+
+-   Azure Stack Hub オペレーターは、新しい AKS 基本 Ubuntu イメージをスタンプ マーケットプレースにダウンロードする必要があります。
+
+    -   名前:AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 5 月 (2020.05.13)
+
+    -   バージョン:2020.05.13
+
+    -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine)」の記事の指示に従ってください
+
+-   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.51.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、get-akse.sh スクリプトを使用した場合は、この「[接続されている環境へのインストール](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux#install-in-a-connected-environment)」セクションの説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)」と同じプロセスが適用されます。
+
+## <a name="aks-engine-and-azure-stack-version-mapping"></a>AKS エンジンと Azure Stack のバージョン マッピング
+
+| Azure Stack Hub のバージョン | AKS エンジンのバージョン |
+| ----------------------------- | ------------------------ |
+| 1910 | 0.43.0 |
+| 2002 | 0.43.1、0.51.0 |
+
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-0510"></a>AKS エンジン 0.51.0 の Kubernetes バージョンのアップグレード パス
+
+次の Azure Stack Hub の表で、最新のバージョンとアップグレード バージョンを確認できます。 aks-engine get-versions コマンドには、グローバル Azure でサポートされているバージョンも含まれるため、従わないでください。 次のバージョンとアップグレードの表は、Azure Stack Hub の AKS エンジン クラスターに適用されます。
+
+| 現在のバージョン | 使用可能なアップグレード |
+| ------------------------- | ----------------------- |
+| 1.14.7、1.14.8 | 1.15.12 |
+| 1.15.4、1.15.5、1.15.10 | 1.15.12、1.16.9 |
+| 1.15.12 | 1.16.9 |
+| 1.16.8 | 1.16.9、1.17.5 |
+| 1.16.9 | 1.17.5 |
+| 1.17.4 | 1.17.5 |
+
+API モデルの json ファイル内にある `orchestratorProfile` セクションの下にリリースとバージョンの値を指定してください。たとえば、Kubernetes 1.16.9 をデプロイする場合は、次の 2 つの値を設定する必要があります ([kubernetes-azurestack.json](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json) の例を参照してください)。
+
+```json  
+    -   "orchestratorRelease": "1.16",
+    -   "orchestratorVersion": "1.16.9"
+```
+
+## <a name="whats-new"></a>新機能
+
+-   Kubernetes 1.15.12 のサポートを追加 ([#3212](https://github.com/Azure/aks-engine/issues/3212))
+-   Kubernetes 1.16.8 および 1.16.9 のサポートを追加 ([#3157](https://github.com/Azure/aks-engine/issues/3157) および [#3087](https://github.com/Azure/aks-engine/issues/3087))
+-   Kubernetes 1.17.5 のサポートを追加 ([#3088](https://github.com/Azure/aks-engine/issues/3088))
+-   Kubernetes ダッシュボードのアドオン v2.0.0 ([#3140](https://github.com/Azure/aks-engine/issues/3140))
+-   apt 操作が既に完了した後の不要な**保持されている apt ロックがなくなるまでの待機**を削除することで、操作の信頼性を向上 ([#3049](https://github.com/Azure/aks-engine/issues/3049))
+-   K8s API サーバーへの接続時にエラーが発生した後でもスクリプトの実行を完了することで、操作の信頼性を向上 ([#3022](https://github.com/Azure/aks-engine/issues/3022))
+-   接続前に DNS 構成の状態を確認することで、操作の信頼性を向上 ([#3002](https://github.com/Azure/aks-engine/issues/3002))
+-   Kubernet を使用した Windows ノードのプロビジョニングに関する問題を修正 ([#3300](https://github.com/Azure/aks-engine/issues/3300))
+-   べき等プロセスを保証するよう systemd および etcd の開始を修正 ([#3126](https://github.com/Azure/aks-engine/issues/3126))
+-   Kubernetes 1.13 および 1.14 のサポートを削除 ([#3310](https://github.com/Azure/aks-engine/issues/3310) および [#3059](https://github.com/Azure/aks-engine/issues/3059))
+-   pod-security-policy が最初に読み込まれるアドオンであることを保証 ([#3313](https://github.com/Azure/aks-engine/issues/3313))
+-   Azure CNI のバージョンを v1.1.0 に更新 ([#3075](https://github.com/Azure/aks-engine/issues/3075)) (プレビュー)
+-   Azure Stack Hub に Windows コンテナーをサポートするための機能と修正を追加 (プレビュー):
+    -   Windows バージョンのコレクションを修正 ([#2954](https://github.com/Azure/aks-engine/issues/2954))
+    -   Azure Stack の Windows バイナリ コンポーネント名を更新 ([#3231](https://github.com/Azure/aks-engine/issues/3231))
+    -   Azure Stack Hub 上での Windows イメージの検証を更新 ([#3260](https://github.com/Azure/aks-engine/issues/3260))
+    -   5 月の修正プログラムを含めるよう Windows VHD を更新 ([#3263](https://github.com/Azure/aks-engine/issues/3263))
+    -   4B の修正プログラムを含めるよう Windows VHD を更新 ([#3115](https://github.com/Azure/aks-engine/issues/3115))
+    -   4 月の修正プログラムを含めるよう Windows VHD を更新 ([#3101](https://github.com/Azure/aks-engine/issues/3101))
+
+## <a name="known-issues"></a>既知の問題
+
+-   1 つのクラスター内に複数の Kubernetes サービスを並行してデプロイすると、基本的なロード バランサー構成でエラーが発生する可能性があります。 可能であれば、一度に 1 つのサービスをデプロイしてください。
+-   aks-engine get-versions を実行すると、Azure および Azure Stack Hub に適用される情報が生成されますが、Azure Stack Hub に対応するものを明確に識別する方法はありません。 アップグレードに使用できるバージョン領域を特定する目的でこのコマンドを使用しないでください。 前述したアップグレードの参照一覧を使用してください。
+-   aks-engine ツールは、Azure と Azure Stack Hub 全体の共有ソース コード リポジトリであるためです。 多くのリリース ノートと pull request を調べると、このツールは前述以外のバージョンの Kubernetes と OS プラットフォームをサポートしていることがわかります。これらを無視して、この更新プログラムの公式ガイドとして、前述のバージョン一覧を使用してください。
+
+## <a name="reference"></a>リファレンス
+
+これは、Azure と Azure Stack Hub を組み合わせたリリース ノートの完全なセットです。
+
+-   https://github.com/Azure/aks-engine/releases/tag/v0.49.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.50.0
+-   https://github.com/Azure/aks-engine/releases/tag/v0.51.0
+::: moniker-end
+::: moniker range="<=azs-1910"
+"*ASK エンジンのバージョン0.48.0 以前に適用されます。* "
 
 この記事では、Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンの更新プログラムの内容について説明します。 この更新プログラムには、Azure Stack Hub プラットフォームを対象とした最新リリースの AKS engine の機能強化と修正が含まれています。 これは、グローバルな Azure 用の AKS エンジンに関するリリース情報を文書化するためのものではないことに注意してください。
 
@@ -156,7 +282,7 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 -   https://github.com/Azure/aks-engine/releases/tag/v0.46.3
 -   https://github.com/Azure/aks-engine/releases/tag/v0.47.0
 -   https://github.com/Azure/aks-engine/releases/tag/v0.48.0
-
+::: moniker-end
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください
