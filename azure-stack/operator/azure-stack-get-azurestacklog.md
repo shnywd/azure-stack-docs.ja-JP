@@ -2,22 +2,22 @@
 title: 特権エンドポイント (PEP) を使用して診断ログを収集する
 description: 管理者ポータルまたは PowerShell スクリプトを使用して Azure Stack Hub 内で診断ログをオンデマンドで収集する方法について説明します。
 author: justinha
+ms.custom: conteperfq4
 ms.topic: article
-ms.date: 03/05/2020
+ms.date: 06/30/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/05/2020
-ms.openlocfilehash: df5a98e8526181a84d8b214fbdf82eb1dba00088
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.lastreviewed: 06/30/2020
+ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79520652"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764593"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する
 
 <!--how do you look up the PEP IP address. You look up the azurestackstampinfo.json--->
-
 
 統合システムで Get-AzureStackLog を実行するには、特権エンドポイント (PEP) へのアクセス権が必要です。 PEP を使用してログを収集するのに実行できるスクリプト例を次に示します。 実行中のログ収集をキャンセルして新しいログ収集を開始する場合は、新しいログ収集を開始するまで 5 分待ち、`Remove-PSSession -Session $session` を入力してください。
 

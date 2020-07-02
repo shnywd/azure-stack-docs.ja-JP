@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 361fefb0cfac67d5d55c9b3391da68877d695da3
-ms.sourcegitcommit: f4c2d5b87bc86ac4accb4d4df5b731b67d1a346c
+ms.openlocfilehash: 84a6f69eebb461d25cd9569f61d3dee22ec79a49
+ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203121"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85376818"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 
@@ -77,4 +77,4 @@ Azure サポート要求を送信することもできます。 [Azure Stack Hub
 
 ## <a name="create-a-support-ticket"></a>サポート チケットの作成
 
-上記の手順で問題が解決しない場合、[サポート チケット](../operator/azure-stack-manage-basics.md#where-to-get-support)を作成し、[オンデマンド ログ収集ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md)を使用してログを提供してください。
+上記の手順で問題が解決しない場合、[サポート チケット](../operator/azure-stack-manage-basics.md#where-to-get-support)を作成し、[オンデマンド ログ収集ツール](../operator/azure-stack-diagnostic-log-collection-overview.md)を使用してログを提供してください。
