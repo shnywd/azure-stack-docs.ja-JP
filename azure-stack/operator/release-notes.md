@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 06/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: adb3d5d995b9bb267dacf957a9a7f15582114484
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: f330385b391b82762594107715b32d6a984ccce4
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819450"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764647"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -164,14 +164,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適用された 1910 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.42.142](https://support.microsoft.com/help/4564874)
+- [Azure Stack Hub 修正プログラム 1.1910.54.167](https://support.microsoft.com/help/4570100)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>2002 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.28.93](https://support.microsoft.com/help/4562966)
+- [Azure Stack Hub 修正プログラム 1.2002.44.126](https://support.microsoft.com/help/4570099)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -321,14 +321,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適用された 1908 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム1.1908.29.87](https://support.microsoft.com/help/4558083)
+- [Azure Stack Hub 修正プログラム 1.1908.42.114](https://support.microsoft.com/help/4570101)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>1910 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.42.142](https://support.microsoft.com/help/4564874)
+- [Azure Stack Hub 修正プログラム 1.1910.54.167](https://support.microsoft.com/help/4570100)
 ::: moniker-end
 
 ::: moniker range="azs-1908"
@@ -407,7 +407,7 @@ Azure Stack Hub 1908 更新プログラムには、システムのハードウ�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム1.1908.29.87](https://support.microsoft.com/help/4558083)
+- [Azure Stack Hub 修正プログラム 1.1908.42.114](https://support.microsoft.com/help/4570101)
 ::: moniker-end
 
 ::: moniker range="azs-1907"

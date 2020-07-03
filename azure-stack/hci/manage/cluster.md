@@ -6,12 +6,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 05/20/2020
-ms.openlocfilehash: 63290b49558d85e0869664c6ca760ae492718c34
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 08cc96a1b4e4c9d1752b0f988a042735df1034b1
+ms.sourcegitcommit: b307cc147ede308e0b534ef656bc685ddaf5f95e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196479"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85370083"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを管理する
 
@@ -103,7 +103,7 @@ Azure Stack HCI で Windows Admin Center を使用してクラスターを管理
 
     :::image type="content" source="media/manage-cluster/cluster-settings-numa.png" alt-text="クラスターの [NUMA Spanning]\(NUMA スパニング\) 画面":::
 
-1. 実行中に同時に移動 (ライブ マイグレーション) できる VM の数を指定するには、 **[ライブ マイグレーション]** を選択し、数値を選択してから、次のように指定します。 **[ライブ マイグレーション]** を選択し、数値を選択してから、次のように指定します。
+1. 実行中に同時に移動 (ライブ マイグレーション) できる VM の数を指定するには、 **[ライブ マイグレーション]** を選択し、数値を選択してから、次のように指定します。
 
    - **[認証プロトコル]** で、 **[CredSSP]** または **[Kerberos]** を選択します。
 

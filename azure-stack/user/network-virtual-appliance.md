@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: f933e9c4e70f533d4194b48c7b9e4d6e4bf380b0
-ms.sourcegitcommit: d5d89bbe8a3310acaff29a7a0cd7ac4f2cf5bfe7
+ms.openlocfilehash: 04c381bfefa40cc04f59e4b5f6641c2a227d14b8
+ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83554966"
+ms.lasthandoff: 06/25/2020
+ms.locfileid: "85376801"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>ネットワーク仮想アプライアンスに関する問題をトラブルシューティングする
 
@@ -84,7 +84,7 @@ Azure Stack Hub での NVA に関する問題をこの記事で対処できな�
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>トラフィックを NVA にルーティングできるかどうかを確認する
 
 1. NVA にトラフィックをリダイレクトするように構成されている VM を見つけます。
-1. NVA が次ホップであることを確認するには、Windows で **Tracert \<NVA のプライベート IP\>** を使用するか、**Traceroute \<NVA のプライベート IP\>** を実行します。
+1. NVA が次ホップであることを確認するには、**Tracert \<Private IP of NVA\>** (Windows の場合) または **Traceroute \<Private IP of NVA\>** を実行します。
 1. NVA が次ホップとして一覧表示されていない場合は、Azure Stack Hub のルート テーブルを確認して更新します。
 
 ゲストレベルのオペレーティング システムによっては、ICMP トラフィックをブロックするためのファイアウォール ポリシーが配置されていることがあります。 これらのファイアウォール ルールを機能させるために、前のコマンドで更新する必要があります。
@@ -92,7 +92,7 @@ Azure Stack Hub での NVA に関する問題をこの記事で対処できな�
 ### <a name="check-whether-traffic-can-reach-the-nva"></a>トラフィックで NVA に到達できるかどうかを確認する
 
 1. NVA に接続する必要がある VM を見つけます。
-1. ネットワーク セキュリティ グループ (NSG) によってトラフィックがブロックされているかどうかを確認します。 Windows の場合は、**ping** (ICMP) または **Test-NetConnection \<NVA のプライベート IP\>** (TCP) を実行します。 Linux の場合は、**Tcpping \<NVA のプライベート IP\>** を実行します。
+1. ネットワーク セキュリティ グループ (NSG) によってトラフィックがブロックされているかどうかを確認します。 Windows の場合は、**ping** (ICMP) または **Test-NetConnection \<Private IP of NVA\>** (TCP) を実行します。 Linux の場合は、**Tcpping \<Private IP of NVA\>** を実行します。
 1. NSG によってトラフィックがブロックされている場合は、トラフィックを許可するように変更します。
 
 ### <a name="check-whether-the-nva-and-vms-are-listening-for-expected-traffic"></a>NVA と VM で予期されるトラフィックがリッスンされているかどうかを確認する
@@ -163,4 +163,4 @@ VM ネットワークでスパイクが使用される場合、または使用�
 
 ### <a name="create-a-support-ticket"></a>サポート チケットの作成
 
-上記の手順で問題が解決しない場合は、[サポート チケット](../operator/azure-stack-manage-basics.md#where-to-get-support)を作成し、[オンデマンド ログ収集ツール](../operator/azure-stack-configure-on-demand-diagnostic-log-collection.md)を使用してログを提供してください。
+上記の手順で問題が解決しない場合は、[サポート チケット](../operator/azure-stack-manage-basics.md#where-to-get-support)を作成し、[オンデマンド ログ収集ツール](../operator/azure-stack-diagnostic-log-collection-overview.md)を使用してログを提供してください。

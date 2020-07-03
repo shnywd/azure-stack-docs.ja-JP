@@ -4,27 +4,28 @@ description: Azure Stack HCI で記憶域スペース ダイレクトのドラ�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: c16907c9fab70bd185e0174b79ce746770ff646a
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/01/2020
+ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
+ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196853"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85814298"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
->適用対象:Windows Server 2019
+>適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 このトピックでは、Azure Stack HCI のパフォーマンスと容量の要件を満たすために、[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)のドライブを選択する方法に関するガイダンスを提供します。
 
 ## <a name="drive-types"></a>ドライブの種類
 
-記憶域スペース ダイレクトは現在、次の 3 種類のドライブで動作します。
+記憶域スペース ダイレクトは現在、次の 4 種類のドライブで動作します。
 
 |||
 |----------------------|--------------------------|
-|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) とは、PCIe バスに直接接続されたソリッドステート ドライブを指します。 一般的なフォーム ファクターは、2.5 インチU.2、PCIe Add-In-Card (AIC)、および M.2 です。 NVMe では、現在サポートされている他の種類のドライブよりも高い IOPS と IO スループットおよび低待機時間が実現します。|
+|![PMem](media/choose-drives/pmem-100px.png)|**PMem** とは永続メモリを意味します。これは、低待機時間かつ高パフォーマンスの新しい種類の記憶域です。|
+|![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) とは、PCIe バスに直接接続されたソリッドステート ドライブを指します。 一般的なフォーム ファクターは、2.5 インチU.2、PCIe Add-In-Card (AIC)、および M.2 です。 NVMe では、PMem を除いて、現在サポートされている他の種類のドライブよりも高い IOPS と IO スループットおよび低待機時間が実現します。|
 |![SSD](media/choose-drives/SSD-100-px.png)|**SSD** は、従来の SATA または SAS 経由で接続されるソリッドステート ドライブを指します。|
 |![HDD](media/choose-drives/HDD-100-px.png)|**HDD** は、大容量の記憶域容量を提供する、回転式の磁気ハード ディスク ドライブを指します。|
 
@@ -100,3 +101,4 @@ ms.locfileid: "85196853"
 - [記憶域スペース ダイレクトのハードウェア要件](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Azure Stack HCI でのボリュームの計画](plan-volumes.md)
 - [フォールト トレランスとストレージの効率性](fault-tolerance.md)
+- [永続メモリの理解と配置](/windows-server/storage/storage-spaces/deploy-pmem)

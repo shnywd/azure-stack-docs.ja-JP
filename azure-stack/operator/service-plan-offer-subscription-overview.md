@@ -7,12 +7,12 @@ ms.date: 12/18/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 10/01/2019
-ms.openlocfilehash: a5776189c1792844b6d9bf2ec229ec02936f82c1
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2ebbc1d7a2d6a159c4d35303c833875452c20c01
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80423880"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764596"
 ---
 # <a name="azure-stack-hub-services-plans-offers-subscriptions-overview"></a>Azure Stack Hub サービス、プラン、オファー、サブスクリプションの概要
 
@@ -98,6 +98,10 @@ Azure Stack Hub オペレーターは、オファー、プラン、サブスク�
 ユーザーは、サブスクリプションを使用してオファーにアクセスできます。 サービス プロバイダーの Azure Stack Hub オペレーターの場合、ユーザー (テナント) は、オファーをサブスクライブすることでサービスを購入します。 組織の Azure Stack Hub オペレーターの場合、提供するサービスをユーザー (従業員) が無料でサブスクライブできます。
 
 ユーザーは、Azure Stack Hub にサインインして、新しいサブスクリプションを作成し、既存のサブスクリプションへのアクセスを取得します。 各サブスクリプションは、単一のオファーとの関連付けを表します。 1 つのサブスクリプションに割り当てられたオファー (およびそのプランとクォータ) を、他のサブスクリプションと共有することはできません。 ユーザーが作成する各リソースは、1 つのサブスクリプションに関連付けられます。
+
+Azure Stack Hub オペレーターは、テナント サブスクリプションに関する情報を表示できますが、そのサブスクリプションのテナント管理者によって RBAC を使用して明示的に追加されていない限り、そのサブスクリプションのコンテンツにはアクセスできません。 これにより、テナントでは、Azure Stack Hub オペレーターとテナント スペースの間で権限と責任の分離が適用されます。 
+
+このケースの例外は、サブスクリプションの所有者がサブスクリプションへのアクセス権をオペレーターに付与できない場合です。この場合には、「[Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する](azure-stack-change-subscription-owner.md)」で説明されているように、管理者がサブスクリプションの所有権を取得する必要があります。
 
 ### <a name="default-provider-subscription"></a>既定のプロバイダー サブスクリプション
 

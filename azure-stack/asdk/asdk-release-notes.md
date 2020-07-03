@@ -7,18 +7,18 @@ ms.date: 04/06/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: bbe37512d943a45b5981f4e862f55440ade3b08f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: bfd3b0821554899b478139e0fe2c8f27b016a242
+ms.sourcegitcommit: 2a144c367a17eb1f8db58dd7bf1c820520182015
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80806709"
+ms.lasthandoff: 07/02/2020
+ms.locfileid: "85835060"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md)します。
 
-[![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
 
 ::: moniker range="azs-2002"
 ## <a name="build-12002035"></a>ビルド 1.2002.0.35

@@ -4,17 +4,17 @@ description: Azure Stack HCI で障害が発生したドライブを交換する
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/27/2020
-ms.openlocfilehash: f4e67545519f54d630c8a83e100d2b4918025f0e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 06/24/2020
+ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
+ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196377"
+ms.lasthandoff: 07/01/2020
+ms.locfileid: "85764550"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Azure Stack HCI で障害が発生したドライブを交換する
 
-Azure Stack HCI は直接接続された SATA、SAS、または NVMe ドライブに対応しています。これらは、それぞれ 1 台のサーバーのみに物理的に接続されます。 ドライブに障害が発生した場合は、物理サーバー ハードウェアにアクセスして交換する必要があります。
+Azure Stack HCI は直接接続された SATA、SAS、NVMe、または永続メモリのドライブに対応しています。これらは、それぞれ 1 台のサーバーのみに物理的に接続されます。 ドライブに障害が発生した場合は、物理サーバー ハードウェアにアクセスして交換する必要があります。
 
 ## <a name="find-the-alert"></a>アラートを見つける
 ドライブに障害が発生すると、**Windows Admin Center** ダッシュボードの左上の **[アラート]** 領域にアラートが表示されます。 また、左側にあるナビゲーションから **[ドライブ]** を選択するか、右下隅にあるタイルで **[VIEW DRIVES >]\(ドライブの表示 >\)** リンクをクリックして、ドライブを参照してその状態を自分で確認することもできます。 **[表示]** タブのグリッドでは、並べ替え、グループ化、およびキーワード検索がサポートされています。
@@ -29,4 +29,5 @@ Azure Stack HCI は直接接続された SATA、SAS、または NVMe ドライ�
 **[ドライブ] > [インベントリ]** に新しいドライブが表示されます。 しばらくしてアラートが消去されると、ボリュームは OK 状態に戻り、記憶域は新しいドライブに再調整されます。ユーザー操作は不要です。
 
 ## <a name="next-steps"></a>次のステップ
--  ドライブ レベルなど、さまざまなレベルで記憶域の正常性を追跡する方法の詳細については、「[正常性と動作状態](/windows-server/storage/storage-spaces/storage-spaces-states)」を参照してください。
+- ドライブ レベルなど、さまざまなレベルで記憶域の正常性を追跡する方法の詳細については、「[正常性と動作状態](/windows-server/storage/storage-spaces/storage-spaces-states)」を参照してください。
+- PMem を使用している場合は、「[永続メモリの理解と配置](/windows-server/storage/storage-spaces/deploy-pmem)」を参照してください。
