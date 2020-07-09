@@ -106,8 +106,6 @@
         - name: Azure の登録の検証
           href: azure-stack-validate-registration.md
           items:
-            - name: Start-AzsReadiness コマンドレット リファレンス
-              href: azure-stack-azsreadiness-cmdlet.md
             - name: 対応状況レポートの表示
               href: azure-stack-validation-report.md
         - name: 外部の監視
