@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: a141beed4df6b34175f37d9e1e60e694f3ab71f2
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 6ea6d73e14b5c164691ed42deab298109b1c1ad8
+ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700512"
+ms.lasthandoff: 07/03/2020
+ms.locfileid: "85937960"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>インフラストラクチャ バックアップ サービスのベスト プラクティス
 
@@ -53,6 +53,7 @@ Azure Stack Hub をデプロイして管理するときのこれらのベスト 
 ### <a name="backups"></a>バックアップ
 
  - バックアップ ジョブはシステムの稼働中に実行されるため、管理エクスペリエンスやユーザーのアプリにダウンタイムが発生しません。 それなりに負荷がかかっているソリューションでは、バックアップ ジョブに 20 から 40 分かかると想定してください。
+ - パッチ、更新プログラム、FRU の操作中は、自動バックアップは開始されません。 スケジュールされたバックアップ ジョブは、既定ではスキップされます。 これらの操作中は、バックアップに対するオンデマンド要求もブロックされます。    
  - OEM 提供の手順を使用して、ネットワーク スイッチを手動でバックアップします。また、Infrastructure Backup コントローラーでコントロール プレーン バックアップ データが格納されている場所と同じバックアップ共有上に、ハードウェア ライフサイクル ホスト (HLH) を格納する必要があります。 スイッチと HLH 構成は、リージョンのフォルダーに格納することを検討してください。 同一リージョンに Azure Stack Hub インスタンスが複数ある場合は、スケール ユニットに属している構成ごとに識別子を使用することを検討してください。
 
 ### <a name="folder-names"></a>フォルダー名

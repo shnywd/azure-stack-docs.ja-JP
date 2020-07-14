@@ -3,16 +3,16 @@ title: AKS エンジンを使用して Azure Stack Hub に Kubernetes クラス�
 description: AKS エンジンを実行しているクライアント VM から Azure Stack Hub に Kubernetes クラスターをデプロイする方法。
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 85f9e789db3ce86b04b490be83f355eb73e7329e
-ms.sourcegitcommit: c51e7787e36c49d34ee86cabf9f823fb98b61026
+ms.lastreviewed: 07/07/2020
+ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
+ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82218825"
+ms.lasthandoff: 07/08/2020
+ms.locfileid: "86137176"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -90,6 +90,9 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | ssh | VM での SSH 認証に使用される公開キーを入力します。 `ssh-rsa` およびキーを使用します。 公開キーを作成する手順については、「[Linux 用の SSH キーを作成する](create-ssh-key-on-windows.md)」を参照してください。 |
 
     カスタム仮想ネットワークにデプロイする場合、API モデルの適切な配列に必要なキーと値を見つけて追加する手順は、[カスタム仮想ネットワークへの Kubernetes クラスターのデプロイ](kubernetes-aks-engine-custom-vnet.md)に関する記事で確認できます。
+
+    > [!Note]  
+    > Azure Stack Hub 用の AKS エンジンでは、クラスターを作成するための独自の証明書の提供は許可されません。
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報
 

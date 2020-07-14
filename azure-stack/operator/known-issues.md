@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/06/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 68b83e78f29e60d4dac2b980dd9fd4aefb3bcf66
-ms.sourcegitcommit: 7df4f3fbb211063e9eef6ac1e2734de72dc6078b
+ms.openlocfilehash: 5f0210d32367212769da66b2a55b1fff91fb5017
+ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84977174"
+ms.lasthandoff: 07/07/2020
+ms.locfileid: "86033218"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -100,6 +100,12 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
 - 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
+- 発生頻度: 共通
+
+### <a name="load-balancer-directing-traffic-to-one-backend-vm-in-specific-scenarios"></a>Load Balancer が特定のシナリオでトラフィックを 1 つのバックエンド VM に送信する 
+
+- 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
+- 原因: ロード バランサーで**セッション アフィニティ**を有効にすると、2 タプル ハッシュで、VM に割り当てられたプライベート IP ではなく、PA IP (物理アドレス IP) が使用されます。 ロード バランサーに送信されるトラフィックが VPN 経由で到着する、またはすべてのクライアント VM (ソース IP) が同じノード上に存在し、セッション アフィニティが有効になっているシナリオでは、すべてのトラフィックが 1 つのバックエンド VM に送信されます。
 - 発生頻度: 共通
 
 ### <a name="network-interface"></a>ネットワーク インターフェイス
