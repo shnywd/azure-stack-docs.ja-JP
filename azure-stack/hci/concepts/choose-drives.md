@@ -4,17 +4,17 @@ description: Azure Stack HCI で記憶域スペース ダイレクトのドラ�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 693414f25687c923af3a3be8c1c421f08076cd28
-ms.sourcegitcommit: 92392e7275ab7fbbb9b75d0529d66adbd11070a3
+ms.date: 07/14/2020
+ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
+ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85814298"
+ms.lasthandoff: 07/15/2020
+ms.locfileid: "86390791"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
->適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
+>適用対象:Windows Server 2019
 
 このトピックでは、Azure Stack HCI のパフォーマンスと容量の要件を満たすために、[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)のドライブを選択する方法に関するガイダンスを提供します。
 

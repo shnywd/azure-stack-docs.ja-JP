@@ -3,17 +3,17 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 48b1d7e5c0b4d40b04ac27c872fd015f3b448913
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 5774d06e07c6f4bc7f71d5dcd58257fcbb8700ee
+ms.sourcegitcommit: fe48fd5310004d68a4f28589e4d311708babb634
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848270"
+ms.lasthandoff: 07/09/2020
+ms.locfileid: "86210047"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -21,8 +21,8 @@ ms.locfileid: "82848270"
 
 Marketplace 製品をダウンロードする場合は、次の 2 つのシナリオがあります。
 
-- **接続されているシナリオ**:Azure Stack Hub 環境がインターネットに接続されている必要があります。 Azure Stack Hub 管理者ポータルを使用して項目を見つけ、ダウンロードします。
 - **接続されないか、部分的に接続されるシナリオ**:Marketplace の項目をダウンロードには、Marketplace シンジケーション ツールを使用してインターネットにアクセスする必要があります。 その後、ダウンロードしたものを、接続されていない Azure Stack Hub のインストールに転送します。 このシナリオでは、PowerShell を使用します。
+- **接続されているシナリオ**:Azure Stack Hub 環境がインターネットに接続されている必要があります。 Azure Stack Hub 管理者ポータルを使用して項目を見つけ、ダウンロードします。
 
 ダウンロードできる Marketplace 項目の完全な一覧については、[Azure Stack Hub 用の Azure Marketplace 項目](azure-stack-marketplace-azure-items.md)に関するページを参照してください。 Azure Stack Hub Marketplace の最近の追加、削除、更新の一覧については、「[Azure Stack Hub Marketplace の変更](azure-stack-marketplace-changes.md)」の記事を参照してください。
 
