@@ -133,6 +133,8 @@
                   href: azure-stack-manage-vm-disks.md
                 - name: マネージド ディスクに関する考慮事項
                   href: azure-stack-managed-disk-considerations.md
+                - name: 依存関係がある VM を削除する
+                  href: delete-vm.md
                 - name: VM の保護
                   href: azure-stack-manage-vm-protect.md
                 - name: VM に関する既知の問題
