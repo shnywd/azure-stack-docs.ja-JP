@@ -23,7 +23,7 @@ Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレ�
 
 ## <a name="cheat-sheet-storage-differences"></a>チート シート:ストレージの相違点
 
-| 機能 | Azure (グローバル) | Azure Stack Hub |
+| 特徴量 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|クラウド ベースの SMB ファイル共有がサポートされています。 | まだサポートされていません。
 |Azure Storage Service Encryption for Data at Rest|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
