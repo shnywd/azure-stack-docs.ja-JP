@@ -54,9 +54,9 @@
 - name: 関連項目
   items:
     - name: Azure Stack Hub のオペレーター ドキュメント
-      href: /azure-stack/operator
+      href: ../operator/index.yml
     - name: Azure Stack Hub のユーザー ドキュメント
-      href: /azure-stack/user/
+      href: ../user/index.yml
 - name: リソース
   items:
     - name: Azure Stack のロード マップ
@@ -70,4 +70,4 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-stack'
     - name: トレーニングと認定
-      href: /azure-stack/operator/azure-stack-train-and-cert
+      href: ../operator/azure-stack-train-and-cert.md
