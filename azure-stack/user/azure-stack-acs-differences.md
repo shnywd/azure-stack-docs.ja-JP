@@ -26,7 +26,7 @@ Azure Stack Hub ストレージは、Microsoft Azure Stack Hub 内のストレ�
 | 特徴量 | Azure (グローバル) | Azure Stack Hub |
 | --- | --- | --- |
 |File Storage|クラウド ベースの SMB ファイル共有がサポートされています。 | まだサポートされていません。
-|Azure Storage Service Encryption for Data at Rest|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
+|保存データに対する Azure Storage サービスの暗号化|256 ビット AES 暗号化。 Key Vault でユーザーが管理するキーを使用した暗号化をサポートしています。|BitLocker 128 ビット AES 暗号化。 ユーザーが管理するキーを使用した暗号化はサポートされていません。
 |ストレージ アカウントの種類|汎用 V1、V2、および Blob Storage アカウント。 |汎用 V1 のみ。
 |レプリケーション オプション|ローカル冗長ストレージ、geo 冗長ストレージ、読み取りアクセス geo 冗長ストレージ、およびゾーン冗長ストレージ。 |ローカル冗長ストレージ。
 |Premium Storage|高パフォーマンスで低待機時間のストレージを提供します。 Premium Storage アカウントのページ BLOB のみをサポートします。|プロビジョニング可能ですがパフォーマンス制限や保証がありません。 Premium Storage アカウントでは、ブロック BLOB を使用したブロック、BLOB、テーブル、およびキューの追加は行われません。

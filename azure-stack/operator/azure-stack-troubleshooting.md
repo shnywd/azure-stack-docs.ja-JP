@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
 author: justinha
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 07/13/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 15/13/2020
-ms.openlocfilehash: de19e65866413ec4e498c9a21848c1f43af6d65a
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.lastreviewed: 07/13/2020
+ms.openlocfilehash: ea96a990682e601d2cbe555185bdf5d4b8b6cbad
+ms.sourcegitcommit: 71620f2b014d9e73ce34123ca6757ee9a626617c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819511"
+ms.lasthandoff: 07/14/2020
+ms.locfileid: "86380135"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -91,6 +91,38 @@ PowerShell を使用して、Microsoft サポートを利用せずに、スタ�
 詳細については、[Azure Stack Hub の診断](azure-stack-get-azurestacklog.md)に関する記述を参照してください。
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>仮想マシン (VM) のトラブルシューティングを行う
+
+### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>プロビジョニング中に Windows Server 2012 R2 のライセンス認証が失敗する
+
+この場合、Windows で認証に失敗し、画面の右下隅に透かしが表示されます。 次のイベントが、C:\Windows\Panther の下にある WaSetup.xml ログに含まれます。
+
+```xml
+<Event time="2019-05-16T21:32:58.660Z" category="ERROR" source="Unattend">
+    <UnhandledError>
+        <Message>InstrumentProcedure: Failed to execute 'Call ConfigureLicensing()'. Will raise error to caller</Message>
+        <Number>-2147221500</Number>
+        <Description>Could not find the VOLUME_KMSCLIENT product</Description>
+        <Source>Licensing.wsf</Source>
+    </UnhandledError>
+</Event>
+```
+
+
+ライセンス認証を行うには、認証する SKU に対する仮想マシンの自動ライセンス認証 (AVMA) キーをコピーします。
+
+|Edition|AVMA キー|
+|-|-|
+|データセンター|Y4TGP-NPTV9-HTC2H-7MGQ3-DV4TW|
+|Standard|DBGBW-NPF86-BJVTX-K3WKJ-MTB6V|
+|要点|K2XGM-NMBT3-2R6Q8-WF2FK-P36R2|
+
+VM で、次のコマンドを実行します。
+
+```powershell
+slmgr /ipk <AVMA_key>
+```
+
+詳細については、[仮想マシンの自動ライセンス認証](https://docs.microsoft.com/windows-server/get-started-19/vm-activation-19)に関する記事をご覧ください。
 
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム
 

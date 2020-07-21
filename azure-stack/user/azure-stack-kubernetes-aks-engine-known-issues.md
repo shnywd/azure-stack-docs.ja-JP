@@ -7,12 +7,12 @@ ms.date: 07/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/02/2020
-ms.openlocfilehash: 4012f350fff45e3d09b543692fa315ffeeec1240
-ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
+ms.openlocfilehash: 4fdcc16679051087968161c0ac36175155a2717a
+ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85942306"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86272928"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンに関する既知の問題
 
@@ -23,9 +23,9 @@ ms.locfileid: "85942306"
 * Kubernetes クラスターのバージョン 1.15.x から 1.16.x へのアップグレード (AKS アップグレード) 中に、次の Kubernetes コンポーネントをアップグレードするには、追加の手順が必要になります: **kube-proxy**、**azure-cni-networkmonitor**、**csi-secrets-store**、**kubernetes-dashboard**。 次に、発生する可能性のある問題とその対処方法について説明します。
 
   * 接続された環境では、影響を受けるコンポーネントがアップグレードされなかったという表示がクラスターで出されないため、この問題に気付かない場合があります。 すべてが予期したとおりに動作しているように見えます。
-  * 切断された環境では、システム ポッドの状態に対するクエリを実行するときにこの問題が発生し、以下に示すコンポーネントのポッドが "準備完了" 状態になっていないことを確認できます。
+  <!-- * In disconnected environments, you can see this problem when you run a query for the system pods status and see that the pods for the components mentioned below are not in "Ready" state: -->
 
-    ```PowerShell
+    ```bash  
     kubectl get pods -n kube-system
     ```
 
@@ -38,7 +38,7 @@ ms.locfileid: "85942306"
     |**csi-secrets-store**  |`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/secrets-store-csi-driver.yaml`<br>`kubectl delete ds csi-secrets-store -n kube-system` | [Disconnected]\(切断済み\) |
     |**kubernetes-dashboard** |各マスター ノードで次のコマンドを実行します。<br>`sudo sed -i s/Always/IfNotPresent/g /etc/kubernetes/addons/kubernetes-dashboard.yaml` |[Disconnected]\(切断済み\) |
 
-* Kubernetes 1.17 はこのリリースではサポートされていません。 そのように示唆する PR がありますが、1.17 はサポートされていません。
+* Kubernetes 1.17 はこのリリースではサポートされていません。 1\.17 を参照している GitHub pull request (PR) がありますが、サポートされていません。
 
 ## <a name="basic-load-balancer-sku-limitations"></a>基本のロード バランサーの SKU の制限事項
 
@@ -46,7 +46,7 @@ ms.locfileid: "85942306"
 
   次の[ノード セレクター](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)をポッド テンプレートに追加することにより、特定のエージェント プールにポッドを作成するように Kubernetes に強制できます: "agentpool: MY_POOL_NAME"。
 
-  ```powershell
+  ```json
   nodeSelector:
 
         agentpool: linuxpool

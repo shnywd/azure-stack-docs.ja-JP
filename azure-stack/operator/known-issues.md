@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 07/10/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 5f0210d32367212769da66b2a55b1fff91fb5017
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: d0a212b231f187ca9ed2ce5520639b0e08a3d7e2
+ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033218"
+ms.lasthandoff: 07/11/2020
+ms.locfileid: "86272969"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -74,12 +74,6 @@ Azure Stack Hub の更新に関する他の既知の問題については、[Azu
 - 適用先:この問題は、1908 以降に適用されます。
 - 原因: ケーブルがネットワーク アダプターから切り離されたときに、管理者ポータルにアラートが表示されません。 この問題は、Windows Server 2019 ではこの障害が既定で無効にされるために発生します。
 - 発生頻度: 共通
-
-### <a name="access-control-iam"></a>アクセス制御 (IAM)
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: IAM 拡張機能が古すぎます。 Azure Stack Hub に付属している Ibiza ポータルで導入された新しい動作は、ユーザーがグローバル サブスクリプション セレクター (ユーザー ポータルの **[ディレクトリ + サブスクリプション]** ) 内で選択されていないサブスクリプションの **[アクセス制御 (IAM)]** ブレードを開いている場合に、RBAC 拡張機能が失敗する原因となります。 このブレードには **[読み込み中]** がループで表示され、ユーザーはサブスクリプションに新しいロールを追加できません。 **[追加]** ブレードにも、 **[読み込み中]** がループで表示されます。
-- 修復: **[ディレクトリ + サブスクリプション]** メニューでサブスクリプションがオンになっていることを確認します。 このメニューには、ポータルの上部から、または **[通知]** ボタンの近くからアクセスするか、 **[すべてのリソース]** ブレードのショートカット ( **[サブスクリプションが表示されていませんか?ディレクトリとサブスクリプションの設定を開きます]** と表示されている) を使用してアクセスします。 このメニューで、サブスクリプションを選択する必要があります。
 
 ## <a name="networking"></a>ネットワーク
 

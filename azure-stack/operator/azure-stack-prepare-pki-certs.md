@@ -8,18 +8,123 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: 3ad54cfdda10e5674b4f42edefdeda832a44aa5f
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: a371723250e52fb98e5c1ab7dc3151d1d4b9cbf3
+ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78367956"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86410642"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 
 [任意の証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
 
-## <a name="prepare-certificates-for-deployment"></a>デプロイ用の証明書を準備する
+## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>デプロイ用の証明書を準備する (Azure Stack 適合性チェッカーを使用)
+
+Azure Stack Hub 適合性チェッカー ツールを使用して、デプロイまたはローテーションのための証明書のインポート、パッケージ化、および検証を行うことができます。
+
+## <a name="prerequisites"></a>前提条件
+
+Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化する前に、システムが次の前提条件を満たしている必要があります。
+
+- Microsoft Azure Stack Hub 適合性チェッカー
+- 1 つのディレクトリ内にある、証明機関から返された .cer 形式 (その他の構成可能な形式は .cert、.sst、または .pfx) の証明書。
+- Windows 10 または Windows Server 2016 以降
+- 証明書署名要求を生成したのと同じシステムを使用します。 (PFX 形式に事前にパッケージ化されている事前証明書を対象とする場合を除く)
+
+## <a name="generate-certificate-signing-requests-for-new-deployments"></a>新しいデプロイのための証明書署名要求を生成する
+
+新しい Azure Stack Hub PKI 証明書の証明書をパッケージ化するには、次の手順を使用します。
+
+1. 次のコマンドレットを実行して、PowerShell プロンプト (5.1 以上) から AzsReadinessChecker をインストールします。
+
+    ```powershell  
+        Install-Module Microsoft.AzureStack.ReadinessChecker
+    ```
+2. 証明書がディスク上に存在する**パス**を宣言します。 次に例を示します。
+
+    ```powershell  
+        $Path = "$env:USERPROFILE\Documents\AzureStack"
+    ```
+
+3. **pfxPassword** を宣言します。 次に例を示します。
+
+    ```powershell  
+        $pfxPassword = Read-Host -AsSecureString -Prompt "PFX Password"
+    ```
+4. 結果の PFX のエクスポート先となる **ExportPath** を宣言します。 次に例を示します。
+
+    ```powershell  
+        $ExportPath = "$env:USERPROFILE\Documents\AzureStack"
+    ```
+
+5. 証明書を Azure Stack Hub 証明書に変換します。 次に例を示します。
+
+    ```powershell  
+        ConvertTo-AzsPFX -Path $Path -pfxPassword $pfxPassword -ExportPath $ExportPath
+    ```
+8.  出力を確認します。
+
+    ```powershell  
+    ConvertTo-AzsPFX v1.2005.1286.272 started.
+
+    Stage 1: Scanning Certificates
+        Path: C:\Users\[*redacted*]\Documents\AzureStack Filter: CER Certificate count: 11
+        adminmanagement_east_azurestack_contoso_com_CertRequest_20200710235648.cer
+        adminportal_east_azurestack_contoso_com_CertRequest_20200710235645.cer
+        management_east_azurestack_contoso_com_CertRequest_20200710235644.cer
+        portal_east_azurestack_contoso_com_CertRequest_20200710235646.cer
+        wildcard_adminhosting_east_azurestack_contoso_com_CertRequest_20200710235649.cer
+        wildcard_adminvault_east_azurestack_contoso_com_CertRequest_20200710235642.cer
+        wildcard_blob_east_azurestack_contoso_com_CertRequest_20200710235653.cer
+        wildcard_hosting_east_azurestack_contoso_com_CertRequest_20200710235652.cer
+        wildcard_queue_east_azurestack_contoso_com_CertRequest_20200710235654.cer
+        wildcard_table_east_azurestack_contoso_com_CertRequest_20200710235650.cer
+        wildcard_vault_east_azurestack_contoso_com_CertRequest_20200710235647.cer
+
+    Detected ExternalFQDN: east.azurestack.contoso.com
+
+    Stage 2: Exporting Certificates
+        east.azurestack.contoso.com\Deployment\ARM Admin\ARMAdmin.pfx
+        east.azurestack.contoso.com\Deployment\Admin Portal\AdminPortal.pfx
+        east.azurestack.contoso.com\Deployment\ARM Public\ARMPublic.pfx
+        east.azurestack.contoso.com\Deployment\Public Portal\PublicPortal.pfx
+        east.azurestack.contoso.com\Deployment\Admin Extension Host\AdminExtensionHost.pfx
+        east.azurestack.contoso.com\Deployment\KeyVaultInternal\KeyVaultInternal.pfx
+        east.azurestack.contoso.com\Deployment\ACSBlob\ACSBlob.pfx
+        east.azurestack.contoso.com\Deployment\Public Extension Host\PublicExtensionHost.pfx
+        east.azurestack.contoso.com\Deployment\ACSQueue\ACSQueue.pfx
+        east.azurestack.contoso.com\Deployment\ACSTable\ACSTable.pfx
+        east.azurestack.contoso.com\Deployment\KeyVault\KeyVault.pfx
+
+    Stage 3: Validating Certificates.
+
+    Validating east.azurestack.contoso.com-Deployment-AAD certificates in C:\Users\[*redacted*]\Documents\AzureStack\east.azurestack.contoso.com\Deployment 
+
+    Testing: KeyVaultInternal\KeyVaultInternal.pfx
+    Thumbprint: E86699****************************4617D6
+        PFX Encryption: OK
+        Expiry Date: OK
+        Signature Algorithm: OK
+        DNS Names: OK
+        Key Usage: OK
+        Key Length: OK
+        Parse PFX: OK
+        Private Key: OK
+        Cert Chain: OK
+        Chain Order: OK
+        Other Certificates: OK
+    Testing: ARM Public\ARMPublic.pfx
+        ...
+    Log location (contains PII): C:\Users\[*redacted*]\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+    ConvertTo-AzsPFX Completed
+    ```
+    > [!NOTE]
+    > 検証を無効にする、または、さまざまな証明書形式をフィルター処理する場合などのその他の使用方法については、Get-help ConvertTo-AzsPFX -Full を使用します。
+
+    検証が成功すると、追加の手順を行わなくても、デプロイまたはローテーション用の証明書を提示できます。
+
+## <a name="prepare-certificates-for-deployment-manual-steps"></a>デプロイ用の証明書を準備する (手動の手順)
 
 次の手順を使用して、新しい Azure Stack Hub 環境のデプロイまたは既存の Azure Stack Hub 環境でのシークレットのローテーションに使用される Azure Stack Hub PKI 証明書を準備および検証します。
 
