@@ -298,12 +298,8 @@
               href: app-service-billing-faq.md
             - name: 前提条件
               href: azure-stack-app-service-before-you-get-started.md
-            - name: デプロイ
-              items:
-                - name: App Service のデプロイ
-                  href: azure-stack-app-service-deploy.md
-                - name: 高可用性のための App Service のデプロイ
-                  href: app-service-deploy-ha.md
+            - name: App Service のデプロイ
+              href: azure-stack-app-service-deploy.md
             - name: ライフ サイクル管理
               items:
                 - name: App Service の更新
@@ -320,26 +316,14 @@
                   href: app-service-recover.md
                 - name: App Service の削除
                   href: app-service-remove.md
-            - name: App Service on Azure Stack Hub のリリース ノート
+            - name: リリース ノート
               items:
-                - name: App Service on Azure Stack Hub 2020 年第 2 四半期のリリース ノート
+                - name: '2020 年第 2 四半期リリース ノート [2020 年 5 月]'
                   href: app-service-release-notes-2020-Q2.md
-                - name: App Service on Azure Stack Hub update 8 のリリース ノート
+                - name: 'Update 8 のリリース ノート [2020 年 6 月]'
                   href: azure-stack-app-service-release-notes-update-eight.md
-                - name: App Service on Azure Stack Hub update 7 のリリース ノート
+                - name: 'Update 7 のリリース ノート [2019 年 8 月]'
                   href: azure-stack-app-service-release-notes-update-seven.md
-                - name: App Service on Azure Stack Hub update 6 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-six.md
-                - name: App Service on Azure Stack Hub update 5 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-five.md
-                - name: App Service on Azure Stack Hub update 4 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-four.md
-                - name: App Service on Azure Stack Hub update 3 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-three.md
-                - name: App Service on Azure Stack Hub update 2 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-two.md
-                - name: App Service on Azure Stack Hub update 1 のリリース ノート
-                  href: azure-stack-app-service-release-notes-update-one.md
         - name: Azure Stack Hub 上の Event Hubs
           items:
             - name: 概要
@@ -497,19 +481,19 @@
 - name: リファレンス
   items:
     - name: Azure Stack Hub PowerShell
-      href: 'https://docs.microsoft.com/powershell/azure/azure-stack/overview'
+      href: /powershell/azure/azure-stack/overview
     - name: Azure Stack Hub の特権エンドポイント
       href: ../reference/pep-2002/
     - name: Azure Stack Hub の管理者 REST API
       href: /rest/api/azure-stack/
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest'
+      href: /cli/azure/reference-index?view=azure-cli-latest
 - name: 関連項目
   items:
     - name: Azure Stack Hub のユーザー ドキュメント
-      href: /azure-stack/user/
+      href: ../user/index.yml
     - name: ASDK のドキュメント
-      href: /azure-stack/asdk/
+      href: ../asdk/index.yml
 - name: リソース
   items:
     - name: トレーニングと認定
