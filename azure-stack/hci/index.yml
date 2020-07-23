@@ -1,19 +1,19 @@
 ### YamlMime:Landing
 title: Azure Stack HCI のドキュメント
-summary: Azure Stack HCI は、仮想化されたワークロードをオンプレミスで実行するために検証済みのハードウェアを使用するハイパー集約型の Windows Server 2019 クラスターであり、ユーザーが古くなったインフラストラクチャを統合し、クラウド サービスのために Azure に接続することが簡単にできるようにします。
+summary: Azure Stack HCI は、仮想化されたワークロードをオンプレミスで実行するために検証済みのハードウェアを使用するハイパー集約型のクラスターであり、これを使うと、古くなったインフラストラクチャの統合と、クラウド サービスのための Azure への接続が簡単になります。
 metadata:
   title: Azure Stack HCI のドキュメント
-  description: Azure Stack HCI は、検証済みのハードウェアを使用して、仮想化されたワークロードをオンプレミスで実行するハイパーコンバージド Windows Server 2019 クラスターです。
+  description: Azure Stack HCI は、検証済みのハードウェアを使用して、仮想化されたワークロードをオンプレミスで実行するハイパーコンバージド クラスターです。
   ms.topic: landing-page
   author: khdownie
   ms.author: v-kedow
-  ms.date: 04/17/2020
-  ms.openlocfilehash: 4a0a9d91efd11cc2affe70ecdbfe4b9781f3a2a5
-  ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+  ms.date: 07/21/2020
+  ms.openlocfilehash: 439e41651800ddb6ee478bfad083890193aef5da
+  ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 06/22/2020
-  ms.locfileid: "85196785"
+  ms.lasthandoff: 07/22/2020
+  ms.locfileid: "86891970"
 landingContent:
 - title: Azure Stack HCI について
   linkLists:
@@ -25,33 +25,89 @@ landingContent:
     links:
     - text: Windows Admin Center で Azure Stack HCI を使用する
       url: get-started.md
-- title: Azure Stack HCI の管理
+- title: Deploy Azure Stack HCI のデプロイ
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: 開始する前に
+      url: deploy/before-you-start.md
+    - text: Azure Stack HCI オペレーティング システムのデプロイ
+      url: deploy/operating-system.md
+    - text: クラスターの作成
+      url: deploy/create-cluster.md
+    - text: クラスター監視のセットアップ
+      url: deploy/witness.md
+    - text: Azure に登録する
+      url: deploy/register-with-azure.md
+    - text: Azure Stack HCI クラスターの検証
+      url: deploy/validate.md
+- title: ストレージの管理
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: ボリュームの作成
       url: manage/create-volumes.md
+    - text: 拡張ボリュームの作成
+      url: manage/create-stretched-volumes.md
     - text: ボリュームの拡張
       url: manage/extend-volumes.md
     - text: ボリュームを削除する
       url: manage/delete-volumes.md
     - text: ドライブの交換
       url: manage/replace-drives.md
-    - text: Azure Monitor による監視
-      url: manage/azure-monitor.md
-    - text: Linux VM への GPU のアタッチ
-      url: manage/attach-gpu-to-linux-vm.md
+- title: VM の管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Windows Admin Center で VM を管理する
+      url: manage/vm.md
+    - text: PowerShell で VM を管理する
+      url: manage/vm-powershell.md
+    - text: VM アフィニティ ルールの設定
+      url: deploy/before-you-start.md
+- title: クラスターの管理
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Windows Admin Center でクラスターを管理する
+      url: manage/cluster.md
+    - text: PowerShell でクラスターを管理する
+      url: manage/cluster-powershell.md
+    - text: サーバーの追加または削除
+      url: manage/add-cluster.md
+    - text: クラスターの更新
+      url: manage/update-cluster.md
+    - text: 言語の変更
+      url: manage/vm-powershell.md
 - title: Azure Stack HCI の概念
   linkLists:
   - linkListType: concept
     links:
+    - text: ストレッチ クラスター
+      url: concepts/stretched-clusters.md
+    - text: 課金
+      url: concepts/billing.md
+    - text: 更新とアップグレード
+      url: concepts/updates.md
     - text: ドライブの選択
       url: concepts/choose-drives.md
     - text: ボリュームの計画
       url: concepts/plan-volumes.md
-    - text: キャッシュの理解
-      url: concepts/cache.md
     - text: フォールト トレランスとストレージの効率性
       url: concepts/fault-tolerance.md
-    - text: クラスターと記憶域プールのクォーラム
-      url: concepts/quorum.md
+    - text: セキュリティに関する考慮事項
+      url: concepts/security.md
+- title: Azure に接続する
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Windows Admin Center を Azure に登録する
+      url: manage/register-windows-admin-center.md
+    - text: Azure Site Recovery を使用する
+      url: manage/azure-site-recovery.md
+    - text: Azure Monitor による監視
+      url: manage/azure-monitor.md
+    - text: Azure ネットワーク アダプターを使用する
+      url: manage/use-azure-network-adapter.md
+    - text: Azure Backup の使用
+      url: manage/use-azure-backup.md
