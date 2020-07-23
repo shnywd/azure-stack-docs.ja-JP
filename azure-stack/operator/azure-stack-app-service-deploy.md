@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 4f9bdf84f73bf06c42f3b6910e0faad83a9bbd80
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 441200d89d64705e0632c8f09a76afa65d52e194
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82847991"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489897"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Azure Stack Hub に App Service をデプロイする
 
@@ -180,7 +180,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 ## <a name="post-deployment-steps"></a>デプロイ後の手順
 
 > [!IMPORTANT]
-> SQL Always On インスタンスを使用して App Service RP を提供している場合は、データベースのフェールオーバー時にサービスの停止を防ぐために、[appservice_hosting と appservice_metering データベースを可用性グループに追加](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する**必要があります**。
+> SQL Always On インスタンスを使用して App Service RP を提供している場合は、データベースのフェールオーバー時にサービスの停止を防ぐために、[appservice_hosting と appservice_metering データベースを可用性グループに追加](/sql/database-engine/availability-groups/windows/availability-group-add-a-database)し、それらのデータベースを同期する**必要があります**。
 
 既存の仮想ネットワークにデプロイし、内部 IP アドレスを使用してファイル サーバーに接続する場合は、送信セキュリティ規則を追加する必要があります。 この規則により、worker サブネットとファイル サーバー間の SMB トラフィックが有効になります。 管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
 
@@ -418,7 +418,7 @@ Azure App Service リソース プロバイダーをオフラインの Azure Sta
 ## <a name="post-deployment-steps"></a>デプロイ後の手順
 
 > [!IMPORTANT]
-> SQL Always On インスタンスで Azure App Service RP を提供した場合は、[appservice_hosting データベースと appservice_metering データベースを可用性グループに追加する](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)**必要があります**。 また、データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期する必要もあります。
+> SQL Always On インスタンスで Azure App Service RP を提供した場合は、[appservice_hosting データベースと appservice_metering データベースを可用性グループに追加する](/sql/database-engine/availability-groups/windows/availability-group-add-a-database)**必要があります**。 また、データベースのフェールオーバーが発生した場合のサービスの損失を防ぐため、データベースを同期する必要もあります。
 
 ファイル サーバーに接続するために既存の仮想ネットワークと内部 IP アドレスへデプロイする場合は、送信セキュリティ規則を追加して、worker サブネットとファイル サーバー間の SMB トラフィックを有効にする必要があります。 管理者ポータルでネットワーク セキュリティ グループである WorkersNsg に移動し、次のプロパティを持つ送信セキュリティ規則を追加します。
 

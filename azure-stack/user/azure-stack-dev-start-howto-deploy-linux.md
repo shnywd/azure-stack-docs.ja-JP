@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 35863d41776ece59592d57264db6522e47ee4208
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 67b1971c3579de31374b9babdf6696e2950dbb35
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146956"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567537"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする
 
@@ -87,7 +87,7 @@ VM をデプロイするには、以降のいくつかのセクションの手�
 
     b. **[ストレージ]** で、 **[Premium ディスク (SSD)]** または **[Standard ディスク (HDD)]** を選択します。 Premium ディスク (SSD) の実体はソリッドステート ドライブであり、待ち時間の短い一貫したパフォーマンスが得られます。 価格とパフォーマンスのバランスが最良であり、I/O 集約型アプリケーションや運用環境のワークロードに適しています。 Standard ディスクは、磁気ドライブを基盤としており、データへのアクセス頻度が低いアプリケーションに適しています。 ゾーン冗長ディスクは、データを複数のゾーンをまたいでレプリケートし、1 つのゾーンがダウンしてもデータを利用可能なゾーン冗長ストレージ (ZRS) を基盤としています。 
 
-    c. **[マネージド ディスクを使用]** を選択します。 この機能を有効にすると、Azure によって自動的にディスクの可用性が管理されます。 ストレージ アカウントを自分で作成および管理しなくても、データの冗長性とフォールト トレランスによるメリットが得られます。 マネージド ディスクは、すべてのリージョンで使用できるわけではありません。 詳細については、「[Azure マネージド ディスクの概要](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)」を参照してください。
+    c. **[マネージド ディスクを使用]** を選択します。 この機能を有効にすると、Azure によって自動的にディスクの可用性が管理されます。 ストレージ アカウントを自分で作成および管理しなくても、データの冗長性とフォールト トレランスによるメリットが得られます。 マネージド ディスクは、すべてのリージョンで使用できるわけではありません。 詳細については、「[Azure マネージド ディスクの概要](/azure/virtual-machines/windows/managed-disks-overview)」を参照してください。
 
     d. ネットワークを構成するには、 **[仮想ネットワーク]** を選択します。 Azure では、論理的には仮想ネットワークは互いに分離されています。 データセンターの従来のネットワークと同様に、IP アドレス範囲、サブネット、ルート テーブル、ゲートウェイ、セキュリティ設定を構成できます。 同じ仮想ネットワーク内の仮想マシンは、既定で相互にアクセスできます。 
 

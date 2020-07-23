@@ -7,12 +7,12 @@ ms.date: 05/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: ca19246cbb23215f78f598c1c3aa513aaeeb0547
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 7cecc0eda09c2ae000f469c3704f3256e68268c7
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631423"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490220"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
@@ -22,13 +22,13 @@ ms.locfileid: "84631423"
 
 |  | 項目名 | 説明 | Publisher | OS の種類 |
 | --- | --- | --- | --- | --- |
-|![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
-|![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
-|![PowerShell DSC 拡張機能](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 拡張機能](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **この更新プログラムは、PowerShell DSC 拡張機能のインボックス バージョンにダウンロードします。TLS v1.2 をサポートするために更新されます。** | Microsoft | Windows |
-| ![Microsoft マルウェア対策拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft マルウェア対策拡張機能](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure 向け Microsoft Antimalware は、アプリとテナント環境のための単一エージェント ソリューションであり、ユーザーの介入なしにバックグラウンドで実行するように設計されています。 **この更新プログラムは、マルウェア対策拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
-| ![Microsoft Azure 診断の拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 診断の拡張機能](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure Diagnostics は、デプロイされたアプリで診断データを収集できるようにする Azure 内の機能です。 この更新プログラムは、**Windows での診断の拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
-| ![Azure Monitor、更新および構成管理拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Azure Monitor、更新および構成管理拡張機能](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Azure Monitor の更新および構成管理拡張機能は、VM の監視機能を提供するために、Log Analytics、Azure Security Center、Azure Sentinel で使われます。 この更新プログラムは、**Windows での監視エージェント拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
-|![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | - [カスタム スクリプト拡張機能 (バージョン 1、非推奨)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linuxostc) </b> - [カスタム スクリプト拡張機能 (バージョン 2)](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux) |**この更新プログラムは、Linux 用のカスタム スクリプト拡張機能のインボックス バージョンにダウンロードします。この拡張機能のバージョンは複数存在し、1.5.2.1 と 2.0.x の両方をダウンロードする必要があります。** | Microsoft | Linux |
+|![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
+|![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
+|![PowerShell DSC 拡張機能](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 拡張機能](/azure/virtual-machines/windows/extensions-dsc-overview)| **この更新プログラムは、PowerShell DSC 拡張機能のインボックス バージョンにダウンロードします。TLS v1.2 をサポートするために更新されます。** | Microsoft | Windows |
+| ![Microsoft マルウェア対策拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft マルウェア対策拡張機能](/azure/security/azure-security-antimalware)| Azure 向け Microsoft Antimalware は、アプリとテナント環境のための単一エージェント ソリューションであり、ユーザーの介入なしにバックグラウンドで実行するように設計されています。 **この更新プログラムは、マルウェア対策拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
+| ![Microsoft Azure 診断の拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 診断の拡張機能](/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure Diagnostics は、デプロイされたアプリで診断データを収集できるようにする Azure 内の機能です。 この更新プログラムは、**Windows での診断の拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
+| ![Azure Monitor、更新および構成管理拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [Azure Monitor、更新および構成管理拡張機能](/azure/virtual-machines/extensions/oms-windows)| Azure Monitor の更新および構成管理拡張機能は、VM の監視機能を提供するために、Log Analytics、Azure Security Center、Azure Sentinel で使われます。 この更新プログラムは、**Windows での監視エージェント拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
+|![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | - [カスタム スクリプト拡張機能 (バージョン 1、非推奨)](/azure/virtual-machines/extensions/custom-script-linuxostc) </b> - [カスタム スクリプト拡張機能 (バージョン 2)](/azure/virtual-machines/extensions/custom-script-linux) |**この更新プログラムは、Linux 用のカスタム スクリプト拡張機能のインボックス バージョンにダウンロードします。この拡張機能のバージョンは複数存在し、1.5.2.1 と 2.0.x の両方をダウンロードする必要があります。** | Microsoft | Linux |
 | ![Linux 用 VM Access](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 用 VM Access](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **この更新プログラムを、Linux 用 VMAccess 拡張機能のインボックス バージョンにダウンロードします。この更新プログラムは、Debian Linux VM を使う予定の場合に重要です。** | Microsoft | Linux |
 | ![Linux 用の Acronis Backup 拡張機能](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 用の Acronis Backup 拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure 用の Acronis Backup 拡張機能は、データ保護製品のAcronis Backup ファミリーの一部です。 | Acronis International GmbH。 | Linux |
 | ![Windows 用の Acronis Backup 拡張機能](media/azure-stack-marketplace-azure-items/acronis.png) | [Windows 用の Acronis Backup 拡張機能](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | Microsoft Azure 用の Acronis Backup 拡張機能は、データ保護製品のAcronis Backup ファミリーの一部です。 | Acronis International GmbH。 | Windows |

@@ -7,12 +7,12 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: c0ce996e1c94b731af808d410c8891c1fcf1395e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 14747b3eec8dfb3d3722eab7dd02c5d0d08b816b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197074"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490033"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする
 
@@ -33,9 +33,9 @@ Azure Stack Hub と互換性のある PowerShell Az モジュールは、イン�
 
 ## <a name="1-verify-your-prerequisites"></a>1.前提条件を確認する
 
-Az モジュールは、最新の[修正プログラム](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#hotfixes)と [2002 更新プログラムが適用された Azure Stack Hub](https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2002#2002-build-reference) でのみサポートされます。
+Az モジュールは、最新の[修正プログラム](./release-notes.md?view=azs-2002#hotfixes)と [2002 更新プログラムが適用された Azure Stack Hub](./release-notes.md?view=azs-2002#2002-build-reference) でのみサポートされます。
 
-Azure PowerShell は、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
+Azure PowerShell は、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
 
 PowerShell のバージョンを確認するには、次のコマンドを実行します。
 
@@ -46,12 +46,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Windows の前提条件
 Windows 上の PowerShell 5.1 で Azure PowerShell を使用するには、次の手順に従います。
 
-1. 必要に応じて [Windows PowerShell 5.1](https://docs.microsoft.com//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。 Windows 10 の場合は、あらかじめ PowerShell 5.1 がインストールされています。
-2. [.NET Framework 4.7.2 以降](https://docs.microsoft.com//dotnet/framework/install)をインストールします。
+1. 必要に応じて [Windows PowerShell 5.1](//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。 Windows 10 の場合は、あらかじめ PowerShell 5.1 がインストールされています。
+2. [.NET Framework 4.7.2 以降](//dotnet/framework/install)をインストールします。
 3. 最新バージョンの PowerShellGet がインストールされていることを確認します。 `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force` を実行します。 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2.Linux および Mac の前提条件
-PowerShell Core 6.x 以降のバージョンが必要です。 手順については、[リンク](https://docs.microsoft.com//powershell/scripting/install/installing-powershell-core-on-windows)に従ってください。
+PowerShell Core 6.x 以降のバージョンが必要です。 手順については、[リンク](//powershell/scripting/install/installing-powershell-core-on-windows)に従ってください。
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする
 
@@ -84,7 +84,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.1-preview -AllowPrerelease
 > Azure Stack Hub モジュール バージョン 2.0.0 は破壊的変更を伴うリリースです。 詳細については、「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
 
 > [!WARNING]
-> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることはできません。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
+> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることはできません。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.切断状態の場合: インターネット接続を使用しないインストール
 
@@ -130,7 +130,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
 
-3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
+3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
 4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
 

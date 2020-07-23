@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wamota
 ms.lastreviewed: 06/04/2019
-ms.openlocfilehash: f447f4969e9cb9bcb4d56ea5961473e1028e44f3
-ms.sourcegitcommit: 7b8e067cb449e67ca9c2935580684d78840ad495
+ms.openlocfilehash: 563892dd4275c6e42fdda1f7046edc7418f50350
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82106909"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488401"
 ---
 # <a name="network-integration-planning-for-azure-stack"></a>Azure Stack のためのネットワーク統合計画
 
@@ -92,7 +92,7 @@ HLH では、デプロイメント仮想マシン (DVM) もホストされます
 
 ## <a name="permitted-networks"></a>許可されるネットワーク
 
-1910 以降、デプロイ ワークシートに新しいフィールドが追加され、それによって、オペレーターは、いくつかのアクセス制御リスト (ACL) を変更して、信頼されたデータセンター ネットワーク範囲から、ネットワーク デバイス管理インターフェイスとハードウェア ライフサイクル ホスト (HLH) にアクセスできるようになります。 アクセス制御リストの変更によって、オペレーターは、特定のネットワーク範囲内の管理ジャンプボックス VM に、スイッチ管理インターフェイス、HLH OS、および HLH BMC へのアクセスを許可することができます。 オペレーターは、このリストに 1 つまたは複数のサブネットを指定できます。空白のままにすると、既定でアクセスが拒否されます。 「[Azure Stack スイッチ構成の特定の設定を変更する](https://docs.microsoft.com/azure-stack/operator/azure-stack-customer-defined#access-control-list-updates)」で説明されていたデプロイ後に実行する必要がある手動介入に代わって、この新機能が使用されます。
+1910 以降、デプロイ ワークシートに新しいフィールドが追加され、それによって、オペレーターは、いくつかのアクセス制御リスト (ACL) を変更して、信頼されたデータセンター ネットワーク範囲から、ネットワーク デバイス管理インターフェイスとハードウェア ライフサイクル ホスト (HLH) にアクセスできるようになります。 アクセス制御リストの変更によって、オペレーターは、特定のネットワーク範囲内の管理ジャンプボックス VM に、スイッチ管理インターフェイス、HLH OS、および HLH BMC へのアクセスを許可することができます。 オペレーターは、このリストに 1 つまたは複数のサブネットを指定できます。空白のままにすると、既定でアクセスが拒否されます。 「[Azure Stack スイッチ構成の特定の設定を変更する](./azure-stack-customer-defined.md#access-control-list-updates)」で説明されていたデプロイ後に実行する必要がある手動介入に代わって、この新機能が使用されます。
 
 ## <a name="next-steps"></a>次のステップ
 

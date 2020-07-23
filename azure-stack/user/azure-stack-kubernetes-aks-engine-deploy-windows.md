@@ -7,12 +7,12 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 612d5fa11c2f34c73925212103c2699c9581f107
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 6b10f43081ae9781005fcbc13eec50bd03b5128e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197040"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566109"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
@@ -31,7 +31,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 クライアント VM をインストールし、インターネットに接続されている Azure Stack Hub 上のお使いの Kubernetes クラスターを管理できます。
 
-1. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください。
+1. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](./azure-stack-quick-windows-portal.md)」を参照してください。
 2. お使いの VM に接続します。
 3. [PowerShell の手順に従って Chocolatey をインストールします](https://chocolatey.org/install#install-with-powershellexe)。 
 
@@ -52,9 +52,9 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1.  インターネットにアクセスできるコンピューターから、GitHub [Azure/aks-engine](https://github.com/Azure/aks-engine/releases/latest) に移動します。 `aks-engine-v0.38.8-windows-amd64.tar.gz` など、Windows マシンのアーカイブ (*.tar.gz) をダウンロードします。
 
-2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-connect-se) に関するページを参照してください。
+2.  お使いの Azure Stack Hub インスタンスにストレージ アカウントを作成し、AKS エンジン バイナリを使用してアーカイブ ファイル (*.tar.gz) をアップロードします。 Azure Storage Explorer の使用方法については、[Azure Stack Hub と Azure Storage Explorer](./azure-stack-storage-connect-se.md) に関するページを参照してください。
 
-3. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)」を参照してください
+3. Azure Stack Hub で Windows VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する](./azure-stack-quick-windows-portal.md)」を参照してください
 
 4.  アーカイブ ファイル (* tar.gz) をアップロードした Azure Stack Hub ストレージ アカウントの BLOB URL から、お使いの管理 VM にファイルをダウンロードします。 コマンド プロンプトから、アクセス権のあるディレクトリにアーカイブを抽出します。
 
@@ -88,8 +88,8 @@ ASDK の外部のマシン上の ASDK で AKS エンジン用のクライアン�
 
 ご自分の Azure Resource Manager エンドポイントが自己署名証明書を使用する ASDK を使用している場合、コンピューターの信頼された証明書ストアにこの証明書を明示的に追加する必要があります。 ASDK のルート証明書は、ASDK にデプロイするすべての VM にあります。
 
-1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack Hub の CA ルート証明書をエクスポートする](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#export-the-azure-stack-hub-ca-root-certificate)」を参照してください。
-2. Azure Stack Hub の CA ルート証明書を信頼します。 手順については、「[Azure Stack Hub の CA ルート証明書を信頼する](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2#trust-the-azure-stack-hub-ca-root-certificate)」を参照してください。
+1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack Hub の CA ルート証明書をエクスポートする](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate)」を参照してください。
+2. Azure Stack Hub の CA ルート証明書を信頼します。 手順については、「[Azure Stack Hub の CA ルート証明書を信頼する](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

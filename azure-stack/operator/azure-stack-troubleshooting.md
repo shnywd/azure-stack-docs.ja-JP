@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/13/2020
-ms.openlocfilehash: ea96a990682e601d2cbe555185bdf5d4b8b6cbad
-ms.sourcegitcommit: 71620f2b014d9e73ce34123ca6757ee9a626617c
+ms.openlocfilehash: e58d57b50f0f11c3e05d660063b5abd94c8e4575
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86380135"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487568"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -30,7 +30,7 @@ ms.locfileid: "86380135"
 
 ### <a name="updates-and-diagnostics"></a>更新と診断
 
-* [Azure Stack Hub で診断ツールを使用する方法](azure-stack-diagnostics.md)
+* [Azure Stack Hub で診断ツールを使用する方法](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
 * [Azure Stack Hub システムの状態を検証する方法](azure-stack-diagnostic-test.md)
 * [更新プログラム パッケージのリリース周期](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [ノードの状態の確認とトラブルシューティング](azure-stack-node-actions.md)
@@ -66,7 +66,7 @@ Azure Stack Hub のユーザーは、サブスクリプション、リソース 
 
 Azure リソースの組み込みロールが組織の特定のニーズを満たさない場合は、独自のカスタム ロールを作成することができます。 このチュートリアルでは、Azure PowerShell を使用して、Reader Support Tickets というカスタム ロールを作成します。
 
-* [チュートリアル:Azure PowerShell を使用して Azure リソースのカスタム ロールを作成する](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell)
+* [チュートリアル:Azure PowerShell を使用して Azure リソースのカスタム ロールを作成する](/azure/role-based-access-control/tutorial-custom-role-powershell)
 
 ### <a name="manage-usage-and-billing-as-a-csp"></a>使用量と課金を CSP として管理する
 
@@ -122,7 +122,7 @@ VM で、次のコマンドを実行します。
 slmgr /ipk <AVMA_key>
 ```
 
-詳細については、[仮想マシンの自動ライセンス認証](https://docs.microsoft.com/windows-server/get-started-19/vm-activation-19)に関する記事をご覧ください。
+詳細については、[仮想マシンの自動ライセンス認証](/windows-server/get-started-19/vm-activation-19)に関する記事をご覧ください。
 
 ### <a name="default-image-and-gallery-item"></a>既定のイメージとギャラリー アイテム
 
@@ -147,7 +147,7 @@ Azure Stack Hub に VM をデプロイする前に、Windows Server イメージ
 
 ### <a name="azure-storage-explorer-not-working-with-azure-stack-hub"></a>Azure Stack Hub で Azure Storage Explorer が動作しない
 
-切断されたシナリオで統合システムを使用する場合は、エンタープライズ証明機関 (CA) を利用することをお勧めします。 ルート証明書を Base-64 形式でエクスポートしてから、Azure Storage Explorer にインポートします。 必ず、Resource Manager エンドポイントから末尾のスラッシュ (`/`) を削除してください。 詳細については、「[Azure Stack Hub への接続を準備する](/azure-stack/user/azure-stack-storage-connect-se)」を参照してください。
+切断されたシナリオで統合システムを使用する場合は、エンタープライズ証明機関 (CA) を利用することをお勧めします。 ルート証明書を Base-64 形式でエクスポートしてから、Azure Storage Explorer にインポートします。 必ず、Resource Manager エンドポイントから末尾のスラッシュ (`/`) を削除してください。 詳細については、「[Azure Stack Hub への接続を準備する](../user/azure-stack-storage-connect-se.md)」を参照してください。
 
 ## <a name="troubleshoot-app-service"></a>App Service のトラブルシューティング
 
@@ -159,11 +159,11 @@ App Service に必要な Create-AADIdentityApp.ps1 スクリプトが失敗す�
 
 Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
 
-0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)にしていることを確認してください。
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)にしていることを確認してください。
 
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
 
-2. 問題を解決できない場合は、[Azure Stack Hub のサポート チケット](azure-stack-help-and-support-overview-tzl.md)を作成します。 問題が発生した期間に[収集されたログ](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md)があることを確認してください。
+2. 問題を解決できない場合は、[Azure Stack Hub のサポート チケット](./azure-stack-help-and-support-overview.md?view=azs-2002)を作成します。 問題が発生した期間に[収集されたログ](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)があることを確認してください。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
 

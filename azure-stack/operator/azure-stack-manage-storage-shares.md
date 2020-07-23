@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: ecac1c8c69a8f332a85bf0a934f688f14dbcaddd
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630994"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488707"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
@@ -45,7 +45,7 @@ Azure Stack Hub ではストレージ容量の拡張はサポートされない�
 
 オブジェクト ストア ボリュームの空き領域が少ないときに、領域を[回収](#reclaim-capacity)するためのアクションが成功しないか使用できない場合、Azure Stack Hub クラウド オペレーターは、あるボリュームから別のボリュームにストレージ オブジェクトを移行できます。
 
-テナント ユーザーによる Azure Stack Hub での BLOB ストレージの操作方法については、[Azure Stack Hub ストレージ サービス](/azure-stack/user/azure-stack-storage-overview)に関する記事を参照してください。
+テナント ユーザーによる Azure Stack Hub での BLOB ストレージの操作方法については、[Azure Stack Hub ストレージ サービス](../user/azure-stack-storage-overview.md)に関する記事を参照してください。
 
 ### <a name="containers"></a>Containers
 テナント ユーザーは、BLOB データを格納するために使用されるコンテナーを作成します。 BLOB を配置するコンテナーはユーザーが決定しますが、コンテナーを配置するボリュームは、ストレージ サービスがアルゴリズムを使用して決定します。 このアルゴリズムでは、通常は、使用可能な領域が最も多いボリュームが選択されます。  
@@ -173,7 +173,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 > コンテナーの BLOB の移行は、PowerShell の使用を要求するオフライン操作です。 移行が完了するまで、移行中のコンテナーのすべての BLOB はオフラインのままであり、使用することはできません。 また、進行中の移行作業がすべて完了するまで、Azure Stack Hub をアップグレードすることは避けてください。
 
 #### <a name="migrate-containers-by-using-powershell"></a>PowerShell を使用してコンテナーを移行する
-1. [Azure PowerShell のインストールと構成](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)が行われていることを確認します。 詳細については、「[Azure PowerShell を使用した Azure リソースの管理](https://go.microsoft.com/fwlink/?LinkId=394767)」を参照してください。
+1. [Azure PowerShell のインストールと構成](/powershell/azure/)が行われていることを確認します。 詳細については、「[Azure PowerShell を使用した Azure リソースの管理](https://go.microsoft.com/fwlink/?LinkId=394767)」を参照してください。
 2. コンテナーを調べて、移行する予定の共有にどのようなデータがあるかを把握します。 ボリューム内の移行に最適な候補コンテナーを識別するには、`Get-AzsStorageContainer` コマンドレットを使用します。
 
    ```powershell  
@@ -324,4 +324,4 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 ::: moniker-end
 
 ## <a name="next-steps"></a>次のステップ
-ユーザーへの VM の提供の詳細については、「[Azure Stack Hub のストレージ容量を管理する](azure-stack-tutorial-tenant-vm.md)」を参照してください。
+ユーザーへの VM の提供の詳細については、「[Azure Stack Hub のストレージ容量を管理する](./tutorial-offer-services.md?view=azs-2002)」を参照してください。

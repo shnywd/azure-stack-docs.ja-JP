@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 5c60fc396e15f7dd280740c7541a4207eb56d3ef
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 37ae031199c0e547e635fc0473d833dc94865523
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85197091"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566041"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンの前提条件を設定する
 
@@ -33,21 +33,21 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 | Azure Stack Hub 2002 以降 | AKS エンジンを使用するには、Azure Stack Hub 2002 以降が必要です。 | 必須 | Azure Stack Hub のバージョンがわからない場合は、クラウド オペレーターに問い合わせてください。 |
 | Linux カスタム スクリプト拡張機能 | Linux カスタム スクリプト拡張機能 2.0<br>オファー: Linux 2.0 用のカスタム スクリプト<br>バージョン:2.0.6 (または最新バージョン)<br>発行元: Microsoft Corp | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 |
 | AKS 基本 Ubuntu イメージ | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 5 月 (2020.05.13) | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack Hub のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Hub Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
-| サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack Hub オペレーターへの問い合わせが必要な場合があります。<br>Azure Active Directory (AAD) サービス プリンシパル ID を使用する場合は、サービス プリンシパルを AAD で認証できるように、Kubernetes クラスター内の VM からインターネットにアクセスする必要があります。 インターネットにアクセスできない場合、Kubernetes クラスターは機能しません。<br>手順については、「[アプリ ID を使用してリソースにアクセスする](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals)」を参照してください |
-| (SPN) 割り当て済み**共同作成者**ロール | 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定のリソースに対するロールに割り当てる必要があります。 | 必須 | 手順については、「[ロールの割り当て](https://docs.microsoft.com/azure-stack/operator/azure-stack-create-service-principals#assign-a-role)」を参照してください |
+| サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack Hub オペレーターへの問い合わせが必要な場合があります。<br>Azure Active Directory (AAD) サービス プリンシパル ID を使用する場合は、サービス プリンシパルを AAD で認証できるように、Kubernetes クラスター内の VM からインターネットにアクセスする必要があります。 インターネットにアクセスできない場合、Kubernetes クラスターは機能しません。<br>手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください |
+| (SPN) 割り当て済み**共同作成者**ロール | 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定のリソースに対するロールに割り当てる必要があります。 | 必須 | 手順については、「[ロールの割り当て](../operator/azure-stack-create-service-principals.md#assign-a-role)」を参照してください |
 
 
 以下の項目を設定できます。
 
 | 前提条件 | 説明 | 必須 | Instructions |
 | --- | --- | --- | --- |
-| Azure Stack Hub サブスクリプション | サブスクリプションを使用して、Azure Stack Hub 内のオファーにアクセスします。 オファーには、利用可能なサービスが含まれています。 | 必須 | Azure Stack Hub でテナントのワークロードをデプロイするには、最初に [Azure Stack Hub サブスクリプション](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services)を取得する必要があります。 |
-| Resource group | リソース グループは、Azure ソリューションの関連するリソースを保持するコンテナーです。 既存のリソース グループを指定しない場合は、ツールによって作成されます。 | 省略可能 | [Azure portal を使用して Azure Resource Manager リソース グループを管理する](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-portal) |
-| 秘密/公開キー | 開発用マシンから、ご自分の Web アプリをホストする Azure Stack Hub インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要があります。 | 必須 | キーを生成する手順については、[SSH キーの生成](https://docs.microsoft.com/azure-stack/user/azure-stack-dev-start-howto-ssh-public-key)に関するページを参照してください。|
+| Azure Stack Hub サブスクリプション | サブスクリプションを使用して、Azure Stack Hub 内のオファーにアクセスします。 オファーには、利用可能なサービスが含まれています。 | 必須 | Azure Stack Hub でテナントのワークロードをデプロイするには、最初に [Azure Stack Hub サブスクリプション](./azure-stack-subscribe-services.md)を取得する必要があります。 |
+| Resource group | リソース グループは、Azure ソリューションの関連するリソースを保持するコンテナーです。 既存のリソース グループを指定しない場合は、ツールによって作成されます。 | 省略可能 | [Azure portal を使用して Azure Resource Manager リソース グループを管理する](/azure/azure-resource-manager/manage-resource-groups-portal) |
+| 秘密/公開キー | 開発用マシンから、ご自分の Web アプリをホストする Azure Stack Hub インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要があります。 | 必須 | キーを生成する手順については、[SSH キーの生成](./azure-stack-dev-start-howto-ssh-public-key.md)に関するページを参照してください。|
 
 
 > [!Note]  
-> [Azure Stack Hub 用の Azure CLI](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-azurecli2) または [Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install) で AKS エンジンを使用するための前提条件を作成することもできます。
+> [Azure Stack Hub 用の Azure CLI](./azure-stack-version-profiles-azurecli2.md) または [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) で AKS エンジンを使用するための前提条件を作成することもできます。
 
 ## <a name="matching-engine-to-base-image-version"></a>エンジンと基本イメージバージョンの照合
 

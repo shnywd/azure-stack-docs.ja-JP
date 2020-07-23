@@ -7,12 +7,12 @@ ms.date: 04/17/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: 067817e29858113fc22b596aa394d6e0942e921a
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: a348b2c301b7fbfbffe31f9ea5dff3fbb3e92b44
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377175"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489336"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での事前診断ログの収集
 
@@ -51,9 +51,9 @@ Azure Stack Hub ログ ファイルを Azure の BLOB コンテナーに保存�
 
 ### <a name="prerequisites"></a>前提条件
 
-Azure で新規または既存の BLOB コンテナーを使用できます。 Azure で BLOB コンテナーを作成するには、少なくとも[ストレージ BLOB 共同作成者ロール](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)または[特定のアクセス許可](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)が必要です。 グローバル管理者にも、必要な権限があります。
+Azure で新規または既存の BLOB コンテナーを使用できます。 Azure で BLOB コンテナーを作成するには、少なくとも[ストレージ BLOB 共同作成者ロール](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)または[特定のアクセス許可](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)が必要です。 グローバル管理者にも、必要な権限があります。
 
-自動ログ収集ストレージ アカウントのパラメーターの選択に関するベスト プラクティスについては、「[自動 Azure Stack Hub ログ収集のベスト プラクティス](azure-stack-best-practices-automatic-diagnostic-log-collection.md)」を参照してください。 ストレージ アカウントの種類について詳しくは、「[Azure ストレージ アカウントの概要](https://docs.microsoft.com/azure/storage/common/storage-account-overview)」をご覧ください。
+自動ログ収集ストレージ アカウントのパラメーターの選択に関するベスト プラクティスについては、「[自動 Azure Stack Hub ログ収集のベスト プラクティス](./azure-stack-overview.md?view=azs-2002)」を参照してください。 ストレージ アカウントの種類について詳しくは、「[Azure ストレージ アカウントの概要](/azure/storage/common/storage-account-overview)」をご覧ください。
 
 ### <a name="create-a-blob-storage-account"></a>BLOB ストレージ アカウントの作成
 
@@ -97,7 +97,7 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 
 1. **［作成］** を選択します  
 
-[自動ログ収集を構成する](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)ときに、URL をコピーして入力します。 SAS URL の詳細については、「[Shared Access Signatures (SAS) の使用](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)」を参照してください。
+[自動ログ収集を構成する](?view=azs-2002)ときに、URL をコピーして入力します。 SAS URL の詳細については、「[Shared Access Signatures (SAS) の使用](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)」を参照してください。
 
 ## <a name="steps-to-configure-automatic-log-collection"></a>自動ログ収集を構成する手順
 

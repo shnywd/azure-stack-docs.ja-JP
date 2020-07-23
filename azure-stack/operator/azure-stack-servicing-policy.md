@@ -8,12 +8,12 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 6b2a3a281e16ff658b7124071cdb83326d0cbbde
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: 38fb04f0b3dae557eee18271146312c57347bd89
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636837"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487857"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -45,10 +45,10 @@ Microsoft は、毎月ソフトウェア更新プログラム パッケージを
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
-- [Azure Stack Hub 2002 更新プログラム](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack Hub 1910 更新プログラム](/azure-stack/operator/release-notes?view=azs-1910)
-- [Azure Stack Hub 1908 更新プログラム](/azure-stack/operator/release-notes?view=azs-1908)
-- [Azure Stack Hub 1907 更新プログラム](/azure-stack/operator/release-notes?view=azs-1907)
+- [Azure Stack Hub 2002 更新プログラム](./release-notes.md?view=azs-2002)
+- [Azure Stack Hub 1910 更新プログラム](./release-notes.md?view=azs-1910)
+- [Azure Stack Hub 1908 更新プログラム](./release-notes.md?view=azs-1908)
+- [Azure Stack Hub 1907 更新プログラム](./release-notes.md?view=azs-1907)
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -58,10 +58,10 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
-- [Azure Stack Hub 2002 修正プログラム](/azure-stack/operator/release-notes?view=azs-2002#hotfixes)
-- [Azure Stack Hub 1910 修正プログラム](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-1)
-- [Azure Stack Hub 1908 修正プログラム](/azure-stack/operator/release-notes?view=azs-1908#hotfixes-2)
-- [Azure Stack Hub 1907 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)
+- [Azure Stack Hub 2002 修正プログラム](./release-notes.md?view=azs-2002#hotfixes)
+- [Azure Stack Hub 1910 修正プログラム](./release-notes.md?view=azs-1910#hotfixes-1)
+- [Azure Stack Hub 1908 修正プログラム](./release-notes.md?view=azs-1908#hotfixes-2)
+- [Azure Stack Hub 1907 修正プログラム](./release-notes.md?view=azs-1907#hotfixes-3)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 
@@ -88,7 +88,7 @@ Azure Stack Hub リソース プロバイダーでは、サポートされてい
 
 ## <a name="get-support"></a>サポートを受ける
 
-Azure Stack Hub には、Azure と同じサポート プロセスが適用されます。 企業のお客様は、[Azure サポート要求を作成する方法](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)で説明されているプロセスに従ってください。 クラウド ソリューション プロバイダー (CSP) のお客様の場合は、担当の CSP までサポートについてお問い合わせください。 詳細については、「[Azure サポートに関する FAQ](https://azure.microsoft.com/support/faq/)」を参照してください。
+Azure Stack Hub には、Azure と同じサポート プロセスが適用されます。 企業のお客様は、[Azure サポート要求を作成する方法](/azure/azure-supportability/how-to-create-azure-support-request)で説明されているプロセスに従ってください。 クラウド ソリューション プロバイダー (CSP) のお客様の場合は、担当の CSP までサポートについてお問い合わせください。 詳細については、「[Azure サポートに関する FAQ](https://azure.microsoft.com/support/faq/)」を参照してください。
 
 更新プログラムに関する問題のトラブルシューティングのヘルプについては、「[Azure Stack Hub の修正プログラムと更新プログラムに関する問題のトラブルシューティングのベスト プラクティス](azure-stack-troubleshooting.md)」を参照してください。
 

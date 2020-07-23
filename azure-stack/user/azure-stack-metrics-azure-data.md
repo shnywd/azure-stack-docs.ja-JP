@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: ea2ccd33bc64c01b4ab5ba56024a54aa82453e63
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: bd8a7ee4082f446c9d175a9b3b69fa0e5a460b24
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112035"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567418"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor を使用する
 
 この記事では、Azure Stack Hub 上の Azure Monitor サービスの概要を説明します。 Azure Monitor の動作について説明し、Azure Stack Hub での Azure Monitor の使用方法に関するその他の情報を紹介します。
 
-Azure Monitor の概要については、[Azure Stack Hub 上の Azure Monitor の概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
+Azure Monitor の概要については、[Azure Stack Hub 上の Azure Monitor の概要](/azure/monitoring-and-diagnostics/monitoring-get-started)に関するグローバル Azure の記事を参照してください。
 
 ![Azure Stack Hub の Monitor ブレード](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
@@ -71,7 +71,7 @@ Azure Stack Hub 上の **Microsoft.Compute** リソース プロバイダーに�
 
 ### <a name="activity-log"></a>アクティビティ ログ
 
-計算リソースの情報については、Azure Stack Hub インフラストラクチャで確認できるようなアクティビティ ログを検索できます。 このログには、リソースが作成された時点や破棄された時点などの情報が記載されています。 Azure Stack Hub のアクティビティ ログには、Azure との整合性があります。 詳細については、[Azure のアクティビティ ログの概要](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)に関するページを参照してください。 
+計算リソースの情報については、Azure Stack Hub インフラストラクチャで確認できるようなアクティビティ ログを検索できます。 このログには、リソースが作成された時点や破棄された時点などの情報が記載されています。 Azure Stack Hub のアクティビティ ログには、Azure との整合性があります。 詳細については、[Azure のアクティビティ ログの概要](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)に関するページを参照してください。 
 
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure Monitor のソース: 上記以外のすべて
@@ -114,9 +114,9 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
 次のいずれかの方法を使用して、データの追跡、ルーティング、および取得を行うことができます。 ただし、アクションやデータの種類によっては利用できない方法もあります。 
 
  - [Azure Stack Hub ユーザー ポータル ](azure-stack-use-portal.md)
- - [PowerShell](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-powershell-samples)
- - [クロスプラットフォーム コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-cli-samples)
- - [REST API](https://docs.microsoft.com/rest/api/monitor)
+ - [PowerShell](/azure/monitoring-and-diagnostics/insights-powershell-samples)
+ - [クロスプラットフォーム コマンド ライン インターフェイス (CLI)](/azure/monitoring-and-diagnostics/insights-cli-samples)
+ - [REST API](/rest/api/monitor)
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  

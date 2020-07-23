@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 0efcac6635a94b3fdc5551f9aa61b5c774e93905
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: b454d6b91a99ecebc512de4a20e5e230af8bf47f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631184"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566823"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
@@ -29,7 +29,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 * SSH クライアント
 
-    クラスター内のマスター ノードに安全に接続するために、SSH クライアントが必要です。 Windows を使用している場合は [Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
+    クラスター内のマスター ノードに安全に接続するために、SSH クライアントが必要です。 Windows を使用している場合は [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
 
 * FTP (PSCP)
 
@@ -52,7 +52,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 2. ポータルで、マスター ノードを開きます。 **パブリック IP** アドレスをコピーします。 **[接続]** をクリックして、 **[VM ローカル アカウントを使用してログインする]** ボックスのユーザー名を取得します。 これは、クラスターを作成するときに設定したのと同じユーザー名です。 [接続] ブレードの一覧に表示されたプライベート IP アドレスではなく、パブリック IP アドレスを使用します。
 
-3.  マスターに接続するため、SSH クライアントを開きます。 Windows で作業している場合は、[Putty](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用して接続を作成できます。 マスター ノードとユーザー名にはパブリック IP アドレスを使用し、クラスターの作成時に使用した秘密キーを追加します。
+3.  マスターに接続するため、SSH クライアントを開きます。 Windows で作業している場合は、[Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用して接続を作成できます。 マスター ノードとユーザー名にはパブリック IP アドレスを使用し、クラスターの作成時に使用した秘密キーを追加します。
 
 4.  ターミナルが接続されたら、「`kubectl`」と入力して Kubernetes コマンドライン クライアントを開きます。
 
@@ -116,7 +116,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
     kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard 
     ``` 
 
-    このスクリプトにより、`kubernetes-dashboard` にクラウド管理者権限が付与されます。 詳細については、「[RBAC 対応クラスターの場合](https://docs.microsoft.com/azure/aks/kubernetes-dashboard)」を参照してください。
+    このスクリプトにより、`kubernetes-dashboard` にクラウド管理者権限が付与されます。 詳細については、「[RBAC 対応クラスターの場合](/azure/aks/kubernetes-dashboard)」を参照してください。
 
 ダッシュボードを使用できます。 Kubernetes ダッシュボードの詳細については、[Kubernetes の Web UI ダッシュボード](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)に関するページを参照してください。 
 
@@ -126,7 +126,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 ### <a name="custom-virtual-networks"></a>カスタム仮想ネットワーク
 
-[カスタム仮想ネットワーク](https://docs.microsoft.com/azure-stack/user/kubernetes-aks-engine-custom-vnet)に Kubernetes をデプロイした後に、Kubernetes ダッシュボードにアクセスする際に接続の問題が発生する場合は、ターゲット サブネットが、AKS エンジンによって作成されたルート テーブルとネットワーク セキュリティ グループのリソースにリンクされていることを確認してください。
+[カスタム仮想ネットワーク](./kubernetes-aks-engine-custom-vnet.md)に Kubernetes をデプロイした後に、Kubernetes ダッシュボードにアクセスする際に接続の問題が発生する場合は、ターゲット サブネットが、AKS エンジンによって作成されたルート テーブルとネットワーク セキュリティ グループのリソースにリンクされていることを確認してください。
 
 ネットワーク セキュリティ グループの規則で、マスター ノードと Kubernetes ダッシュボード ポッド IP の間の通信が許可されていることを確認します。 これは、マスター ノードから ping コマンドを実行することで検証できます。
 
@@ -136,4 +136,4 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 [Kubernetes クラスターを Marketplace に追加する (Azure Stack Hub のオペレーター)](../operator/azure-stack-solution-template-kubernetes-cluster-add.md)  
 
-[Azure における Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  
+[Azure における Kubernetes](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)  

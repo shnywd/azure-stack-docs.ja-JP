@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: a9b81eb49abdcd08cef13e89845473db5c9c9032
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: f08f2af4cf85d1e4346b6fc378135d218216c9d0
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377186"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488843"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub のヘルプとサポート
 
@@ -66,8 +66,8 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フ�
 
 診断ログは、次の 2 つの方法で Microsoft に送信できます。
 
-- [ログを事前に送信する](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md):有効にすると、特定の正常性アラートによってログの収集がトリガーされます。
-- [今すぐログを送信する](azure-stack-configure-on-demand-diagnostic-log-collection-portal-tzl.md):ログ収集の時間枠として、特定のスライディング ウィンドウを手動で選択できます。
+- [ログを事前に送信する](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002):有効にすると、特定の正常性アラートによってログの収集がトリガーされます。
+- [今すぐログを送信する](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002):ログ収集の時間枠として、特定のスライディング ウィンドウを手動で選択できます。
 
 ![診断ログの収集オプション](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
@@ -105,6 +105,6 @@ ASDK については、[Azure Stack Hub MSDN フォーラム](https://social.msd
 
 ## <a name="next-steps"></a>次のステップ
 
-- [診断ログの収集](azure-stack-diagnostic-log-collection-overview-tzl.md)について学習する。
+- [診断ログの収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)について学習する。
 - [クラウド ID を検索する](azure-stack-find-cloud-id.md)方法について学習する。
 - [Azure Stack Hub のトラブルシューティング](azure-stack-troubleshooting.md)について学習する。

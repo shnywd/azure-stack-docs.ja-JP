@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 6dd3cb20570bcd4cf580f169f8ba9cbc44a673ac
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: c687e704f1e8cb1d0e650dd0e283567a07d96fd2
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137176"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566211"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -68,7 +68,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | --- | --- |
     | dnsPrefix | VM のホスト名を識別するために使用される一意の文字列を入力します。 たとえば、リソース グループ名に基づいて名前を指定します。 |
     | count |  デプロイに必要なマスターの数を入力します。 HA デプロイの最小値は 3 ですが、非 HA デプロイでは 1 が許可されます。 |
-    | vmSize |  [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
+    | vmSize |  [Azure Stack Hub でサポートされているサイズ](./azure-stack-vm-sizes.md) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
 8.  `agentPoolProfiles` で、以下を更新します。
@@ -76,7 +76,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     | フィールド | 説明 |
     | --- | --- |
     | count | デプロイに必要なエージェントの数を入力します。 サブスクリプションごとに使用するノードの最大数は 50 です。 サブスクリプションごとに複数のクラスターをデプロイする場合は、エージェントの合計数が 50 を超えないようにしてください。 [API モデルの JSON ファイルのサンプル](https://github.com/Azure/aks-engine/blob/master/examples/azure-stack/kubernetes-azurestack.json)で指定されている構成アイテムを使用してください。  |
-    | vmSize | [Azure Stack Hub でサポートされているサイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes) (例: `Standard_D2_v2`) を入力します。 |
+    | vmSize | [Azure Stack Hub でサポートされているサイズ](./azure-stack-vm-sizes.md) (例: `Standard_D2_v2`) を入力します。 |
     | ディストリビューション | 「`aks-ubuntu-16.04`」と入力します。 |
 
 
@@ -123,7 +123,7 @@ Azure Stack Hub オペレーターに次のことを依頼します。
     | output-directory | kube-rg | 出力ファイル `apimodel.json` とその他の生成されたファイルを格納するディレクトリの名前を入力します。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 クライアント シークレットは、サービスの作成時に設定します。 |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](https://docs.microsoft.com/azure-stack/user/azure-stack-subscribe-services#subscribe-to-an-offer)」を参照してください。 |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](./azure-stack-subscribe-services.md#subscribe-to-an-offer)」を参照してください。 |
 
     たとえば次のようになります。
 

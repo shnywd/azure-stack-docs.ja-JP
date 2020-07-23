@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 1fd3c8de163d8539a0a3bf09e75e33959413fe96
-ms.sourcegitcommit: e28821041b8111fdcd2c28d35a83ab0a8018455c
+ms.openlocfilehash: 4fd1ebca5ab4f4a7eeec2c3d758ccb4aaead3d36
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86033237"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567367"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
 
@@ -111,11 +111,11 @@ Azure Stack Hub のデプロイに関する重要な考慮事項を次に示し�
 - [事業継続とディザスター リカバリーへの配慮](https://aka.ms/azurestackbcdrconsiderationswp)
 
 ### <a name="azure-backup-server"></a>Azure Backup Server
- - [Azure Backup を使用してファイルやアプリを Azure Stack Hub にバックアップする](https://docs.microsoft.com/azure/backup/backup-mabs-files-applications-azure-stack)
- - [Azure Backup Server による Azure Stack Hub のサポート](https://docs.microsoft.com/azure/backup/ ) 
+ - [Azure Backup を使用してファイルやアプリを Azure Stack Hub にバックアップする](/azure/backup/backup-mabs-files-applications-azure-stack)
+ - [Azure Backup Server による Azure Stack Hub のサポート](/azure/backup/ ) 
  
  ### <a name="azure-site-recovery"></a>Azure Site Recovery
- - [Azure Site Recovery による Azure Stack Hub のサポート](https://docs.microsoft.com/azure/site-recovery/)  
+ - [Azure Site Recovery による Azure Stack Hub のサポート](/azure/site-recovery/)  
  
  ### <a name="partner-products"></a>パートナー製品
  - [Azure Stack Hub データセンター統合のパートナー エコシステムのデータシート](https://aka.ms/azurestackbcdrpartners)

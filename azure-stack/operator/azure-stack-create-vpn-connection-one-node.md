@@ -7,12 +7,12 @@ ms.date: 01/22/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 01/22/2020
-ms.openlocfilehash: fcfd453cf6ccbbbc8f5e65b9db475ab4fdad33b0
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 84e32744a2a337f9a6c64c558195de02e3a7db92
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295072"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489166"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-asdk-environments"></a>異なる ASDK 環境にある 2 つの仮想ネットワークの間にサイト間 VPN 接続を作成する
 
@@ -42,7 +42,7 @@ ms.locfileid: "79295072"
 
 ## <a name="prepare-an-offer-on-poc1-and-poc2"></a>POC1 と POC2 でプランを用意する
 
-POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブし、仮想マシン (VM) をデプロイできるようにオファーを用意します。 オファーの作成方法については、[Azure Stack Hub ユーザーが VM を使用できるようにする](azure-stack-tutorial-tenant-vm.md)方法に関するページを参照してください。
+POC1 と POC2 の両方で、ユーザーがオファーにサブスクライブし、仮想マシン (VM) をデプロイできるようにオファーを用意します。 オファーの作成方法については、[Azure Stack Hub ユーザーが VM を使用できるようにする](./tutorial-offer-services.md?view=azs-2002)方法に関するページを参照してください。
 
 ## <a name="review-and-complete-the-network-configuration-table"></a>ネットワーク構成表を確認し、完成する
 

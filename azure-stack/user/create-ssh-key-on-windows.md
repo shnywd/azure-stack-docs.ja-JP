@@ -7,12 +7,12 @@ ms.date: 2/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: b8bc4c1a9e56f363fa604e8df7a1fa0dbe37fcb0
-ms.sourcegitcommit: 355e21dd9b8c3f44e14abaae0b4f176443cf7495
+ms.openlocfilehash: 25c4e1825ac6838d204a5d7f5f6ae834a304bb56
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81624987"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567078"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Azure Stack Hub で Linux 用の SSH キーを作成する
 
@@ -21,7 +21,7 @@ Windows マシンで Linux マシンの SSH (Secure Shell) キーを作成でき
 ## <a name="open-bash-on-windows"></a>Windows で bash を開く
 
 1. マシンに Windows Subsystem for Linux がインストールされていない場合は、[Ubuntu on Windows](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) をインストールします。  
-    Windows Subsystem for Linux の使用方法の詳細については、「[Windows Subsystem for Linux のドキュメント](https://docs.microsoft.com/windows/wsl/about)」を参照してください。
+    Windows Subsystem for Linux の使用方法の詳細については、「[Windows Subsystem for Linux のドキュメント](/windows/wsl/about)」を参照してください。
 
 2. ツールバーに「**Ubuntu**」と入力し、 **[Open]\(開く\)** を選択します。
 

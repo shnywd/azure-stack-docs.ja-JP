@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: b838afd49f53adc32af94559cebc5a65db3ee7ef
-ms.sourcegitcommit: 6de5b687197798302c3b1f08e4c82f049a99e49f
+ms.openlocfilehash: 92f05840d8a2a8f58f70abd10e2860224f706d2b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82596807"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566500"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -72,7 +72,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 4. npm を使用してリソース プロバイダー クライアント ライブラリをインストールします。 コマンド ラインから `npm install <package-name>` を実行します。 たとえば、`npm install @azure/arm-authorization-profile-2019-03-01-hybrid` を実行して、承認リソース プロバイダー ライブラリをインストールできます。
 
-5.  SDK を使用する場合は、サブスクリプションを作成し、サブスクリプション ID をメモしておきます。 手順については、[Azure Stack Hub でオファーのサブスクリプションを作成する](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)方法に関するページを参照してください。
+5.  SDK を使用する場合は、サブスクリプションを作成し、サブスクリプション ID をメモしておきます。 手順については、[Azure Stack Hub でオファーのサブスクリプションを作成する](/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)方法に関するページを参照してください。
 
 6.  サービス プリンシパルを作成し、クライアント ID とクライアント シークレットを保存します。 クライアント ID は、サービス プリンシパルの作成時にはアプリケーション ID とも呼ばれます。 手順については、「[Azure Stack Hub へのアクセスをアプリケーションに提供する](../operator/azure-stack-create-service-principals.md)」を参照してください。
 
@@ -84,11 +84,11 @@ Azure Stack Hub で Node.js Azure SDK を使用するには、次の値を指定
 
 | 値 | 環境変数 | 説明 |
 | --- | --- | --- |
-| テナント ID | TENANT\_ID | Azure Stack Hub の[テナント ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview) の値。 |
+| テナント ID | TENANT\_ID | Azure Stack Hub の[テナント ID](/azure/azure-stack/azure-stack-identity-overview) の値。 |
 | クライアント ID | CLIENT\_ID | このドキュメントの前のセクションでサービス プリンシパルが作成されたときに保存した、サービス プリンシパル アプリケーション ID。  |
-| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](/azure-stack/operator/service-plan-offer-subscription-overview#subscriptions) は Azure Stack Hub 内のオファーにアクセスする方法です。  |
+| サブスクリプション ID | AZURE\_SUBSCRIPTION\_ID   [サブスクリプション ID](../operator/service-plan-offer-subscription-overview.md#subscriptions) は Azure Stack Hub 内のオファーにアクセスする方法です。  |
 | クライアント シークレット | APPLICATION\_SECRET | サービス プリンシパルの作成時に保存した、サービス プリンシパル アプリケーション シークレット 。 |
-| Resource Manager エンドポイント | ARM\_ENDPOINT | [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint) に関する記事を参照してください。 |
+| Resource Manager エンドポイント | ARM\_ENDPOINT | [Azure Stack Hub Resource Manager エンドポイント](/azure/azure-stack/user/azure-stack-version-profiles-ruby#the-azure-stack-hub-resource-manager-endpoint) に関する記事を参照してください。 |
 
 #### <a name="set-your-environmental-variables-for-nodejs"></a>Node.js の環境変数を設定する
 
@@ -147,7 +147,7 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
     このプロファイルは、すべてのサービスの最新バージョンで構成されます。 Azure ですべてのサービスの最新バージョンを使用してください。
 
-Azure Stack Hub および API プロファイルについて詳しくは、「[API プロファイルの概要](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles)」をご覧ください。
+Azure Stack Hub および API プロファイルについて詳しくは、「[API プロファイルの概要](/azure/azure-stack/user/azure-stack-version-profiles#summary-of-api-profiles)」をご覧ください。
 
 ### <a name="azure-nodejs-sdk-api-profile-usage"></a>Azure Node.js SDK API プロファイルの使用
 
@@ -221,7 +221,7 @@ function main() {
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
-2.  Azure サービス プリンシパルを作成し、サブスクリプションにアクセスするロールを割り当てます。 手順については、[Azure PowerShell を使用して資格情報でサービス プリンシパルを作成する](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals)方法に関するページをご覧ください。
+2.  Azure サービス プリンシパルを作成し、サブスクリプションにアクセスするロールを割り当てます。 手順については、[Azure PowerShell を使用して資格情報でサービス プリンシパルを作成する](/azure/azure-stack/azure-stack-create-service-principals)方法に関するページをご覧ください。
 
 3.  次の必要な値を取得します。
     - テナント ID

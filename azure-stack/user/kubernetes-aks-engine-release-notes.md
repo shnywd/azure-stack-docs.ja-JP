@@ -7,12 +7,12 @@ ms.date: 06/29/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: d606e76a6c7bdaabc1828c26cd07fffba2d6fec7
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.openlocfilehash: ff396f6123109b00e693f2f88a5bac244cb2ec7b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764577"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567689"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -28,7 +28,7 @@ AKS エンジンのアップグレード コマンドを使用すると、クラ
 
 -   お使いのバージョンの AKS エンジンに適した Marketplace 項目である AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューションを使用していますか。 これらのバージョンについては、「新しいイメージと AKS エンジンをダウンロードする」セクションを参照してください。
 
--   ターゲット クラスターに正しいクラスター仕様 (`apimodel.json`) とリソース グループを使用していますか? 最初にクラスターをデプロイしたときに、このファイルは出力ディレクトリに生成されました。 `deploy` コマンドのパラメーターについては、「[Kubernetes クラスターのデプロイ](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster#deploy-a-kubernetes-cluster)」を参照してください。
+-   ターゲット クラスターに正しいクラスター仕様 (`apimodel.json`) とリソース グループを使用していますか? 最初にクラスターをデプロイしたときに、このファイルは出力ディレクトリに生成されました。 `deploy` コマンドのパラメーターについては、「[Kubernetes クラスターのデプロイ](./azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster)」を参照してください。
 
 -   AKS エンジンを実行してアップグレード操作を実行するために信頼できるマシンを使用していますか。
 
@@ -44,7 +44,7 @@ AKS エンジンのアップグレード コマンドを使用すると、クラ
 
 ### <a name="use-the-upgrade-command"></a>upgrade コマンドを使用する
 
-「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade)」の記事で説明されているように、AKS エンジンの `upgrade` コマンドを使用する必要があります。
+「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](./azure-stack-kubernetes-aks-engine-upgrade.md)」の記事で説明されているように、AKS エンジンの `upgrade` コマンドを使用する必要があります。
 
 ### <a name="upgrade-interruptions"></a>アップグレードの中断
 
@@ -72,9 +72,9 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
     -   バージョン:2020.05.13
 
-    -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine)」の記事の指示に従ってください
+    -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](../operator/azure-stack-aks-engine.md)」の記事の指示に従ってください
 
--   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.51.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、get-akse.sh スクリプトを使用した場合は、この「[接続されている環境へのインストール](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux#install-in-a-connected-environment)」セクションの説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)」と同じプロセスが適用されます。
+-   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.51.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-linux.md)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、get-akse.sh スクリプトを使用した場合は、この「[接続されている環境へのインストール](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment)」セクションの説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-windows.md)」と同じプロセスが適用されます。
 
 ## <a name="aks-engine-and-azure-stack-version-mapping"></a>AKS エンジンと Azure Stack のバージョン マッピング
 
@@ -115,7 +115,7 @@ API モデルの json ファイル内にある `orchestratorProfile` セクシ�
 -   pod-security-policy が最初に読み込まれるアドオンであることを保証 ([#3313](https://github.com/Azure/aks-engine/issues/3313))
 -   Azure CNI のバージョンを v1.1.0 に更新 ([#3075](https://github.com/Azure/aks-engine/issues/3075)) (プレビュー)
 -   Azure Stack Hub に Windows コンテナーをサポートするための機能と修正を追加 (プレビュー):
-    -   Windows バージョンのコレクションを修正 ([#2954](https://github.com/Azure/aks-engine/issues/2954))
+    -   Windows バージョンのコレクションを修正 ([#2954](https://github.com/Azure/aks-engine/pull/2954))
     -   Azure Stack の Windows バイナリ コンポーネント名を更新 ([#3231](https://github.com/Azure/aks-engine/issues/3231))
     -   Azure Stack Hub 上での Windows イメージの検証を更新 ([#3260](https://github.com/Azure/aks-engine/issues/3260))
     -   5 月の修正プログラムを含めるよう Windows VHD を更新 ([#3263](https://github.com/Azure/aks-engine/issues/3263))
@@ -154,7 +154,7 @@ AKS エンジンのアップグレード コマンドを使用すると、クラ
 
 -   お使いのバージョンの AKS エンジンに適した Marketplace 項目である AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューションを使用していますか。 これらのバージョンについては、[新しい AKS ベースの Ubuntu イメージと AKS エンジンのバージョンのダウンロード](#download-new-image-and-aks-engine)に関するセクションを参照してください。
 
--   ターゲット クラスターに正しいクラスター仕様 (apimodel.json) とリソース グループを使用していますか。 最初にクラスターをデプロイしたときに、このファイルは出力ディレクトリに生成されました。 "deploy" コマンドのパラメーターについては、「[Kubernetes クラスターのデプロイ](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-cluster#deploy-a-kubernetes-cluster)」を参照してください。
+-   ターゲット クラスターに正しいクラスター仕様 (apimodel.json) とリソース グループを使用していますか。 最初にクラスターをデプロイしたときに、このファイルは出力ディレクトリに生成されました。 "deploy" コマンドのパラメーターについては、「[Kubernetes クラスターのデプロイ](./azure-stack-kubernetes-aks-engine-deploy-cluster.md#deploy-a-kubernetes-cluster)」を参照してください。
 
 -   AKS エンジンを実行してアップグレード操作を実行するために信頼できるマシンを使用していますか。
 
@@ -170,7 +170,7 @@ AKS エンジンのアップグレード コマンドを使用すると、クラ
 
 ### <a name="use-the-upgrade-command"></a>upgrade コマンドを使用する
 
-「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-upgrade)」の記事で説明されているように、AKS エンジンの "upgrade" コマンドを使用する必要があります。
+「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](./azure-stack-kubernetes-aks-engine-upgrade.md)」の記事で説明されているように、AKS エンジンの "upgrade" コマンドを使用する必要があります。
 
 ### <a name="upgrade-interruptions"></a>アップグレードの中断
 
@@ -194,9 +194,9 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
     -   名前: `AKS Base Ubuntu 16.04-LTS Image Distro, March 2020`
     -   バージョン: `2020.03.19`
-    -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](https://docs.microsoft.com/azure-stack/operator/azure-stack-aks-engine)」の記事の指示に従ってください
+    -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](../operator/azure-stack-aks-engine.md)」の記事の指示に従ってください
 
--   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.48.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、`get-akse.sh` スクリプトを使用した場合は、「[接続されている環境へのインストール](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-linux#install-in-a-connected-environment)」の記事の説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-deploy-windows)」と同じプロセスが適用されます。
+-   Kubernetes クラスター管理者は、新しい aks-engine バージョン 0.48.0 をダウンロードする必要があります。 「[Azure Stack Hub の Linux に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-linux.md)」の記事の手順を参照してください。 クラスターを初めてインストールする場合と同じプロセスで実行できます。 この更新により、以前のバイナリが上書きされます。 たとえば、`get-akse.sh` スクリプトを使用した場合は、「[接続されている環境へのインストール](./azure-stack-kubernetes-aks-engine-deploy-linux.md#install-in-a-connected-environment)」の記事の説明と同じ手順を実行します。 Windows システムにインストールする場合も、「[Azure Stack Hub の Windows に AKS エンジンをインストールする](./azure-stack-kubernetes-aks-engine-deploy-windows.md)」と同じプロセスが適用されます。
 
 ## <a name="kubernetes-version-upgrade-path"></a>Kubernetes バージョンのアップグレード パス
 

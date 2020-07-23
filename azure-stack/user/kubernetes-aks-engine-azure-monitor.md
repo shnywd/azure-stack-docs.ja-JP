@@ -7,16 +7,16 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: ae72fcbeccdb4500cf9182c01e2913188abd2895
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 62e5eba50b4fec5da72fe9f692d3e4a9e5d377a1
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068986"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567707"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Stack Hub で Azure Monitor for containers を使用する
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/) for containers を使用して、AKS エンジンによって Azure Stack Hub にデプロイされた Kubernetes クラスター内のコンテナーを監視できます。 
+[Azure Monitor](/azure/azure-monitor/) for containers を使用して、AKS エンジンによって Azure Stack Hub にデプロイされた Kubernetes クラスター内のコンテナーを監視できます。 
 
 > [!IMPORTANT]
 > Azure Stack Hub 上のコンテナー用 Azure Monitor は、現在パブリック プレビュー段階です。
@@ -59,4 +59,4 @@ Azure Stack Hub クラスターに対してサポートされる API 定義に�
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください  
-- 「[コンテナーに対する Azure Monitor の概要](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)」を読む
+- 「[コンテナーに対する Azure Monitor の概要](/azure/azure-monitor/insights/container-insights-overview)」を読む

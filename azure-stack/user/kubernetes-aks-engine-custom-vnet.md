@@ -7,22 +7,22 @@ ms.date: 3/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: aac2f9a0991bdae7f15d7fc54517a880ab384785
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: da15bfa9b19da8d65f54db86633b5ec300d76067
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80068938"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567724"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする 
 
 カスタム仮想ネットワークで Azure Kubernetes Service (AKS) エンジンを使用して Kubernetes クラスターをデプロイできます。 この記事では、仮想ネットワークで必要な情報を見つける方法について説明します。 クラスターで使用されている IP アドレスの計算、API モデルでの値の設定、ルート テーブルとネットワーク セキュリティ グループの設定の手順を確認できます。
 
-AKS エンジンを使用した Azure Stack Hub の Kubernetes クラスターでは、kubernet ネットワーク プラグインを使用します。 Azure での kubernet ネットワーク プラグイン ネットワークの詳細については、「[Azure Kubernetes Service (AKS) の独自の IP アドレス範囲で kubenet ネットワークを使用する](https://docs.microsoft.com/azure/aks/configure-kubenet)」を参照してください。
+AKS エンジンを使用した Azure Stack Hub の Kubernetes クラスターでは、kubernet ネットワーク プラグインを使用します。 Azure での kubernet ネットワーク プラグイン ネットワークの詳細については、「[Azure Kubernetes Service (AKS) の独自の IP アドレス範囲で kubenet ネットワークを使用する](/azure/aks/configure-kubenet)」を参照してください。
 
 ## <a name="create-custom-virtual-network"></a>カスタム仮想ネットワークを作成する
 
-Azure Stack Hub インスタンスにカスタム仮想ネットワークが必要です。 詳細については、「[クイック スタート: Azure portal を使用した仮想ネットワークの作成](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)」を参照してください。
+Azure Stack Hub インスタンスにカスタム仮想ネットワークが必要です。 詳細については、「[クイック スタート: Azure portal を使用した仮想ネットワークの作成](/azure/virtual-network/quick-create-portal)」を参照してください。
 
 仮想ネットワークの新しいサブネットを作成します。 サブネットのリソース ID と IP アドレス範囲を取得する必要があります。 クラスターをデプロイするときに、API モデル内でリソース ID と範囲を使用します。
 
@@ -130,4 +130,4 @@ API モデルに値を追加した後、AKS エンジンを使用して、`deplo
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub 上の AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を確認してください  
-- 「[コンテナーに対する Azure Monitor の概要](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)」を読む
+- 「[コンテナーに対する Azure Monitor の概要](/azure/azure-monitor/insights/container-insights-overview)」を読む

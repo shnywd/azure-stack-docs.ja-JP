@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: c64b95874e6718fd394796dd0254f38127211f68
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: bb43fc0503e05e09dc121597027179b8b0a276b5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631170"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566438"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Azure CLI を使用した Azure Stack Hub へのリソースの管理とデプロイ
 
@@ -81,7 +81,7 @@ VM のエイリアス ファイルをホストする、パブリックにアク�
 
 ### <a name="install-or-upgrade-cli"></a>CLI をインストールまたはアップグレードする
 
-開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack Hub には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。 CLI をインストールするには、「[Azure CLI のインストール](https://docs.microsoft.com/cli/azure/install-azure-cli)」で説明されている手順を使用します。 
+開発ワークステーションにサインインし、CLI をインストールします。 Azure Stack Hub には、Azure CLI のバージョン 2.0 以降が必要です。 API プロファイルの最新バージョンには、CLI の最新バージョンが必要です。 CLI をインストールするには、「[Azure CLI のインストール](/cli/azure/install-azure-cli)」で説明されている手順を使用します。 
 
 1. インストールが正常に完了したことを確認するには、ターミナルまたはコマンド プロンプト ウィンドウを開いて次のコマンドを実行します。
 
@@ -198,7 +198,7 @@ Azure Stack Hub の CA ルート証明書を信頼するには、そのルート
 
    - *サービス プリンシパル*を使ってサインインする｡ 
     
-     サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](azure-stack-create-service-principals.md)してロールに割り当てます。 次のコマンドを使用してサインインします。
+     サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](../operator/azure-stack-create-service-principals.md?view=azs-2002)してロールに割り当てます。 次のコマンドを使用してサインインします。
 
      ```azurecli  
      az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
@@ -424,7 +424,7 @@ Azure Stack Hub の CA ルート証明書を Python の既存の証明書に追�
    
    * *サービス プリンシパル*としてサインインする場合:
     
-     サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](azure-stack-create-service-principals.md)してロールに割り当てます。 次のコマンドを使用してサインインします。
+     サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](../operator/azure-stack-create-service-principals.md?view=azs-2002)してロールに割り当てます。 次のコマンドを使用してサインインします。
 
      ```azurecli  
      az login \

@@ -7,19 +7,19 @@ ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: niy
-ms.openlocfilehash: d3f365f825e30e03e74d2e822653ee3ccfdb9e58
-ms.sourcegitcommit: 396f79ce073d99d14fcc71b85c4a4932334832a8
+ms.openlocfilehash: a2fadeaf7700b08f2fab70f882f5f6c1fc03f48f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636871"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487517"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Azure Stack Hub での更新プログラム管理
 
 フルおよび高速の更新プログラム、修正プログラム、および OEM (相手先ブランド供給) からのドライバーおよびファームウェアの更新プログラムはすべて、Azure Stack Hub を最新の状態に保つのに役立ちます。 この記事では、さまざまな種類の更新プログラム、それらのリリースが予想されるタイミング、および現在のリリースの詳細を確認できる場所について説明します。
 
 > [!Note]  
-> Azure Stack Development Kit (ASDK) に Azure Stack Hub 更新プログラム パッケージを適用することはできません。 更新プログラム パッケージは統合システム用に設計されています。 詳細については、[ASDK の再デプロイ](https://docs.microsoft.com/azure-stack/asdk/asdk-redeploy)に関する記事を参照してください。
+> Azure Stack Development Kit (ASDK) に Azure Stack Hub 更新プログラム パッケージを適用することはできません。 更新プログラム パッケージは統合システム用に設計されています。 詳細については、[ASDK の再デプロイ](../asdk/asdk-redeploy.md)に関する記事を参照してください。
 
 ## <a name="update-package-types"></a>更新プログラム パッケージの種類
 

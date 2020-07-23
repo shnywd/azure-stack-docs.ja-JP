@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: 459d6177015cbca40d2f8f830eba85dc87be18c7
-ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
+ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730681"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567350"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの違いと考慮事項
 
@@ -31,7 +31,7 @@ Azure Stack Hub ネットワークは、Azure ネットワークで提供され�
 |  | ゾーンの委任用のネーム サーバー | Azure では、作成されるユーザー (テナント) ゾーンごとに 4 つのネーム サーバーを提供します。 | Azure Stack Hub では、作成されるユーザー (テナント) ゾーンごとに 2 つのネーム サーバーを提供します。 |
 | Azure Firewall | ネットワーク セキュリティ サービス | Azure Firewall は、Azure Virtual Network リソースを保護するクラウドベースのマネージド ネットワーク セキュリティ サービスです。 | まだサポートされていません。 |
 | Virtual Network | 仮想ネットワーク ピアリング | 同じリージョンに存在する 2 つの仮想ネットワークを Azure のバックボーン ネットワークを介して接続します。 | まだサポートされていません |
-|  | IPv6 アドレス | [ネットワーク インターフェイス構成](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)の一部として IPv6 アドレスを割り当てることができます。 | IPv4 のみがサポートされています。 |
+|  | IPv6 アドレス | [ネットワーク インターフェイス構成](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)の一部として IPv6 アドレスを割り当てることができます。 | IPv4 のみがサポートされています。 |
 |  | DDoS 保護計画 | サポートされています | まだサポートされていません。 |
 |  | スケール セットの IP 構成 | サポートされています | まだサポートされていません。 |
 |  | プライベート アクセス サービス (サブネット) | サポートされています | まだサポートされていません。 |

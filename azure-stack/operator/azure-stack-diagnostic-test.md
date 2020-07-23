@@ -7,12 +7,12 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: bb83d8dcf567bac6081083e34c0770a277879282
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: c2133c85e9bae8c4f1bdf1e13b84ed6e79fb28ae
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819490"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488911"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack Hub システムの状態を検証する
 
@@ -234,6 +234,6 @@ Test-AzureStack -Include AzsNetworkInfra -Debug
 
 ## <a name="next-steps"></a>次のステップ
 
-Azure Stack Hub 診断ツールと問題のログ記録の詳細については、[Azure Stack Hub の診断ツール](azure-stack-diagnostic-log-collection-overview-tzl.md)に関する記事を参照してください。
+Azure Stack Hub 診断ツールと問題のログ記録の詳細については、[Azure Stack Hub の診断ツール](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)に関する記事を参照してください。
 
 トラブルシューティングの詳細については、[Microsoft Azure Stack Hub でのトラブルシューティング](azure-stack-troubleshooting.md)に関する記事を参照してください。

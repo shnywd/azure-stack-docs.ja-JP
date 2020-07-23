@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 789f516355407a5b1c69c4c359b8377a63e06123
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 75c92eeaf37bbf519bc72bb189c60253cace6627
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111406"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566704"
 ---
 # <a name="deploy-kubernetes-to-use-containers-with-azure-stack-hub"></a>Azure Stack Hub でコンテナーを使用するための Kubernetes をデプロイする
 
@@ -59,4 +59,4 @@ AD FS を使用した場合のクラスターのインストール手順につ�
 
 [Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする](azure-stack-solution-template-kubernetes-adfs.md)
 
-[Azure における Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+[Azure における Kubernetes](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/09/2020
 ms.author: sethm
 ms.lastreviewed: 01/16/2020
-ms.openlocfilehash: e42be131f23690611aa4509911644753bea53c4e
-ms.sourcegitcommit: d91e47a51a02042f700c6a420f526f511a6db9a0
+ms.openlocfilehash: c17ba69fedfd51681c5038efde591115ce54bddf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666364"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567520"
 ---
 # <a name="store-service-principal-credentials-in-azure-stack-hub-key-vault"></a>Azure Stack Hub でサービス プリンシパルの資格情報を Key Vault に格納する
 
@@ -92,6 +92,6 @@ Azure Stack Hub の Key Vault は、クラウド アプリやクラウド サー
 
 ## <a name="next-steps"></a>次のステップ
 
-- [サービス プリンシパルの使用](azure-stack-create-service-principals.md)
+- [サービス プリンシパルの使用](../operator/azure-stack-create-service-principals.md?view=azs-2002)
 - [ポータルを使用して Azure Stack Hub の Key Vault を管理する](azure-stack-key-vault-manage-portal.md)  
 - [PowerShell を使用して Azure Stack Hub の Key Vault を管理する](azure-stack-key-vault-manage-powershell.md)

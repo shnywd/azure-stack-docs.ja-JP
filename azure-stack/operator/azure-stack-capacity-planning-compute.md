@@ -7,16 +7,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 3ec8b0b3ac6f4687fd782dfc692f1c705c5ed733
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: dd82a3a9c2b6eff74c8f6823fc37b8767431ca02
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78366349"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489234"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
-Azure Stack Hub 上でサポートされる[仮想マシン (VM) サイズ](https://docs.microsoft.com/azure-stack/user/azure-stack-vm-sizes)は、Azure 上でサポートされている VM サイズのサブセットです。 Azure では、リソース (サーバーのローカルおよびサービス レベル) の過剰消費を防ぐため、多くのベクターに沿ってリソースの制限を適用します。 テナントの消費量にいくつかの制限を適用しないと、あるテナントでリソースが過剰消費された場合に、別のテナントのエクスペリエンスに影響します。 VM からのネットワーク エグレスの場合、Azure Stack Hub では、Azure の制限と一致する帯域幅の上限が設けられます。 Azure Stack Hub のストレージ リソースの場合、ストレージ IOPS を制限することにより、テナントがストレージ アクセスのために使用するリソースの基本的な過剰消費を防ぎます。
+Azure Stack Hub 上でサポートされる[仮想マシン (VM) サイズ](../user/azure-stack-vm-sizes.md)は、Azure 上でサポートされている VM サイズのサブセットです。 Azure では、リソース (サーバーのローカルおよびサービス レベル) の過剰消費を防ぐため、多くのベクターに沿ってリソースの制限を適用します。 テナントの消費量にいくつかの制限を適用しないと、あるテナントでリソースが過剰消費された場合に、別のテナントのエクスペリエンスに影響します。 VM からのネットワーク エグレスの場合、Azure Stack Hub では、Azure の制限と一致する帯域幅の上限が設けられます。 Azure Stack Hub のストレージ リソースの場合、ストレージ IOPS を制限することにより、テナントがストレージ アクセスのために使用するリソースの基本的な過剰消費を防ぎます。
 
 >[!IMPORTANT]
 >[Azure Stack Hub Capacity Planner](https://aka.ms/azstackcapacityplanner) では、IOPS パフォーマンスは考慮されず、保証もされません。
@@ -25,7 +25,7 @@ Azure Stack Hub 上でサポートされる[仮想マシン (VM) サイズ](http
 
 Azure Stack Hub 配置エンジンでは、使用可能なホスト間でテナント VM を配置します。
 
-Azure Stack Hub では、VM を配置する際に次の 2 つの点が考慮されます。 1 つ目は、その VM の種類に十分なメモリがホスト上にあるかどうかです。 2 つ目は、VM が[可用性セット](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)の一部であるか、[仮想マシン スケール セット](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)であるかです。
+Azure Stack Hub では、VM を配置する際に次の 2 つの点が考慮されます。 1 つ目は、その VM の種類に十分なメモリがホスト上にあるかどうかです。 2 つ目は、VM が[可用性セット](/azure/virtual-machines/windows/manage-availability)の一部であるか、[仮想マシン スケール セット](/azure/virtual-machine-scale-sets/overview)であるかです。
 
 Azure Stack Hub 内でマルチ VM による運用システムの高可用性を実現するため、仮想マシン (VM) は、複数の障害ドメインに分散される可用性セット内に配置されます。 可用性セット内の障害ドメインは、スケール ユニット内の 1 つのノードとして定義されます。 Azure Stack Hub では、Azure との一貫性がある最大 3 つの障害ドメインを持つ可用性セットを用意することをサポートしています。 可用性セットに配置された VM は、複数の障害ドメイン (Azure Stack Hub ホスト) にできる限り均等に分散させることによって、互いに物理的に分離されます。 ハードウェア障害が発生した場合、障害が発生した障害ドメインの VM は、他の障害ドメインで再起動されます。 可能であれば、これらは同じ可用性セット内の、他の VM とは別の障害ドメインに保持されます。 ホストがオンラインに戻ると、高可用性を維持するために VM の再配置が行われます。  
 

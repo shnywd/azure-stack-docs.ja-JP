@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: a8fa6f179b2ff310a291d10f40b2f9a5eaa4e2d9
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 43140eb8e64840aefa738ea08c3138cb9dd1d89f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111786"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567061"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell-as-a-user"></a>ユーザーとして PowerShell を使用して Azure Stack Hub に接続する
 
@@ -36,7 +36,7 @@ PowerShell を使用して Azure Stack Hub に接続し、Azure Stack Hub リソ
 - **Azure AD テナントの名前**  
   Azure Stack Hub の管理に使用される Azure AD テナントの名前。 たとえば、yourdirectory.onmicrosoft.com です。
 - **Azure Resource Manager エンドポイント**  
-  Azure Stack 開発キットの場合、この値は https://management.local.azurestack.external に設定されます。 Azure Stack Hub 統合システムのこの値を取得するには、サービス プロバイダーにお問い合わせください。
+  Azure Stack 開発キットの場合、この値は `https://management.local.azurestack.external` に設定されます。 Azure Stack Hub 統合システムのこの値を取得するには、サービス プロバイダーにお問い合わせください。
 
 ## <a name="connect-to-azure-stack-hub-with-azure-ad"></a>Azure AD を使用して Azure Stack Hub に接続する
 
@@ -86,5 +86,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 - [Azure Stack Hub のテンプレートの開発](azure-stack-develop-templates.md)
 - [PowerShell を使用したテンプレートのデプロイ](azure-stack-deploy-template-powershell.md)
-- [Azure Stack Hub PowerShell Module リファレンス](https://docs.microsoft.com/powershell/azure/azure-stack/overview)
+- [Azure Stack Hub PowerShell Module リファレンス](/powershell/azure/azure-stack/overview)
 - クラウド オペレーター環境用に PowerShell を設定する場合、[Azure Stack Hub オペレーターの PowerShell 環境の構成](../operator/azure-stack-powershell-configure-admin.md)に関する記事をご覧ください。

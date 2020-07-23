@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 428c95a4f9d387cd298a1965f165278dfdc5a763
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 34e48ce402678a8fa2f1632e0431cfb38fb895e9
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111984"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567282"
 ---
 # <a name="vnet-peering-in-azure-stack-hub-with-vms"></a>Azure Stack Hub での VM との VNET ピアリング
 
-同じ Azure Stack Hub 環境内で、2 つの Azure Stack Hub VNet を相互に接続できます。 現時点では、組み込みの [Virtual Network ゲートウェイ](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)を使用して Azure Stack Hub VNet に接続することはできません。 NVA アプライアンスを使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 この記事のテンプレート リファレンスでは、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされています。 2 つの RRAS サーバーは、2 つの VNET 間に S2SVPN IKEv2 トンネルを実装するように構成されています。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています。 
+同じ Azure Stack Hub 環境内で、2 つの Azure Stack Hub VNet を相互に接続できます。 現時点では、組み込みの [Virtual Network ゲートウェイ](./azure-stack-network-differences.md)を使用して Azure Stack Hub VNet に接続することはできません。 NVA アプライアンスを使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 この記事のテンプレート リファレンスでは、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされています。 2 つの RRAS サーバーは、2 つの VNET 間に S2SVPN IKEv2 トンネルを実装するように構成されています。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています。 
 
 このデプロイ パターンは、Azure Stack Hub インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack Hub インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。 
 

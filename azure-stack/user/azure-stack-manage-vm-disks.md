@@ -7,12 +7,12 @@ ms.date: 04/22/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 757b978012fc1b17362343309d57c0df09862a98
-ms.sourcegitcommit: 98f62c33469ba963ba266bd88e206e9144258ea3
+ms.openlocfilehash: 95fafe541db48ced7025d7750b46de9789b441cf
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82032843"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567503"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -121,8 +121,8 @@ Azure Stack Hub でのストレージ アカウントの使用について詳し
 1. VM のデータ ディスクとして使用する [.Vhd ファイルを準備します](/azure/virtual-machines/windows/classic/createupload-vhd)。 .vhd ファイルを接続する VM で使用するストレージ アカウントに .vhd ファイルをアップロードします。
 
     - .vhd ファイルを保持するために使用するコンテナーは、OS ディスクを保持するコンテナーとは別のコンテナーにすることを計画してください。  
-    - VHD を Azure にアップロードする前に、「[Prepare a Windows VHD or VHDX to upload to Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)」(Azure にアップロードする Windows VHD または VHDX を準備する) に従う必要があります。
-    - [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) への移行を開始する前に、「[Plan for the migration to Managed Disks (Managed Disks への移行の計画)](https://docs.microsoft.com/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks)」をご確認ください。
+    - VHD を Azure にアップロードする前に、「[Prepare a Windows VHD or VHDX to upload to Azure](/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)」(Azure にアップロードする Windows VHD または VHDX を準備する) に従う必要があります。
+    - [Managed Disks](/azure/virtual-machines/windows/managed-disks-overview) への移行を開始する前に、「[Plan for the migration to Managed Disks (Managed Disks への移行の計画)](/azure/virtual-machines/windows/on-prem-to-azure#plan-for-the-migration-to-managed-disks)」をご確認ください。
 
     ![例:VHD ファイルのアップロード](media/azure-stack-manage-vm-disks/upload-vhd.png)
 

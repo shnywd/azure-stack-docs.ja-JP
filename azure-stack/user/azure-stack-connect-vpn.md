@@ -7,12 +7,12 @@ ms.date: 04/07/2020
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 186559752531021ff74833ac71184e692d40a04d
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: dc143c4cfc6beec14891caa7e23d3f058f49eae5
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643582"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567673"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 
@@ -318,4 +318,4 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 
 ## <a name="next-steps"></a>次のステップ
 
-* [Azure と Azure Stack Hub へのアプリのデプロイ](azure-stack-solution-pipeline.md)
+* [Azure と Azure Stack Hub へのアプリのデプロイ](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

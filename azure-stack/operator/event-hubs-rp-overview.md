@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 4a7e7987a5b5b7bb60e6acc882c07b80519bc052
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 7d6be0c2b70edce6d06a12eb7b73831a46b82c03
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424591"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86490084"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack Hub 上の Event Hubs の概要
 
@@ -23,7 +23,7 @@ Azure Stack Hub 上の Event Hubs を使用すると、ハイブリッド クラ
 
 ## <a name="features"></a>特徴
 
-次の機能比較については、[Azure Stack Hub のユーザー ドキュメント](/azure-stack/user/event-hubs-overview)を参照してください: Azure Stack 上の Event Hubs と Azure Event Hubs。
+次の機能比較については、[Azure Stack Hub のユーザー ドキュメント](../user/event-hubs-overview.md)を参照してください: Azure Stack 上の Event Hubs と Azure Event Hubs。
 
 ## <a name="feature-documentation"></a>機能のドキュメント
 

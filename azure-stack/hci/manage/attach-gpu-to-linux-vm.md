@@ -4,17 +4,17 @@ description: Azure Stack HCI 上の Ubuntu Linux VM で実行されている AI 
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/24/2020
-ms.openlocfilehash: 804ead80185f6fe140f6b7d216bcff845769735e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/01/2020
+ms.openlocfilehash: e00d35e02b45d0a184bc8274d06ed2460f2de152
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196989"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866860"
 ---
 # <a name="attaching-a-gpu-to-an-ubuntu-linux-vm-on-azure-stack-hci"></a>Azure Stack HCI 上の Ubuntu Linux VM に GPU をアタッチする
 
-> 適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 このトピックでは、Azure Stack HCI と Discrete Device Assignment (DDA) テクノロジを使用して、Ubuntu 仮想マシン (VM) に NVIDIA グラフィックス処理装置 (GPU) をインストールして構成する詳細な手順を紹介します。
 このドキュメントは、Azure Stack HCI クラスターがデプロイされ、VM がインストールされていることを前提としています。

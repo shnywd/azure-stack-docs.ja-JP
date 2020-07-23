@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 114be8564f264f38715ebacbb74c85559540c72f
-ms.sourcegitcommit: 8ad3ff64e6a47e512c7ae4442d5418fa79345fb5
+ms.openlocfilehash: 253ede500b206724e7f8dd024435fdb842fa4f36
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85264160"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488265"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
@@ -29,7 +29,7 @@ Azure Stack Hub と互換性のある PowerShell モジュールは、インタ�
 Azure Stack Hub と PowerShell AzureRM モジュールの使用を開始する前に、次の前提条件を満たしている必要あります。
 
 - **PowerShell バージョン 5.1** <br>
-バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.1 を使用していない場合は、「[Windows PowerShell のインストール](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)」に従ってください。
+バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.1 を使用していない場合は、「[Windows PowerShell のインストール](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)」に従ってください。
 
   > [!Note]
   > PowerShell 5.1 には、Windows マシンが必要です。
@@ -223,7 +223,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 2. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
 
-3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](https://docs.microsoft.com/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
+3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
 4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
 

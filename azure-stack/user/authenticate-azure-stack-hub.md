@@ -7,16 +7,16 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: ba55e6b5a6025d93f4e630d17fa9af731460105b
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 43461dc60afd98086f99fdf508e7248db975ca0e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661093"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567656"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 
-Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles-ruby?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
+Azure Stack Hub に対して認証を行うには、サブスクリプション ID、テナント ID、場所、および Azure Stack Hub Resource Manager エンドポイントを指定する必要があります。 これらの値は、Azure Stack Hub の [Azure Stack Hub Resource Manager エンドポイント](./azure-stack-version-profiles-ruby.md?view=azs-1910#the-azure-stack-hub-resource-manager-endpoint)から取得できます。 または、この記事の手順を使用して取得することもできます。
 
 ## <a name="values-needed-to-authenticate"></a>認証に必要な値
 
@@ -74,4 +74,4 @@ Azure Resource Manager エンドポイントは、Azure Stack Hub のデプロ�
 
 ## <a name="next-steps"></a>次のステップ
 
-Azure Stack Hub での [Azure Stack Resource Manager](https://docs.microsoft.com/azure-stack/user/azure-stack-version-profiles?view=azs-1910) の使用について詳細に説明します。
+Azure Stack Hub での [Azure Stack Resource Manager](./azure-stack-version-profiles.md?view=azs-1910) の使用について詳細に説明します。

@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: ecedd49789a20788f1f1ba40e568298c569d168d
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: 9ab446785d463358b3d04850b5d08ff9410a40d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848083"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489659"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を更新する
 
@@ -96,7 +96,7 @@ Azure App Service on Azure Stack Hub のデプロイをアップグレードす�
 * Active Directory フェデレーション サービス (AD FS) によって保護されている
 
 > [!IMPORTANT]
-> アップグレードを実行する前に、[接続されていない環境への Azure App Service on Azure Stack Hub のデプロイ](azure-stack-app-service-deploy-offline.md)を完了しておく必要があります。 
+> アップグレードを実行する前に、[接続されていない環境への Azure App Service on Azure Stack Hub のデプロイ](./azure-stack-app-service-deploy.md?pivots=state-disconnected&view=azs-2002)を完了しておく必要があります。 
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>App Service リソースプロバイダーのインストーラーを実行する
 

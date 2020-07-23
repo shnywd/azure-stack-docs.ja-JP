@@ -6,12 +6,12 @@ author: davannaw-msft
 ms.author: dawhite
 ms.date: 04/30/2020
 ms.localizationpriority: low
-ms.openlocfilehash: 0465666549e0ae8801c9bab0be6d8a3d6dad8891
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: d66948092d97ac42ef9484d47e9b584ed6a80a90
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196462"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947573"
 ---
 # <a name="protect-azure-stack-hci-vms-using-azure-site-recovery"></a>Azure Site Recovery を使用して Azure Stack HCI VM を保護する
 
@@ -24,7 +24,7 @@ Windows Admin Center は、サーバーまたはクラスター上の仮想マ�
 詳細については、「[Azure ハイブリッド サービスへの Windows Server の接続](/windows-server/manage/windows-admin-center/azure/)」を参照してください。
 
 ## <a name="how-azure-site-recovery-works-with-windows-admin-center"></a>Windows Admin Center での Azure Site Recovery のしくみ
-*Azure Site Recovery* は、ビジネスに不可欠なインフラストラクチャが障害から保護されるように、VM 上で実行されているワークロードをレプリケートする Azure サービスです。 詳細については、「[Site Recovery について](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)」を参照してください。
+*Azure Site Recovery* は、ビジネスに不可欠なインフラストラクチャが障害から保護されるように、VM 上で実行されているワークロードをレプリケートする Azure サービスです。 詳細については、「[Site Recovery について](/azure/site-recovery/site-recovery-overview)」を参照してください。
 
 Azure Site Recovery は、"*レプリケーション*" と "*フェールオーバー*" という 2 つのコンポーネントで構成されています。 レプリケーションの部分では、ターゲット VM の VHD を Azure ストレージ アカウントにレプリケートすることによって、VM を障害から保護します。 その後、障害が発生した場合、Azure に VM をフェールオーバーして実行できます。 また、Azure で復旧プロセスをテストするために、プライマリ VM に影響を与えることなくテスト フェールオーバーを実行することもできます。
 
@@ -36,8 +36,8 @@ Azure Site Recovery は、"*レプリケーション*" と "*フェールオー�
 この記事の手順を完了するには、以下が必要です。
 
 - 保護する VM をホストしているターゲット サーバーは、Azure にレプリケートするためにインターネットにアクセスできる必要があります。
-- Windows Admin Center から Azure への接続。 詳細については、「[Azure との統合の構成](https://docs.microsoft.com/windows-server/manage/windows-admin-center/azure/azure-integration)」を参照してください。
-- 容量計画ツールを確認して、レプリケーションとフェールオーバーを成功させるための要件を満たしているかを評価します。 詳細については、「[Azure Site Recovery Deployment Planner による Hyper-V から Azure へのディザスター リカバリー](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-capacity)」を参照してください。
+- Windows Admin Center から Azure への接続。 詳細については、「[Azure との統合の構成](/windows-server/manage/windows-admin-center/azure/azure-integration)」を参照してください。
+- 容量計画ツールを確認して、レプリケーションとフェールオーバーを成功させるための要件を満たしているかを評価します。 詳細については、「[Azure Site Recovery Deployment Planner による Hyper-V から Azure へのディザスター リカバリー](/azure/site-recovery/hyper-v-site-walkthrough-capacity)」を参照してください。
 
 ## <a name="step-1-set-up-vm-protection-on-your-target-host"></a>手順 1:ターゲット ホストで VM の保護を設定する
 保護対象とする VM が含まれているホスト サーバーまたはクラスターごとに、次の手順を実行します。
@@ -73,9 +73,9 @@ VM を保護するには、次の手順を実行します。
 
     :::image type="content" source="media/azure-site-recovery/protect-vm-setting.png" alt-text="Windows Admin Center の [VM の保護] 設定オプション。":::
 
-1. VM を保護するための容量要件を確認します。 詳細については、「[Hyper-V VM のディザスター リカバリーの容量を計画する](https://docs.microsoft.com/azure/site-recovery/site-recovery-capacity-planner)」を参照してください。
+1. VM を保護するための容量要件を確認します。 詳細については、「[Hyper-V VM のディザスター リカバリーの容量を計画する](/azure/site-recovery/site-recovery-capacity-planner)」を参照してください。
 
-    Premium ストレージ アカウントを使用する場合は、Azure portal で作成します。 詳細については、「[Azure で利用できるディスクの種類](https://docs.microsoft.com/azure/storage/common/storage-premium-storage)」の「**Premium SSD**」セクションを参照してください。 Windows Admin Center に用意されている **[新規作成]** オプションを選択すると、Standard ストレージ アカウントが作成されます。
+    Premium ストレージ アカウントを使用する場合は、Azure portal で作成します。 詳細については、「[Azure で利用できるディスクの種類](/azure/storage/common/storage-premium-storage)」の「**Premium SSD**」セクションを参照してください。 Windows Admin Center に用意されている **[新規作成]** オプションを選択すると、Standard ストレージ アカウントが作成されます。
 
 1. この VM のレプリケーションに使用する**ストレージ アカウント**の名前を入力し、 **[VM の保護]** を選択すると、VM のレプリケーションが有効になります。
 
@@ -87,17 +87,17 @@ VM を保護するには、次の手順を実行します。
 VM レプリケーションを開始する前に、この手順を完了する必要はありません。 VM は、レプリケーションのみで保護されます。 ただし、Azure Site Recovery を設定するときに、フェールオーバーの設定を構成しておくことをお勧めします。
 
 Azure VM へのフェールオーバーを準備するには、次の手順を実行します。
-1. フェールオーバーされた VM がこの VNET に接続する Azure ネットワークを設定します。 詳細については、「[Azure にオンプレミス Hyper-V VM のディザスター リカバリーを設定する](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure)」を参照してください。
+1. フェールオーバーされた VM がこの VNET に接続する Azure ネットワークを設定します。 詳細については、「[Azure にオンプレミス Hyper-V VM のディザスター リカバリーを設定する](/azure/site-recovery/hyper-v-site-walkthrough-prepare-azure)」を参照してください。
 
     >[!NOTE]
     > Windows Admin Center によって、このリソースでの手順が自動的に実行されます。 必要なのは、Azure ネットワークの設定のみです。
 
-1. テスト フェールオーバーを実行します。 詳細については、「[Azure へのディザスター リカバリー訓練を実行する](https://docs.microsoft.com/azure/site-recovery/hyper-v-site-walkthrough-test-failover)」を参照してください。
+1. テスト フェールオーバーを実行します。 詳細については、「[Azure へのディザスター リカバリー訓練を実行する](/azure/site-recovery/hyper-v-site-walkthrough-test-failover)」を参照してください。
 
 ## <a name="step-4-create-recovery-plans"></a>手順 4:復旧計画の作成
 Azure Site Recovery の復旧計画を使用すると、アプリケーションの VM コレクション全体をフェールオーバーおよび復旧できます。 保護されている VM を個別に復旧することも可能です。 ただし、アプリケーションの VM を復旧計画に追加することをお勧めします。 こうすることで、復旧計画を通じてアプリケーション全体をフェールオーバーできます。 また、復旧計画のテスト フェールオーバー機能を使用して、アプリケーションの復旧をテストすることもできます。
 
-復旧計画を使用すると、VM のグループ化、フェールオーバーを開始する順序の指定、追加の復旧手順の自動化が可能になります。 VM を保護したら、Azure portal の Azure Site Recovery コンテナーに移動して、VM の復旧計画を作成できます。 詳細については、「[復旧計画を作成してカスタマイズする](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans)」を参照してください。
+復旧計画を使用すると、VM のグループ化、フェールオーバーを開始する順序の指定、追加の復旧手順の自動化が可能になります。 VM を保護したら、Azure portal の Azure Site Recovery コンテナーに移動して、VM の復旧計画を作成できます。 詳細については、「[復旧計画を作成してカスタマイズする](/azure/site-recovery/site-recovery-create-recovery-plans)」を参照してください。
 
 ## <a name="step-5-monitor-replicated-vms-in-azure"></a>手順 5:レプリケートされた VM を Azure で監視する
 サーバーの登録プロセスでエラーが発生していないことを確認するには、**Azure portal** に移動して **[すべてのリソース]** を選択し、 **[Recovery Services コンテナー]** 、 **[ジョブ]** 、 **[Site Recovery ジョブ]** の順に選択します。 **[Recovery Services コンテナー]** の名前は、この記事の最初のタスクの手順 6. で指定したものです。
@@ -112,4 +112,4 @@ Azure Site Recovery にクラスターを登録している場合に、ノード
 ## <a name="next-steps"></a>次のステップ
 Azure Site Recovery の詳細については、次の記事も参照してください。
 
-- [Azure Site Recovery に関する一般的な質問](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq)
+- [Azure Site Recovery に関する一般的な質問](/azure/site-recovery/site-recovery-faq)

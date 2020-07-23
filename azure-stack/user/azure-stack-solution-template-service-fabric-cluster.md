@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 4ccbdfe93f8ed960002c251e0d18e24f29a9b229
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: fe06aca2423f5347193490798427446c684b6703
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111865"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566976"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric クラスターを Azure Stack Hub にデプロイする
 
 セキュリティで保護された Service Fabric クラスターを Azure Stack Hub にデプロイするには、Azure Marketplace の **[Service Fabric クラスター]** 項目を使用します。 
 
-Service Fabric を使った作業の詳細については、Azure ドキュメントの「[Azure Service Fabric の概要](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview)」および「[Service Fabric クラスターのセキュリティに関するシナリオ](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)」を参照してください。
+Service Fabric を使った作業の詳細については、Azure ドキュメントの「[Azure Service Fabric の概要](/azure/service-fabric/service-fabric-overview)」および「[Service Fabric クラスターのセキュリティに関するシナリオ](/azure/service-fabric/service-fabric-cluster-security)」を参照してください。
 
-Azure Stack Hub の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack Hub では、Service Fabric クラスターは、[DSC (Desired State Configuration)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
+Azure Stack Hub の Service Fabric クラスターでは、リソース プロバイダー Microsoft.ServiceFabric は使用しません。 代わりに、Azure Stack Hub では、Service Fabric クラスターは、[DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) を使用してソフトウェアがプレインストールされた仮想マシン スケール セットとなります。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -29,13 +29,13 @@ Service Fabric クラスターをデプロイするには、次のものが必�
    これは、Service Fabric のデプロイ時に Key Vault に追加する X.509 サーバー証明書です。 
    - この証明書の **CN** が、作成する Service Fabric クラスターの完全修飾ドメイン名 (FQDN) と一致している必要があります。 
    - 公開キーと秘密キーの両方が必要なため、証明書の形式は PFX である必要があります。 
-     このサーバー側証明書の作成に関する[要件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)を参照してください。
+     このサーバー側証明書の作成に関する[要件](/azure/service-fabric/service-fabric-cluster-security)を参照してください。
 
      > [!NOTE]  
      > テスト目的で、x.509 サーバー証明書の代わりに自己署名証明書を使用することができます。 自己署名証明書は、クラスターの FQDN と一致している必要はありません。
 
 1. **管理用クライアント証明書**  
-   これは、クライアントで Service Fabric クラスターに対して認証を行う場合に使用される証明書であり、自己署名されたものでもかまいません。 このクライアント証明書の作成に関する[要件](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)を参照してください。
+   これは、クライアントで Service Fabric クラスターに対して認証を行う場合に使用される証明書であり、自己署名されたものでもかまいません。 このクライアント証明書の作成に関する[要件](/azure/service-fabric/service-fabric-cluster-security)を参照してください。
 
 1. **Azure Stack Hub Marketplace に次の項目が用意されている必要があります。**
     - **Windows Server 2016** - このテンプレートでは、Windows Server 2016 イメージを使用してクラスターを作成します。  
@@ -199,7 +199,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 ### <a name="use-service-fabric-powershell"></a>Service Fabric PowerShell の使用
 
-1. Azure Service Fabric ドキュメントの「[Windows で開発環境を準備する](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
+1. Azure Service Fabric ドキュメントの「[Windows で開発環境を準備する](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
 
 1. インストールが完了したら、Service Fabric のコマンドレットに PowerShell から確実にアクセスできるようシステム環境変数を構成します。  
     

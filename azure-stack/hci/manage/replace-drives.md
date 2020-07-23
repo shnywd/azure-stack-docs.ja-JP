@@ -4,15 +4,17 @@ description: Azure Stack HCI で障害が発生したドライブを交換する
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 06/24/2020
-ms.openlocfilehash: 93aa7035719fcfd6d96be0c21fc4616608e8af85
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.date: 07/21/2020
+ms.openlocfilehash: d3d03f1e5cc89186e2eb8198b52e96bffbd21768
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764550"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866485"
 ---
 # <a name="replace-failed-drives-on-azure-stack-hci"></a>Azure Stack HCI で障害が発生したドライブを交換する
+
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 Azure Stack HCI は直接接続された SATA、SAS、NVMe、または永続メモリのドライブに対応しています。これらは、それぞれ 1 台のサーバーのみに物理的に接続されます。 ドライブに障害が発生した場合は、物理サーバー ハードウェアにアクセスして交換する必要があります。
 

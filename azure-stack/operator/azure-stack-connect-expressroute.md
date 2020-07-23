@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 5d2f30813cc0a7a42e376ec7fb9c76be1f7994eb
-ms.sourcegitcommit: f2d80d705a222095c2ea785b9797bbac0cf96fcc
+ms.openlocfilehash: b30016866f0d3b7da4c449c40cff54d77adf3e2f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82605699"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489268"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-azure-expressroute"></a>Azure ExpressRoute を使用して Azure Stack Hub を Azure に接続する
 
@@ -601,4 +601,4 @@ New-NetFirewallRule `
 
 ## <a name="next-steps"></a>次のステップ
 
-[Azure と Azure Stack Hub へのアプリのデプロイ](../user/azure-stack-solution-pipeline.md)
+[Azure と Azure Stack Hub へのアプリのデプロイ](https://github.com/Azure-Samples/azure-intelligent-edge-patterns/tree/master/hybrid-devops)

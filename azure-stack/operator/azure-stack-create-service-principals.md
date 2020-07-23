@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: e5123a5a9810ce9da4516b67aab8bbd8dfa433e5
-ms.sourcegitcommit: 9c3339e0e3c3a953d64feff9ae08d94300c351ff
+ms.openlocfilehash: 4b1a3e41be03eec55c84731ac220521376fc16d2
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85449890"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489217"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
 
@@ -353,5 +353,5 @@ VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint con
 ## <a name="next-steps"></a>次のステップ
 
 [ユーザー アクセス許可の管理](azure-stack-manage-permissions.md)  
-[Azure Active Directory のドキュメント](https://docs.microsoft.com/azure/active-directory)  
-[Active Directory フェデレーション サービス (AD FS)](https://docs.microsoft.com/windows-server/identity/active-directory-federation-services)
+[Azure Active Directory のドキュメント](/azure/active-directory)  
+[Active Directory フェデレーション サービス (AD FS)](/windows-server/identity/active-directory-federation-services)

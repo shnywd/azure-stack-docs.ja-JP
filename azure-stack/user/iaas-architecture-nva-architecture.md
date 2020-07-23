@@ -7,18 +7,18 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 4fc7269e81e021f30049f7b93a9651443f381d6b
-ms.sourcegitcommit: 3ee7e9ddffe2ca44af24052e60d808fbef42cf4c
+ms.openlocfilehash: 19cfee9cf4e2698bcb75cb7dd15a9439ed55341a
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82643543"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566092"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Azure Stack Hub に高可用性ネットワーク仮想アプライアンスをデプロイする
 
 この記事では、高可用性のネットワーク仮想アプライアンス (NVA) セットを Azure Stack Hub にデプロイする方法を示します。 NVA は、通常は、境界ネットワーク (DMZ とも呼ばれます) から他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御するために使用されます。 この記事には、イングレスのみ、エグレスのみ、イングレスとエグレスの両方を行うアーキテクチャの例が含まれています。
 
-[Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) では、さまざまなベンダーからの NVA を利用することができ、そのうちの 1 つを使用することで最適なパフォーマンスが得られます。
+[Azure Stack Hub Marketplace](../operator/azure-stack-marketplace-azure-items.md) では、さまざまなベンダーからの NVA を利用することができ、そのうちの 1 つを使用することで最適なパフォーマンスが得られます。
 
 このアーキテクチャには次のコンポーネントがあります。
 
@@ -26,13 +26,13 @@ ms.locfileid: "82643543"
 
 -   **仮想ネットワークとサブネット**。 すべての Azure VM が、サブネットにセグメント化できる仮想ネットワーク内にデプロイされます。 階層ごとに個別のサブネットを作成します。
 
--   **第 7 層のロード バランサー。** Azure Stack Hub では Application Gateway がまだ利用できないため、[Azure Stack Hub Marketplace](https://docs.microsoft.com/azure-stack/operator/azure-stack-marketplace-azure-items) には代替手段が用意されています ([KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) など)。
+-   **第 7 層のロード バランサー。** Azure Stack Hub では Application Gateway がまだ利用できないため、[Azure Stack Hub Marketplace](../operator/azure-stack-marketplace-azure-items.md) には代替手段が用意されています ([KEMP LoadMaster Load Balancer ADC Content Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure)/ [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best) または [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) など)。
 
--   **ロード バランサー**。 [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) は、Web 層からビジネス層へ、ビジネス層から SQL Server へとネットワーク トラフィックを分散するために使用します。
+-   **ロード バランサー**。 [Azure Load Balancer](/azure/load-balancer/load-balancer-overview) は、Web 層からビジネス層へ、ビジネス層から SQL Server へとネットワーク トラフィックを分散するために使用します。
 
 -   **ネットワーク セキュリティ グループ** (NSG)。 NSG を使用して、仮想ネットワーク内のネットワーク トラフィックを制限します。 たとえば、ここに示されている 3 層アーキテクチャでは、データベース層は、Web フロントエンドからではなく、管理サブネットからのトラフィックのみを受信します。
 
--   **UDR。** ["*ユーザー定義ルート*"](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview/) (UDR) を使用して、トラフィックを特定のロード バランサーにルーティングします。
+-   **UDR。** ["*ユーザー定義ルート*"](/azure/virtual-network/virtual-networks-udr-overview/) (UDR) を使用して、トラフィックを特定のロード バランサーにルーティングします。
 
 この記事では、Azure Stack Hub ネットワークを基本的に理解していることを前提としています。
 
@@ -84,4 +84,4 @@ NVA に高可用性を持たせるには、複数の NVA を可用性セット�
 ## <a name="next-steps"></a>次のステップ
 
 - Azure Stack Hub VM の詳細については、「[Azure Stack Hub VM の機能](azure-stack-vm-considerations.md)」を参照してください。  
-- Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](https://docs.microsoft.com/azure/architecture/patterns)」を参照してください。
+- Azure のクラウド パターンの詳細については、「[Cloud Design Pattern (クラウド設計パターン)](/azure/architecture/patterns)」を参照してください。

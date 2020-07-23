@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2d836c601f292b25a472b38d1afef464a3b22960
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: a99339b2a8708bac8c20b5f2fb507e42fc7588de
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84630924"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488656"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 
@@ -123,7 +123,7 @@ PowerShell を使用して保有期間を明示的にオーバーライドし、
 **PowerShell を使用して容量を回収するには:**
 
 1. Azure PowerShell がインストールおよび構成されていることを確認します。 それ以外の場合は、次の手順を実行します。 
-   * Azure PowerShell の最新バージョンをインストールして、Azure サブスクリプションに関連付けるには、[Azure PowerShell のインストールおよび構成方法](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)に関するページをご覧ください。
+   * Azure PowerShell の最新バージョンをインストールして、Azure サブスクリプションに関連付けるには、[Azure PowerShell のインストールおよび構成方法](/powershell/azure/)に関するページをご覧ください。
    Azure Resource Manager コマンドレットの詳細については、[Azure Resource Manager での Azure PowerShell の使用](https://go.microsoft.com/fwlink/?LinkId=394767)に関するページを参照してください。
 2. 次のコマンドレットを実行します。
 
@@ -135,7 +135,7 @@ PowerShell を使用して保有期間を明示的にオーバーライドし、
     Start-AzsReclaimStorageCapacity -FarmName $farm_name
 ```
 
-詳細については、[Azure Stack Hub PowerShell のドキュメント](https://docs.microsoft.com/powershell/azure/azure-stack/overview)を参照してください。
+詳細については、[Azure Stack Hub PowerShell のドキュメント](/powershell/azure/azure-stack/overview)を参照してください。
  
 
 ## <a name="next-steps"></a>次のステップ

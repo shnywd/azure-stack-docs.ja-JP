@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 1af0a054c90369ba3f1e97d55dac7e5eec20ee43
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 673d1d58a441d5265e8ad6dd23a448d089c2776e
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111967"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567316"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントをバックアップする
 
@@ -26,13 +26,13 @@ ms.locfileid: "84111967"
 
 ### <a name="application-layer"></a>アプリケーション レイヤー
 
-別の Azure Stack Hub スケール ユニット上のストレージ アカウント間でデータをレプリケートするには、複数の [PUT BLOB](https://docs.microsoft.com/rest/api/storageservices/put-blob) または [Put Block](https://docs.microsoft.com/rest/api/storageservices/put-block) 操作を発行して、オブジェクトを複数の場所に書き込みます。 または、プライマリ アカウントへの Put 操作が完了した後、アプリケーションから [Copy BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) 操作を発行し、別のスケール ユニットでホストされているストレージ アカウントに BLOB をコピーできます。
+別の Azure Stack Hub スケール ユニット上のストレージ アカウント間でデータをレプリケートするには、複数の [PUT BLOB](/rest/api/storageservices/put-blob) または [Put Block](/rest/api/storageservices/put-block) 操作を発行して、オブジェクトを複数の場所に書き込みます。 または、プライマリ アカウントへの Put 操作が完了した後、アプリケーションから [Copy BLOB](/rest/api/storageservices/copy-blob) 操作を発行し、別のスケール ユニットでホストされているストレージ アカウントに BLOB をコピーできます。
 
 ### <a name="scheduled-copy-task"></a>スケジュールされたコピー タスク
 
 AzCopy は、ローカル ファイルシステム、Azure Cloud Storage、Azure Stack Hub ストレージ、および s3 からデータをコピーするために利用できる優れたツールです。 現在、AzCopy では、2 つの Azure Stack Hub ストレージ アカウント間でデータをコピーすることはできません。 ソース Azure Stack Hub ストレージ アカウントからターゲット Azure Stack Hub ストレージ アカウントにオブジェクトをコピーするには、中継ローカル ファイルシステムが必要です。
 
-詳細については、記事「[Azure Stack Hub Storage でのデータ転送ツールの使用](https://docs.microsoft.com/azure-stack/user/azure-stack-storage-transfer?view=azs-1908#azcopy)」の「AzCopy」を参照してください。
+詳細については、記事「[Azure Stack Hub Storage でのデータ転送ツールの使用](./azure-stack-storage-transfer.md?view=azs-1908#azcopy)」の「AzCopy」を参照してください。
 
 ### <a name="azure-stack-hub-source"></a>Azure Stack Hub (ソース)
 
@@ -54,7 +54,7 @@ Linux または Windows サーバーを中継サーバーとして作成でき�
 - Linux サーバーを設定する手順については、[Azure Stack Hub ポータルを使用した Linux サーバー VM の作成](azure-stack-quick-linux-portal.md)に関するページを参照してください。  
 - Windows Server を設定する手順については、[Azure Stack Hub ポータルを使用した Windows サーバー VM の作成](azure-stack-quick-windows-portal.md)に関するページを参照してください。  
 
-Windows Server を設定したら、[Azure Stack Hub PowerShell](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) と [Azure Stack Hub ツール](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)をインストールする必要があります。
+Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) と [Azure Stack Hub ツール](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)をインストールする必要があります。
 
 ## <a name="set-up-backup-for-storage-accounts"></a>ストレージ アカウントのバックアップを設定する
 
@@ -112,7 +112,7 @@ Windows Server を設定したら、[Azure Stack Hub PowerShell](https://docs.mi
 
     - Windows サーバーの場合:
 
-    Windows タスク スケジュールの使用の詳細については、「[開発者向けのタスク スケジューラ](https://docs.microsoft.com/windows/win32/taskschd/task-scheduler-start-page)」を参照してください。
+    Windows タスク スケジュールの使用の詳細については、「[開発者向けのタスク スケジューラ](/windows/win32/taskschd/task-scheduler-start-page)」を参照してください。
     
 
 ## <a name="use-your-storage-account-in-a-disaster"></a>災害時にストレージ アカウントを使用する

@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 17ba031e6aa1c9e7c0699309d98183ed38cbd4e7
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631367"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567452"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
@@ -23,7 +23,7 @@ ms.locfileid: "84631367"
 -  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
     > [!Note]  
-    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](https://docs.microsoft.com/azure-stack/asdk/asdk-deploy-considerations)」を参照してください。
+    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
 
 -  Azure Stack Hub 統合システムをホストするオンプレミス ネットワーク内の VPN デバイスへのアクセス。 デバイスでは、「[デプロイに使用されるパラメーター](#deployment-parameters)」で説明されているパラメーターを満たす IPSec トンネルを作成する必要があります。
 
@@ -241,7 +241,7 @@ FortiGate NVA で、次のようにします。
 
 次のように接続を検証します。
 
-1. Azure Stack Hub の VNET とオンプレミス ネットワーク上のシステムに VM を作成します。 VM の作成手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成します](https://docs.microsoft.com/azure-stack/user/azure-stack-quick-windows-portal)。
+1. Azure Stack Hub の VNET とオンプレミス ネットワーク上のシステムに VM を作成します。 VM の作成手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成します](./azure-stack-quick-windows-portal.md)。
 
 2. Azure Stack Hub の VM を作成し、オンプレミスのシステムを準備する際には、次のことを確認してください。
 

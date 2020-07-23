@@ -7,12 +7,12 @@ ms.date: 3/12/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: ee0410467a7e2608580da5c209a97f86a60b675a
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: aaee4195a4c3fccedd14ddedf63d663af6bfb565
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631197"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566806"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -27,7 +27,7 @@ ms.locfileid: "84631197"
 
 1. Azure Active Directory (Azure AD) テナントにアプリケーションを作成できることを確認します。 Kubernetes のデプロイには所定のアクセス許可が必要です。
 
-    アクセス許可をチェックする手順については、「[Azure Active Directory のアクセス許可を確認する](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)」を参照してください。
+    アクセス許可をチェックする手順については、「[Azure Active Directory のアクセス許可を確認する](/azure/azure-resource-manager/resource-group-create-service-principal-portal)」を参照してください。
 
 1. SSH 公開キーと秘密キーのペアを生成して、Azure Stack Hub 上の Linux VM にサインインします。 クラスターを作成するときに、公開キーが必要になります。
 

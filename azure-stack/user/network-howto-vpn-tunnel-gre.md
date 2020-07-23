@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 1fbf50e36b75c847f81b9c065410a736d557f5e4
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7e64ed126e8a5c7fc875b21b499b93a986ab6d07
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146718"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566361"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法
 
-このソリューションの Azure Stack Hub Resource Manager テンプレートを使用して、同じ Azure Stack Hub 環境内の 2 つの Azure Stack Hub VNet を接続できます。 組み込みの仮想ネットワーク ゲートウェイを使用して、[Azure Stack Hub VNet に接続することはできません](https://docs.microsoft.com/azure-stack/user/azure-stack-network-differences)。 現時点では、ネットワーク仮想アプライアンス (NVA) を使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 ソリューション テンプレートにより、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされます。 このソリューションでは、2 つの VNET 間に S2SVPN IKEv2 トンネルを使用するように 2 つの RRAS サーバーを構成します。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています 
+このソリューションの Azure Stack Hub Resource Manager テンプレートを使用して、同じ Azure Stack Hub 環境内の 2 つの Azure Stack Hub VNet を接続できます。 組み込みの仮想ネットワーク ゲートウェイを使用して、[Azure Stack Hub VNet に接続することはできません](./azure-stack-network-differences.md)。 現時点では、ネットワーク仮想アプライアンス (NVA) を使用して、2 つの Azure Stack Hub VNet 間に VPN トンネルを作成する必要があります。 ソリューション テンプレートにより、RRAS がインストールされた 2 つの Windows Server 2016 VM がデプロイされます。 このソリューションでは、2 つの VNET 間に S2SVPN IKEv2 トンネルを使用するように 2 つの RRAS サーバーを構成します。 **内部**として指定された各 VNET のサブネット間のルーティングを許可する適切な NSG と UDR のルールが作成されています 
 
 このデプロイ パターンは、Azure Stack Hub インスタンス内だけでなく、Windows RRAS S2S VPN トンネルを使用して Azure Stack Hub インスタンス間と他のリソース (オンプレミス ネットワークなど) への VPN トンネルの作成を可能にする基盤です。
 

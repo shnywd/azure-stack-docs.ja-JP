@@ -7,12 +7,12 @@ ms.date: 02/19/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 70d2cfd7ce2dddd73117783c97003178281927d9
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: c320b0fa20746da3e14a3cb4af2c8fcd1a9775ea
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819376"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489829"
 ---
 # <a name="asdk-admin-basics"></a>ASDK 管理の基礎
 Azure Stack Development Kit (ASDK) の管理経験がない場合は、知っておく必要があることがいくつかあります。 このガイダンスでは、評価環境での Azure Stack オペレーターとしての役割の概要を示します。 この情報をよく理解することで、テスト ユーザーの生産性が可能な限り迅速に向上することになります。
@@ -38,7 +38,7 @@ Azure Stack 管理者ポータル (`https://adminportal.local.azurestack.externa
 Azure Stack はデプロイ、管理、整理のための基礎となるメカニズムとして、Azure Resource Manager を使用します。 Azure Stack の管理とユーザーのサポートを行う予定であれば、Azure Resource Manager について学習する必要があります。 詳しくは、「[Azure Resource Manager の概要](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)」ホワイトペーパーをご覧ください。
 
 ## <a name="your-typical-responsibilities"></a>クラウド オペレーターの通常の担当範囲
-ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 ASDK を使って、提供するサービスと、[プラン、オファー、クォータを作成する](../operator/azure-stack-tutorial-tenant-vm.md)ことで、それらのサービスを使用できるようにする方法を確認できます。 仮想マシン (VM) のイメージなど、マーケットプレースに項目を追加する必要もあります。 Azure から Azure Stack に[マーケットプレースの項目をダウンロードする](../operator/azure-stack-create-and-publish-marketplace-item.md)のが最も容易な方法です。
+ユーザーはサービスを使用する必要があります。 ユーザーの観点からは、クラウド オペレーターの主な役割は、ユーザーがこれらのサービスを使用できるようにすることです。 ASDK を使って、提供するサービスと、[プラン、オファー、クォータを作成する](../operator/tutorial-offer-services.md?view=azs-2002)ことで、それらのサービスを使用できるようにする方法を確認できます。 仮想マシン (VM) のイメージなど、マーケットプレースに項目を追加する必要もあります。 Azure から Azure Stack に[マーケットプレースの項目をダウンロードする](../operator/azure-stack-create-and-publish-marketplace-item.md)のが最も容易な方法です。
 
 > [!NOTE]
 > プラン、オファー、およびサービスをテストする場合は、管理者ポータル (`https://adminportal.local.azurestack.external`) ではなくユーザー ポータル (`https://portal.local.azurestack.external`) を使用する必要があります。
@@ -60,4 +60,3 @@ ASDK については、[Azure Stack MSDN フォーラム](https://social.msdn.mi
 
 ## <a name="next-steps"></a>次のステップ
 [ASDK をデプロイする](asdk-install.md)
-

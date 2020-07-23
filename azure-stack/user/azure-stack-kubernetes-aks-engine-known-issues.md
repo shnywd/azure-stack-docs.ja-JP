@@ -7,12 +7,12 @@ ms.date: 07/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/02/2020
-ms.openlocfilehash: 4fdcc16679051087968161c0ac36175155a2717a
-ms.sourcegitcommit: e433e6f772789ab00c131c24650e700c65e6d73a
+ms.openlocfilehash: 02f4d8ec694ffc56966029f35dd12fd263a5cb8b
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86272928"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566143"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンに関する既知の問題
 
@@ -42,7 +42,7 @@ ms.locfileid: "86272928"
 
 ## <a name="basic-load-balancer-sku-limitations"></a>基本のロード バランサーの SKU の制限事項
 
-* 単一エージェント プールの制限。 現時点の Azure Stack Hub では、基本のロード バランサーの SKU のみがサポートされます。 この SKU では、バックエンド プール エンドポイントは、単一の可用性セット (または仮想マシン スケール セット) 内の仮想マシンに[制限されます](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)。 これは、LoadBalancer サービスのすべてのレプリカを同じエージェント プールにデプロイする必要があることを意味します。また、個々のクラスターで Linux LoadBalancer サービスまたは Windows LoadBalancer サービスを持つことができることを意味します。
+* 単一エージェント プールの制限。 現時点の Azure Stack Hub では、基本のロード バランサーの SKU のみがサポートされます。 この SKU では、バックエンド プール エンドポイントは、単一の可用性セット (または仮想マシン スケール セット) 内の仮想マシンに[制限されます](/azure/load-balancer/concepts#limitations)。 これは、LoadBalancer サービスのすべてのレプリカを同じエージェント プールにデプロイする必要があることを意味します。また、個々のクラスターで Linux LoadBalancer サービスまたは Windows LoadBalancer サービスを持つことができることを意味します。
 
   次の[ノード セレクター](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/)をポッド テンプレートに追加することにより、特定のエージェント プールにポッドを作成するように Kubernetes に強制できます: "agentpool: MY_POOL_NAME"。
 

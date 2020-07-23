@@ -7,12 +7,12 @@ ms.date: 05/13/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: 98298b405bd818cb3cd1f67d52d1735a4cc3edd4
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: d9681a9245c856378a779a25ab3de2c051d97b0b
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82846961"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489846"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -140,5 +140,4 @@ Azure Stack は、直接または透過プロキシ経由で、インターネ�
 ## <a name="next-steps"></a>次のステップ
 
 - [ASDK デプロイ パッケージをダウンロードします](asdk-download.md)。
-- 記憶域スペース ダイレクトの詳細については、「[記憶域スペース ダイレクトの概要](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)」を参照してください。
-
+- 記憶域スペース ダイレクトの詳細については、「[記憶域スペース ダイレクトの概要](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)」を参照してください。

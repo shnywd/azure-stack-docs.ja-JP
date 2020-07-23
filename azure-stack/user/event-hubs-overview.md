@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: c7c1d11d2ef432ddc8b750fde5cb6970c4076db4
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: b2e03617b8409e321edb3b2d924f5f0762ad9b9f
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80614407"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86566415"
 ---
 # <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack Hub 上の Event Hubs の概要
 
@@ -66,7 +66,7 @@ Azure Resource Management の操作は、Azure Resource Manager テンプレー�
 
 ### <a name="operator-documentation"></a>オペレーター ドキュメント 
  
-Azure Stack Hub 上の Event Hubs のオペレーター エクスペリエンスについて詳しくは、[Event Hubs のオペレーター ドキュメント](/azure-stack/operator/event-hubs-rp-overview)を参照してください。 このドキュメントでは、次のようなアクティビティについての情報を取り上げています。
+Azure Stack Hub 上の Event Hubs のオペレーター エクスペリエンスについて詳しくは、[Event Hubs のオペレーター ドキュメント](../operator/event-hubs-rp-overview.md)を参照してください。 このドキュメントでは、次のようなアクティビティについての情報を取り上げています。
 
 - Event Hubs をインストールする。
 - Event Hubs をユーザーが利用できるようにする。

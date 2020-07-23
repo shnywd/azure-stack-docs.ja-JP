@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: a8bc501587c4f4450a07704734391a8e889e3296
-ms.sourcegitcommit: 7d4c28353bc138bbae744d9dbca79fe934c2e94b
+ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83624581"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487821"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub のストレージ インフラストラクチャの概要
 
@@ -99,7 +99,7 @@ VM 一時ボリュームとオブジェクト ストア ボリュームの数は
 - ボリュームの数は、ノードに不具合が発生したり、ノードを削除したりした場合でもそのまま維持されます。
 
 > [!NOTE]
-> [Azure Stack Development Kit (ASDK)](https://docs.microsoft.com/azure-stack/asdk/) を使用する場合は、複数の[共有](azure-stack-manage-storage-shares.md)を含む単一のボリュームがあります。
+> [Azure Stack Development Kit (ASDK)](../asdk/index.yml) を使用する場合は、複数の[共有](azure-stack-manage-storage-shares.md)を含む単一のボリュームがあります。
 
 ### <a name="fault-tolerance-and-mirroring"></a>フォールト トレランスとミラーリング
 

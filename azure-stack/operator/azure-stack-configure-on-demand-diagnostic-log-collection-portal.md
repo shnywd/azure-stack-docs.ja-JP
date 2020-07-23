@@ -7,25 +7,25 @@ ms.date: 03/30/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: 2c741440deb92be81497b34a7e485d4628501100
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85377180"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489251"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Azure Stack Hub 診断ログを今すぐ送信する
 
 ::: moniker range=">= azs-2002"
 
-Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用して、サポートを要求する前に Microsoft サポートに診断ログをオンデマンドで送信することができます。 Azure Stack Hub が Azure に接続されている場合は、管理者ポータルの **[Send logs now]\(今すぐログを送信する\)** オプションをお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [Send-AzureStackDiagnosticLog を使用してログをすぐに送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)必要があります。 
+Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用して、サポートを要求する前に Microsoft サポートに診断ログをオンデマンドで送信することができます。 Azure Stack Hub が Azure に接続されている場合は、管理者ポータルの **[Send logs now]\(今すぐログを送信する\)** オプションをお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [Send-AzureStackDiagnosticLog を使用してログをすぐに送信する](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002)必要があります。 
 
 インターネットに接続していない場合、またはローカルでのみログを保存する場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) メソッドを使用してログを送信します。 次のフローチャートは、それぞれの場合に診断ログを送信するために使用するオプションを示しています。 
 
 ![Microsoft にログを今すぐ送信する方法を示すフローチャート](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
 >[!NOTE]
->オンデマンドのログ収集の代わりとして、[診断ログを事前に収集する](azure-stack-configure-automatic-diagnostic-log-collection-tzl.md)ことによって、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、Microsoft サポートでケースを開く前にログが分析のために自動的にアップロードされます。 事前ログ収集が有効になっている場合、 **[ヘルプとサポート]** に、ログ収集が進行中であるタイミングが表示されます。 事前ログ収集の進行中に、 **[Send logs now]\(今すぐログを送信する\)** をクリックして特定の時間からログを収集した場合、事前ログ収集の完了後にオンデマンドの収集が開始されます。
+>オンデマンドのログ収集の代わりとして、[診断ログを事前に収集する](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)ことによって、トラブルシューティングのプロセスを合理化できます。 システム正常性状態を調査する必要がある場合は、Microsoft サポートでケースを開く前にログが分析のために自動的にアップロードされます。 事前ログ収集が有効になっている場合、 **[ヘルプとサポート]** に、ログ収集が進行中であるタイミングが表示されます。 事前ログ収集の進行中に、 **[Send logs now]\(今すぐログを送信する\)** をクリックして特定の時間からログを収集した場合、事前ログ収集の完了後にオンデマンドの収集が開始されます。
 
 ログ収集の開始時刻と終了時刻を指定し、 **[Collect and Upload]\(収集してアップロード\)** をクリックします。 
 
@@ -55,5 +55,4 @@ Microsoft サポートからの SAS URL を使用して、オンデマンドの�
 
 ## <a name="next-steps"></a>次のステップ
 
-[特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する](azure-stack-configure-on-demand-diagnostic-log-collection-powershell-tzl.md)
-
+[特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002)

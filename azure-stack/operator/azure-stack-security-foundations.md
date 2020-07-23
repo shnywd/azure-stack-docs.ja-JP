@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 35b4fbd97032df00236a67dd5b776a2f3fada8ea
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819244"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86487874"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 
@@ -48,7 +48,7 @@ Azure Stack Hub の外部エンドポイントに対して TLS 1.2 を適用す�
 
 ## <a name="secret-management"></a>シークレットの管理
 
-Azure Stack Hub インフラストラクチャが機能するうえで、パスワードや証明書など、さまざまなシークレット情報が使用されます。 内部サービス アカウントに関連付けられているパスワードのほとんどは、24 時間おきに自動的にローテーションされます。これはアカウントが[グループの管理されたサービス アカウント (gMSA)](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) であるためです。gMSA は、内部ドメイン コントローラーによって直接管理される種類のドメイン アカウントです。
+Azure Stack Hub インフラストラクチャが機能するうえで、パスワードや証明書など、さまざまなシークレット情報が使用されます。 内部サービス アカウントに関連付けられているパスワードのほとんどは、24 時間おきに自動的にローテーションされます。これはアカウントが[グループの管理されたサービス アカウント (gMSA)](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) であるためです。gMSA は、内部ドメイン コントローラーによって直接管理される種類のドメイン アカウントです。
 
 Azure Stack Hub インフラストラクチャでは、すべての内部証明書に 4096 ビット RSA キーが使用されます。 外部エンドポイントに対しても、同じキー長の証明書を使用できます。 シークレットと証明書のローテーションの詳細については、「[Azure Stack Hub でシークレットをローテーションする](azure-stack-rotate-secrets.md)」を参照してください。
 
@@ -59,7 +59,7 @@ Azure Stack Hub には、最新の Windows Server セキュリティ機能が使
 承認済みのコードは Microsoft または OEM パートナーのいずれかによって署名されます。 署名され認証されたコードは、Microsoft が定義したポリシーで指定されている認定ソフトウェアのリストに含まれています。 つまり、Azure Stack Hub インフラストラクチャでの実行が承認されているソフトウェアのみを実行できます。 未承認のコードを実行しようとしてもブロックされ、アラートが生成されます。 Azure Stack Hub では、User Mode Code Integrity (UMCI) と Hypervisor Code Integrity (HVCI) の両方が適用されます。
 
 WDAC ポリシーによっても、Azure Stack Hub インフラストラクチャでサード パーティ製のエージェントまたはソフトウェアを実行することが禁止されています。
-WDAC の詳細については、「[Windows Defender アプリケーション コントロールと仮想化ベースのコードの整合性の保護](https://docs.microsoft.com/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)」を参照してください。
+WDAC の詳細については、「[Windows Defender アプリケーション コントロールと仮想化ベースのコードの整合性の保護](/windows/security/threat-protection/device-guard/introduction-to-device-guard-virtualization-based-security-and-windows-defender-application-control)」を参照してください。
 
 ## <a name="credential-guard"></a>資格情報の保護
 

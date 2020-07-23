@@ -7,12 +7,12 @@ ms.date: 04/06/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: bfd3b0821554899b478139e0fe2c8f27b016a242
-ms.sourcegitcommit: 2a144c367a17eb1f8db58dd7bf1c820520182015
+ms.openlocfilehash: 84a29b2e596f0dc595b89330502345cc7f263533
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85835060"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489999"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
@@ -65,14 +65,14 @@ ms.locfileid: "85835060"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1908#whats-new-2)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/release-notes.md?view=azs-1908#whats-new-2)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
-<!-- - For a list of Azure Stack issues fixed in this release, see [this section](/azure-stack/operator/release-notes?view=azs-1908#fixes-1) of the Azure Stack release notes. -->
-- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1908)を参照してください。
+<!-- - For a list of Azure Stack issues fixed in this release, see [this section](../operator/release-notes.md?view=azs-1908#fixes-1) of the Azure Stack release notes. -->
+- 既知の問題の一覧については、[この記事](../operator/known-issues.md?view=azs-1908)を参照してください。
 - 使用可能な Azure Stack 修正プログラムが ASDK には適用できないことに注意してください。
 ::: moniker-end
 
@@ -81,14 +81,14 @@ ms.locfileid: "85835060"
 
 ### <a name="new-features"></a>新機能
 
-- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#whats-in-this-update)を参照してください。
+- このリリースでの新機能の一覧については、Azure Stack リリース ノートの[このセクション](../operator/release-notes.md?view=azs-1907#whats-in-this-update)を参照してください。
 
 <!-- ### Changes -->
 
 ### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
 
 - 一部の Marketplace イメージを使用して VM のリソースを作成すると、デプロイを完了できない場合があります。 回避策として、 **[概要]** ページの **[テンプレートとパラメーターのダウンロード]** リンクをクリックして、 **[テンプレート]** ブレードで **[デプロイ]** ボタンをクリックします。
-- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](/azure-stack/operator/release-notes?view=azs-1907#fixes-3)を参照してください。
-- 既知の問題の一覧については、[この記事](/azure-stack/operator/known-issues?view=azs-1907)を参照してください。
-- [使用可能な Azure Stack 修正プログラム](/azure-stack/operator/release-notes?view=azs-1907#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
+- このリリースで修正された Azure Stack の問題の一覧については、Azure Stack リリース ノートの[このセクション](../operator/release-notes.md?view=azs-1907#fixes-3)を参照してください。
+- 既知の問題の一覧については、[この記事](../operator/known-issues.md?view=azs-1907)を参照してください。
+- [使用可能な Azure Stack 修正プログラム](../operator/release-notes.md?view=azs-1907#hotfixes-3)が Azure Stack ASDK には適用できないことに注意してください。
 ::: moniker-end
