@@ -3,28 +3,24 @@ title: Azure Stack HCI と Windows Admin Center の使用を開始する
 description: 既存の Azure Stack HCI クラスターにすばやく接続し、Windows Admin Center を使用してクラスターとストレージのパフォーマンスを監視します。
 author: khdownie
 ms.author: v-kedow
-ms.topic: overview
-ms.date: 04/08/2020
-ms.openlocfilehash: dd97ee55779d1c3c35976005a880a0dd510e29af
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.topic: how-to
+ms.date: 07/21/2020
+ms.openlocfilehash: 18d5947bc5816bac4b4ed9610c970ebeb4195909
+ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196887"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86892057"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Azure Stack HCI と Windows Admin Center の使用を開始する
 
-> 適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Windows Admin Center をインストールし、Azure Stack HCI クラスターに接続して、クラスターとストレージのパフォーマンスを監視する手順について説明します。
+このトピックでは、Azure Stack HCI クラスターに接続して、クラスターとストレージのパフォーマンスを監視する手順について説明します。
 
 ## <a name="install-windows-admin-center"></a>Windows Admin Center をインストールする
 
-Windows Admin Center をインストールする最も簡単な方法は、ローカルの Windows 10 PC へのインストールです。ただし、それを行うには、ローカル管理者グループのメンバーである必要があります。
-
-1. Microsoft Evaluation Center から [Windows Admin Center](https://www.microsoft.com/evalcenter/evaluate-windows-admin-center) をダウンロードします。 "評価を開始する" と書かれていますが、これは Windows Server ライセンスの一部として含まれている、実稼働環境での使用向けの一般公開バージョンです。
-2. インストールするには、WindowsAdminCenter.msi ファイルを実行します。
-3. Windows Admin Center を初めて開始すると、デスクトップの通知領域にアイコンが表示されます。 このアイコンを右クリックし、[開く] を選択して、既定のブラウザーでツールを開きます。 証明書の選択を求めるメッセージが表示されたら、必ず Windows Admin Center のクライアント証明書を選択してください。
+Windows Admin Center は、Azure Stack HCI を管理するための、ローカルにデプロイされたブラウザーベースのアプリです。 [Windows Admin Center をインストールする](/windows-server/manage/windows-admin-center/deploy/install)最も簡単な方法はローカル管理 PC にインストールすることですが、サーバーにインストールすることもできます。
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターを追加して接続する
 
@@ -112,7 +108,7 @@ Windows、アプリ、またはデバイスのパフォーマンス カウンタ
 
 ## <a name="use-azure-monitor-for-monitoring-and-alerts"></a>監視とアラートに Azure Monitor を使用する
 
-[Azure Monitor](/windows-server/manage/windows-admin-center/azure/azure-monitor) (Azure サブスクリプションが必要) を使用して、分析とレポート作成のためにイベントとパフォーマンスのカウンターを収集したり、特定の条件が検出されたときにアクションを実行したり、電子メールで通知を受信したりすることもできます。 Windows Admin Center から Azure に直接接続するには、 **[ツール]** メニューから **[Azure Monitor]** をクリックします。
+[Azure Monitor](manage/azure-monitor.md) を使用して、分析とレポート作成のためにイベントとパフォーマンスのカウンターを収集したり、特定の条件が検出されたときにアクションを実行したり、電子メールで通知を受信したりすることもできます。 Windows Admin Center から Azure に直接接続するには、 **[ツール]** メニューから **[Azure Monitor]** をクリックします。
 
 ## <a name="collect-diagnostics-information"></a>診断情報の収集
 
@@ -120,7 +116,7 @@ Windows、アプリ、またはデバイスのパフォーマンス カウンタ
 
 ## <a name="next-steps"></a>次のステップ
 
-パフォーマンスの監視の詳細については、次も参照してください。
+Azure Stack HCI クラスターの監視の詳細については、以下も参照してください。
 
 - [記憶域スペース ダイレクトのパフォーマンス履歴](/windows-server/storage/storage-spaces/performance-history)
 - [Azure Monitor を使用して Azure Stack HCI を監視する](manage/azure-monitor.md)
