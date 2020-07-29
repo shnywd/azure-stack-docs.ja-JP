@@ -4,17 +4,17 @@ description: Azure Stack HCI で記憶域スペース ダイレクトのドラ�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/14/2020
-ms.openlocfilehash: f243bcefec74f23efb555e0dbf72597736687694
-ms.sourcegitcommit: 2be3dd5419b0d003a9598a42541ebb1d251aea3d
+ms.date: 07/21/2020
+ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
+ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/15/2020
-ms.locfileid: "86390791"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86947148"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
->適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 このトピックでは、Azure Stack HCI のパフォーマンスと容量の要件を満たすために、[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)のドライブを選択する方法に関するガイダンスを提供します。
 
@@ -86,7 +86,7 @@ ms.locfileid: "86390791"
 
 各サーバーには、少なくとも 2 つのキャッシュ ドライブ (冗長性のために必要な最小値) が必要です。 容量ドライブの数は、キャッシュ ドライブの数の倍数にすることをお勧めします。 たとえば、4 台のキャッシュ ドライブがある場合、7 台や 9 台よりも 8 台の容量ドライブ (1:2 の比率) を使用した方がより一貫性のあるパフォーマンスを得ることができます。
 
-キャッシュは、お使いのアプリケーションとワークロードのワーキング セット、つまり、それらが常にアクティブに読み取りおよび書き込みを行っているすべてのデータに対応できるようにサイズ設定する必要があります。 それを超えるキャッシュ サイズの要件はありません。 HDD を使用したデプロイでは、適正な初期構成は容量の 10% です。たとえば、各サーバーに 16 TB (4 x 4 TB HDD) の容量がある場合、サーバーあたりのキャッシュは 1.6 TB (2 x 800 GB SSD) になります。 オール フラッシュのデプロイ、特に非常に[耐久性の高い](https://blogs.technet.microsoft.com/filecab/2017/08/11/understanding-dwpd-tbw/) SSD を使用する場合は、容量の 5% 近くから開始するのが妥当な場合があります。たとえば、各サーバーに 28.8 TB (24 x 1.2 TB SSD) の容量がある場合、サーバーあたりのキャッシュは 1.5 TB (2 x 750 GB NVMe) になります。 キャッシュ ドライブは、後でいつでも追加または削除して調整できます。
+キャッシュは、お使いのアプリケーションとワークロードのワーキング セット、つまり、それらが常にアクティブに読み取りおよび書き込みを行っているすべてのデータに対応できるようにサイズ設定する必要があります。 それを超えるキャッシュ サイズの要件はありません。 HDD を使用したデプロイでは、適正な初期構成は容量の 10% です。たとえば、各サーバーに 16 TB (4 x 4 TB HDD) の容量がある場合、サーバーあたりのキャッシュは 1.6 TB (2 x 800 GB SSD) になります。 オール フラッシュのデプロイ、特に非常に[耐久性の高い](https://techcommunity.microsoft.com/t5/storage-at-microsoft/understanding-ssd-endurance-drive-writes-per-day-dwpd-terabytes/ba-p/426024) SSD を使用する場合は、容量の 5% 近くから開始するのが妥当な場合があります。たとえば、各サーバーに 28.8 TB (24 x 1.2 TB SSD) の容量がある場合、サーバーあたりのキャッシュは 1.5 TB (2 x 750 GB NVMe) になります。 キャッシュ ドライブは、後でいつでも追加または削除して調整できます。
 
 ### <a name="general"></a>全般
 
@@ -96,7 +96,6 @@ ms.locfileid: "86390791"
 
 詳細については、次のトピックも参照してください。
 
-- [Azure Stack HCI の概要](../overview.md)
 - [Azure Stack HCI のキャッシュについて](cache.md)
 - [記憶域スペース ダイレクトのハードウェア要件](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
 - [Azure Stack HCI でのボリュームの計画](plan-volumes.md)

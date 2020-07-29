@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/07/2020
+ms.date: 07/21/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 4519c52d9075ba78d7a66d982400f706b3bd72f0
-ms.sourcegitcommit: 84b089387f5cf89e3a72e576f1c7649667075e0a
+ms.openlocfilehash: aef85fb3ee99254350c604a819befd27728a8b7c
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86137193"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86867030"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -71,7 +71,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 <!-- What's new, also net new experiences and features. -->
 
 - AzureRM に基づく Azure Stack Hub 管理 PowerShell モジュールの新しいバージョン (1.8.1) がリリースされました。
-- Azure Stack Hub 管理 REST API の新しいバージョンがリリースされました。 エンドポイントと破壊的変更の詳細については、[API リファレンス](https://docs.microsoft.com/rest/api/azure-stack/)でご確認ください。
+- Azure Stack Hub 管理 REST API の新しいバージョンがリリースされました。 エンドポイントと破壊的変更の詳細については、[API リファレンス](/rest/api/azure-stack/)でご確認ください。
 - 新しい Azure PowerShell テナント モジュールは、2020 年 4 月 15 日に Azure Stack Hub 用にリリースされます。 現在使用されている Azure RM モジュールは引き続き機能しますが、ビルド 2002 の後は更新されません。
 - 構成された syslog サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**The Syslog client encountered a networking issue while sending a Syslog message** (syslog クライアントは syslog メッセージの送信中にネットワークの問題を検出しました) です。
 - ネットワーク タイム プロトコル (NTP) サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**Invalid Time Source on [node name]** ([ノード名] の時間ソースが無効です) です。
@@ -86,8 +86,8 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - Azure Stack Hub 適合性チェッカー ツールは、AD Graph に割り当てられているすべての TCP IP ポートを使用して AD Graph の統合を検証するようになりました。
 - オフライン シンジケーション ツールは、信頼性に関する機能強化によって更新されました。 このツールは GitHub では入手できなくなり、[PowerShell ギャラリーに移動されました](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)。 詳細については、「[Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。
 - 新しい監視機能が導入されています。 物理ホストとインフラストラクチャ VM のディスク領域不足のアラートは、プラットフォームによって自動的に修復されます。この操作が失敗した場合にのみ、オペレーターがアクションを実行するために、Azure Stack Hub 管理者ポータルにアラートが表示されます。
-- [診断ログの収集](azure-stack-diagnostic-log-collection-overview-tzl.md)に対する改善。 新しいエクスペリエンスでは、BLOB ストレージ アカウントを事前に構成する必要がなくなるため、診断ログの収集が合理化されて簡素化されます。 ストレージ環境が事前構成されるため、サポート ケースを開く前にログを送信でき、サポート コールにかかる時間が短縮されます。
-- [事前ログ収集とオンデマンドのログ収集](azure-stack-diagnostic-log-collection-overview-tzl.md) の両方にかかる時間が 80% 削減されました。 ログ収集時間は、この予想値より長くなることがありますが、ログ収集が失敗しない限り、Azure Stack Hub オペレーターによる操作は必要ありません。
+- [診断ログの収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)に対する改善。 新しいエクスペリエンスでは、BLOB ストレージ アカウントを事前に構成する必要がなくなるため、診断ログの収集が合理化されて簡素化されます。 ストレージ環境が事前構成されるため、サポート ケースを開く前にログを送信でき、サポート コールにかかる時間が短縮されます。
+- [事前ログ収集とオンデマンドのログ収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) の両方にかかる時間が 80% 削減されました。 ログ収集時間は、この予想値より長くなることがありますが、ログ収集が失敗しない限り、Azure Stack Hub オペレーターによる操作は必要ありません。
 - 更新が開始された後、Azure Stack Hub 更新パッケージのダウンロードの進行状況が更新ブレードに表示されるようになりました。 これは、[自動ダウンロードを使用して更新パッケージを準備する](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)ことを選択した、接続済みの Azure Stack Hub システムに対してのみ適用されます。
 - ネットワーク コントローラーのホスト エージェントの信頼性に関する機能強化。
 - 修正プログラムや更新プログラムを適用中の内部 DNS サービスの回復性ロジックを向上させる、DNS Orchestrator と呼ばれる新しいマイクロサービスが導入されました。
@@ -137,7 +137,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - Azure Stack Hub のシークレット ローテーションの実行後にアドオン リソース プロバイダーの操作が失敗する原因となる問題を修正しました。
 - ERCS ロールのメモリ不足のために Azure Stack Hub の更新エラーの一般的な原因となった問題を修正しました。
 - Azure Stack Hub の更新の準備フェーズ中に更新ステータスが **[準備中]** ではなく **[インストール中]** と表示されていた、更新ブレードのバグを修正しました。
-- 物理スイッチ上の RSC 機能が不整合を起こし、ロード バランサーを通過するトラフィックを破棄する問題を修正しました。 RSC 機能は既定で無効化されるようになりました。
+- 仮想スイッチ上の RSC 機能で不整合が発生し、ロード バランサーを通過するトラフィックが破棄される問題を修正しました。 RSC 機能は既定で無効化されるようになりました。
 - NIC の複数の IP 構成が原因でトラフィックが誤ってルーティングされ、送信接続が妨げられていた問題を修正しました。 
 - NIC の MAC アドレスがキャッシュされているときに、そのアドレスを別のリソースに割り当てると VM のデプロイ エラーが発生する問題が修正されました。
 - RETAIL チャネルからの Windows VM イメージが、AVMA によってライセンス認証を行うことができない問題を修正しました。
@@ -609,5 +609,3 @@ Azure Stack Hub の 1907 リリースは、以下の修正プログラムが適�
 ::: moniker range="<azs-1907"
 [以前のバージョンの Azure Stack Hub のリリース ノートは TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end
-
-

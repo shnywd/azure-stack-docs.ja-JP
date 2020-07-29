@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: inhenkel
 ms.lastreviewed: 12/13/2019
 monikerRange: '>=azs-1802'
-ms.openlocfilehash: a16928e233d47c6a3f3a8f612b5d5d22afc08456
-ms.sourcegitcommit: ddcd083430ca905653d412dc2f7b813218d79509
+ms.openlocfilehash: d66f4c6a83dbac71b407990f65922354ee353dc3
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/13/2020
-ms.locfileid: "83375054"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488112"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -25,12 +25,12 @@ ms.locfileid: "83375054"
 ## <a name="rotate-secrets-overview"></a>シークレットのローテーションの概要
 
 1. シークレットのローテーションで使用される証明書を準備します。
-2. Azure Stack Hub の[公開キー インフラストラクチャ証明書の要件](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)を確認します。
+2. Azure Stack Hub の[公開キー インフラストラクチャ証明書の要件](./azure-stack-pki-certs.md)を確認します。
 3. [特権エンドポイントを使用し](azure-stack-privileged-endpoint.md)、**Test-azurestack** を実行して、すべてに問題がないことを確認します。  
 4. [シークレット ローテーションの事前手順](#pre-steps-for-secret-rotation)を再確認します。
-5. [Azure Stack Hub PKI 証明書を検証](https://docs.microsoft.com/azure-stack/operator/azure-stack-validate-pki-certs)します。 パスワードに `*` や `)` などの特殊文字が含まれないことを確認します。
-6. PFX 暗号化が **TripleDES-SHA1** であることを確認します。 問題が発生した場合は、「[Azure Stack Hub PKI 証明書に関する一般的な問題を修復する](https://docs.microsoft.com/azure-stack/operator/azure-stack-remediate-certs#pfx-encryption)」を参照してください。
-7. フォルダー構造を準備します。  例については、「[外部シークレットのローテーション](https://docs.microsoft.com/azure-stack/operator/azure-stack-rotate-secrets#rotating-external-secrets)」セクションを参照してください。
+5. [Azure Stack Hub PKI 証明書を検証](./azure-stack-validate-pki-certs.md)します。 パスワードに `*` や `)` などの特殊文字が含まれないことを確認します。
+6. PFX 暗号化が **TripleDES-SHA1** であることを確認します。 問題が発生した場合は、「[Azure Stack Hub PKI 証明書に関する一般的な問題を修復する](./azure-stack-remediate-certs.md#pfx-encryption)」を参照してください。
+7. フォルダー構造を準備します。  例については、「[外部シークレットのローテーション](#rotating-external-secrets)」セクションを参照してください。
 8. [シークレットのローテーションを開始します](#use-powershell-to-rotate-secrets)。
 
 ## <a name="rotate-secrets"></a>シークレットの切り替え
@@ -141,18 +141,18 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 > エラー メッセージではファイル共有へのアクセスに問題があることが指示されていますが、実際には、ここに適用されるのはフォルダー構造です。 Microsoft AzureStack の適合性チェッカー [PublicCertHelper モジュール](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)で、さらに詳しい情報がわかります。
 >
 > また、ファイル共有のフォルダー構造が **Certificates** フォルダーで始まっていることも重要です。そうでない場合も、検証が失敗します。
-> ファイル共有のマウントは、 **\\\\\<IP アドレス>\\\<共有名>\\** のようになっている必要があり、内部に **Certificates\AAD** または **Certificates\ADFS** フォルダーが含まれる必要があります。
+> ファイル共有のマウントは、 **\\\\\<IPAddress>\\\<ShareName>\\** のようになっている必要があり、内部に **Certificates\AAD** フォルダーまたは **Certificates\ADFS** フォルダーが含まれる必要があります。
 >
 > 次に例を示します。
-> - Fileshare = **\\\\\<IP アドレス>\\\<共有名>\\**
+> - Fileshare = **\\\\\<IPAddress>\\\<ShareName>\\**
 > - CertFolder = **Certificates\AAD**
-> - FullPath = **\\\\\<IP アドレス>\\\<共有名>\Certificates\AAD**
+> - FullPath = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
 
 ## <a name="rotating-external-secrets"></a>外部シークレットのローテーション
 
 外部シークレットのローテーションを行うには、次の手順に従います。
 
-1. 前の手順で新しく作成した **\Certificates\\\<ID プロバイダー>** ディレクトリに、「[Azure Stack Hub PKI 証明書の要件](azure-stack-pki-certs.md#mandatory-certificates)」の **「必須の証明書**」セクションに記載されている形式に従ったディレクトリ構造で、交換用の外部証明書の新しいセットを配置します。
+1. 前の手順で新しく作成した **\Certificates\\\<IdentityProvider>** ディレクトリに、[Azure Stack Hub PKI 証明書の要件](azure-stack-pki-certs.md)に関する記事の「**必須の証明書**」セクションに記載されている形式に従ったディレクトリ構造で、交換用の外部証明書の新しいセットを配置します。
 
     Azure AD ID プロバイダーのフォルダー構造の例:
     ```powershell
@@ -200,7 +200,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
     > [!IMPORTANT]  
     > セッションに入らないでください。 セッションを変数として格納してください。
 
-3. **[Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1)** を実行します。 特権エンドポイントの PowerShell セッション変数を **Session** パラメーターとして渡します。
+3. **[Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)** を実行します。 特権エンドポイントの PowerShell セッション変数を **Session** パラメーターとして渡します。
 
 4. 次のパラメーターで **Start-SecretRotation** を実行します。
     - **PfxFilesPath**  

@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e78b396822c86c9785ddecc691f57c27afeb6fcd
-ms.sourcegitcommit: e79aafb05c5fc512a83f0ebc6d76503213ccbc70
+ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84730715"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86488336"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 
@@ -62,7 +62,7 @@ Azure Stack Hub では、ドレイン、再開、修復、シャットダウン�
 
 次の手順を適用する前に、現在進行中の操作がないことを確認してください。 お使いの環境に合わせてエンドポイントを更新します。
 
-1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)必要があります。
+1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](./azure-stack-powershell-install.md)必要があります。
 
    ```powershell
    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
@@ -101,7 +101,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 **停止**アクションは、ノードをオフにします。 これは、電源ボタンを押した場合と同じです。 オペレーティング システムにシャットダウン信号は送られません。 計画されている停止操作の場合は、最初に必ずシャットダウン操作を行ってください。
 
-この操作は通常、ノードが停止状態であり要求に応答しないときに使用されます。
+この操作は通常、ノードが要求に応答しなくなったときに使用されます。
 
 停止アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
@@ -111,7 +111,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 まれなケースで、停止アクションが機能しない場合には、操作を再試行し、2 度目も失敗するようであれば、代わりに BMC Web インターフェイスを使用してください。
 
-詳細については、「[Stop-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)」を参照してください。
+詳細については、「[Stop-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/stop-azsscaleunitnode)」を参照してください。
 
 ## <a name="start"></a>[開始]
 
@@ -125,7 +125,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 めったにありませんが、開始操作が機能しない場合は、操作を再試行します。 2 回目も失敗した場合は、代わりに BMC Web インターフェイスを使用します。
 
-詳細については、「[Start-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/start-azsscaleunitnode)」を参照してください。
+詳細については、「[Start-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/start-azsscaleunitnode)」を参照してください。
 
 ## <a name="drain"></a>ドレイン
 
@@ -142,7 +142,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-詳細については、「[Disable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)」を参照してください。
+詳細については、「[Disable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/disable-azsscaleunitnode)」を参照してください。
 
 ## <a name="resume"></a>Resume
 
@@ -154,7 +154,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
-詳細については、「[Enable-AzsScaleUnitNode](https://docs.microsoft.com/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)」を参照してください。
+詳細については、「[Enable-AzsScaleUnitNode](/powershell/module/azs.fabric.admin/enable-azsscaleunitnode)」を参照してください。
 
 ## <a name="repair"></a>修復
 
@@ -204,6 +204,6 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack PowerShell をインストールする](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install)
-- [Azure Stack Hub Fabric オペレーター モジュールについて確認する](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
-- [ノードの追加操作を監視する](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node#monitor-add-node-operations)
+- [Azure Stack PowerShell をインストールする](./azure-stack-powershell-install.md)
+- [Azure Stack Hub Fabric オペレーター モジュールについて確認する](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [ノードの追加操作を監視する](./azure-stack-add-scale-node.md#monitor-add-node-operations)

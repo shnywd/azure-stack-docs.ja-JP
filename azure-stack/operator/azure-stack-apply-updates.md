@@ -1,22 +1,22 @@
 ---
 title: Azure Stack Hub の更新プログラムをインストールする
 description: Azure Stack Hub の更新プログラムをインストールする方法について学習します。
-author: IngridAtMicrosoft
+author: sethmanheim
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 07/22/2020
+ms.author: sethm
 ms.lastreviewed: 09/10/2019
-ms.reviewer: ppace
-ms.openlocfilehash: 461bad387dd5616eba227df4bd9b6e8beee40e43
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.reviewer: sranthar
+ms.openlocfilehash: e46bc4258883e01b80b78a96bf95cfe8012934d9
+ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "79295102"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86949544"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
 
-更新プログラム パッケージをインストールするには、Azure Stack Hub の **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 [更新] ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、現在の Azure Stack Hub と OEM パッケージ バージョンの表示を行います。
+更新プログラム パッケージをインストールするには、Azure Stack Hub 管理者ポータルの **[更新]** ブレードを使用します。 この記事では、更新プロセスの更新、監視、およびトラブルシューティングの手順について説明します。 **[更新]** ブレードを使用して、更新情報の表示、更新プログラムのインストール、更新の進行状況の監視、更新履歴の確認、現在の Azure Stack Hub と OEM パッケージ バージョンの表示を行います。
 
 管理者ポータルから更新プログラムを管理したり、ダッシュボードの **[更新プログラム]** セクションを使用して次のことを行ったりすることができます。
 
@@ -29,24 +29,22 @@ ms.locfileid: "79295102"
 
 現在のバージョンの Azure Stack Hub は **[更新]** ブレードで表示できます。 開くには:
 
-1.  Azure Stack Hub 管理者ポータルを開きます。
+1. Azure Stack Hub 管理者ポータルを開きます。
 
-2.  **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。
+2. **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。 たとえば、このイメージではバージョンは 1.1903.0.35 です。
 
     ![既定のダッシュボードの [更新] タイル](./media/azure-stack-update-apply/image1.png)
 
-    たとえば、このイメージではバージョンは 1.1903.0.35 です。
-
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
-> [!Important]
-> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順を**すべて**完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
+> [!IMPORTANT]
+> Azure Stack Hub に更新プログラムを適用する前に、[更新前のチェックリスト](release-notes-checklist.md)の手順をすべて完了し、適用する更新プログラムの種類に適切なメンテナンス期間をスケジュールしていることを確実にしてください。
 
 1. Azure Stack Hub 管理者ポータルを開きます。
 
 2. **[ダッシュボード]** を選択します。 **[Update]\(更新\)** を選択します。
 
-3. インストールする使用可能な更新プログラムを選択します。 **[使用可能]** とマークされた更新プログラムがない場合は、[更新プログラム パッケージを準備する](azure-stack-update-prepare-package.md)必要があります
+3. インストールする使用可能な更新プログラムを選択します。 **[使用可能]** とマークされた更新プログラムがない場合は、[更新プログラム パッケージを準備します](azure-stack-update-prepare-package.md)。
 
 4. **[今すぐ更新]** を選択します。
 
@@ -56,11 +54,11 @@ ms.locfileid: "79295102"
 
 6. 更新実行の詳細ブレードから **[ダウンロードの概要]** を選択して、詳細ログをダウンロードします。
 
-    更新プログラムの監視中に問題が発生した場合は、[特権エンドポイント](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)を使用して、Azure Stack Hub 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack Hub ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 手順については、「[PowerShell を使用した Azure Stack Hub での更新の監視](azure-stack-update-monitor.md)」を参照してください。
+    更新プログラムの監視中に問題が発生する場合は、[特権エンドポイント](./azure-stack-privileged-endpoint.md)を使用して、Azure Stack Hub 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack Hub ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 手順については、「[PowerShell を使用した Azure Stack Hub での更新の監視](azure-stack-update-monitor.md)」を参照してください。
 
     ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-update-apply/image3.png)
 
-7. 完了したら、更新リソース プロバイダーにより、**成功**の確認が提供され、更新プロセスが終了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
+7. 完了したら、更新リソース プロバイダーにより、**成功**の確認が表示され、更新プロセスが終了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
 
     ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
 
@@ -78,5 +76,5 @@ ms.locfileid: "79295102"
 
 ## <a name="next-steps"></a>次のステップ
 
--   [Azure Stack Hub での更新プログラム管理の概要](https://docs.microsoft.com/azure-stack/operator/azure-stack-updates)  
--   [Azure Stack Hub サービス ポリシー](https://docs.microsoft.com/azure-stack/operator/azure-stack-servicing-policy)  
+- [Azure Stack Hub での更新プログラム管理の概要](./azure-stack-updates.md)  
+- [Azure Stack Hub サービス ポリシー](./azure-stack-servicing-policy.md)  

@@ -130,3 +130,11 @@
       href: /windows-server/networking/sdn
     - name: System Center
       href: /system-center/
+- name: リソース
+  items:
+    - name: Azure Stack HCI の製品ページ
+      href: 'https://azure.com/hci'
+    - name: Azure Stack HCI の評価ガイド
+      href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
+    - name: Azure Stack HCI の価格
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'

@@ -4,19 +4,19 @@ description: Windows Admin Center と PowerShell を使用して Azure Stack HCI
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/17/2020
-ms.openlocfilehash: ffa848436169a55e2a2ad4f878e1e3aecaf29d6e
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 7a90948cccb75bb8bb1578101d530c46852e99d6
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196360"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866524"
 ---
 # <a name="deleting-volumes-in-azure-stack-hci"></a>Azure Stack HCI のボリュームの削除
 
-> 適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Windows Admin Center を使用して[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) クラスターのボリュームを削除する手順について説明します。
+このトピックでは、Windows Admin Center を使用して Azure Stack HCI クラスターのボリュームを削除する手順について説明します。
 
 Windows Admin Center を使用したボリュームの削除方法を説明する短いビデオをご覧ください。
 
@@ -58,6 +58,6 @@ Remove-VirtualDisk -FriendlyName "Volume1"
 
 その他の重要な記憶域管理タスクの詳細な手順については、以下も参照してください。
 
-- [記憶域スペース ダイレクトのボリュームの計画](../concepts/plan-volumes.md)
-- [記憶域スペース ダイレクトのボリュームの作成](create-volumes.md)
-- [記憶域スペース ダイレクトのボリュームの拡張](extend-volumes.md)
+- [ボリュームを計画する](../concepts/plan-volumes.md)
+- [ボリュームを作成する](create-volumes.md)
+- [ボリュームを拡張する](extend-volumes.md)

@@ -4,18 +4,19 @@ description: Windows Admin Center と PowerShell を使用して Azure Stack HCI
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 03/10/2020
-ms.openlocfilehash: 1369d3bcd0393fd322d17e1977524732d5b97ccf
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196445"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866593"
 ---
-# <a name="extending-volumes-in-storage-spaces-direct"></a>記憶域スペース ダイレクトのボリュームの拡張
-> 適用対象:Windows Server 2019
+# <a name="extending-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを拡張する
 
-このトピックでは、Windows Admin Center を使用して[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) クラスター上のボリュームのサイズを変更する手順について説明します。
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
+
+このトピックでは、Windows Admin Center を使用して Azure Stack HCI クラスターのボリュームのサイズを変更する手順について説明します。
 
 > [!WARNING]
 > **サポート対象外: 記憶域スペース ダイレクトで使用される基盤のストレージのサイズ変更。** Azure を含む仮想ストレージ環境で記憶域スペース ダイレクトを実行している場合、仮想マシンが使用する記憶装置のサイズ変更や特性変更はサポートされず、それを行うとデータにアクセスできなくなります。 代わりに、ボリュームを拡張する前に、[サーバーまたはドライブの追加](/windows-server/storage/storage-spaces/add-nodes)に関するセクションの手順に従って、容量を追加してください。
@@ -26,7 +27,7 @@ ms.locfileid: "85196445"
 
 ## <a name="extending-volumes-using-windows-admin-center"></a>Windows Admin Center を使用したボリュームの拡張
 
-1. Windows Admin Center で、記憶域スペース ダイレクト クラスターに接続し、 **[ツール]** ペインで **[ボリューム]** を選択します。
+1. Windows Admin Center で、Azure Stack HCI クラスターに接続し、 **[ツール]** ウィンドウで **[ボリューム]** を選択します。
 2. **[ボリューム]** ページで **[インベントリ]** タブを選択し、サイズを変更するボリュームを選択します。
 
     ボリュームの詳細ページに、ボリュームのストレージ容量が表示されます。 ボリュームの詳細ページは、ダッシュボードから直接開くこともできます。 ダッシュボードの [アラート] ペインで、ボリュームのストレージ容量が不足している場合に通知が表示されるアラートを選択し、 **[Go To Volume]\(ボリュームへ移動\)** を選択します。
@@ -143,6 +144,6 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 
 その他の重要な記憶域管理タスクの詳細な手順については、以下も参照してください。
 
-- [記憶域スペース ダイレクトのボリュームの計画](/windows-server/storage/storage-spaces/plan-volumes)
-- [記憶域スペース ダイレクトのボリュームの作成](/windows-server/storage/storage-spaces/create-volumes)
-- [記憶域スペース ダイレクトのボリュームの削除](/windows-server/storage/storage-spaces/delete-volumes)
+- [ボリュームを計画する](../concepts/plan-volumes.md)
+- [ボリュームを作成する](create-volumes.md)
+- [ボリュームを削除する](delete-volumes.md)

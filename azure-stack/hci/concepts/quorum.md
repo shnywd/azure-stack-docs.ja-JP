@@ -4,17 +4,17 @@ description: Azure Stack HCI の記憶域スペース ダイレクトでのク�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 02/28/2020
-ms.openlocfilehash: 82b1ab24567b124c4a2450149e37e9f05aab8bf8
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: cf9ecc42ed839fc133eb64b38b314816f19aecd7
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196870"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866911"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Azure Stack HCI のクラスターとプールのクォーラムについて
 
->適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 [Windows Server フェールオーバー クラスタリング](/windows-server/failover-clustering/failover-clustering-overview)では、ワークロードの高可用性を実現します。 これらのリソースは、リソースをホストするノードが稼働していると可用性が高いと見なされます。ただし、クラスターでは通常、半分を越えるノードが実行されている必要があり、その場合に "*クォーラム*" を持つとされます。
 
@@ -227,4 +227,4 @@ Windows Server 2019 には、独自のクォーラム メカニズムを持つ�
 詳細については、「
 
 - [クォーラムを構成して管理する](/windows-server/failover-clustering/manage-cluster-quorum)
-- [クラウド監視を展開する](/windows-server/failover-clustering/deploy-cloud-witness)
+- [クラスター監視をセットアップする](../deploy/witness.md)

@@ -1,26 +1,26 @@
 ---
-title: Azure Stack HCI でのボリュームの計画
+title: Azure Stack HCI でボリュームを計画する
 description: Azure Stack HCI で記憶域ボリュームを計画する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 03/06/2020
-ms.openlocfilehash: f056fbbb8c8e05da6f0a4fc7a7fb38d36249747f
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 34806347a8a5e71cb15c93073b546c52f534cdf5
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196938"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866945"
 ---
-# <a name="planning-volumes-in-storage-spaces-direct"></a>記憶域スペース ダイレクトでのボリュームの計画
+# <a name="plan-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを計画する
 
-> 適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、ファイル システム、回復性の種類、およびサイズの選択など、ワークロードのパフォーマンスと容量のニーズを満たすように記憶域スペース ダイレクトでボリュームを計画する方法に関するガイダンスを提供します。
+このトピックでは、ファイル システム、回復性の種類、およびサイズの選択など、ワークロードのパフォーマンスと容量のニーズを満たすように Azure Stack HCI でボリュームを計画する方法に関するガイダンスを提供します。
 
 ## <a name="review-what-are-volumes"></a>レビュー:ボリュームとは
 
-ボリュームは、ワークロードに必要なファイル (Hyper-V 仮想マシンの VHD や VHDX ファイルなど) を格納する場所です。 記憶域プール内のドライブを組み合わせたボリュームは、記憶域スペース ダイレクトのフォールト トレランス、スケーラビリティ、パフォーマンス面のメリットを実現しています。
+ボリュームは、ワークロードに必要なファイル (Hyper-V 仮想マシンの VHD や VHDX ファイルなど) を格納する場所です。 ボリュームでは、記憶域プール内のドライブを組み合わせることで、Azure Stack HCI の背後にあるソフトウェアによるストレージ テクノロジである[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)のフォールト トレランス、スケーラビリティ、パフォーマンス面のメリットが実現されています。
 
    >[!NOTE]
    > 記憶域スペース ダイレクトのドキュメントでは、全体を通して、クラスターの共有ボリューム (CSV) や ReFS などの他の組み込みの Windows 機能によって提供される機能を含め、ボリュームとその下の仮想ディスクを総称して "ボリューム" という用語を使用しています。 記憶域スペース ダイレクトの計画とデプロイを成功させるために、これらの実装レベルの違いを理解する必要はありません。
@@ -191,6 +191,5 @@ Windows Server 2019 では、各ボリュームのサイズを 64 TB に制限�
 
 詳細については、次のトピックも参照してください。
 
-- [Azure Stack HCI の概要](../overview.md)
 - [記憶域スペース ダイレクトのドライブの選択](choose-drives.md)
 - [フォールト トレランスとストレージの効率性](fault-tolerance.md)

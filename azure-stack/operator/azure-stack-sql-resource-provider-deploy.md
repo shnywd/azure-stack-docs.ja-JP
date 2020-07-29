@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: bc59808b0b1ebb954812882442cb6dc2d8b02e83
-ms.sourcegitcommit: 41195d1ee8ad14eda102cdd3fee3afccf1d83aca
+ms.openlocfilehash: 0c91d214ba35a3bda98da05e2e7359c45707d760
+ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82908478"
+ms.lasthandoff: 07/16/2020
+ms.locfileid: "86419100"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -49,7 +49,7 @@ Azure Stack Hub SQL リソース プロバイダーをデプロイする前に�
     |-----|-----|
     |条件付き DNS フォワーダーが正しく設定されている。|[Azure Stack Hub とデータセンターの統合 - DNS](azure-stack-integrate-dns.md)|
     |リソース プロバイダー用の受信ポートが開いている。|[Azure Stack Hub データセンターの統合 - ポートとプロトコル (受信)](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack Hub デプロイの必須 PKI 前提条件](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack Hub デプロイの PaaS 証明書の前提条件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI 証明書のサブジェクトと SAN が正しく設定されている。|[Azure Stack Hub デプロイの必須 PKI 前提条件](azure-stack-pki-certs.md)<br>[Azure Stack Hub デプロイの PaaS 証明書の前提条件](azure-stack-pki-certs.md)|
     |     |     |
 
 接続が切断された場合のシナリオでは、次の手順を実行して、必要な PowerShell モジュールのダウンロードと手動でのリポジトリ登録を行います。
@@ -88,7 +88,7 @@ New-Item -Path $env:ProgramFiles -name "SqlMySqlPsh" -ItemType "Directory"
 
 ### <a name="certificates"></a>証明書
 
-_統合システムのインストールのみを対象_。 [Azure Stack Hub のデプロイの PKI の要件](./azure-stack-pki-certs.md#optional-paas-certificates)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
+_統合システムのインストールのみを対象_。 [Azure Stack Hub のデプロイの PKI の要件](./azure-stack-pki-certs.md)に関するページの「オプションの PaaS 証明書」セクションで説明されている SQL PaaS PKI 証明書を指定する必要があります。 **DependencyFilesLocalPath** パラメーターで指定された場所に .pfx ファイルを配置します。 ASDK システムの証明書は提供しないでください。
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL リソース プロバイダーをデプロイする
 

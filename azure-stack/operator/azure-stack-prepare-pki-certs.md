@@ -8,18 +8,18 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: a371723250e52fb98e5c1ab7dc3151d1d4b9cbf3
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: fa252ee475cc58fa13429ec7ef9a6cbbf37b6a0f
+ms.sourcegitcommit: 9bbaa8dc7edb9632f1d06f76ebf8f49c8cb8eed6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410642"
+ms.lasthandoff: 07/17/2020
+ms.locfileid: "86437134"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 
 [任意の証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>デプロイ用の証明書を準備する (Azure Stack 適合性チェッカーを使用)
+## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Azure Stack 適合性チェッカーでデプロイ用に証明書を準備する
 
 Azure Stack Hub 適合性チェッカー ツールを使用して、デプロイまたはローテーションのための証明書のインポート、パッケージ化、および検証を行うことができます。
 
@@ -30,7 +30,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化�
 - Microsoft Azure Stack Hub 適合性チェッカー
 - 1 つのディレクトリ内にある、証明機関から返された .cer 形式 (その他の構成可能な形式は .cert、.sst、または .pfx) の証明書。
 - Windows 10 または Windows Server 2016 以降
-- 証明書署名要求を生成したのと同じシステムを使用します。 (PFX 形式に事前にパッケージ化されている事前証明書を対象とする場合を除く)
+- 証明書署名要求を生成したのと同じシステムを使用します (PFX に事前パッケージ化されている証明書を対象としている場合を除く)。
 
 ## <a name="generate-certificate-signing-requests-for-new-deployments"></a>新しいデプロイのための証明書署名要求を生成する
 

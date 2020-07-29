@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/13/2019
-ms.openlocfilehash: 99a8425901213d50c17175ab946aeff78a5aa81d
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 0cbf08e1a77caaac94457719dfdb8605e5a91ba7
+ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742598"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86567588"
 ---
 # <a name="extending-storage-to-azure-stack-hub"></a>ストレージを Azure Stack Hub に拡張する
 
@@ -50,7 +50,7 @@ ms.locfileid: "82742598"
 
 2.  Azure Stack Hub 環境に Windows Server 2019 イメージを用意できたら、**Azure Stack Hub ユーザー ポータルにサインインします**。
 
-3.  Azure Stack Hub ユーザー ポータルにログインしたら、[オファーのサブスクリプション](https://docs.microsoft.com/azure-stack/operator/azure-stack-subscribe-plan-provision-vm?view=azs-1908)があることを確認します。これを使用して、IaaS リソース (コンピューティング、ストレージ、ネットワーク) をプロビジョニングできます。
+3.  Azure Stack Hub ユーザー ポータルにログインしたら、[オファーのサブスクリプション](../operator/azure-stack-subscribe-plan-provision-vm.md?view=azs-1908)があることを確認します。これを使用して、IaaS リソース (コンピューティング、ストレージ、ネットワーク) をプロビジョニングできます。
 
 4.  サブスクリプションを用意できたら、Azure Stack Hub ユーザー ポータルの**ダッシュボード**に戻り、 **[リソースの作成]** を選択し、 **[コンピューティング]** を選択してから、**Windows Server 2019 Datacenter ギャラリー項目**を選択します。
 
@@ -60,9 +60,9 @@ ms.locfileid: "82742598"
 
     b.  **ユーザー名**: localadmin
 
-    c.  **[パスワード]** 、 **[パスワードの確認]** : \<ご自分が選択したパスワード>
+    c.  **[パスワード]** と **[パスワードの確認入力]** : \<password of your choice>
 
-    d.  **サブスクリプション**: \<ご自分が選択したサブスクリプション、コンピューティング/ストレージ/ネットワークのリソースを含む>
+    d.  **[サブスクリプション]** : \<subscription of your choice, with compute/storage/network resources>。
 
     e.  **リソース グループ**: storagetesting (新規作成)
 
@@ -208,7 +208,7 @@ iSCSI ターゲット サーバーの場合、これは、Hyper-V、VMware、ま
 
 12) **[アクセス サーバーの指定]** ページで **[追加]** を選択します。 これにより、iSCSI ターゲットへの接続が承認される特定の**イニシエーター**を入力するためのダイアログが開きます。
 
-13) **[イニシエーター ID の追加]** ウィンドウで、 **[選択した種類の値の入力]** を選択し、 **[種類]** で、IQN がドロップダウン メニューで選択されていることを確認します。 **iqn.1991-05.com.microsoft:\<computername>** と入力し (ここで、\<computername> は、**VM001** の**コンピューター名**)、 **[次へ]** を選択します。
+13) **[イニシエーター ID の追加]** ウィンドウで、 **[選択した種類の値の入力]** を選択し、 **[種類]** で、IQN がドロップダウン メニューで選択されていることを確認します。 「**iqn.1991-05.com.microsoft:\<computername>** 」と入力し (\<computername> は、**VM001** の**コンピューター名**)、 **[次へ]** を選択します。
 
     ![](./media/azure-stack-network-howto-extend-datacenter/image12.png)
 
@@ -286,7 +286,7 @@ iSCSI イニシエーターを設定するには、まず、**Azure Stack Hub** 
 
     b.  **イニシエーター IP**: 10.10.10.4。
 
-    c.  **ターゲット ポータル IP**: \<最初の iSCSI ターゲット IP / 3260>。
+    c.  **ターゲット ポータル IP**: \<your first iSCSI Target IP / 3260>。
 
 ![](./media/azure-stack-network-howto-extend-datacenter/image20.png)
 
@@ -296,7 +296,7 @@ iSCSI イニシエーターを設定するには、まず、**Azure Stack Hub** 
 
     b.  **イニシエーター IP**: 10.10.11.4。
 
-    c.  **ターゲット ポータル IP**: \<2 番目の iSCSI ターゲット IP / 3260>。
+    c.  **ターゲット ポータル IP**: \<your second iSCSI Target IP / 3260>。
 
         ![](./media/azure-stack-network-howto-extend-datacenter/image21.png)
 

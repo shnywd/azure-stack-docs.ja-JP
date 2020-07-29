@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: c3512a441116f57f74921cec38d5937b89a1978c
-ms.sourcegitcommit: d04b8f2d431ec1e12bcf5aa976fb06ec109caa25
+ms.openlocfilehash: 95d038b53432e94d0259352a2d71c88c24f68c1f
+ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82868464"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86489727"
 ---
 # <a name="prerequisites-for-deploying-app-service-on-azure-stack-hub"></a>App Service on Azure Stack Hub のデプロイの前提条件
 
@@ -228,7 +228,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Azure App Service on Azure Stack Hub のホスティングおよび計測データベースの場合は、App Service データベースを保持するための SQL Server インスタンスを準備する必要があります。
 
-運用と高可用性を目的とする場合は、SQL Server 2014 SP2 以降の完全バージョンを使用し、混合モード認証を有効にして、[高可用性構成](https://docs.microsoft.com/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)でデプロイする必要があります。
+運用と高可用性を目的とする場合は、SQL Server 2014 SP2 以降の完全バージョンを使用し、混合モード認証を有効にして、[高可用性構成](/sql/sql-server/failover-clusters/high-availability-solutions-sql-server)でデプロイする必要があります。
 
 Azure App Service on Azure Stack Hub の SQL Server インスタンスは、すべての App Service ロールからアクセスできる必要があります。 SQL Server は、Azure Stack Hub の既定のプロバイダー サブスクリプション内でデプロイできます。 または、組織内の既存のインフラストラクチャを利用できます (Azure Stack Hub に接続されている場合)。 Azure Marketplace イメージを使用している場合は、それに応じてファイアウォールを構成することを忘れないでください。
 
@@ -388,7 +388,7 @@ Azure Stack Hub で使用している ID プロバイダー (Azure Active Direct
 1. 手順 7 で書き留めたアプリケーション ID を検索します。 
 1. 一覧から App Service アプリケーションの登録を選択します。
 1. 左ウィンドウで **[API のアクセス許可]** を選択します。
-1. **[\<テナント\> に管理者の同意を与えます]** を選択します。ここで \<テナント\> は、お使いの Azure AD テナントの名前です。 **[はい]** を選択して、同意したことを確認します。
+1. **[\<tenant\> に管理者の同意を与えます]** を選択します。\<tenant\> は Azure AD テナントの名前です。 **[はい]** を選択して、同意したことを確認します。
 
 ```powershell
     Create-AADIdentityApp.ps1
