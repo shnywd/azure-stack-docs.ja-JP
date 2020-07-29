@@ -1,22 +1,22 @@
 ---
-title: Azure Stack HCI でのボリュームの作成
+title: Azure Stack HCI でボリュームを作成する
 description: Windows Admin Center と PowerShell を使用して Azure Stack HCI でボリュームを作成する方法について説明します。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 02/28/2020
-ms.openlocfilehash: e5ef5d16ca1d03ec7f6c6cbd1318b7d1e5e90096
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.date: 07/21/2020
+ms.openlocfilehash: 61f3515bcec6e0819b175db149d27f15a347f132
+ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196411"
+ms.lasthandoff: 07/21/2020
+ms.locfileid: "86866575"
 ---
-# <a name="creating-volumes-in-azure-stack-hci"></a>Azure Stack HCI でのボリュームの作成
+# <a name="create-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを作成する
 
-> 適用対象:Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Windows Admin Center と Windows PowerShell を使用して記憶域スペース ダイレクト クラスターにボリュームを作成する方法、ボリューム上のファイルを操作する方法、およびボリュームでデータ重複除去と圧縮を有効にする方法について説明します。
+このトピックでは、Windows Admin Center と Windows PowerShell を使用して Azure Stack HCI クラスターにボリュームを作成する方法、ボリューム上のファイルを操作する方法、およびボリュームでデータ重複除去と圧縮を有効にする方法について説明します。 ストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法を学習するには、[拡張ボリュームの作成](create-stretched-volumes.md)に関する記事を参照してください。
 
 ## <a name="create-a-three-way-mirror-volume"></a>3 方向ミラー ボリュームを作成する
 
@@ -90,7 +90,7 @@ Windows Admin Center でボリュームを開き、ボリュームにファイ�
 
 ## <a name="create-volumes-using-windows-powershell"></a>Windows PowerShell を使用してボリュームを作成する
 
-最初に、Windows の [スタート] メニューから Windows PowerShell を起動します。 **New-Volume** コマンドレットを使用して、Azure Stack HCI のボリュームを作成することをお勧めします。 これは、高速で操作が非常に分かりやすいです。 この単一のコマンドレットは、仮想ディスクを自動的に作成し、パーティションを作成してフォーマットします。また、名前が一致するボリュームを作成し、クラスターの共有ボリュームに追加します。これらすべてのが 1 つの簡単な手順で実行されます。
+最初に、Windows の [スタート] メニューから Windows PowerShell を起動します。 **New-Volume** コマンドレットを使用して、Azure Stack HCI のボリュームを作成することをお勧めします。 これは、高速で操作が非常に分かりやすいです。 このコマンドレット 1 つだけで、仮想ディスクが作成されて、パーティション化およびフォーマットされ、一致する名前を持つボリュームが作成されて、クラスター共有ボリュームに追加されます。すべて 1 つの簡単な手順で行うことができます。
 
 **New-Volume** コマンドレットには、次の 4 つのパラメーターを常に指定する必要があります。
 
@@ -147,9 +147,9 @@ New-Volume -FriendlyName "Volume4" -FileSystem CSVFS_ReFS -StoragePoolFriendlyNa
 
 ## <a name="next-steps"></a>次のステップ
 
-記憶域スペース ダイレクトでその他の記憶域管理タスクを実行するには、次の項目も参照してください。
+関連トピックおよびその他のストレージ管理タスクについては、次のトピックも参照してください。
 
 - [記憶域スペース ダイレクトの概要](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [記憶域スペース ダイレクトのボリュームの計画](/windows-server/storage/storage-spaces/plan-volumes)
-- [記憶域スペース ダイレクトのボリュームの拡張](/windows-server/storage/storage-spaces/resize-volumes)
-- [記憶域スペース ダイレクトのボリュームの削除](/windows-server/storage/storage-spaces/delete-volumes)
+- [ボリュームの計画](../concepts/plan-volumes.md)
+- [ボリュームの拡張](extend-volumes.md)
+- [ボリュームの削除](delete-volumes.md)

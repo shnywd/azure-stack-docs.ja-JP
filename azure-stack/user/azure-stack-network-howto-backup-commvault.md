@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 390c6fdb3268dee90b0928b5a280d60c08c1e7fa
-ms.sourcegitcommit: 278aaeca069213a98b90751253f6b15423634849
+ms.openlocfilehash: 6468c3508f2cf37b847768bd6b418a1d1a538f0d
+ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82742487"
+ms.lasthandoff: 07/22/2020
+ms.locfileid: "86892083"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 
@@ -32,7 +32,7 @@ ms.locfileid: "82742487"
 
 3. ソース Azure Stack Hub インスタンスで Commvault を構成し、ソース Azure Stack Hub の VM を VM グループに追加します。
 
-4. Commvault の LifeSync を構成します。
+4. Commvault の Live Sync を構成します。
 
 また、互換性のあるパートナー VM イメージを、Azure クラウドまたは別の Azure Stack Hub にダウンロードして提供し、Azure Stack Hub VM を保護することもできます。 この記事では、Commvault Live Sync を使用した VM の保護について説明します。
 
@@ -40,7 +40,7 @@ ms.locfileid: "82742487"
 
 ![](./media/azure-stack-network-howto-backup-commvault/backup-vm-commvault-diagram.svg)
 
-## <a name="create-the-commvault-vm-form-the-commvault-marketplace-item"></a>Commvault Marketplace の項目から Commvault VM を作成する
+## <a name="create-the-commvault-vm-from-the-commvault-marketplace-item"></a>Commvault Marketplace の項目から Commvault VM を作成する
 
 1. Azure Stack Hub ユーザー ポータルを開きます。
 
@@ -55,7 +55,7 @@ ms.locfileid: "82742487"
 
     a. **[名前]** を入力します。
 
-    b. **[Standard HHD]** を選択します。
+    b. **[Standard HDD]** を選択します。
     
     c. **[ユーザー名]** を入力します。
     
@@ -107,7 +107,7 @@ ms.locfileid: "82742487"
 
 ## <a name="get-your-service-principal"></a>サービス プリンシパルを取得する
 
-ID マネージャーが Azure AD か AD DFS かを把握する必要があります。 次の表には、Azure Stack Hub で Commvault を設定するために必要な情報がまとめられています。
+ID マネージャーが Azure AD か ADFS かを把握する必要があります。 次の表には、Azure Stack Hub で Commvault を設定するために必要な情報がまとめられています。
 
 | 要素 | 説明 | source |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
@@ -124,8 +124,8 @@ ID マネージャーが Azure AD か AD DFS かを把握する必要があり�
 
 2. Commvault VM に Azure Stack Hub PowerShell と Azure Stack Hub ツールをインストールします。
 
-    a. Azure Stack Hub PowerShell のインストール手順については、「[PowerShell for Azure Stack Hub をインストールする](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-install?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
-    b. Azure Stack Hub ツールのインストール手順については、「[GitHub からの Azure Stack Hub ツールのダウンロード](https://docs.microsoft.com/azure-stack/operator/azure-stack-powershell-download?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)」を参照してください。
+    a. Azure Stack Hub PowerShell のインストール手順については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
+    b. Azure Stack Hub ツールのインストール手順については、「[GitHub からの Azure Stack Hub ツールのダウンロード](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)」を参照してください。
 
 3. Commvault VM に Commvault がインストールされたら、Commcell Console を開きます。 [スタート] から **[Commvault]**  >  **[Commvault Commcell Console]** の順に選択します。
 
