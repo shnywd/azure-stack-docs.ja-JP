@@ -3,16 +3,16 @@ title: Azure Stack Hub リリース ノート - 1910 のセキュリティ更新
 description: Azure Stack Hub の 1910 セキュリティ更新プログラムについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: dda2620e88ac6fcd8b4ce8ed9167d83f39af4737
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 726211a31a914b7631b762870c892f2d16f6aee1
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80069417"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87251083"
 ---
 # <a name="azure-stack-hub-security-updates"></a>Azure Stack Hub セキュリティ更新プログラム
 

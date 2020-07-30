@@ -3,21 +3,21 @@ title: Active Directory フェデレーション サービス (AD FS) を使用�
 description: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/12/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 2dbef9bd19fac12541f738fc530dbf58f5c85c35
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 45395524fa921560f6c2b0fef94b26b47595e957
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631225"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250998"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack Hub に Kubernetes をデプロイする
 
 > [!Note]  
-> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、 [AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
+> Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 この記事の手順に従えば、Kubernetes のリソースをデプロイおよび設定することができます。 これらの手順は、Active Directory フェデレーション サービス (AD FS) が ID 管理サービスである場合に使用します。
 

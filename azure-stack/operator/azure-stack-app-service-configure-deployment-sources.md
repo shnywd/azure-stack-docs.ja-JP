@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 2dda2d52a1819f715f0b80f8d14c247ba256ed7f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f2498804505aec7b4e4131032758c09a6ff8168d
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489778"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250879"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Azure Stack Hub 上の App Services のデプロイ ソースを構成する
 
@@ -40,7 +40,7 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 
 このタスクを完了するには、GitHub アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
-1. GitHub にサインインし、 https://www.github.com/settings/developers に移動して、 **[Register a new application]\(新しいアプリケーションの登録\)** を選択します。
+1. GitHub にサインインし、 <https://www.github.com/settings/developers> に移動して、 **[Register a new application]\(新しいアプリケーションの登録\)** を選択します。
 
     ![GitHub - 新しいアプリケーションの登録][3]
 
@@ -96,7 +96,7 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 > [!NOTE]
 > 現時点では、OneDrive for Business アカウントはサポートされていません。
 
-1. https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm に移動し、Microsoft アカウントを使用してサインインします。
+1. <https://apps.dev.microsoft.com/?referrer=https%3A%2F%2Fdev.onedrive.com%2Fapp-registration.htm> に移動し、Microsoft アカウントを使用してサインインします。
 2. **[マイ アプリケーション]** で **[アプリの追加]** を選択します。
 
     ![OneDrive アプリケーション][10]
@@ -129,7 +129,7 @@ App Service on Azure Stack Hub では、複数のソース管理プロバイダ�
 > [!NOTE]
 > このタスクを完了するには、DropBox アカウントが必要です。 個人のアカウントではなく、組織のアカウントを使用できます。
 
-1. https://www.dropbox.com/developers/apps に移動し、DropBox アカウントの資格情報を使用してサインインします。
+1. <https://www.dropbox.com/developers/apps> に移動し、DropBox アカウントの資格情報を使用してサインインします。
 2. **[Create app]\(アプリの作成\)** を選択します。
 
     ![Dropbox アプリ][14]

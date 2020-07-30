@@ -3,16 +3,16 @@ title: Azure Stack Hub で Windows 仮想マシンを実行する
 description: Azure Stack Hub で Windows 仮想マシンを実行する方法について学習します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 3/9/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 11ab20369bc95d86f4a1468c4eda670015f33e65
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567775"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397551"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Windows 仮想マシンを実行する
 
@@ -40,7 +40,7 @@ Azure Stack Hub のディスク IOPS (1 秒あたりの入出力操作数) は�
 
 [Managed Disks](./azure-stack-managed-disk-considerations.md) を使用することもお勧めします。 マネージド ディスクでは、ストレージが自動的に処理されることでディスク管理が簡素化されます。 マネージド ディスクでは、ストレージ アカウントは必要ありません。 単にディスクのサイズと種類を指定するだけで、可用性の高いリソースとしてデプロイされます。
 
-OS ディスクは Azure Stack Hub BLOB ストレージに格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 また、[データ ディスク](./azure-stack-manage-vm-disks.md)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。 可能であれば、OS ディスクではなく、データ ディスクにアプリケーションをインストールします。 一部のレガシー アプリケーションでは、C: ドライブへのコンポーネントのインストールが必要になることがあります。その場合は、PowerShell を使用して [OS ディスクのサイズを変更](/azure/virtual-machines/virtual-machines-windows-expand-os-disk)できます。
+OS ディスクは Azure Stack Hub BLOB ストレージに格納された VHD であるため、ホスト マシンが停止している場合でも維持されます。 また、[データ ディスク](./azure-stack-manage-vm-disks.md)を 1 つ以上作成することもお勧めします。データ ディスクは、アプリケーション データ用に使用される永続的な VHD です。 可能であれば、OS ディスクではなく、データ ディスクにアプリケーションをインストールします。 一部のレガシー アプリケーションでは、C: ドライブへのコンポーネントのインストールが必要になることがあります。その場合は、PowerShell を使用して [OS ディスクのサイズを変更](/azure/virtual-machines/windows/expand-os-disk)できます。
 
 VM も一時ディスク (Windows の D: ドライブ) を使用して作成されます。 このディスクは、Azure Stack Hub ストレージ インフラストラクチャの一時ボリュームに格納されます。 再起動やその他の VM ライフサイクル イベント中に削除される可能性があります。 ページ ファイルやスワップ ファイルなどの一時的なデータにのみ、このディスクを使用してください。
 
@@ -56,7 +56,7 @@ VM も一時ディスク (Windows の D: ドライブ) を使用して作成さ�
 
 -   変化しない固定 IP アドレスが必要な場合 (たとえば、DNS "A" レコードを作成するか、またはセーフ リストに IP アドレスを追加する必要がある場合) は、[静的 IP アドレス](/azure/virtual-network/virtual-networks-reserved-public-ip)を予約します。
 
--   IP アドレスの完全修飾ドメイン名 (FQDN) を作成することもできます。 これにより、その FQDN を参照する DNS で [CNAME レコード](https://en.wikipedia.org/wiki/CNAME_record)を登録できます。 詳細については、[Azure portal での完全修飾ドメイン名の作成](/azure/virtual-machines/virtual-machines-windows-portal-create-fqdn)に関する記事をご覧ください。
+-   IP アドレスの完全修飾ドメイン名 (FQDN) を作成することもできます。 これにより、その FQDN を参照する DNS で [CNAME レコード](https://en.wikipedia.org/wiki/CNAME_record)を登録できます。 詳細については、[Azure portal での完全修飾ドメイン名の作成](/azure/virtual-machines/windows/portal-create-fqdn)に関する記事をご覧ください。
 
 -   **ネットワーク セキュリティ グループ (NSG)** 。 NSG は、VM へのネットワーク トラフィックを許可または拒否するために使用されます。 NSG は、サブネットまたは個々の VM インスタンスと関連付けることができます。
 
