@@ -57,6 +57,8 @@
       href: ../operator/index.yml
     - name: Azure Stack Hub のユーザー ドキュメント
       href: ../user/index.yml
+    - name: Azure ハイブリッド クラウドのドキュメント
+      href: /hybrid
 - name: リソース
   items:
     - name: Azure Stack のロード マップ

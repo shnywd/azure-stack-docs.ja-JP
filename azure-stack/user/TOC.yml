@@ -343,6 +343,8 @@
       href: ../operator/index.yml
     - name: ASDK のドキュメント
       href: ../asdk/index.yml
+    - name: Azure ハイブリッド クラウドのドキュメント
+      href: /hybrid
 - name: リソース
   items:
     - name: Azure Stack Hub のロード マップ
