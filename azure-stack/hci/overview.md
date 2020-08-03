@@ -4,19 +4,23 @@ description: Azure Stack HCI の概要
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
-ms.date: 07/22/2020
-ms.openlocfilehash: fccb9ff45afbeb5fee0bc7c971adcdea1f532404
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.date: 07/29/2020
+ms.openlocfilehash: e67b3191d10c65e9b78ed4915854dd1b6149ae08
+ms.sourcegitcommit: 3988d4c79bd3f7dd0b8c3d571f14c4a2e88371e6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949595"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87411548"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
 Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードを実行するハイパーコンバージド クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
 
 Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中である新しいオペレーティング システムです。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。
+
+Azure Stack HCI の高レベルの機能については、数分時間を取ってビデオをご覧ください。
+
+> [!VIDEO https://www.youtube.com/embed/fw8RVqo9dcs]
 
 その中核である Azure Stack HCI は、次のものが組み合わされたソリューションです。
 
@@ -140,7 +144,7 @@ Windows Server はほぼすべての Azure 製品の基盤であり、お持ち�
 
 ### <a name="can-i-upgrade-from-windows-server-2019-to-azure-stack-hci"></a>Windows Server 2019 から Azure Stack HCI にアップグレードできますか。
 
-現在、Windows Server 2019 から Azure Stack HCI には、[クラスター ローリング アップグレード](/windows-server/failover-clustering/cluster-operating-system-rolling-upgrade)を実行することによってのみアップグレードできます。現時点では、インプレース アップグレードはありません。
+現時点では、Windows Server から Azure Stack HCI へのインプレース アップグレードはありません。 Windows Server 2019 および 2016 に基づくハイパーコンバージド クラスターを実行しているお客様向けの具体的な移行ガイダンスについては、しばらくお待ちください。
 
 ### <a name="what-do-azure-stack-hub-and-azure-stack-hci-solutions-have-in-common"></a>Azure Stack Hub と Azure Stack HCI ソリューションはどのような点が共通していますか。
 
@@ -173,6 +177,22 @@ Azure Stack HCI を接続できる Azure サービスの最新一覧について
 ### <a name="to-which-endpoints-is-the-data-transmitted"></a>データはどのエンドポイントに送信されますか。  
 
 Azure Stack HCI では、請求データの送信に次のエンドポイントが使用されます: *-azurestackhci-usage.azurewebsites.net
+
+### <a name="how-do-i-identify-an-azure-stack-hci-server"></a>Azure Stack HCI サーバーを識別するにはどうすればよいですか。
+
+Windows Admin Center では、[すべての接続] の一覧や他のさまざまな場所に、オペレーティング システムの一覧が表示されます。または、次の PowerShell コマンドを使用して、オペレーティング システムの名前とバージョンを照会することもできます。
+
+```PowerShell
+Get-ComputerInfo -Property 'osName', 'osDisplayVersion'
+```
+
+出力例を次に示します。
+
+```
+OsName                    OSDisplayVersion
+------                    ----------------
+Microsoft Azure Stack HCI 20H2
+```
 
 ## <a name="the-azure-stack-family"></a>Azure Stack ファミリ
 
