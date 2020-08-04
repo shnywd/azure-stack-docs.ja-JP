@@ -4,13 +4,13 @@ description: Azure Stack HCI で記憶域スペース ダイレクトのドラ�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 7ae6a7abc3bb9dc0f73f64c72c56e2436b91a990
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 07/22/2020
+ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
+ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115202"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
@@ -37,7 +37,7 @@ ms.locfileid: "86947148"
 
 ## <a name="option-1--maximizing-performance"></a>オプション 1 – パフォーマンスの最大化
 
-任意のデータに対するランダムな読み取りと書き込みで予測可能かつ一貫したミリ秒未満の待機時間を実現するか、非常に高い IOPS ([600 万以上](https://www.youtube.com/watch?v=0LviCzsudGY&t=28m)を達成済み) または IO スループット ([1 Tb/秒以上](https://www.youtube.com/watch?v=-LK2ViRGbWs&t=16m50s)を達成済み) を実現するには、"オール フラッシュ" を選択する必要があります。
+任意のデータに対するランダムな読み取りと書き込みで予測可能かつ一貫したミリ秒未満の待機時間を実現するか、非常に高い IOPS ([1300 万以上](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)を達成済み) または IO スループット (500 GB/秒以上の読み取りを達成済み) を実現するには、"オール フラッシュ" を選択する必要があります。
 
 これを行うには、現在次の 3 つの方法があります。
 

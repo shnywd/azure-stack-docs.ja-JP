@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
 author: justinha
 ms.topic: article
-ms.date: 07/13/2020
+ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
-ms.lastreviewed: 07/13/2020
-ms.openlocfilehash: e58d57b50f0f11c3e05d660063b5abd94c8e4575
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 07/21/2020
+ms.openlocfilehash: cef555f353b00a0ccfc494b91b5cf4d3c69ac9e9
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487568"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397449"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -91,6 +91,46 @@ PowerShell を使用して、Microsoft サポートを利用せずに、スタ�
 詳細については、[Azure Stack Hub の診断](azure-stack-get-azurestacklog.md)に関する記述を参照してください。
 
 ## <a name="troubleshoot-virtual-machines-vms"></a>仮想マシン (VM) のトラブルシューティングを行う
+
+### <a name="reset-linux-vm-password"></a>Linux VM のパスワードをリセットする
+
+Linux VM のパスワードを忘れて、VMAccess 拡張機能の問題が原因で **[パスワードのリセット]** オプションが機能しない場合は、次の手順に従ってリセットを実行できます。
+
+1. 復旧 VM として使用する Linux VM を選択します。
+
+1. ユーザー ポータルにサインインします。
+   1. VM サイズ、NIC、パブリック IP、NSG、データ ディスクをメモしておきます。
+   1. 影響を受けた VM を停止します。
+   1. 影響を受けた VM を削除します。
+   1. 影響を受けた VM のディスクを、復旧 VM のデータ ディスクとしてアタッチします (ディスクが使用可能になるまでに数分かかる場合があります)。
+
+1. 復旧 VM にサインインし、次のコマンドを実行します。
+
+   ```
+   sudo su –
+   mkdir /tempmount
+   fdisk -l
+   mount /dev/sdc2 /tempmount /*adjust /dev/sdc2 as necessary*/
+   chroot /tempmount/
+   passwd root /*substitute root with the user whose password you want to reset*/
+   rm -f /.autorelabel /*Remove the .autorelabel file to prevent a time consuming SELinux relabel of the disk*/
+   exit /*to exit the chroot environment*/
+   umount /tempmount
+   ```
+
+1. ユーザー ポータルにサインインします。
+
+   1. 復旧 VM からディスクを切断します。
+   1. ディスクから VM を再作成します。
+   1. 必ず前の VM からパブリック IP を移行し、データ ディスクをアタッチするなどの操作を行ってください。
+
+
+元のディスクで直接変更を行うのではなく、元のディスクのスナップショットを作成し、そこから新しいディスクを作成することもできます。 詳細については、以下のトピックを参照してください。
+
+- [パスワードのリセット](/azure/virtual-machines/troubleshooting/reset-password)
+- [スナップショットからディスクを作成する](/azure/virtual-machines/troubleshooting/troubleshoot-recovery-disks-portal-linux#create-a-disk-from-the-snapshot)
+- [ルート パスワードの変更とリセット](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/system_administrators_guide/sec-terminal_menu_editing_during_boot#sec-Changing_and_Resetting_the_Root_Password)
+
 
 ### <a name="license-activation-fails-for-windows-server-2012-r2-during-provisioning"></a>プロビジョニング中に Windows Server 2012 R2 のライセンス認証が失敗する
 

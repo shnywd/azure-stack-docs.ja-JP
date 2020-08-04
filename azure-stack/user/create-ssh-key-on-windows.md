@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする
-description: Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする方法について説明します。
+title: Azure Stack Hub で Linux 用の SSH キーを作成する
+description: Azure Stack Hub で Linux 用の SSH キーを作成する方法について説明します
 author: mattbriggs
 ms.topic: article
-ms.date: 2/28/2020
+ms.date: 7/24/2020
 ms.author: mabrigg
-ms.reviewer: waltero
+ms.reviewer: sijuman
 ms.lastreviewed: 2/28/2020
-ms.openlocfilehash: 25c4e1825ac6838d204a5d7f5f6ae834a304bb56
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8b6ddaa6dab41cccce5759622ec15f4e5e886956
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567078"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250743"
 ---
 # <a name="create-an-ssh-key-for-linux-on-azure-stack-hub"></a>Azure Stack Hub で Linux 用の SSH キーを作成する
 

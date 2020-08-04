@@ -7,16 +7,18 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: 14747b3eec8dfb3d3722eab7dd02c5d0d08b816b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 3bfd3fd2a7eaef4715677cf38af936aa19cf98cf
+ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87397415"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする
 
 この記事では、PowerShellGet を使用して Azure PowerShell Az および互換性のある Azure Stack Hub 管理者モジュールをインストールする方法について説明します。 Az modules は、Windows、macOS、Linux の各プラットフォームにインストールできます。
+
+Docker コンテナー内の Azure Stack Hub に対して Az モジュールを実行することもできます。 手順については、[Docker を使用して Azure Stack Hub に対して PowerShell を実行する](../user/azure-stack-powershell-user-docker.md)方法に関するページを参照してください。
 
 Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする場合は、[「Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする」](azure-stack-powershell-install.md)を参照してください。
 
@@ -46,12 +48,12 @@ $PSVersionTable.PSVersion
 ### <a name="prerequisites-for-windows"></a>Windows の前提条件
 Windows 上の PowerShell 5.1 で Azure PowerShell を使用するには、次の手順に従います。
 
-1. 必要に応じて [Windows PowerShell 5.1](//powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。 Windows 10 の場合は、あらかじめ PowerShell 5.1 がインストールされています。
-2. [.NET Framework 4.7.2 以降](//dotnet/framework/install)をインストールします。
+1. 必要に応じて [Windows PowerShell 5.1](/powershell/scripting/windows-powershell/install/installing-windows-powershell#upgrading-existing-windows-powershell) に更新します。 Windows 10 の場合は、あらかじめ PowerShell 5.1 がインストールされています。
+2. [.NET Framework 4.7.2 以降](/dotnet/framework/install)をインストールします。
 3. 最新バージョンの PowerShellGet がインストールされていることを確認します。 `Install-Module PowerShellGet -MinimumVersion 2.2.3 -Force` を実行します。 
 
 ## <a name="2-prerequisites-for-linux-and-mac"></a>2.Linux および Mac の前提条件
-PowerShell Core 6.x 以降のバージョンが必要です。 手順については、[リンク](//powershell/scripting/install/installing-powershell-core-on-windows)に従ってください。
+PowerShell Core 6.x 以降のバージョンが必要です。 手順については、[リンク](/powershell/scripting/install/installing-powershell-core-on-windows)に従ってください。
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする
 

@@ -1,24 +1,26 @@
 ---
-title: Azure Stack HCI にストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する
+title: ストレッチ クラスター ボリュームの作成とレプリケーションの設定
 description: Windows Admin Center と PowerShell を使用して、Azure Stack HCI にストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法について説明します。
-author: khdownie
-ms.author: v-kedow
+author: v-dasis
+ms.author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 647fbbc1fc0ae070955f796aee7aa102290bbc4f
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/24/2020
+ms.openlocfilehash: 9d6ba44da5da188f60f031bddab2e49190dbfee3
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868120"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250709"
 ---
-# <a name="create-volumes-and-set-up-replication-for-stretched-clusters"></a>ストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する
+# <a name="create-stretched-cluster-volumes-and-set-up-replication"></a>ストレッチ クラスター ボリュームの作成とレプリケーションの設定
 
 > 適用対象:Azure Stack HCI バージョン 20H2
 
-このトピックでは、Windows Admin Center と PowerShell を使用して、Azure Stack HCI にストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法について説明します。 シングルサイト クラスター上でボリュームを作成する方法、ボリューム上のファイルの操作、およびボリューム上のデータの重複除去と圧縮を有効にする方法については、[ボリュームの作成](create-volumes.md)に関するページを参照してください。
+この記事では、Windows Admin Center と PowerShell を使用して、Azure Stack HCI にストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する方法について説明します。
 
-## <a name="create-volumes-and-set-up-replication-for-stretched-clusters-using-windows-admin-center"></a>Windows Admin Center を使用してストレッチ クラスター用のボリュームを作成し、レプリケーションを設定する
+2 つのサイトの 4 つのサーバー上にボリュームを作成します (たとえば、サイトごとに 2 つのサーバー)。 ただし、3 方向のミラー ボリュームを作成する場合は、少なくとも 6 台のサーバー (サイトごとに 3 台のサーバー) が必要であることに注意してください。
+
+## <a name="stretched-volumes-and-replication-using-windows-admin-center"></a>Windows Admin Center を使用したストレッチ ボリュームとレプリケーション
 
 では、始めましょう。
 
@@ -42,85 +44,85 @@ ms.locfileid: "86868120"
 
 以降は、VM やその他のワークロードをデプロイする前に、サイト間でデータが正常にレプリケートされていることを確認することをお勧めします。 詳細については、[クラスターの検証](../deploy/validate.md)に関するページのレプリケーションの確認のセクションを参照してください。
 
-## <a name="create-volumes-for-stretched-clusters-using-powershell"></a>PowerShell を使用してストレッチ クラスター用のボリュームを作成する
+## <a name="create-stretched-volumes-using-powershell"></a>PowerShell を使用してストレッチ ボリュームを作成する
 
 ボリュームの作成は、単一サイトの標準クラスターとストレッチ (2 サイト) クラスターとでは異なります。 ただし、どちらのシナリオでも、`New-Volume` コマンドレットを使用して仮想ディスクを作成し、パーティションを作成してフォーマットし、名前が一致するボリュームを作成して、クラスター共有ボリューム (CSV) に追加します。
 
-ストレッチ クラスター用のボリュームと仮想ディスクの作成は、単一サイト クラスターの場合よりも少し複雑です。 ストレッチ クラスターには、少なくとも 4 つのボリューム (2 つのデータ ボリュームと 2 つのログ ボリューム) が必要であり、各サイトにデータとログのボリュームのペアがあります。 次に、サイトごとにレプリケーション グループを作成し、サイト間のレプリケーションを設定します。
+ストレッチ クラスター用のボリュームと仮想ディスクの作成は、単一サイト クラスターの場合よりも少し複雑です。 ストレッチ クラスターには、少なくとも 4 つのボリューム (2 つのデータ ボリュームと 2 つのログ ボリューム) が必要であり、各サイトにデータとログのボリュームのペアがあります。 次に、サイトごとにレプリケーション グループを作成し、サイト間のレプリケーションを設定します。 サーバー間でリソース グループを移動する必要があります。 これには `Move-ClusterGroup` コマンドレットを使用します。
 
-まず、ノード間でリソース グループを移動する必要があります。 これには `Move-ClusterGroup` コマンドレットを使用します。
+1. まず、`Move-ClusterGroup` コマンドレットを使用して、`Available Storage` 記憶域プール リソース グループを `Site1` の `Server1` に移動します。
 
-まず `Move-ClusterGroup` コマンドレットを使用して、"使用可能記憶域" 記憶域プール リソース グループを Site1 のノード Server1 に移動します。
+    ```powershell
+    Move-ClusterGroup -Cluster ClusterS1 -Name ‘Available Storage’ -Node Server1
+    ```
 
-```powershell
-Move-ClusterGroup -Cluster ClusterS1 -Name ‘Available Storage’ -Node Server1
-```
+1. 次に、`Site1` の `Server1` 用に 1 つ目の仮想ディスク (`Disk1`) を作成します。
 
-次に、サイト Site1 にノード Server1 用の最初の仮想ディスク (Disk1) を作成します。
+    ```powershell
+    New-Volume -CimSession Server1 -FriendlyName Disk1 -FileSystem REFS -DriveLetter F -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 1"
+    ```
 
-```powershell
-New-Volume -CimSession Server1 -FriendlyName Disk1 -FileSystem REFS -DriveLetter F -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 1"
-```
+1. `Site1` の `Server1` 用に 2 つ目の仮想ディスク (`Disk2`) を作成します。
 
-ノード Server1 用の 2 つ目の仮想ディスク (Disk2) を作成します。
+    ```powershell
+    New-Volume -CimSession Server1 -FriendlyName Disk2 -FileSystem REFS -DriveLetter G -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 1"
+    ```
 
-```powershell
-New-Volume -CimSession Server1 -FriendlyName Disk2 -FileSystem REFS -DriveLetter G -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 1"
-```
+1. 次に、`Available Storage` グループをオフラインにします。
 
-次に、"使用可能記憶域" グループをオフラインにします。
+    ```powershell
+    Stop-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage'
+    ```
 
-```powershell
-Stop-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage'
-```
+1. `Available Storage` グループを `Site2` の `Server3` に移動します。
 
-次に、"使用可能記憶域" グループを Site2 のノード Server3 に移動します。
+    ```powershell
+    Move-ClusterGroup -Name 'Available Storage' -Node Server3
+    ```
 
-```powershell
-Move-ClusterGroup -Name 'Available Storage' -Node Server3
-```
+1. `Site2` の `Server3` に 1 つ目の仮想ディスク (`Disk3`) を作成します。
 
-Site2 のノード Server3 に最初の仮想ディスク (Disk3) を作成します。
+    ```powershell
+    New-Volume -CimSession Server3 -FriendlyName Disk3 -FileSystem REFS -DriveLetter H -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 2"
+    ```
 
-```powershell
-New-Volume -CimSession Server3 -FriendlyName Disk3 -FileSystem REFS -DriveLetter H -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 2"
-```
+1. `Site2` の `Server3` に 2 つ目の仮想ディスク (`Disk4`) を作成します。
 
-そして、ノード Server3 に 2 つ目の仮想ディスク (Disk4) を作成します。
+    ```powershell
+    New-Volume -CimSession Server3 -FriendlyName Disk4 -FileSystem REFS -DriveLetter I -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 2"
+    ```
 
-```powershell
-New-Volume -CimSession Server3 -FriendlyName Disk4 -FileSystem REFS -DriveLetter I -ResiliencySettingName Mirror -Size 10GB -StoragePoolFriendlyName "Storage Pool for Site 2"
-```
+1. 次に、`Available Storage` グループをオフラインにし、`Site1` のいずれかのサーバーに戻します。
 
-ここで `Available Storage` グループをオフラインにし、Site1 のノードのいずれかに戻します。
+    ```powershell
+    Stop-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage'
+    ```
 
-```powershell
-Stop-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage'
-```
+    ```powershell
+    Move-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage' -Node Server1
+    ```
 
-```powershell
-Move-ClusterGroup -Cluster ClusterS1 -Name 'Available Storage' -Node Server1
-```
+1. `Get-ClusterResource` コマンドレットを使用して、4 つの仮想ディスク ボリューム (各記憶域プールに 2 つ) が作成されたことを確認します。
 
-`Get-ClusterResource` コマンドレットを使用して、4 つの仮想ディスク ボリューム (各記憶域プールに 2 つ) が作成されたことを確認します。
+    ```powershell
+    Get-ClusterResource -Cluster ClusterS1
+    ```
 
-```powershell
-Get-ClusterResource -Cluster ClusterS1
-```
+1. 次に、クラスター共有ボリュームに `Disk1` を追加します。
 
-次に、Disk1 をクラスター共有ボリュームに追加します。
+    ```powershell
+    Add-ClusterSharedVolume -Name 'Cluster Virtual Disk (Disk1)'
+    ```
 
-```powershell
-Add-ClusterSharedVolume -Name 'Cluster Virtual Disk (Disk1)'
-```
+これでボリュームの作成は完了し、レプリケーション用に記憶域レプリカを設定する準備ができました。
 
-## <a name="setup-replication-for-stretched-clusters-using-powershell"></a>PowerShell を使用してストレッチ クラスターのレプリケーションを設定する
+## <a name="set-up-replication-using-powershell"></a>PowerShell を使用してレプリケーションを設定する
 
 PowerShell を使用してストレッチ クラスターの記憶域レプリカを設定する場合、ソース データに使用されるディスクをクラスター共有ボリューム (CSV) として追加する必要があります。 他のすべてのディスクは、使用可能記憶域グループ内の非 CSV ドライブとして保持されている必要があります。 これらのディスクは、記憶域 レプリカの作成プロセス中にクラスター共有ボリュームとして追加されます。
 
 前の手順では、識別しやすいように、ドライブ文字を使用して仮想ディスクを追加しました。 記憶域レプリカは 1 対 1 のレプリケーションです。つまり、1 つのディスクを別の 1 つのディスクにレプリケートすることができます。
 
-### <a name="validate-the-topology-for-replication"></a>レプリケーションのトポロジを検証する
+### <a name="step-1-validate-the-topology-for-replication"></a>手順 1:レプリケーションのトポロジを検証する
 
 開始する前に、`Test-SRTopology` コマンドレットを長時間 (数時間など) 実行する必要があります。 `Test-SRTopology` コマンドレットを使用すると、潜在的なレプリケーション パートナー シップを検証し、ローカル ホストから宛先のサーバーへ、またはリモートでソースと対象のサーバー間を検証することができます。
 
@@ -148,7 +150,7 @@ Test-SRTopology が完了すると、Windows の Temp フォルダーに .html �
 Test-SRTopology -SourceComputerName Server1 -SourceVolumeName W: -SourceLogVolumeName X: -DestinationComputerName Server3 -DestinationVolumeName Y: -DestinationLogVolumeName Z: -DurationInMinutes 300 -ResultPath c:\temp
 ```
 
-### <a name="create-the-replication-partnership"></a>レプリケーション パートナーシップを作成する
+### <a name="step-2-create-the-replication-partnership"></a>手順 2:レプリケーション パートナーシップを作成する
 
 `Test-SRTopology` テストが完了したので、記憶域レプリカを構成してレプリケーション パートナーシップを作成する準備は完了です。 簡単に説明すると、サイトごとにレプリケーション グループ (RG) を作成し、Site1 のソース サーバー ノード (Server1、Server2) と Site2 の宛先 (レプリケート) サーバー ノード (Server3、Server4) の両方のデータ ボリュームとログ ボリュームを指定して、記憶域レプリカを構成します。
 

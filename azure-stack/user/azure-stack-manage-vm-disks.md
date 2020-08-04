@@ -3,16 +3,16 @@ title: Azure Stack Hub で VM ディスク ストレージを作成する
 description: Azure Stack Hub で仮想マシンのディスクを作成します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 95fafe541db48ced7025d7750b46de9789b441cf
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: ecca2f76e15d23d904db018d82c86269504195f7
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567503"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250913"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -54,7 +54,7 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 * 新しいデータ ディスクを作成し、VM に接続する。
 * 既存のデータ ディスクを作成し、VM にアップロードする。
 
-追加するアンマネージド ディスクはそれぞれ、個別のコンテナーに配置する必要があります。
+追加した各アンマネージド ディスクを別のコンテナーに配置します。
 
 > [!NOTE]  
 > Azure によって作成および管理されているディスクは、[マネージド ディスク](/azure/virtual-machines/windows/managed-disks-overview)と呼ばれます。

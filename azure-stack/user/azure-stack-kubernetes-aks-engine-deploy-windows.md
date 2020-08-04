@@ -3,16 +3,16 @@ title: Azure Stack Hub の Windows に AKS エンジンをデプロイする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 3/19/2020
+ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/19/2020
-ms.openlocfilehash: 6b10f43081ae9781005fcbc13eec50bd03b5128e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: d973099817dada07b8d91ccd5d561f8b3fce5944
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566109"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87251032"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 

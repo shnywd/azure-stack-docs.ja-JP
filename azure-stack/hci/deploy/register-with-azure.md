@@ -4,13 +4,13 @@ description: Azure Stack HCI を Azure に登録する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/22/2020
-ms.openlocfilehash: 9b8e7e211f6c2ce21f0b00ed2a3b972418f9f9bd
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.date: 07/27/2020
+ms.openlocfilehash: f45d2ada3b9699688b69b8848490b19961c500ac
+ms.sourcegitcommit: f0c032b300d9c640653b1f795a6ea1439e049a6e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949612"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87333826"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
@@ -52,7 +52,7 @@ Azure Stack HCI オペレーティング システムを実行しているクラ
 Install-WindowsFeature RSAT-Azure-Stack-HCI -ComputerName Server1
 ```
 
-管理 PC またはクラスター ノードに必要なコマンドレットをインストールします。
+必要なコマンドレットをクラスター ノードまたは管理 PC にインストールします。
 
 ```PowerShell
 Install-Module Az.StackHCI
@@ -62,25 +62,37 @@ Install-Module Az.StackHCI
    > 2. "'PSGallery' からモジュールをインストールしますか? " というメッセージが表示され、[はい] (Y) と答える必要があります。
    > 3. 最後に、**Az** モジュール全体をインストールすると **StackHCI** サブモジュールが含められ、それが長期的に正しいと思われるかもしれませんが、 標準の Azure PowerShell 規約に従い、プレビュー段階のサブモジュールは自動的には含められません。そうではなく、これらを明示的に指定する必要があります。 したがって、ここでは上記のように **Az.StackHCI** を明示的に要求する必要があります。
 
-登録します (これにより、Azure のログインが求められます)。
+エクスペリエンスを最も簡単にするために、Azure Stack HCI クラスター ノードで次のコマンドを実行します (これにより、Azure のログインが求められます)。
 
 ```PowerShell
-Register-AzStackHCI  -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" [-ResourceName] [-ResourceGroupName] [-ComputerName –Credential]
+Register-AzStackHCI  -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" [-ResourceName] [-ResourceGroupName]
 ```
 
-最小構文では、Azure サブスクリプション ID のみが必要です。 上記のコマンドを実行するユーザーには Azure Active Directory のアクセス許可が必要です。そうでない場合は登録プロセスが完了しないことに注意してください。
+最小構文では、Azure サブスクリプション ID のみが必要です。 この構文では、(ローカル サーバーがメンバーである) ローカル クラスターを現在のユーザーとして既定の Azure リージョンとクラウド環境に登録し、Azure リソースとリソース グループにスマートな既定の名前を使用します。 
+
+管理 PC を使用してクラスターを登録する場合は、 **-ComputerName** パラメーターに、クラスター内のサーバーの名前と必要に応じて資格情報を指定します。
+
+```PowerShell
+Register-AzStackHCI  -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+```
+
+既定では、Azure Stack HCI クラスターを表すために作成された Azure リソースにはクラスター名が継承され、同じ名前とサフィックス "-rg" を持つ新しいリソース グループに配置されます。 上記のオプションのパラメーターを使用して、別のリソース名を指定するか、リソースを既存のリソース グループに配置することができます。
+
+`Register-AzStackHCI` コマンドレットを実行するユーザーは [Azure Active Directory のアクセス許可](../manage/manage-azure-registration.md#azure-active-directory-permissions)を持っている必要があることに注意してください。そうしないと、登録プロセスが完了しません。代わりに、終了して、登録が管理者の同意待ちのままになります。 アクセス許可が付与されたら、`Register-AzStackHCI` を再実行して登録を完了します。
 
    > [!NOTE]
    > 登録時に以下のメッセージのようなエラーが表示された場合は、**24 から 48 時間後に再び登録してみてください**。 Azure の統合は、リージョンをまたいでロールアウトが進行中です。 引き続き評価を続行することは可能であり、いかなる機能にも影響はありません。 後で戻って登録するようにしてください。
    >
    > `Register-AzStackHCI : Azure Stack HCI is not yet available in region <regionName>`
+   >
+   > お使いの Azure リージョンで Azure Stack HCI を使用できるかどうかを確認するには、[このツールを使用し](https://azure.microsoft.com/global-infrastructure/services/)、"hci" を検索してください。
 
 ## <a name="authenticate-with-azure"></a>Azure での認証
 依存関係がインストールされ、パラメーターが検証されたら、Azure アカウントを使用して認証 (サインイン) する必要があります。 登録を続行するには、指定された Azure サブスクリプションへのアクセス権がアカウントに必要です。
 
-Windows 10 などのデスクトップ エクスペリエンスを備えたオペレーティング システムから Register-AzStackHCI をリモートで実行した場合は、対話型の Azure ログイン ウィンドウがポップアップ表示されます。 表示される正確なプロンプトは、セキュリティ設定 (2 要素認証など) によって異なります。 画面の指示に従ってログインします。
+対話型の Azure ログイン ウィンドウを表示できない Azure Stack HCI オペレーティング システムで `Register-AzStackHCI` をローカルで実行した場合は、別のデバイス (PC や電話など) で microsoft.com/devicelogin にアクセスし、コードを入力してサインインするように求められます。 これは、入力方式が限定されている他のデバイス (Xbox など) に対して Microsoft が使用するのと同じエクスペリエンスです。
 
-対話型の Azure ログイン ウィンドウを表示できない Azure Stack HCI オペレーティング システムで Register-AzStackHCI をローカルで実行した場合は、別のデバイス (PC や電話など) で microsoft.com/devicelogin にアクセスし、コードを入力してサインインするように求められます。 これは、入力方式が限定されている他のデバイス (Xbox など) に対して Microsoft が使用するのと同じエクスペリエンスです。
+Windows 10 などのデスクトップ エクスペリエンスを備えた管理 PC からリモートで `Register-AzStackHCI` を実行した場合、対話型の Azure ログイン ウィンドウがポップアップ表示されます。 表示される正確なプロンプトは、セキュリティ設定 (2 要素認証など) によって異なります。 画面の指示に従ってログインします。
 
 登録ワークフローではログインしたことが検出され、完了に進みます。 その後、Azure portal でクラスターを確認できるようになります。
 

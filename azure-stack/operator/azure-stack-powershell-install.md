@@ -7,12 +7,12 @@ ms.date: 04/14/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 253ede500b206724e7f8dd024435fdb842fa4f36
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: dd86ca8d5b97249d00006d7bd94f817db3f81b56
+ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488265"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133658"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
@@ -23,6 +23,8 @@ Azure PowerShell AzureRM には、Azure Stack Hub リソースの管理に Azure
 API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
 Azure Stack Hub と互換性のある PowerShell モジュールは、インターネットに接続されたシナリオ、部分的に接続されたシナリオ、または接続が切断されたシナリオでインストールできます。 この記事では、これらのシナリオの詳細な手順について説明します。
+
+Docker コンテナーで Azure Stack Hub の AzureRM モジュールを実行することもできます。 手順については、[Docker を使用して Azure Stack Hub に対して PowerShell を実行する](../user/azure-stack-powershell-user-docker.md)方法に関するページを参照してください。
 
 ## <a name="1-verify-your-prerequisites"></a>1.前提条件を確認する
 

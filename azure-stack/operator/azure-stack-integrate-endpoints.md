@@ -3,16 +3,16 @@ title: データセンターに Azure Stack Hub サービスを発行する
 description: データセンターに Azure Stack Hub サービスを発行する方法を学習します。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 07/24/2020
 ms.author: inhenkel
 ms.reviewer: wamota
-ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 628253c966717b1d6f291dca35754e058722f1f8
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 07/24/2020
+ms.openlocfilehash: 2ff8d71d31b05ccdd4d63805da2626a3a5785e1b
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488673"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250845"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>データセンターに Azure Stack Hub サービスを発行する
 
@@ -93,7 +93,7 @@ SSL トラフィックのインターセプトは[サポートされておらず
 |LDAP GC|Graph 統合のために用意されている Active Directory フォレスト|TCP|3268|パブリック VIP - /27|
 |LDAP GC SSL|Graph 統合のために用意されている Active Directory フォレスト|TCP|3269|パブリック VIP - /27|
 |AD FS|AD FS 統合のために用意されている AD FS メタデータ エンドポイント|TCP|443|パブリック VIP - /27|
-|診断ログ収集サービス|Azure Storage により提供される BLOB SAS の URL|HTTPS|443|パブリック VIP - /27|
+| 診断ログの収集 | https://azsdiagppelocalwestus02.blob.core.windows.net<br>https://azsdiagppewestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | パブリック VIP - /27 |
 |     |     |     |     |     |
 
 送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL によるフィルター処理をサポートするデバイスを使用してください。

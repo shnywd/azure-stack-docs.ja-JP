@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: a1e7b227a0e18475a1fcfac3246f193f54b84ced
-ms.sourcegitcommit: 76af742a42e807c400474a337e29d088ede8a60d
+ms.openlocfilehash: 95d6064ed11807f9fb8aae0205ae21607dbb5d2d
+ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85196955"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87250794"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -63,11 +63,30 @@ ms.locfileid: "85196955"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202007080
+- 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202007160
+- 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202004230
+- 2020 年 7 月 27 日:Ubuntu Server 16.04 LTS - バージョン 16.04.202007080
+- 2020 年 7 月 27 日:Ubuntu Server 18.04 LTS - バージョン 16.04.202007080
+- 2020 年 7 月 21 日: {WS-PAYG} 無料ライセンス:SQL Server 2016 SP2 Developer on Windows Server 2016 - バージョン 13.2.20200513
+- 2020 年 7 月 21 日: {WS-PAYG} 無料ライセンス:SQL Server 2016 SP2 Express on Windows Server 2016 - バージョン 13.2.20200514
+- 2020 年 7 月 21 日: {WS-PAYG} 無料 SQL Server ライセンス:SQL Server 2017 Developer on Windows Server 2016 - バージョン 14.0.20200513
+- 2020 年 7 月 21 日: {WS-PAYG} 無料 SQL Server ライセンス:SQL Server 2017 Express on Windows Server 2016 - バージョン 14.0.20200514
+- 2020 年 7 月 21 日: {WS-PAYG} SQL Server 2016 SP2 Enterprise on Windows Server 2016 - バージョン 13.2.20200513
+- 2020 年 7 月 21 日: {WS-PAYG} SQL Server 2016 SP2 Standard on Windows Server 2016 - バージョン 13.2.20200514
+- 2020 年 7 月 21 日: {WS-PAYG} SQL Server 2017 Enterprise Windows Server 2016 - バージョン 14.0.20200513
+- 2020 年 7 月 21 日: {WS-PAYG} SQL Server 2017 Standard on Windows Server 2016 - バージョン 14.0.20200514
+- 2020 年 7 月 22 日: {WS-BYOL} 無料ライセンス:SQL Server 2016 SP2 Developer on Windows Server 2016 - バージョン 13.2.20200513
+- 2020 年 7 月 22 日: {WS-BYOL} 無料ライセンス:SQL Server 2016 SP2 Express on Windows Server 2016 - バージョン 13.2.20200514
+- 2020 年 7 月 22 日: {WS-BYOL} 無料 SQL Server ライセンス:SQL Server 2017 Developer on Windows Server 2016 - バージョン 14.0.20200513
+- 2020 年 7 月 22 日: {WS-BYOL} 無料 SQL Server ライセンス:SQL Server 2017 Express on Windows Server 2016 - バージョン 14.0.20200514
+- 2020 年 7 月 22 日: {WS-BYOL} SQL Server 2016 SP2 Enterprise on Windows Server 2016 - バージョン 13.2.20200513
+- 2020 年 7 月 22 日: {WS-BYOL} SQL Server 2016 SP2 Standard on Windows Server 2016 - バージョン 13.2.20200514
+- 2020 年 7 月 22 日: {WS-BYOL} SQL Server 2017 Enterprise Windows Server 2016 - バージョン 14.0.20200513
+- 2020 年 7 月 22 日: {WS-BYOL} SQL Server 2017 Standard on Windows Server 2016 - バージョン 14.0.20200514
 - 2020 年 6 月 19 日:Bitnami Gitlab CE – バージョン 13.0.2006110322
 - 2020 年 6 月 16 日:SQLIaaSExtension - バージョン 1.3.20370
 - 2020 年 6 月 12 日:Bitnami Grafana - バージョン 6.7.2006040249
-- 2020 年 5 月 21 日:Ubuntu Server 16.04 LTS - バージョン 16.04.202004290
-- 2020 年 5 月 21 日:Ubuntu Server 18.04 LTS - バージョン 18.04.202004080
 - 2020 年 5 月 21 日:Windows Server 2008 R2 SP1 BYOL - バージョン 7601.24552.2004101827
 - 2020 年 5 月 21 日:Windows Server 2008 R2 SP1 Pay as you use - バージョン 7601.24552.2004101827
 - 2020 年 5 月 21 日:Windows Server 2012 Datacenter BYOL - バージョン 9200.23016.2004101828
@@ -224,9 +243,9 @@ ms.locfileid: "85196955"
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - BYOL - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2016 Datacenter with Containers - Pay-as-you-use - バージョン 2016.127.20200131
 - 2020 年 4 月 20 日:Windows Server 2012 Datacenter BYOL - バージョン 3.127.20200205
-- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - Pay as you use - バージョン 4.127.20200205
-- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - BYOL - バージョン 4.127.20200205
-- 2020 年 4 月 20 日:Windows Server 2012 Datacenter - Pay as you use - バージョン 3.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - Pay as you use - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter - BYOL - バージョン 4.127.20200205
+- 2020 年 4 月 20 日:Windows Server 2012 Datacenter - Pay as you use - バージョン 3.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter BYOL - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 R2 Datacenter Pay-as-you-use - バージョン 4.127.20200205
 - 2020 年 4 月 20 日:Windows Server 2012 Datacenter BYOL - バージョン 3.127.20200205
