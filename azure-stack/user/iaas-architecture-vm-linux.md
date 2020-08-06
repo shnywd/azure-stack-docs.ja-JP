@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 970a128933e8bb65320e8d3d5a0657fac4bc208b
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: d7284e454b93db28dd47323342fb01e42c51c014
+ms.sourcegitcommit: 9be88793533d21b756718af9a82349760c4abd52
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397534"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87523494"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Linux 仮想マシンを実行する
 
@@ -70,7 +70,7 @@ VM は一時ディスクを使用して作成されます。 このディスク�
 
 -   **パブリック IP アドレス/VIP**。 パブリック IP アドレスは、リモート デスクトップ (RDP) 経由などで VM と通信するために必要です。 パブリック IP アドレスは、動的でも静的でもかまいません。 既定では、動的アドレスになっています。 VM 用に複数の NIC が必要な場合は、[VM サイズ](./azure-stack-vm-sizes.md)ごとに NIC の最大数が定義されることに注意してください。
 
--   IP アドレスの完全修飾ドメイン名 (FQDN) を作成することもできます。 これにより、その FQDN を参照する DNS で [CNAME レコード](https://en.wikipedia.org/wiki/CNAME_record)を登録できます。 詳細については、[Azure portal での完全修飾ドメイン名の作成](/azure/virtual-machines/linux/portal-create-fqdn)に関する記事をご覧ください。
+-   IP アドレスの完全修飾ドメイン名 (FQDN) を作成することもできます。 これにより、その FQDN を参照する DNS で [CNAME レコード](https://en.wikipedia.org/wiki/CNAME_record)を登録できます。 詳細については、[Azure portal での完全修飾ドメイン名の作成](/azure/virtual-machines/windows/portal-create-fqdn)に関する記事をご覧ください。
 
 -   **ネットワーク セキュリティ グループ (NSG)。** ネットワーク セキュリティ グループは、VM へのネットワーク トラフィックを許可または拒否するために使用されます。 NSG は、サブネットまたは個々の VM インスタンスと関連付けることができます。
 

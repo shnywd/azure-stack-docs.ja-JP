@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: e8563a21ec3c49fa9d5789b28a556645dc73b1ce
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 722c6dbc5d806e9d37817e5f9279e3e51a0ddc14
+ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567758"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87477592"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 
@@ -169,7 +169,7 @@ Web 層とビジネス層については、個別の VM をデプロイするの
 
 **DMZ**。 ネットワーク仮想アプライアンス (NVA) を追加してインターネットと Azure Virtual Network の間の DMZ を作成することを検討してください。 NVA とは、ネットワーク関連のタスク (ファイアウォール、パケット インスペクション、監査、カスタム ルーティングなど) を実行できる仮想アプライアンスの総称です。
 
-**暗号化**。 機密の保存データを暗号化し、[Azure Stack Hub の Key Vault](./azure-stack-key-vault-manage-portal.md) を使用してデータベース暗号化キーを管理します。 詳細については、 [Azure VM 上の SQL Server に関する Azure Key Vault 統合の構成](/azure/virtual-machines/virtual-machines-windows-ps-sql-keyvault)に関するページを参照してください。 データベース接続文字列などのアプリケーション シークレットも Key Vault に格納することをお勧めします。
+**暗号化**。 機密の保存データを暗号化し、[Azure Stack Hub の Key Vault](./azure-stack-key-vault-manage-portal.md) を使用してデータベース暗号化キーを管理します。 詳細については、 [Azure VM 上の SQL Server に関する Azure Key Vault 統合の構成](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure)に関するページを参照してください。 データベース接続文字列などのアプリケーション シークレットも Key Vault に格納することをお勧めします。
 
 ## <a name="next-steps"></a>次のステップ
 
