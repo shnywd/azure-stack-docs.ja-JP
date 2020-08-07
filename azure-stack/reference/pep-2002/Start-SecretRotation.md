@@ -1,18 +1,18 @@
 ---
-title: Azure Stack Hub の Close-PrivilegedEndpoint 特権エンドポイント
-description: PowerShell Azure Stack の特権エンドポイントのリファレンス - Close-PrivilegedEndpoint
+title: Azure Stack Hub 用の特権エンドポイント コマンドレット Start-SecretRotation
+description: PowerShell Azure Stack Hub の特権エンドポイントのリファレンス - Start-SecretRotation
 author: mattbriggs
 ms.topic: reference
-ms.date: 04/27/2020
+ms.date: 07/29/2020
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: e06d51a735daae8c82e1203f7f5e98bfbea47851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 12614343df051b9283f2e3b8fc2af56f8fc4058e
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86486140"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436452"
 ---
 # <a name="start-secretrotation"></a>Start-SecretRotation
 
@@ -27,12 +27,12 @@ Start-SecretRotation [-PathAccessCredential <Object>] [-ReRun] [-CertificatePass
 ```
 
 ## <a name="description"></a>説明
-シークレット ローテーション プロセスを呼び出します。
+Azure Stack Hub システムのインフラストラクチャ シークレット用のシークレット ローテーション プロセスを呼び出します。 既定では、外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。 詳細については、「[Azure Stack Hub でシークレットをローテーションする](../../operator/azure-stack-rotate-secrets.md)」を参照してください。
 
 ## <a name="parameters"></a>パラメーター
 
 ### <a name="-internal"></a>-Internal
- 
+内部ネットワーク インフラストラクチャ エンドポイントのシークレットをローテーションします。
 
 ```yaml
 Type: SwitchParameter

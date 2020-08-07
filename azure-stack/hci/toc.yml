@@ -68,6 +68,8 @@
           href: manage/languages.md
         - name: クラスター検証レポートのトラブルシューティング
           href: manage/validate-qos.md
+        - name: CredSSP のトラブルシューティング
+          href: manage/troubleshoot-credssp.md
     - name: Azure サービスの管理
       items:
         - name: Windows Admin Center を Azure に登録する

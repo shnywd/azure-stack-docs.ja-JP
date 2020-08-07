@@ -4,13 +4,13 @@ description: PowerShell を使用して、Azure Stack HCI の Azure 登録を管
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 297643ca5f47c619572e213da2ffd1502d7d1b6f
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 07/29/2020
+ms.openlocfilehash: 696ef552dcf49f31fb613a22393617e653f7e10d
+ms.sourcegitcommit: eb91a28a19a74f799b093ae2a705f7f6e4c5cd49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868035"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87436471"
 ---
 # <a name="manage-azure-registration"></a>Azure 登録の管理
 
@@ -60,11 +60,21 @@ Azure Active Directory 管理者から承認を受けるには時間がかかる
 
 Azure Stack HCI クラスターの使用を停止する準備ができたら、`Unregister-AzStackHCI` コマンドレットを使用して登録を解除します。 これにより、Azure Arc による監視、サポート、課金のすべての機能が停止します。クラスターと Azure Active Directory アプリ ID を表す Azure リソースは削除されますが、リソース グループは削除されません。他の無関係なリソースが含まれている可能性があるためです。
 
-最小限の構文ではパラメーターはまったく必要ありません。次のコマンドレットを実行する前に、Azure で認証する必要があります。
+クラスター ノードで `Unregister-AzStackHCI` コマンドレットを実行する場合、この構文を使用し、自分の Azure サブスクリプション ID と、登録を解除したい Azure Stack HCI クラスターのリソース名を指定します。
 
 ```PowerShell
-Unregister-AzStackHCI
+Unregister-AzStackHCI -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
 ```
+
+別のデバイス (ご自分の PC や携帯電話など) で microsoft.com/devicelogin にアクセスするよう求められるので、コードを入力し、そこにサインインして Azure の認証を行います。
+
+管理用 PC からコマンドレットを実行する場合、クラスター内のサーバーの名前も指定する必要があります。
+
+```PowerShell
+Unregister-AzStackHCI -ComputerName ClusterNode1 -SubscriptionId "e569b8af-6ecc-47fd-a7d5-2ac7f23d8bfe" -ResourceName HCI001
+```
+
+対話型の Azure ログイン ウィンドウがポップアップ表示されます。 表示される正確なプロンプトは、セキュリティ設定 (2 要素認証など) によって異なります。 画面の指示に従ってログインします。
 
 ## <a name="next-steps"></a>次のステップ
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/05/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 95d6064ed11807f9fb8aae0205ae21607dbb5d2d
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 7bb7baf25b2f3eb6799e1ffca834c818c3bcb667
+ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250794"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810781"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -63,6 +63,56 @@ ms.locfileid: "87250794"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 8 月 4 日: Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24556.2006050139
+- 2020 年 8 月 4 日: Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24556.2006050139
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24556.2006050139
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24556.2006050139
+- 2020 年 8 月 4 日: Windows Server 2012 Datacenter-ライセンス持ち込み - バージョン 9200.23066.2006051749
+- 2020 年 8 月 4 日: Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23066.2006051749
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2012 Datacenter-ライセンス持ち込み - バージョン 9200.23066.2006051749
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23066.2006051749
+- 2020 年 8 月 4 日: Windows Server 2012 R2 Datacenter-ライセンス持ち込み - バージョン 9600.19728.2006050139
+- 2020 年 8 月 4 日: Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19728.2006050139
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2012 R2 Datacenter-ライセンス持ち込み - バージョン 9600.19728.2006050139
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19728.2006050139
+- 2020 年 8 月 4 日: Windows Server 2016 Datacenter-ライセンス持ち込み - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: Windows Server 2016 Datacenter - Server Core-ライセンス持ち込み - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2016 Datacenter-ライセンス持ち込み - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter Server Core-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter Server Core-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter Server Core with Containers-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter with Containers-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter with Containers-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server (バージョン 1809) with Containers-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server (バージョン 1809) with Containers-従量課金制 - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: [smalldisk] Windows Server (バージョン 1903) with Containers-ライセンス持ち込み - バージョン 18362.900.2006061800
+- 2020 年 8 月 4 日: [smalldisk] Windows Server (バージョン 1903) with Containers-従量課金制 - バージョン 18362.900.2006061800
+- 2020 年 8 月 4 日: [smalldisk] Windows Server (バージョン 2004) with Containers-ライセンス持ち込み - バージョン 19041.329.2006042019
+- 2020 年 8 月 4 日: Windows 10 Enterprise 2016 LTSB-ライセンス持ち込み - バージョン 14393.3750.2006031549
+- 2020 年 8 月 4 日: Windows 10 Enterprise 2019 LTSC-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows 10 Enterprise バージョン 1809-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows 10 Pro バージョン 1809-ライセンス持ち込み - バージョン 17763.1282.2006061952
+- 2020 年 8 月 4 日: Windows 10 Enterprise バージョン 1903-ライセンス持ち込み - バージョン 18362.900.2006061800
+- 2020 年 8 月 4 日: Windows 10 Pro バージョン 1903-ライセンス持ち込み - バージョン 18362.900.2006061800
+- 2020 年 8 月 4 日: Windows 10 Enterprise バージョン 1909-ライセンス持ち込み - バージョン 18363.900.2006061800
+- 2020 年 8 月 4 日: Windows 10 Pro バージョン 1909-ライセンス持ち込み - バージョン 18363.900.2006061800
+- 2020 年 8 月 4 日: Windows 10 Enterprise バージョン 2004-ライセンス持ち込み - バージョン 19041.329.2006042019
 - 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202007080
 - 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202007160
 - 2020 年 7 月 27 日:Ubuntu Server 20.04 LTS - バージョン 20.04.202004230
