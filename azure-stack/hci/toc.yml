@@ -6,6 +6,8 @@
       href: overview.md
     - name: 既知の問題
       href: known-issues.md
+    - name: リリース ノート
+      href: release-notes.md
 - name: はじめに
   items:
     - name: Windows Admin Center で Azure Stack HCI を使用する

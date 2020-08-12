@@ -322,8 +322,6 @@
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Update 8 のリリース ノート [2020 年 6 月]'
                   href: azure-stack-app-service-release-notes-update-eight.md
-                - name: 'Update 7 のリリース ノート [2019 年 8 月]'
-                  href: azure-stack-app-service-release-notes-update-seven.md
         - name: Azure Stack Hub 上の Event Hubs
           items:
             - name: 概要
