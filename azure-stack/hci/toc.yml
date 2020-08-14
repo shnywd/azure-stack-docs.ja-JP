@@ -62,6 +62,8 @@
           href: manage/cluster-powershell.md
         - name: クラスターの更新
           href: manage/update-cluster.md
+        - name: クラスターを監視する
+          href: manage/monitor-cluster.md
         - name: サーバーの追加または削除
           href: manage/add-cluster.md
         - name: Azure 登録の管理

@@ -4,13 +4,13 @@ description: 既存の Azure Stack HCI クラスターにすばやく接続し�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: 18d5947bc5816bac4b4ed9610c970ebeb4195909
-ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+ms.date: 07/29/2020
+ms.openlocfilehash: 30b2533bd33bd39488a3e010262c9e950a84295c
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86892057"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889157"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Azure Stack HCI と Windows Admin Center の使用を開始する
 
@@ -20,7 +20,9 @@ ms.locfileid: "86892057"
 
 ## <a name="install-windows-admin-center"></a>Windows Admin Center をインストールする
 
-Windows Admin Center は、Azure Stack HCI を管理するための、ローカルにデプロイされたブラウザーベースのアプリです。 [Windows Admin Center をインストールする](/windows-server/manage/windows-admin-center/deploy/install)最も簡単な方法はローカル管理 PC にインストールすることですが、サーバーにインストールすることもできます。
+Windows Admin Center は、ローカルにデプロイされるブラウザーベースのアプリであり、Azure Stack HCI の管理に使用します。 [Windows Admin Center をインストールする](/windows-server/manage/windows-admin-center/deploy/install)方法として最も簡単なのはローカル管理 PC にインストールすること (デスクトップ モード) ですが、サーバーにインストールすること (サービス モード) もできます。
+
+Windows Admin Center をサーバーにインストールする場合、CredSSP が必要なタスク (クラスター作成や更新プログラムのインストールなど) では、Windows Admin Center サーバー上のゲートウェイ管理者グループのメンバーであるアカウントを使用する必要があります。 詳細については、「[ユーザー アクセス制御とアクセス許可を構成する](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)」の最初の 2 つのセクションを参照してください。
 
 ## <a name="add-and-connect-to-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターを追加して接続する
 
