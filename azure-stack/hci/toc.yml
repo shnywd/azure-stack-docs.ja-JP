@@ -30,6 +30,8 @@
       href: deploy/register-with-azure.md
     - name: クラスターを検証する
       href: deploy/validate.md
+    - name: ネットワーク コントローラーの展開
+      href: deploy/network-controller-powershell.md
 - name: 管理する
   items:
     - name: VM の管理
