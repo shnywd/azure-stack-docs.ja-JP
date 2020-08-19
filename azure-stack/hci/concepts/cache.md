@@ -4,13 +4,15 @@ description: 記憶域スペース ダイレクトおよび Azure Stack HCI で�
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 214e4fa6fde30d69d063326cc0c7548bb75b694a
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 08/11/2020
+ms.openlocfilehash: 39d67ffb49b8fa8ceb343038883602b3e940f8e1
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867013"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145639"
 ---
 # <a name="understanding-the-cache-in-azure-stack-hci"></a>Azure Stack HCI のキャッシュについて
 
@@ -28,7 +30,7 @@ ms.locfileid: "86867013"
 
 記憶域スペース ダイレクトは現在、次の 4 種類のドライブで動作します。
 
-|||
+| ドライブの種類 | 説明 |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** とは永続メモリを意味します。これは、低待機時間かつ高パフォーマンスの新しい種類の記憶域です。|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) とは、PCIe バスに直接接続されたソリッドステート ドライブを指します。 一般的なフォーム ファクターは、2.5 インチU.2、PCIe Add-In-Card (AIC)、および M.2 です。 NVMe では、PMem を除いて、現在サポートされている他の種類のドライブよりも高い IOPS と IO スループットおよび低待機時間が実現します。|

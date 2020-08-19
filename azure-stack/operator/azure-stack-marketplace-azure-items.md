@@ -3,16 +3,16 @@ title: Azure Stack Hub で使用できる Azure Marketplace 項目
 description: Azure Stack Hub で使用できる Azure Marektplace アイテムについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 7cecc0eda09c2ae000f469c3704f3256e68268c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 1d1c297ca303b38a541bcd982df218444affbc71
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490220"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997991"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
@@ -20,7 +20,7 @@ ms.locfileid: "86490220"
 
 ご使用の仮想マシン (VM) の拡張機能の更新プログラムがあるときは、必ずダウンロードする必要があります。 製品に付属している拡張機能は、通常の修正プログラムや更新プロセスでは更新されません。更新プログラムは頻繁に確認するようにしてください。 他の拡張機能は、Marketplace Management からのみ入手できます。
 
-|  | 項目名 | 説明 | Publisher | OS の種類 |
+| Image | 項目名 | 説明 | Publisher | OS の種類 |
 | --- | --- | --- | --- | --- |
 |![SQL IaaS 拡張機能 (SqlIaasExtension)](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 拡張機能 (SqlIaasExtension)](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **この拡張機能は、Windows Marketplace アイテムに任意の SQL Server をデプロイするためにダウンロードします (この拡張機能は必須です)。** | Microsoft | Windows |
 |![カスタム スクリプト拡張機能](media/azure-stack-marketplace-azure-items/cse.png) | [カスタム スクリプト拡張機能](/azure/virtual-machines/windows/extensions-customscript)| この更新プログラムは、**Windows でのカスタムのスクリプト拡張機能のインボックス バージョンにダウンロードします。** | Microsoft | Windows |
@@ -41,23 +41,18 @@ ms.locfileid: "86490220"
 
 Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリューション テンプレートをサポートしています。 依存関係がある場合は、前述のように、それらすべてを個別にダウンロードします。 SQL Server や Machine Learning Server などのアプリには、適切なライセンスが必要です (無償または試用版としてマークされている場合を除く)。
 
-|  | 項目名 | 説明 | Publisher |
+| Image | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![SharePoint Server 2013 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2013 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2012 Datacenter および Visual Studio 2019 Community エディションの Microsoft SharePoint Server 2013 評価版。 | Microsoft |
 | ![SharePoint Server 2016 評価版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 評価版](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsharepoint.microsoftsharepointserver) | Windows Server 2016 Datacenter の Microsoft SharePoint Server 2016 評価版。 | Microsoft |
 | ![Windows Server 2012 R2 の SQL Server 2014 SP3](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 の SQL Server 2014 SP3](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2) | SQL Server 2014 Service Pack 2。 **必要なダウンロード:** SQL IaaS 拡張機能。 | Microsoft |
-| ![SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | インテリジェントでミッション クリティカルなアプリ用のデータベース プラットフォーム。 | Microsoft + SUSE |
-| ![無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | トランザクション、データ ウェアハウス、ビジネス インテリジェンス、分析の各ワークロード用の SQL Server 2017 の無償 Developer バージョン。 | Microsoft + SUSE |
-| ![無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | SQL Server 2017 の無償 Express バージョン。 | Microsoft + SUSE |
-| ![SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | インテリジェントでミッション クリティカルなアプリ用のデータベース プラットフォーム。 | Microsoft + SUSE |
-| ![SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonSLES12SP2) | インテリジェントでミッション クリティカルなアプリ用のデータベース プラットフォーム。 | Microsoft + SUSE |
 | ![Windows Server 2016 の Microsoft Machine Learning Server 9.3.0](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016 の Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Windows Server 2016 の Microsoft Machine Learning Server 9.3.0。 | Microsoft |
 | ![Ubuntu 16.04 の Microsoft Machine Learning Server 9.3.0](media/azure-stack-marketplace-azure-items/microsoft.png) | [Ubuntu 16.04 の Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onUbuntu1604) | Ubuntu 16.04 の Microsoft Machine Learning Server 9.3.0。 | Microsoft + Canonical |
 | ![CentOS Linux 7.2 の Microsoft Machine Learning Server 9.3.0](media/azure-stack-marketplace-azure-items/microsoft.png) | [CentOS Linux 7.2 の Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onCentOSLinux72) | CentOS Linux 7.2 の Microsoft Machine Learning Server 9.3.0。 | Microsoft + Rogue Wave |
 
 ## <a name="linux-distributions"></a>Linux ディストリビューション
 
-|  | 項目名 | 説明 | Publisher |
+| Image | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![Clear Linux OS](media/azure-stack-marketplace-azure-items/clearlinux.png) | [Clear Linux OS](https://azuremarketplace.microsoft.com/marketplace/apps/clear-linux-project.clear-linux-os) | Intel アーキテクチャ用に最適化された参照 Linux ディストリビューションです。 | Clear Linux Project |
 | ![CoreOS Linux (Stable)](media/azure-stack-marketplace-azure-items/coreos.png) | [CoreOS Linux (Stable)](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | CoreOS は、最新で最小の Linux ディストリビューションであり、コンテナーの実行、クラスターの管理、サーバーのシームレスな更新の簡単な方法を提供します。どのコンポーネントも、ウェアハウス規模のコンピューティングを可能にするものです。 | CoreOS |
@@ -73,7 +68,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 
 ## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>サードパーティの BYOL、無料、試用版のイメージ、ソリューション テンプレート
 
-|  | 項目名 | 説明 | Publisher |
+| Image | 項目名 | 説明 | Publisher |
 | --- | --- | --- | --- |
 | ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 Networks vThunder ADC (Application Delivery Controller) for Microsoft Azure は、ハイパフォーマンス、柔軟性、デプロイの容易性を備えたアプリの配信とサーバー負荷分散を意図して専用設計されており、Azure クラウド内でネイティブに動作するよう最適化されています。 | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS ルーターはマルチクラウド対応かつマルチ ハイパーバイザー対応の機能豊富な仮想ルーターで、企業やクラウド プロバイダーが一貫性のある安全性が高くスケーラブルなハイブリッド ネットワークを構築するために役立ちます。 | Arista Networks |
@@ -129,7 +124,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 | ![Kafka](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka) | 強力な分散型パブリッシュ/サブスクライブ メッセージング システム。 | Bitnami |
 | ![Kafka クラスター](media/azure-stack-marketplace-azure-items/kafka.png) | [Kafka クラスター](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kafka-cluster) | Apache Kafka は、分散コミット ログとして再考された、パブリッシュ/サブスクライブ メッセージングです。 このソリューションは、複数の Kafka ブローカーと Zookeeper インスタンスのプロビジョニングによって、Kafka クラスターの信頼性を向上させます。 このソリューション テンプレートでは、**Debian 9** と **Custom Script for Linux 2.0 Extension** も必要です。 | Bitnami |
 | ![Kong](media/azure-stack-marketplace-azure-items/kong.png) | [Kong](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kong) | Kong は、高可用性、フォールトトレランス、分散システムのマイクロサービス要求を管理するように設計された、オープンソースのマイクロサービス API ゲートウェイおよびプラットフォームです。 | Bitnami |
-| ![Kubernetes Sandbox](media/azure-stack-marketplace-azure-items/sandbox.png) | [Kubernetes Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kubernetessandbox) | Bitnami Kubernetes Sandbox は、コンテナー化されたアプリ用に、完全かつ展開が容易な開発環境を提供します。 これは、Kubernetes でサービスを学習して開発するための実用的な環境です。 | Bitnami |
+| ![Kubernetes Sandbox](media/azure-stack-marketplace-azure-items/sandbox.png) | [Kubernetes Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.kubernetessandbox) | Bitnami Kubernetes Sandbox は、コンテナー化されたアプリ用に、完全かつデプロイが容易な開発環境を提供します。 これは、Kubernetes でサービスを学習して開発するための実用的な環境です。 | Bitnami |
 | ![LAMP](media/azure-stack-marketplace-azure-items/lamp.png) | [LAMP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lampstack) | 完全に統合された、すぐに実行できる開発環境。 | Bitnami |
 | ![LAPP](media/azure-stack-marketplace-azure-items/lapp.png) | [LAPP](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.lappstack) | PHP、PostgreSQL、Apache の完全な開発環境。 | Bitnami |
 | ![Let's Chat](media/azure-stack-marketplace-azure-items/letschat.png) | [Let's Chat](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.letschat) | オープン ソースの永続的なメッセージング アプリ。 | Bitnami |
@@ -163,7 +158,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 | ![Neo4j](media/azure-stack-marketplace-azure-items/neo4j.png) | [Neo4j](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.neo4j) | Neo4j は、使いやすいクエリ言語や ACID トランザクションなど、成熟した堅牢なデータベースに必要なすべての機能を備えた高パフォーマンスのグラフ ストアです。| Bitnami |
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | PHP、MySQL、および Nginx の完全な開発環境。 | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | 強力な複式簿記システム。 | Bitnami |
-| ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | ビルドを容易にする、Javascript で記述されたオープン ソースの環境。 | Bitnami |
+| ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | ビルドを容易にする、JavaScript で記述されたオープン ソースの環境。 | Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | ビジネス プロセスを効果的に接続する ERP および CRM システム。 | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | 柔軟性の高い、多面的なイントラネット プラットフォーム。 | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | オンライン ショップ向けの無料の e コマース プラットフォーム。 | Bitnami |
@@ -203,7 +198,6 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 | ![Roundcube](media/azure-stack-marketplace-azure-items/roundcube.png) | [Roundcube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.roundcube) | MIME サポートなどの機能を持つブラウザー ベースの IMAP クライアント。 | Bitnami |
 | ![Ruby](media/azure-stack-marketplace-azure-items/ruby.png) | [Ruby](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rubystack) | Rails の Ruby 用の使いやすい開発環境。 | Bitnami |
 | ![SEO Panel](media/azure-stack-marketplace-azure-items/seopanel.png) | [SEO Panel](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.seopanel) | 複数の Web サイトを追跡するためのオープン ソースの SEO 管理アプリ。 | Bitnami |
-| ![Shopware](media/azure-stack-marketplace-azure-items/shopware.png) | [Shopware](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.shopware) | オープン ソースの e コマース プラットフォーム。 | Bitnami |
  ![SilverStripe](media/azure-stack-marketplace-azure-items/silverstripe.png) | [SilverStripe](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.silverstripe) | SilverStripe は、オープンソースの直感的なコンテンツ管理システムで、柔軟なフレームワークです。 この組み合わせにより、開発者とコンテンツ エディターの両方に、革新的な Web プロジェクトを作成するためのツールが提供されます。 | Bitnami |
 | ![Simple Machines Forum](media/azure-stack-marketplace-azure-items/simplemachinesforum.png) | [Simple Machines Forum](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.simplemachinesforum) | 独自のオンライン コミュニティを構築するためのシンプルなフォーラム ソフトウェア。 | Bitnami |
 | ![SonarQube](media/azure-stack-marketplace-azure-items/sonarqube.png) | [SonarQube](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.sonarqube) | SonarQube は、コードの技術的品質を分析および測定するオープンソースの品質管理プラットフォームです。 これにより、開発者は、初期段階でコードの問題、脆弱性、およびバグを検出できます。 | Bitnami |

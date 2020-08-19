@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 726c632964e0580a5d55219f161e2bc8d6e679de
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
+ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397500"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88145439"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -45,6 +45,7 @@ Azure Stack Hub は、リソースの過剰消費を防ぐため、(サーバー
 - VM からのネットワーク送信には、帯域幅の上限が設けられます。 Azure Stack Hub での上限は、Azure での上限と同様です。
 - ストレージ リソースの場合、テナントによるストレージ使用のためのリソースの基本的な過剰消費を防ぐため、Azure Stack Hub によってストレージ IOPS (1 秒あたりの入力/出力操作) 制限が実装されます。
 - VM ディスクの場合、Azure Stack Hub 上のディスクの IOPS はディスクの種類ではなく VM サイズの関数です。 つまり、Standard_Fs シリーズの VM では、ディスクの種類として SSD と HDD のどちらを選択した場合でも、2 番目のデータ ディスクの IOPS 制限は 2,300 IOPS です。
+- VM にアタッチされた一時ディスクは永続的なものではなく、コントロール プレーンの操作 (サイズ変更や割り当て解除など) で失われることがあります。
 
 次の表は、Azure Stack Hub でサポートされている VM とその構成の一覧です。
 

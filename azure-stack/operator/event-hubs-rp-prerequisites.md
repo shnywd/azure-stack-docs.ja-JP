@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 1d03c4fab16920b3df367050030c88162d9f1002
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 515fa11758ef3e3c9a07cc47951450da65129970
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86490101"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074283"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub に Event Hubs をインストールするための前提条件
 
@@ -25,7 +25,7 @@ Azure Stack Hub に Event Hubs をインストールするには、次の前提�
 > これらの前提条件は、少なくとも 4 ノードの Azure Stack Hub 統合システムが既にデプロイされていることを前提としています。 Event Hubs リソース プロバイダーは、Azure Stack Development Kit (ASDK) ではサポートされていません。
 
 > [!IMPORTANT]
-> Event Hubs には、Azure Stack Hub 2002 ビルド バージョン以上が必要です。 Azure Stack Hub のビルドが増分であることに注意してください。 たとえば、[バージョン 1908](./release-notes.md?view=azs-1908#1908-build-reference) がインストールされている場合は、まず [1910](./release-notes.md?view=azs-1910#1910-build-reference) にアップグレードしてから、2002 にアップグレードする必要があります。 つまり、途中のビルドをスキップすることはできません。
+> Event Hubs には、Azure Stack Hub 2002 ビルド バージョン以上が必要です。 Azure Stack Hub のビルドが増分であることに注意してください。 たとえば、[バージョン 1910](./release-notes.md?view=azs-1910#1910-build-reference) がインストールされている場合は、まず [2002](./release-notes.md?view=azs-2002#2002-build-reference) にアップグレードしてから、2005 にアップグレードする必要があります。 つまり、途中のビルドをスキップすることはできません。
 
 ## <a name="common-prerequisites"></a>一般的な前提条件
 

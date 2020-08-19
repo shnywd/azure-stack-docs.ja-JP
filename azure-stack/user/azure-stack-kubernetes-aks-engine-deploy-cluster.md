@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: c687e704f1e8cb1d0e650dd0e283567a07d96fd2
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 38a362cdc29cac4f0862fe598d9ac29d5f60fd68
+ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566211"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87865151"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -123,7 +123,7 @@ Azure Stack Hub オペレーターに次のことを依頼します。
     | output-directory | kube-rg | 出力ファイル `apimodel.json` とその他の生成されたファイルを格納するディレクトリの名前を入力します。 |
     | client-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル GUID を入力します。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときにアプリケーション ID として識別されたクライアント ID。 |
     | client-secret | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サービス プリンシパル シークレットを入力します。 クライアント シークレットは、サービスの作成時に設定します。 |
-    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 詳細については、「[プランへのサブスクライブ](./azure-stack-subscribe-services.md#subscribe-to-an-offer)」を参照してください。 |
+    | subscription-id | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | サブスクリプション ID を入力します。 テナントのサブスクリプションを指定する必要があります。 管理サブスクリプションへのデプロイはサポートされません。  詳細については、「[プランへのサブスクライブ](./azure-stack-subscribe-services.md#subscribe-to-an-offer)」を参照してください。 |
 
     たとえば次のようになります。
 

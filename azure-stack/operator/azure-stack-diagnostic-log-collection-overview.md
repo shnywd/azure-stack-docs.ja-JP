@@ -3,41 +3,58 @@ title: Azure Stack Hub での診断ログの収集
 description: Azure Stack Hub の [ヘルプとサポート] における診断ログ収集について説明します。
 author: justinha
 ms.topic: article
-ms.date: 02/26/2020
+ms.date: 05/11/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: f7d9335e612387a780e002a2fe3d070436a10c5a
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 05/11/2020
+ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488979"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074241"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での診断ログの収集
 
-::: moniker range=">= azs-2002"
 
 Azure Stack Hub は、相互にやり取りする Windows コンポーネントとオンプレミスの Azure サービスからなる大規模なコレクションです。 これらのすべてのコンポーネントとサービスは、独自のログ セットを生成します。 Microsoft サポートが問題を効率的に診断できるように、診断ログ収集のシームレスなエクスペリエンスが提供されています。
 
 **[ヘルプとサポート]**   の診断ログ収集によって、オペレーターは診断ログを迅速に収集し、Microsoft サポートと共有できます。これは PowerShell を必要としない簡単なユーザー インターフェイスです。 他のインフラストラクチャ サービスが停止している場合でも、ログは収集されます。  
 
-このログ収集方法を使用し、管理者ポータルまたは **[ヘルプとサポート]** ブレードが使用できない場合のみ[特権エンドポイント (PEP) を使用する](azure-stack-get-azurestacklog.md)ことをお勧めします。
+[ヘルプとサポート] の診断ログ収集によって、オペレーターは診断ログを迅速に収集し、Microsoft カスタマー サポート サービス (CSS) と共有できます。これは PowerShell を必要としない簡単なユーザーインターフェイスです。 他のインフラストラクチャ サービスが停止している場合でも、ログは収集されます。  
+
+::: moniker range=">= azs-2002"
+
+このログ収集方法を使用し、管理者ポータルまたは [ヘルプとサポート] ブレードが使用できない場合のみ [特権エンドポイント (PEP)](azure-stack-get-azurestacklog.md) を使用することをお勧めします。 
 
 >[!NOTE]
->診断ログ収集を使用するには、Azure Stack Hub が登録済みで、インターネットに接続できる必要があります。 Azure Stack Hub が登録済みでない場合は、[特権エンドポイント (PEP) を使用](azure-stack-get-azurestacklog.md)してログを共有します。
+>診断ログ収集を使用するには、Azure Stack Hub が登録済みである必要があります。 Azure Stack Hub が登録されていない場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) を使用してログを共有してください。 
 
 ![Azure Stack Hub での診断ログ収集オプション](media/azure-stack-help-and-support/banner-enable-automatic-log-collection.png)
 
 ## <a name="collection-options-and-data-handling"></a>収集オプションとデータの処理
 
-診断ログ収集機能には、ログを送信するための 2 つのオプションが用意されています。 次の表では、各オプションと、各ケースでのデータの処理方法について説明します。
+::: moniker-end
+::: moniker range=">= azs-2005"
 
-### <a name="send-logs-proactively"></a>ログを事前に送信する
+Azure Stack Hub には、Azure との接続に応じて、診断ログを収集、保存したり、CSS に送信したりするための適切な方法が用意されています。 Azure Stack Hub が Azure に接続できる場合、**事前ログ収集**を有効にする方法が推奨されます。事前ログ収集では、重要なアラートが発生したときに、Microsoft が管理する Azure のストレージ BLOB に診断ログが自動的にアップロードされます。 または、 **[Send logs now]\(今すぐログを送信する\)** を使用してオンデマンドでログを収集することもできます。Azure Stack Hub が Azure から切断されている場合には、ログをローカルに保存することも可能です。 
+
+次のセクションでは、各オプションと、各ケースでのデータの処理方法について説明します。 
+
+::: moniker-end
+
+::: moniker range="= azs-2002"
+診断ログ収集機能には、ログを送信するための 2 つのオプションが用意されています。 次のセクションでは、各オプションと、各ケースでのデータの処理方法について説明します。 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
+
+## <a name="send-logs-proactively"></a>ログを事前に送信する
 
 [事前ログ収集](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)では、お客様がサポート ケースを開く前に Microsoft にログを送信できるように、診断ログの収集が合理化および簡素化されます。 診断ログは、分析のために Azure Stack Hub から事前にアップロードされます。 これらのログは、[システム正常性アラート](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002#proactive-diagnostic-log-collection-alerts)が発生した場合にのみ収集され、サポート ケースのコンテキストで Microsoft サポートによってのみアクセスされます。
 
-#### <a name="how-the-data-is-handled"></a>データの処理方法
+
+### <a name="how-the-data-is-handled"></a>データの処理方法
 
 お客様は、Azure Stack Hub のシステム正常性アラートのみに基づいて、Microsoft による定期的な自動ログ収集に同意します。 また、Microsoft によって管理および制御されている Azure ストレージ アカウントに、これらのログをアップロードして保持することを承認し、同意します。
 
@@ -47,23 +64,38 @@ Azure Stack Hub は、相互にやり取りする Windows コンポーネント�
 
 **事前ログ収集**を使用して収集されたログは、Microsoft によって管理および制御されている Azure ストレージ アカウントにアップロードされます。 これらのログは、サポート ケースのコンテキスト、および Azure Stack Hub の正常性を向上させるために、Microsoft によってアクセスされる場合があります。
 
-### <a name="send-logs-now"></a>今すぐログを送信する
+## <a name="send-logs-now"></a>今すぐログを送信する
 
 [[Send logs now]\(今すぐログを送信する\)](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) は、お客様が通常はサポートケースを開く前に収集を開始したときのみ、診断ログが Azure Stack Hub からアップロードされる手動オプションです。
 
 Azure Stack オペレーターは、管理者ポータルまたは PowerShell を使用し、Microsoft サポートに診断ログをオンデマンドで送信できます。 Azure Stack Hub が Azure に接続されている場合は、[管理者ポータルの [Send logs now]\(今すぐログを送信する\)](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002) の使用をお勧めします。これは、この方法がログを Microsoft に直接送信する最も簡単な方法であるためです。 ポータルが使用できない場合、オペレーターは代わりに [PowerShell を使用してログをすぐに送信する](./azure-stack-configure-on-demand-diagnostic-log-collection-powershell.md?view=azs-2002)必要があります。
 
-インターネットに接続していない場合、またはローカルでのみログを保存する場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) メソッドを使用してログを送信します。 次のフローチャートは、それぞれの場合に診断ログを送信するために使用するオプションを示しています。
+::: moniker-end
+::: moniker range="= azs-2002"
+インターネットに接続していない場合、またはローカルでのみログを保存する場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) メソッドを使用してログを送信します。 次のフローチャートは、それぞれの場合に診断ログを送信するために使用するオプションを示しています。 
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ![Microsoft にログを今すぐ送信する方法を示すフローチャート](media/azure-stack-help-and-support/send-logs-now-flowchart.png)
 
-#### <a name="how-the-data-is-handled"></a>データの処理方法
+### <a name="how-the-data-is-handled"></a>データの処理方法
 
 Azure Stack Hub から診断ログ収集を開始することで、これらのログをアップロードし、Microsoft によって管理および制御されている Azure ストレージア カウントに保持することを承認し、同意します。 Microsoft サポートは、ログ収集のために顧客とやり取りすることなく、サポート ケースを使用して、これらのログにすぐにアクセスできます。
 
-このデータはシステム正常性アラートをトラブルシューティングするためにのみ使用され、お客様の同意なしに、マーケティング、広告、その他の商業目的で使用されることはありません。 このデータは最大 90 日間保持でき、Microsoft が収集したすべてのデータは、[標準的なプライバシーに関する声明](https://privacy.microsoft.com/)に従って処理されます。
+::: moniker-end
 
-**[Send logs now]\(今すぐログを送信する\)** を使用して収集されたログは、Microsoft が管理および制御するストレージにアップロードされます。 これらのログは、Azure Stack Hub の正常性を向上させるために、サポート ケースのコンテキストで Microsoft によってアクセスされます。
+::: moniker range=">= azs-2005"
+
+## <a name="save-logs-locally"></a>ログをローカルに保存する
+
+Azure Stack Hub が Azure から切断されている場合、ログをローカル SMB 共有に保存できます。 **[設定]** ブレードでパスを入力し、共有への書き込みアクセス許可があるユーザー名とパスワードを入力します。 サポート ケース時に、それらのローカル ログを転送する方法についての詳細な手順が Microsoft CSS から提供されます。
+
+![診断ログ収集オプションのスクリーンショット](media/azure-stack-help-and-support/save-logs-locally.png)
+
+::: moniker-end
+
+::: moniker range=">= azs-2002"
 
 ## <a name="bandwidth-considerations"></a>帯域幅に関する考慮事項
 

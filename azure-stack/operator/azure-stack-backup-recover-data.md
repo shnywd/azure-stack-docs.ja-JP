@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 245951e86128fb71e6820f3b57bdf2723506d4bc
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78935053"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939579"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -52,10 +52,10 @@ Azure Stack Hub を保護する過程は、インフラストラクチャとア�
 Azure Stack Hub では、クラウド回復モードというタイプのデプロイがサポートされます。 このモードは、障害や製品のバグによってソリューションが回復不能になったときに Azure Stack Hub を復旧する場合にのみ、使用します。 このデプロイ モードでは、ソリューションに格納されているユーザー データは一切復旧されません。 この展開モードの範囲は、次のデータの復元に限定されます。
 
  - 展開の入力
- - 内部 ID サービス データ (ADFS デプロイ)
+ - 内部 ID サービス データ
  - フェデレーション ID の構成 (ADFS デプロイ)
  - 内部の証明機関によって使用されるルート証明書
- - Azure Resource Manager 構成のユーザー データ (例: サブスクリプション、プラン、オファー、ストレージ クォータ、ネットワーク クォータ、コンピューティング リソースなど)
+ - Azure Resource Manager 構成のユーザー データ (例: サブスクリプション、プラン、オファー、リソース グループ、タグ、ストレージ クォータ、ネットワーク クォータ、コンピューティング リソースなど)
  - Key Vault のシークレットと資格情報コンテナー
  - RBAC のポリシー割り当てとロール割り当て
 

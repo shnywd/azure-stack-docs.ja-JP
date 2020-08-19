@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 60ad202ef08d7afd72591640fa1d4d8beef0c476
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/06/2020
+ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
+ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488010"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87939532"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub での保存データの暗号化
 
@@ -35,14 +35,14 @@ BitLocker 回復キーを取得するには、[特権エンドポイント](azur
 
 ```powershell
 ##This cmdlet retrieves the recovery keys for all the volumes that are encrypted with BitLocker.
-Get-AzsRecoveryKeys
+Get-AzsRecoveryKeys -raw
 ```
 
-*Get-AzsRecoveryKeys* コマンドレットのオプション パラメーター:
+*Get-AzsRecoveryKeys* コマンドレットのパラメーター:
 
 | パラメーター | 説明 | 種類 | 必須 |
 |---------|---------|---------|---------|
-|*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるマッピングの生データを返します。  | Switch | × (サポート シナリオ用)|
+|*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるデータのマッピングを返します。  | Switch | いいえ (ただし推奨) |
 
 ## <a name="troubleshoot-issues"></a>問題のトラブルシューティング
 

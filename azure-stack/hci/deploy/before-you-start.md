@@ -4,24 +4,24 @@ description: Azure Stack HCI のデプロイを準備する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: defa210cded7f7911586a91e10d3d028d8624261
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 08/03/2020
+ms.openlocfilehash: fc12f638970e82c293a9143c398892a88049f6cd
+ms.sourcegitcommit: 952d26ad08fcc28ad3ad83e27644e61497623a44
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947114"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87889190"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI をデプロイする前に
 
-> 適用対象:Azure Stack HCI v20H2
+> 適用対象:Azure Stack HCI バージョン 20H2
 
 この攻略ガイドでは、以下の方法について説明します。
 
 - お使いのハードウェアが標準 (単一サイト) またはストレッチ (2 サイト) の Azure Stack HCI クラスターの基本要件を満たしているかどうかを判断する
 - サポートされている最大ハードウェア仕様を超えていないことを確認する
 - デプロイが成功するために必要な情報を収集する
-- 管理用 PC に Windows Admin Center をインストールする
+- 管理用 PC またはサーバーに Windows Admin Center をインストールする
 
 ## <a name="determine-hardware-requirements"></a>ハードウェア要件を判断する
 
@@ -41,7 +41,13 @@ Microsoft のパートナーから Azure Stack HCI ハードウェア/ソフト�
 
 ### <a name="networking-requirements"></a>ネットワーク要件
 
-Azure Stack HCI クラスターでは、各サーバー ノード間に信頼性が高く、高帯域幅で低待機時間のネットワーク接続が必要になります。 サーバー ノード間で行われる通信には、次のような複数の種類があります。
+Azure Stack HCI クラスターでは、各サーバー ノード間に信頼性が高く、高帯域幅で低待機時間のネットワーク接続が必要になります。 以下の項目について確認します。
+
+- クラスター管理専用に少なくとも 1 つのネットワーク アダプターが使用可能であることを確認します。
+- 使用するすべての VLAN 上のトラフィックを許可するようにネットワーク内の物理スイッチが構成されていることを確認します。
+
+
+サーバー ノード間で行われる通信には、次のような複数の種類があります。
 
 - クラスター通信 (ノードの結合、クラスターの更新、レジストリの更新)
 - クラスター ハートビート
@@ -163,10 +169,13 @@ Windows Admin Center で [クラスターの作成] ウィザードを使用し�
 - **静的 IP アドレス:** Azure Stack HCI では、記憶域およびワークロード (VM) トラフィックに静的 IP アドレスを使用する必要があります。DHCP を使用した動的 IP アドレスの割り当てはこの高速ネットワークではサポートされていません。 管理ネットワーク アダプターで DHCP を使用できます。ただし、チームで 2 つ使用している場合は DHCP を使用できず、静的 IP を使用する必要があります。 クラスター内の各サーバーに使用する IP アドレスについては、ネットワーク管理者にお問い合わせください。
 - **RDMA ネットワーク:** RDMA プロトコルには、iWarp と RoCE の2種類があります。 ネットワーク アダプターでどちらの種類が使用されているか確認し、RoCE の場合は、そのバージョン (v1 または v2) にも注意してください。 RoCE では、Top-of-Rack スイッチのモデルも確認してください。
 - **VLAN ID:** サーバーのネットワーク アダプターに使用する VLAN ID をメモしておきます (存在する場合)。 これは、ネットワーク管理者から入手できるはずです。
+- **サイト名:** ストレッチ クラスターの場合、ディザスター リカバリーに 2 つのサイトが使用されます。 サイトは、Active Directory Domain Services を使用して設定できるほか、クラスターの作成ウィザードで自動的に設定することもできます。 サイトの設定については、ドメイン管理者に問い合わせてください。 また、詳細については、「[Active Directory Domain Services の概要](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)」を参照してください。
 
 ## <a name="install-windows-admin-center"></a>Windows Admin Center をインストールする
 
-Windows Admin Center は、ローカルにデプロイされるブラウザーベースのアプリであり、Azure Stack HCI の管理に使用します。 [Windows Admin Center をインストールする](/windows-server/manage/windows-admin-center/deploy/install)方法として最も簡単なのはローカル管理 PC にインストールすることですが、サーバーにインストールすることもできます。
+Windows Admin Center は、ローカルにデプロイされるブラウザーベースのアプリであり、Azure Stack HCI の管理に使用します。 [Windows Admin Center をインストールする](/windows-server/manage/windows-admin-center/deploy/install)方法として最も簡単なのはローカル管理 PC にインストールすること (デスクトップ モード) ですが、サーバーにインストールすること (サービス モード) もできます。
+
+Windows Admin Center をサーバーにインストールする場合、CredSSP が必要なタスク (クラスター作成や更新プログラムのインストールなど) では、Windows Admin Center サーバー上のゲートウェイ管理者グループのメンバーであるアカウントを使用する必要があります。 詳細については、「[ユーザー アクセス制御とアクセス許可を構成する](/windows-server/manage/windows-admin-center/configure/user-access-control#gateway-access-role-definitions)」の最初の 2 つのセクションを参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub での事前診断ログの収集
 description: Azure Stack Hub のヘルプとサポートで事前診断ログ収集を構成する方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 04/17/2020
+ms.date: 06/16/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 04/17/2020
-ms.openlocfilehash: a348b2c301b7fbfbffe31f9ea5dff3fbb3e92b44
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 06/16/2020
+ms.openlocfilehash: fe1ae4c0c979d579df99b6e440d62dd16a9df2e9
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489336"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074164"
 ---
 # <a name="proactive-diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での事前診断ログの収集
 
@@ -21,6 +21,9 @@ ms.locfileid: "86489336"
 Azure Stack Hub でアラートが発生したときに診断ログを事前に収集することで、カスタマー サポートに要する時間を節約します。
 
 システム正常性状態を調査する必要がある場合、サポート ケースを開く前に Microsoft サポートにより分析のためにログを自動的にアップロードできます。
+
+>[!NOTE]
+>インターネットに接続していない場合、またはローカルでのみログを保存する場合は、[Get-AzureStackLog](azure-stack-get-azurestacklog.md) メソッドを使用してログを送信します。 
 
 ## <a name="steps-to-configure-proactive-log-collection"></a>事前ログ収集を構成する手順
 
@@ -118,6 +121,9 @@ Azure で新規または既存の BLOB コンテナーを使用できます。 A
 >自動ログ収集は、いつでも無効にして再度有効にすることができます。 SAS URL 構成は変更されません。 自動ログ収集を再び有効にすると、以前に入力した SAS URL で同じ検証チェックが実行され、期限切れの SAS URL が拒否されます。
 
 ::: moniker-end
+
+>[!NOTE]
+>ログの場所の設定がローカル ファイル共有に対して構成されている場合、共有ストレージがそのサイズ クォータに達するのを、ライフサイクル管理ポリシーが未然に防ぎます。 Azure Stack Hub は、ローカル ファイル共有を監視せず、アイテム保持ポリシーを強制することもしません。
 
 ## <a name="view-log-collection"></a>ログ収集の表示
 

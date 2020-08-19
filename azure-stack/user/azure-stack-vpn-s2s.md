@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: sethm
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 81608b62ad84a5b26028a80da40bc5a627b231f6
-ms.sourcegitcommit: 7447a9b9312cdae2f5fa13a700be84cd1ffdd456
+ms.openlocfilehash: 88013fbde291d05daa41adf0c65db563c867ff5a
+ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/14/2020
-ms.locfileid: "86302135"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88074300"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 
@@ -75,7 +75,7 @@ IPsec/IKE 標準プロトコルでは、幅広い暗号アルゴリズムがさ�
 | IKEv2 整合性                                      | SHA384、SHA256、SHA1、MD5                                                |
 | DH グループ                                             | ECP384、DHGroup14、DHGroup2、DHGroup1、ECP256 *、DHGroup24*             |
 | IPsec 暗号化                                     | GCMAES256、GCMAES192、GCMAES128、AES256、AES192、AES128、DES3、DES、なし |
-| IPsec 整合性                                      | GCMASE256、GCMAES192、GCMAES128                                          |
+| IPsec 整合性                                      | GCMAES256、GCMAES192、GCMAES128                                          |
 | PFS グループ                                            | PFS24、ECP384、ECP256、PFS2048、PFS2、PFS1、PFSMM、なし                  |
 | QM SA の有効期間                                       | (オプション: 指定されていない場合、既定値が使用されます)<br />                         秒 (整数: 最小 300/既定値 27,000 秒)<br />                         キロバイト数 (整数: 最小 1,024/既定値 102,400,000 キロバイト) |
 | トラフィック セレクター                                     | Azure Stack Hub ではポリシー ベースのトラフィック セレクターはサポートされていません。         |

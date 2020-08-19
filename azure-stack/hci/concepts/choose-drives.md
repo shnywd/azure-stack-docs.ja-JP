@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 56d9c2cf09d05de59700c70fd7851999db42265f
-ms.sourcegitcommit: aca1b05b570aa72bfe410c9cf7109f590526ed84
+ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115202"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997748"
 ---
 # <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
 
@@ -22,7 +22,7 @@ ms.locfileid: "87115202"
 
 記憶域スペース ダイレクトは現在、次の 4 種類のドライブで動作します。
 
-|||
+| ドライブの種類 | 説明 |
 |----------------------|--------------------------|
 |![PMem](media/choose-drives/pmem-100px.png)|**PMem** とは永続メモリを意味します。これは、低待機時間かつ高パフォーマンスの新しい種類の記憶域です。|
 |![NVMe](media/choose-drives/NVMe-100-px.png)|**NVMe** (Non-Volatile Memory Express) とは、PCIe バスに直接接続されたソリッドステート ドライブを指します。 一般的なフォーム ファクターは、2.5 インチU.2、PCIe Add-In-Card (AIC)、および M.2 です。 NVMe では、PMem を除いて、現在サポートされている他の種類のドライブよりも高い IOPS と IO スループットおよび低待機時間が実現します。|

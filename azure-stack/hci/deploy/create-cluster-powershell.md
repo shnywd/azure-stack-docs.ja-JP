@@ -3,15 +3,15 @@ title: Windows PowerShell を使用して Azure Stack HCI クラスターを作�
 description: Windows PowerShell を使用して Azure Stack HCI 用のハイパーコンバージド クラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 07/21/2020
+ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: ab2edb1dc5650a313ba84af89d0ff386e60f8264
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
+ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868152"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88110470"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Windows PowerShell を使用して Azure Stack HCI クラスターを作成する
 
@@ -29,6 +29,8 @@ ms.locfileid: "86868152"
 ストレッチ クラスターのシナリオでは、ClusterS1 を名前として使用し、サイト Site1 と Site2 にストレッチされた同じ 4 つのサーバー ノードを使用します。
 
 ストレッチ クラスターの詳細については、「[ストレッチ クラスターの概要](../concepts/stretched-clusters.md)」を参照してください。
+
+Azure Stack HCI のテストには興味があるものの、ハードウェアに限りがある、または予備のハードウェアがない場合には、[Azure Stack HCI の評価ガイド](https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md)をご覧ください。オンプレミスにある単一の物理システムまたは Azure で、入れ子になった仮想化を使用して Azure Stack HCI を体験することができます。
 
 ## <a name="before-you-begin"></a>開始する前に
 
@@ -58,7 +60,7 @@ PowerShell は、ホスト サーバー上の RDP セッションでローカル
 PowerShell を開き、接続先のサーバーの完全修飾ドメイン名または IP アドレスを使用します。 各サーバー (Server1、Server2、Server3、Server4) で次のコマンドを実行すると、パスワードの入力を求められます。
 
    ```powershell
-   Enter-PSSession -ComputerName Server1 -Credential Server1\Administrator
+   Enter-PSSession -ComputerName "Server1" -Credential "Server1\Administrator"
    ```
 
 同じことを行うもう 1 つの例を次に示します。
@@ -104,7 +106,7 @@ Add-LocalGroupMember -Group "Administrators" -Member "king@contoso.local"
 - BitLocker
 - データ センター ブリッジング (RoCEv2 ネットワーク アダプター用)
 - フェールオーバー クラスタリング
-- ファイル サーバー (ファイル共有監視またはファイル共有ホスト用)
+- ファイル サーバー
 - FS-Data-Deduplication モジュール
 - Hyper-V
 - RSAT-AD-PowerShell モジュール
@@ -113,7 +115,7 @@ Add-LocalGroupMember -Group "Administrators" -Member "king@contoso.local"
 各サーバーに対して次のコマンドを使用します。
 
 ```powershell
-Install-WindowsFeature -ComputerName Server1 -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering  -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 クラスター内のすべてのサーバーでコマンドを同時に実行するには、次のスクリプトを使用して、最初に環境に合わせて変数の一覧を変更します。
@@ -121,11 +123,11 @@ Install-WindowsFeature -ComputerName Server1 -Name "BitLocker", "Data-Center-Bri
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
-    Install-WindowsFeature -Name $Using:Featurelist
+    Install-WindowsFeature -Name $Using:Featurelist -IncludeAllSubFeature -IncludeManagementTools
 }
 ```
 次に、すべてのサーバーを再起動します。
@@ -137,7 +139,7 @@ Restart-Computer -ComputerName $ServerList
 
 ## <a name="step-2-configure-networking"></a>手順 2:ネットワークを構成する
 
-この手順では、事前に環境に対して RDMA と他のネットワークを既に設定してあるものとします。
+この手順では、環境内の各種ネットワーク要素の構成を行います。
 
 ### <a name="disable-unused-networks"></a>未使用のネットワークを無効にする
 
@@ -155,7 +157,7 @@ Get-NetAdapter -CimSession $Servers | Where-Object Status -eq Disconnected | Dis
 
 ### <a name="assign-virtual-network-adapters"></a>仮想ネットワーク アダプターを割り当てる
 
-次に、例のように、管理用および残りのトラフィック用の仮想ネットワーク アダプター (vNIC) を割り当てます。
+次に、以下の例のように、管理用および残りのトラフィック用の仮想ネットワーク アダプター (vNIC) を割り当てます。 クラスター管理用のネットワーク アダプターを少なくとも 1 つ構成する必要があります。
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -174,7 +176,9 @@ Get-VMNetworkAdapter -CimSession $Servers -ManagementOS
 
 ### <a name="create-virtual-switches"></a>仮想スイッチを作成する
 
-クラスター内の各サーバー ノードには、仮想スイッチが必要です。 次の例では、接続されているネットワーク アダプター (状態がアップ) を使用して、SR-IOV 機能を備えた仮想スイッチが作成されます。 SR-IOV は RDMA 対応の vmNIC (VM 用の vNIC) に必要なので、有効にすると役に立つ場合があります。
+クラスター内の各サーバー ノードには、仮想スイッチが必要です。 次の例では、接続されているネットワーク アダプター (状態がアップ) を使用して、SR-IOV 機能を備えた仮想スイッチが作成されます。 また、SR-IOV は RDMA 対応の vmNIC (VM 用の vNIC) に必要なので、有効にすると役に立つ場合があります。
+
+複数の NIC をチーミングするには、すべてのネットワーク アダプターが同一である必要があります。
 
 ```powershell
 $Servers = "Server1", "Server2", "Server3", "Server4"
@@ -325,7 +329,7 @@ Invoke-Command ($ServerList) {
 この手順では、サーバー ノードがクラスター作成用に正しく構成されていることを確認します。 `Test-Cluster` コマンドレットを使用してテストを実行し、構成がハイパーコンバージド クラスターとして機能するのに適していることを確認します。 次の例では、`-Include` パラメーターを使用して、特定のカテゴリのテストを指定しています。 これにより、正しいテストが検証に含まれるようになります。
 
 ```powershell
-Test-Cluster -Cluster –Node Server1, Server2, Server3, Server4 –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
+Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
 ```
 
 ## <a name="step-4-create-the-cluster"></a>手順 4:クラスターを作成する
@@ -338,13 +342,14 @@ Test-Cluster -Cluster –Node Server1, Server2, Server3, Server4 –Include "Sto
 > サーバーで静的 IP アドレスが使用されている場合は、次のコマンドを変更し、パラメーター `–StaticAddress <X.X.X.X>;` を追加して IP アドレスを指定することにより、静的 IP アドレスを反映させます。
 
 ```powershell
- New-Cluster –Name Cluster1 –Node Server1, Server2, Server3, Server4 –NoStorage
+ New-Cluster –Name "Cluster1" –Node "Server1", "Server2", "Server3", "Server4" –NoStorage
 ```
 
 これでクラスターが作成されました。
 
-> [!NOTE]
-> クラスターが作成された後、クラスター名がレプリケートされるまで時間がかかることがあります。 クラスターの解決が成功しない場合は、通常、クラスター名ではなく、クラスター内のサーバー ノードのコンピューター名に置き換えることができます。
+クラスターが作成された後、ドメイン全体にクラスター名がレプリケートされるまで時間がかかることがあります。特に、Active Directory にワークグループ サーバーが新たに追加されている場合は時間がかかります。 Windows Admin Center にクラスターが表示される場合がありますが、まだ接続することはできません。
+
+しばらくしてもクラスターの解決が成功しない場合は、クラスター名ではなく、いずれかのクラスター化サーバーの名前を使用することでほとんどの場合、接続できます。
 
 ## <a name="step-5-set-up-sites-stretched-cluster"></a>手順 5:サイトをセットアップする (ストレッチ クラスター)
 
@@ -352,20 +357,20 @@ Test-Cluster -Cluster –Node Server1, Server2, Server3, Server4 –Include "Sto
 
 ### <a name="step-51-create-sites"></a>手順 5.1:サイトを作成する
 
-次のコマンドレットで、*FaultDomain* は単にサイトの別の名前です。 この例では、ストレッチ クラスターの名前として `ClusterS1` を使用します。
+次のコマンドレットで、*FaultDomain* は単にサイトの別の名前です。 この例では、ストレッチ クラスターの名前として "ClusterS1" を使用します。
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site1
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site1"
 ```
 
 ```powershell
-New-ClusterFaultDomain -CimSession ClusterS1 -Type Site -Name Site2
+New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site2"
 ```
 
 `Get-ClusterFaultDomain` コマンドレットを使用して、両方のサイトがクラスター用に作成されていることを確認します。
 
 ```powershell
-Get-ClusterFaultDomain
+New-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-52-assign-server-nodes"></a>手順 5.2:サーバー ノードを割り当てる
@@ -373,17 +378,17 @@ Get-ClusterFaultDomain
 次に、4 つのサーバー ノードをそれぞれのサイトに割り当てます。 次の例では、Server1 と Server2 を Site1 に割り当て、Server3 と Server4 を Site2 に割り当てます。
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server1, Server2 -Parent Site1
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server1", "Server2" -Parent "Site1"
 ```
 
 ```powershell
-Set-ClusterFaultDomain -CimSession ClusterS1 -Name Server3, Server4 -Parent Site2
+Set-ClusterFaultDomain -CimSession "ClusterS1" -Name "Server3", "Server4" -Parent "Site2"
 ```
 
 `Get-ClusterFaultDomain` コマンドレットを使用して、ノードが正しいサイトにあることを確認します。
 
 ```powershell
-Get-ClusterFaultDomain -CimSession ClusterS1
+Get-ClusterFaultDomain -CimSession "ClusterS1"
 ```
 
 ### <a name="step-53-set-a-preferred-site"></a>手順 5.3: 優先サイトを設定する
@@ -391,7 +396,7 @@ Get-ClusterFaultDomain -CimSession ClusterS1
 また、グローバルな "*優先*" サイトを定義することもできます。これは、指定したリソースとグループを優先サイトで実行する必要があることを意味します。  この設定は、次のコマンドを使用してサイト レベルで定義できます。  
 
 ```powershell
-(Get-Cluster).PreferredSite = Site1
+(Get-Cluster).PreferredSite = "Site1"
 ```
 
 ストレッチ クラスターに対して優先サイトを指定すると、次のような利点があります。
@@ -431,20 +436,20 @@ Get-ClusterFaultDomain -CimSession ClusterS1
 次のコマンドを実行すると、記憶域スペース ダイレクトが有効になります。 次に示すように、記憶域プールのフレンドリ名を指定することもできます。
 
 ```powershell
-New-CimSession -Cluster Cluster1 | Enable-ClusterStorageSpacesDirect -PoolFriendlyName 'Cluster1 Storage Pool'
+$session = New-CimSession -Cluster "Cluster1" | Enable-ClusterStorageSpacesDirect -PoolFriendlyName "Cluster1 Storage Pool"
 ```
 
 記憶域プールを表示するには、以下を使用します。
 
 ```powershell
-Get-StoragePool -Cluster Cluster1
+Get-StoragePool -CimSession $session
 ```
 
 これで、必要最小限のクラスターが作成されました。
 
 ## <a name="after-you-create-the-cluster"></a>クラスターを作成した後
 
-これで終わりですが、クラスターを完全に機能させるには、いくつかの重要なタスクを行う必要があります。
+これで終わりですが、まだ、いくつかの重要なタスクを行う必要があります。
 
 - クラスター監視をセットアップします。 「[クラスター監視のセットアップ](witness.md)」を参照してください。
 - ボリュームを作成します。 [ボリュームの作成](../manage/create-volumes.md)に関する記事を参照してください。

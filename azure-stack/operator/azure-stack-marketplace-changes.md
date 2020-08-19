@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 7bb7baf25b2f3eb6799e1ffca834c818c3bcb667
-ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
+ms.openlocfilehash: f876ebf99169d4c73fa4b437ae60844ea99e94d4
+ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810781"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87997723"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -53,6 +53,12 @@ ms.locfileid: "87810781"
 
 ## <a name="deprecated-marketplace-items"></a>非推奨の Marketplace 項目
 
+- Bitnami Shopware
+- SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Standard
+- 無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Developer
+- 無料のライセンス:SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Express
+- SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Enterprise
+- SUSE Linux Enterprise Server (SLES) 12 SP2 の SQL Server 2017 Web
 - Bitnami Codiad
 - Bitnami X2Engine Sales CRM
 - Bitnami SugarCRM
