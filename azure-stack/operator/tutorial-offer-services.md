@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/16/2019
 ms.reviewer: shriramnat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 772871cffa3d5394d1d8b939fa22ae91bc90d4ac
-ms.sourcegitcommit: bdd4d529bd3e115a9f76eece62b1613448d5d020
+ms.openlocfilehash: e0c152f3c541b3bc2dad042ae88f162b539cec60
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "80423904"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564804"
 ---
 # <a name="create-a-service-offering-for-users-in-azure-stack-hub"></a>Azure Stack Hub でユーザー用にサービス オファリングを作成する
 
@@ -133,7 +133,7 @@ Azure Stack Hub では、リソース プロバイダーに 2 つの一般的な
 1. クラウド管理者アカウントを使用して管理者ポータルにサインインします。
 
     - 統合システムの場合、URL はオペレーターのリージョンと外部ドメイン名によって異なり、`https://adminportal.<region>.<FQDN>` という形式です。
-    - Azure Stack Development Kit を使用している場合は、URL は <https://adminportal.local.azurestack.external> です。
+    - Azure Stack Development Kit を使用している場合は、URL は `https://adminportal.local.azurestack.external` です。
 
     続いて、 **[+ リソースの作成]** > **[オファー + プラン]** > **[オファー]** を選択します。
 

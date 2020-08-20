@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: fe06aca2423f5347193490798427446c684b6703
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566976"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564770"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric クラスターを Azure Stack Hub にデプロイする
 
@@ -188,7 +188,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 1. Service Fabric Explorer の URL とクライアント接続のエンドポイントを見つけるには、Template deployment の結果を確認します。
 
-1. ブラウザーで <https://*FQDN*:19080> に移動します。 *FQDN* の部分は、手順 2. で調べた実際の Service Fabric クラスターの FQDN に置き換えてください。   
+1. ブラウザーで `https://*FQDN*:19080` に移動します。 *FQDN* の部分は、手順 2. で調べた実際の Service Fabric クラスターの FQDN に置き換えてください。   
    自己署名証明書を使用した場合は、接続が安全ではないことを示す警告が表示されます。 Web サイトに進むには、 **[詳細情報]** 、 **[Web ページへ移動]** の順に選択します。 
 
 1. サイトに対する認証を行うには、使用する証明書を選択する必要があります。 **[More choices]\(その他の選択肢\)** を選択して適切な証明書を選び、 **[OK]** をクリックして Service Fabric Explorer に接続します。 

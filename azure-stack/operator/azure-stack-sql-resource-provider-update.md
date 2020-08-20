@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub SQL リソース プロバイダーの更新方法について説明します。
 author: bryanla
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 5f714d5ae2a73a026268a9585cab17ffee14f25b
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: dcc3a0f66d0e1ced8ae534e6eee99f4ef7f01250
+ms.sourcegitcommit: eb9ec6bab69543c63d6e51b37387cc80ecb7be87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410625"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612301"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
 
@@ -116,10 +116,9 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
-  -AzureEnvironment $AzureEnvironment ` 
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert 
-
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 リソース プロバイダーの更新スクリプトが終了したら、現在の PowerShell セッションを終了します。

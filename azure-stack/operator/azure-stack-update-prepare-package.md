@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: ef2813c34bd089ef1bb429ba704e02faa06005be
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: e0ad221764e116bb2b5f73601da3ac6917681ff0
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949629"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564787"
 ---
 # <a name="prepare-an-azure-stack-hub-update-package"></a>Azure Stack Hub 更新プログラム パッケージを準備する
 
@@ -45,7 +45,7 @@ ms.locfileid: "86949629"
 
 ### <a name="automatic-download-and-preparation-for-update-packages"></a>更新プログラム パッケージの自動ダウンロードと準備
 
-Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント**  (<https://*.azureedge.net> および <https://aka.ms/azurestackautomaticupdate>) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack Hub へのファイアウォールの統合](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページで説明されている**修正プログラムと更新**エンドポイントを参照してください。
+Azure Stack Hub のソフトウェア更新プログラムと修正プログラムは、**Azure Stack Hub 自動更新エンドポイント**  (`https://*.azureedge.net` および `https://aka.ms/azurestackautomaticupdate`) に接続するシステムに対して自動的に準備されます。 **Azure Stack Hub 自動更新エンドポイント**への接続の設定の詳細については、[Azure Stack Hub へのファイアウォールの統合](./azure-stack-integrate-endpoints.md#ports-and-urls-outbound)に関するページで説明されている**修正プログラムと更新**エンドポイントを参照してください。
 
 ### <a name="where-to-download-azure-stack-hub-update-packages"></a>Azure Stack Hub 更新プログラム パッケージをダウンロードする場所
 

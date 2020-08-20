@@ -3,16 +3,16 @@ title: Azure Stack Hub の MySQL リソース プロバイダーを更新する
 description: Azure Stack Hub の Azure Stack Hub MySQL リソース プロバイダーを更新する方法について説明します。
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 909927d82953cb21c8665afcb45c82131675c2e4
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.openlocfilehash: 3e508523230fa1beb072652d86f5cb6a07adb835
+ms.sourcegitcommit: eb9ec6bab69543c63d6e51b37387cc80ecb7be87
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410578"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88612284"
 ---
 # <a name="update-the-mysql-resource-provider-in-azure-stack-hub"></a>Azure Stack Hub の MySQL リソース プロバイダーを更新する
 
@@ -109,14 +109,14 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 # Change directory to the folder where you extracted the installation files.
 # Then adjust the endpoints.
-.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
--VMLocalCredential $vmLocalAdminCreds ` 
--CloudAdminCredential $cloudAdminCreds ` 
--PrivilegedEndpoint $privilegedEndpoint ` 
--AzureEnvironment $AzureEnvironment ` 
--DefaultSSLCertificatePassword $PfxPass ` 
--DependencyFilesLocalPath $tempDir\cert ` 
--AcceptLicense 
+.$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+-VMLocalCredential $vmLocalAdminCreds `
+-CloudAdminCredential $cloudAdminCreds `
+-PrivilegedEndpoint $privilegedEndpoint `
+-AzureEnvironment $AzureEnvironment `
+-DefaultSSLCertificatePassword $PfxPass `
+-DependencyFilesLocalPath $tempDir\cert `
+-AcceptLicense
 ```  
 
 リソース プロバイダーの更新スクリプトが終了したら、現在の PowerShell セッションを終了します。
