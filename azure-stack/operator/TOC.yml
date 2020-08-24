@@ -88,9 +88,10 @@
               href: azure-stack-validate-adfs.md
             - name: Graph 統合の検証
               href: azure-stack-validate-graph.md
-        - name: Azure Stack Hub のデプロイの PKI 要件
-          href: azure-stack-pki-certs.md
+        - name: PKI の要件とプロセス
           items:
+            - name: PKI 証明書の要件
+              href: azure-stack-pki-certs.md
             - name: PKI 証明書の生成
               href: azure-stack-get-pki-certs.md
             - name: Azure Stack Hub PKI 証明書の準備
@@ -452,8 +453,6 @@
           href: azure-stack-backup-reference.md
     - name: サポートを受ける
       items:
-        - name: オペレーター アクセス ワークステーション
-          href: operator-access-workstation.md
         - name: '[ヘルプとサポート] ポータル'
           items:
             - name: 概要
