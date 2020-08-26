@@ -7,12 +7,12 @@ ms.date: 07/09/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/09/2020
-ms.openlocfilehash: b21738b7e7083a582413993f45312379fedb6085
-ms.sourcegitcommit: ecec5eece56136d950e1c61c5115000ca87477ea
+ms.openlocfilehash: a33c732309d2b74ef341f248a7e89dcbd35a4221
+ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86236345"
+ms.lasthandoff: 08/17/2020
+ms.locfileid: "88501043"
 ---
 # <a name="known-issues-vms-on-azure-stack-hub"></a>既知の問題:Azure Stack Hub 上の VM
 

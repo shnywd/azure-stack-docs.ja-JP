@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 72bebdc5933f09aef58de25627d8b627d7987bdb
-ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.openlocfilehash: 8cb772d76b4bfd01a7e0c260c6ff3d20bdec3e0a
+ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170423"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512480"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -43,7 +43,7 @@ VM のスケールの上限に達すると、結果として次のエラー コ�
 
 ## <a name="consideration-for-batch-deployment-of-vms"></a>VM のバッチ デプロイに関する考慮事項
 
-2002 以前のリリースでは、700 のスケールに到達するまで確実に VM をデプロイしようとすると、5 分間のバッチ間隔ではバッチあたり 2 から 5 の VM しかデプロイできませんでした。 Azure Stack Hub の2005 バージョンでは、バッチ デプロイの間に 5 分間の間隔を空けた場合、バッチ サイズ 50 で VM を確実にプロビジョニングすることができます。
+2002 以前のリリースでは、700 のスケールに到達するまで確実に VM をデプロイしようとすると、5 分間のバッチ間隔ではバッチあたり 2 から 5 の VM しかデプロイできませんでした。 Azure Stack Hub の 2005 バージョンでは、バッチ デプロイの間に 5 分間の間隔を空けた場合、バッチ サイズ 40 で VM を確実にプロビジョニングすることができます。
 
 ## <a name="considerations-for-deallocation"></a>割り当て解除に関する考慮事項
 

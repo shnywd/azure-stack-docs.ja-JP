@@ -8,23 +8,23 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: ec859cfc977c5596f44bf349c765c68873ea7430
-ms.sourcegitcommit: 17ef9f9119f5fea9782adeefb9a430e6a3a650e6
+ms.openlocfilehash: 33bdc3fa38edace2656d86eec20b12917020cac1
+ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88170355"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88512378"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
 *適用対象:Azure Stack 統合システム*
 
-この記事では、Azure Stack Hub のマルチノード システムでサポートされているグラフィックス処理装置 (GPU) のモデルについて説明します。 また、GPU で使用されるドライバーのインストール手順についてもご確認いただけます。 Azure Stack Hub で GPU がサポートされることにより、人工知能、トレーニング、推論、データ視覚化などのソリューションが可能になります。 AMD Radeon Instinct Mi25 を使用することで、グラフィックを多用するアプリケーション (Autodesk AutoCAD など) をサポートできます。
+この記事では、Azure Stack Hub のマルチノード システムでサポートされているグラフィックス処理装置 (GPU) のモデルについて説明します。 また、GPU で使用されるドライバーのインストール手順についてもご確認いただけます。 Azure Stack Hub で GPU がサポートされることにより、人工知能、トレーニング、推論、データ視覚化などのソリューションが可能になります。 AMD Radeon Instinct MI25 を使用することで、グラフィックを多用するアプリケーション (Autodesk AutoCAD など) をサポートできます。
 
-パブリック プレビュー期間中は、3 つの GPU モデルから選択できます。 NVIDIA V100、NVIDIA T4、AMD Mi25 の各 GPU で利用できます。 これらの物理 GPU は、次のように、Azure N-Series の仮想マシン (VM) の種類に対応しています。
+パブリック プレビュー期間中は、3 つの GPU モデルから選択できます。 NVIDIA V100、NVIDIA T4、AMD MI25 の各 GPU で利用できます。 これらの物理 GPU は、次のように、Azure N-Series の仮想マシン (VM) の種類に対応しています。
 - [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD Mi25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
-- NCas_T4_v3
+- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- NCas_v4
 
 > [!IMPORTANT]  
 > Azure Stack Hub での GPU のサポートは、現在パブリック プレビュー段階にあります。 プレビューに参加するには、[aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) にあるフォームにご記入ください。
@@ -42,23 +42,23 @@ NCv3 シリーズ VM は NVIDIA Tesla V100 GPU を備えています。 貯留�
 
 ## <a name="nvv4"></a>NVv4
 
-NVv4 シリーズの仮想マシンには [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU が搭載されています。 NVv4 シリーズでは、Azure Stack Hub に、部分的な GPU を備えた仮想マシンが導入されています。 このサイズは、GPU アクセラレータによるグラフィックス アプリケーションと仮想デスクトップに使用できます。 NVv4 仮想マシンでは現在、Windows ゲスト オペレーティング システムのみがサポートされています。 
+NVv4 シリーズの仮想マシンには [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-MI25) GPU が搭載されています。 NVv4 シリーズでは、Azure Stack Hub に、部分的な GPU を備えた仮想マシンが導入されています。 このサイズは、GPU アクセラレータによるグラフィックス アプリケーションと仮想デスクトップに使用できます。 NVv4 仮想マシンでは現在、Windows ゲスト オペレーティング システムのみがサポートされています。 
 
 | サイズ | vCPU | メモリ:GiB | 一時ストレージ (SSD) GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_t4_v3"></a>NCas_T4_v3
+## <a name="ncas_v4"></a>NCas_v4
 
-この新しい NVIDIA T4 VM サイズを使用すると、比較的低負荷の ML、推論、および視覚化のワークロードを Azure Stack Hub で実行できます。 現在、この VM サイズはポータルからはデプロイできません。代わりに、PowerShell または CLI を使用する必要があります。
+この新しい NVIDIA T4 VM サイズを使用すると、比較的低負荷の ML、推論、および視覚化のワークロードを Azure Stack Hub で実行できます。 現在、この VM サイズはポータルからはデプロイ "*できません*"。代わりに、PowerShell または CLI を使用する必要があります。
 
 
 | サイズ | vCPU | メモリ:GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_T4_v3 |4 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_T4_v3 |4 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_T4_v3 |4 |448 | 4 | 64 | 32 | 8 | 
+| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_v4 |4 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_v4 |4 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_v4 |4 |448 | 4 | 64 | 32 | 8 | 
 
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>修正プログラム、更新プログラムの適用時、および FRU の際の VM の動作 
@@ -72,8 +72,8 @@ GPU VM では、修正プログラムと更新プログラム (PnU) の適用時
 
 ## <a name="guest-driver-installation"></a>ゲスト ドライバーのインストール 
 
-### <a name="amd-mi25"></a>AMD Mi25
-「[Windows を実行している N シリーズ VM に AMD GPU ドライバーをインストールする](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)」の記事では、NVv4 GPU-P 対応の VM 内に AMD Radeon Instinct Mi25 のドライバーをインストールする手順と、ドライバーのインストールを検証する手順について説明しています。 この拡張機能は接続モードでのみ動作します。
+### <a name="amd-mi25"></a>AMD MI25
+「[Windows を実行している N シリーズ VM に AMD GPU ドライバーをインストールする](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)」の記事では、NVv4 GPU-P 対応の VM 内に AMD Radeon Instinct MI25 のドライバーをインストールする手順と、ドライバーのインストールを検証する手順について説明しています。 この拡張機能は接続モードでのみ動作します。
 
 ### <a name="nvidia"></a>NVIDIA
 

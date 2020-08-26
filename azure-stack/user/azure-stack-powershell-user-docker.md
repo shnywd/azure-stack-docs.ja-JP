@@ -3,16 +3,16 @@ title: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 description: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 author: mattbriggs
 ms.topic: how-to
-ms.date: 7/20/2020
+ms.date: 8/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 7/20/2020
-ms.openlocfilehash: e3efdd0e218ae82cfcea14b20f4b172e5cc87f32
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.lastreviewed: 8/17/2020
+ms.openlocfilehash: e803641b9d63a8b1136f720ce51eb5f7ca79c6e7
+ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397347"
+ms.lasthandoff: 08/18/2020
+ms.locfileid: "88564753"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Docker を使用して Azure Stack Hub に対して PowerShell を実行する
 
@@ -65,7 +65,13 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
 4. イメージがビルドされたら、次を入力して、対話型コンテナーを開始します。
 
     ```bash  
-        docker run -it azure-stack-powershell powershell
+    docker run -it azure-stack-powershell powershell
+    ```
+
+    コンテナー名を書き留めます。 毎回新しいコンテナーを作成するのではなく、次の Docker コマンドを使用して同じコンテナーを使用できます。
+
+    ```bash  
+        docker exec -it "Container name" powershell
     ```
 
 5. コマンドレットに対するシェルの準備が整いました。
@@ -82,7 +88,8 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
     ```powershell
     $passwd = ConvertTo-SecureString <Secret> -AsPlainText -Force
     $pscredential = New-Object System.Management.Automation.PSCredential('<ApplicationID>', $passwd)
-    Connect-AzureRmAccount -ServicePrincipal -Credential $pscredential -TenantId <TenantID>
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint <Your Azure Resource Manager endoint>
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" -TenantId <TenantID> -ServicePrincipal -Credential $pscredential
     ```
 
    PowerShell からアカウント オブジェクトが返されます。
