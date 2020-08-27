@@ -3,16 +3,16 @@ title: Azure CLI を使用して Azure Stack Hub を管理する
 description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack Hub でリソースを管理およびデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/10/2019
-ms.openlocfilehash: bb43fc0503e05e09dc121597027179b8b0a276b5
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 1fb17516e5ef0b4e3a670703a34e1e895c847b52
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566438"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818846"
 ---
 # <a name="manage-and-deploy-resources-to-azure-stack-hub-with-azure-cli"></a>Azure CLI を使用した Azure Stack Hub へのリソースの管理とデプロイ
 

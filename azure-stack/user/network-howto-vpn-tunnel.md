@@ -3,16 +3,16 @@ title: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方�
 description: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: ccfab1377a21c9de1df46c9695d10e4afab84dea
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 4ea38352ca26c94c02f588a786122e51494fadc2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661496"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920850"
 ---
 # <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 
@@ -69,7 +69,7 @@ ms.locfileid: "81661496"
 
 次に示すように、**WebTier** と同じプロセスを使用できますが、パラメーターは異なります。
 
-> [!Note]  
+> [!NOTE]  
 > AppTier のアドレス空間は **10.20.0.0/16** なので、リソース グループの場所は **WestUS2** であることがわかります。
 
 ![](./media/azure-stack-network-howto-vpn-tunnel/image6.png)
@@ -144,7 +144,7 @@ ms.locfileid: "81661496"
 
 2.  リポジトリから `Add-Site2SiteIKE.ps1` スクリプトをコピーしてローカルで実行すると、スクリプトによって **WindowsFeature** と **RemoteAccess** がインストールされます。
 
-    > [!Note]
+    > [!NOTE]
     > 環境によっては、システムの再起動が必要になる場合があります。
 
     詳細については、オンプレミスのマシンのネットワーク構成を参照してください。
@@ -193,10 +193,10 @@ ms.locfileid: "81661496"
 
     ![](./media/azure-stack-network-howto-vpn-tunnel/image23.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > 1 台目のマシンから 2 台目へ、および 2 台目から 1 台目の両方で RDP をテストできます。
 
-    > [!Note]  
+    > [!NOTE]  
     > このソリューションをオンプレミスで実装するには、Azure Stack Hub リモート ネットワークへのルートをスイッチング インフラストラクチャに、または少なくとも特定の VM にデプロイする必要があります。
 
 ### <a name="deploying-a-gre-tunnel"></a>GRE トンネルのデプロイ

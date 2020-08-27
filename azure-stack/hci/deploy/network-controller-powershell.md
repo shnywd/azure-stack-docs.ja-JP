@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 52934023bab0a223a8ed99acd161a90b17581fe7
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: 6405b774cf27e8c48b9200d401174eaa5e292584
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513359"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818319"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Windows PowerShell を使用してネットワーク コントローラーを展開する
 
@@ -215,4 +215,4 @@ Install-NetworkController -Node @($a,$b,$c) -ClientAuthentication Kerberos -Clie
 
 ## <a name="next-steps"></a>次のステップ
 
-ネットワーク コントローラーの展開で Kerberos を使用していない場合は、証明書を展開する必要があります。 詳細については、「[ネットワーク コントローラーの展開後の手順](/technologies/network-controller/post-deploy-steps-nc.md)」を参照してください。
+ネットワーク コントローラーの展開で Kerberos を使用していない場合は、証明書を展開する必要があります。 詳細については、「[ネットワーク コントローラーの展開後の手順](https://docs.microsoft.com/windows-server/networking/sdn/technologies/network-controller/post-deploy-steps-nc)」を参照してください。

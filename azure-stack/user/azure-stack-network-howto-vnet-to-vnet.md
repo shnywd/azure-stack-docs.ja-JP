@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 98c4b4d333a33dc018682e638cec821c8b8ee416
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 729a57d8069f4260fbf68dd31dc0160dbb9d2c8d
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631305"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920391"
 ---
 # <a name="connect-two-vnets-through-peering"></a>ピアリングを通じて 2 つの VNET を接続する
 
@@ -68,7 +68,7 @@ ms.locfileid: "84631305"
 | パブリック IP アドレス名 | Forti2-publicip1 |
 | パブリック IP アドレスの種類 | 静的 |
 
-> [!Note]
+> [!NOTE]
 > \* 上記が何らかの形 (いずれかの Azure Stack Hub の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。
 
 ## <a name="deploy-the-fortigate-ngfw"></a>FortiGate NGFW をデプロイする
@@ -186,7 +186,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 16. **[Pre-shared Key]\(事前共有キー\)** を選択し、事前共有キーを入力 (および記録) します。 
 
-    > [!Note]  
+    > [!NOTE]  
     > このキーは、オンプレミスの VPN デバイスで接続を設定するために必要であるため、"*正確に*" 一致する必要があります。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)

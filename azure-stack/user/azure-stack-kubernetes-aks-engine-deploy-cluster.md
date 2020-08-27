@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 38a362cdc29cac4f0862fe598d9ac29d5f60fd68
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: e791f05f76831e9448c4eba796ca8a12d631b9cd
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865151"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920000"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -32,7 +32,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     curl -o kubernetes-azurestack.json https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > 切断されている場合は、ファイルをダウンロードして、編集する予定の切断されたマシンに手動でコピーすることができます。 [PuTTY や WinSCP](https://www.suse.com/documentation/opensuse103/opensuse103_startup/data/sec_filetrans_winssh.html) などのツールを使用して、ファイルを Linux マシンにコピーできます。
 
 2.  API モデルをエディターで開くには、nano を使用できます。
@@ -41,7 +41,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
     nano ./kubernetes-azurestack.json
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > nano がインストールされていない場合は、Ubuntu で nano をインストールできます: `sudo apt-get install nano`。
 
 3.  kubernetes-azurestack.json ファイルで、orchestratorRelease と orchestratorVersion を見つけます。 サポートされている Kubernetes バージョンのいずれかを選択します。 たとえば、`orchestratorRelease` には 1.14 または 1.15 を使用し、`orchestratorVersion` にはそれぞれ 1.14.7 または 1.15.10 を使用します。 `orchestratorRelease` を x.xx、orchestratorVersion を x.xx.x と指定します。 最新バージョンの一覧については、「[サポートされている AKS エンジンのバージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください
@@ -57,7 +57,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
         },
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > ID システムに Azure AD を使用している場合は、**identitySystem** フィールドを追加する必要はありません。
 
 6. `portalURL` を見つけ、テナント ポータルへの URL を指定します。 たとえば、「 `https://portal.local.azurestack.external` 」のように入力します。
@@ -91,7 +91,7 @@ AKS エンジンを実行しているクライアント VM から Azure Stack Hu
 
     カスタム仮想ネットワークにデプロイする場合、API モデルの適切な配列に必要なキーと値を見つけて追加する手順は、[カスタム仮想ネットワークへの Kubernetes クラスターのデプロイ](kubernetes-aks-engine-custom-vnet.md)に関する記事で確認できます。
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure Stack Hub 用の AKS エンジンでは、クラスターを作成するための独自の証明書の提供は許可されません。
 
 ### <a name="more-information-about-the-api-model"></a>API モデルに関する詳細情報

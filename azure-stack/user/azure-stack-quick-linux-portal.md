@@ -3,16 +3,16 @@ title: Azure Stack Hub を使用して Linux VM を作成する
 description: Azure Stack Hub を使用して Linux サーバー VM を作成します。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: 5a9d6902d317af76145dde564cef56ac2f42dce8
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 0d75607eb111762fc49e6e3ccbef05353a5fab5f
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631269"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920663"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成する
 
@@ -79,7 +79,7 @@ Azure Stack Hub ポータルのアドレスは、接続している Azure Stack 
 
 1. VM 情報を入力します。 [認証の種類] で **[SSH 公開キー]** を選択し、保存した SSH 公開キーを貼り付け、 **[OK]** を選択します。
 
-    > [!Note]  
+    > [!NOTE]  
     > キーの先頭または末尾の空白を必ず削除してください。
 
    ![認証](media/azure-stack-quick-linux-portal/image3.png)

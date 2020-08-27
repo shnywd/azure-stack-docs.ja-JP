@@ -7,12 +7,12 @@ ms.date: 7/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: d642f01ca55fc18b832a04328be835703dfb5dd2
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397551"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920170"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Windows 仮想マシンを実行する
 
@@ -91,7 +91,7 @@ VM を [Azure Security Center](/azure/security-center/quick-onboard-azure-stack)
 
 **アクセスの制御**。 [ロールベースのアクセス制御 (RBAC)](/azure/active-directory/role-based-access-control-what-is) を使用して、Azure リソースへのアクセスを制御します。 RBAC を使用すると、DevOps チームのメンバーに承認の役割を割り当てることができます。 たとえば、閲覧者の役割では、Azure リソースを表示することはできますが、作成、削除、または管理することはできません。 一部のアクセス許可は、Azure リソースの種類に固有です。 たとえば、仮想マシンの共同作業者ロールは VM を再起動または割り当て解除したり、管理者パスワードをリセットしたり、新しい VM を作成したりできます。 このアーキテクチャで役立つ可能性のあるその他の[組み込みの RBAC ロール](/azure/active-directory/role-based-access-built-in-roles)には、[DevTest Labs ユーザー](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user)や[ネットワークの共同作業者](/azure/active-directory/role-based-access-built-in-roles#network-contributor)が含まれます。
 
-> [!Note]  
+> [!NOTE]  
 > RBAC では、VM にログインしているユーザーが実行できる操作は制限されません。 これらのアクセス許可は、ゲスト OS のアカウントの種類によって決まります。
 
 **監査ログ**。 プロビジョニング操作や他の VM イベントを確認するには、[アクティビティ ログ](./azure-stack-metrics-azure-data.md?#activity-log)を使用します。

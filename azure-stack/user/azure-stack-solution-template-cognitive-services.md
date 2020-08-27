@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 217dc3a46d277aa8abf57379224dcad0fca4d983
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566755"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920629"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Azure Cognitive Services を Azure Stack Hub にデプロイする
 
@@ -75,7 +75,7 @@ Face、LUIS、またはテキスト認識コンテナーをプレビューする
 
 1. Azure portal で Azure リソースを作成します。 Face コンテナーをプレビューする場合、まず Azure portal で対応する Face リソースを作成する必要があります。 詳細については、「[クイック スタート: Azure portal で Cognitive Services アカウントを作成する](/azure/cognitive-services/cognitive-services-apis-create-account)」を参照してください。
 
-   > [!Note]
+   > [!NOTE]
    >  Face または Computer Vision リソースでは、F0 価格レベルを使用する必要があります。
 
 2. Azure リソースのエンドポイント URL とサブスクリプション キーを取得します。 Azure リソースを作成したら、そのリソースからのサブスクリプション キーとエンドポイント URL を使用して、対応する Face、LUIS、またはテキスト認識コンテナーをプレビュー用にインスタンス化します。

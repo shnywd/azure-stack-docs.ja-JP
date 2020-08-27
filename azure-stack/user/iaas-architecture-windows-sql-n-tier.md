@@ -3,16 +3,16 @@ title: SQL Server を使用した Azure Stack Hub の Windows N 層アプリケ�
 description: SQL Server を使用して Azure Stack Hub で Windows N 層アプリケーションを実行する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 722c6dbc5d806e9d37817e5f9279e3e51a0ddc14
-ms.sourcegitcommit: 635c8c69d90b7e941659d54141d9f1c58f51cf45
+ms.openlocfilehash: f719ec7404e19d5e32f87e6fb9bfd5e41146abb0
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87477592"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920068"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 
@@ -114,7 +114,7 @@ SQL Server Always On 可用性グループを構成する手順は、次のと�
 
 4.  SQL Server リスニング ポート (既定ではTCP ポート 1433) に対するロード バランサーのルールを作成します。 ロード バランサーのルールでは *Floating IP* (Direct Server Return とも呼ばれます) を有効にする必要があります。 これにより VM が直接クライアントに応答でき、プライマリ レプリカへの直接接続が可能になります。
 
-> [!Note]
+> [!NOTE]
 > Floating IP が有効になっている場合は、フロントエンド ポート番号を、ロード バランサーのルール内のバックエンド ポート番号と同じにする必要があります。
 
 SQL クライアントが接続を試みると、ロード バランサーがプライマリ レプリカに接続要求をルーティングします。 別のレプリカへのフェールオーバーが発生した場合は、ロード バランサーは新しい要求を自動的に新しいプライマリ レプリカにルーティングします。 詳細については、[SQL Server Always On 可用性グループの ILB リスナーの構成](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener)に関するページを参照してください。

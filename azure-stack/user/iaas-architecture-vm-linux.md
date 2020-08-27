@@ -3,16 +3,16 @@ title: Azure Stack Hub で Linux 仮想マシンを実行する
 description: Azure Stack Hub で Linux 仮想マシンを実行する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: d7284e454b93db28dd47323342fb01e42c51c014
-ms.sourcegitcommit: 9be88793533d21b756718af9a82349760c4abd52
+ms.openlocfilehash: 949bc2a89d485057d92e5c805fa63a7972ac1fb0
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87523494"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920289"
 ---
 # <a name="run-a-linux-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Linux 仮想マシンを実行する
 
@@ -100,7 +100,7 @@ VM を [Azure Security Center](/azure/security-center/quick-onboard-azure-stack)
 
 **アクセスの制御**。 [ロールベースのアクセス制御 (RBAC)](/azure/active-directory/role-based-access-control-what-is) を使用して、Azure リソースへのアクセスを制御します。 RBAC を使用すると、DevOps チームのメンバーに承認の役割を割り当てることができます。 たとえば、閲覧者の役割では、Azure リソースを表示することはできますが、作成、削除、または管理することはできません。 一部のアクセス許可は、Azure リソースの種類に固有です。 たとえば、仮想マシンの共同作業者ロールは VM を再起動または割り当て解除したり、管理者パスワードをリセットしたり、新しい VM を作成したりできます。 このアーキテクチャで役立つ可能性のあるその他の[組み込みの RBAC ロール](/azure/active-directory/role-based-access-built-in-roles)には、[DevTest Labs ユーザー](/azure/active-directory/role-based-access-built-in-roles#devtest-labs-user)や[ネットワークの共同作業者](/azure/active-directory/role-based-access-built-in-roles#network-contributor)が含まれます。
 
-> [!Note]  
+> [!NOTE]  
 > RBAC では、VM にログインしているユーザーが実行できる操作は制限されません。 これらのアクセス許可は、ゲスト OS のアカウントの種類によって決まります。
 
 **監査ログ**。 プロビジョニング操作や他の VM イベントを確認するには、[アクティビティ ログ](./azure-stack-metrics-azure-data.md?#activity-log)を使用します。

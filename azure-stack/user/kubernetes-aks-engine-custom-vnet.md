@@ -7,12 +7,12 @@ ms.date: 08/05/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 08/05/2020
-ms.openlocfilehash: f6fca607f9e963fc2c007c27ebed05cecdf2e35a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: 0b13c0e1655fe9df0cf030872fe8f545219394ba
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865228"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920085"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする 
 
@@ -135,11 +135,11 @@ API モデルに値を追加した後、AKS エンジンを使用して、`deplo
 3. 検索ボックスに仮想ネットワークの名前を入力します。
 4. **[サブネット]** を選択し、クラスターを含むサブネットの名前を選択します。
     
-    ![ルート テーブルとネットワーク セキュリティ グループ](media/kubernetes-aks-engine-custom-vnet/virtual-network-rt-nsg.png)
+    ![ルート テーブルとネットワーク セキュリティ グループ](media/kubernetes-aks-engine-custom-vnet/virtual-network-route-table.png)
     
 5. **[ルート テーブル]** を選択し、クラスターのルート テーブルを選択します。
 
-> [!Note]  
+> [!NOTE]  
 > Kubernetes Windows クラスターのカスタム仮想ネットワークには [既知の問題](https://github.com/Azure/aks-engine/issues/371)があります。
 
 ## <a name="next-steps"></a>次のステップ

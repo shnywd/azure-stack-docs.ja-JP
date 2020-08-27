@@ -3,16 +3,16 @@ title: Azure Stack Hub 上に基本パターンをデプロイする
 description: Azure Stack Hub で基本パターンをデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: d3450c78c3dc0632d5230d65bcd176b5067be852
-ms.sourcegitcommit: 2a144c367a17eb1f8db58dd7bf1c820520182015
+ms.openlocfilehash: df603935dc192894dcb96837dc92fa4bc88f239e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85835077"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818404"
 ---
 # <a name="deploy-foundational-patterns-overview"></a>基本パターンのデプロイの概要
 

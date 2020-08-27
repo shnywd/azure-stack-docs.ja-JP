@@ -7,12 +7,12 @@ ms.date: 06/19/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 37ae031199c0e547e635fc0473d833dc94865523
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 278db618c4628c27241ab1b364a355272a3a3e1b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566041"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920867"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンの前提条件を設定する
 
@@ -46,7 +46,7 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 | 秘密/公開キー | 開発用マシンから、ご自分の Web アプリをホストする Azure Stack Hub インスタンス内のサーバー VM へのオープン SSH 接続を使用するには、SSH (Secure Shell) 公開キーと秘密キーのペアを作成する必要があります。 | 必須 | キーを生成する手順については、[SSH キーの生成](./azure-stack-dev-start-howto-ssh-public-key.md)に関するページを参照してください。|
 
 
-> [!Note]  
+> [!NOTE]  
 > [Azure Stack Hub 用の Azure CLI](./azure-stack-version-profiles-azurecli2.md) または [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) で AKS エンジンを使用するための前提条件を作成することもできます。
 
 ## <a name="matching-engine-to-base-image-version"></a>エンジンと基本イメージバージョンの照合

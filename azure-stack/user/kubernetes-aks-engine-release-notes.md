@@ -7,12 +7,12 @@ ms.date: 06/29/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/25/2020
-ms.openlocfilehash: ff396f6123109b00e693f2f88a5bac244cb2ec7b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 2764bd986cec4b5355c7fd6e9340ef3a1b6c8ce2
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567689"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920017"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -217,7 +217,7 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
     - `"orchestratorVersion": "1.15.10"`
 
-    > [!Note]  
+    > [!NOTE]  
     > API モデルの json ファイルで Kubernetes のバージョンが明示的に指定されていない場合は、バージョン `1.15` が使用され ([\#2932](https://github.com/Azure/aks-engine/issues/2932))、orchestratorVersion は既定で ` 1.15.11` になります。クラスターのデプロイ中は、この結果がエラーになります。
 
 -   aks-engine v0.43.1 では、受信要求の Azure Stack Hub Resource Manager しきい値制限がある場合、クラウド プロバイダーがその制御ループや他のタスクを実行するための既定の頻度設定は適切に機能しません。 この更新により Azure Stack Hub の既定値が変更され、Azure Stack Hub Resource Manager への再試行の負荷が軽減されます ([\#2861](https://github.com/Azure/aks-engine/issues/2861))。

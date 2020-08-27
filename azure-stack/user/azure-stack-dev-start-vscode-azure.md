@@ -3,16 +3,16 @@ title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure
 description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続します
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 768b93c2ef2d984fcc75f6893be6260a1c4fbb1c
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661051"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920612"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
@@ -20,7 +20,7 @@ ms.locfileid: "81661051"
 
 VS Code は、Web とクラウドのアプリケーションのビルドとデバッグを行うための軽量エディターです。 ASP.NET Core、Python、NodeJS、Go などの開発者が VS Code を使用しています。 Azure Account 拡張機能を利用すると、追加の Azure 拡張機能に対するサブスクリプション フィルターと Azure シングル サインインを使用することができます。 この拡張機能により、VS Code 統合ターミナル内で Azure Cloud Shell を使用できるようになります。 この拡張機能を使用すると、ID マネージャーとして Azure AD (Azure AD) と Active Directory フェデレーション サービス (AD FS) の両方を使用して、Azure Stack Hub サブスクリプションに接続できます。 Azure Stack Hub にサインインし、お使いのサブスクリプションを選択して、Cloud Shell で新しいコマンド ラインを開くことができます。 
 
-> [!Note]  
+> [!NOTE]  
 > この記事の手順は、Active Directory フェデレーション サービス (AD FS) 環境に使用できます。 AD FS の資格情報とエンドポイントを使用します。
 
 ## <a name="pre-requisites-for-the-azure-account-extension"></a>Azure Account 拡張機能の前提条件

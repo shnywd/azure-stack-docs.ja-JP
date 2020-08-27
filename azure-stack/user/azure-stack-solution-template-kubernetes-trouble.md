@@ -4,19 +4,19 @@ description: Kubernetes の Azure Stack Hub へのデプロイのトラブルシ
 author: mattbriggs
 ms.topic: article
 ms.author: mabrigg
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.reviewer: waltero
 ms.lastreviewed: 11/14/2019
-ms.openlocfilehash: 8342d8eccca348771630777ed212c18111f88bda
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 9a88b6ff0e759c38ad62e6455cbee25eaa9be9eb
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566721"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920765"
 ---
 # <a name="troubleshoot-kubernetes-deployment-to-azure-stack-hub"></a>Kubernetes の Azure Stack Hub へのデプロイのトラブルシューティング
 
-> [!Note]  
+> [!NOTE]  
 > Kubernetes Azure Stack Hub Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack Hub でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 この記事では、Kubernetes クラスターのトラブルシューティングを行う方法を確認します。 トラブルシューティングを開始するには、デプロイに必要な要素を確認します。 場合によっては、Azure Stack Hub または Kubernetes をホストする Linux VM からデプロイ ログを収集する必要があります。 管理エンドポイントからログを取得するには、Azure Stack Hub 管理者にお問い合わせください。
@@ -155,7 +155,7 @@ Azure Stack Hub の管理に使用するマシンには Bash プロンプトが�
 
     また、ログ コレクター スクリプトは、ログ ファイルでエラーを検索し、既知の問題を検出した場合はトラブルシューティング手順を含めます。 既知の問題が検出される可能性を高めるために、最新バージョンのスクリプトを実行してください。
 
-> [!Note]  
+> [!NOTE]  
 > ログ コレクター スクリプトの詳細を確認するには、 こちらの GitHub [リポジトリ](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) を参照してください。
 
 ## <a name="next-steps"></a>次のステップ

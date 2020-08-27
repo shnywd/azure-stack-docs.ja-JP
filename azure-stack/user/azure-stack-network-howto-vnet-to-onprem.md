@@ -3,16 +3,16 @@ title: Azure Stack Hub の VPN ゲートウェイを設定する
 description: Azure Stack Hub の VPN ゲートウェイを設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9b7086f63e22ede89ae0ed21be1aec8453532de6
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: a2ec06ef5e01fa2614a2e54af03162a5b4dddbdf
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567452"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920799"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
@@ -22,14 +22,14 @@ ms.locfileid: "86567452"
 
 -  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
-    > [!Note]  
+    > [!NOTE]  
     > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
 
 -  Azure Stack Hub 統合システムをホストするオンプレミス ネットワーク内の VPN デバイスへのアクセス。 デバイスでは、「[デプロイに使用されるパラメーター](#deployment-parameters)」で説明されているパラメーターを満たす IPSec トンネルを作成する必要があります。
 
 -  Azure Stack Hub Marketplace でネットワーク仮想アプライアンス (NVA) ソリューションが利用できること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
 
-    > [!Note]  
+    > [!NOTE]  
     > お使いの Azure Stack Hub Marketplace で **Fortinet FortiGate-VM For Azure BYOL** と **FortiGate NGFW - Single VM Deployment (BYOL)** が利用できない場合は、担当のクラウド オペレーターにお問い合わせください。
 
 -  FortiGate NVA をアクティブにするには、有効な FortiGate ライセンス ファイルが 1 つ以上必要です。 これらのライセンスを取得する方法については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
@@ -58,7 +58,7 @@ ms.locfileid: "86567452"
 | パブリック IP アドレス名 | forti1-publicip1 |
 | パブリック IP アドレスの種類 | 静的 |
 
-> [!Note]
+> [!NOTE]
 > \* `172.16.0.0/16` がオンプレミス ネットワークや Azure Stack Hub VIP プールと重複する場合は、異なるアドレス空間とサブネット プレフィックスを選択してください。
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>FortiGate NGFW Marketplace 項目をデプロイする
@@ -176,7 +176,7 @@ NVA をアクティブにしたら、NVA で IPSec VPN トンネルを作成し�
 
 16. **[Pre-shared Key]\(事前共有キー\)** を選択し、事前共有キーを入力 (および記録) します。 
 
-    > [!Note]  
+    > [!NOTE]  
     > このキーは、オンプレミスの VPN デバイスで接続を設定するために必要であるため、"*正確に*" 一致する必要があります。
 
     ![](./media/azure-stack-network-howto-vnet-to-onprem/image17.png)

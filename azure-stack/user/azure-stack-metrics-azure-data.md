@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: bd8a7ee4082f446c9d175a9b3b69fa0e5a460b24
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567418"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920782"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor を使用する
 
@@ -23,7 +23,7 @@ Azure Monitor の概要については、[Azure Stack Hub 上の Azure Monitor �
 
 Azure Monitor は、Azure リソースを監視するための 1 つのソースを提供するプラットフォーム サービスです。 Azure Monitor では、Azure のリソースのメトリックとログを視覚化、クエリ、ルーティング、アーカイブし、そのメトリックとログに対してその他のアクションを実行できます。 このデータは、Azure Stack Hub 管理者ポータル、Monitor PowerShell コマンドレット、クロス プラットフォーム CLI、または Azure Monitor REST API を使用して操作できます。 Azure Stack Hub でサポートされている特定の接続については、「[Azure Stack Hub の監視データの使用](azure-stack-metrics-monitor.md)」を参照してください。
 
-> [!Note]
+> [!NOTE]
 > Azure Stack Development Kit では、メトリックと診断ログを使用できません。
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor の前提条件
@@ -62,7 +62,7 @@ Azure Stack Hub 上の **Microsoft.Compute** リソース プロバイダーに�
  - クラッシュ ダンプ
  - カスタム エラー ログ
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack Hub 上の Linux 診断拡張機能はサポートされていません。
 
 ### <a name="host-and-guest-vm-metrics"></a>ホスト VM とゲスト VM のメトリック

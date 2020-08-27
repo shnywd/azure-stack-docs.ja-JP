@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: e6dcf70f32289498b4d9adcaaeb371806f3a2370
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 7580fed2c9b330e190b184cfc6a1fd02ad73caa8
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567435"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920816"
 ---
 # <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する
 
@@ -24,7 +24,7 @@ ms.locfileid: "86567435"
 
 -  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
-    > [!Note]  
+    > [!NOTE]  
     > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
 
 -  ネットワーク仮想アプライアンス (NVA) ソリューションがダウンロードされ、Azure Stack Hub Marketplace に発行されていること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
@@ -73,7 +73,7 @@ ms.locfileid: "86567435"
 | パブリック IP アドレス名 | Forti2-publicip1 |
 | パブリック IP アドレスの種類 | 静的 |
 
-> [!Note]
+> [!NOTE]
 > \* 上記が何らかの形 (いずれかの Azure Stack Hub の VIP プールなど) でオンプレミス ネットワーク環境と重複する場合は、別のセットのアドレス空間とサブネット プレフィックスを選択してください。 また、アドレス範囲が互いに重複していないことを確認してください。**
 
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>FortiGate NGFW Marketplace 項目をデプロイする
@@ -204,7 +204,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 16. **[Pre-shared Key]\(事前共有キー\)** を選択し、事前共有キーを入力 (および記録) します。 
 
-    > [!Note]  
+    > [!NOTE]  
     > このキーは、オンプレミスの VPN デバイスで接続を設定するために必要であるため、"*正確に*" 一致する必要があります。
 
     ![](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)

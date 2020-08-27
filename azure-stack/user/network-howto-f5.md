@@ -3,16 +3,16 @@ title: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする�
 description: 2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: cfbd828923c7653da0f0bfd86ee74703897996c7
-ms.sourcegitcommit: 32834e69ef7a804c873fd1de4377d4fa3cc60fb6
+ms.openlocfilehash: 29f23f30fd154da33e4a39ab306a4edd9d921b9b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81661441"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920204"
 ---
 # <a name="how-to-deploy-f5-across-two-azure-stack-hub-instances"></a>2 つの Azure Stack Hub インスタンスに F5 をデプロイする方法
 
@@ -62,7 +62,7 @@ Azure Stack Hub インスタンス A とインスタンス B にデプロイし�
 
     ![](./media/network-howto-f5/image4.png)
 
-    > [!Note]  
+    > [!NOTE]  
     > 各 BIG-IP のデプロイには約 20 分かかります。
 
 ## <a name="configure-big-ip-appliances"></a>BIG-IP アプライアンスを構成する
@@ -90,7 +90,7 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
 1. BIG-IP にサインインし、DNS 同期グループを作成します。 手順については、「[BIG-IP DNS 同期グループの作成](https://f5-dns-automation-demo-12-1-x.readthedocs.io/en/latest/lab2/sync-group.html)」を参照してください。
 
-    > [!Note]  
+    > [!NOTE]  
     > BIP-IP アプライアンスのローカル IP アドレスは、**F5-GSLB** リソース グループにあります。 ネットワーク インターフェイスは "f5stack1-ext" であり、(アクセスに応じて) パブリック IP アドレスまたはプライベート IP アドレスに接続します。
 
     ![](./media/network-howto-f5/image5.png)
@@ -113,7 +113,7 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
 4. Azure Stack Hub 環境内に基本的な Web アプリケーション ワークロードをデプロイし、BIG-IP の内側の負荷を分散します。 NGNIX サーバーを使用する例については、「[NGINX と NGINX Plus を Docker にデプロイする](https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-docker/)」を参照してください。
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure Stack Hub A と Azure Stack Hub B の両方に NGNIX のインスタンスをデプロイします。
 
 5. 各 Azure Stack Hub インスタンス内の Ubuntu VM 上 Docker コンテナーに NGINX をデプロイした後、サーバー上の既定の Web ページに接続できることを確認します。
@@ -143,7 +143,7 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
     | 名前 | NGINX_Pool |
     | Health Monitor (正常性モニター) | HTTPS |
     | Node Name (ノード名) | NGINX |
-    | Address | \<お使いの NGINX プライベート IP アドレス> |
+    | Address | \<your NGINX private IP address> |
     | Service Port (サービス ポート) | 443 |
 
 11. **[完了]** を選択します。 正しく構成すると、プールの状態が緑になります。
@@ -152,7 +152,7 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
     次に、仮想サーバーを構成する必要があります。 そのためには、まず、F5 BIG-IP のプライベート IP アドレスを確認する必要があります。
 
-12. BIG-IP コンソールで、 **[Network]\(ネットワーク\) > [Self IPs]\(セルフ IP\)** に移動し、IP アドレスを記録します。
+12. BIG-IP コンソールで、**[Network]\(ネットワーク\) > [Self IPs]\(セルフ IP\)** に移動し、IP アドレスを記録します。
 
     ![](./media/network-howto-f5/image13.png)
 
@@ -161,7 +161,7 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
     | Key | 値 |
     | --- | --- |
     |名前 | NGINX |
-    |Destination Address (宛先アドレス) | \<BIG-IP のセルフ IP アドレス> |
+    |Destination Address (宛先アドレス) | \<Self IP address of the BIG-IP> |
     |Service Port (サービス ポート) | 443 |
     |SSL Profile (Client) (SSL プロファイル (クライアント)) | clientssl |
     |Source Address Translation (ソース アドレス変換) | Auto Map (自動マップ) |
@@ -176,9 +176,9 @@ Azure Stack Hub A と B の両方で、次の手順に従う必要がありま�
 
     ![](./media/network-howto-f5/image16.png)
 
-16. 次に、 **[Statistics]\(統計\) > [Module Statistics]\(モジュールの統計\) > [Local Traffic]\(ローカル トラフィック\)** に移動し、仮想サーバーの統計情報を調べて、トラフィック フローを確認します。
+16. 次に、**[Statistics]\(統計\) > [Module Statistics]\(モジュールの統計\) > [Local Traffic]\(ローカル トラフィック\)** に移動し、仮想サーバーの統計情報を調べて、トラフィック フローを確認します。
 
-17. **[Statistics Type]\(統計の種類\)** で、 **[Virtual Servers]\(仮想サーバー\)** を選択します。
+17. **[Statistics Type]\(統計の種類\)** で、**[Virtual Servers]\(仮想サーバー\)** を選択します。
 
     ![](./media/network-howto-f5/image17.png)
 

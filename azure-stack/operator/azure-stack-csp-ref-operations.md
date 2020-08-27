@@ -3,16 +3,16 @@ title: Azure Stack Hub に使用状況の追跡のためのテナントを登録
 description: Azure Stack Hub でのテナントの登録方法とテナントの使用状況の追跡方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: 89ef1d91ae2c6cb41a26bed04cb87abf33da1650
-ms.sourcegitcommit: 804f94f288859027b8249d138b14e8bc1501e009
+ms.openlocfilehash: ac318c1352963a7ee0fb873adaae4b30fa58949b
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84158369"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857515"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 

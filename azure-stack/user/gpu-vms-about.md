@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 33bdc3fa38edace2656d86eec20b12917020cac1
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: d5782aa1513d9e16bc461e93fe919a06cd7fc422
+ms.sourcegitcommit: 9be6adfe859ba0a09951a5a1a876928cb38dd595
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512378"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88706117"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
@@ -56,9 +56,9 @@ NVv4 シリーズの仮想マシンには [AMD Radeon Instinct MI25](https://www
 | サイズ | vCPU | メモリ:GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_v4 |4 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_v4 |4 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_v4 |4 |448 | 4 | 64 | 32 | 8 | 
+| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
 
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>修正プログラム、更新プログラムの適用時、および FRU の際の VM の動作 

@@ -7,16 +7,16 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: b454d6b91a99ecebc512de4a20e5e230af8bf47f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566823"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920493"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
-> [!Note]   
+> [!NOTE]   
 > Kubernetes Azure Stack Marketplace 項目のみを使用して、概念実証としてクラスターをデプロイします。 Azure Stack でサポートされている Kubernetes クラスターの場合は、[AKS エンジン](azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 Kubernetes には、基本的な管理操作に使用できる Web ダッシュボードが含まれています。 このダッシュボードでは、アプリケーションの基本的な正常性状態とメトリックの表示、サービスの作成とデプロイ、既存のアプリケーションの編集を行うことができます。 この記事では、Azure Stack Hub 上で Kubernetes ダッシュボードを設定する方法について説明します。

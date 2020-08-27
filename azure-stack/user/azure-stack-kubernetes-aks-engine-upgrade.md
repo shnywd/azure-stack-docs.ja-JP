@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes クラスターをアップグレードす
 description: Azure Stack Hub で Kubernetes クラスターをアップグレードする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 4/23/2020
+ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: dc89c8939f7a0ad988586df3fe0e33a02c2f7c79
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567554"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920697"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
 
@@ -42,7 +42,7 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 
 ## <a name="steps-to-upgrade-to-a-newer-kubernetes-version"></a>新しい Kubernetes バージョンにアップグレードする手順
 
-> [!Note]  
+> [!NOTE]  
 > さらに新しいバージョンの aks-engine を使用していて、マーケットプレースでイメージを入手できる場合は、AKS 基本イメージもアップグレードされます。
 
 次の手順では、最小限の手順でアップグレードを実行します。 詳細については、「[Kubernetes クラスターのアップグレード](https://github.com/Azure/aks-engine/blob/master/docs/topics/upgrade.md)」の記事 を参照してください。

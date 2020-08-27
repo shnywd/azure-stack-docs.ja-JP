@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 58706a248036d38027208518177a89c69922591a
-ms.sourcegitcommit: db3c9179916a36be78b43a8a47e1fd414aed3c2e
+ms.openlocfilehash: 7ac497c75eb3a18dbade85e41ed5a5d214b5dd2c
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84146837"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920748"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Ruby Web アプリをデプロイする
 
@@ -65,7 +65,7 @@ Azure Stack Hub でご自分の Ruby Web アプリをホストする VM を作�
     sudo gem install bundler
     ```
 
-    > [!Note]  
+    > [!NOTE]  
     > Ruby on Rails の依存関係のインストール時に、`sudo gem install bundler` を繰り返し実行する必要がある場合があります。 インストールに失敗した場合は、エラー ログを確認して、問題を解決してください。
 
 4. インストールを検証します。 SSH セッション内でご自分の VM に接続したままで、次のコマンドを入力します。
