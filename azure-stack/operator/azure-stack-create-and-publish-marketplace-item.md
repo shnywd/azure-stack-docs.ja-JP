@@ -3,16 +3,16 @@ title: Azure Stack Hub で Marketplace 項目を作成して発行する
 description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/11/2020
+ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 16ea5f5873e7904931fb05d6113c0b6cb74f9612
-ms.sourcegitcommit: bc246d59f4ad42cc2cc997884f9d52c5097f0964
+ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85069128"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764547"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -22,10 +22,14 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 
 この記事の例では、Windows または Linux の種類で単一の VM Marketplace オファーを作成する方法について説明します。
 
-## <a name="create-a-marketplace-item"></a>Marketplace アイテムの作成
+### <a name="prerequisites"></a>前提条件
 
-> [!IMPORTANT]
-> VM Marketplace アイテムを作成する前に、[VM イメージの Azure Stack Hub への追加](azure-stack-add-vm-image.md)に関するページの手順に従って、カスタム VM イメージを Azure Stack Hub ポータルにアップロードします。 その後、この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Hub の Marketplace にアップロードします。
+VM Marketplace アイテムを作成する前に、次の手順を実行します。
+
+1. [VM イメージの Azure Stack Hub への追加](azure-stack-add-vm-image.md)に関するページの手順に従って、カスタム VM イメージを Azure Stack Hub ポータルにアップロードします。 
+2. この記事の手順に従ってイメージをパッケージ化し (.azpkg を作成)、それを Azure Stack Hub の Marketplace にアップロードします。
+
+## <a name="create-a-marketplace-item"></a>Marketplace アイテムの作成
 
 カスタム Marketplace アイテムを作成するには、次の手順のようにします。
 
@@ -46,6 +50,8 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
    > [!NOTE]  
    > プロダクト キー、パスワード、お客様を特定できる情報などの機密情報を Azure Resource Manager テンプレートにハード コーディングしないでください。 テンプレート JSON ファイルは、ギャラリーで公開されると、認証の必要なくアクセスできます。 機密情報はすべて [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) に格納し、テンプレート内から呼び出してください。
 
+   独自のカスタム テンプレートを発行する前に、サンプルをそのまま発行して、環境内で動作することを確認することをお勧めします。 この手順が正常に実行されたことを確認したら、ギャラリーからサンプルを削除し、結果に満足できるまで反復的な変更を行います。
+
    次のテンプレートは、Manifest.json ファイルのサンプルです。
 
     ```json
@@ -61,29 +67,19 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
        "longSummary": "ms-resource:longSummary",
        "description": "ms-resource:description",
        "longDescription": "ms-resource:description",
-       "uiDefinition": {
-          "path": "UIDefinition.json" (7)
-          },
        "links": [
         { "displayName": "ms-resource:documentationLink", "uri": "http://go.microsoft.com/fwlink/?LinkId=532898" }
         ],
        "artifacts": [
           {
-             "name": "<Template name>",
-             "type": "Template",
-             "path": "DeploymentTemplates\\<Template name>.json", (8)
              "isDefault": true
           }
        ],
-       "categories":[ (9)
-          "Custom",
-          "<Template name>"
-          ],
        "images": [{
           "context": "ibiza",
           "items": [{
              "id": "small",
-             "path": "icons\\Small.png", (10)
+             "path": "icons\\Small.png", (7)
              "type": "icon"
              },
              {
@@ -113,10 +109,7 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
     - (4) – 顧客に表示される名前。
     - (5) – 顧客に表示される発行元の名前。
     - (6) – 発行元の正式な名前。
-    - (7) – **UIDefinition.json** ファイルが格納されている場所へのパス。  
-    - (8) – JSON メイン テンプレート ファイルのパスと名前。
-    - (9) – このテンプレートが表示されるカテゴリの名前。
-    - (10) – 各アイコンのパスと名前。
+    - (7) – 各アイコンのパスと名前。
 
 5. **ms-resource** が参照されているすべてのフィールドを、**strings/resources.json** ファイル内の適切な値に変更する必要があります。
 
@@ -130,8 +123,6 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
     "documentationLink": "Documentation"
     }
     ```
-
-    ![パッケージの表示](media/azure-stack-create-and-publish-marketplace-item/pkg1.png) ![パッケージの表示](media/azure-stack-create-and-publish-marketplace-item/pkg2.png)
 
 6. リソースを正常にデプロイできるようにするには、[Azure Stack Hub API](../user/azure-stack-profiles-azure-resource-manager-versions.md) を使用してテンプレートをテストします。
 
@@ -186,12 +177,12 @@ Azure Stack Hub Marketplace に発行されるすべてのアイテムでは、A
 
 6. アイテムが Marketplace に正常に発行されたら、ストレージ アカウントからコンテンツを削除できます。
 
-   > [!CAUTION]  
-   > すべての既定のギャラリー アイテムと、カスタムのギャラリー アイテムは、次の URL での認証を使用せずにアクセスできるようになりました。  
-   `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
-   `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
+   すべての既定のギャラリー アイテムと、カスタムのギャラリー アイテムは、次の URL での認証を使用せずにアクセスできるようになりました。
 
-6. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 次に例を示します。
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+7. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 次に例を示します。
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

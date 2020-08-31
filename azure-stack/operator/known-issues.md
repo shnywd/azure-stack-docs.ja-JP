@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 08/25/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 2513fe687bdfc08fe34a4c0cf05e388b84947fee
-ms.sourcegitcommit: 77f53d8f4188feea7dd2197650ee860104b1e2aa
+ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88501060"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818336"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -102,6 +102,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ## <a name="compute"></a>Compute
 
+### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Ubuntu Server 20.04 での VM 拡張機能の使用に関する問題
+
+- 適用先:この問題は **Ubuntu Server 20.04 LTS** に適用されます。
+- 原因: 一部の Linux ディストリビューションは Python 3.8 に移行し、Python 用のレガシ `/usr/bin/python` エントリポイントは完全に削除されました。 Python 3.x に移行した Linux ディストリビューション ユーザーは、これらの拡張機能を VM にデプロイする前に、レガシ `/usr/bin/python` エントリポイントが確実に存在するようにする必要があります。 そうしないと、拡張機能のデプロイが失敗する可能性があります。
+- 修復: 「[Python 3 対応 Linux Azure Virtual Machines システムでの VM 拡張機能の使用に関する問題](/azure/virtual-machines/extensions/issues-using-vm-extensions-python-3)」の解決手順に従います。ただし、Azure Stack Hub には **実行コマンド**機能がないため手順 2 はスキップします。
+
 ### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ
 
 - 適用先:この問題は、2002 以降に適用されます。
@@ -122,6 +128,16 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
 - 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
 - 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub のデプロイでは、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
+
+## <a name="storage"></a>ストレージ
+
+### <a name="retention-period-reverts-to-0"></a>保持期間が 0 に戻る
+
+- 適用先:この問題は、リリース 2002 および 2005 に適用されます。
+- 原因: 保持期間の設定で 0 以外の期間を指定した場合は、2002 または 2005 の更新中に 0 (この設定の既定値) に戻ります。 0 日の設定は、更新が完了した直後に有効になります。これにより、削除された既存のストレージ アカウントと今後新たに削除されるストレージ アカウントはすべて、すぐに保持期間外となり、定期的なガベージ コレクション (1 時間ごとに実行) のマークが付けられます。
+- 修復: 保持期間を正しい期間に手動で指定してください。 新しい保持期間が指定される前に既にガベージ コレクションされているストレージ アカウントは回復できません。  
+
+## <a name="resource-providers"></a>リソース プロバイダー
 
 ### <a name="sqlmysql"></a>SQL/MySQL
 
@@ -309,6 +325,14 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、2002 以降の新規インストール、または TLS 1.2 が有効になっている以前のリリースに適用されます。
 - 原因: 既存のストレージ アカウントを使用して SQL VM の自動バックアップを構成すると、次のエラーで失敗します。**SQL Server IaaS Agent:基になる接続が閉じられました。送信時に、予期しないエラーが発生しました。**
 - 発生頻度: 共通
+
+## <a name="storage"></a>ストレージ
+
+### <a name="retention-period-revert-to-0"></a>保持期間が 0 に戻る
+
+- 適用先:この問題は、リリース 2002 および 2005 に適用されます。
+- 原因: 保持期間の設定で 0 以外の期間を以前に指定した場合、2002 と 2005 の更新中に 0 (この設定の既定値) に戻されます。 0 日の設定は、更新が完了した直後に有効になります。これにより、削除された既存のストレージ アカウントと今後新たに削除されるストレージ アカウントはすべて、すぐに保持期間外となり、定期的なガベージ コレクション (1 時間ごとに実行) のマークが付けられます。 
+- 修復: 保持期間を適切な期間に手動で指定してください。 ただし、新しい保持期間が指定される前に既にガベージ コレクションされているストレージ アカウントは回復できません。  
 
 ## <a name="resource-providers"></a>リソース プロバイダー
 

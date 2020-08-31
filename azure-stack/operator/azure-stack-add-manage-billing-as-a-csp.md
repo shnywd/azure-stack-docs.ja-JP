@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 1fc7914755cfa78cf02fa13101559caca766d20c
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 400ae8a487d18b37efdfc52c087019183702a638
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250862"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857568"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-hub-as-a-cloud-solution-provider"></a>クラウド ソリューション プロバイダーとして Azure Stack Hub の使用状況と課金を管理する
 
@@ -32,6 +32,10 @@ Azure Stack Hub で使用する共有サービス アカウントの種類を選
 
 - クラウド ソリューション プロバイダー
 - Partner Shared Services サブスクリプション
+
+マルチテナントの権限を管理する方法を理解するのに役立つチュートリアル ビデオを作成しました。
+
+> [!VIDEO https://www.youtube.com/embed/ZP6jkbLeS34]
 
 #### <a name="azure-partner-shared-services"></a>Azure Partner Shared Services
 

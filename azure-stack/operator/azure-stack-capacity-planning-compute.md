@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 8cb772d76b4bfd01a7e0c260c6ff3d20bdec3e0a
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: d87014dfe5d09a6c41e5108b8ae10b26e23b62d8
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512480"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920187"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -96,6 +96,26 @@ VM の配置に利用可能なメモリ = ホストの合計メモリ - 回復�
 **Q**: テナントで新しい VM がデプロイされました。管理者ポータルの容量グラフで残存容量を表示するのにかかる時間はどれくらいですか?
 
 **A**: 容量ブレードは 15 分ごとに更新されるため、それを考慮してください。
+
+**Q**: 使用可能なコアと割り当てられたコアを確認するにはどうすればよいですか?
+
+**A**: **PowerShell** で `test-azurestack -include AzsVmPlacement -debug` を実行すると、次のような出力が生成されます。
+
+    ```console
+    Starting Test-AzureStack
+    Launching AzsVmPlacement
+     
+    Azure Stack Scale Unit VM Placement Summary Results
+     
+    Cluster Node    VM Count VMs Running Physical Core Total Virtual Co Physical Memory Total Virtual Mem
+    ------------    -------- ----------- ------------- ---------------- --------------- -----------------
+    LNV2-Node02     20       20          28            66               256             119.5            
+    LNV2-Node03     17       16          28            62               256             110              
+    LNV2-Node01     11       11          28            47               256             111              
+    LNV2-Node04     10       10          28            49               256             101              
+    
+    PASS : Azure Stack Scale Unit VM Placement Summary
+    ```
 
 **Q**: Azure Stack Hub にデプロイされている VM の数は変更されていませんが、容量は変動しています。 なぜですか?
 

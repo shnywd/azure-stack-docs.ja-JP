@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 08/24/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f876ebf99169d4c73fa4b437ae60844ea99e94d4
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.openlocfilehash: 5628758d54dc396fe9936dd0567838069f222d33
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997723"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764615"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -69,6 +69,36 @@ ms.locfileid: "87997723"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 8 月 21 日:Windows 10 Enterprise バージョン 1903-ライセンス持ち込み - バージョン 18362.959.2007101755
+- 2020 年 8 月 21 日:Windows 10 Pro バージョン 1903-ライセンス持ち込み - バージョン 18362.959.2007101755
+- 2020 年 8 月 21 日:Windows 10 Enterprise バージョン 1909-ライセンス持ち込み - バージョン 18363.959.2007101752
+- 2020 年 8 月 21 日:Windows 10 Pro バージョン 1909-ライセンス持ち込み - バージョン 18363.959.2007101752
+- 2020 年 8 月 21 日:Windows 10 Enterprise バージョン 2004-ライセンス持ち込み - バージョン 19041.388.2007101729
+- 2020 年 8 月 21 日:Windows 10 Enterprise 2016 LTSB-ライセンス持ち込み - バージョン 14393.3808.2007101707
+- 2020 年 8 月 21 日:Windows 10 Enterprise 2019 LTSC-ライセンス持ち込み - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日:Windows 10 Pro バージョン 1809-ライセンス持ち込み - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日:Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24557.2007101756
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24557.2007101756
+- 2020 年 8 月 21 日:Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23086.2007131700
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23086.2007131700
+- 2020 年 8 月 21 日:Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19756.2007111612
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19756.2007111612
+- 2020 年 8 月 21 日:Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3808.2007101707
+- 2020 年 8 月 21 日:Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3808.2007101707
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3808.2007101707
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3808.2007101707
+- 2020 年 8 月 21 日:Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日:Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日:Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日:Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server (バージョン 1809) with Containers-従量課金制 - バージョン 17763.1339.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server (バージョン 1903) with Containers-従量課金制 - バージョン 18362.959.2007101755
+- 2020 年 8 月 21 日: [smalldisk] Windows Server (バージョン 1909) with Containers-従量課金制 - バージョン 18363.959.2007101752
+- 2020 年 8 月 21 日: [smalldisk] Windows Server (バージョン 2004) with Containers-従量課金制 - バージョン 19041.388.2007101729
 - 2020 年 8 月 4 日: Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24556.2006050139
 - 2020 年 8 月 4 日: Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24556.2006050139
 - 2020 年 8 月 4 日: [smalldisk] Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24556.2006050139

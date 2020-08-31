@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 92f05840d8a2a8f58f70abd10e2860224f706d2b
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b378ce7f3e894a2ec9de532393907c1266e2eeed
+ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566500"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88920357"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 
@@ -55,7 +55,7 @@ API プロファイルは、リソース プロバイダーと API バージョ�
 
 リソース プロバイダーの特定の API バージョンには、パッケージ内で定義されている特定の API バージョンを使用します。
 
-  > [!Note]  
+  > [!NOTE]  
   > すべてのオプションを同じアプリケーション内で組み合わせることができます。
 
 ## <a name="install-the-nodejs-sdk"></a>Node.js SDK のインストール
@@ -112,7 +112,7 @@ Microsoft Azure Resource Manager は、管理者が Azure リソースのデプ�
 
 メタデータ情報は、Resource Manager エンドポイントから取得できます。 エンドポイントは、コードを実行するために必要な情報と共に、JSON ファイルを返します。
 
-> [!Note]  
+> [!NOTE]  
 > Azure Stack Development Kit (ASDK) の **ResourceManagerUrl** は`https://management.local.azurestack.external` です。統合システムの **ResourceManagerUrl** は `https://management.region.<fqdn>/` です。ここで、`<fqdn>` は完全修飾ドメイン名です。
 必要なメタデータを取得するには、`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0` になります。
 
@@ -221,16 +221,21 @@ function main() {
     git clone https://github.com/sijuman/storage-node-resource-provider-getting-started.git
     ```
 
+1. `cd` でリポジトリの複製に移動します。
+
 2.  Azure サービス プリンシパルを作成し、サブスクリプションにアクセスするロールを割り当てます。 手順については、[Azure PowerShell を使用して資格情報でサービス プリンシパルを作成する](/azure/azure-stack/azure-stack-create-service-principals)方法に関するページをご覧ください。
 
 3.  次の必要な値を取得します。
     - テナント ID
-    - クライアント ID
+    - クライアント ID (アプリケーション ID)
     - クライアント シークレット
     - Azure サブスクリプション ID
     - Azure Stack Hub Resource Manager エンドポイント
 
 4.  コマンド プロンプトを使用して作成したサービス プリンシパルから取得した情報を使用して、次の環境変数を設定します。
+
+    > [!NOTE]  
+    > Windows では、**export** ではなく **set** を使用します。
 
     ```bash  
     export TENANT_ID=<your tenant id>
@@ -239,9 +244,6 @@ function main() {
     export AZURE_SUBSCRIPTION_ID=<your subscription id>
     export ARM_ENDPOINT=<your Azure Stack Hub Resource manager URL>
     ```
-
-    > [!Note]  
-    > Windows では、**export** ではなく **set** を使用します。
 
 5.  サンプル アプリケーションの `index.js` ファイルを開きます。
 

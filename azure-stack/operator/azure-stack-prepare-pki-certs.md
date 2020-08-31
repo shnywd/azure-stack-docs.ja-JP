@@ -1,47 +1,46 @@
 ---
 title: デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 titleSuffix: Azure Stack Hub
-description: Azure Stack Hub 統合システムのデプロイ、または既存の Azure Stack Hub 環境でのシークレットのローテーションのために PKI 証明書を準備する方法について説明します。
+description: Azure Stack Hub のデプロイ、またはシークレットのローテーションのために PKI 証明書を準備する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
 ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/16/2019
-ms.openlocfilehash: fa252ee475cc58fa13429ec7ef9a6cbbf37b6a0f
-ms.sourcegitcommit: 9bbaa8dc7edb9632f1d06f76ebf8f49c8cb8eed6
+ms.openlocfilehash: 3d129c3ed588fbaaa2ca234d19890c88b2dad364
+ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86437134"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88724899"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 
-[任意の証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
+[証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
 
-## <a name="prepare-certificates-for-deployment-with-azure-stack-readiness-checker"></a>Azure Stack 適合性チェッカーでデプロイ用に証明書を準備する
-
-Azure Stack Hub 適合性チェッカー ツールを使用して、デプロイまたはローテーションのための証明書のインポート、パッケージ化、および検証を行うことができます。
+この記事では、Azure Stack Hub のデプロイまたはシークレットのローテーションを準備するために、証明書をインポート、パッケージ化、検証する方法について説明します。 
 
 ## <a name="prerequisites"></a>前提条件
 
 Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化する前に、システムが次の前提条件を満たしている必要があります。
 
-- Microsoft Azure Stack Hub 適合性チェッカー
-- 1 つのディレクトリ内にある、証明機関から返された .cer 形式 (その他の構成可能な形式は .cert、.sst、または .pfx) の証明書。
-- Windows 10 または Windows Server 2016 以降
+- 証明機関から返された証明書は、.cer 形式 (その他の構成可能な形式は cert、.sst、.pfx など) で1 つのディレクトリに格納されます。
+- Windows 10、または Windows Server 2016 以降
 - 証明書署名要求を生成したのと同じシステムを使用します (PFX に事前パッケージ化されている証明書を対象としている場合を除く)。
 
-## <a name="generate-certificate-signing-requests-for-new-deployments"></a>新しいデプロイのための証明書署名要求を生成する
+適切なセクション「[証明書を準備する (Azure Stack 適合性チェッカー)](#prepare-certificates-azure-stack-readiness-checker)」または「[証明書を準備する (手動手順)](#prepare-certificates-manual-steps)」に進みます。
 
-新しい Azure Stack Hub PKI 証明書の証明書をパッケージ化するには、次の手順を使用します。
+## <a name="prepare-certificates-azure-stack-readiness-checker"></a>証明書を準備する (Azure Stack 適合性チェッカー)
 
-1. 次のコマンドレットを実行して、PowerShell プロンプト (5.1 以上) から AzsReadinessChecker をインストールします。
+Azure Stack 適合性チェッカーの PowerShell コマンドレットを使用して証明書をパッケージ化するには、次の手順を使用します。
+
+1. 次のコマンドレットを実行して、PowerShell プロンプト (5.1 以上) から Azure Stack 適合性チェッカー モジュールをインストールします。
 
     ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
-2. 証明書がディスク上に存在する**パス**を宣言します。 次に例を示します。
+2. 証明書ファイルの**パス**を指定します。 次に例を示します。
 
     ```powershell  
         $Path = "$env:USERPROFILE\Documents\AzureStack"
@@ -124,9 +123,9 @@ Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化�
 
     検証が成功すると、追加の手順を行わなくても、デプロイまたはローテーション用の証明書を提示できます。
 
-## <a name="prepare-certificates-for-deployment-manual-steps"></a>デプロイ用の証明書を準備する (手動の手順)
+## <a name="prepare-certificates-manual-steps"></a>証明書を準備する (手動の手順)
 
-次の手順を使用して、新しい Azure Stack Hub 環境のデプロイまたは既存の Azure Stack Hub 環境でのシークレットのローテーションに使用される Azure Stack Hub PKI 証明書を準備および検証します。
+手動の手順を使用して新しい Azure Stack Hub PKI 証明書の証明書をパッケージ化するには、次の手順を使用します。
 
 ### <a name="import-the-certificate"></a>証明書のインポート
 
@@ -144,7 +143,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化�
 
    ![証明書のインポート用に証明書ストアを構成する](./media/prepare-pki-certs/3.png)
 
-   a. PFX をインポートする場合は、追加のダイアログが表示されます。 **[秘密キーの保護]** ページで、証明書ファイルのパスワードを入力し、 **[Mark this key as exportable. This allows you to back up or transport your keys at a later time]\(このキーをエクスポート可能としてマークします。これにより、後でキーをバックアップまたは転送できるようになります\)** オプションを有効にします。 **[次へ]** を選択します。
+   a. PFX をインポートする場合は、追加のダイアログが表示されます。 **[秘密キーの保護]** ページで、証明書ファイルのパスワードを入力してから、 **[このキーをエクスポート可能にする]** オプションを有効にします。これにより、後でキーをバックアップしたり転送したりすることができます。 **[次へ]** を選択します。
 
    ![キーをエクスポート可能としてマークする](./media/prepare-pki-certs/2.png)
 
@@ -174,14 +173,14 @@ Azure Stack Hub のデプロイに対して PKI 証明書をパッケージ化�
    > [!NOTE]
    > Azure Stack Hub の証明書の数によっては、このプロセスを複数回完了する必要があります。
 
-6. **[はい、秘密キーをエクスポートします]** を選択し、 **[次へ]** をクリックします。
+6. **[はい、秘密キーをエクスポートします]** を選択し、 **[次へ]** を選択します。
 
 7. [エクスポート ファイルの形式] セクションで、次の操作を行います。
     
    - **[Include all certificates in the certificate if possible]\(証明書にすべての証明書を含める (可能な場合)\)** を選択します。  
    - **[Export all Extended Properties]\(すべての拡張プロパティをエクスポートする\)** を選択します。  
    - **[証明書のプライバシーを有効にする ]** を選択します。  
-   - **[次へ]** をクリックします。  
+   - **[次へ]** を選択します。  
     
      ![いくつかのオプションが選択されている [Certificate export wizard]\(証明書のエクスポート ウィザード\)](./media/prepare-pki-certs/azure-stack-save-cert.png)
 

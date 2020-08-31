@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 16b8ca5999507bd64d3416c3ee22fdd5c827c8b5
-ms.sourcegitcommit: 874ad1cf8ce7e9b3615d6d69651419642d5012b4
+ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
+ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85107161"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88857505"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Azure Stack Hub でマルチテナントを構成する
 
@@ -24,16 +24,17 @@ Azure Stack Hub を構成して、複数の Azure Active Directory (Azure AD) �
 
 このガイドでは、このシナリオの内容に基づいて、Azure Stack Hub でマルチテナントを構成するために必要な手順を説明します。 このシナリオでは、Fabrikam のユーザーが Contoso の Azure Stack Hub デプロイのサービスにサインインして使用できるようにする手順を、あなたとメアリーが完了する必要があります。
 
+クラウド ソリューション プロバイダー (CSP) の場合は、[マルチテナント Azure Stack Hub を構成および管理](azure-stack-add-manage-billing-as-a-csp.md)できる追加の方法があります。 
+
 ## <a name="enable-multi-tenancy"></a>マルチテナントの有効化
 
 Azure Stack Hub でマルチテナントを構成する前に、対応すべき前提条件がいくつかあります。
   
  - あなたとメアリーは連携して、Azure Stack Hub がインストールされているディレクトリ (Contoso) とゲスト ディレクトリ (Fabrikam) の両方に管理手順を実行する必要があります。
  - Azure Stack Hub 用の PowerShell が[インストール](azure-stack-powershell-install.md)および[構成](azure-stack-powershell-configure-admin.md)済みであることを確認します。
- - [Azure Stack Hub のツールをダウンロード](azure-stack-powershell-download.md)して、Connect モジュールと Identity モジュールをインポートします。
+ - [Azure Stack Hub ツールをダウンロード](azure-stack-powershell-download.md)し、Identity モジュールをインポートします。
 
     ```powershell
-    Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
 
@@ -171,7 +172,6 @@ $healthReport.directoryTenants | Where status -NE 'Healthy' | Select -Property t
 このアクションにより、ディレクトリの更新が必要であることを示す Azure Stack Hub のアラートがクリアされます。 **Azurestack-tools-master/identity** フォルダーから次のコマンドを実行します。
 
 ```powershell
-Import-Module ..\Connect\AzureStack.Connect.psm1
 Import-Module ..\Identity\AzureStack.Identity.psm1
 
 $adminResourceManagerEndpoint = "https://adminmanagement.<region>.<domain>"

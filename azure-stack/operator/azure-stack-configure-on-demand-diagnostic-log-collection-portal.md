@@ -3,16 +3,16 @@ title: Azure Stack Hub 診断ログを今すぐ送信する
 description: 管理者ポータルまたは PowerShell スクリプトを使用して Azure Stack Hub 内で診断ログをオンデマンドで収集する方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 03/30/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 03/30/2020
-ms.openlocfilehash: a4939e308b4f91fc0a9821499bb51615d11ab131
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489251"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764649"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Azure Stack Hub 診断ログを今すぐ送信する
 
@@ -31,6 +31,14 @@ Azure Stack オペレーターは、管理者ポータルまたは PowerShell �
 
 ![今すぐログを送信するオプションのスクリーンショット](media/azure-stack-help-and-support/send-logs-now.png)
 
+
+::: moniker-end
+::: moniker range=">= azs-2005"
+## <a name="save-logs-locally"></a>ログをローカルに保存する
+
+Azure Stack Hub が Azure から切断されている場合、ログをローカル SMB 共有に保存できます。 **[設定]** ブレードでパスを入力し、共有への書き込みアクセス許可があるユーザー名とパスワードを入力します。 サポート ケース時に、それらのローカル ログを転送する方法についての詳細な手順が Microsoft サポートから提供されます。 管理者ポータルが使用できない場合は [Get-AzureStackLog](azure-stack-get-azurestacklog.md) を使用してローカルにログを保存できます。
+
+![診断ログ収集オプションのスクリーンショット](media/azure-stack-help-and-support/save-logs-locally.png)
 
 ::: moniker-end
 ::: moniker range="<= azs-1910"

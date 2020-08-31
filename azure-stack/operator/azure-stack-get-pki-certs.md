@@ -1,27 +1,28 @@
 ---
-title: Azure Stack Hub でのデプロイ用に証明書署名要求を取得する
-description: Azure Stack Hub 統合システムにおいて Azure Stack Hub PKI 証明書の証明書署名要求を取得する方法について学習します。
+title: Azure Stack Hub への証明書署名要求を生成する
+description: Azure Stack Hub 統合システムにおいて Azure Stack Hub PKI 証明書への証明書署名要求を生成する方法について学習します。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 37f308a9b554453a1f7c10219d68b1255c23cbf0
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 6bcdc7aacfadb37d348eaa33449065b9fb345446
+ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419271"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88818353"
 ---
-# <a name="get-certificate-signing-requests-for-deployment-in-azure-stack-hub"></a>Azure Stack Hub でのデプロイ用に証明書署名要求を取得する
+# <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Azure Stack Hub への証明書署名要求を生成する
 
 Azure Stack Hub 対応性チェッカー ツールを使用して、Azure Stack Hub のデプロイに適した証明書署名要求 (CSR) を作成できます。 証明書は、デプロイ前のテストに十分な時間を確保した上で、要求、生成、検証する必要があります。 このツールは [PowerShell ギャラリーから](https://aka.ms/AzsReadinessChecker)取得できます。
 
 Azure Stack Hub 対応性チェッカー ツール (AzsReadinessChecker) を使用すると、次の証明書を要求できます。
 
-- [証明書署名要求の生成](azure-stack-get-pki-certs.md)に関する説明に従った**標準の証明書要求**。
-- **サービスとしてのプラットフォーム**:「[Azure Stack Hub 公開キー インフラストラクチャ証明書の要件」の「オプションの PaaS 証明書](azure-stack-pki-certs.md)」で指定されているように、証明書に対するサービスとしてのプラットフォーム (PaaS) 名を要求できます。
+- [新しいデプロイのための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)の説明に従った、**標準の証明書要求**。
+- [証明書更新のための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal)の説明に従った、**証明書要求の更新**。
+- **サービスとしてのプラットフォーム**:「[Azure Stack Hub 公開キー インフラストラクチャ証明書の要件」の「オプションの PaaS 証明書](azure-stack-pki-certs.md#optional-paas-certificates)」で指定されているように、証明書に対するサービスとしてのプラットフォーム (PaaS) 名を要求できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -137,15 +138,15 @@ Azure Stack Hub デプロイのための PKI 証明書に対する CSR を生成
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. **stampEndpoint** を宣言します。 次に例を示します。
+2. Azure Stack Hub システムの regionname.domain.com の形式で **stampEndpoint** を宣言します。 例 (Azure Stack Hub テナント ポータルのアドレスが https://portal.east.azurestack.contoso.com):
 
     ```powershell  
-    $stampEndpoint = 'portal.east.azurestack.contoso.com'
+    $stampEndpoint = 'east.azurestack.contoso.com'
     ```
 
     > [!NOTE]  
-    > 上記のエンドポイントには、HTTPS 接続が必要です。
-    > 上記のエンドポイントは、証明書の種類に必要な証明書の 1 つと一致する必要があります。たとえば、デプロイ証明書の場合は、portal.region.domain エンドポイント、AppServices の場合は、sso.appservices.region.domain が必要です。エンドポイントにバインドされた証明書は、サブジェクト、キーの長さ、署名アルゴリズムなどの属性を複製するために使用されます。  必要な既存のエンドポイントは 1 つだけであり、すべての署名要求により、必要なすべての証明書が作成されます。
+    > 上記の Azure Stack Hub システムには、HTTPS 接続が必要です。
+    > 適合性チェッカーは、stampendpoint (リージョンとドメイン) を使用して、デプロイ証明書などの証明書の種類に必要な既存の証明書へのポインターを作成します。'portal' がツールによって前に付けられるため、証明書の複製では、AppServices sso.appservices.east.azurestack.contoso.com などに対して、portal.east.azurestack.contoso.com が使用されます。計算されたエンドポイントにバインドされた証明書は、サブジェクト、キーの長さ、署名アルゴリズムなどの属性を複製するために使用されます。  これらの属性のいずれかを変更する場合は、代わりに「[新しいデプロイのための証明書署名要求を生成する](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)」の手順に従ってください。
 
 3. 既に存在する出力ディレクトリを宣言します。 次に例を示します。
 

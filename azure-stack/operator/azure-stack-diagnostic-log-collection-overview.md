@@ -3,16 +3,16 @@ title: Azure Stack Hub での診断ログの収集
 description: Azure Stack Hub の [ヘルプとサポート] における診断ログ収集について説明します。
 author: justinha
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 08/24/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 05/11/2020
-ms.openlocfilehash: c924c5a48337106c08d1112328c32c031d7371bc
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.lastreviewed: 08/24/2020
+ms.openlocfilehash: 841c031b6009cdb7970194a3268010e745e9e0f0
+ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074241"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88764513"
 ---
 # <a name="diagnostic-log-collection-in-azure-stack-hub"></a>Azure Stack Hub での診断ログの収集
 
@@ -89,7 +89,7 @@ Azure Stack Hub から診断ログ収集を開始することで、これらの�
 
 ## <a name="save-logs-locally"></a>ログをローカルに保存する
 
-Azure Stack Hub が Azure から切断されている場合、ログをローカル SMB 共有に保存できます。 **[設定]** ブレードでパスを入力し、共有への書き込みアクセス許可があるユーザー名とパスワードを入力します。 サポート ケース時に、それらのローカル ログを転送する方法についての詳細な手順が Microsoft CSS から提供されます。
+Azure Stack Hub が Azure から切断されている場合、ログをローカル SMB 共有に保存できます。 **[設定]** ブレードでパスを入力し、共有への書き込みアクセス許可があるユーザー名とパスワードを入力します。 サポート ケース時に、それらのローカル ログを転送する方法についての詳細な手順が Microsoft サポートから提供されます。 管理者ポータルが使用できない場合は [Get-AzureStackLog](azure-stack-get-azurestacklog.md) を使用してローカルにログを保存できます。
 
 ![診断ログ収集オプションのスクリーンショット](media/azure-stack-help-and-support/save-logs-locally.png)
 
