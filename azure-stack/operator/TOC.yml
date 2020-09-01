@@ -263,8 +263,6 @@
           href: azure-stack-aks-engine.md
         - name: Kubernetes マーケットプレース アイテムの提供
           href: azure-stack-solution-template-kubernetes-cluster-add.md
-        - name: サイト間 VPN 接続の作成
-          href: azure-stack-create-vpn-connection-one-node.md
         - name: Commvault マーケットプレース アイテムの提供
           href: azure-stack-network-offer-backup-commvault.md
     - name: サービスの提供
