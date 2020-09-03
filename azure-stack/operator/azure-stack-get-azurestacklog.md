@@ -4,16 +4,16 @@ description: 管理者ポータルまたは PowerShell スクリプトを使用�
 author: justinha
 ms.custom: conteperfq4
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/02/2020
 ms.author: justinha
 ms.reviewer: shisab
-ms.lastreviewed: 06/30/2020
-ms.openlocfilehash: b8be0f88b53bb599b716d50ac75e1d6d18515475
-ms.sourcegitcommit: bd775dfb298ba1dc67ac9ac7d591794179151026
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 29f46fceab5e87bc7dff59a4e4c80a48fa8f34fc
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85764593"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410958"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する
 
@@ -83,25 +83,25 @@ if ($session) {
 * 付加価値 RP のログを収集します。 一般的な構文は次のとおりです。
  
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider <<value-add RP name>>
+  Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
  
   IoT Hub のログを収集するには: 
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider IotHub
+  Get-AzureStackLog -FilterByResourceProvider IotHub
   ```
  
   Event Hubs のログを収集するには:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvider eventhub
+  Get-AzureStackLog -FilterByResourceProvider eventhub
   ```
  
   Azure Stack Edge のログを収集するには:
 
   ```powershell
-  Get-AzureStackLogs -FilterByResourceProvide databoxedge
+  Get-AzureStackLog -FilterByResourceProvide databoxedge
   ```
 
 * ログを収集して、指定された Azure Storage BLOB コンテナーに保存します。 この操作の一般的な構文は次のとおりです。

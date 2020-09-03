@@ -98,6 +98,8 @@
       href: concepts/updates.md
     - name: ドライブの選択
       href: concepts/choose-drives.md
+    - name: ドライブの対称性に関する考慮事項
+      href: concepts/drive-symmetry-considerations.md
     - name: ボリュームの計画
       href: concepts/plan-volumes.md
     - name: ソフトウェアによるネットワーク

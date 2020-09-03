@@ -3,20 +3,20 @@ title: 仮想マシン スケール セットを Azure Stack Hub 内で使用で
 description: クラウド オペレーターが Azure Stack Hub Marketplace に仮想マシン スケール セットを追加する方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: d4383a9848ff2fd3e5f5da1fb71d88c71056bbd2
-ms.sourcegitcommit: 21cdab346fc242b8848a04a124bc16c382ebc6f0
+ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82777833"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089696"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 
-仮想マシン スケール セットは Azure Stack Hub のコンピューティング リソースです。 スケール セットを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスをより簡単に構築できます。
+仮想マシン スケール セットは Azure Stack Hub のコンピューティング リソースです。 スケール セットを使用して同一の仮想マシン (VM) のセットをデプロイおよび管理できます。 すべての VM が同一に構成されている場合、スケール セットでは VM を事前にプロビジョニングする必要はありません。 ビッグ コンピューティング、ビッグ データ、コンテナー化されたワークロードを対象にした大規模サービスを簡単に構築できます。
 
 この記事では、Azure Stack Hub Marketplace 上でスケール セットを入手できるようにするプロセスについて説明します。 この手順を完了すると、ユーザーは各自のサブスクリプションに仮想マシン スケール セットを追加できます。
 
@@ -33,9 +33,6 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 * **オペレーティング システム イメージ:** 仮想マシン スケール セットを作成する前に、[Azure Stack Hub Marketplace](azure-stack-download-azure-marketplace-item.md) からスケール セットで使用する VM イメージをダウンロードする必要があります。 ユーザーが新しいスケール セットを作成する前に、イメージが既に存在している必要があります。
 
 ## <a name="use-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用する
-
->[!IMPORTANT]  
-> このセクションの情報は、1808 以降の Azure Stack Hub バージョンを使用する場合に適用されます。
 
 1. Azure Stack Hub ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
    ![[仮想マシン スケール セット] を選択する](media/azure-stack-compute-add-scalesets/all-services.png)

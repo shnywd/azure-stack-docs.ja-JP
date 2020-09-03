@@ -3,16 +3,16 @@ title: Azure Stack Hub での API バージョンのプロファイルの管理
 description: Azure Stack Hub での API バージョンのプロファイルについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 07/24/2019
-ms.openlocfilehash: 8dd456ad26605c592160ffdc4a4c0d0ea28b2628
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 44638ca39dc5604ee436af5c0fa09c58fadf59eb
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567333"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089645"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack-hub"></a>Azure Stack Hub での API バージョンのプロファイルの管理
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d403128cfe2cfe34bb9f5ed188a8591656819e1e
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818336"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410975"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -39,13 +39,6 @@ ms.locfileid: "88818336"
 Azure Stack Hub の更新に関する既知の問題については、[Azure Stack Hub の更新プログラムに関するトラブルシューティング](azure-stack-troubleshooting.md#troubleshoot-azure-stack-hub-updates)に関する記事を参照してください。
 
 ## <a name="portal"></a>ポータル
-
-### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack Hub ポータルを使用して、サブスクリプションに対するアクセス許可を表示することはできません。
-- 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
-- 発生頻度: 共通
 
 ### <a name="administrative-subscriptions"></a>管理サブスクリプション
 
@@ -120,6 +113,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: 新しい仮想マシンを作成すると、"**This subscription is at capacity for Total Regional vCPUs on this location.This subscription is using all 50 Total Regional vCPUs available.** " (このサブスクリプションはこの場所の [リージョンの vCPU の合計] の容量に達しています。このサブスクリプションは、[リージョンの vCPU の合計] の使用可能な 50 個をすべて使用しています。)" などのエラーを受け取ることがあります。 これは、使用可能な合計コア数のクォータに達したことを示します。
 - 修復: クォータを追加したアドオン プランをオペレーターに依頼してください。 現在のプランのクォータの編集では解決せず、クォータの増加は反映されません。
 - 発生頻度: 珍しい
+
+### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
+
+- 適用先:この問題はすべてのリリースに適用されます。
+- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるものです。
+- 修復: **[設定]** の下にある **[プロパティ]** ブレードを確認します。
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
 
