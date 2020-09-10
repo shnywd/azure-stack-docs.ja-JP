@@ -9,12 +9,12 @@ metadata:
   author: mattbriggs
   ms.author: mabrigg
   ms.date: 03/19/2020
-  ms.openlocfilehash: b78dc0d3acf20f66ddd4779efc0ac785cb5ab7d6
-  ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+  ms.openlocfilehash: 889a3841ca8fd4bf54d38f04b83270ab3086d1ab
+  ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
   ms.translationtype: HT
   ms.contentlocale: ja-JP
-  ms.lasthandoff: 07/21/2020
-  ms.locfileid: "86567741"
+  ms.lasthandoff: 09/10/2020
+  ms.locfileid: "89621284"
 landingContent:
 - title: Azure Stack Hub について
   linkLists:
@@ -58,14 +58,18 @@ landingContent:
       url: azure-stack-dev-start-vscode-azure.md
 - title: Azure Stack Hub のサービスとしてのインフラストラクチャ (IaaS)
   linkLists:
+  - linkListType: quickstart
+    links:
+    - text: クイック スタート - VM の作成
+      url: azure-stack-quick-linux-portal.md
   - linkListType: how-to-guide
     links:
+    - text: VM の移行
+      url: vm-move-overview.md
     - text: テンプレートを使用して IaaS に VM をデプロイする
       url: azure-stack-create-vm-template.md
     - text: 仮想ネットワークを構成する
       url: deploy-foundational-patterns.md
-    - text: クイック スタート - VM の作成
-      url: azure-stack-quick-linux-portal.md
     - text: コードで記述されたアプリをホストする
       url: azure-stack-dev-start-deploy-app.md
 - title: Azure Stack Hub のサービスとしてのプラットフォーム (PaaS)

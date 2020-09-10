@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: f719ec7404e19d5e32f87e6fb9bfd5e41146abb0
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 310d9a198c7fb6c9212ff15ff9b838a74bd342d1
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920068"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965298"
 ---
 # <a name="windows-n-tier-application-on-azure-stack-hub-with-sql-server"></a>SQL Server を使用した Azure Stack Hub の Windows N 層アプリケーション
 
@@ -22,7 +22,7 @@ ms.locfileid: "88920068"
 
 このアーキテクチャには次のコンポーネントがあります。
 
-![](./media/iaas-architecture-windows-sql-n-tier/image1.png)
+![この図は、次の 6 つのサブネット (Application Gateway、管理、Web 層、ビジネス層、データ層、Active Directory ) から成る仮想ネットワークを示しています。 データ層サブネットはクラウド監視を使用します。 3 つのロードバランサーがあります。](./media/iaas-architecture-windows-sql-n-tier/image1.png)
 
 ## <a name="general"></a>全般
 
@@ -60,7 +60,7 @@ ms.locfileid: "88920068"
 
 -   **Jumpbox**。 [要塞ホスト](https://en.wikipedia.org/wiki/Bastion_host)とも呼ばれます。 管理者が他の VM に接続するために使用するネットワーク上のセキュアな VM です。 jumpbox の NSG は、セーフ リストにあるパブリック IP アドレスからのリモート トラフィックのみを許可します。 NSG は、リモート デスクトップ (RDP) トラフィックを許可する必要があります。
 
-## <a name="recommendations"></a>Recommendations
+## <a name="recommendations"></a>推奨事項
 
 実際の要件は、ここで説明するアーキテクチャとは異なる場合があります。 これらの推奨事項を開始点として使用してください。
 
@@ -127,7 +127,7 @@ SQL クライアントが接続を試みると、ロード バランサーがプ
 
 SQL パフォーマンスの最適化については、記事「[Azure Stack Hub におけるパフォーマンスを最適化するための SQL サーバーのベスト プラクティス](./azure-stack-sql-server-vm-considerations.md)」も参照できます。
 
-**ジャンプボックス**
+**Jumpbox**
 
 アプリケーション ワークロードを実行する VM へのパブリック インターネットからの RDP アクセスを許可しないでください。 代わりに、これらの VM へのすべての RDP アクセスは、ジャンプ ボックスを経由するようにします。 管理者はジャンプボックスにログインし、次にジャンプボックスから他の VM にログインします。 ジャンプボックスは、既知の安全な IP アドレスからのみ、インターネットからの RDP トラフィックを許可します。
 
