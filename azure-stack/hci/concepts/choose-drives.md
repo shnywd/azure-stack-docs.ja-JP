@@ -1,26 +1,28 @@
 ---
-title: Azure Stack HCI のドライブの選択
-description: Azure Stack HCI で記憶域スペース ダイレクトのドライブを選択する方法。
+title: Azure Stack HCI のドライブを選択する
+description: Azure Stack HCI のドライブを選択する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: ca2903e6d7680b38f21482076bf46e49097d444f
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/01/2020
+ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997748"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364713"
 ---
-# <a name="choosing-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブの選択
+# <a name="choose-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブを選択する
 
 > 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Azure Stack HCI のパフォーマンスと容量の要件を満たすために、[記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)のドライブを選択する方法に関するガイダンスを提供します。
+このトピックでは、Azure Stack HCI のパフォーマンスおよび容量の要件を満たすドライブを選択する方法に関するガイダンスを提供します。
 
 ## <a name="drive-types"></a>ドライブの種類
 
-記憶域スペース ダイレクトは現在、次の 4 種類のドライブで動作します。
+Azure Stack HCI は現在、次の 4 種類のドライブで動作します。
 
 | ドライブの種類 | 説明 |
 |----------------------|--------------------------|
@@ -31,15 +33,15 @@ ms.locfileid: "87997748"
 
 ## <a name="built-in-cache"></a>ビルトイン キャッシュ
 
-記憶域スペース ダイレクトは、組み込みのサーバー側キャッシュを特徴とします。 これは、大容量で永続的な、リアルタイムの読み取りおよび書き込みキャッシュです。 複数の種類のドライブを使用するデプロイでは、"最速" の種類のすべてのドライブを使用するように自動的に構成されます。 残りのドライブは、キャパシティとして使用されます。
+Azure Stack HCI は、組み込みのサーバー側キャッシュを特徴とします。 これは、大容量で永続的な、リアルタイムの読み取りおよび書き込みキャッシュです。 複数の種類のドライブを使用するデプロイでは、"最速" の種類のすべてのドライブを使用するように自動的に構成されます。 残りのドライブは、キャパシティとして使用されます。
 
-詳細については、「[記憶域スペース ダイレクトのキャッシュについて](/windows-server/storage/storage-spaces/understand-the-cache)」を参照してください。
+詳細については、[Azure Stack HCI のキャッシュの概要](cache.md)に関する記事を参照してください。
 
 ## <a name="option-1--maximizing-performance"></a>オプション 1 – パフォーマンスの最大化
 
 任意のデータに対するランダムな読み取りと書き込みで予測可能かつ一貫したミリ秒未満の待機時間を実現するか、非常に高い IOPS ([1300 万以上](https://techcommunity.microsoft.com/t5/storage-at-microsoft/the-new-hci-industry-record-13-7-million-iops-with-windows/ba-p/428314)を達成済み) または IO スループット (500 GB/秒以上の読み取りを達成済み) を実現するには、"オール フラッシュ" を選択する必要があります。
 
-これを行うには、現在次の 3 つの方法があります。
+これを行うには複数の方法があります。
 
 ![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
@@ -96,8 +98,9 @@ ms.locfileid: "87997748"
 
 詳細については、次のトピックも参照してください。
 
-- [Azure Stack HCI のキャッシュについて](cache.md)
-- [記憶域スペース ダイレクトのハードウェア要件](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)
-- [Azure Stack HCI でのボリュームの計画](plan-volumes.md)
+- [キャッシュについて](cache.md)
+- [ハードウェア要件を判断する](../deploy/before-you-start.md#determine-hardware-requirements)
+- [ドライブの対称性に関する考慮事項](drive-symmetry-considerations.md)
+- [ボリュームの計画](plan-volumes.md)
 - [フォールト トレランスとストレージの効率性](fault-tolerance.md)
 - [永続メモリの理解と配置](/windows-server/storage/storage-spaces/deploy-pmem)

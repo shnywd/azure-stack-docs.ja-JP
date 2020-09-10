@@ -8,12 +8,12 @@ ms.date: 07/21/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: cef555f353b00a0ccfc494b91b5cf4d3c69ac9e9
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
+ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397449"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89041623"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -218,3 +218,13 @@ Azure Stack Hub の修正プログラムと更新プログラムのプロセス�
 **対応策**: **[今すぐインストール]** をもう一度クリックすることで、この問題を回避できます。 問題が解決しない場合は、[更新プログラムのインストール](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)に関するセクションに従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
 
 **発生頻度**: 共通
+
+::: moniker range="azs-2002"
+### <a name="2002-update-failed"></a>2002 更新プログラムが失敗
+
+**適用先**: この問題は 2002 リリースにのみ適用されます。
+
+**原因**:2002 更新プログラムを実行しようとすると、更新プログラムが失敗し、`The private network parameter is missing from cloud parameters. Please use set-azsprivatenetwork cmdlet to set private networkTrace` というメッセージが表示されることがあります。
+
+**対応策**: [プライベート内部ネットワークを設定します](https://docs.microsoft.com/azure-stack/operator/azure-stack-network?view=azs-2002#private-network)。
+::: moniker-end

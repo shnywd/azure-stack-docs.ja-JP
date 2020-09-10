@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5628758d54dc396fe9936dd0567838069f222d33
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 692f6ca51f2a0e241504914b5f687e172486912b
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764615"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274026"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -69,6 +69,7 @@ ms.locfileid: "88764615"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 8 月 31 日:AKS Base Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 8 月 - バージョン 2020.08.24
 - 2020 年 8 月 21 日:Windows 10 Enterprise バージョン 1903-ライセンス持ち込み - バージョン 18362.959.2007101755
 - 2020 年 8 月 21 日:Windows 10 Pro バージョン 1903-ライセンス持ち込み - バージョン 18362.959.2007101755
 - 2020 年 8 月 21 日:Windows 10 Enterprise バージョン 1909-ライセンス持ち込み - バージョン 18363.959.2007101752

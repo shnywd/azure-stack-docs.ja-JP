@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 7e64ed126e8a5c7fc875b21b499b93a986ab6d07
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: a7b815c767b917485e86e18b8d1840f66fba42cd
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566361"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965230"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-gre-in-azure-stack-hub"></a>Azure Stack Hub で GRE を使用して VPN トンネルを作成する方法
 
@@ -22,7 +22,7 @@ ms.locfileid: "86566361"
 
 テンプレートは [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub リポジトリにあります。 このテンプレートは、**rras-gre-vnet-vnet** フォルダーにあります。 
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-gre/overview.png)
+![この図は、2 つの VNET 間に VPN トンネルを提供する実装を示しています。 各 VNET に、RRAS サーバー、内部サブネット、トンネル サブネットがあります。](./media/azure-stack-network-howto-vpn-tunnel-gre/overview.png)
 
 ## <a name="requirements"></a>必要条件
 
@@ -43,14 +43,14 @@ ms.locfileid: "86566361"
 - このテンプレートでは、DS3v2 VM を使用しています。 RRAS サービスにより、Windows 内部 SQL Server がインストールされ、実行されます。 VM のサイズが小さすぎると、メモリの問題が発生する可能性があります。 VM サイズを小さくする前にパフォーマンスを確認してください。
 - これは高可用なソリューションではありません。 さらに HA スタイルのソリューションが必要な場合は、2 つ目の VM を追加できます。また、ルート テーブルのルートをセカンダリ インターフェイスの内部 IP に手動で変更する必要があります。 また、複数のトンネルを相互接続するように構成する必要があります。
 
-## <a name="options"></a>オプション
+## <a name="options"></a>Options
 
 - _artifactsLocation および_artifactsLocationSasToken パラメーターを使用して、独自の BLOB ストレージ アカウントと SAS トークンを使用できます
 - このテンプレート INTERNALSUBNETREFVNET1 と INTERNALSUBNETREFVNET2 には 2 つの出力があります。これは、パイプライン スタイルのデプロイ パターンでこれを使用する場合、内部サブネットのリソース ID です。
 
 このテンプレートには、VNet の名前付けと IP アドレス指定の既定値が指定されています。 管理者 (rrasadmin) のパスワードが必要です。また、SAS トークンで独自のストレージ BLOB を使用することもできます。 デプロイが失敗する可能性があるため、これらの値を適切な範囲内に保つように注意します。 PowerShell RDS パッケージは各 RRAS VM で実行され、ルーティングと必要なすべての依存サービスと機能がインストールされます。 この DSC は、必要に応じてさらにカスタマイズできます。 カスタム スクリプト拡張機能では、次のスクリプトが実行され、Add-Site2SiteGRE.ps1 によって 2 つの RRAS サーバー間の VPNS2S トンネルが共有キーを使用して構成されます。 カスタム スクリプト拡張機能からの詳細な出力を表示して、VPN トンネル構成の結果を確認できます。
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
+!["S2SVPNTunnel" というタイトルの図に、サイト間 VPN トンネルによって接続された 2 つの VNET が示されています。](./media/azure-stack-network-howto-vpn-tunnel-gre/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>次のステップ
 

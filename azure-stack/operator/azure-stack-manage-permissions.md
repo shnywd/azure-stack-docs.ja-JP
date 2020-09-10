@@ -7,12 +7,12 @@ ms.date: 12/23/2019
 ms.author: justinha
 ms.reviewer: thoroet
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: c54e086ad8edefcb8e7a799c5153af6b7ce5b194
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 0960e2519fbeb476aa55fbb8a27a58a59ccb99c9
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488537"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965077"
 ---
 # <a name="set-access-permissions-using-role-based-access-control"></a>ロールベースのアクセス制御を使用してアクセス許可を設定する
 
@@ -28,7 +28,7 @@ Azure Stack Hub のユーザーは、サブスクリプション、リソース 
 ## <a name="set-access-permissions-for-a-user"></a>ユーザーのアクセス権限の設定
 
 1. 管理するリソースへの所有者アクセス許可があるアカウントでサインインします。
-2. リソースのブレードで、 **[アクセス]** アイコン ![](media/azure-stack-manage-permissions/image1.png) をクリックします。
+2. リソースのブレードで、 **[アクセス]** アイコン ![[アクセス] アイコンは、2 名の人物の頭と肩の輪郭線です。](media/azure-stack-manage-permissions/image1.png) をクリックします。
 3. **[ユーザー]** ブレードで、 **[役割]** をクリックします。
 4. **[役割]** ブレードで、 **[追加]** をクリックし、ユーザーのアクセス許可を追加します。
 
@@ -38,7 +38,7 @@ Azure Stack Hub のユーザーは、サブスクリプション、リソース 
 > Active Directory フェデレーション サービス (AD FS) にのみ適用されます。
 
 1. 管理するリソースへの所有者アクセス許可があるアカウントでサインインします。
-2. リソースのブレードで、 **[アクセス]** アイコン ![](media/azure-stack-manage-permissions/image1.png) をクリックします。
+2. リソースのブレードで、 **[アクセス]** アイコン ![[アクセス] アイコンは、2 名の人物の頭と肩の輪郭線です。](media/azure-stack-manage-permissions/image1.png) をクリックします。
 3. **[ユーザー]** ブレードで、 **[役割]** をクリックします。
 4. **[役割]** ブレードで、 **[追加]** をクリックして、ユニバーサル グループ Active Directory グループのアクセス許可を追加します。
 

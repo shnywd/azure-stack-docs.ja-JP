@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: 4405ec29584904c24401b0fc6823078702ca1c7e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: b81c9d759c6083a20e6e5124d74795260cc8d594
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86565939"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965247"
 ---
 # <a name="how-to-create-a-vpn-tunnel-using-ipsec--in-azure-stack-hub"></a>Azure Stack Hub で IPSEC を使用して VPN トンネルを作成する方法
 
@@ -22,7 +22,7 @@ ms.locfileid: "86565939"
 
 テンプレートは [Azure Intelligent Edge Patterns](https://github.com/Azure-Samples/azure-intelligent-edge-patterns) GitHub リポジトリにあります。 このテンプレートは、**rras-gre-vnet-vnet** フォルダーにあります。 
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
+![この図は、2つの VNET 間に VPN トンネルを提供する実装を示しています。 各 VNET に、RRAS サーバー、内部サブネット、トンネル サブネットがあります。](./media/azure-stack-network-howto-vpn-tunnel-ipsec/overview.png)
 
 ## <a name="requirements"></a>必要条件
 
@@ -50,7 +50,7 @@ ms.locfileid: "86565939"
 
 このテンプレートには、VNet の名前付けと IP アドレス指定の既定値が指定されています。  管理者 (rrasadmin) のパスワードが必要です。また、SAS トークンで独自のストレージ BLOB を使用することもできます。  デプロイが失敗する可能性があるため、これらの値を適切な範囲内に保つように注意します。  PowerShell RDS パッケージは各 RRAS VM で実行され、ルーティングと必要なすべての依存サービスと機能がインストールされます。  この DSC は、必要に応じてさらにカスタマイズできます。  カスタム スクリプト拡張機能では、次のスクリプトが実行され、Add-Site2SiteIKE.ps1 によって 2 つの RRAS サーバー間の VPNS2S トンネルが共有キーを使用して構成されます。  カスタム スクリプト拡張機能からの詳細な出力を表示して、VPN トンネル構成の結果を確認できます。
 
-![alt text](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
+!["S2SVPNTunnel" というタイトルの図に、サイト間 VPN トンネルによって接続された 2 つの VNET が示されています。](./media/azure-stack-network-howto-vpn-tunnel-ipsec/s2svpntunnel.png)
 
 ## <a name="next-steps"></a>次のステップ
 

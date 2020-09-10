@@ -4,13 +4,13 @@ description: Windows Admin Center と PowerShell を使用して、オペレー�
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 07/21/2020
-ms.openlocfilehash: bf57a83c11737b1443762212f775c75eb17d6cfc
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 08/31/2020
+ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
+ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86868036"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89274060"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI クラスターを更新する
 
@@ -21,6 +21,8 @@ Azure Stack HCI クラスターを更新する場合、その目標は、クラ�
 ## <a name="update-a-cluster-using-windows-admin-center"></a>Windows Admin Center を使用してクラスターを作成する
 
 Windows Admin Center を使用すると、簡単なユーザー インターフェイスを使用して、クラスターを更新し、オペレーティング システムとソリューションの更新プログラムを簡単に適用することができます。 Microsoft のハードウェア パートナーから統合システムを購入した場合、適切なパートナーの更新プログラムの拡張機能をインストールすることにより、Windows Admin Center から直接、最新のドライバー、ファームウェア、およびその他の更新プログラムを簡単に入手できます。 統合システムとしてハードウェアを購入しなかった場合、ハードウェア ベンダーの推奨事項に従い、必要に応じてファームウェアとドライバーの更新プログラムを個別に実行します。
+
+Windows Admin Center では、クラスター対応更新を実行するようにクラスターが適切に構成されているかどうかが確認され、必要に応じて、Windows Admin Center による CAU の自動構成 (CAU クラスターの役割のインストールや、必要なファイアウォール規則の有効化など) を希望するかどうかが確認されます。
 
 1. クラスターに接続すると、1 つ以上のサーバーに更新プログラムをインストールする準備ができている場合は、Windows Admin Center ダッシュボードで通知され、すぐに更新するためのリンクが表示されます。 または、左側の **[ツール]** メニューから **[更新プログラム]** を選択することもできます。
 1. Windows Admin Center のクラスター対応更新ツールを使用するには、Credential Security Service Provider (CredSSP) を有効にし、明示的な資格情報を指定する必要があります。 CredSSP を有効にするかどうかを確認するメッセージが表示されたら、 **[はい]** をクリックします。

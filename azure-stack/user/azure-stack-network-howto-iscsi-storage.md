@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/28/2019
-ms.openlocfilehash: 17f768ddfeb2422c2e3f1c4d3947c6b142ac13bc
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: 214b1d2cd06f70e9787c36c974ae4d1d18225924
+ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88965128"
 ---
 # <a name="connect-to-iscsi-storage-with-azure-stack-hub"></a>Azure Stack Hub を使用して iSCSI ストレージに接続する
 
@@ -24,7 +24,7 @@ ms.locfileid: "88818727"
 
 この図は、オンプレミスの Windows マシン (物理または仮想) から iSCSI マウント ディスクを使用して Azure Stack Hub でホストされている VM を示しています。これにより、Azure Stack Hub の外部ストレージを iSCSI プロトコルで Azure Stack Hub ホスト VM 内にマウントすることができます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
+![この図は、外部 iSCSI マウント ディスクにアクセスする Azure Stack Hub 上でホストされている VM を示しています。](./media/azure-stack-network-howto-iscsi-storage/overview-iscsi2.svg)
 
 ### <a name="requirements"></a>必要条件
 
@@ -57,7 +57,7 @@ ms.locfileid: "88818727"
 
 この図は、iSCSI ターゲットへの接続に使用できる iSCSI クライアントを作成するために、テンプレートからデプロイされるリソースを示しています。 このテンプレートでは、VM とその他のリソースがデプロイされ、さらに prepare-iSCSIClient.ps1 が実行され、VM が再起動されます。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
+![この図は、iSCSI ターゲットに接続する iSCSI クライアントを作成するために、テンプレートからデプロイされるリソースを示しています。 内部サブネットと NIC (ネットワーク カード)、内部 PIP (プライベート インターネット プロトコル)、NSG (ネットワーク セキュリティ グループ) を備えたファイル サーバーが示されています。](./media/azure-stack-network-howto-iscsi-storage/iscsi-file-server.svg)
 
 ### <a name="the-deployment-process"></a>デプロイ プロセス
 
@@ -68,7 +68,7 @@ ms.locfileid: "88818727"
 3. テンプレートからの IP アドレスとサーバー名の出力を、iSCSI ターゲット (仮想マシンまたは物理サーバー) のスクリプトの入出力パラメーターとして使用して、`Create-iSCSITarget.ps1` を実行します。
 4. `Connect-toiSCSITarget.ps1` スクリプトを実行するための入力として、iSCSI ターゲット サーバーの外部 IP アドレスを使用します。 
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/process.svg)
+![この図には、上記の 4 つの手順のうちの最初の 3 つが示されており、入力と出力が含まれます。 手順は次のとおりです。インフラストラクチャのデプロイ、iSCSI ターゲットの作成、iSCSI への接続。](./media/azure-stack-network-howto-iscsi-storage/process.svg)
 
 ### <a name="inputs-for-azuredeployjson"></a>azuredeploy.json の入力
 
@@ -97,7 +97,7 @@ ms.locfileid: "88818727"
 
 既存の仮想マシン上でスクリプトを実行し、iSCSI クライアントから iSCSI ターゲットに接続することもできます。 このフローは、iSCSI ターゲットを自分で作成する場合に使用します。 次の図は、PowerShell スクリプトの実行フローを示しています。 これらのスクリプトは、Script ディレクトリにあります。
 
-![alt text](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
+![この図には、以下で説明する 3 つのスクリプトが示されています。 実行順に示すと、Prepare-iSCSIClient.ps1 (クライアントで実行)、Create iSCSITarget.ps1 (ターゲットで実行)、Connect-toiSCSITarget.ps1 (クライアントで実行) です。](./media/azure-stack-network-howto-iscsi-storage/script-flow.svg)
 
 ### <a name="prepare-iscsiclientps1"></a>Prepare-iSCSIClient.ps1
 
@@ -112,7 +112,7 @@ ms.locfileid: "88818727"
 
 ### <a name="create-iscsitargetps1"></a>Create-iSCSITarget.ps1
 
-`Create-iSCSITarget.ps1 ` スクリプトは、ストレージを提供しているシステム上で実行されます。 イニシエーターによって制限される複数のディスクとターゲットを作成できます。 このスクリプトを複数回実行して多数の仮想ディスクを作成し、さまざまなターゲットにアタッチすることができます。 複数のディスクを 1 つのターゲットに接続できます。 
+`Create-iSCSITarget.ps1` スクリプトは、ストレージ サーバーで実行されます。 イニシエーターによって制限される複数のディスクとターゲットを作成できます。 このスクリプトを複数回実行して多数の仮想ディスクを作成し、さまざまなターゲットにアタッチすることができます。 複数のディスクを 1 つのターゲットに接続できます。 
 
 |**入力**|**既定値**|**description**|
 |------------------|---------------|------------------------------|

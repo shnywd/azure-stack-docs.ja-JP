@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: fd1e1fa5c6315932728764d65eb042c1d2e44e20
-ms.sourcegitcommit: 977c47a5587a747dbd67aa110381759ba39044b7
+ms.openlocfilehash: 14d41d920d9a91744c5cfa05d2d252a68146b4d1
+ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88512463"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89410941"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -107,7 +107,7 @@ Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**で�
 - スケール ユニット ノードの修復に連鎖的な影響を及ぼすサポート インフラストラクチャ ロールのスケールインとスケールアウトに関する問題を修正しました。
 - オペレーターが **[すべてのサービス] > [コンピューティング] > [VM イメージ] > [追加]** で Azure Stack Hub 管理者ポータルに独自のイメージを追加するときに (.vhd ではなく) .VHD 拡張子が許可されない問題を修正しました。
 - 以前の VM 再起動操作によって、他の VM 更新操作 (ディスク、タグなどの追加) 後に予期しない再起動が発生する問題を修正しました。
-- 重複する DNS ゾーンを作成するとポータルがハングする問題を修正しました。 適切なエラーが表示されるようになりました。
+- 重複する DNS ゾーンを作成するとポータルが応答しなくなる問題を修正しました。 適切なエラーが表示されるようになりました。
 - **Get-AzureStackLogs** で、ネットワークの問題のトラブルシューティングに必要なログが収集されていない問題を修正しました。 
 - ポータルで接続が許可される NIC の数が、実際に許可されている数よりも少ないという問題を修正しました。 
 - 特定の内部ソフトウェアに対して違反イベントが生成されないようにコードの整合性ポリシーを修正しました。 これにより、syslog クライアントによって生成されるコードの整合性違反イベントのノイズが減少します。
@@ -115,6 +115,7 @@ Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**で�
 - Linux NTP サーバーを使用したときに管理ポータルで誤ってアラートが生成される問題を修正しました。  
 - バックアップ コントローラー サービス インスタンスのフェールオーバーによって自動バックアップが無効になる問題を修正しました。
 - インフラストラクチャ サービスがインターネットに接続されていないときに内部シークレットのローテーションが失敗する問題を修正しました。
+- ユーザーが、Azure Stack Hub ポータルを使用して、サブスクリプションのアクセス許可を表示できない問題を修正しました。
 
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 

@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 7021bf8bcc9a6a81ba625e2c9e88a6f5133b81be
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
+ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487942"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89364832"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -44,6 +44,7 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
 - [デプロイ時に提供](azure-stack-pki-certs.md)された外部 SSL 証明書。
 - デプロイ時に提供された、リソース プロバイダー VM のローカル管理者アカウントのパスワード。
 - リソース プロバイダーの診断ユーザー (dbadapterdiag) のパスワード。
+- (バージョン 1.1.47.0 以上) デプロイ時に生成された Key Vault 証明書。
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>PowerShell のシークレットのローテーション例
 
@@ -57,7 +58,8 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
     -DiagnosticsUserPassword $passwd `
     -DependencyFilesLocalPath $certPath `
     -DefaultSSLCertificatePassword $certPasswd  `
-    -VMLocalCredential $localCreds
+    -VMLocalCredential $localCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
 ```
 
 **診断ユーザーのパスワードを変更する。**
@@ -91,22 +93,34 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
+**Key Vault 証明書のパスワードを変更する。**
+
+```powershell
+.\SecretRotationSQLProvider.ps1 `
+    -Privilegedendpoint $Privilegedendpoint `
+    -CloudAdminCredential $cloudCreds `
+    -AzCredential $adminCreds `
+    -KeyVaultPfxPassword $keyvaultCertPasswd
+```
+
 ### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 のパラメーター
 
-|パラメーター|説明|
-|-----|-----|
-|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|
-|CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|
-|PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|
-|DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|
-|VMLocalCredential|MySQLAdapter VM のローカル管理者アカウント。|
-|DefaultSSLCertificatePassword|既定の SSL 証明書 (*pfx) のパスワード。|
-|DependencyFilesLocalPath|依存関係ファイルのローカル パス。|
-|     |     |
+|パラメーター|説明|解説|
+|-----|-----|-----|
+|AzureEnvironment|Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure Active Directory を使用している場合は **AzureChinaCloud** です。|省略可能|
+|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|Mandatory|
+|CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|Mandatory|
+|PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|Mandatory|
+|DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|省略可能|
+|VMLocalCredential|MySQLAdapter VM のローカル管理者アカウント。|省略可能|
+|DefaultSSLCertificatePassword|既定の SSL 証明書 (*pfx) のパスワード。|省略可能|
+|DependencyFilesLocalPath|依存関係ファイルのローカル パス。|省略可能|
+|KeyVaultPfxPassword|データベース アダプターの Key Vault 証明書の生成に使用されるパスワード。|省略可能|
+|     |     |     |
 
 ### <a name="known-issues"></a>既知の問題
 
-**問題点**:<br>
+**問題**:<br>
 シークレット ローテーション ログ。 シークレット ローテーションのカスタム スクリプトが実行され、失敗した場合、シークレット ローテーションのログは自動的に収集されません。
 
 **回避策**:<br>
@@ -121,7 +135,7 @@ VM のオペレーティング システムを更新するには、次のいず�
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>VM の Windows Defender の定義を更新する
 
-Windows Defender の定義を更新するには:
+Windows Defender の定義を更新するには: 
 
 1. [Windows Defender のセキュリティ インテリジェンスの更新](https://www.microsoft.com/wdsi/definitions)に関するページから Windows Defender 定義の更新プログラムをダウンロードします。
 
@@ -230,13 +244,13 @@ Azure Diagnostics 拡張機能は、既定で SQL リソース プロバイダ�
 
 2. 左側のペインで **[仮想マシン]** を選択し、SQL リソース プロバイダー アダプター VM を検索して、その VM を選択します。
 
-3. VM の **[診断設定]** で、 **[ログ]** タブにアクセスし、 **[カスタム]** を選択して、収集するイベント ログをカスタマイズします。
+3. VM の **[診断設定]** で、**[ログ]** タブにアクセスし、**[カスタム]** を選択して、収集するイベント ログをカスタマイズします。
 ![診断設定への移動](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
 4. SQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
 ![イベント ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. IIS ログの収集を有効にするには、 **[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
+5. IIS ログの収集を有効にするには、**[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
 ![IIS ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. 最後に、 **[保存]** を選択して、すべての診断設定を保存します。

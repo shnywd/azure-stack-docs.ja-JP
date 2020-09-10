@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Red Hat Linux オペレーティング システムを格納した Azure 仮想ハード ディスク (VHD) を作成してアップロードする方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 05/04/2020
+ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 3c1fdb568b1d0ceb91cad85bc054b614efcf0b26
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 8756b1fce06582411e321ab5015d6f14da43c6d1
+ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488146"
+ms.lasthandoff: 08/29/2020
+ms.locfileid: "89089594"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Azure Stack Hub 用の Red Hat ベースの仮想マシンの準備
 
@@ -145,7 +145,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
         waagent -version
         ```
 
-    [1910 リリースより後] 次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
+    1910 リリースより後では、次の手順に従って、互換性のある WALinuxAgent をダウンロードします。
     
     1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
@@ -159,7 +159,6 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
         sudo yum install WALinuxAgent
         sudo systemctl enable waagent.service
         ```
-    
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
@@ -354,10 +353,10 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
 
         1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
-            ```bash
-            sudo yum install WALinuxAgent
-            sudo systemctl enable waagent.service
-            ```
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
 
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
@@ -558,11 +557,11 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     ```
 
     1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
-        
-        ```bash
-        sudo yum install WALinuxAgent
-        sudo systemctl enable waagent.service
-        ```
+
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
+    ```
         
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub に使用状況の追跡のためのテナントを登録
 description: Azure Stack Hub でのテナントの登録方法とテナントの使用状況の追跡方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/01/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/14/2019
-ms.openlocfilehash: ac318c1352963a7ee0fb873adaae4b30fa58949b
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 66a21943e19cef13aa7a3986b6a058f69cc85793
+ms.sourcegitcommit: 0714ce748e20065b52f8283d5dbba7ab068978d1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857515"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89285500"
 ---
 # <a name="register-tenants-for-usage-tracking-in-azure-stack-hub"></a>Azure Stack Hub に使用状況の追跡のためのテナントを登録する
 
@@ -49,7 +49,7 @@ Azure Stack Hub と API プロファイルの詳細については、「[Azure S
 
 ### <a name="powershell"></a>PowerShell
 
-テナントを追加するには、**New-AzureRmResource** コマンドレットを使用します。 [Azure Stack Hub に接続](azure-stack-powershell-configure-admin.md)してから、管理者特権のプロンプトから次のコマンドレットを使用します。
+テナントを追加するには、**New-AzureRmResource** コマンドレットを使用します。 [Azure に接続](/powershell/azure/get-started-azureps)し、管理者特権のプロンプトから次のコマンドを実行します。
 
 ```powershell  
 New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
