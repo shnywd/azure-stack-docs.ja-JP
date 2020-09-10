@@ -50,12 +50,16 @@
           href: manage/create-volumes.md
         - name: 拡張ボリュームの作成
           href: manage/create-stretched-volumes.md
+        - name: ボリュームの保護
+          href: manage/volume-encryption-deduplication.md
         - name: ボリュームの拡張
           href: manage/extend-volumes.md
         - name: ボリュームを削除する
           href: manage/delete-volumes.md
         - name: ドライブの交換
           href: manage/replace-drives.md
+        - name: CSV インメモリ読み取りキャッシュを使用する
+          href: manage/use-csv-cache.md
     - name: クラスターの管理
       items:
         - name: クラスターの管理
