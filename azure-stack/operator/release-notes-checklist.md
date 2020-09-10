@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: sethm
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 188f403b89e0e77b75f88a5e50440fd72cc61fdb
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: f3904d481aa9dd27dafecdf592a45d95799aa2e8
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074266"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510957"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新アクティビティのチェックリスト
 
@@ -24,7 +24,7 @@ Azure Stack Hub の更新を準備するために、このチェックリスト�
 |------------------------------|-----------------------------------------------------------|
 | 既知の問題の確認     | [既知の問題の一覧](known-issues.md)                |
 | セキュリティ更新プログラムの確認 | [セキュリティ更新プログラムの一覧](release-notes-security-updates.md)      |
-| アドオン リソース プロバイダーの更新プログラムを確認する | [App Service](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-sql-resource-provider-update.md)<br>[SQL](azure-stack-mysql-resource-provider-update.md)<br>  |
+| アドオン リソース プロバイダーの更新プログラムを確認する | [App Service](azure-stack-app-service-update.md)<br>[Event Hubs](resource-provider-apply-updates.md)<br> [MySQL](azure-stack-mysql-resource-provider-update.md)<br>[SQL](azure-stack-sql-resource-provider-update.md)<br>  |
 | 最新の OEM パッケージの適用 | お使いのシステムがアップグレードされる予定の Azure Stack Hub バージョンに関して OEM に問い合わせて、システムが最小 OEM パッケージ要件を満たしていることを確認してください。 OEM パッケージが、更新する Azure Stack Hub バージョンと互換性があることを確認します。 OEM パッケージが更新後の Azure Stack Hub バージョンと互換性がない場合は、Azure Stack Hub 更新プログラムを実行する前に OEM パッケージの更新を実行する必要があります。 手順については、「Azure Stack Hub に OEM (相手先ブランド供給) の更新プログラムを適用する」を参照してください。 |
 | 省略可能:自動ログ収集の構成 | サポート チケットを開く必要がある場合にシステム ログを収集するプロセスを効率化するため、Azure Stack Hub 環境で自動ログ収集を構成することをお勧めします。 自動ログ収集を構成するには、「[自動 Azure Stack Hub 診断ログ収集の構成](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)」を参照してください。 |
 | 最新の修正プログラムの適用 | 現在インストールされているリリースに適用される最新の修正プログラムを適用します。 最新の修正プログラムの一覧については、[リリース ノートの修正プログラム](release-notes.md)のセクションを参照してください。 |

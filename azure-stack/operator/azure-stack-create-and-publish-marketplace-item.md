@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: db8a05c8a3f8d4c219cb37de018df46c60f39348
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
+ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764547"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89621318"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -45,7 +45,7 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
 
    ![デプロイ テンプレートの構造のスクリーンショット](media/azure-stack-create-and-publish-marketplace-item/gallerypkg2.png)
 
-4. Manifest.json テンプレートで次の強調して示されている値 (番号が付いているもの) を、[カスタム イメージをアップロードする](azure-stack-add-vm-image.md)ときに指定した値に置き換えます。
+4. Manifest.json テンプレートで次の強調して示されている値 (番号が付いているもの) を、[カスタム イメージをアップロードする](azure-stack-add-vm-image.md#add-a-platform-image)ときに指定した値に置き換えます。
 
    > [!NOTE]  
    > プロダクト キー、パスワード、お客様を特定できる情報などの機密情報を Azure Resource Manager テンプレートにハード コーディングしないでください。 テンプレート JSON ファイルは、ギャラリーで公開されると、認証の必要なくアクセスできます。 機密情報はすべて [Key Vault](/azure/azure-resource-manager/resource-manager-keyvault-parameter) に格納し、テンプレート内から呼び出してください。

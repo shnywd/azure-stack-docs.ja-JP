@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 84a6f69eebb461d25cd9569f61d3dee22ec79a49
-ms.sourcegitcommit: b2b0fe629d840ca8d5b6353a90f1fcb392a73bd5
+ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
+ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85376818"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89510940"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 
@@ -21,6 +21,9 @@ ms.locfileid: "85376818"
 この記事で Azure Stack Hub の問題に対処できない場合、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)を参照してください。
 
 Azure サポート要求を送信することもできます。 [Azure Stack Hub サポート](../operator/azure-stack-manage-basics.md#where-to-get-support)を参照してください。
+
+> [!NOTE]
+> 2 つの Azure Stack Hub デプロイ間に作成できるのは、1 つのサイト間 VPN 接続だけです。 これは、同じ IP アドレスに対して許容される VPN 接続が 1 つだけであるというプラットフォームの制限によるものです。 Azure Stack Hub では、Azure Stack Hub システム内のすべての VPN Gateway に対して単一のパブリック IP を使用するマルチテナント ゲートウェイが活用されているため、2 つの Azure Stack Hub システム間に存在できる VPN 接続は 1 つだけです。 この制限は、単一の IP アドレスを使用する VPN ゲートウェイに複数のサイト間 VPN 接続を接続する場合にも当てはまります。 Azure Stack Hub では、同じ IP アドレスを使用して複数のローカル ネットワーク ゲートウェイ リソースを作成することはできません。
 
 ## <a name="initial-troubleshooting-steps"></a>初回のトラブルシューティングの手順
 

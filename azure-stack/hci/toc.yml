@@ -114,6 +114,8 @@
       href: concepts/fault-tolerance.md
     - name: クラスターと記憶域プールのクォーラム
       href: concepts/quorum.md
+    - name: ネットワーク コントローラー
+      href: concepts/network-controller.md
     - name: セキュリティに関する考慮事項
       href: concepts/security.md
 - name: リファレンス
