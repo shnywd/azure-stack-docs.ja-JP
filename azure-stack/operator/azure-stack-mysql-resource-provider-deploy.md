@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 699c9a32c316e183c5432308ca26239533f71c98
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 760f8680c20acdbd219cc4dd9e97e799a37598ea
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419155"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473114"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -29,23 +29,17 @@ Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に
 
 * **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Hub Marketplace に追加します。
 
-* MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。
+* 次のバージョン マッピングの表に従って、サポートされているバージョンの MySQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
-  >[!NOTE]
-  >インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカル パスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
-
-* リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。
-
-  |Azure Stack Hub の最小バージョン|MySQL RP バージョン|
+  |サポートされる Azure Stack Hub のバージョン|MySQL RP バージョン|
   |-----|-----|
-  |バージョン 1910 (1.1910.0.58)|[MySQL RP バージョン 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
-  |バージョン 1808 (1.1808.0.97)|[MySQL RP バージョン 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|  
-  |バージョン 1808 (1.1808.0.97)|[MySQL RP バージョン 1.1.30.0](https://aka.ms/azurestackmysqlrp11300)|
-  |バージョン 1804 (1.0.180513.1)|[MySQL RP バージョン 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
+  |2005、2002、1910|[MySQL RP バージョン 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|
+  |1908|[MySQL RP バージョン 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|
   |     |     |
-  
-> [!IMPORTANT]
-> MySQL リソース プロバイダーのバージョン 1.1.47.0 をデプロイする前に、Azure Stack Hub システムを 1910 更新プログラム以降のバージョンにアップグレードしておく必要があります。 サポートされていない以前の Azure Stack Hub バージョンでは、MySQL リソース プロバイダーのバージョン 1.1.47.0 は機能しません。
+
+>[!NOTE]
+>インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカル パスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
+
 
 * データセンターの統合の前提条件を満たしていることを確認します。
 
@@ -66,8 +60,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. その後、ダウンロードしたパッケージを USB デバイスにコピーします。

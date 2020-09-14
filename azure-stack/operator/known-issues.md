@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/04/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: 664d89ecfde65906bbda33d71d9adc24284a33ba
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410975"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493820"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -117,7 +117,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 
 - 適用先:この問題はすべてのリリースに適用されます。
-- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるものです。
+- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるもので、Marketplace イメージでも発生します。
 - 修復: **[設定]** の下にある **[プロパティ]** ブレードを確認します。
 
 ### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
@@ -264,6 +264,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
   - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
 
 ## <a name="compute"></a>Compute
+
 ### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの VMSS を削除できない
 
 - 適用先:この問題は 2002 リリースに適用されます。
@@ -273,7 +274,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 
 - 適用先:この問題はすべてのリリースに適用されます。
-- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるものです。
+- 原因: 概要ブレードで VM の詳細を表示すると、コンピューター名に **(使用できません)** と表示されます。 これは、特殊なディスクまたはディスク スナップショットから作成された VM の設計によるもので、Marketplace イメージでも発生します。
 - 修復: **[設定]** の下にある **[プロパティ]** ブレードを確認します。
 
 ### <a name="nvv4-vm-size-on-portal"></a>ポータル上の NVv4 VM のサイズ

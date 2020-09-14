@@ -3,16 +3,16 @@ title: Azure Stack Hub の AKS エンジンの前提条件を設定する
 description: Azure Stack Hub で AKS エンジンを実行するための前提条件を確立します。
 author: mattbriggs
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 06/19/2020
-ms.openlocfilehash: 278db618c4628c27241ab1b364a355272a3a3e1b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/08/2020
+ms.openlocfilehash: 9dbe60bfbc9b15f75b31e423bf08c988d9e168be
+ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920867"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89560948"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンの前提条件を設定する
 
@@ -32,8 +32,8 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 | --- | --- | --- | --- | --- |
 | Azure Stack Hub 2002 以降 | AKS エンジンを使用するには、Azure Stack Hub 2002 以降が必要です。 | 必須 | Azure Stack Hub のバージョンがわからない場合は、クラウド オペレーターに問い合わせてください。 |
 | Linux カスタム スクリプト拡張機能 | Linux カスタム スクリプト拡張機能 2.0<br>オファー: Linux 2.0 用のカスタム スクリプト<br>バージョン:2.0.6 (または最新バージョン)<br>発行元: Microsoft Corp | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 |
-| AKS 基本 Ubuntu イメージ | AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 5 月 (2020.05.13) | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack Hub のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Hub Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
-| サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack Hub オペレーターへの問い合わせが必要な場合があります。<br>Azure Active Directory (AAD) サービス プリンシパル ID を使用する場合は、サービス プリンシパルを AAD で認証できるように、Kubernetes クラスター内の VM からインターネットにアクセスする必要があります。 インターネットにアクセスできない場合、Kubernetes クラスターは機能しません。<br>手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください |
+| AKS 基本 Ubuntu イメージ | AKS 基本 Ubuntu 16.04-LTS イメージ、2020 年 8 月 (2020.08.24) | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack Hub のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Hub Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
+| サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack Hub オペレーターへの問い合わせが必要な場合があります。<br>Azure Active Directory (Azure AD) サービス プリンシパル ID を使用する場合は、サービス プリンシパルを Azure AD で認証できるように、Kubernetes クラスター内の VM からインターネットにアクセスする必要があります。 インターネットにアクセスできない場合、Kubernetes クラスターは機能しません。<br>手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください |
 | (SPN) 割り当て済み**共同作成者**ロール | 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定のリソースに対するロールに割り当てる必要があります。 | 必須 | 手順については、「[ロールの割り当て](../operator/azure-stack-create-service-principals.md#assign-a-role)」を参照してください |
 
 
@@ -51,12 +51,12 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 
 ## <a name="matching-engine-to-base-image-version"></a>エンジンと基本イメージバージョンの照合
 
-AKS エンジンによって、カスタマイズされた Ubuntu Server OS が各クラスター ノード イメージである **AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション**にデプロイされます。 すべての AKS エンジンのバージョンは、Azure Stack Hub オペレーターが Azure Stack Hub で使用できる特定のイメージ バージョンに依存します。 AKS エンジンのバージョンと、それに対してサポートされている Kubernetes のバージョンが一覧表示された表は、「[Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」 (サポートされている Kubernetes バージョン) に記載されています。 たとえば、AKS エンジンのバージョン `v0.51.0` は、AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューションのバージョン `2020.05.13` によって変わります。 Azure Stack Hub のオペレーターに、Azure Marketplace から Azure Stack Hub Marketplace に特定のイメージ バージョンをダウンロードするよう依頼してください。
+AKS エンジンによって、カスタマイズされた Ubuntu Server OS が各クラスター ノード イメージである **AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション**にデプロイされます。 すべての AKS エンジンのバージョンは、Azure Stack Hub オペレーターが Azure Stack Hub で使用できる特定のイメージ バージョンに依存します。 AKS エンジンのバージョンと、それに対してサポートされている Kubernetes のバージョンが一覧表示された表は、「[Supported Kubernetes Versions](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」 (サポートされている Kubernetes バージョン) に記載されています。 たとえば、AKS エンジンのバージョン `v0.55.0` は、AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューションのバージョン `2020.08.24` によって変わります。 Azure Stack Hub のオペレーターに、Azure Marketplace から Azure Stack Hub Marketplace に特定のイメージ バージョンをダウンロードするよう依頼してください。
 
-Azure Stack Hub Marketplace にイメージがない場合は、エラーがトリガーされます。 たとえば、AKS エンジンのバージョン v0.51.0 を現在使用していて、AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション バージョン `2020.05.13` を使用できない場合は、AKS エンジンの実行時に次のエラーが表示されます。 
+Azure Stack Hub Marketplace にイメージがない場合は、エラーがトリガーされます。 たとえば、AKS エンジンのバージョン v0.55.0 を現在使用していて、AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション バージョン `2020.08.24` を使用できない場合は、AKS エンジンの実行時に次のエラーが表示されます。 
 
 ```Text  
-The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.05.13' is not available. 
+The platform image 'microsoft-aks:aks:aks-ubuntu-1604-202003:2020.08.24' is not available. 
 Verify that all fields in the storage profile are correct.
 ```
 
@@ -64,7 +64,7 @@ Verify that all fields in the storage profile are correct.
 
 ```bash  
 $ aks-engine version
-Version: v0.51.0
+Version: v0.55.0
 GitCommit: 44a35c00c
 GitTreeState: clean
 ```

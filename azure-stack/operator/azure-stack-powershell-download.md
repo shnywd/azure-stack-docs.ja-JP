@@ -7,12 +7,12 @@ ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 3b7734f5baccdad399f88bd36a076574f0c9c91a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089611"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448454"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
@@ -20,7 +20,7 @@ ms.locfileid: "89089611"
 
 ## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Azure Stack Hub AzureRM モジュール用のツールを入手する
 
-これらのツールを取得するには、`master` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+これらのツールを取得するには、`master` ブランチから GitHub リポジトリを複製するか、管理者特権の PowerShell プロンプトで次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
 
 ```powershell
 # Change directory to the root directory.

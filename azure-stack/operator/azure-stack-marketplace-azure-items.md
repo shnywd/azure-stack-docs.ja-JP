@@ -3,16 +3,16 @@ title: Azure Stack Hub で使用できる Azure Marketplace 項目
 description: Azure Stack Hub で使用できる Azure Marektplace アイテムについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/07/2020
+ms.date: 09/09/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 01/21/2019
-ms.openlocfilehash: 1d1c297ca303b38a541bcd982df218444affbc71
-ms.sourcegitcommit: cfc453689a5a2f2491ce00ab77a7c5bfddfe01d8
+ms.openlocfilehash: 8a9eb556209e282efc760c475c1d0f5dd5d9e685
+ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87997991"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89598525"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack-hub"></a>Azure Stack Hub で使用できる Azure Marketplace 項目
 
@@ -243,6 +243,7 @@ Microsoft Azure Stack Hub では、次の Azure Marketplace VM およびソリ�
 | ![Palo Alto VM-Series 次世代ファイアウォール](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series 次世代ファイアウォール](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | お客様は VM-Series の次世代ファイアウォールを使用して、アプリやデータを Azure Stack Hub に安全に移行し、アプリケーションのホワイトリスト登録や脅威防止ポリシーによる既知および未知の脅威からそれらを保護することができます。 **このイメージにはデプロイするためのテンプレートが必要です。重要な情報については、こちらの[記事](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)を参照してください。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall は既知の脆弱性および不明な脆弱性を検出し、Web アプリに対する攻撃を防止します。 **両方の PT Marketplace アイテムをダウンロードします。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-201818) | Puppet Enterprise では、お使いの Azure Stack Hub インフラストラクチャのライフ サイクル全体を自動化することができます。 **両方の Puppet Marketplace アイテムをダウンロードしてください。** | Puppet |
+| ![Qualys Virtual Scanner Appliance](media/azure-stack-marketplace-azure-items/qualys.png) | [Qualys Virtual Scanner Appliance](https://azuremarketplace.microsoft.com/marketplace/apps/qualysguard.qualys-virtual-scanner-app) | Virtual Scanner Appliance は、Qualys Cloud Platform のセキュリティとコンプライアンスの SaaS アプリケーションの統合スイートを拡張します。 アプリケーション モジュールには、脆弱性管理、ポリシー コンプライアンス、Web アプリケーション スキャンが含まれます。 | Qualys, Inc. |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery による高度なデータ保護は、バックアップ、レプリケーション、復旧を 1 つの使いやすいソフトウェア ソリューションに統合します。 | Quest Software |
 | ![SIOS DataKeeper Cluster Edition](media/azure-stack-marketplace-azure-items/sioslogo.png) | [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) | SIOS DataKeeper は、Azure Stack Hub での高可用性 (HA) とディザスター リカバリー (DR) を提供します。 Azure Stack Hub デプロイ内のお使いの Windows Server フェールオーバー クラスタリング (WSFC) 環境に SIOS DataKeeper ソフトウェアを構成要素として単純に追加するだけで、共有ストレージが不要になります。 | SIOS Technology Corp。 |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/suse.suse-manager-proxy-byos) | クラス最高のオープン ソースのインフラストラクチャ管理。 | SUSE |

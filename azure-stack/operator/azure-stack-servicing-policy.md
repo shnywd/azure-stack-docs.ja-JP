@@ -8,12 +8,12 @@ ms.date: 08/11/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 22ba6cd5ae2552541c1eeb67ce38699ca012e640
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 7cf6420069dbc8589722aab38658206a482632e0
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145473"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472961"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -25,7 +25,7 @@ Microsoft では、完全な更新プログラム パッケージと、特定の
 
 完全な更新プログラム パッケージは、セキュリティで保護された Azure エンドポイントでホストされます。 これらは、[Azure Stack Hub 更新プログラム ダウンローダー ツール](https://aka.ms/azurestackupdatedownload)を使用して、手動でダウンロードできます。 スケール ユニットが接続されている場合、更新プログラムは、"**更新プログラムが利用可能です**" と自動的に管理者ポータルに表示されます。 各リリースの詳細については、この記事の「[更新プログラム パッケージのリリース周期](#update-package-release-cadence)」セクションの任意のリリースをクリックしてください。
 
-修正プログラム パッケージは、セキュリティで保護された同じ Azure エンドポイントでホストされます。 これらは、各修正プログラムの KB 記事 (たとえば、[Azure Stack Hub 修正プログラム 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) の埋め込みリンクを使用してダウンロードできます。 毎月の完全版更新プログラム パッケージと同様に、Azure Stack Hub オペレーターは、[Azure Stack Hub での更新プログラムの適用](azure-stack-apply-updates.md)に関する記事に記載されている手順を使用して、.xml、.bin、および .exe ファイルのダウンロードとインポートを行うことができます。 スケール ユニットが接続されている Azure Stack Hub オペレーターに対しては、修正プログラムが "**更新プログラムが利用可能です**" というメッセージと共に、自動的に管理者ポータルに表示されます。
+修正プログラム パッケージは、セキュリティで保護された同じ Azure エンドポイントでホストされます。 これらは、各修正プログラムの KB 記事 (たとえば、[Azure Stack Hub 修正プログラム 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) の埋め込みリンクを使用してダウンロードできます。 毎月の完全版更新プログラム パッケージと同様に、Azure Stack Hub オペレーターは、[Azure Stack Hub での更新プログラムの適用](azure-stack-apply-updates.md)に関する記事に記載されている手順を使用して、.xml および .zip ファイルのダウンロードとインポートを行うことができます。 スケール ユニットが接続されている Azure Stack Hub オペレーターに対しては、修正プログラムが "**更新プログラムが利用可能です**" というメッセージと共に、自動的に管理者ポータルに表示されます。
 
 スケール ユニットが接続されておらず、各修正プログラムのリリースについて通知を受け取る場合は、各リリースに記載されている [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) または [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) フィードを購読します。
 

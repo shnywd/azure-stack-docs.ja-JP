@@ -1,20 +1,20 @@
 ---
-title: Azure Stack HCI のキャッシュについて
+title: Azure Stack HCI の記憶域プール キャッシュについて
 description: 記憶域スペース ダイレクトおよび Azure Stack HCI での読み取りおよび書き込みキャッシュのしくみ。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 0c5ce6430ac44601b7e0a172203faabf2732e0a2
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.date: 09/04/2020
+ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
+ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364747"
+ms.lasthandoff: 09/05/2020
+ms.locfileid: "89493871"
 ---
-# <a name="understanding-the-cache-in-azure-stack-hci"></a>Azure Stack HCI のキャッシュについて
+# <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Azure Stack HCI の記憶域プール キャッシュについて
 
 > 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
@@ -148,7 +148,7 @@ Windows ソフトウェアで定義された記憶域スタックには、関連
 
 Azure Stack HCI では、記憶域スペースのライトバック キャッシュを既定の動作から変更することはできません。 たとえば、**New-Volume** コマンドレットの **-WriteCacheSize** などのパラメーターは使用できません。
 
-CSV キャッシュを使用するかどうかはユーザーが自由に選択できます。 Windows Server 2019 では既定でオンになっていますが、このトピックで説明する新しいキャッシュとは競合しません。 特定のシナリオでは、パフォーマンスを向上させることができます。 詳細については、[CSV キャッシュを有効にする方法](/windows-server/failover-clustering/failover-cluster-csvs#enable-the-csv-cache-for-read-intensive-workloads-optional)に関する記事を参照してください。
+CSV キャッシュを使用するかどうかはユーザーが自由に選択できます。 Azure Stack HCI では既定でオンになっていますが、このトピックで説明するキャッシュとは競合しません。 特定のシナリオでは、パフォーマンスを向上させることができます。 詳細については、[Azure Stack HCI での CSV インメモリ読み取りキャッシュの使用](../manage/use-csv-cache.md)に関するページを参照してください。
 
 ## <a name="manual-configuration"></a>手動構成
 

@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 09/10/2019
-ms.openlocfilehash: 6bcdc7aacfadb37d348eaa33449065b9fb345446
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: e72d00d7a0a5f1a9299d3d279e3b7ee8dd779b30
+ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818353"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89428568"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Azure Stack Hub への証明書署名要求を生成する
 
@@ -138,7 +138,7 @@ Azure Stack Hub デプロイのための PKI 証明書に対する CSR を生成
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
-2. Azure Stack Hub システムの regionname.domain.com の形式で **stampEndpoint** を宣言します。 例 (Azure Stack Hub テナント ポータルのアドレスが https://portal.east.azurestack.contoso.com):
+2. Azure Stack Hub システムの regionname.domain.com の形式で **stampEndpoint** を宣言します。 例 (Azure Stack Hub テナント ポータルのアドレスが <code> https://</code><code>portal.east.azurestack.contoso.com</code> の場合):
 
     ```powershell  
     $stampEndpoint = 'east.azurestack.contoso.com'

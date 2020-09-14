@@ -1,16 +1,16 @@
 ---
-title: Azure Stack HCI のデプロイの概要
+title: Azure Stack HCI をデプロイする前に
 description: Azure Stack HCI のデプロイを準備する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
-ms.date: 09/01/2020
-ms.openlocfilehash: 33e1e5b6c113f954a819cf6488f22a18f64d93c5
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.date: 09/03/2020
+ms.openlocfilehash: 1cffde5eb3fa29357a71a0d6ca397f1da1b63879
+ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364815"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89448607"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI をデプロイする前に
 
@@ -136,7 +136,7 @@ Windows Admin Center で [クラスターの作成] ウィザードを使用し�
 ### <a name="storage-requirements"></a>ストレージの要件
 
 - Azure Stack HCI は直接接続された SATA、SAS、NVMe、または永続メモリのドライブに対応しています。これらは、それぞれ 1 台のサーバーのみに物理的に接続されます。
-- 同じクラスター内のすべてのサーバーで、ドライブの種類が同じであり、それぞれの種類のドライブ数も同じである必要があります。 また、ドライブは同じサイズおよびモデルにすることをお勧めします (必須ではありません)。 ドライブは、サーバーの内部、または 1 台のサーバーにのみ接続されている外部エンクロージャに配置できます。
+- 同じクラスター内のすべてのサーバーで、ドライブの種類が同じであり、それぞれの種類のドライブ数も同じである必要があります。 また、ドライブは同じサイズおよびモデルにすることをお勧めします (必須ではありません)。 ドライブは、サーバーの内部、または 1 台のサーバーにのみ接続されている外部エンクロージャに配置できます。 詳細については、[ドライブの対称性に関する考慮事項](../concepts/drive-symmetry-considerations.md)に関するページを参照してください。
 - クラスター内の各サーバーには、ログ用の専用ボリュームが必要になり、ログ ストレージの速度は少なくともデータ ストレージと同じでなければなりません。 ストレッチ クラスターには少なくとも 2 つのボリュームが必要です。1 つはレプリケートされたデータ用で、もう 1 つはログ データ用です。
 - スロットのマッピングと識別のために SCSI エンクロージャ ービス (SES) が必要になります。 各外部エンクロージャは、一意識別子 (一意の ID) を提示する必要があります。 **サポート対象外:** RAID コントローラー カードまたは SAN (ファイバー チャネル、iSCSI、FCoE) 記憶域、複数のサーバーに接続されている共有 SAS エンクロージャ、または複数のパスからドライブにアクセスできる任意の形式のマルチパス IO (MPIO)。 ホスト バス アダプター (HBA) カードは、単純なパススルー モードを実装する必要があります。
 - 詳細については、[ドライブの選択](../concepts/choose-drives.md)に関するトピック、または「[記憶域スペース ダイレクトのハードウェア要件](/windows-server/storage/storage-spaces/storage-spaces-direct-hardware-requirements)」を参照してください。

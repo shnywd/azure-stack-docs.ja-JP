@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes クラスターをアップグレードす
 description: Azure Stack Hub で Kubernetes クラスターをアップグレードする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 4/23/2020
-ms.openlocfilehash: 4dd690fe5dc88c3edce02a09d594f9728297b4c9
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/02/2020
+ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920697"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89473046"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
 
@@ -50,11 +50,10 @@ Microsoft ではお客様のクラスターを管理しません。 ただし、
 1. まず、アップグレードの対象となるバージョンを特定する必要があります。 このバージョンは現在お持ちになっているバージョンによって異なります。そのバージョン値を使用してアップグレードを実行します。 最新の更新プログラムでサポートされている Kubernetes のバージョンは、1.14.7 と 1.15.10 です。 使用可能なアップグレードについては、次の表を参照してください。
 
 | 現在のバージョン | 使用可能なアップグレード |
-| --- | --- |
-|1.14.7 | 1.15.10 |
-|1.14.8 | 1.15.10 |
-|1.15.4 | 1.15.10 |
-|1.15.5 | 1.15.10 |
+| ------------------------- | ----------------------- |
+| 1.15.10 | 1.15.12 |
+| 1.15.12、1.16.8、1.16.9 | 1.16.14 |
+| 1.16.8、1.16.9、1.16.14 | 1.17.11 |
 
 AKS エンジン、AKS Base Image、および Kubernetes の各バージョンの完全なマッピングについては、「[サポートされている AKS エンジンのバージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)」を参照してください。
 

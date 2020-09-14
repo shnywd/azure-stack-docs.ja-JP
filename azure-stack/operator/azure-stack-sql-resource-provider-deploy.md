@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 0c91d214ba35a3bda98da05e2e7359c45707d760
-ms.sourcegitcommit: 09fbc4e8fc53828647d515bfb556dfe42df28c19
+ms.openlocfilehash: 5b38c407b6e4aba60b0c810ffad4db531627820f
+ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86419100"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89472978"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -30,18 +30,13 @@ Azure Stack Hub SQL リソース プロバイダーをデプロイする前に�
 
 - **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Hub Marketplace に追加します。
 
-- SQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに抽出します。 リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。
+- 次のバージョン マッピングの表に従って、サポートされているバージョンの SQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
-  |Azure Stack Hub の最小バージョン|SQL RP バージョン|
+  |サポートされる Azure Stack Hub のバージョン|SQL RP バージョン|
   |-----|-----|
-  |バージョン 1910 (1.1910.0.58)|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|  
-  |バージョン 1808 (1.1808.0.97)|[SQL RP バージョン 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|  
-  |バージョン 1804 (1.0.180513.1)|[SQL RP バージョン 1.1.24.0](https://aka.ms/azurestacksqlrp11240)  
+  |2005、2002、1910|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
+  |1908|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
   |     |     |
-
-> [!IMPORTANT]
-> SQL リソース プロバイダーのバージョン 1.1.47.0 をデプロイする前に、Azure Stack Hub システムを 1910 更新プログラム以降のバージョンにアップグレードしておく必要があります。 サポートされていない以前の Azure Stack Hub バージョンでは、SQL リソース プロバイダーのバージョン 1.1.47.0 は機能しません。
 
 - データセンターの統合の前提条件を満たしていることを確認します。
 
@@ -62,8 +57,8 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
 
 2. その後、ダウンロードしたパッケージを USB デバイスにコピーします。

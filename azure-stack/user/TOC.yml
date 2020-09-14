@@ -147,6 +147,16 @@
                   href: vm-update-management.md
                 - name: SQL Server VM に関する考慮事項
                   href: azure-stack-sql-server-vm-considerations.md
+                - name: VM の移行
+                  items:
+                    - name: VM の移行の概要
+                      href: vm-move-overview.md
+                    - name: Azure からの VM
+                      href: vm-move-from-azure.md
+                    - name: オンプレミスの特殊化 VM
+                      href: vm-move-specialized.md
+                    - name: オンプレミスの一般化 VM
+                      href: vm-move-generalized.md
             - name: ストレージ
               items:
                 - name: 概要
