@@ -84,6 +84,8 @@
       items:
         - name: Windows Admin Center を Azure に登録する
           href: manage/register-windows-admin-center.md
+        - name: Azure Portal の使用
+          href: manage/azure-portal.md
         - name: Azure Monitor による監視
           href: manage/azure-monitor.md
         - name: Azure Site Recovery を使用する
