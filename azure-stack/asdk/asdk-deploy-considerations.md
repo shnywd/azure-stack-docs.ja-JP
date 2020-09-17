@@ -1,18 +1,18 @@
 ---
 title: ASDK の要件と考慮事項
 description: Azure Stack Development Kit (ASDK) のハードウェア、ソフトウェア、環境の要件を確認します。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: d9681a9245c856378a779a25ab3de2c051d97b0b
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489846"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572104"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -20,18 +20,16 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 
 ## <a name="hardware"></a>ハードウェア
 
-| コンポーネント | 最小値 | 推奨 |
-| --- | --- | --- |
-| ディスク ドライブ: オペレーティング システム |システム パーティション用に最低 200 GB の空きがある、1 つのオペレーティング システム ディスク (SSD または HDD)。 |システム パーティション用に最低 200 GB の空きがある 1 OS ディスク (SSD または HDD)。 |
-| ディスク ドライブ: 開発キット データ全般<sup>*</sup>  |4 つのディスク。 各ディスクに最低 240 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 |4 つのディスク。 各ディスクに最低 400 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 |
-| コンピューティング: CPU |デュアル ソケット: 16 個の物理コア (合計)。 |デュアル ソケット: 20 個の物理コア (合計)。 |
-| コンピューティング: メモリ |192 GB の RAM。 |256 GB の RAM。 |
-| コンピューティング: BIOS |Hyper-V 対応 (SLAT サポートあり)。 |Hyper-V 対応 (SLAT サポートあり)。 |
-| [ネットワーク]\: NIC |Windows Server 2012 R2 認定。 特別な機能は必要ありません。 | Windows Server 2012 R2 認定。 特別な機能は必要ありません。 |
-| ハードウェア ロゴ認定 |[Windows Server 2012 R2 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
-|[Windows Server 2016 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 
-|
-
+| コンポーネント                                             | 最小値                                                                                                 | 推奨                                                                                             |
+|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| ディスク ドライブ: オペレーティング システム                         | システム パーティション用に最低 200 GB の空きがある、1 つのオペレーティング システム ディスク (SSD または HDD)。             | システム パーティション用に最低 200 GB の空きがある 1 OS ディスク (SSD または HDD)。                           |
+| ディスク ドライブ: 開発キット データ全般<sup>*</sup> | 4 つのディスク。 各ディスクに最低 240 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 | 4 つのディスク。 各ディスクに最低 400 GB の空き容量が必要 (SSD または HDD)。 すべての使用可能なディスクが使われます。 |
+| コンピューティング: CPU                                          | デュアル ソケット: 16 個の物理コア (合計)。                                                                 | デュアル ソケット: 20 個の物理コア (合計)。                                                                 |
+| コンピューティング: メモリ                                       | 192 GB の RAM。                                                                                             | 256 GB の RAM。                                                                                             |
+| コンピューティング: BIOS                                         | Hyper-V 対応 (SLAT サポートあり)。                                                                    | Hyper-V 対応 (SLAT サポートあり)。                                                                    |
+| [ネットワーク]\: NIC                                          | Windows Server 2012 R2 認定。 特別な機能は必要ありません。                                 | Windows Server 2012 R2 認定。 特別な機能は必要ありません。                                 |
+| ハードウェア ロゴ認定                                 | [Windows Server 2012 R2 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。 | [Windows Server 2016 認定](https://www.windowsservercatalog.com/content.aspx?ctf=logo.htm)。    |
+  
 <sup>*</sup> Azure から[マーケットプレース項目](../operator/azure-stack-create-and-publish-marketplace-item.md)の多くを追加する計画の場合は、この推奨容量より多くが必要です。
 
 ### <a name="hardware-notes"></a>ハードウェアの注

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 上でストレージ アカウントをバックアップする方法
+title: Azure Stack Hub でストレージ アカウントをバックアップする
 description: Azure Stack Hub でストレージ アカウントをバックアップする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 673d1d58a441d5265e8ad6dd23a448d089c2776e
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 001514995d13c63ecf697769e0fc71e2155b7382
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567316"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574161"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントをバックアップする
 

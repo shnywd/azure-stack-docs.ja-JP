@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: bd1c6674bd125546526c1588f98f5b0d17a57fef
-ms.sourcegitcommit: cf99d632ca2afccba4aaad5c8a013ba3443bcd54
+ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89410992"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742513"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -148,7 +148,7 @@ VM が_割り当て解除済み_の状態にある場合、メモリ リソー�
 
 **A**: **PowerShell** で `test-azurestack -include AzsVmPlacement -debug` を実行すると、次のような出力が生成されます。
 
-    ```console
+```console
     Starting Test-AzureStack
     Launching AzsVmPlacement
      
@@ -162,7 +162,7 @@ VM が_割り当て解除済み_の状態にある場合、メモリ リソー�
     LNV2-Node04     10       10          28            49               256             101              
     
     PASS : Azure Stack Scale Unit VM Placement Summary
-    ```
+```
 
 **Q**: Azure Stack Hub にデプロイされている VM の数は変更されていませんが、容量は変動しています。 なぜですか?
 

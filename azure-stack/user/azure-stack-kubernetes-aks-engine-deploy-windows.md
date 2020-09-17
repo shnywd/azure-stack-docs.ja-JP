@@ -3,16 +3,16 @@ title: Azure Stack Hub の Windows に AKS エンジンをデプロイする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Windows マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 2c8f5c38c9cd6e5f8632e3abac75f51c2b71d481
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473233"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717963"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
@@ -40,7 +40,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 5. 管理者特権でのプロンプトで次のコマンドを実行し、バージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 > [!NOTE]  
@@ -65,7 +65,7 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 7.  管理者特権でのプロンプトで、次のコマンドを実行します。 適切なバージョン番号を含めます。
 
     ```PowerShell  
-        choco install aks-engine --version 0.55.0 -y
+        choco install aks-engine --version 0.55.4 -y
     ```
 
 ## <a name="verify-the-installation"></a>インストールの確認

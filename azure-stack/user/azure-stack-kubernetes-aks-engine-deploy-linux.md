@@ -3,16 +3,16 @@ title: Azure Stack Hub の Linux に AKS エンジンをインストールする
 description: Kubernetes クラスターをデプロイおよび管理するために、Azure Stack Hub の Linux マシンを使用して AKS エンジンをホストする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: efda1a0009733085d0a8bd4fca26ba386fb9bf24
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 49855cbe926dc29b20c3309e4fc3a084ee5a5e70
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473165"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717968"
 ---
 # <a name="install-the-aks-engine-on-linux-in-azure-stack-hub"></a>Azure Stack Hub の Linux に AKS エンジンをインストールする
 
@@ -33,13 +33,13 @@ AKS エンジンとは、お使いの Kubernetes クラスターをデプロイ�
 
 1. お使いの Azure Stack Hub に Linux VM を作成します。 手順については、「[クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成します](./azure-stack-quick-linux-portal.md)。
 2. お使いの VM に接続します。
-3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.55.0` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされます。最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
+3. [サポート対象の Kubernetes バージョン](https://github.com/Azure/aks-engine/blob/master/docs/topics/azure-stack.md#supported-aks-engine-versions)の表で、その AKS エンジンのバージョンを確認します。 AKS ベースのイメージは、ご自身の Azure Stack Hub の Marketplace で入手できるようになっている必要があります。 コマンドを実行するときに、バージョン `--version v0.55.4` を指定する必要があります。 バージョンを指定しないと、このコマンドによって最新バージョンがインストールされます。最新バージョンに必要な VHD イメージがご自分の Marketplace にはない可能性があります。
 4. 次のコマンドを実行します。
 
     ```bash  
         curl -o get-akse.sh https://raw.githubusercontent.com/Azure/aks-engine/master/scripts/get-akse.sh
         chmod 700 get-akse.sh
-        ./get-akse.sh --version v0.55.0
+        ./get-akse.sh --version 0.55.4
     ```
 
     > [!NOTE]  
