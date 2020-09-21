@@ -6,19 +6,19 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/12/2020
-ms.openlocfilehash: 4dff1265bd542cebe1268ea54248a7c869bd3df1
-ms.sourcegitcommit: a3e042c782a38ecf3baf7a64b1d492a655972f9a
+ms.date: 09/09/2020
+ms.openlocfilehash: 67ba53d7daf5bb335283f328579439f192d0020b
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88198789"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742423"
 ---
 # <a name="get-started-with-azure-stack-hci-and-windows-admin-center"></a>Azure Stack HCI と Windows Admin Center の使用を開始する
 
 > 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Azure Stack HCI クラスターに接続して、クラスターとストレージのパフォーマンスを監視する手順について説明します。 クラスターをまだ設定していない場合は、手順について「[デプロイの概要](deploy/deployment-overview.md)」を参照してください。
+このトピックでは、Azure Stack HCI クラスターに接続して、クラスターとストレージのパフォーマンスを監視する手順について説明します。 クラスターをまだ設定していない場合は、[Azure Stack HCI をダウンロード](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)し、手順について「[デプロイの概要](deploy/deployment-overview.md)」を参照してください。
 
 ## <a name="install-windows-admin-center"></a>Windows Admin Center をインストールする
 

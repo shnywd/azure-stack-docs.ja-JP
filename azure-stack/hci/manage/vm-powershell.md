@@ -1,17 +1,17 @@
 ---
-title: Windows PowerShell を使用して Azure Stack HCI 上の VM を管理する
+title: Windows PowerShell を使用して VM を管理する - Azure Stack HCI
 description: Windows PowerShell を使用して Azure Stack HCI 上の仮想マシンを管理する方法
 author: v-dasis
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: bbb77e9d96daa3f7f6eefd88812a11656e2acc5d
-ms.sourcegitcommit: ad6bbb611ac671b295568d3f00a193b783470c68
+ms.openlocfilehash: 8d5f654ed5af1fe66c9a28bbfd6bebb09672fa88
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87397432"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573515"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-powershell"></a>Windows PowerShell を使用して Azure Stack HCI 上の VM を管理する
 

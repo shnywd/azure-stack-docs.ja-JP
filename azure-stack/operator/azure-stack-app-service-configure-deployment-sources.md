@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 上の App Services のデプロイ ソースを構成する
+title: App Services のデプロイ ソースを構成する - Azure Stack Hub
 description: Azure Stack Hub 上の App Services のデプロイ ソース (Git、GitHub、BitBucket、DropBox、および OneDrive) を構成する方法について説明します。
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: f2498804505aec7b4e4131032758c09a6ff8168d
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 2766c495087d32dba1162d2354b9b0a8ea673afb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573260"
 ---
 # <a name="configure-deployment-sources-for-app-services-on-azure-stack-hub"></a>Azure Stack Hub 上の App Services のデプロイ ソースを構成する
 

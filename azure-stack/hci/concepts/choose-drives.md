@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: c53ef48ab191a831a981c0a0c91b59efa766c948
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: a1283982ba04acd8de0b54c02fbc0bb88da9ebc6
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364713"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742304"
 ---
 # <a name="choose-drives-for-azure-stack-hci"></a>Azure Stack HCI のドライブを選択する
 
@@ -43,7 +43,7 @@ Azure Stack HCI は、組み込みのサーバー側キャッシュを特徴と�
 
 これを行うには複数の方法があります。
 
-![All-Flash-Deployment-Possibilities](media/choose-drives/All-Flash-Deployment-Possibilities.png)
+![この図は、容量用の NVMe のみ、キャッシュ用の NVMe と容量用の SSD、容量用の SSD のみなど、デプロイ オプションを示しています。](media/choose-drives/All-Flash-Deployment-Possibilities.png)
 
 1. **NVMe のみ。** NVMe のみを使用すると、最も予測可能な低待機時間を含む、比類のないパフォーマンスが得られます。 すべてのドライブが同じモデルの場合、キャッシュはありません。 耐久性の高い NVMe モデルと耐久性の低い NVMe モデルを混在させ、後者に対する書き込みをキャッシュするように前者を構成することもできます ([セットアップが必要です](/windows-server/storage/storage-spaces/understand-the-cache#manual-configuration))。
 
@@ -58,7 +58,7 @@ Azure Stack HCI は、組み込みのサーバー側キャッシュを特徴と�
 
 さまざまなアプリケーションやワークロードがあり、パフォーマンス要件が厳しい環境や、非常に多くのストレージ容量を必要とする環境では、大容量の HDD に対して NVMe または SSD キャッシュを使用して "ハイブリッド" にする必要があります。
 
-![Hybrid-Deployment-Possibilities](media/choose-drives/Hybrid-Deployment-Possibilities.png)
+![この図は、キャッシュ用の NVMe と容量用の HDD、キャッシュ用の SSD と容量用の HDD、キャッシュ用の NVMe と容量用の SSD と HDD の混合など、可能なデプロイを示しています。](media/choose-drives/Hybrid-Deployment-Possibilities.png)
 
 1. **NVMe + HDD**。 NVMe ドライブは、読み取りと書き込みをキャッシュすることによって、その両方を高速化します。 読み取りのキャッシュにより、HDD は書き込みに集中することができます。 書き込みのキャッシュは、バーストを吸収し、必要な場合にのみ書き込みの結合とデステージングを可能にします。これは、HDD IOPS と IO スループットを最大化する、人為的にシリアル化された方法で行われます。 これにより、NVMe に似た書き込み特性が得られ、頻繁にまたは最近読み取られたデータに対して、NVMe に似た読み取り特性も得られます。
 

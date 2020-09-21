@@ -3,20 +3,23 @@ title: Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stac
 description: AKS エンジンの前提条件を Azure Stack Hub Marketplace に追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 60f291c089e28b4afb574d5a0d7a2d37ac304e88
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472825"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717990"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する
 
-ユーザー向けに Azure Kubernetes Services (AKS) エンジンを設定することができます。 この記事で説明する項目を Azure Stack ハブに追加します。 ユーザーはその後、1 回の連携した操作で Kubernetes クラスターをデプロイできます。 この記事では、接続されている環境と接続されていない環境の両方で、ユーザーが AKS エンジンを使用できるようにするために必要な手順について説明します。 AKS エンジンは、サービス プリンシパル ID と、Marketplace のカスタム スクリプト拡張機能および AKS 基本イメージに依存します。 AKS エンジンを使用するには、[Azure Stack Hub 1910](release-notes.md?view=azs-1910) 以降を実行している必要があります。
+ユーザー向けに Azure Kubernetes Services (AKS) エンジンを設定することができます。 この記事で説明する項目を Azure Stack ハブに追加します。 ユーザーはその後、1 回の連携した操作で Kubernetes クラスターをデプロイできます。 この記事では、接続されている環境と接続されていない環境の両方で、ユーザーが AKS エンジンを使用できるようにするために必要な手順について説明します。 AKS エンジンは、サービス プリンシパル ID と、Marketplace のカスタム スクリプト拡張機能および AKS 基本イメージに依存します。 AKS エンジンを使用するには、[Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) 以降を実行している必要があります。
+
+> [!NOTE]  
+> Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping)をご覧ください。
 
 ## <a name="check-your-users-service-offering"></a>ユーザーのサービス オファリングを確認する
 
@@ -55,8 +58,8 @@ Azure から項目を取得して、AKS 基本イメージを Marketplace に追
     一覧で、次のように選択します。
     - **[発行者]** : Azure Kubernetes Service
     - **オファー**: aks
-    - **Name**:AKS 基本 Ubuntu 16.04-LTS のイメージ ディストリビューション、2020 年 8 月 (2020.08.24 または AKS エンジンにマップされているバージョン)
-    - **バージョン**:2020.08.24
+    - **Name**:AKS 基本 Ubuntu 16.04-LTS のイメージ ディストリビューション、2020 年 8 月 (2020.09.14 または AKS エンジンにマップされているバージョン)
+    - **バージョン**:2020.09.14
 
 1. **[ダウンロード]** を選択します。
 

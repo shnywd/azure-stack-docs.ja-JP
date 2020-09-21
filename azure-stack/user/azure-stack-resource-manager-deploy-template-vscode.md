@@ -1,18 +1,18 @@
 ---
 title: Visual Studio Code を使用して Azure Stack Hub にデプロイする
-description: ユーザーとして、Visual Studio Code で Azure Resource Manager テンプレートを作成し、デプロイ スキーマを使って、使用しているバージョンの Azure Stack Hub と互換性のあるテンプレートを準備します。
+description: Visual Studio Code で Azure Resource Manager テンプレートを作成し、デプロイ スキーマを使用して、ご使用のバージョンの Azure Stack Hub と互換性のあるテンプレートを準備します。
 author: mattbriggs
 ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: 7da28f1cbe1087ff9f791c27979091de1869a56f
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 3f97ec57900119543e37b0d99a7d82e30c900f42
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566993"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574246"
 ---
 # <a name="deploy-with-visual-studio-code-to-azure-stack-hub"></a>Visual Studio Code を使用して Azure Stack Hub にデプロイする
 

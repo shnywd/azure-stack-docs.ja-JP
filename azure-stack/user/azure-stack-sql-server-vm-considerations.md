@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub におけるパフォーマンスを最適化するための SQL Server のベスト プラクティス
+title: Azure Stack Hub で SQL Server のパフォーマンスを最適化する
 description: この記事では、Azure Stack Hub VM における SQL Server のパフォーマンス向上と最適化に役立つ、SQL サーバーのベスト プラクティスを紹介します。
 author: bryanla
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 04/02/2019
 ms.author: bryanla
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: ce84ad377d4fec9e58a2822275477b728968ff46
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f222334bcc6535b82b105494d907c8a69a463073
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566636"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573770"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack-hub"></a>Azure Stack Hub におけるパフォーマンスを最適化するための SQL Server のベスト プラクティス
 

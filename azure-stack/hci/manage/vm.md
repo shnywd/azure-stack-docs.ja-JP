@@ -1,17 +1,17 @@
 ---
-title: Windows Admin Center を使用して Azure Stack HCI 上の VM を管理する
+title: Windows Admin Center を使用して VM を管理する - Azure Stack HCI
 description: Windows Admin Center を使用して Azure Stack HCI 上のクラスターで仮想マシンを作成および管理する方法について説明します。
 author: v-dasis
 ms.topic: how-to
 ms.date: 07/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: cecf03b01a4c621226d7439bc307eb9317918fa7
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 42c8062fb18b011365a0b245f713f5cd378885aa
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866446"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573668"
 ---
 # <a name="manage-vms-on-azure-stack-hci-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI 上の VM を管理する
 
@@ -156,31 +156,6 @@ VM では、さまざまな設定を変更できます。
     - **[セキュリティ ポリシー]** で、VM の追加の保護オプションとして **[シールドを有効にする]** を選択します。
 
         :::image type="content" source="media/manage-vm/vm-settings-security.png" alt-text="VM のセキュリティ設定の変更" lightbox="media/manage-vm/vm-settings-security.png":::
-
-## <a name="create-a-new-vm"></a>新しい仮想マシンを作成する
-
-Windows Admin Center を使用して、新しい仮想マシンを簡単に作成できます。
-
-:::image type="content" source="media/manage-vm/new-vm.png" alt-text="新しい VM 画面":::
-
-1. Windows Admin Center のホームの **[すべての接続]** で、仮想マシンを作成するサーバーまたはクラスターを選択します。
-1. **[ツール]** で下方向にスクロールし、 **[仮想マシン]** を選択します。
-1. **[仮想マシン]** で、 **[インベントリ]** タブを選択し、 **[新規作成]** を選択します。
-1. **[新しい仮想マシン]** で、VM の名前を入力します。
-1. **[第 2 世代]\(推奨)** を選択します。
-1. 事前に割り当てられたファイル パスをドロップダウン リストから選択するか、 **[参照]** をクリックして VM 構成と仮想ハード ディスク (VHD) ファイルを保存するフォルダーを選択します。 ネットワーク上にある使用可能な任意の SMB 共有を参照するには、パスを *\\server\share* として入力します。
-
-1. **[仮想プロセッサ]** で、仮想プロセッサの数と、入れ子になった仮想化を有効にするかどうかを選択します。
-1. **[メモリ]** で、起動メモリの量 (最小の推奨値は 4 GB) と、必要に応じて、VM に割り当てる動的メモリの最小範囲と最大範囲を選択します。
-1. **[ネットワーク]** で、ドロップダウン リストからネットワーク アダプターを選択します。
-1. **[ストレージ]** で、 **[追加]** をクリックし、新しい仮想ハード ディスクを作成するか、既存の仮想ハード ディスクを使用するかを選択します。 既存の仮想ハード ディスクを使用する場合は、 **[参照]** をクリックして、該当するファイル パスを選択します。
-1. **[オペレーティング システム]** で、次のいずれかの操作を行います。
-   - 後で VM にオペレーティング システムをインストールする場合は、 **[後でオペレーティング システムをインストールする]** を選択します。
-   - **[Install an operating system from an image file (*.iso)]\(イメージ ファイル (*.iso) からオペレーティング システムをインストールする\)** を選択し、 **[参照]** をクリックして、使用する適用可能な .iso イメージ ファイルを選択します。
-   - この方法を使用して後で OS を VM にインストールする場合は、 **[ネットワーク ベースのインストール サーバーからオペレーティング システムをインストールする]** を選択します。 あらかじめネットワーク アダプターを選択していることを確認してください。選択していないと動作しません。
-1. 完了したら、 **[作成]** をクリックして VM を作成します。
-1. VM を起動するには、 **[仮想マシン]** の一覧で、新しい VM にマウス ポインターを移動し、左側のチェック ボックスをオンにして、 **[開始]** を選択します。
-1. **[状態]** で、VM の状態が **[実行中]** になっていることを確認します。
 
 ## <a name="move-a-vm-to-another-server-in-the-cluster"></a>クラスター内の別のサーバーに VM を移動する
 

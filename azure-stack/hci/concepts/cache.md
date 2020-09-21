@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/04/2020
-ms.openlocfilehash: 573cbe36fefecdc37394270fbeec6540d4369991
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: 9a15b953ffe2229d7f92bea998392b8570f481de
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493871"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742516"
 ---
 # <a name="understanding-the-storage-pool-cache-in-azure-stack-hci"></a>Azure Stack HCI の記憶域プール キャッシュについて
 
@@ -42,13 +42,13 @@ Azure Stack HCI は現在、次の 4 種類のドライブで動作します。
 
 オールフラッシュ型のデプロイは、ストレージのパフォーマンスを最大化することを目標としたものであり、回転式のハード ディスク ドライブ (HDD) が含まれません。
 
-![オールフラッシュ デプロイの可能性](media/cache/All-Flash-Deployment-Possibilities.png)
+![この図は、容量用の NVMe、キャッシュ用の NVMe と容量用の SSD、容量用の SSD など、オールフラッシュのデプロイを示しています。](media/cache/All-Flash-Deployment-Possibilities.png)
 
 ### <a name="hybrid-deployment-possibilities"></a>ハイブリッド デプロイの可能性
 
 ハイブリッド型のデプロイは、パフォーマンスとキャパシティのバランスの調和またはキャパシティの最大化を目標としたもので、回転式のハード ディスク ドライブ (HDD) が含まれます。
 
-![ハイブリッド デプロイの可能性](media/cache/Hybrid-Deployment-Possibilities.png)
+![この図は、キャッシュ用の NVMe と容量用の HDD、キャッシュ用の SSD と容量用の HDD、キャッシュ用の NVMe と容量用の HDD および SSD など、ハイブリッド デプロイを示しています。](media/cache/Hybrid-Deployment-Possibilities.png)
 
 ## <a name="cache-drives-are-selected-automatically"></a>キャッシュ ドライブが自動的に選択される
 
@@ -56,7 +56,7 @@ Azure Stack HCI は現在、次の 4 種類のドライブで動作します。
 
 どの種類が "最も高速" であるかは、次の階層に従って決定されます。
 
-![ドライブの種類の階層](media/cache/Drive-Type-Hierarchy.png)
+![この図では、速い順にディスクが並べられています。つまり、NVMe、SSD、HDD を表すラベルなしのディスクの順です。](media/cache/Drive-Type-Hierarchy.png)
 
 たとえば、NVMe と SSD がある場合、NVMe は SSD のキャッシュとして使用されます。
 
@@ -74,7 +74,7 @@ SSD と HDD がある場合、SSD が HDD のキャッシュとして使用さ�
 
 キャッシュの動作は、キャッシュの対象となるドライブの種類に応じて自動的に決まります。 キャッシュの対象がソリッドステート ドライブの場合 (SSD のキャッシュを NVMe に保存する場合など) には、書き込みのみがキャッシュに保存されます。 キャッシュの対象がハード ディスク ドライブの場合 (HDD のキャッシュを SSD に保存する場合など) には、読み取りと書き込みの両方がキャッシュに保存されます。
 
-![キャッシュの読み取りと書き込みの動作](media/cache/Cache-Read-Write-Behavior.png)
+![この図では、書き込みがキャッシュされ、読み取りがキャッシュされないオールフラッシュのキャッシュと、読み取りと書き込みの両方がキャッシュされるハイブリッドのキャッシュが比較されています。](media/cache/Cache-Read-Write-Behavior.png)
 
 ### <a name="write-only-caching-for-all-flash-deployments"></a>オールフラッシュ デプロイ用の書き込み専用キャッシュ
 
@@ -115,7 +115,7 @@ Azure Stack HCI には、書き込みをステージング解除する前にそ�
 
 Azure Stack HCI の回復性が少なくともサーバー レベルである (データ コピーが常に複数のサーバーに書き込まれ、サーバーあたり最大 1 つのコピーがある) ため、キャッシュ内のデータは、キャッシュ内にないデータと同じ回復性を利用できます。
 
-![キャッシュのサーバー側のアーキテクチャ](media/cache/Cache-Server-Side-Architecture.png)
+![この図は、記憶域層の 3 方向ミラーによって結合された 3 つのサーバーを表しています。記憶域層は NVMe ドライブのキャッシュ層にアクセスし、キャッシュ層はラベルなしの容量ドライブにアクセスします。](media/cache/Cache-Server-Side-Architecture.png)
 
 たとえば、3 方向のミラーリングを使用する場合、データの 3 つのコピーが異なるサーバーに書き込まれ、そこでキャッシュに保存されます。 これらが後でデステージされるかどうかにかかわらず、3 つのコピーが常に存在します。
 
@@ -123,7 +123,7 @@ Azure Stack HCI の回復性が少なくともサーバー レベルである (�
 
 キャッシュと容量ドライブ間のバインドには、1:1 から最大 1:12 までの任意の比率が設定されます。 これは、ドライブが追加または削除されるたびに動的に調整されます (スケールアップ時や障害の発生後など)。 つまり、必要な場合はいつでも、キャッシュ ドライブまたは容量ドライブを個別に追加できます。
 
-![動的バインド](media/cache/Dynamic-Binding.gif)
+![このアニメーション化された図では、2 つの NVMe キャッシュ ドライブが最初に 4 つ、次に 6 つ、その次に 8 つの容量ドライブに動的にマッピングされています。](media/cache/Dynamic-Binding.gif)
 
 容量ドライブの数は、対称とするために、キャッシュ ドライブの倍数にすることをお勧めします。 たとえば、4 台のキャッシュ ドライブがある場合は、容量ドライブが 7 台や 9 台ではなく 8 台 (1:2 の比率) の場合に、より均等なパフォーマンスが得られます。
 
@@ -135,7 +135,7 @@ Azure Stack HCI の回復性が少なくともサーバー レベルである (�
 
 パフォーマンスを維持するために、サーバーあたり少なくとも 2 つのキャッシュ ドライブが必要であるのは、このようなシナリオのためです。
 
-![障害の処理](media/cache/Handling-Failure.gif)
+![このアニメーション化された図では、2 つの SSD キャッシュ ドライブが 6 つの容量ドライブにマップされていますが、1 つのキャッシュ ドライブで障害が発生した後に、6 つすべてのドライブが残ったキャッシュ ドライブにマップされます。](media/cache/Handling-Failure.gif)
 
 その後、他のドライブの交換と同様に、キャッシュ ドライブを交換できます。
 
@@ -194,7 +194,7 @@ Enable-ClusterS2D -CacheDeviceModel "FABRIKAM NVME-1710"
 
 手動構成によって、次のデプロイが可能になります。
 
-![特殊なデプロイの可能性](media/cache/Exotic-Deployment-Possibilities.png)
+![この図は、キャッシュと容量の両方用の NVMe、キャッシュと容量の両方用の SSD、キャッシュ用の SSD と容量用の SSD および HDD の混合など、可能なデプロイを示しています。](media/cache/Exotic-Deployment-Possibilities.png)
 
 ### <a name="set-cache-behavior"></a>キャッシュの動作を設定する
 

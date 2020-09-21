@@ -7,12 +7,12 @@ ms.date: 8/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 8/17/2020
-ms.openlocfilehash: e803641b9d63a8b1136f720ce51eb5f7ca79c6e7
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: c05f35a9ef5ad059bdf50d721acd2811fa908370
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564753"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573736"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Docker を使用して Azure Stack Hub に対して PowerShell を実行する
 
@@ -123,7 +123,7 @@ Dockerfile は、Windows PowerShell 5.1 がインストールされている Mic
     docker run -it mcr.microsoft.com/azurestack/powershell
     ```
 
-    Ubuntu、Debian、または Centos を実行できます。 次の Docker ファイルは、GitHub リポジトリ [azurestack-powershell](https://github.com/Azure/azurestack-powershell) で見つけることができます。 Docker ファイルに対する最新の変更については、GitHub リポジトリを参照してください。 各 OS にタグが付けられています。 タグ (コロンの後のセクション) をそのタグに置き換えます。
+    Ubuntu、Debian、または Centos を実行できます。 次の Docker ファイルは、GitHub リポジトリ [azurestack-powershell](https://github.com/Azure/azurestack-powershell) で見つけることができます。 Docker ファイルに対する最新の変更については、GitHub リポジトリを参照してください。 各 OS にタグが付けられています。 タグ (コロンの後のセクション) を目的の OS のタグに置き換えます。
 
     | Linux | Docker イメージ |
     | --- | --- |

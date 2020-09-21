@@ -1,16 +1,16 @@
 ---
-title: Azure Stack HCI のクラスターとプールのクォーラムについて
+title: クラスターとプールのクォーラムについて - Azure Stack HCI
 description: Azure Stack HCI の記憶域スペース ダイレクトでのクラスターとプールのクォーラムについて、具体的な例を使用して複雑なしくみを説明します。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: cf9ecc42ed839fc133eb64b38b314816f19aecd7
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: d60ec2edb4247c72d35e69e199bf3fc28259e2ce
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866911"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572125"
 ---
 # <a name="understanding-cluster-and-pool-quorum-on-azure-stack-hci"></a>Azure Stack HCI のクラスターとプールのクォーラムについて
 

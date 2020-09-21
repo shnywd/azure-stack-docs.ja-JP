@@ -1,16 +1,16 @@
 ---
-title: Azure ネットワーク アダプターを使用してサーバーを Azure Virtual Network に接続する
+title: サーバーを Azure Virtual Network に接続する - Azure ネットワーク アダプター
 description: この記事では、Azure ネットワーク アダプターを使用してサーバーを Azure Virtual Network に接続するための要件と手順について説明します。
 ms.topic: article
 author: thomasmaurer
 ms.author: thmaure
 ms.date: 07/14/2020
-ms.openlocfilehash: 8e383024dd61b2fd16a38ab475f8eea0c82a9655
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 523ee87a5673a79dbb17c18251fc8837b9d2f7e4
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947386"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573651"
 ---
 # <a name="use-azure-network-adapter-to-connect-a-server-to-an-azure-virtual-network"></a>Azure ネットワーク アダプターを使用してサーバーを Azure Virtual Network に接続する
 

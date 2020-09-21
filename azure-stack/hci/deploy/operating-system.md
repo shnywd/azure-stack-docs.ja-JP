@@ -1,22 +1,24 @@
 ---
 title: Azure Stack HCI オペレーティング システムのデプロイ
-description: この記事では、Azure Stack HCI オペレーティング システムを展開した後、Windows Admin Center を使用してサーバーに接続するさまざまな方法について説明します。 サーバー クラスターの作成に関する関連ガイダンスへの参照、およびサーバーに対する最新の Windows 更新プログラムとファームウェアを入手するためのオプションの手順も含まれます。
+description: Azure Stack HCI OS をデプロイした後、Windows Admin Center を使用してサーバーに接続する方法について説明します。 サーバー クラスターを作成する方法、およびサーバーの最新の Windows 更新プログラムとファームウェアを取得する方法について説明します。
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: tutorial
-ms.date: 07/21/2020
-ms.openlocfilehash: bfdd1a85afa9da48e785beab45991fe5ccdeca6e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: ec39d00d1cf9fef1e41977009c17d51de3ba95ba
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86867060"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572018"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Azure Stack HCI オペレーティング システムのデプロイ
 
 > 適用対象:Azure Stack HCI バージョン 20H2
 
-「[Azure Stack HCI をデプロイする前に](before-you-start.md#install-windows-admin-center)」の手順を完了した後、Azure Stack HCI を展開する最初のステップは、クラスター化する各サーバーに Azure Stack HCI オペレーティング システムをインストールすることです。 この記事では、オペレーティング システムを展開し、Windows Admin Center を使用してサーバーに接続するさまざまな方法について説明します。
+「[Azure Stack HCI をデプロイする前に](before-you-start.md#install-windows-admin-center)」の手順を完了した後、Azure Stack HCI をデプロイする最初のステップは、[Azure Stack HCI をダウンロード](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーにオペレーティング システムをインストールすることです。 この記事では、オペレーティング システムを展開し、Windows Admin Center を使用してサーバーに接続するさまざまな方法について説明します。
 
 オペレーティング システムの展開が済むと、サーバー クラスターの作成に関連するガイダンスを使用し、サーバーの最新の Windows 更新プログラムとファームウェアの更新プログラムを取得できるようになります。[Azure Stack HCI クラスターの作成](create-cluster.md)に関する記事を参照してください。
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub に Linux VM をデプロイする
-description: Azure Stack Hub にアプリをデプロイします。
+description: Ubuntu イメージを使用して Linux 仮想マシンをデプロイし、Azure Stack Hub で Web アプリをホストします。
 author: mattbriggs
 ms.topic: overview
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 67b1971c3579de31374b9babdf6696e2950dbb35
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567537"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574059"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする
 

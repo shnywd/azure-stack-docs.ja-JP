@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/01/2020
-ms.openlocfilehash: d4d10d7a2470f474130b3a14758b608b7ac2ad34
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 545a0b90ad938a172a184748780974ba7403f19f
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89365070"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742401"
 ---
 # <a name="drive-symmetry-considerations-for-azure-stack-hci"></a>Azure Stack HCI のドライブの対称性に関する考慮事項
 
@@ -90,7 +90,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 サポート対象およびサポート対象外の構成を次に示します。
 
-### <a name="supported-supported-different-models-between-servers"></a>![サポート対象](media/drive-symmetry-considerations/supported.png) サポート対象: サーバー間で異なるモデル
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-between-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: サポート対象: サーバー間で異なるモデル
 
 最初の 2 台のサーバーでは、NVMe モデル "X" が使用されていますが、3 台目のサーバーでは、非常に類似する NVMe モデル "Z" が使用されています。
 
@@ -101,7 +101,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされています。
 
-### <a name="supported-supported-different-models-within-server"></a>![サポート対象](media/drive-symmetry-considerations/supported.png) サポート対象: サーバー内で異なるモデル
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-models-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: サポート対象: サーバー内で異なるモデル
 
 すべてのサーバーで、非常に類似する HDD モデル "Y" と "Z" の異なる組み合わせが使用されています。 どのサーバーにも合計 10 台の HDD があります。
 
@@ -113,7 +113,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされています。
 
-### <a name="supported-supported-different-sizes-across-servers"></a>![サポート対象](media/drive-symmetry-considerations/supported.png) サポート対象: サーバー間で異なるサイズ
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: サポート対象: サーバー間で異なるサイズ
 
 最初の 2 台のサーバーでは 4 TB の HDD が使用されていますが、3 台目のサーバーでは非常に類似した 6 TB の HDD が使用されています。
 
@@ -124,7 +124,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされていますが、残される容量が発生します。
 
-### <a name="supported-supported-different-sizes-within-server"></a>![サポート対象](media/drive-symmetry-considerations/supported.png) サポート対象: サーバー内で異なるサイズ
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationssupportedpng-borderfalse-supported-different-sizes-within-server"></a>:::image type="icon" source="media/drive-symmetry-considerations/supported.png" border="false"::: サポート対象: サーバー内で異なるサイズ
 
 すべてのサーバーで、1.2 TB の SSD と、非常に類似する 1.6 TB SSD の異なる組み合わせが使用されています。 どのサーバーにも合計 4 台の SSD があります。
 
@@ -136,7 +136,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされています。
 
-### <a name="unsupported-not-supported-different-types-of-drives-across-servers"></a>![サポートされていない](media/drive-symmetry-considerations/unsupported.png) サポート対象外: サーバー間で異なる種類のドライブ
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-types-of-drives-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: サポート対象外: サーバー間で異なる種類のドライブ
 
 サーバー 1 には NVMe が存在しますが、他のサーバーには存在しません。
 
@@ -148,7 +148,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされていません。 ドライブの種類は、すべてのサーバーで同じである必要があります。
 
-### <a name="unsupported-not-supported-different-number-of-each-type-across-servers"></a>![サポートされていない](media/drive-symmetry-considerations/unsupported.png) サポート対象外: サーバー間で種類別の数が異なる
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-different-number-of-each-type-across-servers"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: サポート対象外: サーバー間で種類別の数が異なる
 
 サーバー 3 には他より多くのドライブがあります。
 
@@ -159,7 +159,7 @@ Azure Stack HCI は、ドライブ間とサーバー間でのキャッシュの�
 
 これはサポートされていません。 種類別のドライブの数は、すべてのサーバーで同じである必要があります。
 
-### <a name="unsupported-not-supported-only-hdd-drives"></a>![サポートされていない](media/drive-symmetry-considerations/unsupported.png) サポート対象外: HDD ドライブのみ
+### <a name="image-typeicon-sourcemediadrive-symmetry-considerationsunsupportedpng-borderfalse-not-supported-only-hdd-drives"></a>:::image type="icon" source="media/drive-symmetry-considerations/unsupported.png" border="false"::: サポート対象外: HDD ドライブのみ
 
 すべてのサーバーに HDD ドライブのみが接続されています。
 

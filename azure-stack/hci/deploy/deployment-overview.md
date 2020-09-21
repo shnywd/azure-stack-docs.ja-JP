@@ -4,13 +4,15 @@ description: Azure Stack HCI のデプロイ プロセスの概要。
 author: khdownie
 ms.author: v-kedow
 ms.topic: overview
-ms.date: 07/21/2020
-ms.openlocfilehash: a4b0fcabe7625e31a251a21815f5442b42b98ebd
-ms.sourcegitcommit: e675eafd12b044a6d8ae3790d1874e935f80f7cb
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: 9b851b59093a85f7ddd5f9df47359784f41fe24e
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86891988"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742157"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI のデプロイ プロセスとは
 
@@ -42,7 +44,7 @@ Azure Stack HCI のデプロイを複数のサイトに拡張する場合は、�
 
 ### <a name="2-deploy-azure-stack-hci"></a>2.Deploy Azure Stack HCI のデプロイ
 
-クラスター化する各サーバーに、Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。
+[Azure Stack HCI をダウンロード](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーに Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。
 
 ### <a name="3-create-the-cluster"></a>3.クラスターを作成する
 

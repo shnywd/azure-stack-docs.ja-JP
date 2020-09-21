@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub のための Infrastructure Backup サービスのベスト プラクティス
+title: インフラストラクチャ バックアップ サービスのベスト プラクティス - Azure Stack Hub
 description: Azure Stack Hub をデプロイして管理するときのこれらのベスト プラクティスに従って、致命的な障害が発生した場合のデータ損失を軽減できます。
 author: justinha
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 02/08/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 6ea6d73e14b5c164691ed42deab298109b1c1ad8
-ms.sourcegitcommit: a5bb340c5689f7dcf1ef3a340416f7f337782170
+ms.openlocfilehash: fe0fa50ca2dfd69475fe2726042332c6ce9f51ad
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/03/2020
-ms.locfileid: "85937960"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573124"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>インフラストラクチャ バックアップ サービスのベスト プラクティス
 
@@ -66,20 +66,23 @@ Azure Stack Hub をデプロイして管理するときのこれらのベスト 
 FQDN: contoso.com  
 リージョン: nyc
 
-
+```console
     \\fileserver01.contoso.com\AzSBackups
     \\fileserver01.contoso.com\AzSBackups\contoso.com
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\MASBackup
+```
 
 MASBackup フォルダーは、Azure Stack Hub で Azure Stack Hub のバックアップ データを格納する場所です。 独自のデータを格納するために、このフォルダーは使用しないでください。 同様に OEM でも、バックアップ データの格納にはこのフォルダーを使用しないでください。
 
 OEM は、各社のコンポーネントのバックアップ データは、リージョン フォルダー配下に格納することを推奨します。 各ネットワーク スイッチ、ハードウェア ライフサイクル ホスト (HLH) などは、それぞれのサブフォルダーに格納されることもあります。 次に例を示します。
 
+```console
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\DeploymentData
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Registration
+```
 
 ### <a name="monitoring"></a>監視
 

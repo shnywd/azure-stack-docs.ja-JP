@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 内の仮想マシンに Ruby アプリをデプロイする
+title: Azure Stack Hub の VM に Ruby アプリをデプロイする
 description: Azure Stack Hub 内の仮想マシンに Ruby アプリをデプロイします。
 author: mattbriggs
 ms.topic: overview
@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 7ac497c75eb3a18dbade85e41ed5a5d214b5dd2c
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 7be8293180f03d9d82565aa27c74c8e8cbe7c9c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920748"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573974"
 ---
 # <a name="deploy-a-ruby-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Ruby Web アプリをデプロイする
 

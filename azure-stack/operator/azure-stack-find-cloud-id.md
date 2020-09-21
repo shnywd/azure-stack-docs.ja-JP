@@ -7,25 +7,25 @@ ms.date: 10/08/2019
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 09b22541ed77915a2a28c4abf5212ccbbbf5fb81
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 647f731d1d82c41d26142ff88e56b8ec0717f5ef
+ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488962"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90038813"
 ---
 # <a name="find-your-cloud-id"></a>クラウド ID を検索する
 
-このトピックでは、管理者ポータルまたは特権エンドポイント (PEP) を使用して、クラウド ID を取得する方法について説明します。 
+このトピックでは、管理者ポータルまたは特権エンドポイント (PEP) を使用して、クラウド ID を取得する方法について説明します。 クラウド ID は、特定のスケール ユニットからアップロードされたサポート データを追跡するための一意の ID です。 サポートでの分析のために診断ログがアップロードされた場合に、クラウド ID は、ログがそのスケール ユニットにどのように関連付けられているかを示すものになります。
 
 ## <a name="use-the-administrator-portal"></a>管理者ポータルを使用する
 
 1. 管理者ポータルを開きます。 
-1. **[リージョンの管理]** をクリックします。
+1. **[リージョンの管理]** を選択します。
 
    ![ダッシュボードのスクリーンショット](./media/azure-stack-automatic-log-collection/dashboard.png)
 
-1. **[プロパティ]** をクリックし、 **[Stamp Cloud ID]\(スタンプ クラウド ID\)** をコピーします。
+1. **[プロパティ]** を選択し、**スタンプ クラウド ID** をコピーします。
 
    ![スタンプ クラウド ID を示すリージョン プロパティのスクリーンショット](media/azure-stack-automatic-log-collection/region-properties-blade-with-stamp-cloud-id.png)
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 診断ログを今すぐ送信する
 description: 管理者ポータルまたは PowerShell スクリプトを使用して Azure Stack Hub 内で診断ログをオンデマンドで収集する方法について説明します。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 08/24/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 08/24/2020
-ms.openlocfilehash: abcf70b6d714f9a759aeaa9a7f591a60e195594f
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 3d4725a832aa1ba88c0ecc5e2b435696cba3bbcd
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764649"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573158"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-now"></a>Azure Stack Hub 診断ログを今すぐ送信する
 
@@ -47,7 +47,7 @@ Azure Stack Hub が Azure から切断されている場合、ログをローカ
 問題のトラブルシューティングを行うために、Microsoft サポートは、Azure Stack Hub オペレーターに、前週の特定の時間枠に対して、オンデマンドで診断ログを収集するように要求する場合があります。 その場合、Microsoft サポートはオペレーターにコレクションをアップロードするための SAS URL を提供します。 
 Microsoft サポートからの SAS URL を使用して、オンデマンドのログ収集を構成するには、次の手順に従います。
 
-1. **[Help and Support Overview]\(ヘルプとサポートの概要\)** を開き、 **[Collect logs now]\(今すぐログを収集する\)** をクリックします。 
+1. **[ヘルプとサポート] > [ログの収集] > [Collect logs now]\(今すぐログを収集する\)** を開きます。 
 1. 過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択します。 
 1. ローカル タイム ゾーンを選択します。
 1. Microsoft サポートから提供された SAS URL を入力します。

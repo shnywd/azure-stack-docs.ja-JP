@@ -1,5 +1,5 @@
 ---
-title: Commvault を使用して Azure Stack Hub 上で VM をバックアップする方法
+title: Commvault を使用して Azure Stack Hub で VM をバックアップする
 description: Commvault を使用して Azure Stack Hub で VM をバックアップする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 290a984efc0d87306de30701f1f10dd9a2292fc1
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965094"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571883"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 

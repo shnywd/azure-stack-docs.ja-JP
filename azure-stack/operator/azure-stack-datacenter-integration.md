@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 統合システムのデータセンター統合計画に関する考慮事項
+title: Azure Stack Hub 統合システムのデータセンター統合を計画する
 description: Azure Stack Hub 統合システムとのデータセンター統合を計画し、準備する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
@@ -7,12 +7,12 @@ ms.date: 04/02/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2019
-ms.openlocfilehash: 15c62fc6812b4b4247ce7370316a23490dfc65ce
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 825db573a614d1a1dd9b54cd87d8894c981fce4b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489030"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573035"
 ---
 # <a name="datacenter-integration-planning-considerations-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムのデータセンター統合計画に関する考慮事項
 

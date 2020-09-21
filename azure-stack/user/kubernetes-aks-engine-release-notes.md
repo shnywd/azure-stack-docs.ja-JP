@@ -3,20 +3,20 @@ title: Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンのリ�
 description: Azure Stack Hub 上の AKS エンジンの更新プログラムを使用して実行する必要がある手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 60e75b899ac66fae88e2e2e3f780c25ad0aac804
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/16/2020
+ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
+ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473250"
+ms.lasthandoff: 09/17/2020
+ms.locfileid: "90717939"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
-"*ASK エンジンのバージョン0.55.0 に適用されます。* "
+"*AKS エンジンのバージョン v0.55.4 に適用されます。* "
 
 この記事では、Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンの更新プログラムの内容について説明します。 この更新プログラムには、Azure Stack Hub プラットフォームを対象とした最新リリースの AKS engine の機能強化と修正が含まれています。 これは、グローバルな Azure 用の AKS エンジンに関するリリース情報を文書化するためのものではないことに注意してください。
 
@@ -68,9 +68,9 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
 -   Azure Stack Hub オペレーターは、新しい AKS 基本 Ubuntu イメージをスタンプ マーケットプレースにダウンロードする必要があります。
 
-    -   名前:AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 8 月 (2020.08.24)
+    -   名前:AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 8 月 (2020.09.14)
 
-    -   バージョン:2020.08.24
+    -   バージョン:2020.09.14
 
     -   「[Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する](../operator/azure-stack-aks-engine.md)」の記事の指示に従ってください
 
@@ -82,9 +82,9 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 | ----------------------------- | ------------------------ |
 | 1910 | 0.43.0、0.43.1 |
 | 2002 | 0.48.0、0.51.0 |
-| 2005 | 0.48.0、0.51.0、0.55.0 |
+| 2005 | 0.48.0、0.51.0、0.55.0、0.55.4 |
 
-## <a name="kubernetes-version-upgrade-path-in-aks-engine-0550"></a>AKS エンジン 0.55.0 の Kubernetes バージョンのアップグレード パス
+## <a name="kubernetes-version-upgrade-path-in-aks-engine-v0554"></a>AKS エンジン v0.55.4 の Kubernetes バージョンのアップグレード パス
 
 次の Azure Stack Hub の表で、最新のバージョンとアップグレード バージョンを確認できます。 aks-engine get-versions コマンドには、グローバル Azure でサポートされているバージョンも含まれるため、従わないでください。 次のバージョンとアップグレードの表は、Azure Stack Hub の AKS エンジン クラスターに適用されます。
 
@@ -105,7 +105,7 @@ API モデルの json ファイル内にある `orchestratorProfile` セクシ�
 
 - Azure Stack で K8s v1.17.11 のサポートを追加します [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - Azure Stack で K8s v1.16.14 のサポートを追加します [#3704](https://github.com/Azure/aks-engine/pull/3704)
-- Linux VHD を 2020.08.24 に更新します [#3750](https://github.com/Azure/aks-engine/pull/3750)
+- Linux VHD を 2020.09.14 に更新します [#3750](https://github.com/Azure/aks-engine/pull/3750)
 - Windows VHD を 8 月に更新します [#3730](https://github.com/Azure/aks-engine/pull/3730)
 - Kubernetes メトリック サーバーを v0.3.7 にアップグレードします [#3669](https://github.com/Azure/aks-engine/pull/3669)
 - ログのローテーションの問題を修正するために Docker バージョンをアップグレードします [#3693](https://github.com/Azure/aks-engine/pull/3693)
@@ -131,10 +131,11 @@ API モデルの json ファイル内にある `orchestratorProfile` セクシ�
 - https://github.com/Azure/aks-engine/releases/tag/v0.53.1
 - https://github.com/Azure/aks-engine/releases/tag/v0.54.1
 - https://github.com/Azure/aks-engine/releases/tag/v0.55.0
+- https://github.com/Azure/aks-engine/releases/tag/v0.55.4
 
 ::: moniker-end
 ::: moniker range="<=azs-1910"
-"*ASK エンジンのバージョン0.48.0 以前に適用されます。* "
+"*AKS エンジンのバージョン 0.48.0 以前に適用されます。* "
 
 この記事では、Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンの更新プログラムの内容について説明します。 この更新プログラムには、Azure Stack Hub プラットフォームを対象とした最新リリースの AKS engine の機能強化と修正が含まれています。 これは、グローバルな Azure 用の AKS エンジンに関するリリース情報を文書化するためのものではないことに注意してください。
 

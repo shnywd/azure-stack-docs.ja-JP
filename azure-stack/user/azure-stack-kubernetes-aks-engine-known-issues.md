@@ -3,22 +3,29 @@ title: Azure Stack Hub 上の AKS エンジンに関する既知の問題
 description: Azure Stack Hub 上で AKS エンジンを使用する場合の既知の問題について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/11/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 106aafd33441c2961cf933606cc8f48cbe4fc60d
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/11/2020
+ms.openlocfilehash: 685cf02aed8e6e485d596531c37653f496a4bc5f
+ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473214"
+ms.lasthandoff: 09/12/2020
+ms.locfileid: "90045280"
 ---
 # <a name="known-issues-with-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンに関する既知の問題
 
 このトピックでは Azure Stack Hub 上の AKS エンジンに関する既知の問題について説明します。
 
-## <a name="upgrade-issues-in-aks-engine-0510"></a>AKS エンジン 0.51.0 のアップグレードに関する問題
+## <a name="disk-detach-operation-fails-in-aks-engine-0550"></a>AKS エンジン 0.55.0 でディスクのデタッチ操作が失敗する
+
+- **適用先**: Azure Stack Hub (更新プログラム 2005)、AKS エンジン 0.55.0
+- **説明**:永続化ボリュームを含むデプロイを削除しようとすると、削除操作によって一連のアタッチ/デタッチ エラーがトリガーされます。 この原因は、AKS エンジン v 0.55.0 クラウド プロバイダーのバグです。 クラウド プロバイダーは、Azure Stack Hub (更新プログラム 2005) で Azure Resource Manager が現在サポートするよりも新しいバージョンの API を使用して Azure Resource Manager を呼び出します。
+- **対応策**: [AKS エンジンの GitHub リポジトリ (問題 3817)](https://github.com/Azure/aks-engine/issues/3817#issuecomment-691329443) に関するページで詳細および軽減手順を確認できます。 AKS エンジンと対応するイメージの新しいビルドが利用可能になったら、ただちにアップグレードてください。
+- **発生頻度**: 永続化ボリュームを含むデプロイの削除時。
+
+## <a name="upgrade-issues-in-aks-engine-0510"></a>AKS エンジン 0.51.0 でのアップグレードの問題
 
 * Kubernetes クラスターのバージョン 1.15.x から 1.16.x へのアップグレード (AKS アップグレード) 中に、次の Kubernetes コンポーネントをアップグレードするには、追加の手順が必要になります: **kube-proxy**、**azure-cni-networkmonitor**、**csi-secrets-store**、**kubernetes-dashboard**。 次に、発生する可能性のある問題とその対処方法について説明します。
 

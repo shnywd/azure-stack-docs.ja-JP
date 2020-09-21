@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
+title: Azure Stack Hub 上のグラフィックス処理装置 (GPU) VM
 description: Azure Stack Hub での GPU コンピューティングのリファレンスです。
 author: mattbriggs
 ms.author: mabrigg
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: d5782aa1513d9e16bc461e93fe919a06cd7fc422
-ms.sourcegitcommit: 9be6adfe859ba0a09951a5a1a876928cb38dd595
+ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706117"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574229"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 

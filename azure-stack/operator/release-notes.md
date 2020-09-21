@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 73cf9222b445164063c3dccfb1beb400913cea3e
-ms.sourcegitcommit: 50e2a81b255847fbd6288c70d60e7a080da372e9
+ms.openlocfilehash: e90564a9dceefda2b9712b3dedf69974512bdcd1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89557481"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571900"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -76,7 +76,8 @@ Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**で�
 - このリリースでは、1910 より前に作成された VM で、Azure とのファブリックの一貫性が向上します。 1910 で、Microsoft は、新しく作成されたすべての VM で wireserver プロトコルが使用されることを発表しました。これにより、お客様は Azure と同じ WALA エージェントおよび Windows ゲスト エージェントを使用できるようになり、Azure Stack Hub でより簡単に Azure イメージを使用できるようになりました。 今回のリリースでは、1910 より前に作成されたすべての VM が、wireserver プロトコルを使用するよう自動的に移行されます。 これにより、より信頼性の高い VM の作成、VM 拡張機能のデプロイ、安定状態のアップタイムの向上も実現します。
 - Azure Stack Hub ストレージで、Azure Storage サービスの API バージョン 2019-02-02 がサポートされるようになりました。 Azure クライアント ライブラリでは、これは新しい REST API バージョンと互換性があります。 詳細については、[Azure Stack Hub ストレージ開発ツール](../user/azure-stack-storage-dev.md#azure-client-libraries)に関する記事をご覧ください。
 - Azure Stack Hub で、[CreateUiDefinition (バージョン 2)](/azure/azure-resource-manager/managed-applications/create-uidefinition-overview) の最新バージョンがサポートされるようになりました。
-- バッチ処理された VM デプロイに関する新しいガイダンス。 詳細については、[こちら](../operator/azure-stack-capacity-planning-compute.md)を参照してください。
+- バッチ処理された VM デプロイに関する新しいガイダンス。 詳細については、[こちらの記事](../operator/azure-stack-capacity-planning-compute.md)をご覧ください。
+- Azure Stack Hub Marketplace CoreOS Container Linux 項目は、[まもなくサポート終了になります](https://azure.microsoft.com/updates/flatcar-in-azure/)。 詳細については、[CoreOS Container Linux からの移行](https://docs.flatcar-linux.org/os/migrate-from-container-linux/)に関するページをご覧ください。
 
 ### <a name="improvements"></a>改善
 
@@ -120,18 +121,6 @@ Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**で�
 ## <a name="security-updates"></a>セキュリティ更新プログラム
 
 Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
-
-## <a name="update-planning"></a>計画の更新
-
-更新プログラムを適用する前に、必ず次の情報を確認してください。
-
-- [既知の問題](known-issues.md)
-- [セキュリティ更新プログラム](release-notes-security-updates.md)
-- [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
-
-## <a name="download-the-update"></a>更新プログラムをダウンロードする
-
-Azure Stack Hub 2005 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
 
 ## <a name="hotfixes"></a>修正プログラム
 

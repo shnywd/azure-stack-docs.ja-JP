@@ -5,12 +5,12 @@ author: v-dasis
 ms.author: v-dasis
 ms.topic: how-to
 ms.date: 07/24/2020
-ms.openlocfilehash: 9d6ba44da5da188f60f031bddab2e49190dbfee3
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 8c885f7a344ff9d34228bad76c79e65f1f345f25
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250709"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573685"
 ---
 # <a name="create-stretched-cluster-volumes-and-set-up-replication"></a>ストレッチ クラスター ボリュームの作成とレプリケーションの設定
 
@@ -22,7 +22,7 @@ ms.locfileid: "87250709"
 
 ## <a name="stretched-volumes-and-replication-using-windows-admin-center"></a>Windows Admin Center を使用したストレッチ ボリュームとレプリケーション
 
-では、始めましょう。
+ボリュームを作成してレプリケーションを設定するには:
 
 1. Windows Admin Center で、 **[ツール]** の **[ボリューム]** を選択します。
 1. 右側のペインで、 **[インベントリ]** タブを選択し、 **[作成]** を選択します。

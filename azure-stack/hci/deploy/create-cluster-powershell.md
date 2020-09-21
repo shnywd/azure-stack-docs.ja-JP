@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e92aa28deadbf334e3cd545e5cd9bc6b0e12e6c4
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: c51a6296caac3c173650ee57af8e1d23b2473f26
+ms.sourcegitcommit: 877fe2207b569500aeefa6594eed990f15609776
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110470"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90082496"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Windows PowerShell を使用して Azure Stack HCI クラスターを作成する
 
@@ -430,7 +430,7 @@ Get-ClusterFaultDomain -CimSession "ClusterS1"
 - どのノードがどのサイトにあるかを判断する
 - 各ノードで使用できるストレージを判断する
 - 記憶域レプリカ機能が各ノードにインストールされているかどうかを確認する
-- 各サイトに記憶域プールを作成し、そのサイトと同じであることを識別する
+- 各サイトに記憶域プールを作成し、そのサイトの名前で識別する
 - 各記憶域プールにデータ ボリュームとログ ボリュームを作成する (サイトごとに 1 つ)
 
 次のコマンドを実行すると、記憶域スペース ダイレクトが有効になります。 次に示すように、記憶域プールのフレンドリ名を指定することもできます。

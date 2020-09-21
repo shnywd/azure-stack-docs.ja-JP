@@ -1,18 +1,18 @@
 ---
 title: アプリ ID を使用してリソースにアクセスする
-description: アプリ ID を使用して Azure Stack Hub リソースにアクセスする方法について説明します。 アプリ ID は、リソースへのサインインとアクセスを目的としてロールベースのアクセス制御と共に使用できます。
+description: アプリ ID を使用して Azure Stack Hub リソースにアクセスする方法について説明します。アプリ ID は、リソースへのサインインおよびアクセスのためにロールベースのアクセス制御で使用できます。
 author: BryanLa
 ms.author: bryanla
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.lastreviewed: 05/07/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 4b1a3e41be03eec55c84731ac220521376fc16d2
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 5842ac27969a136ceaace4647ed5791bc3260b1c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489217"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573141"
 ---
 # <a name="use-an-app-identity-to-access-azure-stack-hub-resources"></a>アプリ ID を使用して Azure Stack Hub リソースにアクセスする
 

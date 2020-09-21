@@ -1,5 +1,5 @@
 ---
-title: 複数の Azure Stack Hub サブスクリプション間でリソースをレプリケートする方法
+title: 複数の Azure Stack Hub サブスクリプション間でリソースをレプリケートする
 description: Azure Stack Hub サブスクリプション レプリケーターの一連のスクリプトを使用してリソースをレプリケートする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 7f3c3c2ff61b629d4942edcaf53100e6bb5e7eb5
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 14f86b63e8089069d53e7b849d4bfea55007f34e
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920595"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90571696"
 ---
 # <a name="replicate-resources-using-the-azure-stack-hub-subscription-replicator"></a>Azure Stack Hub サブスクリプション レプリケーターを使用してリソースをレプリケートする
 

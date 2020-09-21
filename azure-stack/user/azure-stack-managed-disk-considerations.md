@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub マネージド ディスク; 相違点と考慮事項
+title: Azure Stack Hub マネージド ディスクの相違点と考慮事項
 description: Azure Stack Hub でマネージド ディスクとマネージド イメージを操作する際の相違点と考慮事項について説明します。
 author: sethmanheim
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: ededa6951727d20ec07a96229b41750b31bdc18c
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: d8ddebe5fccf03a47db3d6ab190b77296b34734b
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041453"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574263"
 ---
 # <a name="azure-stack-hub-managed-disks-differences-and-considerations"></a>Azure Stack Hub マネージド ディスク: 相違点と考慮事項
 

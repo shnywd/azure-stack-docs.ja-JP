@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 07/21/2020
-ms.openlocfilehash: bb4a72e28bd6126d12dbdb1f97d0579fb98bca8e
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: c6f874fb7bd8641933722631d9faac0dc513b5e3
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866593"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742292"
 ---
 # <a name="extending-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを拡張する
 
@@ -47,7 +47,7 @@ ms.locfileid: "86866593"
 
 記憶域スペース ダイレクトでは、各ボリュームは、クラスターの共有ボリューム (CSV) (ボリューム)、パーティション、ディスク(仮想ディスク)、および複数のストレージ層 (該当する場合) の、複数のスタックされたオブジェクトで構成されます。 ボリュームのサイズを変更するには、これらのオブジェクトのいくつかのサイズを変更する必要があります。
 
-![volumes-in-smapi](media/extend-volumes/volumes-in-smapi.png)
+![図は、クラスターの共有ボリューム、ボリューム、パーティション、ディスク、仮想ディスク、ストレージ層など、ボリュームの層を示しています。](media/extend-volumes/volumes-in-smapi.png)
 
 これらに慣れるために、PowerShell で対応する名詞を使用して **Get-** を実行してみてください。
 
@@ -89,7 +89,7 @@ Get-VirtualDisk <FriendlyName> | Resize-VirtualDisk -Size <Size>
 
 **VirtualDisk** のサイズを変更すると、それに応じて **Disk** のサイズも自動的に変更されます。
 
-![Resize-VirtualDisk](media/extend-volumes/Resize-VirtualDisk.gif)
+![このアニメーション化された図では、ボリュームの仮想ディスクが大きくなり、それを受けて、そのすぐ上のディスク層が自動的に大きくなります。](media/extend-volumes/Resize-VirtualDisk.gif)
 
 #### <a name="with-storage-tiers"></a>ストレージ層あり
 
@@ -112,7 +112,7 @@ Get-StorageTier <FriendlyName> | Resize-StorageTier -Size <Size>
 
 **StorageTier** のサイズを変更すると、それに応じて **VirtualDisk** と **Disk** のサイズも自動的に変更されます。
 
-![Resize-StorageTier](media/extend-volumes/Resize-StorageTier.gif)
+![このアニメーション化された図では、1 つ目と 2 つ目のストレージ層が順に大きくなり、さらに、その上の仮想ディスク層とディスク層も大きくなります。](media/extend-volumes/Resize-StorageTier.gif)
 
 ### <a name="step-2--resize-the-partition"></a>手順 2 – パーティションのサイズを変更する
 
@@ -133,7 +133,7 @@ $Partition | Resize-Partition -Size ($Partition | Get-PartitionSupportedSize).Si
 
 **Partition** のサイズを変更すると、それに応じて **Volume** と **ClusterSharedVolume** のサイズも自動的に変更されます。
 
-![Resize-Partition](media/extend-volumes/Resize-Partition.gif)
+![このアニメーション化された図では、ボリュームの最下部にある仮想ディスク層が大きくなっており、その上にある各層も大きくなります。](media/extend-volumes/Resize-Partition.gif)
 
 これで完了です。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Hub での Node.js による API バージョンのプロファイルの使用
+title: Azure Stack Hub の Node.js で API バージョンのプロファイルを使用する
 description: Azure Stack Hub での Node.js による API バージョンのプロファイルの使用について説明します。
 author: mattbriggs
 ms.topic: article
@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: b378ce7f3e894a2ec9de532393907c1266e2eeed
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 93c37e67af83dd7b6d735916cfacc7dab5c0cdbf
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920357"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574093"
 ---
 # <a name="use-api-version-profiles-with-nodejs-software-development-kit-sdk-in-azure-stack-hub"></a>Azure Stack Hub の Node.js ソフトウェア開発キット (SDK) で API バージョン プロファイルを使用する
 

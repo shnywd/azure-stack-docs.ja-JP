@@ -7,12 +7,12 @@ ms.date: 09/08/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/08/2020
-ms.openlocfilehash: 9dbe60bfbc9b15f75b31e423bf08c988d9e168be
-ms.sourcegitcommit: 2407498dc34158a49959d9f87f84d6a1cde0cca6
+ms.openlocfilehash: 6b3443b64dae560451d4d04d653e097d055fa5c1
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89560948"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573804"
 ---
 # <a name="set-up-the-prerequisites-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンの前提条件を設定する
 
@@ -30,9 +30,9 @@ AKS エンジンを使用するには、次のリソースが使用可能であ�
 
 | 前提条件 | 説明 | 必須 | Instructions |
 | --- | --- | --- | --- | --- |
-| Azure Stack Hub 2002 以降 | AKS エンジンを使用するには、Azure Stack Hub 2002 以降が必要です。 | 必須 | Azure Stack Hub のバージョンがわからない場合は、クラウド オペレーターに問い合わせてください。 |
+| Azure Stack Hub 1910 以降 | AKS エンジンを使用するには、Azure Stack Hub 1910 以降が必要です。 | 必須 | Azure Stack Hub のバージョンがわからない場合は、クラウド オペレーターに問い合わせてください。 |
 | Linux カスタム スクリプト拡張機能 | Linux カスタム スクリプト拡張機能 2.0<br>オファー: Linux 2.0 用のカスタム スクリプト<br>バージョン:2.0.6 (または最新バージョン)<br>発行元: Microsoft Corp | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 |
-| AKS 基本 Ubuntu イメージ | AKS 基本 Ubuntu 16.04-LTS イメージ、2020 年 8 月 (2020.08.24) | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。 バージョンの依存関係の詳細については、「[Matching engine to base image version](#matching-engine-to-base-image-version)」(エンジンと基本イメージバージョンの照合) を参照してください。<br> Azure Stack Hub のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Hub Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
+| AKS 基本 Ubuntu イメージ | AKS 基本 Ubuntu 16.04-LTS イメージ<br>バージョンの依存関係の詳細については、「[エンジンと基本イメージ バージョンの照合](#matching-engine-to-base-image-version)」をご覧ください。 | 必須 | サブスクリプションにこの項目がない場合は、クラウド オペレーターに問い合わせてください。<br> Azure Stack Hub のクラウド オペレーターとして AKS エンジンを提供する場合は、[Azure Stack Hub Marketplace への AKS エンジンの追加](../operator/azure-stack-aks-engine.md)に関するページに記載されている手順に従ってください。 |
 | サービス プリンシパル ID (SPN) |  アプリケーションのリソースのデプロイや構成を Azure Resource Manager を通じて行う必要がある場合は、そのアプリケーションをサービス プリンシパルで表す必要があります。 | 必須 | この項目については、Azure Stack Hub オペレーターへの問い合わせが必要な場合があります。<br>Azure Active Directory (Azure AD) サービス プリンシパル ID を使用する場合は、サービス プリンシパルを Azure AD で認証できるように、Kubernetes クラスター内の VM からインターネットにアクセスする必要があります。 インターネットにアクセスできない場合、Kubernetes クラスターは機能しません。<br>手順については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください |
 | (SPN) 割り当て済み**共同作成者**ロール | 自分のサブスクリプションに含まれるリソースに、アプリケーションからサービス プリンシパルを使用してアクセスできるようにするには、そのサービス プリンシパルを特定のリソースに対するロールに割り当てる必要があります。 | 必須 | 手順については、「[ロールの割り当て](../operator/azure-stack-create-service-principals.md#assign-a-role)」を参照してください |
 

@@ -1,17 +1,17 @@
 ---
-title: Windows Admin Center を使用して Azure Stack HCI クラスターを管理する
-description: Azure Stack HCI 上のクラスターを Windows Admin Center を使用して管理する方法について説明します。
+title: Azure Stack HCI クラスターを管理する - Windows Admin Center
+description: Azure Stack HCI 上のクラスターを Windows Admin Center を使用して管理することについて説明します。
 ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
 ms.date: 07/21/2020
-ms.openlocfilehash: ef528e23c9b6de9df0a6f5ea399e3337960dabf2
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: d1b8556908da268bbd99c7aa9341128c9dc5be36
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947556"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90573787"
 ---
 # <a name="manage-azure-stack-hci-clusters-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを管理する
 
@@ -42,8 +42,8 @@ Windows Admin Center を使用して、Azure Stack HCI クラスターを管理�
 
 クラスターに適用できる記憶域スペース ダイレクトに関連して変更できる設定が 2 つあります。
 
-1. Windows Admin Center で、上部のドロップダウン矢印から **[クラスター マネージャー]** をクリックします。
-1. **[ツール]** の一番下にある **[設定]** をクリックします。
+1. Windows Admin Center で、上部のドロップダウン矢印から **[Cluster Manager]\(クラスター マネージャー\)** を選択します。
+1. **[ツール]** で、一番下にある **[設定]** を選択します。
 1. 記憶域キャッシュを構成するには、 **[記憶域スペース ダイレクト]** を選択し、次のように構成します。
 
    - **[Persistent cache]\(永続的なキャッシュ\)** で、 **[有効]** または **[無効]** のいずれかを選択します。
@@ -62,8 +62,8 @@ Windows Admin Center を使用して、Azure Stack HCI クラスターを管理�
 
 クラスターに適用できる全般設定は 5 つあります。 ここでは、アクセス ポイント、ノードのシャットダウン動作、トラフィックの暗号化、VM の負荷分散、クラスター監視を設定して管理できます。
 
-1. Windows Admin Center で、上部のドロップダウン矢印から **[クラスター マネージャー]** をクリックします。
-1. **[ツール]** の下の **[設定]** をクリックします。
+1. Windows Admin Center で、上部のドロップダウン矢印から **[Cluster Manager]\(クラスター マネージャー\)** を選択します。
+1. **[ツール]** の **[設定]** を選択します。
 1. クラスター名を変更するには、 **[アクセス ポイント]** を選択し、新しい名前を入力します。
 
     :::image type="content" source="media/manage-cluster/cluster-settings-access.png" alt-text="アクティブ - アクティブ ストレッチ クラスターのシナリオ" lightbox="media/manage-cluster/cluster-settings-access.png":::
@@ -103,8 +103,8 @@ Windows Admin Center を使用して、Azure Stack HCI クラスターを管理�
 
 クラスターに適用できる Hyper-V ホスト設定は 5 つあります。
 
-1. Windows Admin Center で、上部のドロップダウン矢印から **[クラスター マネージャー]** をクリックします。
-1. **[ツール]** の下の **[設定]** をクリックします。
+1. Windows Admin Center で、上部のドロップダウン矢印から **[Cluster Manager]\(クラスター マネージャー\)** を選択します。
+1. **[ツール]** の **[設定]** を選択します。
 1. **[全般]** を選択した後、次の設定を使用します。
 
    - **仮想ハード ディスクのパス** - 仮想ハード ディスクのファイルを格納するための既定のフォルダーを指定します。

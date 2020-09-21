@@ -3,16 +3,16 @@ title: Azure Stack Hub の AKS エンジンのサポート ポリシー
 description: このトピックでは Azure Stack Hub の AKS エンジンのサポート ポリシーについて説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 09/10/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 1b61cd32988ed314445105936155806f58dc46ba
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.lastreviewed: 09/0102020
+ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
+ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472781"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90026219"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンのサポート ポリシー
 
@@ -25,6 +25,10 @@ ms.locfileid: "89472781"
 クラスターが作成されると、お客様は AKS エンジンで作成される Kubernetes マスターおよびワーカー ノードを定義します。 お客様のワークロードは、これらのノードで実行されます。 お客様はこれらのマスターおよびワーカー ノードを所有し、表示または変更できます。 ノードが不注意に変更された場合、データとワークロードの損失が発生し、クラスターが機能しない状態になる可能性があります。 また、アップグレードやスケールなどの AKS エンジン操作により、バインドされていない変更が上書きされます。 たとえば、クラスターに静的ポッドがある場合、これらは AKS エンジンのアップグレード操作後は保持されません。
 
 お客様のクラスター ノードではプライベート コードが実行され、機密データが格納されるため、Microsoft サポートはこれらのノードへのアクセスを制限されています。 Microsoft サポートは、お客様による明確な許可または支援なしに、これらのノードにサインインしたり、これらのノードでコマンドを実行したり、これらのノードのログを表示することができません。
+
+## <a name="version-support"></a>バージョンのサポート
+
+AKS エンジンのバージョン サポートは、残りの Azure Stack Hub のサポート ポリシーで確立されているのと同じパターンに従います。つまり、Azure Stack Hub での AKS エンジンのバージョンのサポートは、n-2 式に基づきます。 たとえば、AKS エンジンの最新バージョンが v0.55.0 の場合、サポートされるバージョンのセットは次のようになります。0.48.0、0.51.0、0.55.0。 また、Azure Stack Hub の更新バージョンおよび AKS エンジンでサポートされるバージョンへの対応するマッピングに従うことも重要です。これは、[AKS エンジンのリリース ノート](kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)に記載されています。
 
 ## <a name="aks-engine-supported-areas"></a>AKS エンジンのサポートされている領域
 

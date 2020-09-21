@@ -4,19 +4,21 @@ description: Azure Stack HCI の概要
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
-ms.date: 07/29/2020
-ms.openlocfilehash: e67b3191d10c65e9b78ed4915854dd1b6149ae08
-ms.sourcegitcommit: 3988d4c79bd3f7dd0b8c3d571f14c4a2e88371e6
+ms.service: azure-stack
+ms.subservice: azure-stack-hci
+ms.date: 09/09/2020
+ms.openlocfilehash: dfe33dbacc57fbdbb1c83a572202e5d1a325e898
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87411548"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742597"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
 Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードを実行するハイパーコンバージド クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
 
-Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中である新しいオペレーティング システムです。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。
+Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中の新しいオペレーティング システムであり、[ダウンロード可能](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)です。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。
 
 Azure Stack HCI の高レベルの機能については、数分時間を取ってビデオをご覧ください。
 
@@ -303,4 +305,5 @@ Azure Stack HCI の元の Windows Server 2019 ベースのバージョンに関�
 
 ## <a name="next-steps"></a>次のステップ
 
+- [Azure Stack HCI をダウンロードする](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
 - [Windows Admin Center で Azure Stack HCI を使用する](get-started.md)

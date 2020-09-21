@@ -4,13 +4,13 @@ description: このトピックでは、Azure Stack HCI オペレーティング
 author: AnirbanPaul
 ms.author: anpaul
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: 58ae46591e2119bbfc9269440f36e9c37fd0e7b9
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.date: 09/10/2020
+ms.openlocfilehash: 785665c9edc3af3230b4813e6da6bceddc43bd0a
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89643941"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010834"
 ---
 # <a name="plan-to-deploy-the-network-controller"></a>ネットワーク コントローラーのデプロイを計画する
 
@@ -21,7 +21,7 @@ Windows Admin Center を使用したネットワーク コントローラーの�
    >[!NOTE]
    > ネットワーク コントローラーは、専用の VM にデプロイすることをお勧めします。
 
-## <a name="network-controller-requirements-for-azure-stack-hci"></a>Azure Stack HCI のネットワーク コントローラーの要件
+## <a name="network-controller-requirements"></a>ネットワーク コントローラーの要件
 ネットワーク コントローラーをデプロイするには、次のものが必要です。
 - ネットワーク コントローラー VM を作成するための Azure Stack HCI オペレーティング システム用の VHD。
 - ネットワーク コントローラー VM をドメインに参加させるためのドメイン名と資格情報。

@@ -1,16 +1,16 @@
 ---
-title: Azure Stack HCI のフォールト トレランスとストレージの効率性
+title: フォールト トレランスとストレージの効率性 - Azure Stack HCI
 description: ミラーリングとパリティを含む、記憶域スペース ダイレクトの回復性オプションについて説明します。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/21/2020
-ms.openlocfilehash: f7ac25f80a738d2c6c59d2561668ac13d112b442
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 140427df807c1fbe048615a6642a888d0516475c
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947131"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572248"
 ---
 # <a name="fault-tolerance-and-storage-efficiency-in-azure-stack-hci"></a>Azure Stack HCI のフォールト トレランスとストレージの効率性
 

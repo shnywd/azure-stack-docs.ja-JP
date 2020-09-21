@@ -8,12 +8,12 @@ ms.date: 08/28/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/11/2019
-ms.openlocfilehash: 8756b1fce06582411e321ab5015d6f14da43c6d1
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: 3ddc8a44d59a373f5dfe340860a5dcf195668cac
+ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089594"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89742571"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack-hub"></a>Azure Stack Hub 用の Red Hat ベースの仮想マシンの準備
 
@@ -351,7 +351,7 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
         subscription-manager repos --enable=rhel-7-server-extras-rpms
         ```
 
-        1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
+    1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
 
         ```bash
         sudo yum install WALinuxAgent
@@ -552,17 +552,17 @@ Red Hat Enterprise Linux のサポート情報については、「[Red Hat and 
     
     1. WALinuxAgent パッケージ `WALinuxAgent-<version>` が Red Hat extras リポジトリにプッシュされました。 次のコマンドを実行して extras リポジトリを有効にします。
 
-    ```bash
-    subscription-manager repos --enable=rhel-7-server-extras-rpms
-    ```
+        ```bash
+        subscription-manager repos --enable=rhel-7-server-extras-rpms
+        ```
 
     1. 次のコマンドを実行して Azure Linux エージェントをインストールします。
-
-    ```bash
-    sudo yum install WALinuxAgent
-    sudo systemctl enable waagent.service
-    ```
-        
+    
+        ```bash
+        sudo yum install WALinuxAgent
+        sudo systemctl enable waagent.service
+        ```
+git        
 1. オペレーティング システム ディスクにスワップ領域を作成しないでください。
 
     Azure Linux エージェントは、VM が Azure にプロビジョニングされた後に VM に接続されたローカルのリソース ディスクを使用してスワップ領域を自動的に構成できます。 ローカル リソース ディスクは一時ディスクであるため、VM のプロビジョニングが解除されると空になることに注意してください。 前の手順で Azure Linux エージェントのインストール後に、`/etc/waagent.conf` にある次のパラメーターを適切に変更します。

@@ -1,20 +1,20 @@
 ---
-title: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法
-description: VNET ピアリングを通じて 2 つの Azure Stack Hub を接続する方法について説明します。
+title: 同じ Azure Stack 環境内の 2 つの仮想ネットワークを接続する
+description: Fortinet FortiGate を使用して、同じ Azure Stack Hub 環境内の 2 つの仮想ネットワークを接続する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 5d8dcba27b1aaed79489b27a2dd6224f6211ac18
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 4aeca3ba7630d05921578de7023359c042d74ffb
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965111"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90574110"
 ---
-# <a name="connect-two-vnets-through-peering"></a>ピアリングを通じて 2 つの VNET を接続する
+# <a name="vnet-peering-with-fortigate"></a>FortiGate を使用した VNET ピアリング
 
 この記事では、同じ環境内の 2 つの仮想ネットワーク間の接続を作成する方法について説明します。 接続を設定しながら、Azure Stack Hub での VPN ゲートウェイのしくみを学習します。 Fortinet FortiGate を使用して、同じ Azure Stack Hub 環境内で 2 つの VNET を接続します。 この手順では、各 VNET で FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、2 つの VNET をそれぞれ別個のリソース グループ内にデプロイします。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 VNET のデプロイごとに、この記事の手順を繰り返します。
 
@@ -79,7 +79,7 @@ ms.locfileid: "88965111"
 
 2.  **[リソースの作成]** を選択し、`FortiGate` を検索します。
 
-    !検索結果の一覧に、FortiGate NGFW - 単一 VM のデプロイが表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![検索結果の一覧に、"FortiGate NGFW - Single VM Deployment" が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
 
 3.  **[FortiGate NGFW]** を選択し、**[作成]** を選択します。
 

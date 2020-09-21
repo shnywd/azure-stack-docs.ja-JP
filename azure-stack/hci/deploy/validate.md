@@ -1,16 +1,16 @@
 ---
 title: Azure Stack HCI クラスターの検証
-description: このハウツー記事では、クラスターの検証が重要である理由と、どのようなときに既存の Azure Stack HCI クラスターに対してそれを実行するかについて説明します。 この記事には、更新されたサーバー クラスターのトラブルシューティングを行うための検証シナリオが含まれています。
+description: クラスター検証の重要性、どのようなときに既存の Azure Stack HCI クラスターに対して検証を実行するかについて説明します。 更新されたサーバー クラスターをトラブルシューティングするためのシナリオについて説明します。
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
 ms.date: 07/21/2020
-ms.openlocfilehash: 8ef7364a15241fcfdf7dcd8af984227a30ac28f5
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
+ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86947590"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90572087"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターの検証
 

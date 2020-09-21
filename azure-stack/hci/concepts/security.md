@@ -4,13 +4,13 @@ description: このトピックでは、Azure Stack HCI オペレーティング
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 90a7904a9f102688364b2776d81eee5d7d6e559a
-ms.sourcegitcommit: a15a0f955bac922cebb7bf90a72384fd84ddfe56
+ms.date: 09/10/2020
+ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
+ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86946978"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90010817"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI のセキュリティに関する考慮事項
 
@@ -53,18 +53,8 @@ ms.locfileid: "86946978"
 このセクションでは、Windows Admin Center を使用して、オペレーティング システムのデータとワークロードを保護する方法について説明します。
 
 - **記憶域スペース用の BitLocker** では、保存データが保護されます。 BitLocker を使用して、オペレーティング システム上の記憶域スペースのデータ ボリュームの内容を暗号化できます。 BitLocker を使用してデータを保護すると、FIPS 140-2 や HIPAA など、政府機関、地域、業界固有の標準に対するコンプライアンスを維持できます。
-
-    Windows Admin Center で BitLocker にアクセスするには:
-
-    1. 記憶域スペース ダイレクト クラスターに接続し、 **[ツール]** ペインで **[ボリューム]** を選択します。
-    1. **[ボリューム]** ページで **[インベントリ]** を選択し、 **[オプション機能]** で **[暗号化 (BitLocker)]** トグルをオンに切り替えます。
-    
-        :::image type="content" source="./media/security/bitlocker-toggle-switch.png" alt-text="BitLocker を有効にするトグル スイッチ":::
-    
-    1. **[暗号化 (BitLocker)]** ポップアップで、 **[開始]** を選択し、 **[Turn on Encryption]\(暗号化を有効にする\)** ページで、ワークフローを完了するための資格情報を入力します。
-
-   >[!NOTE]
-   > **[Install BitLocker feature first]\(BitLocker 機能を最初にインストールしてください\)** ポップアップが表示される場合は、指示に従ってクラスター内の各サーバーに機能をインストールし、サーバーを再起動します。
+ 
+    Windows Admin Center での BitLocker の使用の詳細については、[ボリュームの暗号化、重複除去、圧縮の有効化](../manage/volume-encryption-deduplication.md)に関する記事を参照してください。
 
 - Windows ネットワークに対する **SMB** 暗号化では、転送中のデータが保護されます。 "*サーバー メッセージ ブロック (SMB)* " はネットワーク ファイル共有プロトコルの一種です。サーバー メッセージ ブロックを使用すると、コンピューター上のアプリケーションで、ファイルの読み込みや書き込みを実行したり、コンピューター ネットワークにあるサーバー プログラムに対してサービスを要求したりすることができます。
 
