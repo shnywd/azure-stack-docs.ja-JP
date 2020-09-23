@@ -451,6 +451,8 @@
           href: azure-stack-backup-reference.md
     - name: サポートを受ける
       items:
+        - name: オペレーター アクセス ワークステーション
+          href: operator-access-workstation.md
         - name: '[ヘルプとサポート] ポータル'
           items:
             - name: 概要
