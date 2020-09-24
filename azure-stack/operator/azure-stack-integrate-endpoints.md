@@ -3,16 +3,16 @@ title: データセンターに Azure Stack Hub サービスを発行する
 description: データセンターに Azure Stack Hub サービスを発行する方法を学習します。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 07/24/2020
-ms.author: inhenkel
+ms.date: 09/22/2020
+ms.author: justinha
 ms.reviewer: wamota
-ms.lastreviewed: 07/24/2020
-ms.openlocfilehash: 2ff8d71d31b05ccdd4d63805da2626a3a5785e1b
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.lastreviewed: 09/22/2020
+ms.openlocfilehash: b1b3a267185d9486bdf023f1af7c8e2348e49351
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019624"
 ---
 # <a name="publish-azure-stack-hub-services-in-your-datacenter"></a>データセンターに Azure Stack Hub サービスを発行する
 
@@ -93,7 +93,7 @@ SSL トラフィックのインターセプトは[サポートされておらず
 |LDAP GC|Graph 統合のために用意されている Active Directory フォレスト|TCP|3268|パブリック VIP - /27|
 |LDAP GC SSL|Graph 統合のために用意されている Active Directory フォレスト|TCP|3269|パブリック VIP - /27|
 |AD FS|AD FS 統合のために用意されている AD FS メタデータ エンドポイント|TCP|443|パブリック VIP - /27|
-| 診断ログの収集 | https://azsdiagppelocalwestus02.blob.core.windows.net<br>https://azsdiagppewestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | パブリック VIP - /27 |
+| 診断ログの収集 | https://azsdiagprdlocalwestus02.blob.core.windows.net<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com<br>https://azsdiagprdwestusfrontend.westus.cloudapp.azure.com | HTTPS | 443 | パブリック VIP - /27 |
 |     |     |     |     |     |
 
 送信 URL は Azure Traffic Manager を使用して負荷分散され、地理的な場所に基づいて可能な限り最適な接続が提供されます。 URL を負荷分散することで、Microsoft は、顧客に影響を与えることなくバックエンド エンドポイントを更新および変更することができます。 Microsoft では、負荷分散される URL の IP アドレスのリストを共有していません。 IP ではなく URL によるフィルター処理をサポートするデバイスを使用してください。
