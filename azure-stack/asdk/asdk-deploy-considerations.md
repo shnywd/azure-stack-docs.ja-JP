@@ -3,16 +3,16 @@ title: ASDK の要件と考慮事項
 description: Azure Stack Development Kit (ASDK) のハードウェア、ソフトウェア、環境の要件を確認します。
 author: myoungerman
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 05/13/2019
-ms.openlocfilehash: f74ffc103c53fa8cb1c317f42455c4063e1b0baa
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 09/23/2020
+ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572104"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106959"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -79,9 +79,6 @@ Azure Stack Development Kit (ASDK) をデプロイする前に、ASDK のホス�
 | --- | --- |
 | **OS バージョン** |Windows Server 2016 以降。 Azure Stack のインストールに含まれる VHD でホスト コンピューターを起動するので、デプロイが開始する前のオペレーティング システムのバージョンは重要ではありません。 オペレーティング システムと必要なすべての修正プログラムは、イメージに既に統合されています。 ASDK で使われている Windows Server インスタンスをアクティブ化するためにキーを使わないでください。 |
 
-> [!TIP]
-> オペレーティング システムをインストールした後は、[Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) を使って、ハードウェアがすべての要件を満たしていることを確認できます。
-
 ## <a name="account-requirements"></a>アカウントの要件
 通常は、Microsoft Azure に接続できるようにインターネットに接続された状態で ASDK をデプロイします。 この場合、ASDK をデプロイするために Azure Active Directory (Azure AD) アカウントを構成する必要があります。
 
@@ -108,7 +105,7 @@ Azure AD アカウントを使って Azure Stack をデプロイするには、�
 デプロイの後、Azure AD の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 そのような操作の例には、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
 
 ## <a name="network"></a>ネットワーク
-### <a name="switch"></a>Switch
+### <a name="switch"></a>スイッチ
 ASDK マシンでは、1 つのスイッチで 1 つのポートのみを使用できます。  
 
 ASDK マシンでは、スイッチ アクセス ポートまたはトランク ポートへの接続をサポートしています。 スイッチでは特別な機能は必要ありません。 トランク ポートを使用している場合、または VLAN ID を構成する必要がある場合は、デプロイ パラメーターとして VLAN ID を指定する必要があります。
@@ -135,7 +132,7 @@ NIC を接続するネットワークで使用できる DHCP サーバーがあ�
 Azure Stack は、直接または透過プロキシ経由で、インターネットにアクセスできる必要があります。 Azure Stack は、インターネット アクセスを有効にするための Web プロキシの構成をサポートしていません。 ホスト IP と (DHCP または静的 IP アドレスによって) AzS-BGPNAT01 に割り当てられた新しい IP の両方が、インターネットにアクセスできる必要があります。 graph.windows.net および login.microsoftonline.com ドメインのポート 80 と 443 を使用します。
 
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 - [ASDK デプロイ パッケージをダウンロードします](asdk-download.md)。
 - 記憶域スペース ダイレクトの詳細については、「[記憶域スペース ダイレクトの概要](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)」を参照してください。
