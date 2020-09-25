@@ -142,6 +142,8 @@
       href: /powershell/module/dcbqos
 - name: 関連項目
   items:
+    - name: Azure Stack HCI の Azure Kubernetes Service
+      href: ../aks-hci/overview.md
     - name: Azure Stack ファミリ
       href: ../index.yml
     - name: Azure ハイブリッド クラウド
