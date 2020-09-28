@@ -181,6 +181,8 @@
           href: azure-stack-change-subscription-owner.md
         - name: Azure Stack Hub の開始と停止
           href: azure-stack-start-and-stop.md
+        - name: Azure Site Recovery ツール
+          href: site-recovery-failback.md
         - name: キャパシティの管理
           items:
             - name: ストレージ リソースの管理
