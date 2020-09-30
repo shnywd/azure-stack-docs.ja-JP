@@ -3,15 +3,15 @@ title: サービスを使用する場合やアプリを作成する場合の Azu
 description: サービスを使用する場合やアプリを作成する場合の Azure と Azure Stack Hub の違いについて説明します。
 author: sethmanheim
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: fb5f30d97d1c12a94b5366a358dc21450965fd93
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819529"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946457"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い
 
@@ -84,3 +84,4 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 * [Azure Stack Hub の VM に関する考慮事項](azure-stack-vm-considerations.md)
 * [Azure Stack Hub のストレージに関する考慮事項](azure-stack-acs-differences.md)
 * [Azure Stack Hub ネットワークに関する考慮事項](azure-stack-network-differences.md)
+* [Azure Stack Hub SQL リソース プロバイダーに関する考慮事項](../operator/azure-stack-sql-resource-provider.md)
