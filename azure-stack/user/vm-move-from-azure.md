@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: bcd4d3e2255a839efe3ef4075d81042e241d00f3
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609926"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519425"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>VM を Azure から Azure Stack Hub に移動する
 
@@ -48,7 +48,7 @@ VHD を Azure Stack Hub に移動する前に、「[Azure から Windows VHD を
 
 - Linux VM をダウンロードする前に、記事「[Azure CLI を使用してカスタム ディスクから Linux VM を作成する](/azure/virtual-machines/linux/upload-vhd#prepare-the-vm)」の「VM を準備する」セクションのガイダンスに従います。
 - 記事「[Azure から Linux VHD をダウンロードする](/azure//virtual-machines/windows/download-vhd)」の手順に従い VHD を準備してダウンロードします。
-- 特殊化 VHD の場合は、`-CreateOption Attach` を使用した "アタッチ" セマンティクスを必ず使用してください。 記事「[PowerShell で既存のマネージド OS ディスクを使用して仮想マシンを作成する (Windows)](/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks)」で例を確認できます。
+- 特殊化 VHD の場合は、`-CreateOption Attach` を使用した "アタッチ" セマンティクスを必ず使用してください。 記事「[PowerShell で既存のマネージド OS ディスクを使用して仮想マシンを作成する (Windows)](/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks)」で例を確認できます。
 
 #### <a name="linux---generalized"></a>[Linux - 汎用化](#tab/lin-gen)
 

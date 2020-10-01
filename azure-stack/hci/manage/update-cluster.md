@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.date: 08/31/2020
-ms.openlocfilehash: 94908514e85df153f69cbeea81a11d4468dfc7fe
-ms.sourcegitcommit: e6665cfb15fae57218e58cd6de6053f16c1f9044
+ms.openlocfilehash: 06a5a1ccf59b5d5c34ef1d2e36feeb1000b49776
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89274060"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572638"
 ---
 # <a name="update-azure-stack-hci-clusters"></a>Azure Stack HCI クラスターを更新する
 
@@ -87,9 +87,8 @@ Install-WindowsFeature –Name RSAT-Clustering-PowerShell -ComputerName Server1
   
 -   **リモート更新モード**: このモードでは、フェールオーバー クラスターへのネットワーク接続はあっても、フェールオーバー クラスターのメンバーではないリモート管理コンピューター (通常は Windows 10 PC) は、フェールオーバー クラスタリング ツールを使用して構成されます。 管理者は、更新コーディネーターと呼ばれるリモート管理コンピューターから、既定またはカスタムの更新実行プロファイルを使用して、オンデマンドの更新実行をトリガーします。 リモート更新モードは、更新実行の進捗状況をリアルタイムで監視する目的のほか、クラスターが Server Core 環境で実行されている場合などに有効活用できます。  
 
-
    > [!NOTE]
-   > Windows 10 October 2018 Update 以降では、RSAT は Windows 10 から直接 "オンデマンド機能" のセットとして含まれています。 **[設定] > [アプリ] > [アプリと機能] > [オプション機能] > [RSAT: フェールオーバー クラスタリング ツール]** に移動し、 **[インストール]** を選択します。 インストールの進行状況を確認するには、[戻る] ボタンをクリックして、[オプション機能の管理] ページに状態を表示します。 インストールされた機能は、Windows 10 のバージョンのアップグレードをまたがって保持されます。 2018 年 10 月の更新プログラムの前に RSAT for Windows 10 をインストールするには、[RSAT パッケージをダウンロード](https://www.microsoft.com/en-us/download/details.aspx?id=45520)します。
+   > Windows 10 October 2018 Update 以降では、RSAT は Windows 10 から直接 "オンデマンド機能" のセットとして含まれています。 **[設定] > [アプリ] > [アプリと機能] > [オプション機能] > [RSAT: フェールオーバー クラスタリング ツール]** に移動し、 **[インストール]** を選択します。 インストールの進行状況を確認するには、[戻る] ボタンをクリックして、[オプション機能の管理] ページに状態を表示します。 インストールされた機能は、Windows 10 のバージョンのアップグレードをまたがって保持されます。 2018 年 10 月の更新プログラムの前に RSAT for Windows 10 をインストールするには、[RSAT パッケージをダウンロード](https://www.microsoft.com/download/details.aspx?id=45520)します。
 
 ### <a name="add-cau-cluster-role-to-the-cluster"></a>クラスターに CAU クラスターの役割を追加する
 
@@ -105,7 +104,7 @@ Get-CauClusterRole -ClusterName Cluster1
 
 ```Get-CauClusterRole : The current cluster is not configured with a Cluster-Aware Updating clustered role.```
 
-PowerShell を使用して自己更新モードのクラスター対応更新クラスターの役割を追加するには、次の例のように、 **`Add-CauClusterRole`** コマンドレットを使用し、適切な[パラメーター](/powershell/module/clusterawareupdating/add-cauclusterrole?view=win10-ps#parameters)を指定します。
+PowerShell を使用して自己更新モードのクラスター対応更新クラスターの役割を追加するには、次の例のように、 **`Add-CauClusterRole`** コマンドレットを使用し、適切な[パラメーター](/powershell/module/clusterawareupdating/add-cauclusterrole#parameters)を指定します。
 
 ```PowerShell
 Add-CauClusterRole -ClusterName Cluster1 -MaxFailedNodes 0 -RequireAllNodesOnline -EnableFirewallRules -VirtualComputerObjectName Cluster1-CAU -Force -CauPluginName Microsoft.WindowsUpdatePlugin -MaxRetriesPerNode 3 -CauPluginArguments @{ 'IncludeRecommendedUpdates' = 'False' } -StartDate "3/2/2020 3:00:00 AM" -DaysOfWeek 4 -WeeksOfMonth @(3) -verbose

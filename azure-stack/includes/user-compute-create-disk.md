@@ -6,16 +6,16 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: a9a926b8d926e919ece60e35dc24db6b642328df
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 305d085447e4b77108d55e6c7fe0afde3cd2e32c
+ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609903"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91519423"
 ---
 1. Azure Stack Hub のユーザー ポータルにサインインします。
 
-    プラットフォーム ディスクを作成するクラウド オペレーターの場合は、[プラットフォーム イメージの追加](/azure-stack/operator/azure-stack-add-vm-image.md#add-a-platform-image)に関するページの手順に従って、管理者ポータルまたは管理者エンドポイントを使用して VHD を追加します。
+    プラットフォーム ディスクを作成するクラウド オペレーターの場合は、[プラットフォーム イメージの追加](/azure-stack/operator/azure-stack-add-vm-image#add-a-platform-image)に関するページの手順に従って、管理者ポータルまたは管理者エンドポイントを使用して VHD を追加します。
 
 2. ユーザー ポータルで、 **[すべてのサービス]**  >  **[ディスク]**  >  **[追加]** の順に選択します。
 

@@ -5,12 +5,12 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: 6a8a0c3068061c599ac18e160ebd32c7b5cc8eda
-ms.sourcegitcommit: b147d617c32cea138b5bd4bab568109282e44317
+ms.openlocfilehash: 181eb53d4b0e5c95065371e6b87e470a5e413d06
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90010817"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572672"
 ---
 # <a name="azure-stack-hci-security-considerations"></a>Azure Stack HCI のセキュリティに関する考慮事項
 
@@ -41,7 +41,7 @@ ms.locfileid: "90010817"
 
 - **Device Guard** と **Credential Guard**。 Device Guard を使用すると、シグネチャがわかっていないマルウェア、署名されていないコード、機密情報をキャプチャしたりシステムを破壊したりするためにカーネルにアクセスするマルウェアから保護されます。 Windows Defender Credential Guard では、仮想化ベースのセキュリティを使用してシークレットが分離され、特権のあるシステム ソフトウェアのみがそれらにアクセスできます。
 
-    詳細については、「[Windows Defender Credential Guard を管理する](/windows/security/identity-protection/credential-guard/credential-guard-manage)」を参照し、[Device Guard および Credential Guard ハードウェア準備ツール](https://www.microsoft.com/en-us/download/details.aspx?id=53337)をダウンロードしてください。
+    詳細については、「[Windows Defender Credential Guard を管理する](/windows/security/identity-protection/credential-guard/credential-guard-manage)」を参照し、[Device Guard および Credential Guard ハードウェア準備ツール](https://www.microsoft.com/download/details.aspx?id=53337)をダウンロードしてください。
 
 - **Windows** と**ファームウェア**の更新プログラムは、クラスター、サーバー (ゲスト VM を含む)、PC に不可欠であり、オペレーティング システムとシステム ハードウェアの両方を攻撃者から確実に保護するのに役立ちます。 Windows Admin Center の**更新プログラム** ツールを使用して、個々のシステムに更新プログラムを適用できます。 ハードウェア プロバイダーに、ドライバー、ファームウェア、ソリューションの更新プログラムを取得するための Windows Admin Center のサポートが含まれている場合は、Windows の更新プログラムと同時にこれらの更新プログラムを取得できます。それ以外の場合は、ベンダーから直接取得します。
 
@@ -88,7 +88,7 @@ ms.locfileid: "90010817"
 
 - Windows Admin Center で**ロールベースのアクセス制御 (RBAC)** を使用すると、ユーザーをローカルの完全な管理者にするのではなく、管理する必要があるサーバーへのアクセスを制限できます。 Windows Admin Center で RBAC を使用するには、PowerShell の Just Enough Administration エンドポイントで各マネージド サーバーを構成します。
 
-    詳細については、「[ロールベースのアクセス制御](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)」と「[Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview?view=powershell-7)」を参照してください。
+    詳細については、「[ロールベースのアクセス制御](/windows-server/manage/windows-admin-center/plan/user-access-options#role-based-access-control)」と「[Just Enough Administration](/powershell/scripting/learn/remoting/jea/overview)」を参照してください。
 
 - ID の管理と保護に使用できる Windows Admin Center の**セキュリティ ツール**には、Active Directory、証明書、ファイアウォール、ローカル ユーザーとグループなどがあります。
 
@@ -126,7 +126,7 @@ Windows Admin Center を使用して Security Center を操作するには、Azu
      
      - Windows Server の**仮想トラステッド プラットフォーム モジュール (vTPM)** でサポートされている VM 向けの TPM を使用すると、VM での BitLocker などの高度なセキュリティ テクノロジを使用できます。 Hyper-V マネージャーまたは `Enable-VMTPM` Windows PowerShell コマンドレットを使用して、任意の第 2 世代 Hyper-V VM で TPM のサポートを有効にすることができます。
      
-        詳細については、「[Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm?view=win10-ps)」を参照してください。
+        詳細については、「[Enable-VMTPM](/powershell/module/hyper-v/enable-vmtpm)」を参照してください。
      
      - Azure Stack HCI および Windows Server の**ソフトウェアによるネットワーク制御 (SDN)** では、データセンター内のルーター、スイッチ、ゲートウェイなどの物理および仮想ネットワーク デバイスが、一元的に構成および管理されます。 Hyper-V 仮想スイッチ、Hyper-V ネットワーク仮想化、RAS ゲートウェイなどの仮想ネットワーク要素は、SDN インフラストラクチャの不可欠な要素として設計されています。
 

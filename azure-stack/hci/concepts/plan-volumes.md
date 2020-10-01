@@ -5,12 +5,12 @@ author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 49124c0112d2ecba8c621520cfb1b6c293418401
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8125ff0432b16f254f8660e8c5f755f7f4916b12
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742541"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572774"
 ---
 # <a name="plan-volumes-in-azure-stack-hci"></a>Azure Stack HCI でボリュームを計画する
 
@@ -39,7 +39,7 @@ ms.locfileid: "89742541"
 
 ## <a name="choosing-the-filesystem"></a>ファイル システムの選択
 
-記憶域スペース ダイレクトには、新しい [Resilient File System (ReFS)](/en-us/windows-server/storage/refs/refs-overview) を使用することをお勧めします。 ReFS は、仮想化用に構築された主要なファイル システムであり、大幅なパフォーマンスの向上や、データ破損に対する組み込みの保護など、さまざまな利点があります。 これは、Windows Server バージョン 1709 以降のデータ重複除去を含む、NTFS の主な機能のほとんどすべてをサポートしています。 詳細については、ReFS の[機能の比較表](/windows-server/storage/refs/refs-overview#feature-comparison)を参照してください。
+記憶域スペース ダイレクトには、新しい [Resilient File System (ReFS)](/windows-server/storage/refs/refs-overview) を使用することをお勧めします。 ReFS は、仮想化用に構築された主要なファイル システムであり、大幅なパフォーマンスの向上や、データ破損に対する組み込みの保護など、さまざまな利点があります。 これは、Windows Server バージョン 1709 以降のデータ重複除去を含む、NTFS の主な機能のほとんどすべてをサポートしています。 詳細については、ReFS の[機能の比較表](/windows-server/storage/refs/refs-overview#feature-comparison)を参照してください。
 
 ReFS がまだサポートしていない機能をワークロードで必要な場合は、代わりに NTFS を使用できます。
 
