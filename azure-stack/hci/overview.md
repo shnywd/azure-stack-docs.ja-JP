@@ -1,24 +1,24 @@
 ---
 title: Azure Stack HCI ソリューションの概要
-description: Azure Stack HCI の概要
+description: Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードとそのストレージをホストするハイパーコンバージド インフラストラクチャ (HCI) クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。
 ms.topic: overview
 author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: dfe33dbacc57fbdbb1c83a572202e5d1a325e898
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 09/24/2020
+ms.openlocfilehash: 135cf9147b69410b4276860dcde2b167e771a695
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742597"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572536"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
-Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードを実行するハイパーコンバージド クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
+Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードとそのストレージをホストするハイパーコンバージド インフラストラクチャ (HCI) クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
 
-Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中の新しいオペレーティング システムであり、[ダウンロード可能](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)です。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。
+Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中の新しいオペレーティング システムであり、[ダウンロード可能](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)です。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。 Azure Stack HCI には、Azure Kubernetes サービスをホストする機能も含まれるようになりました。詳細については、「[Azure Stack HCI の Azure Kubernetes Service](../aks-hci/overview.md)」を参照してください。
 
 Azure Stack HCI の高レベルの機能については、数分時間を取ってビデオをご覧ください。
 
@@ -37,7 +37,7 @@ Azure Stack HCI バージョン 20H2 では、ストレージ コスト パフ�
 
 ## <a name="use-cases-for-azure-stack-hci"></a>Azure Stack HCI のユース ケース
 
-Azure Stack HCI には多くのユース ケースがありますが、仮想化されていないワークロードのためのものではありません (ただし、Azure Stack HCI でも優れた動作を示す SQL Server は除きます)。 多くの場合、お客様は次のようなシナリオで Azure Stack HCI を選択します。
+Azure Stack HCI には多くのユース ケースがありますが、仮想化されていないワークロードのためのものではありません。 多くの場合、お客様は次のようなシナリオで Azure Stack HCI を選択します。
 
 ### <a name="data-center-consolidation-and-modernization"></a>データ センターの統合と近代化
 
@@ -99,7 +99,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 - クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で次のエンドポイントに接続できること: *-azurestackhci-usage.azurewebsites.net
 - 複数のサイトに拡張されるクラスターの場合は、サイト間に 1 Gb 以上の接続が必要であり (25 Gb の RDMA 接続を推奨)、両方のサイトで書き込みが同時に発生する同期レプリケーションを行う場合は、平均待機時間が 5 ミリ秒のラウンドトリップが必要です
 
-詳細については、「[開始する前に](deploy/before-you-start.md)」を参照してください。
+詳細については、「[開始する前に](deploy/before-you-start.md)」を参照してください。 Azure Stack HCI での Azure Kubernetes Service の要件については、[Azure Stack HCI での AKS の要件](../aks-hci/overview.md#what-you-need-to-get-started)に関するページを参照してください。
 
 ## <a name="hardware-partners"></a>ハードウェア パートナー
 
@@ -130,7 +130,7 @@ Azure Stack HCI では、お客様がクラスターに対する完全な管理�
 
 - [Windows Admin Center](/windows-server/manage/windows-admin-center/overview)
 - [System Center](https://www.microsoft.com/cloud-platform/system-center)
-- [PowerShell](/powershell/?view=powershell-6)
+- [PowerShell](/powershell/)
 - [サーバー マネージャー](/windows-server/administration/server-manager/server-manager)や MMC スナップインなどの他の管理ツール
 - 5Nine Manager などの Microsoft 以外のツール
 
@@ -205,7 +205,7 @@ Azure Stack HCI は、Azure と Azure Stack ファミリの一員であり、Azu
 - [Azure Stack HCI](https://azure.microsoft.com/overview/azure-stack/hci) - 仮想化されたアプリをオンプレミスで実行し、古くなったサーバー インフラストラクチャを交換および整理し、クラウド サービスを利用するために Azure に接続します。
 - [Azure Stack Hub](../operator/azure-stack-overview.md) - 接続していない場合や、規制要件を満たすために、一貫性のある Azure サービスを使用し、クラウド アプリをオンプレミスで実行します。
 
-:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack ファミリのソリューションの図" border="false":::
+:::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack HCI OS は、検証済みハードウェア上で実行され、Windows Admin Center によって管理され、Azure に接続される" border="false":::
 
 ## <a name="compare-windows-server-and-azure-stack-hci"></a>Windows Server と Azure Stack HCI を比較する
 
@@ -259,6 +259,13 @@ Azure Stack HCI は、Azure と Azure Stack ファミリの一員であり、Azu
 
 ## <a name="whats-new-in-azure-stack-hci"></a>Azure Stack HCI の新機能
 
+Windows Admin Center バージョン 2009 では、次のような多数の機能が Azure Stack HCI に追加されています。
+
+- **Azure Kubernetes Service のホスティング機能**:[Azure Stack HCI 上の Azure Kubernetes Service](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) のプレビュー バージョンをインストールできるようになりました。
+- **クラスター作成ウィザードでのソフトウェア定義ネットワークの追加**:クラスター作成ウィザードで、[クラスターの作成](deploy/create-cluster.md#step-5-sdn-optional)中に、[ソフトウェア定義ネットワーク (SDN)](concepts/software-defined-networking.md) ネットワーク コントローラーの機能をデプロイするオプションが追加されました。
+
+Windows Admin Center の新機能の詳細については、[Windows Admin Center のブログ](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)を参照してください。
+
 Windows Server 2019 ベースのソリューションと比較して、Azure Stack HCI バージョン 20H2 を実行するクラスターには、次の新機能があります。
 
 - **Windows Admin Center の新機能**: 直感的な UI を使用してハイパーコンバージド クラスターを作成および更新する機能により、Azure Stack HCI はこれまで以上に簡単に使用できるようになりました。
@@ -305,5 +312,5 @@ Azure Stack HCI の元の Windows Server 2019 ベースのバージョンに関�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack HCI をダウンロードする](https://azure.microsoft.com/en-us/products/azure-stack/hci/hci-download/)
+- [Azure Stack HCI をダウンロードする](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
 - [Windows Admin Center で Azure Stack HCI を使用する](get-started.md)
