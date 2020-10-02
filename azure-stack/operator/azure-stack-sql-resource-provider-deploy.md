@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5b38c407b6e4aba60b0c810ffad4db531627820f
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472978"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946407"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -92,7 +92,10 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
 
-SQL リソース プロバイダーをデプロイするには、管理者特権で**新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、SQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。
+SQL リソース プロバイダーをデプロイするには、管理者特権で**新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、SQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
+
+> [!IMPORTANT]
+> 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。 または、更新スクリプトを実行する前に、clear-azurermcontext を使用してキャッシュをクリアすることもできます。
 
 DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完了します。
 
@@ -191,15 +194,10 @@ $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath
 
 ## <a name="verify-the-deployment-using-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用してデプロイを確認する
 
-次の手順を実行すると、SQL リソース プロバイダーが正常にデプロイされたことを確認できます。
-
 1. 管理ポータルにサービス管理者としてサインインします。
 2. **[リソース グループ]** を選択します。
 3. **system.\<location\>.sqladapter** リソース グループを選択します。
 4. リソース グループの概要の概要ページで、失敗したデプロイは表示されていないはずです。
-
-    ![Azure Stack Hub 管理者ポータルで SQL リソース プロバイダーのデプロイを確認する](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
 5. 最後に、管理者ポータルで **[仮想マシン]** を選択して、SQL リソース プロバイダー VM が正常に作成され、実行されていることを確認します。
 
 ## <a name="next-steps"></a>次のステップ

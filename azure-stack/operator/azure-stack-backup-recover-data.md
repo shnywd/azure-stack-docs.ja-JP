@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: ab90c0e9ef0f873fbed44932e9ffc418077fee4a
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939579"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836507"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -24,7 +24,7 @@ Azure Stack Hub は、データセンターで Azure サービスを実行し、
 
 | シナリオ                                                           | データ損失                            | 考慮事項                                                             |
 |--------------------------------------------------------------------|--------------------------------------|----------------------------------------------------------------------------|
-| 障害または製品のバグによって引き起こされた、致命的なデータ損失からの復旧 | 全インフラストラクチャ、ユーザー データ、アプリ データ | ユーザーのアプリとデータは、インフラストラクチャ データとは別に保護されている |
+| 障害または製品のバグによって引き起こされた、致命的なデータ損失からの復旧 | 全インフラストラクチャ、ユーザー データ、アプリ データ | 異なる OEM への復元が可能<br/> 異なる世代のハードウェアへの復元が可能<br/> スケール ユニット数が異なるノードへの復元が可能<br/> ユーザーのアプリとデータは、インフラストラクチャ データとは別に保護されている |
 
 ## <a name="workflows"></a>Workflows
 

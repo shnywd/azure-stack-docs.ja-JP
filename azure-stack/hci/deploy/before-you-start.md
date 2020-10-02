@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/03/2020
-ms.openlocfilehash: b780dad569f1f2bdb2488505ecb2e12b0aaf2b3f
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.date: 09/23/2020
+ms.openlocfilehash: 64303a9d923bc001a67259cf48d4e55cb8429087
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742183"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134714"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI をデプロイする前に
 
@@ -48,7 +48,6 @@ Azure Stack HCI クラスターでは、各サーバー ノード間に信頼性
 - クラスター管理専用に少なくとも 1 つのネットワーク アダプターが使用可能であることを確認します。
 - 使用するすべての VLAN 上のトラフィックを許可するようにネットワーク内の物理スイッチが構成されていることを確認します。
 
-
 サーバー ノード間で行われる通信には、次のような複数の種類があります。
 
 - クラスター通信 (ノードの結合、クラスターの更新、レジストリの更新)
@@ -62,6 +61,16 @@ Azure Stack HCI クラスターでは、各サーバー ノード間に信頼性
 - 正常性 – オブジェクト (ノード、ドライブ、ネットワーク カード、クラスター サービス) の監視と管理
 
 ストレッチ クラスターの場合は、さらにサイト間の記憶域レプリカのトラフィックも発生します。 記憶域バス レイヤー (SBL) とクラスター共有ボリューム (CSV) のトラフィックは、サイト間ではなく、各サイト内のサーバー ノード間でのみ発生します。
+
+### <a name="software-defined-networking-requirements"></a>ソフトウェア定義ネットワークの要件
+
+Windows Admin Center を使用して Azure Stack HCI クラスターを作成するときには、ネットワーク コントローラーをデプロイしてソフトウェア定義ネットワーク (SDN) を有効にするオプションが用意されています。 Azure Stack HCI で SDN を使用する場合:
+
+- ホスト サーバーに、ネットワーク コントローラー VM を作成するための空き領域が少なくとも 50 ～ 100 GB あることを確認してください。
+
+- ネットワーク コントローラー VM を作成するには、Azure Stack HCI オペレーティング システムの仮想ハード ディスク (VHD) を、クラスター内の最初のノードにコピーする必要があります。 VHD は、[Sysprep](/windows-hardware/manufacture/desktop/sysprep-process-overview) を使用するか、[Convert-WindowsImage](https://gallery.technet.microsoft.com/scriptcenter/Convert-WindowsImageps1-0fe23a8f) スクリプトを実行し、.iso ファイルを VHD に変換することで準備できます。
+
+Azure Stack HCI で SDN を使用するための準備の詳細については、「[ソフトウェア定義ネットワーク インフラストラクチャを計画する](../concepts/plan-software-defined-networking-infrastructure.md)」と「[ネットワーク コントローラーのデプロイを計画する](../concepts/network-controller.md)」を参照してください。
 
 ### <a name="domain-requirements"></a>ドメインの要件
 

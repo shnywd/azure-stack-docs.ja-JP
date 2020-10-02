@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: d071b9457388d4f282fad0f0532ce71dc9304f13
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573192"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106624"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>管理者ポータルで Azure Stack Hub のバックアップを有効にする
 
@@ -77,7 +77,7 @@ Azure Stack Hub でインフラストラクチャのバックアップを生成�
 ## <a name="start-backup"></a>バックアップの開始
 バックアップを開始するには、 **[今すぐバックアップ]** をクリックして、オンデマンド バックアップを開始します。 オンデマンド バックアップでは、次回のスケジュールされたバックアップの時間は変更されません。 タスクの完了後、 **[基本]** で設定を確認できます。
 
-![Azure Stack Hub - オンデマンド バックアップ](media/azure-stack-backup/scheduled-backup.png)
+![オンデマンド バックアップを開始する方法を示すスクリーンショット。](media/azure-stack-backup/scheduled-backup.png)
 
 また、Azure Stack Hub 管理コンピューターで PowerShell コマンドレット **Start-AzsBackup** を実行することもできます。 詳細については、「[Azure Stack Hub のバックアップ](azure-stack-backup-back-up-azure-stack.md)」を参照してください。
 

@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: b05ee7a85738137594588e2831f9a3c0ee12aea2
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920833"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106731"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -59,13 +59,13 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack H
 
 1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **［作成］** を選択します
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Kubernetes クラスターの作成場所のページを示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1.基本
 
 1. [Kubernetes クラスターを作成] で **[基本]** を選びます。
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Kubernetes クラスターに関する基本情報を追加する場所を示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. **[サブスクリプション]** を選択します。
 
@@ -77,7 +77,7 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack H
 
 1. [Kubernetes クラスターを作成] で **[Kubernetes Cluster Settings] (Kubernetes クラスターの設定)** を選択します。
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
+    ![Kubernetes クラスター設定の構成手順を示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-adfs.png)
 
 1. **[Linux VM admin username]\(Linux VM 管理者ユーザー名\)** を入力します。 Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名
 

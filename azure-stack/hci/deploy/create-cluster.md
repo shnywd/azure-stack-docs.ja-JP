@@ -3,15 +3,15 @@ title: Windows Admin Center を使用して Azure Stack HCI クラスターを�
 description: Windows Admin Center を使用して Azure Stack HCI 用のサーバー クラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 75c4da1ab4e03bae4f9beb2a5d1c170933c6b985
-ms.sourcegitcommit: 673d9b7cf723bc8ef6c04aee5017f539a815da51
+ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88110530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019540"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -66,7 +66,7 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 1. 完了したら、 **[作成]** をクリックします。 次に示すように、クラスターの作成ウィザードが表示されます。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="クラスターの作成ウィザード - はじめに" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>手順 1:はじめに
 
@@ -96,7 +96,10 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 ## <a name="step-2-networking"></a>手順 2:ネットワーク
 
-ウィザードの手順 2. では、クラスターの各種ネットワーク要素を構成します。 では、始めましょう。
+ウィザードの手順 2. では、クラスターの仮想スイッチとその他のネットワーク要素を構成します。
+
+> [!NOTE]
+> ネットワークまたは仮想スイッチの手順でエラーが表示された場合は、 **[Apply and test]\(適用してテスト\)** をもう一度クリックしてみてください。
 
 1. **[Next:ネットワーク]** を選択します。
 1. **[Verify the network adapters]\(ネットワーク アダプターの検証\)** で、各アダプターの横に緑色のチェック ボックスが表示されるまで待ってから、 **[次へ]** を選択します。
@@ -105,9 +108,9 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
     管理アダプターには、次の 2 つの構成オプションがあります。
 
-    - 単一の物理アダプターを管理に使用する。 DHCP と静的 IP アドレス割り当ての両方がサポートされます。
+    - **管理用の物理ネットワーク アダプター 1 つ**。 このオプションの場合、DHCP と静的 IP アドレス割り当ての両方がサポートされます。
 
-    - 2 つの物理アダプターをチーミングして使用する。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
+    - **チーミングされた、管理用の物理ネットワーク アダプター 2 つ**。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
 
     チーミングされたアダプターを使用すると、複数のスイッチに対する 1 つの接続ができますが、使用されるのは 1 つの IP アドレスだけです。 負荷分散が可能になり、フォールト トレランスは DNS レコードの更新を待つことなくすぐに行われます。
 
@@ -129,10 +132,13 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 1. **[仮想スイッチ]** で、必要に応じて次のいずれかのオプションを選択します。 存在するアダプターの数によっては、一部のオプションが表示されない場合があります。
 
-    - Create one virtual switch for both Hyper-V and storage use (Hyper-V とストレージの両方で使用する仮想スイッチを 1 つ作成する)
-    - Create one virtual switch for Hyper-V use only (Hyper-V だけで使用する仮想スイッチを 1 つ作成する)
-    - Create two virtual switches, one for Hyper-V and one for storage use (Hyper-V 用とストレージ用に 1 つずつ、2 つの仮想スイッチを作成する)
-    - Don't create a virtual switch (仮想スイッチを作成しない)
+    - **仮想スイッチの作成をスキップする**
+    - **コンピューティングとストレージの両方のために仮想スイッチを 1 つ作成する**
+    - **Hyper-V 専用の仮想スイッチを 1 つ作成する**
+    - **仮想スイッチを 2 つ作成する**
+
+    > [!NOTE]
+    > SDN 用のネットワーク コントローラーをデプロイしようとしている場合 (ウィザードの **[手順 5:SDN]** ) は、仮想スイッチが 1 つ必要になります。 そのため、ここで仮想スイッチを作成せず、ウィザードの外部で 1 つ作成しない場合、ウィザードによるネットワーク コントローラーのデプロイは行われません。
 
     次の表は、各種のネットワーク アダプター構成で、どの仮想スイッチ構成がサポートされ、有効であるかを示したものです。
 
@@ -143,9 +149,6 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
     | 2 つのスイッチ | サポート外 | enabled | enabled |
 
 1. スイッチの名前と他の構成設定を必要に応じて変更し、 **[Apply and test]\(適用してテスト\)** をクリックします。 仮想スイッチが作成された後、各サーバーの **[状態]** 列が **[Passed]\(合格\)** になります。
-
-> [!NOTE]
-> ネットワークまたは仮想スイッチの手順でエラーが表示された場合は、 **[Apply and test]\(適用してテスト\)** をもう一度クリックしてみてください。 ネットワーク接続チェックが断続的に失敗することがあり、それが原因でサーバーに対する ping の初回試行時に、ウィザードでエラーが発生する可能性があります。
 
 ## <a name="step-3-clustering"></a>手順 3:クラスタリング
 
@@ -170,7 +173,6 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 ウィザードの手順 4 では、クラスターの記憶域スペース ダイレクトを設定します。
 
-
 1. **[Next:Storage]\(次へ: ストレージ\)** を選択します。
 1. **[Verify drives]\(ドライブの検証\)** で、各サーバーの横にある **>** アイコンをクリックして、ディスクが動作していて接続されていることを確認し、 **[次へ]** をクリックします。
 1. **[Clean drives]\(ドライブのクリーニング\)** で、 **[Clean drives]\(ドライブのクリーニング\)** をクリックして、データのドライブを空にします。 準備ができたら、 **[次へ]** をクリックします。
@@ -185,7 +187,42 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 しばらくしてもクラスターの解決が成功しない場合は、通常、クラスター名ではなく、クラスター内のサーバー名を使用することができます。
 
-## <a name="after-you-run-the-wizard"></a>ウィザードの実行後
+## <a name="step-5-sdn-optional"></a>手順 5:SDN (省略可能)
+
+ウィザードの手順 5. では、クラスター上のネットワーク コントローラーを、ソフトウェア定義ネットワーク (SDN) 用に設定します。 いったんネットワーク コントローラーが設定されると、ソフトウェア ロード バランサーや RAS ゲートウェイなど、SDN の他のコンポーネントを構成するために使用できます。
+
+> [!NOTE]
+> ウィザードのこの手順は省略可能です。
+
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-network-controller.png":::
+
+1. **[Next:SDN]** を選択します。
+1. **[ホスト]** で、ネットワーク コントローラーの名前を入力します。
+1. Azure Stack HCI VHD ファイルへのパスを指定します。 すばやく見つけるには、 **[参照]** を使用します。
+1. ネットワーク コントローラー専用の VM の数を指定します。 高可用性のためには 3 ～ 5 台の VM が推奨されます。
+1. **[ネットワーク]** で、VLAN ID を入力します。
+1. **[VM ネットワーク アドレス指定]** で、 **[DHCP]** または **[静的]** を選択します。
+1. **[DHCP]** を選択した場合は、ネットワーク コントローラー VM の名前と IP アドレスを入力します。
+1. **[静的]** を選択した場合は、以下の操作を行います。
+    1. サブネットのプレフィックスを指定します。
+    1. 既定のゲートウェイを指定します。
+    1. DNS サーバーを 1 台以上指定します。 **[追加]** をクリックしてさらに DNS サーバーを追加します。
+1. **[資格情報]** で、ネットワーク コントローラー VM をクラスター ドメインに参加させるために使用するユーザー名とパスワードを入力します。
+1. これらの VM のローカル管理パスワードを入力します。
+1. **[詳細]** で、VM へのパスを入力します。
+1. **[MAC アドレス プールの開始]** と **[MAC アドレス プールの終了]** の値を入力します。
+1. 完了したら、 **[次へ]** をクリックします。
+1. ウィザードのジョブが完了するまで待機します。 進行状況のすべてのタスクが完了するまでこのページに留まります。 **[完了]** をクリックします。
+ 
+ネットワーク コントローラーのデプロイに失敗した場合は、これを再試行する前に以下のことを行ってください。
+
+- ウィザードによって作成されたネットワーク コントローラー VM があればすべて停止し、削除します。  
+
+- ウィザードによって作成された VHD マウント ポイントがあればすべてクリーンアップします。  
+
+- Hyper-V ホストに少なくとも 50 ～ 100 GB の空き領域があることを確認します。  
+
+## <a name="after-you-complete-the-wizard"></a>ウィザードの完了後
 
 ウィザードが完了した後も、いくつかの重要なタスクを行う必要があります。
 
@@ -208,4 +245,5 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 - クラスターを Azure に登録します。 「[Azure の登録を管理する](../manage/manage-azure-registration.md)」を参照してください。
 - クラスターの最終検証を実行します。 「[Azure Stack HCI クラスターの検証](validate.md)」を参照してください
 - VM をプロビジョニングします。 「[Windows Admin Center を使用して Azure Stack HCI 上の VM を管理する](../manage/vm.md)」を参照してください。
-- PowerShell を使用してクラスターを作成することもできます。 [PowerShell を使用した Azure Stack HCI クラスターの作成](create-cluster-powershell.md)に関する記事を参照してください。
+- PowerShell を使用してクラスターをデプロイすることもできます。 [PowerShell を使用した Azure Stack HCI クラスターの作成](create-cluster-powershell.md)に関する記事を参照してください。
+- PowerShell を使用してネットワーク コントローラーをデプロイすることもできます。 [PowerShell を使用してネットワーク コントローラーをデプロイする](network-controller-powershell.md)ことに関するページを参照してください。

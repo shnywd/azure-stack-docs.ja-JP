@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: ecca2f76e15d23d904db018d82c86269504195f7
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 7da3f2b488444e0868099cfe34e6ebfff56926ea
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250913"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107146"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -65,15 +65,15 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
    ![例:VM ダッシュボード](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2. 以前に作成した VM を選択します。
-   ![例:ダッシュボードで VM を選択する](media/azure-stack-manage-vm-disks/select-a-vm.png)
+   ![選択された仮想マシンを示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
 3. その VM について、 **[ディスク]** を選択し、次に **[データ ディスクの追加]** を選択します。
-   ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/Attach-disks.png)
+   ![新しいディスクを VM に接続する方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/Attach-disks.png)
 
 4. データ ディスクに対して次の操作を実行します。
    * **LUN** を入力します。 LUN には有効な数値を指定してください。
    * **[ディスクの作成]** を選択します。
-   ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
+   ![新しいデータ ディスクの作成方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/add-a-data-disk-create-disk.png)
 
 5. **[マネージド ディスクの作成]** ブレードで次の操作を行います。
    * **[名前]** にディスクの名前を入力します。
@@ -114,7 +114,7 @@ Azure Stack Hub でのストレージ アカウントの使用について詳し
 2. データ ディスクを配置する**コンテナー**を選択します。 必要に応じて、 **[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
 3. **[選択]** を選択して、選択内容を保存します。
 
-    ![例:コンテナーを選択する](media/azure-stack-manage-vm-disks/select-container.png)
+    ![コンテナーの選択方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-container.png)
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>VM に既存のデータ ディスクを接続する
 
@@ -127,7 +127,7 @@ Azure Stack Hub でのストレージ アカウントの使用について詳し
     ![例:VHD ファイルのアップロード](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
 2. .vhd ファイルをアップロードしたら、VM に VHD をアタッチできます。 左側のメニューで **[仮想マシン]** を選択します。  
- ![例:ダッシュボードで VM を選択する](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+ ![選択された仮想マシンを示すスクリーンショット。](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3. 一覧から VM を選択します。
 

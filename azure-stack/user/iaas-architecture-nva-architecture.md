@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 6fdb1a5ff99b125b513bd4afc39570ee73c1c5b6
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 31635f6ecfefc0c513fddec5ec00da1006b44f44
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920408"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107007"
 ---
 # <a name="deploy-highly-available-network-virtual-appliances-on-azure-stack-hub"></a>Azure Stack Hub に高可用性ネットワーク仮想アプライアンスをデプロイする
 
@@ -40,7 +40,7 @@ ms.locfileid: "88920408"
 
 NVA は、さまざまなアーキテクチャの境界ネットワークにデプロイできます。 たとえば、次の図では、イングレス用の単一の NVA の使用が示されています。
 
-![自動的に生成されたソーシャル メディアの投稿についての説明のスクリーンショット](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
+![イングレス用の単一の NVA の使用を示すスクリーンショット。](./media/iaas-architecture-nva-architecture/iaas-architecture-nva-architecture-image1.svg)
 
 このアーキテクチャでは、NVA は、すべての着信ネットワーク トラフィックと発信ネットワーク トラフィックをチェックし、ネットワーク セキュリティ ルールを満たしているトラフィックのみを渡すことによって、セキュリティで保護されたネットワーク境界を提供します。 すべてのネットワーク トラフィックが NVA を通過する必要があるという事実は、NVA がネットワークの単一障害点であることを意味します。 この NVA で障害が発生した場合、ネットワーク トラフィック用の他のパスが存在しないため、すべてのバックエンド サブネットが使用不能になります。
 

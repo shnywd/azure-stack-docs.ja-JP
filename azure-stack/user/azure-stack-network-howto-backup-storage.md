@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 001514995d13c63ecf697769e0fc71e2155b7382
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574161"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107228"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントをバックアップする
 
@@ -22,7 +22,7 @@ ms.locfileid: "90574161"
 
 このセクションでは、ソリューションの全体的な構造と主要部分について説明します。
 
-![Azure Stack Hub ストレージのバックアップ](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
+![Azure Stack Hub ストレージのバックアップの全体的な構造を示す図。](./media/azure-stack-network-howto-backup-storage/azure-stack-storage-backup.png)
 
 ### <a name="application-layer"></a>アプリケーション レイヤー
 
@@ -60,7 +60,7 @@ Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/azu
 
 1. ソースとターゲットのストレージ アカウントの BLOB エンドポイントを取得します。
 
-    ![Azure Stack Hub ストレージのバックアップ](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
+    ![ソースとターゲットのストレージ アカウントのプライマリ BLOB エンドポイントを示すスクリーンショット。](./media/azure-stack-network-howto-backup-storage/back-up-step1.png)
 
 2. ソースとターゲットのストレージ アカウントの SAS トークンを作成し、記録します。
 

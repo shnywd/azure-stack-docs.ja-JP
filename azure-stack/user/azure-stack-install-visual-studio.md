@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: c9d8ad6293735db1a65d6f24e7a53a869535af6d
-ms.sourcegitcommit: dd140b3a2ac8e558eae9f5f422711d2ba560da16
+ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84744931"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107096"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Visual Studio をインストールして Azure Stack Hub に接続する
 
@@ -42,7 +42,7 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
 3. **[アカウントの管理]** を選択し、新しいウィンドウで、Azure Active Directory (Azure AD) の資格情報でサインインします。  
 
-    ![ログインして Azure Stack Hub に接続した後の Cloud Explorer のスクリーンショット](./media/azure-stack-install-visual-studio/image2.png)
+    ![ログインして Azure Stack Hub に接続した後の Cloud Explorer を示すスクリーンショット](./media/azure-stack-install-visual-studio/image2.png)
 
 ログインしたら、[テンプレートをデプロイ](azure-stack-deploy-template-visual-studio.md)するか、使用可能なリソースの種類やリソース グループを参照して独自のテンプレートを作成することができます。  
 
@@ -62,7 +62,7 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
     Visual Studio は Azure Resource Manger を呼び出し、Azure Directory Federated Services (AD FS) の認証エンドポイントを含むエンドポイントを検出します。
 
-    ![ログインして Azure Stack Hub に接続した後の Cloud Explorer のスクリーンショット](./media/azure-stack-install-visual-studio/image6.png)
+    ![Azure Directory フェデレーション サービスのエンドポイントを示すスクリーンショット。](./media/azure-stack-install-visual-studio/image6.png)
 
 6. **[表示]** メニューの **[Cloud Explorer]** を選択します。
 

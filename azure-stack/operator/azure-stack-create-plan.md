@@ -7,12 +7,12 @@ ms.date: 06/11/2019
 ms.author: bryanla
 ms.reviewer: efemmano
 ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: c762f4c8c75fbfd6755c25877c52fbb68c88f7ca
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 12de836d74382f26efd49ec8873aaa99a919ecd5
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631116"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107092"
 ---
 # <a name="create-a-plan-in-azure-stack-hub"></a>Azure Stack Hub でのプランの作成
 
@@ -25,37 +25,37 @@ ms.locfileid: "84631116"
 
 2. ユーザーがサブスクライブできるプランやオファーを作成するには、 **[+ リソースの作成]** 、 **[オファー + プラン]** 、 **[プラン]** の順に選択します。
   
-   ![Azure Stack Hub 管理者ポータルでプランを選択する](media/azure-stack-create-plan/select-plan.png)
+   ![Azure Stack Hub 管理者ポータルでプランを選択する方法を示すスクリーンショット。](media/azure-stack-create-plan/select-plan.png)
 
 3. タブ付きのユーザー インターフェイスが表示され、プラン名の指定、サービスの追加、選択した各サービスのクォータの定義を行うことができます。 最も重要なのは、作成を決定する前に、作成するオファーの詳細を確認できることです。
 
    **[新しいプラン]** ウィンドウの **[基本]** タブで、 **[表示名]** と **[リソース名]** を入力します。 表示名は、オペレーターに表示されるプランのフレンドリ名です。 管理者ポータル内では、プランの詳細はオペレーターにのみ表示されます。
 
-   ![Azure Stack Hub の新しいプランの詳細を指定する](media/azure-stack-create-plan/plan-name.png)
+   ![Azure Stack Hub の新しいプランの詳細を指定する方法を示すスクリーンショット。](media/azure-stack-create-plan/plan-name.png)
 
 4. プランのコンテナーとして、新しい**リソース グループ**を作成するか、既存のリソース グループを選択します。
 
-   ![Azure Stack Hub の新しいプランのリソース グループを指定する](media/azure-stack-create-plan/resource-group.png)
+   ![Azure Stack Hub の新しいプランのリソース グループを指定する方法を示すスクリーンショット。](media/azure-stack-create-plan/resource-group.png)
 
 5. **[サービス]** タブを選択するか、または **[次へ: サービス >]** ボタンをクリックしてから、 **[Microsoft.Compute]** 、 **[Microsoft.Network]** 、および **[Microsoft.Storage]** のチェックボックスをオンにします。
   
-   ![Azure Stack Hub の新しいプランのサービスを指定する](media/azure-stack-create-plan/services.png)
+   ![Azure Stack Hub の新しいプランのサービスを選択する方法を示すスクリーンショット。](media/azure-stack-create-plan/services.png)
 
 6. **[クォータ]** タブを選択するか、または **[次へ: クォータ >]** ボタンをクリックします。 **[Microsoft.Storage]** の横にあるドロップダウン ボックスから既定のクォータを選択するか、 **[新規作成]** を選択してカスタマイズされたクォータを作成します。
   
-   ![Azure Stack Hub の新しいプランのクォータを指定する](media/azure-stack-create-plan/quotas.png)
+   ![Azure Stack Hub の新しいプランのクォータを指定する方法を示すスクリーンショット](media/azure-stack-create-plan/quotas.png)
 
 7. 新しいクォータを作成する場合は、クォータの **[名前]** を入力し、クォータ値を指定します。 **[OK]** を選択してクォータを作成します。
 
-   ![Azure Stack Hub の新しいプランの新しいクォータを作成する](media/azure-stack-create-plan/new-quota.png)
+   ![Azure Stack Hub の新しいプランの新しいクォータを作成する方法を示すスクリーンショット。](media/azure-stack-create-plan/new-quota.png)
 
 8. 手順 6 と 7 を繰り返して、**Microsoft.Network** と **Microsoft.Compute** のクォータを作成して割り当てます。 3 つのサービスすべてにクォータが割り当てられると、次の例のようになります。
 
-   ![Azure Stack Hub の新しいプランに対するクォータ割り当てを完了する](media/azure-stack-create-plan/all-quotas-assigned.png)
+   ![Azure Stack Hub の新しいプランに対するクォータ割り当てを完了する方法を示すスクリーンショット。](media/azure-stack-create-plan/all-quotas-assigned.png)
 
 9. **[確認および作成]** を選択して、プランを確認します。 すべての値とクォータに目を通し、正しいことを確認します。 このインターフェイスでは、選択したプランのクォータを一度に 1 つずつ展開して、プランの各クォータの詳細を表示できます。 また、戻って必要な編集を加えることもできます。
 
-   ![Azure Stack Hub のプランを作成する](media/azure-stack-create-plan/create.png)
+   ![Azure Stack Hub のプランを作成する方法を示すスクリーンショット。](media/azure-stack-create-plan/create.png)
 
 10. 準備ができたら、 **[作成]** を選択してプランを作成します。
 

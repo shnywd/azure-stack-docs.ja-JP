@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: anwestg
 ms.lastreviewed: 04/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 441200d89d64705e0632c8f09a76afa65d52e194
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: d8b5be96bf3e150308faf01c161d20e180beeb69
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489897"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106986"
 ---
 # <a name="deploy-app-service-in-azure-stack-hub"></a>Azure Stack Hub に App Service をデプロイする
 
@@ -49,7 +49,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
 2. **[Deploy App Service or upgrade to the latest version]\(App Service をデプロイするか、または最新バージョンにアップグレードする\)** を選択します。
 
-    ![App Service インストーラー][1]
+    ![Azure App Service インストーラーのメイン画面を示すスクリーンショット。][1]
 
 3. マイクロソフト ソフトウェア ライセンス条項を確認して同意し、 **[次へ]** を選択します。
 
@@ -59,7 +59,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    たとえば、ドメイン サフィックス mycloud.com を使用する場合は、Azure Stack Hub テナントの Azure Resource Manager エンドポイントを management.&lt;region&gt;.mycloud.com に変更する必要があります。 これらの設定を確認し、 **[次へ]** を選択して設定を保存します。
 
-   ![App Service インストーラー][2]
+   ![App Service の ARM エンドポイントを指定するための画面を示すスクリーンショット。][2]
 
 6. App Service インストーラーの次のページで、Azure Stack Hub に接続します。
 
@@ -77,7 +77,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     1. **[Azure Stack Hub Locations]\(Azure Stack Hub の場所\)** で、デプロイしているリージョンに対応する場所を選択します。 たとえば、ASDK にデプロイしている場合は、 **[ローカル]** を選びます。
 
-    ![App Service インストーラー][3]
+    ![App Service インストーラー内の、Azure Stack Hub のサブスクリプション情報を指定する場所を示すスクリーンショット。][3]
 
 7. [ここで示されている手順を使用して](azure-stack-app-service-before-you-get-started.md#virtual-network)構成した既存の仮想ネットワークにデプロイするか、または、App Service インストーラーで仮想ネットワークとサブネットを作成できます。 VNet を作成するには、次の手順に従います。
 
@@ -90,14 +90,14 @@ App Service リソースプロバイダーをデプロイするには、次の�
      - 必要なロール サブネットそれぞれに適切な**サブネット**値を選択します。
      - **[次へ]** を選択します。
 
-   ![App Service インストーラー][4]
+   ![App Service インストーラー内の、仮想ネットワークを構成する画面を示すスクリーンショット。][4]
 
 8. ファイル共有の情報を入力してから、 **[次へ]** を選択します。 ファイル共有のアドレスには、ファイル サーバーの完全修飾ドメイン名 (FQDN)、または IP アドレスを使用する必要があります。 たとえば、\\\appservicefileserver.local.cloudapp.azurestack.external\websites、または \\\10.0.0.1\websites を使用します。  ドメインに参加しているファイル サーバーを使用している場合は、ドメインを含む完全なユーザー名を指定する必要があります。 たとえば、myfileserverdomain\FileShareOwner です。
 
    >[!NOTE]
    >インストーラーは、続行する前にファイル共有への接続性をテストしようとします。 しかし、既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 ファイル共有情報が正しい場合は、デプロイを続行します。
 
-   ![App Service インストーラー][7]
+   ![App Service インストーラーでのファイル共有の構成を示すスクリーンショット。][7]
 
 9. 次の App Service インストーラー ページで、次の手順に従います。
 
@@ -111,7 +111,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
    e. **[次へ]** を選択します。
 
-   ![App Service インストーラー][9]
+   ![App Service インストーラー内の、ID アプリの情報を入力する場所を示すスクリーンショット。][9]
 
 10. 3 つの証明書ファイルの各ボックスで、 **[参照]** を選択し、適切な証明書ファイルに移動します。 各証明書のパスワードを入力する必要があります。 これらの証明書は、「[App Service on Azure Stack Hub のデプロイの前提条件](azure-stack-app-service-before-you-get-started.md)」で作成したものです。 すべての情報を入力したら、 **[次へ]** を選択します。
 
@@ -123,11 +123,11 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     証明書の作成時に別のドメイン サフィックスを使った場合は、証明書ファイル名で *local.AzureStack.external* を使わないでください。 代わりに、ご自分のカスタム ドメイン情報を使用します。
 
-    ![App Service インストーラー][10]
+    ![App Service インストーラー内の、証明書の場所とパスワードを入力する場所を示すスクリーンショット。][10]
 
 11. App Service リソース プロバイダー データベースをホストするために使用するサーバー インスタンスについて、SQL Server の詳細を入力し、 **[次へ]** を選択します。 インストーラーにより、SQL 接続のプロパティが検証されます。<br><br>App Service インストーラーは、続行する前に SQL Server への接続性をテストしようとします。 既存の仮想ネットワークにデプロイする場合、この接続テストが失敗する可能性があります。 警告と、続行するためのプロンプトが表示されます。 SQL Server の情報が正しい場合は、デプロイを続行します。
 
-    ![App Service インストーラー][11]
+    ![App Service インストーラー内の、SQL 構成情報を入力する場所を示すスクリーンショット。][11]
 
 12. ロール インスタンスと SKU のオプションを確認します。 運用環境デプロイの各ロールの既定値として、インスタンスの最小数および SKU の最小値が入力されています。  ASDK デプロイでは、インスタンスを下位の SKU にスケールダウンしてコアとメモリのコミットを減らすことができますが、パフォーマンスが低下します。 デプロイの計画に役立つ vCPU 要件とメモリ要件の概要が表示されています。 必要な項目を選択したら、 **[次へ]** を選択します。
 
@@ -142,7 +142,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
     | FrontEnd | 1 | Standard_A4_v2 - (4 コア、8192 MB) | App Service アプリに要求をルーティングします。 |
     | 共有 Worker | 1 | Standard_A4_v2 - (4 コア、8192 MB) | Web または API アプリ、および Azure Functions アプリをホストします。 より多くのインスタンスの追加が必要になる場合があります。 オペレーターは、サービスを定義することや任意の SKU レベルを選ぶことができます。 レベルには、少なくとも 1 つの vCPU が必要です。 |
 
-    ![App Service インストーラー][13]
+    ![App Service インストーラー内の、worker ロールを構成する場所を示すスクリーンショット。][13]
 
     > [!NOTE]
     > **Windows Server 2016 Core は、Azure Stack Hub 上で Azure App Service と共に使用するためにサポートされているプラットフォーム イメージではありません。運用環境デプロイには評価版イメージを使用しないでください。**
@@ -157,7 +157,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
      c. **[次へ]** を選択します。
 
-    ![App Service インストーラー][15]
+    ![App Service インストーラー内の、worker ロールの資格情報を構成する場所を示すスクリーンショット。][15]
 
 15. App Service インストーラーの概要ページで、次の手順に従います。
 
@@ -167,7 +167,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     c. デプロイを開始するには、 **[次へ]** を選択します。
 
-    ![App Service インストーラー][16]
+    ![App Service インストーラーでスタックのデプロイの概要情報を示すスクリーンショット。][16]
 
 16. 次の App Service インストーラー ページで、次の手順に従います。
 
@@ -175,7 +175,7 @@ App Service リソースプロバイダーをデプロイするには、次の�
 
     b. インストーラーが正常に完了したら、 **[終了]** を選択します。
 
-    ![App Service インストーラー][17]
+    ![App Service インストーラーでデプロイの進行状況を示すスクリーンショット。][17]
 
 ## <a name="post-deployment-steps"></a>デプロイ後の手順
 

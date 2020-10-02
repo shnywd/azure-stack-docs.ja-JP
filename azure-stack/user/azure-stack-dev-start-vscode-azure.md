@@ -3,16 +3,16 @@ title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure
 description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続します
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 09/21/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a3cd09d7138029ba578648e1599916fd71b42292
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 09/21/2020
+ms.openlocfilehash: bedb015cb799619933510745e5bc3292a722cf14
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920612"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019607"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
@@ -81,7 +81,8 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
         | `tenant-ID` | Azure Stack Hub の[テナント ID](../operator/azure-stack-identity-overview.md) の値。 |
         | `activeDirectoryEndpointUrl` | これは loginEndpoint プロパティからの URL です。 |
         | `activeDirectoryResourceId` | これは、audiences プロパティからの URL です。
-        | `resourceManagerEndpointUrl` | これは Azure Stack Hub に対する Azure Resource Manager のルート URL です。 | 
+        | `resourceManagerEndpointUrl` | これは Azure Stack Hub に対する Azure Resource Manager のルート URL です。 |
+        | `validateAuthority` | Azure AD を ID マネージャーとして使用している場合は、このパラメーターを除外できます。 AD FS を使用している場合は、値 `false` を使用してパラメーターを追加します。 |
 
     - JSON スニペット:
 
@@ -91,6 +92,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
           "activeDirectoryEndpointUrl": "Login endpoint",
           "activeDirectoryResourceId": "This is the URL from the audiences property.",
           "resourceManagerEndpointUrl": "Aure Resource Management Endpoint",
+          "validateAuthority" : false, 
       },
       "azure.cloud": "AzurePPE"
       ```
@@ -114,6 +116,6 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 | Azure: Open PowerShell in Cloud Shell (Azure: Cloud Shell 内で PowerShell を開く) | Cloud Shell 内で PowerShell を実行している新しいターミナルを開きます。 |
 | Azure: Upload to Cloud Shell (Azure: Cloud Shell へのアップロード) | お使いの Cloud Shell ストレージ アカウントにファイルをアップロードします。 |
 
-## <a name="next-steps"></a>次のステップ
+## <a name="next-steps"></a>次の手順
 
 [Azure Stack Hub 内で開発環境を設定する](azure-stack-dev-start.md)

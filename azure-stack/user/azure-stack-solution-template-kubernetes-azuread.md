@@ -7,12 +7,12 @@ ms.date: 07/24/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 60a0c26fd6be2399be5f00a8d5bdc3b989e0b441
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 97b2cfc5a595c23bdd12d6ce4519606218bb4687
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920646"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106651"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -91,13 +91,13 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. **[+ リソースの作成]**  >  **[コンピューティング]**  >  **[Kubernetes クラスター]** を選択します。 **Create** をクリックしてください。
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
+    ![Kubernetes クラスターの作成方法を示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
 ### <a name="1-basics"></a>1.基本
 
 1. [Kubernetes クラスターを作成] で **[基本]** を選びます。
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+    ![Kubernetes クラスターに関する基本情報を追加する方法を示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
 
 1. **[サブスクリプション]** を選択します。
 
@@ -109,7 +109,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. [Kubernetes クラスターを作成] で **[Kubernetes Cluster Settings] (Kubernetes クラスターの設定)** を選択します。
 
-    ![ソリューション テンプレートのデプロイ](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
+    ![Kubernetes クラスターの設定に関する情報を指定する場所を示すスクリーンショット。](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings-aad.png)
 
 1. **[Linux VM admin username]\(Linux VM 管理者ユーザー名\)** を入力します。 Kubernetes クラスターと DVM の一部である Linux Virtual Machines のユーザー名
 

@@ -7,12 +7,12 @@ ms.date: 07/22/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: e46bc4258883e01b80b78a96bf95cfe8012934d9
-ms.sourcegitcommit: 16ff77f7157e5b04a8cd401b095f7b71f51d5a11
+ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/22/2020
-ms.locfileid: "86949544"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106572"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
 
@@ -48,7 +48,7 @@ ms.locfileid: "86949544"
 
 4. **[今すぐ更新]** を選択します。
 
-    ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-update-apply/image2.png)
+    ![Azure Stack Hub で更新を開始する方法を示すスクリーンショット。](./media/azure-stack-update-apply/image2.png)
 
 5. Azure Stack Hub のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新に関するその他の詳細 (成功した手順数、進行中の数など) が報告されます。
 

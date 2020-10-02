@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/18/2019
-ms.openlocfilehash: 760f8680c20acdbd219cc4dd9e97e799a37598ea
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 82ad67557ae0fb84e072aa760b6fd8cc1f016e03
+ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473114"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90946480"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -95,7 +95,10 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
 
-MySQL リソース プロバイダーをデプロイするには、管理者特権で新しい PowerShell ウィンドウ (PowerShell ISE ではない) を開き、MySQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。
+MySQL リソース プロバイダーをデプロイするには、管理者特権で新しい PowerShell ウィンドウ (PowerShell ISE ではない) を開き、MySQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
+
+> [!IMPORTANT]
+> 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。 または、更新スクリプトを実行する前に、clear-azurermcontext を使用してキャッシュをクリアすることもできます。
 
 **DeployMySqlProvider.ps1** スクリプトを実行して次のタスクを完了します。
 

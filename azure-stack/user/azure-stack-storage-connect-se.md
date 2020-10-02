@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 440e48470a11de10ad9cae4d32a1449781cb2c84
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573855"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107130"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 
@@ -97,7 +97,7 @@ AD FS アカウントに属している Azure Stack Hub サブスクリプショ
 1. **[アカウントの管理]** を選択します。 エクスプローラーには、サインインした Microsoft サブスクリプションが一覧表示されます。
 2. Azure Stack Hub サブスクリプションに接続するには、 **[アカウントの追加]** を選択します。
 
-    ![アカウントの追加 - Storage Explorer](media/azure-stack-storage-connect-se/add-an-account.png)
+    ![Storage Explorer でアカウントを追加する方法を示すスクリーンショット。](media/azure-stack-storage-connect-se/add-an-account.png)
 
 3. **[次へ]** を選択します。 [Azure Storage へ接続] ダイアログ ボックスの **[Azure 環境]** で **[Use Custom Environment] (カスタム環境の使用)** を選択し、 **[次へ]** をクリックします。
 

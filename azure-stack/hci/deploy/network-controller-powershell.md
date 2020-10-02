@@ -3,21 +3,24 @@ title: Windows PowerShell を使用してネットワーク コントローラ�
 description: Windows PowerShell を使用してネットワーク コントローラーを展開する方法について説明します。
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 6405b774cf27e8c48b9200d401174eaa5e292584
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.openlocfilehash: b9f86e715835ac52bbc34782e4f9eb41ca8b4851
+ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88818319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91019573"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Windows PowerShell を使用してネットワーク コントローラーを展開する
 
 > 適用対象: Azure Stack HCI バージョン 20H2、Windows Server 2019
 
 このトピックでは、Windows PowerShell を使用して、Azure Stack HCI クラスターで実行されている 1 つ以上の仮想マシン (VM) にネットワーク コントローラーを展開する方法について説明します。 ネットワーク コントローラーは、ソフトウェアによるネットワーク制御 (SDN) のコンポーネントです。
+
+>[!NOTE]
+>Windows Admin Center でクラスターの作成ウィザードを使用して、ネットワーク コントローラーを展開することもできます。 詳細については、「[Windows Admin Center を使用して Azure Stack HCI クラスターを作成する](create-cluster.md)」を参照してください。
 
 ## <a name="using-windows-powershell"></a>Windows PowerShell を使用する
 

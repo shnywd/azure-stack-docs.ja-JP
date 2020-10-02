@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/23/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: f16d432d67244bf4152f49d103014e94abcfe777
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 1647c49115cb9f27c1485e59d1b85eb9a9bc1146
+ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572728"
+ms.lasthandoff: 09/24/2020
+ms.locfileid: "91134765"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -70,6 +70,7 @@ ms.locfileid: "90572728"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 9 月 21 日:Centos アプリケーション接続ゲートウェイ - バージョン 7.2.0
 - 2020 年 9 月 9 日:FortiGate NGFW - 単一の VM のデプロイ (BYOL) – バージョン 1.0.2
 - 2020 年 9 月 4 日:CentOS-based 6.10 - バージョン 6.10.2020042900
 - 2020 年 9 月 4 日:CentOS-based 7.4 - バージョン 7.4.20200220

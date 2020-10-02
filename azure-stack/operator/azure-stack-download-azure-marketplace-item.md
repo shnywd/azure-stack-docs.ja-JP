@@ -8,12 +8,12 @@ ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 12/23/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 2c502a80d5253b90200d3829a6167b419d711bd2
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: 685a448fd8fdc06edc0ffa92890ce9eaea2c39e6
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764530"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91107037"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする
 
@@ -52,7 +52,7 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 
 4. 各行項目には、現在使用可能なバージョンも表示されます。 Marketplace 項目の複数のバージョンを使用できる場合、 **[バージョン]** 列には **[複数]** が表示されます。 各項目をクリックして、その説明と、ダウンロード サイズなどの追加情報を表示できます。
 
-   ![Azure から追加する](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
+   ![Marketplace 項目の使用可能なバージョンを示すスクリーンショット。](media/azure-stack-download-azure-marketplace-item/add-from-azure1.png)
 
 5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。 Microsoft は、Azure Stack のバージョンや課金モデルなどのさまざまなプロパティが理由で、利用している Azure Stack と互換性のないマーケットプレース製品を管理者にダウンロードさせないようにする属性を追加することができるようになっています。 これらの属性を追加できるのは Microsoft だけです。
 
@@ -137,10 +137,10 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 
    これにより、選択したサブスクリプションで使用可能なすべての Azure Stack 登録を一覧表示するテーブルが表示されます。 Marketplace 項目をダウンロードする Azure Stack 環境と一致する登録を選択し、 **[OK]** を選択します。
 
-     ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-registration.png)
+     ![選択したサブスクリプションで使用可能なすべての Azure Stack 登録の一覧を示すスクリーンショット。](media/azure-stack-download-azure-marketplace-item/select-registration.png)
 
    これで、ダウンロード可能なすべての Marketplace 項目を一覧表示する 2 番目のテーブルが表示されます。 ダウンロードする項目を選択し、**バージョン**を書き留めておきます (**Ctrl** キーを押しながら、複数のイメージを選択することができます)。
-     ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-products.png)
+     ![選択したサブスクリプションで使用可能なすべての Azure Stack 登録の別の一覧を示すスクリーンショット。](media/azure-stack-download-azure-marketplace-item/select-products.png)
   
    また、 **[Add criteria]\(条件の追加\)** オプションを使用して、イメージの一覧をフィルター処理することもできます。
    ![Azure Stack 登録を選択する](media/azure-stack-download-azure-marketplace-item/select-products-with-filter.png)

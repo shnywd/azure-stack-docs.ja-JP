@@ -7,12 +7,12 @@ ms.date: 1/22/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 1c80f8d0d83ab734be98d8e26d4c3abe803ae514
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: f2b51ad2bff721c2a8be6490902cf3bb07559fb2
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488707"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106818"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
@@ -222,7 +222,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
    Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
    ```
 
-   ![例:移行の状態](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![移行の状態を示すスクリーンショット。](media/azure-stack-manage-storage-shares/migration-status1.png)
 
 6. 実行中の移行ジョブを取り消すことができます。 取り消された移行ジョブは、非同期的に処理されます。 $jobid を使用して、取り消しを追跡できます。
 
@@ -234,7 +234,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
 7. 移行の状態が*取り消し済み*になるまで、手順 6 のコマンドをもう一度実行できます。  
 
-    ![例:取り消し済みの状態](media/azure-stack-manage-storage-shares/cancelled.png)
+    ![取り消された移行の状態の例を示すスクリーンショット。](media/azure-stack-manage-storage-shares/cancelled.png)
 
 ### <a name="move-vm-disks"></a>VM ディスクを移動する
 "*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "

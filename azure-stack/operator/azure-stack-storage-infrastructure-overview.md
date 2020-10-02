@@ -9,12 +9,12 @@ ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
 ms.custom: contperfq4
-ms.openlocfilehash: 86809f68e488f077b0a8125d92db325b40dc5452
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
+ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487821"
+ms.lasthandoff: 09/23/2020
+ms.locfileid: "91106435"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub のストレージ インフラストラクチャの概要
 
@@ -50,12 +50,12 @@ Azure Stack のデプロイでは、ストレージのパフォーマンスを�
 
 オールフラッシュ型のデプロイは、ストレージのパフォーマンスを最大化することを目標としたものであり、回転式のハード HDD が含まれません。
 
-![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image1.png)
+![オールフラッシュ型のデプロイのグループ化を示す図。](media/azure-stack-storage-infrastructure-overview/image1.png)
 
 
 ハイブリッド型のデプロイは、パフォーマンスとキャパシティのバランスの調和またはキャパシティの最大化を目標としたもので、回転式の HDD が含まれます。
 
-![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image2.png)
+![ハイブリッド型のデプロイのグループ化を示す図。](media/azure-stack-storage-infrastructure-overview/image2.png)
 
 ### <a name="caching-behavior"></a>キャッシュ動作
 
@@ -65,7 +65,7 @@ Azure Stack のデプロイでは、ストレージのパフォーマンスを�
 
 キャッシュの対象が HDD の場合 (HDD のキャッシュを SSD に保存する場合など) には、読み取りと書き込みのどちらにもフラッシュと同等の待ち時間 (多くの場合、約 10 倍のスピード) を実現できるよう、読み取りと書き込みの両方がキャッシュに保存されます。
 
-![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image3.svg)
+![Azure Stack Hub のストレージのキャッシュ動作を示す図。](media/azure-stack-storage-infrastructure-overview/image3.svg)
 
 利用できるストレージ構成については、Azure Stack Hub OEM パートナー (https://azure.microsoft.com/overview/azure-stack/partners/) にお問い合わせのうえ、仕様の詳細をご確認ください。
 
@@ -76,7 +76,7 @@ Azure Stack のデプロイでは、ストレージのパフォーマンスを�
 
 "*ストレージ サービス*" では、利用可能なストレージが複数のボリュームにパーティション分割されます。分割によってできた個別のボリュームは、システム データとテナント データを保持するために割り当てられます。 記憶域プール内のドライブを組み合わせたボリュームでは、記憶域スペース ダイレクトのフォールト トレランス、スケーラビリティ、パフォーマンス面のメリットが提供されます。
 
-![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image4.svg)
+![Azure Stack Hub のストレージ サービスのパーティションを示す図。](media/azure-stack-storage-infrastructure-overview/image4.svg)
 
 ### <a name="volume-types"></a>ボリュームの種類
 
@@ -111,7 +111,7 @@ Azure Stack Hub のデプロイでは、データの回復性確保のために 
 
 テナント データのコピーが 3 つ、別々のサーバーに書き込まれ、キャッシュに保存されます。
 
-![Azure Stack Hub のストレージ インフラストラクチャ](media/azure-stack-storage-infrastructure-overview/image5.png)
+![テナント データの 3 つのコピーがどのように異なるサーバーに書き込まれるかを示す図。](media/azure-stack-storage-infrastructure-overview/image5.png)
 
 ## <a name="next-step"></a>次のステップ
 

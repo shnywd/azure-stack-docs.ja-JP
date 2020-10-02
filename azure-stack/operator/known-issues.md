@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/04/2020
+ms.date: 09/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d7a9112955891a59e29bfe997888d3e444784494
-ms.sourcegitcommit: 01dcda15d88c8d44b4918e2f599daca462a8e3d9
+ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
+ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/05/2020
-ms.locfileid: "89493820"
+ms.lasthandoff: 09/21/2020
+ms.locfileid: "90836490"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -94,6 +94,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 発生頻度: 共通
 
 ## <a name="compute"></a>Compute
+
+### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>ポータルを使用した、Standard_DS2_v2 サイズでの仮想マシン スケール セットのデプロイに関する問題
+
+- 適用先:この問題は 2005 リリースに適用されます。
+- 原因: ポータルのバグにより、Standard_DS2_v2 サイズでのスケール セットの作成が失敗します。
+- 修復: PowerShell または CLI を使用して、仮想マシン スケール セットのこの VM サイズをデプロイします。
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Ubuntu Server 20.04 での VM 拡張機能の使用に関する問題
 
@@ -265,11 +271,11 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 
 ## <a name="compute"></a>Compute
 
-### <a name="cannot-create-a-vmss-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの VMSS を削除できない
+### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの仮想マシン スケール セットを作成できない
 
 - 適用先:この問題は 2002 リリースに適用されます。
-- 原因: ポータルにバグがあり、Standard_DS2_v2 VM サイズで VMSS を作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
-- 修復: PowerShell またはリソース マネージャー テンプレートで VMSS を作成します。
+- 原因: ポータルにバグがあり、Standard_DS2_v2 VM サイズで仮想マシン スケール セットを作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
+- 修復: PowerShell またはリソース マネージャー テンプレートを使用して仮想マシン スケール セットを作成します。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 

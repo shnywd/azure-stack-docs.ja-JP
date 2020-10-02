@@ -6,19 +6,39 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/08/2020
-ms.openlocfilehash: 9913b1976152f78078d78d0e807bff3348c3276f
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 09/17/2020
+ms.openlocfilehash: 57aa49c075afad4f6ccb37802293424d8e0e309f
+ms.sourcegitcommit: c45f92186edf62b95b38d1020e0851dd54bc6536
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573464"
+ms.lasthandoff: 09/18/2020
+ms.locfileid: "90765392"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI パブリック プレビューのリリース ノート
 
 > 適用対象:Azure Stack HCI バージョン 20H2
 
 この記事では、Azure Stack HCI パブリック プレビューの更新プログラム パッケージの内容について説明します。
+
+## <a name="september-17-2020-preview-update-kb4577629"></a>2020 年 9 月 17 日のプレビュー更新プログラム (KB4577629)
+
+更新プログラムには、Azure Stack HCI の最新のリリースに対する機能強化と修正が含まれています。
+
+### <a name="improvements-and-fixes"></a>機能強化と修正
+セキュリティ関連でないこの更新プログラムには、品質上の機能強化が含まれています。 重要な変更点は、次のとおりです。
+- マルチプレクサーを経由するソフトウェア ロード バランサー (SLB) のトラフィックが、アプリケーション接続エラーを引き起こす可能性がある別のホストにリダイレクトされる可能性がある問題に対処しました。
+
+### <a name="known-issues-in-this-update"></a>この更新プログラムの既知の問題
+現在、この更新プログラムに関して Microsoft が把握している問題はありません。
+
+### <a name="how-to-get-this-update"></a>この更新プログラムを入手する方法
+[Azure Stack HCI プレビュー](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)向けの 2020 年 9 月 17 日のセキュリティ更新プログラム (KB4577629) は、Windows Update で配信されます。 Azure Stack HCI クラスターへのインストール方法については、「[Azure Stack HCI クラスターを更新する](manage/update-cluster.md)」を参照してください。
+
+### <a name="file-information"></a>ファイル情報
+この更新プログラム (OS ビルド 17784.1259) で提供されるファイルの一覧については、[累積的な更新プログラム 4577629 のファイル情報](https://download.microsoft.com/download/9/1/a/91addcbb-2b36-408c-ab88-736de42edb98/4577629.csv)をダウンロードしてください
+
+   > [!NOTE]
+   > この CSV ファイルの "File version" 列に、一部のファイルで誤って "Not applicable" と表示されています。 そのことが原因で、サードパーティのスキャン検出ツールを使用してビルドを検証したときに擬陽性または偽陰性の結果が生じる可能性があります。
 
 ## <a name="september-8-2020-security-update-kb4577470"></a>2020 年 9 月 8 日のセキュリティ更新プログラム (KB4577470)
 
