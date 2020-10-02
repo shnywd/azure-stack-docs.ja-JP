@@ -60,6 +60,8 @@
           href: manage/replace-drives.md
         - name: CSV インメモリ読み取りキャッシュを使用する
           href: manage/use-csv-cache.md
+        - name: SMB マルチチャネルの管理
+          href: manage/manage-smb-multichannel.md
     - name: クラスターの管理
       items:
         - name: クラスターの管理
@@ -163,4 +165,4 @@
     - name: Azure Stack HCI の評価ガイド
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
     - name: Azure Stack HCI の価格
-      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-stack/hci/'
+      href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
