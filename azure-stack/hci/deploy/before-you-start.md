@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/23/2020
-ms.openlocfilehash: 64303a9d923bc001a67259cf48d4e55cb8429087
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.date: 09/24/2020
+ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
+ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91230463"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI をデプロイする前に
 
@@ -24,6 +24,8 @@ ms.locfileid: "91134714"
 - サポートされている最大ハードウェア仕様を超えていないことを確認する
 - デプロイが成功するために必要な情報を収集する
 - 管理用 PC またはサーバーに Windows Admin Center をインストールする
+
+Azure Stack HCI での Azure Kubernetes Service の要件については、[Azure Stack HCI での AKS の要件](../../aks-hci/overview.md#what-you-need-to-get-started)に関するページを参照してください。
 
 ## <a name="determine-hardware-requirements"></a>ハードウェア要件を判断する
 
@@ -105,8 +107,8 @@ Azure Stack HCI にはドメイン機能レベルの特別な要件はありま�
 
 - 同期レプリケーション用にサイト間で少なくとも 1 つの 1 Gb RDMA またはイーサネット/TCP 接続。 25 Gb の RDMA 接続をお勧めします。
 - サイト間のネットワーク。I/O 書き込みワークロードを格納するのに十分な帯域幅を備え、同期レプリケーションでの平均ラウンド トリップ待機時間が 5ms 以内のもの。 非同期レプリケーションには待機時間に関する推奨事項はありません。
-- サイト間で単一の接続を使用する場合は、PowerShell を使用して記憶域レプリカの SMB 帯域幅の制限を設定します。 詳細については、「[Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit?view=win10-ps)」を参照してください。
-- サイト間で複数の接続を使用する場合は、接続間でトラフィックを分離します。 たとえば、記憶域レプリカのトラフィックを、PowerShell を使用した Hyper-V のライブ マイグレーションのトラフィックとは別のネットワークに配置します。 詳細については、「[Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint?view=win10-ps)」を参照してください。
+- サイト間で単一の接続を使用する場合は、PowerShell を使用して記憶域レプリカの SMB 帯域幅の制限を設定します。 詳細については、「[Set-SmbBandwidthLimit](/powershell/module/smbshare/set-smbbandwidthlimit)」を参照してください。
+- サイト間で複数の接続を使用する場合は、接続間でトラフィックを分離します。 たとえば、記憶域レプリカのトラフィックを、PowerShell を使用した Hyper-V のライブ マイグレーションのトラフィックとは別のネットワークに配置します。 詳細については、「[Set-SRNetworkConstraint](/powershell/module/storagereplica/set-srnetworkconstraint)」を参照してください。
 
 ### <a name="network-port-requirements"></a>ネットワーク ポートの要件
 
