@@ -98,32 +98,38 @@
           href: manage/use-azure-network-adapter.md
 - name: 概念
   items:
-    - name: ストレッチ クラスター
-      href: concepts/stretched-clusters.md
-    - name: 課金
-      href: concepts/billing.md
-    - name: 更新とアップグレード
-      href: concepts/updates.md
-    - name: ドライブの選択
-      href: concepts/choose-drives.md
-    - name: ドライブの対称性に関する考慮事項
-      href: concepts/drive-symmetry-considerations.md
-    - name: ボリュームの計画
-      href: concepts/plan-volumes.md
-    - name: ソフトウェアによるネットワーク
-      href: concepts/software-defined-networking.md
-    - name: 記憶域プール キャッシュについて
-      href: concepts/cache.md
-    - name: フォールト トレランスとストレージの効率性
-      href: concepts/fault-tolerance.md
-    - name: クラスターと記憶域プールのクォーラム
-      href: concepts/quorum.md
-    - name: SDN インフラストラクチャを計画する
-      href: concepts/plan-software-defined-networking-infrastructure.md
-    - name: ネットワーク コントローラー
-      href: concepts/network-controller.md
-    - name: セキュリティに関する考慮事項
-      href: concepts/security.md
+    - name: ストレージとクラスター
+      items:
+        - name: ドライブの選択
+          href: concepts/choose-drives.md
+        - name: ドライブの対称性に関する考慮事項
+          href: concepts/drive-symmetry-considerations.md
+        - name: ボリュームの計画
+          href: concepts/plan-volumes.md
+        - name: 記憶域プール キャッシュについて
+          href: concepts/cache.md
+        - name: フォールト トレランスとストレージの効率性
+          href: concepts/fault-tolerance.md
+        - name: ストレッチ クラスター
+          href: concepts/stretched-clusters.md
+        - name: クラスターと記憶域プールのクォーラム
+          href: concepts/quorum.md
+    - name: ネットワーク
+      items:
+        - name: ソフトウェアによるネットワーク
+          href: concepts/software-defined-networking.md
+        - name: SDN インフラストラクチャを計画する
+          href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: ネットワーク コントローラーを計画する
+          href: concepts/network-controller.md
+    - name: メンテナンスとセキュリティ
+      items:
+        - name: 課金
+          href: concepts/billing.md
+        - name: 更新とアップグレード
+          href: concepts/updates.md
+        - name: セキュリティに関する考慮事項
+          href: concepts/security.md
 - name: リファレンス
   items:
     - name: Hyper-V PowerShell コマンド
