@@ -3,16 +3,16 @@ title: MySQL リソース プロバイダーのメンテナンス操作 - Azure 
 description: Azure Stack Hub での MySQL リソース プロバイダー サービスのメンテナンス方法について説明します。
 author: bryanla
 ms.topic: article
-ms.date: 1/22/2020
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: d372015038fa11df75e22ac83b3beec08fe25d98
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572665"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572944"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -24,7 +24,7 @@ MySQL リソース プロバイダーは、ロックダウンされた仮想マ�
 
 次のいずれかの方法を使用して、プロバイダーの VM を更新します。
 
-- 現在パッチが適用されている Windows Server 2016 Core イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
+- 現在パッチが適用されている VM イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
 - リソース プロバイダーのインストールまたは更新中に Windows 更新プログラム パッケージをインストールする。
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>VM の Windows Defender の定義を更新する

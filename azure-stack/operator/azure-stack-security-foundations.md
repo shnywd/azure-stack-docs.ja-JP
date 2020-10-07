@@ -8,12 +8,12 @@ ms.date: 06/10/2019
 ms.author: justinha
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/07/2020
-ms.openlocfilehash: 27ba6098755d93ef1de902a9a4e052f1ff6b53d5
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 2f276149e3998e5483ae4289ae6793d4b3ea86df
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487874"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592884"
 ---
 # <a name="azure-stack-hub-infrastructure-security-controls"></a>Azure Stack Hub インフラストラクチャのセキュリティ コントロール
 
@@ -54,7 +54,7 @@ Azure Stack Hub インフラストラクチャでは、すべての内部証明�
 
 ## <a name="windows-defender-application-control"></a>Windows Defender アプリケーション制御
 
-Azure Stack Hub には、最新の Windows Server セキュリティ機能が使用されています。 これらの 1 つに Windows Defender Application Control があります (WDAC: 以前はコード整合性と呼ばれていました)。この機能により、実行可能ファイルのホワイトリスト登録が可能になり、承認済みのコードだけが Azure Stack Hub インフラストラクチャ内で実行されることが保証されます。
+Azure Stack Hub には、最新の Windows Server セキュリティ機能が使用されています。 これらの 1 つに Windows Defender アプリケーション制御があります (WDAC: 以前はコード整合性と呼ばれていました)。これにより、実行可能ファイル フィルタリングが提供され、承認済みのコードだけが Azure Stack Hub インフラストラクチャ内で実行されることが保証されます。
 
 承認済みのコードは Microsoft または OEM パートナーのいずれかによって署名されます。 署名され認証されたコードは、Microsoft が定義したポリシーで指定されている認定ソフトウェアのリストに含まれています。 つまり、Azure Stack Hub インフラストラクチャでの実行が承認されているソフトウェアのみを実行できます。 未承認のコードを実行しようとしてもブロックされ、アラートが生成されます。 Azure Stack Hub では、User Mode Code Integrity (UMCI) と Hypervisor Code Integrity (HVCI) の両方が適用されます。
 
@@ -81,7 +81,7 @@ Azure Stack Hub 内の管理は、それぞれが特定の目的を持つ、次�
 
 - [管理者ポータル](azure-stack-manage-portals.md)では、日常の管理操作にポイントアンドクリック エクスペリエンスが提供されます。
 - Azure Resource Manager では、PowerShell および Azure CLI で使用される、REST API を介した管理者ポータルのすべての管理操作が公開されます。
-- データ センターの統合やサポート シナリオなど、特定の低レベルの操作では、Azure Stack Hub により、[特権エンドポイント](azure-stack-privileged-endpoint.md)と呼ばれる PowerShell エンドポイントが公開されます。 このエンドポイントでは、コマンドレットのホワイトリストのセットのみが公開され、これは厳重に監査されます。
+- データ センターの統合やサポート シナリオなど、特定の低レベルの操作では、Azure Stack Hub により、[特権エンドポイント](azure-stack-privileged-endpoint.md)と呼ばれる PowerShell エンドポイントが公開されます。 このエンドポイントでは、コマンドレットの許可されたセットのみが公開され、これは厳重に監査されます。
 
 ## <a name="network-controls"></a>ネットワーク制御
 

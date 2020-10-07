@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/18/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/13/2020
-ms.openlocfilehash: d86149b041abd3737ed03696e2c041bbd24f0392
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.openlocfilehash: b52944255569197e9390db879f690f9e5d5a21d5
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836490"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495781"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -20,11 +20,11 @@ ms.locfileid: "90836490"
 
 別のバージョンの既知の問題にアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用します。
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > 更新プログラムを適用する前に、このセクションを確認してください。
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > お使いの Azure Stack Hub インスタンスが 2 つ前の更新プログラムより古い場合、コンプライアンスに対応していないとみなされます。 [サポートを受けるためには、少なくともサポートされる最小バージョンまで更新する](azure-stack-servicing-policy.md#keep-your-system-under-support)必要があります。 
 ::: moniker-end
@@ -98,7 +98,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="issues-deploying-virtual-machine-scale-set-with-standard_ds2_v2-size-using-the-portal"></a>ポータルを使用した、Standard_DS2_v2 サイズでの仮想マシン スケール セットのデプロイに関する問題
 
 - 適用先:この問題は 2005 リリースに適用されます。
-- 原因: ポータルのバグにより、Standard_DS2_v2 サイズでのスケール セットの作成が失敗します。
+- 原因:ポータルのバグにより、Standard_DS2_v2 サイズでのスケール セットの作成が失敗します。
 - 修復: PowerShell または CLI を使用して、仮想マシン スケール セットのこの VM サイズをデプロイします。
 
 ### <a name="issues-using-vm-extensions-in-ubuntu-server-2004"></a>Ubuntu Server 20.04 での VM 拡張機能の使用に関する問題
@@ -274,7 +274,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの仮想マシン スケール セットを作成できない
 
 - 適用先:この問題は 2002 リリースに適用されます。
-- 原因: ポータルにバグがあり、Standard_DS2_v2 VM サイズで仮想マシン スケール セットを作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
+- 原因:ポータルにバグがあり、Standard_DS2_v2 VM サイズで仮想マシン スケール セットを作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
 - 修復: PowerShell またはリソース マネージャー テンプレートを使用して仮想マシン スケール セットを作成します。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
@@ -595,196 +595,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 <!-- ### Marketplace -->
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-update-process"></a>1908 の更新処理
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新の状態が失敗して、状態が **PreparationFailed** に変更される場合があります。 これは、更新リソース プロバイダー (URP) が、処理のためにストレージ コンテナーから内部インフラストラクチャ共有にファイルを正しく転送できないことが原因です。
-- 修復: バージョン 1901 (1.1901.0.95) 以降、この問題は、 **[今すぐ更新]** ( **[再開]** ではない) をもう一度クリックすることで回避できるようになりました。 それにより、URP は前回の試行のファイルをクリーンアップして、ダウンロードを再度開始します。 問題が解決しない場合は、[更新プログラムのインストールのセクション](azure-stack-apply-updates.md#install-updates-and-monitor-progress)に従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
-- 発生頻度: 共通
-
-## <a name="portal"></a>ポータル
-
-### <a name="administrative-subscriptions"></a>管理サブスクリプション
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: バージョン 1804 で導入された 2 つの管理サブスクリプションは使用しないでください。 このサブスクリプションの種類は **Metering** サブスクリプションと **Consumption** サブスクリプションです。
-- 修復: これら 2 つのサブスクリプション上でリソースが実行されている場合は、ユーザー サブスクリプションで再作成してください。
-- 発生頻度: 共通
-
-### <a name="subscriptions-properties-blade"></a>サブスクリプションの [プロパティ] ブレード
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 管理者ポータルで、サブスクリプションの **[プロパティ]** ブレードが正しく読み込まれません
-- 修復: これらのサブスクリプションのプロパティは、 **[サブスクリプションの概要]** ブレードの **[要点]** ウィンドウで表示できます。
-- 発生頻度: 共通
-
-### <a name="duplicate-subscription-button-in-lock-blade"></a>[ロック] ブレードの重複する [サブスクリプション] ボタン
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 管理者ポータルのユーザー サブスクリプションの **[ロック]** ブレードには、**サブスクリプション**という 2 つのボタンがあります。
-- 発生頻度: 共通
-
-### <a name="subscription-permissions"></a>サブスクリプションのアクセス許可
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: Azure Stack Hub ポータルを使用して、サブスクリプションに対するアクセス許可を表示することはできません。
-- 修復: [PowerShell を使用してアクセス許可を確認](/powershell/module/azurerm.resources/get-azurermroleassignment)します。
-- 発生頻度: 共通
-
-### <a name="storage-account-settings"></a>Storage アカウントの設定
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、ストレージ アカウントの **[構成]** ブレードに、**安全な転送の種類**を変更するオプションが表示されます。 この機能は現在、Azure Stack Hub でサポートされていません。
-- 発生頻度: 共通
-
-### <a name="upload-blob"></a>BLOB のアップロード
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで **[OAuth(preview)]\(OAuth (プレビュー)\)** オプションを使用して BLOB をアップロードしようとすると、タスクがエラー メッセージにより失敗します。
-- 修復: SAS オプションを使用して BLOB をアップロードします。
-- 発生頻度: 共通
-
-### <a name="alert-for-network-interface-disconnected"></a>ネットワーク インターフェイスの切断についてのアラート
-
-- 適用先:この問題は、1908 リリースに適用されます。
-- 原因: ケーブルがネットワーク アダプターから切り離されたときに、管理者ポータルにアラートが表示されません。 この問題は、Windows Server 2019 ではこの障害が既定で無効にされるために発生します。
-- 発生頻度: 共通
-
-## <a name="networking"></a>ネットワーク
-
-### <a name="load-balancer"></a>Load Balancer
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
-- 原因: 可用性セットの VM をロード バランサーのバックエンド プールに追加すると、"**ロード バランサー バックエンド プールを保存できませんでした**" というエラー メッセージがポータルに表示されます。 これはポータルの表面的な問題です。機能は有効であり、内部的には VM はバックエンド プールに正常に追加されます。 
-- 発生頻度: 共通
-
-### <a name="network-security-groups"></a>ネットワーク セキュリティ グループ
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。 
-- 原因: 明示的な **DenyAllOutbound** 規則は、VM のデプロイを完了するために必要なインフラストラクチャへの内部通信がすべて妨げられるため、NSG に作成することはできません。
-- 発生頻度: 共通
-
-### <a name="service-endpoints"></a>サービス エンドポイント
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク]** ブレードに、**サービス エンドポイント**を使用するオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
-### <a name="cannot-delete-an-nsg-if-nics-not-attached-to-running-vm"></a>実行中の VM に NIC が接続されていない場合、NSG を削除できない
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: NSG と、実行中の VM に接続されていない NIC の関連付けを解除すると、そのオブジェクトの更新 (PUT) 操作がネットワーク コントローラー レイヤーで失敗します。 NSG はネットワーク リソース プロバイダー レイヤーで更新されますが、ネットワーク コントローラー上では更新されないため、NSG はエラー状態に移行します。
-- 改善策:削除する必要がある NSG に関連付けられている NIC を、実行中の VM に接続し、NSG の関連付けを解除するか、NSG に関連付けられている NIC をすべて削除します。
-- 発生頻度: 共通
-
-### <a name="network-interface"></a>ネットワーク インターフェイス
-
-#### <a name="addingremoving-network-interface"></a>ネットワーク インターフェイスの追加/削除
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しいネットワーク インターフェイスを、**実行**状態にある VM に追加することはできません。
-- 修復: 仮想マシンを停止してから、ネットワーク インターフェイスを追加/削除します。
-- 発生頻度: 共通
-
-#### <a name="primary-network-interface"></a>プライマリ ネットワーク インターフェイス
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しいネットワーク インターフェイスを、**実行**状態にある VM に追加することはできません。
-- 修復: 仮想マシンを停止してから、ネットワーク インターフェイスを追加/削除します。
-- 発生頻度: 共通
-
-### <a name="virtual-network-gateway"></a>Virtual Network ゲートウェイ
-
-#### <a name="next-hop-type"></a>次ホップの種類
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルでルート テーブルを作成すると、次のホップの種類オプションの 1 つとして **[Virtual Network ゲートウェイ]** が表示されますが、これは Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
-#### <a name="alerts"></a>警告
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[仮想ネットワーク ゲートウェイ]** ブレードに、使用する**アラート** オプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
-#### <a name="active-active"></a>アクティブ/アクティブ
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、作成中、および**仮想ネットワーク ゲートウェイ**のリソース メニューで、**アクティブ/アクティブ**構成を有効にするオプションが表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
-#### <a name="vpn-troubleshooter"></a>VPN トラブルシューティング ツール
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: ユーザー ポータルで、 **[接続]** ブレードに **VPN トラブルシューティング ツール**と呼ばれる機能が表示されます。 この機能は現在、Azure Stack Hub ではサポートされていません。
-- 発生頻度: 共通
-
-#### <a name="documentation"></a>ドキュメント
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想ネットワーク ゲートウェイの概要ページにあるドキュメントのリンクは、Azure Stack Hub ではなく Azure 固有のドキュメントにリンクされています。 Azure Stack Hub のドキュメントについては、次のリンクを使用してください。
-
-  - [ゲートウェイ SKU](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-skus)
-  - [高可用性接続](../user/azure-stack-vpn-gateway-about-vpn-gateways.md#gateway-availability)
-  - [Azure Stack Hub での BGP の構成](../user/azure-stack-vpn-gateway-settings.md#gateway-requirements)
-  - [ExpressRoute 回線](azure-stack-connect-expressroute.md)
-  - [カスタムの IPsec/IKE ポリシーの指定](../user/azure-stack-vpn-gateway-settings.md#ipsecike-parameters)
-
-## <a name="compute"></a>Compute
-
-### <a name="vm-boot-diagnostics"></a>VM ブート診断
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しい Windows 仮想マシン (VM) を作成するときに、次のエラーが表示されることがあります。**仮想マシン 'vm-name' を起動できませんでした。エラー:Failed to update serial output settings for VM 'vm-name'** . (VM 'vm-name' のシリアル出力設定を更新できませんでした。) このエラーは、VM でブート診断を有効にしても、ブート診断ストレージ アカウントを削除した場合に発生します。
-- 修復: 以前使用したものと同じ名前のストレージ アカウントを再作成します。
-- 発生頻度: 共通
-
-### <a name="virtual-machine-scale-set"></a>仮想マシン スケール セット
-
-#### <a name="create-failures-during-patch-and-update-on-4-node-azure-stack-hub-environments"></a>4 ノードの Azure Stack Hub 環境では修正プログラムや更新プログラムの適用中に作成が失敗する
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 4 ノードの Azure Stack Hub 環境では、障害ドメインが 3 つの可用性セット内での VM の作成および仮想マシン スケール セット インスタンスの作成が、更新プロセス中に **FabricVmPlacementErrorUnsupportedFaultDomainSize** エラーで失敗します。
-- 修復: 障害ドメインが 2 つの可用性セット内には 1 つの VM を正常に作成できます。 ただし、4 ノードの Azure Stack Hub では、依然として更新プロセス中にスケール セット インスタンスを作成することはできません。
-
-### <a name="ubuntu-ssh-access"></a>Ubuntu SSH アクセス
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: SSH の承認を有効にして作成した Ubuntu 18.04 VM では、SSH キーを使用してサインインすることはできません。
-- 修復: プロビジョニング後に Linux 拡張機能用の VM アクセスを使用して SSH キーを実装するか、パスワードベースの認証を使用します。
-- 発生頻度: 共通
-
-### <a name="virtual-machine-scale-set-reset-password-does-not-work"></a>仮想マシン スケール セットのパスワードのリセットが機能しない
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 新しいパスワードのリセット ブレードはスケール セット UI には表示されますが、Azure Stack Hub ではスケール セットでのパスワードのリセットがまだサポートされていません。
-- 修復: [なし] :
-- 発生頻度: 共通
-
-### <a name="rainy-cloud-on-scale-set-diagnostics"></a>スケール セット診断の雨雲
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: 仮想マシン スケール セットの概要ページに、空のグラフが表示されます。 空のグラフをクリックすると、"雨雲" ブレードが開きます。 これは CPU 使用率などのスケール セット診断情報のグラフで、現在の Azure Stack Hub ビルドでサポートされている機能ではありません。
-- 修復: [なし] :
-- 発生頻度: 共通
-
-### <a name="virtual-machine-diagnostic-settings-blade"></a>仮想マシンの診断設定ブレード
-
-- 適用先:この問題は、サポートされているすべてのリリースに適用されます。    
-- 原因: 仮想マシンの診断設定ブレードには、**Application Insight アカウント**を求める **[シンク]** タブがあります。 これは新しいブレードの結果で、Azure Stack Hub ではまだサポートされていません。
-- 修復: [なし] :
-- 発生頻度: 共通
-
-<!-- ## Storage -->
-<!-- ## SQL and MySQL-->
-<!-- ## App Service -->
-<!-- ## Usage -->
-<!-- ### Identity -->
-<!-- ### Marketplace -->
-::: moniker-end
-
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 ## <a name="archive"></a>アーカイブ
 
 アーカイブされた、以前のバージョンの既知の問題にアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用して、表示するバージョンを選択します。
@@ -798,6 +609,9 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-known-issues"></a>1908 アーカイブされた既知の問題
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-known-issues"></a>1907 アーカイブされた既知の問題
 ::: moniker-end
@@ -844,6 +658,6 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ## <a name="1802-archived-known-issues"></a>1802 アーカイブされた既知の問題
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 [以前のバージョンの Azure Stack Hub の既知の問題は TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end

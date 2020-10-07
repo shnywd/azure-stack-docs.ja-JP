@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の Azure Kubernetes Service (AKS) エンジンのリ�
 description: Azure Stack Hub 上の AKS エンジンの更新プログラムを使用して実行する必要がある手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/16/2020
+ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 5207fa80a97581847d309a460a31039695183e1c
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.lastreviewed: 09/28/2020
+ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717939"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495764"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -103,6 +103,7 @@ API モデルの json ファイル内にある `orchestratorProfile` セクシ�
 
 ## <a name="whats-new"></a>新機能
 
+- Azure Stack の Linux VHD を 2020.09.14 に更新します #[3828](https://github.com/Azure/aks-engine/pull/3828)
 - Azure Stack で K8s v1.17.11 のサポートを追加します [#3702](https://github.com/Azure/aks-engine/pull/3702)
 - Azure Stack で K8s v1.16.14 のサポートを追加します [#3704](https://github.com/Azure/aks-engine/pull/3704)
 - Linux VHD を 2020.09.14 に更新します [#3750](https://github.com/Azure/aks-engine/pull/3750)

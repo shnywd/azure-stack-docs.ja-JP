@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 312431b1ae36debc79b1a9bd3a874b648dfc9cd9
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e30d5ba784efc6453ce161bc2a87db7c728d3fce
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949346"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592931"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上の Azure Kubernetes Service に関するトラブルシューティング
 
@@ -24,7 +24,7 @@ CredSSP に関する問題をトラブルシューティングするには、「
 ## <a name="troubleshooting-windows-admin-center"></a>Windows Admin Center のトラブルシューティング
 この製品は現在、パブリック プレビューの状態にあります。これは、製品がまだ開発中であることを意味します。 現時点では、Windows Admin Center の Azure Kubernetes Service 拡張機能にはいくつかの問題があります。 
 * 現時点では、Azure Stack HCI 上の Azure Kubernetes Service をセットアップするために使用するシステムのクラスター内の各サーバーは、信頼されたサーバーである必要があります。 これは、Windows Admin Center はクラスター内の各サーバーに対して、1 つだけでなく、いくつかの CredSSP 操作を実行できる必要があることを意味します。 
-* `msft.sme.aks couldn't load` というエラーが発生し、チャンクの読み込みに失敗したとこのエラーで表示された場合は、最新バージョンの Edge または Google Chrome を使用してもう一度試してください。
+* `msft.sme.aks couldn't load` というエラーが発生し、チャンクの読み込みに失敗したとこのエラーで表示された場合は、最新バージョンの Microsoft Edge または Google Chrome を使用してもう一度試してください。
 * Azure Kubernetes Service ホストのセットアップ ウィザードまたは Kubernetes クラスターの作成ウィザードのいずれかを開始する前に、Windows Admin Center を通して Azure にサインインする必要があります。 ワークフローの間に再署名が必要な場合があります。 Windows Admin Center を通した Azure へのサインインで問題が生じている場合は、[Azure portal](https://portal.azure.com/) などの別の操作元から Azure アカウントへのサインインを試みます。 引き続き問題が発生する場合は、サポートに連絡する前に [Windows Admin Center の既知の問題](/windows-server/manage/windows-admin-center/support/known-issues)に関する記事を確認してください。
 * Windows Admin Center に表示された Azure Stack HCI デプロイ上の Azure Kubernetes Service の現在のイテレーションでは、Azure Kubernetes Service ホストをセットアップしたユーザーのみがシステムに Kubernetes クラスターを作成できます。 この問題を回避するには、Azure Kubernetes Service ホストをセットアップしたユーザー プロファイルから、新しい Kubernetes クラスターを起動することになるユーザー プロファイルに、`.wssd` フォルダーをコピーします。
 * いずれかのウィザードで誤った構成に関するエラーが発生する場合は、クラスターのクリーンアップ操作を実行します。 これにより、`C:\Program Files\AksHci\mocctl.exe` ファイルが削除されることがあります。

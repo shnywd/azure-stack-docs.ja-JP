@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/11/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 7cf6420069dbc8589722aab38658206a482632e0
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472961"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367259"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -39,7 +39,9 @@ Microsoft では、完全な更新プログラム パッケージと、特定の
 
 ## <a name="update-package-release-cadence"></a>更新プログラム パッケージのリリース周期
 
-Microsoft は、毎月ソフトウェア更新プログラム パッケージをリリースします。 ただし、1 か月に複数の更新プログラムをリリースすることや、1 つも更新プログラムをリリースしないこともあります。 OEM ハードウェア ベンダーは、必要に応じて随時更新プログラムをリリースします。
+Microsoft は、ソフトウェア更新プログラム パッケージを 1 年を通して複数回リリースする予定です。
+
+OEM ハードウェア ベンダーは、必要に応じて随時更新プログラムをリリースします。 ハードウェアの最新の更新プログラムについては、OEM にご確認ください。
 
 更新を計画し、更新プログラムを管理する方法と、現在のバージョンを確認する方法については、[更新プログラムの管理の概要](azure-stack-updates.md)にあるドキュメントをご確認ください。
 

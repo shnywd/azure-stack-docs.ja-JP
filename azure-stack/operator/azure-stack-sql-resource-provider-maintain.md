@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub での SQL リソース プロバイダーのメンテナンス操作について説明します。
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 6fc476b1f373c8f21481b979d1eefcdbe356766b
-ms.sourcegitcommit: 08a421ab5792ab19cc06b849763be22f051e6d78
+ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89364832"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572825"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -130,7 +130,7 @@ Get-AzsDBAdapterLogs コマンドレットを使用して、C:\Logs に保存さ
 
 VM のオペレーティング システムを更新するには、次のいずれかの方法を使用します。
 
-- 現在パッチが適用されている Windows Server 2016 Core イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
+- 現在パッチが適用されている VM イメージを使用して最新のリソース プロバイダーのパッケージをインストールする。
 - リソース プロバイダーのインストールまたは更新中に Windows 更新プログラム パッケージをインストールする。
 
 ## <a name="update-the-vm-windows-defender-definitions"></a>VM の Windows Defender の定義を更新する

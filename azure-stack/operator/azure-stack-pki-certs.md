@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: 93712c3eedb3045d99b9c2ed46a066b8505771dd
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724882"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592886"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件
 
@@ -23,7 +23,7 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 - 付加価値リソース プロバイダーをデプロイするときに必要なオプションの証明書。
 
 > [!NOTE]
-> 既定で Azure Stack Hub では、ノード間の認証に、内部の Active Directory 統合証明機関 (CA) から発行された証明書も使用されます。 証明書を検証するには、すべての Azure Stack Hub インフラストラクチャ マシンで、その証明書をローカルの証明書ストアに追加することによって、内部 CA のルート証明書を信頼します。 Azure Stack Hub には、証明書のピン留めまたはホワイトリスト登録がありません。 各サーバー証明書の SAN は、ターゲットの FQDN に対して検証されます。 証明書の有効期限 (証明書のピン留めがない標準 TLS サーバー認証) と共に、信頼チェーン全体も検証されます。
+> 既定で Azure Stack Hub では、ノード間の認証に、内部の Active Directory 統合証明機関 (CA) から発行された証明書も使用されます。 証明書を検証するには、すべての Azure Stack Hub インフラストラクチャ マシンで、その証明書をローカルの証明書ストアに追加することによって、内部 CA のルート証明書を信頼します。 Azure Stack Hub には、証明書のピン留めもフィルター処理もありません。 各サーバー証明書の SAN は、ターゲットの FQDN に対して検証されます。 証明書の有効期限 (証明書のピン留めがない標準 TLS サーバー認証) と共に、信頼チェーン全体も検証されます。
 
 ## <a name="certificate-requirements"></a>証明書の要件
 次の一覧では、一般的な証明書の発行、セキュリティ、および書式設定の要件について説明します。

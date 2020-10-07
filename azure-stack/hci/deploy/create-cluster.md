@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: b7c6c76353ff29f01eca458ca563517807ca0cd3
-ms.sourcegitcommit: 9a3397f703ff9dd7d539372bd8e5fdbe6d6a0725
+ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91019540"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572689"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -189,10 +189,7 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 ## <a name="step-5-sdn-optional"></a>手順 5:SDN (省略可能)
 
-ウィザードの手順 5. では、クラスター上のネットワーク コントローラーを、ソフトウェア定義ネットワーク (SDN) 用に設定します。 いったんネットワーク コントローラーが設定されると、ソフトウェア ロード バランサーや RAS ゲートウェイなど、SDN の他のコンポーネントを構成するために使用できます。
-
-> [!NOTE]
-> ウィザードのこの手順は省略可能です。
+この省略可能な手順では、[ソフトウェア定義ネットワーク (SDN)](../concepts/software-defined-networking.md) のネットワーク コントローラー コンポーネントを設定します。 いったんネットワーク コントローラーが設定されると、ソフトウェア ロード バランサーや RAS ゲートウェイなど、SDN の他のコンポーネントを構成するために使用できます。
 
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-network-controller.png":::
 
@@ -213,7 +210,7 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 1. **[MAC アドレス プールの開始]** と **[MAC アドレス プールの終了]** の値を入力します。
 1. 完了したら、 **[次へ]** をクリックします。
 1. ウィザードのジョブが完了するまで待機します。 進行状況のすべてのタスクが完了するまでこのページに留まります。 **[完了]** をクリックします。
- 
+
 ネットワーク コントローラーのデプロイに失敗した場合は、これを再試行する前に以下のことを行ってください。
 
 - ウィザードによって作成されたネットワーク コントローラー VM があればすべて停止し、削除します。  

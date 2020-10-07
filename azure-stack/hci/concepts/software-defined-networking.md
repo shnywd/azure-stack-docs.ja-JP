@@ -1,20 +1,20 @@
 ---
 title: Azure Stack HCI におけるソフトウェアによるネットワーク制御 (SDN)
-description: Azure Stack HCI の機能に適用される SDN トピックの概要。
+description: ソフトウェアによるネットワーク制御 (SDN) は、ネットワークとネットワーク サービス (データ センターにおけるスイッチング、ルーティング、負荷分散など) を一元的に構成、管理する手段となります。
 author: khdownie
 ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/18/2020
-ms.openlocfilehash: 5a2820de2c681ad5a49d0e4ee3e4973736e1169b
-ms.sourcegitcommit: fb89c3d837e2673b28784fd997099c825deb32f0
+ms.date: 09/29/2020
+ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88591796"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572655"
 ---
-# <a name="sdn-in-azure-stack-hci"></a>Azure Stack HCI における SDN
+# <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI におけるソフトウェアによるネットワーク制御 (SDN)
 
 > 適用対象: Azure Stack HCI バージョン 20H2、Windows Server 2019
 
@@ -35,7 +35,7 @@ Azure Stack HCI には、主要な SDN コンポーネントとしてネット�
 - 仮想ネットワークに仮想アプライアンスをアタッチする。
 - 仮想ネットワークまたは従来の VLAN ベースのネットワークにアタッチされた VM を対象に QoS (サービスの品質) ポリシーを構成する。
 
-Azure Stack HCI クラスターの作成後に、[PowerShell を使用してネットワーク コントローラーをデプロイ](../deploy/network-controller-powershell.md)することをお勧めします。
+[クラスターの作成時にネットワーク コントローラーをデプロイする](../deploy/create-cluster.md#step-5-sdn-optional)ことをお勧めします。 あるいは、Azure Stack HCI クラスターの作成後に、[PowerShell を使用してネットワーク コントローラーをデプロイする](../deploy/network-controller-powershell.md)こともできます。
 
 ## <a name="software-load-balancing"></a>ソフトウェア負荷分散
 
@@ -53,7 +53,8 @@ Azure Stack HCI クラスターの作成後に、[PowerShell を使用してネ�
 
 ## <a name="next-steps"></a>次のステップ
 
-関連情報については、以下も参照してください。
+関連情報については、以下もご覧ください。
 
+- [ソフトウェア定義ネットワーク インフラストラクチャを計画する](plan-software-defined-networking-infrastructure.md)
 - [Windows Server の SDN の概要](/windows-server/networking/sdn/software-defined-networking)
 - [スクリプトを使用してソフトウェア定義ネットワーク インフラストラクチャを展開する](/windows-server/networking/sdn/deploy/deploy-a-software-defined-network-infrastructure-using-scripts)

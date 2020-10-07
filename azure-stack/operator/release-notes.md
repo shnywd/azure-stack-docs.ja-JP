@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 09/28/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: a3abdf4013b3caa9132bbbf25832287b12b43497
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
+ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107165"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91495798"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -20,11 +20,11 @@ ms.locfileid: "91107165"
 
 別のバージョンのリリース ノートにアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用します。
 
-::: moniker range=">=azs-1908"
+::: moniker range=">=azs-1910"
 > [!IMPORTANT]  
 > この更新プログラム パッケージは、Azure Stack Hub 統合システム専用です。 Azure Stack Development Kit (ASDK) にこの更新プログラム パッケージを適用しないでください。
 ::: moniker-end
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 > [!IMPORTANT]  
 > お使いの Azure Stack Hub インスタンスが 2 つ前の更新プログラムより古い場合、コンプライアンスに対応していないとみなされます。 [サポートを受けるためには、少なくともサポートされる最小バージョンまで更新する](azure-stack-servicing-policy.md#keep-your-system-under-support)必要があります。
 ::: moniker-end
@@ -50,9 +50,6 @@ Azure Stack Hub 更新プログラム パッケージは、[Azure Stack Hub 更�
 ## <a name="2005-build-reference"></a>2005 ビルドのリファレンス
 
 Azure Stack Hub 2005 更新プログラムのビルド番号は **1.2005.6.53** です。
-
-> [!IMPORTANT]  
-> Azure Stack Hub の [2002 リリース](release-notes.md?view=azs-2002)では、COVID-19 に対応中の、Azure Stack Hub システムに関する重要な意思決定を行う可能性がある世界中のお客様を支援するために、Microsoft はそのサポート ポリシーを一時的に延長して、3 つ前までの更新プログラムのバージョン (N-3) を含めました。 2005 リリースでは、この延長をさらに 45 日間 (2020 年 9 月 25 日まで) 継続しています。 その結果、新しくリリースされた 2005 更新プログラムと、3 つ前までの更新プログラムのバージョン (2002、1910、1908 (N-3)) のいずれか 1 つがサポートされます。 この 45 日を過ぎると (2020 年 9 月 25 日より後)、標準のサポート ポリシーに戻ります。つまり、サポートされるバージョンは、2005、2002、1910 (N-2) になります。
 
 ### <a name="update-type"></a>更新の種類
 
@@ -137,7 +134,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 
 Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用された 2002 リリースに適用する必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2002.53.144](https://support.microsoft.com/help/4574736)
+- [Azure Stack Hub 修正プログラム 1.2002.56.152](https://support.microsoft.com/help/4582983)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>2005 更新プログラムが正常に適用された後
 
@@ -274,7 +271,7 @@ Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.53.144](https://support.microsoft.com/help/4574736)
+- [Azure Stack Hub 修正プログラム 1.2002.56.152](https://support.microsoft.com/help/4582983)
 ::: moniker-end
 
 ::: moniker range="azs-1910"
@@ -436,88 +433,12 @@ Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適�
 - [Azure Stack Hub 修正プログラム 1.1910.63.186](https://support.microsoft.com/help/4574735)
 ::: moniker-end
 
-::: moniker range="azs-1908"
-## <a name="1908-build-reference"></a>1908 ビルドのリファレンス
-
-Azure Stack Hub 1908 更新プログラムのビルド番号は **1.1908.4.33** です。
-
-### <a name="update-type"></a>更新の種類
-
-1908 では、Azure Stack Hub が実行される基になるオペレーティング システムが Windows Server 2019 に更新されています。 この更新プログラムによって、核となる基本的な機能強化と、Azure Stack Hub に機能を追加する機能が使用可能になります。
-
-Azure Stack Hub 1908 更新プログラムのビルドの種類は**完全**です。 そのため、1908 更新プログラムは、1906 や 1907 のような高速更新プログラムよりもランタイムが長くなります。 完全な更新プログラムの正確なランタイムは、Azure Stack Hub インスタンスに含まれているノード数、テナントのワークロードごとにシステムで使用される容量、システムのネットワーク接続 (インターネットに接続されている場合)、システムのハードウェア構成によって異なります。 内部テストでは、1908 更新プログラムのランタイムが次のように予測されました。4 ノード - 42 時間、8 ノード - 50 時間、12 ノード - 60 時間、16 ノード - 70 時間。 更新プログラムのランタイムがこれらの予測値よりも長くなることは珍しいわけではなく、更新が失敗した場合を除いて、Azure Stack Hub オペレーターによるアクションは必要ありません。
-
-更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラム管理の概要](azure-stack-updates.md)」を参照してください。
-
-- 更新プログラムの正確な実行時間は一般に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの構成に左右されます。
-- 実行時間が予測よりも長くなることは珍しいわけではなく、更新が失敗した場合を除いて、Azure Stack Hub オペレーターによるアクションは必要ありません。
-- このおおよその実行時間は、1908 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
-
-<!-- ## What's in this update -->
-
-<!-- The current theme (if any) of this release. -->
-
-### <a name="whats-new"></a>新機能
-
-<!-- What's new, also net new experiences and features. -->
-
-- 1908 では、Azure Stack Hub が実行される基になるオペレーティング システムが Windows Server 2019 に更新されていることに注意してください。 この更新プログラムによって、核となる基本的な機能強化と、Azure Stack Hub に機能を追加する機能が使用可能になります。
-- Azure Stack Hub インフラストラクチャのすべてのコンポーネントが FIPS 140-2 モードで動作するようになりました。
-- Azure Stack Hub オペレーターは、ポータル ユーザー データを削除できるようになりました。 詳細については、「[Azure Stack Hub からポータル ユーザー データをクリアする](azure-stack-portal-clear.md)」を参照してください。
-
-### <a name="improvements"></a>機能強化
-
-<!-- Changes and product improvements with tangible customer-facing value. -->
-- 物理ノードのハードウェアのトラステッド プラットフォーム モジュール (TPM) にシークレットを保持するために、Azure Stack Hub の保存データの暗号化が向上しました。
-
-### <a name="changes"></a>[変更点]
-
-- ハードウェア プロバイダーは Azure Stack Hub バージョン 1908 と同時に OEM 拡張機能パッケージ 2.1 以降をリリースします。 Azure Stack Hub バージョン 1908 には OEM 拡張機能パッケージ 2.1 以降が前提条件です。 OEM 拡張機能パッケージ 2.1 以降をダウンロードする方法の詳細については、システムのハードウェア プロバイダーに問い合わせてください。また、[OEM 更新プログラム](azure-stack-update-oem.md#oem-contact-information)の記事を参照してください。  
-
-### <a name="fixes"></a>修正
-
-- 今後の Azure Stack Hub OEM 更新プログラムとの互換性、およびユーザーのユーザー イメージを使用した VM デプロイに関する問題が修正されました。 この問題は 1907 で見つかり、修正プログラム [KB4517473](https://support.microsoft.com/en-us/help/4517473/azure-stack-hotfix-1-1907-12-44) で修正されました  
-- OEM ファームウェア更新プログラムに関する問題が修正され、Fabric リングの正常性についての Test-AzureStack での誤診断に関する問題が修正されました。 この問題は 1907 で見つかり、修正プログラム [KB4515310](https://support.microsoft.com/en-us/help/4515310/azure-stack-hotfix-1-1907-7-35) で修正されました
-- OEM ファームウェア更新プロセスに関する問題を修正しました。 この問題は 1907 で見つかり、修正プログラム [KB4515650](https://support.microsoft.com/en-us/help/4515650/azure-stack-hotfix-1-1907-8-37) で修正されました
-
-<!-- Product fixes that came up from customer deployments worth highlighting, especially if there's an SR/ICM associated to it. -->
-
-## <a name="security-updates"></a>セキュリティ更新プログラム
-
-Azure Stack Hub のこの更新でのセキュリティ更新プログラムについては、「[Azure Stack Hub のセキュリティ更新プログラム](release-notes-security-updates.md)」を参照してください。
-
-このリリースの Qualys 脆弱性レポートは、[Qualys Web サイト](https://www.qualys.com/azure-stack/)からダウンロードできます。
-
-## <a name="download-the-update"></a>更新プログラムをダウンロードする
-
-Azure Stack Hub 1908 更新プログラム パッケージは、[Azure Stack Hub ダウンロード ページ](https://aka.ms/azurestackupdatedownload)からダウンロードできます。
-
-## <a name="hotfixes"></a>修正プログラム
-
-Azure Stack Hub では、修正プログラムが定期的にリリースされます。 Azure Stack Hub を 1908 に更新する前に、必ず 1907 用の最新の Azure Stack Hub 修正プログラムをインストールしてください。
-
-Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムのインストールを試行しないでください。
-
-### <a name="prerequisites-before-applying-the-1908-update"></a>前提条件:1908 更新プログラムを適用する前
-
-Azure Stack Hub の 1908 リリースは、以下の修正プログラムが適用された 1907 リリースに適用する必要があります。
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1907.29.80](https://support.microsoft.com/help/4555650)
-
-Azure Stack Hub 1908 更新プログラムには、システムのハードウェア プロバイダーからの **Azure Stack Hub OEM バージョン 2.1 以降**が必要です。 OEM 更新プログラムには、Azure Stack Hub システム ハードウェアのドライバーとファームウェアの更新プログラムが含まれています。 OEM 更新プログラムの適用の詳細については、「[Azure Stack Hub に OEM (相手先ブランド供給) 更新プログラムを適用する](azure-stack-update-oem.md)」を参照してください
-
-### <a name="after-successfully-applying-the-1908-update"></a>1908 更新プログラムの適用に成功した後
-
-この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
-
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.51.133](https://support.microsoft.com/help/4574734)
-::: moniker-end
-
 <!------------------------------------------------------------>
 <!------------------- UNSUPPORTED VERSIONS ------------------->
 <!------------------------------------------------------------>
+::: moniker range="azs-1908"
+## <a name="1908-archived-release-notes"></a>1908 アーカイブされたリリース ノート
+::: moniker-end
 ::: moniker range="azs-1907"
 ## <a name="1907-archived-release-notes"></a>1907 アーカイブされたリリース ノート
 ::: moniker-end
@@ -564,6 +485,6 @@ Azure Stack Hub 1908 更新プログラムには、システムのハードウ�
 ## <a name="1802-archived-release-notes"></a>1802 アーカイブされたリリース ノート
 ::: moniker-end
 
-::: moniker range="<azs-1908"
+::: moniker range="<azs-1910"
 [以前のバージョンの Azure Stack Hub のリリース ノートは TechNet ギャラリー](https://aka.ms/azsarchivedrelnotes)でアクセスできます。 これらのアーカイブされたドキュメントは、参照のみを目的に提供されており、これらのバージョンのサポートを意味しているわけではありません。 Azure Stack のサポートについては、「[Azure Stack Hub サービス ポリシー](azure-stack-servicing-policy.md)」を参照してください。 さらにサポートが必要な場合は、Microsoft カスタマー サポート サービスにお問い合わせください。
 ::: moniker-end

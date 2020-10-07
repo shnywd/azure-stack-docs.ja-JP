@@ -8,16 +8,16 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: adc2288d8886c5b952f26da4798fccd731738733
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946407"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572808"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
-Azure Stack Hub SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub サービスとして公開します。 SQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (VM) 上でサービスとして実行されます。
+Azure Stack Hub SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub サービスとして公開します。 SQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (アダプター バージョン <= 1.1.47.0) または特別なアドオン RP Windows Server (アダプター バージョン >= 1.1.93.0) でサービスとして実行されます。
 
 > [!IMPORTANT]
 > SQL または MySQL をホストするサーバー上に項目を作成できるのは、リソース プロバイダーのみです。 リソース プロバイダー以外がホスト サーバー上に項目を作成すると、不一致状態になる可能性があります。
@@ -28,15 +28,19 @@ Azure Stack Hub SQL リソース プロバイダーをデプロイする前に�
 
 - まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack Hub を登録](azure-stack-registration.md)します。
 
-- **Windows Server 2016 Datacenter - Server Core** イメージをダウンロードして、必要な Windows Server Core VM を Azure Stack Hub Marketplace に追加します。
+- 必要な Windows Server VM を Azure Stack Hub Marketplace に追加します。
+  * SQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
+  * SQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
+
 
 - 次のバージョン マッピングの表に従って、サポートされているバージョンの SQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
-  |サポートされる Azure Stack Hub のバージョン|SQL RP バージョン|
-  |-----|-----|
-  |2005、2002、1910|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|
-  |1908|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)| 
-  |     |     |
+  |サポートされる Azure Stack Hub のバージョン|SQL RP バージョン|RP サービスが実行されている Windows Server
+  |-----|-----|-----|
+  |2005|[SQL RP バージョン 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2005、2002、1910|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
+  |1908|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
+  |     |     |     |
 
 - データセンターの統合の前提条件を満たしていることを確認します。
 
@@ -57,15 +61,26 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 # path to save the packages, c:\temp\azs1.6.0 as an example here
 $Path = "c:\temp\azs1.6.0"
+```
+
+2. デプロイするリソース プロバイダーのバージョンに応じて、いずれかのスクリプトを実行します。
+
+```powershell
+# for resource provider version >= 1.1.93.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.8.2
 ```
+```powershell
+# for resource provider version <= 1.1.47.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.6.0
+```
 
-2. その後、ダウンロードしたパッケージを USB デバイスにコピーします。
+3. その後、ダウンロードしたパッケージを USB デバイスにコピーします。
 
-3. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
+4. 接続が切断されたワークステーションにサインインし、パッケージを USB デバイスからワークステーション上の場所にコピーします。
 
-4. この場所をローカル リポジトリとして登録します。
+5. この場所をローカル リポジトリとして登録します。
 
 ```powershell
 # requires -Version 5
@@ -102,7 +117,7 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 - Azure Stack Hub のストレージ アカウントに、証明書とその他のアーティファクトをアップロードします。
 - ギャラリー パッケージを発行して、ギャラリーを使用して SQL データベースをデプロイできるようにします。
 - ホスティング サーバーをデプロイするためのギャラリー パッケージを発行します。
-- ダウンロードした Windows Server 2016 Core イメージを使用して VM をデプロイした後、SQL リソース プロバイダーをインストールします。
+- ダウンロードした Windows Server 2016 Core イメージまたは Microsoft AzureStack Add-on RP Windows Server イメージを使用して VM をデプロイした後、SQL リソース プロバイダーをインストールします。
 - リソース プロバイダー VM にマップされるローカル DNS レコードを登録します。
 - リソース プロバイダーをオペレーター アカウントのローカルの Azure Resource Manager に登録します。
 
@@ -129,7 +144,7 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>カスタム スクリプトを使用して SQL リソース プロバイダーをデプロイする
 
-SQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンをデプロイする場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack Hub モジュールをインストールする必要があります。 SQL リソース プロバイダーのバージョン 1.1.47.0 をデプロイする場合は、デプロイ スクリプトが自動的にダウンロードされ、C:\Program Files\SqlMySqlPsh へのパスに必要な PowerShell モジュールがインストールされます。
+SQL リソース プロバイダーのバージョン 1.1.33.0 以前のバージョンをデプロイする場合は、PowerShell で特定のバージョンの AzureRm.BootStrapper と Azure Stack Hub モジュールをインストールする必要があります。 SQL リソース プロバイダーのバージョン 1.1.47.0 以降をデプロイする場合は、デプロイ スクリプトにより自動的に必要な PowerShell モジュールがダウンロードされ、パス C:\Program Files\SqlMySqlPsh にインストールされます。
 
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile, and install the AzureStack module
@@ -173,7 +188,7 @@ $CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domai
 # Change the following as appropriate.
 $PfxPass = ConvertTo-SecureString 'P@ssw0rd1' -AsPlainText -Force
 
-# For version 1.1.47.0, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
+# For version 1.1.47.0 or later, the PowerShell modules used by the RP deployment are placed in C:\Program Files\SqlMySqlPsh
 # The deployment script adds this path to the system $env:PSModulePath to ensure correct modules are used.
 $rpModulePath = Join-Path -Path $env:ProgramFiles -ChildPath 'SqlMySqlPsh'
 $env:PSModulePath = $env:PSModulePath + ";" + $rpModulePath 

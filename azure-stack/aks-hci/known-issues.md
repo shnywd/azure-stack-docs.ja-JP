@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 89324bbfe2c1f28e268a22a9b31c880daaddecd6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
+ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949333"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91592834"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビューに関する既知の問題
 この記事では、Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビュー リリースに関する既知の問題について説明します。
@@ -41,8 +41,8 @@ Azure Stack HCI 上に Azure Kubernetes Service をデプロイして構成す�
 これは、ファイルを zip 形式にする PowerShell コマンド `Compress-Archive` に、2 GB の出力ファイル サイズ制限があるためです。 この問題は将来のリリースで修正される予定です。
 
 ## <a name="azure-kubernetes-service-powershell-deployment-doesnt-check-for-available-memory-before-creating-a-new-target-cluster"></a>Azure Kubernetes Service の PowerShell によるデプロイで、新しいターゲット クラスターを作成する前に使用可能なメモリが調べられない
-PowerShell コマンド Aks-Hci では、Kubernetes ノードを作成する前に、ホスト サーバーで使用可能なメモリが確認されません。 これにより、メモリ不足に至り、バーチャル マシンが起動しなくなる可能性があります。 このエラーは、現在正しく処理されておらず、明確なエラー メッセージを示さずにデプロイがハングします。
-ハングしているように見えるデプロイがある場合は、`Eventviewer` を開き、VM を起動するのに十分なメモリがないことを示す Hyper-V 関連のエラー メッセージがないか調べます。
+PowerShell コマンド Aks-Hci では、Kubernetes ノードを作成する前に、ホスト サーバーで使用可能なメモリが確認されません。 これにより、メモリ不足に至り、バーチャル マシンが起動しなくなる可能性があります。 このエラーは、現在正しく処理されておらず、明確なエラー メッセージを示さずにデプロイが応答しなくなります。
+デプロイが応答しなくなった場合は、`Eventviewer` を開き、VM を起動するのに十分なメモリがないことを示す Hyper-V 関連のエラー メッセージがないか調べます。
 この問題は将来のリリースで修正される予定です
 
 ## <a name="azure-kubernetes-service-deployment-fails-on-an-azure-stack-hci-configured-with-static-ips-vlans-sdn-or-proxies"></a>静的 IP、VLAN、SDN、またはプロキシを使用して構成された Azure Stack HCI では Azure Kubernetes Service のデプロイが失敗する。
@@ -67,3 +67,12 @@ Azure Stack HCI 上の Azure Kubernetes Service の負荷分散ソリューシ�
 ## <a name="cannot-deploy-azure-kubernetes-service-to-an-environment-that-has-separate-storage-and-compute-clusters"></a>独立したストレージやコンピューティングのクラスターを持つ環境に Azure Kubernetes Service をデプロイできない
 Windows Admin Center では、コンピューティングとストレージのリソースが同じクラスターによって提供されると予期されているため、独立したストレージやコンピューティングのクラスターを持つ環境には Azure Kubernetes Service がデプロイされません。 ほとんどの場合、コンピューティング クラスターによって公開される CSV が見つからず、デプロイの続行が拒否されます。
 この問題は将来のリリースで修正される予定です。
+
+## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center では、Azure Kubernetes Service for Azure Stack HCI がデスクトップ モードでのみサポートされる
+プレビューでは、すべての Azure Kubernetes Service for Azure Stack HCI の機能が、Windows Admin Center のデスクトップ モードでのみサポートされています。 Windows Admin Center ゲートウェイは、Windows 10 の PC にインストールする必要があります。 Windows Admin Center のインストール オプションの詳細については、[Windows Admin Center のドキュメント](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options)を参照してください。 追加のシナリオは、今後のリリースでサポートされる予定です。
+
+## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>再起動が必要な場合、Windows Admin Center で Azure Kubernetes Service ホストのセットアップが失敗する
+PowerShell や Hyper-V などの役割をインストールするために、使用している 1 つまたは複数のサーバーを再起動する必要がある場合、Azure Kubernetes Service ホストのセットアップ ウィザードは失敗します。 現在の回避策は、ウィザードを終了し、サーバーがオンラインに戻った後に同じシステムでもう一度実行します。 この問題は将来のリリースで修正される予定です。
+
+## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Azure Kubernetes Service ホスト セットアップの Azure 登録手順で、再試行を求められる
+Windows Admin Center を使用して Azure Kubernetes Service ホストを設定するときに、Azure 登録ページで必要な情報を入力した後で再試行するように求められる場合があります。 この手順を続行するには、Windows Admin Center ゲートウェイでもう一度 Azure にサインインする必要がある場合があります。 この問題は将来のリリースで修正される予定です。

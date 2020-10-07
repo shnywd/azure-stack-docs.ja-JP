@@ -3,16 +3,16 @@ title: 更新プログラムの管理
 description: Azure Stack Hub 上で更新プログラムを管理する方法について説明します
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/25/2020
 ms.author: sethm
 ms.lastreviewed: 07/16/2020
 ms.reviewer: niy
-ms.openlocfilehash: b5aa356cfdb77cac5609b7e835add0d32a8e26cf
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: e769999ce24e1571b93c94a707c62df757460705
+ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88073858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367225"
 ---
 # <a name="manage-updates-in-azure-stack-hub"></a>Azure Stack Hub での更新プログラム管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "88073858"
 
 次の頻度で、3 種類の更新プログラムがリリースされます。
 
-- **Azure Stack Hub ソフトウェア更新プログラム**。 Microsoft は通常、毎月ソフトウェア更新プログラム パッケージをリリースしています。
+- **Azure Stack Hub ソフトウェア更新プログラム**。 Microsoft は、1 年あたり複数のフルおよび急ぎのソフトウェア更新プログラム パッケージをリリースします。
 
 - **Azure Stack Hub 修正プログラム**。 修正プログラムは、いつでもリリースされる可能性がある緊急のリリースです。 あるメジャー バージョンから別のメジャー バージョンに更新すると (たとえば、1.2002.x から 1.2005.x)、新しいメジャー バージョンの最新の修正プログラム (存在する場合) が自動的にインストールされます。
 

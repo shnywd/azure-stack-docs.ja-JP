@@ -6,17 +6,17 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 08/12/2020
-ms.openlocfilehash: aeed44bdc36036272e223cbc1cb740396ce1413e
-ms.sourcegitcommit: 750d8682261ac1a3c47fbeb331ac0b4e6f76a03e
+ms.date: 09/24/2020
+ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
+ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89219303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91230497"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
-> Azure Stack HCI v20H2、Windows Server 2019 に適用されます
+> 適用対象:Azure Stack HCI v20H2
 
 Azure Stack HCI は Azure サービスとして提供され、Azure オンライン サービス条件に従ってインストールから 30 日以内に登録する必要があります。 このトピックでは、監視、サポート、課金、およびハイブリッド サービスのために、Azure Stack HCI クラスターを [Azure Arc](https://azure.microsoft.com/services/azure-arc/) に登録する方法について説明します。 登録時に、オンプレミスの個々の Azure Stack HCI クラスターを表す Azure Resource Manager リソースが作成されます。これにより、Azure 管理プレーンが Azure Stack HCI に効果的に拡張されます。 Azure リソースとオンプレミス クラスターの間で情報が定期的に同期されます。 
 

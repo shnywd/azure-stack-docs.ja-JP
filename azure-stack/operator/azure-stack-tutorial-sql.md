@@ -8,24 +8,24 @@ ms.date: 10/07/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 10/23/2019
-ms.openlocfilehash: ce3f6e0542678fe2d399e101a90a916cf412599f
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b30126bcfbbe57cd36a54ce1f5fc487014fe7a03
+ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487721"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91572876"
 ---
 # <a name="create-highly-available-sql-databases-with-azure-stack-hub"></a>Azure Stack Hub を使用して高可用性 SQL データベースを作成する
 
 Azure Stack Hub オペレーターとして、SQL Server データベースをホストするようにサーバー VM を構成できます。 SQL ホスティング サーバーが作成されて、Azure Stack Hub によって管理されると、SQL サービスにサブスクライブしているユーザーは SQL データベースを簡単に作成できます。
 
-この記事では、Azure Stack Hub クイックスタート テンプレートを使用して [SQL Server Always On 可用性グループ](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server?view=sql-server-2017)を作成し、それを Azure Stack Hub SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について示します。
+この記事では、Azure Stack Hub クイックスタート テンプレートを使用して [SQL Server Always On 可用性グループ](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)を作成し、それを Azure Stack Hub SQL ホスティング サーバーとして追加し、高可用性 SQL データベースを作成する方法について示します。
 
 ここでは、次の内容について学習します。
 
 > [!div class="checklist"]
 > * テンプレートから SQL Server AlwaysOn 可用性グループを作成する。
-> * Azure Stack Hub SQL ホスティング サーバーを作成する。
+> * SQL Server AlwaysOn 可用性グループを Azure Stack Hub SQL ホスティング サーバーとして構成する。
 > * 高可用性 SQL データベースを作成する。
 
 入手できる Azure Stack Marketplace の項目を使用して、2 つの VM SQL Server AlwaysOn 可用性グループを作成および構成します。
@@ -124,7 +124,7 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 ### <a name="configure-contained-database-authentication"></a>包含データベース認証を構成する
 
-包含データベースを可用性グループに追加する前に、包含データベース認証サーバー オプションが、可用性グループの可用性レプリカをホストするすべてのサーバー インスタンスで 1 に設定されていることを確認します。 詳細については、[包含データベースの認証](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)に関するページを参照してください。
+包含データベースを可用性グループに追加する前に、包含データベース認証サーバー オプションが、可用性グループの可用性レプリカをホストするすべてのサーバー インスタンスで 1 に設定されていることを確認します。 詳細については、[包含データベースの認証](/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option)に関するページを参照してください。
 
 これらのコマンドを使用して、可用性グループ内の SQL Server インスタンスごとに包含データベース認証サーバー オプションを設定します。
 
@@ -137,9 +137,9 @@ Azure Stack Marketplace への項目の追加に関する詳細については�
 
 ![包含データベースの認証を設定する](./media/azure-stack-tutorial-sqlrp/sql3.png)
 
-## <a name="create-an-azure-stack-hub-sql-hosting-server"></a>Azure Stack Hub SQL ホスティング サーバーを作成する
+## <a name="configure-an-azure-stack-hub-sql-hosting-server"></a>Azure Stack Hub SQL ホスティング サーバーを構成する
 
-SQL Server AlwayOn 可用性グループが作成され、適切に構成されたら、Azure Stack Hub オペレーターは Azure Stack Hub SQL ホスティング サーバーを作成する必要があります。 SQL ホスティング サーバーによって、ユーザーはデータベースを作成するための追加の容量を利用できるようになります。
+SQL Server AlwayOn 可用性グループが作成され、適切に構成されたら、Azure Stack Hub オペレーターは Azure Stack Hub SQL ホスティング サーバーとしてこれを構成する必要があります。 
 
 以前に SQL AlwaysOn 可用性グループのリソース グループが作成されたときにメモした SQL ロード バランサーのパブリック IP またはパブリック IP の完全な FQDN を必ず使用します (**SQLPIPsql\<resource group name\>** )。 また、AlwaysOn 可用性グループの SQL インスタンスにアクセスするために使用される SQL Server 認証資格情報を知る必要があります。
 
