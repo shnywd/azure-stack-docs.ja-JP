@@ -78,6 +78,8 @@
           href: manage/manage-azure-registration.md
         - name: 言語の変更
           href: manage/languages.md
+        - name: プライバシー設定を変更する
+          href: manage/change-privacy-settings.md
         - name: クラスター検証レポートのトラブルシューティング
           href: manage/validate-qos.md
         - name: CredSSP のトラブルシューティング
