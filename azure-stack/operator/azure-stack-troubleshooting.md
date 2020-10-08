@@ -2,18 +2,18 @@
 title: Azure Stack Hub のトラブルシューティングを行う
 titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 07/21/2020
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: prchint
 ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 8072a868106de26be3cbb2b2918d97696647df77
-ms.sourcegitcommit: 03aad17afe8519536066c735c59ad1bdfe8de083
+ms.openlocfilehash: 403335a81a5ac02f2e32432f54df584baf7c2a02
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89041623"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778142"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -30,7 +30,7 @@ ms.locfileid: "89041623"
 
 ### <a name="updates-and-diagnostics"></a>更新と診断
 
-* [Azure Stack Hub で診断ツールを使用する方法](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [Azure Stack Hub で診断ツールを使用する方法](./azure-stack-diagnostic-log-collection-overview.md)
 * [Azure Stack Hub システムの状態を検証する方法](azure-stack-diagnostic-test.md)
 * [更新プログラム パッケージのリリース周期](azure-stack-servicing-policy.md#update-package-release-cadence)
 * [ノードの状態の確認とトラブルシューティング](azure-stack-node-actions.md)
@@ -199,11 +199,11 @@ App Service に必要な Create-AADIdentityApp.ps1 スクリプトが失敗す�
 
 Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
 
-0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)にしていることを確認してください。
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)にしていることを確認してください。
 
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
 
-2. 問題を解決できない場合は、[Azure Stack Hub のサポート チケット](./azure-stack-help-and-support-overview.md?view=azs-2002)を作成します。 問題が発生した期間に[収集されたログ](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)があることを確認してください。
+2. 問題を解決できない場合は、[Azure Stack Hub のサポート チケット](./azure-stack-help-and-support-overview.md?view=azs-2002)を作成します。 問題が発生した期間に[収集されたログ](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)があることを確認してください。
 
 ## <a name="common-azure-stack-hub-patch-and-update-issues"></a>Azure Stack Hub の修正プログラムと更新プログラムに関する一般的な問題
 

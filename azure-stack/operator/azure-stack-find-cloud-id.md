@@ -1,18 +1,18 @@
 ---
 title: クラウド ID を検索する
 description: Azure Stack Hub の [ヘルプとサポート] でクラウド ID を検索する方法について説明します。
-author: justinha
+author: myoungerman
 ms.topic: article
 ms.date: 10/08/2019
-ms.author: justinha
+ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 10/08/2019
-ms.openlocfilehash: 647f731d1d82c41d26142ff88e56b8ec0717f5ef
-ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
+ms.openlocfilehash: e14a2a000b52f09f664112467ce8694134243681
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90038813"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778229"
 ---
 # <a name="find-your-cloud-id"></a>クラウド ID を検索する
 
@@ -51,5 +51,5 @@ ms.locfileid: "90038813"
 
 ## <a name="next-steps"></a>次のステップ
 
-* [ログを事前に送信する](./azure-stack-configure-automatic-diagnostic-log-collection.md?view=azs-2002)
-* [今すぐログを送信する](./azure-stack-configure-on-demand-diagnostic-log-collection-portal.md?view=azs-2002)
+* [ログを事前に送信する](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)
+* [今すぐログを送信する](./azure-stack-diagnostic-log-collection-overview.md#send-logs-now)

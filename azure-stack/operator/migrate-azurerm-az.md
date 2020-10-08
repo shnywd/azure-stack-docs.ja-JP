@@ -4,15 +4,15 @@ description: Azure Stack Hub で AzureRM モジュールから新しい Az モ�
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 10/05/2020
 ms.reviewer: sijuman
 ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: 9b41f2f25e2c9c727d397dedd3f95e9683080e25
-ms.sourcegitcommit: 4922a14fdbc8a3b67df065336e8a21a42f224867
+ms.openlocfilehash: ea3ec5389aa00d0b606d86e483a8ca5a2607aa1a
+ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88764751"
+ms.lasthandoff: 10/05/2020
+ms.locfileid: "91729238"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Azure Stack Hub での AzureRM から Azure PowerShell Az への移行
 
@@ -23,7 +23,7 @@ AzureRM と Az の間の破壊的変更の完全な一覧については、「[M
 
 ## <a name="check-for-installed-versions-of-azurerm"></a>インストールされている AzureRM のバージョンを確認する
 
-Az モジュールは AzureRM モジュールと同時にインストールできますが、これはお勧めしません。 移行手順を実行する前に、システムにインストールされている AzureRM のバージョンを確認します。 これにより、スクリプトが最新のリリースで既に実行中であることを確認し、AzureRM をアンインストールせずにコマンドの別名を有効にできるかどうかを把握することができます。
+移行手順を実行する前に、システムにインストールされている AzureRM のバージョンを確認します。 これにより、スクリプトが最新のリリースで既に実行中であることを確認し、AzureRM をアンインストールせずにコマンドの別名を有効にできるかどうかを把握することができます。
 
 インストールされている AzureRM のバージョンを確認するには、次のコマンドを実行します。
 

@@ -7,12 +7,12 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 75138fa2b74666fee4149bf444558c98c250b4c8
-ms.sourcegitcommit: 9557a5029cf329599f5b523c68e8305b876108d7
+ms.openlocfilehash: 81c2db63471e8943c201d1b6979ab0a9b0da6e85
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88965162"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815344"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
@@ -64,8 +64,6 @@ ms.locfileid: "88965162"
 ## <a name="deploy-the-fortigate-ngfw-marketplace-items"></a>FortiGate NGFW Marketplace 項目をデプロイする
 
 1. Azure Stack Hub ユーザー ポータルを開きます。
-
-    ![ホーム画面が表示され、左ウィンドウに [+ リソースの作成] という選択項目が表示されます。](./media/azure-stack-network-howto-vnet-to-onprem/image5.png)
 
 1. **[リソースの作成]** を選択し、`FortiGate` を検索します。
 
@@ -193,7 +191,7 @@ NVA をアクティブにしたら、NVA で IPSec VPN トンネルを作成し�
 
 20. オンプレミスの VPN デバイスを介して接続する、オンプレミス ネットワークを表す適切なリモート サブネットを入力します。
 
-    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、3 番目の手順である [Policy & Routing]\(ポリシーとルーティング\) を示しています。 選択および入力した値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image18.png)
+    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、3 番目の手順である [Policy & Routing]\(ポリシーとルーティング\) を示しています。 選択した値と入力した値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image18.png)
 
 21. **[作成]**
 
