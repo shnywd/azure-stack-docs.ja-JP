@@ -3,16 +3,16 @@ title: Azure Stack Hub ポータルを使用して Windows VM を作成する
 description: Azure Stack Hub ポータルを使用して Windows Server 2016 仮想マシン (VM) を作成する方法について説明します。
 author: mattbriggs
 ms.topic: quickstart
-ms.date: 08/24/2020
+ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 1/10/2020
-ms.openlocfilehash: bbf0ad658100457c9d7b6b47e9f89b2af48e0e1f
-ms.sourcegitcommit: 65a115d1499b5fe16b6fe1c31cce43be21d05ef8
+ms.lastreviewed: 10/06/2020
+ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88819169"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815420"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する
 
@@ -31,10 +31,10 @@ Azure Stack Hub ポータルにサインインします。 Azure Stack Hub ポ�
 
 ## <a name="create-a-vm"></a>VM の作成
 
-1. **[リソースの作成]**  >  **[Compute]** の順に選択します。 ` Windows Server 2016 Datacenter – Pay as you use` を検索します。
+1. **[リソースの作成]**  >  **[Compute]** の順に選択します。 ` Windows Server 2016 Datacenter - Pay as you use` を検索します。
     **[Windows Server 2016 Datacenter - Pay-as-you-use]** エントリが表示されない場合は、Azure Stack Hub クラウド オペレーターに問い合わせて、Azure Stack Hub Marketplace に追加されるイメージを要求してください。 クラウド オペレータは、手順について、「[Azure Stack Hub Marketplace のカスタム アイテムを作成して発行する](../operator/azure-stack-create-and-publish-marketplace-item.md)」を参照できます。
 
-    ![Windows Server 2016 Datacenter - Pay as you use](./media/azure-stack-quick-windows-portal/image1.png)
+    ![Windows Server 2016 Datacenter - 従量課金制](./media/azure-stack-quick-windows-portal/image1.png)
 
 1. **［作成］** を選択します
 
