@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: d4dc446f5d58f25ba6183cf4415b5f4e2d34df9a
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.date: 10/01/2020
+ms.openlocfilehash: 8a4c8557fe708535bfdde383ef30dd78395b1c01
+ms.sourcegitcommit: 09572e1442c96a5a1c52fac8ee6b0395e42ab77d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230463"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91625874"
 ---
 # <a name="before-you-deploy-azure-stack-hci"></a>Azure Stack HCI をデプロイする前に
 
@@ -145,6 +145,57 @@ Windows Admin Center で [クラスターの作成] ウィザードを使用し�
 - ICMPv4 および ICMPv6 (Test-SRTopology を使用している場合)
 
 上記の一覧にないポートが追加で必要になる場合があります。 これらは、Azure Stack HCI の基本機能用のポートです。
+
+### <a name="network-switch-requirements"></a>ネットワーク スイッチの要件
+
+このセクションでは、Azure Stack HCI で使用される物理スイッチの要件を定義します。 これらの要件には、すべての Azure Stack HCI のデプロイに必須の業界仕様、組織の標準、およびプロトコルが含まれます。 特に明記されていない限り、標準の最新のアクティブな (置き換えられていない) バージョンが必要です。
+
+これらの要件は、Azure Stack HCI クラスターのデプロイでのノード間に信頼性の高い通信を確保するのに役立ちます。 ノード間の信頼性の高い通信は重要です。 Azure Stack HCI に必要なレベルの信頼性を備えるには、スイッチに次のことが必要です。
+
+- 該当する業界仕様、標準、およびプロトコルに準拠している
+- スイッチでどの仕様、標準、プロトコルがサポートされるかに関する可視性を提供する
+- どの機能が有効になっているかに関する情報を提供する
+
+お使いのスイッチで以下がサポートされている場合は、スイッチのベンダーにお問い合わせください。
+
+#### <a name="standard-ieee-8021q"></a>標準: IEEE 802.1Q
+
+イーサネット スイッチは、VLAN を定義する IEEE 802.1 Q 仕様に準拠している必要があります。 VLAN は Azure Stack HCI のいくつかの側面に必要であり、すべてのシナリオで必要です。
+
+#### <a name="standard-ieee-8021qbb"></a>標準: IEEE 802.1Qbb
+
+イーサネット スイッチは、プライオリティ フロー制御 (PFC) を定義する IEEE 802.1Qbb 仕様に準拠している必要があります。 PFC は、データ センター ブリッジング (DCB) を使用する場合に必要です。 DCB は RoCE と iWARP RDMA の両方のシナリオで使用できるため、802.1 Qbb はすべてのシナリオで必要です。 スイッチ機能またはポート速度をダウングレードせずに、少なくとも 3 つのサービスのクラス (CoS) の優先順位が必要です。
+
+#### <a name="standard-ieee-8021qaz"></a>標準: IEEE 802.1Qaz
+
+イーサネット スイッチは、拡張送信選択 (ETS) を定義する IEEE 802.1Qaz 仕様に準拠している必要があります。 ETS は、DCB を使用する場合に必要です。 DCB は RoCE と iWARP RDMA の両方のシナリオで使用できるため、802.1Qaz はすべてのシナリオで必要です。 スイッチ機能またはポート速度をダウングレードせずに、少なくとも 3 つの CoS の優先順位が必要です。
+
+#### <a name="standard-ieee-8021ab"></a>標準: IEEE 802.1AB
+
+イーサネット スイッチは、Link Layer Discovery Protocol (LLDP) を定義する IEEE 802.1AB 仕様に準拠している必要があります。 LLDP は、Windows によるスイッチの構成の検出に必要です。 LLDP の Type-Length-Values (TLV) の構成は、動的に有効にする必要があります。 これらのスイッチには、追加の構成は必要ありません。
+
+たとえば、802.1 サブタイプ 3 を有効にすると、スイッチ ポートで使用可能なすべての VLAN が自動的にアドバタイズされます。
+
+#### <a name="tlv-requirements"></a>TLV の要件
+
+LLDP を使用すると、組織は独自のカスタム TLV を定義してエンコードすることができます。 これらは、組織固有の TLV と呼ばれます。 すべての組織固有の TLV は、127 という LLDP TLV Type 値で開始されます。 次の表に、どのような組織固有のカスタム TLV (TLV Type 127) サブタイプが必要であり、どれが省略可能であるかを示します。
+
+|条件|Organization|TLV サブタイプ|
+|-|-|-|
+|必須|IEEE 802.1|VLAN 名 (サブタイプ = 3)|
+|必須|IEEE 802.3|最大フレーム サイズ (サブタイプ = 4)|
+|省略可能|IEEE 802.1|ポート VLAN ID (サブタイプ = 1)|
+|省略可能|IEEE 802.1|ポートとプロトコル VLAN ID (サブタイプ = 2)|
+|省略可能|IEEE 802.1|リンク アグリゲーション (サブタイプ = 7)|
+|省略可能|IEEE 802.1|輻輳通知 (サブタイプ = 8)|
+|省略可能|IEEE 802.1|ETS 構成 (サブタイプ = 9)|
+|省略可能|IEEE 802.1|ETS レコメンデーション (サブタイプ = A)|
+|省略可能|IEEE 802.1|PFC 構成 (サブタイプ = B)|
+|省略可能|IEEE 802.1|EVB (サブタイプ = D)|
+|省略可能|IEEE 802.3|リンク アグリゲーション (サブタイプ = 3)|
+
+> [!NOTE]
+> 一覧表示されているオプション機能の一部は、今後必要になる場合があります。
 
 ### <a name="storage-requirements"></a>ストレージの要件
 

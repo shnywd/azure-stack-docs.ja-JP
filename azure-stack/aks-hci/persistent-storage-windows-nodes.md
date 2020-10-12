@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/21/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 7436498ea993281f803d7ff8a0c4108728570f59
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 91f7249beb34e5afee808d299df48611a5ce26bb
+ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949357"
+ms.lasthandoff: 10/06/2020
+ms.locfileid: "91778124"
 ---
 # <a name="use-persistent-storage-in-a-windows-container-and-prepare-windows-nodes-for-group-managed-service-accounts"></a>Windows コンテナーで永続的ストレージを使用し、グループの管理サービス アカウント用に Windows ノードを準備する
 
@@ -146,7 +146,7 @@ kubectl get nodes -o wide
 
 次に `ssh Administrator@ip` を使用して、SSH でノードに接続できます。 
 
-Windows ワーカー ノードに正常にログインしたら、次の PowerShell コマンドを実行してドメインにノードを参加させます。 **ドメイン管理者アカウント**の資格情報を入力するよう求められます。 特定のドメインにコンピューターを参加させる権限が付与されている、昇格されたユーザー資格情報を使用することもできます。 その後、Windows ワーカー ノードを再起動する必要があります。
+Windows ワーカー ノードに正常にログインしたら、次の PowerShell コマンドを実行してノードをドメインに参加させます。 **ドメイン管理者アカウント**の資格情報を入力するよう求められます。 特定のドメインにコンピューターを参加させる権限が付与されている、昇格されたユーザー資格情報を使用することもできます。 その後、Windows ワーカー ノードを再起動する必要があります。
 
 ```PowerShell
 add-computer --domainame "YourDomainName" -restart

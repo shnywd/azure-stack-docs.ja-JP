@@ -7,12 +7,12 @@ ms.date: 09/28/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/28/2020
-ms.openlocfilehash: 03824b30d3d5d5c8982b1295a5999c299d14cf08
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: b4c5a2f6af605cc390a990df874bceae691006d3
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495764"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810645"
 ---
 # <a name="release-notes-for-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのリリース ノート
 ::: moniker range=">=azs-2002"
@@ -68,7 +68,7 @@ Azure Stack Hub 用 AKS エンジンのドキュメントで説明されてい�
 
 -   Azure Stack Hub オペレーターは、新しい AKS 基本 Ubuntu イメージをスタンプ マーケットプレースにダウンロードする必要があります。
 
-    -   名前:AKS 基本 Ubuntu 16.04-LTS イメージ ディストリビューション、2020 年 8 月 (2020.09.14)
+    -   名前:AKS Base Ubuntu 16.04-LTS イメージ ディストリビューション、9 月 2020 (2020.09.14)
 
     -   バージョン:2020.09.14
 

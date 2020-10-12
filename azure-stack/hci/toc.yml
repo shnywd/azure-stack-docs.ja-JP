@@ -118,12 +118,20 @@
           href: concepts/quorum.md
     - name: ネットワーク
       items:
-        - name: ソフトウェアによるネットワーク
+        - name: ソフトウェア定義ネットワーク (SDN)
           href: concepts/software-defined-networking.md
         - name: SDN インフラストラクチャを計画する
           href: concepts/plan-software-defined-networking-infrastructure.md
+        - name: ネットワーク コント ローラーの概要
+          href: concepts/network-controller-overview.md
         - name: ネットワーク コントローラーを計画する
           href: concepts/network-controller.md
+        - name: ソフトウェア ロード バランサーの概要
+          href: concepts/software-load-balancer.md
+        - name: RAS ゲートウェイの概要
+          href: concepts/gateway-overview.md
+        - name: ルート リフレクターの概要
+          href: concepts/route-reflector-overview.md
     - name: メンテナンスとセキュリティ
       items:
         - name: 課金

@@ -7,12 +7,12 @@ ms.date: 04/10/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 231e4ac3b0bc8e0d43c608ff252f7d4c274e84a8
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.openlocfilehash: 1a8e4618f81f157ff05117505bf5b76922bd4c35
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428551"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91815140"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>外部の監視ソリューションと Azure Stack Hub を統合する
 
@@ -119,9 +119,9 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 
 | パラメーター | 説明 | 認証 |
 | --- | --- | --- |
-| **External_domain_fqdn ** | 外部ドメイン FQDN |    |
-| **region: ** | リージョン名 |    |
-| **tenant_id: ** | テナント ID\* |    |
+| **External_domain_fqdn** | 外部ドメイン FQDN |    |
+| **region:** | リージョン名 |    |
+| **tenant_id:** | テナント ID\* |    |
 | client_id: | クライアント ID | シークレットを使用する SPN |
 | client_secret: | クライアント パスワード | シークレットを使用する SPN |
 | client_cert\*\*: | 証明書へのパス | 証明書を使用する SPN |

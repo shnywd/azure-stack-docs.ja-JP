@@ -4,23 +4,25 @@ description: クラスター検証の重要性、どのようなときに既存�
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 8a096af308901669def134e0dd281490c5ed0294
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.date: 10/2/2020
+ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
+ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572087"
+ms.lasthandoff: 10/02/2020
+ms.locfileid: "91663943"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターの検証
 
 >適用対象:Azure Stack HCI バージョン v20H2、Windows Server 2019
 
 このハウツー記事では、クラスターの検証が重要である理由と、どのようなときに既存の Azure Stack HCI クラスターに対してそれを実行するかについて説明します。 主に次のようなシナリオで、クラスターの検証を実行することをお勧めします。
-- サーバー クラスターをデプロイした後、Validate-DCB ツールを実行してネットワークをテストし、Windows Admin Center でクラスターの検証を実行します。
+- サーバー クラスターをデプロイした後、Validate-DCB ツールを実行してネットワークをテストします。
 - サーバー クラスターを更新した後、シナリオによっては、両方の検証オプションを実行して、クラスターの問題のトラブルシューティングを行います。
 - 記憶域レプリカを使用してレプリケーションを設定した後、いくつかの具体的なイベントを調べて、コマンドをいくつか実行することにより、レプリケーションが正常に進行していることを確認します。
-Azure Stack HCI クラスターをデプロイする方法の詳細については、「[記憶域スペース ダイレクトの展開](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct)」を参照してください。
+- サーバー クラスターを作成したら、運用環境に配置する前に Validate-DCB ツールを実行します。
+
+    Azure Stack HCI クラスターをデプロイする方法の詳細については、「[デプロイの概要](deployment-overview.md)」を参照してください。
 
 ## <a name="what-is-cluster-validation"></a>クラスターの検証とは
 クラスターの検証の目的は、クラスターの運用を始める前に、ハードウェアまたは構成の問題を検出することです。 クラスターの検証を行うと、デプロイしようとしている Azure Stack HCI ソリューションが本当に信頼できることを確認するのに役立ちます。 また、構成済みのフェールオーバー クラスターで診断ツールとしてクラスターの検証を使用することもできます。
@@ -84,14 +86,14 @@ Validate-DCB ツールをインストールして実行するには:
    1. **[Adapter Name]\(アダプター名\)** に各物理 NIC の名前を入力し、 **[Host vNIC Name]\(ホスト vNIC 名\)** に各仮想 NIC (vNIC) の名前を入力し、 **[VLAN]** に各アダプターで使用されている VLAN ID を入力します。
    1. **[RDMA Type]\(RDMA の種類\)** ドロップダウンの一覧を展開して、適切なプロトコルを選択します: **[RoCE]** または **[iWARP]** 。 また、 **[Jumbo Frames]\(ジャンボ フレーム\)** をネットワークに対する適切な値に設定し、 **[次へ]** を選択します。
 
-    :::image type="content" source="../media/validate/adapters.png" alt-text="Validate-DCB 構成ウィザードの [Adapters]\(アダプター\) ページ" lightbox="../media/validate/adapters.png":::
+    :::image type="content" source="../media/validate/adapters.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ" lightbox="../media/validate/adapters.png":::
 
     > [!NOTE]
     > - SR-IOV によるネットワーク パフォーマンスの向上の詳細については、「[シングル ルート I/O 仮想化 (SR-IOV) の概要](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-)」を参照してください。
 
 1. [Data Center Bridging]\(データ センター ブリッジング\) ページで、 **[Priority]\(優先順位\)** 、 **[Policy Name]\(ポリシー名\)** 、 **[Bandwidth Reservation]\(帯域幅予約\)** の値を組織の設定と一致するように変更して、 **[次へ]** を選択します。
 
-    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Validate-DCB 構成ウィザードの [Data Center Bridging]\(データ センター ブリッジング\) ページ" lightbox="../media/validate/data-center-bridging.png":::
+    :::image type="content" source="../media/validate/data-center-bridging.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ" lightbox="../media/validate/data-center-bridging.png":::
 
     > [!NOTE]
     > 前のウィザード ページで RDMA over RoCE を選択した場合は、すべての NIC とスイッチポートでネットワークの信頼性のために DCB が必要です。
@@ -100,7 +102,7 @@ Validate-DCB ツールをインストールして実行するには:
 
    - 必要に応じて、ページの **[Deploy Configuration to Nodes]\(ノードに構成をデプロイする\)** セクションを設定することで、構成ファイルをデプロイできます。これには、Azure Automation アカウントを使用して構成をデプロイしてから検証する機能が含まれます。 Azure Automation の使用を開始するには、「[Azure Automation アカウントを作成する](/azure/automation/automation-quickstart-create-account)」を参照してください。
 
-    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Validate-DCB 構成ウィザードの [Save and Deploy]\(保存とデプロイ\) ページ":::
+    :::image type="content" source="../media/validate/save-and-deploy.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 ### <a name="review-results-and-fix-errors"></a>結果を確認してエラーを修正する
 Validate-DCB ツールにより、2 つのユニットで結果が生成されます。
@@ -109,24 +111,24 @@ Validate-DCB ツールにより、2 つのユニットで結果が生成され�
 
 この例では、失敗カウントが 0 なので、すべての前提条件とモーダルのユニットのテストで、単一サーバーのスキャン結果が成功であったことが示されています。
 
-:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Validate-DCB のグローバル ユニットとモーダル ユニットのテストの結果":::
+:::image type="content" source="../media/validate/global-unit-and-modal-unit-results.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 次の手順では、vNIC SMB02 からのジャンボ パケット エラーを識別して修正する方法を示します。
 1. Validate-DCB ツール スキャンの結果では、失敗カウントで 1 つのエラーが示されています。
 
-    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="失敗カウントで 1 つのエラーが示されている Validate-DCB ツールのスキャン結果":::
+    :::image type="content" source="../media/validate/failed-count-error-1.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 1. 結果を上にスクロールするとエラーが赤で表示され、ホスト S046036 の vNIC SMB02 に対するジャンボ パケットが既定のサイズ 1514 に設定されてますが、9014 に設定する必要があることが示されています。
 
-    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="ジャンボ パケット サイズの設定エラーが示されている Validate-DCB ツールのスキャン結果":::
+    :::image type="content" source="../media/validate/jumbo-packet-setting-error.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 1. ホスト S046036 の vNIC SMB02 の **[詳細設定]** プロパティを確認すると、ジャンボ パケットが既定の **[無効]** に設定されていることがわかります。
 
-    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="サーバー ホストの Hyper-V の [詳細設定] プロパティでのジャンボ パケットの設定":::
+    :::image type="content" source="../media/validate/hyper-v-advanced-properties-jumbo-packet-setting.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 1. エラーを修正するには、ジャンボ パケット機能を有効にして、サイズを 9014 バイトに変更する必要があります。 ホスト S046036 でもう一度スキャンを実行すると、失敗カウントが 0 に戻っていることで、この変更が確認されます。
 
-    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="サーバー ホストのジャンボ パケット設定が修正されたことを確認する Validate-DCB スキャンの結果":::
+    :::image type="content" source="../media/validate/jumbo-packet-error-fix-confirmation.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 Validate-DCB ツールで明らかになったエラーの解決方法の詳細については、次のビデオをご覧ください。
 
@@ -143,7 +145,7 @@ Windows Admin Center で既存のクラスターのサーバーを検証する�
 1. **[インベントリ]** ページで、クラスター内のサーバーを選択し、 **[その他]** サブメニューを展開して、 **[クラスターの検証]** を選択します。
 1. **[クラスターの検証]** ポップアップ ウィンドウで、 **[はい]** を選択します。
 
-    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="[クラスターの検証] ポップアップ ウィンドウ":::
+    :::image type="content" source="../media/validate/validate-cluster-pop-up.png" alt-text="Validate-DCB 構成ウィザードの [Clusters and Nodes]\(クラスターとノード\) ページ":::
 
 1. **[Credential Security Service Provider (CredSSP)]** ポップアップ ウィンドウで、 **[はい]** を選択します。
 1. 資格情報を入力して **CredSSP** を有効にした後、 **[続行]** を選択します。<br> クラスターの検証がバックグラウンドで実行され、完了すると通知が表示されます。その時点で、次のセクションで説明するように、検証レポートを表示できます。

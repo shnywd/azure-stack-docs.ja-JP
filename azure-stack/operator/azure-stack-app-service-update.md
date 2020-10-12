@@ -8,12 +8,12 @@ ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/13/2019
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 6a63ae93488a13b2b3c8f872aadf882a9ccd1a13
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 5dc8599a62c4b9e10d603bf2f02f18bf5024e203
+ms.sourcegitcommit: edb60c948b445537e9411d6261c6c78359b71d0b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106864"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91810662"
 ---
 # <a name="update-azure-app-service-on-azure-stack-hub"></a>Azure App Service on Azure Stack Hub を更新する
 
@@ -141,7 +141,7 @@ Azure Stack Hub 環境内の App Service リソース プロバイダーをア�
 
 2. **[詳細]**  >  **[Complete offline installation or upgrade] (オフライン インストールまたはアップグレードを完了する)** をクリックします。
 
-    ![App Service インストーラーでオフラインのインストールまたはアップグレードを選択する方法を示すスクリーンショット。][12]
+    ![App Service インストーラーでオフラインのインストールまたはアップグレードを実行する方法を示すスクリーンショット。][12]
 
 3. 前に作成したオフライン アップグレード パッケージの場所を参照し、 **[次へ]** をクリックします。
 

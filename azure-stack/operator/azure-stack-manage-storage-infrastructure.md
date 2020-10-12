@@ -1,19 +1,19 @@
 ---
 title: Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 titleSuffix: Azure Stack
-description: Azure Stack Hub 用のストレージ インフラストラクチャを管理する方法について説明します。
+description: Azure Stack Hub 用のストレージ インフラストラクチャを管理する方法について説明します。 ボリュームとドライブの監視方法を確認します。 プールへのドライブの追加に関するトラブルシューティングのヒントを表示します。
 author: IngridAtMicrosoft
 ms.topic: article
 ms.date: 5/4/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/4/2020
 ms.reviewer: jiaha
-ms.openlocfilehash: 3fff3c9c7742d22c24ab540d4bf523ade3e7a227
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: a267c0bf5429bdd97b5a722f45f2fd188b63efb2
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848337"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623202"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack-hub"></a>Azure Stack Hub 用のストレージ インフラストラクチャを管理する
 この記事では、Azure Stack Hub のストレージ インフラストラクチャ リソースの正常性状態と操作状態について説明します。 この種のリソースには、ストレージ ドライブとストレージ ボリュームがあります。 このトピックの情報は、プールにドライブを追加できないなど、さまざまな問題のトラブルシューティングを行うときに役に立ちます。

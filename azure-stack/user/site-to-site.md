@@ -3,16 +3,16 @@ title: Azure Stack Hub でのサイト間 VPN 接続のトラブルシューテ�
 description: オンプレミス ネットワークと Azure Stack Hub 仮想ネットワークの間のサイト間 VPN 接続を構成した後に実行できるトラブルシューティング手順。
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/12/2020
+ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: e4385f7b1ac22f36f069e9ac4d5b35011e290982
-ms.sourcegitcommit: 593a6c9cff741af24aac28a3328605fe071129ea
+ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510940"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623338"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 

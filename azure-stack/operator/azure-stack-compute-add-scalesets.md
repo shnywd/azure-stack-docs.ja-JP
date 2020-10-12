@@ -3,16 +3,16 @@ title: 仮想マシン スケール セットを Azure Stack Hub 内で使用で
 description: クラウド オペレーターが Azure Stack Hub Marketplace に仮想マシン スケール セットを追加する方法について学習します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/07/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2019
-ms.openlocfilehash: 3714b69e2a65baeb0a5b0ba9a029a5b3144bee1a
-ms.sourcegitcommit: 28894abb31423046f6775aadef490c467f1b1820
+ms.openlocfilehash: a69f29a168853a2cb2bc1c757f90185e0b56636e
+ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/29/2020
-ms.locfileid: "89089696"
+ms.lasthandoff: 10/07/2020
+ms.locfileid: "91814996"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack-hub"></a>仮想マシン スケール セットを Azure Stack Hub 内で使用できるようにする
 
@@ -35,16 +35,17 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 ## <a name="use-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用する
 
 1. Azure Stack Hub ポータルにサインインします。 **[すべてのサービス]** 、 **[仮想マシン スケール セット]** に進み、 **[コンピューター]** の下の **[仮想マシン スケール セット]** を選択します。
-   ![[仮想マシン スケール セット] を選択する](media/azure-stack-compute-add-scalesets/all-services.png)
+   [![仮想マシン スケール セットの選択](media/azure-stack-compute-add-scalesets/all-services-small.png)](media/azure-stack-compute-add-scalesets/all-services.png#lightbox)
 
-2. ***[仮想マシン スケール セットの作成]*** を選択します。
+2. **[追加]** を選択します。
+
    ![仮想マシン スケール セットを作成する](media/azure-stack-compute-add-scalesets/create-scale-set.png)
 
-3. 空のフィールドに入力し、 **[オペレーティング システムのディスク イメージ]** 、 **[サブスクリプション]** 、および **[インスタンス サイズ]** のドロップダウン リストから選択します。 **[管理ディスクを使用]** で **[はい]** を選択します。 **[作成]** をクリックします。
-    ![仮想マシン スケール セットの構成と作成](media/azure-stack-compute-add-scalesets/create.png)
+3. 空のフィールドに入力し、 **[オペレーティング システムのディスク イメージ]** 、 **[サブスクリプション]** 、および **[インスタンス サイズ]** のドロップダウン リストから選択します。 **[管理ディスクを使用]** で **[はい]** を選択します。 そのうえで **[Create]\(作成\)** を選択します。
+    [![仮想マシン スケール セットの構成と作成](media/azure-stack-compute-add-scalesets/create-small.png)](media/azure-stack-compute-add-scalesets/create.png#lightbox)
 
 4. 新しい仮想マシン スケール セットを表示するには、 **[すべてのリソース]** に進んで仮想マシン スケール セット名を検索し、検索でその名前を選択します。
-   ![仮想マシン スケール セットの表示](media/azure-stack-compute-add-scalesets/search.png)
+   [![仮想マシン スケール セットの表示](media/azure-stack-compute-add-scalesets/search-small.png)](media/azure-stack-compute-add-scalesets/search.png#lightbox)
 
 ## <a name="update-images-in-a-virtual-machine-scale-set"></a>仮想マシン スケール セットのイメージを更新する
 
@@ -79,7 +80,7 @@ Azure Stack Hub 上の仮想マシン スケール セットでは、自動ス�
 
 2. スライド バーを使用してこの仮想マシン スケール セットのスケーリングの新しいレベルを設定し、 **[保存]** をクリックします。
 
-     ![仮想マシン セットのスケーリング](media/azure-stack-compute-add-scalesets/scale.png)
+     [![仮想マシン セットのスケーリング](media/azure-stack-compute-add-scalesets/scale-small.png)](media/azure-stack-compute-add-scalesets/scale.png#lightbox)
 
 ## <a name="next-steps"></a>次のステップ
 
