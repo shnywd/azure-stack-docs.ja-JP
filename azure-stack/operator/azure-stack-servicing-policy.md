@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: 9ae3d2a145b04c9f1e3fa6b926eb657a4af83ebf
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367259"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899790"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -47,9 +47,9 @@ OEM ハードウェア ベンダーは、必要に応じて随時更新プログ
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
-- [Azure Stack Hub 2005 更新プログラム](/azure-stack/operator/release-notes?view=azs-2005)
-- [Azure Stack Hub 2002 更新プログラム](/azure-stack/operator/release-notes?view=azs-2002)
-- [Azure Stack Hub 1910 更新プログラム](/azure-stack/operator/release-notes?view=azs-1910)
+- [Azure Stack Hub 2005 更新プログラム](./release-notes.md?view=azs-2005)
+- [Azure Stack Hub 2002 更新プログラム](./release-notes.md?view=azs-2002)
+- [Azure Stack Hub 1910 更新プログラム](./release-notes.md?view=azs-1910)
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -61,9 +61,9 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
-- [Azure Stack Hub 2005 修正プログラム](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
-- [Azure Stack Hub 2002 修正プログラム](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910 修正プログラム](/azure-stack/operator/release-notes?view=azs-1910#hotfixes-2)
+- [Azure Stack Hub 2005 修正プログラム](./release-notes.md?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002 修正プログラム](./release-notes.md?view=azs-2002#hotfixes-1)
+- [Azure Stack Hub 1910 修正プログラム](./release-notes.md?view=azs-1910#hotfixes-2)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 

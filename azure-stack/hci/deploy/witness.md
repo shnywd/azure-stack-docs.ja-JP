@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 43d63e4e565a36c30837e2a8b460e0d73a35c0a5
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145542"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899518"
 ---
 # <a name="set-up-a-cluster-witness"></a>クラスター監視のセットアップ
 
@@ -84,7 +84,7 @@ Azure portal で、お使いのストレージ アカウントに移動し、 **
 
 Azure portal でお使いのストレージ アカウントに移動し、 **[すべての設定]** 、 **[プロパティ]** の順にクリックすると、エンドポイントの URL を表示およびコピーできます。  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="クラウド監視エンドポイント URL" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="クラウド監視のアクセス キー" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Windows PowerShell を使用して監視をセットアップする
 
@@ -106,4 +106,4 @@ Set-ClusterQuorum -FileShareWitness "\\fileserver\share" -Credential (Get-Creden
 
 - クラスター クォーラムの詳細については、「[Azure Stack HCI のクラスターとプールのクォーラムについて](../concepts/quorum.md)」を参照してください。
 
-- Azure ストレージ アカウントを作成および管理する方法の詳細については、[Azure ストレージ アカウント](https://azure.microsoft.com/documentation/articles/storage-create-storage-account/)に関するページを参照してください。
+- Azure ストレージ アカウントを作成および管理する方法の詳細については、[Azure ストレージ アカウント](/azure/storage/common/storage-account-create)に関するページを参照してください。

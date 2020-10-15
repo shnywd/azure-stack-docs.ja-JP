@@ -7,12 +7,12 @@ ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
 ms.date: 09/11/2020
-ms.openlocfilehash: 7d7eeaec5f82e08cf33a307f429389f03e712987
-ms.sourcegitcommit: a845ae0d3794b5d845b2ae712baa7e38f3011a7b
+ms.openlocfilehash: 986aba8f7591239abfa5502dc2c335177df2eed1
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90045545"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899535"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>ソフトウェア定義ネットワーク インフラストラクチャを計画する
 
@@ -175,7 +175,7 @@ VM ロールの要件を次に示します。
 |RAS ゲートウェイ<br> (3 つのノード ゲートウェイ<br> (2 つアクティブで 1 つパッシブ) の単一プール)|8 vCPU|8 GB 推奨|オペレーティング システム ドライブ用に 75 GB
 |SLB/MUX ピアリング用の<br> RAS ゲートウェイ BGP ルーター<br> (または ToR スイッチを<br> BGP ルーターとして使用)|2 つの vCPU|2 GB|オペレーティング システム ドライブ用に 75 GB|
 
-展開のために System Center - Virtual Machine Manager (VMM) を使用する場合、VMM およびその他の非 SDN インフラストラクチャのために、追加のインフラストラクチャ VM リソースが必要になります。 詳細については、「[System Center Virtual Machine Manager のシステム要件](https://docs.microsoft.com/system-center/vmm/system-requirements?view=sc-vmm-2019&preserve-view=true)」を参照してください。
+展開のために System Center - Virtual Machine Manager (VMM) を使用する場合、VMM およびその他の非 SDN インフラストラクチャのために、追加のインフラストラクチャ VM リソースが必要になります。 詳細については、「[System Center Virtual Machine Manager のシステム要件](/system-center/vmm/system-requirements?preserve-view=true&view=sc-vmm-2019)」を参照してください。
 
 ## <a name="extending-your-infrastructure"></a>インフラストラクチャの拡張
 インフラストラクチャのサイズとリソースの要件は、ホストする予定のテナント ワークロード VM によって異なります。 インフラストラクチャ VM の CPU、メモリ、ディスクの要件 (たとえば、ネットワーク コントローラー、SLB、ゲートウェイなど) は、前の表で定義されています。 必要に応じて、スケーリングのためにインフラストラクチャ VM を追加できます。 ただし、Hyper-V ホストで実行されるすべてのテナント VM について、独自の CPU、メモリ、ディスク要件を考慮する必要があります。
@@ -197,4 +197,4 @@ VM ロールの要件を次に示します。
 ## <a name="next-steps"></a>次のステップ
 関連情報については、以下もご覧ください。
 - [ネットワーク コントローラーを展開するための要件](/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller)
-- [Azure Stack HCI における SDN](https://docs.microsoft.com/azure-stack/hci/concepts/software-defined-networking)
+- [Azure Stack HCI における SDN](./software-defined-networking.md)

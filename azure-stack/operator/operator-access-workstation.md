@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: ee292a3461b591a042c0847bd11bb63285a4faf4
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230616"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899824"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub オペレーター アクセス ワークステーション 
 
@@ -26,14 +26,14 @@ OAW VM は、オペレーターが新しいタスクを実行するときに作�
 
 |シナリオ                                                                                                                          |説明                 |
 |----------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
-|[管理ポータルにアクセスする](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-portals)                     |管理操作を実行します                                                                           |
-|[PEP にアクセスする](https://docs.microsoft.com/azure-stack/operator/azure-stack-privileged-endpoint)                                     |ログの収集とアップロード:<br>Azure Stack Hub からのファイル転送用 HLH 上に -[SMB 共有を作成します](#transfer-files-between-the-hlh-and-oaw)<br>-Azure Storage Explorer を使用して、保存されたログを SMB 共有にアップロードします |
-|[Azure Stack Hub の登録](https://docs.microsoft.com/azure-stack/operator/azure-stack-registration#renew-or-change-registration) |再登録するには、管理ポータルから、以前の登録名とリソース グループを取得します                               |
-|[Marketplace シンジケーション](https://docs.microsoft.com/azure-stack/operator/azure-stack-download-azure-marketplace-item)            |HLH 上に [SMB 共有を作成](#transfer-files-between-the-hlh-and-oaw)し、ダウンロードしたイメージまたは拡張機能を格納します                                                        |
+|[管理ポータルにアクセスする](./azure-stack-manage-portals.md)                     |管理操作を実行します                                                                           |
+|[PEP にアクセスする](./azure-stack-privileged-endpoint.md)                                     |ログの収集とアップロード:<br>Azure Stack Hub からのファイル転送用 HLH 上に -[SMB 共有を作成します](#transfer-files-between-the-hlh-and-oaw)<br>-Azure Storage Explorer を使用して、保存されたログを SMB 共有にアップロードします |
+|[Azure Stack Hub の登録](./azure-stack-registration.md#renew-or-change-registration) |再登録するには、管理ポータルから、以前の登録名とリソース グループを取得します                               |
+|[Marketplace シンジケーション](./azure-stack-download-azure-marketplace-item.md)            |HLH 上に [SMB 共有を作成](#transfer-files-between-the-hlh-and-oaw)し、ダウンロードしたイメージまたは拡張機能を格納します                                                        |
 
 ## <a name="download-files"></a>ファイルのダウンロード
 
-OAW VM を作成するためのファイルを入手するには、[**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](https://docs.microsoft.com/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
+OAW VM を作成するためのファイルを入手するには、[**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
 
 このソリューションのステートレスな性質により、OAW VM 向けの更新プログラムはありません。 マイルストーンごとに、VM イメージ ファイルの新しいバージョンがリリースされます。 新しい OAW VM を作成するには、最新バージョンを使用します。 このイメージ ファイルは、最新の Windows Server 2019 バージョンに基づいています。 インストール後、Windows Update を使用して、緊急更新プログラムを含む、更新プログラムを適用できます。 
 
@@ -80,11 +80,11 @@ OAW VM には、次のユーザー アカウント ポリシーが適用され�
 | ソフトウェア名           | 場所                                                                                       |
 |--------------------------|------------------------------------------------------------------------------------------------|
 | [ビジネス向け Microsoft Edge](https://www.microsoft.com/edge/business/)                                            | \[SystemDrive\]\Program Files (x86)\Microsoft\Edge\Application                                                                                        |
-| [Az モジュール](https://docs.microsoft.com/azure-stack/operator/powershell-install-az-module)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
+| [Az モジュール](./powershell-install-az-module.md)                         | \[SystemDrive\]\ProgramFiles\WindowsPowerShell\Modules                                         |  
 | [PowerShell 7](https://devblogs.microsoft.com/powershell/announcing-PowerShell-7-0/)| \[SystemDrive\]\Program Files\PowerShell\7                                                                       |
-| [Azure コマンド ライン インターフェイス (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) | \[SystemDrive\]\Program Files (x86)\Microsoft SDKs\Azure\CLI2 |
+| [Azure コマンド ライン インターフェイス (CLI)](/cli/azure/?view=azure-cli-latest) | \[SystemDrive\]\Program Files (x86)\Microsoft SDKs\Azure\CLI2 |
 | [Microsoft Azure ストレージ エクスプローラー](https://azure.microsoft.com/features/storage-explorer/)   | \[SystemDrive\]\Program Files (x86)\Microsoft Azure Storage Explorer                                                                       |
-| [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
+| [AzCopy](/azure/storage/common/storage-use-azcopy-v10)                             | \[SystemDrive\]\VMSoftware\azcopy_windows_amd64_10.3.4                                         |
 | [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools/tree/az)                  | \[SystemDrive\]\VMSoftware\AzureStack-Tools                                                    |
 
 ## <a name="check-hlh-version"></a>HLH のバージョンを確認する
@@ -227,9 +227,9 @@ SkipNetworkConfiguration     | オプション | ユーザーが後で構成で�
 
 ## <a name="transfer-files-between-the-hlh-and-oaw"></a>HLH と OAW の間でファイルを転送する
 
-HLH と OAW の間でファイルを転送する必要がある場合は、[New-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/new-smbshare?view=win10-ps) コマンドレットを使用して SMB 共有を作成します。 New-SmbShare により、ファイル システム フォルダーがサーバー メッセージ ブロック (SMB) 共有として、リモート クライアントに公開されます。 次に例を示します。
+HLH と OAW の間でファイルを転送する必要がある場合は、[New-SmbShare](/powershell/module/smbshare/new-smbshare?view=win10-ps) コマンドレットを使用して SMB 共有を作成します。 New-SmbShare により、ファイル システム フォルダーがサーバー メッセージ ブロック (SMB) 共有として、リモート クライアントに公開されます。 次に例を示します。
 
-このコマンドレットによって作成された共有を削除するには、[Remove-SmbShare](https://docs.microsoft.com/powershell/module/smbshare/remove-smbshare?view=win10-ps) コマンドレットを使用します。 次に例を示します。
+このコマンドレットによって作成された共有を削除するには、[Remove-SmbShare](/powershell/module/smbshare/remove-smbshare?view=win10-ps) コマンドレットを使用します。 次に例を示します。
 
 ## <a name="remove-the-oaw-vm"></a>OAW VM を削除する
 

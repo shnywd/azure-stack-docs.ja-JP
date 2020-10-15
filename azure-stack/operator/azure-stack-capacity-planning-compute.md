@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 4577da446c11f1053372cdf3d6458cd7c90937be
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742513"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899756"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -116,7 +116,7 @@ VM が_割り当て解除済み_の状態にある場合、メモリ リソー�
      
 ### <a name="add-a-node"></a>ノードを追加する
 
-[Azure Stack Hub ノードを追加すると](https://docs.microsoft.com/azure-stack/operator/azure-stack-add-scale-node)、2 つのノード間でメモリが均等に分配され、メモリの割り当てが解除されます。
+[Azure Stack Hub ノードを追加すると](./azure-stack-add-scale-node.md)、2 つのノード間でメモリが均等に分配され、メモリの割り当てが解除されます。
 
 ![ノードを追加する](media/azure-stack-capacity-planning/add-a-node.png)
 
@@ -128,7 +128,7 @@ VM が_割り当て解除済み_の状態にある場合、メモリ リソー�
 
 ### <a name="increase-memory-on-each-node-to-512-gb"></a>各ノードのメモリを 512 GB に増やす
 
-[各ノードのメモリを増やすと](https://docs.microsoft.com/azure-stack/operator/azure-stack-manage-storage-physical-memory-capacity)、使用可能なメモリの合計が増えます。
+[各ノードのメモリを増やすと](./azure-stack-manage-storage-physical-memory-capacity.md)、使用可能なメモリの合計が増えます。
 
 ![ノードのサイズを増やす](media/azure-stack-capacity-planning/increase-node-size.png)
 

@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: dab71944ecc46fdaa92f7ca65d3ba5c848b24762
-ms.sourcegitcommit: dbc6739584aa407b26e4ad4921d967b7b608de38
+ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/12/2020
-ms.locfileid: "90038830"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060186"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -375,7 +375,7 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
   # switch to new subscription id
   Select-AzureRmSubscription -Subscription '<New subscription ID>'
   # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' --ResourceGroupName '<Registration resource group name>'
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
   ```
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>課金モデルと機能の提供方法の変更、インスタンスの再登録

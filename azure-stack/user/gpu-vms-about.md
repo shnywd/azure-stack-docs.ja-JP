@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 07/07/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 4d1b6df185225a244996246b3e6883b09ac32d8e
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574229"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899841"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
@@ -22,8 +22,8 @@ ms.locfileid: "90574229"
 この記事では、Azure Stack Hub のマルチノード システムでサポートされているグラフィックス処理装置 (GPU) のモデルについて説明します。 また、GPU で使用されるドライバーのインストール手順についてもご確認いただけます。 Azure Stack Hub で GPU がサポートされることにより、人工知能、トレーニング、推論、データ視覚化などのソリューションが可能になります。 AMD Radeon Instinct MI25 を使用することで、グラフィックを多用するアプリケーション (Autodesk AutoCAD など) をサポートできます。
 
 パブリック プレビュー期間中は、3 つの GPU モデルから選択できます。 NVIDIA V100、NVIDIA T4、AMD MI25 の各 GPU で利用できます。 これらの物理 GPU は、次のように、Azure N-Series の仮想マシン (VM) の種類に対応しています。
-- [NCv3](https://docs.microsoft.com/azure/virtual-machines/ncv3-series)
-- [NVv4 (AMD MI25)](https://docs.microsoft.com/azure/virtual-machines/nvv4-series)
+- [NCv3](/azure/virtual-machines/ncv3-series)
+- [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
 - NCas_v4
 
 > [!IMPORTANT]  
@@ -73,7 +73,7 @@ GPU VM では、修正プログラムと更新プログラム (PnU) の適用時
 ## <a name="guest-driver-installation"></a>ゲスト ドライバーのインストール 
 
 ### <a name="amd-mi25"></a>AMD MI25
-「[Windows を実行している N シリーズ VM に AMD GPU ドライバーをインストールする](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup)」の記事では、NVv4 GPU-P 対応の VM 内に AMD Radeon Instinct MI25 のドライバーをインストールする手順と、ドライバーのインストールを検証する手順について説明しています。 この拡張機能は接続モードでのみ動作します。
+「[Windows を実行している N シリーズ VM に AMD GPU ドライバーをインストールする](/azure/virtual-machines/windows/n-series-amd-driver-setup)」の記事では、NVv4 GPU-P 対応の VM 内に AMD Radeon Instinct MI25 のドライバーをインストールする手順と、ドライバーのインストールを検証する手順について説明しています。 この拡張機能は接続モードでのみ動作します。
 
 ### <a name="nvidia"></a>NVIDIA
 
@@ -83,4 +83,4 @@ NVIDIA CUDA ドライバーと GRID ドライバーは、手動で VM にイン�
 
 ## <a name="next-steps"></a>次のステップ 
 
-[Azure Stack VM の機能](azure-stack-vm-considerations.md) 
+[Azure Stack VM の機能](azure-stack-vm-considerations.md)

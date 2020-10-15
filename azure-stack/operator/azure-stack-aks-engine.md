@@ -7,19 +7,19 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: 810aa253eb4872a58ea2e52070bb42eaaa1f6aaa
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 4cbb253b88f86f18c69c7528b6beabb58d277d14
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717990"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899450"
 ---
 # <a name="add-the-azure-kubernetes-services-aks-engine-prerequisites-to-the-azure-stack-hub-marketplace"></a>Azure Kubernetes Services (AKS) エンジンの前提条件を Azure Stack Hub Marketplace に追加する
 
 ユーザー向けに Azure Kubernetes Services (AKS) エンジンを設定することができます。 この記事で説明する項目を Azure Stack ハブに追加します。 ユーザーはその後、1 回の連携した操作で Kubernetes クラスターをデプロイできます。 この記事では、接続されている環境と接続されていない環境の両方で、ユーザーが AKS エンジンを使用できるようにするために必要な手順について説明します。 AKS エンジンは、サービス プリンシパル ID と、Marketplace のカスタム スクリプト拡張機能および AKS 基本イメージに依存します。 AKS エンジンを使用するには、[Azure Stack Hub 1910](release-notes.md?view=azs-1910&preserve-view=true) 以降を実行している必要があります。
 
 > [!NOTE]  
-> Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](/azure-stack/user/kubernetes-aks-engine-release-notes#aks-engine-and-azure-stack-version-mapping)をご覧ください。
+> Azure Stack Hub と AKS エンジンのバージョン番号のマッピングについては、[AKS エンジンのリリース ノート](../user/kubernetes-aks-engine-release-notes.md#aks-engine-and-azure-stack-version-mapping)をご覧ください。
 
 ## <a name="check-your-users-service-offering"></a>ユーザーのサービス オファリングを確認する
 

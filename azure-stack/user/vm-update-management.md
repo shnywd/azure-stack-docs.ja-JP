@@ -3,16 +3,16 @@ title: Azure Stack Hub での VM の更新と管理の自動化
 description: Azure Automation の Azure Monitor for VMs、Update Management、Change Tracking、Inventory ソリューションを使用して、Azure Stack Hub にデプロイされている Windows および Linux の VM を管理します。
 author: mattbriggs
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 10/08/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 04/27/2020
-ms.openlocfilehash: f0d1ecb2f5ad2313894cb15998f43f2bfd257c77
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 10/08/2020
+ms.openlocfilehash: b9a37df9404de01bd9b094ae259c8c62637cb369
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572444"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853263"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
@@ -83,7 +83,7 @@ Azure Monitor for VMs マップ ソリューションを有効にして、ネッ
 
 2. Azure Stack Hub ユーザー ポータルで、ソリューションを有効にする VM の [拡張機能] ブレードに移動して、 **[+ 追加]** をクリックし、 **[Azure Update and Configuration Management]\(Azure 更新および構成管理\)** 拡張機能を選択して、 **[作成]** をクリックします。
 
-   [![[Azure Update and Configuration Management]\(Azure 更新および構成管理\) ダイアログ ボックスに、説明情報、拡張機能を追加するための [作成] ボタン (強調表示)、詳細情報へのリンクが表示されています。](media//vm-update-management/3-sm.PNG "VM 拡張機能ブレード")](media//vm-update-management/3-lg.PNG)
+    ![[Azure Update and Configuration Management]\(Azure 更新および構成管理\) ダイアログ ボックスに、説明情報、拡張機能を追加するための [作成] ボタン (強調表示)、詳細情報へのリンクが表示されています。](media//vm-update-management/3-sm.PNG "VM 拡張機能ブレード")
 
 3. 前に作成したワークスペース ID とプライマリ キーを入力して、エージェントと Log Analytics ワークスペースをリンクします。 次に、 **[OK]** をクリックして拡張機能をデプロイします。
 

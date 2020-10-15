@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: 8b8f26eefd70e54629a1505a01e1306cab2eda1d
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 28fe06ca182b2df8104c2d8b23ce9f5c27448064
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609905"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91936089"
 ---
 ポータルを使用して、またはポータルで作成したコンテナーを使用して VHD をアップロードすること、AzCopy を使用することができます。
 
@@ -33,7 +33,7 @@ ms.locfileid: "89609905"
 
 Azure Storage Explorer または AzCopy を使用すると、アップロード プロセスで VHD が破損する可能性が減少し、アップロードが高速になります。 次の手順では、Windows 10 コンピューターで AzCopy を使用します。 AzCopy は、ストレージ アカウント間の BLOB またはファイル コピーに利用できるコマンドライン ユーティリティです。
 
-1. AzCopy がインストールされていない場合はインストールしてください。 AzCopy をダウンロードして使用開始する手順については、記事「[AzCopy を使ってみる](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)」を参照してください。 バイナリを保存する場所をメモします。 [AzCopy をパスに追加](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)して、PowerShell コマンド ラインから使用できるようにします。
+1. AzCopy がインストールされていない場合はインストールしてください。 AzCopy をダウンロードして使用開始する手順については、記事「[AzCopy を使ってみる](/azure/storage/common/storage-use-azcopy-v10)」を参照してください。 バイナリを保存する場所をメモします。 [AzCopy をパスに追加](https://www.architectryan.com/2018/03/17/add-to-the-path-on-windows-10/)して、PowerShell コマンド ラインから使用できるようにします。
 
 2. PowerShell を開いて、シェルから AzCopy を使用します。
 
@@ -47,4 +47,4 @@ Azure Storage Explorer または AzCopy を使用すると、アップロード 
 > [!NOTE]  
 > 1 つのファイルを仮想ディレクトリにアップロードする場合と同様の構文を使用して VHD をアップロードします。 `--blob-type=PageBlob` を追加して、VHD が**ブロック**ではなく既定で**ページ BLOB** としてアップロードされるようにします。
 
-AzCopy とその他のストレージ ツールの使用の詳細については、「[Azure Stack Hub Storage でのデータ転送ツールの使用](/azure-stack/user/azure-stack-storage-transfer)」を参照してください。
+AzCopy とその他のストレージ ツールの使用の詳細については、「[Azure Stack Hub Storage でのデータ転送ツールの使用](../user/azure-stack-storage-transfer.md)」を参照してください。

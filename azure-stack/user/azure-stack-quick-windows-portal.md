@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 77c7e3484186a0bea1f6220330338128aad72fad
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 68a28c28c02565c996c3bbc6742554cc78090846
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815420"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853238"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Windows サーバー VM を作成する
 
@@ -58,7 +58,7 @@ Azure Stack Hub ポータルにサインインします。 Azure Stack Hub ポ�
 
 1. **[仮想マシン]** を選択して、新しい VM を確認します。 VM 名を検索し、検索結果で VM を選択します。
 
-![VM の作成 - VM の検索](./media/azure-stack-quick-windows-portal/image7.png)
+:::image type="content" source="./media/azure-stack-quick-windows-portal/image7-inline.png" alt-text="VM の作成 - VM の検索" lightbox="./media/azure-stack-quick-windows-portal/image7.png":::
 
 ## <a name="clean-up-resources"></a>リソースをクリーンアップする
 
