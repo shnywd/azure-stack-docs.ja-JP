@@ -118,6 +118,8 @@
           href: concepts/quorum.md
     - name: ネットワーク
       items:
+        - name: ホスト ネットワークを計画する
+          href: concepts/plan-host-networking.md
         - name: ソフトウェア定義ネットワーク (SDN)
           href: concepts/software-defined-networking.md
         - name: SDN インフラストラクチャを計画する
