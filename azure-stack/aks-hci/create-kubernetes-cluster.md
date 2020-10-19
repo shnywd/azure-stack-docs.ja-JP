@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: ddaac062a147440b4ce290ad988629c417a5932a
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 7ef2f0e0532ee342e8821b362b16433f755bc072
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949394"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623270"
 ---
 # <a name="quickstart-create-a-kubernetes-cluster-on-azure-stack-hci-using-windows-admin-center"></a>クイック スタート:Windows Admin Center を使用して Azure Stack HCI 上に Kubernetes クラスターを作成する
 
@@ -31,7 +31,7 @@ Azure Kubernetes Service ホストを設定した後、Windows Admin Center を�
 
     ![Kubernetes クラスター ウィザードの [基本] ページを示しています。](.\media\create-kubernetes-cluster\basics.png)
 
-5. **[ノード プール]** ページでワークロードを実行する追加のノード プールを構成することができます。 パブリック プレビュー段階では、(システム ノード プールに加えて) 最大 1 つの Windows ノード プールと 1 つの Linux ノード プールを追加できます。 完了したら、**[次へ]** をクリックします。
+5. **[ノード プール]** ページでワークロードを実行する追加のノード プールを構成することができます。 パブリック プレビュー段階では、(システム ノード プールに加えて) 最大 1 つの Windows ノード プールと 1 つの Linux ノード プールを追加できます。 後でこのウィザードを使用して Azure Arc 統合を有効にする場合は、プライマリ ノード プールではない Linux ノード プールが少なくとも 1 つ必要になります。 完了したら、**[次へ]** をクリックします。
 6. **[ネットワーク]** ページでネットワーク構成を指定します。 [詳細設定] を選択すると、クラスター内のノードの仮想ネットワークを作成するときに使用するアドレス範囲をカスタマイズできます。 [基本] を選択すると、クラスター内のノードの仮想ネットワークが既定のアドレス範囲で作成されます。 パブリック プレビュー段階では、ネットワーク設定 (ロード バランサー、ネットワーク ポリシー、および HTTP アプリケーション ルーティング) を変更できません。 完了したら、 **[次へ]** を選択します。
 
     ![Kubernetes クラスター ウィザードの [ネットワーク] ページを示しています。](.\media\create-kubernetes-cluster\networking.png)
