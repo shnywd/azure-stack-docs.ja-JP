@@ -3,16 +3,16 @@ title: Azure Stack Hub にカスタム VM イメージを追加する
 description: Azure Stack Hub にカスタム VM イメージを追加または削除する方法について説明します。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 10/12/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 26e93e019c0be7b5ef9d5f29b509407011083acd
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 496d706b6ed930087207b24047d3409f29a53e53
+ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89598488"
+ms.lasthandoff: 10/14/2020
+ms.locfileid: "92060125"
 ---
 # <a name="add-and-remove-a-custom-vm-image-to-azure-stack-hub"></a>Azure Stack Hub に対してカスタム VM イメージを追加または削除する
 
@@ -20,7 +20,7 @@ Azure Stack Hub では、オペレーターとして、カスタム仮想マシ�
 
 ## <a name="add-an-image"></a>イメージの追加
 
-一般化イメージおよび特殊化イメージを追加する手順については、ユーザー ガイドの**コンピューティング**に関するセクションを参照してください。 ユーザーにイメージを提供する前に、一般化イメージを作成することをお勧めします。 手順については、[Azure Stack Hub への VM の移動の概要](/azure-stack/user/vm-move-overview)に関するページを参照してください。 テナントに使用できるイメージを作成するときは、ユーザー ポータルまたはテナント ディレクトリ エンドポイントではなく、Azure Stack Hub 管理ポータルまたは管理者エンドポイントを使用します。
+一般化イメージおよび特殊化イメージを追加する手順については、ユーザー ガイドの**コンピューティング**に関するセクションを参照してください。 ユーザーにイメージを提供する前に、一般化イメージを作成することをお勧めします。 手順については、[Azure Stack Hub への VM の移動の概要](../user/vm-move-overview.md)に関するページを参照してください。 テナントに使用できるイメージを作成するときは、ユーザー ポータルまたはテナント ディレクトリ エンドポイントではなく、Azure Stack Hub 管理ポータルまたは管理者エンドポイントを使用します。
 
 ユーザーがイメージを使用できるようにするには、次の 2 つの方法があります。
 
@@ -30,26 +30,31 @@ Azure Stack Hub では、オペレーターとして、カスタム仮想マシ�
 - **Azure Stack Hub Marketplace を使用してイメージを提供する**  
     Azure Stack Hub 管理ポータルを使用してイメージを追加すると、マーケットプレース オファリングを作成できます。 手順については、「[Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する](azure-stack-create-and-publish-marketplace-item.md)」を参照してください。
 
-
 ## <a name="add-a-platform-image"></a>プラットフォーム イメージを追加する
 
-プラットフォーム イメージを Azure Stack Hub に追加するには、PowerShell を使用して、Azure Stack Hub 管理者ポータルまたはエンドポイントを使用します。 一般化 VHD を作成しておく必要があります。 手順については、[Azure Stack Hub への VM の移動の概要](/azure-stack/user/vm-move-overview)に関するページを参照してください。
+プラットフォーム イメージを Azure Stack Hub に追加するには、PowerShell を使用して、Azure Stack Hub 管理者ポータルまたはエンドポイントを使用します。 まず、汎用化した VHD を作成する必要があります。 詳細については、[Azure Stack Hub への VM の移動の概要](../user/vm-move-overview.md)に関するページを参照してください。
 
 ### <a name="portal"></a>[ポータル](#tab/image-add-portal)
 
 Azure Stack Hub オペレーターとしてポータルを使用して VM イメージを追加します。
 
-1. Azure Stack Hub にオペレーターとしてサインインします。 メニューで、 **[すべてのサービス]**  >  **[コンピューティング]**  >  **[イメージ]**  >  **[追加]** を選択します。
+1. Azure Stack Hub にオペレーターとしてサインインします。 左側のナビゲーションから **[ダッシュボード]** を選択します。
 
-   ![VM イメージを追加する](./media/azure-stack-add-vm-image/tca4.png)
+2. **[リソース プロバイダー]** リストから **[コンピューティング]** を選びます。
 
-2. **[イメージの作成]** で **[発行元]** 、 **[オファー]** 、 **[SKU]** 、 **[バージョン]** 、[OS ディスクの BLOB URI] に入力します。 その後 **[作成]** をクリックすると VM イメージの作成が開始されます。
+   [![[コンピューティング] を選択](./media/azure-stack-add-vm-image/dash-small.png)](./media/azure-stack-add-vm-image/dash.png#lightbox)
 
-   ![カスタム イメージ サイドローディング UI](./media/azure-stack-add-vm-image/tca5.png)
+3. **[VM イメージ]** を選択し、 **[追加]** を選択します。
+
+   [![VM イメージを追加する](./media/azure-stack-add-vm-image/tca4-small.png)](./media/azure-stack-add-vm-image/tca4.png#lightbox)
+
+4. **[イメージの作成]** で **[発行元]** 、 **[オファー]** 、 **[SKU]** 、 **[バージョン]** 、[OS ディスクの BLOB URI] に入力します。 その後 **[作成]** をクリックすると VM イメージの作成が開始されます。
+
+   [![カスタム イメージ サイドローディング UI](./media/azure-stack-add-vm-image/tca5-small.png)](./media/azure-stack-add-vm-image/tca5.png#lightbox)
 
    イメージが正常に作成されると、VM イメージの状態が **[成功]** に変わります。
 
-3. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタム .azpkg 内の Resource Manager テンプレートと Manifest.json を編集するときに必要になります。
+5. イメージを追加すると、そのイメージは Azure Resource Manager ベースのテンプレートと PowerShell のデプロイのみで使用できるようになります。 イメージを Marketplace 項目としてユーザーが使用できるようにするには、「[Marketplace アイテムを作成および発行する](azure-stack-create-and-publish-marketplace-item.md)」の手順を使用して Marketplace 項目を公開してください。 **Publisher**、**Offer**、**SKU**、**Version** の値を書き留めておいてください。 これらは、カスタム .azpkg 内の Resource Manager テンプレートと Manifest.json を編集するときに必要になります。
 
 ### <a name="powershell"></a>[PowerShell](#tab/image-add-ps)
 
@@ -145,7 +150,9 @@ Azure Stack Hub オペレーターとして PowerShell を使用して VM イメ
      VM イメージをデプロイするときにユーザーが使用する VM イメージのバージョン。 このバージョンの形式は **\#.\#.\#** です。 このフィールドではスペースや他の特殊文字は使用できません。  
 
      **Remove-AzsPlatformImage** コマンドレットの詳細については、Microsoft PowerShell の [Azure Stack Hub オペレーター モジュールのドキュメント](/powershell/azure/azure-stack/overview)を参照してください。
+
 ---
+
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack Hub Marketplace のカスタム アイテムを作成して発行する](azure-stack-create-and-publish-marketplace-item.md)
