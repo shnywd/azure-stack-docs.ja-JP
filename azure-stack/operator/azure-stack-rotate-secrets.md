@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 463fc8fbee16aa7eddc78cee7c3868f1526fad21
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134748"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899807"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -106,7 +106,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 外部シークレットのローテーションの場合には、次の追加の前提条件を満たす必要があります。
 
-1. シークレットをローテーションする前に、 **[Test-AzureStack](azure-stack-diagnostic-test.md)** を実行して、すべてのテスト出力が正常であることを確認します。
+1. シークレットをローテーションする前に、`-group SecretRotationReadiness` パラメーターを使用して **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell コマンドレットを実行し、すべてのテスト出力が正常であることを確認します。
 2. 代わりの外部証明書の新しいセットを準備します。
     - 新しいセットは、[Azure Stack Hub PKI 証明書の要件](azure-stack-pki-certs.md)に関する記事に記載されている証明書の仕様に一致している必要があります。 
     - 証明書署名要求 (CSR) を生成して証明機関 (CA) に送信するには、[証明書署名要求の生成](azure-stack-get-pki-certs.md)に関する記事に記載された手順を使用します。また、それらを Azure Stack Hub 環境で使用するために準備するには、[PKI 証明書の準備](azure-stack-prepare-pki-certs.md)に関する記事の手順を使用します。 
@@ -200,7 +200,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
     - **CloudAdmin** アカウントを使用して[特権エンドポイント](azure-stack-privileged-endpoint.md)で PowerShell セッションを作成し、セッションを変数として格納します。 この変数は、次の手順でパラメーターとして使用されます。 
 
-    - [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/Invoke-Command?view=powershell-5.1) を実行し、PEP セッション変数を `-Session` パラメーターとして渡します。
+    - [Invoke-Command](/powershell/module/microsoft.powershell.core/Invoke-Command) を実行し、PEP セッション変数を `-Session` パラメーターとして渡します。
 
     - 次のパラメーターを使用して、PEP セッションで `Start-SecretRotation` を実行します。
         - `-PfxFilesPath`:前に作成した Certificates ディレクトリへのネットワーク パス。  
@@ -224,7 +224,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 「[外部シークレットをローテーションする](#rotate-external-secrets)」の手順 2 にある PowerShell スクリプトを参照してください。 このスクリプトは、次の手順を実行するためにいくつかの変更を加えることによって、内部シークレットのローテーションに適応できる例を提供します。
 
-1. "Run Secret Rotation" セクションで、`-Internal` パラメーターを [Start-SecretRotation コマンドレット](/azure-stack/reference/pep-2002/start-secretrotation)に追加します。次に例を示します。
+1. "Run Secret Rotation" セクションで、`-Internal` パラメーターを [Start-SecretRotation コマンドレット](../reference/pep-2002/start-secretrotation.md)に追加します。次に例を示します。
 
     ```powershell
     # Run Secret Rotation
@@ -268,7 +268,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 2. Azure Stack Hub セッションで特権エンドポイントを開きます。 手順については、「[Azure Stack Hub で特権エンドポイントを使用する](azure-stack-privileged-endpoint.md)」を参照してください。 
 
-3. PowerShell プロンプトが環境に応じて `[IP address or ERCS VM name]: PS>` または `[azs-ercs01]: PS>` に変わったら、`Invoke-Command` を実行して `Set-BmcCredential` を実行します。 省略可能な `-BypassBMCUpdate` パラメーターを `Set-BMCCredential` と共に使用すると、BMC の資格情報は更新されません。 Azure Stack Hub の内部データストアだけが更新されます。特権エンドポイントのセッション変数をパラメーターとして渡します。 
+3. 特権エンドポイント セッションを開いたら、次の PowerShell スクリプトのいずれかを実行します。これは、Invoke-Command を使用して、Set-BmcCredential を実行します。 省略可能な -BypassBMCUpdate パラメーターを Set-BMCCredential と共に使用すると、BMC の資格情報は更新されません。 Azure Stack Hub の内部データストアだけが更新されます。特権エンドポイントのセッション変数をパラメーターとして渡します。
 
     ユーザー名とパスワードの入力を求める PowerShell スクリプトの例を次に示します。 
 
@@ -310,7 +310,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 ## <a name="reference-start-secretrotation-cmdlet"></a>リファレンス: Start-SecretRotation コマンドレット
 
-[Start-SecretRotation コマンドレット](/azure-stack/reference/pep-2002/start-secretrotation)は、Azure Stack Hub システムのインフラストラクチャ シークレットのローテーションを行います。 このコマンドレットは、`-Session` パラメーターで PEP セッションを渡す `Invoke-Command` スクリプト ブロックを使用することによって、Azure Stack Hub の特権エンドポイントに対してのみ実行できます。 既定では、すべての外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。
+[Start-SecretRotation コマンドレット](../reference/pep-2002/start-secretrotation.md)は、Azure Stack Hub システムのインフラストラクチャ シークレットのローテーションを行います。 このコマンドレットは、`-Session` パラメーターで PEP セッションを渡す `Invoke-Command` スクリプト ブロックを使用することによって、Azure Stack Hub の特権エンドポイントに対してのみ実行できます。 既定では、すべての外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。
 
 | パラメーター | 種類 | 必須 | [位置] | Default | 説明 |
 |--|--|--|--|--|--|

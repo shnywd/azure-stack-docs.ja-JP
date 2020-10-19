@@ -7,12 +7,12 @@ ms.date: 09/23/2020
 ms.author: v-myoung
 ms.reviewer: misainat
 ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: b16247c53ea0677573573c827f68e56081a9de5e
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dbd0398b7f6582c12288c2ae72137c4a673ddfcc
+ms.sourcegitcommit: 950dbc793b3498173923d0bc9fe56662a349abf1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106959"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92082090"
 ---
 # <a name="asdk-requirements-and-considerations"></a>ASDK の要件と考慮事項
 
@@ -106,9 +106,9 @@ Azure AD アカウントを使って Azure Stack をデプロイするには、�
 
 ## <a name="network"></a>ネットワーク
 ### <a name="switch"></a>スイッチ
-ASDK マシンでは、1 つのスイッチで 1 つのポートのみを使用できます。  
+ASDK マシンには、1 つのスイッチで 1 つのポートが使用できます。  
 
-ASDK マシンでは、スイッチ アクセス ポートまたはトランク ポートへの接続をサポートしています。 スイッチでは特別な機能は必要ありません。 トランク ポートを使用している場合、または VLAN ID を構成する必要がある場合は、デプロイ パラメーターとして VLAN ID を指定する必要があります。
+ASDK マシンでは、スイッチ アクセス ポートまたはトランク ポートへの接続をサポートしています。 スイッチでは特別な機能は必要ありません。
 
 ### <a name="subnet"></a>Subnet
 次のサブネットには、ASDK マシンを接続しないでください。
@@ -129,7 +129,7 @@ IPv4 のみがサポートされています。 IPv6 ネットワークを作成
 NIC を接続するネットワークで使用できる DHCP サーバーがあることを確認します。 DHCP が使用できない場合は、ホストが使用するためのものに加え、追加の静的 IPv4 ネットワークを準備する必要があります。 デプロイ パラメーターとしてその IP アドレスとゲートウェイも指定する必要があります。
 
 ### <a name="internet-access"></a>インターネットへのアクセス
-Azure Stack は、直接または透過プロキシ経由で、インターネットにアクセスできる必要があります。 Azure Stack は、インターネット アクセスを有効にするための Web プロキシの構成をサポートしていません。 ホスト IP と (DHCP または静的 IP アドレスによって) AzS-BGPNAT01 に割り当てられた新しい IP の両方が、インターネットにアクセスできる必要があります。 graph.windows.net および login.microsoftonline.com ドメインのポート 80 と 443 を使用します。
+Azure Stack は、直接または透過プロキシ経由で、インターネットにアクセスできる必要があります。 Azure Stack は、インターネット アクセスを有効にするための Web プロキシの構成をサポートしていません。 graph.windows.net および login.microsoftonline.com ドメインのポート 80 と 443 を使用します。
 
 
 ## <a name="next-steps"></a>次の手順

@@ -3,16 +3,16 @@ title: Azure Cognitive Services を Azure Stack Hub にデプロイする
 description: Azure Cognitive Services を Azure Stack Hub にデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
-ms.lastreviewed: 05/21/2020
-ms.openlocfilehash: 8a1c71a86f5b0fe6290bddab35726eca5bda0144
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.lastreviewed: 10/09/2020
+ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
+ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920629"
+ms.lasthandoff: 10/12/2020
+ms.locfileid: "91952408"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Azure Cognitive Services を Azure Stack Hub にデプロイする
 
@@ -22,8 +22,16 @@ Azure Cognitive Services は、Azure Stack Hub のコンテナー サポート�
 
 現在、Azure Cognitive Services のサブセットに対するコンテナー サポートを利用できます。
 
-- Language Understanding
-- Text Analytics (Sentiment 3.0)
+- **Speech**
+    - テキスト読み上げ (標準)
+    - テキスト読み上げ (カスタム)
+    - テキスト読み上げ (標準)
+- **Language**
+    - 言語の理解
+    - テキスト分析 (センチメント分析)
+- **Decision**
+    - Anomaly Detector
+
 
 > [!IMPORTANT]
 > Azure Stack Hub 用の Azure Cognitive Services のサブセットは、現在パブリック プレビューの段階にあります。
@@ -31,13 +39,17 @@ Azure Cognitive Services は、Azure Stack Hub のコンテナー サポート�
 
 次の Azure Cognitive Services のサブセットに対するコンテナー サポートは、現在プレビュー段階にあります。
 
-- 読み取り (光学式文字認識 \[OCR])
-- キー フレーズの抽出
-- 言語検出
-- Anomaly Detector
-- Form Recognizer
-- 音声テキスト変換 (カスタム、標準)
-- テキスト読み上げ (カスタム、標準)
+- **Computer Vision**
+    - Read 3.0、Read 3.1
+    - 空間分析 (新機能)
+- **Language**
+    - キー フレーズの抽出
+    - 言語検出
+    - Text Analytics for Health
+- **Speech**
+    - 音声言語検出
+    - ニューラル TTS
+    - テキスト読み上げ (カスタム)
 
 ## <a name="use-containers-with-cognitive-services-on-azure-stack-hub"></a>Azure Stack Hub の Cognitive Services でコンテナーを使用する
 
@@ -53,7 +65,7 @@ Azure Cognitive Services は、Azure Stack Hub のコンテナー サポート�
 - **高スループットで待機時間の短いクエリ**  
    高いスループットと低待機時間のために、アプリ ユーザーにトラフィックの急増に合わせて拡大縮小する機能を提供します。 Cognitive Services を、アプリのロジックとデータに物理的に近い Azure Kubernetes Service で実行できるようにします。
 
-Azure Stack Hub では、高可用性およびエラスティック スケーリングに向けて、アプリ コンテナーとともに Cognitive Services コンテナーを Kubernetes クラスターにデプロイします。 Cognitive Services を、App Services、関数、BLOB ストレージ、SQL、または mySQL データベースで作成されたコンポーネントと組み合わせることで、アプリを開発できます。
+Azure Stack Hub では、高可用性およびエラスティック スケーリングに向けて、アプリ コンテナーとともに Cognitive Services コンテナーを Kubernetes クラスターにデプロイします。 Cognitive Services を、App Services、Functions、BLOB ストレージ、SQL、または MySQL データベースで作成されたコンポーネントと組み合わせることで、アプリを開発できます。
 
 Cognitive Services のコンテナーの詳細については、「[Azure Cognitive Services でのコンテナーのサポート](/azure/cognitive-services/cognitive-services-container-support)」を参照してください。
 
@@ -71,7 +83,7 @@ Cognitive Services のコンテナーの詳細については、「[Azure Cognit
 
 ## <a name="create-azure-resources"></a>Azure リソースを作成する
 
-Face、LUIS、またはテキスト認識コンテナーをプレビューする Cognitive Service リソースを Azure で作成します。 Cognitive Services コンテナーをインスタンス化するために、リソースからのサブスクリプション キーとエンドポイント URL を使用する必要があります。
+Face、Language Understanding (LUIS)、またはテキスト認識コンテナーをプレビューする Cognitive Service リソースを Azure で作成します。 Cognitive Services コンテナーをインスタンス化するために、リソースからのサブスクリプション キーとエンドポイント URL を使用する必要があります。
 
 1. Azure portal で Azure リソースを作成します。 Face コンテナーをプレビューする場合、まず Azure portal で対応する Face リソースを作成する必要があります。 詳細については、「[クイック スタート: Azure portal で Cognitive Services アカウントを作成する](/azure/cognitive-services/cognitive-services-apis-create-account)」を参照してください。
 

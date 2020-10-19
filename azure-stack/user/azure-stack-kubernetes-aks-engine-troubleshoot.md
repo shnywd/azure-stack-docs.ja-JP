@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の AKS エンジンのトラブルシューティン�
 description: この記事では Azure Stack Hub 上の AKS エンジンのトラブルシューティングの手順について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 10/07/2020
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.lastreviewed: 10/02/2020
-ms.openlocfilehash: d9e862386e76c9bf44638a58432b58b409e9c2df
-ms.sourcegitcommit: af21e3097e833bcb0670733a5e92d6fc3deaa53b
+ms.lastreviewed: 10/07/2020
+ms.openlocfilehash: ae82bb1c07ec8f466eb29fe8c610af09e01e233a
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91729221"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853178"
 ---
 # <a name="troubleshoot-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンのトラブルシューティング
 
@@ -88,14 +88,27 @@ AKS エンジン ログに加えて、Kubernetes コンポーネントでは、�
 
 このスクリプトにより、次のログの収集プロセスが自動化されます。 
 
- - Microsoft Azure Linux エージェント (waagent) ログ
- - カスタム スクリプト拡張機能ログ
- - kube-system コンテナーの実行メタデータ
- - kube-system コンテナーの実行ログ
- - Kubelet サービスの状態と履歴
- - etcd サービスの状態と履歴
- - ギャラリー アイテムの DVM ログ
- - kube-system スナップショット
+- ディレクトリ `/var/log/azure/` 内のログ ファイル
+- ディレクトリ `/var/log/kubeaudit` 内のログ ファイル (kube 監査ログ)
+- ログ ファイル `/var/log/waagent.log` (waagent)
+- ログ ファイル `/var/log/azure/deploy-script-dvm.log` (Azure Stack Hub の Kubernetes Cluster Marketplace の項目を使用してデプロイされている場合)
+- ディレクトリ `/etc/kubernetes/manifests` 内の静的マニフェスト
+- ディレクトリ ` /etc/kubernetes/addons` 内の静的アドオン
+- kube-system コンテナーのメタデータとログ
+- kubelet の状態と履歴
+- etcd の状態と履歴
+- Docker の状態と履歴
+- kube-system スナップショット
+- Azure CNI 構成ファイル
+
+Windows ノード用に、いくつかの追加ログが取得されます。
+
+- ログ ファイル `c:\Azure\CustomDataSetupScript.log`
+- kube-proxy の状態と履歴
+- containerd の状態と履歴
+- azure-vnet ログと azure-vnet-telemetry ログ
+- Docker の ETW イベント
+- Hyper-V の ETW イベント
 
 このスクリプトがない場合は、クラスター内の各ノードに接続して、手動でログを検索してダウンロードする必要があります。 また、このスクリプトでは、必要に応じて、収集したログをストレージ アカウントにアップロードして、他のユーザーとログを共有することもできます。
 

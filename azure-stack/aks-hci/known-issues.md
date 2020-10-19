@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 21c511521837eff83d31784db3cf59bcfe25cb2f
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
+ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592834"
+ms.lasthandoff: 10/09/2020
+ms.locfileid: "91899705"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビューに関する既知の問題
 この記事では、Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビュー リリースに関する既知の問題について説明します。
@@ -69,10 +69,16 @@ Windows Admin Center では、コンピューティングとストレージの�
 この問題は将来のリリースで修正される予定です。
 
 ## <a name="windows-admin-center-only-supports-azure-kubernetes-service-for-azure-stack-hci-in-desktop-mode"></a>Windows Admin Center では、Azure Kubernetes Service for Azure Stack HCI がデスクトップ モードでのみサポートされる
-プレビューでは、すべての Azure Kubernetes Service for Azure Stack HCI の機能が、Windows Admin Center のデスクトップ モードでのみサポートされています。 Windows Admin Center ゲートウェイは、Windows 10 の PC にインストールする必要があります。 Windows Admin Center のインストール オプションの詳細については、[Windows Admin Center のドキュメント](https://docs.microsoft.com/windows-server/manage/windows-admin-center/plan/installation-options)を参照してください。 追加のシナリオは、今後のリリースでサポートされる予定です。
+プレビューでは、すべての Azure Kubernetes Service for Azure Stack HCI の機能が、Windows Admin Center のデスクトップ モードでのみサポートされています。 Windows Admin Center ゲートウェイは、Windows 10 の PC にインストールする必要があります。 Windows Admin Center のインストール オプションの詳細については、[Windows Admin Center のドキュメント](/windows-server/manage/windows-admin-center/plan/installation-options)を参照してください。 追加のシナリオは、今後のリリースでサポートされる予定です。
 
 ## <a name="azure-kubernetes-service-host-setup-fails-in-windows-admin-center-if-reboots-are-required"></a>再起動が必要な場合、Windows Admin Center で Azure Kubernetes Service ホストのセットアップが失敗する
 PowerShell や Hyper-V などの役割をインストールするために、使用している 1 つまたは複数のサーバーを再起動する必要がある場合、Azure Kubernetes Service ホストのセットアップ ウィザードは失敗します。 現在の回避策は、ウィザードを終了し、サーバーがオンラインに戻った後に同じシステムでもう一度実行します。 この問題は将来のリリースで修正される予定です。
 
 ## <a name="azure-registration-step-in-azure-kubernetes-service-host-setup-asks-to-try-again"></a>Azure Kubernetes Service ホスト セットアップの Azure 登録手順で、再試行を求められる
 Windows Admin Center を使用して Azure Kubernetes Service ホストを設定するときに、Azure 登録ページで必要な情報を入力した後で再試行するように求められる場合があります。 この手順を続行するには、Windows Admin Center ゲートウェイでもう一度 Azure にサインインする必要がある場合があります。 この問題は将来のリリースで修正される予定です。
+
+## <a name="windows-admin-center-doesnt-have-an-arc-offboarding-experience"></a>Windows Admin Center に Arc のオフボード エクスペリエンスがない
+現在、Windows Admin Center には、Azure Arc からクラスターをオフボードするプロセスがありません。破棄されたクラスター上の Arc エージェントを削除するには、Azure portal でクラスターのリソース グループに移動し、Arc コンテンツを手動で削除します。 まだ稼働しているクラスター上の Arc エージェントを削除するには、ユーザーが次のコマンドを実行する必要があります。
+```PowerShell
+az connectedk8s delete
+```

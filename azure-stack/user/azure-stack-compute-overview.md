@@ -3,20 +3,20 @@ title: Azure Stack Hub VM の概要
 description: Azure Stack Hub VM について説明します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 06/15/2020
+ms.date: 10/01/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/05/2020
-ms.openlocfilehash: 9dda1268962952e4828b292a472ba342f1fadd23
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: 01ee528229e52a66174c3b4d1dbba49eea6a5318
+ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813739"
+ms.lasthandoff: 10/01/2020
+ms.locfileid: "91623134"
 ---
 # <a name="introduction-to-azure-stack-hub-vms"></a>Azure Stack Hub VM の概要
 
-Azure Stack Hub では、オンデマンドでスケーラブルなコンピューティング リソースの一種として仮想マシン (VM) が提供されます。 コンピューティング環境をより細かく管理する必要がある場合は、VM を選択できます。 この記事では、最初の VM を作成する前に詳細を説明します。
+Azure Stack Hub では、オンデマンドでスケーラブルなコンピューティング リソースの一種として仮想マシン (VM) が提供されます。 コンピューティング環境をより細かく管理する必要がある場合は、VM を選択できます。 この記事では、最初の VM の作成について詳しく説明します。
 
 Azure Stack Hub VM により柔軟な仮想化が可能になります。クラスターや個別のコンピューターを管理する必要はありません。 ただし、VM のメンテナンス、つまり VM 上で動作するソフトウェアの構成、その修正プログラム/更新プログラムの適用、インストールは必要です。
 
@@ -41,7 +41,7 @@ Azure Stack Hub でアプリケーション インフラストラクチャを構
 - 開始した後の VM の構成。
 - VM で必要な関連リソース。
 
-### <a name="naming"></a>名前を付ける
+### <a name="names"></a>名前
 
 VM には名前が割り当てられ、コンピューター名がオペレーティング システムの一部として構成されます。 VM の名前は最大で 15 文字です。
 
@@ -107,10 +107,10 @@ VM はいくつかの方法で作成できます。 どれを選ぶかは環境�
 
 VM は、ブラウザーベースのポータル、スクリプトがサポートされるコマンドライン ツール、または直接 API を使用して管理できます。 一般的な管理タスクは次のとおりです。
 
-- VM に関する情報の取得
-- VM への接続
-- 可用性の管理
-- バックアップの作成
+- VM に関する情報を取得する。
+- VM に接続する。
+- 可用性を管理する。
+- バックアップを作成する。
 
 ### <a name="get-information-about-your-vm"></a>VM に関する情報を取得する
 

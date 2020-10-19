@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 68acf1fa04762d8288e621c5087d501c464912fd
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: b90b7c61e5eeed1265bf258b6ba3ce7b042b6897
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573957"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853195"
 ---
 # <a name="deploy-a-kubernetes-cluster-with-the-aks-engine-on-azure-stack-hub"></a>AKS エンジンを使用して Azure Stack Hub に Kubernetes クラスターをデプロイする
 
@@ -226,6 +226,22 @@ Azure Stack Hub オペレーターに次のことを依頼します。
     ```bash
     kubectl delete deployment -l app=redis
     ```
+
+## <a name="rotate-your-service-principle-secret"></a>サービス プリンシパル シークレットのローテーション
+
+AKS エンジンを使用して Kubernetes クラスターをデプロイすると、Azure Stack Hub インスタンスでの Azure Resource Manager との対話を管理するために、サービス プリンシパル (SPN) が使用されます。 ある時点で、このサービス プリンシパルのシークレットの有効期限が切れるおそれがあります。 シークレットの有効期限が切れた場合は、次の方法で資格情報を更新できます。
+
+- 新しいサービス プリンシパル シークレットを使用して各ノードを更新する。
+- または、API モデルの資格情報を更新し、アップグレードを実行する。
+
+### <a name="update-each-node-manually"></a>各ノードを手動で更新する
+
+1. クラウド オペレーターからサービス プリンシパルの新しいシークレットを取得します。 Azure Stack Hub の手順については、「[アプリ ID を使用して Azure Stack Hub リソースにアクセスする](/azure-stack/operator/azure-stack-create-service-principals)」を参照してください。
+2. クラウド オペレーターによって提供された新しい資格情報を使用して、各ノードで `/etc/kubernetes/azure.json` を更新します。 更新を行ったら、**kubelet** と **kube-controller-manager** の両方を再起動します。
+
+### <a name="update-the-cluster-with-aks-engine-update"></a>aks-engine の更新プログラムを使用してクラスターを更新する
+
+または、`apimodel.json` の資格情報を置き換えて、更新された json を使用して、同じまたは新しい Kubernetes のバージョンへのアップグレードを実行することもできます。 モデルをアップグレードする手順については、「[Azure Stack Hub で Kubernetes クラスターをアップグレードする](azure-stack-kubernetes-aks-engine-upgrade.md)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

@@ -7,12 +7,12 @@ ms.date: 9/2/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 976f7b84df4084776f8b7f94d8903efdb1c06d6c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
+ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574008"
+ms.lasthandoff: 10/08/2020
+ms.locfileid: "91853212"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする 
 
@@ -46,6 +46,13 @@ Azure Stack Hub インスタンスにカスタム仮想ネットワークが必�
     ![仮想ネットワークの CIDR ブロック](media/kubernetes-aks-engine-custom-vnet/virtual-network-cidr-block.png)
     
 6. サブネット ブレードで、アドレス範囲と仮想ネットワークの CIDR ブロック (たとえば、`10.1.0.0 - 10.1.0.255 (256 addresses)` と `10.1.0.0/24`) を書き留めておきます。
+
+## <a name="considerations-for-selecting-an-address-space"></a>アドレス空間を選択する場合の考慮事項
+
+カスタム仮想ネットワークを作成するときに、ネットワークの IP アドレス空間と、すべてのサブネットの IP アドレス範囲を指定します。 Kubernetes クラスターで使用するアドレス空間と範囲を選択するときは、次の点を考慮してください。
+-  アドレス空間が重複していると、IP アドレスの競合や通信エラーが発生するおそれがあります。 IP アドレスの重複のリスクを軽減するには、新しい仮想ネットワーク用に一意のアドレス空間を選択します。
+-  `10.` と `172.` の範囲内のアドレス空間は、プライベート ネットワークによく使用されているため、既存のデータセンター インフラストラクチャで使用されている可能性があります。 Kubernetes アプリケーションでデータセンターのリソースが使用されている場合は、データセンターのアドレス空間とは異なるカスタム仮想ネットワークのアドレス空間を選択することで、競合のリスクを軽減します。
+-  Kubernetes クラスターには専用サブネットを使用することをお勧めします。
 
 ## <a name="get-the-ip-address-block"></a>IP アドレス ブロックを取得する
 
