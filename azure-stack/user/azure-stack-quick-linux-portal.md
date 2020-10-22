@@ -7,12 +7,12 @@ ms.date: 10/06/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/06/2020
-ms.openlocfilehash: 026eca2d69dfbbcebbdba00b52f8d8ec57f3c2a5
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 4d41519e7ac3b99705c066919b88b7e4bb5d3934
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815200"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354239"
 ---
 # <a name="quickstart-create-a-linux-server-vm-by-using-the-azure-stack-hub-portal"></a>クイック スタート:Azure Stack Hub ポータルを使用して Linux サーバー VM を作成する
 
@@ -49,7 +49,7 @@ SSH キーの組を作成するには:
 
 1. **[PuTTY Key Generator]** ウィンドウで、 **[Type of key to generate]\(生成するキーの種類\)** を **[RSA]** に、 **[Number of bits in a generated key]\(生成されるキーのビット数\)** を **[2048]** に設定します。
 
-   ![PuTTY Key Generator の構成](media/azure-stack-quick-linux-portal/Putty01a.png)
+   ![PuTTY Key Generator の構成](media/azure-stack-quick-linux-portal/Putty01aa.png)
 
 1. **[Generate] \(生成)** を選択します。
 
@@ -57,7 +57,7 @@ SSH キーの組を作成するには:
 
 1. キーの生成が完了したら、 **[Save public key]\(公開キーを保存する\)** を選択してから、 **[Save private key]\(秘密キーを保存する\)** を選択してキーをファイルに保存します。
 
-   ![PuTTY Key Generator の結果](media/azure-stack-quick-linux-portal/Putty02a.png)
+   ![PuTTY Key Generator の結果](media/azure-stack-quick-linux-portal/Putty02aa.png)
 
 ## <a name="sign-in-to-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルにサインインする
 
@@ -71,30 +71,30 @@ Azure Stack Hub ポータルのアドレスは、接続している Azure Stack 
 
 1. **[リソースの作成]**  >  **[Compute]** の順に選択します。 `Ubuntu Server 16.04 LTS` を検索します。 名前を選択します。
 
-   ![Linux サーバーを作成する](media/azure-stack-quick-linux-portal/image1.png)
+   ![Linux サーバーを作成する](media/azure-stack-quick-linux-portal/image1a.png)
 
 1. **［作成］** を選択します
 
-   ![Linux サーバーを作成する - 作成](media/azure-stack-quick-linux-portal/image2.png)
+   ![Linux サーバーを作成する - 作成](media/azure-stack-quick-linux-portal/image2a.png)
 
 1. VM 情報を入力します。 [認証の種類] で **[SSH 公開キー]** を選択し、保存した SSH 公開キーを貼り付け、 **[OK]** を選択します。
 
     > [!NOTE]  
     > キーの先頭または末尾の空白を必ず削除してください。
 
-   ![認証](media/azure-stack-quick-linux-portal/image3.png)
+   ![認証](media/azure-stack-quick-linux-portal/image3a.png)
 
 1. VM のサイズとして **[D1_V2]** を選択します。
 
-   ![Linux サーバーを作成する - サイズ](media/azure-stack-quick-linux-portal/image4.png)
+   ![Linux サーバーを作成する - サイズ](media/azure-stack-quick-linux-portal/image4a.png)
 
 1. **[設定]** ブレードで既定値への変更を入力します。マネージド ディスクを使用します。 SSH アクセスを許可する必要がある場合は **[SSH (22)]** を選択してポートを開きます。 お使いの構成の準備が整ったら、 **[OK]** を選択します。
 
-   ![Linux サーバーを作成する - 設定](media/azure-stack-quick-linux-portal/image5.png)
+   ![Linux サーバーを作成する - 設定](media/azure-stack-quick-linux-portal/image5a.png)
 
 1. [概要] で **[OK]** を選択して、VM のデプロイを開始します。 **[仮想マシン]** を選択して新しい VM を確認し、VM 名を検索して、検索結果でその VM を選択します。
 
-![Linux サーバーを作成する - 概要](media/azure-stack-quick-linux-portal/image5.png)
+![Linux サーバーを作成する - 概要](media/azure-stack-quick-linux-portal/image5a.png)
 
 ## <a name="connect-to-the-vm"></a>VM に接続します
 
@@ -102,7 +102,7 @@ Azure Stack Hub ポータルのアドレスは、接続している Azure Stack 
 
 1. **[PuTTY Configuration]\(PuTTY 構成\)** ページの **[Category]\(カテゴリ\)** ウィンドウで、下へスクロールして、 **[SSH]** を展開し、 **[Auth]\(認証\)** を選択します。 
 
-   ![VM を接続する](media/azure-stack-quick-linux-portal/putty03a.png)
+   ![VM を接続する](media/azure-stack-quick-linux-portal/putty03aa.png)
 
 1. **[Browse]\(参照\)** を選択し、保存した秘密キー ファイルを選択します。
 
@@ -112,7 +112,7 @@ Azure Stack Hub ポータルのアドレスは、接続している Azure Stack 
 
 1. **[Open]\(開く\)** を選択して、VM のセッションを開きます。
 
-   ![Linux セッション](media/azure-stack-quick-linux-portal/Putty05a.png)
+   ![Linux セッション](media/azure-stack-quick-linux-portal/Putty05aa.png)
 
 ## <a name="install-the-nginx-web-server"></a>NGINX Web サーバーのインストール
 
@@ -154,7 +154,7 @@ NGINX がインストールされ、VM 上のポート 80 が開かれたので�
 
 Web ブラウザーを開いて､*http://\<public IP address>* に移動します｡
 
-![NGINX Web サーバーのようこそページ](media/azure-stack-quick-linux-portal/linux-05a.png)
+![NGINX Web サーバーのようこそページ](media/azure-stack-quick-linux-portal/linux-05aa.png)
 
 ## <a name="clean-up-resources"></a>リソースをクリーンアップする
 

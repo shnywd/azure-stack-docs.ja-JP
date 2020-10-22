@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 90467f57cdae2b12038c8f237fcbe5e41fb1c039
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 2a3eb313122f5f8798129592f35656bdad443f02
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574059"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92353844"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack-hub"></a>Web アプリをホストする Linux VM を Azure Stack Hub にデプロイする
 
@@ -46,7 +46,7 @@ VM をデプロイするには、以降のいくつかのセクションの手�
 1. お使いのサーバー用の Secure Shell (SSH) 公開キーを作成します。 詳細については、「[SSH 公開キーの使用方法](azure-stack-dev-start-howto-ssh-public-key.md)」を参照してください。
 1. Azure Stack Hub ポータルで、 **[リソースの作成]**  >  **[Compute]**  >  **[Ubuntu Server 16.04 LTS]** の順に選択します。
 
-    ![Web アプリを Azure Stack Hub VM にデプロイする](media/azure-stack-dev-start-howto-deploy-linux/001-portal-compute.png)
+    ![Web アプリを Azure Stack Hub VM にデプロイする](media/azure-stack-dev-start-howto-deploy-linux/001-portal-computea.png)
 
 4. **[仮想マシンの作成]** ウィンドウの **[1.基本設定の構成]** で以下を実行します。
 

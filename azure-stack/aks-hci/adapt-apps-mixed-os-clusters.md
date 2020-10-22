@@ -3,15 +3,15 @@ title: 混合 OS Kubernetes クラスターでの使用のためにアプリケ�
 description: Azure Kubernetes Service でノード セレクターまたはテイントと容認を使用して、適切なワーカー ノード オペレーティング システムで、Azure Stack HCI で実行される混合 OS Kubernetes クラスター内のアプリケーションが確実にスケジュールされるようにする方法
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/20/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: e70ac456929b5c8402e49c969ca8b9c87a703311
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949345"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253947"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>ノード セレクターまたはテイントと容認を使用して、混合 OS Kubernetes クラスターにアプリを適応させます
 
@@ -41,7 +41,7 @@ nodeSelectors の詳細については、[ノード セレクター](https://kub
 Azure Stack HCI 上の Azure Kubernetes Service の Windows OS ノードは、次のキーと値のペアでテイントすることができます。 ユーザーは異なるものを使用してはいけません。
 
 ```yaml
-node.kubernetes.io/os=Windowss:NoSchedule
+node.kubernetes.io/os=Windows:NoSchedule
 ```
 `kubectl get` を実行し、テイントする Windows ワーカー ノードを識別します。
 

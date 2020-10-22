@@ -7,12 +7,12 @@ ms.date: 10/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/05/2020
-ms.openlocfilehash: b6fd470ccc02f59a950028f309aac0e81c9ef9d2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: 25245bff433d4cf92225ec20b5423b08a6ddfc12
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778190"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354048"
 ---
 # <a name="get-authentication-information-for-azure-stack-hub"></a>Azure Stack Hub の認証情報を取得する
 
@@ -46,7 +46,7 @@ Azure Stack Hub に対して認証を行うには、サブスクリプション 
 
 2.  **[すべてのサービス]** を選択します。
 
-    > ![Azure Stack Hub の認証情報のサブスクリプション ID、テナント ID](./media/authenticate-azure-stack-hub/azure-stack-hub-auth-info.png)
+    > ![Azure Stack Hub の認証情報のサブスクリプション ID、テナント ID](./media/authenticate-azure-stack-hub/azure-stack-hub-auth-infoa.png)
 
 3.  **[サブスクリプション]** を選択します。
 

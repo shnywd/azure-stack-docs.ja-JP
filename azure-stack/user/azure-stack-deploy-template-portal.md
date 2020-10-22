@@ -7,12 +7,12 @@ ms.date: 10/05/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/05/2020
-ms.openlocfilehash: b428c99f7c8b847e575e40af2915a4da60f2312f
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: fa3c25ca3ca46d0ce8533694f8135803b20f87a4
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778052"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354117"
 ---
 # <a name="deploy-a-template-using-the-portal-in-azure-stack-hub"></a>Azure Stack Hub でポータルを使用してテンプレートをデプロイする
 
@@ -22,17 +22,17 @@ Azure Stack Hub ユーザー ポータルを使用して、Azure Resource Manage
 
 1. Azure Stack Hub ユーザー ポータルにサインインして、 **[+ リソースの作成]**  >  **[カスタム]**  >  **[テンプレートのデプロイ]** を選択します。
 
-   ![Azure Stack Hub ポータルでリソースを作成する](media/azure-stack-deploy-template-portal/template-deploy1.png)
+   ![Azure Stack Hub ポータルでリソースを作成する](media/azure-stack-deploy-template-portal/template-deploy1a.png)
 
 2. **[Type to start filter]\(入力してフィルター処理を開始\)** を選択して GitHub クイックスタートテンプレートを選択するか、 **[エディターで独自のテンプレートを作成する]** を選択します。
 
-   ![Azure Stack Hub ポータルでテンプレートをデプロイする](media/azure-stack-deploy-template-portal/template-deploy2.png)
+   ![Azure Stack Hub ポータルでテンプレートをデプロイする](media/azure-stack-deploy-template-portal/template-deploy2a.png)
 
     [**AzureStack-QuickStart-Templates**](https://github.com/Azure/AzureStack-QuickStart-Templates) は、Microsoft ではなく Azure Stack Hub コミュニティのメンバーによって作成されています。 各テンプレートは、Microsoft ではなく、その所有者によるライセンス契約に基づいてお客様に使用許諾されます。 Microsoft は、これらのテンプレートに対して責任を負わず、セキュリティ、互換性、パフォーマンスなどについての調査を行っていません。 コミュニティ テンプレートは、Microsoft サポート プログラムまたはサービスのサポート対象ではなく、"*手を加えず*" に提供され、いかなる保証もありません。
 
 3. **[エディターで独自のテンプレートを作成する]** を選択した場合は、JSON テンプレート コードをコード ウィンドウに貼り付けます。
 
-   ![Azure Stack Hub ポータルでテンプレートを編集する](media/azure-stack-deploy-template-portal/template-deploy3.png)
+   ![Azure Stack Hub ポータルでテンプレートを編集する](media/azure-stack-deploy-template-portal/template-deploy3a.png)
 
     - **[クイックスタート テンプレート]** を選択して、エディターでコミュニティ テンプレートを読み込みます。
 
@@ -44,15 +44,15 @@ Azure Stack Hub ユーザー ポータルを使用して、Azure Resource Manage
 
 4. **[サブスクリプション]** を選択します。 使用するサブスクリプションを選択します。 **[リソース グループ]** を選択します。 既存のリソース グループを選択するか、新しいものを新規作成して、 **[OK]** を選択します。 次に、 **[Review + create]\(確認と作成\)** を選択します。
 
-   ![Azure Stack Hub ポータルでパラメーターを編集する](media/azure-stack-deploy-template-portal/template-deploy4.png)
+   ![Azure Stack Hub ポータルでパラメーターを編集する](media/azure-stack-deploy-template-portal/template-deploy4a.png)
 
 5. **［作成］** を選択します
 
-   ![Azure Stack Hub ポータルでサブスクリプションを選択する](media/azure-stack-deploy-template-portal/template-deploy5.png)
+   ![Azure Stack Hub ポータルでサブスクリプションを選択する](media/azure-stack-deploy-template-portal/template-deploy5a.png)
 
 6. ダッシュボードの新しいタイルにより、テンプレート デプロイの進行状況を追跡します。
 
-   ![Azure Stack Hub ポータルでリソース グループを選択する](media/azure-stack-deploy-template-portal/template-deploy6.png)
+   ![Azure Stack Hub ポータルでリソース グループを選択する](media/azure-stack-deploy-template-portal/template-deploy6a.png)
 
    Azure Resource Manager テンプレートを使用して、お使いのアプリケーションのすべてのリソースを、単一の連携した操作でデプロイしてプロビジョニングできます。 テンプレートを再デプロイして、リソース グループ内のリソースを変更することもできます。 Azure Stack Hub でのテンプレートの使用の詳細については、「[Azure Stack Hub で Azure Resource Manager テンプレートを使用する](azure-stack-arm-templates.md)」を参照してください。
 

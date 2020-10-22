@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 9d9bf332c71bbafd78a235cf0257283738e5a304
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: d4589e4ed9bc7850ce095456a27d3a9a642a1664
+ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815514"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92354733"
 ---
 # <a name="vnet-peering-with-fortigate"></a>FortiGate を使用した VNET ピアリング
 
@@ -77,13 +77,13 @@ ms.locfileid: "91815514"
 
 2.  **[リソースの作成]** を選択し、`FortiGate` を検索します。
 
-    ![検索結果の一覧に、"FortiGate NGFW - Single VM Deployment" が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image6.png)
+    ![検索結果の一覧に、"FortiGate NGFW - Single VM Deployment" が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image6a.png)
 
 3.  **[FortiGate NGFW]** を選択し、**[作成]** を選択します。
 
 4.  「[デプロイで使用されるパラメーター](#deployment-parameters)」の表にあるパラメーターを使用して、**[基本]** を入力します。
 
-    ![[基本] 画面に、リストおよびテキスト ボックスで選択および入力したデプロイ パラメーターの値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image7.png)
+    ![[基本] 画面に、リストおよびテキスト ボックスで選択および入力したデプロイ パラメーターの値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image7a.png)
 
 5.  **[OK]** を選択します。
 
@@ -96,7 +96,7 @@ ms.locfileid: "91815514"
 
 8.  Fortigate NVA のパブリック IP を次のように構成します。
 
-    ![[IP 割り当て] ダイアログ ボックスで、[パブリック IP アドレス名] に値 forti1-publicip1 が表示され、[パブリック IP アドレスの種類] に値 [静的] が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image8.png)
+    ![[IP 割り当て] ダイアログ ボックスで、[パブリック IP アドレス名] に値 forti1-publicip1 が表示され、[パブリック IP アドレスの種類] に値 [静的] が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image8a.png)
 
 9.  **[OK]** を選択します。 **[OK]** を選択します。
 
@@ -112,17 +112,17 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 1. リソース グループを選択します。 フィルターに「`forti1-rg1`」と入力し、forti1-rg1 リソース グループをダブルクリックします。
 
-    ![forti1-rg1 リソース グループに対して 10 個のリソースが一覧表示されています。]](./media/azure-stack-network-howto-vnet-to-onprem/image9.png)
+    ![forti1-rg1 リソース グループに対して 10 個のリソースが一覧表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image9a.png)
 
 1. **forti1-forti1-InsideSubnet-routes-xxxx** リソースを選択します。
 
 1. **[設定]** で、**[ルート]** を選択します。
 
-    ![[設定] ダイアログ ボックスで [ルート] ボタンが選択されています。](./media/azure-stack-network-howto-vnet-to-onprem/image10.png)
+    ![[設定] ダイアログ ボックスで [ルート] ボタンが選択されています。](./media/azure-stack-network-howto-vnet-to-onprem/image10a.png)
 
 1. **[to-Internet]\(インターネットへ\)** ルートを削除します。
 
-    ![[to-Internet]\(インターネットへ\) ルートは、一覧表示されている唯一のルートであり、選択されています。 [削除] ボタンがあります。](./media/azure-stack-network-howto-vnet-to-onprem/image11.png)
+    ![[to-Internet]\(インターネットへ\) ルートは、一覧表示されている唯一のルートであり、選択されています。 [削除] ボタンがあります。](./media/azure-stack-network-howto-vnet-to-onprem/image11a.png)
 
 1. *[はい]* を選択します。
 
@@ -134,7 +134,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 1. **[次ホップの種類]** として **[仮想アプライアンス]** を選択し、`172.16.1.4` とします。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
 
-    ![[ルートの追加] ダイアログ ボックスに、テキスト ボックスで選択および入力した 4 つの値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image12.png)
+    ![[ルートの追加] ダイアログ ボックスに、テキスト ボックスで選択および入力した 4 つの値が表示されています。](./media/azure-stack-network-howto-vnet-to-onprem/image12a.png)
 
 1. **[保存]** を選択します。
 
@@ -150,19 +150,19 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 1. fortiX VM の概要ページに移動して、割り当てられたパブリック IP アドレスを取得します。
 
-    ![forti1 仮想マシンの [概要] ページには、[リソース グループ] や [状態] などの forti1 の値が表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image13.png)
+    ![forti1 仮想マシンの [概要] ページには、[リソース グループ] や [状態] などの forti1 の値が表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image13a.png)
 
 1. 割り当てられた IP アドレスをコピーし、ブラウザーを開いてアドレス バーにそのアドレスを貼り付けます。 セキュリティ証明書が信頼されていないという警告がブラウザーに表示される場合があります。 そのまま続行します。
 
 1. デプロイ中に指定した FortiGate の管理ユーザー名とパスワードを入力します。
 
-    ![[ログイン] ダイアログ ボックスには、ユーザーとパスワード用のテキスト ボックスと [ログイン] ボタンがあります。](./media/azure-stack-network-howto-vnet-to-vnet/image14.png)
+    ![[ログイン] ダイアログ ボックスには、ユーザーとパスワード用のテキスト ボックスと [ログイン] ボタンがあります。](./media/azure-stack-network-howto-vnet-to-vnet/image14a.png)
 
 1. **[System]\(システム\)**  >  **[Firmware]\(ファームウェア\)** を選択します。
 
 1. 最新のファームウェアを示すボックスを選択します (例: `FortiOS v6.2.0 build0866`)。
 
-    ![[ファームウェア] ダイアログ ボックスには、ファームウェアの識別子 "FortiOS v6.2.0 build0866"、リリース ノートへのリンク、2 つのボタン ([Backup config and upgrade]\(コンフィグをバックアップしてアップグレード\) と [アップグレード]) があります。](./media/azure-stack-network-howto-vnet-to-vnet/image15.png)
+    ![[ファームウェア] ダイアログ ボックスには、ファームウェアの識別子 "FortiOS v6.2.0 build0866"、リリース ノートへのリンク、2 つのボタン ([Backup config and upgrade]\(コンフィグをバックアップしてアップグレード\) と [アップグレード]) があります。](./media/azure-stack-network-howto-vnet-to-vnet/image15a.png)
 
 1. **[Backup config and upgrade]\(コンフィグをバックアップしてアップグレード\)**  >  **[Continue]\(続行\)** を選択します。
 
@@ -174,7 +174,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 1. **[This site is behind NAT]\(このサイトは NAT の背後にある\)** を選択します。
 
-    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、最初の手順である [VPN Setup]\(VPN の設定\) を示しています。 [Template Type]\(テンプレートの種類\) には [Site to Site]\(サイト間\)、[Remote Device Type]\(リモート デバイスの種類\) には [FortiGate]、[NAT Configuration]\(NAT 構成\) には [This site is behind NAT]\(このサイトは NAT の背後にある\) の値が選択されています。](./media/azure-stack-network-howto-vnet-to-vnet/image16.png)
+    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、最初の手順である [VPN Setup]\(VPN の設定\) を示しています。 [Template Type]\(テンプレートの種類\) には [Site to Site]\(サイト間\)、[Remote Device Type]\(リモート デバイスの種類\) には [FortiGate]、[NAT Configuration]\(NAT 構成\) には [This site is behind NAT]\(このサイトは NAT の背後にある\) の値が選択されています。](./media/azure-stack-network-howto-vnet-to-vnet/image16a.png)
 
 1. **[次へ]** を選択します。
 
@@ -187,7 +187,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
     > [!NOTE]  
     > このキーは、オンプレミスの VPN デバイスで接続を設定するために必要であるため、"*正確に*" 一致する必要があります。
 
-    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、2 番目の手順である [Authentication]\(認証\) を示し、選択した値が強調表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image17.png)
+    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、2 番目の手順である [Authentication]\(認証\) を示し、選択した値が強調表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image17a.png)
 
 1. **[次へ]** を選択します。
 
@@ -205,13 +205,13 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
     別の IP 範囲を使用している場合は、その IP 範囲を使用します。
 
-    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、3 番目の手順である [Policy & Routing]\(ポリシーとルーティング\) を示しています。 選択した値と入力した値が表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image18.png)
+    ![[VPN Creation Wizard]\(VPN 作成ウィザード\) のスクリーンショットは、3 番目の手順である [Policy & Routing]\(ポリシーとルーティング\) を示しています。 選択した値と入力した値が表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image18a.png)
 
 1. **[作成]**
 
 1. **[Network]\(ネットワーク\)**  >  **[Interfaces]\(インターフェイス\)** を選択します。
 
-    ![インターフェイスの一覧に、2 つのインターフェイス (構成済みの port1 と構成されていない port2) が表示されています。 インターフェイスを作成、編集、削除するためのボタンがあります。](./media/azure-stack-network-howto-vnet-to-vnet/image19.png)
+    ![インターフェイスの一覧に、2 つのインターフェイス (構成済みの port1 と構成されていない port2) が表示されています。 インターフェイスを作成、編集、削除するためのボタンがあります。](./media/azure-stack-network-howto-vnet-to-vnet/image19a.png)
 
 1. **[port2]** をダブルクリックします。
 
@@ -227,11 +227,11 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 1.  forti2 の FortiGate Web コンソールで、 **[Monitor]\(モニター\)**  >  **[IPsec Monitor]\(IPsec モニター\)** を選択します。 
 
-    ![VPN 接続 conn1 のモニターが表示されています。 これは、対応するフェーズ 2 セレクターと同様にダウン中として表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image20.png)
+    ![VPN 接続 conn1 のモニターが表示されています。 これは、対応するフェーズ 2 セレクターと同様にダウン中として表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image20a.png)
 
 2.  `conn1` を強調表示し、 **[Bring Up]\(表示\)**  >  **[All Phase 2 Selectors]\(すべてのフェーズ 2 セレクター\)** を選択します。
 
-    ![モニターとフェーズ 2 セレクターは両方とも稼働中として表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image21.png)
+    ![モニターとフェーズ 2 セレクターは両方とも稼働中として表示されています。](./media/azure-stack-network-howto-vnet-to-vnet/image21a.png)
 
 ## <a name="test-and-validate-connectivity"></a>接続のテストと検証
 
