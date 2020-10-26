@@ -5,12 +5,12 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: jeguan
-ms.openlocfilehash: 35d527b56a2429676d343ba8098fc6821835fb00
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: b9287add391d2a3132b3ef0baadf5668b1ea057e
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949390"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253980"
 ---
 # <a name="quickstart-create-kubernetes-clusters-on-azure-stack-hci-using-windows-powershell"></a>クイック スタート:Windows PowerShell を使用して Azure Stack HCI 上に Kubernetes クラスターを作成する
 
@@ -130,11 +130,24 @@ Windows ノードを使用する場合、最低限必要なバージョンは v1
 
 ## <a name="step-4-access-your-clusters-using-kubectl"></a>手順 4:kubectl を使用してクラスターにアクセスする
 
-kubectl を使用して Azure Kubernetes Service ホストまたは Kubernetes クラスターにアクセスするには、次のコマンドを実行します。 これにより、指定したクラスターの kubeconfig ファイルが kubectl の既定の kubeconfig ファイルとして使用されます。
+kubectl を使用して Kubernetes クラスターにアクセスするには、次のコマンドを実行します。 これにより、指定したクラスターの kubeconfig ファイルが kubectl の既定の kubeconfig ファイルとして使用されます。
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>必須のパラメーター
+
+`clusterName`
+
+クラスターの名前です。
+
+### <a name="optional-parameters"></a>省略可能のパラメーター
+
+`outputLocation`
+
+kubeconfig をダウンロードする場所。 既定値は `%USERPROFILE%\.kube` です。
 
 ## <a name="delete-a-kubernetes-cluster"></a>Kubernetes クラスターを削除する
 

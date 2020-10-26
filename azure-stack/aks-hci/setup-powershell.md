@@ -5,24 +5,34 @@ author: jessicaguan
 ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
-ms.openlocfilehash: b4b128c5d51d7f916e0936102224283dd77a971d
-ms.sourcegitcommit: 849be7ebd02a1e54e8d0ec59736c9917c67e309e
+ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/24/2020
-ms.locfileid: "91134663"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253962"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>クイック スタート:PowerShell を使用して Azure Stack HCI で Azure Kubernetes Service ホストを設定する
 
 > 適用対象:Azure Stack HCI
 
-このクイックスタートでは、PowerShell を使用して Azure Stack HCI で Azure Kubernetes Service ホストを設定する方法について説明します。 Windows 管理センターを使用する場合は、[Windows 管理センターを使用した設定](setup.md)に関するページを参照してください。
+このクイックスタートでは、PowerShell を使用して Azure Stack HCI で Azure Kubernetes Service ホストを設定する方法について説明します。 Windows Admin Center を使用する場合は、[Windows Admin Center を使用した設定](setup.md)に関するページを参照してください。
 
 ## <a name="before-you-begin"></a>開始する前に
 
-開始する前に、2 から 4 ノードの Azure Stack HCI クラスターまたは単一ノードの Azure Stack HCI があることを確認してください。 **2 から 4 ノードの Azure Stack HCI クラスターを使用することをお勧めします。** それ以外の場合は、[こちら](./system-requirements.md)の手順に従ってください。
+開始する前に、2 から 4 ノードの Azure Stack HCI クラスターまたは単一ノードの Azure Stack HCI があることを確認してください。 **2 から 4 ノードの Azure Stack HCI クラスターを使用することをお勧めします。** ない場合は、[Azure Stack HCI の登録ページ](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)の手順に従ってください。
 
-また、AksHci PowerShell モジュールがインストールされていることを確認する必要もあります。 [こちら](https://aka.ms/AKS-HCI-Evaluate)にあるダウンロード パッケージでは、zip ファイル内にこのモジュールが含まれます。 必ず正しい場所 (`%systemdrive%\program files\windowspowershell\modules`) で zip ファイルを抽出し、PowerShell 管理ウィンドウで次のコマンドを実行してください。
+## <a name="step-1-download-and-install-the-akshci-powershell-module"></a>手順 1:AksHci PowerShell モジュールをダウンロードしてインストールする
+
+[Azure Kubernetes Service on Azure Stack HCI の登録ページ](https://aka.ms/AKS-HCI-Evaluate)から `AKS-HCI-Public=Preview-Oct-2020` をダウンロードします。 ZIP ファイル `AksHci.Powershell.zip` に、この PowerShell モジュールが含まれています。
+
+PowerShell または Windows Admin Center を使用して Azure Stack HCI に Azure Kubernetes Service を既にインストール済みの場合は、続行する前に次のコマンドを実行します。
+
+   ```powershell
+   Uninstall-AksHci
+   ```
+
+**すべての PowerShell ウィンドウを閉じます。** パス `%systemdrive%\program files\windowspowershell\modules` にある AksHci、AksHci.Day2、MSK8sDownloadAgent の既存のディレクトリをすべて削除します。 これを行ったら、新しい ZIP ファイルの内容を展開できます。 必ず正しい場所 (`%systemdrive%\program files\windowspowershell\modules`) に ZIP ファイルを展開します。
 
    ```powershell
    Import-Module AksHci
@@ -30,9 +40,9 @@ ms.locfileid: "91134663"
 
 上記のコマンドを実行した後、すべての PowerShell ウィンドウを閉じ、管理セッションを再度開いて、次の手順でコマンドを実行します。
 
-## <a name="step-1-prepare-your-machines-for-deployment"></a>手順 1:デプロイ用にマシンを準備する
+## <a name="step-2-prepare-your-machines-for-deployment"></a>手順 2:デプロイ用にマシンを準備する
 
-まず、すべての物理ノードでチェックを実行して、Azure Stack HCI 上に Azure Kubernetes Service をインストールするためのすべての要件が満たされているかどうかを確認します。
+すべての物理ノードでチェックを実行して、Azure Stack HCI 上に Azure Kubernetes Service をインストールするためのすべての要件が満たされているかどうかを確認します。
 
 管理者として PowerShell を開き、次のコマンドを実行します。
 
@@ -42,9 +52,9 @@ ms.locfileid: "91134663"
 
 チェックが完了すると、緑色のテキストで "Done" と表示されます。
 
-## <a name="step-2-configure-your-deployment"></a>手順 2:デプロイを構成する
+## <a name="step-3-configure-your-deployment"></a>手順 3:デプロイを構成する
 
-Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 ノードの Azure Stack HCI クラスターの場合、`-deploymentType`、`wssdImageDir`、および `cloudConfigLocation` パラメーターに `MultiNode` を指定する必要があります。** 単一ノードの Azure Stack HCI クラスターの場合、すべてのパラメーターは省略可能で、既定値に設定されます。 ただし、最適なパフォーマンスを得るには、**2 から 4 ノードの Azure Stack HCI クラスターのデプロイを使用することをお勧めします。**
+Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 ノードの Azure Stack HCI クラスターの場合、`-deploymentType`、`wssdImageDir`、および `cloudConfigLocation` パラメーターに `MultiNode` を指定する必要があります。** 単一ノードの Azure Stack HCI クラスターの場合、すべてのパラメーターは省略可能で、既定値に設定されます。 ただし、最適なパフォーマンスを得るには、 **2 から 4 ノードの Azure Stack HCI クラスターのデプロイを使用することをお勧めします。**
 
 次のコマンドを使用して、デプロイを構成します。
 
@@ -61,6 +71,8 @@ Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 �
                     [-vipPoolEndIp]
                     [-macPoolStart]
                     [-macPoolEnd]
+                    [-vlanID]
+                    [-cloudServiceCidr]
                     [-wssdDir]
                     [-akshciVersion]
                     [-vnetType]
@@ -82,11 +94,11 @@ Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 �
 
 `-wssdImageDir`
 
-Azure Stack HCI 上の Azure Kubernetes Service によって VHD イメージが格納されるディレクトリへのパス。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 "*複数ノードのデプロイの場合、このパラメーターを指定する必要があります*"。 パスは、共有ストレージ パス ( `C:\ClusterStorage\Volume2\ImageStore`  など) または SMB 共有 ( `\\FileShare\ImageStore` など) を指す必要があります。
+Azure Stack HCI 上の Azure Kubernetes Service によって VHD イメージが格納されるディレクトリへのパス。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 " *複数ノードのデプロイの場合、このパラメーターを指定する必要があります* "。 パスは、共有ストレージ パス ( `C:\ClusterStorage\Volume2\ImageStore`  など) または SMB 共有 ( `\\FileShare\ImageStore` など) を指す必要があります。
 
 `-cloudConfigLocation`
 
-クラウド エージェントによって構成が格納される場所。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 この場所は、上記の  `-wssdImageDir` のパスと同じにすることができます。 "*複数ノードのデプロイの場合、このパラメーターを指定する必要があります*"。
+クラウド エージェントによって構成が格納される場所。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 この場所は、上記の  `-wssdImageDir` のパスと同じにすることができます。 " *複数ノードのデプロイの場合、このパラメーターを指定する必要があります* "。
 
 `-nodeConfigLocation`
 
@@ -123,6 +135,14 @@ SSH 公開キー ファイルへのパス。 この公開キーを使用する�
 `-macPoolEnd`
 
 これは、Azure Kubernetes Service ホスト VM に使用する MAC プールの MAC アドレスの末尾を指定するために使用されます。 MAC アドレスの構文では、先頭のバイトの最下位ビットが常に 0 である必要があります。また、先頭のバイトは常に偶数 (つまり、00、02、04、06...) である必要があります。`-macPoolEnd` として渡されたアドレスの先頭のバイトは、`-macPoolStart` として渡されたアドレスの先頭のバイトと同じである必要があります。 既定値は none です。
+
+`-vlandID`
+
+これを使用すると、ネットワーク VLAN ID を指定できます。 Azure Kubernetes Service ホストおよび Kubernetes クラスター VM ネットワーク アダプターには、指定した VLAN ID がタグ付けされます。 既定値は none です。
+
+`cloudServiceCidr`
+
+これを使用すると、MOC CloudAgent サービスに割り当てられる静的 IP/ネットワーク プレフィックスを指定できます。 この値は、CIDR 形式を使用して指定する必要があります (例: 192.168.1.2/16)。 (Example: 192.168.1.2/16). 既定値は none です。
 
 `-wssdDir`
 
@@ -172,7 +192,7 @@ Azure Stack HCI 構成で Azure Kubernetes Service をリセットするには�
 Set-AksHciConfig
 ```
 
-## <a name="step-3-start-a-new-deployment"></a>手順 3:新しいデプロイを開始する
+## <a name="step-4-start-a-new-deployment"></a>手順 4:新しいデプロイを開始する
 
 デプロイを構成したら、デプロイを開始する必要があります。 これにより、Azure Stack HCI エージェントまたはサービスおよび Azure Kubernetes Service ホスト上に Azure Kubernetes Service がインストールされます。
 
@@ -182,21 +202,34 @@ Set-AksHciConfig
 Install-AksHci
 ```
 
-### <a name="check-your-deployed-clusters"></a>デプロイされたクラスターを確認する
+### <a name="verify-your-deployed-azure-kubernetes-service-host"></a>デプロイした Azure Kubernetes Service ホストを確認する
 
-デプロイされた Azure Kubernetes Service ホストの一覧を取得するには、次のコマンドを実行します。 また、デプロイ後に同じコマンドを使用して Kubernetes クラスターを取得することもできます。
+Azure Kubernetes Service ホストがデプロイされたことを確認するには、次のコマンドを実行します。 また、デプロイ後に同じコマンドを使用して Kubernetes クラスターを取得することもできます。
 
 ```powershell
 Get-AksHciCluster
 ```
 
-## <a name="step-4-access-your-clusters-using-kubectl"></a>手順 4:kubectl を使用してクラスターにアクセスする
+## <a name="step-5-access-your-clusters-using-kubectl"></a>手順 5:kubectl を使用してクラスターにアクセスする
 
 kubectl を使用して Azure Kubernetes Service ホストまたは Kubernetes クラスターにアクセスするには、次のコマンドを実行します。 これにより、指定したクラスターの kubeconfig ファイルが kubectl の既定の kubeconfig ファイルとして使用されます。
 
 ```powershell
-Set-AksHciKubeConfig -clusterName
+Get-AksHciCredential -clusterName
+                     [-outputLocation]
 ```
+
+### <a name="required-parameters"></a>必須のパラメーター
+
+`clusterName`
+
+クラスターの名前です。
+
+### <a name="optional-parameters"></a>省略可能のパラメーター
+
+`outputLocation`
+
+kubeconfig をダウンロードする場所。 既定値は `%USERPROFILE%\.kube` です。
 
 ## <a name="get-logs"></a>ログを取得する
 

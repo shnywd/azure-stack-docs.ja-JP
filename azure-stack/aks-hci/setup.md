@@ -5,12 +5,12 @@ author: davannaw-msft
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: dawhite
-ms.openlocfilehash: 2f442928c01c59bc85eb672153b2f5b21a653ef1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2ac65146c78c2ed1aaf9b98ee50392a13be050c4
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899722"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92253997"
 ---
 # <a name="quickstart-set-up-azure-kubernetes-service-on-azure-stack-hci-using-windows-admin-center"></a>クイック スタート:Windows Admin Center を使用して、Azure Stack HCI 上に Azure Kubernetes Service を設定する
 
@@ -20,11 +20,16 @@ ms.locfileid: "91899722"
 
 設定には次のタスクが含まれます。
 
+* Azure Stack HCI 用の Azure Kubernetes Service をダウンロードする
 * Windows Admin Center を設定する (まだ行っていない場合)
 * Windows Admin Center を使用するために Azure Stack HCI 用の Azure Kubernetes Service 拡張機能をインストールする
 * Kubernetes クラスターのデプロイ先となるシステム上に Azure Kubernetes Service ホストを設定する
 
 作業を開始する前に、[システム要件](.\system-requirements.md)に関するページのすべての前提条件を満たしていることを確認してください。
+
+## <a name="download-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 用の Azure Kubernetes Service をダウンロードする
+
+プレビュー ソフトウェアをまだダウンロードしていない場合は、[AKS on Azure Stack HCI の評価](https://aka.ms/AKS-HCI-Evaluate)に関するページを参照してください。 Azure Stack HCI の AKS と Windows Admin Center をダウンロードするように求められます。
 
 ## <a name="setting-up-windows-admin-center"></a>Windows Admin Center の設定
 
@@ -58,7 +63,7 @@ az login
 
 システム設定の確認が済んだので始めましょう。 
 1. **[設定]** を選択して設定ウィザードを起動します。
-2. Windows Admin Center を実行するコンピューターの前提条件、接続している Azure Stack HCI クラスター、およびネットワークを確認します。 さらに、Windows Admin Center で Azure アカウントにサインインしていること、および使用する予定の Azure サブスクリプションの有効期限が切れていないことを確認します。 完了したら、**[次へ]** をクリックします。
+2. Windows Admin Center を実行するコンピューターの前提条件、接続している Azure Stack HCI クラスター、およびネットワークを確認します。 さらに、Windows Admin Center で Azure アカウントにサインインしていること、および使用する予定の Azure サブスクリプションの有効期限が切れていないことを確認します。 完了したら、 **[次へ]** をクリックします。
 3. ウィザードの **[システム チェック]** ページで、Windows Admin Center ゲートウェイを Azure に接続するなど、必要な操作を行います。 この手順では、Windows Admin Center と、Azure Kubernetes Service をホストするシステムに、続行するための適切な構成があることを確認します。 操作が完了したら、 **[次へ]** を選択します。
 4. **[ホストの構成]** 手順で、Azure Kubernetes Service をホストするコンピューターを構成します。 このセクションでは、 **[Automatically download updates]\(更新プログラムを自動的にダウンロードする\)** チェックボックスをオンにすることをお勧めします。 完了後に、 **[次へ]** を選択します。 ウィザードのこの手順では、次の詳細を構成するように求められます。
     * ホストの詳細。管理クラスターの名前や VM イメージを格納するフォルダーなど
