@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 09/24/2020
-ms.openlocfilehash: 621662110b2e842a432183dfb7415f3c8365907b
-ms.sourcegitcommit: 034e61836038ca75199a0180337257189601cd12
+ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
+ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91230497"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92297889"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
@@ -71,7 +71,7 @@ Azure Stack HCI クラスターを Azure に登録するには、次の手順を
    > [!NOTE]
    > 1. "今すぐ PowerShellGet で NuGet プロバイダーをインストールしてインポートしますか?" などのプロンプトが表示される場合があります。 これには [はい] (Y) と答える必要があります。
    > 2. "'PSGallery' からモジュールをインストールしますか? " というメッセージが表示され、[はい] (Y) と答える必要があります。
-   > 3. 最後に、**Az** モジュール全体をインストールすると **StackHCI** サブモジュールが含められ、それが長期的に正しいと思われるかもしれませんが、 標準の Azure PowerShell 規約に従い、プレビュー段階のサブモジュールは自動的には含められません。そうではなく、これらを明示的に指定する必要があります。 したがって、ここでは上記のように **Az.StackHCI** を明示的に要求する必要があります。
+   > 3. 最後に、 **Az** モジュール全体をインストールすると、 **StackHCI** サブモジュールもそれに含まれると思うかもしれませんが、そうではありません。 プレビューでのサブモジュールは、Azure PowerShell の標準規則に従って自動的に含まれることはないため、上で示したように **Az.StackHCI** を明示的に要求する必要があります。
 
 4. 実際の登録を実行します。
 

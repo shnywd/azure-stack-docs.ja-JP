@@ -3,15 +3,15 @@ title: Windows Admin Center を使用して Azure Stack HCI クラスターを�
 description: Windows Admin Center を使用して Azure Stack HCI 用のサーバー クラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/21/2020
+ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 992b06b652dbac306570e0f58e274cec7735d14a
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
+ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572689"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92179529"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -108,9 +108,9 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
     管理アダプターには、次の 2 つの構成オプションがあります。
 
-    - **管理用の物理ネットワーク アダプター 1 つ**。 このオプションの場合、DHCP と静的 IP アドレス割り当ての両方がサポートされます。
+    - **管理用の物理ネットワーク アダプター 1 つ** 。 このオプションの場合、DHCP と静的 IP アドレス割り当ての両方がサポートされます。
 
-    - **チーミングされた、管理用の物理ネットワーク アダプター 2 つ**。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
+    - **チーミングされた、管理用の物理ネットワーク アダプター 2 つ** 。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
 
     チーミングされたアダプターを使用すると、複数のスイッチに対する 1 つの接続ができますが、使用されるのは 1 つの IP アドレスだけです。 負荷分散が可能になり、フォールト トレランスは DNS レコードの更新を待つことなくすぐに行われます。
 
@@ -190,6 +190,9 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 ## <a name="step-5-sdn-optional"></a>手順 5:SDN (省略可能)
 
 この省略可能な手順では、[ソフトウェア定義ネットワーク (SDN)](../concepts/software-defined-networking.md) のネットワーク コントローラー コンポーネントを設定します。 いったんネットワーク コントローラーが設定されると、ソフトウェア ロード バランサーや RAS ゲートウェイなど、SDN の他のコンポーネントを構成するために使用できます。
+
+> [!NOTE]
+> SDN は、ストレッチ クラスターではサポートされていないか、使用できません。
 
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-network-controller.png":::
 

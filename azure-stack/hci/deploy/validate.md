@@ -4,13 +4,13 @@ description: クラスター検証の重要性、どのようなときに既存�
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: article
-ms.date: 10/2/2020
-ms.openlocfilehash: 682e9063f6f04f5298e7cab4053af179e1c90cd7
-ms.sourcegitcommit: 6ed6db8e393aace41586a0fba925dc297159d45e
+ms.date: 10/16/2020
+ms.openlocfilehash: fe49df76ccb2a90849587acd5d4df7a41e329efb
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/02/2020
-ms.locfileid: "91663943"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157701"
 ---
 # <a name="validate-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターの検証
 
@@ -50,7 +50,7 @@ ms.locfileid: "91663943"
 ## <a name="validate-networking"></a>ネットワークを検証する
 Microsoft の Validate-DCB ツールは、クラスターでのデータ センター ブリッジング (DCB) の構成を検証するように設計されています。 これを行うには、ツールに入力として期待される構成を渡すと、クラスター内の各サーバーのテストが行われます。 このセクションでは、Validate-DCB ツールをインストールして実行する方法、結果を確認する方法、およびツールによって識別されたネットワーク エラーを解決する方法について説明します。
 
-ネットワークで RDMA (リモート ダイレクト メモリ アクセス) over Converged Ethernet (RoCE) を使用すると、ネットワーク ファブリックを無損失にするために DCB テクノロジが必要です。 また、iWARP では DCB は必要ありませんが、それでも推奨されます。 ただし、DCB の構成は複雑な場合があり、以下のすべてで正確に構成する必要があります。
+ネットワークで RDMA (リモート ダイレクト メモリ アクセス) over Converged Ethernet (RoCE) を使用すると、ネットワーク ファブリックを無損失にするために DCB テクノロジが必要です。 iWARP の場合、DCB は省略可能です。 ただし、DCB の構成は複雑な場合があり、以下のすべてで正確に構成する必要があります。
 - クラスター内の各サーバー
 - ファブリック上の RDMA トラフィックが通過する各ネットワーク ポート
 
@@ -139,9 +139,9 @@ Windows Admin Center で既存のクラスターのサーバーを検証する�
 
 1. Windows Admin Center の **[すべての接続]** で検証する Azure Stack HCI クラスターを選択し、 **[接続]** を選択します。
 
-    **クラスター マネージャー ダッシュボード**に、クラスターに関する概要情報が表示されます。
+    **クラスター マネージャー ダッシュボード** に、クラスターに関する概要情報が表示されます。
 
-1. **クラスター マネージャー ダッシュボード**の **[ツール]** で、 **[サーバー]** を選択します。
+1. **クラスター マネージャー ダッシュボード** の **[ツール]** で、 **[サーバー]** を選択します。
 1. **[インベントリ]** ページで、クラスター内のサーバーを選択し、 **[その他]** サブメニューを展開して、 **[クラスターの検証]** を選択します。
 1. **[クラスターの検証]** ポップアップ ウィンドウで、 **[はい]** を選択します。
 

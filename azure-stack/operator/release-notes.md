@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: cff17c92a44bec23d0a10620d6c182ad5240c451
-ms.sourcegitcommit: 703be61f2f1565bf478b8c184753869c29e5c33c
+ms.openlocfilehash: 923dbd141ad7911326f896d0d4f8d124648035e5
+ms.sourcegitcommit: b6d5d59481c3569a5ff670a91b3a46a9d3a7a63d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91495798"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92336892"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -53,9 +53,9 @@ Azure Stack Hub 2005 更新プログラムのビルド番号は **1.2005.6.53** 
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**です。
+Azure Stack Hub 2005 更新プログラムのビルドの種類は **完全** です。
 
-2005 更新プログラム パッケージは、以前の更新プログラムと比較してサイズが大きくなっています。 サイズが大きいため、ダウンロード時間が長くなります。 この更新プログラムは**準備中**状態の時間が長くなります。オペレーターは以前の更新プログラムよりもこのプロセスの時間が長くなることを想定してください。 内部テストでは、2005 更新プログラムの実行時間が 4 ノードの場合は 13 から 20 時間、8 ノードの場合は 16 から 26 時間、12 ノードの場合は 19 から 32 時間、16 ノードの場合は 22 から 38 時間と予測されました。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 実行時間がこの予測値よりも短くなったり長くなったりすることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。 この実行時間の概算は 2005 更新プログラムに固有であるため、他の Azure Stack Hub 更新プログラムと比較しないでください。
+2005 更新プログラム パッケージは、以前の更新プログラムと比較してサイズが大きくなっています。 サイズが大きいため、ダウンロード時間が長くなります。 この更新プログラムは **準備中** 状態の時間が長くなります。オペレーターは以前の更新プログラムよりもこのプロセスの時間が長くなることを想定してください。 内部テストでは、2005 更新プログラムの実行時間が 4 ノードの場合は 13 から 20 時間、8 ノードの場合は 16 から 26 時間、12 ノードの場合は 19 から 32 時間、16 ノードの場合は 22 から 38 時間と予測されました。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 実行時間がこの予測値よりも短くなったり長くなったりすることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。 この実行時間の概算は 2005 更新プログラムに固有であるため、他の Azure Stack Hub 更新プログラムと比較しないでください。
 
 更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラム管理の概要](azure-stack-updates.md)」を参照してください。
 
@@ -94,7 +94,7 @@ Azure Stack Hub 2005 更新プログラムのビルドの種類は**完全**で�
 
 ### <a name="changes"></a>[変更点]
 
-- インフラストラクチャ ロール インスタンスを停止、シャットダウン、再起動するアクションが、管理ポータルから削除されました。 また、ファブリック リソース プロバイダーの対応する API も削除されました。 Azure Stack Hub 用の管理 RM モジュールと AZ プレビューの次の PowerShell コマンドレットは機能しなくなりました: **Stop-AzsInfrastructureRoleInstance**、**Disable-InfrastructureRoleInstance**、**Restart-InfrastructureRoleInstance**。 これらのコマンドレットは、Azure Stack Hub 用管理 AZ モジュールの次回リリースから削除される予定です。
+- インフラストラクチャ ロール インスタンスを停止、シャットダウン、再起動するアクションが、管理ポータルから削除されました。 また、ファブリック リソース プロバイダーの対応する API も削除されました。 Azure Stack Hub 用の管理 RM モジュールと AZ プレビューの次の PowerShell コマンドレットは機能しなくなりました: **Stop-AzsInfrastructureRoleInstance** 、 **Disable-InfrastructureRoleInstance** 、 **Restart-InfrastructureRoleInstance** 。 これらのコマンドレットは、Azure Stack Hub 用管理 AZ モジュールの次回リリースから削除される予定です。
 - Azure Stack Hub 2005 では、[App Service on Azure Stack Hub 2020 (バージョン 87.x)](app-service-release-notes-2020-Q2.md) のみがサポートされるようになりました。
 
 ### <a name="fixes"></a>修正
@@ -142,7 +142,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.13.68](https://support.microsoft.com/help/4583399)
+- [Azure Stack Hub 修正プログラム 1.2005.18.78](https://support.microsoft.com/help/4584238)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -155,9 +155,9 @@ Azure Stack Hub 2002 更新プログラムのビルド番号は **1.2002.0.35** 
 
 ### <a name="update-type"></a>更新の種類
 
-Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**です。
+Azure Stack Hub 2002 更新プログラムのビルドの種類は **完全** です。
 
-2002 更新プログラム パッケージは、以前の更新プログラムよりも大きなサイズです。 サイズが大きいため、ダウンロード時間が長くなります。 この更新プログラムは**準備中**状態の時間が長くなります。オペレーターは以前の更新プログラムよりもこのプロセスの時間が長くなることを想定してください。 内部テストでは、2002 更新プログラムの実行時間が次のように予測されました。4 ノード:15 から 42 時間、8 ノード:20 から 50 時間、12 ノード:20 から 60 時間、16 ノード:25 から 70 時間。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 実行時間がこの予測値よりも短くなったり長くなったりすることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。 このおおよその実行時間は 2002 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
+2002 更新プログラム パッケージは、以前の更新プログラムよりも大きなサイズです。 サイズが大きいため、ダウンロード時間が長くなります。 この更新プログラムは **準備中** 状態の時間が長くなります。オペレーターは以前の更新プログラムよりもこのプロセスの時間が長くなることを想定してください。 内部テストでは、2002 更新プログラムの実行時間が次のように予測されました。4 ノード:15 から 42 時間、8 ノード:20 から 50 時間、12 ノード:20 から 60 時間、16 ノード:25 から 70 時間。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 実行時間がこの予測値よりも短くなったり長くなったりすることは一般的ではなく、更新が失敗した場合を除き、Azure Stack Hub オペレーターによるアクションは不要です。 このおおよその実行時間は 2002 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
 
 更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラム管理の概要](azure-stack-updates.md)」を参照してください。
 
@@ -172,8 +172,8 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - AzureRM に基づく Azure Stack Hub 管理 PowerShell モジュールの新しいバージョン (1.8.1) がリリースされました。
 - Azure Stack Hub 管理 REST API の新しいバージョンがリリースされました。 エンドポイントと破壊的変更の詳細については、[API リファレンス](/rest/api/azure-stack/)でご確認ください。
 - 新しい Azure PowerShell テナント モジュールは、2020 年 4 月 15 日に Azure Stack Hub 用にリリースされます。 現在使用されている Azure RM モジュールは引き続き機能しますが、ビルド 2002 の後は更新されません。
-- 構成された syslog サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**The Syslog client encountered a networking issue while sending a Syslog message** (syslog クライアントは syslog メッセージの送信中にネットワークの問題を検出しました) です。
-- ネットワーク タイム プロトコル (NTP) サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、**Invalid Time Source on [node name]** ([ノード名] の時間ソースが無効です) です。
+- 構成された syslog サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、 **The Syslog client encountered a networking issue while sending a Syslog message** (syslog クライアントは syslog メッセージの送信中にネットワークの問題を検出しました) です。
+- ネットワーク タイム プロトコル (NTP) サーバーの接続の問題について報告するために Azure Stack Hub 管理者ポータルに新しい警告アラートが追加されました。 アラートのタイトルは、 **Invalid Time Source on [node name]** ([ノード名] の時間ソースが無効です) です。
 - 2002 での TLS 制限に関連する破壊的変更により、[Java SDK](https://azure.microsoft.com/develop/java/)の新しいパッケージがリリースされました。 新しい Java SDK 依存関係をインストールする必要があります。 手順については、「[Java と API バージョンのプロファイル](../user/azure-stack-version-profiles-java.md?view=azs-2002#java-and-api-version-profiles)」を参照してください。
 - System Center Operations Manager - Azure Stack Hub MP の新しいバージョン (1.0.5.10) が利用できます。これは、API の破壊的変更により、2002 を実行しているすべてのシステムで必要となります。 この API の変更は、バックアップとストレージのパフォーマンス ダッシュボードに影響します。最初にすべてのシステムを 2002 に更新してから MP を更新することをお勧めします。
 
@@ -186,7 +186,7 @@ Azure Stack Hub 2002 更新プログラムのビルドの種類は**完全**で�
 - オフライン シンジケーション ツールは、信頼性に関する機能強化によって更新されました。 このツールは GitHub では入手できなくなり、[PowerShell ギャラリーに移動されました](https://www.powershellgallery.com/packages/Azs.Syndication.Admin/)。 詳細については、「[Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。
 - 新しい監視機能が導入されています。 物理ホストとインフラストラクチャ VM のディスク領域不足のアラートは、プラットフォームによって自動的に修復されます。この操作が失敗した場合にのみ、オペレーターがアクションを実行するために、Azure Stack Hub 管理者ポータルにアラートが表示されます。
 - [診断ログの収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)に対する改善。 新しいエクスペリエンスでは、BLOB ストレージ アカウントを事前に構成する必要がなくなるため、診断ログの収集が合理化されて簡素化されます。 ストレージ環境が事前構成されるため、サポート ケースを開く前にログを送信でき、サポート コールにかかる時間が短縮されます。
-- [事前ログ収集とオンデマンドのログ収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002) の両方にかかる時間が 80% 削減されました。 ログ収集時間は、この予想値より長くなることがありますが、ログ収集が失敗しない限り、Azure Stack Hub オペレーターによる操作は必要ありません。
+- [事前ログ収集とオンデマンドのログ収集](./azure-stack-diagnostic-log-collection-overview.md?view=azs-2002)の両方にかかる時間が 80% 削減されました。 ログ収集時間は、この予想値より長くなることがありますが、ログ収集が失敗しない限り、Azure Stack Hub オペレーターによる操作は必要ありません。
 - 更新が開始された後、Azure Stack Hub 更新パッケージのダウンロードの進行状況が更新ブレードに表示されるようになりました。 これは、[自動ダウンロードを使用して更新パッケージを準備する](azure-stack-update-prepare-package.md#automatic-download-and-preparation-for-update-packages)ことを選択した、接続済みの Azure Stack Hub システムに対してのみ適用されます。
 - ネットワーク コントローラーのホスト エージェントの信頼性に関する機能強化。
 - 修正プログラムや更新プログラムを適用中の内部 DNS サービスの回復性ロジックを向上させる、DNS Orchestrator と呼ばれる新しいマイクロサービスが導入されました。
@@ -264,7 +264,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適用された 1910 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack Hub 修正プログラム 1.1910.81.224](https://support.microsoft.com/help/4583406)
 
 ### <a name="after-successfully-applying-the-2002-update"></a>2002 更新プログラムの適用に成功した後
 
@@ -283,9 +283,9 @@ Azure Stack Hub 1910 更新プログラムのビルド番号は **1.1910.0.58** 
 
 1908 以降、Azure Stack Hub が実行される基盤のオペレーティング システムは Windows Server 2019 に更新されました。 この更新プログラムによって、核となる基本的な機能強化と、Azure Stack Hub に機能を追加する機能が使用可能になります。
 
-Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**です。
+Azure Stack Hub 1910 更新プログラムのビルドの種類は **高速** です。
 
-1910 更新プログラム パッケージは、以前の更新プログラムと比較してサイズが大きくなっており、ダウンロードにより長い時間がかかります。 更新プログラムは長い時間、**準備中**状態のままになり、オペレーターは以前の更新プログラムよりもこのプロセスに長い時間がかかることを予想できます。 1910 更新プログラムが完了するまでの予測所要時間は、ご使用の Azure Stack Hub 環境内の物理ノード数に関係なく、約 10 時間です。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 ランタイムが予測値よりも長くなることは珍しいわけではなく、更新が失敗した場合を除いて、Azure Stack Hub オペレーターによるアクションは必要ありません。 このおおよその実行時間は、1910 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
+1910 更新プログラム パッケージは、以前の更新プログラムと比較してサイズが大きくなっており、ダウンロードにより長い時間がかかります。 更新プログラムは長い時間、 **準備中** 状態のままになり、オペレーターは以前の更新プログラムよりもこのプロセスに長い時間がかかることを予想できます。 1910 更新プログラムが完了するまでの予測所要時間は、ご使用の Azure Stack Hub 環境内の物理ノード数に関係なく、約 10 時間です。 更新プログラムの正確なランタイムは一般的に、ご使用のシステムでテナント ワークロードによって使用されている容量、システム ネットワーク接続 (インターネットに接続されている場合)、およびシステム ハードウェアの仕様に左右されます。 ランタイムが予測値よりも長くなることは珍しいわけではなく、更新が失敗した場合を除いて、Azure Stack Hub オペレーターによるアクションは必要ありません。 このおおよその実行時間は、1910 更新プログラムに固有であり、他の Azure Stack Hub 更新プログラムと比較することはできません。
 
 更新プログラムのビルドの種類については、「[Azure Stack Hub での更新プログラム管理の概要](azure-stack-updates.md)」を参照してください。
 
@@ -317,7 +317,7 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 - 特権エンドポイント (PEP) に Azure Stack Hub の DNS サーバーのフォワーダー設定を取得する **Get-AzSDnsForwarder** コマンドレットを追加しました。 DNS 構成の詳細については、「[Azure Stack Hub データセンターの DNS の統合](azure-stack-integrate-dns.md)」を参照してください。
 
-- [AKS エンジン](../user/azure-stack-kubernetes-aks-engine-overview.md)を使用する **Kubernetes クラスター**の管理のサポートを追加しました。 この更新プログラムから、運用環境の Kubernetes クラスターをデプロイできるようになりました。 AKS エンジンによって、以下のことが可能になっています。
+- [AKS エンジン](../user/azure-stack-kubernetes-aks-engine-overview.md)を使用する **Kubernetes クラスター** の管理のサポートを追加しました。 この更新プログラムから、運用環境の Kubernetes クラスターをデプロイできるようになりました。 AKS エンジンによって、以下のことが可能になっています。
   - Kubernetes クラスターのライフ サイクルを管理します。 クラスターの作成、更新、およびスケールを行うことができます。
   - AKS チームおよび Azure Stack Hub チームによって作成されたマネージド イメージを使用して、クラスターを維持できます。
   - Azure Resource Manager に統合された Kubernetes クラウド プロバイダーを利用し、ネイティブの Azure リソースを使用してクラスターを構築できます。
@@ -332,13 +332,13 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
 
-- Azure Stack Hub では、以前に更新の失敗を引き起こしたり、オペレーターによる Azure Stack Hub の更新開始を妨げたりしていた修正プログラムや更新プログラムの問題を自動修復する機能が向上しています。 その結果、**Test-AzureStack -UpdateReadiness** グループに含まれるテストの数が減っています。 詳細については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md#groups)」を参照してください。 次の 3 つのテストは **UpdateReadiness** グループに残っています。
+- Azure Stack Hub では、以前に更新の失敗を引き起こしたり、オペレーターによる Azure Stack Hub の更新開始を妨げたりしていた修正プログラムや更新プログラムの問題を自動修復する機能が向上しています。 その結果、 **Test-AzureStack -UpdateReadiness** グループに含まれるテストの数が減っています。 詳細については、「[Azure Stack Hub システムの状態を検証する](azure-stack-diagnostic-test.md#groups)」を参照してください。 次の 3 つのテストは **UpdateReadiness** グループに残っています。
 
   - **AzSInfraFileValidation**
   - **AzSActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- 外部デバイス (USB キーなど) がいつ Azure Stack Hub インフラストラクチャのノードにマウントされたかを報告する監査ルールが追加されました。 監査ログは syslog を介して出力され、"**Microsoft-Windows-Security-Auditing:6416|Plug and Play Events** (Microsoft-Windows-Security-Auditing: 6416|プラグ アンド プレイ イベント)" と表示されます。 syslog クライアントの構成方法の詳細については、[Syslog の転送](azure-stack-integrate-security.md)に関する記事を参照してください。
+- 外部デバイス (USB キーなど) がいつ Azure Stack Hub インフラストラクチャのノードにマウントされたかを報告する監査ルールが追加されました。 監査ログは syslog を介して出力され、" **Microsoft-Windows-Security-Auditing:6416|Plug and Play Events** (Microsoft-Windows-Security-Auditing: 6416|プラグ アンド プレイ イベント)" と表示されます。 syslog クライアントの構成方法の詳細については、[Syslog の転送](azure-stack-integrate-security.md)に関する記事を参照してください。
 
 - 内部証明書については、Azure Stack Hub では 4096 ビット RSA キーに移行中です。 内部シークレットのローテーションを実行すると、以前の 2048 ビット証明書は 4096 ビット長の証明書に置き換えられます。 Azure Stack Hub のシークレット ローテーションの詳細については、「[Azure Stack Hub でシークレットをローテーションする](azure-stack-rotate-secrets.md)」を参照してください。
 
@@ -376,18 +376,18 @@ Azure Stack Hub 1910 更新プログラムのビルドの種類は**高速**で�
 
 - Azure から Azure Stack Hub にマーケットプレース項目をダウンロードするときに、複数のバージョンが存在する場合、項目のバージョンを指定できる新しいユーザー インターフェイスが追加されました。 新しい UI は、接続されたシナリオと切断されたシナリオの両方で使用できます。 詳細については、「[Azure から Azure Stack Hub に Marketplace の項目をダウンロードする](azure-stack-download-azure-marketplace-item.md)」を参照してください。  
 
-- 1910 リリース以降、Azure Stack Hub システムには追加で /20 プライベート内部 IP 空間が**必要**になりました。 詳細については、「[Azure Stack のためのネットワーク統合計画](azure-stack-network.md)」を参照してください。
+- 1910 リリース以降、Azure Stack Hub システムには追加で /20 プライベート内部 IP 空間が **必要** になりました。 詳細については、「[Azure Stack のためのネットワーク統合計画](azure-stack-network.md)」を参照してください。
   
 - アップロード手順中に外部ストレージの場所の容量が不足すると、インフラストラクチャ バックアップ サービスによって、部分的にアップロードされたバックアップ データが削除されます。  
 
 - インフラストラクチャ バックアップ サービスでは、AAD デプロイのためのバックアップ ペイロードに ID サービスが追加されました。  
 
 - 1910 リリースでは、Azure Stack Hub PowerShell モジュールがバージョン 1.8.0 に更新されました。<br>変更内容:
-   - **新しい DRP 管理モジュール**:デプロイ リソース プロバイダー (DRP) を使用すると、Azure Stack Hub に対するリソース プロバイダーの調整されたデプロイが可能になります。 これらのコマンドを使うと、DRP とやり取りする Azure Resource Manager レイヤーとやり取りできます。
-   - **BRP**: <br />
+   - **新しい DRP 管理モジュール** :デプロイ リソース プロバイダー (DRP) を使用すると、Azure Stack Hub に対するリソース プロバイダーの調整されたデプロイが可能になります。 これらのコマンドを使うと、DRP とやり取りする Azure Resource Manager レイヤーとやり取りできます。
+   - **BRP** : <br />
            - Azure Stack インフラストラクチャ バックアップの 1 つのロールの復元をサポートします。 <br />
            - パラメーター `RoleName` をコマンドレット `Restore-AzsBackup` に追加します。
-   - **FRP**:API バージョン `2019-05-01` の**ドライブ** リソースと**ボリューム** リソースの重大な変更。 これらの機能は Azure Stack Hub 1910 以降でサポートされています。 <br />
+   - **FRP** :API バージョン `2019-05-01` の **ドライブ** リソースと **ボリューム** リソースの重大な変更。 これらの機能は Azure Stack Hub 1910 以降でサポートされています。 <br />
             - `ID`、`Name`、`HealthStatus`、および `OperationalStatus` の値が変更されました。 <br />
             - **ドライブ** リソースの新しいプロパティ `FirmwareVersion`、`IsIndicationEnabled`、`Manufacturer`、`StoragePool` がサポートされるようになりました。 <br />
             - **ドライブ** リソースのプロパティ `CanPool` および `CannotPoolReason` は廃止されました。代わりに `OperationalStatus` を使用してください。
@@ -423,14 +423,14 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 Azure Stack Hub の 1910 リリースは、以下の修正プログラムが適用された 1908 リリースに適用する必要があります。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1908.51.133](https://support.microsoft.com/help/4574734)
+- [Azure Stack Hub 修正プログラム 1.1908.57.146](https://support.microsoft.com/help/4583007)
 
 ### <a name="after-successfully-applying-the-1910-update"></a>1910 更新プログラムの適用に成功した後
 
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。 詳細については、[サービス ポリシー](azure-stack-servicing-policy.md)に関する記事を参照してください。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.1910.63.186](https://support.microsoft.com/help/4574735)
+- [Azure Stack Hub 修正プログラム 1.1910.81.224](https://support.microsoft.com/help/4583406)
 ::: moniker-end
 
 <!------------------------------------------------------------>

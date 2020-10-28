@@ -6,19 +6,60 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/13/2020
-ms.openlocfilehash: 2432a7fb28ba65f08b0540113ec5d3f90f742509
-ms.sourcegitcommit: 64060ff02d2450c6cf91cb21cdefdcf6b720a75f
+ms.date: 10/20/2020
+ms.openlocfilehash: 6d480f1229fb0c38cb3241c4a9de5bc53eadf87c
+ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "92009847"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92254014"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI パブリック プレビューのリリース ノート
 
 > 適用対象:Azure Stack HCI バージョン 20H2
 
 この記事では、Azure Stack HCI パブリック プレビューの更新プログラム パッケージの内容について説明します。
+
+## <a name="october-20-2020-preview-update-kb4580388"></a>2020 年 10 月 20 日のプレビュー更新プログラム (KB4580388)
+
+更新プログラムには、Azure Stack HCI の最新のリリースに対する機能強化と修正が含まれています。
+
+### <a name="improvements-and-fixes"></a>機能強化と修正
+セキュリティ関連でないこの更新プログラムには、品質上の機能強化が含まれています。 重要な変更点は、次のとおりです。
+
+- この更新プログラムを適用すると、有効な Windows Server 2019 Datacenter Edition ライセンスをお持ちの Azure Stack HCI のお客様は、それらを使用して、Azure Stack HCI でホストされている仮想マシン (VM) を簡単にアクティブ化することができ、VM ごとにプロダクト キーを管理する必要はありません。
+
+### <a name="known-issues-in-this-update"></a>この更新プログラムの既知の問題
+
+Microsoft は、この更新プログラムに関して 1 つの問題を把握しています。
+
+#### <a name="symptom"></a>症状
+ライブ マイグレーションを使用して Windows Server と Azure Stack HCI オペレーティング システムの間で VM を移動すると、次のエラーが表示されることがあります。"Blocked a migration operation for virtual machine <vmname> because VM migration between differing Windows editions is not supported (virtual machine ID)." (仮想マシン <vmname> の移行操作がブロックされました。異なる Windows エディション間での VM の移行はサポートされていません (仮想マシン ID)。)
+
+または、いずれかの VM がクラスター対応更新 (CAU) の間にライブ マイグレーションを実行することが予想される場合、CAU 操作が失敗することもあります。
+
+#### <a name="workaround"></a>回避策
+
+ライブ マイグレーションの代わりにクイック マイグレーションを使用します。 CAU を使用している場合は、CAU でクイック マイグレーションが使用されるように、既定の動作を一時的に変更します。
+
+例:
+
+```powershell
+Get-ClusterResourceType "Virtual Machine" | Set-ClusterParameter MoveTypeThreshold 3001
+```
+
+CAU が正常に完了した後、前の `MoveTypeThreshold` の値に戻すことをお勧めします。
+
+詳細については、「[ノードがドレインされたときに VM を移動する方法の構成](https://techcommunity.microsoft.com/t5/failover-clustering/configuring-how-vms-are-moved-when-a-node-is-drained/ba-p/371848)」を参照してください。
+
+### <a name="how-to-get-this-update"></a>この更新プログラムを入手する方法
+[Azure Stack HCI プレビュー](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)向けの 2020 年 10 月 20 日のセキュリティ更新プログラム (KB4580388) は、Windows Update で配信されます。 Azure Stack HCI クラスターへのインストール方法については、「[Azure Stack HCI クラスターを更新する](manage/update-cluster.md)」を参照してください。
+
+### <a name="file-information"></a>ファイル情報
+この更新プログラム (OS ビルド 17784.1321) で提供されるファイルの一覧については、[累積的な更新プログラム 4580388 のファイル情報](https://download.microsoft.com/download/2/f/b/2fb766d3-c4c8-4279-8718-8efbd0b6f211/4580388.csv)をダウンロードしてください。
+
+   > [!NOTE]
+   > この CSV ファイルの "File version" 列に、一部のファイルで誤って "Not applicable" と表示されています。 そのことが原因で、サードパーティのスキャン検出ツールを使用してビルドを検証したときに擬陽性または偽陰性の結果が生じる可能性があります。
 
 ## <a name="october-13-2020-security-update-kb4580363"></a>2020 年 10 月 13 日のセキュリティ更新プログラム (KB4580363)
 

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/29/2020
-ms.openlocfilehash: e14d0475c941f568f08a027de9e71eb25f00a999
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/16/2020
+ms.openlocfilehash: 3aaee084c30dd8d6b3f6514d18951fd604bd75aa
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572655"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157667"
 ---
 # <a name="software-defined-networking-sdn-in-azure-stack-hci"></a>Azure Stack HCI におけるソフトウェアによるネットワーク制御 (SDN)
 
@@ -23,6 +23,9 @@ ms.locfileid: "91572655"
 [Hyper-V 仮想スイッチ](/windows-server/virtualization/hyper-v-virtual-switch/hyper-v-virtual-switch)、[Hyper-V ネットワーク仮想化](/windows-server/networking/sdn/technologies/hyper-v-network-virtualization/hyper-v-network-virtualization)、[ソフトウェア負荷分散](/windows-server/networking/sdn/technologies/network-function-virtualization/software-load-balancing-for-sdn)、[RAS ゲートウェイ](/windows-server/networking/sdn/technologies/network-function-virtualization/ras-gateway-for-sdn)などの仮想ネットワーク要素は、SDN インフラストラクチャの不可欠な要素として設計されています。 また、既存の SDN 適合デバイスを使用して、仮想ネットワークで実行されるワークロードと物理ネットワークで実行されるワークロードの統合を強化することもできます。
 
 Azure Stack HCI には、主要な SDN コンポーネントとしてネットワーク コントローラー、ソフトウェア ロード バランサー、ゲートウェイの 3 つがあり、どれをデプロイするかは自分で選ぶことができます。
+
+   > [!NOTE]
+   > SDN は、ストレッチ (マルチサイト) クラスターではサポートされていません。
 
 ## <a name="network-controller"></a>ネットワーク コントローラー
 

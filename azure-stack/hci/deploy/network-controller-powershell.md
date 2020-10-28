@@ -3,24 +3,26 @@ title: Windows PowerShell を使用してネットワーク コントローラ�
 description: Windows PowerShell を使用してネットワーク コントローラーを展開する方法について説明します。
 author: v-dasis
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 10/16/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e217c8b3e2a67dafa121fe752b66af9f24f888a1
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: e53206ae6ae5039d00cbe4bf82b6fb5b773a5270
+ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899552"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157650"
 ---
 # <a name="deploy-network-controller-using-windows-powershell"></a>Windows PowerShell を使用してネットワーク コントローラーを展開する
 
 > 適用対象: Azure Stack HCI バージョン 20H2、Windows Server 2019
 
-このトピックでは、Windows PowerShell を使用して、Azure Stack HCI クラスターで実行されている 1 つ以上の仮想マシン (VM) にネットワーク コントローラーを展開する方法について説明します。 ネットワーク コントローラーは、ソフトウェアによるネットワーク制御 (SDN) のコンポーネントです。
+このトピックでは、Windows PowerShell を使用して、Azure Stack HCI クラスターで実行されている 1 つ以上の仮想マシン (VM) にネットワーク コントローラー機能をデプロイする方法について説明します。 ネットワーク コントローラーは、ソフトウェアによるネットワーク制御 (SDN) のコンポーネントです。
 
->[!NOTE]
->Windows Admin Center でクラスターの作成ウィザードを使用して、ネットワーク コントローラーを展開することもできます。 詳細については、「[Windows Admin Center を使用して Azure Stack HCI クラスターを作成する](create-cluster.md)」を参照してください。
+Windows Admin Center でクラスターの作成ウィザードを使用して、ネットワーク コントローラーを展開することもできます。 詳細については、「[Windows Admin Center を使用して Azure Stack HCI クラスターを作成する](create-cluster.md)」を参照してください。
+
+> [!NOTE]
+> SDN は、ストレッチ クラスターではサポートされていないか、使用できません。
 
 ## <a name="using-windows-powershell"></a>Windows PowerShell を使用する
 
@@ -37,7 +39,7 @@ PowerShell は、ホスト サーバー上のリモート デスクトップ (RD
 >[!IMPORTANT]
 >ネットワーク コントローラー サーバー ロールを物理ホストに展開しないでください。 ネットワーク コントローラーを展開するには、Hyper-V ホストにインストールされている Hyper-V VM にネットワーク コントローラー サーバー ロールをインストールする必要があります。 3 つの異なる Hyper-V ホスト上の VM にネットワーク コントローラーをインストールした後、ホストをネットワーク コントローラーに追加して、ソフトウェアによるネットワーク制御 (SDN) に対して Hyper-V ホストを有効にする必要があります。 これにより、SDN ソフトウェア ロード バランサーを機能させることができます。
 
-この手順を実行するには、**Administrators** グループのメンバーシップ、またはそれと同等のメンバーシップが必要です。  
+この手順を実行するには、 **Administrators** グループのメンバーシップ、またはそれと同等のメンバーシップが必要です。  
 
 >[!NOTE]
 >Windows PowerShell の代わりにサーバー マネージャーを使用してネットワーク コントローラーをインストールする場合は、「[サーバー マネージャーを使用してネットワーク コントローラー サーバー ロールをインストールする](/windows-server/networking/sdn/technologies/network-controller/install-the-network-controller-server-role-using-server-manager)」を参照してください。
@@ -59,7 +61,7 @@ Restart-Computer
 ネットワーク コントローラー クラスターにより、ネットワーク コントローラー アプリケーションでは高可用性とスケーラビリティが実現します。このアプリケーションは、クラスターの作成後に構成することができ、クラスター上でホストされます。
 
 >[!NOTE]
->以下のセクションの手順は、ネットワーク コントローラーをインストールした VM で直接実行することも、Windows Admin Center を実行しているリモート コンピューターから実行することもできます。 また、この手順を実行するには、**Administrators** グループのメンバーシップ、またはそれと同等のメンバーシップが必要です。 ネットワーク コントローラーをインストールしたコンピューターまたは VM がドメインに参加している場合は、ユーザー アカウントが **Domain Users** グループのメンバーである必要があります。
+>以下のセクションの手順は、ネットワーク コントローラーをインストールした VM で直接実行することも、Windows Admin Center を実行しているリモート コンピューターから実行することもできます。 また、この手順を実行するには、 **Administrators** グループのメンバーシップ、またはそれと同等のメンバーシップが必要です。 ネットワーク コントローラーをインストールしたコンピューターまたは VM がドメインに参加している場合は、ユーザー アカウントが **Domain Users** グループのメンバーである必要があります。
 
 ネットワーク コントローラー クラスターを作成するには、ノード オブジェクトを作成し、クラスターを構成します。
 
@@ -95,9 +97,9 @@ Install-NetworkControllerCluster -Node "NetworkControllerNodeName" -ClusterAuthe
   
 |パラメーター|説明|
 |-------------|---------------|
-|ClusterAuthentication|**ClusterAuthentication** パラメーターでは、ノード間の通信をセキュリティで保護するために使用され、ネットワーク コントローラー サービス間のトラフィックの暗号化にも使用される認証の種類を指定します。 サポートされる値は、**Kerberos**、**X509**、**None** です。 Kerberos 認証はドメイン アカウントを使用し、ネットワーク コントローラー ノードがドメインに参加している場合にのみ使用できます。 X509 ベースの認証を指定する場合は、NetworkControllerNode オブジェクトで証明書を指定する必要があります。 さらに、このコマンドを実行する前に、証明書を手動でプロビジョニングする必要があります。|
+|ClusterAuthentication|**ClusterAuthentication** パラメーターでは、ノード間の通信をセキュリティで保護するために使用され、ネットワーク コントローラー サービス間のトラフィックの暗号化にも使用される認証の種類を指定します。 サポートされる値は、 **Kerberos** 、 **X509** 、 **None** です。 Kerberos 認証はドメイン アカウントを使用し、ネットワーク コントローラー ノードがドメインに参加している場合にのみ使用できます。 X509 ベースの認証を指定する場合は、NetworkControllerNode オブジェクトで証明書を指定する必要があります。 さらに、このコマンドを実行する前に、証明書を手動でプロビジョニングする必要があります。|
 |ManagementSecurityGroup|**ManagementSecurityGroup** パラメーターでは、リモート コンピューターから管理コマンドレットを実行することが許可されているユーザーを含むセキュリティ グループの名前を指定します。 これは、ClusterAuthentication が Kerberos の場合にのみ適用されます。 ローカル コンピューターのセキュリティ グループではなく、ドメイン セキュリティ グループを指定する必要があります。|
-|Node|**Node** パラメーターでは、**New-NetworkControllerNodeObject** コマンドを使用して作成したネットワーク コントローラー ノードのリストを指定します。|
+|Node|**Node** パラメーターでは、 **New-NetworkControllerNodeObject** コマンドを使用して作成したネットワーク コントローラー ノードのリストを指定します。|
 |DiagnosticLogLocation|**DiagnosticLogLocation** パラメーターでは、診断ログが定期的にアップロードされる共有の場所を指定します。 このパラメーターの値を指定しない場合、ログは各ノードでローカルに保存されます。 ログは、ローカルの %systemdrive%\Windows\tracing\SDNDiagnostics フォルダーに保存されます。 クラスター ログは、ローカルの %systemdrive%\ProgramData\Microsoft\Service Fabric\log\Traces フォルダーに保存されます。|
 |LogLocationCredential|**LogLocationCredential** パラメーターでは、ログが保存される共有の場所にアクセスするために必要な資格情報を指定します。|
 |CredentialEncryptionCertificate|**CredentialEncryptionCertificate** パラメーターでは、ネットワーク コントローラーのバイナリへのアクセスに使用される資格情報と **LogLocationCredential** (指定されている場合) を暗号化するためにネットワーク コントローラーで使用される証明書を指定します。 このコマンドを実行する前に、すべてのネットワーク コントローラー ノードで証明書をプロビジョニングする必要があります。また、同じ証明書をすべてのクラスター ノードに登録する必要があります。 運用環境では、このパラメーターを使用してネットワーク コントローラーのバイナリとログを保護することをお勧めします。 このパラメーターを使用しない場合、資格情報はクリア テキストで保存されるため、未承認ユーザーによって悪用される可能性があります。|
@@ -120,13 +122,13 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
 
 |パラメーター|説明|
 |-------------|---------------|
-|ClientAuthentication|**ClientAuthentication** パラメーターでは、REST とネットワーク コントローラー間の通信をセキュリティで保護するために使用される認証の種類を指定します。 サポートされる値は、**Kerberos**、**X509**、**None** です。 Kerberos 認証はドメイン アカウントを使用し、ネットワーク コントローラー ノードがドメインに参加している場合にのみ使用できます。 X509 ベースの認証を指定する場合は、NetworkControllerNode オブジェクトで証明書を指定する必要があります。 さらに、このコマンドを実行する前に、証明書を手動でプロビジョニングする必要があります。|
-|Node|**Node** パラメーターでは、**New-NetworkControllerNodeObject** コマンドを使用して作成したネットワーク コントローラー ノードのリストを指定します。|
+|ClientAuthentication|**ClientAuthentication** パラメーターでは、REST とネットワーク コントローラー間の通信をセキュリティで保護するために使用される認証の種類を指定します。 サポートされる値は、 **Kerberos** 、 **X509** 、 **None** です。 Kerberos 認証はドメイン アカウントを使用し、ネットワーク コントローラー ノードがドメインに参加している場合にのみ使用できます。 X509 ベースの認証を指定する場合は、NetworkControllerNode オブジェクトで証明書を指定する必要があります。 さらに、このコマンドを実行する前に、証明書を手動でプロビジョニングする必要があります。|
+|Node|**Node** パラメーターでは、 **New-NetworkControllerNodeObject** コマンドを使用して作成したネットワーク コントローラー ノードのリストを指定します。|
 |ClientCertificateThumbprint|このパラメーターは、ネットワーク コントローラー クライアントに証明書ベースの認証を使用している場合にのみ必要です。 **ClientCertificateThumbprint** パラメーターでは、Northbound レイヤーのクライアントに登録されている証明書の拇印を指定します。|
 |ServerCertificate|**ServerCertificate** パラメーターでは、ネットワーク コントローラーがその ID をクライアントに対して証明するために使用する証明書を指定します。 サーバー証明書は、拡張キー使用法拡張機能にサーバー認証の目的を含める必要があります。また、クライアントによって信頼されている CA によってネットワーク コントローラーに発行される必要があります。|
-|RESTIPAddress|ネットワーク コントローラーの単一ノードの展開では、**RESTIPAddress** の値を指定する必要はありません。 複数ノードの展開の場合、**RESTIPAddress** パラメーターでは、CIDR 表記で REST エンドポイントの IP アドレスを指定します。 たとえば、192.168.1.10/24 とします。 **ServerCertificate** の Subject Name 値は、**RESTIPAddress** パラメーターの値に解決される必要があります。 すべてのノードが同じサブネット上にある場合は、ネットワーク コントローラーのすべての複数ノードの展開にこのパラメーターを指定する必要があります。 ノードがさまざまなサブネット上にある場合は、**RESTIPAddress** を使用するのではなく、**RestName** パラメーターを使用する必要があります。|
-|RestName|ネットワーク コントローラーの単一ノードの展開では、**RestName** の値を指定する必要はありません。 **RestName** の値を指定する必要があるのは、複数ノードの展開に含まれるノードが異なるサブネット上にある場合だけです。 複数ノードの展開の場合、**RestName** パラメーターでは、ネットワーク コントローラー クラスターの FQDN を指定します。|
-|ClientSecurityGroup|**ClientSecurityGroup** パラメーターでは、メンバーがネットワーク コントローラー クライアントである Active Directory セキュリティ グループの名前を指定します。 このパラメーターは、**ClientAuthentication** に Kerberos 認証を使用する場合にのみ必要です。 このセキュリティ グループには、REST API へのアクセスに使用するアカウントが含まれている必要があります。また、このコマンドを実行する前に、セキュリティ グループを作成し、メンバーを追加する必要があります。|
+|RESTIPAddress|ネットワーク コントローラーの単一ノードの展開では、 **RESTIPAddress** の値を指定する必要はありません。 複数ノードの展開の場合、 **RESTIPAddress** パラメーターでは、CIDR 表記で REST エンドポイントの IP アドレスを指定します。 たとえば、192.168.1.10/24 とします。 **ServerCertificate** の Subject Name 値は、 **RESTIPAddress** パラメーターの値に解決される必要があります。 すべてのノードが同じサブネット上にある場合は、ネットワーク コントローラーのすべての複数ノードの展開にこのパラメーターを指定する必要があります。 ノードがさまざまなサブネット上にある場合は、 **RESTIPAddress** を使用するのではなく、 **RestName** パラメーターを使用する必要があります。|
+|RestName|ネットワーク コントローラーの単一ノードの展開では、 **RestName** の値を指定する必要はありません。 **RestName** の値を指定する必要があるのは、複数ノードの展開に含まれるノードが異なるサブネット上にある場合だけです。 複数ノードの展開の場合、 **RestName** パラメーターでは、ネットワーク コントローラー クラスターの FQDN を指定します。|
+|ClientSecurityGroup|**ClientSecurityGroup** パラメーターでは、メンバーがネットワーク コントローラー クライアントである Active Directory セキュリティ グループの名前を指定します。 このパラメーターは、 **ClientAuthentication** に Kerberos 認証を使用する場合にのみ必要です。 このセキュリティ グループには、REST API へのアクセスに使用するアカウントが含まれている必要があります。また、このコマンドを実行する前に、セキュリティ グループを作成し、メンバーを追加する必要があります。|
 |資格情報|このパラメーターは、リモート コンピューターからこのコマンドを実行する場合にのみ必要です。 **Credential** パラメーターでは、ターゲット コンピューターでこのコマンドを実行する権限を持つユーザー アカウントを指定します。|
 |CertificateThumbprint|このパラメーターは、リモート コンピューターからこのコマンドを実行する場合にのみ必要です。 **CertificateThumbprint** パラメーターでは、ターゲット コンピューターでこのコマンドを実行する権限を持つユーザー アカウントのデジタル公開キー証明書 (X509) を指定します。|
 |UseSSL|このパラメーターは、リモート コンピューターからこのコマンドを実行する場合にのみ必要です。 **UseSSL** パラメーターでは、リモート コンピューターへの接続を確立するために使用される Secure Sockets Layer (SSL) プロトコルを指定します。 既定では、SSL は使用されません。|
@@ -139,7 +141,7 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
 
 `ClientAuthentication` の種類として Kerberos を使用している場合、この手順を実行するには、作成した **ClientSecurityGroup** グループのメンバーシップが必要です。
 
-1. クライアント コンピューターで、`ClientAuthentication` の種類として Kerberos を使用している場合は、**ClientSecurityGroup** グループのメンバーであるユーザー アカウントでログオンします。
+1. クライアント コンピューターで、`ClientAuthentication` の種類として Kerberos を使用している場合は、 **ClientSecurityGroup** グループのメンバーであるユーザー アカウントでログオンします。
 
 1. PowerShell で次のコマンドを入力します。 各パラメーターには、実際の展開に適した値を使用してください。
 
@@ -199,7 +201,7 @@ Install-NetworkController -Node <NetworkControllerNode[]> -ClientAuthentication 
 |ネットワーク コントローラー クラスター ノードを有効にする|Enable-NetworkControllerNode|`Enable-NetworkControllerNode -Name <String> [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-PassThru] [-UseSsl]`
 |ネットワーク コントローラー ノードをクラスターから削除する|Remove-NetworkControllerNode|`Remove-NetworkControllerNode [-CertificateThumbprint <String> ] [-ComputerName <String> ] [-Credential <PSCredential> ] [-Force] [-Name <String> ] [-PassThru] [-UseSsl]`
 
-詳細については、「[NetworkController](/powershell/module/networkcontroller/?view=win10-ps)」のネットワーク コントローラーに関する Windows PowerShell リファレンス ドキュメントを参照してください。
+詳細については、「[NetworkController](/powershell/module/networkcontroller)」のネットワーク コントローラーに関する Windows PowerShell リファレンス ドキュメントを参照してください。
 
 ## <a name="sample-network-controller-configuration-script"></a>ネットワーク コントローラーのサンプル構成スクリプト
 
