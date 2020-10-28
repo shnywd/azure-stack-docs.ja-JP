@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 8f18cd223faca91bc490b659e0a25fce1add3fea
-ms.sourcegitcommit: 4b1a4ec0ac0283faea9438e6617fcb3cfc6fee6d
+ms.openlocfilehash: 46f98ba8f5d2f33e0b5d9d85ee9c2469a098c17d
+ms.sourcegitcommit: d835e211fe65dc54a0d49dfb21ca2465ced42aa4
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92041226"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92200486"
 ---
 # <a name="plan-host-networking-for-azure-stack-hci"></a>Azure Stack HCI のホスト ネットワークを計画する
 
@@ -35,7 +35,6 @@ SMB トラフィックは、次のプロトコル経由でフローできます�
 
 - トランスポート制御プロトコル (TCP) - サイト間で使用
 - リモート ダイレクト メモリ アクセス (RDMA)
-- QUIC - 予定
 
 ## <a name="traffic-bandwidth-allocation"></a>トラフィックの帯域幅の割り当て
 
@@ -50,7 +49,7 @@ SMB トラフィックは、次のプロトコル経由でフローできます�
 - ハートビート (HB) トラフィックにより、残りの 50% の割り当ての 1% が確保されています
 - \* LM トラフィックに対する帯域幅の割り当てが 5 Gbps 未満の場合は、RDMA ではなく圧縮を使用する必要があります
 
-|NIC 速度|チーム化された NIC 速度|SMB 50% 予約|SBL/CSV %|SBL/CSV 帯域幅|LM %|LM 帯域幅|SR % |SR 帯域幅|HB %|HB 帯域幅|
+|NIC 速度|チーム化された帯域幅|SMB 50% 予約|SBL/CSV %|SBL/CSV 帯域幅|LM %|LM 帯域幅|SR % |SR 帯域幅|HB %|HB 帯域幅|
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 |10|20|10|70%|7|14%*|1.4*|14%|1.4|2%|0.2|
 |25|50|25|70%|17.5|15%*|3.75*|14%|3.5|1%|0.25|
@@ -77,7 +76,7 @@ Azure Stack HCI の RDMA の要件は次のとおりです。
     - 記憶域レプリカ用に 1 つ以上の追加の vNIC をプロビジョニングする必要があります
     - 記憶域レプリカ vNIC は、定義上、サイト間とサブネット間であるため、PowerShell [Disable-NetAdapterRDMA](https://docs.microsoft.com/powershell/module/netadapter/disable-netadapterrdma) コマンドレットを使用して RDMA を無効にする必要があります
     - ネイティブ RDMA アダプターには、上記のサイトまたはサブネット要件を満たすために、記憶域レプリカをサポートするための vSwitch と vNIC が必要です
-    - サイト内 RDMA 帯域幅の要件については、「**トラフィックの帯域幅の割り当て**」セクションで説明したように、トラフィックの種類ごとの帯域幅の割合を把握している必要があります。 これにより、East/West (ノード間) のトラフィックに適切な帯域幅の予約と制限を確実に適用できるようになります
+    - サイト内 RDMA 帯域幅の要件については、「 **トラフィックの帯域幅の割り当て** 」セクションで説明したように、トラフィックの種類ごとの帯域幅の割合を把握している必要があります。 これにより、East/West (ノード間) のトラフィックに適切な帯域幅の予約と制限を確実に適用できるようになります
 - ライブ マイグレーションと記憶域レプリカのトラフィックは、SMB 帯域幅に制限されている必要があります。そうしないと、すべての帯域幅が消費され、優先順位の高い記憶域トラフィックが不足するおそれがあります。 詳細については、PowerShell コマンドレット「[Set-SmbBandwidthLimit](https://docs.microsoft.com/powershell/module/smbshare/set-smbbandwidthlimit)」と「[Set-SRNetworkConstraint](https://docs.microsoft.com/powershell/module/storagereplica/set-srnetworkconstraint)」を参照してください。
 
 > [!NOTE]
@@ -92,7 +91,7 @@ Azure Stack HCI の RDMA の要件は次のとおりです。
 
 ### <a name="interconnects-for-2-3-node-clusters"></a>2 または 3 ノードのクラスターの相互接続
 
-以下は、2 つまたは 3 つのノードを持つ単一サイト クラスターについての "*最小*" の相互接続要件です。 これらは、サーバー ノードごとに適用されます。
+以下は、2 つまたは 3 つのノードを持つ単一サイト クラスターについての " *最小* " の相互接続要件です。 これらは、サーバー ノードごとに適用されます。
 
 - 管理機能に使用する 1 つ以上の 1 Gb ネットワーク アダプター カード
 - ストレージとワークロードのトラフィック用に 1 つ以上の 10 Gb (またはそれ以上) のネットワーク インターフェイス カード
@@ -100,7 +99,7 @@ Azure Stack HCI の RDMA の要件は次のとおりです。
 
 ### <a name="interconnects-for-4-node-and-greater-clusters"></a>4 ノード以上のクラスターの相互接続
 
-以下は、4 つ以上のノードを持つクラスターと、高パフォーマンス クラスターについての "*最小*" の相互接続要件です。 これらは、サーバー ノードごとに適用されます。
+以下は、4 つ以上のノードを持つクラスターと、高パフォーマンス クラスターについての " *最小* " の相互接続要件です。 これらは、サーバー ノードごとに適用されます。
 
 - 管理機能に使用する 1 つ以上の 1 Gb ネットワーク アダプター カード。
 - ストレージとワークロードのトラフィック用に 1 つ以上の 25 Gb (またはそれ以上) のネットワーク インターフェイス カード。 冗長性とパフォーマンスのために 2 つ以上のネットワーク接続が推奨されます。
