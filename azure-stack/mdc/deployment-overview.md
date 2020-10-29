@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 60361a3e44b5ad54c63e6a94223d75a7b5106b9e
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
+ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253929"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92898588"
 ---
 # <a name="mdc-deployment-overview"></a>MDC のデプロイの概要
 
@@ -58,10 +58,6 @@ MDC は、標準の 40 フィート金属製出荷コンテナーに収められ
 |スケール ユニット    |Azure Stack Hub のファブリック インフラストラクチャとワークロードに対してコンピューティング リソースとストレージ リソースを提供する、Azure Stack Hub のコア コンポーネント。 各ポッドには、ノードとも呼ばれる 8 個の MDC R840 サーバーが含まれています。|
 |Isilon ストレージ |    MDC ソリューションに固有の Azure Stack Hub コンポーネント。 Isilon により、Azure Stack Hub ワークロード用の追加の BLOB およびファイル ストレージが提供されます。 各ポッドには、48 個の Isilon ストレージ ノードが含まれます。|
 |Pod    |MDC のコンテキストの場合、ポッドは 2 つの相互接続された物理ラックで構成される独立した論理ユニットです。 完全なソリューションには、1 つのコンテナーに設置された 3 つのポッドが含まれます。|
-
-
-
-
 
 ## <a name="deployment-workflow"></a>デプロイのワークフロー
 
