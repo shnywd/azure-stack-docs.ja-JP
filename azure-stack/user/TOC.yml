@@ -250,6 +250,8 @@
                       href: azure-stack-kubernetes-aks-engine-scale.md
                     - name: クラスターのアップグレード
                       href: azure-stack-kubernetes-aks-engine-upgrade.md
+                    - name: サービス アカウント トークンのボリューム予測を有効にする
+                      href: kubernetes-aks-engine-service-account.md
                     - name: AKS エンジンのトラブルシューティング
                       href: azure-stack-kubernetes-aks-engine-troubleshoot.md
                     - name: Azure Monitor for containers を使用する
