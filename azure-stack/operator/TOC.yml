@@ -351,6 +351,32 @@
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: '[削除]'
               href: event-hubs-rp-remove.md
+        - name: Azure Stack Hub 上の IoT Hub
+          items:
+            - name: 概要
+              href: iot-hub-rp-overview.md
+            - name: 前提条件
+              href: iot-hub-rp-prerequisites.md
+            - name: インストール
+              href: iot-hub-rp-install.md
+            - name: ライフサイクル管理
+              items:
+                - name: 更新プログラムの適用
+                  href: resource-provider-apply-updates.md
+                - name: バックアップと復元
+                  href: azure-stack-backup-infrastructure-backup.md
+                - name: ログの収集
+                  href: azure-stack-diagnostic-log-collection-overview.md
+                - name: 正常性とアラート
+                  href: azure-stack-monitor-health.md
+                - name: 管理する
+                  href: iot-hub-rp-manage.md
+                - name: シークレットの切り替え
+                  href: iot-hub-rp-rotate-secrets.md
+                - name: サービス更新のお知らせ
+                  href: 'https://azure.microsoft.com/updates/?query=IoT%20Hub'
+            - name: '[削除]'
+              href: iot-hub-rp-remove.md
         - name: Azure Stack Hub 上の MySQL
           items:
             - name: 概要

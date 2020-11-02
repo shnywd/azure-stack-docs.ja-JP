@@ -16,22 +16,22 @@
   items:
     - name: デプロイの概要
       href: deploy/deployment-overview.md
-    - name: 開始する前に
-      href: deploy/before-you-start.md
     - name: Azure Stack HCI OS のデプロイ
       href: deploy/operating-system.md
     - name: クラスターを作成する
       href: deploy/create-cluster.md
-    - name: PowerShell を使用したクラスターの作成
-      href: deploy/create-cluster-powershell.md
     - name: クラスター監視のセットアップ
       href: deploy/witness.md
     - name: Azure に登録する
       href: deploy/register-with-azure.md
     - name: クラスターを検証する
       href: deploy/validate.md
-    - name: ネットワーク コントローラーの展開
-      href: deploy/network-controller-powershell.md
+    - name: PowerShell でデプロイする
+      items:
+        - name: PowerShell を使用してクラスターを作成する
+          href: deploy/create-cluster-powershell.md
+        - name: PowerShell を使用してネットワーク コントローラーをデプロイする
+          href: deploy/network-controller-powershell.md
 - name: 管理する
   items:
     - name: VM の管理
@@ -104,6 +104,8 @@
   items:
     - name: ストレージとクラスター
       items:
+        - name: システム要件
+          href: concepts/system-requirements.md
         - name: ドライブの選択
           href: concepts/choose-drives.md
         - name: ドライブの対称性に関する考慮事項
