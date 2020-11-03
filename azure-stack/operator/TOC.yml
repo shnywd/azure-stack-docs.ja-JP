@@ -340,7 +340,7 @@
                 - name: バックアップと復元
                   href: azure-stack-backup-infrastructure-backup.md
                 - name: ログの収集
-                  href: azure-stack-diagnostic-log-collection-overview.md
+                  href: diagnostic-log-collection.md
                 - name: 正常性とアラート
                   href: azure-stack-monitor-health.md
                 - name: 管理する
@@ -492,11 +492,9 @@
             - name: クラウド ID を検索する
               href: azure-stack-find-cloud-id.md
             - name: 診断ログの収集
-              items:
-                - name: 概要
-                  href: azure-stack-diagnostic-log-collection-overview.md
-                - name: Get-AzureStackLog (PEP)
-                  href: azure-stack-get-azurestacklog.md
+              href: diagnostic-log-collection.md
+            - name: Get-AzureStackLog (PEP)
+              href: azure-stack-get-azurestacklog.md
         - name: Azure Stack Hub に対する検証
           href: azure-stack-diagnostic-test.md
         - name: トラブルシューティング
