@@ -43,6 +43,8 @@
       href: asdk-validate-backup.md
     - name: ASDK に接続する
       href: asdk-connect.md
+    - name: Azure CLI をセットアップする
+      href: asdk-cli.md
     - name: トラブルシューティング
       href: asdk-troubleshooting.md
 - name: リファレンス
