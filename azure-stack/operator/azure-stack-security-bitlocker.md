@@ -8,16 +8,16 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: fiseraci
 ms.lastreviewed: 08/06/2020
-ms.openlocfilehash: 2aa24a852e5388a36b1103c2a61f5aa70930d84d
-ms.sourcegitcommit: 1ab1293b594fe8ffc00dc800c663cf1323dc41ce
+ms.openlocfilehash: 8d188c77ab04044db94e13cdbf36fdb0e7cbe839
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87939532"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638820"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack-hub"></a>Azure Stack Hub での保存データの暗号化
 
-Azure Stack Hub は、保存時の暗号化を使用して、ストレージ サブシステム レベルのユーザー データとインフラストラクチャ データを保護します。 Azure Stack Hub のストレージ サブシステムは、128 ビット AES 暗号化による BitLocker を使用して暗号化されます。 BitLocker のキーは、内部のシークレット ストアに保存されます。
+Azure Stack Hub は、保存時の暗号化を使用して、ストレージ サブシステム レベルのユーザー データとインフラストラクチャ データを保護します。 既定で、Azure Stack Hub のストレージ サブシステムは、128 ビット AES 暗号化による BitLocker を使用して暗号化されます。 BitLocker のキーは、内部のシークレット ストアに保存されます。 デプロイ時、256 ビット AES 暗号化を使用するように BitLocker を構成することもできます。
 
 保存データの暗号化は、主要なコンプライアンス標準 (PCI-DSS、FedRAMP、HIPAA など) の多くで一般的な要件です。 Azure Stack Hub では、特別な作業や構成を行わなくても、これらの要件を満たすことができます。 Azure Stack Hub がコンプライアンス標準への準拠をどのように支援するかについて詳しくは、[Microsoft Service Trust Portal](https://aka.ms/AzureStackCompliance) を参照してください。
 
@@ -40,7 +40,7 @@ Get-AzsRecoveryKeys -raw
 
 *Get-AzsRecoveryKeys* コマンドレットのパラメーター:
 
-| パラメーター | 説明 | 種類 | 必須 |
+| パラメーター | 説明 | Type | 必須 |
 |---------|---------|---------|---------|
 |*raw* | 回復キーとコンピューター名と暗号化された各ボリュームのパスワード ID とにおけるデータのマッピングを返します。  | Switch | いいえ (ただし推奨) |
 

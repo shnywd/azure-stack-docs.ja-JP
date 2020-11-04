@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: cfa531c42ebcc191461d4a801d0c17ce9526b912
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
+ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473148"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92523543"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをスケーリングする
 
@@ -35,11 +35,11 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 | client-id |  | AKS エンジンからクラスターを作成するときに使用されるサービス プリンシパルのクライアント ID。 | 
 | client-secret |  | クラスターの作成時に使用されるサービス プリンシパル シークレット。 | 
 | api-model | kube-rg/apimodel.json | クラスター定義ファイルへのパス (apimodel.json)。 たとえば、_output/\<dnsPrefix>/apimodel.json などです | 
-| -new-node-count | 9 | 目的のノード数。 | 
-| -master-FQDN |  | マスター FQDN。 スケールダウンするときに必要です。 |
+| new-node-count | 9 | 目的のノード数。 | 
+| apiserver |  | マスター FQDN。 スケールダウンするときに必要です。 |
 | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
-Azure Stack Hub でクラスターをスケーリングする場合は、 **--azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
+Azure Stack Hub でクラスターをスケーリングする場合は、 **--azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、 [Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
 
 ### <a name="command-to-scale-your-cluster"></a>クラスターをスケールするコマンド
 
@@ -55,7 +55,7 @@ aks-engine scale \
     --client-secret xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx \
     --api-model <path to your apomodel.json file>
     --new-node-count <desired node count> \
-    --master-FQDN <master FQDN> \
+    --apiserver <master FQDN> \
     --identity-system adfs # required if using AD FS
 ```
 

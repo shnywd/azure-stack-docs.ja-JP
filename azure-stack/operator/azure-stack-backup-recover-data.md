@@ -3,16 +3,16 @@ title: Azure Stack Hub での致命的なデータ損失からの復旧
 description: 致命的なデータ損失が発生した後に Azure Stack Hub のインフラストラクチャ データを復旧および復元する方法について学習します。
 author: justinha
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 10/23/2020
 ms.author: justinha
 ms.reviewer: hectorl
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7f57336cdb15be2f55fdcd3756f5f3714f51b1af
-ms.sourcegitcommit: d197e8d3c3b69c20d09de4c43d8089ec0a993baf
+ms.lastreviewed: 10/23/2020
+ms.openlocfilehash: 35d55eec6c1311c39014f94f94fb04d39c7acb3b
+ms.sourcegitcommit: 25f6211aa16308d50315872f647d840f402fa62e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/21/2020
-ms.locfileid: "90836507"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92496410"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>致命的なデータ損失からの復旧
 
@@ -60,6 +60,10 @@ Azure Stack Hub では、クラウド回復モードというタイプのデプ�
  - RBAC のポリシー割り当てとロール割り当て
 
 展開の際、ユーザーのサービスとしてのインフラストラクチャ (IaaS) リソースや、サービスとしてのプラットフォーム (PaaS) リソースは、復旧されません。 これらの損失には、IaaS VM、ストレージ アカウント、BLOB、テーブル、ネットワーク構成などが含まれます。 クラウドを復旧する目的は、デプロイの完了後に、オペレーターとユーザーがポータルに再度サインインできることを確実にすることです。 再度サインインしても、ユーザーにリソースは一切表示されません。 ユーザーのサブスクリプションと、管理者によって定義されていた元のプラン、オファー、ポリシーが復元されています。システムに再度サインインするユーザーは、障害が起きる前の元のソリューションであったものと同じ制約で操作することになります。 作業者は、クラウドの復旧が完了したら、付加価値 RP、サード パーティ製 RP、および関連するデータを手動で復元できます。
+
+## <a name="validate-backups"></a>バックアップの検証 
+
+ASDK を使用してバックアップをテストし、データが有効であり、使用可能であることを確認できます。 詳細については、「[ASDK を使用して Azure Stack のバックアップを検証する](../asdk/asdk-validate-backup.md)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

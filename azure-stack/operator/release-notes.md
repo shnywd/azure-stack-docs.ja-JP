@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/20/2020
+ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 08/11/2020
-ms.openlocfilehash: 923dbd141ad7911326f896d0d4f8d124648035e5
-ms.sourcegitcommit: b6d5d59481c3569a5ff670a91b3a46a9d3a7a63d
+ms.openlocfilehash: 5fa0debb10152d94095d6ba79100e74c2116633e
+ms.sourcegitcommit: 61e616745cd20940eaeee6dfe90333ebe621e0ea
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92336892"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92763136"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -142,7 +142,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.18.78](https://support.microsoft.com/help/4584238)
+- [Azure Stack Hub 修正プログラム 1.2005.19.80](https://support.microsoft.com/help/4591132)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

@@ -8,16 +8,16 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 2906846b3f9aac2a748955032d8f9bce060f14cd
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
+ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488248"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92638837"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
-Azure Stack Hub オペレーターは、管理ポータル、PowerShell、または Azure Resource Manager API を使用して、ほとんどの日常的な管理タスクを実行します。 ただし、あまり一般的でない一部の操作については、*特権エンドポイント* (PEP) を使用する必要があります。 この PEP は、あらかじめ構成されたリモート PowerShell コンソールであり、必要なタスクを実行するために十分な機能だけを提供します。 エンドポイントは [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview) を使用して、コマンドレットの限定的なセットのみを公開します。 PEP にアクセスしてコマンドレットの限定的なセットを起動するために、低権限のアカウントが使用されます。 管理者アカウントは必要ありません。 セキュリティ強化のため、スクリプトは許可されません。
+Azure Stack Hub オペレーターは、管理ポータル、PowerShell、または Azure Resource Manager API を使用して、ほとんどの日常的な管理タスクを実行します。 ただし、あまり一般的でない一部の操作については、 *特権エンドポイント* (PEP) を使用する必要があります。 この PEP は、あらかじめ構成されたリモート PowerShell コンソールであり、必要なタスクを実行するために十分な機能だけを提供します。 エンドポイントは [PowerShell JEA (Just Enough Administration)](/powershell/scripting/learn/remoting/jea/overview) を使用して、コマンドレットの限定的なセットのみを公開します。 PEP にアクセスしてコマンドレットの限定的なセットを起動するために、低権限のアカウントが使用されます。 管理者アカウントは必要ありません。 セキュリティ強化のため、スクリプトは許可されません。
 
 PEP を使用すると、次のタスクを実行できます。
 
@@ -32,7 +32,7 @@ PEP では、PowerShell セッションで実行するすべてのアクショ�
 
 ## <a name="access-the-privileged-endpoint"></a>特権エンドポイントへのアクセス
 
-PEP には、PEP をホストする仮想マシン (VM) 上のリモート PowerShell セッションを介してアクセスします。 ASDK では、この VM の名前は **AzS-ERCS01** です。 統合システムを使用している場合、PEP の 3 つのインスタンスがあり、それぞれ異なるホスト上の VM (*Prefix*-ERCS01、*Prefix*-ERCS02、または *Prefix*-ERCS03) 内で動作することで、回復性を確保しています。
+PEP には、PEP をホストする仮想マシン (VM) 上のリモート PowerShell セッションを介してアクセスします。 ASDK では、この VM の名前は **AzS-ERCS01** です。 統合システムを使用している場合、PEP の 3 つのインスタンスがあり、それぞれ異なるホスト上の VM ( *Prefix* -ERCS01、 *Prefix* -ERCS02、または *Prefix* -ERCS03) 内で動作することで、回復性を確保しています。
 
 統合システムに対してこの手順を開始する前に、IP アドレスによって、または DNS を介して PEP にアクセスできることを確認してください。 Azure Stack Hub の初期デプロイ後は、DNS 統合がまだセットアップされていないため、IP アドレスでしか PEP にアクセスできません。 PEP の IP アドレス を含む **AzureStackStampDeploymentInfo** という名前の JSON ファイルが、OEM ハードウェア ベンダーから提供されます。
 
@@ -80,14 +80,14 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
     
    - 入力を求められたら、次の資格情報を使用します。
    
-       - **ユーザー名**: **&lt;"*Azure Stack Hub ドメイン*"&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+       - **ユーザー名** : **&lt;" *Azure Stack Hub ドメイン* "&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
   
-        - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
+        - **パスワード** :インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
       > [!NOTE]
       > ERCS エンドポイントに接続できない場合は、別の ERCS VM の IP アドレスを使用して、手順 1 と手順 2 を再試行してください。
 
-3. 接続後、環境に応じて **[*IP アドレスまたは ERCS VM 名*]: PS>** または **[azs-ercs01]:PS>** プロンプトが変わります。 ここから `Get-Command` を実行して、利用可能なコマンドレットの一覧を表示します。
+3. 接続後、環境に応じて **[ *IP アドレスまたは ERCS VM 名* ]: PS>** または **[azs-ercs01]:PS>** プロンプトが変わります。 ここから `Get-Command` を実行して、利用可能なコマンドレットの一覧を表示します。
 
     コマンドレットのリファレンスについては、「[Azure Stack ハブの特権エンドポイント リファレンス](../reference/pep-2002/index.md)」を参照してください。
 
@@ -122,7 +122,7 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
     Get-Command <cmdlet_name> -Syntax
 ```
 
-または、[**Import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。 **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** モジュールを実行して、コマンドレットの手順を確認することもできます。
+または、 [**Import-PSSession**](/powershell/module/microsoft.powershell.utility/import-pssession?view=powershell-5.1) コマンドレット使用して、ローカル コンピューターの現在のセッションにすべての PEP コマンドレットをインポートすることもできます。 PEP のすべてコマンドレットと関数を、タブ補完や、より一般にはスクリプトと共に、ローカル コンピューターで利用できるようになります。 **[Get-Help](/powershell/module/microsoft.powershell.core/get-help)** モジュールを実行して、コマンドレットの手順を確認することもできます。
 
 ローカル コンピューターに PEP セッションをインポートするには、次の手順を実行します。
 
@@ -160,8 +160,8 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
      入力を求められたら、次の資格情報を使用します。
 
-     - **ユーザー名**: **&lt;"*Azure Stack Hub ドメイン*"&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
-     - **パスワード**:インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
+     - **ユーザー名** : **&lt;" *Azure Stack Hub ドメイン* "&gt;\cloudadmin** の形式で CloudAdmin アカウントを指定します。 (ASDK の場合、ユーザー名は **azurestack\cloudadmin** です。)
+     - **パスワード** :インストール中に AzureStackAdmin ドメイン管理者アカウントのパスワードとして指定したものと同じパスワードを入力します。
 
 3. ローカル コンピューターに PEP セッションをインポートします。
 
@@ -196,6 +196,53 @@ IP アドレスは Azure Stack Hub 管理者ポータルでも見つかります
 
 > [!NOTE]
 > コマンドレット `Exit-PSSession` または `Exit` を使用して PEP セッションを閉じた、または単に PowerShell コンソールを閉じた場合、トランスクリプト ログはファイル共有に転送されません。 それらは PEP に残ります。 次に `Close-PrivilegedEndpoint` を実行してファイル共有をインクルードしたときに、以前のセッションのトランスクリプト ログも併せて転送されます。 `Exit-PSSession` または `Exit` を使って PEP セッションを閉じないでください。代わりに、`Close-PrivilegedEndpoint` を使ってください。
+
+## <a name="unlocking-the-privileged-endpoint-for-support-scenarios"></a>サポート シナリオでの特権エンドポイントのロック解除
+
+ サポート シナリオでは、Microsoft サポート エンジニアが特権エンドポイント PowerShell セッションを昇格させて、Azure Stack Hub インフラストラクチャの内部にアクセスすることが必要になる場合があります。 このプロセスは、"ガラスを割る" または "PEP のロック解除" と呼ばれることもあります。 PEP セッションの昇格プロセスは、2 つの手順、2 人のユーザー、2 つの組織認証プロセスで構成されます。 ロック解除の手順は Azure Stack Hub オペレーターが開始し、オペレーターは常に環境の制御を保持します。 オペレーターは PEP にアクセスし、次のコマンドレットを実行します。
+ 
+ ```powershell  
+      Get-SupportSessionToken
+  ```
+ コマンドレットにより、サポート セッション要求トークン (非常に長い英数字の文字列) が返されます。 オペレーターは、この要求トークンを任意のメディア (チャット、電子メールなど) から Microsoft サポート エンジニアに渡します。 Microsoft サポート エンジニアは、要求トークンを使用して、サポート セッション認証トークンを生成し (有効な場合)、それを Azure Stack Hub オペレーターに送り返します。 同じ PEP PowerShell セッションで、オペレーターは次のコマンドレットに入力として認証トークンを渡します。
+
+ ```powershell  
+      unlock-supportsession
+      cmdlet Unlock-SupportSession at command pipeline position 1
+      Supply values for the following parameters:
+      ResponseToken:
+  ```
+
+認証トークンが有効な場合、PEP PowerShell セッションは、完全な管理機能とインフラストラクチャへの完全な到達可能性を提供することによって昇格されます。 
+
+> [!NOTE]
+> 管理者特権の PEP セッションで実行されるすべての操作とコマンドレットは、Microsoft サポート エンジニアの厳格な監督下で実行する必要があります。 そうしないと、深刻なダウンタイムが発生し、データが失われ、Azure Stack Hub 環境の完全な再デプロイが必要になる可能性があります。
+
+ サポート セッションが終了したら、前のセクションで説明したように、 **PrivilegedEndpoint** コマンドレットを使用して管理者特権の PEP セッションを再度閉じることが非常に重要になります。 PEP セッションが終了すると、ロック解除トークンが無効になるため、これを再利用して PEP セッションのロックを解除することはできません。
+管理者特権の PEP セッションの有効期間は 8 時間ですが、その後も終了しない場合、管理者特権の PEP セッションは通常の PEP セッションへと自動的に再ロックされます。
+
+## <a name="content-of-the-privileged-endpoint-tokens"></a>特権エンドポイント トークンの内容
+
+ PEP サポート セッション要求および認証トークンにより、暗号化を利用してアクセスが保護され、許可されたトークンによってのみ PEP セッションのロックを解除できるようになります。 トークンは、要求トークンを生成した PEP セッションでのみ応答トークンを受け入れることができるように設計されています。 PEP トークンには、Azure Stack Hub 環境または顧客を一意に識別できるような情報は含まれていません。 完全に匿名です。 各トークンの内容の詳細を以下に示します。
+ 
+### <a name="support-session-request-token"></a>サポート セッション要求トークン
+
+ PEP サポート セッション要求トークンは、次の 3 つのオブジェクトで構成されています。
+
+      - A randomly generated Session ID.
+      - A self-signed certificate, generated for the purpose of having a one-time public/private key pair. The certificate does not contain any information on the environment. 
+      - A time stamp that indicates the request token expiration.
+      
+  要求トークンは、Azure Stack Hub 環境が登録されている Azure クラウドの公開キーで暗号化されます。
+ 
+ ### <a name="support-session-authorization-response-token"></a>サポート セッション認証応答トークン
+
+PEP サポート認証応答トークンは、次の 2 つのオブジェクトで構成されています。
+
+      - The randomly generated session ID extracted from the request token.
+      - A time stamp that indicates the response token expiration.
+      
+ 応答トークンは、要求トークンに含まれている自己署名証明書を使用して暗号化されます。 自己署名証明書は、Azure Stack Hub 環境が登録されている Azure クラウドに関連付けられた秘密キーで暗号化解除されました。
 
 
 ## <a name="next-steps"></a>次のステップ
