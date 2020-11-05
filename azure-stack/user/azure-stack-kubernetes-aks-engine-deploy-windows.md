@@ -7,12 +7,12 @@ ms.date: 09/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/16/2020
-ms.openlocfilehash: d3a16f92cb441a92a045721e477b3b10933d174d
-ms.sourcegitcommit: 719569bb9e3f9924494a9229b4f2d211ae3f4f74
+ms.openlocfilehash: 29255d706edcb052711b2ed42e65fd3dc0b6412b
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/17/2020
-ms.locfileid: "90717963"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291231"
 ---
 # <a name="install-the-aks-engine-on-windows-in-azure-stack-hub"></a>Azure Stack Hub の Windows に AKS エンジンをインストールする
 
@@ -88,8 +88,8 @@ ASDK の外部のマシン上の ASDK で AKS エンジン用のクライアン�
 
 ご自分の Azure Resource Manager エンドポイントが自己署名証明書を使用する ASDK を使用している場合、コンピューターの信頼された証明書ストアにこの証明書を明示的に追加する必要があります。 ASDK のルート証明書は、ASDK にデプロイするすべての VM にあります。
 
-1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack Hub の CA ルート証明書をエクスポートする](./azure-stack-version-profiles-azurecli2.md#export-the-azure-stack-hub-ca-root-certificate)」を参照してください。
-2. Azure Stack Hub の CA ルート証明書を信頼します。 手順については、「[Azure Stack Hub の CA ルート証明書を信頼する](./azure-stack-version-profiles-azurecli2.md#trust-the-azure-stack-hub-ca-root-certificate)」を参照してください。
+1. CA ルート証明書をエクスポートします。 手順については、「[Azure Stack Hub の CA ルート証明書をエクスポートする](../asdk/asdk-cli.md#export-the-azure-stack-hub-ca-root-certificate)」を参照してください。
+2. Azure Stack Hub の CA ルート証明書を信頼します。 手順については、「[Azure Stack Hub の CA ルート証明書を信頼する](../asdk/asdk-cli.md#trust-the-certificate)」を参照してください。
 
 ## <a name="next-steps"></a>次のステップ
 

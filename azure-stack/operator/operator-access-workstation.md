@@ -7,12 +7,12 @@ ms.date: 09/24/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: 46946f72fe22345ee60c620ba2cf0283e056ae99
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899824"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363947"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub オペレーター アクセス ワークステーション 
 
@@ -33,7 +33,7 @@ OAW VM は、オペレーターが新しいタスクを実行するときに作�
 
 ## <a name="download-files"></a>ファイルのダウンロード
 
-OAW VM を作成するためのファイルを入手するには、[**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
+OAW VM を作成するためのファイルを入手するには、 [**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
 
 このソリューションのステートレスな性質により、OAW VM 向けの更新プログラムはありません。 マイルストーンごとに、VM イメージ ファイルの新しいバージョンがリリースされます。 新しい OAW VM を作成するには、最新バージョンを使用します。 このイメージ ファイルは、最新の Windows Server 2019 バージョンに基づいています。 インストール後、Windows Update を使用して、緊急更新プログラムを含む、更新プログラムを適用できます。 
 
@@ -48,7 +48,7 @@ param(
     $DownloadedOAWZipFilePath
 )
 
-$expectedHash = '97022E2FB06D4448A78E987ED3513831741BA89100B5972ABDAD629A93E01648'
+$expectedHash = 'CADAD42A1316C3E19819B8E197CEC279964805677D528F4CCFE2FC16D3119136'
 $actualHash = (Get-FileHash -Path $DownloadedOAWZipFilePath).Hash
 
 Write-Host "Expected hash: $expectedHash"
@@ -136,7 +136,7 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DeploymentDataFilePath 'D:\AzureStack\DeploymentData.json'
 ```
 
-DeploymentData.json ファイルに OAW VM の名前付けプレフィックスが含まれている場合、**VirtualMachineName** パラメーターには、その値が使用されます。 その他の場合、既定の名前は **AzSOAW** またはユーザーが指定した任意の名前です。
+DeploymentData.json ファイルに OAW VM の名前付けプレフィックスが含まれている場合、 **VirtualMachineName** パラメーターには、その値が使用されます。 その他の場合、既定の名前は **AzSOAW** またはユーザーが指定した任意の名前です。
 
 OAW に対しては、2 つのパラメーター セットを使用できます。 省略可能なパラメーターは、角かっこ内に表示されます。
 

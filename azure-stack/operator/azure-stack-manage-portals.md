@@ -7,12 +7,12 @@ ms.date: 06/07/2019
 ms.author: justinha
 ms.reviewer: efemmano
 ms.lastreviewed: 06/07/2019
-ms.openlocfilehash: d7951500afe21ec0800328230d6b5f1653934c40
-ms.sourcegitcommit: 5f4f0ee043ff994efaad44129ce49be43c64d5dc
+ms.openlocfilehash: 4c79d8a9c9aa5877dd2dfb264257f2a7cfaaa46f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84819198"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363981"
 ---
 # <a name="use-the-administrator-portal-in-azure-stack-hub"></a>Azure Stack Hub で管理者ポータルを使用する
 
@@ -25,11 +25,13 @@ Azure Stack Hub には、管理者ポータルとユーザー ポータルの 2 
 | 環境 | 管理者ポータルの URL |   
 | -- | -- | 
 | ASDK| `https://adminportal.local.azurestack.external`  |
-| 統合システム | https://adminportal.&lt;*リージョン*&gt;.&lt;*FQDN*&gt; | 
+| 統合システム | https://adminportal.&lt; *リージョン*&gt;.&lt;*FQDN*&gt; | 
 | | |
 
 > [!TIP]
 > ASDK 環境の場合は、最初に、リモート デスクトップ接続または仮想プライベート ネットワーク (VPN) を使用して[開発キットのホストに接続](../asdk/asdk-connect.md)できることを確認する必要があります。
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
  ![Azure Stack Hub 管理者ポータル](media/azure-stack-manage-portals/admin-portal.png)
 
@@ -52,11 +54,11 @@ Azure Stack Hub には、管理者ポータルとユーザー ポータルの 2 
 
 ## <a name="understand-subscription-behavior"></a>サブスクリプション操作の概要
 
-管理者ポータルでは、消費、既定プロバイダー、および測定という 3 つのサブスクリプションが既定で作成されます。 オペレーターは、主に "*既定のプロバイダー サブスクリプション*" を使用します。 他のサブスクリプションを追加して管理者ポータルで使用することはできません。
+管理者ポータルでは、消費、既定プロバイダー、および測定という 3 つのサブスクリプションが既定で作成されます。 オペレーターは、主に " *既定のプロバイダー サブスクリプション* " を使用します。 他のサブスクリプションを追加して管理者ポータルで使用することはできません。
 
 その他のサブスクリプションは、管理者がユーザー用に作成するプランとオファーに基づいて、ユーザー ポータルでユーザーによって作成されます。 ただし、ユーザー ポータルでは、管理者ポータルの管理機能または運用機能のいずれにもアクセスできません。
 
-管理者ポータルとユーザー ポータルは、Azure Resource Manager の個別のインスタンスでサポートされます。 この Azure Resource Manager による分離のため、ポータルをまたいでサブスクリプションを使用することはできません。 たとえば、Azure Stack Hub オペレーターとしてユーザー ポータルにサインインした場合は、*既定プロバイダー サブスクリプション*にアクセスすることはできません。 管理機能にアクセスすることはできませんが、利用できる公開オファーから自分でサブスクリプションを作成することはできます。 ユーザー ポータルにサインインしている限り、テナント ユーザーと見なされます。
+管理者ポータルとユーザー ポータルは、Azure Resource Manager の個別のインスタンスでサポートされます。 この Azure Resource Manager による分離のため、ポータルをまたいでサブスクリプションを使用することはできません。 たとえば、Azure Stack Hub オペレーターとしてユーザー ポータルにサインインした場合は、 *既定プロバイダー サブスクリプション* にアクセスすることはできません。 管理機能にアクセスすることはできませんが、利用できる公開オファーから自分でサブスクリプションを作成することはできます。 ユーザー ポータルにサインインしている限り、テナント ユーザーと見なされます。
 
   >[!NOTE]
   >ASDK 環境では、ユーザーが Azure Stack Hub オペレーターと同じテナント ディレクトリに属している場合、ユーザーは管理者ポータルへのサインインをブロックされません。 ただし、ユーザーは管理機能にはアクセスできず、サブスクリプションを追加して、ユーザー ポータルで利用できるオファーにアクセスすることもできません。
@@ -82,7 +84,7 @@ Azure Stack Hub オペレーター向けドキュメントにアクセスする�
 
 ### <a name="quick-access-to-the-azure-roadmap"></a>Azure ロードマップへのクイック アクセス
 
-管理者ポータルの右上隅にある**ヘルプとサポート** (疑問符) を選択し、 **[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに「**Azure Stack Hub**」と入力すると、すべての Azure Stack Hub ロードマップの更新プログラムを確認できます。
+管理者ポータルの右上隅にある **ヘルプとサポート** (疑問符) を選択し、 **[Azure ロードマップ]** を選択すると、新しいブラウザー タブが開き、Azure ロードマップが表示されます。 **[製品]** 検索ボックスに「 **Azure Stack Hub** 」と入力すると、すべての Azure Stack Hub ロードマップの更新プログラムを確認できます。
 
 ## <a name="next-steps"></a>次のステップ
 

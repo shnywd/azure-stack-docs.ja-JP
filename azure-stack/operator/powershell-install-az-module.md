@@ -7,12 +7,12 @@ ms.date: 06/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: bc10f4dc985172deccef997d55520d656121867a
-ms.sourcegitcommit: af7f169c7e204ffdf344f47c07ab8426e2afbd1d
+ms.openlocfilehash: da2a12256a6714c727a5bfa5cdf8fe635d5b742e
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87865168"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363964"
 ---
 # <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする
 
@@ -27,9 +27,9 @@ Azure Stack Hub 用の PowerShell AzureRM モジュールをインストール�
 > このプレビュー バージョンには、今後のリリースで破壊的変更がある可能性があります。詳細については、「[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)」を参照してください。
 > AzureRM モジュールの新しいリリースは出されない可能性があります。 AzureRM モジュールは、重要な修正プログラムについてのみサポートされています。 今後は、Azurestack 用の Az リリースのみになります。
 
-"*API プロファイル*" を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定することができます。
+" *API プロファイル* " を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定することができます。
 
-API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
+API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、 **2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
 Azure Stack Hub と互換性のある PowerShell Az モジュールは、インターネットに接続されている、部分的に接続されている、または接続が切断されているシナリオでインストールできます。 この記事では、これらのシナリオの詳細な手順について説明します。
 
@@ -116,7 +116,7 @@ Import-Module -Name PackageManagement -ErrorAction Stop
 
 $savedModulesPath = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Az -Path $savedModulesPath -Force -RequiredVersion 0.10.0-preview
-Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.1-preview
+Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $savedModulesPath -Force -RequiredVersion 2.0.2-preview
 ```
 ::: moniker-end
 
