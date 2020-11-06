@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/09/2020
-ms.openlocfilehash: 34a93a65d45861c7c7ff1727347cc95465968151
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.date: 10/28/2020
+ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572519"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064465"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI のデプロイ プロセスとは
 
@@ -38,41 +38,39 @@ Azure Stack HCI のデプロイを複数のサイトに拡張する場合は、�
 
 ## <a name="deploy"></a>配置
 
-### <a name="1-before-you-begin"></a>1.開始する前に
+OS をデプロイする前に、ハードウェアが Azure Stack HCI の[システム要件](../concepts/system-requirements.md)を満たしているかどうかを確認します。 その後、Azure Stack HCI クラスターを管理するために [Windows Admin Center をインストール](/windows-server/manage/windows-admin-center/deploy/install)します。
 
-始める前に、[ハードウェアが基本要件を満たしているかどうかを確認し、Azure Stack HCI のデプロイに必要な情報を収集](before-you-start.md)します。 その後、Azure Stack HCI クラスターを管理するために [Windows Admin Center をインストール](/windows-server/manage/windows-admin-center/deploy/install)します。
+### <a name="1-deploy-azure-stack-hci"></a>1.Deploy Azure Stack HCI のデプロイ
 
-### <a name="2-deploy-azure-stack-hci"></a>2.Deploy Azure Stack HCI のデプロイ
+[Azure Stack HCI をダウンロード](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーに Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。 お好みの Microsoft ハードウェア パートナーから [Azure Stack HCI カタログ](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) に載せられている Azure Stack HCI 統合システム ソリューション ハードウェアを購入した場合、Azure Stack HCI オペレーティング システムはプレインストールされているはずです。 その場合は、このステップを省略して #2 に進むことができます。
 
-[Azure Stack HCI をダウンロード](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーに Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。
-
-### <a name="3-create-the-cluster"></a>3.クラスターを作成する
+### <a name="2-create-the-cluster"></a>2.クラスターを作成する
 
 [Windows Admin Center](create-cluster.md) または [PowerShell](create-cluster-powershell.md) を使用して、フェールオーバー クラスターを作成します。 ネイティブなディザスター リカバリーとビジネス継続性のため、2 つの地理的に異なるサイトにまたがる[ストレッチ クラスター](../concepts/stretched-clusters.md)をデプロイできます。
 
-### <a name="4-set-up-a-cluster-witness"></a>4.クラスター監視のセットアップ
+### <a name="3-set-up-a-cluster-witness"></a>3.クラスター監視のセットアップ
 
 [監視リソースの設定](witness.md)は、すべてのクラスターに対して必須です。 2 ノード クラスターでは、どちらかのサーバーがオフラインになったときに他のノードも使用できなくなることがないように、ミラーリング監視サーバーが必要です。 3 つ以上のノードのクラスターでは、2 台のサーバーの障害またはオフラインに耐えられるように監視が必要です。 
 
-### <a name="5-register-with-azure"></a>5.Azure に登録する
+### <a name="4-register-with-azure"></a>4.Azure に登録する
 
 Azure Stack HCI には、Azure への接続が必要です。 クラスターを Azure に接続する方法については、[Azure への Azure Stack HCI の登録](register-with-azure.md)に関する記事を参照してください。 登録が済むと、クラスターはバックグラウンドで自動的に接続されます。
 
-### <a name="6-validate-the-cluster"></a>6.クラスターを検証する
+### <a name="5-validate-the-cluster"></a>5.クラスターを検証する
 
 クラスターを作成して登録した後、クラスターの運用を始める前に、[クラスター検証テスト](validate.md)を実行して、ハードウェアまたは構成の問題を把握します。
 
-### <a name="7-deploy-storage"></a>7.ストレージをデプロイする
+### <a name="6-deploy-storage"></a>6.ストレージをデプロイする
 
 単一サイトのクラスターでは[ボリュームを作成](../manage/create-volumes.md)し、[ストレッチ クラスターではボリュームを作成してレプリケーションを設定](../manage/create-stretched-volumes.md)します。
 
-### <a name="8-deploy-workloads"></a>8.ワークロードのデプロイ
+### <a name="7-deploy-workloads"></a>7.ワークロードのデプロイ
 
 これで、Windows Admin Center を使用して、[仮想マシンを作成](../manage/vm.md)し、Azure Stack HCI にワークロードをデプロイできるようになりました。
 
 ## <a name="next-steps"></a>次のステップ
 
-Azure Stack HCI をデプロイする前に行う必要があることを学習します。
+Azure Stack HCI オペレーティング システムのデプロイ方法をご確認ください。
 
 > [!div class="nextstepaction"]
-> [Before you begin](before-you-start.md)
+> [Azure Stack HCI オペレーティング システムのデプロイ](operating-system.md)

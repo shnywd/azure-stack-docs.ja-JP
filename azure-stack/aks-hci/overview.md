@@ -5,12 +5,12 @@ ms.topic: overview
 author: jasongerend
 ms.author: jgerend
 ms.date: 09/22/2020
-ms.openlocfilehash: fad630d143fee31c4b63b4008c02bef697475155
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064618"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI の Azure Kubernetes Service とは
 
@@ -97,7 +97,7 @@ Azure Kubernetes Service が Azure Stack HCI クラスター上に設定され�
 
 :::image type="content" source="media\overview\aks-azure-architecture.png" alt-text="Azure でホストされている Azure Kubernetes Service のアーキテクチャ。プラットフォーム サービスとほとんどのコントロール プレーンが Azure によってどのように管理されており、一方、コンテナー化されたアプリケーションを実行する Kubernetes クラスターが顧客によってどのように管理されているかを示しています。" lightbox="media\overview\aks-azure-architecture.png":::
 
-:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Azure でホストされている Azure Kubernetes Service のアーキテクチャ。プラットフォーム サービスとほとんどのコントロール プレーンが Azure によってどのように管理されており、一方、コンテナー化されたアプリケーションを実行する Kubernetes クラスターが顧客によってどのように管理されているかを示しています。" lightbox="media\overview\aks-hci-architecture.png":::
+:::image type="content" source="media\overview\aks-hci-architecture.png" alt-text="Azure Stack HCI の Azure Kubernetes Service のアーキテクチャ。Azure Kubernetes Service プラットフォーム、コントロール プレーン、コンテナー化されたアプリケーションを実行する Kubernetes クラスターなど、すべてのものが Azure Stack HCI クラスター上でどのように実行されるかを示しています。" lightbox="media\overview\aks-hci-architecture.png":::
 
 ## <a name="what-you-need-to-get-started"></a>必要事項
 
@@ -121,7 +121,7 @@ Azure Stack HCI バージョン 20H2 以降を実行するクラスターには�
 - Azure Kubernetes Service VM の実行に使用可能なメモリは 30 GB 以上である
 - このプレビュー リリースでは、クラスター内のすべてのサーバーで EN-US リージョンと言語の選択を使用する必要がある
 
-一般的な Azure Stack HCI の要件については、「[Azure Stack HCI をデプロイする前に](../hci/deploy/before-you-start.md)」を参照してください。
+一般的な Azure Stack HCI のシステム要件については、[Azure Stack HCI のシステム要件](../hci/concepts/system-requirements.md)に関するページを参照してください。
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI のネットワーク構成
 
