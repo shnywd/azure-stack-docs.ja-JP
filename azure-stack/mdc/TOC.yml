@@ -102,12 +102,12 @@
                   href: ../operator/azure-stack-validate-pki-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
                 - name: PKI 証明書の修復
                   href: ../operator/azure-stack-remediate-certs.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
-        - name: プロビジョニング
+        - name: 登録と準備
           items:
-            - name: Azure の登録の検証
-              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 登録
               href: operator/registration-tzl.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Azure の登録の検証
+              href: ../operator/azure-stack-validate-registration.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: 付加価値リソース プロバイダー
               items:
                 - name: App Service
