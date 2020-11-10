@@ -178,12 +178,8 @@
                   href: ../operator/azure-stack-enable-multitenancy.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
     - name: 操作方法ガイド
       items:
-        - name: 拡張ストレージ
-          items:
-            - name: OneFS とファームウェアの更新
-              href: extended-storage-firmware-updates.md
-            - name: 正常性チェック
-              href: extended-storage-health-checks.md
+        - name: 拡張ストレージの正常性チェック
+          href: extended-storage-health-checks.md
         - name: 管理する
           items:
             - name: 管理の基本
