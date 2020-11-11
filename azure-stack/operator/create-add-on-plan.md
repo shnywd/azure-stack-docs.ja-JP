@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: bryanla
 ms.reviewer: efemmano
-ms.lastreviewed: 06/11/2019
-ms.openlocfilehash: 29ae7acf1954dfafad1583bf037603f8ccac7514
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 11/3/2020
+ms.openlocfilehash: a3cc9436ec0e3ec0c939760454b194bfec4a8c58
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344883"
 ---
 # <a name="create-add-on-plans-in-azure-stack-hub"></a>Azure Stack Hub でアドオン プランを作成する
 
-基本プランの初期オファーを超えて、"*コンピューター*"、"*ストレージ*"、"*ネットワーク*" のクォータを拡張したり、追加のサービスを提供したりするには、Azure Stack Hub のオペレーターがアドオン プランを作成して[基本プラン](azure-stack-create-plan.md)に変更を加えます。 アドオン プランは、基本プランに変更を加えるものであり、ユーザーが各自のサブスクリプションで任意に有効にできる拡張機能です。
+基本プランの初期オファーを超えて、" *コンピューター* "、" *ストレージ* "、" *ネットワーク* " のクォータを拡張したり、追加のサービスを提供したりするには、Azure Stack Hub のオペレーターがアドオン プランを作成して [基本プラン](azure-stack-create-plan.md)に変更を加えます。 アドオン プランは、基本プランに変更を加えるものであり、ユーザーが各自のサブスクリプションで任意に有効にできる拡張機能です。
 
 1 つのプランにすべてをまとめることが最適な場合もありますが、 基本プランを用意し、追加のサービスはアドオン プランを使用して提供する方がよい場合もあります。 たとえば、IaaS サービスを基本プランの一部として提供し、すべての PaaS サービスをアドオン プランとして扱うことができます。
 
@@ -47,7 +47,7 @@ ms.locfileid: "91106788"
 
 6. オファーに含まれているアドオン プランの一覧を見て、新しいアドオン プランが一覧に表示されていることを確認します。
 
-    ![Azure Stack 管理者ポータルで確認するアドオン プランの一覧を示すスクリーンショット。](media/create-add-on-plan/add-on4.png "アドオン プランを作成する")](media/create-add-on-plan/add-on4lg.png#lightbox)
+    [![Azure Stack 管理者ポータル内で確認するアドオン プランの一覧を示すスクリーンショット。](media/create-add-on-plan/add-on4.png)](media/create-add-on-plan/add-on4lg.png#lightbox)
 ::: moniker-end
 
 ::: moniker range="<=azs-1901"
@@ -55,7 +55,7 @@ ms.locfileid: "91106788"
 ## <a name="create-an-add-on-plan-1901-and-earlier"></a>アドオン プランを作成する (1901 以前)
 
 1. Azure Stack Hub 管理者ポータルにクラウド管理者としてサインインします。
-2. [新しい基本プランを作成](azure-stack-create-plan.md)したときと同じ手順で、これまでは提供されていなかったサービスを提供する新しいプランを作成します。 この例では、Key Vault (**Microsoft.KeyVault**) サービスが新しいプランに含められます。
+2. [新しい基本プランを作成](azure-stack-create-plan.md)したときと同じ手順で、これまでは提供されていなかったサービスを提供する新しいプランを作成します。 この例では、Key Vault ( **Microsoft.KeyVault** ) サービスが新しいプランに含められます。
 3. 管理者ポータルで **[オファー]** を選択し、アドオン プランで更新するオファーを選択します。
 
    ![Azure Stack 管理者ポータルで、アドオン プランで更新するオファーを選択する](media/create-add-on-plan/1.PNG)

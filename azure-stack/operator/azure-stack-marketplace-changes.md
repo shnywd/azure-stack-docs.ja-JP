@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 10/23/2020
+ms.date: 11/02/2020
 ms.author: sethm
 ms.reviewer: ihcherie
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 37a90fc31a3ee89406eeea64fcd9549ef7ca98f4
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: aa5cbb7d631cdcf8fb5a27666bdedfd6ef3ab665
+ms.sourcegitcommit: 1e3a182d82cf01b64118647d6ab418651f83ad1e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523526"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93192240"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -70,6 +70,64 @@ ms.locfileid: "92523526"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24561.2010082056
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24561.2010082056
+- 2020 年 10 月 29 日: Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24561.2010082056
+- 2020 年 10 月 29 日: Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24561.2010082056
+- 2020 年 10 月 29 日: Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23179.2010090042
+- 2020 年 10 月 29 日: Windows Server 2012 Datacenter-ライセンス持ち込み - バージョン 9200.23179.2010090042
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2012 Datacenter-従量課金制 - バージョン 9200.23179.2010090042
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2012 Datacenter-ライセンス持ち込み - バージョン 9200.23179.2010090042
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19847.2010090140
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2012 R2 Datacenter-ライセンス持ち込み - バージョン 9600.19847.2010090140
+- 2020 年 10 月 29 日: Windows Server 2012 R2 Datacenter-従量課金制 - バージョン 9600.19847.2010090140
+- 2020 年 10 月 29 日: Windows Server 2012 R2 Datacenter-ライセンス持ち込み - バージョン 9600.19847.2010090140
+- 2020 年 10 月 29 日: Windows 10 Enterprise 2016 LTSB-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows 10 Enterprise N 2016 LTSB-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows Server 2016 Datacenter-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows Server 2016 Datacenter - Server Core-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2016 Datacenter-従量課金制 - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2016 Datacenter-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2016 Datacenter - Server Core-従量課金制 - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2016 Datacenter - Server Core-ライセンス持ち込み - バージョン 14393.3986.2010070045
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter Server Core-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter Server Core-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter Server Core-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter with Containers-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter Server Core with Containers-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter with Containers-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter with Containers-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server 2019 Datacenter-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1809 with Containers-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1809 with Containers-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter Server Core with Containers-従量課金制 - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows Server 2019 Datacenter Server Core with Containers-ライセンス持ち込み - バージョン 17763.1518.2010132039
+- 2020 年 10 月 29 日: Windows 10 Pro バージョン 1903-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: Windows 10 Enterprise マルチセッション バージョン 1903-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: Windows 10 Pro N バージョン 1903-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: Windows 10 Enterprise バージョン 1903-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: Windows 10 Enterprise N バージョン 1903-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1903 with Containers-従量課金制 - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1903 with Containers-ライセンス持ち込み - バージョン 18362.1139.2010070045
+- 2020 年 10 月 29 日: Windows 10 Enterprise バージョン 1909-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: Windows 10 Pro N バージョン 1909-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: Windows 10 Pro バージョン 1909-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: Windows 10 Enterprise マルチセッション バージョン 1909-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: Windows 10 Enterprise N バージョン 1909-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1909 with Containers-従量課金制 - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 1909 with Containers-ライセンス持ち込み - バージョン 18363.1139.2010080514
+- 2020 年 10 月 29 日: Windows 10 Enterprise バージョン 2004-ライセンス持ち込み - バージョン 19041.572.2010091946
+- 2020 年 10 月 29 日: Windows 10 Enterprise マルチセッション バージョン 2004-ライセンス持ち込み - バージョン 19041.572.2010091946
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 2004 with Containers-従量課金制 - バージョン 19041.572.2010091946
+- 2020 年 10 月 29 日: [smalldisk] Windows Server バージョン 2004 with Containers-ライセンス持ち込み - バージョン 19041.572.2010091946
 - 2020 年 10 月 22 日:Azure Monitor、更新および構成の管理 - バージョン 1.13.27
 - 2020 年 10 月 22 日:Windows Server 2008 R2 SP1-従量課金制 - バージョン 7601.24560.2009040118
 - 2020 年 10 月 22 日:Windows Server 2008 R2 SP1-ライセンス持ち込み - バージョン 7601.24560.2009040118

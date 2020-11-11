@@ -7,18 +7,47 @@ ms.date: 8/28/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 8aa2c3cad35af9d6c887217ea977a92eae7428cf
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448454"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363734"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
 **AzureStack-Tools** は PowerShell モジュールをホストする [GitHub リポジトリ](https://github.com/Azure/AzureStack-Tools)で、リソースの管理と Azure Stack Hub へのデプロイに使用できます。 VPN 接続を確立する予定の場合は、これらの PowerShell モジュールを、Azure Stack Development Kit (ASDK) または Windows ベースの外部クライアントにダウンロードできます。 
 
-## <a name="get-tools-for-azure-stack-hub-azurerm-module"></a>Azure Stack Hub AzureRM モジュール用のツールを入手する
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
+
+## <a name="get-the-tools"></a>ツールの入手
+
+ツールは、Az PowerShell モジュール、または AzureRM モジュールを使って使用します。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
+これらのツールを取得するには、`az` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
+  -OutFile az.zip
+
+# Expand the downloaded files.
+expand-archive az.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+cd AzureStack-Tools-az
+
+```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
 
 これらのツールを取得するには、`master` ブランチから GitHub リポジトリを複製するか、管理者特権の PowerShell プロンプトで次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
 
@@ -43,31 +72,11 @@ cd AzureStack-Tools-master
 ```
 Azure Stack Hub 用の AzureRM モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする](azure-stack-powershell-install.md)」を参照してください。
 
-## <a name="get-tools-for-azure-stack-hub-az-preview-module"></a>Azure Stack Hub Az (プレビュー) モジュール用のツールを入手する
 
-これらのツールを取得するには、`az` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
-
-```powershell
-# Change directory to the root directory.
-cd \
-
-# Download the tools archive.
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
-invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/az.zip `
-  -OutFile az.zip
-
-# Expand the downloaded files.
-expand-archive az.zip `
-  -DestinationPath . `
-  -Force
-
-# Change to the tools directory.
-cd AzureStack-Tools-az
-
-```
 
 Azure Stack Hub 用の Az モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。
+
+---
 
 ## <a name="functionality-provided-by-the-modules"></a>モジュールで提供される機能
 

@@ -10,12 +10,12 @@ ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: f6d307b7fe165681e93c842596007ca1fde3a152
-ms.sourcegitcommit: 8122672409954815e472a5b251bb7319fab8f951
+ms.openlocfilehash: 5f2067bed0b6efea8a19e921c2cb4c59caabd505
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92060186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93364015"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -41,10 +41,16 @@ Azure Stack Hub を Azure に登録して、Azure から Azure Marketplace 項�
 
 Azure を使用して Azure Stack Hub を登録する前に、以下のものが必要です。
 
+::: zone pivot="state-connected"
 - Azure サブスクリプションのサブスクリプション ID。 登録には、EA、CSP、CSP 共有サービス サブスクリプションだけがサポートされています。 CSP では、[CSP サブスクリプションまたは APSS サブスクリプションのどちらを使用するか](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription)を決める必要があります。<br><br>ID を取得するには、Azure にサインインして、 **[すべてのサービス]** をクリックします。 次に、 **[一般]** カテゴリの下で **[サブスクリプション]** を選び、使用するサブスクリプションをクリックすると、 **[要点]** の下にサブスクリプション ID が表示されます。 ベスト プラクティスとして、運用環境と開発環境またはテスト環境には、異なるサブスクリプションを使用してください。 
+::: zone-end
+::: zone pivot="state-disconnected"
+- Azure サブスクリプションのサブスクリプション ID。 登録には、EA サブスクリプションだけがサポートされています。 
 
-  > [!Note]  
-  > Germany Cloud のサブスクリプションは現在サポートされていません。
+    ID を取得するには、Azure にサインインして、 **[すべてのサービス]** をクリックします。 次に、 **[一般]** カテゴリの下で **[サブスクリプション]** を選び、使用するサブスクリプションをクリックすると、 **[要点]** の下にサブスクリプション ID が表示されます。 ベスト プラクティスとして、運用環境と開発環境またはテスト環境には、異なるサブスクリプションを使用してください。 
+::: zone-end
+   > [!Note]  
+   > Germany Cloud のサブスクリプションは現在サポートされていません。  
 
 - サブスクリプションの所有者であるアカウントのユーザー名とパスワード。
 
@@ -52,7 +58,7 @@ Azure を使用して Azure Stack Hub を登録する前に、以下のものが
 
 - Azure Stack Hub リソース プロバイダーを登録しました (詳細については、Azure Stack Hub リソース プロバイダーの登録に関する次のセクションを参照してください)。
 
-登録の後、Azure Active Directory (Azure AD) の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります (たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可の付与を必要とする新機能です)。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
+登録の後、Azure Active Directory (Azure AD) の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります (たとえば、リソース プロバイダーのインストーラー スクリプトや、アクセス許可の付与を必要とする新機能です)。 アカウントの全体管理者のアクセス許可を一時的に復元するか、 *既定のプロバイダー サブスクリプション* の所有者である別の全体管理者アカウントを使用します。
 
 Azure Stack Hub を登録するユーザーは、Azure AD のサービス プリンシパルの所有者です。 Azure Stack Hub の登録を変更できるのは、Azure Stack Hub を登録したユーザーのみです。 登録サービス プリンシパルの所有者ではない管理者以外のユーザーが Azure Stack Hub を登録または再登録しようとすると、403 応答が発生する可能性があります。 403 応答は、操作を完了するための十分な権限がユーザーにないことを示します。
 
@@ -79,9 +85,11 @@ Azure に登録するために、最新の PowerShell for Azure Stack Hub を使
 
 ### <a name="download-the-azure-stack-hub-tools"></a>Azure Stack Hub ツールをダウンロードする
 
-Azure Stack Hub ツールの GitHub リポジトリには、Azure Stack Hub 機能 (登録機能を含む) をサポートする PowerShell モジュールが含まれています。 登録プロセス中に、**RegisterWithAzure.psm1** PowerShell モジュール (Azure Stack Hub ツール リポジトリにあります) をインポートおよび利用して、使用する Azure Stack Hub インスタンスを Azure に登録する必要があります。
+Azure Stack Hub ツールの GitHub リポジトリには、Azure Stack Hub 機能 (登録機能を含む) をサポートする PowerShell モジュールが含まれています。 登録プロセス中に、 **RegisterWithAzure.psm1** PowerShell モジュール (Azure Stack Hub ツール リポジトリにあります) をインポートおよび利用して、使用する Azure Stack Hub インスタンスを Azure に登録する必要があります。
 
 最新バージョンを使用していることを確認するには、Azure に登録する前に、既存のバージョンの Azure Stack Hub ツールをすべて削除し、[GitHub から最新バージョンをダウンロード](azure-stack-powershell-download.md)します。
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ### <a name="determine-your-billing-model"></a>課金モデルを決定する
 ::: zone pivot="state-connected"
@@ -94,7 +102,7 @@ Azure Stack Hub ツールの GitHub リポジトリには、Azure Stack Hub 機�
 
 ### <a name="determine-your-unique-registration-name"></a>一意の登録名を決定する
 
-登録スクリプトを実行するときに、一意の登録名を指定する必要があります。 Azure の登録に Azure Stack Hub サブスクリプションを関連付ける簡単な方法は、Azure Stack Hub の**クラウド ID** を使用することです。
+登録スクリプトを実行するときに、一意の登録名を指定する必要があります。 Azure の登録に Azure Stack Hub サブスクリプションを関連付ける簡単な方法は、Azure Stack Hub の **クラウド ID** を使用することです。
 
 > [!NOTE]
 > 容量ベースの課金モデルを使用している Azure Stack Hub 登録では、[期限切れの登録を削除](#renew-or-change-registration)して Azure に再登録するのでない限り、年単位のサブスクリプションの期限が切れた後の再登録で一意の名前を変更する必要があります。
@@ -111,9 +119,9 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
 接続された環境では、インターネットと Azure にアクセスできます。 これらの環境では、Azure Stack Hub リソース プロバイダーを Azure に登録してから、課金モデルを構成する必要があります。
 
-1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
+1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、 **EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
+2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、 **Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -121,7 +129,7 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud** 、 **AzureUSGovernment** 、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
    >[!Note]
    > ご自分のセッションの期限が切れたり、ご自分のパスワードが変更になったり、または単純にアカウントを切り替えたい場合は、サインイン前に次のコマンドレットを Add-AzureRmAccount: `Remove-AzureRmAccount-Scope Process` を使用して実行します。
@@ -152,7 +160,7 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud** 、 **AzureUSGovernment** 、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
 7. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。 実行する PowerShell:  
 
@@ -167,7 +175,7 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
    ```
    Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
 
-   このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「**Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)** 」というメッセージが表示されます。
+   このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「 **Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)** 」というメッセージが表示されます。
 
 ## <a name="register-with-capacity-billing"></a>容量課金で登録する
 
@@ -178,9 +186,9 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
 接続された環境では、インターネットと Azure にアクセスできます。 これらの環境では、Azure Stack Hub リソース プロバイダーを Azure に登録してから、課金モデルを構成する必要があります。
 
-1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
+1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、 **EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
+2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、 **Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
 
    ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
@@ -188,7 +196,7 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud** 、 **AzureUSGovernment** 、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
 
 3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。  
 
@@ -299,7 +307,7 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
   ```
 
   > [!Tip]  
-  > アクティブ化キーは *$KeyOutputFilePath*　に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
+  > アクティブ化キーは *$KeyOutputFilePath* 　に指定されたファイルに保存されます。 ファイル パスまたはファイル名は任意に変更できます。
 
 ### <a name="create-an-activation-resource-in-azure-stack-hub"></a>Azure Stack Hub にアクティブ化リソースを作成する
 
@@ -332,8 +340,8 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
     登録した場合、プロパティには以下が含まれます。
     
-    - **登録サブスクリプション ID**:登録され、Azure Stack Hub に関連付けられた Azure サブスクリプション ID。
-    - **登録リソース グループ**:Azure Stack Hub リソースを含む関連付けられているサブスクリプション内の Azure リソース グループ。
+    - **登録サブスクリプション ID** :登録され、Azure Stack Hub に関連付けられた Azure サブスクリプション ID。
+    - **登録リソース グループ** :Azure Stack Hub リソースを含む関連付けられているサブスクリプション内の Azure リソース グループ。
 
 4. Azure portal を使用して Azure Stack Hub 登録リソースを表示し、登録が成功したことを確認できます。 Azure Stack Hub の登録に使用したサブスクリプションに関連付けられているアカウントを使用して、[Azure portal](https://portal.azure.com) にサインインします。 **[すべてのリソース]** を選択し、 **[非表示の型の表示]** チェックボックスをオンにして、登録名を選択します。
 
@@ -365,7 +373,7 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 ### <a name="change-the-subscription-you-use"></a>使用するサブスクリプションを変更する
 
-使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、[管理者ポータル](#verify-azure-stack-hub-registration)に表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。
+使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、 [管理者ポータル](#verify-azure-stack-hub-registration)に表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。
 
   ```powershell  
   # select the subscription used during the registration (shown in portal)
@@ -436,7 +444,7 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
 
 ### <a name="disable-or-enable-usage-reporting"></a>使用状況レポートを無効または有効にする
 
-容量課金モデルを使用する Azure Stack Hub 環境では、**Set-AzsRegistration** または **Get-AzsRegistrationToken** コマンドレットのいずれかで **UsageReportingEnabled** パラメーターを使用して使用状況レポートをオフにします。 Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。
+容量課金モデルを使用する Azure Stack Hub 環境では、 **Set-AzsRegistration** または **Get-AzsRegistrationToken** コマンドレットのいずれかで **UsageReportingEnabled** パラメーターを使用して使用状況レポートをオフにします。 Azure Stack Hub では、既定で使用状況メトリックがレポートされます。 容量モデルを使用するオペレーターまたは切断された環境をサポートするオペレーターは、使用状況レポートをオフにする必要があります。
 
 ::: zone pivot="state-connected"
 次の PowerShell コマンドレットを実行します。
@@ -469,7 +477,7 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
 
 ## <a name="move-a-registration-resource"></a>登録リソースを移動する
 
-同じサブスクリプションのリソース グループ間における登録リソースの移動は、すべての環境で**サポートされています**。 ただし、サブスクリプションをまたがる登録リソースの移動がサポートされるのは、両方のサブスクリプションで同じパートナー ID が解決される場合の CSP のみです。 新しいリソース グループへのリソースの移動については、「[新しいリソース グループまたはサブスクリプションへのリソースの移動](/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
+同じサブスクリプションのリソース グループ間における登録リソースの移動は、すべての環境で **サポートされています** 。 ただし、サブスクリプションをまたがる登録リソースの移動がサポートされるのは、両方のサブスクリプションで同じパートナー ID が解決される場合の CSP のみです。 新しいリソース グループへのリソースの移動については、「[新しいリソース グループまたはサブスクリプションへのリソースの移動](/azure/azure-resource-manager/resource-group-move-resources)」を参照してください。
 
 > [!IMPORTANT]
 > ポータルで登録リソースが誤って削除されないように、登録スクリプトではリソースに自動的にロックが追加されます。 移動または削除する前に、このロックを解除する必要があります。 誤って削除されないように、登録リソースにロックを追加することをお勧めします。
@@ -494,7 +502,7 @@ Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedE
 
 | パラメーター | Type | 説明 |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、**AzureStackDomain\CloudAdmin** の形式です。 |
+| PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、 **AzureStackDomain\CloudAdmin** の形式です。 |
 | PrivilegedEndpoint | String | ログ収集およびその他のデプロイ後タスクのような機能を提供する、あらかじめ構成されたリモート PowerShell コンソール。 詳細については、[特権エンドポイントの使用](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)の記事を参照してください。 |
 | AzureContext | PSObject |  |
 | ResourceGroupName | String |  |
@@ -516,7 +524,7 @@ Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-Privil
 ```
 | パラメーター | Type | 説明 |
 |-------------------------------|--------------|-------------|
-| PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、**AzureStackDomain\CloudAdmin** の形式です。 |
+| PrivilegedEndpointCredential | PSCredential | [特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)に使用する資格情報。 ユーザー名は、 **AzureStackDomain\CloudAdmin** の形式です。 |
 | PrivilegedEndpoint | String |  ログ収集およびその他のデプロイ後タスクのような機能を提供する、あらかじめ構成されたリモート PowerShell コンソール。 詳細については、[特権エンドポイントの使用](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)の記事を参照してください。 |
 | AzureContext | PSObject |  |
 | ResourceGroupName | String |  |

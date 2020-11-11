@@ -3,7 +3,7 @@ title: お客様による Azure Stack Hub の購入からデプロイ後まで |
 description: 計画からデプロイ後まで、Modular Data Center (MDC) のオンサイトのデプロイを成功させるために必要なことについて説明します。
 services: azure-stack
 documentationcenter: ''
-author: asganesh
+author: ashika789
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,24 +12,24 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: f170ab6025effe394c891aa4fb3ad7111bac7133
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: 12631a118600e67611294c87636cd2fa62bfaaea
+ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898620"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93344781"
 ---
-# <a name="mdc-integration-overview"></a>MDC 統合の概要
+# <a name="modular-data-center-integration-overview"></a>Modular Data Center の統合の概要
 
 この記事では、購入からデプロイ後まで、MDC の統合についてエンドツーエンドのプロセスを説明します。 統合は、お客様と Microsoft による共同プロジェクトです。 以下のセクションでは、プロジェクトのタイムラインに沿ったさまざまなフェーズと、プロジェクト メンバーのための固有の手順について説明します。
 
 ## <a name="introduction"></a>はじめに
 
-次の表は、デプロイのさまざまなフェーズで予想されることを示したものです。
+次の表は、デプロイのさまざまなフェーズで予想できることを示したものです。
 
 |   |注文プロセス  |デプロイ前 |統合、検証、輸送 |オンサイト デプロイ  |配置後 |
 |---|---------------|---------------|-----------------------------------|--------------------|----------------|
@@ -41,8 +41,21 @@ ms.locfileid: "92898620"
 
 お客様の組織は、Microsoft と協力して、割り当てられた数のシステムを発注します。 注文が済むと、Microsoft によりお客様の米国内の場所に MDC が配送されます。 Microsoft は、セキュリティで保護されたサプライチェーンのすべての要件が満たされていることを確認します。 
 
+## <a name="hardware-delivery"></a>ハードウェア納入
 
-## <a name="pre-deployment"></a>デプロイ前
+Microsoft は所定の時間内にすべての必要なハードウェアが米国内の場所に到着するように、お客様と協力します。  
+
+" *オンサイトの Microsoft デプロイ エンジニアがソリューションをデプロイするために到着する前に* "、すべての前提条件データをロックして使用可能にしておくことが **重要です** 。
+
+- デプロイ ワークシートにすべてのデータを入力しておきます。 
+- すべての証明書を検証して準備しておく必要があります。
+- リージョン名を決定しておく必要があります。
+- すべてのネットワーク統合パラメーターを決定しておきます。
+
+>[!Tip]
+>この情報のいずれかが変更されている場合は、社内組織と協力して、オンサイト デプロイ エンジニアが到着する前に、情報を確実に更新します。 これにより、デプロイ プロセスの遅延が回避されます。
+
+## <a name="pre-deployment"></a>デプロイ前準備
 
 Azure Stack Hub をデータセンターと統合する方法について決定します。 Microsoft からは、データセンターに正常に統合するために必要なすべての情報を収集する手順を案内する[デプロイ ワークシート](../operator/azure-stack-deployment-worksheet.md)が公開されています。 また、デプロイ時には、特定の証明書のセットが必要です。 これらの証明書の取得に役立つよう、Microsoft からは [Azure Stack Hub Readiness Checker](../operator/azure-stack-validation-report.md) というツールが提供されています。 このツールを使用して、内部 CA に提供する証明書署名要求 (CSR) を作成できます。 
 
@@ -57,24 +70,6 @@ Azure Stack Hub をデータセンターと統合する方法について決定�
 - **証明書の要件。** デプロイのためにデータセンターにオンサイト エンジニアが到着する前に、すべての[必要な証明書](../operator/azure-stack-pki-certs.md)が使用可能になっていることが重要です。
 
 デプロイ ワークシートを使用して前提条件のすべての情報が収集されたら、Microsoft により、すべての検証ツールが実行されたことが確認され、お客様にさらに質問がある場合はその支援が行われます。 
-
-## <a name="site-preparation"></a>場所の準備
-
-場所準備の要件に関する詳細については、クイック スタート ガイドを参照してください。
-
-## <a name="hardware-delivery"></a>ハードウェアの配送
-
-Microsoft は所定の時間内にすべての必要なハードウェアが米国内の場所に到着するように、お客様と協力します。  
-
-" *オンサイトの Microsoft デプロイ エンジニアがソリューションをデプロイするために到着する前に* "、すべての前提条件データをロックして使用可能にしておくことが **重要です** 。
-
-- デプロイ ワークシートにすべてのデータを入力しておきます。 
-- すべての証明書を検証して準備しておく必要があります。
-- リージョン名を決定しておく必要があります。
-- すべてのネットワーク統合パラメーターを決定しておきます。
-
->[!Tip]
->この情報のいずれかが変更されている場合は、社内組織と協力して、オンサイト デプロイ エンジニアが到着する前に、情報を確実に更新します。 これにより、デプロイ プロセスの遅延が回避されます。
 
 ## <a name="onsite-deployment"></a>オンサイト デプロイ
 
@@ -92,7 +87,7 @@ Azure Stack Hub をデプロイするには、Microsoft のデプロイ エン�
 - すべてのコンポーネントのファームウェアがソリューションにより承認済みの最新バージョンであることを確認します
 - デプロイを開始する
 
-## <a name="post-deployment"></a>デプロイ後
+## <a name="post-deployment"></a>配置後
 
 ソリューションをお客様に引き渡す前に、Microsoft のデプロイ エンジニアはいくつかのステップを実行する必要があります。 このフェーズでは、システムが正しくデプロイされて動作することを確認するための検証が重要です。
 
@@ -108,5 +103,5 @@ Microsoft のデプロイ エンジニアが行う必要のある操作:
 
 ## <a name="next-steps"></a>次のステップ
 
-[Modular Data Center をインストールして構成する手順](deployment-overview.md)について確認する。
+[Modular Data Center のデプロイの概要](deployment-overview.md)。
 

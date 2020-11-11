@@ -8,12 +8,12 @@ ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 04/28/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: 19e2bf9ef9d11f1975881fd064b86004422190de
-ms.sourcegitcommit: 6a51687a98c417a004cd4295ad06ae813e1978cc
+ms.openlocfilehash: 9009064b2664d09a677ad1b2e21b2a3e5b17b57f
+ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638837"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93363930"
 ---
 # <a name="use-the-privileged-endpoint-in-azure-stack-hub"></a>Azure Stack Hub での特権エンドポイントの使用
 
@@ -29,6 +29,8 @@ PEP では、PowerShell セッションで実行するすべてのアクショ�
 
 > [!NOTE]
 > Azure Stack Development Kit (ASDK) では、PEP で利用可能なコマンドの一部を、開発キットのホスト上の PowerShell セッションから直接実行できます。 ただし、これは統合システム環境で特定の操作を実行するために利用可能な唯一の手段であるため、ログ収集など、PEP を使用した一部の操作をテストすることが必要な場合があります。
+
+[!INCLUDE [Azure Stack Hub Operator Access Workstation](../includes/operator-note-owa.md)]
 
 ## <a name="access-the-privileged-endpoint"></a>特権エンドポイントへのアクセス
 
