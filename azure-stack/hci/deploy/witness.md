@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 075198e9045ac2d735f2113164e7fc4e24b7934f
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 2d2db45af0df86ebe6ea210df9b4a86da22c3303
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899518"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064482"
 ---
 # <a name="set-up-a-cluster-witness"></a>クラスター監視のセットアップ
 
@@ -21,7 +21,7 @@ ms.locfileid: "91899518"
 
 SMB ファイル共有を監視として使用するか、Azure クラウド監視を使用することができます。 クラスター内のすべてのサーバー ノードに信頼性の高いインターネット接続がある場合は、Azure クラウド監視が推奨されます。 詳しくは、「[フェールオーバー クラスターにクラウド監視を展開する](/windows-server/failover-clustering/deploy-cloud-witness)」をご覧ください。
 
-ファイル共有監視の場合、ファイル サーバーには要件があります。 詳細については、「[Azure Stack HCI をデプロイする前に](before-you-start.md)」を参照してください。
+ファイル共有監視の場合、ファイル サーバーには要件があります。 詳細については、[システム要件](../concepts/system-requirements.md)に関するページを参照してください。
 
 ## <a name="set-up-a-witness-using-windows-admin-center"></a>Windows Admin Center を使用して監視をセットアップする
 
@@ -40,7 +40,7 @@ SMB ファイル共有を監視として使用するか、Azure クラウド監�
 
 このセクションでは、ストレージ アカウントを作成し、そのアカウントのエンドポイント URL とアクセス キーを表示およびコピーする方法について説明します。
 
-クラウド監視を構成するには、アービトレーション用の BLOB ファイルの格納に使用できる有効な Azure ストレージ アカウントが必要です。 クラウド監視では、Microsoft ストレージ アカウントの下に、よく知られた **msft-cloud-witness** というコンテナーが作成されます。 クラウド監視により、**msft-cloud-witness** コンテナーの下に 1 つの BLOB ファイルが書き込まれます。この BLOB ファイルの名前には、対応するクラスターの一意の ID が使用されます。 つまり、同じ Microsoft Azure ストレージ アカウントを使用して、複数の異なるクラスターに対してクラウド監視を構成できるということです。
+クラウド監視を構成するには、アービトレーション用の BLOB ファイルの格納に使用できる有効な Azure ストレージ アカウントが必要です。 クラウド監視では、Microsoft ストレージ アカウントの下に、よく知られた **msft-cloud-witness** というコンテナーが作成されます。 クラウド監視により、 **msft-cloud-witness** コンテナーの下に 1 つの BLOB ファイルが書き込まれます。この BLOB ファイルの名前には、対応するクラスターの一意の ID が使用されます。 つまり、同じ Microsoft Azure ストレージ アカウントを使用して、複数の異なるクラスターに対してクラウド監視を構成できるということです。
 
 複数の異なるクラスターに対して同じ Azure ストレージ アカウントを使用してクラウド監視を構成すると、1 つの **msft-cloud-witness** コンテナーが自動的に作成されます。 このコンテナーには、クラスターごとに 1 つの BLOB ファイルが格納されます。
 
@@ -59,11 +59,11 @@ SMB ファイル共有を監視として使用するか、Azure クラウド監�
     1. **[パフォーマンス]** には **[Standard]** を選択します
     <br>クラウド監視に Azure Premium Storage を使用することはできません。
     1. **[レプリケーション]** には **[ローカル冗長ストレージ (LRS)]** を選択します。
-    <br>フェールオーバー クラスタリングでは、アービトレーション ポイントとして BLOB ファイルを使用します。ここでは、データの読み取り時に一定の整合性が保証される必要があります。 したがって、**レプリケーション**の種類として**ローカル冗長ストレージ**を選択する必要があります。
+    <br>フェールオーバー クラスタリングでは、アービトレーション ポイントとして BLOB ファイルを使用します。ここでは、データの読み取り時に一定の整合性が保証される必要があります。 したがって、 **レプリケーション** の種類として **ローカル冗長ストレージ** を選択する必要があります。
 
 ### <a name="view-and-copy-storage-access-keys-for-your-azure-storage-account"></a>Azure ストレージ アカウントのストレージ アクセス キーを表示およびコピーする
 
-Microsoft Azure ストレージ アカウントを作成すると、自動的に生成される 2 つのアクセス キー (プライマリ アクセス キーとセカンダリ アクセス キー) に関連付けられます。 クラウド監視を初めて作成した場合は、**プライマリ アクセス キー**を使用します。 クラウド監視に使用するキーに関する制限はありません。  
+Microsoft Azure ストレージ アカウントを作成すると、自動的に生成される 2 つのアクセス キー (プライマリ アクセス キーとセカンダリ アクセス キー) に関連付けられます。 クラウド監視を初めて作成した場合は、 **プライマリ アクセス キー** を使用します。 クラウド監視に使用するキーに関する制限はありません。  
 
 #### <a name="to-view-and-copy-storage-access-keys"></a>ストレージ アクセス キーを表示およびコピーするには、次のようにします
 
@@ -84,7 +84,7 @@ Azure portal で、お使いのストレージ アカウントに移動し、 **
 
 Azure portal でお使いのストレージ アカウントに移動し、 **[すべての設定]** 、 **[プロパティ]** の順にクリックすると、エンドポイントの URL を表示およびコピーできます。  
 
-:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="クラウド監視のアクセス キー" lightbox="media/witness/cloud-witness-2.png":::  
+:::image type="content" source="media/witness/cloud-witness-2.png" alt-text="クラウド監視エンドポイント URL" lightbox="media/witness/cloud-witness-2.png":::  
 
 ## <a name="set-up-a-witness-using-windows-powershell"></a>Windows PowerShell を使用して監視をセットアップする
 

@@ -7,12 +7,12 @@ ms.date: 02/26/2020
 ms.author: justinha
 ms.reviewer: shisab
 ms.lastreviewed: 02/26/2020
-ms.openlocfilehash: c0cf805773100e2f265c2e088a6f6cd442553ec2
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: db1a7919987803682ff0a9df84565fa7aef47620
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778273"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415302"
 ---
 # <a name="azure-stack-hub-help-and-support"></a>Azure Stack Hub のヘルプとサポート
 
@@ -32,11 +32,11 @@ Azure Stack Hub のオペレーターは **[ヘルプとサポート]** を使�
 
 ![Azure Stack Hub のセルフサービス サポート](media/azure-stack-help-and-support/get-support-tiles.png)
 
-- **ドキュメント**。 「[Azure Stack Hub のオペレーター ドキュメント](index.yml)」には、Azure Stack Hub サービスを提供する方法を示す概念、操作方法のトピック、およびチュートリアルが掲載されています。 これらのサービスには、仮想マシン、SQL Database、Web アプリなどがあります。
+- **ドキュメント** 。 「[Azure Stack Hub のオペレーター ドキュメント](index.yml)」には、Azure Stack Hub サービスを提供する方法を示す概念、操作方法のトピック、およびチュートリアルが掲載されています。 これらのサービスには、仮想マシン、SQL Database、Web アプリなどがあります。
 
-- **課金の詳細についてはこちらを参照してください**。 [使用量と課金](azure-stack-billing-and-chargeback.md)についてのヒントを得ます。
+- **課金の詳細についてはこちらを参照してください** 。 [使用量と課金](azure-stack-billing-and-chargeback.md)についてのヒントを得ます。
 
-- **サポート オプション**。 Azure Stack Hub オペレーターは、あらゆる企業のニーズに対応できる幅広い [Azure サポート オプション](https://aka.ms/azstacksupport)から選択できます。
+- **サポート オプション** 。 Azure Stack Hub オペレーターは、あらゆる企業のニーズに対応できる幅広い [Azure サポート オプション](./azure-stack-manage-basics.md)から選択できます。
 
 ### <a name="get-expert-help"></a>専門家のサポートを受ける
 
@@ -50,7 +50,7 @@ Azure Stack Hub のオペレーターは **[ヘルプとサポート]** を使�
 
 Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。
 
-管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、フォーラムへのリンクが含まれるヘルプとサポートの**概要**が開きます。 MSDN フォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
+管理者ポータルの右上隅の **[ヘルプ]** (疑問符) を選択し、 **[ヘルプとサポート]** を選択すると、フォーラムへのリンクが含まれるヘルプとサポートの **概要** が開きます。 MSDN フォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
 
 また、MSDN フォーラムにアクセスして問題について話し合ったり、オンライン トレーニングを受けて自分のスキルを向上させたりすることもできます。
 
@@ -76,9 +76,9 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フ�
 
 ## <a name="diagnostic-log-collection"></a>診断ログの収集
 
-1907 リリース以降、**ヘルプとサポート**にはログを収集するために 2 つの新しい方法があります。
+1907 リリース以降、 **ヘルプとサポート** にはログを収集するために 2 つの新しい方法があります。
 
-- **自動収集**:有効にすると、特定の正常性アラートによってログの収集がトリガーされます。
+- **自動収集** :有効にすると、特定の正常性アラートによってログの収集がトリガーされます。
 - **Collect logs now (今すぐログを収集する)** :過去 7 日間の 1 時間から 4 時間のスライディング ウィンドウを選択できます。
 
 ![診断ログの収集オプション](media/azure-stack-automatic-log-collection/azure-stack-log-collection-overview.png)
@@ -87,7 +87,7 @@ Azure Stack Development Kit (ASDK) については、[Azure Stack Hub MSDN フ�
 
 ## <a name="help-and-support-for-earlier-releases-azure-stack-hub-pre-1905"></a>以前のリリースの Azure Stack Hub (1905 より前) に関するヘルプとサポート
 
-前の Azure Stack Hub のリリースにも、[Azure Stack Hub のオペレーター ドキュメント](https://aka.ms/adminportaldocs)にリダイレクトされる **[ヘルプとサポート]** へのリンクがあります。
+前の Azure Stack Hub のリリースにも、 [Azure Stack Hub のオペレーター ドキュメント](./index.yml)にリダイレクトされる **[ヘルプとサポート]** へのリンクがあります。
 
 ![サポート利用のチュートリアル](media/azure-stack-help-and-support/get-support-previous.png)
 

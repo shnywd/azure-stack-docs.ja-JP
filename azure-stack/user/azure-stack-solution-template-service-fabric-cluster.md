@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5347225398e6494d89ba70d6468a6657d13b58e0
-ms.sourcegitcommit: 34db213dc6549f21662ed44d090f55359cfe8469
+ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88564770"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546278"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric クラスターを Azure Stack Hub にデプロイする
 
@@ -44,12 +44,12 @@ Service Fabric クラスターをデプロイするには、次のものが必�
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Key Vault にシークレットを追加する
-Service Fabric クラスターをデプロイするには、Service Fabric クラスターに対して正しい Key Vault の*シークレット ID* または URL を指定する必要があります。 Azure Resource Manager テンプレートでは、入力として Key Vault を受け取ります。 その後、テンプレートは、Service Fabric クラスターをインストールするときに、クラスター証明書を取得します。
+Service Fabric クラスターをデプロイするには、Service Fabric クラスターに対して正しい Key Vault の *シークレット ID* または URL を指定する必要があります。 Azure Resource Manager テンプレートでは、入力として Key Vault を受け取ります。 その後、テンプレートは、Service Fabric クラスターをインストールするときに、クラスター証明書を取得します。
 
 > [!IMPORTANT]  
 > Service Fabric で使用するシークレットは、PowerShell を使って Key Vault に追加する必要があります。 ポータルは使用しないでください。  
 
-Key Vault を作成してそこに*クラスター証明書* を追加するには、以下のスクリプトを使用します。 (「[前提条件](#prerequisites)」を参照してください。)このスクリプトを実行する前に、サンプル スクリプトを確認し、前述のパラメーターを実際の環境に合わせて更新してください。 また、このスクリプトでは、Azure Resource Manager テンプレートに渡す必要のある値が出力されます。 
+Key Vault を作成してそこに *クラスター証明書* を追加するには、以下のスクリプトを使用します。 (「[前提条件](#prerequisites)」を参照してください。)このスクリプトを実行する前に、サンプル スクリプトを確認し、前述のパラメーターを実際の環境に合わせて更新してください。 また、このスクリプトでは、Azure Resource Manager テンプレートに渡す必要のある値が出力されます。 
 
 > [!TIP]  
 > スクリプトを正常に実行するには、Compute、Network、Storage、Key Vault の各サービスを含むパブリック オファーが必要です。 
@@ -80,7 +80,7 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
             $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
     
             Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzureRmKeyVault -VaultName $KeyVaultName).ResourceId
+            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
             
             Write-Host "Secret Id: " -ForegroundColor Green
             (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
@@ -97,15 +97,15 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
     $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
     #==============================================================================
     
-    Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzureRmAccount -Environment AzureStack -TenantId $tenantId
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+    Login-AzAccount -Environment AzureStack -TenantId $tenantId
     
     $rgName = "sfvaultrg"
     Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzureRmResourceGroup -Name $rgName -Location $location
+    New-AzResourceGroup -Name $rgName -Location $location
     
     Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzureRmKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
     
     Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
     Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
@@ -137,16 +137,16 @@ Key Vault を作成してそこに*クラスター証明書* を追加するに�
 
    ![ネットワーク設定](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. *[セキュリティ]* ページには、[Azure Key Vault の作成](#add-a-secret-to-key-vault)とシークレットのアップロードによって得られた値を追加します。
+4. *[セキュリティ]* ページには、 [Azure Key Vault の作成](#add-a-secret-to-key-vault)とシークレットのアップロードによって得られた値を追加します。
 
-   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、"*管理用クライアント証明書*" の拇印を入力します (「[前提条件](#prerequisites)」を参照してください。)
+   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、" *管理用クライアント証明書* " の拇印を入力します (「[前提条件](#prerequisites)」を参照してください。)
    
    - [ソース Key Vault]: スクリプトの結果から得られる `keyVault id` 文字列全体を指定します。 
    - [Cluster Certificate URL]\(クラスター証明書 URL\): スクリプトの結果から得られる `Secret Id` の URL 全体を指定します。 
-   - [Cluster Certificate thumbprint]\(クラスター証明書の拇印\): スクリプトの実行結果から得られる "*クラスター証明書の拇印*" を指定します。
+   - [Cluster Certificate thumbprint]\(クラスター証明書の拇印\): スクリプトの実行結果から得られる " *クラスター証明書の拇印* " を指定します。
    - [Server Certificate URL]\(サーバー証明書 URL\):クラスター証明書とは別の証明書を使用する場合は、証明書を keyVault にアップロードし、シークレットの完全な URL を指定します。 
    - [Server Certificate thumbprint]\(サーバー証明書の拇印\):サーバー証明書の拇印を指定します
-   - [Admin Client Certificate Thumbprints]\(管理用クライアント証明書の拇印\): 「前提条件」で作成した "*管理用クライアント証明書の拇印*" を指定します。 
+   - [Admin Client Certificate Thumbprints]\(管理用クライアント証明書の拇印\): 「前提条件」で作成した " *管理用クライアント証明書の拇印* " を指定します。 
 
    ![スクリプト出力](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -165,7 +165,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
     a. Internet Explorer を開いて **[インターネット オプション]**  >  **[コンテンツ]**  >  **[証明書]** の順に移動します。
   
-    b. [証明書] の **[インポート]** を選択して "*証明書のインポート ウィザード*" を開始し、 **[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した**管理用クライアント証明書**を選択します。
+    b. [証明書] の **[インポート]** を選択して " *証明書のインポート ウィザード* " を開始し、 **[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した **管理用クライアント証明書** を選択します。
         
        > [!NOTE]  
        > この証明書は、以前に Key Vault に追加されたクラスター証明書ではありません。  
@@ -199,7 +199,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 ### <a name="use-service-fabric-powershell"></a>Service Fabric PowerShell の使用
 
-1. Azure Service Fabric ドキュメントの「[Windows で開発環境を準備する](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
+1. Azure Service Fabric ドキュメントの「 [Windows で開発環境を準備する](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
 
 1. インストールが完了したら、Service Fabric のコマンドレットに PowerShell から確実にアクセスできるようシステム環境変数を構成します。  
     
@@ -209,7 +209,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
     b. *[システムのプロパティ]* の **[詳細設定]** タブで **[環境変数]** を選択します。  
 
-    c. *[システム環境変数]* の **[Path]** を編集し、**C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** が一連の環境変数の先頭にあることを確認します。  
+    c. *[システム環境変数]* の **[Path]** を編集し、 **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** が一連の環境変数の先頭にあることを確認します。  
 
       ![環境変数リスト](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

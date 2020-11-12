@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 3a14c50413ddd431f6a8db8815d0147ef9d173e7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107228"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546193"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントをバックアップする
 
@@ -54,7 +54,7 @@ Linux または Windows サーバーを中継サーバーとして作成でき�
 - Linux サーバーを設定する手順については、[Azure Stack Hub ポータルを使用した Linux サーバー VM の作成](azure-stack-quick-linux-portal.md)に関するページを参照してください。  
 - Windows Server を設定する手順については、[Azure Stack Hub ポータルを使用した Windows サーバー VM の作成](azure-stack-quick-windows-portal.md)に関するページを参照してください。  
 
-Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) と [Azure Stack Hub ツール](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)をインストールする必要があります。
+Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json) と [Azure Stack Hub ツール](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2FFazure-stack%2Fbreadcrumb%2Ftoc.json)をインストールする必要があります。
 
 ## <a name="set-up-backup-for-storage-accounts"></a>ストレージ アカウントのバックアップを設定する
 
@@ -80,13 +80,13 @@ Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/azu
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. 中継サーバー上でスクリプトを作成します。 実際の**ストレージ アカウント**、**SAS キー**、および **ローカル ディレクトリのパス**を使用して、このコマンドを更新します。 スクリプトを実行して、**ソース** ストレージ アカウントからデータを増分コピーします。
+4. 中継サーバー上でスクリプトを作成します。 実際の **ストレージ アカウント** 、 **SAS キー** 、および **ローカル ディレクトリのパス** を使用して、このコマンドを更新します。 スクリプトを実行して、 **ソース** ストレージ アカウントからデータを増分コピーします。
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  **ストレージ アカウント**、**SAS キー**、および**ローカル ディレクトリのパスを入力します。  これを使用して、**ターゲット** ストレージ アカウントにデータを増分コピーします
+5.  **ストレージ アカウント** 、**SAS キー**、および**ローカル ディレクトリのパスを入力します。  これを使用して、 **ターゲット** ストレージ アカウントにデータを増分コピーします
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

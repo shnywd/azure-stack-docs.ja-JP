@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub Marketplace の Windows Server に関する FAQ 一覧。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/23/2020
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: fff299a0d537bb4190e66a57eb642db7e8b9824d
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133641"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545735"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace のよくあるご質問
 
@@ -36,7 +36,7 @@ Azure Marketplace のサポート ガイダンスは、Azure Stack Hub Marketpla
 Microsoft は、2 つのバージョンの Windows Server イメージを Azure Stack Hub Marketplace で提供しています。 Azure Stack Hub 環境で使用できるのは、このイメージの 1 バージョンのみです。  
 
 - **従量課金制 (PAYG)** : これらのイメージでは、正規の価格の Windows メーターが実行されます。
-   このオプションの対象ユーザー: "*使用量課金モデル*" を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
+   このオプションの対象ユーザー: " *使用量課金モデル* " を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
 - **ライセンス持ち込み (BYOL)** : これらのイメージでは、基本メーターが実行されます。
    このオプションの対象ユーザー: Windows Server ライセンスを所有する EA のお客様や、SPLA ライセンスを使用する CSP にお勧めします。
 
@@ -53,12 +53,12 @@ Azure Stack Hub では、Azure ハイブリッド使用特典 (AHUB) はサポ�
 次のスクリプトを実行して、ライセンス モデル属性を変更して、BYOL から PAYG モデルに切り替えることができます。
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
-VM のライセンスの種類を確認するには、次のコマンドを実行します。 ライセンス モデルに、**Windows_Server** と示されている場合、BYOL 料金で課金されます。 それ以外の場合は、PAYG モデルごとに Windows の測定に対して課金されます。
+VM のライセンスの種類を確認するには、次のコマンドを実行します。 ライセンス モデルに、 **Windows_Server** と示されている場合、BYOL 料金で課金されます。 それ以外の場合は、PAYG モデルごとに Windows の測定に対して課金されます。
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
@@ -69,16 +69,16 @@ $vm | ft Name, VmId,LicenseType,ProvisioningState
 次のコマンドを実行して、ライセンス モデル属性を BYOL モデルに変更できます。
 
 ```powershell
-$vm= Get-Azurermvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
-Update-AzureRmVM -ResourceGroupName "<your RG>" -VM $vm
+Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Windows Server を使用する他の VM (SQL Server、Machine Learning Server など) についてはどうでしょうか?
 
-これらのイメージは、**licenseType** パラメーターが適用されるため、PAYG となります。 このパラメーターは自分で設定することができます (前出の FAQ の回答を参照)。 これが適用されるのは、Windows Server ソフトウェアだけです。自分のライセンスの持ち込みが必要となる階層化された製品 (SQL など) には適用されません。 PAYG ライセンスは、階層化されたソフトウェア製品には適用されません。
+これらのイメージは、 **licenseType** パラメーターが適用されるため、PAYG となります。 このパラメーターは自分で設定することができます (前出の FAQ の回答を参照)。 これが適用されるのは、Windows Server ソフトウェアだけです。自分のライセンスの持ち込みが必要となる階層化された製品 (SQL など) には適用されません。 PAYG ライセンスは、階層化されたソフトウェア製品には適用されません。
 
-Azure Stack Hub Marketplace から SQL Server イメージの **licenseType** プロパティを変更できるのは、バージョンが **XX.X.20190410** 以降の場合のみです。 Azure Stack Hub Marketplace から古いバージョンの SQL Server イメージを実行している場合は、**licenseType** 属性を変更することはできず、Azure Stack Hub Marketplace から最新の SQL Server イメージを使用して再デプロイする必要があります。
+Azure Stack Hub Marketplace から SQL Server イメージの **licenseType** プロパティを変更できるのは、バージョンが **XX.X.20190410** 以降の場合のみです。 Azure Stack Hub Marketplace から古いバージョンの SQL Server イメージを実行している場合は、 **licenseType** 属性を変更することはできず、Azure Stack Hub Marketplace から最新の SQL Server イメージを使用して再デプロイする必要があります。
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>私はマイクロソフト エンタープライズ契約 (EA) を所有しており、EA Windows Server ライセンスを使う予定です。イメージに対して正しく課金されるようにするには、どうすればよいですか?
 

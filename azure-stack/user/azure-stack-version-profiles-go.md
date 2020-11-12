@@ -7,12 +7,12 @@ ms.date: 09/02/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/26/2019
-ms.openlocfilehash: 3b8df9de2975c7ba0e6eefdb10a2731cd5d47ca6
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 3d263759763d1c845365fd5d8d89e7006cedbddc
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448675"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546499"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack-hub"></a>Azure Stack Hub での GO による API バージョンのプロファイルの使用
 
@@ -23,7 +23,7 @@ ms.locfileid: "89448675"
 - 特定の API バージョンをロックすることによる、アプリの安定性。
 - Azure Stack Hub および地域の Azure データセンターでのアプリの互換性。
 
-Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 プロファイルのバージョン番号は、**YYYY-MM-DD** 形式でラベル付けされます。 Azure Stack Hub バージョン 1904 以降の場合、最新の Azure Stack Hub API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、**Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
+Go SDK では、このプロファイル パス以下のプロファイルを使用できます。 プロファイルのバージョン番号は、 **YYYY-MM-DD** 形式でラベル付けされます。 Azure Stack Hub バージョン 1904 以降の場合、最新の Azure Stack Hub API プロファイル バージョンは **2019-03-01** です。 特定のサービスをプロファイルからインポートするには、プロファイルから該当するモジュールをインポートします。 たとえば、 **Compute** サービスを **2019-03-01** プロファイルからインポートするには、次のコードを使用します。
 
 ```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
@@ -48,7 +48,7 @@ Azure Go SDK の詳細については、次のリンク先をご覧ください�
 
 ### <a name="go-autorest-dependencies"></a>Go-AutoRest 依存関係
 
-Go SDK では、Azure **Go-AutoRest** モジュールに依存して、Azure Resource Manager エンドポイントに REST 要求を送信します。 Azure  **Go-AutoRest** モジュールの依存関係を [GitHub の Azure Go-AutoRest](https://github.com/Azure/go-autorest) からインポートする必要があります。 インストールの bash コマンドは、「**インストール**」セクションで検索できます。
+Go SDK では、Azure **Go-AutoRest** モジュールに依存して、Azure Resource Manager エンドポイントに REST 要求を送信します。 Azure  **Go-AutoRest** モジュールの依存関係を [GitHub の Azure Go-AutoRest](https://github.com/Azure/go-autorest) からインポートする必要があります。 インストールの bash コマンドは、「 **インストール** 」セクションで検索できます。
 
 ## <a name="how-to-use-go-sdk-profiles-on-azure-stack-hub"></a>Azure Stack Hub での Go SDK プロファイルの使用方法
 
@@ -77,16 +77,16 @@ Azure Stack Hub でサンプルの Go コードを実行するには、次の手
 
 3. 使用できない場合は、サブスクリプションを作成し、サブスクリプション ID を保存して後で使用します。 サブスクリプションの作成方法に関する詳細については、「[Azure Stack Hub でオファーのサブスクリプションを作成する](../operator/azure-stack-subscribe-plan-provision-vm.md)」を参照してください。
 
-4. **サブスクリプション** スコープと**所有者**ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack Hub 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack Hub 環境が設定されました。
+4. **サブスクリプション** スコープと **所有者** ロールを使用して、クライアント シークレットを使用するサービス プリンシパルを作成します。 サービス プリンシパルの ID とシークレットを保存します。 Azure Stack Hub 向けサービス プリンシパルの作成の詳細については、「[アプリ ID を使用してリソースにアクセスする](../operator/azure-stack-create-service-principals.md)」を参照してください。 これで、使用する Azure Stack Hub 環境が設定されました。
 
-5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack Hub プロファイルの最新バージョンは **2019-03-01** です。 たとえば、**2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
+5. コード内で Go SDK プロファイルからサービス モジュールをインポートします。 Azure Stack Hub プロファイルの最新バージョンは **2019-03-01** です。 たとえば、 **2019-03-01** プロファイルの種類からネットワーク モジュールをインポートするには、次のコードを使用します。
 
    ```go
    package main
     import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
-6. 関数内で、**New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用します。  
+6. 関数内で、 **New** クライアント関数呼び出しを使って、クライアントを作成して認証します。 仮想ネットワーク クライアントを作成するには、次のコードを使用します。  
 
    ```go
    package main
@@ -119,7 +119,7 @@ Go SDK プロファイルを使用して Azure Stack Hub に仮想ネットワ�
 
 ## <a name="authentication"></a>認証
 
-Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、**Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。 そうでない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールします。
+Go SDK を使って Azure Active Directory から **Authorizer** プロパティを取得するには、 **Go-AutoRest** モジュールをインストールします。 これらのモジュールは、"Go SDK" のインストールで既にインストールされています。 そうでない場合は、[GitHub から認証パッケージ](https://github.com/Azure/go-autorest/tree/master/autorest/adal)をインストールします。
 
 Authorizer には、リソース クライアントの承認者を設定する必要があります。 クライアント資格情報を使用して Azure Stack Hub に authorizer トークンを取得する方法は複数あります。
 
@@ -132,7 +132,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    import "github.com/Azure/go-autorest/autorest/adal"
    ```
 
-3. NewOAuthConfig メソッドを使用して、**adal** モジュールから **oauthConfig** を作成します。
+3. NewOAuthConfig メソッドを使用して、 **adal** モジュールから **oauthConfig** を作成します。
 
    ```go
    package main
@@ -147,7 +147,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
 
    `<activeDirectoryEndpoint>` に、このドキュメントの前のセクションで取得した `ResourceManagerUrl` メタデータの `loginEndpoint` プロパティの値を設定します。 `<tenantID>` 値に、お使いの Azure Stack Hub テナント ID を設定します。
 
-4. 最後に、**adal** モジュールの `NewServicePrincipalToken` メソッドを使用して、サービス プリンシパルのトークンを作成します。
+4. 最後に、 **adal** モジュールの `NewServicePrincipalToken` メソッドを使用して、サービス プリンシパルのトークンを作成します。
 
    ```go
    package main
@@ -174,7 +174,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
 この例では、Azure Stack Hub で仮想ネットワークを作成する Go コードのサンプルを示します。 Go SDK の詳細な例については、[Azure Go SDK サンプル リポジトリ](https://github.com/Azure-Samples/azure-sdk-for-go-samples)をご覧ください。 リポジトリのサービス フォルダー内にある hybrid パスの Azure Stack Hub のサンプルを使用できます。
 
 > [!NOTE]  
-> この例のコードを実行するには、使用されるサブスクリプションが、**ネットワーク** リソース プロバイダーの一覧に**登録済み**として示されていることを確認します。 これを確認するには、Azure Stack Hub ポータルでサブスクリプションを検索し、 **[リソース プロバイダー]** を選択します。
+> この例のコードを実行するには、使用されるサブスクリプションが、 **ネットワーク** リソース プロバイダーの一覧に **登録済み** として示されていることを確認します。 これを確認するには、Azure Stack Hub ポータルでサブスクリプションを検索し、 **[リソース プロバイダー]** を選択します。
 
 1. コード内で必要なパッケージをインポートします。 ネットワーク モジュールをインポートするには、Azure Stack Hub で使用可能な最新のプロファイルを使用します。
 
@@ -206,7 +206,7 @@ Authorizer には、リソース クライアントの承認者を設定する�
    )
    ```
 
-3. 使用する環境変数を定義したので、**adal** パッケージを使用して、認証トークンを作成するためのメソッドを追加します。 認証の詳細については、前のセクションを参照してください。
+3. 使用する環境変数を定義したので、 **adal** パッケージを使用して、認証トークンを作成するためのメソッドを追加します。 認証の詳細については、前のセクションを参照してください。
 
    ```go
    //CreateToken creates a service principal token
@@ -299,5 +299,5 @@ Go SDK を使用した Azure Stack Hub 向けの入手可能なコード サン�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)
+- [PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md)
 - [Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)

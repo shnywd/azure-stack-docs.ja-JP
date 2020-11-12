@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 06/18/2019
-ms.openlocfilehash: 03dcd58562aaa0bc65bbc545e19c9e3a24c52a4b
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 0497cf3b457276df9fc6c4938e7a1c1370eaa4a3
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920493"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383651"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack-hub"></a>Azure Stack Hub で Kubernetes ダッシュボードにアクセスする 
 
@@ -29,7 +29,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 * SSH クライアント
 
-    クラスター内のマスター ノードに安全に接続するために、SSH クライアントが必要です。 Windows を使用している場合は [Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
+    クラスター内のマスター ノードに安全に接続するために、SSH クライアントが必要です。 Windows を使用している場合は [Putty](https://www.ssh.com/ssh/putty/download) を使用できます。 Kubernetes クラスターをデプロイしたときに使用した秘密キーが必要です。
 
 * FTP (PSCP)
 
@@ -52,7 +52,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
 
 2. ポータルで、マスター ノードを開きます。 **パブリック IP** アドレスをコピーします。 **[接続]** をクリックして、 **[VM ローカル アカウントを使用してログインする]** ボックスのユーザー名を取得します。 これは、クラスターを作成するときに設定したのと同じユーザー名です。 [接続] ブレードの一覧に表示されたプライベート IP アドレスではなく、パブリック IP アドレスを使用します。
 
-3.  マスターに接続するため、SSH クライアントを開きます。 Windows で作業している場合は、[Putty](/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm) を使用して接続を作成できます。 マスター ノードとユーザー名にはパブリック IP アドレスを使用し、クラスターの作成時に使用した秘密キーを追加します。
+3.  マスターに接続するため、SSH クライアントを開きます。 Windows で作業している場合は、[Putty](https://www.ssh.com/ssh/putty/download) を使用して接続を作成できます。 マスター ノードとユーザー名にはパブリック IP アドレスを使用し、クラスターの作成時に使用した秘密キーを追加します。
 
 4.  ターミナルが接続されたら、「`kubectl`」と入力して Kubernetes コマンドライン クライアントを開きます。
 
@@ -91,7 +91,7 @@ Kubernetes には、基本的な管理操作に使用できる Web ダッシュ�
     - マスター ノードのパブリック IP
     - ユーザー名
     - プライベート シークレット
-    - **SFTP - SSH ファイル転送プロトコル**を使用
+    - **SFTP - SSH ファイル転送プロトコル** を使用
 
 2. `/etc/kubernetes/certs/client.pfx` と `/etc/kubernetes/certs/ca.crt` を Azure Stack Hub 管理マシンにコピーします。
 

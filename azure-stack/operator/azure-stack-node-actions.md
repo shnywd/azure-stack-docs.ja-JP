@@ -7,12 +7,12 @@ ms.date: 04/30/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: e82e551930196c3c0c2e958957172e26bf9861cb
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488336"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545195"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 
@@ -62,11 +62,11 @@ Azure Stack Hub では、ドレイン、再開、修復、シャットダウン�
 
 次の手順を適用する前に、現在進行中の操作がないことを確認してください。 お使いの環境に合わせてエンドポイントを更新します。
 
-1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](./azure-stack-powershell-install.md)必要があります。
+1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](./powershell-install-az-module.md)必要があります。
 
    ```powershell
-   Add-AzureRmEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzureRmAccount -Environment AzureStack
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+   Add-AzAccount -Environment AzureStack
    ```
 
 2. 次のコマンドを実行して、ファブリック リソース プロバイダー ロールを再起動します。
@@ -95,11 +95,11 @@ Azure Stack Hub では、ドレイン、再開、修復、シャットダウン�
 
 ノードの操作状態によって、使用可能なオプションが決まります。
 
-Azure Stack Hub PowerShell モジュールをインストールする必要があります。 これらのコマンドレットは **Azs.Fabric.Admin** モジュールに存在します。 PowerShell for Azure Stack Hub のインストールまたはインストールの確認については、「[PowerShell for Azure Stack Hub をインストールする](azure-stack-powershell-install.md)」を参照してください。
+Azure Stack Hub PowerShell モジュールをインストールする必要があります。 これらのコマンドレットは **Azs.Fabric.Admin** モジュールに存在します。 PowerShell for Azure Stack Hub のインストールまたはインストールの確認については、「[PowerShell for Azure Stack Hub をインストールする](powershell-install-az-module.md)」を参照してください。
 
 ## <a name="stop"></a>Stop
 
-**停止**アクションは、ノードをオフにします。 これは、電源ボタンを押した場合と同じです。 オペレーティング システムにシャットダウン信号は送られません。 計画されている停止操作の場合は、最初に必ずシャットダウン操作を行ってください。
+**停止** アクションは、ノードをオフにします。 これは、電源ボタンを押した場合と同じです。 オペレーティング システムにシャットダウン信号は送られません。 計画されている停止操作の場合は、最初に必ずシャットダウン操作を行ってください。
 
 この操作は通常、ノードが要求に応答しなくなったときに使用されます。
 
@@ -115,7 +115,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="start"></a>[開始]
 
-**開始**操作は、ノードをオンにします。 これは、電源ボタンを押した場合と同じです。
+**開始** 操作は、ノードをオンにします。 これは、電源ボタンを押した場合と同じです。
 
 開始アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
@@ -129,7 +129,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="drain"></a>ドレイン
 
-**ドレイン**操作は、すべてのアクティブなワークロードを、その特定のスケール ユニット内の残りのノードに移動します。
+**ドレイン** 操作は、すべてのアクティブなワークロードを、その特定のスケール ユニット内の残りのノードに移動します。
 
 この操作は通常、ノード全体の交換などの、パーツの現場交換中に使用されます。
 
@@ -146,7 +146,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="resume"></a>Resume
 
-**再開**アクションは、無効化されたノードを再開し、ワークロードのアクティブな配置対象としてマークします。 ノードで実行されていた以前のワークロードはフェールバックされません。 (ノードのドレイン操作を使用する場合は、必ず電源をオフにしてください。 ノードは、電源をオンに戻しても、ワークロードのアクティブな配置対象としてマークされることはありません。 準備ができたら、再開操作を使用しノードをアクティブとしてマークする必要があります。)
+**再開** アクションは、無効化されたノードを再開し、ワークロードのアクティブな配置対象としてマークします。 ノードで実行されていた以前のワークロードはフェールバックされません。 (ノードのドレイン操作を使用する場合は、必ず電源をオフにしてください。 ノードは、電源をオンに戻しても、ワークロードのアクティブな配置対象としてマークされることはありません。 準備ができたら、再開操作を使用しノードをアクティブとしてマークする必要があります。)
 
 再開アクションを実行するには、管理者特権の PowerShell プロンプトを開き、次のコマンドレットを実行します。
 
@@ -172,7 +172,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 | HPE | All | [HPE ProLiant for Microsoft Azure Stack Hub](http://www.hpe.com/info/MASupdates) |
 | Lenovo | All | [ThinkAgile SXM Best Recipes](https://datacentersupport.lenovo.com/us/en/solutions/ht505122) |
 
-**修復**アクションは、ノードを修復します。 次のシナリオのいずれかに対してのみ使用します。
+**修復** アクションは、ノードを修復します。 次のシナリオのいずれかに対してのみ使用します。
 
 - ノードの完全交換 (新しいデータ ディスクあり、またはなし)。
 - ハードウェア コンポーネントの障害と交換の後 (フィールド交換可能装置 (FRU) ドキュメントで推奨されている場合)。
@@ -190,7 +190,7 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="shutdown"></a>Shutdown
 
-**シャットダウン**操作では最初に、すべてのアクティブなワークロードを、同じスケール ユニット内の残りのノードに移動します。 操作では次に、スケール ユニット ノードを適切にシャットダウンします。
+**シャットダウン** 操作では最初に、すべてのアクティブなワークロードを、同じスケール ユニット内の残りのノードに移動します。 操作では次に、スケール ユニット ノードを適切にシャットダウンします。
 
 シャットダウンされたノードの開始後は、[再開](#resume)操作を実行する必要があります。 ノードで実行されていた以前のワークロードはフェールバックされません。
 
@@ -204,6 +204,6 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Azure Stack PowerShell をインストールする](./azure-stack-powershell-install.md)
+- [Azure Stack PowerShell をインストールする](./powershell-install-az-module.md)
 - [Azure Stack Hub Fabric オペレーター モジュールについて確認する](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
 - [ノードの追加操作を監視する](./azure-stack-add-scale-node.md#monitor-add-node-operations)

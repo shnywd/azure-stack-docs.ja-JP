@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: d94f9130825493ea521441a43a58aa053ff2cc05
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631412"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545766"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する
 
@@ -24,7 +24,7 @@ ms.locfileid: "84631412"
 ## <a name="connect-to-azure-stack-hub-with-remote-desktop"></a>リモート デスクトップを使用して Azure Stack Hub に接続する
 リモート デスクトップ接続では、1 人の同時実行ユーザーがポータルを使用してリソースを管理できます。
 
-1. リモート デスクトップ接続を開き、Development Kit に接続します。 「**AzureStack\AzureStackAdmin**」というユーザー名と、Azure Stack Hub セットアップ時に指定した管理者パスワードを入力します。  
+1. リモート デスクトップ接続を開き、Development Kit に接続します。 「 **AzureStack\AzureStackAdmin** 」というユーザー名と、Azure Stack Hub セットアップ時に指定した管理者パスワードを入力します。  
 
 2. Development Kit コンピューターからサーバー マネージャーを開き、 **[ローカル サーバー]** をクリックし、Internet Explorer セキュリティ強化を無効にして、サーバー マネージャーを閉じます。
 
@@ -40,7 +40,7 @@ Azure Stack Development Kit に対して、分割トンネルの VPN 接続を�
 
 ### <a name="prerequisites"></a>前提条件
 
-* [Azure Stack Hub 互換の Azure PowerShell](../operator/azure-stack-powershell-install.md) をローカル コンピューターにインストールします。  
+* [Azure Stack Hub 互換の Azure PowerShell](../operator/powershell-install-az-module.md) をローカル コンピューターにインストールします。  
 * [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。 
 
 ### <a name="configure-vpn-connectivity"></a>VPN 接続の構成
@@ -91,7 +91,7 @@ Add-AzsVpnConnection `
     -Password $Password
   ```
 
-  プロンプトに従って Azure Stack Hub ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
+  プロンプトに従って Azure Stack Hub ホストを信頼し、 **AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
 
 * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]** に移動し、[`azurestack`] >  **[接続]** を選択します。 サインイン プロンプトで、ユーザー名 (AzureStack\AzureStackAdmin) とパスワードを入力します。
 

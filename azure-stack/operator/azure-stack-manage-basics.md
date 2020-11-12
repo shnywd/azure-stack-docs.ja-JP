@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
-ms.openlocfilehash: bacaccd664996af7dafa7fd6b7b3518b7dcaa851
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86488554"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543512"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub の管理の基本
 
@@ -25,7 +25,7 @@ Azure Stack Hub 統合システムを使用している場合は、更新プロ�
  
 ### <a name="development-kit"></a>開発キット
 
-Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack Hub の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は "*サンドボックス*" として使用することができます。そこで Azure Stack Hub を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
+Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack Hub の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は " *サンドボックス* " として使用することができます。そこで Azure Stack Hub を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
 
 Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 ASDK を実行しており、最新のビルドに移行する場合は、[Azure Stack Hub を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Web サイトの ASDK ドキュメントには、最新のリリース ビルドが反映されています。
 
@@ -114,7 +114,7 @@ ASDK 環境で、ユーザーは、リモート デスクトップを使用し�
 
 ユーザーは、[ユーザー ポータルへのアクセス方法](../user/azure-stack-use-portal.md)や PowerShell を介した接続方法を知る必要があります。 統合システム環境では、ユーザーのポータル アドレスはデプロイごとに異なります。 ユーザーには正しい URL を提供する必要があります。
 
-PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。 ユーザーは PowerShell を[インストール](azure-stack-powershell-install.md)し、追加のモジュールを[ダウンロード](azure-stack-powershell-download.md)して、PowerShell を[構成](../user/azure-stack-powershell-configure-user.md)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
+PowerShell を使用する場合、ユーザーはサービスを使用する前にリソース プロバイダーに登録する必要がある場合があります。 リソース プロバイダーがサービスを管理しています。 たとえば、ネットワーク リソース プロバイダーは仮想ネットワーク、ネットワーク インターフェイス、ロード バランサーなどのリソースを管理しています。 ユーザーは PowerShell を[インストール](powershell-install-az-module.md)し、追加のモジュールを[ダウンロード](azure-stack-powershell-download.md)して、PowerShell を[構成](../user/azure-stack-powershell-configure-user.md)する (これにはリソース プロバイダーの登録が含まれます) 必要があります。
 
 **オファーへのサブスクライブ**
 
@@ -137,7 +137,7 @@ PowerShell を使用する場合、ユーザーはサービスを使用する前
 
 ### <a name="azure-stack-development-kit-asdk"></a>Azure Stack Development Kit (ASDK)
 
-ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 フォーラムにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択します。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft CSS を通した正式なサポートは提供されていません。
+ASDK については、[Microsoft フォーラム](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)でサポート関連の質問をすることができます。 フォーラムにアクセスするには、管理者ポータルの右上隅にあるヘルプとサポートのアイコン (疑問符) を選択し、 **[ヘルプとサポート]** を選んでから、 **[サポート]** セクションで **[MSDN フォーラム]** を選択します。 これらのフォーラムは定期的にチェックされています。 ASDK は評価環境であるため、Microsoft サポートを通じた正式なサポートは提供されていません。
 
 ## <a name="next-steps"></a>次のステップ
 

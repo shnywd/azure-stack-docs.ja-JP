@@ -6,20 +6,20 @@ ms.topic: article
 ms.date: 5/27/2020
 ms.author: mabrigg
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: d81f7bc0894ea204b9cd956f30e3f302747a6de6
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: 39cb4e97c0a73b1299df3f84ce45d7f4db820262
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84111447"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544260"
 ---
 # <a name="enable-azure-cli-for-azure-stack-hub-users"></a>Azure Stack Hub ユーザーに対して Azure CLI を有効にする
 
 Azure Stack Hub のユーザーに CA ルート証明書を提供することで、Azure Stack Hub のユーザーは自分の開発マシン上で Azure CLI を有効にすることができます。 ユーザーが CLI を使用してリソースを管理するには証明書が必要です。
 
- - ユーザーが Azure Stack Development Kit (ASDK) の外部のワークステーションから CLI を使用する場合は、**Azure Stack Hub の CA ルート証明書**が必要です。  
+ - ユーザーが Azure Stack Development Kit (ASDK) の外部のワークステーションから CLI を使用する場合は、 **Azure Stack Hub の CA ルート証明書** が必要です。  
 
- - **仮想マシン (VM) のエイリアス エンドポイント**では、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、バージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
+ - **仮想マシン (VM) のエイリアス エンドポイント** では、VM をデプロイするときに、1 つのパラメーターとしてイメージ発行者、プラン、SKU、バージョンを参照する "UbuntuLTS" または "Win2012Datacenter" などのエイリアスを提供します。  
 
 これらの値の取得方法については、以下のセクションで説明します。
 
@@ -61,5 +61,5 @@ Azure Stack Hub オペレーターは、VM のエイリアス ファイルをホ
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure CLI を使用したテンプレートのデプロイ](../user/azure-stack-deploy-template-command-line.md )
-- [PowerShell で接続する](azure-stack-powershell-install.md)
+- [PowerShell で接続する](powershell-install-az-module.md)
 - [ユーザー アクセス許可の管理](azure-stack-manage-permissions.md)

@@ -7,12 +7,12 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: 455ad320466d1306b1bded888ff8ff0c0fbb52c7
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 34995d8e1d5525e242a0b0919e7b3927c37507ca
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489965"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415149"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack のテレメトリ
 
@@ -23,7 +23,7 @@ Azure Stack のオペレーターにとってテレメトリは、企業での�
 > [!NOTE]
 > Azure Stack は、課金のための使用状況情報を Azure に転送するように構成することもできます。 マルチノードの Azure Stack を利用しており、従量課金制を選択した場合は、この構成が必須となります。 使用状況のレポートは、テレメトリとは別に管理されます。マルチノードをご利用の場合でも、容量モデルを選択したユーザーや Azure Stack Development Kit (ASDK) ユーザーについては、使用状況の報告は不要です。 そのような場合は、使用状況のレポートを[登録スクリプトを使って](../operator/azure-stack-usage-reporting.md)無効にすることができます。
 
-Azure Stack テレメトリの基盤になっているのは、*Windows Server 2016 の接続ユーザー エクスペリエンスとテレメトリ* コンポーネントです。このコンポーネントでは、[Windows イベント トレーシング (ETW)](/windows/win32/tracelogging/trace-logging-about) のトレース ログ テクノロジを使って、テレメトリのイベントやデータが収集され、保存されます。 Azure Stack のコンポーネントにも、同じログ テクノロジが使用されており、パブリックなオペレーティング システムのイベント ログとトレース API を使って収集されたイベントとデータが発行されます。 Azure Stack のコンポーネントの例として、ネットワーク リソース プロバイダー、ストレージ リソース プロバイダー、監視リソース プロバイダー、更新リソース プロバイダーがあります。 "接続ユーザー エクスペリエンスとテレメトリ" コンポーネントは、SSL を使用してデータを暗号化し、証明書のピン留めを使用してテレメトリ データを HTTPS で Microsoft Data Management サービスに送信します。
+Azure Stack テレメトリの基盤になっているのは、 *Windows Server 2016 の接続ユーザー エクスペリエンスとテレメトリ* コンポーネントです。このコンポーネントでは、 [Windows イベント トレーシング (ETW)](/windows/win32/tracelogging/trace-logging-about) のトレース ログ テクノロジを使って、テレメトリのイベントやデータが収集され、保存されます。 Azure Stack のコンポーネントにも、同じログ テクノロジが使用されており、パブリックなオペレーティング システムのイベント ログとトレース API を使って収集されたイベントとデータが発行されます。 Azure Stack のコンポーネントの例として、ネットワーク リソース プロバイダー、ストレージ リソース プロバイダー、監視リソース プロバイダー、更新リソース プロバイダーがあります。 "接続ユーザー エクスペリエンスとテレメトリ" コンポーネントは、SSL を使用してデータを暗号化し、証明書のピン留めを使用してテレメトリ データを HTTPS で Microsoft Data Management サービスに送信します。
 
 > [!NOTE]
 > テレメトリ データ フローをサポートするには、ネットワークでポート 443 (HTTPS) を開く必要があります。 接続ユーザー エクスペリエンスとテレメトリ コンポーネントは `https://v10.vortex-win.data.microsoft.com` の Microsoft Data Management サービスに接続され、構成情報をダウンロードするために、`https://settings-win.data.microsoft.com` に接続されます。
@@ -76,14 +76,14 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 
 **1 (Basic)** :Security データに加え、基本的な正常性データと品質データ。 Security レベルからのデータに加え、品質関連のデータ、アプリの互換性、アプリの利用状況データなど、基本的なデバイス情報。 テレメトリ レベルを Basic に設定すると、Azure Stack のテレメトリが有効になります。 このレベルで収集されるデータの例を次に示します。
 
-- **基本的なデバイス情報**: エコシステムに存在する Windows Server 2016 のネイティブ インスタンスと仮想化インスタンスの構成や種類の理解に役立ちます。次のものが含まれます。
+- **基本的なデバイス情報** : エコシステムに存在する Windows Server 2016 のネイティブ インスタンスと仮想化インスタンスの構成や種類の理解に役立ちます。次のものが含まれます。
   - マシン属性 (OEM、モデルなど)。
   - ネットワーク属性 (ネットワーク アダプターの数や速度など)。
   - プロセッサとメモリの属性 (コア数、メモリ サイズなど)。
   - ストレージ属性 (ドライブの数、種類、サイズなど)
-- **テレメトリの機能**: アップロードされたイベントの割合、ドロップされたイベントの割合、前回のアップロード時刻などが収集されます。
-- **品質関連の情報**: Microsoft は、この情報を通じて、Azure Stack がどのように実行されているかについての基本的な理解を深めることができます。 たとえば、特定のハードウェア構成に関する重要なアラートの件数が該当します。
-- **互換性データ**: システムや VM にインストールされているリソース プロバイダーについての情報を把握したり、互換性に関する問題のリスクを特定したりするために役立てられます。
+- **テレメトリの機能** : アップロードされたイベントの割合、ドロップされたイベントの割合、前回のアップロード時刻などが収集されます。
+- **品質関連の情報** : Microsoft は、この情報を通じて、Azure Stack がどのように実行されているかについての基本的な理解を深めることができます。 たとえば、特定のハードウェア構成に関する重要なアラートの件数が該当します。
+- **互換性データ** : システムや VM にインストールされているリソース プロバイダーについての情報を把握したり、互換性に関する問題のリスクを特定したりするために役立てられます。
 
 **2 (Enhanced)** :さらに詳しい分析情報につながるデータ。Basic レベルと Security レベルからのデータに加え、オペレーティング システムや他の Azure Stack サービスがどのように使用され、どのように実行されているかについてのデータ、詳細な信頼性データが含まれます。
 
@@ -92,7 +92,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 > [!NOTE]
 > 既定のテレメトリ レベル値は 2 (Enhanced) です。
 
-Windows と Azure Stack のテレメトリをオフにすると、SQL のテレメトリも無効になります。 Windows Server のテレメトリ設定の作用について詳しくは、[Windows テレメトリのホワイトペーパー](https://aka.ms/winservtelemetry)をご覧ください。
+Windows と Azure Stack のテレメトリをオフにすると、SQL のテレメトリも無効になります。 Windows Server のテレメトリ設定の作用について詳しくは、[Windows テレメトリのホワイトペーパー](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)をご覧ください。
 
 > [!IMPORTANT]
 > これらのテレメトリ レベルが適用されるのは、Microsoft Azure Stack のコンポーネントだけです。 Azure Stack ハードウェア パートナーのハードウェア ライフサイクル ホストで動作する、Microsoft 以外のソフトウェア コンポーネントやサービスは、前述したどのレベルにも該当しないテレメトリ レベルで、そのクラウド サービスと通信を行うことが考えられます。 そのテレメトリ ポリシーの具体的な内容と、オプトイン/オプトアウトの方法については、ご利用の Azure Stack ハードウェア ソリューション プロバイダーにお問い合わせください。

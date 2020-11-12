@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 5f99d816470649366703da5de4bf68ebdbe26a61
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 245658359db8b55a455fa653f4b97bbf6d1737d8
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571832"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546244"
 ---
 # <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack-hub"></a>Azure Stack Hub に安全に格納された証明書で VM をデプロイする
 
@@ -39,7 +39,7 @@ Active Directory への認証、Web トラフィックの暗号化など、多�
 ## <a name="prerequisites"></a>前提条件
 
 * ユーザーは、Key Vault サービスを含むプランをサブスクライブする必要があります。
-* [PowerShell for Azure Stack Hub をインストールします](../operator/azure-stack-powershell-install.md)。
+* [PowerShell for Azure Stack Hub をインストールします](../operator/powershell-install-az-module.md)。
 * [Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)
 
 ## <a name="create-a-key-vault-secret"></a>キー コンテナー シークレットを作成する
@@ -87,11 +87,11 @@ $jsonObject = @"
 $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
 $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
 
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $resourceGroup `
   -Location $location
 
-New-AzureRmKeyVault `
+New-AzKeyVault `
   -VaultName $vaultName `
   -ResourceGroupName $resourceGroup `
   -Location $location `
@@ -108,9 +108,9 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-このスクリプトを実行すると、出力にはシークレットの URI が含まれます。 この URI は、[Windows Resource Manager に証明書をプッシュするテンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)で参照する必要があるため、メモしておいてください。 開発用コンピューターに [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) テンプレート フォルダーをダウンロードします。 このフォルダーには、**azuredeploy.json** ファイルと **azuredeploy.parameters.json** ファイルが含まれています。これらは次の手順で必要になります。
+このスクリプトを実行すると、出力にはシークレットの URI が含まれます。 この URI は、[Windows Resource Manager に証明書をプッシュするテンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)で参照する必要があるため、メモしておいてください。 開発用コンピューターに [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) テンプレート フォルダーをダウンロードします。 このフォルダーには、 **azuredeploy.json** ファイルと **azuredeploy.parameters.json** ファイルが含まれています。これらは次の手順で必要になります。
 
-ご自分の環境値に従って、**azuredeploy.parameters.json** ファイルを変更します。 重要なパラメーターは、コンテナー名、コンテナー リソース グループ、およびシークレットの URI (前のスクリプトによって生成されたもの) です。 パラメーター ファイルの例を次のセクションに示します。
+ご自分の環境値に従って、 **azuredeploy.parameters.json** ファイルを変更します。 重要なパラメーターは、コンテナー名、コンテナー リソース グループ、およびシークレットの URI (前のスクリプトによって生成されたもの) です。 パラメーター ファイルの例を次のセクションに示します。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>azuredeploy.parameters.json ファイルを更新する
 
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret `
 
 ```powershell
 # Deploy a Resource Manager template to create a VM and push the secret to it
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name KVDeployment `
   -ResourceGroupName $resourceGroup `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
@@ -169,7 +169,7 @@ New-AzureRmResourceGroupDeployment `
 証明書は、デプロイ中に Azure Stack Hub によって VM にプッシュされます。 証明書の場所は、VM のオペレーティング システムによって異なります。
 
 * Windows では、証明書はユーザー指定の証明書ストアで **LocalMachine** の証明書の場所に追加されます。
-* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt**、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、**/var/lib/waagent** ディレクトリに配置されます。
+* Linux では、証明書は、X509 証明書ファイルの場合は **UppercaseThumbprint.crt** 、秘密キーの場合は **UppercaseThumbprint.prv** というファイル名で、 **/var/lib/waagent** ディレクトリに配置されます。
 
 ## <a name="retire-certificates"></a>証明書の使用を終了する
 

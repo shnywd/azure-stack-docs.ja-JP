@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.author: v-myoung
 ms.reviewer: TBD
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: f3839c9191a5b96c9a489d7c13b83b1f8f13fdf9
-ms.sourcegitcommit: 868887e4b13b1572f15004a9db2c334e60d8add2
+ms.openlocfilehash: aa8755b2cd8b7161eee8c7c60375c2b799df2e80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91778162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064788"
 ---
 # <a name="azure-stack-hub-update-activity-checklist"></a>Azure Stack Hub 更新アクティビティのチェックリスト
 
@@ -46,6 +46,9 @@ Azure Stack Hub の更新を準備するために、このチェックリスト�
 
 > [!IMPORTANT]  
 > 更新中 **Test-AzureStack** を実行しないでください。更新プロセスが停止することがあります。
+>
+>更新中にノードの修復を実行することは、その状態にかかわらず避けてください。
+>更新中にノードの修復が必要になった場合は、Microsoft サポートにお問い合わせください。
 
 ## <a name="after-azure-stack-hub-update"></a>Azure Stack Hub の更新後
 

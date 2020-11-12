@@ -8,12 +8,12 @@ ms.date: 05/05/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 04/30/2020
-ms.openlocfilehash: 9a04f99df8093f0f37d68137dfbe9ff18664d385
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: c5e6ac0a2a500cf43cf94cbc40b2a95c58784d28
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489744"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544719"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q2-release-notes"></a>App Service on Azure Stack Hub 2020 年第 2 四半期のリリース ノート
 
@@ -45,7 +45,7 @@ Azure App Service on Azure Stack Hub を 2020 Q2 にアップグレードを開�
   > [!Important]
   > ファイル サーバーと SQL Server の保守と操作を担当するのは、クラウド オペレーターです。  リソース プロバイダーは、これらのリソースの管理は行いません。  クラウドオ ペレーターが、App Service データベースとテナント コンテンツ ファイル共有のバックアップを行います。
 
-- Marketplace から**カスタム スクリプト拡張機能**バージョン **1.9.3** を配信します
+- Marketplace から **カスタム スクリプト拡張機能** バージョン **1.9.3** を配信します
 
 
 
@@ -53,13 +53,13 @@ Azure App Service on Azure Stack Hub を 2020 Q2 にアップグレードを開�
 
 Azure App Service on Azure Stack Hub Update Q2 には、次の機能強化と修正が含まれています。
 
-- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール**の更新。 Azure Stack Portal SDK バージョンと一致しています。
+- **App Service のテナント ポータル、管理ポータル、Functions ポータル、Kudu ツール** の更新。 Azure Stack Portal SDK バージョンと一致しています。
 
-- **Azure Functions ランタイム**が **v1.0.13021** に更新されました。
+- **Azure Functions ランタイム** が **v1.0.13021** に更新されました。
 
 - 信頼性を高めるためのコア サービスと、一般的な問題を簡単に診断できるようにするエラー メッセージの更新。
 
-- **次のアプリケーション フレームワークとツールの更新**:
+- **次のアプリケーション フレームワークとツールの更新** :
   - ASP.NET Framework 4.7.2
   - ASP.NET Core 3.1.3
   - ASP.NET Core Module v2 13.1.19331.0
@@ -76,13 +76,13 @@ Azure App Service on Azure Stack Hub Update Q2 には、次の機能強化と修
     - 6.12.0
     - 6.13.4
   
-- **すべてのロールの基になっているオペレーティング システムの更新プログラム**:
+- **すべてのロールの基になっているオペレーティング システムの更新プログラム** :
   - [x64 ベース システム用 Windows Server 2016 に対する 2020-04 累積的な更新プログラム (KB4550929)](https://support.microsoft.com/help/4550929)
   - [x64 ベース システム用 Windows Server 2016 に対する 2020-04 サービス スタック更新プログラム (KB4550994)](https://support.microsoft.com/help/4550994)
 
 - **デプロイとアップグレードの一部として、Windows Server の累積的な更新プログラムがコントローラー ロールに適用されるようになりました**
 
-- **新しいデプロイの既定の仮想マシンとスケール セットの SKU を更新しました**: パブリック クラウド サービスとの一貫性を維持するために、Azure App Service on Azure Stack Hub の新しいデプロイでは、リソース プロバイダーの運用に使用される基になるマシンとスケール セットに対して次の SKU を使用します
+- **新しいデプロイの既定の仮想マシンとスケール セットの SKU を更新しました** : パブリック クラウド サービスとの一貫性を維持するために、Azure App Service on Azure Stack Hub の新しいデプロイでは、リソース プロバイダーの運用に使用される基になるマシンとスケール セットに対して次の SKU を使用します
   
   | Role | SKU の最小値 |
   | --- | --- |
@@ -131,8 +131,9 @@ ASDK デプロイでは、インスタンスを下位の SKU にスケールダ�
 
 このスクリプトは、次の条件下で実行する必要があります
 
-1. システム管理者特権を持つユーザー (SQL SA アカウントなど) が実行する
-1. SQL Always On を使用する場合は、次の形式の App Service ログインをすべて含む SQL インスタンスからスクリプトを実行する。
+- システム管理者特権を持つユーザー (SQL SA アカウントなど) が実行する
+- SQL Always On を使用する場合は、次の形式の App Service ログインをすべて含む SQL インスタンスからスクリプトを実行する。
+
     - appservice_hosting_FileServer
     - appservice_hosting_HostingAdmin
     - appservice_hosting_LoadBalancer

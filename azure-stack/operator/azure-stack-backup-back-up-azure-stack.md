@@ -7,16 +7,16 @@ ms.date: 02/12/2019
 ms.author: justinha
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 10a7c60a18faa5528fb9c1917c62994b43bee51a
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77701039"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544277"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack Hub のバックアップ
 
-この記事では、Azure Stack Hub でオンデマンド バックアップを行う方法について説明します。 PowerShell 環境の構成方法については、[PowerShell for Azure Stack Hub のインストール](azure-stack-powershell-install.md)に関するページをご覧ください。 Azure Stack Hub にサインインするには、「[Azure Stack Hub で管理者ポータルを使用する](azure-stack-manage-portals.md)」をご覧ください。
+この記事では、Azure Stack Hub でオンデマンド バックアップを行う方法について説明します。 PowerShell 環境の構成方法については、[PowerShell for Azure Stack Hub のインストール](powershell-install-az-module.md)に関するページをご覧ください。 Azure Stack Hub にサインインするには、「[Azure Stack Hub で管理者ポータルを使用する](azure-stack-manage-portals.md)」をご覧ください。
 
 ## <a name="start-azure-stack-hub-backup"></a>Azure Stack Hub のバックアップを開始する
 
@@ -36,7 +36,7 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
 > 実際の状態は、次のコードを使用するとより適切に監視できます。
 
 > [!IMPORTANT]
-> 最初に 1 ミリ秒の遅延を入れたのは、コードがジョブを正しく登録するには早すぎて、**PSBeginTime** なしで戻り、次にジョブの **State** なしで戻ることへの対処としてです。
+> 最初に 1 ミリ秒の遅延を入れたのは、コードがジョブを正しく登録するには早すぎて、 **PSBeginTime** なしで戻り、次にジョブの **State** なしで戻ることへの対処としてです。
 
 ```powershell
     $BackupJob = Start-AzsBackup -Force -AsJob

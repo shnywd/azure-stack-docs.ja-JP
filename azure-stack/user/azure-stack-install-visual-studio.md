@@ -7,12 +7,12 @@ ms.date: 06/11/2020
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2020
-ms.openlocfilehash: 686a2b1a976df23e91cd38df61267b95008f993a
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 89a6b4da29796cd29d988ea5869330a1486ce420
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107096"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546516"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack-hub"></a>Visual Studio をインストールして Azure Stack Hub に接続する
 
@@ -30,7 +30,7 @@ Visual Studio を使用して Azure Resource Manager [テンプレート](azure-
 
     ![WebPI のインストール手順を示すスクリーンショット](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [PowerShell for Azure Stack Hub をインストールします](../operator/azure-stack-powershell-install.md)。
+5. [PowerShell for Azure Stack Hub をインストールします](../operator/powershell-install-az-module.md)。
 
 6. インストールが完了したら、コンピューターを再起動します。
 

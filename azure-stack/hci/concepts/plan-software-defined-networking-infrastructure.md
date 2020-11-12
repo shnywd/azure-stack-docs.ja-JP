@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.assetid: ea7e53c8-11ec-410b-b287-897c7aaafb13
 ms.author: anpaul
 author: AnirbanPaul
-ms.date: 10/16/2020
-ms.openlocfilehash: 6df469fcc6997b1f56a552bc141692c7a8a49808
-ms.sourcegitcommit: 301e571626f8e85556d9eabee3f385d0b81fdef4
+ms.date: 10/28/2020
+ms.openlocfilehash: d75e22814afcb9610bdd1f9af3824d3e12e3199b
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92157684"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064567"
 ---
 # <a name="plan-a-software-defined-network-infrastructure"></a>ソフトウェア定義ネットワーク インフラストラクチャを計画する
 
@@ -31,7 +31,7 @@ SDN インフラストラクチャには、次のようなハードウェアと�
 
 - **物理ネットワーク** 。 仮想ローカル エリア ネットワーク (VLAN)、ルーティング、Border Gateway Protocol (BGP) を構成するために、物理ネットワーク デバイスにアクセスする必要があります。 このトピックでは、手動でスイッチを構成する手順について説明し、さらにレイヤー 3 スイッチ/ルーターで BGP ピアリングを使用するオプション、またはルーティングとリモート アクセス サーバー (RRAS) VM を使用するオプションについて説明します。
 
-- **物理コンピューティング ホスト** 。 これらのホストは Hyper-V を実行し、SDN インフラストラクチャとテナント VM をホストするために必要です。 「[ネットワーク ハードウェア](#network-hardware)」セクションで説明されているように、これらのホストで最適なパフォーマンスを得るには、特定のネットワーク ハードウェアが必要です。
+- **物理コンピューティング ホスト** 。 これらのホストは Hyper-V を実行し、SDN インフラストラクチャとテナント VM をホストするために必要です。 「[SDN ハードウェア要件](system-requirements.md#sdn-hardware-requirements)」セクションで説明されているように、これらのホストで最適なパフォーマンスを得るには、特定のネットワーク ハードウェアが必要です。
 
 ## <a name="physical-and-logical-network-configuration"></a>物理および論理ネットワークの構成
 各物理コンピューティング ホストでは、物理スイッチ ポートに接続された 1 つ以上のネットワーク アダプターを介したネットワーク接続が必要です。 レイヤー 2 [VLAN](https://en.wikipedia.org/wiki/Virtual_LAN) は、複数の論理ネットワーク セグメントに分割されたネットワークをサポートします。
@@ -108,50 +108,10 @@ BGP ピアリングは、通常、ネットワーク インフラストラクチ
 - SLB/MUX VM では、既定のゲートウェイとして管理ネットワークを使用します。
 - ゲートウェイ VM では、既定のゲートウェイとして HNV プロバイダー ネットワークを使用します。 これは、ゲートウェイ VM のフロントエンド NIC で設定する必要があります。
 
-## <a name="network-hardware"></a>ネットワーク ハードウェア
-このセクションでは、NIC と物理スイッチのネットワーク ハードウェア展開の要件について説明します。
+## <a name="switches-and-routers"></a>スイッチとルーター
+物理スイッチまたはルーターの構成を支援するために、さまざまなスイッチ モデルおよびベンダーの一連のサンプル構成ファイルが [Microsoft SDN GitHub リポジトリ](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)にあります。 特定のスイッチに関する Readme ファイルおよびテスト済みのコマンド ライン インターフェイス (CLI) コマンドが用意されています。
 
-### <a name="network-interface-cards-nics"></a>ネットワーク インターフェイス カード (NIC)
-Hyper-V ホストとストレージ ホストで使用する NIC には、最適なパフォーマンスを実現するために特定の機能が必要です。
-
-リモート ダイレクト メモリ アクセス (RDMA) は、ホストの CPU を使用せずに大量のデータを転送できるようにするカーネル バイパス手法です。これにより、CPU が解放され、他の処理を実行できます。 スイッチ埋め込みチーミング (SET) は、Hyper-V と SDN スタックを含む環境で使用できる代替の NIC チーミング ソリューションです。 セットは、HYPER-V 仮想スイッチにいくつかの NIC チーミング機能を統合します。
-
-詳細については、「[リモート ダイレクト メモリ アクセス (RDMA) とスイッチ埋め込みチーミング (SET)](/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)」を参照してください。
-
-VXLAN または NVGRE カプセル化ヘッダーによって発生するテナント仮想ネットワーク トラフィックのオーバーヘッドを考慮するために、レイヤー 2 ファブリック ネットワーク (スイッチとホスト) の最大転送単位 (MTU) を 1674 バイト以上 (\(レイヤー 2 イーサネット ヘッダーを含む\)) に設定する必要があります。
-
-新しい *EncapOverhead* 拡張アダプター キーワードをサポートする NIC では、ネットワーク コントローラー ホスト エージェントを介して MTU が自動的に設定されます。 新しい *EncapOverhead* キーワードをサポートしていない NIC では、 *JumboPacket* \(または同等の\) キーワードを使用して、各物理ホスト上で MTU サイズを手動で設定する必要があります。
-
-### <a name="switches"></a>スイッチ
-ご使用の環境に合わせて物理スイッチとルーターを選択するときは、次の一連の機能がサポートされていることを確認してください。
-- スイッチ ポートの MTU 設定 \(必須\)
-- MTU を 1674 バイト以上に設定 \(L2 イーサネット ヘッダーを含む\)
-- L3 プロトコル \(必須\)
-- 等コスト マルチパス (ECMP) ルーティング
-- BGP \(IETF RFC 4271\) ベースの ECMP
-
-実装で、次の IETF 標準の必須ステートメントをサポートする必要があります。
-- RFC 2545: [IPv6 ドメイン間ルーティング用の BGP-4 マルチプロトコル拡張機能](https://tools.ietf.org/html/rfc2545)
-- RFC 4760: [BGP-4 用のマルチプロトコル拡張機能](https://tools.ietf.org/html/rfc4760)
-- RFC 4893: [4 オクテットの AS 番号空間の BGP サポート](https://tools.ietf.org/html/rfc4893)
-- RFC 4456: [BGP ルート リフレクション: フル メッシュ内部 BGP (IBGP) の代替手段](https://tools.ietf.org/html/rfc4456)
-- RFC 4724: [BGP のグレースフル再起動メカニズム](https://tools.ietf.org/html/rfc4724)
-
-次のタグ付けプロトコルが必要です。
-- VLAN - さまざまな種類のトラフィックの分離
-- 802.1q トランク
-
-次の項目は、リンク制御を提供します。
-- サービスの品質 \(QoS\) \(RoCE を使用する場合に限り RFC が必要\)
-- 拡張トラフィックの選択 \(802.1Qaz\)
-- 優先順位に基づくフロー制御 (PFC) \(802.1p/Q および 802.1Qbb\)
-
-次の項目は、可用性と冗長性を提供します。
-- スイッチの可用性 (必須)
-- ゲートウェイ機能を実行するには、高可用性ルーターが必要です。 これは、マルチシャーシのスイッチ/ルーター、または仮想ルーター冗長プロトコル (VRRP) などのテクノロジを使用して提供できます。
-
-### <a name="switch-configuration-examples"></a>スイッチの構成例
-物理スイッチまたはルーターの構成を支援するために、さまざまなスイッチ モデルおよびベンダーの一連のサンプル構成ファイルが [Microsoft SDN GitHub リポジトリ](https://github.com/microsoft/SDN/tree/master/SwitchConfigExamples)にあります。 特定のスイッチに関する詳細な Readme およびテスト済みのコマンド ライン インターフェイス (CLI) コマンドが用意されています。
+スイッチとルーターの要件について詳しくは、「[SDN ハードウェア要件](system-requirements.md#sdn-hardware-requirements)」を参照してください。
 
 ## <a name="compute"></a>Compute
 すべての Hyper-V ホストは、適切なオペレーティング システムがインストールされ、Hyper-V に対して有効にされている必要があります。また、少なくとも 1 つの物理アダプターが管理論理ネットワークに接続された外部 Hyper-V 仮想スイッチを使用する必要があります。 管理ホスト vNIC に割り当てられている管理 IP アドレスを使用して、ホストに到達できる必要があります。

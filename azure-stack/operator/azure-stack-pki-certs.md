@@ -7,12 +7,12 @@ ms.date: 08/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: a5ccf4ecd9ab6f70f54af22c343f28eb692f9c54
-ms.sourcegitcommit: 373e9e3e84eaa33331db9f78e52486fbb6beb907
+ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
+ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91592886"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93049604"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件
 
@@ -37,7 +37,7 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 - 1903 以降のビルドで証明書を交換する場合、証明書は、企業や公共の証明機関によって発行できます。
 ::: moniker-end
 - 自己署名証明書の使用はサポートされていません。
-- デプロイおよびローテーションの場合は、証明書のサブジェクト名フィールドとサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つの証明書を使用するか、各名前空間で利用する予定の Azure Stack Hub サービスで必要な個別の証明書を使用することができます。 どちらの方法でも、それらが必要とされるエンドポイントに対してワイルド カードを使用する必要があります (例: **KeyVault**､**KeyVaultInternal**)。
+- デプロイおよびローテーションの場合は、証明書のサブジェクト名フィールドとサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つの証明書を使用するか、各名前空間で利用する予定の Azure Stack Hub サービスで必要な個別の証明書を使用することができます。 どちらの方法でも、それらが必要とされるエンドポイントに対してワイルド カードを使用する必要があります (例: **KeyVault** ､ **KeyVaultInternal** )。
 - 証明書の PFX 暗号化は、3 DES になっている必要があります。
 - 証明書の署名アルゴリズムを SHA1 にしないでください。
 - Azure Stack Hub のインストールには公開キーと秘密キーの両方が必要なため、証明書の形式は PFX である必要があります。 秘密キーにはローカル コンピューターのキー属性が設定されている必要があります。
@@ -56,7 +56,7 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 > Azure Stack Hub を切断モードでデプロイする場合は、エンタープライズ証明機関によって発行された証明書を使用することをお勧めします。 Azure Stack Hub エンドポイントにアクセスするクライアントは、証明書失効リスト (CRL) にアクセスできる必要があるため、これは重要です。
 
 > [!NOTE]  
-> 証明書の信頼チェーン内での中間証明機関の存在が*サポートされています*。
+> 証明書の信頼チェーン内での中間証明機関の存在が *サポートされています* 。
 
 ## <a name="mandatory-certificates"></a>必須の証明書
 このセクションの表では、Azure AD と AD FS Azure Stack Hub の両方のデプロイに必要な Azure Stack Hub パブリック エンドポイント PKI 証明書について説明します。 証明書の要件が領域のほか、使用される名前空間や、名前空間ごとに必要な証明書でグループ化されています。 この表ではまた、ソリューション プロバイダーがパブリック エンドポイントごとに異なる証明書をコピーするフォルダーについても説明します。
@@ -105,12 +105,13 @@ Azure Stack Hub がデプロイおよび構成された後に追加の Azure Sta
 
 |スコープ (リージョンごと)|Certificate|必要な証明書のサブジェクト名とサブジェクトの別名 (SAN)|サブドメインの名前空間|
 |-----|-----|-----|-----|
-|SQL、MySQL|SQL および MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|dbadapter. *&lt;region>.&lt;fqdn>*|
 |App Service|Web トラフィックの既定の SSL 証明書|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>(マルチドメイン ワイルドカード SSL 証明書<sup>1</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|Event Hubs|&#42;.eventhub. *&lt;region>.&lt;fqdn>* (SAN)| eventhub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|SQL、MySQL|SQL および MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 複数のワイルドカード サブジェクトの別名を持つ 1 つの証明書が必要です。 単一の証明書での複数のワイルドカード SAN は、公的証明機関によってはサポートされていない場合があります。
 

@@ -3,16 +3,16 @@ title: GitHub からの Azure Stack Hub ツールのダウンロード
 description: Azure Stack Hub の操作に必要なツールをダウンロードする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 8/28/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/28/2020
-ms.openlocfilehash: 1c85de355be1597c09db7083b5ca335a5469154c
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 023e04d807ff34f78bd4acbc68487e8893831ba4
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363734"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545059"
 ---
 # <a name="download-azure-stack-hub-tools-from-github"></a>GitHub からの Azure Stack Hub ツールのダウンロード
 
@@ -74,7 +74,7 @@ Azure Stack Hub 用の AzureRM モジュールの使用の詳細については�
 
 
 
-Azure Stack Hub 用の Az モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。
+---
 
 ---
 
@@ -88,7 +88,7 @@ Azure Stack Hub 用の Az モジュールの使用の詳細については、「
 | [Azure Stack Hub の Resource Manager ポリシー](../user/azure-stack-policy-module.md) | このモジュールを使用すると、Azure Stack Hub と同じバージョン管理とサービス可用性で、Azure サブスクリプションまたは Azure リソース グループを構成できます。 | クラウド オペレーターとユーザー |
 | [Azure への登録](azure-stack-registration.md ) | このモジュールを使用して、ASDK インスタンスを Azure に登録します。 登録後、Azure Marketplace アイテムをダウンロードして Azure Stack Hub で使用できます。 | クラウド オペレーター |
 | [Azure Stack Hub のデプロイ](../asdk/asdk-install.md) | このモジュールを使用すると、Azure Stack Hub の仮想ハード ディスク (VHD) イメージを使用して、Azure Stack Hub のホスト コンピューターでデプロイおよび再デプロイを行う準備ができます。 | クラウド オペレーター|
-| [Azure Stack Hub への接続](azure-stack-powershell-install.md) | このモジュールを使用すると、Azure Stack Hub への VPN 接続を構成できます。 | クラウド オペレーターとユーザー |
+| [Azure Stack Hub への接続](azure-stack-powershell-configure-admin.md) | このモジュールを使用すると、Azure Stack Hub への VPN 接続を構成できます。 | クラウド オペレーターとユーザー |
 | [テンプレートの検証](../user/azure-stack-validate-templates.md) | このモジュールを使用すると、既存のまたは新しいテンプレートを Azure Stack Hub にデプロイできるかどうかを確認できます。 | クラウド オペレーターとユーザー|
 
 ## <a name="next-steps"></a>次のステップ

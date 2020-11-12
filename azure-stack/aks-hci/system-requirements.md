@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: abhilashaagarwala
 ms.author: abha
 ms.date: 09/22/2020
-ms.openlocfilehash: 4c91dad12e4d6680ca0887da2e6ca314cdbd64ee
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: 62b1b2983b2e41b5c6d991b4d53338a67bc5aeab
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064669"
 ---
 # <a name="system-requirements-for-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI での Azure Kubernetes Service のシステム要件
 
@@ -40,7 +40,7 @@ Active Directory 環境で、Azure Stack HCI 上の Azure Kubernetes Service を
 
  - Azure Kubernetes Service は、技術的には単一ノードの Azure Stack HCI Server で実行可能ですが、そうすることは推奨されません。
 
- - Azure Stack HCI 上の Azure Kubernetes Service に対するその他のコンピューティング要件は、Azure Stack HCI の要件と一致しています。 Azure Stack HCI のサーバー要件の詳細については、[Azure Stack HCI の要件](../hci/deploy/before-you-start.md)に関するページを参照してください。  
+ - Azure Stack HCI 上の Azure Kubernetes Service に対するその他のコンピューティング要件は、Azure Stack HCI の要件と一致しています。 Azure Stack HCI のサーバー要件の詳細については、[Azure Stack HCI システム要件](../hci/concepts/system-requirements.md#server-requirements)に関するページを参照してください。
 
  - このプレビュー リリースでは、EN-US リージョンと言語の選択を使用して、クラスター内の各サーバーに Azure Stack HCI オペレーティング システムをインストールする必要があります。現時点では、インストール後に変更しても十分ではありません。
 

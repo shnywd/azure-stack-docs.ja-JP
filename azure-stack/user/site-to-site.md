@@ -7,12 +7,12 @@ ms.date: 10/01/2020
 ms.topic: article
 ms.reviewer: sranthar
 ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 7d4fc17759365434f6179229674b0bb21137f58b
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623338"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546873"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 
@@ -48,14 +48,14 @@ Azure サポート要求を送信することもできます。 [Azure Stack Hub
 
 - オンプレミスの VPN デバイスと AzSH 仮想ネットワーク VPN の共有キーを比較し、両者が一致することを確認します。 AzSH VPN 接続の共有キーを確認するには、次のいずれかの方法を使います。
 
-  - **Azure Stack Hub テナント ポータル**:作成した VPN ゲートウェイ サイト間接続に移動します。 **[設定]** セクションで **[共有キー]** を選択します。
+  - **Azure Stack Hub テナント ポータル** :作成した VPN ゲートウェイ サイト間接続に移動します。 **[設定]** セクションで **[共有キー]** を選択します。
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 接続":::
 
-  - **Azure PowerShell**:次の PowerShell コマンドを使用します。
+  - **Azure PowerShell** :次の PowerShell コマンドを使用します。
 
       ```powershell
-      Get-AzureRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
       ```
 
 ## <a name="status-connected--traffic-not-flowing"></a>状態 "接続済み" - トラフィック フローなし
@@ -76,7 +76,7 @@ Azure サポート要求を送信することもできます。 [Azure Stack Hub
 
   - Azure Stack Hub 仮想ネットワークとオンプレミスの定義で、仮想ネットワーク アドレス空間が完全に一致することを確認します。
 
-  - **ローカル ネットワーク ゲートウェイ**とオンプレミス ネットワークのオンプレミス定義との間でサブネットが完全に一致することを確認します。
+  - **ローカル ネットワーク ゲートウェイ** とオンプレミス ネットワークのオンプレミス定義との間でサブネットが完全に一致することを確認します。
 
 ## <a name="create-a-support-ticket"></a>サポート チケットの作成
 

@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 03/04/2020
+ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: c0a077d8278361370a1781260c3f9c2bb2b11f55
-ms.sourcegitcommit: c1f48c19c8a9c438fd22298bc570c12a9b19bb45
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/16/2020
-ms.locfileid: "86410608"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545773"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 
@@ -63,7 +63,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
 1. 次のコマンドレットを実行して、PowerShell プロンプト (5.1 以降) から **AzsReadinessChecker** をインストールします。
 
     ```powershell  
-        Install-Module Microsoft.AzureStack.ReadinessChecker -force 
+        Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
     ```
 
 2. 証明書ディレクトリ構造を作成します。 次の例では、`<C:\Certificates\Deployment>` を、選択した新規ディレクトリ パスに変更できます。
@@ -211,9 +211,9 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
 
 ### <a name="known-issues"></a>既知の問題
 
-**現象**:テストがスキップされる
+**現象** :テストがスキップされる
 
-**原因**:AzsReadinessChecker は、依存関係が満たされていない場合、特定のテストをスキップします。
+**原因** :AzsReadinessChecker は、依存関係が満たされていない場合、特定のテストをスキップします。
 
  - 証明書チェーンに問題がある場合、他の証明書はスキップされます。
 
@@ -237,7 +237,7 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
     Invoke-AzsCertificateValidation Completed
     ```
 
-**解決方法**:ツール ガイダンスの詳細セクションにある各証明書テスト設定に従います。
+**解決方法** :ツール ガイダンスの詳細セクションにある各証明書テスト設定に従います。
 
 ## <a name="certificates"></a>証明書
 

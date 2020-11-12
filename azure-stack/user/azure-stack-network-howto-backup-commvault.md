@@ -7,12 +7,12 @@ ms.date: 04/20/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/30/2019
-ms.openlocfilehash: 5e46d9ee2f23aa58ec3be3735c29f1dfb104c9ee
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 9308e8b017201119a7179c78dbeb99006f4ebfff
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90571883"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547094"
 ---
 # <a name="back-up-your-vm-on-azure-stack-hub-with-commvault"></a>Commvault を使用して Azure Stack Hub で VM をバックアップする
 
@@ -65,7 +65,7 @@ ms.locfileid: "90571883"
     
     f. バックアップ用の **[サブスクリプション]** を選択します。
     
-    g. **リソース グループ**を選択します。
+    g. **リソース グループ** を選択します。
     
     h. Azure Stack Hub の **[場所]** を選択します。 ASDK を使用する場合は、 **[ローカル]** を選択します。
     
@@ -124,7 +124,7 @@ ID マネージャーが Azure AD か ADFS かを把握する必要がありま�
 
 2. Commvault VM に Azure Stack Hub PowerShell と Azure Stack Hub ツールをインストールします。
 
-    a. Azure Stack Hub PowerShell のインストール手順については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
+    a. Azure Stack Hub PowerShell のインストール手順については、「[PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。  
     b. Azure Stack Hub ツールのインストール手順については、「[GitHub からの Azure Stack Hub ツールのダウンロード](../operator/azure-stack-powershell-download.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fuser%2FTOC.json%3Fview%3Dazs-1908&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure-stack%2Fbreadcrumb%2Ftoc.json%3Fview%3Dazs-1908&view=azs-1908)」を参照してください。
 
 3. Commvault VM に Commvault がインストールされたら、Commcell Console を開きます。 [スタート] から **[Commvault]**  >  **[Commvault Commcell Console]** の順に選択します。
@@ -145,15 +145,15 @@ ID マネージャーが Azure AD か ADFS かを把握する必要がありま�
 
 9. ストレージ アカウントのアクセス情報を入力します。 Azure Storage アカウントを設定する手順については、こちらを参照してください。 アクセス情報:
 
-    -  **サービス ホスト**: リソース内の BLOB コンテナーのプロパティから URL の名前を取得します。 たとえば、URL が https:\//backuptest.blob.westus.stackpoc.com/mybackups でした。サービス ホストで blob.westus.stackpoc.com を使用しました。
+    -  **サービス ホスト** : リソース内の BLOB コンテナーのプロパティから URL の名前を取得します。 たとえば、URL が https:\//backuptest.blob.westus.stackpoc.com/mybackups でした。サービス ホストで blob.westus.stackpoc.com を使用しました。
     
-    -   **アカウント名**: ストレージ アカウント名を使用します。 これは、ストレージ リソースの [アクセス キー] ブレードで確認できます。
+    -   **アカウント名** : ストレージ アカウント名を使用します。 これは、ストレージ リソースの [アクセス キー] ブレードで確認できます。
     
-    -   **アクセス キー**:ストレージ リソースの [アクセス キー] ブレードからアクセス キーを取得します。
+    -   **アクセス キー** :ストレージ リソースの [アクセス キー] ブレードからアクセス キーを取得します。
     
-    -   **コンテナー**:コンテナーの名前。 このケースでは、mybackups です。
+    -   **コンテナー** :コンテナーの名前。 このケースでは、mybackups です。
     
-    -   **ストレージ クラス**:ユーザー コンテナーの既定のストレージ クラスのままにします。
+    -   **ストレージ クラス** :ユーザー コンテナーの既定のストレージ クラスのままにします。
 
 10. [Microsoft Azure Stack Hub クライアントの作成](https://documentation.commvault.com/commvault/v11_sp13/article?p=86495.htm)に関するページの手順に従って、Microsoft Azure Stack Hub クライアントを作成します。
 

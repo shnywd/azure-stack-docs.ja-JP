@@ -7,12 +7,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 993fb7a054cd350f0231eeb2108cc5a43ddb3f9e
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145439"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546992"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -75,9 +75,9 @@ Azure Stack Hub には、拡張機能の小規模なセットが含まれてい�
 実際の Azure Stack Hub 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location local | `
-  Get-AzureRmVMExtensionImageType | `
-  Get-AzureRmVMExtensionImage | `
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
@@ -93,7 +93,7 @@ Azure Stack Hub の VM 機能は、次の API バージョンをサポートし�
 次の PowerShell スクリプトを使用して、実際の Azure Stack Hub 環境で利用できる VM 機能の API バージョンを取得することができます。
 
 ```powershell
-Get-AzureRmResourceProvider | `
+Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `

@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.author: inhenkel
 ms.lastreviewed: 11/11/2019
 ms.reviewer: efemm
-ms.openlocfilehash: a1fa7c9ee34532857a8968a286c2248947115acd
-ms.sourcegitcommit: 2d2ae0b6db2e4f43f8496b184f30cddbb08b2cbd
+ms.openlocfilehash: 7693aeeba9a1cdf47cafffab212b904ae4afb6a3
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91815361"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415064"
 ---
 # <a name="azure-stack-hub-training-and-certification"></a>Azure Stack Hub のトレーニングと認定
 
@@ -27,14 +27,14 @@ Azure Stack Hub について学習し、Azure Stack Hub の能力を実証した
    - [コース 20537A: Microsoft Azure Stack Hub を使用した Hybrid Cloud の設定と運用](https://aka.ms/azsmoc)
 
 - Open edx:
-   - [edX: Microsoft Azure Stack Hub の設定と運用に関するオンライン コース](https://aka.ms/AzureStackMOOC)
+   - [edX: Microsoft Azure Stack Hub の設定と運用に関するオンライン コース]()
    
 - Microsoft ラーニング パス:
    - [ジョブの役割とラーニング パス](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>認定
 
-*Microsoft Azure Stack Hub を使用した Hybrid Cloud の設定と運用の認定資格*、[試験 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
+*Microsoft Azure Stack Hub を使用した Hybrid Cloud の設定と運用の認定資格* 、 [試験 70-537](https://www.microsoft.com/learning/exam-70-537.aspx)
 
 ## <a name="next-steps"></a>次のステップ
 

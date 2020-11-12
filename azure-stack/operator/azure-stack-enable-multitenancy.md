@@ -7,12 +7,12 @@ ms.date: 06/18/2020
 ms.author: bryanla
 ms.reviewer: bryanr
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: e99c1cc09f3dc6b0a04ff22f5b5dc96004ba305e
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
+ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857505"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93291214"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Azure Stack Hub でマルチテナントを構成する
 
@@ -99,7 +99,7 @@ Register-AzSWithMyDirectoryTenant `
 >
 > このスクリプトを再実行すると、お使いのディレクトリ内の Azure Stack Hub アプリの状態をいつでも確認できます。
 >
-> VM をマネージド ディスク内に作成する (1808 更新プログラムで導入) 際に問題が起きた場合には、このスクリプトの再実行を求める新しい**ディスク リソース プロバイダー**が追加されました。
+> VM をマネージド ディスク内に作成する (1808 更新プログラムで導入) 際に問題が起きた場合には、このスクリプトの再実行を求める新しい **ディスク リソース プロバイダー** が追加されました。
 
 ### <a name="direct-users-to-sign-in"></a>ユーザーをサインインに誘導する
 
@@ -111,7 +111,7 @@ Register-AzSWithMyDirectoryTenant `
 
 Azure Stack Hub に複数のテナントが不要になった場合は、次の手順を順番に実行してマルチ テナントを無効にできます。
 
-1. ゲスト ディレクトリの管理者 (このシナリオでは Mary) として、*Unregister-AzsWithMyDirectoryTenant* を実行します。 このコマンドレットは、新しいディレクトリからすべての Azure Stack Hub アプリをアンインストールします。
+1. ゲスト ディレクトリの管理者 (このシナリオでは Mary) として、 *Unregister-AzsWithMyDirectoryTenant* を実行します。 このコマンドレットは、新しいディレクトリからすべての Azure Stack Hub アプリをアンインストールします。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -126,7 +126,7 @@ Azure Stack Hub に複数のテナントが不要になった場合は、次の�
      -Verbose 
     ```
 
-2. Azure Stack Hub のサービス管理者 (このシナリオではあなた) として、*Unregister-AzSGuestDirectoryTenant* を実行します。
+2. Azure Stack Hub のサービス管理者 (このシナリオではあなた) として、 *Unregister-AzSGuestDirectoryTenant* を実行します。
 
     ``` PowerShell
     ## The following Azure Resource Manager endpoint is for the ASDK. If you're in a multinode environment, contact your operator or service provider to get the endpoint.

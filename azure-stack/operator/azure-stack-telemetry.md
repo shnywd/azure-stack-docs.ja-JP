@@ -8,12 +8,12 @@ ms.date: 1/16/2020
 ms.author: inhenkel
 ms.reviewer: comartin
 ms.lastreviewed: 10/15/2019
-ms.openlocfilehash: afaf8f4716443631ae0d2bbe1b82cd84b9d0e424
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 66bd65158222cad224ea1673de666bd4c464dab4
+ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86487738"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93415132"
 ---
 # <a name="configure-azure-stack-hub-telemetry"></a>Azure Stack Hub のテレメトリを構成する
 
@@ -71,30 +71,30 @@ Microsoft では、意図して機微なデータ (クレジット カード番�
 **1 (Basic)**</br>
 Security データに加え、基本的な正常性データと品質データ。 **Security** レベルからのデータに加え、品質関連のデータ、アプリの互換性、アプリの利用状況データなど、基本的なデバイス情報が対象となります。 テレメトリ レベルを Basic に設定すると、Azure Stack Hub のテレメトリが有効になります。 このレベルで収集されるデータの例を次に示します。
 
-- "*基本的なデバイス情報*": エコシステムに存在する Windows Server 2016 のネイティブ インスタンスと仮想インスタンスの構成や種類が明らかとなります。 これには次のものが含まれます
+- " *基本的なデバイス情報* ": エコシステムに存在する Windows Server 2016 のネイティブ インスタンスと仮想インスタンスの構成や種類が明らかとなります。 これには次のものが含まれます
 
   - マシン属性 (OEM、モデルなど)。
   - ネットワーク属性 (ネットワーク アダプターの数や速度など)。
   - プロセッサとメモリの属性 (コア数、インストールされたメモリの量など)。
   - ストレージ属性 (ドライブの数、種類、サイズなど)。
 
-- "*テレメトリの機能*": アップロードされたイベントの割合、ドロップされたイベントの割合、前回のデータのアップロード時刻などが収集されます。
-- "*品質関連の情報*": Microsoft が、Azure Stack Hub がどのように実行されているかについての基本的な理解を深めるのに役立ちます。 たとえば、特定のハードウェア構成に関する重要なアラートの件数が該当します。
-- "*互換性データ*": システムや仮想マシン (VM) にインストールされているリソース プロバイダーについて理解するのに役立ちます。 これは互換性に関する問題のリスクを特定します。
+- " *テレメトリの機能* ": アップロードされたイベントの割合、ドロップされたイベントの割合、前回のデータのアップロード時刻などが収集されます。
+- " *品質関連の情報* ": Microsoft が、Azure Stack Hub がどのように実行されているかについての基本的な理解を深めるのに役立ちます。 たとえば、特定のハードウェア構成に関する重要なアラートの件数が該当します。
+- " *互換性データ* ": システムや仮想マシン (VM) にインストールされているリソース プロバイダーについて理解するのに役立ちます。 これは互換性に関する問題のリスクを特定します。
 
 **2 (Enhanced)**</br>
-その他の分析情報: オペレーティング システムや Azure Stack Hub サービスがどのように使用されているか、これらのサービスがどのように実行されているか、詳細な信頼性データ、**Security** および **Basic** レベルからのデータなど。
+その他の分析情報: オペレーティング システムや Azure Stack Hub サービスがどのように使用されているか、これらのサービスがどのように実行されているか、詳細な信頼性データ、 **Security** および **Basic** レベルからのデータなど。
 
 > [!NOTE]
 > これはテレメトリの既定の設定です。
 
 **3 (Full)**</br>
-**Security**、**Basic**、**Enhanced** の各レベルからのデータに加え、問題を特定して修正するために必要なあらゆるデータ。
+**Security** 、 **Basic** 、 **Enhanced** の各レベルからのデータに加え、問題を特定して修正するために必要なあらゆるデータ。
 
 > [!IMPORTANT]
 > これらのテレメトリ レベルが適用されるのは、Microsoft Azure Stack Hub のコンポーネントのみです。 Azure Stack Hub ハードウェア パートナーのハードウェア ライフサイクル ホストで動作する、Microsoft 以外のソフトウェア コンポーネントやサービスでは、これらのテレメトリ レベル外でそのクラウド サービスと通信を行うことが考えられます。 テレメトリ ポリシーについてと、どのようにオプトインまたはオプトアウトできるかについては、ご利用の Azure Stack Hub ハードウェア ソリューション プロバイダーにお問い合わせください。
 
-Windows と Azure Stack Hub のテレメトリをオフにすると、SQL のテレメトリも無効になります。 Windows Server のテレメトリ設定の作用に関する詳細については、[Windows テレメトリのホワイトペーパー](https://aka.ms/winservtelemetry)を参照してください。
+Windows と Azure Stack Hub のテレメトリをオフにすると、SQL のテレメトリも無効になります。 Windows Server のテレメトリ設定の作用に関する詳細については、[Windows テレメトリのホワイトペーパー](/windows/privacy/configure-windows-diagnostic-data-in-your-organization)を参照してください。
 
 ### <a name="asdk-set-the-telemetry-level-in-the-windows-registry"></a>ASDK: Windows レジストリでテレメトリ レベルを設定する
 

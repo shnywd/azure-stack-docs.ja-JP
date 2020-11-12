@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/27/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: 117fd4cd1d688b9ace109f6c2038cd3ffe0d9e6f
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623151"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546958"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上の Event Hubs の概要
 
@@ -53,7 +53,7 @@ Azure Stack Hub にエッジ データをローカルに取り込んで処理す
 | Azure Monitor | ✔ | ✔ |
 | 自動インフレ機能 | ✘ | ✔ |
 
-Azure Resource Management の操作は、Azure Resource Manager テンプレート、[PowerShell](/powershell/module/azurerm.eventhub/)、[Azure CLI](/cli/azure/eventhubs/eventhub/) を使用して行うこともできます。 PowerShell および Azure CLI では現在、Operator Administration の操作はサポートされません。
+Azure Resource Management の操作は、Azure Resource Manager テンプレート、[PowerShell](/powershell/module/Az.eventhub/)、[Azure CLI](/cli/azure/eventhubs/eventhub/) を使用して行うこともできます。 PowerShell および Azure CLI では現在、Operator Administration の操作はサポートされません。
 
 ## <a name="feature-documentation"></a>機能のドキュメント
 

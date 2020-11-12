@@ -8,12 +8,12 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviwer: jiahan
 ms.lastreviewed: 08/12/2020
-ms.openlocfilehash: 3f4ed6bd83414d158ef80996cadf024653956d38
-ms.sourcegitcommit: 7d518629bd55f24e7459404bb19b7db8a54f4b94
+ms.openlocfilehash: 797dad8de86ba80b8605ff16d356a879211c5a0f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88145388"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546295"
 ---
 # <a name="azure-stack-hub-storage-differences-and-considerations"></a>Azure Stack Hub のストレージ: 相違点と考慮事項
 
@@ -105,7 +105,7 @@ Azure Storage サービスの Management API:
 | Module | サポートされているバージョン | 使用法 |
 |---|---|---|
 | Azure.Storage | [4.5.0](https://www.powershellgallery.com/packages/Azure.Storage/4.5.0) | Azure Stack Hub ストレージ アカウントの BLOB、キュー、テーブルを管理します。 |
-| AzureRM.Storage | [5.0.4](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理します。 |
+| Az.Storage | [5.0.4](https://www.powershellgallery.com/packages/Az.Storage/5.0.4) | Azure Stack Hub でストレージ アカウントを作成および管理します。 |
 
 Azure Stack Hub でサポートされるストレージ クライアント ライブラリの詳細については、「[Azure Stack Hub ストレージの開発ツールの概要](azure-stack-storage-dev.md)」を参照してください。
 

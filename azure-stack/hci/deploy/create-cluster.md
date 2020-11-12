@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 10/17/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 927a57097eff9890dc8c546be9914e70dad5ec3c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
+ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92179529"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93064771"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -32,7 +32,7 @@ Azure Stack HCI のテストには興味があるものの、ハードウェア�
 
 クラスターの作成ウィザードを実行する前に、次のことを済ましてください。
 
-- 「[Azure Stack HCI をデプロイする前に](before-you-start.md)」で、ハードウェアおよび他の要件を読みます。
+- [システム要件](../concepts/system-requirements.md)に関するページで、ハードウェアおよび他の要件を読みます。
 - クラスター内の各サーバーに Azure Stack HCI OS をインストールします。 「[Azure Stack HCI オペレーティング システムのデプロイ](operating-system.md)」を参照してください。
 - 各サーバーでローカルの Administrators グループのメンバーであるアカウントを用意します。
 - 管理用 PC またはサーバーに Windows Admin Center をインストールします。 「[Windows Admin Center のインストール](/windows-server/manage/windows-admin-center/deploy/install)」を参照してください。
@@ -66,7 +66,7 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 1. 完了したら、 **[作成]** をクリックします。 次に示すように、クラスターの作成ウィザードが表示されます。
 
-    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-wizard.png":::
+    :::image type="content" source="media/cluster/create-cluster-wizard.png" alt-text="クラスターの作成ウィザード - はじめに" lightbox="media/cluster/create-cluster-wizard.png":::
 
 ## <a name="step-1-get-started"></a>手順 1:はじめに
 
@@ -194,7 +194,7 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 > [!NOTE]
 > SDN は、ストレッチ クラスターではサポートされていないか、使用できません。
 
-:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - HCI オプション" lightbox="media/cluster/create-cluster-network-controller.png":::
+:::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - SDN ネットワーク コントローラー" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. **[Next:SDN]** を選択します。
 1. **[ホスト]** で、ネットワーク コントローラーの名前を入力します。

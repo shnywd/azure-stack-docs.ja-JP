@@ -3,16 +3,16 @@ title: PowerShell を使用して Azure Stack Hub に接続する
 description: PowerShell を使用して Azure Stack Hub に接続する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 8/4/2020
+ms.date: 10/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 8/4/2020
-ms.openlocfilehash: 3001d06deb81e275f3b62127cb555d3afceaff3c
-ms.sourcegitcommit: c75e2cfd96f37a3497958eb87446888477f85bc9
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810798"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545144"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>PowerShell を使用して Azure Stack Hub に接続する
 
@@ -22,7 +22,7 @@ ms.locfileid: "87810798"
 
 [Azure Stack Development Kit (ASDK)](../asdk/asdk-connect.md#connect-with-rdp) から、または [VPN 経由で ASDK に接続](../asdk/asdk-connect.md#connect-with-vpn)している場合は Windows ベースの外部クライアントから、次の前提条件を実行します。
 
-- [Azure Stack Hub と互換性のある Azure PowerShell モジュール](azure-stack-powershell-install.md)をインストールします。  
+- [Azure Stack Hub と互換性のある Azure PowerShell モジュール](powershell-install-az-module.md)をインストールします。  
 - [Azure Stack Hub の操作に必要なツール](azure-stack-powershell-download.md)をダウンロードします。  
 
 ## <a name="connect-with-azure-ad"></a>Azure AD との接続
@@ -33,7 +33,7 @@ PowerShell を使用する Azure Stack Hub オペレーター環境を構成す�
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -53,7 +53,7 @@ Azure Stack Hub オペレーター環境に Azure Active Directory フェデレ�
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -65,7 +65,7 @@ Azure Stack Hub オペレーター環境に Azure Active Directory フェデレ�
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
-必要な設定がすべて整ったら、PowerShell を使用して Azure Stack Hub 内にリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、**MyResourceGroup** という名前のリソース グループを作成します。
+必要な設定がすべて整ったら、PowerShell を使用して Azure Stack Hub 内にリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、 **MyResourceGroup** という名前のリソース グループを作成します。
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
