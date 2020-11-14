@@ -3,16 +3,16 @@ title: Azure Stack Hub でマルチテナントを構成する
 description: Azure Stack Hub で複数の Azure Active Directory テナントを有効および無効にする方法について説明します。
 author: BryanLa
 ms.topic: how-to
-ms.date: 06/18/2020
+ms.date: 10/16/2020
 ms.author: bryanla
 ms.reviewer: bryanr
-ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: 6d6e6f3c28a4386a099727f132d28f97cf4dacbe
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 923c430291c742069a29806449b45d4fc9cdef07
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93291214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544226"
 ---
 # <a name="configure-multi-tenancy-in-azure-stack-hub"></a>Azure Stack Hub でマルチテナントを構成する
 
@@ -31,8 +31,8 @@ Azure Stack Hub を構成して、複数の Azure Active Directory (Azure AD) �
 Azure Stack Hub でマルチテナントを構成する前に、対応すべき前提条件がいくつかあります。
   
  - あなたとメアリーは連携して、Azure Stack Hub がインストールされているディレクトリ (Contoso) とゲスト ディレクトリ (Fabrikam) の両方に管理手順を実行する必要があります。
- - Azure Stack Hub 用の PowerShell が[インストール](azure-stack-powershell-install.md)および[構成](azure-stack-powershell-configure-admin.md)済みであることを確認します。
- - [Azure Stack Hub ツールをダウンロード](azure-stack-powershell-download.md)し、Identity モジュールをインポートします。
+ - Azure Stack Hub 用の PowerShell が[インストール](powershell-install-az-module.md)および[構成](azure-stack-powershell-configure-admin.md)済みであることを確認します。
+ - [Azure Stack Hub のツールをダウンロード](azure-stack-powershell-download.md)して、Connect モジュールと Identity モジュールをインポートします。
 
     ```powershell
     Import-Module .\Identity\AzureStack.Identity.psm1

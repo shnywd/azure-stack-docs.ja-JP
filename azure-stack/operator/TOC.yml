@@ -137,10 +137,10 @@
           href: azure-stack-cli-admin.md
         - name: 管理環境の設定
           items:
-            - name: PowerShell AzureRM のインストール
-              href: azure-stack-powershell-install.md
             - name: PowerShell Az のインストール
               href: powershell-install-az-module.md
+            - name: PowerShell AzureRM のインストール
+              href: azure-stack-powershell-install.md
             - name: PowerShell AzureRM の Az への移行
               href: migrate-azurerm-az.md
             - name: ツールのダウンロード
@@ -319,6 +319,8 @@
                   href: app-service-remove.md
             - name: リリース ノート
               items:
+                - name: '2020 年第 3 四半期リリース ノート [2020 年 9 月]'
+                  href: app-service-release-notes-2020-Q3.md
                 - name: '2020 年第 2 四半期リリース ノート [2020 年 5 月]'
                   href: app-service-release-notes-2020-Q2.md
                 - name: 'Update 8 のリリース ノート [2020 年 6 月]'

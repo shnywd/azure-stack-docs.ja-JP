@@ -48,7 +48,7 @@
                 - name: Azure Stack Hub PowerShell の概要
                   href: azure-stack-powershell-overview.md
                 - name: Azure Stack Hub PowerShell のインストール
-                  href: ../operator/azure-stack-powershell-install.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+                  href: ../operator/powershell-install-az-module.md?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
                   maintainContext: true
                 - name: PowerShell で接続する
                   href: azure-stack-powershell-configure-user.md
@@ -189,6 +189,8 @@
                       href: network-virtual-appliance.md
                     - name: サイト間接続のトラブルシューティング
                       href: site-to-site.md
+                - name: 仮想ネットワーク ピアリング
+                  href: virtual-network-peering.md
                 - name: Azure Stack Hub 用の iDNS
                   href: azure-stack-understanding-dns.md
                 - name: Azure Stack Hub の DNS
@@ -301,19 +303,19 @@
       items:
         - name: ネットワークのパターン
           items:
-            - name: VM を使用した VNet ピアリング
-              href: azure-stack-network-howto-vnet-peering.md
             - name: サードパーティの NVA を使用する (Fortinet Fortigate NVA)
               items:
-                - name: FortiGate を使用した VNet ピアリング
+                - name: Fortigate との VNet 間接続
                   href: azure-stack-network-howto-vnet-to-vnet.md
                 - name: オンプレミスへの VPN を設定する
                   href: azure-stack-network-howto-vnet-to-onprem.md
-                - name: VNet 間接続
+                - name: Azure Stack Hub インスタンス間の VNet 間接続
                   href: azure-stack-network-howto-vnet-to-vnet-stacks.md
             - name: RRAS を使用する
               items:
-                - name: 複数サイト間 VPN を設定する
+                - name: RRAS との VNet 間接続
+                  href: azure-stack-network-howto-vnet-peering.md
+                - name: 複数サイト間 VPN トンネルを設定する
                   href: network-howto-vpn-tunnel.md
                 - name: VPN トンネル (GRE) を作成する
                   href: network-howto-vpn-tunnel-gre.md
