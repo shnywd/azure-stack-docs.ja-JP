@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/21/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 25d836bece262f881901df6c62b5dc8f4aeaf11d
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946457"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543563"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い
 
@@ -41,7 +41,7 @@ Azure Stack Hub オペレーターは、ユーザーに使用可能なサービ�
 | 利用可能なサービス | [Azuer 製品](https://azure.microsoft.com/services/?b=17.04b)の一覧を参照してください。 利用可能なサービスは Azure リージョンによって異なります。 | Azure Stack Hub では Azure サービスのサブセットがサポートされます。 提供される実際のサービスは、組織またはサービス プロバイダーによる選択内容によって異なります。
 | Azure Resource Manager のエンドポイント* | `https://management.azure.com` | Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供されたエンドポイントを使用します。<br><br>開発キットの場合は、`https://management.local.azurestack.external` を使用します。
 | ポータル URL* | [https://portal.azure.com](https://portal.azure.com) | Azure Stack Hub 統合システムの場合は、Azure Stack Hub オペレーターによって提供される URL を使用します。<br><br>開発キットの場合は、`https://portal.local.azurestack.external` を使用します。
-| リージョン | デプロイ先のリージョンを選択することができます。 | Azure Stack Hub 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>Azure Stack Development Kit (ASDK) の場合、リージョンは常に**ローカル**になります。
+| リージョン | デプロイ先のリージョンを選択することができます。 | Azure Stack Hub 統合システムの場合は、システムで利用可能なリージョンを使用します。<br><br>Azure Stack Development Kit (ASDK) の場合、リージョンは常に **ローカル** になります。
 | リソース グループ | リソース グループは複数のリージョンにまたがることができます。 | 統合システムと開発キットのいずれも、リージョンは 1 つのみです。
 |サポートされている名前空間、リソースの種類、および API のバージョン | 最新 (またはまだ非推奨ではない以前のバージョン)。 | Azure Stack Hub では特定のバージョンがサポートされます。 この記事の「[バージョンの要件](#version-requirements)」セクションを参照してください。
 | | |
@@ -54,7 +54,7 @@ Microsoft では、Azure Stack Hub 向けの開発に役立つツールとガイ
 
 | 推奨 | References |
 | -------- | ------------- |
-| 開発者用ワークステーションに適切なツールをインストールします。 | - [PowerShell のインストール](../operator/azure-stack-powershell-install.md)<br>- [ツールのダウンロード](../operator/azure-stack-powershell-download.md)<br>- [PowerShell の構成](azure-stack-powershell-configure-user.md)<br>- [Visual Studio のインストール](azure-stack-install-visual-studio.md)
+| 開発者用ワークステーションに適切なツールをインストールします。 | - [PowerShell のインストール](../operator/powershell-install-az-module.md)<br>- [ツールのダウンロード](../operator/azure-stack-powershell-download.md)<br>- [PowerShell の構成](azure-stack-powershell-configure-user.md)<br>- [Visual Studio のインストール](azure-stack-install-visual-studio.md)
 | 次の項目に関する情報を確認します。<br>- Azure Resource Manager テンプレートに関する考慮事項。<br>- クイックスタート テンプレートを見つける方法。<br>- Azure Stack Hub 向けの開発で Azure を使用する場合に役立つポリシー モジュールの使用。 | [Azure Stack Hub 向けの開発](azure-stack-developer.md) |
 | テンプレートのベスト プラクティスを確認して、それに従います。 | [Resource Manager のクイックスタート テンプレート](https://aka.ms/aa6yz42)
 | | |
@@ -68,14 +68,14 @@ Azure Stack Hub では、特定のバージョンの Azure PowerShell と Azure 
 > [!NOTE]
 > Azure Stack Development Kit を使用されていて、管理アクセス権がある場合は、「[現在のバージョンの判断](../operator/azure-stack-updates.md)」セクションを参照して、Azure Stack Hub のビルドを確認してください。
 
-その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack Hub サブスクリプションでサポートされている API のバージョンを出力します (プロパティ レベルでも違いがある場合があります)。 このコマンドを機能させるには、Azure Stack Hub 環境用に PowerShell が既に[インストール](../operator/azure-stack-powershell-install.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack Hub オファーのサブスクリプションも必要です。
+その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack Hub サブスクリプションでサポートされている API のバージョンを出力します (プロパティ レベルでも違いがある場合があります)。 このコマンドを機能させるには、Azure Stack Hub 環境用に PowerShell が既に[インストール](../operator/powershell-install-az-module.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack Hub オファーのサブスクリプションも必要です。
 
 ```powershell
-Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-出力例 (抜粋):![Get-AzureRmResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
+出力例 (抜粋):![Get-AzResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
 
 ## <a name="next-steps"></a>次のステップ
 

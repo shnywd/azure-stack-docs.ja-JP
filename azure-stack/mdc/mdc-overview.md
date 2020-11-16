@@ -5,15 +5,15 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: overview
-ms.date: 01/13/2020
+ms.date: 11/06/2020
 ms.reviewer: prchint
-ms.lastreviewed: 01/13/2020
-ms.openlocfilehash: d2803f1968be7a4a3e64f65f3d86a2dbb41aaf1c
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.lastreviewed: 11/06/2020
+ms.openlocfilehash: eaa84fb673863935dc4778f34a6fce592590a7a8
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183540"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383406"
 ---
 # <a name="modular-data-center-overview"></a>Modular Data Center の概要 
 
@@ -27,7 +27,7 @@ Azure Stack は、モジュール式エッジのシナリオ向けの Azure の�
 
 ### <a name="develop-and-deliver-apps-with-a-common-devops-model-including-api-symmetry-with-azure"></a>Azure との API の対称性を含む、共通の DevOps モデルを使用してアプリを開発および提供する
 
-Azure と Azure Stack の間の整合性により、軍事ソリューションがいったん開発され、さまざまなユースケースをサポートするためにデプロイされると、キー管理用の Azure Key Vault やリソース監視および管理用の Azure Monitor などの共通のツール一式を使用してセキュリティ保護され、維持されます。 Azure Stack は、オンプレミス データ、アプリ、DevOps ツール、セキュリティで保護された操作 (キー管理など) と相互運用できます。
+Azure と Azure Stack の間の整合性により、ソリューションがいったん開発され、さまざまなユースケースをサポートするためにデプロイされると、キー管理用の Azure Key Vault やリソース監視および管理用の Azure Monitor などの共通のツール一式を使用してセキュリティ保護され、維持されます。 Azure Stack は、オンプレミス データ、アプリ、DevOps ツール、セキュリティで保護された操作 (キー管理など) と相互運用できます。
 
 ### <a name="deliver-azure-services-on-premises"></a>Azure サービスをオンプレミスで提供する
 
@@ -35,7 +35,7 @@ Azure Stack は、悪条件 (競合、混雑、拒否) の通信環境でも堅�
 
 ### <a name="use-integrated-hardware-and-software-delivery-experience"></a>統合されたハードウェアおよびソフトウェアの提供エクスペリエンスを使用する
 
-モジュール式エッジでは、ベースライン コンピューティングやストレージ サービスだけでなく、機械学習、AI、分析の高度な機能を提供する幅広い機能が必要です。 モジュール式エッジからセキュアなクラウドに接続する、または逆に、それとは個別に制限された環境から操作できる機能は、意思決定に必要なデータに軍事目的でアクセスする上で必要不可欠です。
+モジュール式エッジでは、ベースライン コンピューティングやストレージ サービスだけでなく、機械学習、AI、分析の高度な機能を提供する幅広い機能が必要です。 モジュール式エッジからセキュアなクラウドに接続する、または逆に、それとは個別に制限された環境から操作できる機能は、意思決定に必要なデータにアクセスする上で必要不可欠です。
 
 ### <a name="keep-your-datacenter-secure-and-available-with-hybrid-cloud-security-operations"></a>ハイブリッド クラウド セキュリティ運用によりデータセンターの安全性と可用性を維持する
 
