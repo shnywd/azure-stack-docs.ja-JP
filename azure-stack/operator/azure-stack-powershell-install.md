@@ -3,20 +3,25 @@ title: Azure Stack Hub 用の PowerShell AzureRM モジュールをインスト�
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。 PowerShell AzureRM モジュールのインストール方法と必要な API プロファイルを確認します。
 author: mattbriggs
 ms.topic: article
-ms.date: 08/04/2020
+ms.date: 10/22/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: bbf1a5d296ddbef554a4401e66eab4226ae38dd3
-ms.sourcegitcommit: a1e2003fb9c6dacdc76f97614ff5a26a5b197b49
+ms.lastreviewed: 10/22/2020
+ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91623168"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544991"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
-Azure PowerShell AzureRM には、Azure Stack Hub リソースの管理に Azure Resource Manager モデルを使用する一連のコマンドレットが用意されています。
+Azure PowerShell Azure Resource Manager (AzureRM) には、Azure Stack Hub リソースの管理に Azure Resource Manager モデルを使用する一連のコマンドレットが用意されています。
+
+::: moniker range=">=azs-2002"
+> [!IMPORTANT]  
+> Azure PowerShell の古いバージョンの Web ページにアクセスしています。 Azure Resource Manager (AzureRM) の PowerShell モジュールのすべてのバージョンは古くなっていますが、サポート対象外ではありません。 現在、Azure を操作するために推奨される PowerShell モジュールは Az PowerShell モジュールです。 Az PowerShell モジュールを使い始めるには、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。 Az PowerShell モジュールに移行する方法については。 「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
+::: moniker-end
 
 また、"*API プロファイル*" を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定する必要もあります。
 
@@ -24,11 +29,11 @@ API プロファイルには、Azure と Azure Stack Hub のバージョンの�
 
 Azure Stack Hub と互換性のある PowerShell モジュールは、インターネットに接続されたシナリオ、部分的に接続されたシナリオ、または接続が切断されたシナリオでインストールできます。 この記事では、これらのシナリオの詳細な手順について説明します。
 
-Docker コンテナーで Azure Stack Hub の AzureRM モジュールを実行することもできます。 手順については、[Docker を使用して Azure Stack Hub に対して PowerShell を実行する](../user/azure-stack-powershell-user-docker.md)方法に関するページを参照してください。
+Docker コンテナーで Azure Stack Hub の Azure Resource Manager モジュールを実行することもできます。 手順については、[Docker を使用して Azure Stack Hub に対して PowerShell を実行する](../user/azure-stack-powershell-user-docker.md)方法に関するページを参照してください。
 
 ## <a name="1-verify-your-prerequisites"></a>1.前提条件を確認する
 
-Azure Stack Hub と PowerShell AzureRM モジュールの使用を開始する前に、次の前提条件を満たしている必要あります。
+Azure Stack Hub と PowerShell Azure Resource Manager モジュールの使用を開始する前に、次の前提条件を満たしている必要あります。
 
 - **PowerShell バージョン 5.1** <br>
 バージョンを確認するには、 **$PSVersionTable.PSVersion** を実行して、**メジャー** バージョンを比較します。 PowerShell 5.1 を使用していない場合は、「[Windows PowerShell のインストール](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)」に従ってください。
@@ -65,9 +70,9 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする
 
-必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub AzureRM PowerShell モジュールをアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
+必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub Azure Resource Manager PowerShell モジュールをすべてアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
 
-1. 既存の AzureRM と Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
+1. 既存の Azure Resource Manager モジュールと Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -167,7 +172,7 @@ Get-Module -Name "Azs*" -ListAvailable
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 以降。
 
-AzureRM または Az プレビュー モジュールのいずれかを使用できます。 Az モジュールについては、[PowerShell Az モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。
+Azure Resource Manager または Az プレビュー モジュールのいずれかを使用できます。 Az モジュールについては、[PowerShell Az モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。
 
 ```powershell
 
@@ -227,7 +232,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
-4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
+4. この場所を既定のレポジトリとして登録し、このレポジトリから Azure Resource Manager モジュールと `AzureStack` モジュールをインストールします。
 
    ```powershell
    # requires -Version 5
@@ -273,9 +278,9 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ###  <a name="method-get_serializationsettings-error"></a>get_SerializationSettings メソッドのエラー 
 
-- 原因: PowerShell Az モジュールと PowerShell AzureRM モジュールには互換性がありません。
+- 原因:PowerShell Az モジュールと PowerShell Azure Resource Manager モジュールには互換性がありません。
 
-    次のエラーは、AzureRM モジュールと Az モジュールが同じセッションに読み込まれたことを示しています。 
+    次のエラーは、Azure Resource Manager モジュールと Az モジュールが同じセッションに読み込まれたことを示しています。 
 
     ```powershell  
     >  Method 'get_SerializationSettings' in type 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' does 
@@ -284,7 +289,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 - 修復: 競合しているモジュールをアンインストールします。 
 
-  AzureRM モジュールを使用する場合は、Az モジュールをアンインストールします。 または、Az モジュールを使用する場合は、AzureRM をアンインストールします。 ご自分の PowerShell セッションを閉じ、Az または AzureRM モジュールのいずれかをアンインストールします。 
+  Azure Resource Manager モジュールを使用する場合は、Az モジュールをアンインストールします。 または、Az モジュールを使用する場合は、Azure Resource Manager をアンインストールします。 ご自分の PowerShell セッションを閉じ、Az または Azure Resource Manager モジュールのいずれかをアンインストールします。 
   
   手順については、「[既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする](#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)」を参照してください。
 

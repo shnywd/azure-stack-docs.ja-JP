@@ -7,12 +7,12 @@ ms.date: 9/02/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 5/28/2020
-ms.openlocfilehash: e0d426ac19645cbbc318f66b827946534539d125
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 43ceccf55807367606bae5f3aa8fcdebf6f9aace
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448573"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543818"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack-hub"></a>Azure Stack Hub に使用量と課金用のテナントを追加する
 
@@ -52,22 +52,22 @@ ms.locfileid: "89448573"
 1. 管理者特権のプロンプトで Windows PowerShell を開き、次を実行します。  
 
    ```powershell
-   Add-AzureRmAccount
+   Add-AzAccount
    ```
 
    >[!NOTE]
-   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します。`Remove-AzureRmAccount-Scope Process`
+   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、**Add-AzAccount** を使用してサインインする前に、次のコマンドレットを実行します: `Remove-AzAccount-Scope Process`。
 
 2. Azure の資格情報を入力します。
 3. PowerShell セッションで、次のコマンドを実行します。
 
    ```powershell
-   New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
+   New-AzResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01
    ```
 
-### <a name="new-azurermresource-powershell-parameters"></a>PowerShell の New-AzureRmResource パラメーター
+### <a name="new-azresource-powershell-parameters"></a>PowerShell の New-AzResource のパラメーター
 
-次のセクションでは、**New-AzureRmResource** コマンドレットのパラメーターについて説明します。
+次のセクションでは、**New-AzResource** コマンドレットのパラメーターについて説明します。
 
 | パラメーター | 説明 |
 | --- | --- |

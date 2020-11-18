@@ -3,22 +3,22 @@ title: Azure Stack Hub にスケール ユニット ノードを追加する
 description: Azure Stack Hub のスケール ユニットにスケール ユニット ノードを追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/09/2020
+ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 08/03/2020
-ms.openlocfilehash: bf1cbd3dc999a90fb53ef30b48dc6f06e82f4d5a
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.lastreviewed: 11/05/2020
+ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621301"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94544039"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
-Azure Stack Hub オペレーターは、物理コンピューターを追加することによって、既存のスケール ユニットの全体的な容量を引き上げることができます。 物理コンピューターは、"スケール ユニット ノード" とも呼ばれます。 新たに追加する各スケール ユニット ノードは、CPU の種類、メモリ、ディスク数、ディスク サイズの点で、スケール ユニットの既存のノードと同質であることが必要です。
+物理コンピューターを追加することによって、既存のスケール ユニットの全体的な容量を引き上げることができます。 物理コンピューターは、"スケール ユニット ノード" とも呼ばれます。 新たに追加する各スケール ユニット ノードは、CPU の種類、メモリ、ディスク数、ディスク サイズの点で、スケール ユニットの既存のノードと同質であることが必要です。
 
-スケール ユニット ノードを追加するには、Azure Stack Hub で、お使いのハードウェア機器メーカー (OEM) から提供されるツールを実行する必要があります。 OEM のツールは、新しい物理コンピューターのファームウェア レベルが既存のノードと同じであることを確認するために、ハードウェア ライフサイクル ホスト (HLH) で実行されます。
+スケール ユニット ノードを追加するには、Azure Stack Hub にサインインし、お使いのハードウェア機器メーカー (OEM) から提供されているツールを実行します。 OEM のツールは、新しい物理コンピューターのファームウェア レベルが既存のノードと同じであることを確認するために、ハードウェア ライフサイクル ホスト (HLH) で実行されます。
 
 次のフロー図は、スケール ユニット ノードを追加するための一般的なプロセスを示しています。
 
@@ -45,7 +45,7 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 3. OEM から提供されたドキュメントに従って、ベースボード管理コントローラー (BMC) で正しい IP アドレスを設定し、すべての BIOS 設定を適用します。
 4. HLH 上で実行されているハードウェア メーカー製ツールを使って、最新のファームウェア ベースラインをすべてのコンポーネントに適用します。
 5. Azure Stack Hub 管理者ポータルでノードの追加操作を実行します。
-6. ノードの追加操作が成功したことを確認します。 [スケール ユニットの **[状態]** ](#monitor-add-node-operations) をチェックしてください。 
+6. ノードの追加操作が成功したことを確認します。 [スケール ユニットの **[状態]**](#monitor-add-node-operations) をチェックしてください。 
 
 ## <a name="add-the-node"></a>ノードの追加
 
@@ -56,9 +56,24 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
 1. Azure Stack Hub 管理者ポータルに Azure Stack Hub オペレーターとしてサインインします。
 2. **[+ リソースの作成]**  >  **[キャパシティ]**  >  **[Scale Unit Node]\(スケール ユニット ノード\)** に移動します。
    ![スケール ユニット ノード](media/azure-stack-add-scale-node/select-node1.png)
-3. **[ノードの追加]** ウィンドウで *[リージョン]* を選択し、ノードを追加する *スケール ユニット* を選択します。 また、追加するスケール ユニット ノードに、*BMC IP アドレス*を指定します。 一度に追加できるノードは 1 つだけです。
+3. **[ノードの追加]** ウィンドウで *[リージョン]* を選択し、ノードを追加する *スケール ユニット* を選択します。 また、追加するスケール ユニット ノードに、*BMC IP アドレス* を指定します。 一度に追加できるノードは 1 つだけです。
    ![ノードの詳細の追加](media/azure-stack-add-scale-node/select-node2.png)
  
+
+### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
+
+ノードの追加には、**Add-AzsScaleUnitNode** コマンドレットを使用します。  
+
+次のいずれかのサンプル PowerShell スクリプトを使用する前に、*name_of_new_node*、*name_of_scale_unit_cluster*、*BMCIP_address_of_new_node* の値を実際の Azure Stack Hub 環境の値に置き換えてください。
+
+  > [!Note]  
+  > ノードの名前を付けるときは、長さを 15 文字未満にする必要があります。 また、スペースを含む名前や次の文字を含む名前は使用できません。`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
+
+**ノードを追加する:**
+  ```powershell
+  ## Add a single Node 
+    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
+  ```  
 
 ### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/AzureRM)
 
@@ -75,21 +90,6 @@ Azure Stack Hub オペレーターは、物理コンピューターを追加す�
   $NewNode=New-AzsScaleUnitNodeObject -computername "<name_of_new_node>" -BMCIPv4Address "<BMCIP_address_of_new_node>" 
  
   Add-AzsScaleUnitNode -NodeList $NewNode -ScaleUnit "<name_of_scale_unit_cluster>" 
-  ```  
-
-### <a name="powershell-az"></a>[PowerShell Az](#tab/Az)
-
-ノードの追加には、**Add-AzsScaleUnitNode** コマンドレットを使用します。  
-
-次のいずれかのサンプル PowerShell スクリプトを使用する前に、*name_of_new_node*、*name_of_scale_unit_cluster*、*BMCIP_address_of_new_node* の値を実際の Azure Stack Hub 環境の値に置き換えてください。
-
-  > [!Note]  
-  > ノードの名前を付けるときは、長さを 15 文字未満にする必要があります。 また、スペースを含む名前や次の文字を含む名前は使用できません。`\`、`/`、`:`、`*`、`?`、`"`、`<`、`>`、`|`、`\`、`~`、`!`、`@`、`#`、`$`、`%`、`^`、`&`、`(`、`)`、`{`、`}`、`_`。
-
-**ノードを追加する: **
-  ```powershell
-  ## Add a single Node 
-    Add-AzsScaleUnitNode -BMCIPv4Address "<BMCIP_address_of_new_node>" -computername "<name_of_new_node>" -ScaleUnit "<name_of_scale_unit_cluster>" 
   ```  
 
 ---

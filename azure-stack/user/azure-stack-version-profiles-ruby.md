@@ -7,12 +7,12 @@ ms.date: 09/03/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: 6813bf18656e034688255bcdb46b9b943359ce9c
-ms.sourcegitcommit: 7c01ab4b2e2250a7acd67d1c5ba27d15c1e8bce0
+ms.openlocfilehash: 93ede4373a2799551bc3091a6d9b3cd00cb9d578
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89448624"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546482"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack-hub"></a>Azure Stack Hub での Ruby による API バージョンのプロファイルの使用
 
@@ -34,7 +34,7 @@ API プロファイルは、リソース プロバイダーとサービス バ�
 
 - 正式な指示に従って、[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) をインストールします。
 - 正式な指示に従って、[Ruby](https://www.ruby-lang.org/en/documentation/installation/) をインストールします。
-  - インストール時には、**PATH 変数に Ruby を追加する**ためのオプションを選択します。
+  - インストール時には、**PATH 変数に Ruby を追加する** ためのオプションを選択します。
   - Ruby のインストール時にプロンプトが表示された場合は、開発キットをインストールします。
   - 次に、下記のコマンドを使用して bundler をインストールします。 
 
@@ -70,7 +70,7 @@ Azure Resource Manager Ruby SDK は現在プレビュー段階であり、今後
 
 ## <a name="use-the-azure_sdk-gem"></a>azure_sdk gem を使用する
 
-**azure_sdk** gem は、Ruby SDK でサポートされているすべての gem をまとめたロールアップです。 この gem は、すべてのサービスの最新バージョンをサポートする、 **Latest**  プロファイルで構成されています。 これには、Azure Stack Hub 用に構築された、バージョン管理されたプロファイル  **V2017_03_09** および **V2019_03_01_Hybrid** が含まれています。
+**azure_sdk** gem は、Ruby SDK でサポートされているすべての gem をまとめたロールアップです。 この gem は、すべてのサービスの最新バージョンをサポートする、**Latest** プロファイルで構成されています。 これには、Azure Stack Hub 用に構築されている、バージョン管理されたプロファイル **V2017_03_09** および **V2019_03_01_Hybrid** が含まれています。
 
 azure_sdk ロールアップ gem は、次のコマンドを使用してインストールできます。  
 
@@ -183,7 +183,7 @@ purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::
 
 ## <a name="define-azure-stack-hub-environment-setting-functions"></a>Azure Stack Hub 環境設定関数の定義
 
-サービス プリンシパルを Azure Stack Hub 環境に対して認証するには、`get_active_directory_settings()` を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint**環境変数を使用します。
+サービス プリンシパルを Azure Stack Hub 環境に対して認証するには、`get_active_directory_settings()` を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint** 環境変数を使用します。
 
 ```ruby  
 # Get Authentication endpoints using Arm Metadata Endpoints
@@ -279,7 +279,7 @@ Ruby と Azure Stack Hub の API のプロファイルを使用してソリュ�
    client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
-8. サービス プリンシパルを Azure Stack Hub に対して認証するには、**get_active_directory_settings()** を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint**環境変数を使用します。
+8. サービス プリンシパルを Azure Stack Hub に対して認証するには、**get_active_directory_settings()** を使用してエンドポイントを定義します。 このメソッドでは、前に設定した **ARM_Endpoint** 環境変数を使用します。
 
    ```ruby  
    def get_active_directory_settings(armEndpoint)
@@ -306,5 +306,5 @@ Ruby と Azure Stack Hub の API のプロファイルを使用してソリュ�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)
+- [PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md)
 - [Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)  

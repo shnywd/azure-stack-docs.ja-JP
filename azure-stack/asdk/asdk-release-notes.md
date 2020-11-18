@@ -3,22 +3,33 @@ title: ASDK リリース ノート
 description: Azure Stack Development Kit (ASDK) の機能強化、修正、既知の問題。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 11/11/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: 6bbbc76acd38984924c454c26204f1edb0d68142
-ms.sourcegitcommit: 52b33ea180c38a5ecce150f5a9ea4a026344cc3d
+ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88074130"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543410"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md)します。
 
 ![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+
+::: moniker range="azs-2008"
+## <a name="build-120081388"></a>ビルド 1.2008.13.88
+
+### <a name="new-features"></a>新機能
+
+- このリリースでの修正された問題、変更点、および新機能の一覧については、[Azure Stack リリースノート](../operator/release-notes.md)の関連セクションを参照してください。
+
+### <a name="fixed-and-known-issues"></a>修正された問題と既知の問題
+
+::: moniker-end
 
 ::: moniker range="azs-2005"
 ## <a name="build-12005040"></a>ビルド 1.2005.0.40
@@ -73,7 +84,6 @@ ms.locfileid: "88074130"
 ::: moniker-end
 
 ::: moniker range="azs-1910"
-
 ## <a name="build-11910058"></a>ビルド 1.1910.0.58
 
 ### <a name="new-features"></a>新機能

@@ -7,14 +7,14 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d4589e4ed9bc7850ce095456a27d3a9a642a1664
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: 32ecdbc52c678f884eac10c83f1749ba4a96a86f
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92354733"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547128"
 ---
-# <a name="vnet-peering-with-fortigate"></a>FortiGate を使用した VNET ピアリング
+# <a name="vnet-to-vnet-connectivity-with-fortigate"></a>Fortigate による VNet 間接続
 
 この記事では、同じ環境内の 2 つの仮想ネットワーク間の接続を作成する方法について説明します。 接続を設定しながら、Azure Stack Hub での VPN ゲートウェイのしくみを学習します。 Fortinet FortiGate を使用して、同じ Azure Stack Hub 環境内で 2 つの VNET を接続します。 この手順では、各 VNET で FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、2 つの VNET をそれぞれ別個のリソース グループ内にデプロイします。 また、2 つの VNET 間に IPSec VPN を設定するために必要な変更についても詳しく説明します。 VNET のデプロイごとに、この記事の手順を繰り返します。
 
@@ -90,7 +90,7 @@ ms.locfileid: "92354733"
 6.  「[デプロイで使用されるパラメーター](#deployment-parameters)」の表を使用して、仮想ネットワーク、サブネット、VM サイズの詳細を指定します。
 
     > [!Warning] 
-    > オンプレミス ネットワークが IP 範囲 `172.16.0.0/16` とオーバーラップする場合は、別のネットワーク範囲とサブネットを選択して設定する必要があります。 「[デプロイで使用されるパラメーター](#deployment-parameters)」の表にあるものとは別の名前や範囲を使用する場合は、オンプレミス ネットワークと競合**しない**パラメーターを使用してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは注意してください。 その範囲がオンプレミス ネットワークに存在する IP 範囲とオーバーラップすることは望ましくありません。
+    > オンプレミス ネットワークが IP 範囲 `172.16.0.0/16` とオーバーラップする場合は、別のネットワーク範囲とサブネットを選択して設定する必要があります。 「[デプロイで使用されるパラメーター](#deployment-parameters)」の表にあるものとは別の名前や範囲を使用する場合は、オンプレミス ネットワークと競合 **しない** パラメーターを使用してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは注意してください。 その範囲がオンプレミス ネットワークに存在する IP 範囲とオーバーラップすることは望ましくありません。
 
 7.  **[OK]** を選択します。
 
@@ -138,7 +138,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 1. **[保存]** を選択します。
 
-各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能**しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
+各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能 **しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
 2 つのライセンス ファイル (NVA ごとに 1 つ) を取得する必要があります。
 
@@ -239,7 +239,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 -   Azure Stack Hub VM は、各 VNET の **InsideSubnet** に配置されます。
 
--   VM の作成時には、NSG は適用**しません** (ポータルから VM を作成する場合は、既定で追加される NSG を削除してください)。
+-   VM の作成時には、NSG は適用 **しません** (ポータルから VM を作成する場合は、既定で追加される NSG を削除してください)。
 
 -   接続をテストするために使用する通信が VM のファイアウォール規則によって許可されていることを確認します。 テスト目的の場合は、可能な限り、OS 内でファイアウォールを完全に無効にすることをお勧めします。
 

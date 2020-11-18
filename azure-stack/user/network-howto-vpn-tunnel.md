@@ -7,14 +7,14 @@ ms.date: 08/24/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: dc74c40611dd680b8b0d893e06b6935beae7a5f6
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573906"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547077"
 ---
-# <a name="how-to-set-up-a-multiple-site-to-site-vpn-tunnel-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
+# <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 
 この記事では、Azure Stack Hub Resource Manager テンプレートを使用してソリューションをデプロイする方法について説明します。 このソリューションでは、仮想ネットワークに関連付けられた複数のリソース グループと、これらのシステムの接続方法を作成します。
 
@@ -116,7 +116,7 @@ ms.locfileid: "90573906"
 
 ### <a name="viewing-tunnel-deployment"></a>トンネルのデプロイの表示
 
-カスタム スクリプト拡張機能からの出力を表示すると、トンネルが作成されていることを確認できます。また、その状態が表示されます。 一方には、もう一方の準備が整うまで待つ間、**接続中**と表示され、もう一方には、デプロイされると**接続済み**と表示されます。
+カスタム スクリプト拡張機能からの出力を表示すると、トンネルが作成されていることを確認できます。また、その状態が表示されます。 一方には、もう一方の準備が整うまで待つ間、**接続中** と表示され、もう一方には、デプロイされると **接続済み** と表示されます。
 
 ![このダイアログ ボックスは、[ダッシュボード > リソース グループ > WebTier > WebTier-RRAS - 拡張機能] です。 CustomScriptExtension (強調表示) と InstallRRAS の 2 つの拡張機能が一覧表示されています。 どちらも [プロビジョニング成功] の状態を示しています。](./media/azure-stack-network-howto-vpn-tunnel/image13.png)
 
@@ -177,7 +177,7 @@ ms.locfileid: "90573906"
 
 2. RRAS VM (AppTier) にアクセスします。
 
-3. **[拡張機能]** を選択し、**カスタム スクリプト拡張機能を実行**します。
+3. **[拡張機能]** を選択し、**カスタム スクリプト拡張機能を実行** します。
 
 4. **azure-intelligent-edge-patterns/rras-vnet-vpntunnel** リポジトリのスクリプト ディレクトリを参照します。 **Get-VPNS2SInterfaceStatus.ps1** を選択します。
 

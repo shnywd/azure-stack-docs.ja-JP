@@ -7,12 +7,12 @@ ms.date: 07/27/2020
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: 7da3f2b488444e0868099cfe34e6ebfff56926ea
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: dba03ae9ce1a237bb7ca8ab5ee0f534ad13ebc6b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107146"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546839"
 ---
 # <a name="create-vm-disk-storage-in-azure-stack-hub"></a>Azure Stack Hub で VM ディスク ストレージを作成する
 
@@ -77,7 +77,7 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 
 5. **[マネージド ディスクの作成]** ブレードで次の操作を行います。
    * **[名前]** にディスクの名前を入力します。
-   * 既存の**リソース グループ**を選択するか、新しいリソース グループを作成します。
+   * 既存の **リソース グループ** を選択するか、新しいリソース グループを作成します。
    * **[場所]** を選択します。 既定では、場所は、OS ディスクを保持するコンテナーに設定されます。
    * **[アカウントの種類]** を選択します。
       ![例:VM に新しいディスクをアタッチする](media/azure-stack-manage-vm-disks/create-manage-disk.png)
@@ -110,8 +110,8 @@ VM の作成後、ポータルを使って次の操作を行うことができ�
 
 Azure Stack Hub でのストレージ アカウントの使用について詳しくは、「[Azure Stack Hub ストレージの概要](azure-stack-storage-overview.md)」を参照してください。
 
-1. 使用する**ストレージ アカウント**を選択します。
-2. データ ディスクを配置する**コンテナー**を選択します。 必要に応じて、 **[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
+1. 使用する **ストレージ アカウント** を選択します。
+2. データ ディスクを配置する **コンテナー** を選択します。 必要に応じて、 **[コンテナー]** ブレードで新しいコンテナーを作成できます。 その後、新しいディスクの場所をそのコンテナーに変更できます。 ディスクごとに別のコンテナーを使用する場合は、データ ディスクの分散配置することでパフォーマンスを向上させることができます。
 3. **[選択]** を選択して、選択内容を保存します。
 
     ![コンテナーの選択方法を示すスクリーンショット。](media/azure-stack-manage-vm-disks/select-container.png)
@@ -157,7 +157,7 @@ Azure Stack Hub でのストレージ アカウントの使用について詳し
 
 PowerShell を使用して VM をプロビジョニングし、新しいデータ ディスクを追加するか、既存のマネージド ディスクまたは .vhd ファイルをデータ ディスクとして接続できます。
 
-**Add-AzureRmVMDataDisk** コマンドレットは、VM にデータ ディスクを追加します。 データ ディスクは VM を作成するときに追加できます。または、既存の VM にデータ ディスクを追加できます。 アンマネージド ディスクの場合は、**VhdUri** パラメーターを指定して、別々のコンテナーにディスクを分散させます。
+**Add-AzVMDataDisk** コマンドレットを使用すると、VM にデータ ディスクが追加されます。 データ ディスクは VM を作成するときに追加できます。または、既存の VM にデータ ディスクを追加できます。 アンマネージド ディスクの場合は、**VhdUri** パラメーターを指定して、別々のコンテナーにディスクを分散させます。
 
 ### <a name="add-data-disks-to-a-new-vm"></a>**新しい** VM にデータ ディスクを追加する
 
@@ -169,7 +169,7 @@ PowerShell を使用して VM をプロビジョニングし、新しいデー�
 
 ```powershell
 # Create new virtual machine configuration
-$VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
+$VirtualMachine = New-AzVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
 
 # Set variables
@@ -178,30 +178,30 @@ $location = "local"
 
 # Create a subnet configuration
 $subnetName = "mySubNet"
-$singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
+$singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
 
 # Create a vnet configuration
 $vnetName = "myVnetName"
-$vnet = New-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
+$vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
                                   -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
 
 # Create a public IP
 $ipName = "myIP"
-$pip = New-AzureRmPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
+$pip = New-AzPublicIpAddress -Name $ipName -ResourceGroupName $rgName -Location $location `
                                   -AllocationMethod Dynamic
 
 # Create a network security group configuration
 $nsgName = "myNsg"
-$rdpRule = New-AzureRmNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
+$rdpRule = New-AzNetworkSecurityRuleConfig -Name myRdpRule -Description "Allow RDP" `
                                                 -Access Allow -Protocol Tcp -Direction Inbound -Priority 110 `
                                                 -SourceAddressPrefix Internet -SourcePortRange * `
                                                 -DestinationAddressPrefix * -DestinationPortRange 3389
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
+$nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location `
                                        -Name $nsgName -SecurityRules $rdpRule
 
 # Create a NIC configuration
 $nicName = "myNicName"
-$nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
+$nic = New-AzNetworkInterface -Name $nicName -ResourceGroupName $rgName `
                                    -Location $location -SubnetId $vnet.Subnets[0].Id `
                                    -NetworkSecurityGroupId $nsg.Id -PublicIpAddressId $pip.Id
 
@@ -212,19 +212,19 @@ $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
 次の 3 つのコマンドは、`$VirtualMachine` に格納されている仮想マシンにマネージド データ ディスクを追加します。 各コマンドでは、ディスクの名前および追加のプロパティを指定します。
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                                         -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                                         -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                                         -CreateOption Empty
 ```
@@ -234,7 +234,7 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
 ```powershell
 # Set OS Disk
 $osDiskName = "osDisk"
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $osDiskName  `
                                       -CreateOption FromImage -Windows
 ```
 
@@ -257,19 +257,19 @@ $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.
 次の 3 つのコマンドは、`$VirtualMachine` に格納されている仮想マシンにデータ ディスクを追加します。 各コマンドでは、ディスクの名前および追加のプロパティを指定します。 各ディスクの URI は、`$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` に格納されています。
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
                                         -VhdUri $DataDiskVhdUri01 -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk2' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 11 -Lun 1 `
                                         -VhdUri $DataDiskVhdUri02 -CreateOption Empty
 ```
 
 ```powershell
-$VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
+$VirtualMachine = Add-AzVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
                                         -Caching 'ReadOnly' -DiskSizeInGB 12 -Lun 2 `
                                         -VhdUri $DataDiskVhdUri03 -CreateOption Empty
 ```
@@ -280,7 +280,7 @@ $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk3' `
 # Set OS Disk
 $osDiskUri = "https://contoso.blob.local.azurestack.external/vhds/osDisk.vhd"
 $osDiskName = "osDisk"
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $osDiskUri `
+$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name $osDiskName -VhdUri $osDiskUri `
                                       -CreateOption FromImage -Windows
 ```
 
@@ -290,11 +290,11 @@ $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name $osDiskName -Vhd
 
 ```powershell
 #Create the new VM
-$VirtualMachine = Set-AzureRmVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine -ProvisionVMAgent | `
-                  Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
-                  -Skus 2016-Datacenter -Version latest | Add-AzureRmVMNetworkInterface -Id $nic.Id
+$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName VirtualMachine -ProvisionVMAgent | `
+                  Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer `
+                  -Skus 2016-Datacenter -Version latest | Add-AzVMNetworkInterface -Id $nic.Id
 
-New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 ```
 
 ### <a name="add-data-disks-to-an-existing-vm"></a>既存の VM にデータ ディスクを追加する
@@ -303,10 +303,10 @@ New-AzureRmVM -ResourceGroupName $rgName -Location $location -VM $VirtualMachine
 
 #### <a name="get-virtual-machine"></a>仮想マシンの取得
 
- 最初のコマンドは、**Get-AzureRmVM** コマンドレットを使用して、**VirtualMachine** という名前の VM を取得します。 このコマンドは VM を `$VirtualMachine` 変数に保存します。
+ 最初のコマンドでは、**Get-AzVM** コマンドレットを使用して、**VirtualMachine** という名前の VM を取得します。 このコマンドは VM を `$VirtualMachine` 変数に保存します。
 
 ```powershell
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
+$VirtualMachine = Get-AzVM -ResourceGroupName "myResourceGroup" `
                                 -Name "VirtualMachine"
 ```
 
@@ -315,17 +315,17 @@ $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
 次の 3 つのコマンドは、`$VirtualMachine` 変数に格納されている VM にマネージド データ ディスクを追加します。 各コマンドでは、ディスクの名前および追加のプロパティを指定します。
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk1" -Lun 0 `
                       -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" -Lun 1 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk2" -Lun 1 `
                       -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk3" -Lun 2 `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
 
@@ -348,19 +348,19 @@ $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.
 次の 3 つのコマンドは、`$VirtualMachine` 変数に格納されている VM にデータ ディスクを追加します。 各コマンドは、ディスクの名前、場所、および追加のプロパティを指定します。 各ディスクの URI は、`$DataDiskVhdUri01`、 `$DataDiskVhdUri02`、および `$DataDiskVhdUri03` に格納されています。
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk1" `
                       -VhdUri $DataDiskVhdUri01 -LUN 0 `
                       -Caching ReadOnly -DiskSizeinGB 10 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk2" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk2" `
                       -VhdUri $DataDiskVhdUri02 -LUN 1 `
                       -Caching ReadOnly -DiskSizeinGB 11 -CreateOption Empty
 ```
 
 ```powershell
-Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
+Add-AzVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
                       -VhdUri $DataDiskVhdUri03 -LUN 2 `
                       -Caching ReadOnly -DiskSizeinGB 12 -CreateOption Empty
 ```
@@ -370,7 +370,7 @@ Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3" `
 次のコマンドは、`-ResourceGroupName` 内の `$VirtualMachine` に格納されている VM の状態を更新します。
 
 ```powershell
-Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+Update-AzVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
 ```
 
 ## <a name="next-steps"></a>次のステップ

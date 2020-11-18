@@ -8,12 +8,12 @@ ms.date: 08/05/2020
 ms.author: bryanla
 ms.reviewer: rtiberiu
 ms.lastreviewed: 06/10/2019
-ms.openlocfilehash: cb2da0dc57069647ecefd8ccc278526f7f35f57d
-ms.sourcegitcommit: b69c8334571094721b26e6bdebd639f4fd294dd0
+ms.openlocfilehash: 9348930a09a57ab25be867616c604e11603a82c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839234"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545416"
 ---
 # <a name="create-a-custom-role-for-azure-stack-hub-registration"></a>Azure Stack Hub 登録用のカスタム ロールを作成する
 
@@ -66,13 +66,13 @@ Azure サブスクリプションの所有者アクセス許可を持つアカ�
 3. PowerShell で、Azure Resource Manager を使用するために Azure に接続します。 メッセージが表示されたら、[所有者](/azure/role-based-access-control/built-in-roles#owner)または[ユーザー アクセス管理者](/azure/role-based-access-control/built-in-roles#user-access-administrator)などの十分なアクセス許可を持つアカウントを使用して認証します。
 
     ```azurepowershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
-4. カスタム ロールを作成するには、**New-AzureRmRoleDefinition** を使用して JSON テンプレート ファイルを指定します。
+4. カスタム ロールを作成するには、**New-AzRoleDefinition** を使用して JSON テンプレート ファイルを指定します。
 
     ``` azurepowershell
-    New-AzureRmRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
+    New-AzRoleDefinition -InputFile "C:\CustomRoles\registrationrole.json"
     ```
 
 ## <a name="assign-a-user-to-registration-role"></a>ユーザーを登録ロールに割り当てる

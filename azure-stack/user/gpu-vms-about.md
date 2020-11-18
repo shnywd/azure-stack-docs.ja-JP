@@ -5,15 +5,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: reference
-ms.date: 07/07/2020
+ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: bb945f69a972214823f366456967b71a013d98bf
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899841"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546924"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
@@ -24,11 +24,12 @@ ms.locfileid: "91899841"
 パブリック プレビュー期間中は、3 つの GPU モデルから選択できます。 NVIDIA V100、NVIDIA T4、AMD MI25 の各 GPU で利用できます。 これらの物理 GPU は、次のように、Azure N-Series の仮想マシン (VM) の種類に対応しています。
 - [NCv3](/azure/virtual-machines/ncv3-series)
 - [NVv4 (AMD MI25)](/azure/virtual-machines/nvv4-series)
-- NCas_v4
+- [NCasT4_v3](/azure/virtual-machines/nct4-v3-series)
 
 > [!IMPORTANT]  
 > Azure Stack Hub での GPU のサポートは、現在パブリック プレビュー段階にあります。 プレビューに参加するには、[aka.ms/azurestackhubgpupreview](https://aka.ms/azurestackhubgpupreview) にあるフォームにご記入ください。
-> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
+> このプレビュー バージョンはサービス レベル アグリーメントなしで提供されています。運用環境のワークロードに使用することはお勧めできません。 特定の機能はサポート対象ではなく、機能が制限されることがあります。
+> 詳しくは、[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)に関するページをご覧ください。
 
 ## <a name="ncv3"></a>NCv3
 
@@ -48,18 +49,14 @@ NVv4 シリーズの仮想マシンには [AMD Radeon Instinct MI25](https://www
 | --- | --- | --- | --- | --- | --- | --- | --- |   
 | Standard_NV4as_v4 |4 |14 |88 | 1/8 | 2 | 4 | 2 | 
 
-## <a name="ncas_v4"></a>NCas_v4
-
-この新しい NVIDIA T4 VM サイズを使用すると、比較的低負荷の ML、推論、および視覚化のワークロードを Azure Stack Hub で実行できます。 現在、この VM サイズはポータルからはデプロイ "*できません*"。代わりに、PowerShell または CLI を使用する必要があります。
-
+## <a name="ncast4_v3"></a>NCasT4_v3
 
 | サイズ | vCPU | メモリ:GiB | GPU | GPU メモリ: GiB | 最大データ ディスク数 | 最大 NIC 数 | 
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC4as_v4 |4 |28 | 1 | 16 | 8 | 4 | 
-| Standard_NC8as_v4 |8 |56 | 1 | 16 | 16 | 8 | 
-| Standard_NC16as_v4 |16 |112 | 1 | 16 | 32 | 8 | 
-| Standard_NC64as_v4 |64 |448 | 4 | 64 | 32 | 8 | 
-
+| Standard_NC4as_T4_v3 |4 |28 | 1 | 16 | 8 | 4 | 
+| Standard_NC8as_T4_v3 |8 |56 | 1 | 16 | 16 | 8 | 
+| Standard_NC16as_T4_v3 |16 |112 | 1 | 16 | 32 | 8 | 
+| Standard_NC64as_T4_v3 |64 |448 | 4 | 64 | 32 | 8 |
 
 ## <a name="patch-and-update-fru-behavior-of-vms"></a>修正プログラム、更新プログラムの適用時、および FRU の際の VM の動作 
 
@@ -70,17 +67,25 @@ GPU VM では、修正プログラムと更新プログラム (PnU) の適用時
 | VM の状態  | 更新中および更新後は手動の起動操作を行わないと使用できません | 更新中は使用できません。 更新後に手動操作を行うと使用できるようになります | 更新中は使用できません。 更新後に手動操作を行うと使用できるようになります| 
 | 手動操作 | 更新中に VM を使用できるようにする必要があるときは、使用可能な GPU パーティションがある場合は、ポータルで **[再起動]** ボタンをクリックすることで VM を再起動できます。 更新後はポータルで **[再起動]** ボタンを使用して VM を再起動します | 更新中は VM を使用することはできません。 更新の完了後、 **[停止]** ボタンを使用して VM の停止と割り当て解除を行い、[開始] ボタンを使用してバックアップを起動する必要があります | 更新中は VM を使用することはできません。更新の完了後、 **[停止]** ボタンを使用して VM の停止と割り当て解除を行い、 **[開始]** ボタンを使用してバックアップを起動する必要があります。| 
 
-## <a name="guest-driver-installation"></a>ゲスト ドライバーのインストール 
+## <a name="guest-driver-installation"></a>ゲスト ドライバーのインストール
 
 ### <a name="amd-mi25"></a>AMD MI25
+
 「[Windows を実行している N シリーズ VM に AMD GPU ドライバーをインストールする](/azure/virtual-machines/windows/n-series-amd-driver-setup)」の記事では、NVv4 GPU-P 対応の VM 内に AMD Radeon Instinct MI25 のドライバーをインストールする手順と、ドライバーのインストールを検証する手順について説明しています。 この拡張機能は接続モードでのみ動作します。
 
 ### <a name="nvidia"></a>NVIDIA
 
-VM で CUDA または GRID ワークロードを実行するには、NVIDIA ドライバーが必要です。 拡張機能を使用して VM に GRID ドライバーをインストールする前に、適切な GRID ライセンスをお持ちであること、また、ライセンス サーバーが設定されていることをご確認ください。 ライセンス サーバーを設定する方法については[こちら](https://docs.nvidia.com/grid/ls/latest/grid-license-server-user-guide/index.html)をご覧ください。 CUDA ドライバーにはライセンス サーバーは不要です。
+GPU を使用する CUDA または GRID ワークロード用の仮想マシン内に、NVIDIA ドライバーをインストールする必要があります。
 
-NVIDIA CUDA ドライバーと GRID ドライバーは、手動で VM にインストールする必要があります。 Tesla CUDA ドライバーは、NVIDIA の[ダウンロード Web サイト](https://www.nvidia.com/Download/index.aspx)から入手できます。 必要なライセンスをお持ちの場合は、NVIDIA アプリケーション ハブから GRID ドライバーをダウンロードできます。
+#### <a name="use-case-graphicsvisualization"></a>ユース ケース: グラフィックスと視覚化
 
-## <a name="next-steps"></a>次のステップ 
+このシナリオには、GRID ドライバーを使用する必要があります。 必要なライセンスをお持ちの場合は、NVIDIA アプリケーション ハブから GRID ドライバーをダウンロードできます。 また、GRID ドライバーには、VM で GRID ドライバーを使用する前に、適切な GRID ライセンスが含まれる GRID ライセンス サーバーも必要です。 ライセンス サーバーを設定する方法についてはこちらをご覧ください。
 
-[Azure Stack VM の機能](azure-stack-vm-considerations.md)
+#### <a name="use-case-computecuda"></a>ユース ケース: コンピューティングと CUDA
+
+NVIDIA CUDA ドライバーと GRID ドライバーは、手動で VM にインストールする必要があります。 Tesla CUDA ドライバーは、NVIDIA の[ダウンロード Web サイト](https://www.nvidia.com/Download/index.aspx)から入手できます。 CUDA ドライバーにはライセンス サーバーは不要です。
+
+## <a name="next-steps"></a>次のステップ
+
+- [Linux を実行している N シリーズ VM に NVIDIA GPU ドライバーをインストールする](/azure/virtual-machines/linux/n-series-driver-setup)
+- [Azure Stack VM の機能](azure-stack-vm-considerations.md)

@@ -7,12 +7,12 @@ ms.date: 08/18/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 672071c93d5f227ae6ec9bfccedc043e6838ac61
-ms.sourcegitcommit: 69c859a89941ee554d438d5472308eece6766bdf
+ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89621318"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543937"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -158,8 +158,8 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
 
     ```powershell
     $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzAccount -EnvironmentName "AzureStackAdmin"
     ```
 
 4. 次のスクリプトを実行して、リソースをギャラリーにインポートします。
@@ -171,7 +171,7 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
 
 5. アイテムの格納に使用できる有効なストレージ アカウントがあることを確認します。 `GalleryItemURI` の値は、Azure Stack Hub 管理者ポータルから取得できます。 **[ストレージ アカウント] > [BLOB のプロパティ] > [URL]** の順に選択し、拡張子を .azpkg にします。 ストレージ アカウントは、Marketplace に発行するために一時的に使用するためのものです。
 
-   ギャラリー パッケージが完成し、**Add-AzsGalleryItem** を使用してアップロードすると、カスタム VM が Marketplace と **[リソースの作成]** ビューに表示されるようになります。 **Marketplace の管理**にはカスタム ギャラリー パッケージが表示されないことに注意してください。
+   ギャラリー パッケージが完成し、**Add-AzsGalleryItem** を使用してアップロードすると、カスタム VM が Marketplace と **[リソースの作成]** ビューに表示されるようになります。 **Marketplace の管理** にはカスタム ギャラリー パッケージが表示されないことに注意してください。
 
    [![アップロードされたカスタムのマーケットプレース項目](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "アップロードされたカスタムのマーケットプレース項目")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
 
@@ -182,7 +182,7 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-7. Marketplace アイテムを削除するには、**Remove-AzureRMGalleryItem** コマンドレットを使用します。 次に例を示します。
+6. Marketplace アイテムを削除するには、**Remove-AzGalleryItem** コマンドレットを使用します。 次に例を示します。
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose

@@ -5,21 +5,21 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 07/21/2020
-ms.openlocfilehash: 9dfdbcab43694146c4190db8ef29905626a4d597
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.date: 11/06/2020
+ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
+ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866646"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94360192"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターのサーバーを追加または削除する
 
-> 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019
+> 適用対象:Azure Stack HCI バージョン 20H2
 
 Azure Stack HCI のクラスターに対してサーバーを簡単に追加または削除できます。 新しい各物理サーバーは、CPU の種類、メモリ、ドライブの数、ドライブの種類とサイズに関して、クラスター内の他のサーバーと厳密に一致している必要があることに注意してください。
 
-サーバーを追加または削除したときは必ず、後でクラスター検証を実行して、クラスターが正常に機能していることを確認することも必要です。
+サーバーを追加または削除したときは必ず、後でクラスター検証を実行して、クラスターが正常に機能していることを確認することも必要です。 これは、非ストレッチ クラスターとストレッチ クラスターの両方に適用されます。
 
 ## <a name="obtain-oem-hardware"></a>OEM ハードウェアを入手する
 
@@ -31,7 +31,7 @@ Azure Stack HCI のクラスターに対してサーバーを簡単に追加ま�
 1. OEM によって提供されるツールを使用して、最新のファームウェア ベースラインをすべてのコンポーネントに適用します。
 1. OEM 検証テストを実行して、既存のクラスター サーバーとの同質性を確保します。
 
-## <a name="add-a-server-to-the-cluster"></a>クラスターにサーバーを追加する
+## <a name="add-a-server-to-a-cluster"></a>クラスターにサーバーを追加する
 
 サーバーが正しく起動したら、Windows Admin Center を使用してサーバーをクラスターに参加させます。
 
@@ -45,7 +45,7 @@ Azure Stack HCI のクラスターに対してサーバーを簡単に追加ま�
 1. **[サーバー名]** に、追加するサーバーの完全修飾ドメイン名を入力し、 **[追加]** をクリックして、下部にある **[追加]** をもう一度クリックします。
 1. サーバーがクラスターに正常に追加されたことを確認します。
 
-## <a name="remove-a-server-from-the-cluster"></a>クラスターからサーバーを削除する
+## <a name="remove-a-server-from-a-cluster"></a>クラスターからサーバーを削除する
 
 クラスターからサーバーを削除する手順は、クラスターにサーバーを追加する手順と似ています。
 
@@ -61,8 +61,161 @@ Azure Stack HCI のクラスターに対してサーバーを簡単に追加ま�
 1. また、記憶域プールからサーバーのドライブをすべて削除するには、そのチェックボックスをオンにします。
 1. サーバーがクラスターから正常に削除されたことを確認します。
 
-クラスターのサーバー ノードを追加または削除する場合は常に、後でクラスター検証テストを実行してください。
+クラスターのサーバーを追加または削除する場合は常に、後でクラスター検証テストを実行してください。
+
+## <a name="add-server-pairs-to-a-stretched-cluster"></a>ストレッチ クラスターにサーバー ペアを追加する
+
+ストレッチ クラスターでは、各サイトに同じ数のサーバー ノードと同じ数のドライブが必要です。 ストレッチ クラスターにサーバー ペアを追加すると、そのドライブは、ストレッチ クラスターの両方のサイトの記憶域プールにすぐに追加されます。 追加時に各サイトの記憶域プールのサイズが同じでない場合は、拒否されます。 これは、記憶域プールのサイズは、サイト間で同じである必要があるためです。
+
+非ストレッチ クラスターの場合とは異なり、ストレッチ クラスターのサーバーの追加または削除は、Windows PowerShell を使用することによってのみ可能です。 [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) および [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) コマンドレットを使用して、サーバーを追加する前に、まずサイト (障害ドメイン) の情報を変更します。
+
+次に、[Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) コマンドレットを使用して、各サイトにサーバー ペアを同時に追加できます。これにより、新しいサーバーの各ドライブも同時に追加できます。
+
+通常、クラスターは、クラスター内のサーバーではなく、リモート コンピューターから管理します。 このリモート コンピューターは、管理コンピューターと呼ばれます。
+
+> [!NOTE]
+> 管理コンピューターから PowerShell コマンドを実行する場合は、管理しているクラスターの名前を指定した `-Cluster` パラメーターを含めます。
+
+では、始めましょう。
+
+1. 次の PowerShell コマンドレットを使用して、クラスターの状態を確認します。
+
+    クラスター内のアクティブなサーバーの一覧を取得します。
+
+     ```powershell
+    Get-ClusterNode
+    ```
+
+    クラスターの記憶域プールの統計情報を取得します。
+
+    ```powershell
+    Get-StoragePool pool*
+    ```
+
+    サイト (障害ドメイン) ごとにサーバーの一覧を取得します。
+
+    ```powershell
+    Get-ClusterFaultDomain
+    ```
+
+1. メモ帳または他のテキスト エディターで `Sites.xml` ファイルを開きます。
+
+    ```powershell
+    Get-ClusterFaultDomainXML | out-file sites.xml
+    ```
+ 
+    ```powershell
+    notepad
+    ```
+
+1. 管理 PC で `Sites.xml` ファイルがローカルに配置されている場所に移動し、ファイルを開きます。 `Sites.xml` ファイルは次のような内容です。
+
+    ```
+    <Topology>
+        <Site Name="Site1" Description="" Location="">
+            <Node Name="Server1" Description="" Location="">
+            <Node Name="Server2" Description="" Location="">
+        </Site>
+        <Site Name="Site2" Description="" Location="">
+            <Node Name="Server3" Description="" Location="">
+            <Node Name="Server4" Description="" Location="">
+        </Site>
+    <Topology>
+    ```
+
+1. この例を使用して、次のように各サイト (`Server5`、`Server6`) にサーバーを追加します。
+
+    ```
+    <Topology>
+        <Site Name="Site1" Description="" Location="">
+            <Node Name="Server1" Description="" Location="">
+            <Node Name="Server2" Description="" Location="">
+            <Node Name="Server5" Description="" Location="">
+        </Site>
+        <Site Name="Site2" Description="" Location="">
+            <Node Name="Server3" Description="" Location="">
+            <Node Name="Server4" Description="" Location="">
+            <Node Name="Server6" Description="" Location="">
+        </Site>
+    <Topology>
+    ```
+
+1. 現在のサイト (障害ドメイン) の情報を変更します。  最初のコマンドで、変数を設定して `Sites.xml` ファイルの内容を取得し、それを出力します。 2 番目のコマンドで、変数 `$XML` に基づいて変更を設定します。
+
+    ```
+    $XML = Get-Content .\sites.xml | out-string
+    Set-ClusterFaultDomainXML -xml $XML
+    ```
+
+1. 行った変更が正しいことを確認します。
+
+    ```
+    Get-ClusterFaultDomain
+    ```
+
+1. `Add-ClusterNode` コマンドレットを使用して、クラスターにサーバー ペアを追加します。
+
+    ```
+    Add-ClusterNode -Name Server5,Server6
+    ```
+
+サーバーが正常に追加されると、関連付けられているドライブが各サイトの記憶域プールに自動的に追加されます。 最後に、ヘルス サービスによって、新しいドライブを組み込むためのストレージ ジョブが作成されます。
+
+## <a name="remove-server-pairs-from-a-stretched-cluster"></a>ストレッチ クラスターからサーバー ペアを削除する
+
+ストレッチ クラスターからのサーバー ペアの削除は、サーバー ペアの追加と同様のプロセスですが、代わりに [Remove-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/remove-clusternode) コマンドレットを使用します。
+
+1. 次の PowerShell コマンドレットを使用して、クラスターの状態を確認します。
+
+    クラスター内のアクティブなサーバーの一覧を取得します。
+
+     ```powershell
+    Get-ClusterNode
+    ```
+
+    クラスターの記憶域プールの統計情報を取得します。
+
+    ```powershell
+    Get-StoragePool pool*
+    ```
+
+    サイト (障害ドメイン) ごとにサーバーの一覧を取得します。
+
+    ```powershell
+    Get-ClusterFaultDomain
+    ```
+
+1. メモ帳または他のテキスト エディターで `Sites.xml` ファイルを開きます。
+
+    ```powershell
+    Get-ClusterFaultDomainXML | out-file sites.xml
+    ```
+ 
+    ```powershell
+    notepad
+    ```
+
+1. 前の例を使用し、`Sites.xml` ファイルで、各サイトの `<Node Name="Server5" Description="" Location="">` と `<Node Name="Server6" Description="" Location="">` XML エントリを削除します。
+1. 次の 2 つのコマンドレットを使用して、現在のサイト (障害ドメイン) の情報を変更します。
+
+    ```
+    $XML = Get-Content .\sites.xml | out-string
+    Set-ClusterFaultDomainXML -xml $XML
+    ```
+
+1. 行った変更が正しいことを確認します。
+
+    ```
+    Get-ClusterFaultDomain
+    ```
+1. `Remove-ClusterNode` コマンドレットを使用して、クラスターからサーバー ペアを削除します。
+
+    ```
+    Remove-ClusterNode -Name Server5,Server6
+    ```
+
+サーバーが正常に削除されると、関連付けられているドライブがサイト プールから自動的に削除されます。 最後に、ヘルス サービスによって、これらのドライブを削除するためのストレージ ジョブが作成されます。
 
 ## <a name="next-steps"></a>次のステップ
 
-- ノードを追加または削除した後、クラスターを検証する必要があります。 詳細については、「[クラスターを検証する](../deploy/validate.md)」を参照してください。
+- サーバーを追加または削除した後は、クラスターを検証する必要があります。 詳細については、[クラスターの検証](../deploy/validate.md)に関するページを参照してください。

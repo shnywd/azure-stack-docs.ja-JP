@@ -7,20 +7,20 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: 7c8c27374b7ba114dc09297c2f0112d3f0f9579d
-ms.sourcegitcommit: cad40ae88212cc72f40c84a1c88143ea0abb65ef
+ms.openlocfilehash: a5bd582cd93a95f662a8acc2094e6a62a7ecdf50
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112154"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546907"
 ---
 # <a name="deploy-a-template-using-powershell-in-azure-stack-hub"></a>Azure Stack Hub で PowerShell を使用してテンプレートをデプロイする
 
 PowerShell を使用して、Azure Resource Manager テンプレートを Azure Stack Hub にデプロイできます。 この記事では、PowerShell を使用してテンプレートをデプロイする方法について説明します。
 
-## <a name="run-azurerm-powershell-cmdlets"></a>Azure PowerShell コマンドレットの実行
+## <a name="run-az-powershell-cmdlets"></a>Az PowerShell コマンドレットを実行する
 
-この例では、**AzureRM** PowerShell コマンドレットと GitHub に格納されているテンプレートを使用します。 テンプレートにより、Windows Server 2012 R2 Datacenter の仮想マシンが作成されます。
+この例では、**Az** PowerShell コマンドレットと GitHub に格納されているテンプレートを使用します。 テンプレートにより、Windows Server 2012 R2 Datacenter の仮想マシンが作成されます。
 
 >[!NOTE]
 > この例を試す前に、Azure Stack Hub ユーザー用に [PowerShell を構成している](azure-stack-powershell-configure-user.md)ことを確認します。
@@ -36,10 +36,10 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
     $myLocation = "yourregion" # local for the ASDK
 
     # Create resource group for template deployment
-    New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+    New-AzResourceGroup -Name $RGName -Location $myLocation
 
     # Deploy simple IaaS template
-    New-AzureRmResourceGroupDeployment `
+    New-AzResourceGroupDeployment `
         -Name myDeployment$myNum `
         -ResourceGroupName $RGName `
         -TemplateUri <path>\AzureStack-QuickStart-Templates\101-vm-windows-create\azuredeploy.json `
@@ -54,7 +54,7 @@ PowerShell を使用して、Azure Resource Manager テンプレートを Azure 
 
 ## <a name="cancel-a-running-template-deployment"></a>実行中のテンプレートのデプロイのキャンセル
 
-実行中のテンプレートのデプロイをキャンセルするには、`Stop-AzureRmResourceGroupDeployment` PowerShell コマンドレットを使用します。
+実行中のテンプレートのデプロイをキャンセルするには、`Stop-AzResourceGroupDeployment` PowerShell コマンドレットを使用します。
 
 ## <a name="next-steps"></a>次のステップ
 

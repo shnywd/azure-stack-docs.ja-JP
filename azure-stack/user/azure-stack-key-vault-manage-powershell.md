@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: sethm
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 5ca8221d9a85a6dad874969525006f789e6b7084
-ms.sourcegitcommit: 3fd4a38dc8446e0cdb97d51a0abce96280e2f7b7
+ms.openlocfilehash: f1cdb082accdef3590bd737a39add61b1ebbc8bb
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580164"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546312"
 ---
 # <a name="manage-key-vault-in-azure-stack-hub-using-powershell"></a>PowerShell を使用した Azure Stack Hub での Key Vault の管理
 
@@ -27,7 +27,7 @@ ms.locfileid: "82580164"
 ## <a name="prerequisites"></a>前提条件
 
 * Azure Key Vault サービスを含むプランをサブスクライブする必要があります。
-* [PowerShell for Azure Stack Hub をインストールします](../operator/azure-stack-powershell-install.md)。
+* [PowerShell for Azure Stack Hub をインストールします](../operator/powershell-install-az-module.md)。
 * [Azure Stack Hub の PowerShell 環境を構成します](azure-stack-powershell-configure-user.md)。
 
 ## <a name="enable-your-tenant-subscription-for-key-vault-operations"></a>Key Vault 操作のためのテナント サブスクリプションの有効化
@@ -35,7 +35,7 @@ ms.locfileid: "82580164"
 キー コンテナーに対してなんらかの操作を発行するには、テナント サブスクリプションでコンテナー操作が有効になっていることを確認する必要があります。 キー コンテナー操作が有効になっていることを確認するには、次のコマンドを実行します。
 
 ```powershell  
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
+Get-AzResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
 サブスクリプションでコンテナー操作が有効になっている場合は、出力のキー コンテナーのすべてのリソースの種類で **RegistrationState** が **Registered** と表示されます。
@@ -45,7 +45,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 コンテナー操作が有効になっていない場合は、次のコマンドを発行して、自分のサブスクリプションで Key Vault サービスを登録します。
 
 ```powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
+Register-AzResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
 登録に成功した場合は、次の出力が返されます。
@@ -59,17 +59,17 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 キー コンテナーを作成する前に、リソース グループを作成し、このリソース グループに、キー コンテナー関連のすべてのリソースが存在するようにしておきます。 次のコマンドを使用して、新しいリソース グループを作成します。
 
 ```powershell
-New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
+New-AzResourceGroup -Name "VaultRG" -Location local -verbose -Force
 ```
 
 ![PowerShell で生成された新しいリソース グループ](media/azure-stack-key-vault-manage-powershell/image3.png)
 
-次に、**New-AzureRMKeyVault** コマンドレットを使用して、以前に作成したリソース グループ内にキー コンテナーを作成します。 このコマンドは、3 つの必須パラメーター (リソース グループ名、キー コンテナー名、地理的な場所) を読み取ります。
+次に、**New-AzKeyVault** コマンドレットを使用して、以前に作成したリソース グループ内にキー コンテナーを作成します。 このコマンドは、3 つの必須パラメーター (リソース グループ名、キー コンテナー名、地理的な場所) を読み取ります。
 
 次のコマンドを実行して、キー コンテナーを作成します。
 
 ```powershell
-New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
+New-AzKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
 ![PowerShell で生成された新しいキー コンテナー](media/azure-stack-key-vault-manage-powershell/image4.png)
@@ -78,7 +78,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Active Directory フェデレーション サービス (AD FS) のデプロイ
 
-AD FS のデプロイでは、"アクセス ポリシーが設定されていません。 ユーザーまたはアプリケーションに、このコンテナーを使用するアクセス許可がありません" という警告が表示される場合があります。 この問題を解決するには、[**Set-AzureRmKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) コマンドを使用して、コンテナーのアクセス ポリシーを設定します。
+AD FS のデプロイでは、"アクセス ポリシーが設定されていません。 ユーザーまたはアプリケーションに、このコンテナーを使用するアクセス許可がありません" という警告が表示される場合があります。 この問題を解決するには、[**Set-AzKeyVaultAccessPolicy**](#authorize-an-app-to-use-a-key-or-secret) コマンドを使用して、コンテナーのアクセス ポリシーを設定します。
 
 ```powershell
 # Obtain the security identifier(SID) of the active directory user
@@ -86,7 +86,7 @@ $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
 
 # Set the key vault access policy
-Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName "{resource group name}" -ObjectId "{object SID}" -PermissionsToKeys {permissionsToKeys} -PermissionsToSecrets {permissionsToSecrets} -BypassObjectIdValidation
 ```
 
 ## <a name="manage-keys-and-secrets"></a>キーとシークレットの管理
@@ -141,20 +141,20 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 
 ## <a name="authorize-an-app-to-use-a-key-or-secret"></a>アプリに対してキーまたはシークレットの使用を許可する
 
-**Set-AzureRmKeyVaultAccessPolicy** コマンドレットを使用して、キー コンテナーのキーまたはシークレットへの、アプリによるアクセスを承認します。
+**Set-AzKeyVaultAccessPolicy** コマンドレットを使用して、キー コンテナーのキーまたはシークレットへの、アプリによるアクセスを承認します。
 
 次の例では、コンテナー名が **ContosoKeyVault** で、承認するアプリのクライアント ID が **8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed** です。 アプリを承認するには、次のコマンドを実行します。 また、**PermissionsToKeys** パラメーターを指定し、ユーザー、アプリ、またはセキュリティ グループに対してアクセス許可を設定することもできます。
 
-ADFS が構成された Azure Stack Hub 環境に対して Set-AzureRmKeyvaultAccessPolicy を使用する場合、パラメーター BypassObjectIdValidation を指定する必要があります
+ADFS が構成された Azure Stack Hub 環境に対して Set-AzKeyvaultAccessPolicy を使用する場合、パラメーター BypassObjectIdValidation を指定する必要があります
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign -BypassObjectIdValidation
 ```
 
 その同じアプリがコンテナーのシークレットを読み取ることを承認する場合は、次のコマンドレットを実行します。
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
+Set-AzKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get -BypassObjectIdValidation
 ```
 
 ## <a name="next-steps"></a>次のステップ

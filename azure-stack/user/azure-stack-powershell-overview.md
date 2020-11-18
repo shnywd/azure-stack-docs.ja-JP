@@ -3,16 +3,16 @@ title: Azure Stack Hub での PowerShell
 description: Azure Stack Hub 内の PowerShell には、さまざまなモジュールやコンテキストがあります。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 10/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/02/2019
-ms.openlocfilehash: 9731586043f42358bef0e8e37f9de7e23feebbff
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: 7103a2a8268ffb4c8cbbc84f35e6e1a6a90992c3
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567044"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546584"
 ---
 # <a name="get-started-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub 内の PowerShell の概要
 
@@ -35,7 +35,7 @@ PowerShell は、コマンド ラインからリソースを管理できるよ�
 
 次のブロック図は、PowerShell モジュールのセット間の関係を示しています。 お使いのマシンから、PowerShell モジュールを読み込んで、グローバル Azure および Azure Stack Hub の両方を管理できます。
 
-![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powerShell.svg)
+![Azure Stack Hub PowerShell](media/azure-stack-powershell-overview/azure-stack-powershell.svg)
 
 ### <a name="global-azure"></a>グローバル Azure
 
@@ -43,11 +43,11 @@ Azure PowerShell には、お使いの Azure リソースの操作に Azure Reso
 
 ### <a name="azure-stack-hub-resource-manager"></a>Azure Stack Hub Resource Manager
 
-Azure Stack Hub PowerShell には、Azure Resource Manager の以前のバージョンを使用する一連のコマンドレットが用意されています。 これらのコマンドレットは、Azure Stack Hub のリソース プロバイダーと互換性があります。 Azure Stack Hub の各リソース プロバイダーでは、グローバル Azure にあるプロバイダーの古いバージョンを使用します。 Azure Stack Hub でサポートされている各プロバイダーのバージョンを調整しやすくするために、API プロファイルを使用できます。 Azure Stack Hub PowerShell では PowerShell 5.1 を使用し、Windows 上でのみ利用できます。 詳細については、「[Azure Stack Hub での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
+Azure Stack Hub PowerShell には、Azure Resource Manager の以前のバージョンを使用する一連のコマンドレットが用意されています。 これらのコマンドレットは、Azure Stack Hub のリソース プロバイダーと互換性があります。 Azure Stack Hub の各リソース プロバイダーでは、グローバル Azure にあるプロバイダーの古いバージョンを使用します。 Azure Stack Hub でサポートされている各プロバイダーのバージョンを調整しやすくするために、API プロファイルを使用できます。 詳細については、「[Azure Stack Hub での API バージョンのプロファイルの管理](azure-stack-version-profiles.md)」を参照してください。
 
 ### <a name="azure-stack-hub-administrator"></a>Azure Stack Hub 管理者
 
-Azure Stack Hub では、クラウド オペレーターが Azure Stack Hub のインストールおよび管理を行うことができるように、一連のリソース プロバイダーがオペレーターに公開されます。 グローバル Azure では、この操作がユーザーから抽象化され、Azure の一部として、バックグラウンドで処理されます。 しかし、Azure Stack Hub では、企業はプライベート クラウドをサポートできます。 これらのタスクを行うには、オペレーターが Azure Stack Hub 管理 API を操作します。 詳細については、「[PowerShell for Azure Stack Hub をインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
+Azure Stack Hub では、クラウド オペレーターが Azure Stack Hub のインストールおよび管理を行うことができるように、一連のリソース プロバイダーがオペレーターに公開されます。 グローバル Azure では、この操作がユーザーから抽象化され、Azure の一部として、バックグラウンドで処理されます。 しかし、Azure Stack Hub を使用することで、企業はプライベート クラウドをサポートできます。 これらのタスクを行うには、オペレーターが Azure Stack Hub 管理 API を操作します。 詳細については、「[PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md)」を参照してください。
 
 ### <a name="azure-stack-hub-privileged-endpoint"></a>Azure Stack Hub の特権エンドポイント
 
@@ -61,7 +61,7 @@ Azure Stack Hub では、GitHub リポジトリの *AzureStack-Tools* でスク�
 
 PowerShell には、Azure Resource Manager をプログラムから操作するための方法が用意されています。 対話型のコマンド プロンプトを操作するか、タスクを自動化する場合は、スクリプトを記述できます。
 
-Azure Stack Hub PowerShell の操作に多くの時間がかかる場合、モジュールのインストールや再インストールをすることがあります。 グローバル Azure を同時に操作している場合には、このルーチンは困難な場合があります。お客様の目的に合わせてお使いのモジュールのアンインストールや再インストールを行う必要があるためです。 
+Azure Stack Hub PowerShell の操作に多くの時間がかかる場合、モジュールのインストールや再インストールをすることがあります。 グローバル Azure を同時に操作している場合には、このルーチンは困難な場合があります。お客様の目的に合わせてお使いのモジュールのアンインストールや再インストールを行う必要があるためです。
 
 Docker コンテナーを使用して、お使いのローカル コンピューター上の PowerShell をバージョンごとに分離できます。 PowerShell モジュール セットから PowerShell モジュール セットに切り替えられるように、Docker コンテナーを使用するには、[Docker を使用した PowerShell の実行](azure-stack-powershell-user-docker.md)に関するページを参照してください。
 
@@ -69,5 +69,5 @@ Docker コンテナーを使用して、お使いのローカル コンピュー
 ## <a name="next-steps"></a>次のステップ
 
 - Azure Stack Hub の [PowerShell の API プロファイル](azure-stack-version-profiles.md)についてお読みください。
-- [Azure Stack Hub PowerShell](../operator/azure-stack-powershell-install.md) をインストールします。
+- [Azure Stack Hub PowerShell](../operator/powershell-install-az-module.md) をインストールします。
 - クラウドの一貫性のための [Azure Resource Manager テンプレート](azure-stack-develop-templates.md)の作成についてお読みください。

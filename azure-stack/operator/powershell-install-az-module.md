@@ -3,33 +3,31 @@ title: Azure Stack Hub 用の PowerShell Az モジュールをインストール
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 11/11/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 06/22/2020
-ms.openlocfilehash: da2a12256a6714c727a5bfa5cdf8fe635d5b742e
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 11/11/2020
+ms.openlocfilehash: de226383fc5109cd702c4883754766664ea9ab73
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363964"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546941"
 ---
-# <a name="install-powershell-az-preview-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする
+# <a name="install-powershell-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az モジュールをインストールする
 
 この記事では、PowerShellGet を使用して Azure PowerShell Az および互換性のある Azure Stack Hub 管理者モジュールをインストールする方法について説明します。 Az modules は、Windows、macOS、Linux の各プラットフォームにインストールできます。
 
 Docker コンテナー内の Azure Stack Hub に対して Az モジュールを実行することもできます。 手順については、[Docker を使用して Azure Stack Hub に対して PowerShell を実行する](../user/azure-stack-powershell-user-docker.md)方法に関するページを参照してください。
 
-Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする場合は、[「Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする」](azure-stack-powershell-install.md)を参照してください。
+Azure Stack Hub 用の PowerShell Resource Modules (AzureRM) モジュールをインストールする場合は、「[Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする](azure-stack-powershell-install.md)」を参照してください。
 
 > [!IMPORTANT]
-> PowerShell Az モジュールは、現在パブリック プレビュー段階にあります。
-> このプレビュー バージョンには、今後のリリースで破壊的変更がある可能性があります。詳細については、「[Microsoft Azure プレビューの追加使用条件](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)」を参照してください。
-> AzureRM モジュールの新しいリリースは出されない可能性があります。 AzureRM モジュールは、重要な修正プログラムについてのみサポートされています。 今後は、Azurestack 用の Az リリースのみになります。
+> Azure Resource Modules モジュールには新しいリリースがない可能性があります。 Azure Resource Modules モジュールは、重要な修正についてのみサポートされています。 今後は、Azure Stack Hub 用の Az リリースのみになります。
 
-" *API プロファイル* " を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定することができます。
+"*API プロファイル*" を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定することができます。
 
-API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、 **2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
+API プロファイルには、Azure と Azure Stack Hub のバージョンの違いを管理するための方法が用意されています。 API バージョンのプロファイルは、特定の API バージョンを持つ一連の Azure Resource Manager PowerShell モジュールです。 各クラウド プラットフォームでは、一連の API バージョンのプロファイルがサポートされています。 たとえば、Azure Stack Hub では、**2019-03-01-hybrid** などの特定のプロファイル バージョンがサポートされます。 プロファイルをインストールすると、指定されたプロファイルに対応する Azure Resource Manager PowerShell モジュールがインストールされます。
 
 Azure Stack Hub と互換性のある PowerShell Az モジュールは、インターネットに接続されている、部分的に接続されている、または接続が切断されているシナリオでインストールできます。 この記事では、これらのシナリオの詳細な手順について説明します。
 
@@ -57,9 +55,9 @@ PowerShell Core 6.x 以降のバージョンが必要です。 手順につい�
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする
 
-必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub AzureRM または Az PowerShell モジュールをアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
+必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub Azure Resource Modules モジュールまたは Az PowerShell モジュールをすべてアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
 
-1. 既存の AzureRM と Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
+1. 既存の Azure Resource Modules モジュールと Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -77,6 +75,8 @@ Azure Stack Az モジュールは、Azure Stack Hub 2002 以降で動作しま�
 PowerShell セッションから次のコマンドを実行します。
 
 ```powershell  
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
 Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
 Install-AzProfile -Profile 2019-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
@@ -86,7 +86,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > Azure Stack Hub モジュール バージョン 2.0.0 は破壊的変更を伴うリリースです。 詳細については、「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
 
 > [!WARNING]
-> Windows 用の PowerShell 5.1 で AzureRM と Az の両方のモジュールを同時にインストールすることはできません。 AzureRM をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
+> Windows 用の PowerShell 5.1 で Azure Resource Modules (AzureRM) と Az の両方のモジュールを同時にインストールすることはできません。 Azure Resource Modules をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.切断状態の場合: インターネット接続を使用しないインストール
 
@@ -107,9 +107,10 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 以降。
 
-AzureRM または Az プレビュー モジュールのいずれかを使用できます。 RM モジュールについては、[PowerShell AzureRM モジュールのインストール](azure-stack-powershell-install.md)に関する記事の手順を参照してください。 次のコードでは、信頼できるオンライン リポジトリ https://www.powershellgallery.com/ からのモジュールが保存されます。
+Azure Resource Modules または Az モジュールのいずれかを使用できます。 Azure Resource Modules については、[PowerShell AzureRM モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。 次のコードでは、信頼できるオンライン リポジトリ https://www.powershellgallery.com/ からのモジュールが保存されます。
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 Install-module -Name PowerShellGet -MinimumVersion 2.2.3 -Force
 Import-Module -Name PackageManagement -ErrorAction Stop
@@ -134,7 +135,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 切断されたワークステーション上で NuGet プロバイダーを手動でブートストラップします。 手順については、「[インターネットに接続されていないマシンで NuGet プロバイダーを手動でブートストラップする](/powershell/scripting/gallery/how-to/getting-support/bootstrapping-nuget#manually-bootstrapping-the-nuget-provider-on-a-machine-that-is-not-connected-to-the-internet)」をご覧ください。
 
-4. この場所を既定のレポジトリとして登録し、このレポジトリから AzureRM モジュールと `AzureStack` モジュールをインストールします。
+4. この場所を既定のレポジトリとして登録し、このレポジトリから `AzureRM` モジュールと `AzureStack` モジュールをインストールします。
 
    ```powershell
    # requires -Version 5
@@ -144,6 +145,8 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
+
+   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
@@ -178,11 +181,9 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="7-use-the-az-module"></a>7.Az モジュールを使用する
 
-AzureRM に基づくコマンドレットとコード サンプルを使用できます。 ただし、モジュールとコマンドレットの名前を変更する必要があります。 モジュール名は、`AzureRM` および Azure が `Az` になるように変更されており、コマンドレットについても同様です。 たとえば、`AzureRM.Compute` モジュールは名前が `Az.Compute` に変更されています。` New-AzureRMVM` は ` New-AzVM` になり、`Get-AzureStorageBlob` は `Get-AzStorageBlob` になっています。
+Azure Resource Modules に基づくコマンドレットとコード サンプルを使用できます。 ただし、モジュールとコマンドレットの名前を変更する必要があります。 モジュール名は、`AzureRM` および Azure が `Az` になるように変更されており、コマンドレットについても同様です。 たとえば、`AzureRM.Compute` モジュールは名前が `Az.Compute` に変更されています。` New-AzureRMVM` は ` New-AzVM` になり、`Get-AzureStorageBlob` は `Get-AzStorageBlob` になっています。
 
 Az への AzurRM スクリプトの移動、および Azure Stack Hub の AZ モジュールにおける破壊的変更に関する詳しい説明とガイダンスについては、[AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)に関する記事を参照してください。
-
-Azure Stack Hub コンテンツで使用される PowerShell スニペットは、AzureRM モジュールを使用します。 Az モジュールはプレビュー リリースです。 Az モジュールで使用するスニペットをリファクタリングするには、移行ガイドのガイダンスに従って、[Azure Stack Hubで AzureRM から Azure PowerShell Az に移行します](powershell-install-az-module.md)。
 
 ## <a name="next-steps"></a>次のステップ
 

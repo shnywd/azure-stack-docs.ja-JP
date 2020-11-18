@@ -3,16 +3,16 @@ title: Azure Stack Hub でのストレージ容量を管理する
 description: Azure Stack Hub のストレージ容量と可用性を監視および管理する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: conceptual
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: inhenkel
 ms.reviewer: xiaofmao
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 21a8d4f5238af436474cb33a41e6e35fbab3afb7
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 10/16/2020
+ms.openlocfilehash: bbced92ca9eb275ed1599ff7422bde1601be11c0
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899739"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545501"
 ---
 # <a name="manage-storage-capacity-for-azure-stack-hub"></a>Azure Stack Hub のストレージ容量を管理する
 
@@ -36,7 +36,7 @@ Azure Stack Hub でサポートされているのは、スケール ユニット
 
 ### <a name="volumes-and-shares"></a>ボリュームと共有
 
-*ストレージ サービス*は、使用可能なストレージを、テナント データを保持するために割り当てられている複数の同量のボリュームにパーティション分割します。 Azure Stack Hub のボリュームの詳細については、「[Azure Stack Hub 用のストレージ インフラストラクチャを管理する](azure-stack-manage-storage-infrastructure.md)」を参照してください。
+*ストレージ サービス* は、使用可能なストレージを、テナント データを保持するために割り当てられている複数の同量のボリュームにパーティション分割します。 Azure Stack Hub のボリュームの詳細については、「[Azure Stack Hub 用のストレージ インフラストラクチャを管理する](azure-stack-manage-storage-infrastructure.md)」を参照してください。
 
 オブジェクト ストア ボリュームでは、テナント データが保持されます。 テナント データには、ページ BLOB、ブロック BLOB、追加 BLOB、テーブル、キュー、データベース、および関連するメタデータ ストアが含まれます。 オブジェクト ストア ボリュームの数は、Azure Stack Hub のデプロイに含まれるノード数と同じになります。
 
@@ -65,11 +65,11 @@ Azure Stack Hub でサポートされているのは、スケール ユニット
 
 Azure Stack Hub では、マネージド ディスクとアンマネージド ディスクを、オペレーティング システム (OS) およびデータ ディスクの両方として VM で使用できます。
 
-**マネージド ディスク**を使用すると、VM ディスクに関連付けられているストレージ アカウントを管理できるため、Azure IaaS VM のディスク管理が簡素化されます。 Azure Stack Hub では、必要なディスクのサイズを指定するだけで、ディスクの作成と管理が自動的に行われます。 詳細については、[マネージド ディスクの概要](/azure/virtual-machines/windows/managed-disks-overview)に関する記事を参照してください。
+**マネージド ディスク** を使用すると、VM ディスクに関連付けられているストレージ アカウントを管理できるため、Azure IaaS VM のディスク管理が簡素化されます。 Azure Stack Hub では、必要なディスクのサイズを指定するだけで、ディスクの作成と管理が自動的に行われます。 詳細については、[マネージド ディスクの概要](/azure/virtual-machines/windows/managed-disks-overview)に関する記事を参照してください。
 
 管理と容量のバランスを簡単に取れるように、VM にはマネージド ディスクを使用することをお勧めします。 マネージド ディスクを使用する前に、ストレージ アカウントとコンテナーを準備する必要はありません。 複数のマネージド ディスクを作成する場合、ディスクは複数のボリュームに分散されるため、ボリュームの容量のバランスを取ることができます。  
 
-**アンマネージド ディスク**は、Azure ストレージ アカウントにページ BLOB として格納される VHD ファイルです。 テナントによって作成されるページ BLOB は VM ディスクと呼ばれ、ストレージ アカウントのコンテナーに格納されます。 アンマネージド ディスクは、Azure アンマネージド ディスクのみをサポートしているサード パーティ ツールに対応する必要がある VM でのみ使用することをお勧めします。
+**アンマネージド ディスク** は、Azure ストレージ アカウントにページ BLOB として格納される VHD ファイルです。 テナントによって作成されるページ BLOB は VM ディスクと呼ばれ、ストレージ アカウントのコンテナーに格納されます。 アンマネージド ディスクは、Azure アンマネージド ディスクのみがサポートされているサード パーティ ツールとの互換性のために必要な VM でのみ使用することをお勧めします。
 
 テナントへのガイダンスは、VM のパフォーマンスを向上させるために各ディスクを別のコンテナーに配置することです。
 
@@ -189,7 +189,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
 #### <a name="migrate-containers-by-using-powershell"></a>PowerShell を使用してコンテナーを移行する
 
-1. [Azure PowerShell のインストールと構成](/powershell/azure/)が行われていることを確認します。 詳細については、「[Azure PowerShell を使用した Azure リソースの管理](https://go.microsoft.com/fwlink/?LinkId=394767)」を参照してください。
+1. [Azure PowerShell のインストールと構成](/powershell/azure/)が行われていることを確認します。 詳細については、「[Azure PowerShell を使用した Azure リソースの管理](/azure/azure-resource-manager/management/manage-resources-powershell)」を参照してください。
 2. コンテナーを調べて、移行する予定の共有にどのようなデータがあるかを把握します。 ボリューム内の移行に最適な候補コンテナーを識別するには、`Get-AzsStorageContainer` コマンドレットを使用します。
 
    ```powershell  
@@ -248,7 +248,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
    ![例:ロールバック状態](media/azure-stack-manage-storage-shares/rollback.png)
 
-7. 移行の状態が*取り消し済み*になるまで、手順 6 のコマンドをもう一度実行できます。  
+7. 移行の状態が *取り消し済み* になるまで、手順 6 のコマンドをもう一度実行できます。  
 
     ![取り消された移行の状態の例を示すスクリーンショット。](media/azure-stack-manage-storage-shares/cancelled.png)
 
@@ -339,7 +339,7 @@ PowerShell または管理者ポータルを使用してボリュームを監視
 
 "*このオプションは、Azure Stack Hub 統合システムにのみ適用されます。* "
 
-領域を管理する最も極端な方法には、アンマネージド ディスクの移動が伴います。 テナントが多数のアンマネージド ディスクを 1 つのコンテナーに追加した場合、コンテナーが "*オーバーフロー*" モードに入る前に、コンテナーの使用済み容量の合計が、保持しているボリュームの使用可能容量を超える可能性があります。 単一のコンテナーによってボリュームの領域が使い果たされるのを防ぐために、テナントは、1 つのコンテナーの既存のアンマネージド ディスクを別のコンテナーに分散させることができます。 接続されているコンテナー (VM ディスクを含むコンテナー) の分散は複雑であるため、この操作を実行する場合は Microsoft サポートに問い合わせてください。
+領域を管理する最も極端な方法には、アンマネージド ディスクの移動が伴います。 テナントで多数のアンマネージド ディスクが 1 つのコンテナーに追加された場合、コンテナーが "*オーバーフロー*" モードに入る前に、コンテナーの使用済み容量の合計が、保持しているボリュームの使用可能容量を超える可能性があります。 単一のコンテナーによってボリュームの領域が使い果たされるのを防ぐために、テナントは、1 つのコンテナーの既存のアンマネージド ディスクを別のコンテナーに分散させることができます。 接続されているコンテナー (VM ディスクを含むコンテナー) の分散は複雑であるため、この操作を実行する場合は Microsoft サポートに問い合わせてください。
 
 ::: moniker-end
 

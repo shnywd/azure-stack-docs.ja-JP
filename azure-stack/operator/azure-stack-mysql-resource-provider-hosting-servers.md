@@ -7,12 +7,12 @@ ms.date: 11/06/2019
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 90b20ddcc129b8077cf28fa1a1a758054795de60
-ms.sourcegitcommit: 4a8d7203fd06aeb2c3026d31ffec9d4fbd403613
+ms.openlocfilehash: bbf96c0716d6bb9fdfca7ce0b52268281e6169c6
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202503"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414165"
 ---
 # <a name="add-mysql-hosting-servers-in-azure-stack-hub"></a>Azure Stack Hub に MySQL ホスティング サーバーを追加する
 
@@ -72,7 +72,7 @@ MySQL サーバーを Azure Stack Hub MySQL Server ホストとして追加す�
 
 4. Azure Stack Hub MySQL ホスティング サーバーが MySQL に接続するために使用するリモート アクセス ユーザー アカウントを作成します。
 
-    *~/bitnami_credentials* で記録したルート パスワードを使用し、次のコマンドを実行して MySQL に root としてログインします。 新しい管理者ユーザーを作成し、環境に合わせて *\<username\>* および *\<password\>* を置き換えます。 この例では、作成されたユーザーの名前は **sqlsa** であり、強力なパスワードが使用されています。
+    *~/bitnami_credentials* で記録したルート パスワードを使用し、次のコマンドを実行して MySQL に root としてログインします。 新しい管理者ユーザーを作成し、お使いの環境に合わせて *\<username\>* と *\<password\>* を置き換えます。 この例では、作成されたユーザーの名前は **sqlsa** であり、強力なパスワードが使用されています。
 
    ```sql
    mysql -u root -p
@@ -111,14 +111,14 @@ MySQL サーバーを Azure Stack Hub MySQL Server ホストとして追加す�
 4. MySQL サーバー インスタンスの接続詳細を指定します。
 
    * **[MySQL Hosting Server Name]\(MySQL ホスティング サーバー名\)** では、完全修飾ドメイン名 (FQDN) または有効な IPv4 アドレスを指定します。 短い VM 名は使用しないでください。
-   * Azure Stack Hub Marketplace で利用可能な Bitnami MySQL イメージ用の既定の管理者**ユーザー名**は *root* です。
-   * root の**パスワード**がわからない場合は、[Bitnami のドキュメント](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)で取得方法を確認してください。
+   * Azure Stack Hub Marketplace で利用可能な Bitnami MySQL イメージ用の既定の管理者 **ユーザー名** は *root* です。
+   * root の **パスワード** がわからない場合は、[Bitnami のドキュメント](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)で取得方法を確認してください。
    * 既定の MySQL インスタンスが指定されていないため、 **[ホスティング サーバーのサイズ (GB)]** を指定する必要があります。 データベース サーバーの容量に近いサイズを入力します。
    * **[サブスクリプション]** の既定の設定のままにします。
    * **[リソース グループ]** で、新しいリソース グループを作成するか、既存のグループを使用します。
 
    > [!NOTE]
-   > テナントと管理者の Azure Resource Manager から MySQL インスタンスにアクセスできる場合は、そのインスタンスをリソース プロバイダーの管理下に置くことができます。 ただし、MySQL インスタンスは、リソース プロバイダーに排他的に割り当てる**必要があります**。
+   > テナントと管理者の Azure Resource Manager から MySQL インスタンスにアクセスできる場合は、そのインスタンスをリソース プロバイダーの管理下に置くことができます。 ただし、MySQL インスタンスは、リソース プロバイダーに排他的に割り当てる **必要があります**。
 
 5. **[SKU]** を選択して **[Create SKU]\(SKU の作成\)** ダイアログを開きます。
 

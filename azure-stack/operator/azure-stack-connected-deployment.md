@@ -7,12 +7,12 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: b8f8dfe95e50b81c7032e2e2348c2d4e6a6d888d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78364770"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543870"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack Hub をご利用のハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定した後、Azure Stack Hub デプロイの決定を完了することができます。
@@ -34,13 +34,18 @@ ID ストアに Azure AD を使用するには、グローバル管理者アカ�
     - Azure AD および Graph API とやりとりするために必要な、すべての Azure Stack Hub サービス用のアプリとサービス プリンシパルのプロビジョニングと委任を行う。
     - サービス管理者アカウントとして。 このアカウントは、既定のプロバイダー サブスクリプションの所有者 (後で変更可能) です。 このアカウントで Azure Stack Hub 管理者ポータルにログインできるほか、これを使用してオファーやプランを作成したり、クォータを設定したり、Azure Stack Hub のその他の管理機能を実行したりすることができます。
 
+> [!IMPORTANT]
+> - グローバル管理者アカウントは、Azure Stack Hub を実行するには必要ではなく、デプロイ後に無効にすることができます。
+> - [こちらに記載されているベスト プラクティス](/azure/security/fundamentals/identity-management-best-practices)に従って、グローバル管理者アカウントをセキュリティで保護します。
+
+
 2. **課金アカウント** (接続されたデプロイと切断されたデプロイの両方に必要です)。 この Azure アカウントは、Azure Stack Hub 統合システムと Azure コマース バックエンドの課金関係を確立するために使用されます。 これは、Azure Stack Hub の料金に対して課金されるアカウントです。 このアカウントは、マーケットプレイスや他のハイブリッド シナリオで項目を提供するためにも使用されます。
 
 ### <a name="ad-fs-identity-store"></a>AD FS ID ストア
 このオプションは、サービス管理者アカウント用に独自の ID ストア (企業の Active Directory など) を使用する場合に選択します。  
 
 ## <a name="choose-a-billing-model"></a>課金モデルを選択する
-**従量制**または**容量**課金モデルのどちらかを選択できます。 従量制課金モデルのデプロイは 30 日ごとに少なくとも 1 回、接続を通して Azure に使用状況を報告できる必要があります。 したがって、従量制課金モデルは、接続されたデプロイでのみ使用できます。  
+**従量制** または **容量** 課金モデルのどちらかを選択できます。 従量制課金モデルのデプロイは 30 日ごとに少なくとも 1 回、接続を通して Azure に使用状況を報告できる必要があります。 したがって、従量制課金モデルは、接続されたデプロイでのみ使用できます。  
 
 ### <a name="pay-as-you-use"></a>従量制
 従量制課金モデルでは、Azure サブスクリプションに対して使用状況が課金されます。 Azure Stack Hub サービスを使用した場合にのみ支払います。 このモデルに決定した場合は、Azure サブスクリプションと、そのサブスクリプションに関連付けられたアカウント ID (serviceadmin@contoso.onmicrosoft.com など) が必要になります。 EA、CSP、および CSL サブスクリプションがサポートされています。 使用状況レポートは、[Azure Stack Hub の登録](azure-stack-registration.md)中に構成されます。
@@ -52,8 +57,8 @@ CSP サブスクリプションを使用する場合は、厳密な CSP シナ�
 
 |シナリオ|ドメインおよびサブスクリプション オプション|
 |-----|-----|
-|**直接 CSP パートナー**または**間接 CSP プロバイダー**であり、Azure Stack Hub を操作する|CSL (Common Service Layer) サブスクリプションを使用します。<br>     or<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
-|**間接 CSP リセラー**であり、Azure Stack Hub を操作する|パートナー センターを使用して、間接 CSP プロバイダーに、組織の Azure AD テナントとそれに関連付けられた Azure CSP サブスクリプションを作成するよう依頼します。|
+|**直接 CSP パートナー** または **間接 CSP プロバイダー** であり、Azure Stack Hub を操作する|CSL (Common Service Layer) サブスクリプションを使用します。<br>     または<br>パートナー センターで、わかりやすい名前の Azure AD テナントを作成します  (例: &lt;組織>CSPAdmin とそれに関連付けられた Azure CSP サブスクリプション)。|
+|**間接 CSP リセラー** であり、Azure Stack Hub を操作する|パートナー センターを使用して、間接 CSP プロバイダーに、組織の Azure AD テナントとそれに関連付けられた Azure CSP サブスクリプションを作成するよう依頼します。|
 
 ### <a name="capacity-based-billing"></a>容量ベースの課金
 容量課金モデルを使用することにした場合は、システムの容量に基づいて Azure Stack Hub 容量プラン SKU を購入する必要があります。 正しい数量を購入するには、Azure Stack Hub 内の物理コアの数を把握する必要があります。

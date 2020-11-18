@@ -16,31 +16,30 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: aa5d67405ff471cecf147256d4b2109e94d993ef
-ms.sourcegitcommit: 716ca50bd198fd51a4eec5b40d5247f6f8c16530
+ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
+ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92898588"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94383634"
 ---
-# <a name="mdc-deployment-overview"></a>MDC のデプロイの概要
+# <a name="mdc-requirements-overview"></a>MDC の要件の概要
 
-このデプロイ ガイドでは、Modular Data Center (MDC) をインストールして構成する手順について説明します。 このガイドでは、Azure Stack Hub のデプロイ用に Azure Stack Hub ハードウェア ライフサイクル ホスト (HLH) 管理サーバーを設定するための自動化されたプロセスについても説明します。
+このガイドでは、Modular Data Center (MDC) をインストールして構成するために必要な要件について説明します。 
 
 このガイドの目的は次のとおりです。
 
 - コンポーネントをインストールする前に、すべての前提条件が満たされていることを確認するための、デプロイ前チェックリストを提供します。
 - MDC の主要コンポーネントについて説明します。
-- 主要なコンポーネントをインストールして構成する方法について説明します。
 - お客様によるデプロイを検証します。
 
-このガイドの内容を完全に理解するには、仮想化、サーバー、オペレーティング システム、ネットワーク、ストレージ ソリューションについての技術的な経験が必要です。 デプロイ エンジニアは、Hyper-V、Azure Stack Hub、Azure、および Microsoft PowerShell を使用する Microsoft Windows Server 2019 に関する知識を持っている必要があります。
+このガイドの内容を完全に理解するには、仮想化、サーバー、オペレーティング システム、ネットワーク、ストレージ ソリューションについての技術的な経験が必要です。 
 
-このガイドの中心的なテーマは、Microsoft Azure Stack Hub のコア コンポーネントのデプロイと、MDC ソリューションの詳細です。 このガイドでは、Azure Stack Hub の操作手順と、Azure Stack Hub で利用できるすべての機能については説明しません。 詳細については、[Azure Stack Hub オペレーター ガイド](https://docs.microsoft.com/azure-stack/operator/)に関するページを参照してください。
+このガイドの中心的なテーマは、Microsoft Azure Stack Hub のコア コンポーネントのデプロイと、MDC ソリューションの詳細です。 このガイドでは、Azure Stack Hub の操作手順と、Azure Stack Hub で利用できるすべての機能については説明しません。 
 
 ## <a name="introduction"></a>はじめに
 
-MDC は、標準の 40 フィート金属製出荷コンテナーに収められている Azure Stack Hub 用の統合オファリングです。 コンテナーには、環境制御ユニット、照明、および警告システムが含まれています。 サーバーやスイッチなどの Azure Stack Hub のコア コンポーネントは、3 つの独立したポッドに論理的にまとめられた 6 つの物理ラックに取り付けられています。
+MDC は、標準の 40 フィート金属製出荷コンテナーに収められている Azure Stack Hub 用の統合オファリングです。 コンテナーには、環境制御ユニット、照明、および警告システムが含まれています。 Azure Stack Hub のコア コンポーネントは、3 つの独立したポッドとしてインストールされます: ポッド 1 とラック 1 とラック 2、ポッド 2 とラック 1 とラック 2、ポッド 3 とラック 1 とラック 2。
 
 各ポッドは、2 つの 42U ラックで構成されます。 ポッドには、Top-of-Rack (ToR) スイッチ、エッジ スイッチ、およびベースボード管理コントローラー (BMC) スイッチが含まれています。 また、各ポッドには、ハードウェア ライフサイクル ホスト (HLH) とシリアル ポート コンセントレーターが含まれます。 コンピューティングとストレージのコア容量は、8 つの Rugged Edge Appliance (REA) R840 サーバーで構成される Azure Stack Hub スケール ユニット (SU) によって提供されます。 48 個の Isilon ストレージ ノードによって、追加のストレージ容量が提供されます。 物理的な構成はすべてのポッドで同じです。
 
@@ -87,6 +86,4 @@ MDC は、標準の 40 フィート金属製出荷コンテナーに収められ
 1. 検証フェーズ – 3 つのポッドに対して個別に実行:
    1. デプロイ後の正常性の検証。
    1. Microsoft への Azure Stack Hub の登録。
-   1. Azure Stack Hub オペレーターへの引き継ぎ。
-  
-上記の各トピックについて、このガイドで詳しく説明します。
+   1. Azure Stack Hub のお客様への引き継ぎ。

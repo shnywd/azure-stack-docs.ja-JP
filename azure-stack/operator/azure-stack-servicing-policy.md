@@ -8,12 +8,12 @@ ms.date: 09/25/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: ac110a3ee90cd0b1439e34a418bf7473b8487502
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899790"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545569"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -47,9 +47,9 @@ OEM ハードウェア ベンダーは、必要に応じて随時更新プログ
 
 更新プログラムのダウンロード方法など、特定の更新プログラムに関する情報については、リリース ノートを参照してください。
 
-- [Azure Stack Hub 2005 更新プログラム](./release-notes.md?view=azs-2005)
-- [Azure Stack Hub 2002 更新プログラム](./release-notes.md?view=azs-2002)
-- [Azure Stack Hub 1910 更新プログラム](./release-notes.md?view=azs-1910)
+- [Azure Stack Hub 2008 更新プログラム](/azure-stack/operator/release-notes?view=azs-2008)
+- [Azure Stack Hub 2005 更新プログラム](/azure-stack/operator/release-notes?view=azs-2005)
+- [Azure Stack Hub 2002 更新プログラム](/azure-stack/operator/release-notes?view=azs-2002)
 
 ## <a name="hotfixes"></a>修正プログラム
 
@@ -61,14 +61,10 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 
 現在利用可能な修正プログラムの詳細については、その更新のリリースノートを参照してください。
 
-- [Azure Stack Hub 2005 修正プログラム](./release-notes.md?view=azs-2005#hotfixes)
-- [Azure Stack Hub 2002 修正プログラム](./release-notes.md?view=azs-2002#hotfixes-1)
-- [Azure Stack Hub 1910 修正プログラム](./release-notes.md?view=azs-1910#hotfixes-2)
+- [Azure Stack Hub 2005 修正プログラム](/azure-stack/operator/release-notes?view=azs-2005#hotfixes)
+- [Azure Stack Hub 2002 修正プログラム](/azure-stack/operator/release-notes?view=azs-2002#hotfixes-1)
 
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
-
-> [!IMPORTANT]  
-> Azure Stack Hub の [2002 リリース](release-notes.md?view=azs-2002)では、COVID-19 に対応中の、Azure Stack Hub システムに関する重要な意思決定を行う可能性がある世界中のお客様を支援するために、Microsoft はそのサポート ポリシーを一時的に延長して、3 つ前までの更新プログラムのバージョン (N-3) を含めました。 2005 リリースでは、この延長をさらに 45 日間 (2020 年 9 月 25 日まで) 継続しています。 その結果、新しくリリースされた 2005 更新プログラムと、3 つ前までの更新プログラムのバージョン (2002、1910、1908 (N-3)) のいずれか 1 つがサポートされます。 この 45 日を過ぎると (2020 年 9 月 25 日より後)、標準のサポート ポリシーに戻ります。つまり、サポートされるバージョンは、2005、2002、1910 (N-2) になります。
 
 サポートを受けられる状態に Azure Stack Hub インスタンスを維持するためには、インスタンスで、リリースされた最新バージョンの更新プログラムを実行するか、またはその前の 2 つの更新プログラムのバージョンのいずれかを実行する必要があります。
 

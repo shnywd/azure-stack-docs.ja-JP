@@ -7,14 +7,14 @@ ms.date: 5/27/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d9d76b848ed30521fb5a7ba983ef930e19b93866
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92355099"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94547111"
 ---
-# <a name="establish-a-vnet-to-vnet-connection-in-azure-stack-hub-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する
+# <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA による Azure Stack Hub インスタンスの間の VNet 間接続
 
 この記事では、Fortinet FortiGate NVA (ネットワーク仮想アプライアンス) を使用して、ある Azure Stack Hub 内の VNET を別の Azure Stack Hub 内の VNET に接続します。
 
@@ -25,7 +25,7 @@ ms.locfileid: "92355099"
 -  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
     > [!NOTE]  
-    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
+    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用 **できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
 
 -  ネットワーク仮想アプライアンス (NVA) ソリューションがダウンロードされ、Azure Stack Hub Marketplace に発行されていること。 NVA は、境界ネットワークから他のネットワークまたはサブネットへのネットワーク トラフィックのフローを制御します。 この手順では、「[Fortinet FortiGate の次世代ファイアウォールの単一の VM ソリューション](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-FortiGate-singlevm)」を使用します。
 
@@ -134,7 +134,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 6. **[追加]** を選択します。
 
-7. **[ルート] に ** `to-forti1` または `to-forti2` という名前を付けます。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
+7. **[ルート] に** `to-forti1` または `to-forti2` という名前を付けます。 別の IP 範囲を使用している場合は、その IP 範囲を使用します。
 
 8. 次を入力します。
     - forti1: `172.17.0.0/16`  
@@ -156,7 +156,7 @@ forti1-rg1 と forti2-rg1 の両方のデプロイで、次の手順を実行し
 
 ## <a name="activate-the-fortigate-nvas-and-configure-an-ipsec-vpn-connection-on-each-nva"></a>FortiGate NVA をアクティブにして各 NVA で IPSec VPN 接続を構成する
 
- 各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能**しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
+ 各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能 **しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
 2 つのライセンス ファイル (NVA ごとに 1 つ) を取得する必要があります。
 
@@ -259,7 +259,7 @@ forti1 NVA と forti2 NVA の両方について、次の手順に従います。
 
 -   Azure Stack Hub VM は、各 VNET の **InsideSubnet** に配置されます。
 
--   VM の作成時には、NSG は適用**しません** (ポータルから VM を作成している場合は、既定で追加される NSG を削除してください)。
+-   VM の作成時には、NSG は適用 **しません** (ポータルから VM を作成している場合は、既定で追加される NSG を削除してください)。
 
 -   接続をテストするために使用する通信が VM のファイアウォール規則によって許可されていることを確認します。 テスト目的の場合は、可能な限り、OS 内でファイアウォールを完全に無効にすることをお勧めします。
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub オペレーター アクセス ワークステーショ�
 description: Azure Stack Hub オペレーター アクセス ワークステーションをダウンロードして構成する方法について説明します。
 author: ashika789
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 11/04/2020
 ms.author: justinha
 ms.reviewer: asganesh
-ms.lastreviewed: 09/24/2020
-ms.openlocfilehash: cc83edf05e9b63a8d1e09ed6bf960959b9f7f673
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.lastreviewed: 11/04/2020
+ms.openlocfilehash: c2e5e474555a9fb3a04c09fde495e4fe80c4378b
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363947"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94546975"
 ---
 # <a name="azure-stack-hub-operator-access-workstation"></a>Azure Stack Hub オペレーター アクセス ワークステーション 
 
@@ -33,7 +33,7 @@ OAW VM は、オペレーターが新しいタスクを実行するときに作�
 
 ## <a name="download-files"></a>ファイルのダウンロード
 
-OAW VM を作成するためのファイルを入手するには、 [**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
+OAW VM を作成するためのファイルを入手するには、[**ここからダウンロード**](https://aka.ms/OAWDownload)してください。 ダウンロードする前に、[Microsoft プライバシー ステートメント](https://privacy.microsoft.com/privacystatement)と[法律条項](/legal/azure-stack-hub/azure-stack-operator-access-workstation-legal-terms)を必ず確認してください。
 
 このソリューションのステートレスな性質により、OAW VM 向けの更新プログラムはありません。 マイルストーンごとに、VM イメージ ファイルの新しいバージョンがリリースされます。 新しい OAW VM を作成するには、最新バージョンを使用します。 このイメージ ファイルは、最新の Windows Server 2019 バージョンに基づいています。 インストール後、Windows Update を使用して、緊急更新プログラムを含む、更新プログラムを適用できます。 
 
@@ -128,6 +128,16 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DNS '192.168.0.10'
 ```
 
+AzureStackStampInformation.json ファイルから ERCS VM の IP アドレスを取得するには:
+
+```powershell
+$securePassword = Read-Host -Prompt "Enter password for Azure Stack OAW's local administrator" -AsSecureString
+New-OAW.ps1 -LocalAdministratorPassword $securePassword `
+   -AzureStackCertificatePath 'F:\certroot.cer' `
+   -DeploymentDataFilePath 'F:\DeploymentData.json' `
+   -AzSStampInfoFilePath 'F:\AzureStackStampInformation.json'
+```
+
 DeploymentData.json を使用してHLH 上に OAW VM を作成するには:
 
 ```powershell
@@ -136,7 +146,7 @@ New-OAW.ps1 -LocalAdministratorPassword $securePassword `
    -DeploymentDataFilePath 'D:\AzureStack\DeploymentData.json'
 ```
 
-DeploymentData.json ファイルに OAW VM の名前付けプレフィックスが含まれている場合、 **VirtualMachineName** パラメーターには、その値が使用されます。 その他の場合、既定の名前は **AzSOAW** またはユーザーが指定した任意の名前です。
+DeploymentData.json ファイルに OAW VM の名前付けプレフィックスが含まれている場合、**VirtualMachineName** パラメーターには、その値が使用されます。 その他の場合、既定の名前は **AzSOAW** またはユーザーが指定した任意の名前です。
 
 OAW に対しては、2 つのパラメーター セットを使用できます。 省略可能なパラメーターは、角かっこ内に表示されます。
 
@@ -144,6 +154,7 @@ OAW に対しては、2 つのパラメーター セットを使用できます�
 New-OAW 
 -LocalAdministratorPassword <Security.SecureString> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-DNS <String[]>] `
@@ -172,6 +183,7 @@ New-OAW
 -DefaultGateway <String> `
 -DNS <String[]> `
 [-AzureStackCertificatePath <String>] `
+[-AzSStampInfoFilePath <String>] `
 [-CertificatePassword <Security.SecureString>] `
 [-ERCSVMIP <String[]>] `
 [-ImageFilePath <String>] `
@@ -204,6 +216,7 @@ New-OAW
 | VirtualProcessorCount      | オプション | 仮想マシンに割り当てる仮想プロセッサの数。 既定値は **8** です。        |
 | VirtualMachineDiffDiskPath | オプション | 管理 VM がアクティブだった間に一時差分ディスク ファイルを保存するパス。 既定値は、このスクリプトの同じ親フォルダーにある **DiffDisks** サブディレクトリです。 |
 | AzureStackCertificatePath  | オプション | Azure Stack Hub にアクセスするために仮想マシンにインポートする証明書のパス。 |
+| AzSStampInfoFilePath       | オプション | スクリプトで ERCS VM の IP を取得できる AzureStackStampInformation.json ファイルのパス。 |
 | CertificatePassword        | オプション | Azure Stack Hub へのアクセスのために仮想マシンにインポートする証明書のパスワード。 |
 | ERCSVMIP                   | オプション | 仮想マシンの信頼されたホストの一覧に追加する Azure Stack Hub ERCS VM の IP。 **-SkipNetworkConfiguration** が設定されている場合は、有効になりません。 |
 SkipNetworkConfiguration     | オプション | ユーザーが後で構成できるように、仮想マシンのネットワーク構成をスキップします。 |

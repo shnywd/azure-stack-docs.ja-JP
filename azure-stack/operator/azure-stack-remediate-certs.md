@@ -2,18 +2,18 @@
 title: PKI 証明書に関する一般的な問題を修正する
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカー ツールを使用して Azure Stack Hub PKI 証明書に関する一般的な問題を修します。
-author: IngridAtMicrosoft
+author: BryanLa
 ms.topic: how-to
-ms.date: 03/04/2020
-ms.author: inhenkel
+ms.date: 11/10/2020
+ms.author: bryanla
 ms.reviewer: unknown
-ms.lastreviewed: 11/19/2019
-ms.openlocfilehash: c7f17c603a6b54474db4036953f0fbd755d496cf
-ms.sourcegitcommit: e72145ebb5eac17a47ba1c9119fd31de545fdace
+ms.lastreviewed: 10/19/2020
+ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
+ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88724848"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94545348"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書に関する一般的な問題を修復する
 
@@ -87,8 +87,8 @@ ms.locfileid: "88724848"
 
 **AzsReadinessChecker** ツールには、**Repair-AzsPfxCertificate** というヘルパー コマンドレットが含まれています。これを使用すると、PFX ファイルをインポートしてからエクスポートし、パッケージに関する次のような一般的な問題を修正できます。
 
-- **PFX 暗号化**が TripleDES-SHA1 ではない。
-- **秘密キー**にローカル コンピューター属性がない。
+- **PFX 暗号化** が TripleDES-SHA1 ではない。
+- **秘密キー** にローカル コンピューター属性がない。
 - "**証明書チェーン**" が完全ではないか、間違っている PFX パッケージに証明書チェーンが含まれない場合、ローカル コンピューターに証明書チェーンを含める必要があります。
 - **他の証明書**
 
@@ -105,7 +105,7 @@ ms.locfileid: "88724848"
    $PSVersionTable.PSVersion
    ```
 
-- [PowerShell for Azure Stack Hub](azure-stack-powershell-install.md) を構成します。
+- [PowerShell for Azure Stack Hub](powershell-install-az-module.md) を構成します。
 - 最新バージョンの [Azure Stack Hub 適合性チェッカー](https://aka.ms/AzsReadinessChecker) ツールをダウンロードします。
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>既存の PFX ファイルのインポートとエクスポート
@@ -113,13 +113,13 @@ ms.locfileid: "88724848"
 1. 前提条件を満たしているコンピューターで、管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、Azure Stack Hub 適合性チェッカーをインストールします。
 
    ```powershell
-   Install-Module Microsoft.AzureStack.ReadinessChecker -Force
+   Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
    ```
 
-2. PowerShell プロンプトで次のコマンドレットを実行して、PFX パスワードを設定します。 `PFXpassword` を実際のパスワードで置き換えます。
+2. PowerShell プロンプトで次のコマンドレットを実行して、PFX パスワードを設定します。 パスワードの入力を求められたら、入力します。
 
    ```powershell
-   $password = Read-Host -Prompt PFXpassword -AsSecureString
+   $password = Read-Host -Prompt "Enter password" -AsSecureString
    ```
 
 3. PowerShell プロンプトから次のコマンドを実行して、新しい PFX ファイルをエクスポートします。
