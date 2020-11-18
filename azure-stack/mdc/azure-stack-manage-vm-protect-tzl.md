@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 31e574a24660367cd1189ad95890e2fffaaa15f2
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
+ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330155"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94414046"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
 
@@ -40,7 +40,7 @@ ms.locfileid: "93330155"
 
 評価を実施して、アプリケーションごとに RTO と RPO を定義してください。
 
-もう 1 つの考慮すべき重要なメトリックは、 **平均復旧時間** (MTTR) です。これは、障害発生後にアプリケーションの復元にかかる平均時間です。 MTTR はシステムの経験値です。 MTTR が RTO を超えると、システム障害の結果、定義されている RTO 以内にシステムを復元できなくなるため、許容できないビジネスの中断が発生します。
+もう 1 つの考慮すべき重要なメトリックは、**平均復旧時間** (MTTR) です。これは、障害発生後にアプリケーションの復元にかかる平均時間です。 MTTR はシステムの経験値です。 MTTR が RTO を超えると、システム障害の結果、定義されている RTO 以内にシステムを復元できなくなるため、許容できないビジネスの中断が発生します。
 
 ## <a name="protection-options-for-iaas-vms"></a>IaaS VM のための保護オプション
 
