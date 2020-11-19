@@ -8,12 +8,12 @@ ms.date: 07/10/2020
 ms.author: justinha
 ms.reviewer: unknown
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 96730a5afb143d8a5198c07bdc5b5df14c6483bd
-ms.sourcegitcommit: 0e52f460295255b799bac92b40122a22bf994e27
+ms.openlocfilehash: 4b6fe9434d7fbc0f62de4c22241300ad20170af2
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86866158"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674498"
 ---
 # <a name="differences-between-global-azure-azure-stack-hub-and-azure-stack-hci"></a>グローバル Azure、Azure Stack Hub、および Azure Stack HCI の違い
 
@@ -21,7 +21,7 @@ Microsoft では 1 つの Azure エコシステムで Azure と Azure Stack Hub 
 
 この記事では、グローバル Azure、Azure Stack Hub、および Azure Stack HCI の機能の違いについて説明します。 組織で Microsoft クラウドベースのサービスを実現するための最適な選択を行うときに役立つ一般的なシナリオの推奨事項を示します。
 
-![Azure エコシステムの概要](./media/compare-azure-azure-stack/azure-family.svg)
+![Azure エコシステムの概要](./media/compare-azure-azure-stack/azure-family-updated.png)
 
 ## <a name="global-azure"></a>グローバル Azure
 

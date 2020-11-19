@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/24/2020
-ms.openlocfilehash: 8e5f1a07425224c8e343d4193cee2d721ae1f0b6
-ms.sourcegitcommit: 81e2d627c9dc4cc365deb4a0e0674b5ab3a7efbf
+ms.date: 11/17/2020
+ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92297889"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785787"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
@@ -65,13 +65,13 @@ Azure Stack HCI クラスターを Azure に登録するには、次の手順を
 3. 必要なコマンドレットをインストールします。
 
    ```PowerShell
-   Install-Module Az.StackHCI
+   Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
    ```
 
    > [!NOTE]
    > 1. "今すぐ PowerShellGet で NuGet プロバイダーをインストールしてインポートしますか?" などのプロンプトが表示される場合があります。 これには [はい] (Y) と答える必要があります。
    > 2. "'PSGallery' からモジュールをインストールしますか? " というメッセージが表示され、[はい] (Y) と答える必要があります。
-   > 3. 最後に、 **Az** モジュール全体をインストールすると、 **StackHCI** サブモジュールもそれに含まれると思うかもしれませんが、そうではありません。 プレビューでのサブモジュールは、Azure PowerShell の標準規則に従って自動的に含まれることはないため、上で示したように **Az.StackHCI** を明示的に要求する必要があります。
+   > 3. 最後に、**Az** モジュール全体をインストールすると、**StackHCI** サブモジュールもそれに含まれると思うかもしれませんが、そうではありません。 プレビューでのサブモジュールは、Azure PowerShell の標準規則に従って自動的に含まれることはないため、上で示したように **Az.StackHCI** を明示的に要求する必要があります。
 
 4. 実際の登録を実行します。
 

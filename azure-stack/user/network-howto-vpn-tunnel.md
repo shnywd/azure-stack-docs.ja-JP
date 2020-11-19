@@ -3,16 +3,16 @@ title: Azure Stack Hub で複数サイト間 VPN トンネルを設定する
 description: Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 11/13/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/19/2019
-ms.openlocfilehash: e401e1897af63ede0a3f7dcdd924dc00df39f941
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/13/2020
+ms.openlocfilehash: ba0cf59417dfae96bd9c0ed137843eb69a08cc22
+ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547077"
+ms.lasthandoff: 11/17/2020
+ms.locfileid: "94674638"
 ---
 # <a name="how-to-set-up-multiple-site-to-site-vpn-tunnels-in-azure-stack-hub"></a>Azure Stack Hub で複数サイト間 VPN トンネルを設定する方法
 
@@ -22,11 +22,11 @@ ms.locfileid: "94547077"
 
 ## <a name="scenarios"></a>シナリオ
 
-![5 つの VPN シナリオが図に示されています: 1 つのサブスクリプション内の 2 つのリソース グループ間、それぞれが独自のサブスクリプション内にある 2 つのグループ間、別個のスタック インスタンス内の 2 つのグループ間、1 つのグループとオンプレミスの複数ローカル リソースの間、および複数の VPN トンネル。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.png)
+![5 つの VPN シナリオが図に示されています: 1 つのサブスクリプション内の 2 つのリソース グループ間、それぞれが独自のサブスクリプション内にある 2 つのグループ間、別個のスタック インスタンス内の 2 つのグループ間、1 つのグループとオンプレミスの複数ローカル リソースの間、および複数の VPN トンネル。](./media/azure-stack-network-howto-vpn-tunnel/scenarios.svg)
 
 ## <a name="create-multiple-vpn-tunnels"></a>複数の VPN トンネルを作成する
 
-![この図は、それぞれが独自のサブスクリプションとスタック インスタンス内にあり、VPN によって接続されている 2 つのリソース グループを示しています。これら 2 つのグループのうちの 1 つは、VPN によってオンプレミスのローカル リソースに接続されています。](./media/azure-stack-network-howto-vpn-tunnel/image1.png)
+![この図は、それぞれが独自のサブスクリプションとスタック インスタンス内にあり、VPN によって接続されている 2 つのリソース グループを示しています。これら 2 つのグループのうちの 1 つは、VPN によってオンプレミスのローカル リソースに接続されています。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel1.svg)
 
 -  3 層アプリケーション (Web、アプリ、および DB) をデプロイします。
 
@@ -42,7 +42,7 @@ ms.locfileid: "94547077"
 
 これは複数の手順があるプロセスです。 このソリューションでは、Azure Stack Hub ポータルを使用します。 ただし、PowerShell、Azure CLI、またはその他のコードとしてのインフラストラクチャ ツール チェーンを使用して出力をキャプチャし、入力として使用することができます。
 
-![この図は、2 つのインフラストラクチャ間に VPN トンネルをデプロイする 5 つの手順を示しています。 最初の 2 つの手順では、テンプレートから 2 つのインフラストラクチャを作成します。 次の 2 つの手順ではテンプレートから 2 つの VPN トンネルを作成し、最後の手順ではトンネルを接続します。](./media/azure-stack-network-howto-vpn-tunnel/image2.png)
+![この図は、2 つのインフラストラクチャ間に VPN トンネルをデプロイする 5 つの手順を示しています。 最初の 2 つの手順では、テンプレートから 2 つのインフラストラクチャを作成します。 次の 2 つの手順ではテンプレートから 2 つの VPN トンネルを作成し、最後の手順ではトンネルを接続します。](./media/azure-stack-network-howto-vpn-tunnel/azure-stack-network-vpn-tunnel2.svg)
 
 ## <a name="walkthrough"></a>チュートリアル
 
