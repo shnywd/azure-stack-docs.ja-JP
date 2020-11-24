@@ -74,6 +74,10 @@
           href: manage/update-cluster.md
         - name: クラスターを監視する
           href: manage/monitor-cluster.md
+        - name: データセンター ファイアウォールを使用する
+          href: manage/use-datacenter-firewall.md
+        - name: DISKSPD を使用してワークロードをテストする
+          href: manage/diskspd-overview.md
         - name: サーバーの追加または削除
           href: manage/add-cluster.md
         - name: メンテナンスのためにサーバーをオフラインにする
@@ -134,6 +138,8 @@
           href: concepts/network-controller-overview.md
         - name: ネットワーク コントローラーを計画する
           href: concepts/network-controller.md
+        - name: データセンター ファイアウォールの概要
+          href: concepts/datacenter-firewall-overview.md
         - name: ソフトウェア ロード バランサーの概要
           href: concepts/software-load-balancer.md
         - name: RAS ゲートウェイの概要
