@@ -3,16 +3,16 @@ title: Azure Stack Hub の既知の問題
 description: Azure Stack Hub リリースの既知の問題について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: f1f38d309814e40422783cd4903086c736d19978
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545777"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785773"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -20,11 +20,11 @@ ms.locfileid: "94545777"
 
 別のバージョンの既知の問題にアクセスするには、左側の目次の上部にあるバージョン セレクターのドロップダウンを使用します。
 
-::: moniker range=">=azs-1910"
+::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
 > 更新プログラムを適用する前に、このセクションを確認してください。
 ::: moniker-end
-::: moniker range="<azs-1910"
+::: moniker range="<azs-2002"
 > [!IMPORTANT]  
 > お使いの Azure Stack Hub インスタンスが 2 つ前の更新プログラムより古い場合、コンプライアンスに対応していないとみなされます。 [サポートを受けるためには、少なくともサポートされる最小バージョンまで更新する](azure-stack-servicing-policy.md#keep-your-system-under-support)必要があります。 
 ::: moniker-end
@@ -61,7 +61,8 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 #### <a name="denyalloutbound-rule-cannot-be-created"></a>DenyAllOutbound ルールを作成できません
 
 - 適用先:この問題は、サポートされているすべてのリリースに適用されます。
-- 原因: VM の作成中は、インターネットに対する明示的な **DenyAllOutbound** 規則を NSG に作成することはできません。VM のデプロイを完了するために必要な通信が妨げられるためです。
+- 原因: VM の作成中は、インターネットに対する明示的な **DenyAllOutbound** 規則を NSG に作成することはできません。VM のデプロイを完了するために必要な通信が妨げられるためです。 また、VM をデプロイするために必要な次の 2 つの重要な IP も拒否されます:DHCP IP:169.254.169.254 および DNS IP:168.63.129.16
+
 - 修復: VM の作成中はインターネットのアウトバウンド トラフィックを許可しておき、VM の作成後に、必要なトラフィックをブロックするよう NSG を変更してください。
 - 発生頻度: 共通
 
@@ -86,7 +87,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: ロード バランサーで **セッション アフィニティ** を有効にすると、2 タプル ハッシュで、VM に割り当てられたプライベート IP ではなく、PA IP (物理アドレス IP) が使用されます。 ロード バランサーに送信されるトラフィックが VPN 経由で到着する、またはすべてのクライアント VM (ソース IP) が同じノード上に存在し、セッション アフィニティが有効になっているシナリオでは、すべてのトラフィックが 1 つのバックエンド VM に送信されます。
 - 発生頻度: 共通
 
-## <a name="compute"></a>Compute
+<!-- ## Compute -->
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

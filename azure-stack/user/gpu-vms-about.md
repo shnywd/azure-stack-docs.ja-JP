@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/20/2020
 ms.reviewer: kivenkat
 ms.lastreviewed: 07/07/2020
-ms.openlocfilehash: 9289b1c2ae3119a03898e2d9c361bde4976a16f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 0379b435a1f8b71766540865f358ca5da71d63e6
+ms.sourcegitcommit: 8187658b1d45dceed727aca3ae1b9b57aca04392
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546924"
+ms.lasthandoff: 11/14/2020
+ms.locfileid: "94630755"
 ---
 # <a name="graphics-processing-unit-gpu-virtual-machine-vm-on-azure-stack-hub"></a>Azure Stack Hub 上の GPU (グラフィックス処理装置) 仮想マシン (VM)
 
@@ -87,5 +87,5 @@ NVIDIA CUDA ドライバーと GRID ドライバーは、手動で VM にイン�
 
 ## <a name="next-steps"></a>次のステップ
 
-- [Linux を実行している N シリーズ VM に NVIDIA GPU ドライバーをインストールする](/azure/virtual-machines/linux/n-series-driver-setup)
-- [Azure Stack VM の機能](azure-stack-vm-considerations.md)
+- [Azure Stack VM の機能](azure-stack-vm-considerations.md)  
+- [GPU 対応 IoT モジュールを Azure Stack Hub デバイスにデプロイする](gpu-deploy-sample-module.md)

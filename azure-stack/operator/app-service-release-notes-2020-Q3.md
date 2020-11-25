@@ -1,19 +1,19 @@
 ---
 title: App Service on Azure Stack Hub 2020 Q3 のリリース ノート
-description: Azure App Service on Azure Stack Hub の 2002 Q3 リリースの内容、既知の問題、および更新プログラムをダウンロードする場所について説明します。
+description: Azure App Service on Azure Stack Hub の 2020 Q3 リリースの内容、既知の問題、および更新プログラムをダウンロードする場所について説明します。
 author: apwestgarth
 manager: stefsch
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 11/17/2020
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 10/23/2020
-ms.openlocfilehash: 55c8e18f3bbd36a0fef4cfb745ab9d40651e7533
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: f9d575a91c55379326beaac2d76b3400172c8dd0
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94548714"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785874"
 ---
 # <a name="app-service-on-azure-stack-hub-2020-q3-release-notes"></a>App Service on Azure Stack Hub 2020 Q3 のリリース ノート
 
@@ -102,6 +102,8 @@ Azure App Service on Azure Stack Hub Update Q3 には、次の機能強化と修
 - Functions の監視で、TLS 1.2 を適用するストレージ エンドポイントからデータを取得できるようになりました
 
 - デプロイとアップグレードの信頼性を向上させるため、インストール時の Management Servers 待機ステップがクラウド デプロイ ステップの外に移動されました
+
+- クリーンアップ ロジックでエラーが発生した後、ワーカー ランタイムのログ ファイル フォルダーのサイズがクォータ制限に違反しているために、ワーカーが正常性チェックの実行を完了できない問題。  クリーンアップ ロジックは、この更新プログラムで修正されています。
 
 ## <a name="pre-update-steps"></a>更新前の手順
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/18/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 74b1be3736d21d968fa45135034637d4ca3cd5eb
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546057"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885803"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -33,9 +33,10 @@ ms.locfileid: "94546057"
 
 更新プログラムを適用する前に、必ず次の情報を確認してください。
 
-- [既知の問題](known-issues.md)
-- [セキュリティ更新プログラム](release-notes-security-updates.md)
 - [更新プログラム適用前後のアクティビティのチェックリスト](release-notes-checklist.md)
+- [既知の問題](known-issues.md)
+- [修正プログラム](#hotfixes)
+- [セキュリティ更新プログラム](release-notes-security-updates.md)
 
 更新プログラムのトラブルシューティングと更新プロセスの詳細については、[Azure Stack Hub の修正プログラムと更新プログラムについての問題のトラブルシューティング](azure-stack-troubleshooting.md)に関するページを参照してください。
 
@@ -70,11 +71,17 @@ Azure Stack Hub 2008 更新プログラムのビルドの種類は **完全** �
 - Azure Stack Hub の Blob Storage で、ユーザーが不変 BLOB を使用できるようになりました。 コンテナーで不変ポリシーを設定することにより、ビジネス クリティカルなデータ オブジェクトを WORM (Write Once, Read Many) 状態で格納することができます。 このリリースでは、不変ポリシーは REST API またはクライアント SDK によってのみ設定できます。 このリリースでは、追加 BLOB の書き込みもできません。 不変 BLOB の詳細については、「[不変ストレージを使用してビジネスに不可欠な BLOB データを保存する](/azure/storage/blobs/storage-blob-immutable-storage)」を参照してください。
 - Azure Stack Hub ストレージで、Azure Storage サービスの API バージョン 2019-07-07 がサポートされるようになりました。 新しい REST API のバージョンと互換性がある Azure クライアント ライブラリについては、[Azure Stack Hub ストレージの開発ツール](../user/azure-stack-storage-dev.md#azure-client-libraries)に関するページを参照してください。
 - Azure Stack Hub コンピューティングで、Azure Compute API バージョン2020-06-01 がサポートされるようになりました。これには、利用可能な全機能のサブセットが含まれます。
+- Azure Stack Hub マネージド ディスクで、Azure Disk API バージョン **2019-03-01** がサポートされるようになりました。これには、利用可能な機能のサブセットが含まれます。
 - サポート操作中に Azure Stack Hub に接続してインフラストラクチャに関する詳細な分析情報を提供できるようになった、Windows Admin Center のプレビュー (緊急用アカウントが必要)。
 - デプロイ時に特権エンドポイント (PEP) にログイン バナーを追加する機能。
 - より多くの **排他的操作** バナーがリリースされました。これにより、システムで現在行われている操作の可視性が向上し、ユーザーは他の排他的な操作を開始することが (そして後で失敗することが) なくなります。
 - Azure Stack Hub Marketplace の各項目の製品ページに、2 つの新しいバナーが導入されました。 Marketplace のダウンロードに失敗した場合、オペレーターはエラーの詳細を表示し、問題を解決するために推奨される手順を試行できます。
 - お客様がフィードバックを提供するための評価ツールがリリースされました。 これにより、Azure Stack Hub でカスタマー エクスペリエンスを測定して最適化できます。
+- このリリースの Azure Stack Hub には、Azure Kubernetes Service (AKS) と Azure Container Registry (ACR) のプライベート プレビューが含まれています。 このプライベート プレビューの目的は、Azure Stack Hub の AKS と ACR の品質、機能、ユーザー エクスペリエンスに関するフィードバックを収集することです。
+- このリリースには、[AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md) を使用する Azure CNI と Windows コンテナーのパブリック プレビューが含まれています。 API モデルでこれらを使用する方法の例については、[GitHub のこちらの例を参照](https://raw.githubusercontent.com/Azure/aks-engine/master/examples/azure-stack/kubernetes-windows.json)してください。
+- [AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md) によってデプロイされたクラスターでの [Istio 1.3 デプロイ](https://github.com/Azure/aks-engine/tree/master/examples/service-mesh)がサポートされるようになりました。 詳細については、[こちらの手順を参照してください](../user/kubernetes-aks-engine-service-account.md)。
+- [AKS Engine v 0.55.4](../user/kubernetes-aks-engine-release-notes.md) を使用した[プライベート クラスター](https://github.com/Azure/aks-engine/blob/master/docs/topics/features.md#private-cluster)のデプロイがサポートされるようになりました。
+- このリリースでは、Azure および Azure Stack Hub Key Vault インスタンスからの [Kubernetes の構成シークレットのソーシング](https://github.com/Azure/aks-engine/blob/master/docs/topics/keyvault-secrets.md#use-key-vault-as-the-source-of-cluster-configuration-secrets)がサポートされています。
 
 ### <a name="improvements"></a>機能強化
 
@@ -84,6 +91,8 @@ Azure Stack Hub 2008 更新プログラムのビルドの種類は **完全** �
 - インフラストラクチャ ロール インスタンスおよびスケール ユニット ノードでのそれらの依存関係における、スタートアップ プロセスとシャットダウン プロセスの変更。 これにより、Azure Stack Hub の起動とシャットダウンの信頼性が向上します。
 - **Test-AzureStack** 検証ツールの **AzSScenarios** スイートが、すべての顧客アカウントに多要素認証が適用されている場合にクラウド サービス プロバイダーがこのスイートを正常に実行できるように更新されました。
 - ライフサイクル操作中の 29 の顧客向けアラートの抑制ロジックを追加することで、アラートの信頼性が向上しました。
+- ログ コレクションの役割、期間、およびステータスの詳細を提供する詳細なログ コレクション HTML レポートを表示できるようになりました。 このレポートは、収集したログの概要をユーザーがまとめやすくなるよう提供されています。 その後、Microsoft カスタマー サポート サービスがレポートを迅速に査定してログ データを評価し、システムの問題をトラブルシューティングして軽減するサポートを行います。
+- CPU 使用率やメモリ消費量などのユーザー シナリオにまたがる、障害検知の信頼性向上に貢献する 7 つのモニターが新たに追加されたことで、インフラストラクチャの障害検知範囲が拡張されました。
 
 ### <a name="changes"></a>[変更点]
 
@@ -109,7 +118,7 @@ Azure Stack Hub のこの更新でのセキュリティ更新プログラムに�
 
 ## <a name="hotfixes"></a>修正プログラム
 
-Azure Stack Hub では、修正プログラムが定期的にリリースされます。 2005 リリース以降では、新しいメジャー バージョンに更新すると (たとえば、1.2002.x から 1.2005.x)、その新しいメジャー バージョン内の最新の修正プログラム (存在する場合) が自動的にインストールされます。 それ以降は、ビルドの修正プログラムがリリースされたら、それをインストールする必要があります。
+Azure Stack Hub では、修正プログラムが定期的にリリースされます。 2005 リリース以降では、新しいメジャー バージョンに更新すると (たとえば、1.2005.x から 1.2008.x)、その新しいメジャー バージョン内の最新の修正プログラム (存在する場合) が自動的にインストールされます。 それ以降は、ビルドの修正プログラムがリリースされたら、それをインストールする必要があります。
 
 > [!NOTE]
 > Azure Stack Hub 修正プログラムのリリースは累積的です。そのバージョンに対する以前の修正プログラムのリリースに含まれるすべての修正を取得するには、最新の修正プログラムをインストールするだけで済みます。
@@ -118,11 +127,14 @@ Azure Stack Hub では、修正プログラムが定期的にリリースされ�
 
 Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub 統合システムのみです。ASDK には修正プログラムをインストールしないでください。
 
-### <a name="prerequisites-before-applying-the-2008-update"></a>前提条件:2008 更新プログラムを適用する前
+### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修正プログラムの前提条件: 2008 更新プログラムを適用する前
 
-新しいメジャー バージョンに更新すると (たとえば、1.2005.x から 1.2008.x)、その新しいメジャー バージョン内の最新の修正プログラム (存在する場合) が自動的にインストールされます。 それ以降は、ビルドの修正プログラムがリリースされたら、それをインストールする必要があります。
+Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用された 2005 リリースに適用する必要があります。
+- [Azure Stack Hub 修正プログラム 1.2005.21.84](https://support.microsoft.com/help/4592779)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>2008 更新プログラムが正常に適用された後
+
+新しいメジャー バージョンに更新すると (たとえば、1.2005.x から 1.2008.x)、その新しいメジャー バージョン内の最新の修正プログラム (存在する場合) が自動的にインストールされます。 それ以降は、ビルドの修正プログラムがリリースされたら、それをインストールする必要があります。
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
@@ -226,7 +238,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.20.82](https://support.microsoft.com/help/4592228)
+- [Azure Stack Hub 修正プログラム 1.2005.21.84](https://support.microsoft.com/help/4592779)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -355,7 +367,7 @@ Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Azure Stack Hub 修正プログラム 1.2002.62.165](https://support.microsoft.com/help/4594758)
 ::: moniker-end
 
 <!------------------------------------------------------------>

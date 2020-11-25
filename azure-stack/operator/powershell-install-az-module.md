@@ -3,16 +3,16 @@ title: Azure Stack Hub 用の PowerShell Az モジュールをインストール
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/17/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2020
-ms.openlocfilehash: de226383fc5109cd702c4883754766664ea9ab73
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/27/2020
+ms.openlocfilehash: 3666965dd3cfe7827fc9ea4c12b06d40ad210ac6
+ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546941"
+ms.lasthandoff: 11/18/2020
+ms.locfileid: "94785840"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az モジュールをインストールする
 
@@ -33,9 +33,9 @@ Azure Stack Hub と互換性のある PowerShell Az モジュールは、イン�
 
 ## <a name="1-verify-your-prerequisites"></a>1.前提条件を確認する
 
-Az モジュールは、最新の[修正プログラム](./release-notes.md?view=azs-2002#hotfixes)と [2002 更新プログラムが適用された Azure Stack Hub](./release-notes.md?view=azs-2002#2002-build-reference) でのみサポートされます。
+Az モジュールは、更新プログラム 2002 以降および現在の修正プログラムがインストールされている Azure Stack Hub でサポートされています。 詳細については、「[Azure Stack Hub のリリース ノート](release-notes.md)」を参照してください。
 
-Azure PowerShell は、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
+Azure PowerShell の Az モジュールは、Windows 上の PowerShell 5.1 以降、またはすべてのプラットフォーム上の PowerShell Core 6.x 以降で動作します。 お使いのオペレーティング システムで利用できる[最新バージョンの PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core) をインストールする必要があります。 PowerShell Core 上で実行する場合、Azure PowerShell にその他の要件はありません。
 
 PowerShell のバージョンを確認するには、次のコマンドを実行します。
 

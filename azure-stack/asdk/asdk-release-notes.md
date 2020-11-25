@@ -3,25 +3,25 @@ title: ASDK リリース ノート
 description: Azure Stack Development Kit (ASDK) の機能強化、修正、既知の問題。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/11/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: misainat
 ms.lastreviewed: 08/10/2020
-ms.openlocfilehash: f4e97cfaba4e3cde832a318647b72d96cbca8965
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 6eb124193f477eb4418909f6b8e79781e948d135
+ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543410"
+ms.lasthandoff: 11/19/2020
+ms.locfileid: "94885752"
 ---
 # <a name="asdk-release-notes"></a>ASDK リリース ノート
 
 この記事では、Azure Stack Development Kit (ASDK) の変更、修正、および既知の問題に関する情報を提供します。 実行しているバージョンが不明な場合は、[ポータルを使用して確認](../operator/azure-stack-updates.md)します。
 
-![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS フィード](https://docs.microsoft.com/api/search/rss?search=ASDK+release+notes&locale=en-us#)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
+![RSS](./media/asdk-release-notes/feed-icon-14x14.png) [RSS フィード](https://aka.ms/asdkrss)をサブスクライブして、ASDK の新着情報を常に把握するようにしてください。
 
 ::: moniker range="azs-2008"
-## <a name="build-120081388"></a>ビルド 1.2008.13.88
+## <a name="build-12008059"></a>ビルド 1.2008.0.59
 
 ### <a name="new-features"></a>新機能
 
