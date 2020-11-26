@@ -3,15 +3,15 @@ title: サービスを使用する場合やアプリを作成する場合の Azu
 description: サービスを使用する場合やアプリを作成する場合の Azure と Azure Stack Hub の違いについて説明します。
 author: sethmanheim
 ms.topic: overview
-ms.date: 09/21/2020
+ms.date: 11/20/2020
 ms.author: sethm
-ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: f4a0ff18d8b96c6c92aa3020031e604d2775c893
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 8d8cd26bc53deef5b2e23955b349cb68a0eb51f0
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543563"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516989"
 ---
 # <a name="differences-between-azure-stack-hub-and-azure-when-using-services-and-building-apps"></a>サービスを使用する場合やアプリを作成する場合の Azure Stack Hub と Azure の違い
 
@@ -70,10 +70,23 @@ Azure Stack Hub では、特定のバージョンの Azure PowerShell と Azure 
 
 その他の API の場合は、次の PowerShell コマンドを実行し、名前空間、リソースの種類、および Azure Stack Hub サブスクリプションでサポートされている API のバージョンを出力します (プロパティ レベルでも違いがある場合があります)。 このコマンドを機能させるには、Azure Stack Hub 環境用に PowerShell が既に[インストール](../operator/powershell-install-az-module.md)され、[構成](azure-stack-powershell-configure-user.md)されている必要があります。 Azure Stack Hub オファーのサブスクリプションも必要です。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
 ```powershell
 Get-AzResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+```powershell
+Get-AzureRMResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
+Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
+```
+
+---
+
+
+
 
 出力例 (抜粋):![Get-AzResourceProvider コマンドの出力例](media/azure-stack-considerations/image1.png)
 

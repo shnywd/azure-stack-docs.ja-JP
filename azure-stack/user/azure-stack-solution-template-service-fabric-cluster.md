@@ -3,16 +3,16 @@ title: セキュリティで保護された Service Fabric クラスターを Az
 description: セキュリティで保護された Service Fabric クラスターを Azure Stack Hub にデプロイする方法について説明します
 author: mattbriggs
 ms.topic: tutorial
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.lastreviewed: 09/25/2019
-ms.openlocfilehash: 5fd3f9f3d4d13ccf2fa03d656ac76d9cab462103
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: cf8d4d7ea8e1a88bb8d162bb2c5fc5e4bc41d21a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546278"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518315"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack-hub"></a>Service Fabric クラスターを Azure Stack Hub にデプロイする
 
@@ -54,62 +54,126 @@ Key Vault を作成してそこに *クラスター証明書* を追加するに
 > [!TIP]  
 > スクリプトを正常に実行するには、Compute、Network、Storage、Key Vault の各サービスを含むパブリック オファーが必要です。 
 
-  ```powershell
-    function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
-        {
-            return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
-        }
-    
-    function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
-       {
-            $keyVaultSecretName = "ClusterCertificate"
-            $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
-            $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
-    
-            $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
-                data     = $pfxAsBase64EncodedString
-                dataType = 'pfx'
-                password = $Password
-            })
-    
-            $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
-            $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
-            
-            $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
-    
-            Write-Host "KeyVault id: " -ForegroundColor Green
-            (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
-            
-            Write-Host "Secret Id: " -ForegroundColor Green
-            (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
-    
-            Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
-            $pfxCertObject.Thumbprint
-       }
-    
-    #========================== CHANGE THESE VALUES ===============================
-    $armEndpoint = "https://management.local.azurestack.external"
-    $tenantId = "your_tenant_ID"
-    $location = "local"
-    $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
-    $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
-    #==============================================================================
-    
-    Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
-    Login-AzAccount -Environment AzureStack -TenantId $tenantId
-    
-    $rgName = "sfvaultrg"
-    Write-Host "Creating Resource Group..." -ForegroundColor Yellow
-    New-AzResourceGroup -Name $rgName -Location $location
-    
-    Write-Host "Creating Key Vault..." -ForegroundColor Yellow
-    $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
-    
-    Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
-    Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
-   ``` 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+```powershell
+   function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
+      {
+         return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
+      }
+   
+   function Publish-SecretToKeyVault ($PfxFilePath, $Password, $KeyVaultName)
+      {
+         $keyVaultSecretName = "ClusterCertificate"
+         $certContentInBytes = [io.file]::ReadAllBytes($PfxFilePath)
+         $pfxAsBase64EncodedString = [System.Convert]::ToBase64String($certContentInBytes)
+   
+         $jsonObject = ConvertTo-Json -Depth 10 ([pscustomobject]@{
+               data     = $pfxAsBase64EncodedString
+               dataType = 'pfx'
+               password = $Password
+         })
+   
+         $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
+         $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
+         $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
+         $keyVaultSecret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName -SecretValue $secret
+         
+         $pfxCertObject = Get-ThumbprintFromPfx -PfxFilePath $PfxFilePath -Password $Password
+   
+         Write-Host "KeyVault id: " -ForegroundColor Green
+         (Get-AzureRMKeyVault -VaultName $KeyVaultName).ResourceId
+         
+         Write-Host "Secret Id: " -ForegroundColor Green
+         (Get-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $keyVaultSecretName).id
+   
+         Write-Host "Cluster Certificate Thumbprint: " -ForegroundColor Green
+         $pfxCertObject.Thumbprint
+      }
+   
+   #========================== CHANGE THESE VALUES ===============================
+   $armEndpoint = "https://management.local.azurestack.external"
+   $tenantId = "your_tenant_ID"
+   $location = "local"
+   $clusterCertPfxPath = "Your_path_to_ClusterCert.pfx"
+   $clusterCertPfxPassword = "Your_password_for_ClusterCert.pfx"
+   #==============================================================================
+   
+   Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint $armEndpoint
+   Login-AzureRMAccount -Environment AzureStack -TenantId $tenantId
+   
+   $rgName = "sfvaultrg"
+   Write-Host "Creating Resource Group..." -ForegroundColor Yellow
+   New-AzureRMResourceGroup -Name $rgName -Location $location
+   
+   Write-Host "Creating Key Vault..." -ForegroundColor Yellow
+   $Vault = New-AzureRMKeyVault -VaultName sfvault -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment -EnabledForDeployment -EnabledForDiskEncryption
+   
+   Write-Host "Publishing certificate to Vault..." -ForegroundColor Yellow
+   Publish-SecretToKeyVault -PfxFilePath $clusterCertPfxPath -Password $clusterCertPfxPassword -KeyVaultName $vault.VaultName
+``` 
+
+---
+
+ 
 
 
 詳細については、[PowerShell を使用した Azure Stack Hub での Key Vault の管理](azure-stack-key-vault-manage-powershell.md)に関するページを参照してください。
@@ -137,16 +201,16 @@ Key Vault を作成してそこに *クラスター証明書* を追加するに
 
    ![ネットワーク設定](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. *[セキュリティ]* ページには、 [Azure Key Vault の作成](#add-a-secret-to-key-vault)とシークレットのアップロードによって得られた値を追加します。
+4. *[セキュリティ]* ページには、[Azure Key Vault の作成](#add-a-secret-to-key-vault)とシークレットのアップロードによって得られた値を追加します。
 
-   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、" *管理用クライアント証明書* " の拇印を入力します (「[前提条件](#prerequisites)」を参照してください。)
+   *[Admin Client Certificate Thumbprint]\(管理用クライアント証明書の拇印\)* には、"*管理用クライアント証明書*" の拇印を入力します (「[前提条件](#prerequisites)」を参照してください。)
    
    - [ソース Key Vault]: スクリプトの結果から得られる `keyVault id` 文字列全体を指定します。 
    - [Cluster Certificate URL]\(クラスター証明書 URL\): スクリプトの結果から得られる `Secret Id` の URL 全体を指定します。 
-   - [Cluster Certificate thumbprint]\(クラスター証明書の拇印\): スクリプトの実行結果から得られる " *クラスター証明書の拇印* " を指定します。
+   - [Cluster Certificate thumbprint]\(クラスター証明書の拇印\): スクリプトの実行結果から得られる "*クラスター証明書の拇印*" を指定します。
    - [Server Certificate URL]\(サーバー証明書 URL\):クラスター証明書とは別の証明書を使用する場合は、証明書を keyVault にアップロードし、シークレットの完全な URL を指定します。 
    - [Server Certificate thumbprint]\(サーバー証明書の拇印\):サーバー証明書の拇印を指定します
-   - [Admin Client Certificate Thumbprints]\(管理用クライアント証明書の拇印\): 「前提条件」で作成した " *管理用クライアント証明書の拇印* " を指定します。 
+   - [Admin Client Certificate Thumbprints]\(管理用クライアント証明書の拇印\): 「前提条件」で作成した "*管理用クライアント証明書の拇印*" を指定します。 
 
    ![スクリプト出力](media/azure-stack-solution-template-service-fabric-cluster/image5.png)
 
@@ -165,7 +229,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
     a. Internet Explorer を開いて **[インターネット オプション]**  >  **[コンテンツ]**  >  **[証明書]** の順に移動します。
   
-    b. [証明書] の **[インポート]** を選択して " *証明書のインポート ウィザード* " を開始し、 **[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した **管理用クライアント証明書** を選択します。
+    b. [証明書] の **[インポート]** を選択して "*証明書のインポート ウィザード*" を開始し、 **[次へ]** をクリックします。 *[インポートするファイル]* ページの **[参照]** をクリックして、Azure Resource Manager テンプレートに指定した **管理用クライアント証明書** を選択します。
         
        > [!NOTE]  
        > この証明書は、以前に Key Vault に追加されたクラスター証明書ではありません。  
@@ -199,7 +263,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
 ### <a name="use-service-fabric-powershell"></a>Service Fabric PowerShell の使用
 
-1. Azure Service Fabric ドキュメントの「 [Windows で開発環境を準備する](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
+1. Azure Service Fabric ドキュメントの「[Windows で開発環境を準備する](/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools)」から *Microsoft Azure Service Fabric SDK* をインストールします。  
 
 1. インストールが完了したら、Service Fabric のコマンドレットに PowerShell から確実にアクセスできるようシステム環境変数を構成します。  
     
@@ -209,7 +273,7 @@ Service Fabric クラスターには、Service Fabric Explorer または Service
 
     b. *[システムのプロパティ]* の **[詳細設定]** タブで **[環境変数]** を選択します。  
 
-    c. *[システム環境変数]* の **[Path]** を編集し、 **C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** が一連の環境変数の先頭にあることを確認します。  
+    c. *[システム環境変数]* の **[Path]** を編集し、**C:\\Program Files\\Microsoft Service Fabric\\bin\\Fabric\\Fabric.Code** が一連の環境変数の先頭にあることを確認します。  
 
       ![環境変数リスト](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 

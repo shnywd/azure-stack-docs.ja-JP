@@ -6,10 +6,10 @@ ms.topic: quickstart
 ms.date: 09/23/2020
 ms.author: jeguan
 ms.openlocfilehash: 089488e246bdb7c12bbd0808ef2e92a4c83b0fce
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "92253962"
 ---
 # <a name="quickstart-set-up-an-azure-kubernetes-service-host-on-azure-stack-hci-using-powershell"></a>クイック スタート:PowerShell を使用して Azure Stack HCI で Azure Kubernetes Service ホストを設定する
@@ -54,7 +54,7 @@ PowerShell または Windows Admin Center を使用して Azure Stack HCI に Az
 
 ## <a name="step-3-configure-your-deployment"></a>手順 3:デプロイを構成する
 
-Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 ノードの Azure Stack HCI クラスターの場合、`-deploymentType`、`wssdImageDir`、および `cloudConfigLocation` パラメーターに `MultiNode` を指定する必要があります。** 単一ノードの Azure Stack HCI クラスターの場合、すべてのパラメーターは省略可能で、既定値に設定されます。 ただし、最適なパフォーマンスを得るには、 **2 から 4 ノードの Azure Stack HCI クラスターのデプロイを使用することをお勧めします。**
+Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 ノードの Azure Stack HCI クラスターの場合、`-deploymentType`、`wssdImageDir`、および `cloudConfigLocation` パラメーターに `MultiNode` を指定する必要があります。** 単一ノードの Azure Stack HCI クラスターの場合、すべてのパラメーターは省略可能で、既定値に設定されます。 ただし、最適なパフォーマンスを得るには、**2 から 4 ノードの Azure Stack HCI クラスターのデプロイを使用することをお勧めします。**
 
 次のコマンドを使用して、デプロイを構成します。
 
@@ -94,11 +94,11 @@ Azure Kubernetes Service ホストの構成を設定します。 **2 から 4 �
 
 `-wssdImageDir`
 
-Azure Stack HCI 上の Azure Kubernetes Service によって VHD イメージが格納されるディレクトリへのパス。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 " *複数ノードのデプロイの場合、このパラメーターを指定する必要があります* "。 パスは、共有ストレージ パス ( `C:\ClusterStorage\Volume2\ImageStore`  など) または SMB 共有 ( `\\FileShare\ImageStore` など) を指す必要があります。
+Azure Stack HCI 上の Azure Kubernetes Service によって VHD イメージが格納されるディレクトリへのパス。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 "*複数ノードのデプロイの場合、このパラメーターを指定する必要があります*"。 パスは、共有ストレージ パス ( `C:\ClusterStorage\Volume2\ImageStore`  など) または SMB 共有 ( `\\FileShare\ImageStore` など) を指す必要があります。
 
 `-cloudConfigLocation`
 
-クラウド エージェントによって構成が格納される場所。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 この場所は、上記の  `-wssdImageDir` のパスと同じにすることができます。 " *複数ノードのデプロイの場合、このパラメーターを指定する必要があります* "。
+クラウド エージェントによって構成が格納される場所。 単一ノードのデプロイの場合、既定値は `%systemdrive%\wssdimagestore` です。 この場所は、上記の  `-wssdImageDir` のパスと同じにすることができます。 "*複数ノードのデプロイの場合、このパラメーターを指定する必要があります*"。
 
 `-nodeConfigLocation`
 

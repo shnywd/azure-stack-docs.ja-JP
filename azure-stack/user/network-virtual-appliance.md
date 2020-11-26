@@ -3,16 +3,16 @@ title: Azure Stack Hub でのネットワーク仮想アプライアンスに関
 description: Microsoft Azure Stack Hub でのネットワーク仮想アプライアンス (NVA) の使用時に発生する、VM または VPN の接続の問題をトラブルシューティングします。
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/08/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 0facc0cc06ad3ff672531f1eeb7e31eee2f56ee0
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 271587baa3890a7dbb02d7ac935ceb51e2e405b7
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546890"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517150"
 ---
 # <a name="troubleshoot-network-virtual-appliance-problems"></a>ネットワーク仮想アプライアンスに関する問題をトラブルシューティングする
 
@@ -55,13 +55,13 @@ Azure Stack Hub での NVA に関する問題をこの記事で対処できな�
 
 ### <a name="check-whether-ip-forwarding-is-enabled-on-the-nva"></a>NVA で IP 転送が有効かどうかを確認する
 
-#### <a name="use-the-azure-stack-hub-portal"></a>Azure Stack Hub ポータルを使用する
+### <a name="portal"></a>[ポータル](#tab/portal)
 
 1. Azure Stack Hub ポータルで NVA リソースを検索し、 **[ネットワーク]** を選択して、ネットワーク インターフェイスを選択します。
 2. **[ネットワーク インターフェイス]** ページで、 **[IP 構成]** を選択します。
 3. IP 転送が有効になっていることを確認します。
 
-#### <a name="use-powershell"></a>PowerShell の使用
+### <a name="powershell-az"></a>[PowerShell Az](#tab/az)
 
 1. 次のコマンドを実行します。 山かっこ内の値をご自分の情報に置き換えてください。
 
@@ -81,6 +81,29 @@ Azure Stack Hub での NVA に関する問題をこの記事で対処できな�
    EnableIPForwarding   : True
    NetworkSecurityGroup : null
    ```
+
+### <a name="powershell-azurerm"></a>[PowerShell AzureRM](#tab/azurerm)
+
+1. 次のコマンドを実行します。 山かっこ内の値をご自分の情報に置き換えてください。
+
+   ```powershell
+   Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   ```
+
+2. **EnableIPForwarding** プロパティを確認します。
+
+3. IP 転送が有効になっていない場合は、次のコマンドを実行して有効にします。
+
+   ```powershell
+   $nic2 = Get-AzureRMNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NIC name>
+   $nic2.EnableIPForwarding = 1
+   Set-AzureRMNetworkInterface -NetworkInterface $nic2
+   Execute: $nic2 #and check for an expected output:
+   EnableIPForwarding   : True
+   NetworkSecurityGroup : null
+   ```
+
+---
 
 ### <a name="check-whether-traffic-can-be-routed-to-the-nva"></a>トラフィックを NVA にルーティングできるかどうかを確認する
 

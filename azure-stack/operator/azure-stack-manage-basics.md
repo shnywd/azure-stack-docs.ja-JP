@@ -7,10 +7,10 @@ ms.date: 06/16/2020
 ms.author: justinha
 ms.lastreviewed: 06/16/2020
 ms.openlocfilehash: b277eb9dcb1ac66af870db68c919e711aadc1ac7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "94543512"
 ---
 # <a name="azure-stack-hub-administration-basics"></a>Azure Stack Hub の管理の基本
@@ -25,7 +25,7 @@ Azure Stack Hub 統合システムを使用している場合は、更新プロ�
  
 ### <a name="development-kit"></a>開発キット
 
-Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack Hub の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は " *サンドボックス* " として使用することができます。そこで Azure Stack Hub を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
+Azure Stack Development Kit (ASDK) を使用する場合は、[Azure Stack Hub の概要](../asdk/asdk-what-is.md)に関するページを確認し、ASDK の目的とその制限事項について学習します。 ASDK は "*サンドボックス*" として使用することができます。そこで Azure Stack Hub を評価し、非運用環境でアプリの開発とテストを行うことができます。 デプロイの情報については、[Azure Stack Development Kit のデプロイ](../asdk/asdk-install.md)に関するページを参照してください。
 
 Azure のように、Microsoft は迅速にイノベーションを進めています。 新しいビルドは定期的にリリースされます。 ASDK を実行しており、最新のビルドに移行する場合は、[Azure Stack Hub を再デプロイ](../asdk/asdk-redeploy.md)する必要があります。 更新プログラム パッケージは適用できません。 このプロセスは時間がかかりますが、最新の機能を試すことができるというメリットがあります。 Web サイトの ASDK ドキュメントには、最新のリリース ビルドが反映されています。
 

@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub Marketplace の Windows Server に関する FAQ 一覧。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/09/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 08/29/2019
-ms.openlocfilehash: 0801f9530bc3f462e1ddfd0fbce15d193ea6343e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 3c0022c49d7af3df7da6b3551bf1e51848e5506a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545735"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517448"
 ---
 # <a name="azure-stack-hub-marketplace-faq"></a>Azure Stack Hub Marketplace のよくあるご質問
 
@@ -36,7 +36,7 @@ Azure Marketplace のサポート ガイダンスは、Azure Stack Hub Marketpla
 Microsoft は、2 つのバージョンの Windows Server イメージを Azure Stack Hub Marketplace で提供しています。 Azure Stack Hub 環境で使用できるのは、このイメージの 1 バージョンのみです。  
 
 - **従量課金制 (PAYG)** : これらのイメージでは、正規の価格の Windows メーターが実行されます。
-   このオプションの対象ユーザー: " *使用量課金モデル* " を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
+   このオプションの対象ユーザー: "*使用量課金モデル*" を利用するマイクロソフト エンタープライズ契約 (EA) のお客様や、SPLA ライセンスの使用を希望しない CSP にお勧めします。
 - **ライセンス持ち込み (BYOL)** : これらのイメージでは、基本メーターが実行されます。
    このオプションの対象ユーザー: Windows Server ライセンスを所有する EA のお客様や、SPLA ライセンスを使用する CSP にお勧めします。
 
@@ -51,34 +51,50 @@ Azure Stack Hub では、Azure ハイブリッド使用特典 (AHUB) はサポ�
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>実際にはライセンスを持っていないにもかかわらず、ユーザーが間違って以前の Windows ビルドの [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにしてしまった場合はどうすればよいですか?
 
 次のスクリプトを実行して、ライセンス モデル属性を変更して、BYOL から PAYG モデルに切り替えることができます。
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "None"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "None"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
-VM のライセンスの種類を確認するには、次のコマンドを実行します。 ライセンス モデルに、 **Windows_Server** と示されている場合、BYOL 料金で課金されます。 それ以外の場合は、PAYG モデルごとに Windows の測定に対して課金されます。
+VM のライセンスの種類を確認するには、次のコマンドを実行します。 ライセンス モデルに、**Windows_Server** と示されている場合、BYOL 料金で課金されます。 それ以外の場合は、PAYG モデルごとに Windows の測定に対して課金されます。
 
 ```powershell
 $vm | ft Name, VmId,LicenseType,ProvisioningState
 ```
-
 ### <a name="what-if-i-have-an-older-image-and-my-user-forgot-to-check-the-i-have-a-license-box-or-we-use-our-own-images-and-we-do-have-enterprise-agreement-entitlement"></a>私が以前のイメージを所有しているにもかかわらず、私のユーザーが [I have a license]\(ライセンスを持っています\) チェック ボックスをオンにするのを忘れてしまった場合は、どうすればよいですか。または、私たちが独自のイメージを使用していて、なおかつマイクロソフト エンタープライズ契約の権利がある場合はどうすればよいですか?
 
 次のコマンドを実行して、ライセンス モデル属性を BYOL モデルに変更できます。
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
 ```powershell
 $vm= Get-Azvm -ResourceGroup "<your RG>" -Name "<your VM>"
 $vm.LicenseType = "Windows_Server"
 Update-AzVM -ResourceGroupName "<your RG>" -VM $vm
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+ ```powershell
+$vm= Get-AzureRMvm -ResourceGroup "<your RG>" -Name "<your VM>"
+$vm.LicenseType = "Windows_Server"
+Update-AzureRMVM -ResourceGroupName "<your RG>" -VM $vm
+```
+---
 
 ### <a name="what-about-other-vms-that-use-windows-server-such-as-sql-or-machine-learning-server"></a>Windows Server を使用する他の VM (SQL Server、Machine Learning Server など) についてはどうでしょうか?
 
-これらのイメージは、 **licenseType** パラメーターが適用されるため、PAYG となります。 このパラメーターは自分で設定することができます (前出の FAQ の回答を参照)。 これが適用されるのは、Windows Server ソフトウェアだけです。自分のライセンスの持ち込みが必要となる階層化された製品 (SQL など) には適用されません。 PAYG ライセンスは、階層化されたソフトウェア製品には適用されません。
+これらのイメージは、**licenseType** パラメーターが適用されるため、PAYG となります。 このパラメーターは自分で設定することができます (前出の FAQ の回答を参照)。 これが適用されるのは、Windows Server ソフトウェアだけです。自分のライセンスの持ち込みが必要となる階層化された製品 (SQL など) には適用されません。 PAYG ライセンスは、階層化されたソフトウェア製品には適用されません。
 
-Azure Stack Hub Marketplace から SQL Server イメージの **licenseType** プロパティを変更できるのは、バージョンが **XX.X.20190410** 以降の場合のみです。 Azure Stack Hub Marketplace から古いバージョンの SQL Server イメージを実行している場合は、 **licenseType** 属性を変更することはできず、Azure Stack Hub Marketplace から最新の SQL Server イメージを使用して再デプロイする必要があります。
+Azure Stack Hub Marketplace から SQL Server イメージの **licenseType** プロパティを変更できるのは、バージョンが **XX.X.20190410** 以降の場合のみです。 Azure Stack Hub Marketplace から古いバージョンの SQL Server イメージを実行している場合は、**licenseType** 属性を変更することはできず、Azure Stack Hub Marketplace から最新の SQL Server イメージを使用して再デプロイする必要があります。
 
 ### <a name="i-have-an-enterprise-agreement-ea-and-will-be-using-my-ea-windows-server-license-how-do-i-make-sure-images-are-billed-correctly"></a>私はマイクロソフト エンタープライズ契約 (EA) を所有しており、EA Windows Server ライセンスを使う予定です。イメージに対して正しく課金されるようにするには、どうすればよいですか?
 

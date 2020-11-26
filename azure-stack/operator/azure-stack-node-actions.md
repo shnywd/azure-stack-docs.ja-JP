@@ -3,16 +3,16 @@ title: Azure Stack Hub でのスケール ユニットのノード操作
 description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションと、Azure Stack Hub 統合システムでノードの状態を表示する方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: ddfc8ad0ab6eccd10488f70873c7cefc0cf6668e
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: ecca245124ce30597a535d8c2ca014821d471d67
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545195"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517686"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub"></a>Azure Stack Hub でのスケール ユニットのノード操作
 
@@ -62,12 +62,16 @@ Azure Stack Hub では、ドレイン、再開、修復、シャットダウン�
 
 次の手順を適用する前に、現在進行中の操作がないことを確認してください。 お使いの環境に合わせてエンドポイントを更新します。
 
+
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](./powershell-install-az-module.md)必要があります。
 
-   ```powershell
-   Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
-   Add-AzAccount -Environment AzureStack
-   ```
+    ```powershell
+    Add-AzEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzAccount -Environment AzureStack
+    ```
 
 2. 次のコマンドを実行して、ファブリック リソース プロバイダー ロールを再起動します。
 
@@ -82,6 +86,32 @@ Azure Stack Hub では、ドレイン、再開、修復、シャットダウン�
    ```
 
 4. ノードの動作状態がまだ **[追加中]** と表示される場合は、続いてサポート インシデントを開いてください。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+1. PowerShell を開き、Azure Stack Hub 環境を追加します。 これを行うには、お使いのコンピューターに [Azure Stack Hub PowerShell がインストールされている](./powershell-install-az-module.md)必要があります。
+
+    ```powershell
+    Add-AzureRMEnvironment -Name AzureStack -ARMEndpoint https://adminmanagement.local.azurestack.external
+    Add-AzureRMAccount -Environment AzureStack
+    ```
+
+2. 次のコマンドを実行して、ファブリック リソース プロバイダー ロールを再起動します。
+
+   ```powershell
+   Restart-AzsInfrastructureRole -Name FabricResourceProvider
+   ```
+
+3. 影響を受けているスケール ユニット ノードの動作状態が、 **[実行中]** に変更されたことを確認します。 管理者ポータルまたは次の PowerShell コマンドを使用できます。
+
+   ```powershell
+   Get-AzsScaleUnitNode |ft name,scaleunitnodestatus,powerstate
+   ```
+
+4. ノードの動作状態がまだ **[追加中]** と表示される場合は、続いてサポート インシデントを開いてください。
+
+---
+
 
 
 ## <a name="scale-unit-node-actions"></a>スケール ユニットのノード操作
@@ -205,5 +235,5 @@ Azure Stack Hub PowerShell モジュールをインストールする必要が�
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack PowerShell をインストールする](./powershell-install-az-module.md)
-- [Azure Stack Hub Fabric オペレーター モジュールについて確認する](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0)
+- [Azure Stack Hub Fabric オペレーター モジュールについて確認する](/powershell/module/azs.fabric.admin/?view=azurestackps-1.6.0&preserve-view=true)
 - [ノードの追加操作を監視する](./azure-stack-add-scale-node.md#monitor-add-node-operations)

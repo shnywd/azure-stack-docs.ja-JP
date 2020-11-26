@@ -3,16 +3,16 @@ title: Key Vault に格納されたパスワードを使用して Azure Stack Hu
 description: Azure Stack Hub キー コンテナーに格納されているパスワードを使用して VM をデプロイする方法を説明します
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 11/20/2020
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 1232a3ea585cbab53daf905ad0f4707f6df156c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: 963a4d7bc6cd61ae724e4f087861e19d918fea7d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546448"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518179"
 ---
 # <a name="deploy-an-azure-stack-hub-vm-using-a-password-stored-in-key-vault"></a>Key Vault に格納されたパスワードを使用して Azure Stack Hub VM をデプロイする
 
@@ -44,6 +44,8 @@ Azure Stack Hub Key Vault にはパスワードなどの値をシークレット
 
 次のスクリプトは、キー コンテナーを作成し、パスワードをシークレットとしてキー コンテナーに格納します。 Key Vault を作成するときは、`-EnabledForDeployment` パラメーターを使います。 このパラメーターを指定すると、Azure Resource Manager テンプレートから Key Vault を参照できるようになります。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 ```powershell
 
 $vaultName = "contosovault"
@@ -69,6 +71,35 @@ Set-AzureKeyVaultSecret `
   -SecretValue $secretValue
 
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+```powershell
+
+$vaultName = "contosovault"
+$resourceGroup = "contosovaultrg"
+$location = "local"
+$secretName = "MySecret"
+
+New-AzureRMResourceGroup `
+  -Name $resourceGroup `
+  -Location $location
+
+New-AzureRMKeyVault `
+  -VaultName $vaultName `
+  -ResourceGroupName $resourceGroup `
+  -Location $location
+  -EnabledForTemplateDeployment
+
+$secretValue = ConvertTo-SecureString -String '<Password for your virtual machine>' -AsPlainText -Force
+
+Set-AzureKeyVaultSecret `
+  -VaultName $vaultName `
+  -Name $secretName `
+  -SecretValue $secretValue
+
+```
+---
 
 前のスクリプトを実行すると、出力にはシークレットの URI (Uniform Resource Identifier) が含まれます。 この URI を書き留めておきます。 それを、[Key Vault のパスワードでの Windows VM のデプロイ テンプレート](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv)で参照する必要があります。 開発用コンピューターに [101-vm-secure-password](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-windows-create-passwordfromkv) フォルダーをダウンロードします。 このフォルダーには、次の手順で必要な `azuredeploy.json` ファイルと `azuredeploy.parameters.json` ファイルが含まれます。
 
@@ -109,6 +140,8 @@ Set-AzureKeyVaultSecret `
 
 次の PowerShell スクリプトを使用して、テンプレートをデプロイします。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
+
 ```powershell  
 New-AzResourceGroupDeployment `
   -Name KVPwdDeployment `
@@ -116,6 +149,18 @@ New-AzResourceGroupDeployment `
   -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
   -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+```powershell  
+New-AzureRMResourceGroupDeployment `
+  -Name KVPwdDeployment `
+  -ResourceGroupName $resourceGroup `
+  -TemplateFile "<Fully qualified path to the azuredeploy.json file>" `
+  -TemplateParameterFile "<Fully qualified path to the azuredeploy.parameters.json file>"
+```
+
+---
+
 
 テンプレートが正常にデプロイされると、次の出力が表示されます。
 

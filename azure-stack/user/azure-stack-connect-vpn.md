@@ -3,16 +3,16 @@ title: VPN を使用して Azure Stack Hub を Azure に接続する
 description: VPN を使用して Azure Stack Hub 内の仮想ネットワークを Azure 内の仮想ネットワークに接続する方法。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: TBD
-ms.lastreviewed: 10/24/2019
-ms.openlocfilehash: 2ea7dfcccf2b2f4590e09f60db4530d7ebe6d319
-ms.sourcegitcommit: f2a5ce52fcf69e05fe89be8211b7360de46f4a94
+ms.lastreviewed: 11/20/2020
+ms.openlocfilehash: e158d0d2cc9158ea3f4f0a09a666e765e4bd379d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133760"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518383"
 ---
 # <a name="connect-azure-stack-hub-to-azure-using-vpn"></a>VPN を使用して Azure Stack Hub を Azure に接続する
 
@@ -75,7 +75,6 @@ ms.locfileid: "87133760"
 ### <a name="create-the-virtual-network-gateway"></a>仮想ネットワーク ゲートウェイを作成する
 
 1. Azure portal で **[+ リソースの作成]** を選択します。
-
 2. **[Marketplace]** に移動し、 **[ネットワーク]** を選択します。
 3. ネットワーク リソースの一覧から **[仮想ネットワーク ゲートウェイ]** を選択します。
 4. **[名前]** フィールドに「**Azure-GW**」と入力します。
@@ -116,6 +115,8 @@ ms.locfileid: "87133760"
 
 Azure Stack Hub の[ビルド 1910 以降](azure-stack-vpn-gateway-settings.md#ipsecike-parameters)では、IPSec ポリシーの既定のパラメーターが変更されているため、Azure と Azure Stack Hub を一致させるためにカスタム IPSec ポリシーが必要になります。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 1. カスタム ポリシーの作成:
 
    ```powershell
@@ -130,6 +131,25 @@ Azure Stack Hub の[ビルド 1910 以降](azure-stack-vpn-gateway-settings.md#i
    $Connection = Get-AzVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
    Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
    ```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+1. カスタム ポリシーの作成:
+
+   ```powershell
+   $IPSecPolicy = New-AzureRMIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup ECP384  `
+   -IpsecEncryption GCMAES256 -IpsecIntegrity GCMAES256 -PfsGroup ECP384 -SALifeTimeSeconds 27000 `
+   -SADataSizeKilobytes 102400000
+   ```
+
+2. 接続へのポリシーの適用:
+
+   ```powershell
+   $Connection = Get-AzureRMVirtualNetworkGatewayConnection -Name myTunnel -ResourceGroupName myRG
+   Set-AzVirtualNetworkGatewayConnection -IpsecPolicies $IPSecPolicy -VirtualNetworkGatewayConnection $Connection
+   ```
+
+---
 
 ## <a name="create-a-vm"></a>VM の作成
 
@@ -271,7 +291,7 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 5. VM の作成時に構成したアカウントでサインインします。
 6. 管理者特権の Windows PowerShell プロンプトを開きます。
 7. 「**ipconfig /all**」と入力します。
-8. 出力で **IPv4 アドレス**を見つけ、後で使用するためにそのアドレスを保存します。 これは Azure から ping を実行するアドレスです。 この例の環境ではアドレスは **10.1.0.4** ですが、実際の環境では異なる場合があります。 このアドレスは、先ほど作成した **10.1.0.0/24** サブネット内に含まれています。
+8. 出力で **IPv4 アドレス** を見つけ、後で使用するためにそのアドレスを保存します。 これは Azure から ping を実行するアドレスです。 この例の環境ではアドレスは **10.1.0.4** ですが、実際の環境では異なる場合があります。 このアドレスは、先ほど作成した **10.1.0.0/24** サブネット内に含まれています。
 9. VM が ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
 
    ```powershell
@@ -289,7 +309,7 @@ VPN 接続を確認するには、2 つの VM を作成します。1 つは Azur
 5. VM の作成時に構成したアカウントでサインインします。
 6. 管理者特権の **Windows PowerShell** ウィンドウを開きます。
 7. 「**ipconfig /all**」と入力します。
-8. **10.100.0.0/24** の範囲内にある IPv4 アドレスが表示されます。 この例の環境ではアドレスは **10.100.0.4**ですが、実際の環境では異なる場合があります。
+8. **10.100.0.0/24** の範囲内にある IPv4 アドレスが表示されます。 この例の環境ではアドレスは **10.100.0.4** ですが、実際の環境では異なる場合があります。
 9. VM が ping に応答することを許可するファイアウォール ルールを作成するには、次の PowerShell コマンドを実行します。
 
    ```powershell

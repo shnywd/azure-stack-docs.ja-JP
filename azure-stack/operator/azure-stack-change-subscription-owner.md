@@ -3,24 +3,24 @@ title: Azure Stack Hub ユーザー サブスクリプションの課金の所�
 description: Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する方法について学習します。
 author: justinha
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/16/2020
 ms.author: justinha
 ms.reviewer: shnatara
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: 7b4d47d695287a2e2f544fc9e4c67ceab21527c8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: 0a455f7f902e76e61f5a7451e26219abf10b7622
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543903"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035286"
 ---
 # <a name="change-the-billing-owner-for-an-azure-stack-hub-user-subscription"></a>Azure Stack Hub ユーザー サブスクリプションの課金の所有者を変更する
 
 Azure Stack Hub オペレーターは、PowerShell を使用して、ユーザー サブスクリプションの課金の所有者を変更することができます。 所有者を変更する理由の 1 つに、組織を離れるユーザーの後任を指定することなどがあります。
 
-サブスクリプションに割り当てられる " *所有者* " には、次の 2 種類があります。
+サブスクリプションに割り当てられる "*所有者*" には、次の 2 種類があります。
 
-- **課金の所有者** : 既定では、課金の所有者は、オファーからサブスクリプションを取得し、そのサブスクリプションの請求関係を所有するユーザー アカウントです。 このアカウントはサブスクリプションの管理者でもあります。 サブスクリプションでこの所有者に指定できるユーザー アカウントは 1 つだけです。 課金の所有者は、多くの場合、組織またはチームのリーダーです。
+- **課金の所有者**: 既定では、課金の所有者は、オファーからサブスクリプションを取得し、そのサブスクリプションの請求関係を所有するユーザー アカウントです。 このアカウントはサブスクリプションの管理者でもあります。 サブスクリプションでこの所有者に指定できるユーザー アカウントは 1 つだけです。 課金の所有者は、多くの場合、組織またはチームのリーダーです。
 
   課金の所有者を変更するには、PowerShell コマンドレット [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) を使用します。  
 
@@ -37,10 +37,12 @@ Azure Stack Hub オペレーターは、PowerShell を使用して、ユーザ�
 
 スクリプトを実行する前に、次の値を置き換えてください。
 
-- **$ArmEndpoint** : ご使用の環境用の Resource Manager エンドポイント。
-- **$TenantId** : テナント ID。
-- **$SubscriptionId** : サブスクリプション ID。
-- **$OwnerUpn** : **user\@example.com** など、新しい課金の所有者として追加するアカウント。
+- **$ArmEndpoint**: ご使用の環境用の Resource Manager エンドポイント。
+- **$TenantId**: テナント ID。
+- **$SubscriptionId**: サブスクリプション ID。
+- **$OwnerUpn**: **user\@example.com** など、新しい課金の所有者として追加するアカウント。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
 
 ```powershell
 # Set up Azure Stack Hub admin environment
@@ -58,8 +60,31 @@ $Subscription.Owner = $OwnerUpn
 Set-AzsUserSubscription -InputObject $subscription
 ```
 
-[!include[Remove Account](../../includes/remove-account.md)]
+[!include[Remove Account](../includes/remove-account-az.md)]
 
-## <a name="next-steps"></a>次のステップ
+### <a name="az-modules"></a>[Az モジュール](#tab/azurerm)
+
+```powershell
+# Set up AzureRMure Stack Hub admin environment
+Add-AzureRMEnvironment -ARMEndpoint $ArmEndpoint -Name AzureRMureStack-admin
+Add-AzureRMAccount -Environment AzureRMureStack-admin -TenantId $TenantId
+
+# Select admin subscription
+$providerSubscriptionId = (Get-AzureRMSubscription -SubscriptionName "Default Provider Subscription").Id
+Write-Output "Setting context to the Default Provider Subscription: $providerSubscriptionId"
+Set-AzureRMContext -Subscription $providerSubscriptionId
+
+# Change user subscription owner
+$subscription = Get-AzureRMsUserSubscription -SubscriptionId $SubscriptionId
+$Subscription.Owner = $OwnerUpn
+Set-AzureRMsUserSubscription -InputObject $subscription
+```
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+---
+
+
+
+
+## <a name="next-steps"></a>次の手順
 
 - [ロールベースのアクセス制御の管理](azure-stack-manage-permissions.md)

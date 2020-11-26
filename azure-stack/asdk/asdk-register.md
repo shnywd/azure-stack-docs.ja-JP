@@ -3,16 +3,16 @@ title: ASDK の Azure への登録
 description: Azure Stack Development Kit (ASDK) を Azure に登録して、マーケットプレース シンジケーションと使用状況レポートを有効にする方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 06/14/2019
-ms.openlocfilehash: 34f165025fe96234f8faded5eefcf5f4ae78bbde
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 4fc89c86a2268c4648a7e90fa0f6e90cbc8b260e
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543614"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517244"
 ---
 # <a name="register-the-asdk-with-azure"></a>ASDK の Azure への登録
 
@@ -41,6 +41,10 @@ $ExecutionContext.SessionState.LanguageMode
 > [!NOTE]
 > これらすべての手順は、特権エンドポイントにアクセスできるコンピューターから実行する必要があります。 ASDK の場合は、ASDK のホスト コンピューターです。
 
+
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 1. 管理者として PowerShell コンソールを開きます。  
 
 2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインします。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
@@ -49,13 +53,13 @@ $ExecutionContext.SessionState.LanguageMode
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud, or AzureUSGovernment depending which Azure subscription you're using.
     Add-AzAccount -EnvironmentName "<environment name>"
-
+    
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
-
+    
     # Import the registration module that was downloaded with the GitHub tools
     Import-Module C:\AzureStack-Tools-az\Registration\RegisterWithAzure.psm1
-
+    
     # If you have multiple subscriptions, run the following command to select the one you want to use:
     # Get-AzSubscription -SubscriptionID "<subscription ID>" | Select-AzSubscription
     
@@ -73,7 +77,45 @@ $ExecutionContext.SessionState.LanguageMode
 
 3. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
-    ![ご利用の環境がこれで登録されました](media/asdk-register/1.PNG)
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+1. 管理者として PowerShell コンソールを開きます。  
+
+2. 次の PowerShell コマンドを実行し、Azure に ASDK インストールを登録します。 Azure 課金サブスクリプション ID とローカル ASDK インストールの両方にサインインします。 Azure 課金サブスクリプション ID をまだ持っていない場合は、[こちらから無料の Azure アカウントを作成](https://azure.microsoft.com/free/?b=17.06)できます。 Azure Stack を登録しても、Azure サブスクリプションに課金されることはありません。<br><br>**Set-AzsRegistration** コマンドレットを実行するときに、登録用の一意の名前を設定します。 **RegistrationName** パラメーターの既定値は **AzureStackRegistration** です。 ただし、複数の Azure Stack インスタンスに同じ名前を使用すると、スクリプトは失敗します。
+
+    ```powershell  
+    # Add the AzureRMure cloud subscription environment name. 
+    # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud, or AzureRMureUSGovernment depending which AzureRMure subscription you're using.
+    Add-AzureRMAccount -EnvironmentName "<environment name>"
+    
+    # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+    Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+    
+    # Import the registration module that was downloaded with the GitHub tools
+    Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+    
+    # If you have multiple subscriptions, run the following command to select the one you want to use:
+    # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+    
+    # Register AzureRMure Stack
+    $AzureRMureContext = Get-AzureRMContext
+    $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    $RegistrationName = "<unique-registration-name>"
+    Set-AzureRMsRegistration `
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName $RegistrationName `
+    -UsageReportingEnabled:$true
+    ```
+
+3. スクリプトが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
+
+---
+
+
+
+![ご利用の環境がこれで登録されました](media/asdk-register/1.PNG)
 
 ## <a name="register-in-disconnected-environments"></a>切断された環境での登録
 
@@ -85,6 +127,8 @@ $ExecutionContext.SessionState.LanguageMode
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Azure Stack 環境から登録トークンを取得する
 
 ASDK ホスト コンピューターで、管理者として PowerShell を起動し、Azure Stack ツールをダウンロードしたときに作成された **AzureStack-Tools-az** ディレクトリ内の **Registration** フォルダーに移動します。 次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートし、**Get-AzsRegistrationToken** コマンドレットを使用して登録トークンを取得します。  
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
    ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
@@ -102,11 +146,33 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+  ```powershell  
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Create registration token
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  # File path to save the token. This example saves the file as C:\RegistrationToken.txt.
+  $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationToken = Get-AzureRMsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+  -UsageReportingEnabled:$false `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -BillingModel Development `
+  -MarketplaceSyndicationEnabled:$false `
+  -TokenOutputFilePath $FilePathForRegistrationToken
+  ```
+
+---
+
 インターネット接続されたコンピューターで使用するためにこの登録トークンを保存します。 `$FilePathForRegistrationToken` パラメーターによって作成されたファイルからファイルまたはテキストをコピーできます。
 
 ### <a name="connect-to-azure-and-register"></a>Azure に接続して登録する
 
 インターネット接続されたコンピューターで、次の PowerShell コマンドを使用して **RegisterWithAzure.psm1** モジュールをインポートしてから、作成した登録トークンと一意の登録名で **Register-AzsEnvironment** コマンドレットを使用して Azure に登録します。  
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az3)
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -130,7 +196,36 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
   -RegistrationName $RegistrationName
   ```
 
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm3)
+
+  ```powershell  
+  # Add the AzureRMure cloud subscription environment name. 
+  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  Add-AzureRMAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+
+  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Register with AzureRMure
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  $RegistrationName = "<unique-registration-name>"
+  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+---
+
 または、**Get-Content** コマンドレットを使用して、登録トークンが含まれているファイルを示すことができます。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az4)
 
   ```powershell  
   # Add the Azure cloud subscription environment name. 
@@ -153,6 +248,31 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
   -RegistrationName $RegistrationName
   ```
 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm4)
+
+  ```powershell  
+  # Add the AzureRMure cloud subscription environment name. 
+  # Supported environment names are AzureRMureCloud, AzureRMureChinaCloud or AzureRMureUSGovernment depending which AzureRMure subscription you are using.
+  Add-AzureRMAccount -EnvironmentName "<environment name>"
+
+  # If you have multiple subscriptions, run the following command to select the one you want to use:
+  # Get-AzureRMSubscription -SubscriptionID "<subscription ID>" | Select-AzureRMSubscription
+
+  # Register the AzureRMure Stack resource provider in your AzureRMure subscription
+  Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureRMureStack
+
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  # Register with AzureRMure 
+  # This example uses the C:\RegistrationToken.txt file.
+  $registrationToken = Get-Content -Path "$env:SystemDrive\RegistrationToken.txt"
+  Register-AzureRMsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+---
+
 登録が完了すると、次のようなメッセージが表示されます。**Your Azure Stack environment is now registered with Azure. (Azure Stack 環境が Azure に登録されました。)**
 
 > [!IMPORTANT]
@@ -166,6 +286,8 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
 
 アクティブ化キーを取得するには、次の PowerShell コマンドを実行します。 前の手順で Azure に登録するときに指定したものと同じ一意の登録名の値を使用します。  
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az5)
+
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
   # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
@@ -174,9 +296,26 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
   -KeyOutputFilePath $KeyOutputFilePath
   ```
 
+
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm5)
+
+  ```Powershell
+  $RegistrationResourceName = "<unique-registration-name>"
+  # File path to save the activation key. This example saves the file as C:\ActivationKey.txt.
+  $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
+  $ActivationKey = Get-AzureRMsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
+  ```
+
+---
+
+
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Azure Stack にアクティブ化リソースを作成する
 
 **Get-AzsActivationKey** から作成されたアクティブ化キーのファイルまたはテキストを使用して Azure Stack 環境に戻ります。 次の PowerShell コマンドを実行して、そのアクティブ化キーを使用して Azure Stack でアクティブ化リソースを作成します。   
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az6)
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -189,7 +328,27 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
   -ActivationKey $ActivationKey
   ```
 
+
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm6)
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\AzureRMureStack-Tools-Master\Registration\RegisterWithAzureRMure.psm1
+  
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = "<activation key>"
+  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+---
+
+
 または、**Get-Content** コマンドレットを使用して、登録トークンが含まれているファイルを示すことができます。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az7)
 
   ```Powershell
   # Import the registration module that was downloaded with the GitHub tools
@@ -202,6 +361,25 @@ ASDK ホスト コンピューターで、管理者として PowerShell を起�
   -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
+
+
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm7)
+
+  ```Powershell
+  # Import the registration module that was downloaded with the GitHub tools
+  Import-Module C:\zureRMureStack-Tools-AzureRM-master\Registration\RegisterWithAzureRMure.psm1
+
+  $CloudAdminCred = Get-Credential -UserName AzureRMURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  # This example uses the C:\ActivationKey.txt file.
+  $ActivationKey = Get-Content -Path "$env:SystemDrive\Activationkey.txt"
+  New-AzureRMsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzureRMS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+---
+
 
 アクティブ化が完了すると、次のようなメッセージが表示されます。**Your environment has finished the registration and activation process. (環境で登録とアクティブ化プロセスが終了しました。)**
 

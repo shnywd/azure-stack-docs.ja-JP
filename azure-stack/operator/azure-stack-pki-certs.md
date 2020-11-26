@@ -8,10 +8,10 @@ ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
 ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: 0e3296fb27b9dabbc2569bf85656c4c7b1d58ba9
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 11/26/2020
 ms.locfileid: "93049604"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件
@@ -37,7 +37,7 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 - 1903 以降のビルドで証明書を交換する場合、証明書は、企業や公共の証明機関によって発行できます。
 ::: moniker-end
 - 自己署名証明書の使用はサポートされていません。
-- デプロイおよびローテーションの場合は、証明書のサブジェクト名フィールドとサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つの証明書を使用するか、各名前空間で利用する予定の Azure Stack Hub サービスで必要な個別の証明書を使用することができます。 どちらの方法でも、それらが必要とされるエンドポイントに対してワイルド カードを使用する必要があります (例: **KeyVault** ､ **KeyVaultInternal** )。
+- デプロイおよびローテーションの場合は、証明書のサブジェクト名フィールドとサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つの証明書を使用するか、各名前空間で利用する予定の Azure Stack Hub サービスで必要な個別の証明書を使用することができます。 どちらの方法でも、それらが必要とされるエンドポイントに対してワイルド カードを使用する必要があります (例: **KeyVault**､**KeyVaultInternal**)。
 - 証明書の PFX 暗号化は、3 DES になっている必要があります。
 - 証明書の署名アルゴリズムを SHA1 にしないでください。
 - Azure Stack Hub のインストールには公開キーと秘密キーの両方が必要なため、証明書の形式は PFX である必要があります。 秘密キーにはローカル コンピューターのキー属性が設定されている必要があります。
@@ -56,7 +56,7 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 > Azure Stack Hub を切断モードでデプロイする場合は、エンタープライズ証明機関によって発行された証明書を使用することをお勧めします。 Azure Stack Hub エンドポイントにアクセスするクライアントは、証明書失効リスト (CRL) にアクセスできる必要があるため、これは重要です。
 
 > [!NOTE]  
-> 証明書の信頼チェーン内での中間証明機関の存在が *サポートされています* 。
+> 証明書の信頼チェーン内での中間証明機関の存在が *サポートされています*。
 
 ## <a name="mandatory-certificates"></a>必須の証明書
 このセクションの表では、Azure AD と AD FS Azure Stack Hub の両方のデプロイに必要な Azure Stack Hub パブリック エンドポイント PKI 証明書について説明します。 証明書の要件が領域のほか、使用される名前空間や、名前空間ごとに必要な証明書でグループ化されています。 この表ではまた、ソリューション プロバイダーがパブリック エンドポイントごとに異なる証明書をコピーするフォルダーについても説明します。

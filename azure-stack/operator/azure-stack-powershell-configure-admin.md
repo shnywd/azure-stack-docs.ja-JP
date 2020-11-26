@@ -3,16 +3,16 @@ title: PowerShell を使用して Azure Stack Hub に接続する
 description: PowerShell を使用して Azure Stack Hub に接続する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/19/2020
+ms.date: 11/19/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: d99212c63e33060fbbb8eb483dd32e7c01d54ba1
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 19438a56b487e4c5c167977fbc831bf64dc3695a
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545144"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "96035319"
 ---
 # <a name="connect-to-azure-stack-hub-with-powershell"></a>PowerShell を使用して Azure Stack Hub に接続する
 
@@ -29,11 +29,32 @@ ms.locfileid: "94545144"
 
 PowerShell を使用する Azure Stack Hub オペレーター環境を構成するには、次のいずれかのスクリプトを実行します。 Azure Active Directory (Azure AD) tenantName と Azure Resource Manager エンドポイント値を独自の環境構成で置き換えます。
 
-[!include[Remove Account](../../includes/remove-account.md)]
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
+[!include[Remove Account](../includes/remove-account-az.md)]
 
 ```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
     Add-AzEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+    # Set your tenant name.
+    $AuthEndpoint = (Get-AzEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    # After signing in to your environment, Azure Stack Hub cmdlets
+    # can be easily targeted at your Azure Stack Hub instance.
+    Add-AzAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+[!include[Remove Account](../includes/remove-account-azurerm.md)]
+
+```powershell  
+    # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
       -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
@@ -47,9 +68,14 @@ PowerShell を使用する Azure Stack Hub オペレーター環境を構成す�
     Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
 ```
 
+---
+
+
 ## <a name="connect-with-ad-fs"></a>AD FS を使用した接続
 
 Azure Stack Hub オペレーター環境に Azure Active Directory フェデレーション サービス (Azure AD FS) を使用した PowerShell で接続します。 ASDK では、この Azure Resource Manager エンドポイントは `https://adminmanagement.local.azurestack.external` に設定されています。 Azure Resource Manager エンドポイントを Azure Stack Hub 統合システム用に取得するには、サービス プロバイダーにお問い合わせください。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
   ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
@@ -58,18 +84,42 @@ Azure Stack Hub オペレーター環境に Azure Active Directory フェデレ�
       -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
   # Sign in to your environment.
-  Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+  Login-AzAccount -EnvironmentName "AzureStackAdmin"
   ```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+```powershell  
+# Register an Azure Resource Manager environment that targets your Azure Stack Hub instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+    -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+    -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
+# Sign in to your environment.
+Login-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+```
+
+---
 
 [!Include [AD FS only supports interactive authentication with user identities](../includes/note-powershell-adfs.md)]
 
 ## <a name="test-the-connectivity"></a>接続のテスト
 
-必要な設定がすべて整ったら、PowerShell を使用して Azure Stack Hub 内にリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、 **MyResourceGroup** という名前のリソース グループを作成します。
+必要な設定がすべて整ったら、PowerShell を使用して Azure Stack Hub 内にリソースを作成してみましょう。 たとえば、アプリのリソース グループを作成して仮想マシンを追加できます。 次のコマンドを使用して、**MyResourceGroup** という名前のリソース グループを作成します。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az3)
+```powershell  
+New-AzResourceGroup -Name "MyResourceGroup" -Location "Local"
+```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm3)
 
 ```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
+
+---
+
 
 ## <a name="next-steps"></a>次のステップ
 
