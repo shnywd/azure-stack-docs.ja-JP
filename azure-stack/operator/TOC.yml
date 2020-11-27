@@ -88,7 +88,7 @@
               href: azure-stack-validate-adfs.md
             - name: Graph 統合の検証
               href: azure-stack-validate-graph.md
-        - name: PKI の要件とプロセス
+        - name: 外部 PKI 証明書
           items:
             - name: PKI 証明書の要件
               href: azure-stack-pki-certs.md

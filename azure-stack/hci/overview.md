@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/3/2020
-ms.openlocfilehash: 5b54efc32bf62c0abeca97ecdee9bb4414cced9f
-ms.sourcegitcommit: ecd98662194d2cdb15c22f8b1f99812fc5f4c15a
+ms.date: 11/23/2020
+ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93344866"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517074"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
@@ -62,19 +62,19 @@ Azure Stack HCI では、百万単位のストレージ IOPS や 1 秒あたり�
 Azure Stack HCI クラスターを Azure に登録した後は、最初に Azure portal を使用して以下のことができます。
 
 - **監視:** すべての Azure Stack HCI クラスターを 1 つのグローバルなビューで表示し、リソース グループ別にグループ化したり、タグを付けたりします。
-- **課金** : Azure サブスクリプションを通じて Azure Stack HCI の支払いを行います (パブリック プレビュー期間中は料金は発生しません)。
+- **課金**: Azure サブスクリプションを通じて Azure Stack HCI の支払いを行います (パブリック プレビュー期間中は料金は発生しません)。
 
 追加機能の作成に取り組んでいますので、注目していてください。
 
 また、追加の Azure ハイブリッド サービスをサブスクライブすることもできます。
 
-- **Azure Site Recovery** : 高可用性およびサービスとしてのディザスター リカバリー (DRaaS)。
-- **Azure Monitor** : AI による高度な分析を使用して、お客様のアプリ、ネットワーク、インフラストラクチャ全体で起こっていることを追跡するための集中ハブ。
-- **クラウド監視** : Azure をクラスター クォーラム用の軽量な決定機構として使用。
-- **Azure Backup** : オフサイト データ保護およびランサムウェアに対する保護を提供。
-- **Azure Update Management** : Azure およびオンプレミスで実行されている Windows VM に対する更新プログラムの評価と更新プログラムのデプロイ。
-- **Azure Network Adapter** : ポイント対サイト VPN 経由で、オンプレミスのリソースを Azure 内のお客様の VM に接続。
-- **Azure File Sync** : ファイル サーバーとクラウドを同期。
+- **Azure Site Recovery**: 高可用性およびサービスとしてのディザスター リカバリー (DRaaS)。
+- **Azure Monitor**: AI による高度な分析を使用して、お客様のアプリ、ネットワーク、インフラストラクチャ全体で起こっていることを追跡するための集中ハブ。
+- **クラウド監視**: Azure をクラスター クォーラム用の軽量な決定機構として使用。
+- **Azure Backup**: オフサイト データ保護およびランサムウェアに対する保護を提供。
+- **Azure Update Management**: Azure およびオンプレミスで実行されている Windows VM に対する更新プログラムの評価と更新プログラムのデプロイ。
+- **Azure Network Adapter**: ポイント対サイト VPN 経由で、オンプレミスのリソースを Azure 内のお客様の VM に接続。
+- **Azure File Sync**: ファイル サーバーとクラウドを同期。
 
 詳細については、「[Azure ハイブリッド サービスへの Windows Server の接続](/windows-server/manage/windows-admin-center/azure/index)」を参照してください。
 
@@ -98,6 +98,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 - [Azure サブスクリプション](https://azure.microsoft.com/)
 - クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で次のエンドポイントに接続できること: *-azurestackhci-usage.azurewebsites.net
 - 複数のサイトに拡張されるクラスターの場合は、サイト間に 1 Gb 以上の接続が必要であり (25 Gb の RDMA 接続を推奨)、両方のサイトで書き込みが同時に発生する同期レプリケーションを行う場合は、平均待機時間が 5 ミリ秒のラウンドトリップが必要です
+- ソフトウェアによるネットワーク制御 (SDN) を使用する計画の場合は、ネットワーク コントローラー VM を作成するために Azure Stack HCI オペレーティング システム用の仮想ハード ディスク (VHD) が必要です (「[ネットワーク コントローラーのデプロイを計画する](concepts/network-controller.md)」をご覧ください)
 
 詳細については、[システム要件](concepts/system-requirements.md)に関するページを参照してください。 Azure Stack HCI での Azure Kubernetes Service の要件については、[Azure Stack HCI での AKS の要件](../aks-hci/overview.md#what-you-need-to-get-started)に関するページを参照してください。
 
@@ -199,20 +200,20 @@ Azure Stack HCI は、Azure と Azure Stack ファミリの一員であり、Azu
 
 Windows Admin Center バージョン 2009 では、次のような多数の機能が Azure Stack HCI に追加されています。
 
-- **Azure Kubernetes Service のホスティング機能** : [Azure Stack HCI 上の Azure Kubernetes Service](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) のプレビュー バージョンをインストールできるようになりました。
-- **クラスター作成ウィザードでのソフトウェア定義ネットワークの追加** :クラスター作成ウィザードで、 [クラスターの作成](deploy/create-cluster.md#step-5-sdn-optional)中に、 [ソフトウェア定義ネットワーク (SDN)](concepts/software-defined-networking.md) ネットワーク コントローラーの機能をデプロイするオプションが追加されました。
+- **Azure Kubernetes Service のホスティング機能**:[Azure Stack HCI 上の Azure Kubernetes Service](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) のプレビュー バージョンをインストールできるようになりました。
+- **クラスター作成ウィザードでのソフトウェア定義ネットワークの追加**:クラスター作成ウィザードで、[クラスターの作成](deploy/create-cluster.md#step-5-sdn-optional)中に、[ソフトウェア定義ネットワーク (SDN)](concepts/software-defined-networking.md) ネットワーク コントローラーの機能をデプロイするオプションが追加されました。
 
 Windows Admin Center の新機能の詳細については、[Windows Admin Center のブログ](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)を参照してください。
 
 Windows Server 2019 ベースのソリューションと比較して、Azure Stack HCI バージョン 20H2 を実行するクラスターには、次の新機能があります。
 
-- **Windows Admin Center の新機能** : 直感的な UI を使用してハイパーコンバージド クラスターを作成および更新する機能により、Azure Stack HCI はこれまで以上に簡単に使用できるようになりました。
-- **自動フェールオーバーのためのストレッチ クラスター** : 記憶域レプリカ レプリケーションと自動 VM フェールオーバーを使用するマルチサイト クラスタリングでは、記憶域スペース ダイレクトを使用するクラスターに対して、ネイティブのディザスター リカバリーとビジネス継続性が提供されます。
-- **アフィニティと非アフィニティのルール** : これらは、ストレッチ クラスターなどの複数の障害ドメインを持つクラスターで、VM とストレージをまとめて、または分離して維持するために Azure で Availability Zones が使用される方法と同様に使用できます。
-- **Azure portal の統合** : Azure Stack HCI に対する Azure portal のエクスペリエンスは、開発中の新機能を使用して、世界中のすべての Azure Stack HCI クラスターを表示するように設計されています。
-- **高パフォーマンス ワークロード用の GPU アクセラレーション** : AI/ML アプリケーションでは、GPU を使用したパフォーマンスの向上によってメリットがあります。
-- **BitLocker 暗号化** : BitLocker を使用して Azure Stack HCI 上のデータ ボリュームの内容を暗号化できるようになりました。これにより、政府や他のお客様は FIPS 140-2 や HIPAA などの標準に準拠した状態を維持できます。
-- **記憶域スペース ダイレクト ボリュームの修復速度の向上** : すばやくシームレスにボリュームを修復します。
+- **Windows Admin Center の新機能**: 直感的な UI を使用してハイパーコンバージド クラスターを作成および更新する機能により、Azure Stack HCI はこれまで以上に簡単に使用できるようになりました。
+- **自動フェールオーバーのためのストレッチ クラスター**: 記憶域レプリカ レプリケーションと自動 VM フェールオーバーを使用するマルチサイト クラスタリングでは、記憶域スペース ダイレクトを使用するクラスターに対して、ネイティブのディザスター リカバリーとビジネス継続性が提供されます。
+- **アフィニティと非アフィニティのルール**: これらは、ストレッチ クラスターなどの複数の障害ドメインを持つクラスターで、VM とストレージをまとめて、または分離して維持するために Azure で Availability Zones が使用される方法と同様に使用できます。
+- **Azure portal の統合**: Azure Stack HCI に対する Azure portal のエクスペリエンスは、開発中の新機能を使用して、世界中のすべての Azure Stack HCI クラスターを表示するように設計されています。
+- **高パフォーマンス ワークロード用の GPU アクセラレーション**: AI/ML アプリケーションでは、GPU を使用したパフォーマンスの向上によってメリットがあります。
+- **BitLocker 暗号化**: BitLocker を使用して Azure Stack HCI 上のデータ ボリュームの内容を暗号化できるようになりました。これにより、政府や他のお客様は FIPS 140-2 や HIPAA などの標準に準拠した状態を維持できます。
+- **記憶域スペース ダイレクト ボリュームの修復速度の向上**: すばやくシームレスにボリュームを修復します。
 
 Windows Admin Center バージョン 20H2 では、Windows Server ベースのクラスターに対する新しいクラスター更新 UI も提供されています (元の Azure Stack HCI ソリューションを含む)。 また、Windows Server では新しいクラスター作成ウィザードを使用できますが、記憶域スペース ダイレクトを使用して Windows Server クラスターを作成することはできません。そのためには、Azure Stack HCI オペレーティング システムが必要です。
 
