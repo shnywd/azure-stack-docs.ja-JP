@@ -3,16 +3,16 @@ title: Azure Stack Hub での VM の更新と管理の自動化
 description: Azure Automation の Azure Monitor for VMs、Update Management、Change Tracking、Inventory ソリューションを使用して、Azure Stack Hub にデプロイされている Windows および Linux の VM を管理します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/08/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: rtiberiu
-ms.lastreviewed: 10/08/2020
-ms.openlocfilehash: 7b3c69b26ef1fee21e652c70f0ca9a9ddc156460
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: c30d254e3b9e17fa817d778e8f43b9611cb390cf
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383668"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517363"
 ---
 # <a name="vm-update-and-management-automation-in-azure-stack-hub"></a>Azure Stack Hub での VM の更新と管理の自動化
 以下の Azure Automation ソリューション機能を使用して、Azure Stack Hub を使用してデプロイされている Windows および Linux の仮想マシン (VM) を管理できます。
@@ -72,7 +72,7 @@ Azure portal で Azure Automation のソリューションを有効にしたら�
 
    ![[ホーム] > [Marketplace Management] > [Azure から追加する] > [Azure Monitor, Update and Configuration Management]\(Azure Monitor、更新および構成管理拡張機能\) ダイアログ ボックスに、拡張機能の説明と [ダウンロード] ボタンが表示されています。](media//vm-update-management/2.PNG) 
 
-Azure Monitor for VMs マップ ソリューションを有効にして、ネットワークの依存関係の分析情報を取得するには、 **Azure Monitor Dependency Agent** をダウンロードします。
+Azure Monitor for VMs マップ ソリューションを有効にして、ネットワークの依存関係の分析情報を取得するには、**Azure Monitor Dependency Agent** をダウンロードします。
 
    ![[ホーム] > [Marketplace Management] > [Azure から追加する] > [Azure Monitor Dependency Agent] ダイアログ ボックスに、拡張機能の説明と [ダウンロード] ボタンが表示されています。](media//vm-update-management/2-dependency.PNG) 
 
@@ -113,6 +113,8 @@ Azure Stack Hub の VM は、Azure VM と共に、スケジュールされた更
 
 以下の例は、その方法を示しています。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
 ```Powershell  
 $nonAzurecomputers = @("server-01", "server-02")
 
@@ -122,21 +124,36 @@ $s = New-AzAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName 
 
 New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+```Powershell  
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRMAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdateConfiguration
+
+New-AzureRMAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+---
+
+
 
 ## <a name="enable-azure-monitor-for-vms-running-on-azure-stack-hub"></a>Azure Stack Hub で実行している Azure Monitor for VMs を有効化する
-**Azure Monitor、更新、および構成管理** および **Azure Monitor Dependency Agent** の拡張機能が VM にインストールされると、 [Azure Monitor for VMs](/azure/azure-monitor/insights/vminsights-overview) ソリューション内のデータのレポートが開始されます。 
+**Azure Monitor、更新、および構成管理** および **Azure Monitor Dependency Agent** の拡張機能が VM にインストールされると、[Azure Monitor for VMs](/azure/azure-monitor/insights/vminsights-overview) ソリューション内のデータのレポートが開始されます。 
 
 > [!TIP]
 > **Azure Monitor Dependency Agent** 拡張機能にはパラメーターは必要ありません。 Azure Monitor for VMs マップの Dependency Agent でデータ自体が送信されることはないため、ファイアウォールやポートを変更する必要はありません。 マップ データは、Log Analytics エージェントによって常に Azure Monitor サービスに直接送信されます。または、ご利用の IT セキュリティ ポリシーでネットワーク上のコンピューターがインターネットに接続することが許可されていない場合には、[OMS ゲートウェイ](/azure/azure-monitor/platform/gateway)を経由して送信されます。
 
 Azure Monitor for VMs には、VM がどの程度効果的に実行されているかを判定するのに役立ついくつかの主要業績評価指標 (KPI) を対象とする一連のパフォーマンス グラフが含まれています。 グラフには、一定の期間のリソースの使用が表示されるため、ボトルネックや異常を特定できます。 また、各マシンのパースペクティブな一覧に切り替えて、選択したメトリックに基づいて、リソースの使用を表示することもできます。 パフォーマンスを扱うときに考慮すべき要素は数多くありますが、Azure Monitor for VMs では、プロセッサ、メモリ、ネットワーク アダプター、およびディスクの使用に関連するオペレーティング システムの主要なパフォーマンス指標を監視します。 パフォーマンス グラフは、正常性監視機能を補完し、システム コンポーネントの障害の可能性を示す問題を明らかにするために役立ちます。 また Azure Monitor for VMs は、キャパシティ プランニングとチューニングおよび最適化もサポートし、効率を高めます。
 
-   ![Azure Monitor VM [パフォーマンス] タブ](/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
+   ![Azure Monitor VM [パフォーマンス] タブ](http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-performance/vminsights-performance-aggview-01.png)
 
 Azure Stack Hub で実行されている Windows および Linux VM で検出されたアプリ コンポーネントの表示は、Azure Monitor for VMs による 2 つの方法で観察できます。 1 つ目は VM から直接、2 つ目は Azure Monitor から VM のグループ全体に対するものです。
 「[Azure Monitor for VMs のマップ機能を使用してアプリケーション コンポーネントを把握する](/azure/azure-monitor/insights/vminsights-maps)」の記事は、2 つの観点のエクスペリエンスとマップ機能の使用方法を理解するために役立ちます。
 
-   ![Azure Monitor VMs [マップ] タブ](/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
+   ![Azure Monitor VMs [マップ] タブ]((http:/docs.microsoft.com/azure/azure-monitor/insights/media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
 [Azure Monitor for VMs](/azure/azure-monitor/insights/vminsights-overview) にパフォーマンス データが表示されない場合は、[LogAnalytics Workspace](/azure/azure-monitor/platform/data-sources-performance-counters) の [詳細設定] で Windows および Linux のパフォーマンス データの収集を有効にする必要があります。
 
