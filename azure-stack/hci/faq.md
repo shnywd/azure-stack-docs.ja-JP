@@ -6,13 +6,13 @@ author: JohnCobb1
 ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/04/2020
-ms.openlocfilehash: f54b62a26b9e3c0409493cec26bdb42ac990b35b
-ms.sourcegitcommit: 08aa3b381aec7a6a3df4f9591edd6f08928071d2
+ms.date: 11/24/2020
+ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93363896"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812630"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI の FAQ
 この Azure Stack HCI の FAQ は、Azure Stack HCI の接続に関するセクションと一般的な FAQ のセクションで構成されています。
@@ -52,7 +52,7 @@ Azure Stack HCI は、最低でも 30 日間に 1 回は、Azure と正常に同
 
 **30 日間の制限を超えるとどうなりますか?**
 
-Azure Stack HCI が Azure と同期されないまま 30 日が経過した場合は、Azure portal や他のツールで、クラスターの接続状態が " **Out of policy (ポリシー違反)** " と表示され、クラスターが機能制限モードに移行します。 このモードでも、ホスト インフラストラクチャは稼動状態を維持し、現在の VM はすべて正常に動作し続けます。 ただし、Azure Stack HCI が再度同期できるようになるまで、新しい VM は作成できません。 内部的かつ技術的な理由として、クラウドによって生成されるクラスターのライセンスが期限切れになっていて、Azure と同期することで更新する必要があることが挙げられます。
+Azure Stack HCI が Azure と同期されないまま 30 日が経過した場合は、Azure portal や他のツールで、クラスターの接続状態が "**Out of policy (ポリシー違反)** " と表示され、クラスターが機能制限モードに移行します。 このモードでも、ホスト インフラストラクチャは稼動状態を維持し、現在の VM はすべて正常に動作し続けます。 ただし、Azure Stack HCI が再度同期できるようになるまで、新しい VM は作成できません。 内部的かつ技術的な理由として、クラウドによって生成されるクラスターのライセンスが期限切れになっていて、Azure と同期することで更新する必要があることが挙げられます。
 
 ### <a name="understanding-sync"></a>同期とは
 
@@ -68,7 +68,7 @@ Azure Stack HCI が Azure と同期されないまま 30 日が経過した場�
 
 **同期された情報は、実際にはどこに送信されますか?**
 
-Azure Stack HCI の同期先は、初期登録時に選択した Azure リージョンです。 既定では米国東部です。 Azure Stack HCI は西ヨーロッパでも利用できるほか、より多くのリージョンに広げるために取り組んでいます。 たとえば、米国東部に登録した場合、情報はそのリージョンに対してのみ同期され、Microsoft が運営する米国内の安全なデータセンターのみに格納されます。 詳細については、「[Azure でのデータ所在地](https://azure.microsoft.com/global-infrastructure/data-residency/)」を参照してください。
+Azure Stack HCI は Azure と同期され、データは Microsoft が運営するセキュリティで保護されたデータセンターに格納されます。 詳細については、「[Azure でのデータ所在地](https://azure.microsoft.com/global-infrastructure/data-residency/)」を参照してください。
 
 ### <a name="disconnected-or-air-gapped"></a>非接続 (エアギャップ) 環境
 

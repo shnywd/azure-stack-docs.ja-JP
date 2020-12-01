@@ -8,18 +8,21 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 86e3a87bf869d6bd9980746742a7ba03d142d5fe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b0d750c81299b59fb8bab64c327a642f0d58503a
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545025"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152864"
 ---
 # <a name="prepare-azure-stack-hub-pki-certificates-for-deployment-or-rotation"></a>デプロイまたはローテーションのために Azure Stack Hub PKI 証明書を準備する
 
+> [!NOTE]
+> この記事では、外部インフラストラクチャとサービスのエンドポイントをセキュリティで保護するために使用される外部証明書の準備についてのみ説明します。 内部証明書は、[証明書のローテーション プロセス](azure-stack-rotate-secrets.md)中に個別に管理されます。
+
 [証明機関 (CA) から取得した](azure-stack-get-pki-certs.md)証明書ファイルは、Azure Stack Hub の証明書要件に一致するプロパティを使用してインポートおよびエクスポートする必要があります。
 
-この記事では、Azure Stack Hub のデプロイまたはシークレットのローテーションを準備するために、証明書をインポート、パッケージ化、検証する方法について説明します。 
+この記事では、Azure Stack Hub のデプロイまたはシークレットのローテーションを準備するために、外部証明書をインポート、パッケージ化、検証する方法について説明します。 
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -156,7 +159,7 @@ Azure Stack 適合性チェッカーの PowerShell コマンドレットを使�
 
 証明書管理者 MMC コンソールを開き、ローカル コンピューターの証明書ストアに接続します。
 
-1. Microsoft 管理コンソールを開きます。 Windows 10 でコンソールを開くには、 **[スタート] メニュー** を右クリックし、 **[実行]** を選択してから、「 **mmc** 」と入力して Enter キーを押します。
+1. Microsoft 管理コンソールを開きます。 Windows 10 でコンソールを開くには、 **[スタート] メニュー** を右クリックし、 **[実行]** を選択してから、「**mmc**」と入力して Enter キーを押します。
 
 2. **[ファイル]**  >  **[スナップインの追加と削除]** の順に選択してから、 **[証明書]** を選択して **[追加]** を選択します。
 

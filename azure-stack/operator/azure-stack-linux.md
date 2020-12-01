@@ -3,16 +3,16 @@ title: Linux イメージを Azure Stack Hub Marketplace に追加する
 description: Azure Stack Hub Marketplace へ Linux イメージを追加する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/24/2020
+ms.date: 11/18/2020
 ms.author: sethm
-ms.reviewer: ''
-ms.lastreviewed: 11/16/2019
-ms.openlocfilehash: fb0584b79c3e3555ec59cd225db37847b02a41d2
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.reviewer: thoroet
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 5fc9d8ba2cc12ddbb46156e091227ab2f47e0bd4
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544175"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517635"
 ---
 # <a name="add-linux-images-to-the-azure-stack-hub-marketplace"></a>Linux イメージを Azure Stack Hub Marketplace に追加する
 
@@ -104,9 +104,11 @@ runcmd:
 ### <a name="step-2-reference-cloud-inittxt-during-the-linux-vm-deployment"></a>手順 2:Linux VM のデプロイ中に cloud-init.txt を参照する
 
 Azure Stack Hub Linux VM からアクセスできる Azure ストレージ アカウント、Azure Stack Hub ストレージ アカウント、または GitHub リポジトリにファイルをアップロードします。
-現時点では、VM のデプロイでの cloud-init の使用は、REST、Powershell、CLI でのみサポートされており、Azure Stack Hub に関連付けられたポータル UI はありません。
+現時点では、VM のデプロイでの cloud-init の使用は、REST、PowerShell、CLI でのみサポートされており、Azure Stack Hub に関連付けられたポータル UI はありません。
 
 [こちら](../user/azure-stack-quick-create-vm-linux-powershell.md)の手順に従って、PowerShell を使用して Linux VM を作成できますが、`-CustomData` フラグの一部として cloud-init.txt を必ず参照してください。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
 
 ```powershell
 $VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
@@ -114,6 +116,15 @@ $VirtualMachine =Set-AzVMOperatingSystem -VM $VirtualMachine `
   -ComputerName "MainComputer" `
   -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+```powershell
+$VirtualMachine =Set-AzureRMVMOperatingSystem -VM $VirtualMachine `
+  -Linux `
+  -ComputerName "MainComputer" `
+  -Credential $cred -CustomData "#include https://cloudinitstrg.blob.core.windows.net/strg/cloud-init.txt"
+```
+---
 
 ## <a name="add-your-image-to-marketplace"></a>Marketplace にイメージを追加する
 

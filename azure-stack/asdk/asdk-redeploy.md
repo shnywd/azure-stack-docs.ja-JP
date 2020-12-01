@@ -3,16 +3,16 @@ title: ASDK の再デプロイ
 description: Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。
 author: myoungerman
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 11/14/2020
 ms.author: v-myoung
 ms.reviewer: misainat
-ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 7408bcb7317550d7093f97a4cfe10bbc17119467
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 8b09386c748fe8263973b8812a049ab426585c42
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543631"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517108"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK の再デプロイ
 この記事では、非運用環境で Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。 ASDK のアップグレードはサポートされていないため、新しいバージョンに移行するには、ASDK を完全に再デプロイする必要があります。 最初から始める場合はいつでも、ASDK を再デプロイすることもできます。
@@ -24,6 +24,8 @@ ms.locfileid: "94543631"
 以前に ASDK インストールを Azure に登録したことがある場合は、ASDK を再デプロイする前に、登録リソースを削除する必要があります。 ASDK を再デプロイした場合は、マーケットプレースにある項目を入手できるようにするために ASDK を再登録します。 以前に ASDK を Azure サブスクリプションに登録していない場合は、このセクションをスキップできます。
 
 登録リソースを削除するには、**Remove-AzsRegistration** コマンドレットを使用して Azure Stack の登録を解除します。 次に、**Remove-AzResourceGroup** コマンドレットを使用して、Azure サブスクリプションから Azure Stack リソース グループを削除します。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
 
 1. 特権エンドポイントにアクセスできるコンピューターで、管理者として PowerShell コンソールを開きます。 ASDK の場合は、ASDK のホスト コンピューターです。
 
@@ -57,7 +59,40 @@ ms.locfileid: "94543631"
     `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
     `********** End Log: Remove-AzsRegistration *********`
 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
 
+1. 特権エンドポイントにアクセスできるコンピューターで、管理者として PowerShell コンソールを開きます。 ASDK の場合は、ASDK のホスト コンピューターです。
+
+2. 次の PowerShell コマンドを実行して、ASDK のインストールを登録解除し、Azure サブスクリプションから **azurestack** リソース グループを削除します。
+
+   ```powershell    
+   #Import the registration module that was downloaded with the GitHub tools
+   Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
+
+   # Provide Azure subscription admin credentials
+   Add-AzureRmAccount
+
+   # Provide ASDK admin credentials
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the cloud domain credentials to access the privileged endpoint"
+
+   # Unregister Azure Stack
+   Remove-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint AzS-ERCS01
+
+   # Remove the Azure Stack resource group
+   Remove-AzureRmResourceGroup -Name azurestack -Force
+   ```
+
+3. スクリプトの実行時に、Azure サブスクリプションとローカル ASDK インストールの両方にサインインするように求めるメッセージが表示されます。
+4. コマンドが完了すると、次の例のようなメッセージが表示されます。
+
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).` `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
+
+---
 
 これで、Azure Stack の登録が Azure サブスクリプションから正常に解除されました。 azurestack リソース グループも削除する必要があります。 このリソース グループは、ASDK を Azure に初めて登録したときに作成されたものです。
 

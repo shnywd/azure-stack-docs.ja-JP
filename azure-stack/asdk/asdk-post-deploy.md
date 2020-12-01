@@ -3,16 +3,16 @@ title: ASDK のデプロイ後の構成
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 author: justinha
 ms.topic: article
-ms.date: 10/16/2020
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 3eb5a9a4f9f52b6e9de5b33233c571da265b5893
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: efb7d803d8f0c29269bae3e147fc48eec3e29eb3
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543546"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517312"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 
@@ -37,6 +37,7 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
 - ASDK ホスト コンピューターからの **インターネット接続がある場合**:次の PowerShell スクリプトを実行して、これらのモジュールを ASDK インストールにインストールします。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
   ```powershell  
   Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
@@ -50,9 +51,29 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
   Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
   ```
 
-  インストールに成功した場合、出力に Az および AzureStack モジュールが表示されます。
+インストールに成功した場合、出力に Az および AzureStack モジュールが表示されます。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+  ```powershell  
+  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+
+  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+  Install-Module -Name AzureRM.BootStrapper
+
+  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+  Install-Module -Name AzureStack -RequiredVersion 1.8.2
+  ```
+
+インストールに成功した場合、出力に AzureRM および AzureStack モジュールが表示されます。
+
+---
 
 - ASDK ホスト コンピューターからの **インターネット接続がない場合**:接続が切断されたシナリオでは、まず次の PowerShell コマンドを使って、インターネット接続が確立されたマシンに PowerShell モジュールをダウンロードします。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
   ```powershell
   $Path = "<Path that is used to save the packages>"
@@ -66,22 +87,53 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 
   ここで、ダウンロードしたパッケージを ASDK コンピューターにコピーし、その場所を既定のリポジトリとして登録し、そのリポジトリから Az および AzureStack モジュールをインストールします。
 
-    ```powershell  
-    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
-    $RepoName = "MyNuGetSource"
+  ```powershell  
+  $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+  $RepoName = "MyNuGetSource"
 
-    Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+  Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
 
-    Install-Module Az -Repository $RepoName
+  Install-Module Az -Repository $RepoName
 
-    Install-Module AzureStack -Repository $RepoName
-    ```
+  Install-Module AzureStack -Repository $RepoName
+  ```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+  ```powershell
+  $Path = "<Path that is used to save the packages>"
+
+  Save-Package `
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+  
+  Save-Package `
+    -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+  ```
+
+  ここで、ダウンロードしたパッケージを ASDK コンピューターにコピーし、その場所を既定のリポジトリとして登録し、そのリポジトリから AzureRM および AzureStack モジュールをインストールします。
+
+  ```powershell  
+  $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
+  $RepoName = "MyNuGetSource"
+
+  Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation -InstallationPolicy Trusted
+
+  Install-Module AzureRM -Repository $RepoName
+
+  Install-Module AzureStack -Repository $RepoName
+  ```
+
+---
 
 ## <a name="download-the-azure-stack-tools"></a>Azure Stack ツールをダウンロードする
 
-[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) は PowerShell モジュールをホストする GitHub リポジトリで、リソースの管理と Azure Stack へのデプロイに使用できます。 これらのツールを入手するには、GitHub リポジトリをクローンするか、次のスクリプトを実行して AzureStack-Tools-az フォルダーをダウンロードします。
+[AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) は PowerShell モジュールをホストする GitHub リポジトリで、リソースの管理と Azure Stack へのデプロイに使用できます。 ツールは、Az PowerShell モジュール、または AzureRM モジュールを使って使用します。
 
-  ```powershell
+### <a name="az-modules"></a>[Az モジュール](#tab/az3)
+
+これらのツールを取得するには、`az` ブランチから GitHub リポジトリをクローンするか、次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+
+```powershell
 # Change directory to the root directory.
 cd \
 
@@ -98,7 +150,34 @@ expand-archive az.zip `
 
 # Change to the tools directory.
 cd AzureStack-Tools-az
-  ```
+
+```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm3)
+
+これらのツールを取得するには、`master` ブランチから GitHub リポジトリを複製するか、管理者特権の PowerShell プロンプトで次のスクリプトを実行して **AzureStack-Tools** フォルダーをダウンロードします。
+
+```powershell
+# Change directory to the root directory.
+cd \
+
+# Download the tools archive.
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+invoke-webrequest `
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  -OutFile master.zip
+
+# Expand the downloaded files.
+expand-archive master.zip `
+  -DestinationPath . `
+  -Force
+
+# Change to the tools directory.
+cd AzureStack-Tools-master
+
+```
+Azure Stack Hub 用の AzureRM モジュールの使用の詳細については、「[Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする](../operator/azure-stack-powershell-install.md)」を参照してください。
+
+---
 
 ## <a name="validate-the-asdk-installation"></a>ASDK インストールを検証する
 

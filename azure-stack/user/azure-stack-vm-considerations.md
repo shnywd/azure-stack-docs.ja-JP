@@ -3,16 +3,16 @@ title: Azure Stack Hub VM の機能
 description: Azure Stack Hub で VM を操作する際のさまざまな機能と考慮事項について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 10/09/2019
-ms.openlocfilehash: 2fbdc058781b4aefbcf4a289e907bcbb4b63f301
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546992"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518281"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -74,6 +74,8 @@ Azure Stack Hub には、拡張機能の小規模なセットが含まれてい�
 
 実際の Azure Stack Hub 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 ```powershell
 Get-AzVmImagePublisher -Location local | `
   Get-AzVMExtensionImageType | `
@@ -81,6 +83,16 @@ Get-AzVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+```powershell
+Get-AzureRMVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+``` 
+---
 
 VM のデプロイで拡張機能のプロビジョニングに時間がかかりすぎる場合は、プロセスを停止して VM の割り当て解除または削除を試みるのではなく、プロビジョニングをタイムアウトさせる必要があります。
 
@@ -92,6 +104,8 @@ Azure Stack Hub の VM 機能は、次の API バージョンをサポートし�
 
 次の PowerShell スクリプトを使用して、実際の Azure Stack Hub 環境で利用できる VM 機能の API バージョンを取得することができます。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
+
 ```powershell
 Get-AzResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -99,6 +113,19 @@ Get-AzResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+```powershell
+Get-AzureRMResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+
+---
+
 
 サポートされるリソースの種類と API バージョンの一覧は、クラウド オペレーターが Azure Stack Hub 環境を新しいバージョンに更新した場合は異なっている可能性があります。
 

@@ -9,11 +9,11 @@ ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
 ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572825"
+ms.lasthandoff: 11/25/2020
+ms.locfileid: "96035336"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -247,10 +247,10 @@ Azure Diagnostics 拡張機能は、既定で SQL リソース プロバイダ�
 3. VM の **[診断設定]** で、**[ログ]** タブにアクセスし、**[カスタム]** を選択して、収集するイベント ログをカスタマイズします。
 ![診断設定への移動](media/azure-stack-sql-resource-provider-maintain/sqlrp-diagnostics-settings.png)
 
-4. SQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
+4. SQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ を追加します。
 ![イベント ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-event-logs.png)
 
-5. IIS ログの収集を有効にするには、**[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
+5. IIS ログの収集を有効にするには、_ *[IIS ログ]* * と **[失敗した要求のログ]** をオンにします。
 ![IIS ログの追加](media/azure-stack-sql-resource-provider-maintain/sqlrp-iis-logs.png)
 
 6. 最後に、 **[保存]** を選択して、すべての診断設定を保存します。

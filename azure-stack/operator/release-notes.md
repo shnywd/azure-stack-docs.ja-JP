@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/20/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 945dd42d0ed4b78f5572abbd679eb8fda7b12d96
-ms.sourcegitcommit: 6db48bd8e6ccfaaa897713ad7eb2846a8d506358
+ms.openlocfilehash: 861dbb6a665664619bd06cd15d1e1b7fe86a9e8e
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94885803"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518366"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -130,7 +130,8 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 ### <a name="hotfix-prerequisites-before-applying-the-2008-update"></a>修正プログラムの前提条件: 2008 更新プログラムを適用する前
 
 Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用された 2005 リリースに適用する必要があります。
-- [Azure Stack Hub 修正プログラム 1.2005.21.84](https://support.microsoft.com/help/4592779)
+
+- [Azure Stack Hub 修正プログラム 1.2005.23.88](https://support.microsoft.com/help/4595068)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>2008 更新プログラムが正常に適用された後
 
@@ -138,7 +139,7 @@ Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用�
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- 2008 で利用可能な Azure Stack Hub 修正プログラムはありません。
+- [Azure Stack Hub 修正プログラム 1.2008.15.92](https://support.microsoft.com/help/4595069)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -238,7 +239,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.21.84](https://support.microsoft.com/help/4592779)
+- [Azure Stack Hub 修正プログラム 1.2005.23.88](https://support.microsoft.com/help/4595068)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

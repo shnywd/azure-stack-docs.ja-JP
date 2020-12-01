@@ -3,16 +3,16 @@ title: 外部の監視ソリューションと Azure Stack Hub を統合する
 description: Azure Stack Hub とご利用のデータセンターの外部の監視ソリューションを統合する方法を説明します。
 author: IngridAtMicrosoft
 ms.topic: article
-ms.date: 04/10/2020
+ms.date: 11/18/2020
 ms.author: inhenkel
 ms.reviewer: thoroet
-ms.lastreviewed: 06/05/2019
-ms.openlocfilehash: 10af23001cd3b7e12aa080a2dbecc136be0acfc8
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/18/2020
+ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543597"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517703"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>外部の監視ソリューションと Azure Stack Hub を統合する
 
@@ -151,7 +151,7 @@ SPN の作成方法に関する詳細については、「[アプリ ID を使�
 
 ### <a name="update-nagios-configuration"></a>Nagios 構成を更新する
 
-Azure Stack Hub – Nagios プラグインが確実に読み込まれるように、Nagios 構成を更新する必要があります。
+Azure Stack Hub - Nagios プラグインが確実に読み込まれるように、Nagios 構成を更新する必要があります。
 
 1. 次のファイルを開きます。
 
@@ -201,6 +201,8 @@ Azure Stack Hub – Nagios プラグインが確実に読み込まれるよう�
 
 Operations Manager、Nagios、または Nagios ベースのソリューションを使用していない場合は、PowerShell でさまざまな監視ソリューションを使用して Azure Stack Hub と統合できます。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
 1. PowerShell を使用するには、Azure Stack Hub オペレーター環境用に [PowerShell がインストールされ構成されている](powershell-install-az-module.md)必要があります。 Resource Manager (管理者) エンドポイント (https://adminmanagement.[region].[External_FQDN]) にアクセスできるローカル コンピューターに PowerShell をインストールします。
 
 2. 次のコマンドを実行して、Azure Stack Hub オペレーターとして Azure Stack Hub 環境に接続します。
@@ -214,26 +216,66 @@ Operations Manager、Nagios、または Nagios ベースのソリューション
    ```
 
 3. 次の例のようなコマンドを使用して、アラートを操作します。
+
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
+
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+   Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+1. PowerShell を使用するには、Azure Stack Hub オペレーター環境用に [PowerShell がインストールされ構成されている](powershell-install-az-module.md)必要があります。 Resource Manager (管理者) エンドポイント (https://adminmanagement.[region].[External_FQDN]) にアクセスできるローカル コンピューターに PowerShell をインストールします。
+
+2. 次のコマンドを実行して、Azure Stack Hub オペレーターとして Azure Stack Hub 環境に接続します。
+
    ```powershell
-    # Retrieve all alerts
-    $Alerts = Get-AzsAlert
-    $Alerts
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN] `
+      -AzureKeyVaultDnsSuffix adminvault.[Region].[External_FQDN] `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.[Region].[External_FQDN]
 
-    # Filter for active alerts
-    $Active = $Alerts | Where-Object { $_.State -eq "active" }
-    $Active
+   Connect-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+   ```
 
-    # Close alert
-    Close-AzsAlert -AlertID "ID"
+3. 次の例のようなコマンドを使用して、アラートを操作します。
 
-    #Retrieve resource provider health
-    $RPHealth = Get-AzsRPHealth
-    $RPHealth
+```powershell
+# Retrieve all alerts
+$Alerts = Get-AzsAlert
+$Alerts
 
-    # Retrieve infrastructure role instance health
-    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
-    Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-    ```
+# Filter for active alerts
+$Active = $Alerts | Where-Object { $_.State -eq "active" }
+$Active
+
+# Close alert
+Close-AzsAlert -AlertID "ID"
+
+#Retrieve resource provider health
+$RPHealth = Get-AzsRPHealth
+$RPHealth
+
+# Retrieve infrastructure role instance health
+$FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
+Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
+```
+
+---
 
 ## <a name="learn-more"></a>詳細情報
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 11/19/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: 5c6475a4bf3e330f982627d158f0e6f75f0477bc
-ms.sourcegitcommit: 40d3f3f0ac088d1590d1fb64ca05ac1dabf4e00c
+ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
+ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94875078"
+ms.lasthandoff: 11/20/2020
+ms.locfileid: "94970216"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -166,6 +166,12 @@ ms.locfileid: "94875078"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020/11/18:Windows Server 2019 上の SQL Server 2019 Standard - ライセンス持ち込み - バージョン 15.0.20201015
+- 2020/11/18:Windows Server 2019 上の SQL Server 2019 Standard - 従量課金制 - バージョン 15.0.20201015
+- 2020/11/18:無料の SQL Server ライセンス: Windows Server 2019 上の SQL 2019 Developer - ライセンス持ち込み - バージョン 15.0.20201015
+- 2020/11/18:無料の SQL Server ライセンス: Windows Server 2019 上の SQL 2019 Developer - 従量課金制 - バージョン 15.0.20201015
+- 2020/11/18:Windows Server 2019 上の SQL Server 2019 Enterprise - ライセンス持ち込み - バージョン 15.0.20201015
+- 2020/11/18:Windows Server 2019 上の SQL Server 2019 Enterprise - 従量課金制 - バージョン 15.0.20201015
 - 2020 年 11 月 17 日:Azure Monitor、更新および構成の管理 - バージョン 1.13.27
 - 2020 年 11 月 17 日:Azure Monitor Dependency Agent - バージョン 9.10.6.11730
 - 2020 年 11 月 17 日:Azure Monitor Dependency Agent for Linux VM - バージョン 9.10.6.11730

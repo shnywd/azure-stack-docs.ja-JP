@@ -4,18 +4,18 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 統合システムを Azure に登録することで、Azure Marketplace 項目をダウンロードしてデータ レポートを設定できるようにする方法について説明します。
 author: IngridAtMicrosoft
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 11/19/2020
 ms.author: inhenkel
 ms.reviewer: avishwan
-ms.lastreviewed: 10/16/2020
+ms.lastreviewed: 11/19/2020
 ms.custom: contperfq4
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: b3c5eaebf082ac84ff4ea231f329385c6ad4e108
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 88928837377f478249e252021c1d610d99606679
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545433"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517737"
 ---
 # <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
 
@@ -119,6 +119,8 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 
 接続された環境では、インターネットと Azure にアクセスできます。 これらの環境では、Azure Stack Hub リソース プロバイダーを Azure に登録してから、課金モデルを構成する必要があります。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
 
 2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
@@ -175,6 +177,66 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
    ```
    Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
+
+2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRMAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
+
+   ```powershell
+   Add-AzureRMAccount -EnvironmentName "<environment name>"
+   ```
+
+   | パラメーター | 説明 |  
+   |-----|-----|
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+
+   >[!Note]
+   > セッションの有効期限が切れた、パスワードが変更された、または単にアカウントを切り替えたい場合は、Add-AzureRMAccount を使用してサインインする前に、次のコマンドレットを実行します。`Remove-AzureRMAccount-Scope Process`
+
+3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. 管理者として PowerShell ISE を起動し、Azure Stack Hub ツールをダウンロードしたときに作成された **AzureStack-Tools-az** ディレクトリ内の **Registration** フォルダーに移動します。 PowerShell を使用して **RegisterWithAzure.psm1** モジュールをインポートします。
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+6. 次に、同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストでは、前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。 実行する PowerShell:
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | パラメーター | 説明 |  
+   |-----|-----|
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+
+7. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。 実行する PowerShell:  
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -BillingModel PayAsYouUse `
+      -RegistrationName $RegistrationName
+   ```
+   Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
+
+---
+
    このプロセスには 10 - 15 分かかります。 コマンドが完了すると、「**Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)** 」というメッセージが表示されます。
 
 ## <a name="register-with-capacity-billing"></a>容量課金で登録する
@@ -185,6 +247,8 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
 > これらのすべての手順は、特権エンドポイント (PEP) にアクセスできるコンピューターから実行する必要があります。 PEP の詳細については、[Azure Stack Hub での特権エンドポイントの使用](azure-stack-privileged-endpoint.md)に関するページを参照してください。
 
 接続された環境では、インターネットと Azure にアクセスできます。 これらの環境では、Azure Stack Hub リソース プロバイダーを Azure に登録してから、課金モデルを構成する必要があります。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
 1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
 
@@ -226,6 +290,52 @@ Azure Stack Hub デプロイのクラウド ID を確認する場合は、「[�
    > **Set-AzsRegistration** コマンドレットの UsageReportingEnabled パラメーターを false に設定することで、使用状況レポートを無効にすることができます。 
    
    Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+
+1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプション タイプ (以下のパラメーターを参照) に設定して、次の PowerShell コマンドレットを使用します。
+
+2. AzureRMure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRMAccount** コマンドレットを実行します。 Azure アカウント資格情報の入力を求められ、お使いのアカウントの構成によっては 2 要素認証を使用する必要があります。
+
+   ```powershell  
+   Connect-AzureRMAccount -Environment "<environment name>"
+   ```
+
+   | パラメーター | 説明 |  
+   |-----|-----|
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure サブスクリプションを使用している場合は **AzureChinaCloud** です。  |
+
+3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。  
+
+   ```powershell  
+   Get-AzureRMSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRMSubscription
+   ```
+
+4. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
+
+   ```powershell  
+   Register-AzureRMResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. 管理者として PowerShell ISE を起動し、Azure Stack Hub ツールをダウンロードしたときに作成された **AzureStack-Tools-master** ディレクトリ内の **Registration** フォルダーに移動します。 PowerShell を使用して **RegisterWithAzure.psm1** モジュールをインポートします。
+
+   ```powershell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -AgreementNumber <EA agreement number> `
+      -BillingModel Capacity `
+      -RegistrationName $RegistrationName
+   ```
+   > [!Note]  
+   > **Set-AzsRegistration** コマンドレットの UsageReportingEnabled パラメーターを false に設定することで、使用状況レポートを無効にすることができます。 
+   
+   Set-AzsRegistration コマンドレットの詳細については、「[登録に関するリファレンス](#registration-reference)」を参照してください。
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -375,27 +485,58 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 使用するサブスクリプションを変更する場合は、まず **Remove-AzsRegistration** コマンドレットを実行します。その後、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 次に、`<billing model>` を含む変更されたパラメーターを使用して **Set-AzsRegistration** を実行します。 **Remove-AzsRegistration** の実行中、登録時に使用したサブスクリプションにサインインし、[管理者ポータル](#verify-azure-stack-hub-registration)に表示された `RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値を使用する必要があります。
 
-  ```powershell  
-  # select the subscription used during the registration (shown in portal)
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # unregister using the parameter values from portal
-  Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  # switch to new subscription id
-  Select-AzSubscription -Subscription '<New subscription ID>'
-  # register 
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
-  ```
+### <a name="az-modules"></a>[Az モジュール](#tab/az3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm3)
+
+```powershell  
+# select the subscription used during the registration (shown in portal)
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# unregister using the parameter values from portal
+Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+# switch to new subscription id
+Select-AzureRMSubscription -Subscription '<New subscription ID>'
+# register 
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<Billing model>' -RegistrationName '<Registration name>' -ResourceGroupName '<Registration resource group name>'
+```
+
+---
 
 ### <a name="change-billing-model-how-features-are-offered-or-re-register-your-instance"></a>課金モデルと機能の提供方法の変更、インスタンスの再登録
 
 このセクションは、課金モデルや機能を提供する方法を変更する場合、またはインスタンスを再登録する場合に適用されます。 これらのすべてのケースで、登録関数を呼び出して新しい値を設定します。 最初に現在の登録を削除する必要はありません。 [管理者ポータル](#verify-azure-stack-hub-registration)に表示されているサブスクリプション ID にサインインし、`RegistrationName` パラメーターと `ResourceGroupName` パラメーターの値は[管理者ポータル](#verify-azure-stack-hub-registration)に表示された値のままで、新しい `BillingModel` の値を指定して登録を再実行します。
 
-  ```powershell  
-  # select the subscription used during the registration
-  Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
-  # rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
-  ```
+### <a name="az-modules"></a>[Az モジュール](#tab/az4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm4)
+
+```powershell  
+# select the subscription used during the registration
+Select-AzureRMSubscription -Subscription '<Registration subscription ID from portal>'
+# rerun registration with new BillingModel (or same billing model in case of re-registration) but using other parameters values from portal
+Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel '<New billing model>' -RegistrationName '<Registration name from portal>' -ResourceGroupName '<Registration resource group from portal>'
+```
+
+---
+
 ::: zone-end
 
 ::: zone pivot="state-disconnected"
@@ -435,7 +576,7 @@ Azure Stack Hub のアクティブ化リソースを削除するには、Azure S
 課金モデルを切断状態の容量課金から接続された状態での従量課金に変更する場合は、[接続されたモデルの手順](azure-stack-registration.md?pivots=state-connected#change-billing-model-how-features-are-offered-or-re-register-your-instance)に従って再登録します。 
 
 >[!Note] 
->これによって ID モデルが変更されるわけではなく、課金モデルのみが変更されます。ID ソースとして ADFS が引き続き使用されます。
+>これによって ID モデルが変更されるわけではなく、課金メカニズムのみが変更されます。ID ソースとして AD FS が引き続き使用されます。
 
 ### <a name="re-register-using-disconnected-steps"></a>切り離された手順を使用して再登録する
 

@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/10/2020
-ms.openlocfilehash: eaa9417abd41828495d3cd685ecc1f56c42c92e1
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.date: 11/24/2020
+ms.openlocfilehash: 56cc4c35ecbb92c30883bd1f2018422cdcac0894
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441176"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812718"
 ---
 # <a name="release-notes-for-azure-stack-hci-public-preview"></a>Azure Stack HCI パブリック プレビューのリリース ノート
 
@@ -20,12 +20,53 @@ ms.locfileid: "94441176"
 
 この記事では、Azure Stack HCI パブリック プレビューの更新プログラム パッケージの内容について説明します。
 
+## <a name="november-23-2020-preview-update-kb4586852"></a>2020 年 11 月 23 日のプレビュー更新プログラム (KB4586852)
+
+更新プログラムには、Azure Stack HCI の最新のリリースに対する機能強化と修正が含まれています。 
+
+   > [!IMPORTANT]
+   > パブリック プレビュー イメージを使用して Azure Stack HCI クラスターを構成および登録している場合、更新プログラムの提供する新機能を使用するには、KB4586852 更新プログラムのインストール後に Azure の登録を修復する必要があります。 この更新プログラムをインストールした後、クラスターごとに次の手順を実行します。
+   >
+   > 1. 必ずクラスター内のすべてのサーバーを KB4586852 に更新してください。 そうしないと、修復は失敗し、更新が必要なノードが示されます。
+   >
+   > 2. ローカルで、または `Enter-PSSession <server-name>` を使用して、クラスター ノードのいずれかに接続します
+   >
+   > 3. PowerShell ギャラリーから AzStackHCI v0.4.1 登録モジュールをダウンロードします。 `Install-Module -Name Az.StackHCI` を実行して、最新のモジュールを取得します。
+   >
+   > 4. 次のコマンドを実行して、登録を修復します。 最初にクラスターを登録するために使用したサブスクリプション ID を使用します。 `Get-AzureStackHCI` は現在の ARM Uri を示しています。これにはサブスクリプション情報が含まれています。
+   >
+   >   ```PowerShell
+   >   Register-AzStackHCI -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -RepairRegistration
+   >   ```
+   > 
+
+### <a name="improvements-and-fixes"></a>機能強化と修正
+セキュリティ関連でないこの更新プログラムには、品質上の機能強化が含まれています。 重要な変更点は、次のとおりです。 
+
+- この更新プログラムを適用すると、有効な Windows Server 2019 Datacenter Edition ライセンスをお持ちの Azure Stack HCI のお客様は、それらを使用して、Azure Stack HCI でホストされている仮想マシン (VM) を簡単にアクティブ化することができ、VM ごとにプロダクト キーを管理する必要はありません。 具体的には、Windows 管理センターまたは PowerShell を使用して、未使用の Windows Server 2019 Datacenter エディションのアクティブ化キーを Azure Stack HCI ホストに直接入力して、VM の自動ライセンス認証 (AVMA) を有効にすることができます。 Windows Server 2019 以前を実行している VM は、ホストからライセンス認証を継承できます。 入力に使用できるキーは、ボリューム ライセンス センターから取得したマルチ ライセンス認証キー (MAK)、OEM サーバーに適用された Certificate of Authenticity (COA) ステッカーに印刷されたキー、または Windows Server 2019 Datacenter エディションの製品版のキーです。 このリリースでは、汎用ボリューム ライセンス キー (GVLK) はサポートされていません。
+
+- Azure Stack HCI では、必要な診断データが収集されるようになりました。これは、デバイスのセキュリティを維持し、最新の状態に保ち、想定どおりに実行するために必要な最小限のデータです。 必要な診断データとして、デバイスとその構成を理解するために重要な限られたデータ セットが収集されます。 このデータは、特定のハードウェアまたはソフトウェア構成で発生する可能性のある問題を特定するために役立ちます。  
+
+### <a name="known-issues-in-this-update"></a>この更新プログラムの既知の問題
+現在、この更新プログラムに関して Microsoft が把握している問題はありません。
+
+### <a name="how-to-get-this-update"></a>この更新プログラムを入手する方法 
+[Azure Stack HCI プレビュー](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)用の 2020 年 11 月 23 日のセキュリティ更新プログラム (KB4586852) は、Windows Update で配信されます。 Azure Stack HCI クラスターへのインストール方法については、「[Azure Stack HCI クラスターを更新する](manage/update-cluster.md)」を参照してください。
+
+### <a name="file-information"></a>ファイル情報
+この更新プログラム (OS ビルド 17784.1381) で提供されるファイルの一覧については、 [累積的な更新プログラム 4586852 のファイル情報](https://download.microsoft.com/download/5/c/6/5c6f8c37-3e0b-4239-a6d9-9c709e18e869/4586852.csv)をダウンロードしてください。
+
+   > [!NOTE]
+   > この CSV ファイルの "File version" 列に、一部のファイルで誤って "Not applicable" と表示されています。 そのことが原因で、サードパーティのスキャン検出ツールを使用してビルドを検証したときに擬陽性または偽陰性の結果が生じる可能性があります。
+
 ## <a name="november-10-2020-security-update-kb4586811"></a>2020 年 10 月 10 日のセキュリティ更新プログラム (KB4586811)
 
 更新プログラムには、Azure Stack HCI の最新のリリースに対する機能強化と修正が含まれています。
 
 ### <a name="improvements-and-fixes"></a>機能強化と修正
-この更新プログラムには、内部の OS 機能に対するさまざまなセキュリティ強化が含まれています。 今回のリリースに関して別途文書化された問題はありません。
+この更新プログラムには、内部の OS 機能に対するさまざまなセキュリティ強化が含まれています。 SYSTEM アカウントとして実行されるアプリケーションが、ファイルを指すローカル ポートに出力されないようにすることで、セキュリティの脆弱性に対処しています。 PrintService\Admin イベント ログのイベント ID 372 に含まれる出力ジョブの失敗ログ エラー 50 "この要求は、サポートされていません"。 今後、この問題に対処するには、特定のユーザーまたはサービス アカウントとしてアプリケーションまたはサービスを実行するようにします。
+
+今回のリリースに関して別途文書化された問題はありません。
 
 解決済みのセキュリティの脆弱性について詳しくは、[セキュリティ更新プログラム ガイド](https://portal.msrc.microsoft.com/security-guidance)を参照してください。
 

@@ -3,16 +3,16 @@ title: ASDK に接続する
 description: Azure Stack Development Kit (ASDK) に接続する方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 11/14/2020
 ms.author: justinha
 ms.reviewer: knithinc
-ms.lastreviewed: 10/25/2019
-ms.openlocfilehash: a5250e18ab253a6c1a2b184ba1f261b5837bc879
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/14/2020
+ms.openlocfilehash: 7970bf0f4e90792f9fe28534eab1bfa53ce7f39b
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543479"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517482"
 ---
 # <a name="connect-to-the-asdk"></a>ASDK に接続する
 
@@ -29,7 +29,7 @@ ms.locfileid: "94543479"
 > [!TIP]
 > このオプションでは、ASDK ホスト コンピューターにサインインしているときに、RDP を再度使用して、ASDK ホスト コンピューター上に作成された仮想マシン (VM) にサインインできます。
 
-1. リモート デスクトップ接続 (mstc.exe) を開き、ASDK ホスト コンピューターの IP アドレスに接続します。 ASDK ホスト コンピューターにリモートでサインインする権限のあるアカウントを使用してください。 既定では、 **AzureStack\AzureStackAdmin** に ASDK ホスト コンピューターにリモートでアクセス許可があります。  
+1. リモート デスクトップ接続 (mstc.exe) を開き、ASDK ホスト コンピューターの IP アドレスに接続します。 ASDK ホスト コンピューターにリモートでサインインする権限のあるアカウントを使用してください。 既定では、**AzureStack\AzureStackAdmin** に ASDK ホスト コンピューターにリモートでアクセス許可があります。  
 
 2. ASDK ホスト コンピューターでサーバー マネージャー (ServerManager.exe) を開きます。 **[ローカル サーバー]** を選択し、 **[IE セキュリティ強化の構成]** をオフにして、サーバー マネージャーを閉じます。
 
@@ -48,7 +48,7 @@ ASDK ホスト コンピューターに対する分割トンネルの VPN 接続
 VPN 接続は、Azure AD と Active Directory フェデレーション サービス (AD FS) の両方のデプロイでサポートされています。
 
 > [!NOTE]
-> VPN 接続では、Azure Stack VM には接続 *できません* 。 VPN 経由で接続している間は、Azure Stack VM に RDP 接続することはできません。
+> VPN 接続では、Azure Stack VM には接続 *できません*。 VPN 経由で接続している間は、Azure Stack VM に RDP 接続することはできません。
 
 ### <a name="prerequisites"></a>前提条件
 ASDK への VPN 接続を設定する前に、次の前提条件を満たしていることを確認してください。
@@ -59,6 +59,8 @@ ASDK への VPN 接続を設定する前に、次の前提条件を満たして�
 ### <a name="set-up-vpn-connectivity"></a>VPN 接続の設定
 
 ASDK への VPN 接続を作成するには、Windows ベースのローカル コンピューター上で管理者として PowerShell を開きます。 その後、次のスクリプトを実行します。IP アドレスとパスワードの値は実際の環境に合わせて更新してください。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
 
 ```powershell
 # Change directories to the default Azure Stack tools directory
@@ -74,7 +76,7 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 
 # Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
-$hostIP = "<Azure Stack host IP address>"
+$hostIP = "<Azure Stack Hub host IP address>"
 
 $Password = ConvertTo-SecureString `
   "<operator's password provided when deploying Azure Stack>" `
@@ -92,6 +94,40 @@ Add-AzsVpnConnection `
 
 ```
 
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+```powershell
+# Change directories to the default Azure Stack tools directory
+cd C:\AzureStack-Tools-master
+
+# Configure Windows Remote Management (WinRM), if it's not already configured.
+winrm quickconfig  
+
+Set-ExecutionPolicy RemoteSigned
+
+# Import the Connect module.
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Add the ASDK host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+
+$hostIP = "<Azure Stack Hub host IP address>"
+
+$Password = ConvertTo-SecureString `
+  "<operator's password provided when deploying Azure Stack>" `
+  -AsPlainText `
+  -Force
+
+Set-Item wsman:\localhost\Client\TrustedHosts `
+  -Value $hostIP `
+  -Concatenate
+
+# Create a VPN connection entry for the local user.
+Add-AzsVpnConnection `
+  -ServerAddress $hostIP `
+  -Password $Password
+
+```
+---
 設定が成功すると、VPN 接続の一覧に **Azure Stack** と表示されます。
 
 ![ネットワーク接続](media/asdk-connect/vpn.png)  
@@ -107,7 +143,7 @@ Add-AzsVpnConnection `
       -Password $Password
     ```
 
-  * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]**  >  **[Azure Stack]**  >  **[接続]** の順に選択します。 サインイン プロンプトで、ユーザー名 ( **AzureStack\AzureStackAdmin** ) とパスワードを入力します。
+  * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]**  >  **[Azure Stack]**  >  **[接続]** の順に選択します。 サインイン プロンプトで、ユーザー名 (**AzureStack\AzureStackAdmin**) とパスワードを入力します。
 
 初回の接続では、Azure Stack ルート証明書を **AzureStackCertificateAuthority** からローカル コンピューターの証明書ストアにインストールすることを求めるメッセージが表示されます。 この手順により、信頼されたホストの一覧に、ASDK 証明機関 (CA) が追加されます。 **[はい]** をクリックして証明書をインストールします。
 

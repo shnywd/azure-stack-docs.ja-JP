@@ -3,16 +3,16 @@ title: Azure Stack Hub で Marketplace 項目を作成して発行する
 description: Azure Stack Hub で Marketplace アイテムを作成して発行する方法について説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 6887e29cca09b6ff0e774bc5898d00f14684e76b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/16/2020
+ms.openlocfilehash: db85757fd898d0b75ace50c8fe78ecaa31722bc2
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543937"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518043"
 ---
 # <a name="create-and-publish-a-custom-azure-stack-hub-marketplace-item"></a>Azure Stack Hub でカスタム Marketplace アイテムを作成して発行する
 
@@ -103,13 +103,13 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
 
     次の一覧では、前のテンプレート例で示した番号付きの値について説明します。
 
-    - (1) – オファーの名前。
-    - (2) – パブリッシャーの名前 (スペースが含まれないもの)。
-    - (3) – テンプレートのバージョン (スペースが含まれないもの)。
-    - (4) – 顧客に表示される名前。
-    - (5) – 顧客に表示される発行元の名前。
-    - (6) – 発行元の正式な名前。
-    - (7) – 各アイコンのパスと名前。
+    - (1) - オファーの名前。
+    - (2) - 公開元の名前 (スペースが含まれないもの)。
+    - (3) - テンプレートのバージョン (スペースが含まれないもの)。
+    - (4) - 顧客に表示される名前。
+    - (5) - 顧客に表示される公開元の名前。
+    - (6) - 公開元の正式な名前。
+    - (7) - 各アイコンのパスと名前。
 
 5. **ms-resource** が参照されているすべてのフィールドを、**strings/resources.json** ファイル内の適切な値に変更する必要があります。
 
@@ -150,6 +150,8 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
 
 ## <a name="publish-a-marketplace-item"></a>Marketplace アイテムの発行
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
 1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack Hub ストレージにアップロードすることも、パッケージの一時的な場所である Azure Storage にアップロードすることもできます。 BLOB がパブリックにアクセスできることを確認します。
 
 2. ギャラリー パッケージを Azure Stack Hub にインポートするには、まずクライアント VM にリモート接続 (RDP) して、お使いの Azure Stack Hub に作成したばかりのファイルをコピーします。
@@ -188,10 +190,53 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
    ```
 
-   > [!NOTE]
-   > アイテムを削除した後に Marketplace UI でエラーが表示される可能性があります。 このエラーを解決するには、ポータルで **[設定]** をクリックします。 次に、 **[ポータルのカスタマイズ]** で **[変更を破棄する]** を選択します。
-   >
-   >
+> [!Note]  
+> アイテムを削除した後に Marketplace UI でエラーが表示される可能性があります。 このエラーを解決するには、ポータルで **[設定]** をクリックします。 次に、 **[ポータルのカスタマイズ]** で **[変更を破棄する]** を選択します。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+1. PowerShell または Azure Storage Explorer を使用して、Marketplace アイテム (.azpkg) を Azure Blob Storage にアップロードします。 ローカルの Azure Stack Hub ストレージにアップロードすることも、パッケージの一時的な場所である Azure Storage にアップロードすることもできます。 BLOB がパブリックにアクセスできることを確認します。
+
+2. ギャラリー パッケージを Azure Stack Hub にインポートするには、まずクライアント VM にリモート接続 (RDP) して、お使いの Azure Stack Hub に作成したばかりのファイルをコピーします。
+
+3. コンテキストを追加します。
+
+    ```powershell
+    $ArmEndpoint = "https://adminmanagement.local.azurestack.external"
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMAccount -EnvironmentName "AzureStackAdmin"
+    ```
+
+4. 次のスクリプトを実行して、リソースをギャラリーにインポートします。
+
+    ```powershell
+    Add-AzsGalleryItem -GalleryItemUri `
+    https://sample.blob.core.windows.net/<temporary blob name>/<offerName.publisherName.version>.azpkg -Verbose
+    ```
+
+5. アイテムの格納に使用できる有効なストレージ アカウントがあることを確認します。 `GalleryItemURI` の値は、Azure Stack Hub 管理者ポータルから取得できます。 **[ストレージ アカウント] > [BLOB のプロパティ] > [URL]** の順に選択し、拡張子を .azpkg にします。 ストレージ アカウントは、Marketplace に発行するために一時的に使用するためのものです。
+
+   ギャラリー パッケージが完成し、**Add-AzsGalleryItem** を使用してアップロードすると、カスタム VM が Marketplace と **[リソースの作成]** ビューに表示されるようになります。 **Marketplace の管理** にはカスタム ギャラリー パッケージが表示されないことに注意してください。
+
+   [![アップロードされたカスタムのマーケットプレース項目](media/azure-stack-create-and-publish-marketplace-item/pkg6sm.png "アップロードされたカスタムのマーケットプレース項目")](media/azure-stack-create-and-publish-marketplace-item/pkg6.png#lightbox)
+
+6. アイテムが Marketplace に正常に発行されたら、ストレージ アカウントからコンテンツを削除できます。
+
+   すべての既定のギャラリー アイテムと、カスタムのギャラリー アイテムは、次の URL での認証を使用せずにアクセスできるようになりました。
+
+   - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+   - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
+
+6. Marketplace アイテムを削除するには、**Remove-AzGalleryItem** コマンドレットを使用します。 次に例を示します。
+
+   ```powershell
+   Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
+   ```
+
+> [!Note]  
+> アイテムを削除した後に Marketplace UI でエラーが表示される可能性があります。 このエラーを解決するには、ポータルで **[設定]** をクリックします。 次に、 **[ポータルのカスタマイズ]** で **[変更を破棄する]** を選択します。
+
+---
 
 ## <a name="reference-marketplace-item-manifestjson"></a>リファレンス: Marketplace アイテム manifest.json
 

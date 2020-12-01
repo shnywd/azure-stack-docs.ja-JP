@@ -8,16 +8,28 @@ ms.date: 11/10/2020
 ms.author: bryanla
 ms.reviewer: unknown
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 81215c7b3fb25f0e9b9877dae401b776517cf143
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 824463ccf48d6855fd2851e9c6f9116d61b8b818
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545348"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152813"
 ---
 # <a name="fix-common-issues-with-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書に関する一般的な問題を修復する
 
 この記事の情報は、Azure Stack Hub PKI 証明書の一般的な問題について理解し、解決するうえで役立ちます。 Azure Stack Hub 適合性チェッカー ツールを使用して [Azure Stack Hub PKI 証明書を検証](azure-stack-validate-pki-certs.md)すると、問題を見つけることができます。 このツールは、証明書が Azure Stack Hub デプロイと Azure Stack Hub シークレット ローテーションの PKI 要件を満たしていることを確認し、その結果のログを [report.json ファイル](azure-stack-validation-report.md)に出力します。  
+
+## <a name="http-crl---warning"></a>HTTP CRL - 警告
+
+**問題** - 証明書に CDP 拡張機能の HTTP CRL が含まれていません。
+
+**解決策** - これは障害とならない問題です。 「[Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件](https://aka.ms/azspki)」に従って、Azure Stack には失効確認のために HTTP CRL が必要です。  証明書に HTTP CRL が検出されませんでした。  証明書の失効確認を確実に機能させるには、証明機関から CDP 拡張機能の HTTP CRL を含む証明書が発行される必要があります。
+
+## <a name="http-crl---fail"></a>HTTP CRL - 失敗
+
+**問題** - CDP 拡張機能の HTTP CRL に接続できません。
+
+**解決策** - これは障害となっている問題です。 [Azure Stack Hub の公開に関するページの「ポートとプロトコル (受信)」](https://docs.microsoft.com/azure-stack/operator/azure-stack-integrate-endpoints#ports-and-urls-outbound)に従って、Azure Stack には失効確認のために HTTP CRL への接続が必要です。
 
 ## <a name="pfx-encryption"></a>PFX の暗号化
 

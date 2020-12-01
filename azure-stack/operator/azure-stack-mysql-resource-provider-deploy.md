@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: caoyang
 ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: e2f3c523dfcbd9c1ceec53bdf5fd55300752fd1f
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572927"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812726"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
@@ -35,7 +35,7 @@ Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に
 
   |サポートされる Azure Stack Hub のバージョン|MySQL RP バージョン|RP サービスが実行されている Windows Server
   |-----|-----|-----|
-  |2005|[MySQL RP バージョン 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008、2005|[MySQL RP バージョン 1.1.93.0](https://aka.ms/azshmysqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
   |2005、2002、1910|[MySQL RP バージョン 1.1.47.0](https://aka.ms/azurestackmysqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[MySQL RP バージョン 1.1.33.0](https://aka.ms/azurestackmysqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -109,10 +109,10 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
 
-MySQL リソース プロバイダーをデプロイするには、管理者特権で**新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、MySQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
+MySQL リソース プロバイダーをデプロイするには、管理者特権で **新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、MySQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
 
 > [!IMPORTANT]
-> 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。 または、更新スクリプトを実行する前に、clear-azurermcontext を使用してキャッシュをクリアすることもできます。
+> 更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
 
 **DeployMySqlProvider.ps1** スクリプトを実行して次のタスクを完了します。
 

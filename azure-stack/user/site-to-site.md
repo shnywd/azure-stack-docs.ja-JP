@@ -3,16 +3,16 @@ title: Azure Stack Hub でのサイト間 VPN 接続のトラブルシューテ�
 description: オンプレミス ネットワークと Azure Stack Hub 仮想ネットワークの間のサイト間 VPN 接続を構成した後に実行できるトラブルシューティング手順。
 author: sethmanheim
 ms.author: sethm
-ms.date: 10/01/2020
+ms.date: 11/22/2020
 ms.topic: article
 ms.reviewer: sranthar
-ms.lastreviewed: 05/12/2020
-ms.openlocfilehash: 6d677d4b192cef17d44896ba5ef41387b1c95765
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 88f258f4700cd091f50dc3732fb7167be84d3954
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546873"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518196"
 ---
 # <a name="troubleshoot-site-to-site-vpn-connections"></a>サイト間 VPN 接続のトラブルシューティング
 
@@ -46,19 +46,37 @@ Azure サポート要求を送信することもできます。 [Azure Stack Hub
 
 ## <a name="status-not-connected---intermittent-disconnects"></a>状態 "未接続" - 断続的な切断
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
 - オンプレミスの VPN デバイスと AzSH 仮想ネットワーク VPN の共有キーを比較し、両者が一致することを確認します。 AzSH VPN 接続の共有キーを確認するには、次のいずれかの方法を使います。
 
-  - **Azure Stack Hub テナント ポータル** :作成した VPN ゲートウェイ サイト間接続に移動します。 **[設定]** セクションで **[共有キー]** を選択します。
+  - **Azure Stack Hub テナント ポータル**:作成した VPN ゲートウェイ サイト間接続に移動します。 **[設定]** セクションで **[共有キー]** を選択します。
 
       :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 接続":::
 
-  - **Azure PowerShell** :次の PowerShell コマンドを使用します。
+  - **Azure PowerShell**:次の PowerShell コマンドを使用します。
 
-      ```powershell
-      Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
-      ```
+```powershell
+Get-AzVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
 
-## <a name="status-connected--traffic-not-flowing"></a>状態 "接続済み" - トラフィック フローなし
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
+- オンプレミスの VPN デバイスと AzSH 仮想ネットワーク VPN の共有キーを比較し、両者が一致することを確認します。 AzSH VPN 接続の共有キーを確認するには、次のいずれかの方法を使います。
+
+  - **Azure Stack Hub テナント ポータル**:作成した VPN ゲートウェイ サイト間接続に移動します。 **[設定]** セクションで **[共有キー]** を選択します。
+
+      :::image type="content" source="media/site-to-site/vpn-connection.png" alt-text="VPN 接続":::
+
+  - **Azure PowerShell**:次の PowerShell コマンドを使用します。
+
+```powershell
+Get-AzurerRMVirtualNetworkGatewayConnectionSharedKey -Name <Connection name> -ResourceGroupName <Resource group>
+```
+
+---
+
+## <a name="status-connected---traffic-not-flowing"></a>状態 "接続済み" - トラフィック フローなし
 
 - ゲートウェイ サブネットのユーザー定義ルート (UDR) とネットワーク セキュリティ グループ (NSG) があれば削除し、その結果をテストします。 問題が解決した場合は、適用されている UDR または NSG の設定を確認します。
 

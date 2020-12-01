@@ -8,12 +8,12 @@ ms.date: 10/02/2019
 ms.lastreviewed: 03/18/2019
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 804c70ab3785e3932f2d2df01f43ccbd520d51a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572808"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812661"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -37,7 +37,7 @@ Azure Stack Hub SQL リソース プロバイダーをデプロイする前に�
 
   |サポートされる Azure Stack Hub のバージョン|SQL RP バージョン|RP サービスが実行されている Windows Server
   |-----|-----|-----|
-  |2005|[SQL RP バージョン 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008、2005|[SQL RP バージョン 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
   |2005、2002、1910|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |
@@ -107,10 +107,10 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
 
-SQL リソース プロバイダーをデプロイするには、管理者特権で**新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、SQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
+SQL リソース プロバイダーをデプロイするには、管理者特権で **新しい** PowerShell ウィンドウ (PowerShell ISE ではない) を開き、SQL リソース プロバイダーのバイナリ ファイルを抽出したディレクトリに変更します。 
 
 > [!IMPORTANT]
-> 既に読み込まれている PowerShell モジュールによって発生する可能性のある問題を回避するには、新しい PowerShell ウィンドウを使用することをお勧めします。 または、更新スクリプトを実行する前に、clear-azurermcontext を使用してキャッシュをクリアすることもできます。
+> 更新スクリプトを実行する前に、**Clear-AzureRmContext -Scope CurrentUser** および **Clear-AzureRmContext -Scope Process** を使用してキャッシュをクリアすることを強くお勧めします。
 
 DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完了します。
 
@@ -135,7 +135,7 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 | **VMLocalCredential** | SQL リソース プロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
 | **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure Active Directory を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
-| **DependencyFilesLocalPath** | 統合システムの場合のみ、証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 必要に応じて、ここで 1 つの Windows Update MSU パッケージをコピーできます。 | _省略可能_ (統合システムでは_必須_) |
+| **DependencyFilesLocalPath** | 統合システムの場合のみ、証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 必要に応じて、ここで 1 つの Windows Update MSU パッケージをコピーできます。 | _省略可能_ (統合システムでは _必須_) |
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |
 | **RetryDuration** | 再試行間のタイムアウト間隔 (秒単位)。 | 120 |

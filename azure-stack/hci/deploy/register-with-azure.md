@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/17/2020
-ms.openlocfilehash: 7a98692fb29b1a539bf9f9fd26e0a3e226cb8669
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.date: 11/23/2020
+ms.openlocfilehash: d90788a6f7f267955b1c4837eef74a5980118dea
+ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785787"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95812614"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
@@ -62,10 +62,16 @@ Azure Stack HCI クラスターを Azure に登録するには、次の手順を
    Install-WindowsFeature RSAT-Azure-Stack-HCI
    ```
 
-3. 必要なコマンドレットをインストールします。
+3. 必要なコマンドレットをインストールします。 パブリック プレビュー イメージの Azure Stack HCI をデプロイする場合は、Az.Stack HCI PowerShell モジュールのバージョン 0.3.1 を使用する必要があります。
 
    ```PowerShell
    Install-Module -Name Az.StackHCI -RequiredVersion 0.3.1
+   ```
+
+   クラスター内のすべてのサーバーに [2020 年 11 月 23 日のプレビュー更新プログラム (KB4586852)](../release-notes.md) を既にインストールしていて、クラスターを Azure に登録している場合は、最新バージョンの Az.StackHCI を問題なく使用できます。
+
+   ```PowerShell
+   Install-Module -Name Az.StackHCI
    ```
 
    > [!NOTE]

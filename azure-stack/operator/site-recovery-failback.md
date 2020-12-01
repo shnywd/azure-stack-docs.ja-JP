@@ -3,16 +3,16 @@ title: Azure Site Recovery フェールバック ツールのユーザー ガイ
 description: Azure Site Recovery フェールバック ツールを使用して仮想マシン (VM) を保護する方法について説明します。
 author: sethmanheim
 ms.author: sethm
-ms.date: 9/18/2020
+ms.date: 11/19/2020
 ms.topic: how-to
 ms.reviewer: rtiberiu
-ms.lastreviewed: 9/18/2020
-ms.openlocfilehash: 2b57527f3a65e97f5b83ada115faa63ace563ea4
-ms.sourcegitcommit: 0f2852c3302c6723e7afad637f55b80359182ae3
+ms.lastreviewed: 11/19/2020
+ms.openlocfilehash: 0cb3bccab11d337a8a8804578233edb95ac02dc6
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91366281"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517227"
 ---
 # <a name="azure-site-recovery-failback-tool"></a>Azure Site Recovery フェールバック ツール
 
@@ -20,13 +20,16 @@ ms.locfileid: "91366281"
 
 障害が発生した場合、Azure Stack Hub オペレーターは、"*フェールオーバー*" 手順を実行します。Azure Stack Hub が再稼働したら、"*フェールバック*" プロセスを実行します。 フェールオーバー プロセスについては[こちらの Site Recovery に関する記事](/azure/site-recovery/azure-stack-site-recovery)に記載されていますが、フェールバック プロセスには手動の手順がいくつか必要です。
 
-- Azure で実行されている VM を停止します。
-- VHD をダウンロードします。
-- Azure Stack Hub に VHD をアップロードします。
-- VM を再作成します。
-- 最後に、Azure Stack Hub で実行されている VM を起動します。 
+1. Azure で実行されている VM を停止します。
+2. VHD をダウンロードします。
+3. Azure Stack Hub に VHD をアップロードします。
+4. VM を再作成します。
+5. 最後に、Azure Stack Hub で実行されている VM を起動します。 
 
 このプロセスは間違いやすく、時間がかかる場合があるため、このプロセスの高速化と自動化を支援するスクリプトが作成されています。
+
+> [!Note]  
+> Azure Site Recovery ツールには、Azure Stack Hub Az モジュールが必要です。 Azure Stack Hub AzureRM モジュールを実行している場合は、ワークステーションをアップグレードするか、Az モジュールを備えた分離環境で Azure Site Recovery フェールバック ツールを使用する必要があります。 詳細については、「[Azure Stack Hub 用の PowerShell Az モジュールをインストールする](powershell-install-az-module.md)」を参照してください。
 
 ## <a name="failback-procedure"></a>フェールバックの手順
 

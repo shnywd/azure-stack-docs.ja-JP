@@ -9,89 +9,35 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: aca163df1026193933ffb9d09dbdf4a854638a75
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
+ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899807"
+ms.lasthandoff: 11/26/2020
+ms.locfileid: "96152847"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
-"*この記事の説明は、Azure Stack Hub 統合システムのバージョン 1803 以降に対してのみ適用されます。1803 より前のバージョンではシークレットのローテーションを試行しないでください。* "
-
-この記事では、Azure Stack Hub インフラストラクチャのリソースおよびサービスとのセキュリティで保護された通信の維持に役立つ、シークレットのローテーションに関するガイダンスと PowerShell スクリプトを提供します。 
+この記事では、Azure Stack Hub インフラストラクチャのリソースおよびサービスとのセキュリティで保護された通信の維持に役立つ、シークレットのローテーション実行に関するガイダンスを提供します。
 
 ## <a name="overview"></a>概要
 
 Azure Stack Hub はシークレットを使用して、インフラストラクチャのリソースおよびサービスとのセキュリティで保護された通信を維持します。 Azure Stack Hub インフラストラクチャの整合性を維持するために、オペレーターは、組織のセキュリティ要件と一致する頻度でシークレットをローテーションできる必要があります。
 
-### <a name="internal-vs-external-secrets"></a>内部および外部シークレット
-
-リリース 1811 以降、シークレットのローテーションは、内部と外部の証明書で分けられています。
-
-- **内部シークレット**: Azure Stack Hub オペレーターの介入なしに Azure Stack Hub インフラストラクチャによって使用される証明書、パスワード、セキュリティで保護された文字列、およびキー。
-
-- **外部シークレット**: Azure Stack Hub オペレーターによって提供される、外部向けサービス用のインフラストラクチャ サービス証明書。 外部シークレットには、次のサービスの証明書が含まれます。
-
-    - 管理者ポータル
-    - パブリック ポータル
-    - 管理者の Azure Resource Manager
-    - グローバルな Azure Resource Manager
-    - 管理者の Key Vault
-    - Key Vault
-    - 管理者拡張機能ホスト
-    - ACS (Blob、Table、Queue Storage を含みます)
-    - ADFS*
-    - Graph*
-    
-    \* 環境の ID プロバイダーが Active Directory フェデレーション サービス (AD FS) の場合にのみ適用されます。
-
-> [!Important]
-> 他のすべてのセキュリティで保護されたキーと文字列は、管理者によって手動で更新されます。 これには、ユーザーと管理者アカウントのパスワード、[ネットワーク スイッチのパスワードとアクセス許可](azure-stack-customer-defined.md)、および[この記事の後半で説明する](#update-the-bmc-credential)ベースボード管理コントローラー (BMC) の資格情報が含まれます。 
->
->また、この記事では、付加価値リソース プロバイダーのシークレットのローテーションについては説明しません。 これらのシークレットをローテーションするには、代わりに次の記事を参照してください。
->
-> - [App Service on Azure Stack Hub のシークレットと証明書を交換する](app-service-rotate-certificates.md)
-> - [MySQL リソース プロバイダー - シークレットのローテーション](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
-> - [SQL リソース プロバイダー - シークレットのローテーション](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
-
-### <a name="expiration-alerts"></a>有効期限のアラート
-
-シークレットの有効期限まで 30 日以内になると、管理者ポータルで次のアラートが生成されます。
+シークレットの有効期限まで 30 日以内になると、管理者ポータルで次のアラートが生成されます。 シークレットのローテーションを完了すると、次のアラートが解決されます。
 
 - 保留中のサービス アカウントのパスワードの有効期限
 - 保留中の内部証明書の有効期限
 - 保留中の外部証明書の有効期限
 
-次のセクションでシークレットのローテーション手順を完了すると、これらのアラートが解決されます。
-
+::: moniker range="<azs-1811"  
 > [!Note]
 > 1811 より前の Azure Stack Hub 環境では、保留中の内部証明書やシークレットの有効期限のアラートが表示される場合があります。 これらのアラートは正確ではないため、内部シークレットのローテーションを実行せずに無視する必要があります。 正しくない内部シークレットの有効期限切れアラートは、1811 で解決される既知の問題です。 環境が 2 年間アクティブになっていない限り、内部シークレットの有効期限が切れることはありません。
-
-### <a name="external-certificates-from-a-new-certificate-authority"></a>新しい証明書機関からの外部証明書
-
-Azure Stack Hub では、次のようなコンテキストで、新しい証明書機関 (CA) からの外部証明書を使用したシークレットのローテーションがサポートされます。
-
-|インストール済みの証明書 CA|ローテーション先の CA|サポートされています|サポートされる Azure Stack Hub のバージョン|
-|-----|-----|-----|-----|
-|自己署名済みから|Enterprise へ|サポートされています|1903 以降|
-|自己署名済みから|自己署名済みへ|サポートされていません||
-|自己署名済みから|公開へ<sup>*</sup>|サポートされています|1803 以降|
-|Enterprise から|Enterprise へ|サポートされています。 1803 から 1903: 顧客がデプロイ時に使用したのと同じエンタープライズ CA を使用している限りサポートされます|1803 以降|
-|Enterprise から|自己署名済みへ|サポートされていません||
-|Enterprise から|公開へ<sup>*</sup>|サポートされています|1803 以降|
-|公開から<sup>*</sup>|Enterprise へ|サポートされています|1903 以降|
-|公開から<sup>*</sup>|自己署名済みへ|サポートされていません||
-|公開から<sup>*</sup>|公開へ<sup>*</sup>|サポートされています|1803 以降|
-
-<sup>*</sup>公開証明機関が、Windows の信頼されたルート プログラムに含まれていることを示しています。 完全な一覧は、「[参加者の一覧 - Microsoft の信頼されたルート プログラム](/security/trusted-root/participants-list)」という記事にあります。
+::: moniker-end
 
 ## <a name="prerequisites"></a>前提条件
 
-内部および外部シークレットのローテーションの場合:
-
-1. 最初に Azure Stack Hub インスタンスを最新バージョンに更新することを強くお勧めします。
+1. 最初に Azure Stack Hub インスタンスを[最新バージョン](release-notes.md)に更新することを強くお勧めします。
 
     ::: moniker range="<azs-1811"  
     >[!IMPORTANT]
@@ -104,19 +50,65 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 3. シークレットのローテーション中に、アラートが開いて自動的に閉じることにオペレーターが気付くことがあります。 これは予期される動作であり、アラートは無視してもかまいません。 オペレーターは、[PowerShell コマンドレットの Test-AzureStack](azure-stack-diagnostic-test.md) を使用して、これらのアラートの有効性を確認できます。 System Center Operations Manager を使用して Azure Stack Hub システムを監視しているオペレーターの場合、システムをメンテナンス モードにすると、これらのアラートは ITSM システムに到達しなくなりますが、Azure Stack Hub システムに到達できなくなっても引き続きアラートは生成されます。
 
-外部シークレットのローテーションの場合には、次の追加の前提条件を満たす必要があります。
+::: moniker range=">=azs-1811"
+## <a name="rotate-external-secrets"></a>外部シークレットをローテーションする
+
+> [!Important]
+> 外部シークレットのローテーション:
+> - **セキュリティで保護されたキーや文字列などの証明書ではないシークレット** は、管理者が手動で実行する必要があります。 これには、ユーザーと管理者のアカウントのパスワード、[ネットワーク スイッチのパスワード](azure-stack-customer-defined.md)などがあります。
+> - **付加価値リソース プロバイダー (RP) のシークレット** については、個別のガイダンスで説明されています。
+>    - [Azure Stack Hub 上の App Service](app-service-rotate-certificates.md)
+>    - [Azure Stack Hub 上の IoT Hub](iot-hub-rp-rotate-secrets.md)
+>    - [Azure Stack Hub 上の MySQL](azure-stack-mysql-resource-provider-maintain.md#secrets-rotation)
+>    - [Azure Stack Hub 上の SQL](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)
+> - **ベースボード管理コントローラー (BMC) の資格情報** も手動プロセスであり、[この記事の後半で説明します](#update-the-bmc-credential)。 
+
+このセクションでは、外部向けサービスをセキュリティで保護するために使用される証明書のローテーションについて説明します。 これらの証明書は、次のサービスのために Azure Stack Hub Operator によって提供されます。
+
+- 管理者ポータル
+- パブリック ポータル
+- 管理者の Azure Resource Manager
+- グローバルな Azure Resource Manager
+- 管理者の Key Vault
+- Key Vault
+- 管理者拡張機能ホスト
+- ACS (Blob、Table、Queue Storage を含みます)
+- ADFS<sup>*</sup>
+- Graph<sup>*</sup>
+
+<sup>*</sup>Active Directory フェデレーション サービス (AD FS) の使用時に適用されます。
+
+### <a name="preparation"></a>準備
+
+外部シークレットのローテーション前:
 
 1. シークレットをローテーションする前に、`-group SecretRotationReadiness` パラメーターを使用して **[`Test-AzureStack`](azure-stack-diagnostic-test.md)** PowerShell コマンドレットを実行し、すべてのテスト出力が正常であることを確認します。
 2. 代わりの外部証明書の新しいセットを準備します。
-    - 新しいセットは、[Azure Stack Hub PKI 証明書の要件](azure-stack-pki-certs.md)に関する記事に記載されている証明書の仕様に一致している必要があります。 
-    - 証明書署名要求 (CSR) を生成して証明機関 (CA) に送信するには、[証明書署名要求の生成](azure-stack-get-pki-certs.md)に関する記事に記載された手順を使用します。また、それらを Azure Stack Hub 環境で使用するために準備するには、[PKI 証明書の準備](azure-stack-prepare-pki-certs.md)に関する記事の手順を使用します。 
-    - 準備する証明書は、[PKI 証明書の検証](azure-stack-validate-pki-certs.md)に関する記事に記載された手順を使用して必ず検証してください。
-    - パスワードに `*` や `)` などの特殊文字が含まれないことを確認します。
-    - PFX 暗号化が **TripleDES-SHA1** であることを確認します。 問題が発生した場合は、「[Azure Stack Hub PKI 証明書に関する一般的な問題を修復する](azure-stack-remediate-certs.md#pfx-encryption)」を参照してください。
+   - 新しいセットは、[Azure Stack Hub PKI 証明書の要件](azure-stack-pki-certs.md)に関する記事に記載されている証明書の仕様に一致している必要があります。 
+   - 証明書署名要求 (CSR) を生成して証明機関 (CA) に送信するには、[証明書署名要求の生成](azure-stack-get-pki-certs.md)に関する記事に記載された手順を使用します。また、それらを Azure Stack Hub 環境で使用するために準備するには、[PKI 証明書の準備](azure-stack-prepare-pki-certs.md)に関する記事の手順を使用します。 Azure Stack Hub では、次のようなコンテキストで、新しい証明書機関 (CA) からの外部証明書を使用したシークレットのローテーションがサポートされます。
+
+     |CA からのローテーション|CA へのローテーション|Azure Stack Hub バージョンのサポート|
+     |-----|-----|-----|-----|
+     |自己署名|Enterprise| 1903 以降|
+     |自己署名|自己署名|サポートされていません|
+     |自己署名|パブリック<sup>*</sup>|1803 以降|
+     |Enterprise|Enterprise|1803 以降。デプロイ時に使用されるものと同じエンタープライズ CA の場合は 1803-1903|
+     |Enterprise|自己署名|サポートされていません|
+     |Enterprise|パブリック<sup>*</sup>|1803 以降|
+     |パブリック<sup>*</sup>|Enterprise|1903 以降|
+     |パブリック<sup>*</sup>|自己署名|サポートされていません|
+     |パブリック<sup>*</sup>|パブリック<sup>*</sup>|1803 以降|
+
+     <sup>*</sup>[Windows の信頼されたルート プログラム](/security/trusted-root/participants-list)の一部。
+
+   - 準備する証明書は、[PKI 証明書の検証](azure-stack-validate-pki-certs.md)に関する記事に記載された手順を使用して必ず検証してください。
+   - パスワードに `*` や `)` などの特殊文字が含まれないことを確認します。
+   - PFX 暗号化が **TripleDES-SHA1** であることを確認します。 問題が発生した場合は、「[Azure Stack Hub PKI 証明書に関する一般的な問題を修復する](azure-stack-remediate-certs.md#pfx-encryption)」を参照してください。
+
 3. ローテーションに使われる証明書のバックアップを安全なバックアップ場所に格納します。 ローテーションを実行して失敗した場合は、ローテーションを再実行する前に、ファイル共有内の証明書をバックアップ コピーに置き換えます。 バックアップ コピーはセキュリティで保護されたバックアップ場所に保存してください。
 4. ERCS VM からアクセスできるファイル共有を作成します。 ファイル共有は、**CloudAdmin** ID で読み書きできる必要があります。
 5. ファイル共有にアクセスできるコンピューターから PowerShell ISE コンソールを開きます。 ファイル共有に移動します。ここで、外部証明書を配置するディレクトリを作成します。
-6. ローテーション中にアクセスできるネットワーク ファイル共有に **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** をダウンロードし、スクリプトを実行します。 このスクリプトにより、ID プロバイダーに応じて ***.\Certificates\AAD*** または ***.\Certificates\ADFS*** に準拠するフォルダー構造が作成されます。 フォルダー構造は、 **\\Certificates** フォルダーで始まり、その後に、 **\\AAD** または **\\ADFS** フォルダーのみが続く必要があります。 その他のすべてのサブディレクトリは、上記の構造内に含まれます。 次に例を示します。
+6. ローテーション中にアクセスできるネットワーク ファイル共有に **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** をダウンロードし、スクリプトを実行します。 このスクリプトにより、ID プロバイダーに応じて **_.\Certificates\AAD_ *_ または _* _.\Certificates\ADFS_ *_ に準拠するフォルダー構造が作成されます。フォルダー構造は、_* \\Certificates** フォルダーで始まり、その後に、 **\\AAD** または **\\ADFS** フォルダーのみが続く必要があります。 その他のすべてのサブディレクトリは、上記の構造内に含まれます。 次に例を示します。
     - ファイル共有 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD プロバイダーの証明書ルート フォルダー = **\\Certificates\AAD**
     - 完全なパス = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**
@@ -174,7 +166,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
     ```
 
-## <a name="rotate-external-secrets"></a>外部シークレットをローテーションする
+### <a name="rotation"></a>回転
 
 外部シークレットをローテーションするには、次の手順を実行します。
 
@@ -198,7 +190,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
     このスクリプトは、次のステップを実行します。
 
-    - **CloudAdmin** アカウントを使用して[特権エンドポイント](azure-stack-privileged-endpoint.md)で PowerShell セッションを作成し、セッションを変数として格納します。 この変数は、次の手順でパラメーターとして使用されます。 
+    - **CloudAdmin** アカウントを使用して [特権エンドポイント](azure-stack-privileged-endpoint.md)で PowerShell セッションを作成し、セッションを変数として格納します。 この変数は、次の手順でパラメーターとして使用されます。 
 
     - [Invoke-Command](/powershell/module/microsoft.powershell.core/Invoke-Command) を実行し、PEP セッション変数を `-Session` パラメーターとして渡します。
 
@@ -207,7 +199,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
         - `-PathAccessCredential`:共有に対する資格情報の PSCredential オブジェクト。
         - `-CertificatePassword`:作成されるすべての pfx 証明書ファイルに使われるパスワードのセキュリティで保護された文字列です。
 
-2. 外部シークレットのローテーションには、約 1 時間かかります。 正常に完了すると、コンソールに `ActionPlanInstanceID ... CurrentStatus: Completed` が表示され、その後に `DONE` が表示されます。 「前提条件」セクションで作成した共有から証明書を削除し、セキュリティで保護されたバックアップ場所に保存します。
+2. 外部シークレットのローテーションには、約 1 時間かかります。 正常に完了すると、コンソールに `ActionPlanInstanceID ... CurrentStatus: Completed` メッセージが表示され、その後に `DONE` が表示されます。 「準備」セクションで作成した共有から証明書を削除し、セキュリティで保護されたバックアップ場所に保存します。
 
     > [!Note]
     > シークレットのローテーションが失敗した場合は、エラー メッセージの指示に従い、 `-ReRun` パラメーターを指定して `Start-SecretRotation` を再実行します。
@@ -217,22 +209,33 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
     >```  
     >
     >シークレットのローテーションの失敗が繰り返される場合は、サポートにお問い合わせください。
+::: moniker-end
 
 ## <a name="rotate-internal-secrets"></a>内部シークレットをローテーションする
 
-内部シークレットのローテーションは、それが侵害された可能性がある場合、または有効期限アラートを受け取った場合にのみ必要です。 1811 より前のバージョンでは、保留中の内部証明書やシークレットの有効期限に関するアラートが表示される場合があります。 これらのアラートは正確ではないため、無視してください。これらは既知の問題であり、1811 で解決されています。 環境が 2 年間アクティブになっていない限り、内部シークレットの有効期限が切れることはありません。
+内部シークレットには、Azure Stack Hub オペレーターの介入なしに Azure Stack Hub インフラストラクチャによって使用されるすべての証明書、パスワード、セキュリティで保護された文字列、キーなどがあります。 内部シークレットのローテーションは、それが侵害された可能性がある場合、または有効期限アラートを受け取った場合にのみ必要です。 環境が 2 年間アクティブになっていない限り、内部シークレットの有効期限が切れることはありません。
+::: moniker range="<azs-1811"  
+1811 より前のデプロイでは、保留中の内部証明書やシークレットの有効期限に関するアラートが表示される場合があります。 これらのアラートは正確ではないため、無視してください。これらは既知の問題であり、1811 で解決されています。
+::: moniker-end
 
-「[外部シークレットをローテーションする](#rotate-external-secrets)」の手順 2 にある PowerShell スクリプトを参照してください。 このスクリプトは、次の手順を実行するためにいくつかの変更を加えることによって、内部シークレットのローテーションに適応できる例を提供します。
+内部シークレットをローテーションするには、次の手順を実行します。
 
-1. "Run Secret Rotation" セクションで、`-Internal` パラメーターを [Start-SecretRotation コマンドレット](../reference/pep-2002/start-secretrotation.md)に追加します。次に例を示します。
+1. 次の PowerShell スクリプトを実行します。 内部シークレットのローテーションの場合、シークレットのローテーション実行に関するセクションで [Start-SecretRotation コマンドレット](../reference/pep-2002/start-secretrotation.md)の `-Internal` パラメーターのみを使用します。
 
     ```powershell
+    # Create a PEP Session
+    winrm s winrm/config/client '@{TrustedHosts= "<IP_address_of_ERCS>"}'
+    $PEPCreds = Get-Credential
+    $PEPSession = New-PSSession -ComputerName <IP_address_of_ERCS_Machine> -Credential $PEPCreds -ConfigurationName "PrivilegedEndpoint"
+
     # Run Secret Rotation
-    ...
+    $CertPassword = ConvertTo-SecureString "<Cert_Password>" -AsPlainText -Force
+    $CertShareCreds = Get-Credential
+    $CertSharePath = "<Network_Path_Of_CertShare>"
     Invoke-Command -Session $PEPSession -ScriptBlock {
         Start-SecretRotation -Internal
     }
-    ...
+    Remove-PSSession -Session $PEPSession
     ```
 
     ::: moniker range="<azs-1811"
@@ -240,7 +243,8 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
     > 1811 より前のバージョンでは、`-Internal` フラグは必要ありません。 
     ::: moniker-end
 
-3. 正常に完了すると、コンソールに `ActionPlanInstanceID ... CurrentStatus: Completed` が表示され、その後に `DONE` が表示されます。
+
+2. 正常に完了すると、コンソールに `ActionPlanInstanceID ... CurrentStatus: Completed` メッセージが表示され、その後に `DONE` が表示されます。
 
     > [!Note]
     > シークレット ローテーションが失敗した場合は、エラー メッセージ内の指示に従い、 `-Internal` パラメーターと `-ReRun` パラメーターを付けて `Start-SecretRotation` を再実行します。  
@@ -312,7 +316,7 @@ Azure Stack Hub では、次のようなコンテキストで、新しい証明�
 
 [Start-SecretRotation コマンドレット](../reference/pep-2002/start-secretrotation.md)は、Azure Stack Hub システムのインフラストラクチャ シークレットのローテーションを行います。 このコマンドレットは、`-Session` パラメーターで PEP セッションを渡す `Invoke-Command` スクリプト ブロックを使用することによって、Azure Stack Hub の特権エンドポイントに対してのみ実行できます。 既定では、すべての外部ネットワーク インフラストラクチャ エンドポイントの証明書のみのローテーションを行います。
 
-| パラメーター | 種類 | 必須 | [位置] | Default | 説明 |
+| パラメーター | Type | 必須 | [位置] | Default | 説明 |
 |--|--|--|--|--|--|
 | `PfxFilesPath` | String  | False  | named  | なし  | すべての外部ネットワーク エンドポイント証明書を含む **\Certificates** ディレクトリへのファイル共有パスです。 外部シークレットのローテーションを行う場合にのみ必要です。 最後のディレクトリは **\Certificates** にする必要があります。 |
 | `CertificatePassword` | SecureString | False  | named  | なし  | -PfXFilesPath で提供されているすべての証明書のパスワード。 外部のシークレットのローテーションを行うときに PfxFilesPath を指定する場合は、必須の値です。 |
@@ -380,10 +384,10 @@ Remove-PSSession -Session $PEPSession
 このコマンドは、Azure Stack Hub の外部ネットワーク インフラストラクチャ エンドポイントで使用する TLS 証明書のローテーションを行います。
 
 ::: moniker range="<azs-1811"
-#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>内部と外部のインフラストラクチャ シークレットのローテーション (**1811 より前**のみ)
+#### <a name="rotate-internal-and-external-infrastructure-secrets-pre-1811-only"></a>内部と外部のインフラストラクチャ シークレットのローテーション (**1811 より前** のみ)
 
 > [!IMPORTANT]
-> ローテーションは内部証明書と外部証明書に分けられたので、このコマンドは **1811 より前**の Azure Stack Hub にのみ適用されます。
+> ローテーションは内部証明書と外部証明書に分けられたので、このコマンドは **1811 より前** の Azure Stack Hub にのみ適用されます。
 >
 > **"*1811 以降*" 、内部証明書と外部証明書の両方をローテーションすることはできなくなりました。**
 

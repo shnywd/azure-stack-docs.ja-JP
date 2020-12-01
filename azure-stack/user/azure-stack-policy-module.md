@@ -3,15 +3,15 @@ title: Azure Stack Hub ポリシー モジュールを使用する
 description: Azure Stack Hub サブスクリプションと同様の動作をするように、Azure サブスクリプションを制限する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 06/09/2020
+ms.date: 11/22/2020
 ms.author: sethm
-ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: ca96de45f50f48b91dbb2e6e8679df5dedab8d8f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: 13d3e006d676e7e24f94741c59cb8837d5200d1d
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94547060"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518128"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-hub-policy-module"></a>Azure Stack Hub ポリシー モジュールを使用して Azure ポリシーを管理する
 
@@ -32,6 +32,8 @@ Azure Stack Hub ポリシー モジュールを使用すると、Azure Stack Hub
 
 以下のコマンドを使用して、Azure サブスクリプションに既定の Azure Stack Hub ポリシーを適用できます。 これらのコマンドを実行する前に、`Azure subscription name` を自分の Azure サブスクリプションの名前に置き換えてください。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
 ```powershell
 Add-AzAccount
 $s = Select-AzSubscription -SubscriptionName "Azure subscription name"
@@ -39,10 +41,23 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+```powershell
+Add-AzureRMAccount
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
+```
+
+---
 
 ## <a name="apply-policy-to-a-resource-group"></a>リソース グループにポリシーを適用する
 
 さらに詳細なポリシーを適用する必要がある場合があります。 たとえば、同じサブスクリプションで他のリソースが実行されている場合があります。 ポリシーの適用範囲を特定のリソース グループに設定できます。そうすることで、Azure リソースを使用して Azure Stack Hub 用のアプリをテストできます。 次のコマンドを実行する前に、`Azure subscription name` を自分の Azure サブスクリプションの名前に置き換えてください。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
 ```powershell
 Add-AzAccount
@@ -52,6 +67,18 @@ $policy = New-AzPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-A
 $subscriptionID = $s.Subscription.SubscriptionId
 New-AzPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
+ 
+```powershell
+Add-AzureRMAccount
+$rgName = 'myRG01'
+$s = Select-AzureRMSubscription -SubscriptionName "Azure subscription name"
+$policy = New-AzureRMPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
+$subscriptionID = $s.Subscription.SubscriptionId
+New-AzureRMPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
+```
+
+---
 
 ## <a name="policy-in-action"></a>実行中のポリシー
 

@@ -7,12 +7,12 @@ ms.date: 9/8/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: c8c68a64f7a05e03c70e138cb4d8c95da7417ec9
-ms.sourcegitcommit: 3e225b30a54159b6b8dbeb2f843a2e5a721b746e
+ms.openlocfilehash: cefc127efcdac2d1610803ef90b54c50e7280e97
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91519425"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95516938"
 ---
 # <a name="move-a-vm-from-azure-to-azure-stack-hub"></a>VM を Azure から Azure Stack Hub に移動する
 
@@ -33,7 +33,15 @@ VHD を準備するときに、ニーズに合致するセクションを見つ�
 ::: moniker range="<=azs-1910"
 - VHD を Azure Stack Hub に移動する前に、「[Azure から Windows VHD をダウンロードする](/azure/virtual-machines/windows/download-vhd)」の手順に従い VHD を正しく汎用化してダウンロードします。
 - Azure で VM をプロビジョニングする場合は、PowerShell を使用します。 `-ProvisionVMAgent` フラグを指定せずに準備します。
-- Azure で VM を汎用化する前に、VM から **Remove-AzureRmVMExtension** コマンドレットを使用してすべての VM 拡張機能を削除します。 `Windows (C:) > WindowsAzure > Logs > Plugins` に移動することにより、どの VM 拡張機能がインストールされているかを見つけることができます。
+- Azure で VM を一般化する前に、VM からこのコマンドレットを使用してすべての VM 拡張機能を削除します。 `Windows (C:) > WindowsAzure > Logs > Plugins` に移動することにより、どの VM 拡張機能がインストールされているかを見つけることができます。
+
+Az PowerShell モジュールを使用します。
+
+```powershell  
+Remove-AzVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
+```
+
+AzureRM PowerShell モジュールを使用します。
 
 ```powershell  
 Remove-AzureRmVMExtension -ResourceGroupName winvmrg1 -VMName windowsvm -Name "CustomScriptExtension"
@@ -99,7 +107,7 @@ VHD を Azure Stack Hub に移動する前に、「[Azure から Windows VHD を
 
 ## <a name="create-the-vm"></a>VM の作成
 
-カスタム イメージには、**特殊化**と**汎用化**の 2 つの形式があります。
+カスタム イメージには、**特殊化** と **汎用化** の 2 つの形式があります。
 
 ### <a name="specialized"></a>[専用イメージ](#tab/create-vm-spec)
 

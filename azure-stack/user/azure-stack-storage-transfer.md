@@ -3,16 +3,16 @@ title: Azure Stack Hub Storage でのデータ転送ツールの使用
 description: Azure Stack Hub Storage のデータ転送ツールについて説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 11/06/2019
-ms.openlocfilehash: 55041cb4072fc0156a4b3769eede40a21b1aed3c
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 11/22/2020
+ms.openlocfilehash: d35ee0999dfa25e5cee12ff3df3c91b945733430
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546550"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95518026"
 ---
 # <a name="use-data-transfer-tools-in-azure-stack-hub-storage"></a>Azure Stack Hub Storage でのデータ転送ツールの使用
 
@@ -114,16 +114,17 @@ Azure PowerShell は、Azure と Azure Stack Hub の両方でサービスを管�
 Azure Stack Hub を使用するには、Azure Stack Hub と互換性のある Azure PowerShell モジュールが必要です。 詳細については、「[PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md)」と、[Azure Stack Hub ユーザーの PowerShell 環境の構成](azure-stack-powershell-configure-user.md)に関する記事を参照してください。
 
 ### <a name="powershell-sample-script-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell サンプル スクリプト 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
 このサンプルでは、[PowerShell for Azure Stack Hub のインストール](../operator/powershell-install-az-module.md)が正常に完了していることを前提としています。 このスクリプトは、構成を完了し、ローカルの PowerShell 環境にアカウントを追加するために Azure Stack Hub テナントの資格情報を要求するために役立ちます。 次に、スクリプトは、既定の Azure サブスクリプションを設定して、Azure 内に新しいストレージ アカウントを作成し、この新しいストレージ アカウントに新しいコンテナーを作成して、既存の画像ファイル (BLOB) をこのコンテナーにアップロードします。 このスクリプトにより、コンテナー内のすべての BLOB がリストされると、ローカル コンピューターに新しい格納先ディレクトリが作成され、画像ファイルがダウンロードされます。
 
 1. [Azure Stack Hub と互換性のある Azure PowerShell モジュール](../operator/powershell-install-az-module.md)をインストールします。
 2. [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
-3. **Windows PowerShell ISE** を開いて、 **管理者として実行し** 、 **[ファイル]**  >  **[新規作成]** の順にクリックして、新しいスクリプト ファイルを作成します。
+3. **Windows PowerShell ISE** を開いて、**管理者として実行し**、 **[ファイル]**  >  **[新規作成]** の順にクリックして、新しいスクリプト ファイルを作成します。
 4. 次のスクリプトをコピーして新しいスクリプト ファイルに貼り付けます。
 5. 構成設定に基づいてスクリプト変数を更新します。
    > [!NOTE]
-   > このスクリプトは、 **AzureStack_Tools** のルート ディレクトリで実行する必要があります。
+   > このスクリプトは、**AzureStack_Tools** のルート ディレクトリで実行する必要があります。
 
 ```powershell  
 # begin
@@ -186,6 +187,83 @@ $blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
 
 # end
 ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+このサンプルでは、[PowerShell for Azure Stack Hub のインストール](../operator/azure-stack-powershell-install.md)が正常に完了していることを前提としています。 このスクリプトは、構成を完了し、ローカルの PowerShell 環境にアカウントを追加するために Azure Stack Hub テナントの資格情報を要求するために役立ちます。 次に、スクリプトは、既定の Azure サブスクリプションを設定して、Azure 内に新しいストレージ アカウントを作成し、この新しいストレージ アカウントに新しいコンテナーを作成して、既存の画像ファイル (BLOB) をこのコンテナーにアップロードします。 このスクリプトにより、コンテナー内のすべての BLOB がリストされると、ローカル コンピューターに新しい格納先ディレクトリが作成され、画像ファイルがダウンロードされます。
+
+1. [Azure Stack Hub と互換性のある Azure PowerShell モジュール](../operator/azure-stack-powershell-install.md)をインストールします。
+2. [Azure Stack Hub の操作に必要なツール](../operator/azure-stack-powershell-download.md)をダウンロードします。
+3. **Windows PowerShell ISE** を開いて、**管理者として実行し**、 **[ファイル]**  >  **[新規作成]** の順にクリックして、新しいスクリプト ファイルを作成します。
+4. 次のスクリプトをコピーして新しいスクリプト ファイルに貼り付けます。
+5. 構成設定に基づいてスクリプト変数を更新します。
+   > [!NOTE]
+   > このスクリプトは、**AzureStack_Tools** のルート ディレクトリで実行する必要があります。
+
+```powershell  
+# begin
+
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack Hub environment name
+$ARMEndPoint = "https://management.local.azurestack.external" 
+$GraphAudience = "https://graph.windows.net/" 
+$AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
+
+$SubscriptionName = "basic" # Update with the name of your subscription.
+$ResourceGroupName = "myTestRG" # Give a name to your new resource group.
+$StorageAccountName = "azsblobcontainer" # Give a name to your new storage account. It must be lowercase.
+$Location = "Local" # Choose "Local" as an example.
+$ContainerName = "photo" # Give a name to your new container.
+$ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
+
+# Import the Connect PowerShell module"
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Import-Module .\Connect\AzureStack.Connect.psm1
+
+# Configure the PowerShell environment
+# Register an AzureRM environment that targets your Azure Stack Hub instance
+Add-AzureRMEnvironment -Name $ARMEvnName -ARMEndpoint $ARMEndPoint 
+
+# Login
+$TenantID = Get-AzsDirectoryTenantId -AADTenantName $AADTenantName -EnvironmentName $ARMEvnName
+Add-AzureRMAccount -EnvironmentName $ARMEvnName -TenantId $TenantID 
+
+# Set a default Azure subscription.
+Select-AzureRMSubscription -SubscriptionName $SubscriptionName
+
+# Create a new Resource Group 
+New-AzureRMResourceGroup -Name $ResourceGroupName -Location $Location
+
+# Create a new storage account.
+New-AzureRMStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -Location $Location -Type Standard_LRS
+
+# Set a default storage account.
+Set-AzureRMCurrentStorageAccount -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName 
+
+# Create a new container.
+New-AzureRMureStorageContainer -Name $ContainerName -Permission Off
+
+# Upload a blob into a container.
+Set-AzureRMureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+
+# List all blobs in a container.
+Get-AzureRMureStorageBlob -Container $ContainerName
+
+# Download blobs from the container:
+# Get a reference to a list of all blobs in a container.
+$blobs = Get-AzureStorageBlob -Container $ContainerName
+
+# Create the destination directory.
+New-Item -Path $DestinationFolder -ItemType Directory -Force  
+
+# Download blobs into the local destination directory.
+$blobs | Get-AzureStorageBlobContent -Destination $DestinationFolder
+
+# end
+```
+
+---
+
+
 
 ### <a name="powershell-known-issues"></a>PowerShell の既知の問題
 
@@ -205,7 +283,7 @@ Azure Stack Hub の現在の互換性のある Azure PowerShell モジュール�
 -AccountName "MyStorageAccount").Key1
 ```
 
-詳細については、[Get-AzureRmStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey) を参照してください。
+詳細については、[Get-AzureRMStorageAccountKey](/powershell/module/Az.storage/Get-AzStorageAccountKey) を参照してください。
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -280,7 +358,7 @@ Linux 上で blobfuse を使用して Blob Storage をファイル システム�
 
 Azure Stack Hub の場合、ストレージ アカウントの資格情報を構成する際に、accountName、accountKey/sasToken、および containerName と共に *blobEndpoint* を指定する必要があります。
 
-Azure Stack Development Kit (ASDK) では、 *blobEndpoint* を `myaccount.blob.local.azurestack.external` にする必要があります。 Azure Stack Hub 統合システムでは、エンドポイントが不明の場合は、クラウド管理者に問い合わせてください。
+Azure Stack Development Kit (ASDK) では、*blobEndpoint* を `myaccount.blob.local.azurestack.external` にする必要があります。 Azure Stack Hub 統合システムでは、エンドポイントが不明の場合は、クラウド管理者に問い合わせてください。
 
 *accountKey* と *sasToken* は一度に 1 つずつしか構成できません。 ストレージ アカウント キーを指定した資格情報構成ファイルの形式を次に示します。
 

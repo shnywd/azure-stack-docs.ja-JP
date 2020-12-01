@@ -3,16 +3,16 @@ title: PowerShell を使用してコマンド ラインから ASDK をデプロ�
 description: PowerShell を使用してコマンド ラインから ASDK デプロイする方法について説明します。
 author: justinha
 ms.topic: article
-ms.date: 09/23/2020
+ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 09/23/2020
-ms.openlocfilehash: c9931654b6c217d0c9f06bf51b37460046c47c2c
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 10/14/2020
+ms.openlocfilehash: 1d6df818c76e564423511a927ee1279cbf3f5279
+ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106932"
+ms.lasthandoff: 11/24/2020
+ms.locfileid: "95517380"
 ---
 # <a name="deploy-asdk-from-the-command-line-using-powershell"></a>PowerShell を使用してコマンド ラインから ASDK をデプロイする
 
@@ -71,7 +71,7 @@ Azure Stack と、ID プロバイダーとして Azure AD または Windows Serv
 > セットアップ パラメーター (InstallAzureStackPOC.ps1 のオプションのパラメーターと以下の例を参照) を指定しない場合、必須パラメーターの入力を求めるメッセージが表示されます。
 
 ### <a name="deploy-azure-stack-using-azure-ad"></a>Azure AD を使用して Azure Stack をデプロイする 
-**Azure AD を ID プロバイダーとして使用**して Azure Stack をデプロイするには、インターネットに直接または透過プロキシ経由で接続する必要があります。 
+**Azure AD を ID プロバイダーとして使用** して Azure Stack をデプロイするには、インターネットに直接または透過プロキシ経由で接続する必要があります。 
 
 Azure AD を使用して ASDK をデプロイするには、次の PowerShell コマンドを実行します。
 
@@ -83,10 +83,10 @@ Azure AD を使用して ASDK をデプロイするには、次の PowerShell �
 
 ASDK のインストールを開始して数分後に、Azure AD 資格情報の入力を求めるメッセージが表示されます。 Azure AD テナントのグローバル管理者の資格情報を入力します。
 
-デプロイの後、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 そのような操作の例には、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション*の所有者である別の全体管理者アカウントを使用します。
+デプロイの後、Azure Active Directory の全体管理者のアクセス許可は必要ありません。 ただし、一部の操作では、全体管理者の資格情報が必要な場合があります。 そのような操作の例には、リソース プロバイダーのインストーラー スクリプトや、アクセス許可を付与する必要のある新機能などがあります。 アカウントの全体管理者のアクセス許可を一時的に復元するか、*既定のプロバイダー サブスクリプション* の所有者である別の全体管理者アカウントを使用します。
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>AD FS を使用して Azure Stack をデプロイする 
-**AD FS を ID プロバイダーとして使用**して ASDK をデプロイするには、次の PowerShell コマンドを実行します (-UseADFS パラメーターを追加するだけです)。
+**AD FS を ID プロバイダーとして使用** して ASDK をデプロイするには、次の PowerShell コマンドを実行します (-UseADFS パラメーターを追加するだけです)。
 
   ```powershell
   cd C:\CloudDeployment\Setup     
@@ -105,7 +105,8 @@ AD FS デプロイでは、既定のスタンプ ディレクトリ サービス
 #### <a name="azure-ad-deployment-script-examples"></a>Azure AD のデプロイ スクリプトの例
 Azure AD のデプロイ全体をスクリプト化することができます。 オプションのパラメーターを含む、コメント付きの例をいくつか示します。
 
-Azure AD ID が **1 つ**の Azure AD ディレクトリのみに関連付けられている場合:
+Azure AD ID が **1 つ** の Azure AD ディレクトリのみに関連付けられている場合:
+
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
@@ -113,7 +114,7 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>"
 .\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
-Azure AD ID が **2 つ以上**の Azure AD ディレクトリに関連付けられている場合:
+Azure AD ID が **2 つ以上** の Azure AD ディレクトリに関連付けられている場合:
 ```powershell
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
