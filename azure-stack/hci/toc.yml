@@ -128,8 +128,10 @@
           href: concepts/quorum.md
     - name: ネットワーク
       items:
-        - name: ホスト ネットワークを計画する
-          href: concepts/plan-host-networking.md
+        - name: 物理ネットワークの要件
+          href: concepts/physical-network-requirements.md
+        - name: ホスト ネットワークの要件
+          href: concepts/host-network-requirements.md
         - name: ソフトウェア定義ネットワーク (SDN)
           href: concepts/software-defined-networking.md
         - name: SDN インフラストラクチャを計画する
