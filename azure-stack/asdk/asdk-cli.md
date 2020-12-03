@@ -3,16 +3,16 @@ title: Azure Stack Development Kit (ASDK) での Azure CLI 用の証明書の設
 description: Azure Stack Development Kit 上で Azure CLI 用の証明書を設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/26/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 8b55fea8ed9692da34234e2633bdb43e92de46eb
-ms.sourcegitcommit: b960df16e84ec9fbccfce772102b91f0b7ae7060
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 7b408e28ff70e66c0460473f54304cbf50fa2c92
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294426"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96524684"
 ---
 # <a name="setting-up-certificates-for-azure-cli-on-azure-stack-development-kit"></a>Azure Stack Development Kit での Azure CLI 用の証明書の設定
 
@@ -24,7 +24,7 @@ ms.locfileid: "93294426"
 
 ASDK の場合、開発用マシン上で Azure CLI を使用するには、Azure Stack Hub の CA ルート証明書が必要です。 CLI を使用してリソースを管理する場合に、この証明書を使用します。
 
- - ASDK の外部のワークステーションから CLI を使用する場合は、 **Azure Stack Hub の CA ルート証明書** が必要です。  
+ - ASDK の外部のワークステーションから CLI を使用する場合は、**Azure Stack Hub の CA ルート証明書** が必要です。  
 
  - **仮想マシンのエイリアス エンドポイント** は、"UbuntuLTS" や "Win2012Datacenter" などのエイリアスを提供します。 このエイリアスは、VM をデプロイするときに、1 つのパラメーターとしてイメージの発行元、オファー、SKU、およびバージョンを参照します。  
 

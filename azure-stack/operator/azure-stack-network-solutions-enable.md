@@ -3,16 +3,16 @@ title: Fortinet FortiGate を Azure Stack Hub Marketplace に追加する
 description: Fortinet FortiGate を Azure Stack Hub Marketplace に追加し、ユーザーがネットワーク ソリューションを作成できるようにする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/30/2019
-ms.openlocfilehash: a145a95207fb923d736582f79a315ae625d7223b
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: fec899c2040b71ad10be95d18dfc56a17d1fe617
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107022"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525525"
 ---
 # <a name="offer-a-network-solution-in-azure-stack-hub-with-fortinet-fortigate"></a>Fortinet FortiGate を使用して Azure Stack Hub にネットワーク ソリューションを提供する
 

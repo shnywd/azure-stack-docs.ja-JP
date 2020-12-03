@@ -3,16 +3,16 @@ title: Azure Stack Hub の VPN ゲートウェイを設定する
 description: Azure Stack Hub の VPN ゲートウェイを設定する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: 3363870fe1a2a487883a3fdc59fb90f017237b56
-ms.sourcegitcommit: 8ffa29f71d69191534d42f86f49f719b4198a097
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: bcc1b59795c0b2436f8b9556b35bb6f95dc7cf0e
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92355186"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525729"
 ---
 # <a name="set-up-vpn-gateway-for-azure-stack-hub-using-fortigate-nva"></a>FortiGate NVA を使用して Azure Stack Hub の VPN ゲートウェイを設定する
 
@@ -23,7 +23,7 @@ ms.locfileid: "92355186"
 -  Azure Stack Hub 統合システムへのアクセスと、このソリューションで求められるコンピューティング要件、ネットワーク要件、リソース要件をデプロイするために必要とされる空き容量。 
 
     > [!NOTE]  
-    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用**できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
+    > これらの手順は、Azure Stack Development Kit (ASDK) のネットワーク制限により、ASDK では使用 **できません**。 詳細については、「[ASDK の要件と考慮事項](../asdk/asdk-deploy-considerations.md)」を参照してください。
 
 -  Azure Stack Hub 統合システムをホストするオンプレミス ネットワーク内の VPN デバイスへのアクセス。 デバイスでは、「[デプロイに使用されるパラメーター](#deployment-parameters)」で説明されているパラメーターを満たす IPSec トンネルを作成する必要があります。
 
@@ -80,7 +80,7 @@ ms.locfileid: "92355186"
 1. 「[デプロイで使用されるパラメーター](#deployment-parameters)」の表を使用して、仮想ネットワーク、サブネット、VM サイズの詳細を指定します。
 
     > [!Warning] 
-    > オンプレミス ネットワークが IP 範囲 `172.16.0.0/16` とオーバーラップする場合は、別のネットワーク範囲とサブネットを選択して設定する必要があります。 「[デプロイで使用されるパラメーター](#deployment-parameters)」の表にあるものとは別の名前や範囲を使用する場合は、オンプレミス ネットワークと競合**しない**パラメーターを使用してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは注意してください。 その範囲がオンプレミス ネットワークに存在する IP 範囲とオーバーラップすることは望ましくありません。
+    > オンプレミス ネットワークが IP 範囲 `172.16.0.0/16` とオーバーラップする場合は、別のネットワーク範囲とサブネットを選択して設定する必要があります。 「[デプロイで使用されるパラメーター](#deployment-parameters)」の表にあるものとは別の名前や範囲を使用する場合は、オンプレミス ネットワークと競合 **しない** パラメーターを使用してください。 VNET 内の VNET IP 範囲やサブネットの範囲を設定するときは注意してください。 その範囲がオンプレミス ネットワークに存在する IP 範囲とオーバーラップすることは望ましくありません。
 
 1. **[OK]** を選択します。
 
@@ -130,7 +130,7 @@ ms.locfileid: "92355186"
 
 FortiGate NVA をアクティブにして各 NVA で IPSec VPN 接続を設定します。
 
-各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能**しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
+各 FortiGate NVA をアクティブにするには、Fortinet が提供する有効なライセンス ファイルが必要です。 各 NVA がアクティブになるまで、NVA は機能 **しません**。 ライセンス ファイルを取得する方法と NVA をアクティブにする手順については、Fortinet ドキュメント ライブラリの「[ライセンスの登録とダウンロード](https://docs2.fortinet.com/vm/azure/FortiGate/6.2/azure-cookbook/6.2.0/19071/registering-and-downloading-your-license)」の記事を参照してください。
 
 NVA をアクティブにしたら、NVA で IPSec VPN トンネルを作成します。
 
@@ -247,7 +247,7 @@ FortiGate NVA で、次のようにします。
 
 -  オンプレミスのシステムが、IPSec 構成で定義されている定義済みの IP 範囲内のオンプレミス ネットワークに配置されていること。 また、オンプレミスの VPN デバイスのローカル インターフェイスの IP アドレスが、Azure Stack Hub の VNET ネットワークに到達できるルートとして、オンプレミスのシステムに確実に指定されているようにします (例: `172.16.0.0/16`)。
 
--  Azure Stack Hub の VM の作成時に NSG を適用**しない**こと。 VM をポータルから作成している場合に、既定で追加される NSG を削除する必要がある場合があります。
+-  Azure Stack Hub の VM の作成時に NSG を適用 **しない** こと。 VM をポータルから作成している場合に、既定で追加される NSG を削除する必要がある場合があります。
 
 -  オンプレミスのシステム OS と Azure Stack Hub の VM OS に、接続のテストに使用する通信を禁止する OS のファイアウォール規則が確実に含まれていないこと。 テスト目的の場合は、両方のシステムのオペレーティング システム内でファイアウォールを完全に無効にすることをお勧めします。
 

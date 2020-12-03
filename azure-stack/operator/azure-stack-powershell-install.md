@@ -3,16 +3,16 @@ title: Azure Stack Hub 用の PowerShell AzureRM モジュールをインスト�
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。 PowerShell AzureRM モジュールのインストール方法と必要な API プロファイルを確認します。
 author: mattbriggs
 ms.topic: article
-ms.date: 10/22/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/22/2020
-ms.openlocfilehash: d01f2c8864f587ed69c76f0edd0ee9aa950d3b9f
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544991"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525508"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub でストレージ アカウントをバックアップ�
 description: Azure Stack Hub でストレージ アカウントをバックアップする方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/19/2019
-ms.openlocfilehash: e77c05c6f13a3ee3cb23a13a466bb7e0e80394f7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 40ec516f2f10f02716257077a4676c5724acf4ec
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546193"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525695"
 ---
 # <a name="back-up-your-storage-accounts-on-azure-stack-hub"></a>Azure Stack Hub でストレージ アカウントをバックアップする
 
@@ -80,13 +80,13 @@ Windows Server を設定したら、[Azure Stack Hub PowerShell](../operator/pow
     export AZCOPY_DEFAULT_SERVICE_API_VERSION=2017-11-09
     ```
 
-4. 中継サーバー上でスクリプトを作成します。 実際の **ストレージ アカウント** 、 **SAS キー** 、および **ローカル ディレクトリのパス** を使用して、このコマンドを更新します。 スクリプトを実行して、 **ソース** ストレージ アカウントからデータを増分コピーします。
+4. 中継サーバー上でスクリプトを作成します。 実際の **ストレージ アカウント**、**SAS キー**、および **ローカル ディレクトリのパス** を使用して、このコマンドを更新します。 スクリプトを実行して、**ソース** ストレージ アカウントからデータを増分コピーします。
 
     ```
     azcopy sync "https:/<storagaccount>/<container>?<SAS Key>" "C:\\myFolder" --recursive=true --delete-destination=true
     ```
 
-5.  **ストレージ アカウント** 、**SAS キー**、および**ローカル ディレクトリのパスを入力します。  これを使用して、 **ターゲット** ストレージ アカウントにデータを増分コピーします
+5.  **ストレージ アカウント**、**SAS キー**、および**ローカル ディレクトリのパスを入力します。  これを使用して、**ターゲット** ストレージ アカウントにデータを増分コピーします
     
     ```
     azcopy sync "C:\\myFolder" "https:// <storagaccount>/<container>?<SAS Key>" --recursive=true --delete-destination=true

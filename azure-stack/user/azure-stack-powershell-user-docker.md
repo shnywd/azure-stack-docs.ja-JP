@@ -3,16 +3,16 @@ title: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 description: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 author: mattbriggs
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/16/2020
-ms.openlocfilehash: 54e0c53c666ae6d936ed34baea43f708f4a262da
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546788"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525610"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Docker を使用して Azure Stack Hub に対して PowerShell を実行する
 
@@ -67,7 +67,7 @@ PowerShell を使用して Azure Stack Hub 内のリソースにアクセスす�
 
 2. コマンドレットに対するシェルの準備が整いました。 サインインして `Test-AzureStack.ps1` を実行し、シェルの接続をテストします。
 
-    最初に、サービス プリンシパルの資格情報を作成します。 **シークレット** と **アプリケーション ID** が必要になります。 また、`Test-AzureStack.ps1` を実行してコンテナーを確認するときは、 **オブジェクト ID** も必要になります。 クラウド オペレーターにサービス プリンシパルを要求することが必要になる場合があります。
+    最初に、サービス プリンシパルの資格情報を作成します。 **シークレット** と **アプリケーション ID** が必要になります。 また、`Test-AzureStack.ps1` を実行してコンテナーを確認するときは、**オブジェクト ID** も必要になります。 クラウド オペレーターにサービス プリンシパルを要求することが必要になる場合があります。
 
     次のコマンドレットを入力して、サービス プリンシパル オブジェクトを作成します。
 

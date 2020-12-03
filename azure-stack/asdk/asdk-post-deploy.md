@@ -3,16 +3,16 @@ title: ASDK のデプロイ後の構成
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 author: justinha
 ms.topic: article
-ms.date: 11/14/2020
+ms.date: 12/01/2020
 ms.author: justinha
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: efb7d803d8f0c29269bae3e147fc48eec3e29eb3
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 9cef49ee81662e7a68396067ee94430c17e20b32
+ms.sourcegitcommit: 1effe07b52b4adc1a5b27dc705b4dde676f10006
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517312"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96519282"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 
@@ -40,6 +40,9 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 ### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
   ```powershell  
+  # Update the current PowerShellGet module to latest version, required to support PreRelease modules
+  Install-Module -Name PowerShellGet -Force
+
   Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
   Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
 

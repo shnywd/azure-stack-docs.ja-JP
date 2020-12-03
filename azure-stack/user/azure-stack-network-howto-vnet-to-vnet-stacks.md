@@ -3,16 +3,16 @@ title: Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続
 description: Fortinet FortiGate NVA を使用して Azure Stack Hub に VNET 間接続を確立する方法
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 10/03/2019
-ms.openlocfilehash: d8c20d3fe7b80a7ace90422a622c4f067f631954
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: fbce070042c711a03d0a0352252ee37679c9ab07
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "94547111"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525712"
 ---
 # <a name="vnet-to-vnet-connectivity-between-azure-stack-hub-instances-with-fortinet-fortigate-nva"></a>Fortinet FortiGate NVA による Azure Stack Hub インスタンスの間の VNet 間接続
 

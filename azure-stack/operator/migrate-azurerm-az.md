@@ -4,15 +4,15 @@ description: Azure Stack Hub で AzureRM モジュールから新しい Az モ�
 author: mattbriggs
 ms.author: mabrigg
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 12/2/2020
 ms.reviewer: sijuman
-ms.lastreviewed: 04/14/2020
-ms.openlocfilehash: bfb385e29a89ad8d47ace3b15776bd368e0cf521
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: a4196228856b776bb3712e26f237a1cb32f20e50
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546173"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525763"
 ---
 # <a name="migrate-from-azurerm-to-azure-powershell-az-in-azure-stack-hub"></a>Azure Stack Hub での AzureRM から Azure PowerShell Az への移行
 
@@ -33,7 +33,7 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 ## <a name="check-current-scripts-work-with-azurerm"></a>現在のスクリプトが AzureRM で機能することを確認する
 
-これは最も重要な手順です。 既存のスクリプトを実行し、AzureRM の " _最新_ " リリース ( __2.5.0__ ) で機能することを確認します。 スクリプトが機能しない場合は、必ず [AzureRM 移行ガイド](/powershell/azure/azurerm/migration-guide.6.0.0)をお読みください。
+これは最も重要な手順です。 既存のスクリプトを実行し、AzureRM の "_最新_" リリース (__2.5.0__) で機能することを確認します。 スクリプトが機能しない場合は、必ず [AzureRM 移行ガイド](/powershell/azure/azurerm/migration-guide.6.0.0)をお読みください。
 
 ## <a name="install-the-azure-powershell-az-module"></a>Azure PowerShell Az モジュールをインストールする
 
@@ -41,15 +41,15 @@ Get-InstalledModule -Name AzureRM -AllVersions
 
 Azure PowerShell Az モジュールをインストールするには、次の手順を実行します。
 
-* __推奨__ : [AzureRM モジュールをアンインストールする](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
-  最新のバージョンだけでなく、インストールした " _すべて_ " のバージョンの AzureRM を必ず削除します。
+* __推奨__:[AzureRM モジュールをアンインストールする](/powershell/azure/uninstall-az-ps#uninstall-the-azurerm-module)。
+  最新のバージョンだけでなく、インストールした "_すべて_" のバージョンの AzureRM を必ず削除します。
 * [Az モジュールをインストールする](/powershell/azure/install-az-ps)
 
 ## <a name="enable-azurerm-compatibility-aliases"></a>AzureRM と互換性のあるエイリアスを有効にする 
 
 > [!IMPORTANT]
 >
-> AzureRM の " _すべて_ " のバージョンをアンインストールした場合のみ、互換モードを有効にしてください。 AzureRM コマンドレットがまだ使用できる状態で互換モードを有効にすると、予期しない動作が発生する可能性があります。 AzureRM をインストールしたままにする場合はこの手順をスキップしてください。ただし、AzureRM コマンドレットは、Az コマンドレットを呼び出さずに、古いモジュールを使用することに注意してください。
+> AzureRM の "_すべて_" のバージョンをアンインストールした場合のみ、互換モードを有効にしてください。 AzureRM コマンドレットがまだ使用できる状態で互換モードを有効にすると、予期しない動作が発生する可能性があります。 AzureRM をインストールしたままにする場合はこの手順をスキップしてください。ただし、AzureRM コマンドレットは、Az コマンドレットを呼び出さずに、古いモジュールを使用することに注意してください。
 
 AzureRM をアンインストールして、スクリプトが最新バージョンの AzureRM で機能するようになったら、次の手順で Az モジュールの互換モードを有効にします。 次のコマンドを使用して、互換性を有効にします。
 
@@ -244,7 +244,7 @@ Windows 用の PowerShell 5.1 で Az を使用するには、.NET Framework 4.7.
   - Set-AzureRmApiManagementHostnames
   - Update-AzureRmApiManagementDeployment
   - Import-AzureRmApiManagementHostnameCertificate
-  - 代わりに、 **Set-AzApiManagement** コマンドレットを使用してこれらのプロパティを設定します
+  - 代わりに、**Set-AzApiManagement** コマンドレットを使用してこれらのプロパティを設定します
 - 次のプロパティが削除されました。
   - `PsApiManagementContext` から、`PsApiManagementHostnameConfiguration` 型の `PortalHostnameConfiguration`、`ProxyHostnameConfiguration`、`ManagementHostnameConfiguration`、`ScmHostnameConfiguration` の各プロパティが削除されました。 代わりに、`PsApiManagementCustomHostNameConfiguration` 型の `PortalCustomHostnameConfiguration`、`ProxyCustomHostnameConfiguration`、`ManagementCustomHostnameConfiguration`、`ScmCustomHostnameConfiguration` を使用します。
   - PsApiManagementContext から `StaticIPs` プロパティが削除されました。 このプロパティは、`PublicIPAddresses` と `PrivateIPAddresses` に分割されました。

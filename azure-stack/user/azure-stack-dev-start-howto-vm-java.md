@@ -3,17 +3,17 @@ title: Azure Stack Hub 内の VM に Java WAR をデプロイする
 description: Azure Stack Hub 内の仮想マシンに Java WAR をデプロイします。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 5/27/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 05/05/2020
+ms.lastreviewed: 12/2/2020
 ms.custom: conteperfq4
-ms.openlocfilehash: a7efe4a1329ba96ab9365c9c17022fc647b868a5
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 12aa4c0e666085b7692a55ff795c07d9b05aa96c
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107198"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525415"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に Java Web アプリをデプロイする
 
@@ -173,7 +173,7 @@ Azure Stack Hub でご自分の Java Web アプリをホストする仮想マシ
         sudo ufw allow 8080
     ```
 
-    ご自分の Azure Stack Hub VM 用の*受信ポート規則* を追加していない場合は、ここで追加します。 詳細については、「[VM の作成](#create-a-vm)」を参照してください。
+    ご自分の Azure Stack Hub VM 用の *受信ポート規則* を追加していない場合は、ここで追加します。 詳細については、「[VM の作成](#create-a-vm)」を参照してください。
 
 1. Azure Stack Hub と同じネットワークでブラウザーを開いてから、サーバー *yourmachine.local.cloudapp.azurestack.external:8080* を開きます。
 

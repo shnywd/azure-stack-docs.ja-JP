@@ -3,16 +3,16 @@ title: Visual Studio Code 内で Azure Account 拡張機能を使用して Azure
 description: 開発者として Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続します
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 09/21/2020
-ms.openlocfilehash: fc07b78253a19d8a7f459aecacd699338a129ea7
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 3a9603dd4521e63d00d281f8fcd1b8f1912d5836
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546703"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96526001"
 ---
 # <a name="connect-to-azure-stack-hub-using-azure-account-extension-in-visual-studio-code"></a>Visual Studio Code 内で Azure Account 拡張機能を使用して Azure Stack Hub に接続する
 
@@ -36,7 +36,7 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
 
     - スクリプトを実行する前に、PowerShell がインストールされ、お使いの環境用に構成されている必要があります。 手順については、「[PowerShell for Azure Stack Hub をインストールする](../operator/powershell-install-az-module.md)」を参照してください。
 
-    - **Identity** スクリプトの手順とスクリプトについては、「 [AzureStack-Tools/Identity](https://aka.ms/aa6z611)」を参照してください。
+    - **Identity** スクリプトの手順とスクリプトについては、「[AzureStack-Tools/Identity](https://aka.ms/aa6z611)」を参照してください。
 
     - 同じセッションで、次のように実行します。
 
@@ -97,11 +97,11 @@ VS Code は、Web とクラウドのアプリケーションのビルドとデ�
       "azure.cloud": "AzurePPE"
       ```
 
-10. ユーザー設定を保存し、 **Ctrl + Shift + P** キーをもう一度使用します。 **[Azure:Sign in to Azure Cloud]\(Azure: Azure クラウドへのサインイン\)** を選択します。 ターゲットの一覧に新しいオプション **[AzurePPE]** が表示されます。
+10. ユーザー設定を保存し、**Ctrl + Shift + P** キーをもう一度使用します。 **[Azure:Sign in to Azure Cloud]\(Azure: Azure クラウドへのサインイン\)** を選択します。 ターゲットの一覧に新しいオプション **[AzurePPE]** が表示されます。
 
 11. **[AzurePPE]** を選択します。 お使いのブラウザーに認証ページが読み込まれます。 お使いのエンドポイントにサインインします。
 
-12. Azure Stack Hub サブスクリプションに正常にログインしたことをテストするには、 **Ctrl + Shift + P** キーを使用し、 **[Azure:Select Subscription]\(Azure: サブスクリプションの選択\)** を選択し、ご自分のサブスクリプションが使用できるかどうかを確認します。
+12. Azure Stack Hub サブスクリプションに正常にログインしたことをテストするには、**Ctrl + Shift + P** キーを使用し、 **[Azure:Select Subscription]\(Azure: サブスクリプションの選択\)** を選択し、ご自分のサブスクリプションが使用できるかどうかを確認します。
 
 ## <a name="commands"></a>コマンド
 
