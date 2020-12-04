@@ -32,8 +32,6 @@
       items:
         - name: PowerShell を使用してクラスターを作成する
           href: deploy/create-cluster-powershell.md
-        - name: PowerShell を使用してネットワーク コントローラーをデプロイする
-          href: deploy/network-controller-powershell.md
 - name: 管理する
   items:
     - name: VM の管理
