@@ -3,16 +3,16 @@ title: Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイす�
 description: Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイします。
 author: mattbriggs
 ms.topic: overview
-ms.date: 08/24/2020
+ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: c28a5bbb50b4694358eec4375db6c20a00ba9e99
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.lastreviewed: 12/2/2020
+ms.openlocfilehash: 1ff00f354f9ab451bbf9557c1d63b01980d78875
+ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90574195"
+ms.lasthandoff: 12/02/2020
+ms.locfileid: "96525416"
 ---
 # <a name="deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack-hub"></a>Azure Stack Hub 内の VM に C# ASP.NET Web アプリをデプロイする
 
@@ -65,9 +65,9 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     a. **[ソース]** で **[すべて]** を選択します。
 
-    b. **[発信元ポート範囲]** に、アスタリスク ( **\*** ) を入力します。
+    b. **[発信元ポート範囲]** に、アスタリスク (* *\** _) を入力します。
 
-    c. **[宛先]** で **[すべて]** を選択します。
+    c. _*Destination** では **[すべて]** を選択します。
 
     d. **[宛先ポート範囲]** で、開くポートを追加します。
 
@@ -77,7 +77,7 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
     g. **[優先度]** で、既定の選択項目のままにします。
 
-    h. ポートが開いている理由を思い出せるように**名前**と**説明**を入力します。
+    h. ポートが開いている理由を思い出せるように **名前** と **説明** を入力します。
 
     i. **[追加]** を選択します。
 
@@ -103,12 +103,12 @@ Azure Stack Hub 内にご自分の C# ASP.NET Web アプリをホストする仮
 
 Azure Stack Hub 内のご自分の VM への発行ターゲットを作成します。
 
-1. **ソリューション エクスプローラー**で、ご自分のプロジェクトを右クリックし、 **[発行]** を選択します。
+1. **ソリューション エクスプローラー** で、ご自分のプロジェクトを右クリックし、 **[発行]** を選択します。
 
     ![ASP.NET Web アプリを Azure Stack Hub にデプロイする (発行)](media/azure-stack-dev-start-howto-vm-dotnet/deploy-app-to-azure-stack.png)
 
 1. **[発行]** ウィンドウで、 **[新しいプロファイル]** を選択します。
-1. **[IIS]、[FTP] など**を選択します。
+1. **[IIS]、[FTP] など** を選択します。
 1. **[発行]** を選択します。
 1. **[発行方法]** で **[Web 配置]** を選択します。
 1. **[サーバー]** で、以前に定義した DNS 名 (*w21902.local.cloudapp.azurestack.external* など) を入力します。
