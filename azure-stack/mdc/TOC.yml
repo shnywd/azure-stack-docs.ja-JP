@@ -31,7 +31,7 @@
             - name: キャパシティ プランナー ツール
               href: azure-stack-capacity-planner.md
         - name: 統合の概要
-          href: customer-journey.md
+          href: integration-overview.md
         - name: 接続モデル
           href: ../operator/azure-stack-connection-models.md?toc=/azure-stack/mdc/toc.json&bc=/azure-stack/breadcrumb/toc.json
         - name: 接続されたデプロイ
