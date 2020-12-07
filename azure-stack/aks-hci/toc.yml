@@ -21,8 +21,6 @@
           href: create-kubernetes-cluster-powershell.md
 - name: チュートリアル
   items:
-    - name: Windows Server コンテナーを使用する
-      href: deploy-windows-application.md
     - name: Linux コンテナーを使用する
       href: deploy-linux-application.md
 - name: 概念
@@ -37,8 +35,14 @@
       href: connect-to-arc.md
     - name: 混合 OS の Kubernetes クラスター用にアプリを調整する
       href: adapt-apps-mixed-os-clusters.md
-    - name: Windows コンテナーで永続ストレージを使用し、gMSA に備える
-      href: persistent-storage-windows-nodes.md
+    - name: Windows Server コンテナーを使用する
+      items:
+        - name: Azure Stack HCI の AKS に .NET アプリケーションをデプロイする
+          href: deploy-windows-application.md
+        - name: グループの管理サービス アカウントをサポートするための Windows ノードの準備
+          href: prepare-windows-nodes-gmsa.md
+        - name: Azure Stack HCI クラスターの AKS で永続ボリュームを使用する
+          href: persistent-volume.md
     - name: トラブルシューティング
       href: troubleshoot.md
 - name: 関連項目
