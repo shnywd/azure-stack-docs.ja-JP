@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 10/29/2020
-ms.openlocfilehash: 68ee5d0635d1ed9dbc62bece417f00430bf61de2
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 2d4aebd0609dff744f4c8f6ae9113fba1b7b0ba9
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93065998"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354158"
 ---
 # <a name="system-requirements-for-azure-stack-hci"></a>Azure Stack HCI のシステム要件
 
@@ -76,7 +76,7 @@ Azure Stack HCI クラスターでは、各サーバー ノード間に信頼性
 
 ストレッチ クラスターの場合は、さらにサイト間の記憶域レプリカのトラフィックも発生します。 記憶域バス レイヤー (SBL) とクラスター共有ボリューム (CSV) のトラフィックは、サイト間ではなく、各サイト内のサーバー ノード間でのみ発生します。
 
-ホスト ネットワークの計画に関する考慮事項と要件については、「[Azure Stack HCI のホスト ネットワークを計画する](plan-host-networking.md)」を参照してください。
+ホスト ネットワークの考慮事項と要件については、「[ホスト ネットワークの要件](host-network-requirements.md)」を参照してください。
 
 ## <a name="software-defined-networking-sdn-requirements"></a>ソフトウェア定義ネットワーク (SDN) の要件
 
@@ -105,7 +105,7 @@ Hyper-V ホストとストレージ ホストで使用する NIC には、最適
 
 VXLAN または NVGRE カプセル化ヘッダーによって発生するテナント仮想ネットワーク トラフィックのオーバーヘッドを考慮するために、レイヤー 2 ファブリック ネットワーク (スイッチとホスト) の最大転送単位 (MTU) を 1674 バイト以上 (\(レイヤー 2 イーサネット ヘッダーを含む\)) に設定する必要があります。
 
-新しい *EncapOverhead* 拡張アダプター キーワードをサポートする NIC では、ネットワーク コントローラー ホスト エージェントを介して MTU が自動的に設定されます。 新しい *EncapOverhead* キーワードをサポートしていない NIC では、 *JumboPacket* \(または同等の\) キーワードを使用して、各物理ホスト上で MTU サイズを手動で設定する必要があります。
+新しい *EncapOverhead* 拡張アダプター キーワードをサポートする NIC では、ネットワーク コントローラー ホスト エージェントを介して MTU が自動的に設定されます。 新しい *EncapOverhead* キーワードをサポートしていない NIC では、*JumboPacket* \(または同等の\) キーワードを使用して、各物理ホスト上で MTU サイズを手動で設定する必要があります。
 
 #### <a name="switches-and-routers"></a>スイッチとルーター
 

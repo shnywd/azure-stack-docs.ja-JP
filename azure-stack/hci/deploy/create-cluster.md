@@ -3,15 +3,15 @@ title: Windows Admin Center を使用して Azure Stack HCI クラスターを�
 description: Windows Admin Center を使用して Azure Stack HCI 用のサーバー クラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 10/17/2020
+ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 508bf39e9cdeb55485bc2a517c412cee7f3dcd80
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: 638ede26b1bc720c5975dc7bdf7e0b7f05d9d600
+ms.sourcegitcommit: 26901a61a44390bc9b7804c22018c213036e680d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064771"
+ms.lasthandoff: 11/30/2020
+ms.locfileid: "96354175"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -108,9 +108,9 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
     管理アダプターには、次の 2 つの構成オプションがあります。
 
-    - **管理用の物理ネットワーク アダプター 1 つ** 。 このオプションの場合、DHCP と静的 IP アドレス割り当ての両方がサポートされます。
+    - **管理用の物理ネットワーク アダプター 1 つ**。 このオプションの場合、DHCP と静的 IP アドレス割り当ての両方がサポートされます。
 
-    - **チーミングされた、管理用の物理ネットワーク アダプター 2 つ** 。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
+    - **チーミングされた、管理用の物理ネットワーク アダプター 2 つ**。 2 つのアダプターがチーミングされている場合、サポートされるのは静的 IP アドレスの割り当てのみです。 選択したアダプター (一方または両方) に DHCP アドレスが使用されている場合、仮想スイッチの作成前に、DHCP IP アドレスが静的 IP アドレスに変換されます。
 
     チーミングされたアダプターを使用すると、複数のスイッチに対する 1 つの接続ができますが、使用されるのは 1 つの IP アドレスだけです。 負荷分散が可能になり、フォールト トレランスは DNS レコードの更新を待つことなくすぐに行われます。
 
@@ -189,7 +189,10 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 ## <a name="step-5-sdn-optional"></a>手順 5:SDN (省略可能)
 
-この省略可能な手順では、[ソフトウェア定義ネットワーク (SDN)](../concepts/software-defined-networking.md) のネットワーク コントローラー コンポーネントを設定します。 いったんネットワーク コントローラーが設定されると、ソフトウェア ロード バランサーや RAS ゲートウェイなど、SDN の他のコンポーネントを構成するために使用できます。
+この省略可能な手順では、[ソフトウェア定義ネットワーク (SDN)](../concepts/software-defined-networking.md) のネットワーク コントローラー コンポーネントを設定します。 いったんネットワーク コントローラーが設定されると、必要に応じて、ソフトウェア ロード バランサー (SLB) や RAS ゲートウェイなど、SDN の他のコンポーネントを構成することができます。
+
+> [!NOTE]
+> このウィザードでは、現在、SLB と RAS ゲートウェイの構成はサポートされていません。 SDN Express スクリプトを使用すると、これらのコンポーネントを構成できます。 これを行う方法の詳細については、「[SDN Express の GitHub リポジトリ](https://github.com/microsoft/SDN/tree/master/SDNExpress/scripts)」を参照してください。
 
 > [!NOTE]
 > SDN は、ストレッチ クラスターではサポートされていないか、使用できません。
@@ -197,13 +200,14 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 :::image type="content" source="media/cluster/create-cluster-network-controller.png" alt-text="クラスターの作成ウィザード - SDN ネットワーク コントローラー" lightbox="media/cluster/create-cluster-network-controller.png":::
 
 1. **[Next:SDN]** を選択します。
-1. **[ホスト]** で、ネットワーク コントローラーの名前を入力します。
+1. **[ホスト]** で、ネットワーク コントローラーの名前を入力します。 これは、管理クライアント (Windows Admin Center など) がネットワーク コントローラーと通信するために使用する DNS 名です。
 1. Azure Stack HCI VHD ファイルへのパスを指定します。 すばやく見つけるには、 **[参照]** を使用します。
-1. ネットワーク コントローラー専用の VM の数を指定します。 高可用性のためには 3 ～ 5 台の VM が推奨されます。
-1. **[ネットワーク]** で、VLAN ID を入力します。
+1. ネットワーク コントローラー専用の VM の数を指定します。 高可用性のためには少なくと 3 台の VM が推奨されます。
+1. **[ネットワーク]** で、管理ネットワークの VLAN ID を入力します。 ネットワーク コントローラーでは、ホストと通信して構成するために、ホストと同じ管理ネットワークに接続する必要があります。
 1. **[VM ネットワーク アドレス指定]** で、 **[DHCP]** または **[静的]** を選択します。
-1. **[DHCP]** を選択した場合は、ネットワーク コントローラー VM の名前と IP アドレスを入力します。
+1. **[DHCP]** を選択した場合は、ネットワーク コントローラー VM の名前を入力します。
 1. **[静的]** を選択した場合は、以下の操作を行います。
+    1. IP アドレスを指定する
     1. サブネットのプレフィックスを指定します。
     1. 既定のゲートウェイを指定します。
     1. DNS サーバーを 1 台以上指定します。 **[追加]** をクリックしてさらに DNS サーバーを追加します。
@@ -213,6 +217,8 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 1. **[MAC アドレス プールの開始]** と **[MAC アドレス プールの終了]** の値を入力します。
 1. 完了したら、 **[次へ]** をクリックします。
 1. ウィザードのジョブが完了するまで待機します。 進行状況のすべてのタスクが完了するまでこのページに留まります。 **[完了]** をクリックします。
+
+1. ネットワーク コントローラー VM を作成した後、DNS サーバー上にあるネットワーク コントローラーのクラスター名に対して動的 DNS 更新を構成します。 これを行う方法の詳細については、「[ネットワーク コントローラーの動的 DNS 登録を構成する](https://docs.microsoft.com/windows-server/networking/sdn/plan/installation-and-preparation-requirements-for-deploying-network-controller#step-3-configure-dynamic-dns-registration-for-network-controller)」を参照してください。
 
 ネットワーク コントローラーのデプロイに失敗した場合は、これを再試行する前に以下のことを行ってください。
 

@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/20/2020
+ms.date: 11/30/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 861dbb6a665664619bd06cd15d1e1b7fe86a9e8e
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
+ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518366"
+ms.lasthandoff: 12/01/2020
+ms.locfileid: "96443319"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -131,7 +131,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 
 Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用された 2005 リリースに適用する必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.23.88](https://support.microsoft.com/help/4595068)
+- [Azure Stack Hub 修正プログラム 1.2005.24.90](https://support.microsoft.com/help/4595070)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>2008 更新プログラムが正常に適用された後
 
@@ -139,7 +139,7 @@ Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用�
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2008.15.92](https://support.microsoft.com/help/4595069)
+- [Azure Stack Hub 修正プログラム 1.2008.16.94](https://support.microsoft.com/help/4595071)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -231,7 +231,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 
 Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用された 2002 リリースに適用する必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2002.61.163](https://support.microsoft.com/help/4592241)
+- [Azure Stack Hub 修正プログラム 1.2002.63.167](https://support.microsoft.com/help/4595072)
 
 ### <a name="after-successfully-applying-the-2005-update"></a>2005 更新プログラムが正常に適用された後
 
@@ -239,7 +239,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.23.88](https://support.microsoft.com/help/4595068)
+- [Azure Stack Hub 修正プログラム 1.2005.24.90](https://support.microsoft.com/help/4595070)
 ::: moniker-end
 
 ::: moniker range="azs-2002"
@@ -368,7 +368,7 @@ Azure Stack Hub の 2002 リリースは、以下の修正プログラムが適�
 この更新プログラムをインストールした後、適用可能な修正プログラムがあればインストールします。
 
 <!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- [Azure Stack Hub 修正プログラム 1.2002.62.165](https://support.microsoft.com/help/4594758)
+- [Azure Stack Hub 修正プログラム 1.2002.63.167](https://support.microsoft.com/help/4595072)
 ::: moniker-end
 
 <!------------------------------------------------------------>
