@@ -16,12 +16,12 @@ ms.date: 1/10/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: eed164504ce07bcc21ddde002173aaab8992abd1
-ms.sourcegitcommit: c89d8aa6d07d7aec002b58bd07a7976203aa760b
+ms.openlocfilehash: 44cf8fe76ec203fb0a6260a92c4e47641d4f40f8
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94674559"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935005"
 ---
 # <a name="add-a-container-registry-to-azure-stack-hub"></a>Azure Stack Hub にコンテナー レジストリを追加する
 
@@ -39,7 +39,7 @@ Marketplace アイテムであるコンテナー レジストリを Azure Stack 
 
 | Item | Type | 詳細 |
 | --- | --- | --- |
-| Azure Stack Hub PowerShell モジュール (Azs.Gallery.Admin) | PowerShell モジュール | コンテナー レジストリ テンプレート ギャラリー アイテムをサイド ローディングする場合にのみ必要になります。Azure Stack Hub PowerShell モジュールは、ギャラリー アイテムを追加したり削除したりする際に使用します。<br>[Azure Stack PowerShell モジュールのインストール](../../operator/azure-stack-powershell-install.md) |
+| Azure Stack Hub PowerShell モジュール (Azs.Gallery.Admin) | PowerShell モジュール | コンテナー レジストリ テンプレート ギャラリー アイテムをサイド ローディングする場合にのみ必要になります。Azure Stack Hub PowerShell モジュールは、ギャラリー アイテムを追加したり削除したりする際に使用します。<br>[Azure Stack PowerShell モジュールのインストール](../../operator/powershell-install-az-module.md) |
 | コンテナー レジストリ テンプレート | Marketplace の項目 | Azure Stack Hub ユーザーとしてコンテナー レジストリをデプロイするには、Marketplace アイテムであるコンテナー レジストリ テンプレートをサブスクリプションから使用できることが必要です。または、これを Azure Stack Hub Marketplace に手動で追加 (サイド ローディング) する必要があります。 サイド ローディングする場合は、[GitHub リポジトリ](https://github.com/msazurestackworkloads/azurestack-gallery/releases/tag/registry-v1.0.1)の `readme.md` の手順に従って、パッケージをサイド ローディングしてください。 |
 | AKS 基本 Ubuntu 16.04-LTS イメージ (2019 年 9 月以降にリリースされたバージョン) | Marketplace の項目 | Azure Stack Hub ユーザーがコンテナー レジストリをデプロイするには、Marketplace で AKS 基本イメージを入手できるようにする必要があります。 Docker コンテナー レジストリ バイナリがホストされているサブスクリプションから Ubuntu VM をインストールする際に、コンテナー レジストリ テンプレートでイメージが使用されます。 |
 | Linux カスタム スクリプト拡張機能 2.0 | Marketplace の項目 | Azure Stack Hub ユーザーがコンテナー レジストリをデプロイするには、Marketplace で Linux カスタム スクリプト拡張機能を入手できるようにする必要があります。 コンテナー レジストリ テンプレートのデプロイでは、この拡張機能を使用してレジストリが構成されます。 |

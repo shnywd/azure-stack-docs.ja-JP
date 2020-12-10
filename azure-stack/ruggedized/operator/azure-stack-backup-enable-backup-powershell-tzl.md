@@ -11,16 +11,16 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2020
+ms.date: 12/16/2019
 ms.author: sethm
 ms.reviewer: hectorl
-ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: 9f50a6096f0fb7881d37a67df34bdcd6f2487eb9
+ms.lastreviewed: 12/16/2019
+ms.openlocfilehash: f0476f3ee331c014436e9ee2f879afcafb3320d7
 ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935051"
+ms.locfileid: "96941280"
 ---
 # <a name="configure-backup-for-azure-stack-with-powershell"></a>PowerShell を使用して Azure Stack のバックアップを構成する
 
@@ -30,7 +30,7 @@ ms.locfileid: "96935051"
 
 ## <a name="prepare-powershell-environment"></a>PowerShell 環境を準備する
 
-PowerShell 環境の構成方法については、「[PowerShell for Azure Stack をインストールする](../../operator/powershell-install-az-module.md)」をご覧ください。 Azure Stack にサインインする場合は、「[オペレーター環境の構成と Azure Stack へのサインイン](../../operator/azure-stack-powershell-configure-admin.md)」を参照してください。
+PowerShell 環境の構成方法については、「[PowerShell for Azure Stack をインストールする](../../operator/azure-stack-powershell-install.md)」をご覧ください。 Azure Stack にサインインする場合は、「[オペレーター環境の構成と Azure Stack へのサインイン](../../operator/azure-stack-powershell-configure-admin.md)」を参照してください。
 
 ## <a name="provide-the-backup-share-credentials-and-encryption-key-to-enable-backup"></a>バックアップを有効にするためのバックアップ共有、認証情報、暗号化キーを提供する
 

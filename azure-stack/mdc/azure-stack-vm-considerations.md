@@ -15,12 +15,12 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: a480f5fcafd6d40dbcb76dcad4c38c64ad9f6ff8
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383447"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935102"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
 
@@ -80,6 +80,17 @@ Azure Stack には、拡張機能の小規模なセットが含まれていま�
 
 実際の Azure Stack 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
+```powershell
+Get-AzVmImagePublisher -Location local | `
+  Get-AzVMExtensionImageType | `
+  Get-AzVMExtensionImage | `
+  Select Type, Version | `
+  Format-Table -Property * -AutoSize
+```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
 ```powershell
 Get-AzureRmVmImagePublisher -Location local | `
   Get-AzureRmVMExtensionImageType | `
@@ -87,6 +98,8 @@ Get-AzureRmVmImagePublisher -Location local | `
   Select Type, Version | `
   Format-Table -Property * -AutoSize
 ```
+
+---
 
 VM のデプロイで拡張機能のプロビジョニングに時間がかかりすぎる場合は、プロセスを停止して VM の割り当て解除または削除を試みるのではなく、プロビジョニングをタイムアウトさせる必要があります。
 
@@ -98,6 +111,17 @@ Azure Stack の VM 機能は、次の API バージョンをサポートして�
 
 次の PowerShell スクリプトを使用して、実際の Azure Stack 環境で利用できる VM 機能の API バージョンを取得することができます。
 
+### <a name="az-modules"></a>[Az モジュール](#tab/az)
+
+```powershell
+Get-AzResourceProvider | `
+  Select ProviderNamespace -Expand ResourceTypes | `
+  Select * -Expand ApiVersions | `
+  Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
+```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+
 ```powershell
 Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
@@ -105,6 +129,8 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
+
+---
 
 サポートされるリソースの種類と API バージョンの一覧は、クラウド オペレーターが Azure Stack 環境を新しいバージョンに更新した場合は異なっている可能性があります。
 

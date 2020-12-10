@@ -16,12 +16,12 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 42d28b38c67384745974110f8ed7cbb185b04f0d
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330168"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934984"
 ---
 # <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Azure Stack Hub 内でコンテナー レジストリをローテーションする
 
@@ -29,7 +29,7 @@ Azure Stack Hub のユーザーは、コンテナー レジストリ テンプ�
 
 ## <a name="prerequisites-for-the-user"></a>ユーザーの前提条件
 
- - ユーザーは、Azure Stack Hub PowerShell モジュールをインストールしておく必要があります。 詳細については、「[PowerShell for Azure Stack のインストール](../../operator/azure-stack-powershell-install.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。
+ - ユーザーは、Azure Stack Hub PowerShell モジュールをインストールしておく必要があります。 詳細については、「[PowerShell for Azure Stack のインストール](../../operator/powershell-install-az-module.md?toc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fuser%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fazure-stack%2Fbreadcrumb%2Ftoc.json)」を参照してください。
 
  - コンテナー レジストリ テンプレート用の更新シークレットを取得します。 新しい SSL 証明書または新しいユーザー名とパスワードの組み合わせを使用して、Docker レジストリにアクセスできます。
 

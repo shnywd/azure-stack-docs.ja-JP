@@ -3,17 +3,17 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 11/18/2020
+ms.date: 12/9/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 11/18/2020
+ms.lastreviewed: 12/9/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: 1e6ef20bd1c04e8fd08af73370f2ed001b0be500
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517924"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934966"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする
 
@@ -88,14 +88,23 @@ Azure Stack Hub のインターネット接続が制限されている場合や�
   - インターネットに接続できるコンピューターには、**Azure Stack Hub PowerShell モジュール バージョン 1.2.11** 以降がインストールされている必要があります。 まだない場合は、[Azure Stack Hub 固有の PowerShell モジュールをインストール](powershell-install-az-module.md)してください。
 
   - ダウンロードした Marketplace 項目のインポートを有効にするには、[Azure Stack Hub オペレーター用の PowerShell 環境](azure-stack-powershell-configure-admin.md)を構成する必要があります。
+  - .NET Framework 4.7 以降。
 
-- 次のコマンドを使用して、PowerShell ギャラリーから **Azs.Syndication.Admin** モジュールをダウンロードします。
+次のコマンドを使用して、PowerShell ギャラリーから **Azs.Syndication.Admin** モジュールをダウンロードします。
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
   ```powershell
   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
   ```
-  
-- .NET Framework 4.7 以降。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+  ```powershell
+  Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
+  ```
+
+---
 
 Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理\) ブレードに表示される次のメッセージは、切断されたユース ケースには関係ないため無視できます。
 
@@ -106,7 +115,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 > [!IMPORTANT]
 > 切断されたシナリオで Marketplace 項目をダウンロードするたびに、必ず Marketplace シンジケーション ツールをダウンロードしてください。 このツールは頻繁に変更されるため、各ダウンロードに対して最新バージョンを使用する必要があります。
 
-### <a name="az-modules"></a>[Az モジュール](#tab/az)
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
 
 1. インターネットに接続されているコンピューターで、PowerShell コンソールを管理者として開きます。
 
@@ -174,7 +183,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azs.Syndication.Admin -Path "Destination folder path in quotes" -Force
     ```
 
-### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm)
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
 
 1. インターネットに接続されているコンピューターで、PowerShell コンソールを管理者として開きます。
 
@@ -198,7 +207,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 4. 前提条件の手順でまだ完了していない場合は、Marketplace シンジケーション ツールの最新バージョンをダウンロードします。
 
    ```powershell
-   Install-Module -Name Azs.Syndication.Admin -AllowPrerelease -PassThru
+   Install-Module -Name Azs.Syndication.Admin -RequiredVersion 0.1.140
    ```
 
 5. VM イメージ、拡張機能、ソリューション テンプレートなどのダウンロードする Marketplace 項目を選択するには、次のコマンドを実行します。

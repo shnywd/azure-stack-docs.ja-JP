@@ -15,12 +15,12 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 9aa49c7913817168ed05f29b40d6ec8cf26e85b8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330194"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935034"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
 
@@ -28,8 +28,8 @@ ms.locfileid: "93330194"
 
 Marketplace 製品をダウンロードする場合は、次の 2 つのシナリオがあります。
 
-- **接続されているシナリオ** :Azure Stack Hub 環境がインターネットに接続されている必要があります。 Azure Stack Hub 管理者ポータルを使用して項目を見つけ、ダウンロードします。
-- **接続されないか、部分的に接続されるシナリオ** :Marketplace の項目をダウンロードには、Marketplace シンジケーション ツールを使用してインターネットにアクセスする必要があります。 その後、ダウンロードしたファイルを、接続されていない Azure Stack インストールに転送します。 このシナリオでは、PowerShell を使用します。
+- **接続されているシナリオ**:Azure Stack Hub 環境がインターネットに接続されている必要があります。 Azure Stack Hub 管理者ポータルを使用して項目を見つけ、ダウンロードします。
+- **接続されないか、部分的に接続されるシナリオ**:Marketplace の項目をダウンロードには、Marketplace シンジケーション ツールを使用してインターネットにアクセスする必要があります。 その後、ダウンロードしたファイルを、接続されていない Azure Stack インストールに転送します。 このシナリオでは、PowerShell を使用します。
 
 ダウンロードできる Marketplace 項目の完全な一覧については、[Azure Stack 用の Azure Marketplace 項目](../../operator/azure-stack-marketplace-azure-items.md)に関するページを参照してください。 Azure Stack Marketplace の最近の追加、削除、更新の一覧については、「[Azure Stack Marketplace の変更](../../operator/azure-stack-marketplace-changes.md)」の記事を参照してください。
 
@@ -90,6 +90,33 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 
 #### <a name="download-items"></a>項目をダウンロードする
 
+
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
+1. PowerShell を開いて、抽出したフォルダーにアクセスします。
+
+2. **Invoke-AzSMarketplaceDownload.ps1** PowerShell スクリプトを実行します。
+
+    ```powershell
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationSubscriptionId '<subscription ID>' ` 
+       -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' `
+       -TenantName mytenant.onmicrosoft.com -DownloadFolder 'F:\offlineSyndication'
+    ```
+
+    また、Azure PowerShell を使用して既にログインしている場合は、Azure コンテキストを渡すこともできます。
+
+    ```powershell
+    Add-AzAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
+    .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
+    ```
+    Azure コンテキストを渡さない場合は、サインインするように求めるメッセージが表示されます。
+
+3. ダウンロードする製品を選択できるウィンドウが表示されます。 Ctrl キーを押しながらクリックすると、複数の項目を選択できます。
+
+4. **[OK]** を選択します。 これにより、Marketplace 項目とその依存関係がダウンロードされます (存在する場合)。
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
 1. PowerShell を開いて、抽出したフォルダーにアクセスします。
 
 2. **Invoke-AzSMarketplaceDownload.ps1** PowerShell スクリプトを実行します。
@@ -106,12 +133,13 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
     Add-AzureRmAccount -Environment AzureCloud -Tenant mytenant.onmicrosoft.com 
     .\Invoke-AzSMarketplaceDownload.ps1 -RegistrationResourceGroup 'azurestack' -RegistrationName '<registration name>' -DownloadFolder 'F:\offlineSyndication' -AzureContext $(Get-AzureRMContext)
     ```
-
     Azure コンテキストを渡さない場合は、サインインするように求めるメッセージが表示されます。
 
 3. ダウンロードする製品を選択できるウィンドウが表示されます。 Ctrl キーを押しながらクリックすると、複数の項目を選択できます。
 
 4. **[OK]** を選択します。 これにより、Marketplace 項目とその依存関係がダウンロードされます (存在する場合)。
+
+---
 
 ### <a name="upload-marketplace-items-to-azure-stack-hub"></a>Marketplace 項目を Azure Stack Hub にアップロードする
 
@@ -122,6 +150,30 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 - オフライン Marketplace 項目へのアクセス。
 
 #### <a name="upload-items"></a>項目をアップロードする
+
+### <a name="az-modules"></a>[Az モジュール](#tab/az2)
+
+1. PowerShell を開いて、抽出したフォルダーにアクセスします。
+
+2. **Invoke-AzSMarketplaceUpload.ps1** PowerShell スクリプトを実行します。
+
+    ```powershell
+    .\Invoke-AzsMarketplaceUpload.ps1 -AzureStackCloudName "AzureStack-Admin" -AzureStackAdminARMEndpoint https://adminmanagement.<region>.<fqdn> -TenantName mytenant.onmicrosoft.com -DownloadFolder F:\offlineSyndication
+    ```
+
+    また、Azure PowerShell 内でご自身で Azure Stack 環境を設定し、管理 Resource Manager エンドポイントに対して認証を行い、コンテキストをスクリプトに渡すこともできます。
+
+    ```powershell
+    Add-AzEnvironment -Name Redmond-Admin -ARMEndpoint https://adminmanagement.redmond.azurestack.corp.microsoft.com
+
+    Add-AzAccount -Environment Redmond-Admin
+
+    .\Invoke-AzsMarketplaceUpload.ps1 -DownloadFolder F:\Downloads\offlining -AzureContext $(GetAzContext)
+    ```
+
+    この手順により、指定した Azure Stack Hub に Marketplace 項目がアップロードされます。
+
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm2)
 
 1. PowerShell を開いて、抽出したフォルダーにアクセスします。
 
@@ -142,3 +194,5 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
     ```
 
     この手順により、指定した Azure Stack Hub に Marketplace 項目がアップロードされます。
+
+---

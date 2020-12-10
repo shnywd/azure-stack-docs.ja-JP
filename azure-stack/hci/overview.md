@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 11/23/2020
-ms.openlocfilehash: d5e544f339d029eab693d48327abc8596d2f61fa
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.date: 12/7/2020
+ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517074"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761696"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
@@ -94,7 +94,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 使い始めるには、次のものが必要です。
 
-- 好みの Microsoft ハードウェア パートナーから購入した、[Azure Stack HCI カタログ](https://azure.microsoft.com/products/azure-stack/hci/catalog/)に掲載されている 2 台以上のサーバーのクラスター
+- 好みの Microsoft ハードウェア パートナーから購入した、[Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog)に掲載されている 2 台以上のサーバーのクラスター
 - [Azure サブスクリプション](https://azure.microsoft.com/)
 - クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で次のエンドポイントに接続できること: *-azurestackhci-usage.azurewebsites.net
 - 複数のサイトに拡張されるクラスターの場合は、サイト間に 1 Gb 以上の接続が必要であり (25 Gb の RDMA 接続を推奨)、両方のサイトで書き込みが同時に発生する同期レプリケーションを行う場合は、平均待機時間が 5 ミリ秒のラウンドトリップが必要です
@@ -106,7 +106,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 好みの Microsoft パートナーから検証済みの Azure Stack HCI ソリューションを購入し、時間のかかる設計とビルド時間なしで稼働させることができます。 また、Microsoft パートナーは、単一窓口で実装およびサポート サービスの問い合わせに対応します。 検証済みのノードまたは統合システムを購入できます。これには、プレインストールされている Azure Stack HCI オペレーティング システムと共に、ドライバーとファームウェアの更新プログラムに対するパートナー拡張機能も含まれます。
 
-[Azure Stack HCI ソリューション](https://azure.microsoft.com/overview/azure-stack/hci)のページにアクセスするか、[Azure Stack HCI カタログ](https://azure.microsoft.com/products/azure-stack/hci/catalog/)を参照してください。現在、ASUS、Axellio、Blue Chip、DataON、Dell EMC、富士通、HPE、日立、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD、Supermicro などの Microsoft パートナーの、70 以上の Azure Stack HCI ソリューションを利用できます。
+[Azure Stack HCI ソリューション](https://azure.microsoft.com/overview/azure-stack/hci)のページにアクセスするか、[Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog)を参照してください。現在、ASUS、Axellio、Blue Chip、DataON、Dell EMC、富士通、HPE、日立、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD、Supermicro などの Microsoft パートナーの、70 以上の Azure Stack HCI ソリューションを利用できます。
 
 ## <a name="software-partners"></a>ソフトウェア パートナー
 
