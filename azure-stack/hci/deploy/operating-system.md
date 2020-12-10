@@ -6,13 +6,13 @@ ms.author: v-johcob
 ms.topic: tutorial
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: ba063e4ebff85830ac50c25c2514bda443dce323
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 51a4411e95207d2f7b544fdf507fe8bd8fc98f2e
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064737"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761713"
 ---
 # <a name="deploy-the-azure-stack-hci-operating-system"></a>Azure Stack HCI オペレーティング システムのデプロイ
 
@@ -21,7 +21,7 @@ ms.locfileid: "93064737"
 Azure Stack HCI をデプロイする最初のステップは、[Azure Stack HCI をダウンロード](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーにオペレーティング システムをインストールすることです。 この記事では、オペレーティング システムを展開し、Windows Admin Center を使用してサーバーに接続するさまざまな方法について説明します。
 
 > [!NOTE]
-> お好みの Microsoft ハードウェア パートナーから [Azure Stack HCI カタログ](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) に載せられている Azure Stack HCI 統合システム ソリューション ハードウェアを購入した場合、Azure Stack HCI オペレーティング システムはプレインストールされているはずです。 その場合は、このステップを省略して[Azure Stack HCI クラスターの作成](create-cluster.md)に進むことができます。
+> お好みの Microsoft ハードウェア パートナーから [Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog) に載せられている Azure Stack HCI 統合システム ソリューション ハードウェアを購入した場合、Azure Stack HCI オペレーティング システムはプレインストールされているはずです。 その場合は、このステップを省略して[Azure Stack HCI クラスターの作成](create-cluster.md)に進むことができます。
 
 ## <a name="prerequisites"></a>前提条件
 

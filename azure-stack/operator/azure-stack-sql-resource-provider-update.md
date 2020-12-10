@@ -8,12 +8,12 @@ ms.date: 8/19/2020
 ms.author: bryanla
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: a67b950f91d502378a151031e25a68f861494555
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 37f80bbbc753a988b91987c96bd4c0d765529804
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812656"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011163"
 ---
 # <a name="update-the-sql-resource-provider"></a>SQL リソース プロバイダーの更新
 
@@ -55,7 +55,7 @@ SQL リソース プロバイダーの更新プログラムは累積的です。
 | パラメーター名 | 説明 | コメントまたは既定値 |
 | --- | --- | --- |
 | **CloudAdminCredential** | 特権エンドポイントへのアクセスに必要な、クラウド管理者の資格情報。 | _必須_ |
-| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 | _必須_ |
+| **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。 | _必須_ |
 | **VMLocalCredential** | SQL リソース プロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
 | **AzureEnvironment** | Azure Stack Hub のデプロイに使用したサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |

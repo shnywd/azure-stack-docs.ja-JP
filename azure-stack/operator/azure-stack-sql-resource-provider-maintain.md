@@ -8,12 +8,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: 0de06d7bf13919be95b3d97aa1113221f4378625
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: ec2eebc7aa8195c0560beb8c61f0f98ce1689b07
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96035336"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011350"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL リソース プロバイダーの保守操作
 
@@ -108,7 +108,7 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
 |パラメーター|説明|解説|
 |-----|-----|-----|
 |AzureEnvironment|Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure Active Directory を使用している場合は **AzureChinaCloud** です。|省略可能|
-|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|Mandatory|
+|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。|Mandatory|
 |CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|Mandatory|
 |PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|Mandatory|
 |DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|省略可能|
