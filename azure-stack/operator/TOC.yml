@@ -340,7 +340,7 @@
                 - name: 更新プログラムの適用
                   href: resource-provider-apply-updates.md
                 - name: バックアップと復元
-                  href: azure-stack-backup-infrastructure-backup.md
+                  href: azure-stack-backup-enable-backup-console.md
                 - name: ログの収集
                   href: diagnostic-log-collection.md
                 - name: 正常性とアラート
@@ -348,7 +348,7 @@
                 - name: 管理する
                   href: event-hubs-rp-manage.md
                 - name: シークレットの切り替え
-                  href: azure-stack-rotate-secrets.md
+                  href: event-hubs-rp-rotate-secrets.md
                 - name: サービス更新のお知らせ
                   href: 'https://techcommunity.microsoft.com/t5/Event-Hubs-Blog/bg-p/EventHubs'
             - name: '[削除]'
