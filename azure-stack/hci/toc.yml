@@ -116,6 +116,8 @@
       items:
         - name: システム要件
           href: concepts/system-requirements.md
+        - name: Windows Server との比較
+          href: concepts/compare-windows-server.md
         - name: ドライブの選択
           href: concepts/choose-drives.md
         - name: ドライブの対称性に関する考慮事項
