@@ -1,21 +1,24 @@
 ---
-title: チュートリアル - Azure Stack HCI 上の AKS に Windows アプリケーションをデプロイする
-description: このチュートリアルでは、Azure Container Registry に格納されているカスタム イメージを使用して、Windows アプリケーションをクラスターにデプロイします。
+title: AKS on Azure Stack HCI に Windows .NET アプリケーションをデプロイする
+description: Azure Container Registry に格納されているカスタム イメージを使用して、Windows .NET アプリケーションをクラスターにデプロイする方法について説明します。
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f6bc0132dd7ce3ee9972b0aaff6d0718cab86843
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: 844bafbb497228d2e4527a5e974574dadb95ee7d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948737"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612320"
 ---
-# <a name="tutorial-deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>チュートリアル:Azure Stack HCI 上の Azure Kubernetes Service に Windows アプリケーションをデプロイする
+# <a name="deploy-windows-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上の Azure Kubernetes Service に Windows アプリケーションをデプロイする
 
-このチュートリアルでは、Windows Server コンテナー内の ASP.NET サンプル アプリケーションを Kubernetes クラスターにデプロイします。 次に、アプリケーションをテストおよびスケーリングする方法を確認します。 このチュートリアルでは、Kubernetes の概念の基本的な理解を前提としています。 詳細については、「[Azure Stack HCI 上の Azure Kubernetes Service における Kubernetes の中心概念](kubernetes-concepts.md)」を参照してください。
+> 適用対象:AKS on Azure Stack HCI、AKS runtime on Windows Server 2019 Datacenter
+
+このチュートリアルでは、Windows Server コンテナー内の ASP.NET サンプル アプリケーションを Kubernetes クラスターにデプロイし、アプリケーションのテストとスケーリングの方法の確認の仕方について説明します。 また、Windows ノードを Active Directory ドメインに参加させる方法についても説明します。
+このチュートリアルでは、Kubernetes の概念の基本的な理解を前提としています。 詳細については、「[Azure Stack HCI 上の Azure Kubernetes Service における Kubernetes の中心概念](kubernetes-concepts.md)」を参照してください。
 
 ## <a name="before-you-begin"></a>開始する前に
 
@@ -149,4 +152,4 @@ kubectl get pods -n default
 ## <a name="next-steps"></a>次の手順
 
 * [Azure Monitor を使用してクラスターとアプリケーションを監視します](/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters)。
-* [永続ストレージを使用し、Windows コンテナーで gMSA のサポートを構成します](persistent-storage-windows-nodes.md)。
+* [Kubernetes クラスターで永続ボリュームを使用します](persistent-volume.md)。

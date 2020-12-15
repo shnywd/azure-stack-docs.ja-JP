@@ -2,25 +2,26 @@
 title: Azure Stack HCI の Azure Kubernetes Service とは
 description: Azure Stack HCI 上の Azure Kubernetes Service は、Azure Kubernetes Service (AKS) のオンプレミスの実装であり、コンテナー化されたアプリケーションの大規模な実行を自動化します。
 ms.topic: overview
-author: jasongerend
-ms.author: jgerend
-ms.date: 09/22/2020
-ms.openlocfilehash: ef2cc07ca9c228b9d427d11f8065e2d943e1626b
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+author: v-susbo
+ms.author: v-susbo
+ms.date: 12/02/2020
+ms.openlocfilehash: a7d97d2454e9d77c1760180b46be9ce219d6af68
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064618"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612660"
 ---
 # <a name="what-is-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI の Azure Kubernetes Service とは
+> 適用対象:AKS on Azure Stack HCI、AKS runtime on Windows Server 2019 Datacenter
 
-Azure Stack HCI 上の Azure Kubernetes Service は、Azure Kubernetes Service (AKS) のオンプレミスの実装であり、コンテナー化されたアプリケーションの大規模な実行を自動化します。 Azure Kubernetes Service が Azure Stack HCI でプレビュー段階になりました。これにより、お客様のデータセンターで Linux および Windows コンテナーを簡単にホストできます。
+Azure Stack HCI 上の Azure Kubernetes Service は、Azure Kubernetes Service (AKS) のオンプレミスの実装であり、コンテナー化されたアプリケーションの大規模な実行を自動化します。 Azure Kubernetes Service が Azure Stack HCI および Windows Server 2019 Datacenter でプレビュー段階になりました。これにより、お客様のデータセンターで Linux および Windows コンテナーを簡単にホストできます。
 
-オンプレミスの Azure Kubernetes Service の使用を開始するには、[プレビューに登録](https://aka.ms/AKS-HCI-Evaluate) (プレビュー期間中は追加料金は発生しません) してから、[Azure Stack HCI での Azure Kubernetes Service の設定](setup.md)に関するページを参照してください。 代わりに Azure Kubernetes Service を使用してクラウドベースのコンテナーを調整する場合は、[Azure の Azure Kubernetes Service](/azure/aks/intro-kubernetes) に関するページを参照してください。
+オンプレミスの Azure Kubernetes Service の使用を開始するには、[プレビューに登録](https://aka.ms/AKS-HCI-Evaluate) (プレビュー期間中は追加料金は発生しません) してから、[Azure Kubernetes Service on Azure Stack HCI を設定](setup.md)します。 代わりに Azure Kubernetes Service を使用してクラウドベースのコンテナーを調整する場合は、[Azure の Azure Kubernetes Service](/azure/aks/intro-kubernetes) に関するページを参照してください。
 
-以下のセクションでは、Azure Stack HCI 上の Azure Kubernetes Service を使用するいくつかの理由について説明し、サービスとその使用の開始方法に関する一般的ないくつかの質問にお答えします。 コンテナーの背景については、「[Windows とコンテナー](/virtualization/windowscontainers/about/)」を参照してください。
+以下のセクションでは、Azure Stack HCI 上の Azure Kubernetes Service を使用するいくつかの理由について説明し、サービスとその使用の開始方法に関する一般的ないくつかの質問にお答えします。 コンテナーの背景については、「[Windows とコンテナー](/virtualization/windowscontainers/about/)」を参照してください。Kubernetes の背景については、[Kubernetes の基本概念](kubernetes-concepts.md)に関するページまたは [Kubernetes.io](https://kubernetes.io) を参照してください。
 
-## <a name="automate-management-of-containerized-applications"></a>コンテナー化されたアプリケーションの管理を自動化する
+## <a name="use-aks-to-automate-management-of-containerized-applications"></a>AKS を使用して、コンテナー化されたアプリケーションの管理を自動化する
 
 Docker と Windows を使用して、いくつかのコンテナーを手動で管理することはできますが、多くの場合、アプリでは 5 個、10 個、または数百個ものコンテナーが利用されます。ここで、Kubernetes オーケストレーターの出番です。
 
@@ -28,22 +29,18 @@ Kubernetes は、大規模なコンテナー管理を自動化するためのオ
 
 Azure Stack HCI 上のプレビュー段階にある Azure Kubernetes Service によって提供される機能をいくつか以下に示します。
 
-- Azure Stack HCI クラスター全体で実行される VM のクラスター (Kubernetes クラスターと呼ばれる) に大規模にコンテナー化されたアプリをデプロイする
-- Kubernetes クラスター内のノードで障害が発生したときにフェールオーバーする
+- Azure Stack HCI クラスター全体で実行される Kubernetes クラスターに、コンテナー化されたアプリを大規模にデプロイする
 - Linux と Windows ベースのコンテナー化されたアプリの両方をデプロイして管理する
-- ワークロードのスケジュールを設定する
-- 正常性の監視
+- Windows Admin Center または PowerShell を使用して AKS on Azure Stack HCI をデプロイする
 - Kubernetes クラスターに対してノードを追加または削除して、スケールアップまたはスケールダウンする
-- ネットワークの管理
-- サービスの検出
-- アプリのアップグレードを調整する
-- クラスター ノード アフィニティを使用してクラスター ノードにポッドを割り当てる
-
-Kubernetes の詳細については、[Kubernetes.io](https://kubernetes.io) を参照してください。
+- Kubernetes クラスターでストレージとネットワークを管理する
+- Kubernetes デプロイの自動更新を提供する
+- 利用可能な最新バージョンの Kubernetes にアップグレードする
+- Azure Arc for Kubernetes を介して一般的な Azure サービスを使用する
 
 ## <a name="simplify-setting-up-kubernetes"></a>Kubernetes の設定を簡略化する
 
-Azure Kubernetes Service により、Azure Stack HCI 上に Kubernetes を設定するプロセスが簡略化されます。このサービスには次の機能が含まれています。
+Azure Kubernetes Service により、Azure Stack HCI および Windows Server 2019 Datacenter で Kubernetes を設定するプロセスが簡略化されます。このサービスには次の機能が含まれています。
 
 - Kubernetes とその依存関係 (kubeadm、kubelet、kubectl、ポッド ネットワーク アドオンなど) を設定するための Windows Admin Center ウィザード
 - コンテナー化されたアプリケーションを実行する Kubernetes クラスターを作成するための Windows Admin Center ウィザード
@@ -51,10 +48,10 @@ Azure Kubernetes Service により、Azure Stack HCI 上に Kubernetes を設定
 
 ## <a name="view-and-manage-kubernetes-using-on-premises-tools-or-azure-arc"></a>オンプレミス ツールまたは Azure Arc を使用して、Kubernetes を表示および管理する
 
-Azure Stack HCI クラスターで Azure Kubernetes Service を設定し、Kubernetes クラスターを作成したら、Kubernetes インフラストラクチャを管理および監視するためのいくつかの方法が提供されます。
+オンプレミスで Azure Kubernetes Service を設定し、Kubernetes クラスターを作成したら、Kubernetes インフラストラクチャを管理および監視するためのいくつかの方法が提供されます。
 
-- **オンプレミスで、Kubectl および Kubernetes ダッシュボードなどの一般的なツールを使用する** - オープンソースの Web ベース インターフェイスを使用して、Kubernetes クラスターへのアプリケーションのデプロイ、クラスター リソースの管理、トラブルシューティング、実行中のアプリケーションの表示を行います。
-- **Azure portal で、Azure Arc を使用する** - Azure サービスを使用して、クラウドおよびオンプレミスの環境全体にデプロイされた Azure Kubernetes Service および Kubernetes クラスターを管理します。 Azure Arc を使用すると、Kubernetes クラスターだけでなく、Kubernetes クラスターへのノードの追加と削除、ネットワーク設定の変更、アドオンのインストールを行うことができます。
+- **Kubectl および Kubernetes ダッシュボードなどの一般的なツールを使用してオンプレミスで** - オープンソースの Web ベース インターフェイスを使用して、Kubernetes クラスターへのアプリケーションのデプロイ、クラスター リソースの管理、トラブルシューティング、実行中のアプリケーションの表示を行います。
+- **Azure Arc を使用して Azure portal で** - Azure Arc を使用して、クラウド環境とオンプレミス環境にわたって Kubernetes クラスター上にデプロイされたアプリケーションを管理します。 
 <br>また、Azure Arc では、次のような他の Azure サービスで Kubernetes クラスターを管理することができます。
 
   - Azure Monitor
@@ -63,9 +60,9 @@ Azure Stack HCI クラスターで Azure Kubernetes Service を設定し、Kuber
 
 ## <a name="run-linux-and-windows-containers"></a>Linux および Windows コンテナーを実行する
 
-Azure Kubernetes Service では、Linux ベースと Windows ベースの両方のコンテナーが完全にサポートされます。 Azure Stack HCI 上に Kubernetes クラスターを作成するときに、Linux コンテナーまたは Windows コンテナー、あるいはその両方を実行するノード プール (同一の VM のグループ) を作成するかどうかを選択できます。 
+Azure Kubernetes Service では、Linux ベースと Windows ベースの両方のコンテナーが完全にサポートされます。 Azure Stack HCI 上に Kubernetes クラスターを作成するときに、Linux コンテナーまたは Windows コンテナー、あるいはその両方を実行するノード プール (同一の Kubernetes クラスター ノードのグループ) を作成するかどうかを選択できます。 
 
-Azure Kubernetes Service によって、Linux と Windows の VM が作成されます。これにより、Linux や Windows のオペレーティング システムを直接管理する必要がなくなります。
+Azure Kubernetes Service によって、Linux と Windows のノードが作成されます。これにより、Linux や Windows のオペレーティング システムを直接管理する必要がなくなります。
 
 ## <a name="secure-your-container-infrastructure"></a>コンテナーのインフラストラクチャをセキュリティで保護する
 
@@ -82,6 +79,7 @@ Azure Kubernetes Service は、以下のプラットフォーム上で使用で�
 
 - Azure クラウド内。[Azure の Azure Container Service](/azure/aks/intro-kubernetes) を使用します
 - オンプレミス。Azure Stack HCI の Azure Kubernetes Service を使用します (この記事の全容)
+- Azure Kubernetes Service runtime on Windows Server を介したオンプレミス (この記事は AKSr on Windows Server にも適用されます)
 - Azure Stack Hub 環境のオンプレミス。[Azure Stack Hub 上の AKS エンジン](../user/azure-stack-kubernetes-aks-engine-overview.md)を使用します。
 
 ## <a name="how-does-kubernetes-work-on-azure-stack-hci"></a>Azure Stack HCI では Kubernetes はどのように動作しますか?
@@ -105,16 +103,16 @@ Azure Kubernetes Service が Azure Stack HCI クラスター上に設定され�
 
 ### <a name="on-your-windows-admin-center-system"></a>Windows Admin Center システム上
 
-Windows Admin Center 管理システムには、次の要件があります。
+Windows Admin Center ゲートウェイを実行しているマシンには、次の要件があります。
 
-- Windows 10 (現在、Windows Admin Center サーバーはサポートされていません)
+- Windows 10 マシン (現時点では、Azure Stack HCI または Windows Server 2019 Datacenter での Windows Admin Center の実行はサポートされていません)
 - 60 GB の空き領域
 - Azure に登録済み
-- Azure Stack HCI クラスターと同じドメイン内
+- Azure Stack HCI クラスターまたは Windows Server 2019 Datacenter クラスターと同じドメイン内
 
-### <a name="on-the-azure-stack-hci-cluster-that-hosts-azure-kubernetes-service"></a>Azure Kubernetes Service をホストする Azure Stack HCI クラスター上
+### <a name="on-the-azure-stack-hci-cluster-or-windows-server-2019-datacenter-failover-cluster-that-hosts-azure-kubernetes-service"></a>Azure Kubernetes Service をホストする Azure Stack HCI クラスターまたは Windows Server 2019 Datacenter フェールオーバー クラスター上
 
-Azure Stack HCI バージョン 20H2 以降を実行するクラスターには、次の要件があります。
+Azure Stack HCI クラスターまたは Windows Server 2019 Datacenter フェールオーバー クラスターには、次の要件があります。
 
 - このプレビュー リリースでは、クラスター内の最大サーバー数は 4 である
 - Azure Kubernetes Service の記憶域プールで使用可能な容量は 1 TB である
@@ -125,9 +123,7 @@ Azure Stack HCI バージョン 20H2 以降を実行するクラスターには�
 
 ### <a name="the-network-configuration-for-azure-stack-hci"></a>Azure Stack HCI のネットワーク構成
 
-Azure Stack HCI クラスター上の VM に接続されているネットワークには、Azure Kubernetes Service で使用でき、Azure Stack HCI クラスター上の VM からアクセスできる、専用スコープの DHCP IPv4 アドレスが必要です
-
-Azure Stack HCI 上の Azure Kubernetes Service のネットワークでは、VLAN タグを使用することはできません。 Azure Stack HCI および Azure Kubernetes Service VM で使用されるネットワークのネットワーク スイッチでは、アクセス (タグなし) ポートを使用してください。
+Azure Stack HCI または Windows Server 2019 Datacenter クラスター上の VM に接続されているネットワークには、Azure Kubernetes Service で使用でき、Azure Stack HCI または Windows Server 2019 Datacenter クラスター上の VM からアクセスできる、専用スコープの DHCP IPv4 アドレスが必要です。
 
 ## <a name="next-steps"></a>次の手順
 

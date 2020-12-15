@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: overview
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 10/28/2020
-ms.openlocfilehash: 61cd03f7c4b381a434b5f99175b57b99169cb058
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.date: 12/7/2020
+ms.openlocfilehash: 11c82a35d17a61fee474123a658f91ea90790221
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064465"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778021"
 ---
 # <a name="what-is-the-deployment-process-for-azure-stack-hci"></a>Azure Stack HCI のデプロイ プロセスとは
 
@@ -42,7 +42,7 @@ OS をデプロイする前に、ハードウェアが Azure Stack HCI の[シ�
 
 ### <a name="1-deploy-azure-stack-hci"></a>1.Deploy Azure Stack HCI のデプロイ
 
-[Azure Stack HCI をダウンロード](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーに Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。 お好みの Microsoft ハードウェア パートナーから [Azure Stack HCI カタログ](https://azure.microsoft.com/en-us/products/azure-stack/hci/catalog/) に載せられている Azure Stack HCI 統合システム ソリューション ハードウェアを購入した場合、Azure Stack HCI オペレーティング システムはプレインストールされているはずです。 その場合は、このステップを省略して #2 に進むことができます。
+[Azure Stack HCI をダウンロード](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)し、クラスター化する各サーバーに Azure Stack HCI の[オペレーティング システム](operating-system.md)をデプロイします。 お好みの Microsoft ハードウェア パートナーから [Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog) に載せられている Azure Stack HCI 統合システム ソリューション ハードウェアを購入した場合、Azure Stack HCI オペレーティング システムはプレインストールされているはずです。 その場合は、このステップを省略して #2 に進むことができます。
 
 ### <a name="2-create-the-cluster"></a>2.クラスターを作成する
 
@@ -66,7 +66,9 @@ Azure Stack HCI には、Azure への接続が必要です。 クラスターを
 
 ### <a name="7-deploy-workloads"></a>7.ワークロードのデプロイ
 
-これで、Windows Admin Center を使用して、[仮想マシンを作成](../manage/vm.md)し、Azure Stack HCI にワークロードをデプロイできるようになりました。
+これで、Windows Admin Center を使用して、Azure Stack HCI にワークロードをデプロイできるようになりました。
+
+Azure Stack HCI で Azure Kubernetes Service ワークロードのデプロイを開始する方法の詳細については、次の概要を参照してください。[Azure Kubernetes Service on Azure Stack HCI とは](https://docs.microsoft.com/azure-stack/aks-hci/overview)
 
 ## <a name="next-steps"></a>次のステップ
 

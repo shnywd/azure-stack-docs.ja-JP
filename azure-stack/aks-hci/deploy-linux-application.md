@@ -3,17 +3,19 @@ title: チュートリアル - Azure Stack HCI 上の AKS に Linux アプリケ
 description: このチュートリアルでは、Azure Container Registry に格納されているカスタム イメージを使用して、マルチコンテナー Linux アプリケーションをクラスターにデプロイします。
 author: abha
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 6fd907a44cdaad5f5dfe7ccb3a29f5fc6a0152b6
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e5f7f96956248dc7cc2c92ae678970b40951ece4
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948738"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612303"
 ---
 # <a name="tutorial-deploy-linux-applications-in-azure-kubernetes-service-on-azure-stack-hci"></a>チュートリアル:Azure Stack HCI 上の Azure Kubernetes Service に Linux アプリケーションをデプロイする
+
+> 適用対象:AKS on Azure Stack HCI、AKS runtime on Windows Server 2019 Datacenter
 
 このチュートリアルでは、Azure Stack HCI クラスター上の Azure Kubernetes Service に Web フロント エンドと Redis データベース インスタンスを含むマルチコンテナー アプリケーションをデプロイします。 次に、アプリケーションをテストおよびスケーリングする方法を確認します。 
 
@@ -171,7 +173,7 @@ Azure 投票フロントエンドと Redis インスタンスの 1 つのレプ�
 kubectl get pods -n default
 ```
 
-次の出力例を見ると、フロントエンド ポッドとバックエンド ポッドが 1 つずつ存在することがわかります。
+次の出力例を見ると、1 つのフロントエンド ポッドと 1 つのバックエンド ポッドが存在することがわかります。
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE

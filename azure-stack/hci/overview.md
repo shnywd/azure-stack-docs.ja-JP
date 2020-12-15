@@ -6,19 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/7/2020
-ms.openlocfilehash: c6fe98d9f597f40d0a5cefde151eb36736b81d7a
-ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
+ms.date: 12/10/2020
+ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96761696"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011197"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
 Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードとそのストレージをホストするハイパーコンバージド インフラストラクチャ (HCI) クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
 
-Azure Stack HCI バージョン 20H2 は、現在パブリック プレビュー中の新しいオペレーティング システムであり、[ダウンロード可能](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)です。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。 Azure Stack HCI には、Azure Kubernetes サービスをホストする機能も含まれるようになりました。詳細については、「[Azure Stack HCI の Azure Kubernetes Service](../aks-hci/overview.md)」を参照してください。
+Azure Stack HCI では、バージョン 20H2 を[ダウンロードできるようになりました](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。 Azure Stack HCI には、Azure Kubernetes サービスをホストする機能も含まれるようになりました。詳細については、「[Azure Stack HCI の Azure Kubernetes Service](../aks-hci/overview.md)」を参照してください。
 
 Azure Stack HCI の高レベルの機能については、数分時間を取ってビデオをご覧ください。
 
@@ -62,7 +62,7 @@ Azure Stack HCI では、百万単位のストレージ IOPS や 1 秒あたり�
 Azure Stack HCI クラスターを Azure に登録した後は、最初に Azure portal を使用して以下のことができます。
 
 - **監視:** すべての Azure Stack HCI クラスターを 1 つのグローバルなビューで表示し、リソース グループ別にグループ化したり、タグを付けたりします。
-- **課金**: Azure サブスクリプションを通じて Azure Stack HCI の支払いを行います (パブリック プレビュー期間中は料金は発生しません)。
+- **課金**: Azure サブスクリプションを通じて Azure Stack HCI の料金を支払います。
 
 追加機能の作成に取り組んでいますので、注目していてください。
 
@@ -96,7 +96,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 - 好みの Microsoft ハードウェア パートナーから購入した、[Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog)に掲載されている 2 台以上のサーバーのクラスター
 - [Azure サブスクリプション](https://azure.microsoft.com/)
-- クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で次のエンドポイントに接続できること: *-azurestackhci-usage.azurewebsites.net
+- クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で既知の Azure エンドポイントに接続できること
 - 複数のサイトに拡張されるクラスターの場合は、サイト間に 1 Gb 以上の接続が必要であり (25 Gb の RDMA 接続を推奨)、両方のサイトで書き込みが同時に発生する同期レプリケーションを行う場合は、平均待機時間が 5 ミリ秒のラウンドトリップが必要です
 - ソフトウェアによるネットワーク制御 (SDN) を使用する計画の場合は、ネットワーク コントローラー VM を作成するために Azure Stack HCI オペレーティング システム用の仮想ハード ディスク (VHD) が必要です (「[ネットワーク コントローラーのデプロイを計画する](concepts/network-controller.md)」をご覧ください)
 
@@ -110,7 +110,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 ## <a name="software-partners"></a>ソフトウェア パートナー
 
-さまざまな Microsoft パートナーが、IT 管理者が使い慣れたツールを使用できるようにと、Azure Stack HCI の機能を拡張するソフトウェアの作業を行っています。 たとえば、バックアップ ソリューションの世界規模のプロバイダーであり Microsoft ゴールド パートナーの Altaro は、その Altaro VM Backup ソリューションで Azure Stack HCI をサポートすることを約束しています。 これにより、お客様や管理サービス プロバイダーは、2021 年 6 月末まで、Azure Stack HCI で実行されている仮想マシンを無料でバックアップできます。 [この発表の詳細についてはこちらをご覧ください](http://www.altaro.com/news/single/News-Altaro-applies-its-expertise-in-Hyper-V-backup-to-support-Microsoft.php)。
+さまざまな Microsoft パートナーが、IT 管理者が使い慣れたツールを使用できるように、Azure Stack HCI の機能を拡張するソフトウェアの作業を行っています。 詳細については、「[Azure Stack HCI のユーティリティ アプリケーション](concepts/utility-applications.md)」を参照してください。
 
 ## <a name="licensing-billing-and-pricing"></a>ライセンス、請求、価格
 
@@ -133,7 +133,6 @@ Azure Stack HCI では、お客様がクラスターに対する完全な管理�
 - [System Center](https://www.microsoft.com/cloud-platform/system-center)
 - [PowerShell](/powershell/)
 - [サーバー マネージャー](/windows-server/administration/server-manager/server-manager)や MMC スナップインなどの他の管理ツール
-- 5Nine Manager などの Microsoft 以外のツール
 
 ## <a name="the-azure-stack-family"></a>Azure Stack ファミリ
 
@@ -202,13 +201,14 @@ Windows Admin Center バージョン 2009 では、次のような多数の機�
 
 - **Azure Kubernetes Service のホスティング機能**:[Azure Stack HCI 上の Azure Kubernetes Service](https://azure.microsoft.com/products/azure-stack/hci/hci-download/) のプレビュー バージョンをインストールできるようになりました。
 - **クラスター作成ウィザードでのソフトウェア定義ネットワークの追加**:クラスター作成ウィザードで、[クラスターの作成](deploy/create-cluster.md#step-5-sdn-optional)中に、[ソフトウェア定義ネットワーク (SDN)](concepts/software-defined-networking.md) ネットワーク コントローラーの機能をデプロイするオプションが追加されました。
+- **クラスター作成ウィザードでのリモート ダイレクト メモリ アクセス (RDMA) の機能強化**: クラスター作成ウィザードで、データ センター ブリッジング (DCB) を含む iWARP および RoCE ネットワーク アダプターの RDMA を構成できるようになりました。
 
 Windows Admin Center の新機能の詳細については、[Windows Admin Center のブログ](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)を参照してください。
 
 Windows Server 2019 ベースのソリューションと比較して、Azure Stack HCI バージョン 20H2 を実行するクラスターには、次の新機能があります。
 
 - **Windows Admin Center の新機能**: 直感的な UI を使用してハイパーコンバージド クラスターを作成および更新する機能により、Azure Stack HCI はこれまで以上に簡単に使用できるようになりました。
-- **自動フェールオーバーのためのストレッチ クラスター**: 記憶域レプリカ レプリケーションと自動 VM フェールオーバーを使用するマルチサイト クラスタリングでは、記憶域スペース ダイレクトを使用するクラスターに対して、ネイティブのディザスター リカバリーとビジネス継続性が提供されます。
+- **自動フェールオーバーのためのストレッチ クラスター**: 記憶域レプリカ レプリケーションと自動 VM フェールオーバーを使用するマルチサイト クラスタリングによって、ネイティブのディザスター リカバリーとビジネス継続性が提供されます。
 - **アフィニティと非アフィニティのルール**: これらは、ストレッチ クラスターなどの複数の障害ドメインを持つクラスターで、VM とストレージをまとめて、または分離して維持するために Azure で Availability Zones が使用される方法と同様に使用できます。
 - **Azure portal の統合**: Azure Stack HCI に対する Azure portal のエクスペリエンスは、開発中の新機能を使用して、世界中のすべての Azure Stack HCI クラスターを表示するように設計されています。
 - **高パフォーマンス ワークロード用の GPU アクセラレーション**: AI/ML アプリケーションでは、GPU を使用したパフォーマンスの向上によってメリットがあります。
