@@ -510,6 +510,60 @@
               href: ../operator/azure-stack-troubleshooting.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
             - name: サポート リンクのリファレンス
               href: operator/aks-refer-table-tzl.md?toc=/azure-stack/ruggedized/toc.json&bc=/azure-stack/breadcrumb/toc.json
+            - name: Tactical Cloud Appliance の顧客交換可能ユニット ガイド
+              items:
+                - name: 使用上の注意事項
+                  href: customer-replaceable-unit/handling-precautions.md
+                - name: ハードウェア ライフサイクル ホストを操作するために必要な知識
+                  href: customer-replaceable-unit/required-knowledge-hardware-lifecycle-host.md
+                - name: ハードウェア ライフサイクル ホストのアクセスと正常性の確認
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-access-and-health.md
+                - name: スケール ユニット ノードを操作するために必要な知識
+                  href: customer-replaceable-unit/required-knowledge-scale-unit-nodes.md
+                - name: スケール ユニット ノードのアクセスと正常性の確認
+                  href: customer-replaceable-unit/verify-scale-unit-node-access-and-health.md
+                - name: ハードウェア ライフサイクル ホストの電源をオフにする
+                  href: customer-replaceable-unit/power-off-hlh.md
+                - name: スケール ユニット ノードの電源をオフにする
+                  href: customer-replaceable-unit/power-off-scu.md
+                - name: DIMM の交換
+                  href: customer-replaceable-unit/replace-dimm.md
+                - name: 失敗した外部ストレージ ディスクの交換
+                  href: customer-replaceable-unit/replace-failed-external-storage-disk.md
+                - name: 冷却ファンの交換
+                  href: customer-replaceable-unit/replace-cooling-fan.md
+                - name: ネットワーク ドーター カードの交換
+                  href: customer-replaceable-unit/replace-network-daughter-card.md
+                - name: 電源装置の交換
+                  href: customer-replaceable-unit/replace-power-supply-unit.md
+                - name: オペレーティング システム ディスクの交換
+                  href: customer-replaceable-unit/replace-operating-system-disk.md
+                - name: ヒーターを開梱し、ヒーターのインストールを計画する
+                  href: customer-replaceable-unit/unpack-heater-and-plan-installation.md
+                - name: ヒーターの交換
+                  href: customer-replaceable-unit/replace-heater.md
+                - name: スケール ユニット ノードの電源をオンにする
+                  href: customer-replaceable-unit/power-on-scale-unit-node.md
+                - name: スケール ユニット ノードの修復
+                  href: customer-replaceable-unit/repair-scale-unit-node.md
+                - name: ハードウェア ライフサイクル ホストの正常性の確認
+                  href: customer-replaceable-unit/verify-hardware-lifecycle-host-health.md
+                - name: スケール ユニット ノードの正常性の確認
+                  href: customer-replaceable-unit/verify-scale-unit-node-health.md
+                - name: スケール ユニット ノードのディスク正常性の確認
+                  href: customer-replaceable-unit/verify-scale-unit-node-disk-health.md
+                - name: Azure Stack Hub ハードウェアの図
+                  href: customer-replaceable-unit/azure-stack-hub-hardware-diagram.md
+                - name: EMC PowerEdge Tactical R640 サーバーの概要
+                  href: customer-replaceable-unit/emc-poweredge-tactical-r640-server-overview.md
+                - name: EMC PowerEdge Tactical のインジケーターとコード
+                  href: customer-replaceable-unit/emc-poweredge-tactical-indicators-and-codes.md
+                - name: 直接 USB 接続経由で iDRAC インターフェイスにアクセスする
+                  href: customer-replaceable-unit/access-idrac-over-usb-connection.md
+                - name: IDRAC インターフェイスを使用してファームウェアをインストールする
+                  href: customer-replaceable-unit/install-firmware-using-idrac.md
+                - name: 特権アクセス ワークステーションと特権エンドポイント アクセス
+                  href: customer-replaceable-unit/privileged-access-workstation.md
     - name: リファレンス
       items:
         - name: Azure Stack Hub オペレーター
