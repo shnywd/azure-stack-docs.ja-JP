@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: conceptual
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 09/01/2020
-ms.openlocfilehash: 22758f9a6b905e2c948a47c5870a05edcb63acdf
-ms.sourcegitcommit: 1c5e7d8419037c0f3ef6fe9d8e6bfb6a59659c84
+ms.date: 11/19/2020
+ms.openlocfilehash: 0cdd8a7f6c0c59eddbe1e8dd93158eb7a280e8ab
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428483"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010721"
 ---
 # <a name="azure-stack-hci-billing-and-payment"></a>Azure Stack HCI の課金と支払い
 
@@ -22,7 +22,7 @@ Azure Stack HCI は、他の Azure サービスと同様に、Azure サブスク
 
 ## <a name="what-does-azure-stack-hci-charge-for"></a>Azure Stack HCI の課金のしくみ
 
-Azure または他のクラウド サービスを既に使用しているお客様にとって、Azure Stack HCI のクラウドスタイルの課金モデルは一貫性があり、使い慣れた簡単なものです。 パブリック プレビューの期間中は無料です。 プレビュー終了後は、Azure Stack HCI クラスターの物理プロセッサ コアあたりの定額料金に基づいて課金されます (他の Azure サービスを使用している場合は、追加の使用料金が適用されます)。
+Azure または他のクラウド サービスを既に使用しているお客様にとって、Azure Stack HCI のクラウドスタイルの課金モデルは一貫性があり、使い慣れた簡単なものです。 Azure Stack HCI クラスターの物理プロセッサ コアあたりの定額料金に基づいて課金されます (他の Azure サービスを使用している場合は、追加の使用料金が適用されます)。
 
 この価格モデルは、VM の数に基づく使用量ベースまたは消費ベースの課金とは異なります。 仮想プロセッサ コア (VCPU) の数は、1 か月の間で変化する場合がありますが、Azure Stack HCI の料金には影響しません。課金はクラスター内に存在する物理コアの数に基づいて行われます。
 

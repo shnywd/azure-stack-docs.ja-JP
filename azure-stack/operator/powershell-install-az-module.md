@@ -7,12 +7,12 @@ ms.date: 12/2/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 8fc2990d49d074f56a53fa02983ffd334804ea1d
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525678"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935204"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az モジュールをインストールする
 
@@ -55,9 +55,9 @@ PowerShell Core 6.x 以降のバージョンが必要です。 手順につい�
 
 ## <a name="3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules"></a>3.既存のバージョンの Azure Stack Hub PowerShell モジュールをアンインストールする
 
-必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub Azure Resource Modules モジュールまたは Az PowerShell モジュールをすべてアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
+必要なバージョンをインストールする前に、必ず以前にインストールした Azure Stack Hub Azure Resource Manager または Az PowerShell モジュールをすべてアンインストールしてください。 モジュールをアンインストールするには、次の 2 つの方法のいずれかを使用します。
 
-1. 既存の Azure Resource Modules モジュールと Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
+1. 既存の Azure Resource Manager モジュールと Az PowerShell モジュールをアンインストールするには、アクティブな PowerShell セッションをすべて閉じ、次のコマンドレットを実行します。
 
     ```powershell
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose -ErrorAction Continue
@@ -86,7 +86,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 > Azure Stack Hub モジュール バージョン 2.0.0 は破壊的変更を伴うリリースです。 詳細については、「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
 
 > [!WARNING]
-> Windows 用の PowerShell 5.1 で Azure Resource Modules (AzureRM) と Az の両方のモジュールを同時にインストールすることはできません。 Azure Resource Modules をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
+> Windows 用の PowerShell 5.1 で Azure Resource Manager (AzureRM) と Az の両方のモジュールを同時にインストールすることはできません。 Azure Resource Manager をシステムで引き続き使用できるようにしておく必要がある場合は、PowerShell Core 6.x 以降用の Az モジュールをインストールします。 そのためには、[PowerShell Core 6.x 以降をインストール](/powershell/scripting/install/installing-powershell-core-on-windows)してから、PowerShell Core ターミナルで以下の手順に従ってください。
 
 ## <a name="5-disconnected-install-without-internet-connection"></a>5.切断状態の場合: インターネット接続を使用しないインストール
 
@@ -107,7 +107,7 @@ Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 ::: moniker range=">=azs-2002"
 Azure Stack Hub 2002 以降。
 
-Azure Resource Modules または Az モジュールのいずれかを使用できます。 Azure Resource Modules については、[PowerShell AzureRM モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。 次のコードでは、信頼できるオンライン リポジトリ https://www.powershellgallery.com/ からのモジュールが保存されます。
+Azure Resource Manager または Az モジュールのいずれかを使用できます。 Azure Resource Manager については、[PowerShell AzureRM モジュールのインストール](powershell-install-az-module.md)に関する記事の手順を参照してください。 次のコードでは、信頼できるオンライン リポジトリ https://www.powershellgallery.com/ からのモジュールが保存されます。
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -181,7 +181,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="7-use-the-az-module"></a>7.Az モジュールを使用する
 
-Azure Resource Modules に基づくコマンドレットとコード サンプルを使用できます。 ただし、モジュールとコマンドレットの名前を変更する必要があります。 モジュール名は、`AzureRM` および Azure が `Az` になるように変更されており、コマンドレットについても同様です。 たとえば、`AzureRM.Compute` モジュールは名前が `Az.Compute` に変更されています。` New-AzureRMVM` は ` New-AzVM` になり、`Get-AzureStorageBlob` は `Get-AzStorageBlob` になっています。
+Azure Resource Manager に基づくコマンドレットとコード サンプルを使用できます。 ただし、モジュールとコマンドレットの名前を変更する必要があります。 モジュール名は、`AzureRM` および Azure が `Az` になるように変更されており、コマンドレットについても同様です。 たとえば、`AzureRM.Compute` モジュールは名前が `Az.Compute` に変更されています。` New-AzureRMVM` は ` New-AzVM` になり、`Get-AzureStorageBlob` は `Get-AzStorageBlob` になっています。
 
 Az への AzurRM スクリプトの移動、および Azure Stack Hub の AZ モジュールにおける破壊的変更に関する詳しい説明とガイダンスについては、[AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)に関する記事を参照してください。
 

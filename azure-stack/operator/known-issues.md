@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: da21b724e914527ef2a4d5065d1d83a30ad3bb85
-ms.sourcegitcommit: 2562b86f47db20e2652d4636227afb9cfd0e03ae
+ms.openlocfilehash: 161869d04e036e5265ebceb5cab9e193091baa37
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94785773"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935152"
 ---
 # <a name="azure-stack-hub-known-issues"></a>Azure Stack Hub の既知の問題
 
@@ -227,6 +227,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 原因: スタンプに App Service リソース プロバイダー (RP) バージョン 1.7 以前が含まれている場合は、スタンプの更新時に App Service のブレードが読み込まれません。
 - 修復: RP をバージョン 2002 Q2 に更新します。
 
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
+
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->
 <!-- ## App Service -->
@@ -352,8 +358,8 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="cannot-create-a-virtual-machine-scale-set-with-standard_ds2_v2-vm-size-on-portal"></a>ポータルで Standard_DS2_v2 VM サイズの仮想マシン スケール セットを作成できない
 
 - 適用先:この問題は 2002 リリースに適用されます。
-- 原因:ポータルにバグがあり、Standard_DS2_v2 VM サイズで仮想マシン スケール セットを作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 は、VM スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
-- 修復: PowerShell またはリソース マネージャー テンプレートを使用して仮想マシン スケール セットを作成します。
+- 原因:ポータルにバグがあり、Standard_DS2_v2 VM サイズで仮想マシン スケール セットを作成できません。 作成すると、「"{"code":"DeploymentFailed","message":"少なくとも 1 つのリソースのデプロイ操作に失敗しました」というエラーが表示されます。 詳細については、デプロイ操作の一覧を表示してください。 詳しい使用方法については https://aka.ms/arm-debug を参照してください。","details":[{"code":"BadRequest","message":"{\r\n \" error\": {\r\n \" code\":\" NetworkProfileValidationError\" ,\r\n \" message\":\" 仮想マシン サイズ Standard_DS2_v2 が、仮想マシン スケール セット /subscriptions/x/resourceGroups/RGVMSS/providers/Microsoft.Compute/virtualMachineScaleSets/vmss の VM のインデックス 0 で有効にする高速ネットワークに許可される VM サイズの一覧に記載されていません。 許可されるサイズ: .\"\r\n }\r\n}"}]}"
+- 修復: PowerShell または Resource Manager テンプレートを使用して仮想マシン スケール セットを作成します。
 
 ### <a name="vm-overview-blade-does-not-show-correct-computer-name"></a>VM の概要ブレードに正しいコンピューター名が表示されない
 
@@ -415,7 +421,7 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 ### <a name="retention-period-revert-to-0"></a>保持期間が 0 に戻る
 
 - 適用先:この問題は、リリース 2002 および 2005 に適用されます。
-- 原因: 保持期間の設定で 0 以外の期間を以前に指定した場合、2002 と 2005 の更新中に 0 (この設定の既定値) に戻されます。 0 日の設定は、更新が完了した直後に有効になります。これにより、削除された既存のストレージ アカウントと今後新たに削除されるストレージ アカウントはすべて、すぐに保持期間外となり、定期的なガベージ コレクション (1 時間ごとに実行) のマークが付けられます。 
+- 原因: 保持期間の設定で 0 以外の期間を以前に指定した場合、2002 と 2005 の更新中に 0 (この設定の既定値) に戻されます。 0 日の設定は、更新が完了した直後に有効になります。これにより、削除された既存のストレージ アカウントと今後新たに削除されるストレージ アカウントはすべて、すぐに保持期間外となり、定期的なガベージ コレクション (1 時間ごとに実行) 用のマークが付けられます。 
 - 修復: 保持期間を適切な期間に手動で指定してください。 ただし、新しい保持期間が指定される前に既にガベージ コレクションされているストレージ アカウントは回復できません。  
 
 ## <a name="resource-providers"></a>リソース プロバイダー
@@ -431,6 +437,12 @@ Azure Stack Hub の更新に関する既知の問題については、[Azure Sta
 - 適用先:この問題は、リリース 2002 に適用されます。
 - 原因: スタンプに App Service リソース プロバイダー (RP) バージョン 1.7 以前が含まれている場合は、スタンプの更新時に App Service のブレードが読み込まれません。
 - 修復: RP をバージョン [2020 Q2](azure-stack-app-service-update.md) に更新します。
+
+## <a name="powershell"></a>PowerShell
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 <!-- ## Storage -->
 <!-- ## SQL and MySQL-->

@@ -3,35 +3,41 @@ title: Azure Stack Hub 上に MySQL リソース プロバイダーをデプロ�
 description: Azure Stack Hub に MySQL リソース プロバイダー アダプターと MySQL データベースをサービスとしてデプロイする方法を説明します。
 author: bryanla
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 12/07/2020
 ms.author: bryanla
 ms.reviewer: caoyang
-ms.lastreviewed: 9/22/2020
-ms.openlocfilehash: 22377e80f52b2a8e3a7827ded6400b17cebdce9c
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.lastreviewed: 12/07/2020
+ms.openlocfilehash: b6d345ecfecaa3859420087bc7cff051b39fbb36
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812726"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778157"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への MySQL リソース プロバイダーのデプロイ
 
-MySQL サーバー リソース プロバイダーを使用して、MySQL データベースを Azure Stack Hub サービスとして公開します。 MySQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (アダプター バージョン <= 1.1.47.0) または特別なアドオン RP Windows Server (アダプター バージョン >= 1.1.93.0) でサービスとして実行されます。
+MySQL サーバー リソース プロバイダーを使用して、MySQL データベースを Azure Stack Hub サービスとして公開します。 MySQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (アダプター バージョン 1.1.47.0 以降) または特別なアドオン RP Windows Server (アダプター バージョン 1.1.93.0 以前) 上でサービスとして実行されます。
 
 > [!IMPORTANT]
-> SQL または MySQL をホストするサーバー上に項目を作成できるのは、リソース プロバイダーのみです。 リソース プロバイダー以外がホスト サーバー上に項目を作成すると、不一致状態になる可能性があります。
+> SQL または MySQL をホストするサーバー上に項目を作成するのは、リソース プロバイダーのみが実行する必要があります。 リソース プロバイダーによって作成されていないホスト サーバー上の項目はサポートされません。これによって、不一致状態になる可能性があります。
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に、いくつかの前提条件を満たす必要があります。 これらの要件を満たすには、特権エンドポイント VM にアクセスできるコンピューターでこの記事の手順を実行します。
+Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に、いくつかの前提条件を満たす必要があります。
 
-* まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack Hub を登録](./azure-stack-registration.md)します。
+- 以下にアクセスできるコンピューターとアカウントが必要です。
+   - [Azure Stack Hub 管理者ポータル](azure-stack-manage-portals.md)。
+   - [特権エンドポイント](azure-stack-privileged-endpoint.md)。
+   - Azure Resource Manager 管理エンドポイント `https://management.region.<fqdn>`。`<fqdn>` は完全修飾ドメイン名 (ASDK を使用する場合は `https://management.local.azurestack.external`) です。
+   - Azure Stack Hub が ID プロバイダーとして Azure Active Directory (AD) を使用するようにデプロイされた場合は、インターネット。
 
-* 必要な Windows Server VM を Azure Stack Hub Marketplace に追加します。
-  * MySQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
-  * MySQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
+- まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack Hub を登録](azure-stack-registration.md)します。
 
-* 次のバージョン マッピングの表に従って、サポートされているバージョンの MySQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
+- 必要な Windows Server VM を Azure Stack Hub Marketplace に追加します。
+  - MySQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
+  - MySQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
+
+- 次のバージョン マッピングの表に従って、サポートされているバージョンの MySQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
   |サポートされる Azure Stack Hub のバージョン|MySQL RP バージョン|RP サービスが実行されている Windows Server
   |-----|-----|-----|
@@ -44,7 +50,7 @@ Azure Stack Hub MySQL リソース プロバイダーをデプロイする前に
 >インターネットにアクセスできないシステムに MySQL プロバイダーをデプロイするには、[mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) ファイルをローカル パスにコピーします。 **DependencyFilesLocalPath** パラメーターを使用してパス名を提供します。
 
 
-* データセンターの統合の前提条件を満たしていることを確認します。
+- データセンターの統合の前提条件を満たしていることを確認します。
 
     |前提条件|リファレンス|
     |-----|-----|
@@ -104,7 +110,7 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
 
 ## <a name="deploy-the-resource-provider"></a>リソース プロバイダーのデプロイ
 
-すべての前提条件をインストールしたら、Azure Stack Hub 管理の Azure Resource Management エンドポイントと特権エンドポイントの両方にアクセスできるコンピューターから **DeployMySqlProvider.ps1** スクリプトを実行して、MySQL リソース プロバイダーをデプロイできます。 DeployMySqlProvider.ps1 スクリプトは、ご利用の Azure Stack Hub のバージョンに応じてダウンロードした、MySQL リソース プロバイダー インストール ファイルの一部として抽出されます。
+すべての前提条件を完了したら、Azure Stack Hub の Azure Resource Manager 管理エンドポイントと特権エンドポイントの両方にアクセスできるコンピューターから **DeployMySqlProvider.ps1** スクリプトを実行して、MySQL リソース プロバイダーをデプロイできます。 DeployMySqlProvider.ps1 スクリプトは、ご利用の Azure Stack Hub のバージョンに応じてダウンロードした、MySQL リソース プロバイダー インストール ファイルの一部として抽出されます。
 
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。

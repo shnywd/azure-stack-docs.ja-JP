@@ -3,17 +3,19 @@ title: Azure Stack HCI クラスター上の Azure Kubernetes Service を Azure 
 description: Azure Stack HCI クラスター上の Azure Kubernetes Service を Azure Arc for Kubernetes に接続する
 author: abha
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 24dc2efdc591404db1bbfc30cf9c1bc83e2ed356
-ms.sourcegitcommit: dabbe44c3208fbf989b7615301833929f50390ff
+ms.openlocfilehash: e7a407e587918a6ee9648c51c2c218ab51e7132f
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90949330"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612354"
 ---
 # <a name="connect-an-azure-kubernetes-service-on-azure-stack-hci-cluster-to-azure-arc-for-kubernetes"></a>Azure Stack HCI クラスター上の Azure Kubernetes Service を Azure Arc for Kubernetes に接続する
+
+> 適用対象:Azure Stack HCI 上の AKS、Windows Server 2019 Datacenter 上の AKS ランタイム
 
 Azure Stack HCI クラスター上の Azure Kubernetes Service が Azure Arc に接続されると、Azure portal に表示されます。 また、Azure Resource Manager ID とマネージド ID が割り当てられます。 クラスターは、標準の Azure サブスクリプションに接続され、リソース グループ内に存在し、他の Azure リソースと同様にタグを受け取ることができます。
 
@@ -31,7 +33,7 @@ Azure Arc 対応 Kubernetes では、転送中のデータをセキュリティ�
 
 * Arc 対応の Kubernetes エージェントをデプロイするには、クラスターとクラスター上のクラスター管理者ロールにアクセスするための kubeconfig ファイルが必要です。
 * Azure Stack HCI 上の Azure Kubernetes Service 用の PowerShell モジュールがインストールされている。
-* Azure Arc 対応 Kubernetes CLI 拡張機能をインストールするには、Azure CLI バージョン2.3 以降が必要です。 [Azure CLI のインストール](/cli/azure/install-azure-cli?view=azure-cli-latest)。 Azure CLI バージョン 2.3 以降を確実に用意するために、最新バージョンに更新することもできます。
+* Azure Arc 対応 Kubernetes CLI 拡張機能をインストールするには、Azure CLI バージョン2.3 以降が必要です。 [Azure CLI のインストール](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)。 Azure CLI バージョン 2.3 以降を確実に用意するために、最新バージョンに更新することもできます。
 * あなたが所有者または共同作成者となっている Azure サブスクリプション。 
 * PowerShell 管理ウィンドウでこのドキュメントのコマンドを実行します。
 
@@ -109,7 +111,7 @@ az ad sp create-for-RBAC --name "azure-arc-for-k8s" --scope /subscriptions/{Subs
 }
 ```
 ## <a name="step-5-save-service-principal-details"></a>手順 5:サービス プリンシパルの詳細を保存する
-作成したサービス プリンシパルの appId、パスワード、およびテナントの値と、クラスター名、Azure サブスクリプション ID、リソース グループの名前と場所を、PowerShell 変数に保存します。 これにより、他のチュートリアルで詳細を再利用できるようになります。 PowerShell セッションを閉じる場合は、これらの値もメモ帳に保存しておいてください。
+作成したサービス プリンシパルの appId、パスワードとテナントの値、クラスター名、Azure サブスクリプション ID、リソース グループの名前と場所を、PowerShell 変数に保存します。 これにより、他のチュートリアルで詳細を再利用できるようになります。 PowerShell セッションを閉じる場合に備えて、これらの値をメモ帳で保存しておいてください。
 
 ```PowerShell
 $clusterName = #<name of your Kubernetes cluster>

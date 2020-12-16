@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/30/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: 3e74f1e77c5c30ec17bf021d95952ce7bb19426b
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
+ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443319"
+ms.lasthandoff: 12/08/2020
+ms.locfileid: "96869039"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -69,8 +69,8 @@ Azure Stack Hub 2008 更新プログラムのビルドの種類は **完全** �
 <!-- What's new, also net new experiences and features. -->
 - Azure Stack Hub で VNET ピアリングがサポートされるようになりました。これにより、ネットワーク仮想アプライアンス (NVA) を使用せずに VNET に接続できるようになります。 詳細については、[新しい VNET ピアリングのドキュメント](../user/virtual-network-peering.md)を参照してください。
 - Azure Stack Hub の Blob Storage で、ユーザーが不変 BLOB を使用できるようになりました。 コンテナーで不変ポリシーを設定することにより、ビジネス クリティカルなデータ オブジェクトを WORM (Write Once, Read Many) 状態で格納することができます。 このリリースでは、不変ポリシーは REST API またはクライアント SDK によってのみ設定できます。 このリリースでは、追加 BLOB の書き込みもできません。 不変 BLOB の詳細については、「[不変ストレージを使用してビジネスに不可欠な BLOB データを保存する](/azure/storage/blobs/storage-blob-immutable-storage)」を参照してください。
-- Azure Stack Hub ストレージで、Azure Storage サービスの API バージョン 2019-07-07 がサポートされるようになりました。 新しい REST API のバージョンと互換性がある Azure クライアント ライブラリについては、[Azure Stack Hub ストレージの開発ツール](../user/azure-stack-storage-dev.md#azure-client-libraries)に関するページを参照してください。
-- Azure Stack Hub コンピューティングで、Azure Compute API バージョン2020-06-01 がサポートされるようになりました。これには、利用可能な全機能のサブセットが含まれます。
+- Azure Stack Hub ストレージで、Azure Storage サービスの API バージョン **2019-07-07** がサポートされるようになりました。 新しい REST API のバージョンと互換性がある Azure クライアント ライブラリについては、[Azure Stack Hub ストレージの開発ツール](../user/azure-stack-storage-dev.md#azure-client-libraries)に関するページを参照してください。 Azure Storage サービスの管理 API の場合、利用可能な全機能のサブセットが含まれる **2018-02-01** がサポートに追加されています。
+- Azure Stack Hub コンピューティングで、Azure Compute API バージョン **2020-06-01** がサポートされるようになりました。これには、利用可能な全機能のサブセットが含まれています。
 - Azure Stack Hub マネージド ディスクで、Azure Disk API バージョン **2019-03-01** がサポートされるようになりました。これには、利用可能な機能のサブセットが含まれます。
 - サポート操作中に Azure Stack Hub に接続してインフラストラクチャに関する詳細な分析情報を提供できるようになった、Windows Admin Center のプレビュー (緊急用アカウントが必要)。
 - デプロイ時に特権エンドポイント (PEP) にログイン バナーを追加する機能。
@@ -103,7 +103,7 @@ Azure Stack Hub 2008 更新プログラムのビルドの種類は **完全** �
 
   これらの変更は、Azure Stack Hub システムのホスト レベルで追加されていることに注意してください。 OEM に連絡して、Top-of-Rack (ToR) ネットワーク スイッチで必要な変更を行うように手配してください。 この ToR の変更は、2008 リリースに更新する前に実行することも、2008 に更新した後に実行することもできます。 詳細については、[ネットワーク統合に関するドキュメント](azure-stack-network.md)を参照してください。
 
-  - このビルドでは、GPU 対応の VM サイズ **NCas_v4 (NVIDIA T4)** が、Azure に合わせて VM サイズ **NCasT4_v3** に置き換えられました。 それらはポータルにはまだ表示されておらず、Azure Resource Manager テンプレートでのみ使用できることに注意してください。
+- このビルドでは、GPU 対応の VM サイズ **NCas_v4 (NVIDIA T4)** が、Azure に合わせて VM サイズ **NCasT4_v3** に置き換えられました。 それらはポータルにはまだ表示されておらず、Azure Resource Manager テンプレートでのみ使用できることに注意してください。
 
 ### <a name="fixes"></a>修正
 
@@ -139,7 +139,7 @@ Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用�
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2008.16.94](https://support.microsoft.com/help/4595071)
+- [Azure Stack Hub Hotfix 1.2008.19.100](https://support.microsoft.com/help/4595073)
 ::: moniker-end
 
 ::: moniker range="azs-2005"

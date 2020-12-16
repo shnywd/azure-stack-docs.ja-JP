@@ -5,13 +5,13 @@ ms.topic: how-to
 author: v-dasis
 ms.author: v-dasis
 ms.reviewer: jgerend
-ms.date: 11/06/2020
-ms.openlocfilehash: 1caa5e6573137ec33680ea3a13e7beeda12de424
-ms.sourcegitcommit: 08ef9545316798c9a21c2f9bc1da8c15cb648982
+ms.date: 12/10/2020
+ms.openlocfilehash: fc52f53a31b8d7cdcb91dd93e0fbe97c94b7e846
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94360192"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010924"
 ---
 # <a name="add-or-remove-servers-for-an-azure-stack-hci-cluster"></a>Azure Stack HCI クラスターのサーバーを追加または削除する
 
@@ -67,7 +67,11 @@ Azure Stack HCI のクラスターに対してサーバーを簡単に追加ま�
 
 ストレッチ クラスターでは、各サイトに同じ数のサーバー ノードと同じ数のドライブが必要です。 ストレッチ クラスターにサーバー ペアを追加すると、そのドライブは、ストレッチ クラスターの両方のサイトの記憶域プールにすぐに追加されます。 追加時に各サイトの記憶域プールのサイズが同じでない場合は、拒否されます。 これは、記憶域プールのサイズは、サイト間で同じである必要があるためです。
 
-非ストレッチ クラスターの場合とは異なり、ストレッチ クラスターのサーバーの追加または削除は、Windows PowerShell を使用することによってのみ可能です。 [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) および [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) コマンドレットを使用して、サーバーを追加する前に、まずサイト (障害ドメイン) の情報を変更します。
+ストレッチ クラスターへのサーバー ノードの追加について、少し時間を取ってビデオをご覧ください。
+
+> [!VIDEO https://www.youtube.com/embed/AVHPkRmsZ5Y]
+
+ストレッチ クラスターのサーバーの追加または削除は、Windows PowerShell を使用して行います。 [Get-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/get-clusterfaultdomainxml) および [Set-ClusterFaultDomainXML](https://docs.microsoft.com/powershell/module/failoverclusters/set-clusterfaultdomainxml) コマンドレットを使用して、サーバーを追加する前に、まずサイト (障害ドメイン) の情報を変更します。
 
 次に、[Add-ClusterNode](https://docs.microsoft.com/powershell/module/failoverclusters/add-clusternode) コマンドレットを使用して、各サイトにサーバー ペアを同時に追加できます。これにより、新しいサーバーの各ドライブも同時に追加できます。
 

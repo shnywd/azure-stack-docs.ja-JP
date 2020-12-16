@@ -7,12 +7,12 @@ ms.date: 11/22/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: 6006d8f715a9a680301dfe64f7c02075ab9052ab
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0eb0c763b8ebd144576ac9ac773d17f191e30dc9
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518281"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778140"
 ---
 # <a name="azure-stack-hub-vm-features"></a>Azure Stack Hub VM の機能
 
@@ -70,7 +70,7 @@ VM のサイズと、それに関連付けられるリソースの量は、Azure
 
 ## <a name="vm-extensions"></a>VM 拡張機能
 
-Azure Stack Hub には、拡張機能の小規模なセットが含まれています。 更新プログラムおよび追加の拡張機能は、Marketplace シンジケーションを通じて入手できます。
+Azure Stack Hub には、拡張機能の小規模なセットが含まれています。 更新プログラムおよび追加の拡張機能は、Marketplace シンジケーションを通じて入手できます。 Azure Stack Hub へのカスタム拡張機能の導入は、サポートされているシナリオではありません。拡張機能を Azure Stack Hub で使用できるようにするには、Azure にオンボードしておく必要があります。
 
 実際の Azure Stack Hub 環境で利用できる VM 拡張機能の一覧を取得するには、次の PowerShell スクリプトを使用します。
 

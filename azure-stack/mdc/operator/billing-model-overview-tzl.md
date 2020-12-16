@@ -11,22 +11,20 @@ ms.workload: tzl
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/23/2019
+ms.date: 12/04/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/23/2019
-ms.openlocfilehash: c889ebc0bc7b4074b375ebb4e64d1d38c7fcd177
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: bd20dee177ac1f061b954eb0285b3103747675d1
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330167"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96934847"
 ---
 # <a name="billing-model-overview"></a>課金モデルの概要
 
-MDC または Azure Stack Hub ラグドのユーザーは、各アプライアンスの保有期間に基づいて Microsoft から請求されます。 料金は期間単位であり、基本的なコンピューティング、ストレージ、およびネットワーク サービス、App Service、IoT Hub とその前提条件、Key Vault などの補助的なサービスを使用する権利が含まれています。 ゲスト オペレーティング システムとしての Windows Server の使用も含まれています。
-
-実際の使用量は測定されず、Microsoft に報告されません。
+MDC または Azure Stack Hub ラグドのユーザーは、各アプライアンスの保有期間に基づいて Microsoft から請求されます。 料金は期間単位であり、基本的なコンピューティング、ストレージ、およびネットワーク サービスを使用する権利が含まれています。 App Service、Event Hubs、およびその他の PaaS サービスの使用状況に基づいて課金され、Azure Stack Hub ラグド と MDC で実行される Windows Server PAYG VM も課金されます。 完全に切断され、使用状況データを報告できない場合は、PaaS サービスの容量ライセンスを取得し、Windows VM の BYOL (ライセンス持ち込み) を取得する必要があります。
 
 アプライアンスの注文の出荷から 14 日後に課金が開始されます。 Azure Stack Hub Containerized の場合、最初の請求期間は 1 年です。 1 年後、注文を 1 年間延長することができ、もう 1 年使用量が課金されます。 注文が延長されず、デバイスが返却されていない場合は、月単位で課金が続行されます。 Azure Stack Hub ラグドの場合、課金は常に月単位で行われます。
 

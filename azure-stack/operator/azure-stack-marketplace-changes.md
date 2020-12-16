@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 11/19/2020
+ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e4b0be90d1e4815957dced211a7a0648458a6777
-ms.sourcegitcommit: 616e65051a94290eb6ff7aa63ee0b33d45fe7ac5
+ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94970216"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778004"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -166,6 +166,22 @@ ms.locfileid: "94970216"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 2020 年 12 月 7 日Bitnami Elasticsearch Cluster - バージョン 1.0.2
+- 2020 年 12 月 7 日Bitnami Cassandra Cluster - バージョン 1.0.21
+- 2020 年 12 月 7 日Bitnami etcd Cluster - バージョン 1.0.16
+- 2020 年 12 月 7 日Bitnami Jenkins Cluster - バージョン 1.0.70
+- 2020 年 12 月 7 日Bitnami Kafka Cluster - バージョン 1.0.2
+- 2020 年 12 月 7 日Bitnami MariaDB Galera Cluster - バージョン 1.0.13
+- 2020 年 12 月 7 日Bitnami MariaDB with Replication - バージョン 1.0.36
+- 2020 年 12 月 7 日Bitnami Memcached Multiple Instances -  バージョン 1.0.34
+- 2020 年 12 月 7 日Bitnami Moodle Multi-Tier - バージョン 1.0.46
+- 2020 年 12 月 7 日Bitnami NATS Cluster - バージョン 1.0.19
+- 2020 年 12 月 7 日Bitnami PostgreSQL with Replication - バージョン 1.0.37
+- 2020 年 12 月 7 日Bitnami MySQL with Replication - バージョン 1.0.37
+- 2020 年 12 月 7 日Bitnami ZooKeeper Cluster - バージョン 1.0.18
+- 2020 年 12 月 7 日Bitnami Redis High Availability - バージョン 1.0.27
+- 2020 年 12 月 7 日Bitnami WordPress Multi-Tier - バージョン 1.0.56
+- 2020 年 12 月 7 日Bitnami RabbitMQ Cluster - バージョン 1.0.38
 - 2020/11/18:Windows Server 2019 上の SQL Server 2019 Standard - ライセンス持ち込み - バージョン 15.0.20201015
 - 2020/11/18:Windows Server 2019 上の SQL Server 2019 Standard - 従量課金制 - バージョン 15.0.20201015
 - 2020/11/18:無料の SQL Server ライセンス: Windows Server 2019 上の SQL 2019 Developer - ライセンス持ち込み - バージョン 15.0.20201015

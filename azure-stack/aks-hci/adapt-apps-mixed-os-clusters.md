@@ -3,17 +3,19 @@ title: 混合 OS Kubernetes クラスターでの使用のためにアプリケ�
 description: Azure Kubernetes Service でノード セレクターまたはテイントと容認を使用して、適切なワーカー ノード オペレーティング システムで、Azure Stack HCI で実行される混合 OS Kubernetes クラスター内のアプリケーションが確実にスケジュールされるようにする方法
 author: abha
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 12/02/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: 04b103fee921cf8bdab82a4004c6c80afd54d687
-ms.sourcegitcommit: be445f183d003106192f039990d1fb8ee151c8d7
+ms.openlocfilehash: 0d4fd0e62e10e4afc4a76c9cac2deaed97e23549
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92253947"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761560"
 ---
 # <a name="adapt-apps-for-mixed-os-kubernetes-clusters-using-node-selectors-or-taints-and-tolerations"></a>ノード セレクターまたはテイントと容認を使用して、混合 OS Kubernetes クラスターにアプリを適応させます
+
+> 適用対象:Azure Stack HCI 上の AKS、Windows Server 2019 Datacenter 上の AKS ランタイム
 
 Azure Stack HCI 上の Azure Kubernetes Service を使用すると、Linux と Windows の両方のノードで Kubernetes クラスターを実行できますが、これらの混合 OS クラスターで使用するためには、アプリに対して小さな編集を加える必要があります。 この攻略ガイドでは、ノード セレクターまたはテイントと容認のどちらかを使用して、適切なホスト OS 上でアプリケーションが確実にスケジュールされるようにする方法について説明します。
 
@@ -21,7 +23,7 @@ Azure Stack HCI 上の Azure Kubernetes Service を使用すると、Linux と W
 
 ## <a name="node-selector"></a>ノード セレクター
 
-*ノード セレクター*は、ポッド仕様の YAML に含まれる簡単なフィールドであり、オペレーティング システムが一致する正常なノードにのみスケジュールされるように、ポッドが制約されます。 ポッド仕様の YAML では、以下の例に示すように、Windows または Linux として `nodeSelector` を指定します。 
+*ノード セレクター* は、ポッド仕様の YAML に含まれる簡単なフィールドであり、オペレーティング システムが一致する正常なノードにのみスケジュールされるように、ポッドが制約されます。 ポッド仕様の YAML では、以下の例に示すように、Windows または Linux として `nodeSelector` を指定します。 
 
 ```yaml
 kubernetes.io/os = Windows
@@ -36,7 +38,7 @@ nodeSelectors の詳細については、[ノード セレクター](https://kub
 
 ## <a name="taints-and-tolerations"></a>テイントと容認
 
-*テイント*と*容認*は、連携動作して、ポッドが意図せずノードにスケジュールされないようにします。 ノードを "テイント" すると、ポッド仕様の YAML の "toleration" を通して明示的にテイントを容認していないポッドを受け入れないようにすることができます。
+*テイント* と *容認* は、連携動作して、ポッドが意図せずノードにスケジュールされないようにします。 ノードを "テイント" すると、ポッド仕様の YAML の "toleration" を通して明示的にテイントを容認していないポッドを受け入れないようにすることができます。
 
 Azure Stack HCI 上の Azure Kubernetes Service の Windows OS ノードは、次のキーと値のペアでテイントすることができます。 ユーザーは異なるものを使用してはいけません。
 
@@ -45,7 +47,7 @@ node.kubernetes.io/os=Windows:NoSchedule
 ```
 `kubectl get` を実行し、テイントする Windows ワーカー ノードを識別します。
 
-```PowerShell
+```
 kubectl get nodes --all-namespaces -o=custom-columns=NAME:.metadata.name,OS:.status.nodeInfo.operatingSystem
 ```
 出力:
@@ -58,7 +60,7 @@ my-aks-hci-cluster-md-md-1-5xlwz         windows
 
 `kubectl taint node` を使用して Windows サーバー ワーカー ノードをテイントします。
 
-```PowerShell
+```
 kubectl taint node my-aks-hci-cluster-md-md-1-5h4bl node.kubernetes.io/os=Windows:NoSchedule
 kubectl taint node my-aks-hci-cluster-md-md-1-5xlwz node.kubernetes.io/os=Windows:NoSchedule
 ```

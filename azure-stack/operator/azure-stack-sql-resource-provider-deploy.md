@@ -4,34 +4,39 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub に SQL Server リソース プロバイダーをデプロイする方法について説明します。
 author: bryanla
 ms.topic: article
-ms.date: 10/02/2019
-ms.lastreviewed: 03/18/2019
+ms.date: 12/07/2020
+ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: 5759c0f43401fd27080b8872810e47af920da984
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
+ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812661"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96778174"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
-Azure Stack Hub SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub サービスとして公開します。 SQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (アダプター バージョン <= 1.1.47.0) または特別なアドオン RP Windows Server (アダプター バージョン >= 1.1.93.0) でサービスとして実行されます。
+Azure Stack Hub SQL Server リソース プロバイダーを使用して、SQL データベースを Azure Stack Hub サービスとして公開します。 SQL リソース プロバイダーは、Windows Server 2016 Server Core 仮想マシン (アダプター バージョン 1.1.47.0 以降) または特別なアドオン RP Windows Server (アダプター バージョン 1.1.93.0 以前) 上でサービスとして実行されます。
 
 > [!IMPORTANT]
-> SQL または MySQL をホストするサーバー上に項目を作成できるのは、リソース プロバイダーのみです。 リソース プロバイダー以外がホスト サーバー上に項目を作成すると、不一致状態になる可能性があります。
+> SQL または MySQL をホストするサーバー上に項目を作成するのは、リソース プロバイダーのみが実行する必要があります。 リソース プロバイダーによって作成されていないホスト サーバー上の項目はサポートされません。これによって、不一致状態になる可能性があります。
 
 ## <a name="prerequisites"></a>前提条件
 
-Azure Stack Hub SQL リソース プロバイダーをデプロイする前に、いくつかの前提条件を満たす必要があります。 これらの要件を満たすには、特権エンドポイント VM にアクセスできるコンピューターで次の手順を実行します。
+Azure Stack Hub SQL リソース プロバイダーをデプロイする前に、いくつかの前提条件を満たす必要があります。
+
+- 以下にアクセスできるコンピューターとアカウントが必要です。
+   - [Azure Stack Hub 管理者ポータル](azure-stack-manage-portals.md)。
+   - [特権エンドポイント](azure-stack-privileged-endpoint.md)。
+   - Azure Resource Manager 管理エンドポイント `https://management.region.<fqdn>`。`<fqdn>` は完全修飾ドメイン名 (ASDK を使用する場合は `https://management.local.azurestack.external`) です。
+   - Azure Stack Hub が ID プロバイダーとして Azure Active Directory (AD) を使用するようにデプロイされた場合は、インターネット。
 
 - まだ実行していない場合は、Azure Marketplace アイテムをダウンロードできるよう、Azure に [Azure Stack Hub を登録](azure-stack-registration.md)します。
 
 - 必要な Windows Server VM を Azure Stack Hub Marketplace に追加します。
-  * SQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
-  * SQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
-
+  - SQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
+  - SQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
 
 - 次のバージョン マッピングの表に従って、サポートされているバージョンの SQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
@@ -102,7 +107,7 @@ _統合システムのインストールのみを対象_。 [Azure Stack Hub の
 
 ## <a name="deploy-the-sql-resource-provider"></a>SQL リソース プロバイダーをデプロイする
 
-すべての前提条件をインストールしたら、Azure Stack Hub 管理の Azure Resource Management エンドポイントと特権エンドポイントの両方にアクセスできるコンピューターから **DeploySqlProvider.ps1** スクリプトを実行して、SQL リソース プロバイダーをデプロイします。 DeploySqlProvider.ps1 スクリプトは、Azure Stack Hub のバージョンに応じてダウンロードした SQL リソース プロバイダーのバイナリの一部として抽出されます。
+すべての前提条件を完了したら、Azure Stack Hub の Azure Resource Manager 管理エンドポイントと特権エンドポイントの両方にアクセスできるコンピューターから **DeploySqlProvider.ps1** スクリプトを実行して、SQL リソース プロバイダーをデプロイします。 DeploySqlProvider.ps1 スクリプトは、Azure Stack Hub のバージョンに応じてダウンロードした SQL リソース プロバイダーのバイナリの一部として抽出されます。
 
  > [!IMPORTANT]
  > リソース プロバイダーをデプロイする前に、新しい機能、修正、デプロイに影響を与える可能性のある既知の問題に関する詳細については、リリース ノートを確認してください。
@@ -134,7 +139,7 @@ DeploySqlProvider.ps1 スクリプトを実行すると、次のタスクが完�
 | **AzCredential** | Azure Stack Hub サービス管理者アカウントの資格情報。 Azure Stack Hub のデプロイに使用したのと同じ資格情報を使用します。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。| _必須_ |
 | **VMLocalCredential** | SQL リソース プロバイダー VM のローカル管理者アカウントの資格情報。 | _必須_ |
 | **PrivilegedEndpoint** | 特権エンドポイントの IP アドレスまたは DNS 名。 |  _必須_ |
-| **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure Active Directory を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
+| **AzureEnvironment** | Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure AD を使用している場合は **AzureChinaCloud** です。 | AzureCloud |
 | **DependencyFilesLocalPath** | 統合システムの場合のみ、証明書 .pfx ファイルはこのディレクトリにも配置する必要があります。 必要に応じて、ここで 1 つの Windows Update MSU パッケージをコピーできます。 | _省略可能_ (統合システムでは _必須_) |
 | **DefaultSSLCertificatePassword** | .pfx 証明書のパスワード。 | _必須_ |
 | **MaxRetryCount** | エラーが 発生した場合に各操作を再試行する回数。| 2 |

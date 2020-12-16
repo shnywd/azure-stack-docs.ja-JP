@@ -16,12 +16,12 @@ ms.date: 10/20/2020
 ms.author: justinha
 ms.reviewer: asganesh
 ms.lastreviewed: 10/20/2020
-ms.openlocfilehash: 339927d28c2778a5c2953d8acf90e04931e3c815
-ms.sourcegitcommit: ce864e1d86ad05a03fe896721dea8f0cce92085f
+ms.openlocfilehash: d0bf712be8924cce59aa441161dfb39c090d1a2d
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94383634"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612626"
 ---
 # <a name="mdc-requirements-overview"></a>MDC の要件の概要
 
@@ -60,30 +60,33 @@ MDC は、標準の 40 フィート金属製出荷コンテナーに収められ
 
 ## <a name="deployment-workflow"></a>デプロイのワークフロー
 
-大まかに言えば、MDC のデプロイ プロセスは次の手順で構成されます。
+大まかに言えば、MDC のデプロイ プロセスは次のフェーズで構成されます。
 
-1. 計画フェーズ:
-   1. データセンターの電力の計画。
-   1. Azure Stack Hub の論理ネットワーク構成の計画。
-   1. データセンターのネットワーク統合の計画。
-   1. ID とセキュリティの統合の計画。
-   1. PKI 証明書の計画。
-1. 準備フェーズ:
-   1. インベントリの収集。
-   1. 電源の接続と、ソリューションの電源オン。
-   1. HVAC システムの正常性の検証。
-   1. 火災監視と警告システムの正常性の検証。
-   1. 物理ハードウェアの正常性の検証。
-1. 実行フェーズ – 3 つのポッドに対して個別に実行:
-   1. ハードウェア ライフサイクル ホストの構成。
-   1. ネットワーク スイッチの構成。
-   1. データセンターのネットワークの統合。
-   1. 物理ハードウェアの設定の構成。
-   1. Isilon ストレージの構成。
-   1. Azure Stack Hub ファブリック インフラストラクチャのデプロイ。
-   1. データセンターの ID の統合。
-   1. 拡張機能用のアドオンのインストール。
-1. 検証フェーズ – 3 つのポッドに対して個別に実行:
-   1. デプロイ後の正常性の検証。
-   1. Microsoft への Azure Stack Hub の登録。
-   1. Azure Stack Hub のお客様への引き継ぎ。
+### <a name="planning-phase"></a>計画フェーズ
+1. データセンターの電力の計画。
+1. Azure Stack Hub の論理ネットワーク構成の計画。
+1. [データセンターのネットワーク統合](https://docs.microsoft.com/azure-stack/operator/azure-stack-network)の計画。
+1. [ID とセキュリティの統合](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)の計画。
+1. [PKI 証明書](https://docs.microsoft.com/azure-stack/operator/azure-stack-pki-certs)の計画。
+
+### <a name="preparation-phase"></a>準備フェーズ
+1. インベントリの収集。
+1. 電源の接続と、ソリューションの電源オン。
+1. HVAC システムの正常性の検証。
+1. 火災監視と警告システムの正常性の検証。
+1. 物理ハードウェアの正常性の検証。
+
+### <a name="execution-phase--separately-for-each-of-the-three-pods"></a>実行フェーズ – 3 つのポッドに対して個別に実行
+1. ハードウェア ライフサイクル ホストの構成。
+1. ネットワーク スイッチの構成。
+1. データセンターのネットワークの統合。
+1. 物理ハードウェアの設定の構成。
+1. Isilon ストレージの構成。
+1. Azure Stack Hub ファブリック インフラストラクチャのデプロイ。
+1. データセンターの ID の統合。
+1. 拡張機能用のアドオンのインストール。
+
+### <a name="validation-phase--separately-for-each-of-the-three-pods"></a>検証フェーズ – 3 つのポッドに対して個別に実行
+1. デプロイ後の正常性の検証。
+1. Microsoft への Azure Stack Hub の登録。
+1. Azure Stack Hub のお客様への引き継ぎ。

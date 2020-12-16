@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 7452437d7f760a688c2403cb4def735b2daaa105
-ms.sourcegitcommit: a7a2ac1b9be926134826dce03e348154fd212bc9
+ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96443299"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051617"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI の物理ネットワーク要件
 
@@ -69,9 +69,9 @@ Microsoft では、以下の「**ネットワーク スイッチの要件**」�
 
 ### <a name="standard-ieee-8021ab"></a>標準: IEEE 802.1AB
 
-イーサネット スイッチは、Link Layer Discovery Protocol (LLDP) を定義する IEEE 802.1AB 仕様に準拠している必要があります。 LLDP では、Azure Stack HCI に必須であり、スイッチ構成を検出するためのチーミングをサポートします。
+イーサネット スイッチは、Link Layer Discovery Protocol (LLDP) を定義する IEEE 802.1AB 仕様に準拠している必要があります。 LLDP は Azure Stack HCI に必要であり、物理ネットワーク構成のトラブルシューティングにも使用できます。
 
-LLDP の Type-Length-Values (TLV) の構成は、動的に有効にする必要があります。 これらのスイッチには、特定の TLV を有効化する以外に、追加の構成は必要ありません。 たとえば、802.1 サブタイプ 3 を有効にすると、スイッチ ポートで使用可能なすべての VLAN が自動的にアドバタイズされます。
+LLDP の Type-Length-Values (TLV) の構成は、動的に有効にする必要があります。 スイッチには、特定の TLV を有効化する以外に、追加の構成は必要ありません。 たとえば、802.1 サブタイプ 3 を有効にすると、スイッチ ポートで使用可能なすべての VLAN が自動的にアドバタイズされます。
 
 ### <a name="custom-tlv-requirements"></a>カスタム TLV の要件
 

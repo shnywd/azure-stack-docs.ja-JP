@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.author: bryanla
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2020
-ms.openlocfilehash: ff9c1054f505625e51426fca70bbb2ae7d9115a5
-ms.sourcegitcommit: 69cfff119ab425d0fbb71e38d1480d051fc91216
+ms.openlocfilehash: 681f02fa220331a93a59448cd1c15bc490ee4b24
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91572944"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97011180"
 ---
 # <a name="mysql-resource-provider-maintenance-operations-in-azure-stack-hub"></a>Azure Stack Hub での MySQL リソース プロバイダーのメンテナンス操作
 
@@ -156,7 +156,7 @@ Azure Stack Hub 統合システムで SQL および MySQL リソース プロバ
 |パラメーター|説明|解説|
 |-----|-----|-----|
 |AzureEnvironment|Azure Stack Hub のデプロイに使用するサービス管理者アカウントの Azure 環境。 Azure AD のデプロイでのみ必須です。 サポートされている環境名は **AzureCloud**、**AzureUSGovernment**、または中国の Azure Active Directory を使用している場合は **AzureChinaCloud** です。|省略可能|
-|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。|Mandatory|
+|AzCredential|Azure Stack Hub サービス管理者アカウントの資格情報。 AzCredential で使用するアカウントが多要素認証 (MFA) を必要とする場合、スクリプトは失敗します。|Mandatory|
 |CloudAdminCredential|Azure Stack Hub クラウド管理者ドメイン アカウントの資格情報。|Mandatory|
 |PrivilegedEndpoint|Get-AzureStackStampInformation にアクセスするための特権エンドポイント。|Mandatory|省略可能|
 |DiagnosticsUserPassword|診断ユーザー アカウントのパスワード。|省略可能|
@@ -240,11 +240,11 @@ Azure Diagnostics 拡張機能は、既定で MySQL リソース プロバイダ
    
    ![診断設定への移動](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-diagnostics-settings.png)
 
-4. MySQL リソース プロバイダーの操作イベント ログを収集するために、**Microsoft-AzureStack-DatabaseAdapter/Operational!\*** を追加します。
+4. MySQL リソース プロバイダーの操作イベント ログを収集するには、**Microsoft-AzureStack-DatabaseAdapter/Operational!\** _ を追加します。
 
    ![イベント ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-event-logs.png)
 
-5. IIS ログの収集を有効にするには、**[IIS ログ]** と **[失敗した要求のログ]** をオンにします。
+5. IIS ログの収集を有効にするには、_ *[IIS ログ]* * と **[失敗した要求のログ]** をオンにします。
 
    ![IIS ログの追加](media/azure-stack-mysql-resource-provider-maintain/mysqlrp-iis-logs.png)
 

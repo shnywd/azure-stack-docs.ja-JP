@@ -3,16 +3,16 @@ title: ASDK のデプロイ後の構成
 description: Azure Stack Development Kit (ASDK) をインストールした後に行うことをお勧めする構成変更について説明します。
 author: justinha
 ms.topic: article
-ms.date: 12/01/2020
+ms.date: 12/03/2020
 ms.author: justinha
 ms.reviewer: misainat
-ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 9cef49ee81662e7a68396067ee94430c17e20b32
-ms.sourcegitcommit: 1effe07b52b4adc1a5b27dc705b4dde676f10006
+ms.lastreviewed: 12/03/2020
+ms.openlocfilehash: 1d31bc40c77b68f43d48def1d4ce874dd69160b1
+ms.sourcegitcommit: 9bca59a53787a9884b4643eb760ad1b2c1feb57f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96519282"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96579721"
 ---
 # <a name="post-deployment-configurations-for-asdk"></a>ASDK のデプロイ後の構成
 
@@ -32,26 +32,22 @@ API バージョン プロファイルを使用して、Azure Stack と互換性
 
 ASDK ホスト コンピューターへのインターネット接続の有無にかかわらず、最新の Azure Stack PowerShell モジュールをインストールすることができます。
 
-> [!IMPORTANT]
-> 必要なバージョンをインストールする前に、必ず[既存の Azure PowerShell モジュールをアンインストールしてください](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)。
+1.  Windows コンピューターの前提条件を確認します。 手順については、「[Windows の前提条件](../operator/powershell-install-az-module.md#prerequisites-for-windows)」を参照してください。
+2. 必要な PowerShell のバージョンをインストールする前に、必ず[既存の Azure PowerShell モジュールをアンインストール](../operator/powershell-install-az-module.md#3-uninstall-existing-versions-of-the-azure-stack-hub-powershell-modules)してください。 
 
 - ASDK ホスト コンピューターからの **インターネット接続がある場合**:次の PowerShell スクリプトを実行して、これらのモジュールを ASDK インストールにインストールします。
 
 ### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
   ```powershell  
-  # Update the current PowerShellGet module to latest version, required to support PreRelease modules
-  Install-Module -Name PowerShellGet -Force
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
+    Install-AzProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
 
-  # Install the Az.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name Az.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 2.0.2-preview -AllowPrerelease
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 インストールに成功した場合、出力に Az および AzureStack モジュールが表示されます。
@@ -59,15 +55,17 @@ ASDK ホスト コンピューターへのインターネット接続の有無�
 ### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
 
   ```powershell  
-  Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
-  Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
-
-  # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
-  Install-Module -Name AzureRM.BootStrapper
-
-  # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-  Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
-  Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
+    
+    # Install and import the API Version Profile required by Azure Stack Hub into the current PowerShell session.
+    Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.8.2
+    
+    Get-Module -Name "Az*" -ListAvailable
+    Get-Module -Name "Azs*" -ListAvailable
   ```
 
 インストールに成功した場合、出力に AzureRM および AzureStack モジュールが表示されます。

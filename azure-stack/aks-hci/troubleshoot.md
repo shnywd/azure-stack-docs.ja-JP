@@ -3,14 +3,14 @@ title: AKS のトラブルシューティング
 description: この記事では Azure Stack HCI での Azure Kubernetes Service (AKS) のトラブルシューティングに関する情報を提供します。
 author: davannaw-msft
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 12/02/2020
 ms.author: dawhite
-ms.openlocfilehash: 4f13aff85c1444197fce5a01c62319026f844fe6
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 53ee79628f63d4925cdf7c725d1c0ec4231b4ef3
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415047"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96612456"
 ---
 # <a name="troubleshooting-azure-kubernetes-service-on-azure-stack-hci"></a>Azure Stack HCI 上の Azure Kubernetes Service に関するトラブルシューティング
 
@@ -79,20 +79,46 @@ GetHelp .\Get-SMEUILogs.ps1 -Examples
 ```
 
 ## <a name="troubleshooting-windows-worker-nodes"></a>Windows ワーカー ノードのトラブルシューティング 
-Windows ワーカー ノードにサインインするには、まず、`kubectl get` を実行してノードの IP アドレスを取得します。 `EXTERNAL-IP` 値をメモします。
+SSH を使用して Windows ワーカー ノードにサインインするには、まず、`kubectl get` を実行して `EXTERNAL-IP` の値をキャプチャすることで、ノードの IP アドレスを取得します。
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-`ssh Administrator@ip` を使用して、SSH でノードに接続します。 SSH でノードに接続したら、`net user administrator *` を実行して管理者のパスワードを更新できます。 
+   > [!NOTE]
+   > 正しい場所を SSH 秘密キーに渡す必要があります。 次の例では、既定の場所 %systemdrive%\akshci\.ssh\akshci_rsa を使用しますが、`Set-AksHciConfig` に `-sshPublicKey` パラメーターを指定して別のパスを要求した場合は、この場所の変更が必要になることがあります。
+
+Windows ワーカー ノードの IP アドレスを取得するには:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+`ssh Administrator@ip` を使用して、Windows ノードに SSH 接続します。  
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa administrator@<IP Address of the Node>
+```
+  
+ノードに SSH 接続したら、`net user administrator *` を実行して管理者のパスワードを更新できます。 
+
 
 ## <a name="troubleshooting-linux-worker-nodes"></a>Linux ワーカー ノードのトラブルシューティング 
-Linux ワーカー ノードにサインインするには、まず、`kubectl get` を実行してノードの IP アドレスを取得します。 `EXTERNAL-IP` 値をメモします。
+SSH を使用して Linux ワーカー ノードにサインインするには、まず、`kubectl get` を実行して `EXTERNAL-IP` の値をキャプチャすることで、ノードの IP アドレスを取得します。
 
-```PowerShell
-kubectl get nodes -o wide
-``` 
-`ssh clouduser@ip` を使用して、SSH でノードに接続します。 
+
+   > [!NOTE]
+   > 正しい場所を SSH 秘密キーに渡す必要があります。 次の例では、既定の場所 %systemdrive%\akshci\.ssh\akshci_rsa を使用しますが、`Set-AksHciConfig` に `-sshPublicKey` パラメーターを指定して別のパスを要求した場合は、この場所の変更が必要になることがあります。
+
+Linux ワーカー ノードの IP アドレスを取得するには:  
+
+```
+kubectl --kubeconfig=yourkubeconfig get nodes -o wide
+```  
+
+`ssh clouduser@ip` を使用して Linux ノードに SSH 接続します。 
+
+```
+ssh -i $env:SYSTEMDRIVE\AksHci\.ssh\akshci_rsa clouduser@<IP Address of the Node>
+```  
+
+ノードに SSH 接続したら、`net user administrator *` を実行して管理者のパスワードを更新できます。 
 
 ## <a name="troubleshooting-azure-arc-kubernetes"></a>Azure Arc Kubernetes のトラブルシューティング
 接続、アクセス許可、および Arc エージェントに関連するいくつかの一般的なシナリオのトラブルシューティングについては、[Azure Arc 対応 Kubernetes のトラブルシューティング](/azure/azure-arc/kubernetes/troubleshooting)に関するページを参照してください。

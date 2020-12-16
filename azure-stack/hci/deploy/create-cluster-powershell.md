@@ -1,17 +1,17 @@
 ---
 title: Windows PowerShell を使用して Azure Stack HCI クラスターを作成する
-description: Windows PowerShell を使用して Azure Stack HCI 用のハイパーコンバージド クラスターを作成する方法について説明します
+description: Windows PowerShell を使用して Azure Stack HCI 用のクラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 08/11/2020
+ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 4bd669e04f2b4b4e1ef173a3a44e52d8c6067a60
-ms.sourcegitcommit: 296c95cad20ed62bdad0d27f1f5246bfc1c81d5e
+ms.openlocfilehash: fa020531067f74fba2609296672e347d6804cb6b
+ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93064516"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97010891"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-powershell"></a>Windows PowerShell を使用して Azure Stack HCI クラスターを作成する
 
@@ -73,7 +73,7 @@ PowerShell を開き、接続先のサーバーの完全修飾ドメイン名ま
    ```
 
 > [!TIP]
-> 管理 PC から PowerShell コマンドを実行すると、" *WinRM は要求を処理できません* " のようなエラーが表示されることがあります。 これを解決するには、PowerShell を使用して、管理コンピューターの信頼されたホストの一覧に各サーバーを追加します。 この一覧では、`Server*` などのワイルドカードがサポートされています。
+> 管理 PC から PowerShell コマンドを実行すると、"*WinRM は要求を処理できません*" のようなエラーが表示されることがあります。 これを解決するには、PowerShell を使用して、管理コンピューターの信頼されたホストの一覧に各サーバーを追加します。 この一覧では、`Server*` などのワイルドカードがサポートされています。
 >
 > `Set-Item WSMAN:\Localhost\Client\TrustedHosts -Value Server1 -Force`
 >  
@@ -110,12 +110,12 @@ Add-LocalGroupMember -Group "Administrators" -Member "king@contoso.local"
 - FS-Data-Deduplication モジュール
 - Hyper-V
 - RSAT-AD-PowerShell モジュール
-- ストレージ レプリカ (ストレッチ クラスターの場合のみ)
+- ストレージ レプリカ (ストレッチ クラスターの場合)
 
 各サーバーに対して次のコマンドを使用します。
 
 ```powershell
-Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
+Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica" -IncludeAllSubFeature -IncludeManagementTools
 ```
 
 クラスター内のすべてのサーバーでコマンドを同時に実行するには、次のスクリプトを使用して、最初に環境に合わせて変数の一覧を変更します。
@@ -123,7 +123,7 @@ Install-WindowsFeature -ComputerName "Server1" -Name "BitLocker", "Data-Center-B
 ```powershell
 # Fill in these variables with your values
 $ServerList = "Server1", "Server2", "Server3", "Server4"
-$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-Clustering-PowerShell", "Storage-Replica"
+$FeatureList = "BitLocker", "Data-Center-Bridging", "Failover-Clustering", "FS-FileServer", "Hyper-V", "Hyper-V-PowerShell", "RSAT-AD-Powershell", "RSAT-Clustering-PowerShell", "Storage-Replica"
 
 # This part runs the Install-WindowsFeature cmdlet on all servers in $ServerList, passing the list of features in $FeatureList.
 Invoke-Command ($ServerList) {
@@ -357,7 +357,7 @@ Test-Cluster -Cluster –Node "Server1", "Server2", "Server3", "Server4" –Incl
 
 ### <a name="step-51-create-sites"></a>手順 5.1:サイトを作成する
 
-次のコマンドレットで、 *FaultDomain* は単にサイトの別の名前です。 この例では、ストレッチ クラスターの名前として "ClusterS1" を使用します。
+次のコマンドレットで、*FaultDomain* は単にサイトの別の名前です。 この例では、ストレッチ クラスターの名前として "ClusterS1" を使用します。
 
 ```powershell
 New-ClusterFaultDomain -CimSession "ClusterS1" -FaultDomainType Site -Name "Site1"
@@ -393,7 +393,7 @@ Get-ClusterFaultDomain -CimSession "ClusterS1"
 
 ### <a name="step-53-set-a-preferred-site"></a>手順 5.3: 優先サイトを設定する
 
-また、グローバルな " *優先* " サイトを定義することもできます。これは、指定したリソースとグループを優先サイトで実行する必要があることを意味します。  この設定は、次のコマンドを使用してサイト レベルで定義できます。  
+また、グローバルな "*優先*" サイトを定義することもできます。これは、指定したリソースとグループを優先サイトで実行する必要があることを意味します。  この設定は、次のコマンドを使用してサイト レベルで定義できます。  
 
 ```powershell
 (Get-Cluster).PreferredSite = "Site1"

@@ -7,12 +7,12 @@ ms.author: v-johcob
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
 ms.date: 11/24/2020
-ms.openlocfilehash: 3606c62c562cb7f402aaafae33a55336345b5e62
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: f4c6b9585f41388281c6618fabd21932f6d48c38
+ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812630"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97051600"
 ---
 # <a name="azure-stack-hci-faq"></a>Azure Stack HCI の FAQ
 この Azure Stack HCI の FAQ は、Azure Stack HCI の接続に関するセクションと一般的な FAQ のセクションで構成されています。
@@ -68,7 +68,7 @@ Azure Stack HCI が Azure と同期されないまま 30 日が経過した場�
 
 **同期された情報は、実際にはどこに送信されますか?**
 
-Azure Stack HCI は Azure と同期され、データは Microsoft が運営するセキュリティで保護されたデータセンターに格納されます。 詳細については、「[Azure でのデータ所在地](https://azure.microsoft.com/global-infrastructure/data-residency/)」を参照してください。
+Azure Stack HCI は Azure と同期され、データは Microsoft が運営するセキュリティで保護されたデータセンターに格納されます。 詳細については、「[Azure Stack HCI のデータ コレクション](concepts/data-collection.md)」と「[Azure でのデータ所在地](https://azure.microsoft.com/global-infrastructure/data-residency/)」を参照してください。
 
 ### <a name="disconnected-or-air-gapped"></a>非接続 (エアギャップ) 環境
 

@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 09/22/2020
 ms.author: abha
 ms.reviewer: ''
-ms.openlocfilehash: f5451a9d30f87c2f4b985e4ae82541b12de52461
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 36c2d735f3652f4f195b4b9e1dda30fe8bce858c
+ms.sourcegitcommit: 3534ff416d40518eaba87eac8eca6d3082fc1d3f
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899705"
+ms.lasthandoff: 12/03/2020
+ms.locfileid: "96557006"
 ---
 # <a name="known-issues-for-azure-kubernetes-service-on-azure-stack-hci-public-preview"></a>Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビューに関する既知の問題
 この記事では、Azure Stack HCI 上の Azure Kubernetes Service のパブリック プレビュー リリースに関する既知の問題について説明します。
@@ -82,3 +82,6 @@ Windows Admin Center を使用して Azure Kubernetes Service ホストを設定
 ```PowerShell
 az connectedk8s delete
 ```
+
+## <a name="when-setting-up-an-azure-kubernetes-service-host-using-windows-admin-center-setup-may-fail-if-file-explorer-is-open"></a>Windows Admin Center を使用して Azure Kubernetes Service ホストを設定するときに、エクスプローラーが開いていると設定が失敗する可能性があります
+"確認と作成" 手順に達したときに、エクスプローラーが開いていて、**C:\Program Files\AksHci** ディレクトリにいる場合、作成は "プロセスでファイル 'C:\Program Files\AksHci\wssdcloudagent.exe' にアクセスできませんでした" というエラーで失敗する可能性があります。 これは、それが別のプロセスによって使用されているためです。 このエラーを回避するには、この手順に進む前に、エクスプローラーを閉じるか、別のディレクトリに移動します。 

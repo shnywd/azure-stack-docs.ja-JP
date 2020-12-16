@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: inhenkel
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 201acbad11011731a8e7017d14b39be120e460d3
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: d260c8486090dbe94931c2527102c06cf4b98314
+ms.sourcegitcommit: 61556b7b6e029e3a26a4b7ef97f0b13fbe7cd5a5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545773"
+ms.lasthandoff: 12/07/2020
+ms.locfileid: "96761653"
 ---
 # <a name="validate-azure-stack-hub-pki-certificates"></a>Azure Stack Hub PKI 証明書の検証
 
@@ -211,9 +211,9 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
 
 ### <a name="known-issues"></a>既知の問題
 
-**現象** :テストがスキップされる
+**現象**:テストがスキップされる
 
-**原因** :AzsReadinessChecker は、依存関係が満たされていない場合、特定のテストをスキップします。
+**原因**:AzsReadinessChecker は、依存関係が満たされていない場合、特定のテストをスキップします。
 
  - 証明書チェーンに問題がある場合、他の証明書はスキップされます。
 
@@ -237,7 +237,13 @@ Azure Stack Hub のデプロイに対して PKI 証明書を検証する前に�
     Invoke-AzsCertificateValidation Completed
     ```
 
-**解決方法** :ツール ガイダンスの詳細セクションにある各証明書テスト設定に従います。
+**解決方法**:ツール ガイダンスの詳細セクションにある各証明書テスト設定に従います。
+
+**現象**:HTTP CDP が x509 拡張機能に書き込まれているにもかかわらず、HTTP CRL チェックが失敗する。
+
+**原因**:現時点では、AzsReadinessChecker によって HTTP CDP を確認できない言語がいくつかあります。
+
+**解決方法**:OS 言語を EN-US に設定して検証を実行します。
 
 ## <a name="certificates"></a>証明書
 

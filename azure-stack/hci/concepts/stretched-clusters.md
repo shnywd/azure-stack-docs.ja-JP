@@ -3,15 +3,15 @@ title: ストレッチ クラスターの概要
 description: ストレッチ クラスターについて説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 12/04/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: e9651111e82b3449823ec7d13135154e7f0a447e
-ms.sourcegitcommit: 96bc36a203954622be411fdb038d601e49f97d4e
+ms.openlocfilehash: 13ec96862c6aaf494c96f9e3cb3ff6312bc9ab97
+ms.sourcegitcommit: 0efffe1d04a54062a26d5c6ce31a417f511b9dbf
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441142"
+ms.lasthandoff: 12/04/2020
+ms.locfileid: "96611625"
 ---
 # <a name="stretched-clusters-overview"></a>ストレッチ クラスターの概要
 
@@ -23,6 +23,9 @@ ms.locfileid: "94441142"
 
 - 同期レプリケーションでは、クラッシュ整合ボリュームを使用して低待機時間のネットワークによりサイト間でデータがミラー化され、障害時のファイル システム レベルでのデータ損失をゼロにすることができます。
 - 非同期レプリケーションは、大都市圏外のサイト間で待機時間の長いネットワーク リンクを通じてデータをミラーリングしますが、障害時に両方のサイトでデータが一致する保証はありません。
+
+>[!NOTE]
+> 非同期レプリケーションは手動フェールオーバーであるため、オンラインにする必要があります。 詳細については、「[非同期レプリケーション](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview#asynchronous-replication)」を参照してください。
 
 ストレッチ クラスターには、アクティブ - パッシブとアクティブ - アクティブの 2 種類があります。 優先されるサイトとレプリケーションの方向がある、アクティブ - パッシブのサイト レプリケーションを設定できます。 アクティブ - アクティブ レプリケーションでは、どちらのサイトからでも双方向のレプリケーションを実行できます。 この記事では、アクティブ - パッシブ構成のみについて説明します。
 
@@ -47,6 +50,7 @@ Azure Stack HCI でのストレッチ クラスターについては、少し時
 
 ## <a name="next-steps"></a>次のステップ
 
+- 記憶域レプリカの詳細を確認します。 「[記憶域レプリカの概要](https://docs.microsoft.com/windows-server/storage/storage-replica/storage-replica-overview)」を参照してください。
 - ストレッチ クラスターのハードウェアおよび他の要件について学習します。 [システム要件](system-requirements.md)に関するページを参照してください。
 - Windows Admin Center を使用してストレッチ クラスターをデプロイする方法について学習します。 [Windows Admin Center を使用したクラスターの作成](../deploy/create-cluster.md)に関する記事を参照してください。
 - PowerShell を使用してストレッチ クラスターをデプロイする方法について学習します。 [PowerShell を使用したクラスターの作成](../deploy/create-cluster-powershell.md)に関する記事を参照してください。

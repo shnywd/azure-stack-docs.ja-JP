@@ -15,12 +15,12 @@ ms.date: 10/27/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 10/27/2020
-ms.openlocfilehash: ad354e6acc6f1ab1edc51a5927138b873875bec8
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 9e7bb8b8174423a21c4f08e09cdb10d2a37bf556
+ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330237"
+ms.lasthandoff: 12/09/2020
+ms.locfileid: "96935068"
 ---
 # <a name="analyze-azure-stack-usage-with-local-usage-meters"></a>ローカルの使用状況測定を使用して、Azure Stack の使用状況を分析する
 
@@ -32,7 +32,7 @@ ms.locfileid: "93330237"
 
 要求は、要求されたサブスクリプションと要求された期間の使用の詳細を取得します。 要求の本文はありません。
 
-この使用状況 API はプロバイダー API であるため、呼び出し元に、プロバイダーのサブスクリプションの **所有者** 、 **共同作成者** 、または **閲覧者** の役割が割り当てられている必要があります。
+この使用状況 API はプロバイダー API であるため、呼び出し元に、プロバイダーのサブスクリプションの **所有者**、**共同作成者**、または **閲覧者** の役割が割り当てられている必要があります。
 
 | Method | 要求 URI |
 | --- | --- |
@@ -102,15 +102,28 @@ meterID1",
 
 ### <a name="powershell"></a>PowerShell
 
-使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシン (VM) や、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Marketplace で実行されているリソースがあるかどうかが不明な場合は、VM をデプロイし、実行されているかどうか VM 監視ブレードを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使います。
+使用量データを生成するには、実行されていて、システムをアクティブに使っているリソース (アクティブな仮想マシン (VM) や、データを格納しているストレージ アカウントなど) が必要です。 Azure Stack Marketplace で実行されているリソースがあるかどうかが不明な場合は、VM をデプロイし、実行されているかどうか VM 監視ブレードを確認します。 使用量データを表示するには、次の PowerShell コマンドレットを使用します。
 
-1. [PowerShell for Azure Stack をインストールします](../../operator/azure-stack-powershell-install.md)。
+### <a name="az-modules"></a>[Az モジュール](#tab/az1)
+
+1. [PowerShell for Azure Stack をインストールします](../../operator/powershell-install-az-module.md)。
 2. [Azure Stack ユーザー](../../user/azure-stack-powershell-configure-user.md)または [Azure Stack オペレーター](../../operator/azure-stack-powershell-configure-admin.md)の PowerShell 環境を構成します。
 3. 使用状況データを取得するには、[Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell コマンドレットを呼び出します。
 
    ```powershell
    Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
    ```
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
+
+1. [PowerShell for Azure Stack をインストールします](../../operator/powershell-install-az-module.md)。
+2. [Azure Stack ユーザー](../../user/azure-stack-powershell-configure-user.md)または [Azure Stack オペレーター](../../operator/azure-stack-powershell-configure-admin.md)の PowerShell 環境を構成します。
+3. 使用状況データを取得するには、[Get-AzsSubscriberUsage](/powershell/module/azs.commerce.admin/get-azssubscriberusage) PowerShell コマンドレットを呼び出します。
+
+   ```powershell
+   Get-AzsSubscriberUsage -ReportedStartTime "2017-09-06T00:00:00Z" -ReportedEndTime "2017-09-07T00:00:00Z"
+   ```
+
+---
 
 ### <a name="rest-api"></a>REST API
 
