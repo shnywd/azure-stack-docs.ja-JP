@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: e9f500da4cab68688a6dd33374cfbc1cc166828d
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: aaadabe207146f200d6090c2e59bcc563831c6d4
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "80424639"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343588"
 ---
 # <a name="how-to-manage-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub で Event Hubs を管理する方法
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Event Hubs の管理エクスペリエンスを使用すると、サービスを制御し、その状態とアラートを視覚化することができます。 
 
@@ -70,7 +68,7 @@ Event Hubs リソース プロバイダーでは、次のアラートがサポ�
 
 [![Event Hubs を管理する - アラートの概要](media/event-hubs-rp-manage/2-alerts-summary.png)](media/event-hubs-rp-manage/2-alerts-summary.png#lightbox)
 
-一覧からアラートを選択すると、右側のパネルに**アラートの詳細**が表示されます。
+一覧からアラートを選択すると、右側のパネルに **アラートの詳細** が表示されます。
 
 [![Event Hubs を管理する - アラートの詳細](media/event-hubs-rp-manage/2-alerts-detail.png)](media/event-hubs-rp-manage/2-alerts-detail.png#lightbox)
 

@@ -3,17 +3,17 @@ title: Azure からマーケットプレースの項目をダウンロードし�
 description: Azure から Marketplace の項目をダウンロードして Azure Stack Hub に発行する方法について学習します。
 author: sethmanheim
 ms.topic: conceptual
-ms.date: 12/9/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.reviewer: avishwan
-ms.lastreviewed: 12/9/2020
+ms.lastreviewed: 12/16/2020
 zone_pivot_groups: state-connected-disconnected
-ms.openlocfilehash: e66d49fc20a9cfbc70eeeb11a7817bd5bc75d7c0
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: f0aafd572aa50760a7b326d5ca699e3f1331b3e9
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934966"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620655"
 ---
 # <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする
 
@@ -119,7 +119,7 @@ Azure Stack の登録の完了後、[Marketplace management]\(Marketplace 管理
 
 1. インターネットに接続されているコンピューターで、PowerShell コンソールを管理者として開きます。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを使用して、適切な Azure クラウドと AzureAD ディレクトリ テナントにサインインします。 アカウントを追加するには、PowerShell で `Add-AzureRmAccount` を実行します。
+2. Azure Stack Hub を登録するために使用した Azure アカウントを使用して、適切な Azure クラウドと AzureAD ディレクトリ テナントにサインインします。 アカウントを追加するには、PowerShell で `Login-AzAccount` を実行します。
 
    ```powershell  
    Login-AzAccount -Environment AzureCloud -Tenant '<mydirectory>.onmicrosoft.com'

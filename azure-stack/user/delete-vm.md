@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の依存関係を持つ VM を削除する
 description: Azure Stack Hub 上の依存関係を持つ VM (仮想マシン) を削除する方法
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/7/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.lastreviewed: 12/7/2020
-ms.openlocfilehash: aaedac367ab9bd12a75e09917acfa6b02dc4930e
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 63a4ed0c6f1d63b21e221713befa84b0d10c1a95
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778191"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620706"
 ---
 # <a name="how-to-delete-a-vm-virtual-machine-with-dependencies-on-azure-stack-hub"></a>Azure Stack Hub 上の依存関係を持つ VM (仮想マシン) を削除する方法
 
@@ -52,7 +52,7 @@ Azure Stack Hub から VM を削除すると、コンポーネントの依存関
     2. リソースが完全に削除されるまで待ちます。
     3. その後、次の依存関係を削除できます。
 
-### <a name="with-powershell"></a>[PowerShell の場合](#tab/ps-az)
+### <a name="az-modules"></a>[Az モジュール](#tab/ps-az)
 
 リソース グループを削除できない場合は、依存関係が同じリソース グループにないか、他のリソースが存在します。この場合、次の手順を実行します。
 
@@ -126,7 +126,7 @@ VM を削除するには、同じセッションで、次のコマンドレッ�
 ```powershell
 $machine | Remove-AzVM -Force
 ```
-### <a name="with-powershell"></a>[PowerShell の場合](#tab/ps-azureRM)
+### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/ps-azureRM)
 
 リソース グループを削除できない場合は、依存関係が同じリソース グループにないか、他のリソースが存在します。この場合、次の手順を実行します。
 

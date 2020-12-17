@@ -8,24 +8,22 @@ ms.topic: how-to
 ms.date: 12/09/2019
 ms.reviewer: jfggdl
 ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 45267292e317088adcf9de4e5e34946cabe4d239
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 2b3fcfb0325689de08e77a9fbf599d023ba26a4c
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545888"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343515"
 ---
 # <a name="prerequisites-for-installing-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub に Event Hubs をインストールするための前提条件
 
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
-
-Azure Stack Hub に Event Hubs をインストールするには、次の前提条件を満たしておく必要があります。 すべての手順を完了するには、 **数日から数週間のリード タイムが必要になる場合があります** 。
+Azure Stack Hub に Event Hubs をインストールするには、次の前提条件を満たしておく必要があります。 すべての手順を完了するには、**数日から数週間のリード タイムが必要になる場合があります**。
 
 > [!IMPORTANT]
 > これらの前提条件は、少なくとも 4 ノードの Azure Stack Hub 統合システムが既にデプロイされていることを前提としています。 Event Hubs リソース プロバイダーは、Azure Stack Development Kit (ASDK) ではサポートされていません。
 
 > [!IMPORTANT]
-> Event Hubs には、Azure Stack Hub 2002 ビルド バージョン以上が必要です。 Azure Stack Hub のビルドが増分であることに注意してください。 たとえば、バージョン 1910 がインストールされている場合は、まず [2002](./release-notes.md?view=azs-2002#2002-build-reference) にアップグレードしてから、2005 にアップグレードする必要があります。 つまり、途中のビルドをスキップすることはできません。
+> Event Hubs には、Azure Stack Hub 2002 ビルド バージョン以上が必要です。 Azure Stack Hub のビルドが増分であることに注意してください。 たとえば、バージョン 1910 がインストールされている場合は、まず [2002](./release-notes.md?view=azs-2002&preserve-view=true#2002-build-reference) にアップグレードしてから、2005 にアップグレードする必要があります。 つまり、途中のビルドをスキップすることはできません。
 
 ## <a name="common-prerequisites"></a>一般的な前提条件
 
@@ -33,12 +31,12 @@ Azure Stack Hub に Event Hubs をインストールするには、次の前提�
 
 ## <a name="event-hubs-prerequisites"></a>Event Hubs の前提条件
 
-1. Event Hubs 用の公開キー基盤 (PKI) SSL 証明書を入手します。 サブジェクト代替名 (SAN) は、`CN=*.eventhub.<region>.<fqdn>` の名前付けパターンに従っている必要があります。 サブジェクト名を指定することもできますが、証明書を処理する際に Event Hubs によってこれが使用されることはありません。 サブジェクト代替名のみが使用されます。 詳細な要件の完全な一覧については、[PKI 証明書の要件](azure-stack-pki-certs.md)に関するページをご覧ください。  
+1. Event Hubs 用の公開キー基盤 (PKI) SSL 証明書を入手します。 サブジェクトの別名 (SAN) は、`CN=*.eventhub.<region>.<fqdn>` の名前付けパターンに従っている必要があります。 サブジェクト名を指定することもできますが、証明書を処理する際に Event Hubs によってこれが使用されることはありません。 サブジェクトの別名のみが使用されます。 詳細な要件の完全な一覧については、[PKI 証明書の要件](azure-stack-pki-certs.md)に関するページをご覧ください。  
 
    ![証明書の例](media/event-hubs-rp-prerequisites/certificate-example.png)
 
    > [!NOTE]
-   > **PFX ファイルはパスワードで保護する必要があります** 。 後のインストール時に、パスワードを要求されます。
+   > **PFX ファイルはパスワードで保護する必要があります**。 後のインストール時に、パスワードを要求されます。
 
 2. 必ず、[証明書の検証](azure-stack-validate-pki-certs.md)に関する記事に目を通してください。 この記事には、Event Hubs リソース プロバイダーに使用する証明書を準備して検証する方法が示されています。 
 

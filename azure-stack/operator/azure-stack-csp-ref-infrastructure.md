@@ -3,16 +3,16 @@ title: クラウド ソリューション プロバイダー向けの使用量�
 description: クラウド ソリューション プロバイダー (CSP) がサービスを提供するテナントの使用量を追跡するために使用される使用量レポート インフラストラクチャについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 51e747b5670a3e7eb58316069567e83e9ed9fc82
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 820cd9db933ee017f4b7a1890c277870d1bd23bd
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573052"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576991"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-solution-providers"></a>クラウド ソリューション プロバイダー向けの使用量レポート インフラストラクチャ
 
@@ -26,7 +26,7 @@ Azure Stack Hub と Azure でのサービスの課金方法にはいくつか違
 
 Commerce で使用される Azure Stack Hub メーターとその価格については、パートナー センターで確認できます。 そのプロセスは、Azure サービスの場合と同じです。
 
-1. パートナー センターで、 **[ダッシュボード] メニュー**に移動し、 **[販売]** を選択してから、 **[料金とプラン]** を選択します。
+1. パートナー センターで、 **[ダッシュボード] メニュー** に移動し、 **[販売]** を選択してから、 **[料金とプラン]** を選択します。
 2. **[使用量ベースのサービス]** で、 **[最新]** を選択します。
 3. **Azure in Global CSP price list (グローバル CSP 価格表での Azure)** スプレッドシートを開きます。
 4. **リージョン = Azure Stack Hub** でフィルター処理します。

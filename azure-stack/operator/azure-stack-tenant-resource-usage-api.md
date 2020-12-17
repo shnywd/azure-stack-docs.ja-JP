@@ -4,22 +4,22 @@ titleSuffix: Azure Stack
 description: Azure Stack Hub の使用状況情報を取得する、リソース使用状況 API のリファレンス。
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6e31a08badcaa171a2a6c30171ec8f2573e4b76
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 1fdc86f9077f6c59fa1424d7118d7c0ec6499d4f
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545535"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576957"
 ---
 # <a name="tenant-resource-usage-api-reference"></a>テナント リソース使用状況 API リファレンス
 
 テナントは、テナント API を使用して、テナントの独自のリソース使用状況データを表示できます。 これらの API は、Azure の使用状況の API と一致しています。
 
-Windows PowerShell コマンドレット [Get-UsageAggregates](/powershell/module/Az.usageaggregates/get-usageaggregates) を使用して、Azure と同じように使用状況データを取得することができます。
+Windows PowerShell コマンドレット [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) を使用して、Azure と同じように使用状況データを取得することができます。
 
 ## <a name="api-call"></a>API 呼び出し
 
@@ -37,7 +37,7 @@ Windows PowerShell コマンドレット [Get-UsageAggregates](/powershell/modul
 | --- | --- |
 | Armendpoint |Azure Stack Hub 環境の Azure Resource Manager エンドポイント。 Azure Stack Hub の規則は、Azure Resource Manager エンドポイントの名前が `https://management.{domain-name}` の形式であることです。 たとえば、開発キットでは、ドメイン名が local.azurestack.external の場合、Resource Manager エンドポイントは `https://management.local.azurestack.external` です。 |
 | subId |呼び出しを行っているユーザーのサブスクリプション ID。 この API は、1 つのサブスクリプションの使用状況をクエリするためにのみ使用できます。 プロバイダーは、プロバイダー リソース使用量 API を使用して、すべてのテナントの使用状況をクエリできます。 |
-| reportedStartTime |クエリの開始時間。 *DateTime* の値は UTC で、13:00 など、毎時 0 分にする必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 です。たとえば、 **2015-06-16T18%3a53%3a11%2b00%3a00Z** などで、URI に対応できるように、コロンは %3a にエスケープされ、プラスは %2b にエスケープされます。 |
+| reportedStartTime |クエリの開始時間。 *DateTime* の値は UTC で、13:00 など、毎時 0 分にする必要があります。 毎日の集計では、この値を UTC の午前 0 時に設定します。 形式はエスケープされた ISO 8601 です。たとえば、**2015-06-16T18%3a53%3a11%2b00%3a00Z** などで、URI に対応できるように、コロンは %3a にエスケープされ、プラスは %2b にエスケープされます。 |
 | reportedEndTime |クエリの終了時間。 **reportedStartTime** に適用される制約は、このパラメーターにも適用されます。 **reportedEndTime** については、将来の値にすることはできません。 |
 | aggregationGranularity |**daily** と **hourly** の 2 つの個別の指定可能な値を持つ省略可能なパラメーター。 値が示すように、一方は日単位の粒度でデータを返し、もう一方は時間単位の解像度です。 **daily** オプションが既定値です。 |
 | api-version |この要求を行うために使用するプロトコルのバージョン。 **2015-06-01-preview** を使用する必要があります。 |
@@ -84,9 +84,9 @@ GET
 | subscriptionId |Azure ユーザーのサブスクリプション識別子。 |
 | usageStartTime |この使用状況集計が属する使用状況バケットの UTC 開始時間 |
 | usageEndTime |この使用状況集計が属する使用状況バケットの UTC 終了時間 |
-| instanceData |インスタンスの詳細のキーと値のペア (新しい形式)。<br>  *resourceUri* :完全修飾リソース ID。リソース グループとインスタンス名が含まれます。 <br>  *location* :このサービスが実行されたリージョン。 <br>  *tags* :ユーザーが指定するリソース タグ。 <br>  *additionalInfo* :使用されたリソースに関する詳細。 たとえば、OS のバージョンやイメージの種類などです。 |
+| instanceData |インスタンスの詳細のキーと値のペア (新しい形式)。<br>  *resourceUri*:完全修飾リソース ID。リソース グループとインスタンス名が含まれます。 <br>  *location*:このサービスが実行されたリージョン。 <br>  *tags*:ユーザーが指定するリソース タグ。 <br>  *additionalInfo*:使用されたリソースに関する詳細。 たとえば、OS のバージョンやイメージの種類などです。 |
 | 数量 |この期間に発生したリソース使用量 |
-| meterId |使用されたリソースの一意の ID ( **ResourceID** とも呼ばれます) |
+| meterId |使用されたリソースの一意の ID (**ResourceID** とも呼ばれます) |
 
 ## <a name="next-steps"></a>次のステップ
 

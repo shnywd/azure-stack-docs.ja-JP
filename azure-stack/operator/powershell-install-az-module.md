@@ -3,16 +3,16 @@ title: Azure Stack Hub 用の PowerShell Az モジュールをインストール
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/10/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 91ddbc5aeb9c10b49b21db331e6e7c71a8a15764
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 9a5e00c873e348046c10e5a8e7dd5ccc9ea915f2
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935204"
+ms.lasthandoff: 12/10/2020
+ms.locfileid: "97069837"
 ---
 # <a name="install-powershell-az-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell Az モジュールをインストールする
 
@@ -184,6 +184,12 @@ Get-Module -Name "Azs*" -ListAvailable
 Azure Resource Manager に基づくコマンドレットとコード サンプルを使用できます。 ただし、モジュールとコマンドレットの名前を変更する必要があります。 モジュール名は、`AzureRM` および Azure が `Az` になるように変更されており、コマンドレットについても同様です。 たとえば、`AzureRM.Compute` モジュールは名前が `Az.Compute` に変更されています。` New-AzureRMVM` は ` New-AzVM` になり、`Get-AzureStorageBlob` は `Get-AzStorageBlob` になっています。
 
 Az への AzurRM スクリプトの移動、および Azure Stack Hub の AZ モジュールにおける破壊的変更に関する詳しい説明とガイダンスについては、[AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)に関する記事を参照してください。
+
+## <a name="known-issues"></a>既知の問題
+
+[!Include[Known issue for install - one](../includes/known-issue-az-install-1.md)]
+
+[!Include[Known issue for install - two](../includes/known-issue-az-install-2.md)]
 
 ## <a name="next-steps"></a>次のステップ
 

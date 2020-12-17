@@ -6,16 +6,16 @@ services: azure-stack
 documentationcenter: ''
 author: sethmanheim
 ms.topic: article
-ms.date: 08/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 540fce92723c434ec5c8cb5ee7a2be0dd04b3639
-ms.sourcegitcommit: d73637146daaba0ef0ab1729683bb52c65466099
+ms.openlocfilehash: a4f9744139199f999475f24a3910e1929b0a8b9b
+ms.sourcegitcommit: a53ea4a28e715c80a99fa89e9d364bc4556558de
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88857484"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97576974"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-hub-usage"></a>Azure Stack Hub の使用量に関してよく寄せられる質問
 
@@ -240,7 +240,7 @@ ms.locfileid: "88857484"
 **測定 ID**:D1D04836-075C-4F27-BF65-0A1130EC60ED  
 **測定名**:関数 - コンピューティング  
 **単位**:GB/秒  
-**注**:ギガバイト/秒 (GB/秒) 単位で測定されたリソース使用量。 **実際のリソース使用量**は、平均メモリ サイズ (GB) に関数の実行にかかった時間 (ミリ秒) を乗じて計算されます。 関数によって使用されたメモリは、128 MB 単位で切り上げて測定されます。最大メモリ サイズは 1,536 MB です。実行時間は 1 ミリ秒単位で切り上げて計算されます。 1 つの関数の実行の最小実行時間は 100 ミリ秒、最小メモリは 128 MB です。  
+**注**:ギガバイト/秒 (GB/秒) 単位で測定されたリソース使用量。 **実際のリソース使用量** は、平均メモリ サイズ (GB) に関数の実行にかかった時間 (ミリ秒) を乗じて計算されます。 関数によって使用されたメモリは、128 MB 単位で切り上げて測定されます。最大メモリ サイズは 1,536 MB です。実行時間は 1 ミリ秒単位で切り上げて計算されます。 1 つの関数の実行の最小実行時間は 100 ミリ秒、最小メモリは 128 MB です。  
   
 **測定 ID**:957E9F36-2C14-45A1-B6A1-1723EF71A01D  
 **測定名**:Shared App Service 時間  
