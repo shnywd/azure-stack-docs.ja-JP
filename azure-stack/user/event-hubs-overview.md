@@ -5,19 +5,17 @@ author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 11/27/2019
+ms.date: 12/11/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 11/27/2019
-ms.openlocfilehash: adb00ebbe3f5ea3cf233ebaa485913d48ea63e23
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.lastreviewed: 12/11/2020
+ms.openlocfilehash: c7b54121f826fb514590f39c92cde0e62972ce97
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546958"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364151"
 ---
 # <a name="overview-of-event-hubs-on-azure-stack-hub"></a>Azure Stack Hub 上の Event Hubs の概要
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
 
 Azure Stack Hub 上の Event Hubs を使用すると、ハイブリッド クラウド シナリオを実現できます。 オンプレミスと Azure クラウドの両方の処理で、ストリーミングやイベントベースのソリューションがサポートされます。 ハイブリッド (接続型) シナリオであれ非接続型のシナリオであれ、大規模なイベント処理またはストリーム処理に対応したソリューションを実現できます。 シナリオは Event Hubs クラスターによってのみ制限され、その点は、必要に応じてプロビジョニングすることができます。 
 
