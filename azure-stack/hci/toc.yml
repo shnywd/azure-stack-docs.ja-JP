@@ -158,6 +158,8 @@
       items:
         - name: 課金
           href: concepts/billing.md
+        - name: ファイアウォールの構成
+          href: concepts/configure-firewalls.md
         - name: 更新とアップグレード
           href: concepts/updates.md
         - name: セキュリティに関する考慮事項
