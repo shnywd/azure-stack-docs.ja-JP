@@ -26,6 +26,8 @@
       href: deploy/create-cluster.md
     - name: クラスター監視のセットアップ
       href: deploy/witness.md
+    - name: SDN インフラストラクチャの展開
+      href: deploy/sdn-express.md
     - name: 新しいハードウェアに移行する
       href: deploy/migrate-cluster-new-hardware.md
     - name: 同じハードウェア上で移行する
