@@ -3,16 +3,16 @@ title: Azure CLI を使用して Azure Stack Hub を管理する
 description: クロスプラットフォーム コマンドライン インターフェイス (CLI) を使用して、Azure Stack Hub でリソースを管理およびデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5cd1c1b7dac9e05925488b3543461f3fbd8dd9e5
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: a1307ca10a2655e166b41d43da4ac83cbe601dc5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525882"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620723"
 ---
 # <a name="install-azure-cli-on-azure-stack-hub"></a>Azure CLI を Azure Stack Hub にインストールする
 
@@ -36,7 +36,7 @@ Azure CLI をインストールすると、Windows マシンまたは Linux マ�
 
 2. CLI の Python の場所を書き留めておきます。 ASDK を実行する場合には、この場所を使用して証明書を追加する必要があります。 ASDK で CLI をインストールするための証明書を設定する手順については、「[Azure Stack Development Kit での Azure CLI 用の証明書の設定](../asdk/asdk-cli.md)」を参照してください。
 
-## <a name="set-up-azure-cli"></a>Azure CLI をセットアップする
+## <a name="connect-with-azure-cli"></a>Azure CLI との接続
 
 ### <a name="azure-ad-on-windows"></a>[Azure AD と Windows](#tab/ad-win)
 
@@ -50,17 +50,25 @@ Azure CLI をインストールすると、Windows マシンまたは Linux マ�
 
 3. お客様の環境を登録します。 `az cloud register` を実行するときに、次のパラメーターを使用します。
 
-    | 値 | 例 | 説明 |
-    | --- | --- | --- |
-    | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
-    | Resource Manager エンドポイント | `https://management.local.azurestack.external` | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.local.azurestack.external/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
-    | ストレージ エンドポイント | local.azurestack.external | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
-    | Keyvault のサフィックス | .vault.local.azurestack.external | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
-    | VM イメージのエイリアスのドキュメント エンドポイント | https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json | VM イメージのエイリアスを含むドキュメントの URI。 詳細については、「[仮想マシンのエイリアス エンドポイントを設定する](../asdk/asdk-cli.md#set-up-the-virtual-machine-alias-endpoint)」を参照してください。 |
+      | 値 | 例 | 説明 |
+      | --- | --- | --- |
+      | 環境名 | AzureStackUser | ユーザー環境の場合は、`AzureStackUser` を使用します。 オペレーターの場合は、`AzureStackAdmin` を指定します。 |
+      | Resource Manager エンドポイント | `https://management.contoso.onmicrosoft.com` | ASDK の **ResourceManagerUrl** は次のとおりです。`https://management.contoso.onmicrosoft.com/` になります。統合システムの **ResourceManagerUrl** は`https://management.<region>.<fqdn>/` になります。統合システム エンドポイントに関する質問がある場合は、お客様のクラウド オペレーターにお問い合わせください。 |
+      | ストレージ エンドポイント | local.contoso.onmicrosoft.com | `local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+      | Keyvault のサフィックス | .vault.contoso.onmicrosoft.com | `.vault.local.azurestack.external` は、ASDK の場合です。 統合システムの場合は、システムのエンドポイントを使用します。  |
+      | エンドポイント Azure Active Directory Graph リソース ID | https://graph.windows.net/ | Active Directory リソース ID。 |
+    
+      ```azurecli  
+      az cloud register `
+          -n <environmentname> `
+          --endpoint-resource-manager "https://management.<region>.<fqdn>" `
+          --suffix-storage-endpoint "<fqdn>" `
+          --suffix-keyvault-dns ".vault.<fqdn>" `
+          --endpoint-active-directory-graph-resource-id "https://graph.windows.net/"
+      ```
 
-    ```azurecli  
-    az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains VM image aliases>
-    ```
+    [register コマンド](https://docs.microsoft.com/cli/azure/cloud?view=azure-cli-latest#az_cloud_register)のリファレンスは、Azure CLI リファレンス ドキュメントにあります。
+
 
 4. 次のコマンドを使用して、アクティブな環境を設定します。
 
@@ -73,18 +81,17 @@ Azure CLI をインストールすると、Windows マシンまたは Linux マ�
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
-
-    >[!NOTE]  
-    >1808 ビルドより前のバージョンの Azure Stack Hub を実行している場合は、**2019-03-01-hybrid** の API バージョンのプロファイルではなく、**2017-03-09-profile** の API バージョンのプロファイルを使用する必要があります。 また、Azure CLI の最新バージョンを使用する必要もあります。
  
-6. `az login` コマンドを使用して Azure Stack Hub 環境にサインインします。 Azure Stack Hub 環境には、ユーザーまたは[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals)としてサインインします。 
+6. `az login` コマンドを使用して Azure Stack Hub 環境にサインインします。
+
+    Azure Stack Hub 環境にサインインするには、ユーザー資格情報を使用するか、クラウド オペレーターによって提供される[サービス プリンシパル](/azure/active-directory/develop/app-objects-and-service-principals) (SPN) を使用します。 
 
    - *ユーザー* としてサインインする場合: 
 
      `az login` コマンド内で直接ユーザー名とパスワードを指定するか、ブラウザーを使用して認証できます。 多要素認証が有効になっているアカウントの場合は、後者を実行する必要があります。
 
      ```azurecli
-     az login -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+     az login -u "user@contoso.onmicrosoft.com" -p 'Password123!' --tenant contoso.onmicrosoft.com
      ```
 
      > [!NOTE]
@@ -92,11 +99,34 @@ Azure CLI をインストールすると、Windows マシンまたは Linux マ�
 
    - *サービス プリンシパル* を使ってサインインする｡ 
     
-     サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](../operator/azure-stack-create-service-principals.md?view=azs-2002)してロールに割り当てます。 次のコマンドを使用してサインインします。
+        サインインする前に、CLI または [Azure Portal でサービス プリンシパルを作成](../operator/azure-stack-create-service-principals.md?view=azs-2002)してロールに割り当てます。 次のコマンドを使用してサインインします。
+    
+        ```azurecli  
+        az login `
+          --tenant <Azure Active Directory Tenant name. `
+                    For example: myazurestack.onmicrosoft.com> `
+        --service-principal `
+          -u <Application Id of the Service Principal> `
+          -p <Key generated for the Service Principal>
+        ```
+    
+7. 環境が正しく設定されていること、環境がアクティブなクラウドであることを確認します。
 
-     ```azurecli  
-     az login --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> --service-principal -u <Application Id of the Service Principal> -p <Key generated for the Service Principal>
-     ```
+      ```azurecli
+          az cloud list --output table
+      ```
+
+環境が一覧表示され、**IsActive** が `true` になっていることを確認します。 例:
+
+```azurecli  
+IsActive    Name               Profile
+----------  -----------------  -----------------
+False       AzureCloud         2019-03-01-hybrid
+False       AzureChinaCloud    latest
+False       AzureUSGovernment  latest
+False       AzureGermanCloud   latest
+True        AzureStackUser     2019-03-01-hybrid
+```
 
 #### <a name="test-the-connectivity"></a>接続のテスト
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Stack VM の機能 | Microsoft Docs
-description: MDC で VM を操作する際のさまざまな機能と考慮事項について説明します。
+title: Azure Stack 仮想マシン (VM) の機能 | Microsoft Docs
+description: MDC で仮想マシン (VM) を操作する際のさまざまな機能と考慮事項について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: b8a5d2a0f08ac36b4f4ebc20e0dc3c9eea67218a
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8bd1231c0a3e9ef7dc55349fb05c872666d47585
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935102"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598336"
 ---
-# <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
+# <a name="azure-stack-vm-features---modular-data-center-mdc"></a>Azure Stack VM の機能 - Modular Data Center (MDC)
 
 Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブルなコンピューティング リソースが提供されます。 VM を展開する前に、Azure Stack と Microsoft Azure で使用できる VM の機能の相違点について学ぶ必要があります。 この記事では、これらの相違点について説明し、VM の展開を計画する際の重要な考慮事項を特定します。 Azure Stack と Azure の違いの概要については、「[主な考慮事項](../user/azure-stack-considerations.md)」をご覧ください。
 

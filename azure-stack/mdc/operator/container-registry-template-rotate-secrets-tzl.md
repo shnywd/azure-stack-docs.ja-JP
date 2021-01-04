@@ -1,7 +1,7 @@
 ---
-title: Azure Stack Hub 内でコンテナー レジストリのシークレットをローテーションする | Microsoft Docs
+title: Azure Stack Hub 内でコンテナー レジストリのシークレットをローテーションする - MDC
 titleSuffix: Azure Stack Hub
-description: Azure Stack Hub 内でコンテナー レジストリのシークレットをローテーションする方法について説明します。
+description: Modular Data Center の Azure Stack Hub 内でコンテナー レジストリのシークレットをローテーションする方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 10/26/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: eb835552b8f7142878d03aa1bb3bb062cd2cf3f6
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 932f63ef4b442578baf9f217ae0f25a6fe29290e
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934984"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598217"
 ---
-# <a name="rotate-container-registry-secrets-in-azure-stack-hub"></a>Azure Stack Hub 内でコンテナー レジストリをローテーションする
+# <a name="rotate-container-registry-secrets-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack Hub 内でコンテナー レジストリのシークレットをローテーションする - Modular Data Center (MDC)
 
 Azure Stack Hub のユーザーは、コンテナー レジストリ テンプレート デプロイのシークレット (証明書、ユーザー名、パスワード) をローテーションできます。 スクリプトを実行して Microsoft Azure Key Vault 内で新しいシークレット値を設定し、既存のコンテナー レジストリ テンプレート インスタンスを **再デプロイ** することができます。 シークレットを単独でローテーションする場合、新しいデプロイは必要ありません。
 
@@ -257,11 +257,11 @@ Azure Stack Hub のユーザーは、コンテナー レジストリ テンプ�
 
 3. **[デプロイ]** の下のデプロイを選択します。
 
-    ![デプロイメント](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
+    ![[デプロイ] ページのスクリーンショット。](./media/container-registry-template-rotating-secrets-tzl/deployments.png)
 
 4.  シークレットを初めてローテーションする場合は、元のデプロイを選択します。 シークレットをローテーションするのが初めてではない場合は、最新のデプロイを選択し、 **[再デプロイ]** を選択します。
 
-    ![Redeploy](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
+    ![[再デプロイ] アクションが選択されている [概要] ページを示すスクリーンショット。](./media/container-registry-template-rotating-secrets-tzl/redeploy.png)
 
 5.  **[ソリューション テンプレートのデプロイ]** で **[既存のものを使用]** を選択し、最初にコンテナー レジストリ テンプレートのデプロイに使用したリソース グループを選択します。 再デプロイを成功させるには、同じリソース グループを使用する必要があります。
 
@@ -273,7 +273,7 @@ Azure Stack Hub のユーザーは、コンテナー レジストリ テンプ�
 
     - 証明書をローテーションする場合は、新しいシークレットを設定した結果として出力された PFXKeyVaultSecretURL と PFXThumbprint に対して新しい値を入力する必要があります。
 
-    ![パラメーター](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
+    ![[パラメーター] ウィンドウのスクリーンショット。](./media/container-registry-template-rotating-secrets-tzl/parameters.png)
 
 7.  **[OK]** 、 **[作成]** の順に選択します。 再デプロイが続行されます。 レジストリ機能は、再デプロイ中も機能し続けます。
 

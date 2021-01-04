@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Hub のためのキャパシティ プランニングの概要 | Microsoft Docs
-description: Azure Stack Hub デプロイのためのキャパシティ プランニングについて説明します。
+title: 概要 - Azure Stack Hub のキャパシティ プランニング | Microsoft Docs
+description: コンピューティングやストレージの情報を含む、Azure Stack Hub デプロイのキャパシティ プランニングについて説明します。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,14 +16,14 @@ ms.date: 01/10/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: a608a64de28104513cb708ef350eb4db672f5f65
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 12862a71146606bfba81ea0de630a93181951c06
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183494"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598591"
 ---
-# <a name="overview-of-azure-stack-hub-capacity-planning"></a>Azure Stack Hub のキャパシティ プランニングの概要
+# <a name="overview-of-azure-stack-hub-capacity-planning---modular-data-center-mdc"></a>Azure Stack Hub キャパシティ プランニングの概要 - Modular Data Center (MDC)
 
 Azure Stack Hub ソリューションを評価する場合は、Azure Stack Hub クラウドの容量全体に直接影響するハードウェア構成の選択肢を考慮してください。 
 

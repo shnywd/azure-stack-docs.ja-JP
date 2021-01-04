@@ -1,5 +1,5 @@
 ---
-title: Azure Stack でサポートされている VM のサイズ | Microsoft Docs
+title: MDC の Azure Stack でサポートされている VM のサイズ | Microsoft Docs
 description: MDC でサポートされている VM のサイズのリファレンスです。
 services: azure-stack
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 12/20/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 80132bec125e6e8a9730d8c1fddf12f1163a0fe6
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: 79245ddf40d2ab39f4bb8ed7548023b3df6ec556
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183498"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598608"
 ---
-# <a name="vm-sizes-supported-in-azure-stack"></a>Azure Stack でサポートされている VM のサイズ
+# <a name="vm-sizes-supported-in-azure-stack---modular-data-center-mdc"></a>Azure Stack でサポートされている VM のサイズ - Modular Data Center (MDC)
 
 この記事では、Azure Stack で使用可能な仮想マシン (VM) のサイズの一覧を示します。 この記事を使用して、Azure Stack ソリューションをサポートするために VM を選択できます。
 

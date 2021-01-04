@@ -1,6 +1,6 @@
 ---
-title: Azure Stack のためのインフラストラクチャ バックアップ サービスのベスト プラクティス | Microsoft Docs
-description: Azure Stack をデプロイして管理するときのこれらのベスト プラクティスに従って、致命的な障害が発生した場合のデータ損失を軽減できます。
+title: Azure Stack のためのインフラストラクチャ バックアップ サービスのベスト プラクティス - MDC | Microsoft Docs
+description: MDC の Azure Stack をデプロイして管理するときのこれらのベスト プラクティスに従って、致命的な障害が発生した場合のデータ損失を軽減できます。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: d2775627f9834a6410fcf2888bbb4abca66d958b
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: 0bbe41c26861d2a407641e06a2298ec5d3badf0f
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330218"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598557"
 ---
-# <a name="infrastructure-backup-service-best-practices"></a>インフラストラクチャ バックアップ サービスのベスト プラクティス
+# <a name="infrastructure-backup-service-best-practices---modular-data-center-mdc"></a>インフラストラクチャ バックアップ サービスのベスト プラクティス - Modular Data Center (MDC)
 
 *適用対象:Modular Data Center、Azure Stack Hub ラグド*
 
@@ -95,9 +95,9 @@ OEM は、各社のコンポーネントのバックアップ データは、リ
 
 Infrastructure Backup サービスには、次のコンポーネントが含まれています。
 
-- **Infrastructure Backup コントローラー** : Infrastructure Backup コントローラーは、各 Azure Stack クラウド内でインスタンス化され、配置されています。
+- **Infrastructure Backup コントローラー**: Infrastructure Backup コントローラーは、各 Azure Stack クラウド内でインスタンス化され、配置されています。
 
-- **バックアップ リソース プロバイダー** : バックアップ リソース プロバイダー (バックアップ RP) は、ユーザー インターフェイスと、Azure Stack インフラストラクチャ向けの基本バックアップ機能を公開する API で構成されています。
+- **バックアップ リソース プロバイダー**: バックアップ リソース プロバイダー (バックアップ RP) は、ユーザー インターフェイスと、Azure Stack インフラストラクチャ向けの基本バックアップ機能を公開する API で構成されています。
 
 ### <a name="infrastructure-backup-controller"></a>インフラストラクチャ バックアップ コントローラー
 
@@ -119,8 +119,8 @@ Infrastructure Backup コント ローラーは、Azure Stack クラウド向け
 
 要件は次のとおりです。
 
-- **ソフトウェア要件** : サポートされる保存場所とサイズ設定のガイダンスを示します。
-- **ネットワークの要件** : 各種保存場所のネットワーク要件について説明します。
+- **ソフトウェア要件**: サポートされる保存場所とサイズ設定のガイダンスを示します。
+- **ネットワークの要件**: 各種保存場所のネットワーク要件について説明します。
 
 ### <a name="software-requirements"></a>ソフトウェア要件
 

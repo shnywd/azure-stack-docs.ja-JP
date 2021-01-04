@@ -4,16 +4,16 @@ titleSuffix: Azure Stack
 description: Azure Stack Hub で使用できるゲスト オペレーティング システムについて説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/06/2019
-ms.openlocfilehash: 2275f00f8df77b3822537ca73ec35b342b477617
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: 3d535893b75cdaf49b4003fce2382ab092b328fe
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250301"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620587"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack-hub"></a>Azure Stack Hub でサポートされているゲスト オペレーティング システム
 

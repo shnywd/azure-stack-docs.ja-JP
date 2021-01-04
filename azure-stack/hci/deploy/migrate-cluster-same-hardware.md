@@ -6,18 +6,22 @@ ms.topic: how-to
 ms.date: 12/10/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 08ed2b7272fd8a4f9f28f2721b8aff6552131afc
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: ea19dbbdd85f29eb036a0220828bbbb7bca33ea7
+ms.sourcegitcommit: d91d44762383790a0bcfc4a85f43050c8528d5d2
 ms.translationtype: HT
 ms.contentlocale: ja-JP
 ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051566"
+ms.locfileid: "97069812"
 ---
 # <a name="migrate-to-azure-stack-hci-on-same-hardware"></a>同じハードウェア上の Azure Stack HCI に移行する
 
 > 適用対象:Azure Stack HCI バージョン 20H2、Windows Server 2019、Windows Server 2016、Windows Server 2012 R2、Windows Server 2008 R2
 
 このトピックでは、既存のサーバー ハードウェアを使用して、Windows Server 2016 または Windows Server 2019 クラスターを Azure Stack HCI に移行する方法について説明します。 このプロセスにより、新しい Azure Stack HCI オペレーティング システムをインストールし、既存のクラスター設定と記憶域を保持し、VM をインポートします。
+
+次の図は、同じサーバー ハードウェアを使用した Windows Server クラスターのインプレース移行を示しています。 クラスターをシャットダウンした後、Azure Stack HCI がインストールされ、記憶域が再接続され、VM がインポートされ、高可用 (HA) になります。
+
+:::image type="content" source="media/migrate/migrate-cluster-same-hardware.png" alt-text="同じハードウェア上の Azure Stack HCI にクラスターを移行する" lightbox="media/migrate/migrate-cluster-same-hardware.png":::
 
 VM を新しい Azure Stack HCI ハードウェアに移行するには、[「新しいハードウェア上の Azure Stack HCI に移行する」](migrate-cluster-new-hardware.md)を参照してください。
 

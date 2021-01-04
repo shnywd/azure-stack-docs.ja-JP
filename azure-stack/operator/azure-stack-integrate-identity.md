@@ -8,12 +8,12 @@ ms.author: bryanla
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
 ms.custom: conteperfq4
-ms.openlocfilehash: 3087e7b4f84aa710a89a2f122e91bcfd643eed8d
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 971bac83972664bbefe900f16aa2ab83c12aa3a1
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544192"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515049"
 ---
 # <a name="integrate-ad-fs-identity-with-your-azure-stack-hub-datacenter"></a>AD FS ID を Azure Stack Hub データセンターに統合する
 
@@ -92,6 +92,8 @@ Active Directory サイトの詳細については、「[サイト トポロジ�
 
 2. 特権エンドポイントを使用するセッションができたので、次のコマンドを実行します。 
 
+   **Azure Stack Hub の 2008 以降のビルドについては、次のスクリプトを実行します** <br>
+
    ```powershell  
     $i = @(
            [pscustomobject]@{ 
@@ -104,6 +106,14 @@ Active Directory サイトの詳細については、「[サイト トポロジ�
     Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -customCatalog $using:i} 
 
 
+   ```
+
+   **Azure Stack Hub の 2008 より前のビルドについては、次のスクリプトを実行します** <br>
+
+   ```powershell  
+   Invoke-Command -Session $pep -ScriptBlock {Register-DirectoryService -CustomADGlobalCatalog contoso.com} 
+   
+   
    ```
 
    メッセージが表示されたら、Graph サービスに使用するユーザー アカウントの資格情報を指定します (graphservice など)。 Register-DirectoryService コマンドレットには、フォレスト内の他のドメインではなく、フォレスト内のフォレスト名/ルート ドメインを入力する必要があります。

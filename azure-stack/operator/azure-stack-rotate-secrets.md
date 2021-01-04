@@ -9,12 +9,12 @@ ms.reviewer: ppacent
 ms.author: bryanla
 ms.lastreviewed: 08/15/2020
 monikerRange: '>=azs-1803'
-ms.openlocfilehash: 69e1aa757f0285cc39d8df16bbd3531af0d3ea51
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 800e6f2173f409283a04259f29b4835e66ced075
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96152847"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343161"
 ---
 # <a name="rotate-secrets-in-azure-stack-hub"></a>Azure Stack Hub でシークレットをローテーションする
 
@@ -108,7 +108,7 @@ Azure Stack Hub はシークレットを使用して、インフラストラク�
 3. ローテーションに使われる証明書のバックアップを安全なバックアップ場所に格納します。 ローテーションを実行して失敗した場合は、ローテーションを再実行する前に、ファイル共有内の証明書をバックアップ コピーに置き換えます。 バックアップ コピーはセキュリティで保護されたバックアップ場所に保存してください。
 4. ERCS VM からアクセスできるファイル共有を作成します。 ファイル共有は、**CloudAdmin** ID で読み書きできる必要があります。
 5. ファイル共有にアクセスできるコンピューターから PowerShell ISE コンソールを開きます。 ファイル共有に移動します。ここで、外部証明書を配置するディレクトリを作成します。
-6. ローテーション中にアクセスできるネットワーク ファイル共有に **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** をダウンロードし、スクリプトを実行します。 このスクリプトにより、ID プロバイダーに応じて **_.\Certificates\AAD_ *_ または _* _.\Certificates\ADFS_ *_ に準拠するフォルダー構造が作成されます。フォルダー構造は、_* \\Certificates** フォルダーで始まり、その後に、 **\\AAD** または **\\ADFS** フォルダーのみが続く必要があります。 その他のすべてのサブディレクトリは、上記の構造内に含まれます。 次に例を示します。
+6. **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** をネットワーク ファイル共有にダウンロードし、スクリプトを実行します。 このスクリプトにより、ID プロバイダーに応じて **_.\Certificates\AAD_ *_ または _* _.\Certificates\ADFS_ *_ に準拠するフォルダー構造が作成されます。フォルダー構造は、_* \\Certificates** フォルダーで始まり、その後に、 **\\AAD** または **\\ADFS** フォルダーのみが続く必要があります。 その他のすべてのサブディレクトリは、上記の構造内に含まれます。 次に例を示します。
     - ファイル共有 = **\\\\\<IPAddress>\\\<ShareName>**
     - Azure AD プロバイダーの証明書ルート フォルダー = **\\Certificates\AAD**
     - 完全なパス = **\\\\\<IPAddress>\\\<ShareName>\Certificates\AAD**

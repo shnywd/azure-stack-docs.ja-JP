@@ -3,16 +3,16 @@ title: Azure Stack Hub のリリース ノート
 description: 更新プログラムやバグ修正プログラムを含む、Azure Stack Hub 統合システムのリリース ノート。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/11/2020
 ms.author: sethm
 ms.reviewer: sranthar
 ms.lastreviewed: 09/09/2020
-ms.openlocfilehash: aed3b9f5eb59ef440503625d807f8ef7b777f7b1
-ms.sourcegitcommit: 85827a2227eb2d1ed1ed44bb9f00e28d96818c84
+ms.openlocfilehash: c94b91d2144248dd154da5b630b99470461dda67
+ms.sourcegitcommit: 56d7da84672261e2490138011bd8dd4eaf81851d
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96869039"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97492774"
 ---
 # <a name="azure-stack-hub-release-notes"></a>Azure Stack Hub のリリース ノート
 
@@ -131,7 +131,7 @@ Azure Stack Hub 修正プログラムを適用できるのは Azure Stack Hub �
 
 Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用された 2005 リリースに適用する必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack Hub 修正プログラム 1.2005.25.92](https://support.microsoft.com/help/4595074)
 
 ### <a name="after-successfully-applying-the-2008-update"></a>2008 更新プログラムが正常に適用された後
 
@@ -139,7 +139,7 @@ Azure Stack Hub の 2008 リリースは、次の修正プログラムが適用�
 
 2008 のインストール後に、2008 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub Hotfix 1.2008.19.100](https://support.microsoft.com/help/4595073)
+- [Azure Stack Hub 修正プログラム 1.2008.20.102](https://support.microsoft.com/help/4595075)
 ::: moniker-end
 
 ::: moniker range="azs-2005"
@@ -239,7 +239,7 @@ Azure Stack Hub の 2005 リリースは、次の修正プログラムが適用�
 
 2005 のインストール後に、2005 修正プログラムがリリースされた場合は、それらをインストールする必要があります。
 
-- [Azure Stack Hub 修正プログラム 1.2005.24.90](https://support.microsoft.com/help/4595070)
+- [Azure Stack Hub 修正プログラム 1.2005.25.92](https://support.microsoft.com/help/4595074)
 ::: moniker-end
 
 ::: moniker range="azs-2002"

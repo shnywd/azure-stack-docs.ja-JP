@@ -1,18 +1,18 @@
 ---
 title: Azure Stack HCI を Azure に接続する
-description: Azure Stack HCI を Azure に登録する方法。
+description: Azure Stack HCI クラスターを Azure に登録する方法。
 author: khdownie
 ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: e56718e080638eb6349625f644c837798c001a1d
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/16/2020
+ms.openlocfilehash: 95e0ed6b87fb501b31c024c5d2d886b4e1bce8ac
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97010857"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620638"
 ---
 # <a name="connect-azure-stack-hci-to-azure"></a>Azure Stack HCI を Azure に接続する
 
@@ -29,7 +29,7 @@ Azure Stack HCI クラスターを作成しないと、Azure に登録するこ�
 
 ### <a name="internet-access"></a>インターネットへのアクセス
 
-Azure Stack HCI は、定期的に Azure パブリック クラウドに接続する必要があります。 送信接続が外部の企業ファイアウォールまたはプロキシ サーバーによって制限されている場合は、限られた数の既知の Azure IP でポート 443 (HTTPS) への送信アクセスを許可するように構成する必要があります。 
+Azure Stack HCI は、定期的に Azure パブリック クラウドに接続する必要があります。 送信接続が外部の企業ファイアウォールまたはプロキシ サーバーによって制限されている場合は、限られた数の既知の Azure IP でポート 443 (HTTPS) への送信アクセスを許可するように構成する必要があります。 ファイアウォールを準備する方法の詳細については、「[Azure Stack HCI 用にファイアウォールを構成する](../concepts/configure-firewalls.md)」を参照してください。
 
    > [!NOTE]
    > Az や AzureAD などの必要な PowerShell モジュールの最新バージョンがあることを確認するために、登録プロセスによって PowerShell ギャラリーへの接続が試行されます。 PowerShell ギャラリーは Azure 上でホストされていますが、現在はサービス タグがありません。 送信インターネット アクセスを利用できる管理マシンから上記のコマンドレットを実行できない場合は、モジュールをダウンロードし、`Register-AzStackHCI` コマンドを実行するクラスター ノードに手動で転送することをお勧めします。 または、[切断されたシナリオでモジュールをインストールする](/powershell/scripting/gallery/how-to/working-with-local-psrepositories?view=powershell-7.1#installing-powershellget-on-a-disconnected-system)こともできます。
@@ -97,7 +97,7 @@ EA または CSP を介した Azure サブスクリプションの場合、最�
 
 管理 PC を使用して Azure Stack HCI クラスターを Azure に登録するには、次の手順を使用します。
 
-1. 管理 PC に必要なコマンドレットをインストールします。 Azure Stack HCI の一般提供 (GA) イメージからデプロイされたクラスターを登録するには、次のコマンドを実行するだけです。 パブリック プレビュー イメージからデプロイしたクラスターの場合、登録を試行する前に、必ずクラスター内の各サーバーに 2020 年 11 月 23 日のプレビュー更新プログラム (KB4586852) を適用しておきます。
+1. 管理 PC に必要なコマンドレットをインストールします。 Azure Stack HCI の最新の一般提供 (GA) イメージからデプロイされたクラスターを登録するには、次のコマンドを実行するだけです。 パブリック プレビュー イメージからデプロイしたクラスターの場合、Azure への登録を試行する前に、必ずクラスター内の各サーバーに 2020 年 11 月 23 日のプレビュー更新プログラム (KB4586852) を適用しておきます。
 
    ```PowerShell
    Install-Module -Name Az.StackHCI
@@ -110,7 +110,7 @@ EA または CSP を介した Azure サブスクリプションの場合、最�
 2. クラスター内の任意のサーバーの名前を使用して登録を実行します。 Azure サブスクリプション ID を取得するには、[portal.azure.com](https://portal.azure.com) にアクセスし、[サブスクリプション] に移動して、一覧から ID をコピーして貼り付けます。
 
    ```PowerShell
-   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName]
+   Register-AzStackHCI  -SubscriptionId "<subscription_ID>" -ComputerName Server1 [–Credential] [-ResourceName] [-ResourceGroupName] [-Region]
    ```
 
    この構文では、(Server1 がメンバーである) クラスターを現在のユーザーとして既定の Azure リージョンとクラウド環境に登録し、Azure リソースとリソース グループにスマートな既定の名前を使用します。ただし、このコマンドにパラメーターを追加して、必要に応じてこれらの値を指定することもできます。

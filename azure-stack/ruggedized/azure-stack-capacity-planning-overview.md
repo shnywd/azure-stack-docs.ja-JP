@@ -1,6 +1,6 @@
 ---
 title: Azure Stack Hub のためのキャパシティ プランニングの概要 | Microsoft Docs
-description: Azure Stack Hub デプロイのためのキャパシティ プランニングについて説明します。
+description: Azure Stack Hub デプロイのためのキャパシティ プランニングについて説明します。 Azure Stack Hub ラグドの高モデルと低モデルの仕様を参照してください。
 services: azure-stack
 documentationcenter: ''
 author: justinha
@@ -16,12 +16,12 @@ ms.date: 10/14/2020
 ms.author: justinha
 ms.reviewer: prchint
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 7ccaee0f134f2aa2a56f0fe14bab8fba72a84726
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: b300a787105b39f2d4fa87f61f67e4aee4530440
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941387"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598200"
 ---
 # <a name="overview-of-azure-stack-hub-capacity-planning"></a>Azure Stack Hub のキャパシティ プランニングの概要
 

@@ -1,23 +1,21 @@
 ---
-title: Azure Stack Hub 上の Event Hubs の概要
+title: Azure Stack Hub 上の Event Hubs オペレーターの概要
 description: Azure Stack Hub の Event Hubs リソースプロバイダーについて説明します。
 author: BryanLa
 ms.author: bryanla
 ms.service: azure-stack
 ms.topic: how-to
-ms.date: 12/09/2019
+ms.date: 12/11/2020
 ms.reviewer: jfggdl
-ms.lastreviewed: 12/09/2019
-ms.openlocfilehash: 2c7574ef54176e4e4b91f5bee8af9e6953d13732
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.lastreviewed: 12/11/2020
+ms.openlocfilehash: 657cf8eb54bcc7d56224731f0937d8a02d7d4f67
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742641"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364185"
 ---
-# <a name="event-hubs-on-azure-stack-hub-overview"></a>Azure Stack Hub 上の Event Hubs の概要
-
-[!INCLUDE [preview-banner](../includes/event-hubs-preview.md)]
+# <a name="event-hubs-on-azure-stack-hub-operator-overview"></a>Azure Stack Hub 上の Event Hubs オペレーターの概要
 
 Azure Stack Hub 上の Event Hubs を使用すると、ハイブリッド クラウド シナリオを実現できます。 オンプレミスと Azure クラウドの両方の処理で、ストリーミングやイベントベースのソリューションがサポートされます。 ハイブリッド (接続型) シナリオであれ非接続型のシナリオであれ、大規模なイベント処理またはストリーム処理に対応したソリューションを実現できます。 シナリオはクラスター サイズによってのみ制限され、その点は、必要に応じてプロビジョニングできます。 
 

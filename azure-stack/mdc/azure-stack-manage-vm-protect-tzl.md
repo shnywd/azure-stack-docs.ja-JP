@@ -1,6 +1,6 @@
 ---
-title: Azure Stack にデプロイされた VM の保護 | Microsoft Docs
-description: データ損失や計画外のダウンタイムから Azure Stack にデプロイされた VM を保護するための復旧計画の作成方法について説明します。
+title: Azure Stack にデプロイされた VM の保護 - MDC | Microsoft Docs
+description: MDC のデータ損失や計画外のダウンタイムから Azure Stack にデプロイされた VM を保護するための復旧計画の作成方法について説明します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 11/09/2020
 ms.author: sethm
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: cfee01600d9db4017e56b7e53c9f90351b3bb323
-ms.sourcegitcommit: 980be7813e6f39fb59926174a5d3e0d392b04293
+ms.openlocfilehash: 4f4de6ee060d63d4a7f7769feba93f918911608d
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414046"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598302"
 ---
-# <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
+# <a name="protect-vms-deployed-on-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack Hub にデプロイされた VM の保護 - Modular Data Center (MDC)
 
 この記事は、ユーザーが Azure Stack Hub にデプロイする仮想マシン (VM) の保護計画を作成するためのガイドとして使用してください。
 

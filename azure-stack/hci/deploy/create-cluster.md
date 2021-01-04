@@ -3,15 +3,15 @@ title: Windows Admin Center を使用して Azure Stack HCI クラスターを�
 description: Windows Admin Center を使用して Azure Stack HCI 用のサーバー クラスターを作成する方法について説明します
 author: v-dasis
 ms.topic: how-to
-ms.date: 12/10/2020
+ms.date: 12/11/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: 011fa558f0e74d0456d9347d63edb6a064dcdcf2
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: e33096b2667ad9d620e942b66934f341982e619b
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051651"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364219"
 ---
 # <a name="create-an-azure-stack-hci-cluster-using-windows-admin-center"></a>Windows Admin Center を使用して Azure Stack HCI クラスターを作成する
 
@@ -52,7 +52,14 @@ Windows Admin Center を (ローカル PC ではなく) サーバーで実行す
 
 ウィザードが完了した後、クラスター監視を設定し、Azure に登録し、ボリュームを作成します (また、ストレッチ クラスターを作成する場合は、サイト間のレプリケーションも設定します)。
 
-では、始めましょう。
+ウィザードを開始する前に、最新の Windows Admin Center の拡張機能 (特にクラスターの作成拡張機能) がインストールされていることをご確認ください。 これを実行するには、次のようにします。
+
+1. Windows Admin Center を開き、右上にある [設定] (歯車アイコン) をクリックします。
+1. **[設定]** で **[拡張機能]** を選択します。
+1. **[Cluster Creation]\(クラスターの作成\)** を選択し、 **[インストール]** をクリックします。
+1. **[Cluster Manager]\(クラスター マネージャー\)** を選択し **[インストール]** をクリックします。
+
+これで準備ができました。始めましょう。
 
 1. Windows Admin Center で、 **[すべての接続]** の下にある **[追加]** をクリックします。
 1. **[Add or create resources]\(リソースの追加または作成\)** パネルの **[Server clusters]\(サーバー クラスター\)** で **[Create new]\(新規作成\)** を選択します。

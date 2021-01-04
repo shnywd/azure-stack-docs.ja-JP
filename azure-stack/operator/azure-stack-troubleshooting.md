@@ -2,18 +2,18 @@
 title: Azure Stack Hub のトラブルシューティングを行う
 titleSuffix: Azure Stack
 description: VM、ストレージ、App Service に関する問題を含む、Azure Stack Hub のトラブルシューティング方法について学習します。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
-ms.date: 07/21/2020
+ms.date: 12/10/2020
 ms.author: v-myoung
 ms.reviewer: prchint
-ms.lastreviewed: 07/21/2020
-ms.openlocfilehash: 290f6ba7a8f3c53aafe131dd5c8de5186b88d752
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.lastreviewed: 12/10/2020
+ms.openlocfilehash: 583c0e933e823b1ac0fcf11fd378e81515656099
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899773"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343657"
 ---
 # <a name="troubleshoot-issues-in-azure-stack-hub"></a>Azure Stack Hub の問題のトラブルシューティングを行う
 
@@ -199,7 +199,7 @@ App Service に必要な Create-AADIdentityApp.ps1 スクリプトが失敗す�
 
 Azure Stack Hub の修正プログラムと更新プログラムのプロセスは、オペレーターが更新プログラム パッケージを一貫した合理的な方法で適用できるように設計されています。 まれに、修正プログラムや更新プログラムのプロセス中に問題が発生することがあります。 修正プログラムや更新プログラムのプロセス中に問題が発生した場合は、以下の手順を実行することをお勧めします。
 
-0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および[事前ログ収集を有効](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)にしていることを確認してください。
+0. **前提条件**:[更新プログラムのアクティビティのチェックリスト](release-notes-checklist.md)に従っていること、および [事前ログ収集を有効](./azure-stack-diagnostic-log-collection-overview.md#send-logs-proactively)にしていることを確認してください。
 
 1. 更新が失敗したときに作成されたエラー アラートの修復手順に従います。
 
@@ -216,6 +216,16 @@ Azure Stack Hub の修正プログラムと更新プログラムのプロセス�
 **原因**:Azure Stack Hub の更新プログラムをインストールしようとしたときに、更新が失敗して、状態が `PreparationFailed` に変更される場合があります。 インターネットに接続されたシステムの場合、これは通常、インターネット接続が脆弱であるために、更新プログラム パッケージが適切にダウンロードされないことを示します。 
 
 **対応策**: **[今すぐインストール]** をもう一度クリックすることで、この問題を回避できます。 問題が解決しない場合は、[更新プログラムのインストール](azure-stack-apply-updates.md?#install-updates-and-monitor-progress)に関するセクションに従って、更新プログラム パッケージを手動でアップロードすることをお勧めします。
+
+**発生頻度**: 共通
+
+### <a name="warnings-and-errors-reported-while-update-is-in-progress"></a>更新の進行中に報告される警告とエラー
+
+**適用先**: この問題は、サポートされているすべてのリリースに適用されます。
+
+**原因**:Azure Stack Hub の更新の状態が **進行中** の場合、ポータルで警告とエラーが報告されることがあります。 コンポーネントは、アップグレード中に他のコンポーネントを待機しているためにタイムアウトし、エラーが発生する場合があります。 Azure Stack Hub には、断続的なエラーが原因による一部のタスクを再試行または修復するメカニズムがあります。
+
+**対応策**: Azure Stack Hub の更新の状態が **進行中** の場合、ポータルで報告された警告とエラーは無視できます。
 
 **発生頻度**: 共通
 

@@ -1,6 +1,6 @@
 ---
-title: Azure から Marketplace の項目をダウンロードして Azure Stack に発行する | Microsoft Docs
-description: Azure から Marketplace の項目をダウンロードして Azure Stack に発行する方法について説明します。
+title: Azure から Marketplace の項目をダウンロードして Azure Stack に発行する
+description: Azure から Marketplace の項目をダウンロードして Modular Data Center (MDC) の Azure Stack に発行する方法について学習します。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -15,14 +15,14 @@ ms.date: 10/26/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 32ba4c16d36622cbe2a9595c58e4ec2e2f46b481
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 2a3dec7699911988c4c9a958c31386c127f70694
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96935034"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598234"
 ---
-# <a name="download-marketplace-items-to-azure-stack-hub"></a>Azure Stack Hub に Marketplace の項目をダウンロードする 
+# <a name="download-marketplace-items-to-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack Hub に Marketplace の項目をダウンロードする - Modular Data Center (MDC) 
 
 クラウド オペレーターは、Azure Marketplace から項目をダウンロードし、Azure Stack Hub 環境を使用して、すべてのユーザーがそれらを利用可能にすることができます。 選択できる項目は、Azure Marketplace の精選された一覧にある項目です。これらの項目は、Azure Stack で動作するように、事前にテストされ、サポートされています。 一覧には新しいアイテムが頻繁に追加されるので、定期的に新しいコンテンツを確認してください。
 
@@ -60,11 +60,11 @@ Azure Stack Hub デプロイは、インターネット接続を備えていて�
 
 4. 各行項目には、現在使用可能なバージョンも表示されます。 Marketplace 項目の複数のバージョンを使用できる場合、 **[バージョン]** 列には **[複数]** が表示されます。 各項目をクリックして、その説明と、ダウンロード サイズなどの追加情報を表示できます。
 
-   ![Azure から追加する](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
+   ![[Add from Azure]\(Azure から追加\) ページのスクリーンショット。](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-1.png)
 
 5. 項目のバージョンが **[複数]** と表示されている場合は、その項目を選択した後表示されるバージョン セレクターのドロップダウンから特定のバージョンを選択できます。
 
-   ![Azure から追加する](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
+   ![[管理] ページのスクリーンショット。バージョン セレクターのドロップダウンが強調表示されています。](media/azure-stack-download-azure-marketplace-item-tzl/add-from-azure-3.png)
 
 6. 項目を選択し、 **[ダウンロード]** を選択します。 ダウンロード時間はさまざまで、ネットワーク接続によって異なります。 ダウンロードが完了したら、Azure Stack オペレーターか、ユーザーとして、その新しい Marketplace 項目をデプロイできます。
 

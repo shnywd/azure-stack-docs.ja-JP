@@ -1,7 +1,7 @@
 ---
-title: Azure Stack Hub でコンテナー レジストリを更新する | Microsoft Docs
+title: Azure Stack Hub でコンテナー レジストリを更新する - MDC
 titleSuffix: Azure Stack
-description: Azure Stack Hub でコンテナー レジストリを更新する方法を学習します。
+description: Modular Data Center (MDC) の Azure Stack Hub でコンテナー レジストリを更新する方法を学習します。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -16,14 +16,14 @@ ms.date: 1/8/2020
 ms.author: mabrigg
 ms.reviewer: chasat
 ms.lastreviewed: 12/17/2019
-ms.openlocfilehash: 1d014cfe855bc7e9bb3bdaae6ba7525d3df1e8c7
-ms.sourcegitcommit: 9ecf9c58fbcc4bc42c1fdc688f370c643c761a29
+ms.openlocfilehash: dafd9d485125d7c8da1524b71fddb75af7a4ebba
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93330353"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598574"
 ---
-# <a name="update-the-container-registry-in-azure-stack-hub"></a>Azure Stack Hub でコンテナー レジストリを更新する
+# <a name="update-the-container-registry-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack Hub でコンテナー レジストリを更新する - Modular Data Center (MDC)
 
 Azure Stack Hub のユーザーは、以下の手順を使用して、コンテナー レジストリ デプロイを、より新しい AKS 基本イメージ SKU に更新できます。 コンテナー レジストリ テンプレートの VM とサービスは、すべての状態とコンテナーのイメージが BLOB ストレージに格納されるためステートレスです。 更新は、より新しいバージョンの AKS 基本イメージ VHD を使用してコンテナー レジストリ テンプレートをデプロイし、DNS を新しい VM に再指定するのと同じくらい簡単です。 新旧のコンテナー レジストリ テンプレートの DNS 値を更新する操作を行うと、値が伝達されているときに、ほんの短い間、断続的なレジストリ接続が発生します。
 
@@ -39,7 +39,7 @@ Azure Stack Hub のユーザーは、以下の手順を使用して、コンテ�
 
 1.  リソース グループ内のデプロイ レコードを参照して、コンテナー レジストリ テンプレートのデプロイに使用された AKS 基本イメージの SKU を確認し、 **[入力]** を選択します。
 
-    ![入力](./media/container-registry-template-updating-tzl/inputs.png)
+    ![[入力] ページを示すスクリーンショット。](./media/container-registry-template-updating-tzl/inputs.png)
 
 2.  **Get-VMImageSku** 関数を使用して、使用可能な AKS 基本イメージのより新しい SKU があるかどうかを確認します。コンテナー レジストリ テンプレート スクリプトから `Import-Module .\pre-reqs.ps1` が必要です。
 
@@ -62,7 +62,7 @@ Azure Stack Hub のユーザーは、以下の手順を使用して、コンテ�
 | パブリック IP アドレス | この VM の IP アドレス (動的/静的) の名前と種類を指定します。 |
 | ドメイン名のラベル | レジストリの DNS プレフィックスを指定します。 この FQDN 全体が、レジストリに対して作成された PFX 証明書の CN 値と一致している必要があります。 |
 | レプリカ | 開始するコンテナー レプリカの数を指定します。 |
-| イメージ SKU | デプロイに使用するイメージ SKU を指定します。 AKS 基本イメージに対して使用可能な SKU は、 **Get-VMImageSku** PowerShell コマンドレットによって一覧表示されます。 |
+| イメージ SKU | デプロイに使用するイメージ SKU を指定します。 AKS 基本イメージに対して使用可能な SKU は、**Get-VMImageSku** PowerShell コマンドレットによって一覧表示されます。 |
 | サービス プリンシパルのクライアント ID | 前のデプロイで使用したサービス プリンシパル (SPN) アプリ ID を指定します。 |
 | サービス プリンシパルのパスワード/パスワードの確認 | 前のデプロイで使用した SPN アプリ ID シークレットを指定します。 |
 | 既存の拡張ストレージ アカウントのリソース ID | 前のデプロイで使用したストレージ アカウントのリソース ID を指定します。 |
