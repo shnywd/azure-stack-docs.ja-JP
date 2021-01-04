@@ -3,16 +3,16 @@ title: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 description: Docker を使用して Azure Stack Hub 内で PowerShell を実行する
 author: mattbriggs
 ms.topic: how-to
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 802a173239534c6826e90a1d4d4c2095c1abcf9a
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: 798b3d9e94f6263b02c291d2f5725768f1a8522a
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525610"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620689"
 ---
 # <a name="use-docker-to-run-powershell-for-azure-stack-hub"></a>Docker を使用して Azure Stack Hub に対して PowerShell を実行する
 
@@ -99,7 +99,7 @@ PowerShell を使用して Azure Stack Hub 内のリソースにアクセスす�
 
 ### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/rm)
 
-以下の手順では、Windows ベースのコンテナー イメージを実行し、PowerShell と、Azure Stack Hub に必要なモジュールをインストールします。
+以下の手順では、Windows ベースのコンテナー イメージを実行し、PowerShell と、Azure Stack Hub に必要なモジュールをインストールします。 Windows で Docker を実行する場合は、物理マシンで Docker を実行する必要があります。 入れ子になった仮想化は、Hyper-V ではサポートされていません。
 
 1. Windows 10 を必要とする Windows コンテナーを使って Docker を実行する必要があります。 Docker を実行しているときに、Windows コンテナーに切り替えます。 Az モジュールをサポートするイメージには、Docker 17.05 以降が必要です。
 

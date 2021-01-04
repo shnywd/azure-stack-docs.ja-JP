@@ -1,20 +1,20 @@
 ---
-title: Azure Stack Hub を Azure に登録する
-description: Azure Marketplace 項目をダウンロードし、データ レポートを設定できるように、Azure Stack Hub を Azure に登録する方法について説明します。
+title: Azure Stack Hub を Azure に登録する (MDC)
+description: MDC に Azure Marketplace 項目をダウンロードし、データ レポートを設定できるように、Azure Stack Hub を Azure に登録する方法について説明します。
 author: sethmanheim
 ms.topic: article
 ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 68a89c3f3f2a15a23a21d2a1d6c6052727982941
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934881"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598472"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
+# <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Azure Stack Hub を Azure に登録する - Modular Data Center (MDC)
 
 Marketplace シンジケーションを設定し、PaaS サービスを使用するには、デプロイの完了後に、Azure Stack Hub に基づく Modular Data Center (MDC) または Azure Stack Hub ラグドを登録し、アクティブにする必要があります。 管理者は Marketplace シンジケーションを使用して、ローカルの Azure Stack Hub Marketplace に、Azure Marketplace からダウンロードしたイメージを設定します。
 

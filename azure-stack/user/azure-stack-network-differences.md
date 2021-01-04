@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mabrigg
 ms.reviewer: wamota
 ms.lastreviewed: 07/10/2019
-ms.openlocfilehash: f47e3c48bf6a43276f9e4b11c2e3f0f43a224f18
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: f081d0fa91e967ca00b46ac2a9ffaf4b56933e87
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86567350"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364117"
 ---
 # <a name="differences-and-considerations-for-azure-stack-hub-networking"></a>Azure Stack Hub ネットワークの違いと考慮事項
 
@@ -30,7 +30,7 @@ Azure Stack Hub ネットワークは、Azure ネットワークで提供され�
 |  | ゾーンあたりの DNS レコード セット数 | 5000 (既定値)<br>ご希望により増やすことができます。 | 5000 |
 |  | ゾーンの委任用のネーム サーバー | Azure では、作成されるユーザー (テナント) ゾーンごとに 4 つのネーム サーバーを提供します。 | Azure Stack Hub では、作成されるユーザー (テナント) ゾーンごとに 2 つのネーム サーバーを提供します。 |
 | Azure Firewall | ネットワーク セキュリティ サービス | Azure Firewall は、Azure Virtual Network リソースを保護するクラウドベースのマネージド ネットワーク セキュリティ サービスです。 | まだサポートされていません。 |
-| Virtual Network | 仮想ネットワーク ピアリング | 同じリージョンに存在する 2 つの仮想ネットワークを Azure のバックボーン ネットワークを介して接続します。 | まだサポートされていません |
+| Virtual Network | 仮想ネットワーク ピアリング | 同じリージョンに存在する 2 つの仮想ネットワークを Azure のバックボーン ネットワークを介して接続します。 | バージョン 2008 [仮想ネットワーク ピアリング](virtual-network-peering.md)からサポートされています |
 |  | IPv6 アドレス | [ネットワーク インターフェイス構成](/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions)の一部として IPv6 アドレスを割り当てることができます。 | IPv4 のみがサポートされています。 |
 |  | DDoS 保護計画 | サポートされています | まだサポートされていません。 |
 |  | スケール セットの IP 構成 | サポートされています | まだサポートされていません。 |

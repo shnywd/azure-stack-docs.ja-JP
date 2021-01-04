@@ -7,16 +7,16 @@ ms.date: 11/05/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 11/05/2020
-ms.openlocfilehash: 86672961ee2a02f858cfce73a895154c6eb1bcbe
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: fac60db9ad1f3ae8be248b4f61a3c16179763a7e
+ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544039"
+ms.lasthandoff: 12/12/2020
+ms.locfileid: "97364202"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack-hub"></a>Azure Stack Hub のスケール ユニット ノードを追加する
 
-物理コンピューターを追加することによって、既存のスケール ユニットの全体的な容量を引き上げることができます。 物理コンピューターは、"スケール ユニット ノード" とも呼ばれます。 新たに追加する各スケール ユニット ノードは、CPU の種類、メモリ、ディスク数、ディスク サイズの点で、スケール ユニットの既存のノードと同質であることが必要です。
+物理コンピューターを追加することによって、既存のスケール ユニットの全体的な容量を引き上げることができます。 物理コンピューターは、"スケール ユニット ノード" とも呼ばれます。 新たに追加する各スケール ユニット ノードは、CPU の種類、メモリ、ディスク数、ディスク サイズの点で、スケール ユニットの既存のノードと同質であることが必要です。 Azure Stack Hub は、アーキテクチャの制限によりスケールダウンを目的としたスケール ユニット ノードの削除をサポートしていません。 ノードを追加することによってのみ容量を拡張することができます。
 
 スケール ユニット ノードを追加するには、Azure Stack Hub にサインインし、お使いのハードウェア機器メーカー (OEM) から提供されているツールを実行します。 OEM のツールは、新しい物理コンピューターのファームウェア レベルが既存のノードと同じであることを確認するために、ハードウェア ライフサイクル ホスト (HLH) で実行されます。
 

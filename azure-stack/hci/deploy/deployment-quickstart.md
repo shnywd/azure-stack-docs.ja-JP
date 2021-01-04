@@ -6,13 +6,13 @@ ms.author: v-kedow
 ms.topic: how-to
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 1787218c32feaa0e944946b6b36614432ea529f1
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/11/2020
+ms.openlocfilehash: 2d2c122a2fd8a9e0be5d3ffd942f85f310845f2d
+ms.sourcegitcommit: f56a5b287c90b2081ae111385c8b7833931d4059
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011793"
+ms.lasthandoff: 12/11/2020
+ms.locfileid: "97343178"
 ---
 # <a name="quickstart-create-an-azure-stack-hci-cluster-and-register-it-with-azure"></a>クイックスタート: Azure Stack HCI クラスターを作成して Azure に登録する
 
@@ -24,7 +24,7 @@ ms.locfileid: "97011793"
 
 クラスターを作成する前に、次の手順を実行します。
 
-* [Azure Stack HCI カタログ](https://azure.microsoft.com/products/azure-stack/hci/catalog/)から、Azure Stack HCI オペレーティング システムがプレインストールされている、好みの Microsoft ハードウェア パートナーのサーバーを 2 台購入します。 [システム要件](../concepts/system-requirements.md)を参照し、クラスターで実行する予定のワークロードが選択したハードウェアでサポートされていることを確認します。
+* [Azure Stack HCI カタログ](https://hcicatalog.azurewebsites.net)から、Azure Stack HCI オペレーティング システムがプレインストールされている、好みの Microsoft ハードウェア パートナーのサーバーを 2 台購入します。 [システム要件](../concepts/system-requirements.md)を参照し、クラスターで実行する予定のワークロードが選択したハードウェアでサポートされていることを確認します。 簡易構成の場合、iWARP を使用する高速ネットワーク アダプターを搭載したシステムを使用することをお勧めします。
 * 各サーバーでローカル Administrators グループのメンバーであるアカウントを作成します。
 * まだない場合は、[Azure サブスクリプションを入手します](https://azure.microsoft.com/)。
 * 管理用 PC に [Windows Admin Center をインストール](/windows-server/manage/windows-admin-center/deploy/install)し、[Windows Admin Center を Azure に登録](../manage/register-windows-admin-center.md)します。 管理コンピューターは、クラスターを作成するのと同じ Active Directory ドメイン、または完全に信頼されたドメインに参加している必要があることに注意してください。
@@ -43,7 +43,7 @@ ms.locfileid: "97011793"
 クラスターの作成ウィザードには 5 つのセクションがあり、それぞれにいくつかのステップがあります。
 
 1. **[Get started]\(作業の開始\)** 。 このセクションでは、前提条件を確認し、サーバーを追加し、ドメインに参加し、必要な機能と更新プログラムをインストールして、サーバーを再起動します。 
-2. **ネットワーク。** ウィザードのこのセクションでは、正しいネットワーク アダプターが有効になっていることを確認し、使用していないものを無効にします。 管理アダプターを選択し、仮想スイッチの構成を設定し、IP アドレスを指定することでネットワークを定義します。 単純にしておくため、このクラスターには RDMA を選択しないでください。 
+2. **ネットワーク。** ウィザードのこのセクションでは、正しいネットワーク アダプターが有効になっていることを確認し、使用していないものを無効にします。 管理アダプターを選択し、仮想スイッチの構成を設定し、IP アドレスを指定することでネットワークを定義します。
 3. **[Clustering]\(クラスタリング\)** 。 このセクションでは、サーバーの構成が一貫しており、クラスタリングに適していることを確認してから、実際のクラスターを作成します。
 4. **ストレージ。** 次に、ドライブをクリーニングして確認し、ストレージを検証して、記憶域スペース ダイレクトを有効にします。
 5. **[SDN]** 。 このクラスターではてソフトウェアによるネットワーク (SDN) を使用しないため、セクション 5 はスキップしてかまいません。

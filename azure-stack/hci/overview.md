@@ -6,17 +6,19 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/10/2020
-ms.openlocfilehash: 918bc4fdee076cdfe5b158f9b276eff789c9ecf8
-ms.sourcegitcommit: 97ecba06aeabf2f30de240ac283b9bb2d49d62f0
+ms.date: 12/15/2020
+ms.openlocfilehash: 6eef8388367bb1bba3f419fba5b61c54fd729743
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97011197"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515014"
 ---
 # <a name="azure-stack-hci-solution-overview"></a>Azure Stack HCI ソリューションの概要
 
-Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードとそのストレージをホストするハイパーコンバージド インフラストラクチャ (HCI) クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center、System Center、PowerShell などの既存のツールを使用して、クラスターを管理できます。
+> 適用対象:Azure Stack HCI バージョン 20H2
+
+Azure Stack HCI は、オンプレミスのハイブリッド環境で仮想化された Windows および Linux のワークロードとそのストレージをホストするハイパーコンバージド インフラストラクチャ (HCI) クラスター ソリューションです。 Azure のハイブリッド サービスでは、クラウドベースの監視、Site Recovery、VM バックアップなどの機能、および Azure portal 内のすべての Azure Stack HCI デプロイの一元的なビューにより、クラスターが強化されます。 Windows Admin Center や PowerShell などの既存のツールを使用して、クラスターを管理できます。
 
 Azure Stack HCI では、バージョン 20H2 を[ダウンロードできるようになりました](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)。 その対象は、ハイブリッド クラウド接続が組み込まれ、仮想化されたワークロードが実行されている、オンプレミスのクラスターです。 そのため、Azure Stack HCI は Azure サービスとして提供され、Azure サブスクリプションで課金されます。 Azure Stack HCI には、Azure Kubernetes サービスをホストする機能も含まれるようになりました。詳細については、「[Azure Stack HCI の Azure Kubernetes Service](../aks-hci/overview.md)」を参照してください。
 
@@ -94,7 +96,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 使い始めるには、次のものが必要です。
 
-- 好みの Microsoft ハードウェア パートナーから購入した、[Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog)に掲載されている 2 台以上のサーバーのクラスター
+- 好みの Microsoft ハードウェア パートナーから購入した、[Azure Stack HCI カタログ](https://hcicatalog.azurewebsites.net)に掲載されている 2 台以上のサーバーのクラスター
 - [Azure サブスクリプション](https://azure.microsoft.com/)
 - クラスター内の各サーバーのインターネット接続。少なくとも 30 日ごとに HTTPS 送信トラフィック経由で既知の Azure エンドポイントに接続できること
 - 複数のサイトに拡張されるクラスターの場合は、サイト間に 1 Gb 以上の接続が必要であり (25 Gb の RDMA 接続を推奨)、両方のサイトで書き込みが同時に発生する同期レプリケーションを行う場合は、平均待機時間が 5 ミリ秒のラウンドトリップが必要です
@@ -106,7 +108,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 好みの Microsoft パートナーから検証済みの Azure Stack HCI ソリューションを購入し、時間のかかる設計とビルド時間なしで稼働させることができます。 また、Microsoft パートナーは、単一窓口で実装およびサポート サービスの問い合わせに対応します。 検証済みのノードまたは統合システムを購入できます。これには、プレインストールされている Azure Stack HCI オペレーティング システムと共に、ドライバーとファームウェアの更新プログラムに対するパートナー拡張機能も含まれます。
 
-[Azure Stack HCI ソリューション](https://azure.microsoft.com/overview/azure-stack/hci)のページにアクセスするか、[Azure Stack HCI カタログ](https://aka.ms/azurestackhcicatalog)を参照してください。現在、ASUS、Axellio、Blue Chip、DataON、Dell EMC、富士通、HPE、日立、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD、Supermicro などの Microsoft パートナーの、70 以上の Azure Stack HCI ソリューションを利用できます。
+[Azure Stack HCI ソリューション](https://azure.microsoft.com/overview/azure-stack/hci)のページにアクセスするか、[Azure Stack HCI カタログ](https://hcicatalog.azurewebsites.net)を参照してください。現在、ASUS、Axellio、Blue Chip、DataON、Dell EMC、富士通、HPE、日立、Huawei、Lenovo、NEC、primeLine Solutions、QCT、SecureGUARD、Supermicro などの Microsoft パートナーの、70 以上の Azure Stack HCI ソリューションを利用できます。
 
 ## <a name="software-partners"></a>ソフトウェア パートナー
 
@@ -116,23 +118,7 @@ Azure Stack HCI は、既に大規模にデプロイされている実証済み�
 
 Azure Stack HCI の請求は、永続的ライセンスではなく、物理プロセッサ コアあたりの月額サブスクリプション料金に基づきます。 お客様が Azure に接続すると、使用されているコアの数が自動的にアップロードされ、請求のために評価されます。 コストは、物理プロセッサ コア以外の消費量では変わりません。つまり、VM の数が増えてもコストが高くなることはなく、より高密度の仮想環境を実行できるお客様ほど得をします。
 
-お客様は、Azure Stack HCI オペレーティング システムがプレインストールされている検証済みサーバーをハードウェア パートナーから購入できます。または、OEM から検証済みベア メタル サーバーを購入した後、Azure Stack HCI サービスをサブスクライブし、[Azure portal](https://azure.microsoft.com/products/azure-stack/hci/) から Azure Stack HCI オペレーティング システムをダウンロードすることができます。
-
-## <a name="management-tools"></a>管理ツール
-
-Azure Stack HCI では、お客様がクラスターに対する完全な管理者権限を持ち、そのテクノロジをすべて直接管理できます。
-
-- [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-on-windows-server)
-- [記憶域スペース ダイレクト](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)
-- [ソフトウェアによるネットワーク](/windows-server/networking/sdn/)
-- [フェールオーバー クラスタリング](/windows-server/failover-clustering/failover-clustering-overview)
-
-これらのテクノロジの管理には、次の管理ツールを使用できます。
-
-- [Windows Admin Center](/windows-server/manage/windows-admin-center/overview)
-- [System Center](https://www.microsoft.com/cloud-platform/system-center)
-- [PowerShell](/powershell/)
-- [サーバー マネージャー](/windows-server/administration/server-manager/server-manager)や MMC スナップインなどの他の管理ツール
+お客様は、Azure Stack HCI オペレーティング システムがプレインストールされている検証済みサーバーをハードウェア パートナーから購入できます。または、OEM から検証済みベア メタル サーバーを購入した後、Azure Stack HCI サービスをサブスクライブし、[Azure Stack HCI オペレーティング システムをダウンロードする](https://azure.microsoft.com/products/azure-stack/hci/)ことができます。
 
 ## <a name="the-azure-stack-family"></a>Azure Stack ファミリ
 
@@ -145,56 +131,6 @@ Azure Stack HCI は、Azure と Azure Stack ファミリの一員であり、Azu
 
 :::image type="content" source="media/overview/azure-family-updated.png" alt-text="Azure Stack ファミリのソリューションの図" border="false":::
 
-## <a name="compare-windows-server-and-azure-stack-hci"></a>Windows Server と Azure Stack HCI を比較する
-
-多くのお客様は、Windows Server または Azure Stack HCI が自分のニーズに合っているかどうか迷います。 次の表は、組織に適したものを判断するのに役立ちます。 Windows Server と Azure Stack HCI のどちらでも、新しいリリースのロード マップに従って、同じ高品質のユーザー エクスペリエンスが提供されます。
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| ゲストおよび従来のサーバーとして最適です | 記憶域スペース ダイレクトなど、ソフトウェアによるデータ センター用の仮想化ホストに最適です |
-| 従来のソフトウェア ライセンス モデルを使用して、どこでも実行できます | 好みのベンダーのハードウェアで実行できますが、Azure サービスとして提供され、Azure アカウントに課金されます |
-| 2 つのインストール オプション:デスクトップ エクスペリエンスを備えたサーバーまたはサーバー コア | わずかにカスタマイズされたサーバー コアに基づきます |
-
-### <a name="when-to-use-windows-server"></a>Windows Server を使用する場合
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| Windows Server は、非常に汎用性のある多目的なオペレーティング システムであり、ゲスト権限など、数十の役割と数百の機能を備えています。 | Azure Stack HCI にはゲスト権限は含まれておらず、最新のハイパーコンバージド アーキテクチャに使用することが意図されています。 |
-| VM を実行する場合、または Active Directory、ファイル サービス、DNS、DHCP、インターネット インフォメーション サービス (IIS)、コンテナー ホストおよびゲスト、SQL Server、Exchange Server、ホスト ガーディアン サービス (HGS) など、従来のすべてのサーバーの役割を含むベア メタル インストール用には、Windows Server を使用します。 | Hyper-V 仮想化ホストとして意図されている Azure Stack HCI は、少数のサーバーの役割を直接実行するためだけにライセンスを付与されます。他のロールはすべて、VM 内で実行する必要があります。 |
-
-### <a name="when-to-use-azure-stack-hci"></a>Azure Stack HCI を使用する局面
-
-| Windows Server | Azure Stack HCI |
-| --------------- | --------------- |
-| Windows Server はオンプレミスまたはクラウドで実行できますが、それ自体は完全なハイパーコンバージド オファリングではありません。| オンプレミスで VM を実行し、必要に応じて 2 つのサイトに拡張して Azure ハイブリッド サービスへの接続を使用するには、Azure Stack HCI を使用します。 データ センターやブランチ オフィスを最新化してセキュリティで保護し、SQL Server データベースで業界最高のパフォーマンスを実現し、低待機時間とデータ主権のためにオンプレミスで仮想デスクトップを実行するための、簡単な方法です|
-| Windows Server は、仮想化されているかどうかに関係なく、Windows Server のすべての役割を対象とする優れた多目的の "万能製品" です。 | Exchange、SharePoint、SQL Server などの従来のエンタープライズ アプリを仮想化する場合、またはファイル サーバー、DNS、DHCP、IIS、AD などの Windows Server の役割を仮想化する場合は、Azure Stack HCI を使用します。 シールドされた VM など、すべての Hyper-V 機能への無制限のアクセスが含まれます。|
-| Windows Server の多くの展開は、古いハードウェアで実行されています。 | 大規模な再設計なしで、古いストレージ アレイやネットワーク アプライアンスの代わりにソフトウェアによるインフラストラクチャを使用する場合に、Azure Stack HCI を使用します。 組み込みの Hyper-V、記憶域スペース ダイレクト、およびソフトウェアによるネットワーク (SDN) は直接アクセスして管理できます。 Windows VM または Linux VM 内でアプリを実行します。|
-
-## <a name="compare-azure-stack-hub-and-azure-stack-hci"></a>Azure Stack Hub と Azure Stack HCI の比較
-
-お客様の組織がデジタル変革を進める中で、パブリック クラウド サービスを使用して、最新のアーキテクチャ上に構築し、従来のアプリを更新することで、より迅速に前進できることに気付くことがあります。 ただし、技術上の障害や規制の問題などの理由により、多くのワークロードをオンプレミスに残す必要があります。 次の表を使用すると、必要なところに必要なものを提供し、ワークロードの場所に関係なくそのクラウド イノベーションを実現する Microsoft ハイブリッド クラウド戦略を判断するのに役立ちます。
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| 新しいスキル、革新的なプロセス | 同じスキル、使い慣れたプロセス |
-| お客様のデータセンター内での Azure サービス | お客様のデータセンターを Azure サービスに接続する |
-
-### <a name="when-to-use-azure-stack-hub"></a>Azure Stack Hub を使用する局面
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| 併置された複数のテナントの強力な分離および正確な使用状況の追跡とチャージバックを実現するセルフサービスのインフラストラクチャとしてのサービス (IaaS) に Azure Stack Hub を使用します。 サービス プロバイダーやエンタープライズ プライベート クラウドに最適です。 テンプレートは Azure Marketplace にあります。 | Azure Stack HCI では、マルチテナントをネイティブに適用したり、提供したりすることはありません。 |
-| オンプレミスで Web Apps、Functions、Event Hubs などのプラットフォームとしてのサービス (PaaS) サービスを利用するアプリの開発と実行に Azure Stack Hub を使用します。 これらのサービスは、Azure 内とまったく同じように Azure Stack Hub 上で実行され、一貫性のあるハイブリッドの開発およびランタイム環境を提供します。 | Azure Stack HCI では、PaaS サービスをオンプレミスで実行しません。 |
-| DevOps プラクティス (コードとしてのインフラストラクチャ、継続的インテグレーションと継続的デプロイ (CI/CD) など) と便利な機能 (Azure と整合性のある VM 拡張機能など) を利用したアプリのデプロイと操作の現代化に Azure Stack Hub を使用します。 開発チームや DevOps チームに最適です。 | Azure Stack HCI には、DevOps ツールがネイティブに含まれていません。 |
-
-### <a name="when-to-use-azure-stack-hci"></a>Azure Stack HCI を使用する局面
-
-| Azure Stack Hub | Azure Stack HCI |
-| --------------- | --------------- |
-| Azure Stack Hub には、最小 4 つのノードとそれ専用のネットワーク スイッチが必要です。 | リモート オフィスやブランチの場合に占有領域を最小限に抑えるには Azure Stack HCI を使用します。 たった 2 個のサーバー ノードとスイッチレスのバックツーバック ネットワークから開始でき、ピークがわかりやすく、価格が手頃です。 ハードウェアのオファーは、ノードあたり 4 台のドライブ、64 GB のメモリ、10,000 ドル未満からです。 |
-| Azure Stack Hub では、Azure との整合性を確保するために、Hyper-V の構成機能と機能セットが制限されています。 | Exchange、SharePoint、SQL Server などの従来のエンタープライズ アプリ向けの必要最低限の Hyper-V 仮想化や、ファイル サーバー、DNS、DHCP、IIS、AD などの Windows Server ロールの仮想化に、Azure Stack HCI を使用します。 シールドされた VM など、すべての Hyper-V 機能に無制限にアクセスできます。|
-| Azure Stack Hub では、これらのインフラストラクチャ テクノロジは公開されません。 | 大規模な再設計なしで、古いストレージ アレイやネットワーク アプライアンスの代わりにソフトウェアによるインフラストラクチャを使用する場合に、Azure Stack HCI を使用します。 組み込みの Hyper-V、記憶域スペース ダイレクト、およびソフトウェアによるネットワーク (SDN) は直接アクセスして管理できます。 |
-
 ## <a name="whats-new-in-azure-stack-hci"></a>Azure Stack HCI の新機能
 
 Windows Admin Center バージョン 2009 では、次のような多数の機能が Azure Stack HCI に追加されています。
@@ -203,7 +139,7 @@ Windows Admin Center バージョン 2009 では、次のような多数の機�
 - **クラスター作成ウィザードでのソフトウェア定義ネットワークの追加**:クラスター作成ウィザードで、[クラスターの作成](deploy/create-cluster.md#step-5-sdn-optional)中に、[ソフトウェア定義ネットワーク (SDN)](concepts/software-defined-networking.md) ネットワーク コントローラーの機能をデプロイするオプションが追加されました。
 - **クラスター作成ウィザードでのリモート ダイレクト メモリ アクセス (RDMA) の機能強化**: クラスター作成ウィザードで、データ センター ブリッジング (DCB) を含む iWARP および RoCE ネットワーク アダプターの RDMA を構成できるようになりました。
 
-Windows Admin Center の新機能の詳細については、[Windows Admin Center のブログ](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/bg-p/Windows-Admin-Center-Blog)を参照してください。
+新機能の詳細については、「[Windows Admin Center のクラスター作成拡張機能の一般提供に関する告知](https://techcommunity.microsoft.com/t5/windows-admin-center-blog/announcing-general-availability-of-the-cluster-creation/ba-p/1978332)」を参照してください。
 
 Windows Server 2019 ベースのソリューションと比較して、Azure Stack HCI バージョン 20H2 を実行するクラスターには、次の新機能があります。
 
@@ -215,7 +151,7 @@ Windows Server 2019 ベースのソリューションと比較して、Azure Sta
 - **BitLocker 暗号化**: BitLocker を使用して Azure Stack HCI 上のデータ ボリュームの内容を暗号化できるようになりました。これにより、政府や他のお客様は FIPS 140-2 や HIPAA などの標準に準拠した状態を維持できます。
 - **記憶域スペース ダイレクト ボリュームの修復速度の向上**: すばやくシームレスにボリュームを修復します。
 
-Windows Admin Center バージョン 20H2 では、Windows Server ベースのクラスターに対する新しいクラスター更新 UI も提供されています (元の Azure Stack HCI ソリューションを含む)。 また、Windows Server では新しいクラスター作成ウィザードを使用できますが、記憶域スペース ダイレクトを使用して Windows Server クラスターを作成することはできません。そのためには、Azure Stack HCI オペレーティング システムが必要です。
+Azure Stack HCI 20H2 の新機能の詳細については、Microsoft Inspire の[こちらの動画をご覧ください](https://www.youtube.com/watch?v=DPG7wGhh3sAa)。
 
 ## <a name="roles-you-can-run-without-virtualizing"></a>仮想化なしで実行できる役割
 
@@ -252,4 +188,5 @@ Azure Stack HCI の元の Windows Server 2019 ベースのバージョンに関�
 ## <a name="next-steps"></a>次のステップ
 
 - [Azure Stack HCI をダウンロードする](https://azure.microsoft.com/products/azure-stack/hci/hci-download/)
+- [Azure Stack HCI クラスターを作成して Azure に登録する](deploy/deployment-quickstart.md)
 - [Windows Admin Center で Azure Stack HCI を使用する](get-started.md)

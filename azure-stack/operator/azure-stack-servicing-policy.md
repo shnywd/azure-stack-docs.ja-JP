@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Azure Stack Hub サービス ポリシーの詳細と、サポートを受けられる状態に統合システムを維持する方法を説明します。
 author: sethmanheim
 ms.topic: article
-ms.date: 09/25/2020
+ms.date: 12/15/2020
 ms.author: sethm
 ms.reviewer: niy
 ms.lastreviewed: 03/18/2020
-ms.openlocfilehash: cff03367985558bd5b9b6786455cf626993836db
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 126504ce42ba4c7567e15a6c19378ef2bf2c628b
+ms.sourcegitcommit: 32d77de1a554315f53473407279e464a72aa9aa1
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545569"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97515023"
 ---
 # <a name="azure-stack-hub-servicing-policy"></a>Azure Stack Hub サービス ポリシー
 
@@ -67,6 +67,8 @@ Microsoft は、予防可能または緊急な場合の多い特定の問題に�
 ## <a name="keep-your-system-under-support"></a>システムがサポートされる状態を維持する
 
 サポートを受けられる状態に Azure Stack Hub インスタンスを維持するためには、インスタンスで、リリースされた最新バージョンの更新プログラムを実行するか、またはその前の 2 つの更新プログラムのバージョンのいずれかを実行する必要があります。
+
+システムを製造したハードウェア パートナーのサポート契約が有効になっている必要もあります。 Microsoft は、ハードウェア サポート契約がない場合はサポートできません。
 
 修正プログラムはメジャー バージョンの更新プログラムとは見なされません。 お使いの Azure Stack Hub インスタンスが 2 つ前の更新プログラムより古い場合、コンプライアンスに対応していないとみなされます。 サポートを受けるためには、少なくともサポートされる最低限のバージョンまで更新する必要があります。
 

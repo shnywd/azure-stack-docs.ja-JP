@@ -7,12 +7,12 @@ ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.lastreviewed: 12/30/2019
-ms.openlocfilehash: 10de658f7e5f8621d44baaa16f2181f58f47811e
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: b18f962ce2348a6a0f90a2ad48c1ea84e01fe921
+ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183455"
+ms.lasthandoff: 12/16/2020
+ms.locfileid: "97598642"
 ---
 # <a name="mdc-network-appendix"></a>MDC ネットワークの付録
 
@@ -53,25 +53,115 @@ ms.locfileid: "92183455"
 
 ### <a name="juniper-mx204"></a>Juniper MX204
 
-|  |  |  |
-|--|--|--|
-| Layout | システム容量 | 3 Tbps |
-|        | スロットの向き | NA |
-|        | 取り付け | 前面または中央 |
-| 物理仕様 | 寸法 (W x H x D) | 17.45 インチ x 8.71 インチ x 24.5 インチ (44.3 x 22.1 x 62.2 cm) |
-|                        | フル装備の重量 | 130 ポンド/59 kg |
-|                        | 未装備の重量 | 52 ポンド/23.6 kg |
-| ルーティング エンジン | 既定のメモリ | 2x16 MB NOR フラッシュ ストレージ、64 GB DDR4 RAM、2x50 GB SSD |
-|                | コア数 | 6 コア |
-| 冗長性 | コンポーネント | 電源、RE、ファン |
-| 環境 | エア フロー | サイド ツー サイド |
-|               | 操作温度 | 海抜ゼロ地点で 32° から 115° F (0° から 46° C) |
-|               | 操作湿度 | 5% から 90% |
-|               | 操作高度 | 10,000 フィート (3048 m) |
-| 認定 | NEBS | • GR-1089-Core EMC and Electrical Safety |
-|                | | • Common Bonding Network (CBN) |
-|                | | • National Electrical Code (NEC) |
-|                | | • GR-63-Core Physical Protection |
+:::row:::
+    :::column:::
+        **レイアウト**
+    :::column-end:::
+    :::column:::
+        システム容量
+
+        スロットの向き
+
+        取り付け
+    :::column-end:::
+    :::column span="2":::
+        3 Tbps
+
+        NA
+
+        前面または中央
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **物理仕様**
+    :::column-end:::
+    :::column:::
+        寸法 (W x H x D)
+
+        フル装備の重量
+
+        未装備の重量
+    :::column-end:::
+    :::column span="2":::
+        17.45 インチ x 8.71 インチ x 24.5 インチ (44.3 x 22.1 x 62.2 cm)
+
+        130 ポンド/59 kg
+
+        52 ポンド/23.6 kg
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **ルーティング エンジン**
+    :::column-end:::
+    :::column:::
+        既定のメモリ
+
+        コア数
+    :::column-end:::
+    :::column span="2":::
+        2x16 MB NOR フラッシュ ストレージ、64 GB DDR4 RAM、2x50 GB SSD
+
+        6 コア
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **冗長性**
+    :::column-end:::
+    :::column:::
+        コンポーネント
+    :::column-end:::
+    :::column span="2":::
+        電源、RE、ファン
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **環境**
+    :::column-end:::
+    :::column:::
+        エア フロー
+
+        操作温度
+
+        操作湿度
+
+        操作高度
+    :::column-end:::
+    :::column span="2":::
+        サイド ツー サイド
+
+        海抜ゼロ地点で 32° から 115° F (0° から 46° C)
+
+        5% から 90%
+
+        10,000 フィート (3048 m)
+    :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        **認定**
+    :::column-end:::
+    :::column:::
+        NEBS
+    :::column-end:::
+    :::column span="2":::
+        • GR-1089-Core EMC and Electrical Safety
+
+        • Common Bonding Network (CBN)
+
+        • National Electrical Code (NEC)
+
+        • GR-63-Core Physical Protection
+    :::column-end:::
+:::row-end:::
 
 ### <a name="dell-emc-s4148f-on"></a>Dell EMC S4148F-ON
 

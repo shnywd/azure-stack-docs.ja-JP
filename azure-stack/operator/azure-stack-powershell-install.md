@@ -3,16 +3,16 @@ title: Azure Stack Hub 用の PowerShell AzureRM モジュールをインスト�
 description: PowerShell for Azure Stack Hub をインストールする方法について説明します。 PowerShell AzureRM モジュールのインストール方法と必要な API プロファイルを確認します。
 author: mattbriggs
 ms.topic: article
-ms.date: 12/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: d4a1b0678aa5d9822b19d36584bba226e317b8fc
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.lastreviewed: 12/16/2020
+ms.openlocfilehash: d11a439054fc013ae0b595a684f0d6760fa932a5
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525508"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620621"
 ---
 # <a name="install-powershell-azurerm-module-for-azure-stack-hub"></a>Azure Stack Hub 用の PowerShell AzureRM モジュールをインストールする
 
@@ -20,7 +20,7 @@ Azure PowerShell Azure Resource Manager (AzureRM) には、Azure Stack Hub リ�
 
 ::: moniker range=">=azs-2002"
 > [!IMPORTANT]  
-> Azure PowerShell の古いバージョンの Web ページにアクセスしています。 Azure Resource Manager (AzureRM) の PowerShell モジュールのすべてのバージョンは古くなっていますが、サポート対象外ではありません。 現在、Azure を操作するために推奨される PowerShell モジュールは Az PowerShell モジュールです。 Az PowerShell モジュールを使い始めるには、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。 Az PowerShell モジュールに移行する方法については。 「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
+> Azure PowerShell の古いバージョンの Web ページにアクセスしています。 Azure Resource Manager (AzureRM) の PowerShell モジュールのすべてのバージョンは古くなっていますが、サポート対象外ではありません。 現在、Azure と Azure Stack Hub を操作するために推奨される PowerShell モジュールは Az PowerShell モジュールです。 Az PowerShell モジュールを使い始めるには、「[Azure Stack Hub 用の PowerShell Az プレビュー モジュールをインストールする](powershell-install-az-module.md)」を参照してください。 Az PowerShell モジュールに移行する方法については。 「[Azure Stack Hub での AzureRM から Azure PowerShell Az への移行](migrate-azurerm-az.md)」を参照してください。
 ::: moniker-end
 
 また、"*API プロファイル*" を使用して、互換性のある Azure Stack Hub リソース プロバイダーのエンドポイントを指定する必要もあります。

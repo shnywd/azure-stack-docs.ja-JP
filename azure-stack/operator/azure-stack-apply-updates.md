@@ -3,16 +3,16 @@ title: Azure Stack Hub の更新プログラムをインストールする
 description: Azure Stack Hub の更新プログラムをインストールする方法について学習します。
 author: sethmanheim
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 12/16/2020
 ms.author: sethm
 ms.lastreviewed: 09/10/2019
 ms.reviewer: sranthar
-ms.openlocfilehash: d0222de6db809fcbb73d31ac1ef4298e18895643
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: a54e47ff5788ca100e45be103e4d3d5192766f3b
+ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106572"
+ms.lasthandoff: 12/17/2020
+ms.locfileid: "97620785"
 ---
 # <a name="install-azure-stack-hub-updates"></a>Azure Stack Hub の更新プログラムをインストールする
 
@@ -31,9 +31,9 @@ ms.locfileid: "91106572"
 
 1. Azure Stack Hub 管理者ポータルを開きます。
 
-2. **[ダッシュボード]** を選択します。 **[更新]** ブレードに現在のバージョンが表示されます。 たとえば、このイメージではバージョンは 1.1903.0.35 です。
+2. **[ダッシュボード]** を選択します。 **[更新]** ペインに現在のバージョンが表示されます。
 
-    ![既定のダッシュボードの [更新] タイル](./media/azure-stack-update-apply/image1.png)
+    ![既定のダッシュボードの [更新] タイル](./media/azure-stack-apply-updates/dashboard.png)
 
 ## <a name="install-updates-and-monitor-progress"></a>更新プログラムのインストールと進行状況の監視
 
@@ -48,7 +48,7 @@ ms.locfileid: "91106572"
 
 4. **[今すぐ更新]** を選択します。
 
-    ![Azure Stack Hub で更新を開始する方法を示すスクリーンショット。](./media/azure-stack-update-apply/image2.png)
+    ![Azure Stack Hub で更新を開始する方法を示すスクリーンショット。](./media/azure-stack-apply-updates/image2.png)
 
 5. Azure Stack Hub のさまざまなサブシステムを介して更新プロセスが反復処理されるときに詳細な状態を表示できます。 サブシステムの例として、物理ホスト、Service Fabric、インフラストラクチャ仮想マシン、管理者とユーザーの両方のポータルを提供するサービスなどがあります。 更新プロセスを通じて、更新リソース プロバイダーにより更新に関するその他の詳細 (成功した手順数、進行中の数など) が報告されます。
 
@@ -56,11 +56,11 @@ ms.locfileid: "91106572"
 
     更新プログラムの監視中に問題が発生する場合は、[特権エンドポイント](./azure-stack-privileged-endpoint.md)を使用して、Azure Stack Hub 更新プログラムの実行の進行状況を監視することができます。 また、特権エンドポイントを使用して、Azure Stack Hub ポータルが利用できなくなった場合に、障害が発生した更新プログラムの実行を、前回成功した手順から再開することもできます。 手順については、「[PowerShell を使用した Azure Stack Hub での更新の監視](azure-stack-update-monitor.md)」を参照してください。
 
-    ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-update-apply/image3.png)
+    ![Azure Stack Hub 更新実行の詳細](./media/azure-stack-apply-updates/image3.png)
 
-7. 完了したら、更新リソース プロバイダーにより、**成功**の確認が表示され、更新プロセスが終了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
+7. 完了したら、更新リソース プロバイダーにより、**成功** の確認が表示され、更新プロセスが終了したことと、それにかかった時間が示されます。 そこから、フィルターを使用して、すべての更新、利用可能な更新、またはインストールされた更新に関する情報を表示できます。
 
-    ![azure-stack-update-apply](./media/azure-stack-update-apply/image4.png)
+    ![azure-stack-update-apply](./media/azure-stack-apply-updates/image4.png)
 
     更新が失敗した場合、 **[更新]** ブレードで **[要注意]** と報告されます。 **[詳細ログのダウンロード]** オプションを使用して、更新失敗時の大まかな状態を取得します。 Azure Stack Hub のログ収集は、診断とトラブルシューティングで役立ちます。
 
@@ -72,7 +72,7 @@ ms.locfileid: "91106572"
 
 3. **[更新の履歴]** を選択します。
 
-    ![Azure Stack Hub の更新の履歴](./media/azure-stack-update-apply/image7.png)
+    ![Azure Stack Hub の更新の履歴](./media/azure-stack-apply-updates/image5.png)
 
 ## <a name="next-steps"></a>次のステップ
 
