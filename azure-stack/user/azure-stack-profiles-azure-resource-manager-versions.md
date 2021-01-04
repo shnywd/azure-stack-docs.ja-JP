@@ -2,18 +2,18 @@
 title: Azure Stack Hub のプロファイルでサポートされているリソース プロバイダー API バージョン
 description: Azure Stack Hub のプロファイルでサポートされている Azure Resource Manager API のバージョンについて説明します。
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 12/2/2020
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 12/2/2020
-ms.openlocfilehash: 5b558eb0abb0494cb75f2509e51f291b08bd29ef
-ms.sourcegitcommit: 9ef2cdc748cf00cd3c8de90705ea0542e29ada97
+ms.openlocfilehash: 31916f9f68f69785eb1e6e16cd9abd3ca8bf84f8
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96525542"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697662"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack-hub"></a>Azure Stack Hub のプロファイルでサポートされているリソース プロバイダー API バージョン
 

@@ -2,17 +2,17 @@
 title: Azure Stack Hub で IPsec/IKE のサイト間 VPN 接続を構成する
 description: Azure Stack Hub でのサイト間 VPN 接続または VNet 間接続用の IPsec/IKE ポリシーについて説明し、構成します。
 author: sethmanheim
-ms.custom: contperfq4
+ms.custom: contperf-fy20q4
 ms.topic: article
 ms.date: 11/22/2020
 ms.author: sethm
 ms.lastreviewed: 11/22/2020
-ms.openlocfilehash: cb835bba8bc35029fa7f0462cb68bb4e961e985c
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 27653bcb9cfee29abd4a4587ceee67eb698a93bb
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95518247"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697643"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>サイト間 VPN 接続の IPsec/IKE ポリシーを構成する
 

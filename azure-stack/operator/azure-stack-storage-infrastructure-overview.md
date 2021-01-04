@@ -8,13 +8,13 @@ ms.date: 05/11/2020
 ms.author: inhenkel
 ms.lastreviewed: 5/5/2020
 ms.reviewer: jiaha
-ms.custom: contperfq4
-ms.openlocfilehash: a60de3bf059522b980d7a3e74295736118334773
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.custom: contperf-fy20q4
+ms.openlocfilehash: 8633e31ac60dfb091997657b02b633d24d39b29d
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106435"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697600"
 ---
 # <a name="azure-stack-hub-storage-infrastructure-overview"></a>Azure Stack Hub のストレージ インフラストラクチャの概要
 
@@ -24,7 +24,7 @@ ms.locfileid: "91106435"
 
 ### <a name="drive-types"></a>ドライブの種類
 
-Azure Stack Hub の統合システム パートナーからは、ストレージの幅広い柔軟性など、バリエーション豊かなソリューションが提供されています。 現在、サポートされている次の 3 つのドライブの種類から **2 つ**までを選択できます。
+Azure Stack Hub の統合システム パートナーからは、ストレージの幅広い柔軟性など、バリエーション豊かなソリューションが提供されています。 現在、サポートされている次の 3 つのドライブの種類から **2 つ** までを選択できます。
 
 1. NVMe (Non-Volatile Memory Express)
 1. SATA/SAS SSD (ソリッドステート ドライブ)
@@ -83,7 +83,7 @@ Azure Stack のデプロイでは、ストレージのパフォーマンスを�
 Azure Stack Hub の記憶域プール上に作成されるボリュームは 3 種類あります。
 
 1. **インフラストラクチャ** ボリュームでは、Azure Stack Hub インフラストラクチャ VM とコア サービスによって使用されるファイルがホストされます。
-1. **VM 一時ボリューム**では、テナント VM に接続されている一時ディスクと、そのディスクに格納されているデータがホストされます。
+1. **VM 一時ボリューム** では、テナント VM に接続されている一時ディスクと、そのディスクに格納されているデータがホストされます。
 1. **オブジェクト ストア** ボリュームでは、BLOB、テーブル、キュー、および VM ディスクにサービスを提供するテナント データがホストされます。
 
 ### <a name="volumes-in-a-multi-node-deployment"></a>マルチノード デプロイでのボリューム
