@@ -4,6 +4,8 @@
   items:
     - name: Azure Stack HCI とは
       href: overview.md
+    - name: Windows Server との比較
+      href: concepts/compare-windows-server.md
     - name: リリース情報
       href: release-information.md
     - name: リリース ノート
@@ -118,8 +120,6 @@
       items:
         - name: システム要件
           href: concepts/system-requirements.md
-        - name: Windows Server との比較
-          href: concepts/compare-windows-server.md
         - name: ドライブの選択
           href: concepts/choose-drives.md
         - name: ドライブの対称性に関する考慮事項
@@ -228,3 +228,5 @@
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
     - name: Azure Stack HCI のサポート
       href: manage/get-support.md
+    - name: Azure Stack HCI のアーカイブされたリリース ノート
+      href: preview-release-notes.md
