@@ -222,11 +222,13 @@
   items:
     - name: Azure Stack HCI の製品ページ
       href: 'https://azure.com/hci'
-    - name: Azure Stack HCI の評価ガイド
+    - name: 評価ガイド
       href: 'https://github.com/Azure/AzureStackHCI-EvalGuide/blob/main/README.md'
-    - name: Azure Stack HCI の価格
+    - name: 価格
       href: 'https://azure.microsoft.com/pricing/details/azure-stack/hci/'
-    - name: Azure Stack HCI のサポート
+    - name: サポート
       href: manage/get-support.md
-    - name: Azure Stack HCI のアーカイブされたリリース ノート
+    - name: トレーニング
+      href: /learn/paths/azure-stack-hci-foundations/
+    - name: アーカイブされたリリース ノート
       href: preview-release-notes.md
