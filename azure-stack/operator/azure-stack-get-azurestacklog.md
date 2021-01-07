@@ -1,19 +1,19 @@
 ---
 title: 特権エンドポイント (PEP) を使用して診断ログを収集する
 description: 管理者ポータルまたは PowerShell スクリプトを使用して Azure Stack Hub 内で診断ログをオンデマンドで収集する方法について説明します。
-author: justinha
+author: PatAltimore
 ms.custom: conteperfq4
 ms.topic: article
 ms.date: 09/02/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 48add21dfcbf5c83a525e1f0ebd6a9e2123f75e4
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: 95ca8364e06176f1a96fae388e1d8047eb4a0403
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794160"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950724"
 ---
 # <a name="send-azure-stack-hub-diagnostic-logs-by-using-the-privileged-endpoint-pep"></a>特権エンドポイント (PEP) を使用して Azure Stack Hub 診断ログを送信する
 
@@ -85,7 +85,9 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  
+  ::: moniker range=">= azs-2008"
+
   SQL RP のログを収集するには: 
 
   ```powershell
@@ -97,6 +99,8 @@ if ($session) {
   ```powershell
   Get-AzureStackLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   IoT Hub のログを収集するには: 
 

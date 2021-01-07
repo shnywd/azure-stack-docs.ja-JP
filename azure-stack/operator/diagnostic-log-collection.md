@@ -1,18 +1,18 @@
 ---
 title: 診断ログの収集
 description: 診断ログの収集について学習する。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 10/30/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
-ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
+ms.openlocfilehash: c8913bd91b7d931baf47f249dd214dd6eea71e4a
+ms.sourcegitcommit: 6efe456173ce77d52789144709195b6291d0d707
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/28/2020
-ms.locfileid: "97794194"
+ms.lasthandoff: 01/06/2021
+ms.locfileid: "97950741"
 ---
 # <a name="diagnostic-log-collection"></a>診断ログの収集
 
@@ -142,6 +142,9 @@ Azure Stack Hub が Azure に接続されている場合は、管理者ポータ
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
+
+  ::: moniker range=">= azs-2008"
+
   SQL RP の診断ログを送信するには: 
 
   ```powershell
@@ -152,6 +155,8 @@ Azure Stack Hub が Azure に接続されている場合は、管理者ポータ
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
   ```
+  
+  ::: moniker-end
 
   IoT Hub の診断ログを送信するには: 
 
