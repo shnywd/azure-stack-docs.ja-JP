@@ -3,16 +3,16 @@ title: Azure Stack Hub にデプロイされた VM の保護
 description: データ損失や計画外のダウンタイムから Azure Stack Hub にデプロイされた VM を保護するための復旧計画の作成方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 3/5/2020
-ms.openlocfilehash: 5634cd783a010f5aa45de88ba923dfe6a8378c4c
-ms.sourcegitcommit: 4af79f4fa2598d57c81e994192c10f8c6be5a445
+ms.openlocfilehash: 8fe38a530477f080efafcf728e553a8194b74ec6
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89742716"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874066"
 ---
 # <a name="protect-vms-deployed-on-azure-stack-hub"></a>Azure Stack Hub にデプロイされた VM の保護
 
@@ -26,7 +26,7 @@ ms.locfileid: "89742716"
 
 まず、保護と復旧に関連して、アプリケーションの所有者とオペレーターに帰属するロールと責任について明確に理解していることを確認します。
 
-ユーザーには VM を保護する責任があります。 オペレーターには、Azure Stack Hub をオンラインかつ正常な状態に保つ責任があります。 Azure Stack Hub には、インフラストラクチャ サービスから内部サービス データをバックアップするサービスが含まれていますが、ユーザーが作成した VM、ユーザーまたはアプリケーション データを持つストレージ アカウント、ユーザー データベースなどのユーザー データは**含まれていません**。
+ユーザーには VM を保護する責任があります。 オペレーターには、Azure Stack Hub をオンラインかつ正常な状態に保つ責任があります。 Azure Stack Hub には、インフラストラクチャ サービスから内部サービス データをバックアップするサービスが含まれていますが、ユーザーが作成した VM、ユーザーまたはアプリケーション データを持つストレージ アカウント、ユーザー データベースなどのユーザー データは **含まれていません**。
 
 
 | アプリケーションの所有者/アーキテクト   | Azure Stack Hub オペレーター  |

@@ -2,22 +2,22 @@
 title: Azure の登録の検証
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub 適合性チェッカーを使用して、Azure 登録を検証する方法について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: jerskine
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 0034bd17e42aba8ddbbf55c86aaffea9c243a600
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: ffe992c4a2db39f5b2e29d80a002f1486099baaa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545738"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868796"
 ---
 # <a name="validate-azure-registration"></a>Azure の登録の検証
 
-Azure Stack Hub のデプロイを開始する前に、Azure Stack Hub 適合性チェッカー ツール ( **AzsReadinessChecker** ) を使用して、Azure Stack Hub で Azure サブスクリプションをすぐに使用できることを検証します。 適合性チェッカーは以下を検証します。
+Azure Stack Hub のデプロイを開始する前に、Azure Stack Hub 適合性チェッカー ツール (**AzsReadinessChecker**) を使用して、Azure Stack Hub で Azure サブスクリプションをすぐに使用できることを検証します。 適合性チェッカーは以下を検証します。
 
 - 使用する Azure サブスクリプションの種類がサポート対象であること。 サブスクリプションは、クラウド ソリューション プロバイダー (CSP) またはマイクロソフトエンタープライズ契約 (EA) である必要があります。
 - ご自身のサブスクリプションの登録に使用するアカウントが Azure にサインインでき、サブスクリプション所有者であること。
@@ -47,7 +47,7 @@ Az PowerShell モジュールをインストールしておく必要がありま
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Azure の登録を検証する手順
 
-1. 管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、 **AzsReadinessChecker** をインストールします。
+1. 管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、**AzsReadinessChecker** をインストールします。
 
    ```powershell
    Install-Module -Name Az.BootStrapper -Force -AllowPrerelease
@@ -97,7 +97,7 @@ Az PowerShell モジュールをインストールしておく必要がありま
 #### <a name="the-computer-on-which-the-tool-runs"></a>ツールを実行するコンピューター
 
 - インターネットに接続された Windows 10 または Windows Server 2016。
-- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、" **メジャー** " バージョンと " **マイナー** " バージョンを調べます。  
+- PowerShell 5.1 以降。 バージョンを確認するには、次の PowerShell コマンドレットを実行し、"**メジャー**" バージョンと "**マイナー**" バージョンを調べます。  
   ```powershell
   $PSVersionTable.PSVersion
   ```
@@ -108,11 +108,11 @@ Az PowerShell モジュールをインストールしておく必要がありま
 
 - Azure Stack Hub で使用する Azure サブスクリプションの所有者であるアカウントのユーザー名とパスワードを識別します。  
 - 使用する Azure サブスクリプションのサブスクリプション ID を識別します。
-- 使用する **AzureEnvironment** を識別します。 環境名のパラメーターとしてサポートされる値は、 **AzureCloud** 、 **AzureChinaCloud** 、または **AzureUSGovernment** であり、使用されている Azure サブスクリプションに応じて異なります。
+- 使用する **AzureEnvironment** を識別します。 環境名のパラメーターとしてサポートされる値は、**AzureCloud**、**AzureChinaCloud**、または **AzureUSGovernment** であり、使用されている Azure サブスクリプションに応じて異なります。
 
 ### <a name="steps-to-validate-the-azure-registration"></a>Azure の登録を検証する手順
 
-1. 前提条件を満たしているコンピューターで、管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、 **AzsReadinessChecker** をインストールします。
+1. 前提条件を満たしているコンピューターで、管理者特権の PowerShell プロンプトを開き、次のコマンドを実行して、**AzsReadinessChecker** をインストールします。
 
    ```powershell
    Install-Module Microsoft.AzureStack.ReadinessChecker -Force -AllowPrerelease
@@ -135,7 +135,7 @@ Az PowerShell モジュールをインストールしておく必要がありま
 
 4. PowerShell プロンプトから次のコマンドを実行して、お使いのサブスクリプションの検証を開始します。
 
-   - `AzureEnvironment` の値を **AzureCloud** 、 **AzureGermanCloud** 、または **AzureChinaCloud** として指定します。  
+   - `AzureEnvironment` の値を **AzureCloud**、**AzureGermanCloud**、または **AzureChinaCloud** として指定します。  
    - Azure AD 管理者と Azure AD テナント名を指定します。
       ```powershell
       Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID
@@ -167,7 +167,7 @@ Az PowerShell モジュールをインストールしておく必要がありま
 
 ## <a name="validation-failures"></a>検証エラー
 
-検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、 **AzsReadinessChecker.log** ファイルにログ情報が記録されます。
+検証チェックに失敗した場合は、エラーの詳細が PowerShell ウィンドウに表示されます。 また、ツールによって、**AzsReadinessChecker.log** ファイルにログ情報が記録されます。
 
 次の例は、一般的な検証エラーの詳細を示します。
 
@@ -228,7 +228,7 @@ Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadines
 Invoke-AzsRegistrationValidation Completed
 ```
 
-**原因** - 指定した Azure AD 環境にアカウントでサインインできません。 この例では、 **AzureChinaCloud** が **AzureEnvironment** として指定されています。  
+**原因** - 指定した Azure AD 環境にアカウントでサインインできません。 この例では、**AzureChinaCloud** が **AzureEnvironment** として指定されています。  
 
 **解決策** - 指定した Azure 環境に対してアカウントが有効であることを確認します。 PowerShell で次のコマンドを実行して、特定の環境に対してアカウントが有効であることを確認します。
 

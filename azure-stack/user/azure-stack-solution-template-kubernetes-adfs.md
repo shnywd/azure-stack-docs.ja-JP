@@ -3,16 +3,16 @@ title: Active Directory フェデレーション サービス (AD FS) を使用�
 description: Active Directory フェデレーション サービス (AD FS) を使用して Azure Stack Hub に Kubernetes をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 85c1814264b11b40c815ea1089c92113b0b035b1
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 268157d491b1605ecce442cc4cb348e76657fec2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106731"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873947"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-active-directory-federated-services"></a>Active Directory フェデレーション サービスを使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -31,7 +31,7 @@ ms.locfileid: "91106731"
 
 1. Azure Stack Hub テナント ポータル内で有効なサブスクリプションがあり、新しいアプリケーションの追加に十分使用できるパブリック IP アドレスがあることを確認します。
 
-    クラスターを Azure Stack Hub **管理者**サブスクリプションにデプロイすることはできません。 **User** サブスクリプションを使用する必要があります。 
+    クラスターを Azure Stack Hub **管理者** サブスクリプションにデプロイすることはできません。 **User** サブスクリプションを使用する必要があります。 
 
 1. マーケットプレースに Kubernetes クラスターがない場合は、Azure Stack Hub 管理者に連絡してください。
 
@@ -96,7 +96,7 @@ AD FS を ID ソリューションとして使用する場合は、Azure Stack H
 
 1. **[VMSize of the Kubernetes node VMs]\(Kubernetes ノード VM の VM サイズ\)** を選択します。 これにより、Kubernetes ノード VM の VM サイズを指定します。 
 
-1. Azure Stack Hub のインストールに対して、**Azure Stack Hub の ID システム**用の **ADFS** を選択します。
+1. Azure Stack Hub のインストールに対して、**Azure Stack Hub の ID システム** 用の **ADFS** を選択します。
 
 1. **[Service principal clientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときに、アプリケーション ID として識別されたクライアント ID。
 

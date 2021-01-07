@@ -1,18 +1,18 @@
 ---
 title: 管理者ポータルで Azure Stack Hub のバックアップを有効にする
 description: エラーが発生した場合に Azure Stack Hub を復元できるように、管理者ポータルで Infrastructure Backup サービスを有効にする方法について説明します。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 08/21/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 08/21/2019
-ms.openlocfilehash: ba942571d804ec221ee9c25d1b78ddfa1e3a52de
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 4ec0aebf0fcf46973a4f371d659aece8e51eb2c7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106624"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871856"
 ---
 # <a name="enable-backup-for-azure-stack-hub-from-the-administrator-portal"></a>管理者ポータルで Azure Stack Hub のバックアップを有効にする
 
@@ -36,13 +36,13 @@ Azure Stack Hub でインフラストラクチャのバックアップを生成�
 
 1. [Azure Stack Hub 管理者ポータル](azure-stack-manage-portals.md)を開きます。
 2. **[すべてのサービス]** を選択し、 **[管理]** カテゴリで **[インフラストラクチャ バックアップ]** を選びます。 **[Infrastructure backup]\(インフラストラクチャ バックアップ\)** ブレードで **[構成]** を選択します。
-3. **バックアップ ストレージの場所**のパスを入力します。 別のデバイスでホストされるファイル共有へのパスの場合、汎用名前付け規則 (UNC) の文字列を使用します。 UNC 文字列は、共有ファイルやデバイスといった、リソースの場所を指定します。 サービスの場合は、IP アドレスを使用できます。 障害発生後にバックアップ データを確実に利用できるようにするためには、保存デバイスは別の場所に配置する必要があります。
+3. **バックアップ ストレージの場所** のパスを入力します。 別のデバイスでホストされるファイル共有へのパスの場合、汎用名前付け規則 (UNC) の文字列を使用します。 UNC 文字列は、共有ファイルやデバイスといった、リソースの場所を指定します。 サービスの場合は、IP アドレスを使用できます。 障害発生後にバックアップ データを確実に利用できるようにするためには、保存デバイスは別の場所に配置する必要があります。
 
     > [!Note]  
     > 使用する環境で Azure Stack Hub インフラストラクチャ ネットワークからエンタープライズ環境への名前解決がサポートされている場合は、IP ではなく、完全修飾ドメイン名 (FQDN) を使用できます。
 
-4. ファイルを読み書きするための十分なアクセス権を持つドメインとユーザー名を使用して**ユーザー名**を入力します。 たとえば、「 `Contoso\backupshareuser` 」のように入力します。
-5. ユーザーの**パスワード**を入力します。
+4. ファイルを読み書きするための十分なアクセス権を持つドメインとユーザー名を使用して **ユーザー名** を入力します。 たとえば、「 `Contoso\backupshareuser` 」のように入力します。
+5. ユーザーの **パスワード** を入力します。
 6. **[パスワードの確認]** にもう一度パスワードを入力します。
 7. **頻度 (時間単位)** はバックアップの作成頻度を決定します。 既定値は 12 です。 Scheduler では、最大値 12 から最小値 4 までをサポートします。 
 8. **保有期間 (日単位)** は、バックアップが外部の保存場所に保持される日数を決定します。 既定値は 7 です。 Scheduler では、最大値 14 から最小値 2 までをサポートします。 保有期間より前のバックアップは、外部の保存場所から自動的に削除されます。

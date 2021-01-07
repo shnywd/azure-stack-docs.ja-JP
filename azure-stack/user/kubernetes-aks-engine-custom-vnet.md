@@ -3,16 +3,16 @@ title: Azure Stack Hub のカスタム仮想ネットワークに Kubernetes ク
 description: Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 588adfc39dc6ff3eec26e67283a7f51a28655fd2
-ms.sourcegitcommit: 1621f2748b2059fd47ccacd48595a597c44ee63f
+ms.openlocfilehash: 417d2cee37bc97f64de9b3d21f81ff60c075e74b
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91853212"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873692"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-a-custom-virtual-network-on-azure-stack-hub"></a>Azure Stack Hub のカスタム仮想ネットワークに Kubernetes クラスターをデプロイする 
 
@@ -65,7 +65,7 @@ AKS エンジンは、既存の仮想ネットワークへのデプロイをサ�
 IP アドレスのブロックを配置する場合、サブネットでは既存の IP アドレスの次の割り当てが必要になります。
  - 最初の 4つの IP アドレスと最後の IP アドレスは予約されており、どの Azure サブネットでも使用できません
  - 16 個の IP アドレスのバッファーをオープンにしたままにする必要があります。
- - クラスターの最初の IP の値は、IP の競合を避けるためにアドレス空間の最後の方にある必要があります。 可能な場合は、`firstConsecutiveStaticIP` プロパティに、サブネット内の使用可能な IP アドレス空間の*終わり*の近くにある IP アドレスを割り当てます。
+ - クラスターの最初の IP の値は、IP の競合を避けるためにアドレス空間の最後の方にある必要があります。 可能な場合は、`firstConsecutiveStaticIP` プロパティに、サブネット内の使用可能な IP アドレス空間の *終わり* の近くにある IP アドレスを割り当てます。
 
 次の例では、これらのさまざまな考慮事項によってサブネットの IP 範囲がどのように決まるかを確認できます。 これは 3 つのマスターを対象としています。 10.1.0.0/24 などの 256 個のアドレスを持つサブネットを使用している場合は、連続する最初の静的 IP アドレスを 207 に設定する必要があります。 次の表に、アドレスと考慮事項を示します。
 
@@ -89,7 +89,7 @@ AKS エンジンからカスタム仮想ネットワークにクラスターを�
 | フィールド | 例 | 説明 |
 | --- | --- | --- |
 | vnetSubnetId | `/subscriptions/77e28b6a-582f-42b0-94d2-93b9eca60845/resourceGroups/MDBN-K8S/providers/Microsoft.Network/virtualNetworks/MDBN-K8S/subnets/default` | サブネットのリソース ID を指定します。  |
-| firstConsecutiveStaticIP | 10.1.0.224 | `firstConsecutiveStaticIP` 構成プロパティに、サブネット内の使用可能な IP アドレス空間の*終わり*の近くにある IP アドレスを割り当てます。 `firstConsecutiveStaticIP` はマスター プールにのみ適用されます。 |
+| firstConsecutiveStaticIP | 10.1.0.224 | `firstConsecutiveStaticIP` 構成プロパティに、サブネット内の使用可能な IP アドレス空間の *終わり* の近くにある IP アドレスを割り当てます。 `firstConsecutiveStaticIP` はマスター プールにのみ適用されます。 |
 
 **agentPoolProfiles** で、次の値を設定します。
 

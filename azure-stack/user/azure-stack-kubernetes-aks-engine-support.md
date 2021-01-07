@@ -3,16 +3,16 @@ title: Azure Stack Hub の AKS エンジンのサポート ポリシー
 description: このトピックでは Azure Stack Hub の AKS エンジンのサポート ポリシーについて説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/0102020
-ms.openlocfilehash: 389dd7110bfc5b8b42d1594c947ad522f4fbab98
-ms.sourcegitcommit: f19aaf989d758f0712e1ef3cbc4abf90a1110554
+ms.openlocfilehash: aebc9506d99e52c5ace6400128c70c43e2ae5b64
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90026219"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874100"
 ---
 # <a name="support-policies-for-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub の AKS エンジンのサポート ポリシー
 

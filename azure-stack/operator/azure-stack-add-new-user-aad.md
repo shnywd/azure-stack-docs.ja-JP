@@ -1,18 +1,18 @@
 ---
 title: 新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する
 description: ユーザー ポータルを調べることができるように、Azure Active Directory でユーザー アカウントを作成する方法について説明します。
-author: JustinHall
+author: PatAltimore
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 435b2bfdd2de9a232379190a0fe3db0dca642def
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 9ada0a0c7731b92bc67f85545b5d9cd81e87cd36
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "77700563"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871975"
 ---
 # <a name="add-a-new-azure-stack-hub-user-account-in-azure-active-directory-azure-ad"></a>新しい Azure Stack Hub ユーザー アカウントを Azure Active Directory に追加する (Azure AD)
 

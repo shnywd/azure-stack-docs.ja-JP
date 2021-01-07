@@ -8,12 +8,12 @@ ms.date: 12/07/2020
 ms.lastreviewed: 12/07/2020
 ms.author: bryanla
 ms.reviewer: xiao
-ms.openlocfilehash: e7565634d026d0d9bca5162ed709d76f760685b1
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: 9a88620fa333bd55a99796f4de292555f6cfd159
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778174"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737863"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack-hub"></a>Azure Stack Hub への SQL Server リソース プロバイダーのデプロイ
 
@@ -36,13 +36,13 @@ Azure Stack Hub SQL リソース プロバイダーをデプロイする前に�
 
 - 必要な Windows Server VM を Azure Stack Hub Marketplace に追加します。
   - SQL RP バージョン <= 1.1.47.0 の場合は、**Windows Server 2016 Datacenter - Server Core** イメージをダウンロードします。
-  - SQL RP バージョン >= 1.1.93.0 の場合は、**Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
+  - 1\.1.93.0 以降の SQL RP バージョンの場合は、**Microsoft AzureStack Add-On RP Windows Server** イメージをダウンロードします。 この Windows Server バージョンは Azure Stack Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。
 
 - 次のバージョン マッピングの表に従って、サポートされているバージョンの SQL リソース プロバイダー バイナリをダウンロードします。 自己解凍ツールを実行して、ダウンロードした内容を一時ディレクトリに抽出します。 
 
   |サポートされる Azure Stack Hub のバージョン|SQL RP バージョン|RP サービスが実行されている Windows Server
   |-----|-----|-----|
-  |2008、2005|[SQL RP バージョン 1.1.93.0](https://aka.ms/azshsqlrp11930)|Microsoft AzureStack Add-on RP Windows Server INTERNAL ONLY
+  |2008、2005|[SQL RP バージョン 1.1.93.1](https://aka.ms/azshsqlrp11931)|Microsoft AzureStack Add-on RP Windows Server
   |2005、2002、1910|[SQL RP バージョン 1.1.47.0](https://aka.ms/azurestacksqlrp11470)|Windows Server 2016 Datacenter - Server Core|
   |1908|[SQL RP バージョン 1.1.33.0](https://aka.ms/azurestacksqlrp11330)|Windows Server 2016 Datacenter - Server Core|
   |     |     |     |

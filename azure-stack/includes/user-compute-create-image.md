@@ -3,15 +3,15 @@ author: mattbriggs
 ms.author: mabrigg
 ms.service: azure-stack
 ms.topic: include
-ms.date: 08/04/2020
+ms.date: 12/16/2020
 ms.reviewer: thoroet
 ms.lastreviewed: 08/04/2020
-ms.openlocfilehash: f0aee3ea85db7cf95555ad5f54e8ffb4e3352f5d
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 3f8381940d7482b82ce36fd995cfac0929545f6c
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936109"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867326"
 ---
 1. Azure Stack Hub のユーザー ポータルにサインインします。
 
@@ -21,11 +21,11 @@ ms.locfileid: "91936109"
 
 3. **[イメージの作成]** で、以下を行います。
 
-    1. イメージの**名前**を入力します。
-    2. **サブスクリプション**を選択します。
-    3. イメージを作成するか、イメージを**リソース グループ**に追加します。
-    4. ASDK の**場所** (リージョンとも呼ばれます) を選択します。
-    5. イメージに一致する **OS の種類**を選択します。
+    1. イメージの **名前** を入力します。
+    2. **サブスクリプション** を選択します。
+    3. イメージを作成するか、イメージを **リソース グループ** に追加します。
+    4. ASDK の **場所** (リージョンとも呼ばれます) を選択します。
+    5. イメージに一致する **OS の種類** を選択します。
     6. **[参照]** を選択し、[ストレージ アカウント]、[コンテナー]、[VHD] の順に移動します。 **[選択]** を選択します。
     5. **[アカウントの種類]** を選択します。
         - **Premium ディスク (SSD)** の実体はソリッドステート ドライブであり、待ち時間の短い一貫したパフォーマンスが得られます。 価格とパフォーマンスのバランスにきわめて優れており、I/O 集中型のアプリケーションや運用環境のワークロードに最適です。  

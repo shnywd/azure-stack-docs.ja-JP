@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: sethm
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 2393a088e64ec0a3144fe7d5f4c5c3d2c8e25ab1
-ms.sourcegitcommit: c9737939f4e437f1d954e163db972d58b3f98ffd
+ms.openlocfilehash: e21839e5333a03b1a36322f0c632a2b278da9665
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84813722"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97802016"
 ---
 # <a name="create-vpn-gateways-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイの作成
 
@@ -94,17 +94,17 @@ SKU を選択する場合、次を考慮してください。
 
 ## <a name="gateway-availability"></a>ゲートウェイの可用性
 
-高可用性シナリオは、**ハイ パフォーマンス ゲートウェイ**の接続 SKU 上でのみ構成できます。 アクティブ/アクティブ構成とアクティブ/パッシブ構成の両方で可用性を提供する Azure とは異なり、Azure Stack Hub では、アクティブ/パッシブ構成のみがサポートされています。
+高可用性シナリオは、**ハイ パフォーマンス ゲートウェイ** の接続 SKU 上でのみ構成できます。 アクティブ/アクティブ構成とアクティブ/パッシブ構成の両方で可用性を提供する Azure とは異なり、Azure Stack Hub では、アクティブ/パッシブ構成のみがサポートされています。
 
 ### <a name="failover"></a>[フェールオーバー]
 
 Azure Stack Hub には 3 つのマルチテナント ゲートウェイ インフラストラクチャ VM があります。 これらの VM のうち 2 つはアクティブ モードで、3 つ目は冗長モードです。 アクティブな VM ではその上に VPN 接続を作成でき、冗長 VM ではフェールオーバーが発生した場合に VPN 接続のみを受け入れます。 アクティブなゲートウェイ VM が使用できなくなった場合、短い時間 (数秒) 接続が失われた後に、VPN 接続が冗長 VM にフェールオーバーします。
 
-## <a name="estimated-aggregate-throughput-by-sku"></a>SKU の予測される合計スループット
+## <a name="estimated-aggregate-tunnel-throughput-by-sku"></a>SKU 別の推定合計トンネル スループット
 
-次の表は、ゲートウェイの種類と、ゲートウェイ SKU 別の予測される合計スループットを示したものです。
+次の表は、ゲートウェイの種類と、ゲートウェイ SKU 別の各トンネル/接続の推定合計スループットを示しています。
 
-|| VPN Gateway のスループット (1) | VPN Gateway の IPsec トンネルの最大数 (2) |
+|| トンネル スループット (1) | VPN Gateway の IPsec トンネルの最大数 (2) |
 |-------|-------|-------|
 |**Basic SKU** **(3)** | 100 Mbps | 20 |
 |**Standard SKU** | 100 Mbps | 20 |
@@ -112,7 +112,7 @@ Azure Stack Hub には 3 つのマルチテナント ゲートウェイ イン�
 
 ### <a name="table-notes"></a>表の注記:
 
-**(1)** インターネット経由でのクロスプレミス接続では、VPN スループットが保証されるわけではありません。 この値は、達成可能な最大スループットです。  
+**(1)** - トンネル スループットは、インターネット経由でのクロスプレミス接続では保証されたスループットではありません。 この値は、達成可能な最大スループットです。  
 **(2)** - トンネルの最大数は、すべてのサブスクリプションの Azure Stack Hub デプロイごとの合計です。  
 **(3)** BGP ルーティングは、Basic SKU ではサポートされていません。
 

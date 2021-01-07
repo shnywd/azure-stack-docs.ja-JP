@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub で PowerShell を使用して更新プログラムを監視する
 description: Azure Stack Hub で PowerShell を使用して更新プログラムを監視する方法を説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 08/23/2019
 ms.reviewer: ppacent
-ms.openlocfilehash: bee3cbf3ab3faedbe54212c67dada1faa746071a
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 4e80c4677bf2c21689586de574f56ecb413b7f18
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545263"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97868949"
 ---
 # <a name="monitor-updates-with-powershell-in-azure-stack-hub"></a>Azure Stack Hub で PowerShell を使用して更新プログラムを監視する
 

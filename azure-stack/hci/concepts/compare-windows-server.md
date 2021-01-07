@@ -6,13 +6,13 @@ author: khdownie
 ms.author: v-kedow
 ms.service: azure-stack
 ms.subservice: azure-stack-hci
-ms.date: 12/11/2020
-ms.openlocfilehash: bd1798ddfcf0897eeaedaeaae0cfb02eac1aaa1e
-ms.sourcegitcommit: 79e8df69b139bfa21eb83aceb824b97e7f418c03
+ms.date: 12/22/2020
+ms.openlocfilehash: a4429113088497fd6a7c887a65f524a7495c6b74
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97365160"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737812"
 ---
 # <a name="compare-azure-stack-hci-to-azure-stack-hub-and-windows-server"></a>Azure Stack HCI と Azure Stack Hub および Windows Server の比較
 
@@ -41,7 +41,7 @@ Windows Server と Azure Stack HCI のどちらでも、新しいリリースの
 
 | Windows Server | Azure Stack HCI |
 | --------------- | --------------- |
-| Windows Server はオンプレミスまたはクラウドで実行できますが、それ自体は完全なハイパーコンバージド オファリングではありません。| オンプレミスで VM を実行し、必要に応じて 2 つのサイトに拡張して Azure ハイブリッド サービスへの接続を使用するには、Azure Stack HCI を使用します。 データ センターやブランチ オフィスを最新化してセキュリティで保護し、SQL Server データベースで業界最高のパフォーマンスを実現し、低待機時間とデータ主権のためにオンプレミスで仮想デスクトップを実行するための、簡単な方法です|
+| Windows Server はオンプレミスでもクラウドでも実行できますが、最新のハイパー集約機能は今後は提供されません。| Azure Stack HCI は、オンプレミスで VM を実行するための Microsoft のプレミア ハイパー集約型インフラストラクチャ プラットフォームであり、必要に応じて 2 つのサイトに拡張でき、Azure ハイブリッド サービスに接続できます。 データ センターやブランチ オフィスを最新化してセキュリティで保護し、SQL Server データベースで業界最高のパフォーマンスを実現し、低待機時間とデータ主権のためにオンプレミスで VM または仮想デスクトップを実行するための簡単な方法です。|
 | Windows Server は、仮想化されているかどうかに関係なく、Windows Server のすべての役割を対象とする優れた多目的の "万能製品" です。 | Exchange、SharePoint、SQL Server などの従来のエンタープライズ アプリを仮想化する場合、またはファイル サーバー、DNS、DHCP、IIS、AD などの Windows Server の役割を仮想化する場合は、Azure Stack HCI を使用します。 シールドされた VM など、すべての Hyper-V 機能への無制限のアクセスが含まれます。|
 | Windows Server の多くの展開は、古いハードウェアで実行されています。 | 大規模な再設計なしで、古いストレージ アレイやネットワーク アプライアンスの代わりにソフトウェアによるインフラストラクチャを使用する場合に、Azure Stack HCI を使用します。 組み込みの Hyper-V、記憶域スペース ダイレクト、およびソフトウェアによるネットワーク (SDN) は直接アクセスして管理できます。 Windows VM または Linux VM 内でアプリを実行します。|
 

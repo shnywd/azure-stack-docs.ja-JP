@@ -3,16 +3,16 @@ title: 高可用性を得るために複数の Azure Stack Hub リージョン�
 description: 高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する方法について学習します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 0b379e776c64daf1f5d66bf8d1c24216523a889c
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: df65f32abdc7c643c953f176ae8a4fd0b47309f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90572377"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873743"
 ---
 # <a name="run-an-n-tier-application-in-multiple-azure-stack-hub-regions-for-high-availability"></a>高可用性を得るために複数の Azure Stack Hub リージョンで n 層アプリケーションを実行する
 
@@ -121,7 +121,7 @@ Windows Server 2016 より前に、SQL Server Always On 可用性グループで
 
     -   1 つ以上のセカンダリ レプリカをプライマリ リージョンに配置します。 それらを自動フェールオーバーを伴う同期コミット モードを使用するように構成します。
 
-    -   1 つ以上のセカンダリ レプリカをセカンダリ リージョンに配置します。 パフォーマンス上の理由で、それらは*非同期*コミットを使用するように構成します (これを行わなかった場合、すべての T-SQL トランザクションがセカンダリ リージョンへのネットワーク上にラウンド トリップで待機する必要があります)。
+    -   1 つ以上のセカンダリ レプリカをセカンダリ リージョンに配置します。 パフォーマンス上の理由で、それらは *非同期* コミットを使用するように構成します (これを行わなかった場合、すべての T-SQL トランザクションがセカンダリ リージョンへのネットワーク上にラウンド トリップで待機する必要があります)。
 
 > [!NOTE]  
 > 非同期コミット レプリカでは、自動フェールオーバーはサポートされていません。
@@ -141,7 +141,7 @@ SQL Server クラスターでは、2 つのフェールオーバー シナリオ
 
 -   Traffic Manager がセカンダリ リージョンへのフェールオーバーを実行するが、SQL Server データベースのプライマリ レプリカが引き続き使用可能である。 たとえば SQL Server VM に影響しない障害がフロント エンド層で発生することがあります。 この場合、インターネット トラフィックはセカンダリ リージョンにルーティングされますが、セカンダリ リージョンは引き続きプライマリ レプリカに接続できます。 ただし、SQL Server の接続がリージョンにまたがるため、待機時間が長くなります。 この状況では、次のように手動フェールオーバーを実行する必要があります。
 
-    1.  セカンダリ リージョンの SQL Server データベースのレプリカを一時的に*同期*コミットに切り替えます。 これにより、フェールオーバー中にデータの損失が発生しないことが保証されます。
+    1.  セカンダリ リージョンの SQL Server データベースのレプリカを一時的に *同期* コミットに切り替えます。 これにより、フェールオーバー中にデータの損失が発生しないことが保証されます。
 
     2.  そのレプリカにフェールオーバーします。
 

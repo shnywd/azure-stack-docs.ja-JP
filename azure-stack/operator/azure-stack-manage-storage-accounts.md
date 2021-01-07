@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のストレージ アカウントを管理する
 description: Azure Stack Hub のストレージ アカウントを検索、管理、回復、および回収する方法を学習します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 2e4882717b4dc708298df7b4ee9a8dc0ef2c1b9c
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: 4a939cafccd91b29a324dd15e01b04be47074df8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415319"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870105"
 ---
 # <a name="manage-azure-stack-hub-storage-accounts"></a>Azure Stack Hub のストレージ アカウントを管理する
 
@@ -32,12 +32,12 @@ Azure Stack Hub のストレージ アカウントを管理する方法を学習
 
 OR
 
-特定のストレージ アカウントに関心がある場合は、 **フィルター処理して関連するアカウントのみをフェッチ** することができます。
+特定のストレージ アカウントに関心がある場合は、**フィルター処理して関連するアカウントのみをフェッチ** することができます。
 
 **アカウントをフィルター処理するには:**
 
 1. ウィンドウの上部にある **[フィルター]** を選択します。
-2. [フィルター] ウィンドウでは、 **アカウント名** 、 **サブスクリプション ID** 、または **ステータス** を指定して、表示するストレージ アカウントのリストを細かく調整できます。 必要に応じてこれらを使用します。
+2. [フィルター] ウィンドウでは、**アカウント名**、**サブスクリプション ID**、または **ステータス** を指定して、表示するストレージ アカウントのリストを細かく調整できます。 必要に応じてこれらを使用します。
 3. 入力中、リストに自動的にフィルターが適用されます。
 
     ![Azure Stack Hub のストレージ アカウントをフィルター処理する](media/azure-stack-manage-storage-accounts/image5.png)
@@ -76,7 +76,7 @@ Azure Stack Hub では、これを行う簡単な方法があります。
    回復したアカウントが正常に同期されたら、もう一度使用できます。
 
 ### <a name="some-gotchas"></a>注意事項
-* 削除されたアカウントの状態が、 **保有期間外** として表示される。
+* 削除されたアカウントの状態が、**保有期間外** として表示される。
   
   "保有期間外" は、削除されたアカウントが保有期間を超過しており、回復できない可能性があることを意味します。
 
@@ -91,7 +91,7 @@ Azure Stack Hub では、これを行う簡単な方法があります。
 
 1. 管理者ポータル `https://adminportal.local.azurestack.external` にサインインします。
 2. **[管理]** の下で、 **[すべてのサービス]**  >  **[リージョン管理]** を選択します。
-3. **[リソース プロバイダー]**  >  **[ストレージ]**  >  **[設定]** の順に選択します。 パスは、[ホーム] > [< *リージョン* > - リソース プロバイダー] > [ストレージ] です。
+3. **[リソース プロバイダー]**  >  **[ストレージ]**  >  **[設定]** の順に選択します。 パスは、[ホーム] > [<*リージョン*> - リソース プロバイダー] > [ストレージ] です。
 4. **[構成]** を選択してリテンション期間の値を編集します。
 
    日数を設定して保存します。

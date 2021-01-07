@@ -4,16 +4,16 @@ titleSuffix: Azure Stack Hub
 description: Kubernetes を Azure Stack Hub Marketplace に追加する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 03/24/2020v
-ms.openlocfilehash: e2edda983e6fd554b2ff76a526b476318b31a6f5
-ms.sourcegitcommit: b2337a9309c52aac9f5a1ffd89f1426d6c178ad5
+ms.openlocfilehash: b96b8a2bed340201b9450b37b1aad166ebbdf26d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87250182"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869238"
 ---
 # <a name="add-kubernetes-to-azure-stack-hub-marketplace"></a>Kubernetes を Azure Stack Hub Marketplace に追加する
 
@@ -42,9 +42,9 @@ Kubernetes のマーケットプレース項目のプラン、オファー、サ
 
 1. **[+ リソースの作成]**  >  **[Offers and Plans] (オファーとプラン)**  >  **[サブスクリプション]** と選択し、サブスクリプションを作成します。
 
-    a. **表示名**を入力します。
+    a. **表示名** を入力します。
 
-    b. **ユーザー**を入力します。 テナントに関連付けられている Azure AD アカウントを使用します。
+    b. **ユーザー** を入力します。 テナントに関連付けられている Azure AD アカウントを使用します。
 
     c. **[プロバイダーの説明]**
 

@@ -1,18 +1,18 @@
 ---
 title: Modular Datacenter のネットワーク統合
 description: Azure Modular Datacenter の Azure Stack ネットワーク統合について説明します。
-author: justinha
-ms.author: justinha
+author: PatAltimore
+ms.author: patricka
 ms.service: azure-stack
 ms.topic: conceptual
 ms.date: 01/02/2020
 ms.lastreviewed: 01/02/2020
-ms.openlocfilehash: e2bd1f42cd60aabc3baa153525b2a7aeb03ac30b
-ms.sourcegitcommit: 25b234330df4e753ed2dd480c208ec88cd90234c
+ms.openlocfilehash: 3798345a7e7c5180f13c1ae94bc7407de3252e24
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94924335"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872179"
 ---
 # <a name="network-integration"></a>ネットワーク統合
 

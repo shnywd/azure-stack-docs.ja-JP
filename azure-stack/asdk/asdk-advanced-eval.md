@@ -1,18 +1,18 @@
 ---
 title: 高度な ASDK 評価タスク
 description: 高度な Azure Stack Development Kit (ASDK) 評価タスクについて説明します。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: d8a97ea33b810c258e81ed42ace9a571f5de7bfd
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: 912fb68695d281ee83273ff49f2f2aa24e468247
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489863"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873608"
 ---
 # <a name="advanced-asdk-evaluation-tasks"></a>高度な ASDK 評価タスク
 基本的な Azure Stack Development Kit (ASDK) サービスの機能について把握したら、より高度なシナリオをテストして Azure Stack の理解を深めることができます。 これらのより高度な評価タスクは、Azure Stack のオペレーター ドキュメントに詳しく記載されています。

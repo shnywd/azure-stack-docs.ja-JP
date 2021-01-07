@@ -3,16 +3,16 @@ title: 特殊化 VM をオンプレミスから Azure Stack Hub に移動する
 description: 特殊化 VM をオンプレミスから Azure Stack Hub に移動する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 383e96889f742b05a5f4b25e91bab48e1fd4c075
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: c88ef8ff8cfebc3749a6988d2e5e7f604df63cc0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609930"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872859"
 ---
 # <a name="move-a-specialized-vm-from-on-premises-to-azure-stack-hub"></a>特殊化 VM をオンプレミスから Azure Stack Hub に移動する
 
@@ -28,7 +28,7 @@ VHD を準備するときに、ニーズに合致するセクションを見つ�
 
 - 「[Azure にアップロードする Windows VHD または VHDX を準備する](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)」の手順に従い、VHD を正しく準備します。 Azure Stack Hub には VHD を使用する必要があります。
    > [!NOTE]  
-   > Sysprep を使用して VM を一般化**しないでください**。
+   > Sysprep を使用して VM を一般化 **しないでください**。
 - VM にインストールされたゲストの仮想化ツールやエージェント (VMware ツールなど) を削除します。
 - IP アドレスと DNS 設定を DHCP から取得するように VM が構成されていることを確認します。 これにより、サーバーが起動時に仮想ネットワーク内の IP アドレスを確実に取得します。
 - RDP/SSH が有効になっていること、およびファイアウォールで通信が許可されていることを確認します。

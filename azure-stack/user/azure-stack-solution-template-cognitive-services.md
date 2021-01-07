@@ -7,12 +7,12 @@ ms.date: 10/09/2020
 ms.author: mabrigg
 ms.reviewer: guanghu
 ms.lastreviewed: 10/09/2020
-ms.openlocfilehash: 121a26506fbbe2993786c2fa7f7bfe58fc85a3f0
-ms.sourcegitcommit: 1e97e42380734ee7b239ee7e995c302d9dc3e2b3
+ms.openlocfilehash: 4dc6ad30d54b61e05f54be4a4f1301472794db60
+ms.sourcegitcommit: e13f27291bab236aac5d8b05401056961e9cc1e9
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952408"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97697686"
 ---
 # <a name="deploy-azure-cognitive-services-to-azure-stack-hub"></a>Azure Cognitive Services を Azure Stack Hub にデプロイする
 
@@ -23,9 +23,10 @@ Azure Cognitive Services は、Azure Stack Hub のコンテナー サポート�
 現在、Azure Cognitive Services のサブセットに対するコンテナー サポートを利用できます。
 
 - **Speech**
+    - 音声テキスト変換 (標準)
+    - 音声テキスト変換 (カスタム)
     - テキスト読み上げ (標準)
-    - テキスト読み上げ (カスタム)
-    - テキスト読み上げ (標準)
+    - テキスト読み上げ (ニューラル)
 - **Language**
     - 言語の理解
     - テキスト分析 (センチメント分析)
@@ -199,7 +200,7 @@ Cognitive Services コンテナーをデプロイするには、次のコマン�
 
 ### <a name="ssl-interception-setup"></a>SSL インターセプトの設定
 
-1. **https インターセプション**証明書を `/usr/local/share/ca-certificates` に追加し `update-ca-certificates`でストアを更新します。 
+1. **https インターセプション** 証明書を `/usr/local/share/ca-certificates` に追加し `update-ca-certificates`でストアを更新します。 
 
 ## <a name="test-the-cognitive-service"></a>Cognitive Service をテストする
 

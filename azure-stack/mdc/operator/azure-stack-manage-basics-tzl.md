@@ -2,18 +2,18 @@
 title: Azure Stack Hub の管理の基本 - MDC
 titleSuffix: Azure Stack Hub
 description: Azure Stack Hub の管理の基本について学習します。 追加サポート情報を参照し、次の手順をご覧ください。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 5124494511d1e9c28bddce5cb42ba8e253c53807
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: ab28418b30c2e17cdd48471b30206397ed476ed8
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598540"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872128"
 ---
 # <a name="azure-stack-hub-administration-basics---modular-data-center-mdc"></a>Azure Stack Hub の管理の基本 - Modular Data Center (MDC)
 

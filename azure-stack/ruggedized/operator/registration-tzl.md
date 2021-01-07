@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2019
+ms.date: 12/21/2020
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 12/20/2019
-ms.openlocfilehash: 94de29942f49aa7151de201bfa00d99625a1fee8
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 8dd475ffb12d8aafb37f0c6fe3ec588e6cdf1456
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941336"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726188"
 ---
-# <a name="register-azure-stack-hub-with-azure"></a>Azure Stack Hub を Azure に登録する
+# <a name="register-azure-stack-hub-with-azure---azure-stack-hub-ruggedized"></a>Azure Stack Hub を Azure に登録する - Azure Stack Hub ラグド
 
-Marketplace シンジケーションを設定するには、デプロイの完了後に、Azure Stack Hub に基づく Modular Data Center (MDC) または Azure Stack Hub ラグドを登録し、アクティブにする必要があります。 管理者は Marketplace シンジケーションを使用して、ローカルの Azure Stack Hub Marketplace に、Azure Marketplace からダウンロードしたイメージを設定します。
+Marketplace シンジケーションを設定し、PaaS サービスを使用するには、デプロイの完了後に、Azure Stack Hub に基づく Modular Data Center (MDC) または Azure Stack Hub ラグドを登録し、アクティブにする必要があります。 管理者は Marketplace シンジケーションを使用して、ローカルの Azure Stack Hub Marketplace に、Azure Marketplace からダウンロードしたイメージを設定します。
 
 Azure クラウドに接続するシステムと切断されるシステムの登録が必要です。
 
@@ -58,10 +58,8 @@ Azure を使用して Azure Stack Hub を登録する前に、以下のものが
 
 - Azure サブスクリプションのサブスクリプション ID。  
 
-    > [!Note]  
+    > [!NOTE]  
     > Azure サブスクリプションは、Azure クラウド環境 (Azure Commercial、Azure Government など) に関連付けられています。これにより、Marketplace コンテンツにアクセスするために接続するクラウドが決まります。
-    > 
-    > 登録に使用するサブスクリプションは、JEDI サービスに対して承認されている必要があります。 これにより、登録したデバイスは、Azure に使用状況を報告せずに、リソースを無制限に使用できるようになります。 サブスクリプションを承認するには、登録する Azure Stack Hub ラグドまたは Modular Data Center (MDC) と共に、承認する必要があるサブスクリプション ID を記載した電子メールを azshregistration@microsoft.com に送信します。
 
 - サブスクリプションの所有者であるアカウントのユーザー名とパスワード。 
 - ユーザー アカウントは Azure サブスクリプションにアクセスできなければならず、そのサブスクリプションに関連付けられているディレクトリで ID アプリとサービス プリンシパルを作成するアクセス許可を持つ必要があります。 最低限の特権による管理を使用し、Azure Stack Hub を Azure に登録することをお勧めします。 登録のためのサブスクリプションへのアクセスを制限するカスタム ロール定義を作成する方法の詳細については、[Azure Stack Hub の登録ロールの作成](../../operator/azure-stack-registration-role.md)に関する記事をご覧ください。
@@ -98,9 +96,9 @@ Azure に登録するために、最新の PowerShell for Azure Stack Hub を使
 1. 管理者特権の PowerShell プロンプトを開きます。
 2. 次のコマンドレットを実行します。
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>登録シナリオを決定する
 
@@ -108,7 +106,7 @@ Azure Stack Hub のデプロイは、"*接続*" デプロイまたは "*切断*"
 
 - **接続済み**: "接続" とは、インターネットと Azure に接続できるように Azure Stack Hub をデプロイしたことを意味します。 ID ストアには、Azure AD または Active Directory フェデレーション サービス (AD FS) を使用できます。
 
-- **切断**: Azure からの切断デプロイ オプションを使用すると、インターネットへの接続なしで Azure Stack Hub をデプロイして使用できます。
+- **切断**: Azure からの切断デプロイ オプションを使用すると、インターネットへの接続なしで Azure Stack Hub をデプロイして使用できます。 切断されているシステムでは PaaS の使用状況を Azure に報告できないため、PaaS サービスを使用するためには、**容量** 課金モデルとして登録する必要があります。
 
 ### <a name="determine-a-unique-registration-name-to-use"></a>使用する一意の登録名の判別
 
@@ -132,36 +130,33 @@ Azure に接続されている Azure Stack Hub システムを登録するには
 
 1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプションの種類に設定して (下記のパラメーターを参照)、次の PowerShell コマンドレットを使用します。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウントの資格情報の入力を求められます。お使いのアカウントの構成によっては、2 要素認証を使用することが必要な場合があります。
+2. 同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストは、以前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。
 
    ```powershell
-   Add-AzureRmAccount -EnvironmentName "<environment name>"
-   ```
-
-   | パラメーター | 説明 |  
-   |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は、**AzureCloud** または **AzureUSGovernment** です。  |
-
-   >[!NOTE]
-   > セッションの有効期限が切れた場合、パスワードが変更された場合、またはアカウントを切り替える場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
-
-3. 同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストは、以前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。
-
-   ```powershell  
    Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
+   **AzureUSSec** の場合は、まず `CustomCloud` 環境を初期化してから、**Connect-AzureRmAccount** を呼び出す必要があります。
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は、**AzureCloud** または **AzureUSGovernment** です。  |
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされる環境名は、**AzureCloud**、**AzureUSGovernment**、または **AzureUSSec** です。   |
 
-4. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。
+   > [!NOTE]
+   > セッションの有効期限が切れた場合、パスワードが変更された場合、またはアカウントを切り替える場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
 
-   ```powershell  
+3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。
+
+   ```powershell
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-5. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
+4. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
 
    ```powershell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -171,8 +166,7 @@ Azure に接続されている Azure Stack Hub システムを登録するには
 
    ![Azure Stack Hub リソース プロバイダーの登録](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。
+5. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -182,13 +176,14 @@ Azure に接続されている Azure Stack Hub システムを登録するには
    Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-      -BillingModel Custom `
+      -BillingModel Ruggedized `
       -RegistrationName $RegistrationName `
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
-   MS Asset タグ (`msAssetTag`) はカスタム課金モデルの登録に必須であり、製品に印刷されています。
-    
+
+   MS Asset タグ (`msAssetTag`) はラグド課金モデルの登録に必須であり、製品に印刷されています。
+
    このプロセスには 10 - 15 分かかります。 コマンドが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
 ## <a name="registration-and-activation-for-systems-not-connected-to-the-azure-cloud"></a>Azure クラウドに接続されていないシステムの登録とアクティブ化 
@@ -216,7 +211,7 @@ Azure Stack Hub 環境から登録トークンを取得します。 次に、Azu
       -PrivilegedEndpointCredential $YourCloudAdminCredential `
       -UsageReportingEnabled:$False `
       -PrivilegedEndpoint $YourPrivilegedEndpoint `
-      -BillingModel Custom -msAssetTag '<MS Asset tag>' `
+      -BillingModel Capacity -AgreementNumber '<EA agreement number>' -msAssetTag '<MS Asset tag>' `
       -TokenOutputFilePath $FilePathForRegistrationToken 
    ```
 
@@ -300,7 +295,7 @@ New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredentia
 
 Azure Stack Hub の登録に成功したことは、 **[Region management]\(リージョン管理\)** タイルを使用して確認できます。 このタイルは、管理者ポータルの既定のダッシュボードにあります。 状態には、登録済みと未登録とがあります。 登録済みである場合は、Azure Stack Hub の登録に使用した Azure サブスクリプション ID が、登録のリソース グループおよび名前と共に表示されます。
 
-1. Azure Stack Hub 管理者ポータル (`https://adminportal.local.azurestack.external`) にサインインします。
+1. Azure Stack Hub 管理者ポータルにサインインします。 URL はオペレーターのリージョンと外部ドメイン名によって異なり、`https://adminportal.<region>.<FQDN>` 形式になります。
 
 2. ダッシュボードで、 **[Region management]\(リージョン管理\)** を選択します。
 
@@ -321,9 +316,6 @@ Azure Stack Hub の登録に成功したことは、 **[Region management]\(リ�
 
 > [!NOTE]
 > 登録が完了すると、登録されていないことを示すアクティブな警告は表示されなくなります。
-
-> [!NOTE]
-> **"[InvalidRegistrationToken]:BillingModel 'Custom' is not supported by subscription"\([InvalidRegistrationToken]:BillingModel 'Custom' はサブスクリプションでサポートされていません\)** というエラー メッセージは、登録に使用しているサブスクリプションが、Azure Stack Hub ラグドまたは MDC 用に承認されていないことを示しています。 登録する製品の種類 (Azure Stack Hub ラグドまたは MDC) と共にサブスクリプションが承認されるようにするには、azshregistration@microsoft.com にお問い合わせください。
 
 ## <a name="next-steps"></a>次のステップ
 

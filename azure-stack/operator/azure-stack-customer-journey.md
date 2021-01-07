@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub データセンターの統合のチュートリアル
 description: 計画からデプロイ後まで、データセンターでの Azure Stack Hub のオンサイト デプロイの成功のために期待されることについて学習します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: asganesh
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: d55176266fc169b344e7bb43389a46657174b88e
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 307a24fdf42ce5e007f74a9cf0072b5124d247b2
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368846"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871431"
 ---
 # <a name="azure-stack-hub-datacenter-integration-walkthrough"></a>Azure Stack Hub データセンターの統合のチュートリアル
 
@@ -91,14 +91,14 @@ Azure Stack Hub をデータセンターと統合する方法について決定�
 
 - **ファイアウォールの統合**。 Azure Stack Hub は、[ファイアウォールを使用](azure-stack-firewall.md)してセキュリティで保護することをお勧めします。 ファイアウォールは、DDOS 攻撃の防止、侵入検出、およびコンテンツ検査に役立ちます。 ただし、Azure ストレージ サービスのスループットのボトルネックになる可能性があることに注意してください。
 
-- **証明書の要件**。 デプロイのためにデータセンターにオンサイト エンジニアが到着する*前に*、すべての[必要な証明書](azure-stack-pki-certs.md)が使用可能になっていることが重要です。
+- **証明書の要件**。 デプロイのためにデータセンターにオンサイト エンジニアが到着する *前に*、すべての [必要な証明書](azure-stack-pki-certs.md)が使用可能になっていることが重要です。
 
 デプロイ ワークシートからすべての前提条件情報を収集したら、ソリューション プロバイダーは収集されたデータに基づいて工場出荷時のプロセスを開始し、Azure Stack Hub をデータセンターに正常に統合できることを確実にします。
 
 ## <a name="hardware-delivery"></a>ハードウェア納入 
 ソリューション プロバイダーは、ソリューションのお客様の施設への納入をスケジュールするためにお客様と連携します。 受け取って適切に配置したら、Azure Stack Hub のデプロイを実行するためにエンジニアがオンサイトに来る時間をソリューション プロバイダーとともにスケジュールする必要があります。
 
-*オンサイト エンジニアがソリューションをデプロイするために到着する前に*、すべての前提条件データをロックして使用可能にしておくことが**重要です**。
+*オンサイト エンジニアがソリューションをデプロイするために到着する前に*、すべての前提条件データをロックして使用可能にしておくことが **重要です**。
 
 -   すべての証明書を購入して準備しておく必要があります。
 

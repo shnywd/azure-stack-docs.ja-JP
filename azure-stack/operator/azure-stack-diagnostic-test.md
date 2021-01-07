@@ -1,22 +1,22 @@
 ---
 title: Azure Stack Hub 検証ツールを使用してシステムの状態を検証する
 description: Azure Stack Hub 検証ツールを使用してシステムの状態を検証する方法について説明します。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: adshar
 ms.lastreviewed: 01/10/2020
-ms.openlocfilehash: 4c91954e4a3a19640d519d16363c0d2742077d67
-ms.sourcegitcommit: 30ea43f486895828710297967270cb5b8d6a1a18
+ms.openlocfilehash: cd6eba86f75cffe3014ca954877ee4b39767bbf0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93415166"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870836"
 ---
 # <a name="validate-azure-stack-hub-system-state"></a>Azure Stack Hub システムの状態を検証する
 
-Azure Stack Hub のオペレーターは、使用しているシステムの正常性と状態をオンデマンドで判断できる必要があります。 Azure Stack Hub の検証ツール ( **Test-AzureStack** ) は、お使いのシステムで実行した一連のテストから、存在する場合に障害を特定する PowerShell コマンドレットです。 通常このツールは、問題について Microsoft カスタマー サービス サポート (Microsoft サポート) に問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行するよう求められます。 手元にシステム全体の正常性および状態情報があれば、Microsoft サポートは詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を修正できます。
+Azure Stack Hub のオペレーターは、使用しているシステムの正常性と状態をオンデマンドで判断できる必要があります。 Azure Stack Hub の検証ツール (**Test-AzureStack**) は、お使いのシステムで実行した一連のテストから、存在する場合に障害を特定する PowerShell コマンドレットです。 通常このツールは、問題について Microsoft カスタマー サービス サポート (Microsoft サポート) に問い合わせるときに、[特権エンドポイント (PEP)](azure-stack-privileged-endpoint.md) から実行するよう求められます。 手元にシステム全体の正常性および状態情報があれば、Microsoft サポートは詳細ログを収集して分析し、エラーが発生した領域に焦点を当て、お客様と連携して問題を修正できます。
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>検証ツールを実行して結果にアクセスする
 
@@ -121,11 +121,11 @@ Azure Stack Hub のオペレーターは、使用しているシステムの正�
   Test-AzureStack -Ignore AzsInfraPerformance
   ```
 
-- テナント VM はクラウド シナリオ テストの一部としてデプロイされます。 この VM のデプロイを無効にするには、 **DoNotDeployTenantVm** を使用します。
+- テナント VM はクラウド シナリオ テストの一部としてデプロイされます。 この VM のデプロイを無効にするには、**DoNotDeployTenantVm** を使用します。
 
-- クラウド シナリオ テストを実行するには、 **ServiceAdminCredential** パラメーターを指定する必要があります。これについては「 [ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」のセクションで説明しています。
+- クラウド シナリオ テストを実行するには、**ServiceAdminCredential** パラメーターを指定する必要があります。これについては「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」のセクションで説明しています。
 
-- **BackupSharePath** と **BackupShareCredential** は、インフラストラクチャ バックアップ設定をテストするときに使用されます。これについては「 [ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」セクションで説明しています。
+- **BackupSharePath** と **BackupShareCredential** は、インフラストラクチャ バックアップ設定をテストするときに使用されます。これについては「[ユース ケースの例](azure-stack-diagnostic-test.md#use-case-examples)」セクションで説明しています。
 
 - **DetailedResults** を使用すると、実行全体だけでなく、各テストの合格/不合格/警告の情報を取得できます。 指定しないと、失敗がない場合は **$true** が、失敗がある場合は **$false** が **Test-AzureStack** から返されます。
 - **TimeoutSeconds** を使用すると、各グループでの完了に対する特定の時刻を設定できます。
@@ -136,7 +136,7 @@ Azure Stack Hub のオペレーターは、使用しているシステムの正�
 
 ### <a name="run-validation-without-cloud-scenarios"></a>クラウド シナリオがない検証の実行
 
-クラウド シナリオ テストの実行をスキップするには、 **ServiceAdminCredential** パラメーターを指定せずに検証ツールを実行します。 
+クラウド シナリオ テストの実行をスキップするには、**ServiceAdminCredential** パラメーターを指定せずに検証ツールを実行します。 
 
 ```powershell
 New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred
@@ -152,7 +152,7 @@ Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName Pri
 Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
 ```
 
-残りのテストを実行せずにクラウド シナリオのみを実行したい場合は、 **Include** パラメーターを使用してそのようにすることができます。 
+残りのテストを実行せずにクラウド シナリオのみを実行したい場合は、**Include** パラメーターを使用してそのようにすることができます。 
 
 ```powershell
 Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
@@ -163,16 +163,16 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 ### <a name="groups"></a>グループ
 
-オペレーターの操作性を向上させるため、複数のテスト カテゴリを同時に実行できるように **Group** パラメーターが有効になっています。 現時点では、次の 3 つのグループが定義されています。 **既定** 、 **UpdateReadiness** 、および **SecretRotationReadiness** 。
+オペレーターの操作性を向上させるため、複数のテスト カテゴリを同時に実行できるように **Group** パラメーターが有効になっています。 現時点では、次の 3 つのグループが定義されています。**既定**、**UpdateReadiness**、および **SecretRotationReadiness**。
 
-- **既定** : **Test-AzureStack** の標準実行と見なされます。 他のグループが選択されていない場合、このグループが既定で実行されます。
-- **UpdateReadiness** :Azure Stack Hub インスタンスが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 Azure Stack Hub バージョン 1910 の時点では、次のカテゴリは、 **UpdateReadiness** グループの一部です。
+- **既定**:**Test-AzureStack** の標準実行と見なされます。 他のグループが選択されていない場合、このグループが既定で実行されます。
+- **UpdateReadiness**:Azure Stack Hub インスタンスが更新可能かどうかを確認するためのチェック。 **UpdateReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これは更新の妨げと見なします。 Azure Stack Hub バージョン 1910 の時点では、次のカテゴリは、**UpdateReadiness** グループの一部です。
 
   - **AzsInfraFileValidation**
   - **AzsActionPlanStatus**
   - **AzsStampBMCSummary**
 
-- **SecretRotationReadiness** :Azure Stack Hub のインスタンスが、シークレット ローテーションを実行できる状態にあるかどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
+- **SecretRotationReadiness**:Azure Stack Hub のインスタンスが、シークレット ローテーションを実行できる状態にあるかどうかを確認するためのチェック。 **SecretRotationReadiness** グループが実行されると、コンソール出力にエラーとして警告が表示されます。これはシークレット ローテーションの妨げと見なします。 次のカテゴリは、SecretRotationReadiness グループの一部です。
 
   - **AzsAcsSummary**
   - **AzsDefenderSummary**
@@ -186,7 +186,7 @@ Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Inclu
 
 #### <a name="group-parameter-example"></a>Group パラメーターの例
 
-次の例では、 **Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、 **Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、 **Test-AzureStack** を実行してお使いの Azure Stack Hub の状態を確認します。
+次の例では、**Group** を使用して更新プログラムまたは修正プログラムをインストールする前に、**Test-AzureStack** を実行してシステムの準備状況をテストします。 更新プログラムまたは修正プログラムのインストールを開始する前に、**Test-AzureStack** を実行してお使いの Azure Stack Hub の状態を確認します。
 
 ```powershell
 Test-AzureStack -Group UpdateReadiness
@@ -201,14 +201,14 @@ Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSum
 
 ### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>インフラストラクチャのバックアップ設定をテストするには、検証ツールを実行します。
 
-インフラストラクチャのバックアップを構成する *前に* 、 **AzsBackupShareAccessibility** テストを使用して、バックアップ共有パスと資格情報をテストできます。
+インフラストラクチャのバックアップを構成する *前に*、**AzsBackupShareAccessibility** テストを使用して、バックアップ共有パスと資格情報をテストできます。
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
   Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential $using:backupcred
   ```
 
-バックアップを構成した *後* 、PEP セッションの実行から **AzsBackupShareAccessibility** を実行して、ERCS から共有にアクセスできることを検証できます。
+バックアップを構成した *後*、PEP セッションの実行から **AzsBackupShareAccessibility** を実行して、ERCS から共有にアクセスできることを検証できます。
 
   ```powershell
   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 

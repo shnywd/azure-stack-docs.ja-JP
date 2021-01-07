@@ -7,12 +7,12 @@ ms.date: 10/30/2020
 ms.author: v-myoung
 ms.reviewer: shisab
 ms.lastreviewed: 12/08/2020
-ms.openlocfilehash: 6e2b00d80d600a0cdafa21455c9938e9df7af564
-ms.sourcegitcommit: b0a96f98f2871bd6be28d3f2461949e2237ddaf0
+ms.openlocfilehash: eaa265189769bf1f192ef6fce260a221935736cb
+ms.sourcegitcommit: 076ece88c3177db321f0ae32cba1d05179ffc393
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96872646"
+ms.lasthandoff: 12/28/2020
+ms.locfileid: "97794194"
 ---
 # <a name="diagnostic-log-collection"></a>診断ログの収集
 
@@ -142,7 +142,17 @@ Azure Stack Hub が Azure に接続されている場合は、管理者ポータ
   ```powershell
   Send-AzureStackDiagnosticLog -FilterByResourceProvider <<value-add RP name>>
   ```
- 
+  SQL RP の診断ログを送信するには: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider SQLAdapter
+  ```
+  MySQL RP の診断ログを送信するには: 
+
+  ```powershell
+  Send-AzureStackDiagnosticLog -FilterByResourceProvider MySQLAdapter
+  ```
+
   IoT Hub の診断ログを送信するには: 
 
   ```powershell

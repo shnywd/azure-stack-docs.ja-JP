@@ -1,18 +1,18 @@
 ---
 title: Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 description: Syslog 転送を使用して、Azure Stack Hub と監視ソリューションを統合する方法を説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 01/10/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 06/15/2020
-ms.openlocfilehash: 9709c72233acdff710f4be2764adc7e408b32dde
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: 9a6da457b32bf9a224a906bc24ec65c7adcf1fab
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96934864"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870411"
 ---
 # <a name="integrate-azure-stack-hub-with-monitoring-solutions-using-syslog-forwarding"></a>Syslog 転送を使用して Azure Stack Hub と監視ソリューションを統合する
 

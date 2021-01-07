@@ -3,16 +3,16 @@ title: Azure Stack Hub で Azure Monitor for containers を使用する
 description: Azure Stack Hub で Azure Monitor for containers を使用する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 9/2/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 9/2/2020
-ms.openlocfilehash: 3535a60a7689250e88b9839a071265d8f28eb92a
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: 5b175c4d2c5f8512841dca5e984c05c13ad2951d
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89472785"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873658"
 ---
 # <a name="use-azure-monitor-for-containers-on-azure-stack-hub"></a>Azure Stack Hub で Azure Monitor for containers を使用する
 
@@ -36,7 +36,7 @@ Azure Monitor では、Kubernetes で使用可能なコントローラー、ノ�
 
 ## <a name="method-two"></a>方法 2
 
-AKS エンジン クラスター仕様の JSON ファイルで、**アドオン**を指定できます。 このファイルは API モデルとも呼ばれます。 このアドオンで、監視情報が格納される Azure Log Analytics ワークスペースの **WorkspaceGUID** と **WorkspaceKey** の base64 エンコード バージョンを提供します。
+AKS エンジン クラスター仕様の JSON ファイルで、**アドオン** を指定できます。 このファイルは API モデルとも呼ばれます。 このアドオンで、監視情報が格納される Azure Log Analytics ワークスペースの **WorkspaceGUID** と **WorkspaceKey** の base64 エンコード バージョンを提供します。
 
 Azure Stack Hub クラスターに対してサポートされる API 定義については、[kubernetes-container-monitoring_existing_workspace_id_and_key.json](https://github.com/Azure/aks-engine/blob/master/examples/addons/container-monitoring/kubernetes-container-monitoring_existing_workspace_id_and_key.json) の例をご覧ください。 具体的には、**kubernetesConfig** の **addons** プロパティを探します。
 

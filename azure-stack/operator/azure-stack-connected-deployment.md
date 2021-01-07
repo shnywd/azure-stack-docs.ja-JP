@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 統合システムの Azure に接続されたデプロイの決定
 description: 課金や ID など、Azure Stack Hub 統合システムの Azure に接続されたデプロイに対するデプロイ計画を決定します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: c9defcc7f569ba30628cb16632b52c00ae7f2bec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 82317b5212775f37b25ff465a4ea3b4ba085b585
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543870"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871074"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムの Azure に接続されたデプロイ計画の決定
 [Azure Stack Hub をご利用のハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定した後、Azure Stack Hub デプロイの決定を完了することができます。

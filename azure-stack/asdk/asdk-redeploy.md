@@ -1,18 +1,18 @@
 ---
 title: ASDK の再デプロイ
 description: Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 11/14/2020
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/14/2020
-ms.openlocfilehash: 8b09386c748fe8263973b8812a049ab426585c42
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 0c28a088fcfe909c2ee88b2b37f1a73ce7890270
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517108"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873182"
 ---
 # <a name="redeploy-the-asdk"></a>ASDK の再デプロイ
 この記事では、非運用環境で Azure Stack Development Kit (ASDK) を再デプロイする方法について説明します。 ASDK のアップグレードはサポートされていないため、新しいバージョンに移行するには、ASDK を完全に再デプロイする必要があります。 最初から始める場合はいつでも、ASDK を再デプロイすることもできます。

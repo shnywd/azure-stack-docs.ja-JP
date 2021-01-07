@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes クラスターをスケーリングする
 description: Azure Stack Hub で Kubernetes クラスターをスケーリングする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 16ffbd474886d477f37b7e2d39695e896984eb30
-ms.sourcegitcommit: 74b3e14abfa33c8136eccdd4677868eb622c843e
+ms.openlocfilehash: 459ab20333f34f8aa8f067bc8b8c1f8dfd27920a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92523543"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874134"
 ---
 # <a name="scale-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをスケーリングする
 
@@ -39,7 +39,7 @@ AKS エンジンで **scale** コマンドを使用して、クラスターを�
 | apiserver |  | マスター FQDN。 スケールダウンするときに必要です。 |
 | identity-system | adfs | 省略可能。 Active Directory フェデレーション サービス (AD FS) を使用している場合に、ID 管理ソリューションを指定します。 |
 
-Azure Stack Hub でクラスターをスケーリングする場合は、 **--azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、 [Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
+Azure Stack Hub でクラスターをスケーリングする場合は、 **--azure-env** パラメーターを指定する必要があります。 AKS エンジンの **scale** コマンドで使用されるパラメーターとその値の詳細については、[Scale のパラメーター](https://github.com/Azure/aks-engine/blob/master/docs/topics/scale.md#parameters)に関するページを参照してください。
 
 ### <a name="command-to-scale-your-cluster"></a>クラスターをスケールするコマンド
 

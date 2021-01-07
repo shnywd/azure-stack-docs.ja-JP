@@ -3,25 +3,25 @@ title: VM を Azure Stack Hub に移動する
 description: VM を Azure Stack Hub に移動するさまざまな方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: 932fed2c6097fbbf41606f365b0c5a424bf1381b
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 2ee1ae6405bd7216c65d328e2edc7d1606b2bddc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609904"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97867147"
 ---
 # <a name="move-a-vm-to-azure-stack-hub-overview"></a>Azure Stack Hub への VM の移動の概要
 
 仮想マシン (VM) をご使用の環境から Azure Stack Hub に移動できます。 ワークロードの移動を計画する場合、考慮する必要がある制限事項がいくつかあります。 この記事では、Azure Stack Hub での仮想ハード ディスク (VHD) の要件の一覧を示します。 Azure Stack Hub では、第 1 世代の VHD が必要です。 VM は汎用化または特殊化する必要があります。 Azure Stack で作成される VMS の基本イメージとして汎用化された VM を使用します。 特殊化された VM には、ユーザー アカウントが含まれます。 VHD を移行、準備、ダウンロードするには、VHD が要件を満たしていることを確認し、Azure Stack Hub のストレージ アカウントにイメージをアップロードしてから、クラウドに VM を作成します。 移行タスクがより複雑な場合は、「*Azure Stack Hub への移行*」のホワイトペーパーで詳細を確認できます。
 
-カスタム イメージには、**汎用化**と**特殊化**の 2 つの形式があります。
+カスタム イメージには、**汎用化** と **特殊化** の 2 つの形式があります。
 
 - **汎用化イメージ**  
-  汎用化ディスク イメージとは、ユーザー アカウントなどの固有の情報を削除するために **Sysprep** を使用して準備されたもので、これを再利用して複数の VM を作成することができます。 Azure Stack Hub クラウド オペレーターが Marketplace 項目として使用するイメージを作成する場合は、汎用化 VHD が適しています。 管理者ポータルまたは管理者エンドポイントを介して提供されるイメージは、**プラットフォーム イメージ**です。
+  汎用化ディスク イメージとは、ユーザー アカウントなどの固有の情報を削除するために **Sysprep** を使用して準備されたもので、これを再利用して複数の VM を作成することができます。 Azure Stack Hub クラウド オペレーターが Marketplace 項目として使用するイメージを作成する場合は、汎用化 VHD が適しています。 管理者ポータルまたは管理者エンドポイントを介して提供されるイメージは、**プラットフォーム イメージ** です。
 
 - **特殊化イメージ**  
   特殊化ディスク イメージとは、既存の VM の仮想ハードディスク (VHD) のコピーで、元の VM のユーザー アカウント、アプリケーション、その他の状態データが含まれます。 これは通常、VM を Azure Stack Hub に移行するときに使用する形式です。 オンプレミスから Azure Stack Hub に VM を移行する必要がある場合は、特殊化 VHD が適しています。

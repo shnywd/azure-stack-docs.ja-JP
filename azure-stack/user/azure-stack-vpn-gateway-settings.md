@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: sethm
 ms.lastreviewed: 12/27/2019
-ms.openlocfilehash: 55f62550521e6b57d08852eb6d3f0c14da735fec
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 178164148e9d7de069c4ab12dc3042899b83d16d
+ms.sourcegitcommit: 8790b8a4ecf4421409534df5ff510d537cc000da
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94546805"
+ms.lasthandoff: 12/29/2020
+ms.locfileid: "97801948"
 ---
 # <a name="configure-vpn-gateway-settings-for-azure-stack-hub"></a>Azure Stack Hub の VPN ゲートウェイ設定の構成
 
@@ -23,7 +23,7 @@ VPN Gateway の接続は複数のリソースの構成に依存し、それぞ�
 
 ### <a name="gateway-types"></a>ゲートウェイの種類
 
-各 Azure Stack Hub 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、 **Vpn** である必要があります。 このサポートは Azure とは異なります。Azure では、その他の種類もサポートされています。
+各 Azure Stack Hub 仮想ネットワークでは、単一の仮想ネットワーク ゲートウェイがサポートされています。ゲートウェイの種類は、**Vpn** である必要があります。 このサポートは Azure とは異なります。Azure では、その他の種類もサポートされています。
 
 仮想ネットワーク ゲートウェイを作成するときは、ゲートウェイの種類が構成に対して適切であることを確認する必要があります。 VPN ゲートウェイでは、次の例のように `-GatewayType Vpn` フラグが必要です。
 
@@ -39,7 +39,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 Azure Stack Hub には、次の表に示す VPN ゲートウェイ SKU が用意されています。
 
-| | VPN ゲートウェイのスループット |VPN ゲートウェイの IPsec トンネルの最大数 |
+| | トンネル スループット |VPN ゲートウェイの IPsec トンネルの最大数 |
 |-------|-------|-------|
 |**Basic SKU**  | 100 Mbps    | 20    |
 |**Standard SKU**   | 100 Mbps  | 20 |
@@ -49,7 +49,7 @@ Azure Stack Hub には、次の表に示す VPN ゲートウェイ SKU が用意
 
 Azure Stack Hub は、サポートされているレガシ SKU 間での SKU のサイズ変更をサポートしていません。
 
-同様に、Azure Stack Hub は、サポートされているレガシ SKU ( **Basic** 、 **Standard** 、 **HighPerformance** ) から Azure でサポートされている新しい SKU ( **VpnGw1** 、 **VpnGw2** 、 **VpnGw3** ) へのサイズ変更もサポートしていません。
+同様に、Azure Stack Hub は、サポートされているレガシ SKU (**Basic**、**Standard**、**HighPerformance**) から Azure でサポートされている新しい SKU (**VpnGw1**、**VpnGw2**、**VpnGw3**) へのサイズ変更もサポートしていません。
 
 ### <a name="configure-the-gateway-sku"></a>ゲートウェイ SKU の構成
 
@@ -88,12 +88,12 @@ VPN Gateway 構成に対して仮想ネットワーク ゲートウェイを作�
 >
 > さらに、カスタムの IPSec/IKE ポリシー構成はサポートされていないため、現時点で Azure Stack Hub はルート ベース ゲートウェイに対するポリシー ベース トラフィック セレクターの使用をサポートしていません。
 
-* **PolicyBased** : PolicyBased VPN では、パケットを暗号化し、オンプレミス ネットワークと Azure Stack Hub VNet の間でアドレスのプレフィックスの組み合わせで構成された IPsec ポリシーに基づいて、IPsec トンネル経由でそのパケットを送信します。 VPN デバイスの構成では、通常このポリシー (またはトラフィック セレクター) がアクセス リストになります。
+* **PolicyBased**: PolicyBased VPN では、パケットを暗号化し、オンプレミス ネットワークと Azure Stack Hub VNet の間でアドレスのプレフィックスの組み合わせで構成された IPsec ポリシーに基づいて、IPsec トンネル経由でそのパケットを送信します。 VPN デバイスの構成では、通常このポリシー (またはトラフィック セレクター) がアクセス リストになります。
 
   >[!NOTE]
   >**PolicyBased** は Azure ではサポートされていますが、Azure Stack Hub ではサポートされていません。
 
-* **RouteBased** : ルートベースの VPN は、IP 転送やルーティング テーブルに構成されているルートを使用して、対応するトンネル インターフェイスにパケットを転送します。 その後、トンネル インターフェイスではトンネルの内部または外部でパケットを暗号化または復号します。 **RouteBased** VPN のポリシー (またはトラフィック セレクター) は、Any-to-Any (またはワイルドカードを使用して) 構成できます。 既定では変更できません。 **RouteBased** VPN の種類の値は **RouteBased** です。
+* **RouteBased**: ルートベースの VPN は、IP 転送やルーティング テーブルに構成されているルートを使用して、対応するトンネル インターフェイスにパケットを転送します。 その後、トンネル インターフェイスではトンネルの内部または外部でパケットを暗号化または復号します。 **RouteBased** VPN のポリシー (またはトラフィック セレクター) は、Any-to-Any (またはワイルドカードを使用して) 構成できます。 既定では変更できません。 **RouteBased** VPN の種類の値は **RouteBased** です。
 
 次の PowerShell の例では、 `-VpnType` を **RouteBased** に指定しています。 ゲートウェイを作成する場合、`-VpnType` が自分の構成に対して適切であることを確認する必要があります。
 
@@ -125,7 +125,7 @@ VPN ゲートウェイを作成する前に、ゲートウェイ サブネット
 
 さらに、今後の追加構成を処理できる十分な IP アドレスがゲートウェイ サブネットにあることを確認する必要があります。 /29 のような小さいゲートウェイ サブネットを作成できますが、/28 以上 (/28、/27、/26 など) のゲートウェイ サブネットを作成することをお勧めします。そうすれば、将来的に機能を追加する場合に、ゲートウェイを破棄し、ゲートウェイ サブネットを削除してから再作成して、より多くの IP アドレスを割り当てられるようにする必要がなくなります。
 
-次の Resource Manager PowerShell の例では、 **GatewaySubnet** という名前のゲートウェイ サブネットを示しています。 CIDR 表記で /27 を指定しています。これで既存のほとんどの構成で IP アドレスに十分対応できます。
+次の Resource Manager PowerShell の例では、**GatewaySubnet** という名前のゲートウェイ サブネットを示しています。 CIDR 表記で /27 を指定しています。これで既存のほとんどの構成で IP アドレスに十分対応できます。
 
 ```powershell
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27

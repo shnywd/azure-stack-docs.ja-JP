@@ -1,17 +1,17 @@
 ---
 title: Azure Stack Hub での正常性およびアラートの監視
 description: Azure Stack Hub で正常性およびアラートを監視する方法について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: f2b827510087a40ae011e506b5d1f467153e3fdb
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: de197a87478a666fe20bbd451bda76fc991b5a02
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368092"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97869935"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack-hub"></a>Azure Stack Hub での正常性およびアラートの監視
 
@@ -25,7 +25,7 @@ Azure Stack Hub には、ユーザーが Azure Stack Hub リージョンの正�
 
 ## <a name="alert-severity-definition"></a>アラートの重大度の定義
 
-Azure Stack Hub では、アラートは、2 つの重大度 (**警告**、または**重大**) でのみ生成されます。
+Azure Stack Hub では、アラートは、2 つの重大度 (**警告**、または **重大**) でのみ生成されます。
 
 - **警告**  
   オペレーターは、予定された方法で警告アラートに対処できます。 このアラートは、通常、ユーザーのワークロードに影響を及ぼしません。
@@ -45,7 +45,7 @@ Azure Stack Hub では、アラートは、2 つの重大度 (**警告**、ま�
 リソース プロバイダーまたはインフラストラクチャ ロールをクリックすると、詳細情報を表示できます。
 
 > [!WARNING]  
-> インフラストラクチャ ロールとロール インスタンスを順にクリックすると、 **[Start]\(起動\)** 、 **[Restart]\(再起動\)** 、または **[Shutdown]\(シャットダウン\)** のオプションが表示されます。 統合システムに更新プログラムを適用する場合は、これらのアクションを使用しないでください。 また、Azure Stack Development Kit (ASDK) 環境では、これらのオプションを使用**しない**でください。 これらのオプションは、インフラストラクチャ ロールあたり複数のロール インスタンスが存在する統合システム環境専用に設計されています。 ASDK でロール インスタンス (特に AzS-Xrp01) を再起動すると、システムが不安定になります。 トラブルシューティングの支援のため、問題を [Azure Stack Hub フォーラム](https://aka.ms/azurestackforum)に投稿してください。
+> インフラストラクチャ ロールとロール インスタンスを順にクリックすると、 **[Start]\(起動\)** 、 **[Restart]\(再起動\)** 、または **[Shutdown]\(シャットダウン\)** のオプションが表示されます。 統合システムに更新プログラムを適用する場合は、これらのアクションを使用しないでください。 また、Azure Stack Development Kit (ASDK) 環境では、これらのオプションを使用 **しない** でください。 これらのオプションは、インフラストラクチャ ロールあたり複数のロール インスタンスが存在する統合システム環境専用に設計されています。 ASDK でロール インスタンス (特に AzS-Xrp01) を再起動すると、システムが不安定になります。 トラブルシューティングの支援のため、問題を [Azure Stack Hub フォーラム](https://aka.ms/azurestackforum)に投稿してください。
 >
 
 ## <a name="view-alerts"></a>アラートを表示する
@@ -77,7 +77,7 @@ Azure Stack Hub では、アラートは、2 つの重大度 (**警告**、ま�
 
 ![アラート修復アクションが進行中](media/azure-stack-monitor-health/repair-in-progress.png)
 
-同じポータル通知ブレードで、 **[修復]** アクションの正常完了またはアクションの失敗がレポートされます。  アラートの修復アクションが失敗した場合は、アラートの詳細から **[修復]** アクションを再実行することができます。 **[修復]** アクションが正常に完了した場合は、再実行**しないでください**。
+同じポータル通知ブレードで、 **[修復]** アクションの正常完了またはアクションの失敗がレポートされます。  アラートの修復アクションが失敗した場合は、アラートの詳細から **[修復]** アクションを再実行することができます。 **[修復]** アクションが正常に完了した場合は、再実行 **しないでください**。
 
 ![修復アクションが正常に完了](media/azure-stack-monitor-health/repair-completed.png)
 

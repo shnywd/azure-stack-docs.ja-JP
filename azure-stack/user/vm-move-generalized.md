@@ -3,16 +3,16 @@ title: 汎用化 VM をオンプレミスから Azure Stack Hub に移動する
 description: 汎用化 VM をオンプレミスから Azure Stack Hub に移動する方法について説明します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 9/8/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 9/8/2020
-ms.openlocfilehash: babc5888ea7ce26c031765dd3f3a61a2e0e7f740
-ms.sourcegitcommit: 9a340b383dcf42c85bc6ec0d01ff3c9ae29dfe4c
+ms.openlocfilehash: 105beaa0805fe0aea1aacfce8bd22f3bd01714b1
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89609909"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872876"
 ---
 # <a name="move-a-generalized-vm-from-on-premises-to-azure-stack-hub"></a>汎用化 VM をオンプレミスから Azure Stack Hub に移動する
 

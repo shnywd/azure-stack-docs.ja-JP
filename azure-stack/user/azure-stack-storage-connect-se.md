@@ -3,16 +3,16 @@ title: Azure Stack Hub サブスクリプションまたはストレージ ア�
 description: Azure Stack Hub サブスクリプションにストレージ エクスプローラーを接続する方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 08/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 11/11/2019
-ms.openlocfilehash: 773d80909c167f328e6e3eb0868cb99c7d52ffd7
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: b8718cf0a36640ab23137b5f89d5a60ad5ca34f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91107130"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873913"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-hub-subscription-or-a-storage-account"></a>Azure Stack Hub サブスクリプションまたはストレージ アカウントにストレージ エクスプローラーを接続する
 

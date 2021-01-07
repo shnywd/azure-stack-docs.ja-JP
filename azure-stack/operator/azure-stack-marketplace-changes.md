@@ -3,16 +3,16 @@ title: Azure Stack Hub Marketplace の最新情報
 description: Azure Stack Hub Marketplace の最新情報をご覧ください。マーケットプレースの新しい項目、非推奨になった項目、更新された項目などが含まれています。
 author: sethmanheim
 ms.topic: article
-ms.date: 12/07/2020
+ms.date: 12/22/2020
 ms.author: sethm
 ms.reviewer: gara
 ms.lastreviewed: 05/28/2020
-ms.openlocfilehash: e8db7987b06270b239c04bdb9596094bb7f06d1c
-ms.sourcegitcommit: 62eb5964a824adf7faee58c1636b17fedf4347e9
+ms.openlocfilehash: ac442a5ad52c67fc23472dc54eac0cb52f1b1b50
+ms.sourcegitcommit: f4a1a7e9d0b64ca84105d48170a23e1f473e976c
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778004"
+ms.lasthandoff: 12/23/2020
+ms.locfileid: "97743575"
 ---
 # <a name="azure-stack-hub-marketplace-changes"></a>Azure Stack Hub Marketplace の変更
 
@@ -166,6 +166,7 @@ ms.locfileid: "96778004"
 
 ## <a name="updated-marketplace-items"></a>更新された Marketplace 項目
 
+- 12/22/2020:Rogue Wave Software Centos 7.8 – バージョン 7.8.2020062400
 - 2020 年 12 月 7 日Bitnami Elasticsearch Cluster - バージョン 1.0.2
 - 2020 年 12 月 7 日Bitnami Cassandra Cluster - バージョン 1.0.21
 - 2020 年 12 月 7 日Bitnami etcd Cluster - バージョン 1.0.16

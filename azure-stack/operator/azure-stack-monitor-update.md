@@ -1,18 +1,18 @@
 ---
 title: 特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 description: 特権エンドポイントを使用して Azure Stack Hub 統合システムの更新プログラムの状態をモニターする方法について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: how-to
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: 21d7b22181283a0e634cb0bdd0cc5912f8dac84c
-ms.sourcegitcommit: c263a86d371192e8ef2b80ced2ee0a791398cfb7
+ms.openlocfilehash: cc3b37e6ac230133254cbb6e9f5e5487b31a26c4
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82848185"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870258"
 ---
 # <a name="monitor-updates-in-azure-stack-hub-using-the-privileged-endpoint"></a>特権エンドポイントを使用して Azure Stack Hub での更新プログラムをモニターする
 
@@ -31,7 +31,7 @@ ms.locfileid: "82848185"
 
 特権エンドポイントからコマンド一覧のクエリを実行することによって、コマンドレットが使用可能かどうかをプログラムによって判別することもできます。 このクエリを実行するには、ハードウェア ライフ サイクル ホストまたは特権アクセス ワークステーションから、次のコマンドを実行します。 さらに、特権エンドポイントが信頼されたホストであることを確認してください。 詳細については、「[特権エンドポイントへのアクセス](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)」の手順 1 を参照してください。
 
-1. Azure Stack Hub 環境内のいずれかの ERCS 仮想マシン (VM) で PowerShell セッションを作成します ("*プレフィックス*"-ERCS01、"*プレフィックス*"-ERCS02、または "*プレフィックス*"-ERCS03)。 *プレフィックス*を、ご使用の環境に固有の VM のプレフィックス文字列に置換します。
+1. Azure Stack Hub 環境内のいずれかの ERCS 仮想マシン (VM) で PowerShell セッションを作成します ("*プレフィックス*"-ERCS01、"*プレフィックス*"-ERCS02、または "*プレフィックス*"-ERCS03)。 *プレフィックス* を、ご使用の環境に固有の VM のプレフィックス文字列に置換します。
 
    ```powershell
    $cred = Get-Credential

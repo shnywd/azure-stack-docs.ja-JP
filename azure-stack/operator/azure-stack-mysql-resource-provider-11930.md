@@ -7,41 +7,41 @@ ms.date: 09/22/2020
 ms.author: caoyang
 ms.reviewer: xiaofmao
 ms.lastreviewed: 09/22/2020
-ms.openlocfilehash: f3e9e177e4d335c667754a308698ed362c6535b2
-ms.sourcegitcommit: af4374755cb4875a7cbed405b821f5703fa1c8cc
+ms.openlocfilehash: 2312219d67741b9485a6070c00418762e50fac73
+ms.sourcegitcommit: a745662c7a5a18f135accf3f70d8508b57e83e2b
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95812743"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97737839"
 ---
-# <a name="mysql-resource-provider-11930-release-notes"></a>MySQL リソース プロバイダー 1.1.93.0 のリリース ノート
+# <a name="mysql-resource-provider-1193x-release-notes"></a>MySQL リソース プロバイダー 1.1.93.x のリリース ノート
 
-これらのリリース ノートでは、MySQL リソース プロバイダー バージョン 1.1.93.0 の機能強化と既知の問題について説明します。
+これらのリリース ノートでは、MySQL リソース プロバイダー バージョン 1.1.93.x の機能強化と既知の問題について説明します。
 
 ## <a name="build-reference"></a>ビルドのリファレンス
 MySQL リソース プロバイダー バイナリをダウンロードした後、自己展開ツールを実行してコンテンツを一時ディレクトリに展開します。 リソース プロバイダーには、対応する最低限の Azure Stack Hub のビルドがあります。 MySQL リソース プロバイダーのこのバージョンをインストールするために必要な Azure Stack Hub の最小リリース バージョンを次に示します。
 
 > |サポートされる Azure Stack Hub のバージョン|MySQL リソース プロバイダーのバージョン|
 > |-----|-----|
-> |バージョン 2008、2005|[MySQL RP バージョン 1.1.93.0](https://aka.ms/azshmysqlrp11930)|  
+> |バージョン 2008、2005|[MySQL RP バージョン 1.1.93.1](https://aka.ms/azshmysqlrp11931)|  
 > |     |     |
 
 > [!IMPORTANT]
-> MySQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack Hub 更新プログラムを Azure Stack Hub 統合システムに適用します。
+> SQL リソース プロバイダーの最新バージョンをデプロイする前に、サポートされている最低限の Azure Stack Hub 更新プログラムを Azure Stack Hub 統合システムに適用します。
 
 ## <a name="new-features-and-fixes"></a>新機能と修正
 
 このバージョンの Azure Stack Hub MySQL リソース プロバイダーには、次の機能強化と修正プログラムが含まれています。
 
-- **ベース VM を特殊化された Windows Server に更新します。** この Windows Server バージョンは Azure Stack Hub Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。 このバージョンの MySQL リソース プロバイダーのデプロイまたはこのバージョンへのアップグレードを行う前に、確実に **Microsoft AzureStack Add-On RP Windows Server INTERNAL ONLY** イメージをダウンロードしてください。
+- **ベース VM を特殊化された Windows Server に更新します。** この Windows Server バージョンは Azure Stack Hub Add-on RP インフラストラクチャ専用であり、テナント マーケットプレースには表示されません。 このバージョンの MySQL リソース プロバイダーのデプロイまたはこのバージョンへのアップグレードを行う前に、確実に **Microsoft AzureStack Add-On RP Windows Server** イメージをダウンロードしてください。
 - **孤立したデータベース メタデータとホスティング サーバー メタデータの削除をサポートします。** ホスティング サーバーが接続できなくなった場合、テナントには、孤立したデータベース メタデータをポータルから削除するオプションがあります。 ホスティング サーバーにリンクされている孤立したデータベース メタデータが存在しない場合、オペレーターは孤立したホスティング サーバー メタデータを管理ポータルから削除できます。
 - **シークレット ローテーションの実行時、KeyVaultPfxPassword を省略可能な引数にします。** 詳細については、[こちらのドキュメント](azure-stack-sql-resource-provider-maintain.md#secrets-rotation)を確認してください。
 - **その他のバグの修正。**
 
-Azure Stack Hub が 2005 リリースにアップグレードされた後に MySQL リソース プロバイダー 1.1.93.0 を適用することをお勧めします。
+Azure Stack Hub が 2005 リリースにアップグレードされた後に MySQL リソース プロバイダー 1.1.93.1 を適用することをお勧めします。
 
 ## <a name="known-issues"></a>既知の問題
-[なし] :
+不適切な AzureRmContext を使用すると、1.1.93.0 バージョンのデプロイが失敗する場合があります。 1\.1.93.1 バージョンに直接アップグレードすることをお勧めします。 1\.1.93.0 へのアップグレードが既に正常に完了している場合は、1.1.93.1 バージョンをスキップしても問題ありません。
 
 ## <a name="next-steps"></a>次のステップ
 

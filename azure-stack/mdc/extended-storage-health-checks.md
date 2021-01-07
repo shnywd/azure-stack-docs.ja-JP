@@ -3,7 +3,7 @@ title: Azure Stack - Modular Data Center の BLOB ストレージ用の拡張ス
 description: この記事では、Modular Data Center BLOB ストレージ用の拡張ストレージで正常性チェックを実行する方法について説明します。
 services: azure-stack
 documentationcenter: ''
-author: justinha
+author: PatAltimore
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: karlt
 ms.lastreviewed: 10/01/2020
-ms.openlocfilehash: 9d8e7915cb5c1ca9d0a073c750f67a5688157e74
-ms.sourcegitcommit: e4e2cc6a68f02c3e856f58ca5ee51b3313c7ff8f
+ms.openlocfilehash: ebb39f3eab90b0f976e5fee2896cbe85d0d023f5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92183451"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872400"
 ---
 # <a name="extended-storage-health-checks"></a>拡張ストレージの正常性チェック
 
@@ -92,7 +92,7 @@ isi status -a
 
 このスクリプトの前提条件は以下のとおりです。
 - ハードウェア ライフサイクル ホスト (HLH) の C:\OEMSoftware\ExtendedStorage\ フォルダーにある .\Invoke-ExtendedStorageConfiguration.ps1 スクリプト ファイル
-- $AzScred 資格情報変数。この変数には、 *DOMAIN* \cloudadmin の資格情報が設定されている必要があります。 *DOMAIN* は、実際のドメイン名 (CONTOSO など) に置き換えます。
+- $AzScred 資格情報変数。この変数には、*DOMAIN*\cloudadmin の資格情報が設定されている必要があります。 *DOMAIN* は、実際のドメイン名 (CONTOSO など) に置き換えます。
 
 
 ```powershell
@@ -100,7 +100,7 @@ $AzScred = Get-Credential -Credential 'DOMAIN\cloudadmin'
 .\Invoke-ExtendedStorageConfiguration.ps1 -TestAzureStack -AzureStackCred $AzScred
 ```
 
-出力で、Azure Stack のデプロイの全体的な正常性状態を確認します。また、拡張ストレージと Azure Stack の統合の特定の正常性状態について、 **NAS** の特定のセクションも確認します。
+出力で、Azure Stack のデプロイの全体的な正常性状態を確認します。また、拡張ストレージと Azure Stack の統合の特定の正常性状態について、**NAS** の特定のセクションも確認します。
 
 Azure Stack の診断の詳細については、「[Azure Stack Hub システムの状態を検証する](../operator/azure-stack-diagnostic-test.md)」を参照してください。
 

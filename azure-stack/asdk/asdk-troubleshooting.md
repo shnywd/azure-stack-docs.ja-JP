@@ -1,18 +1,18 @@
 ---
 title: ASDK のトラブルシューティング
 description: Azure Stack Development Kit (ASDK) のトラブルシューティング方法について説明します。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2019
-ms.openlocfilehash: bc828444a67e1489f2d5b4b51fc0cbd18e6f0641
-ms.sourcegitcommit: e9a1dfa871e525f1d6d2b355b4bbc9bae11720d2
+ms.openlocfilehash: b5b0310aa778cf470c436f0770c9b5ca0d46fd8f
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86489931"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872944"
 ---
 # <a name="troubleshoot-the-asdk"></a>ASDK のトラブルシューティング
 この記事では、Azure Stack Development Kit (ASDK) の一般的なトラブルシューティング情報を提供します。 Azure Stack 統合システムに関するヘルプについては、「[Microsoft Azure Stack のトラブルシューティング](../operator/azure-stack-troubleshooting.md)」を参照してください。 
@@ -74,10 +74,10 @@ Azure Stack に VM をデプロイする前に、まず Windows Server イメー
 
 また、ASDK ホストの再起動後に、そのテナント VM が自動的に起動しないことに気付く場合もあります。 手動でいくつかの手順を実行して、オンラインにすることができます。
 
-1.  ASDK ホストで、[スタート] メニューから**フェールオーバー クラスター マネージャー**を起動します。
+1.  ASDK ホストで、[スタート] メニューから **フェールオーバー クラスター マネージャー** を起動します。
 2.  クラスター **S-Cluster.azurestack.local** を選択します。
 3.  **[役割]** を選びます。
-4.  テナント VM が*保存済み*状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、VM を再開します。
+4.  テナント VM が *保存済み* 状態で表示されます。 すべてのインフラストラクチャ VM が実行されたら、テナント VM を右クリックし、 **[開始]** を選択して、VM を再開します。
 
 ### <a name="ive-deleted-some-vms-but-still-see-the-vhd-files-on-disk"></a>一部の VM の削除後に、まだディスクに VHD ファイルが表示される 
 この動作は仕様によるものです。

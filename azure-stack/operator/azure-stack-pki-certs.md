@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 公開キー インフラストラクチャ証明書の要件
 description: Azure Stack Hub 統合システムの Azure Stack Hub PKI 証明書の要件について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 12/16/2019
-ms.openlocfilehash: ee0ef7119dfb2255cd97e343f8e7339ab715ed7d
-ms.sourcegitcommit: b50dd116d6d1f89d42bd35ad0f85bb25c5192921
+ms.openlocfilehash: 8304ef3fe981545ac05de64b335c1edabdf32651
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "93049604"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965530"
 ---
 # <a name="azure-stack-hub-public-key-infrastructure-pki-certificate-requirements"></a>Azure Stack Hub 公開キー インフラストラクチャ (PKI) 証明書の要件
 
@@ -38,7 +38,6 @@ Azure Stack Hub には、少数の Azure Stack Hub サービスやテナント V
 ::: moniker-end
 - 自己署名証明書の使用はサポートされていません。
 - デプロイおよびローテーションの場合は、証明書のサブジェクト名フィールドとサブジェクトの別名 (SAN) フィールドのすべての名前空間をカバーする 1 つの証明書を使用するか、各名前空間で利用する予定の Azure Stack Hub サービスで必要な個別の証明書を使用することができます。 どちらの方法でも、それらが必要とされるエンドポイントに対してワイルド カードを使用する必要があります (例: **KeyVault**､**KeyVaultInternal**)。
-- 証明書の PFX 暗号化は、3 DES になっている必要があります。
 - 証明書の署名アルゴリズムを SHA1 にしないでください。
 - Azure Stack Hub のインストールには公開キーと秘密キーの両方が必要なため、証明書の形式は PFX である必要があります。 秘密キーにはローカル コンピューターのキー属性が設定されている必要があります。
 - PFX 暗号化は、3DES (この暗号化は、Windows 10 クライアントまたは Windows Server 2016 証明書ストアからエクスポートする場合の既定です) である必要があります。
@@ -109,8 +108,8 @@ Azure Stack Hub がデプロイおよび構成された後に追加の Azure Sta
 |App Service|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 |App Service|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>(SSL 証明書<sup>2</sup>)|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
-|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>* | eventhub. *&lt;region>.&lt;fqdn>* |
-|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>* | mgmtiothub. *&lt;region>.&lt;fqdn>* |
+|Event Hubs|SSL|&#42;.eventhub. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|eventhub. *&lt;region>.&lt;fqdn>* |
+|IoT Hub|SSL|&#42;.mgmtiothub. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|mgmtiothub. *&lt;region>.&lt;fqdn>* |
 |SQL、MySQL|SQL および MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>(ワイルドカード SSL 証明書)|dbadapter. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 複数のワイルドカード サブジェクトの別名を持つ 1 つの証明書が必要です。 単一の証明書での複数のワイルドカード SAN は、公的証明機関によってはサポートされていない場合があります。

@@ -1,18 +1,18 @@
 ---
 title: 外部の監視ソリューションと Azure Stack Hub を統合する
 description: Azure Stack Hub とご利用のデータセンターの外部の監視ソリューションを統合する方法を説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 11/18/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 11/18/2020
-ms.openlocfilehash: 28da3cf886219eab10fff32d24b62cb7db101cb5
-ms.sourcegitcommit: 8c745b205ea5a7a82b73b7a9daf1a7880fd1bee9
+ms.openlocfilehash: 79fd494996c87aa513fc7aa4ab0554449c5770d5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95517703"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870904"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack-hub"></a>外部の監視ソリューションと Azure Stack Hub を統合する
 

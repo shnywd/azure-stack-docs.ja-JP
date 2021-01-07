@@ -1,18 +1,18 @@
 ---
 title: Infrastructure Backup サービスを使用した Azure Stack Hub のデータの回復
 description: Infrastructure Backup サービスを使用して、Azure Stack Hub の構成とサービス データをバックアップおよび復元する方法について学習します。
-author: myoungerman
+author: PatAltimore
 ms.topic: article
 ms.date: 05/16/2019
-ms.author: v-myoung
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 05/16/2019
-ms.openlocfilehash: c73e95677bb1666fb315ad73e1dd6d62f73c68b7
-ms.sourcegitcommit: bf7b1a394ede397dba2b75f90bdf953b3ff2f2be
+ms.openlocfilehash: 9d2105138501bfabe1c1244576208d485ff2d875
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367242"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871669"
 ---
 # <a name="recover-data-in-azure-stack-hub-with-the-infrastructure-backup-service"></a>Infrastructure Backup サービスを使用した Azure Stack Hub のデータの回復
 

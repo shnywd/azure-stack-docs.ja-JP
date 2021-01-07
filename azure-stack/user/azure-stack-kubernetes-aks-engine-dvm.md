@@ -3,16 +3,16 @@ title: Azure Stack Hub 上の AKS エンジンに Marketplace アイテムのク
 description: Azure Stack Hub 上の AKS エンジンに Marketplace アイテムのクラスターを移動する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: f80be3811f24a8ee2677543d2229f99f335d9eb3
-ms.sourcegitcommit: 3e2460d773332622daff09a09398b95ae9fb4188
+ms.openlocfilehash: 112862f5e73806d2e73d809b70e4bd7fd2e315b5
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90573940"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874185"
 ---
 # <a name="move-your-marketplace-item-cluster-to-the-aks-engine-on-azure-stack-hub"></a>Azure Stack Hub 上の AKS エンジンに Marketplace アイテムのクラスターを移動する
 
@@ -35,7 +35,7 @@ Kubernetes Azure Stack Hub Marketplace アイテムによって開始された�
 
 aks-engine、入力 apimodel.json ファイル、出力ディレクトリ、および出力 apimodel.json ファイルを見つけ、それらを安全な場所に保存したら、任意の Linux VM で AKS エンジン バイナリと出力 `apimodel.json` を使用できます。
 
-1.  AKS エンジンを引き続き使用し、**アップグレード**や**スケール**などの操作を実行するには、**aks-engine** バイナリ ファイルをターゲット マシンにコピーします。 同じ **vmd-** マシンをディレクトリに使用している場合。
+1.  AKS エンジンを引き続き使用し、**アップグレード** や **スケール** などの操作を実行するには、**aks-engine** バイナリ ファイルをターゲット マシンにコピーします。 同じ **vmd-** マシンをディレクトリに使用している場合。
 
 2.  クラスターの名前、または新しいクラスターを参照する他の記憶しやすい名前でディレクトリを作成し、出力 apimodel.json ファイルをその中に保存します。 このファイルには資格情報が含まれているため、保護された場所であることを確認してください。 その後、aks-engine を実行して、[スケール](azure-stack-kubernetes-aks-engine-scale.md)や[アップグレード](azure-stack-kubernetes-aks-engine-upgrade.md)などの操作を実行できます
 

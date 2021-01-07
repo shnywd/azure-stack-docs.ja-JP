@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のコンピューティング能力
 description: Azure Stack Hub デプロイのためのコンピューティング能力の計画について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: prchint
 ms.lastreviewed: 06/13/2019
-ms.openlocfilehash: 67e1961a0f1f739e550cc55d100900190892bb5e
-ms.sourcegitcommit: 362081a8c19e7674c3029c8a44d7ddbe2deb247b
+ms.openlocfilehash: 8d1d6c6da0e11278b2b7ce796ca3dffd77385e81
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91899756"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871503"
 ---
 # <a name="azure-stack-hub-compute-capacity"></a>Azure Stack Hub のコンピューティング能力
 
@@ -85,7 +85,7 @@ VM の配置に利用可能なメモリ = ホストの合計メモリ - 回復�
 
 ## <a name="considerations-for-deallocation"></a>割り当て解除に関する考慮事項
 
-VM が_割り当て解除済み_の状態にある場合、メモリ リソースは使用されていません。 このため、他の VM をシステムに配置できます。
+VM が _割り当て解除済み_ の状態にある場合、メモリ リソースは使用されていません。 このため、他の VM をシステムに配置できます。
 
 その後、割り当てが解除された VM が再起動されると、メモリの使用量または割り当てはシステムに配置された新しい VM と同じように扱われ、使用可能なメモリが消費されます。 使用可能なメモリがない場合、VM は起動しません。
 

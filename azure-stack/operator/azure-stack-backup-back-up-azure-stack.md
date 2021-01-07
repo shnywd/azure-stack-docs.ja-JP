@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub のバックアップ
 description: Azure Stack Hub でオンデマンド バックアップを行う方法について学習します。
-author: justinha
+author: PatAltimore
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: hectorl
 ms.lastreviewed: 09/05/2019
-ms.openlocfilehash: 2090471cee6fa36a32b9e2147de7941cd4abed54
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 5df894d32d335b488ad51b09bb38c3011f754e15
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94544277"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97871839"
 ---
 # <a name="back-up-azure-stack-hub"></a>Azure Stack Hub のバックアップ
 
@@ -36,7 +36,7 @@ Start-AzSBackup を使用して、 **-AsJob** パラメーターを指定して�
 > 実際の状態は、次のコードを使用するとより適切に監視できます。
 
 > [!IMPORTANT]
-> 最初に 1 ミリ秒の遅延を入れたのは、コードがジョブを正しく登録するには早すぎて、 **PSBeginTime** なしで戻り、次にジョブの **State** なしで戻ることへの対処としてです。
+> 最初に 1 ミリ秒の遅延を入れたのは、コードがジョブを正しく登録するには早すぎて、**PSBeginTime** なしで戻り、次にジョブの **State** なしで戻ることへの対処としてです。
 
 ```powershell
     $BackupJob = Start-AzsBackup -Force -AsJob

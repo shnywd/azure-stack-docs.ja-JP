@@ -4,13 +4,13 @@ description: このトピックでは、Azure Stack HCI オペレーティング
 author: JohnCobb1
 ms.author: v-johcob
 ms.topic: how-to
-ms.date: 12/10/2020
-ms.openlocfilehash: 374041b5472b20781f6c8648287d665925a8f227
-ms.sourcegitcommit: f30e5178e0b4be4e3886f4e9f699a2b51286e2a8
+ms.date: 01/06/2020
+ms.openlocfilehash: 73e58c69295afc1a1bb106ea078e753647daa08d
+ms.sourcegitcommit: c5d46662492887b70a599a60f3c3d27e3460a742
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97623068"
+ms.lasthandoff: 01/07/2021
+ms.locfileid: "97965496"
 ---
 # <a name="configure-firewalls-for-azure-stack-hci"></a>Azure Stack HCI 用にファイアウォールを構成する
 
@@ -46,7 +46,7 @@ Azure では、サービス タグを使用してまとめられた Azure サー
 | :-----------------------------| :-----------------------  | :---------------------------------------------------------------------------------- |
 | Azure Active Directory        | AzureActiveDirectory      | `https://login.microsoftonline.com`<br> `https://graph.microsoft.com`               |
 | Azure Resource Manager        | AzureResourceManager      | `https://management.azure.com`                        |
-| Azure Stack HCI クラウド サービス | AzureFrontDoor.Frontend   | 登録したリージョンによって異なります。<br> 米国東部: `https://eus-azurestackhci-usage.azurewebsites.net`<br> 西ヨーロッパ: `https://weu-azurestackhci-usage.azurewebsites.net` |
+| Azure Stack HCI クラウド サービス | AzureFrontDoor.Frontend   | `https://azurestackhci.azurefd.net` |
 | Azure Arc                     | AzureArcInfrastructure<br> AzureTrafficManager | 使用する機能によって異なります。<br> ハイブリッド ID サービス: `*.his.arc.azure.com`<br> ゲスト構成: `*.guestconfiguration.azure.com`<br> **注:** より多くの機能を有効にすると、URL が増えることが予想されます。 |
 
 ## <a name="update-microsoft-defender-firewall"></a>Microsoft Defender ファイアウォールを更新する

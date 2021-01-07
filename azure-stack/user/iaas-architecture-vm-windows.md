@@ -3,16 +3,16 @@ title: Azure Stack Hub で Windows 仮想マシンを実行する
 description: Azure Stack Hub で Windows 仮想マシンを実行する方法について学習します。
 author: mattbriggs
 ms.topic: how-to
-ms.date: 7/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 3/9/2020
-ms.openlocfilehash: 3419e701aede4864cac62ace216a574a6dcc1226
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 2c2ff4007e92f6263e6b59ac61cb15d303b347d0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920170"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873709"
 ---
 # <a name="run-a-windows-virtual-machine-on-azure-stack-hub"></a>Azure Stack Hub で Windows 仮想マシンを実行する
 
@@ -79,7 +79,7 @@ Azure Stack Hub のインフラストラクチャは既に障害に対する回�
 
 **VM の停止**。 Azure では、"停止" 状態と "割り当て解除済み" 状態が区別されます。 VM が割り当て解除されたときではなく、VM が停止状態のときに課金されます。 Azure Stack Hub ポータルの **[停止]** ボタンを使用すると、VM の割り当てが解除されます。 ログイン中に OS からシャットダウンした場合、VM は停止しますが割り当ては "**解除されない**" ため、引き続き課金されます。
 
-**VM の削除**。 VM を削除しても VM ディスクは削除されません。 つまり、データを失うことなく安全に VM を削除できます。 ただし、Storage に対して引き続き課金されます。 VM ディスクを削除するには、マネージド ディスク オブジェクトを削除します。 誤って削除されないようにするために、*リソース ロック*を使用してリソース グループ全体をロックするか、または個別のリソース (VM など) をロックします。
+**VM の削除**。 VM を削除しても VM ディスクは削除されません。 つまり、データを失うことなく安全に VM を削除できます。 ただし、Storage に対して引き続き課金されます。 VM ディスクを削除するには、マネージド ディスク オブジェクトを削除します。 誤って削除されないようにするために、*リソース ロック* を使用してリソース グループ全体をロックするか、または個別のリソース (VM など) をロックします。
 
 ## <a name="security-considerations"></a>セキュリティに関する考慮事項
 

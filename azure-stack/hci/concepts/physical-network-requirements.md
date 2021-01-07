@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: v-dasis
 ms.reviewer: JasonGerend
-ms.openlocfilehash: c8ea741534954235fc6de9e32d16602e0c369d6f
-ms.sourcegitcommit: afdae61022037b5dba8345cb264049897e0aca8f
+ms.openlocfilehash: 1e42f830683a1faefd8e068da1e968f9332b7e0a
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97051617"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872723"
 ---
 # <a name="physical-network-requirements-for-azure-stack-hci"></a>Azure Stack HCI の物理ネットワーク要件
 
@@ -145,6 +145,6 @@ Azure Stack HCI では、クラスター内の各ノードがクラスター内�
 
 - ネットワーク アダプターとホストの要件について学習する。 「[ホスト ネットワークの要件](host-network-requirements.md)」を参照してください。
 - フェールオーバー クラスタリングの基礎を復習する。 [フェールオーバー クラスタリング ネットワークの基礎](https://techcommunity.microsoft.com/t5/failover-clustering/.failover-clustering-networking-basics-and-fundamentals/ba-p/1706005?s=09)に関するページを参照してください。
-- SET の使用を復習する。 「[リモート ダイレクト メモリ アクセス (RDMA) とスイッチ埋め込みチーミング (SET)](https://docs.microsoft.com/windows-server/virtualization/.hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)」を参照してください。
+- SET の使用を復習する。 「[リモート ダイレクト メモリ アクセス (RDMA) とスイッチ埋め込みチーミング (SET)](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming)」を参照してください。
 - デプロイについては、[Windows Admin Center を使用したクラスターの作成](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster)に関する記事を参照してください。
 - デプロイについては、[Windows PowerShell を使用したクラスターの作成](https://docs.microsoft.com/azure-stack/hci/deploy/create-cluster-powershell)に関する記事を参照してください。

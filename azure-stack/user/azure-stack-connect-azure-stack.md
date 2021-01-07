@@ -3,16 +3,16 @@ title: Azure Stack Hub に接続する
 description: Azure Stack Hub に接続する方法について説明します。
 author: mattbriggs
 ms.topic: conceptual
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2020
-ms.openlocfilehash: 8661666b4f953d07a96f1a2402782970e32c140b
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: 9369f0d11ba8c39ce27134a85c93328ce2389833
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94545766"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874253"
 ---
 # <a name="connect-to-azure-stack-hub"></a>Azure Stack Hub に接続する
 
@@ -24,7 +24,7 @@ ms.locfileid: "94545766"
 ## <a name="connect-to-azure-stack-hub-with-remote-desktop"></a>リモート デスクトップを使用して Azure Stack Hub に接続する
 リモート デスクトップ接続では、1 人の同時実行ユーザーがポータルを使用してリソースを管理できます。
 
-1. リモート デスクトップ接続を開き、Development Kit に接続します。 「 **AzureStack\AzureStackAdmin** 」というユーザー名と、Azure Stack Hub セットアップ時に指定した管理者パスワードを入力します。  
+1. リモート デスクトップ接続を開き、Development Kit に接続します。 「**AzureStack\AzureStackAdmin**」というユーザー名と、Azure Stack Hub セットアップ時に指定した管理者パスワードを入力します。  
 
 2. Development Kit コンピューターからサーバー マネージャーを開き、 **[ローカル サーバー]** をクリックし、Internet Explorer セキュリティ強化を無効にして、サーバー マネージャーを閉じます。
 
@@ -91,7 +91,7 @@ Add-AzsVpnConnection `
     -Password $Password
   ```
 
-  プロンプトに従って Azure Stack Hub ホストを信頼し、 **AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
+  プロンプトに従って Azure Stack Hub ホストを信頼し、**AzureStackCertificateAuthority** の証明書をローカル コンピューターの証明書ストアにインストールします。 プロンプトは、PowerShell セッション ウィンドウの背後に表示される可能性があります。 
 
 * ローカル コンピューターの **[ネットワーク設定]**  >  **[VPN]** に移動し、[`azurestack`] >  **[接続]** を選択します。 サインイン プロンプトで、ユーザー名 (AzureStack\AzureStackAdmin) とパスワードを入力します。
 

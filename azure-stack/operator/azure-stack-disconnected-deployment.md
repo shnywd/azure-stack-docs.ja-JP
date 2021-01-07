@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub 統合システムの Azure から切断されたデプロイの決定
 description: Azure Stack Hub 統合システムの Azure から切断されたデプロイと考慮すべき計画の決定について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 03/04/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: wfayed
 ms.lastreviewed: 11/01/2019
-ms.openlocfilehash: 9f7ca860de1dd801ae35134683583a4ce8053dde
-ms.sourcegitcommit: a630894e5a38666c24e7be350f4691ffce81ab81
+ms.openlocfilehash: 98633108390ee24416c9383ed8171439a4ee1459
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "78368704"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870853"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-hub-integrated-systems"></a>Azure Stack Hub 統合システムの Azure から切断されたデプロイ計画の決定
 [Azure Stack Hub をご利用のハイブリッド クラウド環境に統合する方法](azure-stack-connection-models.md)を決定したら、Azure Stack Hub デプロイの決定を完了することができます。

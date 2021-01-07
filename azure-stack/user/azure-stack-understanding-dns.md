@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub での iDNS の使用
 description: Azure Stack Hub での iDNS 機能の使用方法について説明します。
-author: Justinha
+author: PatAltimore
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: Justinha
+ms.author: patricka
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 466e44156181e53a92181ecb462b8b4ff0074317
-ms.sourcegitcommit: 0aa5f7f20690839661c8bb3bfdbe32f82bec0c64
+ms.openlocfilehash: 8860553f9b35b5a17d07edeb867ea5bad4c3fefa
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 07/21/2020
-ms.locfileid: "86566534"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873794"
 ---
 # <a name="use-idns-in-azure-stack-hub"></a>Azure Stack Hub での iDNS の使用 
 

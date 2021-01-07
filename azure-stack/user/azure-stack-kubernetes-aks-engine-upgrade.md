@@ -3,16 +3,16 @@ title: Azure Stack Hub で Kubernetes クラスターをアップグレードす
 description: Azure Stack Hub で Kubernetes クラスターをアップグレードする方法を学習します。
 author: mattbriggs
 ms.topic: article
-ms.date: 09/02/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 09/02/2020
-ms.openlocfilehash: 7cfde51b5cfbdaf6d6ad752951ad4df3e4f95823
-ms.sourcegitcommit: b80d529ff47b15b8b612d8a787340c7b0f68165b
+ms.openlocfilehash: fd90bf877c66c05cc3939952ff0d50b8617f2d53
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89473046"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874083"
 ---
 # <a name="upgrade-a-kubernetes-cluster-on-azure-stack-hub"></a>Azure Stack Hub で Kubernetes クラスターをアップグレードする
 
@@ -97,7 +97,7 @@ AKS エンジン、AKS Base Image、および Kubernetes の各バージョン�
 
 ## <a name="forcing-an-upgrade"></a>アップグレードの強制
 
-クラスターを強制的にアップグレードする必要がある場合があります。 たとえば、1 日目に最新の Kubernetes バージョンを使用して、切断された環境にクラスターをデプロイするとします。 次の日に、Ubuntu が、Microsoft の新しい **AKS 基本イメージ**によってもたらされる脆弱性に対する修正プログラムをリリースします。 既にデプロイしたのと同じ Kubernetes バージョンを使用してアップグレードを強制することで、この新しいイメージを適用できます。
+クラスターを強制的にアップグレードする必要がある場合があります。 たとえば、1 日目に最新の Kubernetes バージョンを使用して、切断された環境にクラスターをデプロイするとします。 次の日に、Ubuntu が、Microsoft の新しい **AKS 基本イメージ** によってもたらされる脆弱性に対する修正プログラムをリリースします。 既にデプロイしたのと同じ Kubernetes バージョンを使用してアップグレードを強制することで、この新しいイメージを適用できます。
 
 ```bash  
 aks-engine upgrade \

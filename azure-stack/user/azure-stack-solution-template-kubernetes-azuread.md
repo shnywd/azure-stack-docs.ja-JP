@@ -3,16 +3,16 @@ title: Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kub
 description: Azure Active Directory (Azure AD) を使用して Azure Stack Hub に Kubernetes をデプロイする方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 07/24/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 3/12/2020
-ms.openlocfilehash: 97b2cfc5a595c23bdd12d6ce4519606218bb4687
-ms.sourcegitcommit: 53b0dde60a6435936a5e0cb9e931245f262d637a
+ms.openlocfilehash: 528e87523022b266c68f86a7f1b4ebadfa686adc
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 09/23/2020
-ms.locfileid: "91106651"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873964"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-hub-using-azure-active-directory"></a>Azure Active Directory を使用して Azure Stack Hub に Kubernetes をデプロイする
 
@@ -35,7 +35,7 @@ ms.locfileid: "91106651"
 
 1. Azure Stack Hub テナント ポータル内で有効なサブスクリプションがあり、新しいアプリケーションの追加に十分使用できるパブリック IP アドレスがあることを確認します。
 
-    クラスターを Azure Stack Hub **管理者**サブスクリプションにデプロイすることはできません。 **User** サブスクリプションを使用する必要があります。 
+    クラスターを Azure Stack Hub **管理者** サブスクリプションにデプロイすることはできません。 **User** サブスクリプションを使用する必要があります。 
 
 1. マーケットプレースに Kubernetes クラスターがない場合は、Azure Stack Hub 管理者に連絡してください。
 
@@ -65,7 +65,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
     b. **[有効期限]** で **[Never expires]\(有効期限なし\)** を選択します。
 
-    c. **[追加]** を選択します。 キー文字列をメモします。 クラスターを作成するときに、キー文字列が必要になります。 キーは、**サービス プリンシパル クライアント シークレット**として参照されます。
+    c. **[追加]** を選択します。 キー文字列をメモします。 クラスターを作成するときに、キー文字列が必要になります。 キーは、**サービス プリンシパル クライアント シークレット** として参照されます。
 
 ## <a name="give-the-service-principal-access"></a>サービス プリンシパルへのアクセスの付与
 
@@ -128,7 +128,7 @@ Azure でサービス プリンシパルを設定します。 サービス プ�
 
 1. **[VMSize of the Kubernetes node VMs]\(Kubernetes ノード VM の VM サイズ\)** を選択します。 これにより、Kubernetes ノード VM の VM サイズを指定します。 
 
-1. Azure Stack Hub のインストールに向けて、**Azure Stack Hub の ID システム**用の **Azure AD** を選択します。
+1. Azure Stack Hub のインストールに向けて、**Azure Stack Hub の ID システム** 用の **Azure AD** を選択します。
 
 1. **[Service principal clientId]\(サービス プリンシパル クライアント ID\)** を入力します。これは、Kubernetes Azure クラウド プロバイダーによって使用されます。 Azure Stack Hub 管理者がサービス プリンシパルを作成したときに、アプリケーション ID として識別されたクライアント ID。
 

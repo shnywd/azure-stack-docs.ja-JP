@@ -3,16 +3,16 @@ title: Azure Stack Hub ユーザー ポータルの使用
 description: Azure Stack Hub でユーザー ポータルにアクセスして使用する方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 26225b1b6ba55ed0f5934130e361f1dbab4b664e
-ms.sourcegitcommit: 6306e0c2506106ad01ff50010f36466f3325d0a8
+ms.openlocfilehash: 24734f5e5696a66174287b151b05eb2a67a38ba7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84631396"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97873811"
 ---
 # <a name="use-the-azure-stack-hub-user-portal"></a>Azure Stack Hub ユーザー ポータルの使用
 
@@ -57,7 +57,7 @@ Azure Stack Hub オペレーター (サービス プロバイダーまたは組�
     特に、作業を開始するにあたって次の記事を確認することをお勧めします。
 
     - [重要な考慮事項: Azure Stack Hub でのサービスの使用またはアプリの作成](azure-stack-considerations.md)。
-    - ドキュメントの**サービスの使用**に関するセクションには、サービスごとの考慮事項の記事があります。 考慮事項に関するページでは、Azure で提供されるサービスと Azure Stack Hub で提供される同じサービスとの相違点を説明しています。 例については、「[VM に関する考慮事項](azure-stack-vm-considerations.md)」を参照してください。 「**サービスの使用**」セクションには、Azure Stack Hub に固有なその他の情報が含まれている場合があります。
+    - ドキュメントの **サービスの使用** に関するセクションには、サービスごとの考慮事項の記事があります。 考慮事項に関するページでは、Azure で提供されるサービスと Azure Stack Hub で提供される同じサービスとの相違点を説明しています。 例については、「[VM に関する考慮事項](azure-stack-vm-considerations.md)」を参照してください。 「**サービスの使用**」セクションには、Azure Stack Hub に固有なその他の情報が含まれている場合があります。
 
       サービスの一般的なリファレンスとして Azure のドキュメントを使用できますが、これらの相違点を把握しておく必要があります。 **[Quickstart tutorials] (クイックスタート チュートリアル)** タイル上のドキュメント リンクが Azure のドキュメントを指していることを理解します。
 

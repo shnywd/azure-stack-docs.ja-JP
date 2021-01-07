@@ -1,18 +1,18 @@
 ---
 title: MDC の Azure Stack Hub でのスケール ユニットのノード操作
 description: 電源オン、電源オフ、無効化、再開を含むスケール ユニットのノード アクションを実行する方法と、Azure Stack Hub 統合システムでノードの状態を表示する方法について説明します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/26/2020
-ms.author: justinha
+ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 6413cec9b2464d5295feab0f3a3983083b9d04ea
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 835b6a39e089bbe959c7c5cf5283d2b516b6d4f7
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598523"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97872060"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack-hub---modular-data-center-mdc"></a>Azure Stack Hub のスケール ユニットのノード操作 - Modular Data Center (MDC)
 

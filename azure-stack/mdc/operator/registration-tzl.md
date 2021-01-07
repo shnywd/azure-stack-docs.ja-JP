@@ -7,12 +7,12 @@ ms.date: 12/07/2020
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 10/26/2020
-ms.openlocfilehash: 69c33d41149937b286a528c7eef3c6e795cd7642
-ms.sourcegitcommit: 5fbc60b65d27c916ded7a95ba4102328d550c7e5
+ms.openlocfilehash: 7726e16e497693db04ef859fbda316568d069c2b
+ms.sourcegitcommit: aef251d6771400b21a314bbfbea4591ab263f8fb
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97598472"
+ms.lasthandoff: 12/22/2020
+ms.locfileid: "97726171"
 ---
 # <a name="register-azure-stack-hub-with-azure---modular-data-center-mdc"></a>Azure Stack Hub を Azure に登録する - Modular Data Center (MDC)
 
@@ -88,9 +88,9 @@ Azure に登録するために、最新の PowerShell for Azure Stack Hub を使
 1. 管理者特権の PowerShell プロンプトを開きます。
 2. 次のコマンドレットを実行します。
 
-    ```powershell  
-        Install-Module -Name Azs.Tools.Admin
-    ```
+   ```powershell  
+   Install-Module -Name Azs.Tools.Admin
+   ```
 
 ### <a name="determine-your-registration-scenario"></a>登録シナリオを決定する
 
@@ -120,41 +120,37 @@ Azure に接続されている Azure Stack Hub システムを登録するには
 
 接続された環境では、インターネットと Azure にアクセスできます。 これらの環境では、Azure Stack Hub リソース プロバイダーを Azure に登録してから、課金モデルを構成します。
 
-
 ### <a name="az-modules"></a>[Az モジュール](#tab/az1)
 
 1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプションの種類に設定して (下記のパラメーターを参照)、次の PowerShell コマンドレットを使用します。
 
-2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzAccount** コマンドレットを実行します。 Azure アカウントの資格情報の入力を求められます。お使いのアカウントの構成によっては、2 要素認証を使用することが必要な場合があります。
-
-   ```powershell
-   Add-AzAccount -EnvironmentName "<environment name>"
-   ```
-
-   | パラメーター | 説明 |  
-   |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は、**AzureCloud** または **AzureUSGovernment** です。  |
-
-   >[!NOTE]
-   > セッションの有効期限が切れた場合、パスワードが変更された場合、またはアカウントを切り替える場合は、**Add-AzAccount** を使用してサインインする前に、次のコマンドレットを実行します。**Remove-AzAccount-Scope プロセス**。
-
-3. 同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストは、以前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。
+2. 同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストは、以前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。
 
    ```powershell  
    Connect-AzAccount -Environment "<environment name>"
    ```
 
+   **AzureUSSec** の場合は、まず `CustomCloud` 環境を初期化してから、**Connect-AzureRmAccount** を呼び出す必要があります。
+
+   ```powershell
+   Initialize-AzureRmEnvironment -Name 'CustomCloud' -CloudManifestFilePath $CloudManifestFilePath
+   Connect-AzureRmAccount -Environment 'CustomCloud'
+   ```
+
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は、**AzureCloud** または **AzureUSGovernment** です。  |
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされる環境名は、**AzureCloud**、**AzureUSGovernment**、または **AzureUSSec** です。   |
 
-4. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。
+   >[!NOTE]
+   > セッションの有効期限が切れた場合、パスワードが変更された場合、またはアカウントを切り替える場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
 
-   ```powershell  
+3. 複数のサブスクリプションがある場合は、次のコマンドを実行して、使用するものを選択します。
+
+   ```powershell
    Get-AzSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzSubscription
    ```
 
-5. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
+4. Azure サブスクリプションで Azure Stack Hub リソース プロバイダーを登録するには、次のコマンドを実行します。
 
    ```powershell  
    Register-AzResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -164,8 +160,7 @@ Azure に接続されている Azure Stack Hub システムを登録するには
 
    ![Azure Stack Hub リソース プロバイダーの登録](./media/registration-tzl/register-azure-resource-provider-portal.png)
 
-
-6. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。
+5. 同じ PowerShell セッションで **Set-AzsRegistration** コマンドレットを実行します。
 
    ```powershell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -180,8 +175,9 @@ Azure に接続されている Azure Stack Hub システムを登録するには
       -msAssetTag $msAssetTagName `
       -UsageReportingEnabled: $false
    ```
+
    MS Asset タグ (`msAssetTag`) はカスタム課金モデルの登録に必須であり、製品に印刷されています。
-    
+
    このプロセスには 10 - 15 分かかります。 コマンドが完了すると、 **「Your environment is now registered and activated using the provided parameters. (提供されたパラメーターを使用して環境が登録され、アクティブ化されました。)」** というメッセージが表示されます。
 
 ### <a name="azurerm-modules"></a>[AzureRM モジュール](#tab/azurerm1)
@@ -189,18 +185,18 @@ Azure に接続されている Azure Stack Hub システムを登録するには
 1. Azure Stack Hub リソース プロバイダーを Azure に登録するには、PowerShell ISE を管理者として起動し、**EnvironmentName** パラメーターを適切な Azure サブスクリプションの種類に設定して (下記のパラメーターを参照)、次の PowerShell コマンドレットを使用します。
   
 2. Azure Stack Hub を登録するために使用した Azure アカウントを追加します。 アカウントを追加するには、**Add-AzureRmAccount** コマンドレットを実行します。 Azure アカウントの資格情報の入力を求められます。お使いのアカウントの構成によっては、2 要素認証を使用することが必要な場合があります。
-   
+
    ```powershell
    Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
-   
+
    | パラメーター | 説明 |  
    |-----|-----|
-   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされている環境名は、**AzureCloud** または **AzureUSGovernment** です。  |
-   
+   | EnvironmentName | Azure クラウド サブスクリプション環境名。 サポートされる環境名は、**AzureCloud**、**AzureUSGovernment**、または **AzureUSSec** です。 
+
    >[!NOTE]
    > セッションの有効期限が切れた場合、パスワードが変更された場合、またはアカウントを切り替える場合は、**Add-AzureRmAccount** を使用してサインインする前に、次のコマンドレットを実行します: **Remove-AzureRmAccount-Scope Process**。
-   
+
 3. 同じ PowerShell セッションで、正しい Azure PowerShell コンテキストにサインインしていることを確認します。 このコンテキストは、以前に Azure Stack Hub リソース プロバイダーを登録するために使用された Azure アカウントです。
 
    ```powershell

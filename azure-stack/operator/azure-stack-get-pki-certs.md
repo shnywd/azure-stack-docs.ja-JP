@@ -1,18 +1,18 @@
 ---
 title: Azure Stack Hub への証明書署名要求を生成する
 description: Azure Stack Hub 統合システムにおいて Azure Stack Hub PKI 証明書への証明書署名要求を生成する方法について学習します。
-author: IngridAtMicrosoft
+author: PatAltimore
 ms.topic: article
 ms.date: 10/19/2020
-ms.author: inhenkel
+ms.author: patricka
 ms.reviewer: ppacent
 ms.lastreviewed: 10/19/2020
-ms.openlocfilehash: 1b7737f387ea1ea3afc913116642605fa54818a6
-ms.sourcegitcommit: 695f56237826fce7f5b81319c379c9e2c38f0b88
+ms.openlocfilehash: b03766efe531683310b81dbf2d03de8e990deec0
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94543717"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97870445"
 ---
 # <a name="generate-certificate-signing-requests-for-azure-stack-hub"></a>Azure Stack Hub への証明書署名要求を生成する
 
@@ -20,9 +20,9 @@ Azure Stack Hub 対応性チェッカー ツールを使用して、Azure Stack 
 
 Azure Stack Hub 対応性チェッカー ツール (AzsReadinessChecker) を使用すると、次の証明書を要求できます。
 
-- [新しいデプロイのための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)の説明に従った、 **標準の証明書要求** 。
-- [証明書更新のための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal)の説明に従った、 **証明書要求の更新** 。
-- **サービスとしてのプラットフォーム** :「 [Azure Stack Hub 公開キー インフラストラクチャ証明書の要件」の「オプションの PaaS 証明書](azure-stack-pki-certs.md#optional-paas-certificates)」で指定されているように、証明書に対するサービスとしてのプラットフォーム (PaaS) 名を要求できます。
+- [新しいデプロイのための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-new-deployments)の説明に従った、**標準の証明書要求**。
+- [証明書更新のための証明書署名要求の生成](azure-stack-get-pki-certs.md#generate-certificate-signing-requests-for-certificate-renewal)の説明に従った、**証明書要求の更新**。
+- **サービスとしてのプラットフォーム**:「[Azure Stack Hub 公開キー インフラストラクチャ証明書の要件」の「オプションの PaaS 証明書](azure-stack-pki-certs.md#optional-paas-certificates)」で指定されているように、証明書に対するサービスとしてのプラットフォーム (PaaS) 名を要求できます。
 
 ## <a name="prerequisites"></a>前提条件
 
@@ -111,7 +111,7 @@ Azure Stack Hub デプロイのための PKI 証明書に対する CSR を生成
     New-AzsHubIoTHubCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subject -OutputRequestPath $OutputDirectory
     ```
 
-7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨 **されません** )。
+7. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨 **されません**)。
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -RequestType SingleCSR -subject $subject -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
@@ -176,7 +176,7 @@ Azure Stack Hub デプロイのための PKI 証明書に対する CSR を生成
     New-AzsHubIotHubCertificateSigningRequest -StampEndpoint $stampEndpoint -OutputRequestPath $OutputDirectory
     ```
 
-5. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨 **されません** )。
+5. または、開発/テスト環境の場合は、複数のサブジェクトの別名 (SAN) を含む 1 つの証明書要求を生成するには、 **-RequestType SingleCSR** パラメーターと値を追加します (運用環境では、推奨 **されません**)。
 
     ```powershell  
     New-AzsHubDeploymentCertificateSigningRequest -StampEndpoint $stampendpoint -OutputRequestPath $OutputDirectory -RequestType SingleCSR

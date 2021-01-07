@@ -3,15 +3,15 @@ title: Azure Stack Hub 上の Azure Monitor を使用する
 description: Azure Stack Hub 上の Azure Monitor の使用方法について説明します。
 author: mattbriggs
 ms.topic: article
-ms.date: 5/27/2020
+ms.date: 12/16/2020
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2019
-ms.openlocfilehash: 7d0a11f8a559f1f40ae797392f27caa815129c69
-ms.sourcegitcommit: a5d3cbe1a10c2a63de95b9e72391dd83473ee299
+ms.openlocfilehash: 7688ebd4aed8ee797cd940da5631e19e4c1ef8ff
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88920782"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874117"
 ---
 # <a name="use-azure-monitor-on-azure-stack-hub"></a>Azure Stack Hub 上の Azure Monitor を使用する
 
@@ -120,7 +120,7 @@ Azure Monitor REST API、クロスプラットフォーム コマンドライン
  - [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)
 
 > [!Important]  
-> VM のパフォーマンス グラフを表示しているときに**リソースが見つからない**というエラーが発生した場合は、VM に関連付けられているサブスクリプションに対して、Microsoft.insights が登録されていることを確認してください。
+> VM のパフォーマンス グラフを表示しているときに **リソースが見つからない** というエラーが発生した場合は、VM に関連付けられているサブスクリプションに対して、Microsoft.insights が登録されていることを確認してください。
 
 ## <a name="next-steps"></a>次のステップ
 

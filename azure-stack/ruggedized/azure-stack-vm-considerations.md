@@ -15,12 +15,12 @@ ms.date: 10/14/2020
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/14/2020
-ms.openlocfilehash: 23e14de3afc3c29d843d7b6442c9b12890a60760
-ms.sourcegitcommit: 50b362d531c2d35a3a935811fee71252971bd5d8
+ms.openlocfilehash: cec3095120a596429936bc3f85735d336d6cc134
+ms.sourcegitcommit: 733a22985570df1ad466a73cd26397e7aa726719
 ms.translationtype: HT
 ms.contentlocale: ja-JP
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96941316"
+ms.lasthandoff: 01/05/2021
+ms.locfileid: "97874593"
 ---
 # <a name="azure-stack-vm-features"></a>Azure Stack VM の機能
 
@@ -31,7 +31,7 @@ Azure Stack 仮想マシン (VM) では、オンデマンドのスケーラブ�
 | 特徴量 | Azure (グローバル) | Azure Stack |
 | --- | --- | --- |
 | 仮想マシン イメージ | Azure Marketplace には、VM の作成に使用できるイメージがあります。 Azure Marketplace で入手できるイメージの一覧を参照するには、[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) のページを参照してください。 | 既定では、Azure Stack Marketplace に使用可能なイメージはありません。 Azure Stack のクラウド管理者は、ユーザーがイメージを使用する前に、Azure Stack Marketplace に対してイメージの発行またはダウンロードを行う必要があります。 |
-| 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/virtual-machines-windows-sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
+| 仮想マシン サイズ | Azure では、幅広いサイズの VM がサポートされます。 提供されているサイズとオプションの詳細については、[Windows VM のサイズ](/azure/virtual-machines/sizes)と [Linux VM のサイズ](/azure/virtual-machines/linux/sizes)に関するトピックを参照してください。 | Azure Stack は、Azure で使用できる VM のサイズのサブセットをサポートしています。 サポートされているサイズの一覧を参照するには、この記事の [VM のサイズ](#vm-sizes)についてのセクションを参照してください。 |
 | 仮想マシンのクォータ | [クォータ制限](/azure/azure-subscription-service-limits#service-specific-limits)は Microsoft によって設定されます | Azure Stack のクラウド管理者は、VM をユーザーに提供する前にクォータを割り当てる必要があります。 |
 | 仮想マシン拡張機能 |Azure では、幅広い VM 拡張機能がサポートされます。 使用できる拡張機能については、[VM の拡張機能と機能](/azure/virtual-machines/windows/extensions-features)に関する記事を参照してください。| Azure Stack は、Azure で使用できる拡張機能のサブセットをサポートしており、拡張機能それぞれに特定のバージョンがあります。 Azure Stack のクラウド管理者は、ユーザーにどの拡張機能を提供するかを選択することができます。 サポートされている拡張機能の一覧を参照するには、この記事の [VM の拡張機能](#vm-extensions)についてのセクションを参照してください。 |
 | 仮想マシンのネットワーク | テナントの VM に割り当てられたパブリック IP アドレスは、インターネット経由でアクセスできます。<br><br><br>Azure VM には固定の DNS 名があります。 | <!-- TZLASDKFIX Public IP addresses assigned to a tenant VM are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp) or [VPN](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn) to connect to a VM that is created in Azure Stack.--><br><br>特定の Azure Stack インスタンス内に作成された VM には、クラウド管理者が構成した値に基づく DNS 名があります。 |
