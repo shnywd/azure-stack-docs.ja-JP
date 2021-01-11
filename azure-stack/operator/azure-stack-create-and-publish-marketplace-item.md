@@ -227,7 +227,7 @@ VM Marketplace アイテムを作成する前に、次の手順を実行しま�
    - `https://galleryartifacts.adminhosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
    - `https://galleryartifacts.hosting.[Region].[externalFQDN]/artifact/20161101/[TemplateName]/DeploymentTemplates/Template.json`
 
-6. Marketplace アイテムを削除するには、**Remove-AzGalleryItem** コマンドレットを使用します。 次に例を示します。
+6. Marketplace アイテムを削除するには、**Remove-AzsGalleryItem** コマンドレットを使用します。 次に例を示します。
 
    ```powershell
    Remove-AzsGalleryItem -Name <Gallery package name> -Verbose
